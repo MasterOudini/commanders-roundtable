@@ -201895,6 +201895,1783 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CRUEL_ADMINISTRATOR": {
+    "scryfallId": "9d70707b-2e25-40b1-80a8-9a5492bca7e2",
+    "oracleId": "24a691f3-88dc-47a5-b5cd-e02bb8026470",
+    "name": "Cruel Administrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cruel Administrator",
+        "manaCost": "{3}{B}{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Raid — This creature enters with a +1/+1 counter on it if you attacked this turn.\nWhenever this creature attacks, create a 2/2 red Soldier creature token with firebending 1. (Whenever it attacks, add {R}. This mana lasts until end of combat.)",
+        "flavorText": "\"You're one mistake away from dying where you stand.\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Norikatsu Miyoshi",
+        "imageId": "9d70707b-2e25-40b1-80a8-9a5492bca7e2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AIRDROP_AERONAUTS": {
+    "scryfallId": "49827a57-cf10-4a44-a1fd-ac611da39dc9",
+    "oracleId": "009a399b-c78e-475b-8bc3-7db2afc9d676",
+    "name": "Airdrop Aeronauts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Airdrop Aeronauts",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Dwarf Scout",
+        "oracleText": "Flying\nRevolt — When this creature enters, if a permanent left the battlefield under your control this turn, you gain 5 life.",
+        "flavorText": "\"Supplies inbound. Keep that pressure on.\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "49827a57-cf10-4a44-a1fd-ac611da39dc9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Revolt"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BAT_WHISPERER": {
+    "scryfallId": "4412c901-0ec8-437a-9d1e-ce318bbe2b03",
+    "oracleId": "f20f6da9-d678-486b-99f9-7121669fef81",
+    "name": "Bat Whisperer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bat Whisperer",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "When this creature enters, if an opponent lost life this turn, create a 1/1 black Bat creature token with flying.",
+        "flavorText": "\"My little winged friends tell me which of these townsfolk are worth tasting for myself.\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jodie Muir",
+        "imageId": "4412c901-0ec8-437a-9d1e-ce318bbe2b03"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mid",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_OGRE": {
+    "scryfallId": "3f249a72-7568-4603-94f4-01a605fc1771",
+    "oracleId": "8bbe3f0d-41d0-4c58-ad65-6675a234cad3",
+    "name": "Blood Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Ogre",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nFirst strike (This creature deals combat damage before creatures without first strike.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "3f249a72-7568-4603-94f4-01a605fc1771"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Bloodthirst",
+      "First strike"
+    ],
+    "setCode": "e01",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODRAGE_VAMPIRE": {
+    "scryfallId": "692013da-b090-49d1-9c7a-ff5863d6ffd5",
+    "oracleId": "b1b6a840-2dc6-4af3-869a-b3bfe64ff7c0",
+    "name": "Bloodrage Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodrage Vampire",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)",
+        "flavorText": "The most genteel facades hide the most abominable desires.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "692013da-b090-49d1-9c7a-ff5863d6ffd5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Bloodthirst"
+    ],
+    "setCode": "ddk",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODSCALE_PROWLER": {
+    "scryfallId": "8197cc43-c787-4372-81dc-759a9fe24708",
+    "oracleId": "655a584c-5280-4317-b707-101b7e31dcb1",
+    "name": "Bloodscale Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodscale Prowler",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)",
+        "flavorText": "It tracks its victims by the scent of their breath, preferring to dine on those who recently ate well.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "8197cc43-c787-4372-81dc-759a9fe24708"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Bloodthirst"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODTITHE_COLLECTOR": {
+    "scryfallId": "37931135-100d-4a23-a6e3-baf90fb259ee",
+    "oracleId": "93088b0c-d158-473a-9c06-aa2f344a9868",
+    "name": "Bloodtithe Collector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodtithe Collector",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "Flying\nWhen this creature enters, if an opponent lost life this turn, each opponent discards a card.",
+        "flavorText": "For the more refined vampire, breaking a victim's will is far more satisfying than simply taking their blood.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Maria Zolotukhina",
+        "imageId": "37931135-100d-4a23-a6e3-baf90fb259ee"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "751",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOGARDAN_LANCER": {
+    "scryfallId": "44814464-e5b6-46c6-ac2e-d7234add43f4",
+    "oracleId": "67953edb-9681-4339-a5d2-917082925c24",
+    "name": "Bogardan Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bogardan Lancer",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nFlanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "44814464-e5b6-46c6-ac2e-d7234add43f4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flanking",
+      "Bloodthirst"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CACKLING_SLASHER": {
+    "scryfallId": "b1269ccf-febf-42b0-8c20-21ccb731a3ec",
+    "oracleId": "b9671f4b-72d2-48d7-a497-2ea0ab72cd0b",
+    "name": "Cackling Slasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cackling Slasher",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "Deathtouch\nThis creature enters with a +1/+1 counter on it if a creature died this turn.",
+        "flavorText": "Every death was funnier than the last, until his howling laughter drowned out his victims' screams.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "b1269ccf-febf-42b0-8c20-21ccb731a3ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARNAGE_WURM": {
+    "scryfallId": "c086eb41-3524-4815-97c9-761ba86a30b2",
+    "oracleId": "007161cb-a44b-4443-a53a-dfaacc6cfb86",
+    "name": "Carnage Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carnage Wurm",
+        "manaCost": "{6}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Bloodthirst 3 (If an opponent was dealt damage this turn, this creature enters with three +1/+1 counters on it.)\nTrample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "c086eb41-3524-4815-97c9-761ba86a30b2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Bloodthirst",
+      "Trample"
+    ],
+    "setCode": "m12",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COUNTLESS_GEARS_RENEGADE": {
+    "scryfallId": "5c7cebae-6ba2-4cf1-a442-2c7a4fbc58da",
+    "oracleId": "9d1f9036-a466-46b6-ab7c-2de487876978",
+    "name": "Countless Gears Renegade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Countless Gears Renegade",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "Revolt — When this creature enters, if a permanent left the battlefield under your control this turn, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": "\"Go forth and cause trouble, my little one!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "5c7cebae-6ba2-4cf1-a442-2c7a4fbc58da"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Revolt"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AER-13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COURIER_BAT": {
+    "scryfallId": "4d9a8dc7-1ee9-4731-bd72-3d02f4e7c6c4",
+    "oracleId": "d8ff239c-cd71-4cd2-9e96-792a116989ca",
+    "name": "Courier Bat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Courier Bat",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Flying\nWhen this creature enters, if you gained life this turn, return up to one target creature card from your graveyard to your hand.",
+        "flavorText": "Swarms of bats poured from Lurenbraum Fortress carrying wedding invitations to vampires of every bloodline.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "4d9a8dc7-1ee9-4731-bd72-3d02f4e7c6c4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADEYE_HARPOONER": {
+    "scryfallId": "a018decf-25e1-45fc-be7d-2523dcfb7a4c",
+    "oracleId": "959e1f72-4ba2-4c87-95d1-ca0265dc128c",
+    "name": "Deadeye Harpooner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadeye Harpooner",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "Revolt — When this creature enters, if a permanent left the battlefield under your control this turn, destroy target tapped creature an opponent controls.",
+        "flavorText": "\"It seems there's even better hunting down here.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "a018decf-25e1-45fc-be7d-2523dcfb7a4c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Revolt"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADEYE_TORMENTOR": {
+    "scryfallId": "0339dcdc-f48a-4be6-abc1-8275454ee3f9",
+    "oracleId": "ab735456-f831-4988-84c6-50ca14351990",
+    "name": "Deadeye Tormentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadeye Tormentor",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Raid — When this creature enters, if you attacked this turn, target opponent discards a card.",
+        "flavorText": "Despite their noble heritage, the pirates of the Deadeye Fleet are known for underhanded tactics and despicable trickery.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "0339dcdc-f48a-4be6-abc1-8275454ee3f9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "XLN-98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSKHUNTER_BAT": {
+    "scryfallId": "3438edfe-479d-4595-a694-5848f07156d6",
+    "oracleId": "6082f84a-3af2-4007-ab88-7b4b59b5c154",
+    "name": "Duskhunter Bat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duskhunter Bat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nFlying",
+        "flavorText": "The swamps go silent at its approach, but it still hears the heartbeat of the prey within.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "3438edfe-479d-4595-a694-5848f07156d6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Bloodthirst"
+    ],
+    "setCode": "ddk",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EFFORTLESS_MASTER": {
+    "scryfallId": "0ae03ca5-cd4b-42b7-8cd5-3f7e753b4147",
+    "oracleId": "185e0892-194f-43ac-853f-1e142bf8476e",
+    "name": "Effortless Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Effortless Master",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Orc Monk",
+        "oracleText": "Vigilance\nMenace (This creature can't be blocked except by two or more creatures.)\nThis creature enters with two +1/+1 counters on it if you've cast two or more spells this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "0ae03ca5-cd4b-42b7-8cd5-3f7e753b4147"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance",
+      "Menace"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMISSARY_OF_THE_SLEEPLESS": {
+    "scryfallId": "cc5fa496-a830-4031-a19a-d6467d074ad1",
+    "oracleId": "f21bbacb-0436-46fa-b361-582b766d3964",
+    "name": "Emissary of the Sleepless",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emissary of the Sleepless",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, if a creature died this turn, create a 1/1 white Spirit creature token with flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "cc5fa496-a830-4031-a19a-d6467d074ad1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FESTERHIDE_BOAR": {
+    "scryfallId": "1cb8cf51-12e0-4727-9f97-5e471ace8278",
+    "oracleId": "be1fc2cf-00b8-424f-b683-3743fba285c9",
+    "name": "Festerhide Boar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Festerhide Boar",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Boar",
+        "oracleText": "Trample\nMorbid — This creature enters with two +1/+1 counters on it if a creature died this turn.",
+        "flavorText": "\"Bury your dead deep. The boars are hungriest while the corpse is still warm.\"\n—Paulin, trapper of Somberwald",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "1cb8cf51-12e0-4727-9f97-5e471ace8278"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Morbid"
+    ],
+    "setCode": "ddm",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOOT_MYSTIC": {
+    "scryfallId": "61e40a18-6cc8-436d-826b-1cf8cd037df3",
+    "oracleId": "2043fbde-48c4-4a77-8911-8991d77de1eb",
+    "name": "Foot Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foot Mystic",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Ninja Warlock",
+        "oracleText": "Lifelink\nDisappear — When this creature enters, if a permanent left the battlefield under your control this turn, create a 1/1 black Ninja creature token.",
+        "flavorText": "Mashima would protect the soul of Oroku Saki at any cost.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "61e40a18-6cc8-436d-826b-1cf8cd037df3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disappear",
+      "Lifelink"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRILLED_SPARKSHOOTER": {
+    "scryfallId": "674bbd6d-e329-42cf-963d-88d1ce8fe51e",
+    "oracleId": "69038520-7156-48d9-aae8-ba3cc76a5993",
+    "name": "Frilled Sparkshooter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frilled Sparkshooter",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard Archer",
+        "oracleText": "Menace, reach\nThis creature enters with a +1/+1 counter on it if an opponent lost life this turn.",
+        "flavorText": "Its frills keep it steady, making its aim impeccable.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Danny Schwartz",
+        "imageId": "674bbd6d-e329-42cf-963d-88d1ce8fe51e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Menace"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FUNNEL_WEB_RECLUSE": {
+    "scryfallId": "b486c9cf-b0a6-44a4-b4c1-b3f5eed6c294",
+    "oracleId": "6148fcf5-466a-43aa-a0f3-d3d9fae4d883",
+    "name": "Funnel-Web Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Funnel-Web Recluse",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach\nMorbid — When this creature enters, if a creature died this turn, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": "It thrives on a steady diet of hastily disposed-of evidence.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "b486c9cf-b0a6-44a4-b4c1-b3f5eed6c294"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Investigate",
+      "Morbid"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOR_CLAN_SAVAGE": {
+    "scryfallId": "09deff14-dace-4a4e-91f6-0d22f1346467",
+    "oracleId": "28f35fa1-befa-40b4-95ab-30bb53d339ab",
+    "name": "Ghor-Clan Savage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghor-Clan Savage",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Centaur Berserker",
+        "oracleText": "Bloodthirst 3 (If an opponent was dealt damage this turn, this creature enters with three +1/+1 counters on it.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "09deff14-dace-4a4e-91f6-0d22f1346467"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Bloodthirst"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "I29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_BOARDERS": {
+    "scryfallId": "4409a063-bf2a-4a49-803e-3ce6bd474353",
+    "oracleId": "4c64feae-95d7-426d-9e42-d3b0841d2054",
+    "name": "Goblin Boarders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Boarders",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "Raid — This creature enters with a +1/+1 counter on it if you attacked this turn.",
+        "flavorText": "\"SPLIT THE SKULLS AND SPLIT THE SPOILS!\"\n—Breeches, munitions master",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Filipe Pagliuso",
+        "imageId": "4409a063-bf2a-4a49-803e-3ce6bd474353"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOREHORN_MINOTAURS": {
+    "scryfallId": "1087e015-a3c4-4207-8285-5bda6bb50e52",
+    "oracleId": "be8ad29c-2232-426d-bda9-a289dcc6c265",
+    "name": "Gorehorn Minotaurs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gorehorn Minotaurs",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "Bloodthirst 2 (If an opponent was dealt damage this turn, this creature enters with two +1/+1 counters on it.)",
+        "flavorText": "Some of the eleven minotaur clans of Mirtiin are expert crafters and learned philosophers. Others just like to hit stuff.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "1087e015-a3c4-4207-8285-5bda6bb50e52"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bloodthirst"
+    ],
+    "setCode": "m12",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVETILLER_WURM": {
+    "scryfallId": "66d9fe36-2eac-49e3-8f89-810009ba8a4b",
+    "oracleId": "020d0c91-da68-40da-8561-5522377f3d07",
+    "name": "Gravetiller Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gravetiller Wurm",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nMorbid — This creature enters with four +1/+1 counters on it if a creature died this turn.",
+        "flavorText": "As the creatures of the night closed in on humanity, Innistrad's primeval forces stirred, as though waking to watch the slaughter.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "66d9fe36-2eac-49e3-8f89-810009ba8a4b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample",
+      "Morbid"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENWHEEL_LIBERATOR": {
+    "scryfallId": "1ad9bf0f-4271-497f-8d67-3c7bf09342dc",
+    "oracleId": "121a8717-4c5b-45a8-875a-2b802c1fe6f8",
+    "name": "Greenwheel Liberator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greenwheel Liberator",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Revolt — This creature enters with two +1/+1 counters on it if a permanent left the battlefield under your control this turn.",
+        "flavorText": "\"I will not rest until every vestige of the Consulate—every banner, flag, and standard—has fallen.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "1ad9bf0f-4271-497f-8d67-3c7bf09342dc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Revolt"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOLLOWHENGE_SCAVENGER": {
+    "scryfallId": "483c81c7-ce5e-4bde-9ebb-aa317e9fa18b",
+    "oracleId": "60116231-cc54-4c74-b3d9-74e517182f1f",
+    "name": "Hollowhenge Scavenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hollowhenge Scavenger",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Morbid — When this creature enters, if a creature died this turn, you gain 5 life.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "483c81c7-ce5e-4bde-9ebb-aa317e9fa18b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morbid"
+    ],
+    "setCode": "sis",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIFECRAFT_CAVALRY": {
+    "scryfallId": "0c60beae-9305-486a-8e39-3db76d96bc6a",
+    "oracleId": "13db0230-b57e-47fd-9025-580d06cc88ee",
+    "name": "Lifecraft Cavalry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lifecraft Cavalry",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Trample\nRevolt — This creature enters with two +1/+1 counters on it if a permanent left the battlefield under your control this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "0c60beae-9305-486a-8e39-3db76d96bc6a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Revolt",
+      "Trample"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LURKING_CROCODILE": {
+    "scryfallId": "4cd7d075-031e-4766-89e9-03a8a7197019",
+    "oracleId": "b0df3389-5959-4ee2-a921-9324732f7ce8",
+    "name": "Lurking Crocodile",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lurking Crocodile",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Crocodile",
+        "oracleText": "Bloodthirst 1 (If an opponent was dealt damage this turn, this creature enters with a +1/+1 counter on it.)\nIslandwalk (This creature can't be blocked as long as defending player controls an Island.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "4cd7d075-031e-4766-89e9-03a8a7197019"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Landwalk",
+      "Bloodthirst",
+      "Islandwalk"
+    ],
+    "setCode": "m12",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARDU_SKULLHUNTER": {
+    "scryfallId": "dd3ca5e7-96f3-4326-9315-34bb396a054c",
+    "oracleId": "2a87e3a9-10e3-4b00-aeb9-d3336b2fa3b3",
+    "name": "Mardu Skullhunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mardu Skullhunter",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature enters tapped.\nRaid — When this creature enters, if you attacked this turn, target opponent discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "dd3ca5e7-96f3-4326-9315-34bb396a054c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORKRUT_BANSHEE": {
+    "scryfallId": "14ab7063-1704-4c56-a58d-4f4287299bd7",
+    "oracleId": "e2fe1847-4003-41c5-a64b-03afd888b81e",
+    "name": "Morkrut Banshee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Morkrut Banshee",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Morbid — When this creature enters, if a creature died this turn, target creature gets -4/-4 until end of turn.",
+        "flavorText": "Cover your ears and you may never hear her coming—both a blessing and a curse.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "14ab7063-1704-4c56-a58d-4f4287299bd7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morbid"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOUNTED_DREADKNIGHT": {
+    "scryfallId": "bd390921-8286-4900-9db5-caa6db3cfb73",
+    "oracleId": "b5e42be3-6bfc-4905-9237-cb8d53e2349e",
+    "name": "Mounted Dreadknight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mounted Dreadknight",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Trample\nThis creature enters with a +1/+1 counter on it if an opponent lost life this turn.",
+        "flavorText": "Markov vampires cultivate an image of such decadent elegance that it can be easy to forget they can field a deadly fighting force.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "bd390921-8286-4900-9db5-caa6db3cfb73"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NARNAM_RENEGADE": {
+    "scryfallId": "041cc6b1-61c8-4c34-86fc-d647ce306f59",
+    "oracleId": "a4f99939-4b70-41ee-ad38-2dda56dbc9ce",
+    "name": "Narnam Renegade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Narnam Renegade",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Deathtouch\nRevolt — This creature enters with a +1/+1 counter on it if a permanent left the battlefield under your control this turn.",
+        "flavorText": "\"I do not need to pierce your heart to still its beating.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "041cc6b1-61c8-4c34-86fc-d647ce306f59"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Revolt",
+      "Deathtouch"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_MARKET_AERONAUT": {
+    "scryfallId": "2637f860-01dd-4559-97b3-71c2e7cdbca4",
+    "oracleId": "e08157e6-a5a3-4b1e-80e0-32702288d8ed",
+    "name": "Night Market Aeronaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Market Aeronaut",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Aetherborn Warrior",
+        "oracleText": "Flying\nRevolt — This creature enters with a +1/+1 counter on it if a permanent left the battlefield under your control this turn.",
+        "flavorText": "\"Death might come tomorrow, but today—today I am alive.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "2637f860-01dd-4559-97b3-71c2e7cdbca4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Revolt"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSQUAD_COMMANDO": {
+    "scryfallId": "80306d10-0da7-4ee7-b975-ef6c9b535a2a",
+    "oracleId": "04cffc41-05da-45fb-82da-2c4d4108c7e1",
+    "name": "Nightsquad Commando",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightsquad Commando",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, if you attacked this turn, create a 1/1 white Human Soldier creature token.",
+        "flavorText": "\"The big fella sounds hungry. Let's send him to bed without his supper.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Evyn Fong",
+        "imageId": "80306d10-0da7-4ee7-b975-ef6c9b535a2a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PUTRID_PALS": {
+    "scryfallId": "42cdb88d-675a-43bb-b85c-51c4cc526315",
+    "oracleId": "3aa3b908-e8d3-4944-8ced-5219d4129594",
+    "name": "Putrid Pals",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Putrid Pals",
+        "manaCost": "{2}{B/G}{B/G}",
+        "typeLine": "Creature — Human Ooze Mutant",
+        "oracleText": "Deathtouch\nDisappear — This creature enters with two +1/+1 counters on it if a permanent left the battlefield under your control this turn.",
+        "flavorText": "\"Beats working in the sewers. Too many freaky mutants down there.\"\n—Muckman",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Kevin Sidharta",
+        "imageId": "42cdb88d-675a-43bb-b85c-51c4cc526315"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disappear",
+      "Deathtouch"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RENEGADE_RALLIER": {
+    "scryfallId": "378e47b4-46a2-4ed0-8f3f-47013bfeda62",
+    "oracleId": "6fa07b6c-f01a-4416-b0fc-986b0fc4e412",
+    "name": "Renegade Rallier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Renegade Rallier",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Revolt — When this creature enters, if a permanent left the battlefield under your control this turn, return target permanent card with mana value 2 or less from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "378e47b4-46a2-4ed0-8f3f-47013bfeda62"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Revolt"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIGGING_RUNNER": {
+    "scryfallId": "0e2bc701-2a18-4e49-acef-5e18ebfba64f",
+    "oracleId": "72b600e3-d671-4279-8ca6-9a3d6e774b53",
+    "name": "Rigging Runner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rigging Runner",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "First strike\nRaid — This creature enters with a +1/+1 counter on it if you attacked this turn.",
+        "flavorText": "\"Prepare to be boarded! Or don't. I'm coming over either way.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "MiDQN",
+        "imageId": "0e2bc701-2a18-4e49-acef-5e18ebfba64f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "First strike",
+      "Raid"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCAB_CLAN_MAULER": {
+    "scryfallId": "10634fb3-8222-4778-8b2f-e9d0cae90b81",
+    "oracleId": "db0b6e35-d7f2-435a-87d7-9e8c36426f4d",
+    "name": "Scab-Clan Mauler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scab-Clan Mauler",
+        "manaCost": "{R}{G}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Bloodthirst 2 (If an opponent was dealt damage this turn, this creature enters with two +1/+1 counters on it.)\nTrample",
+        "flavorText": "They inflict pain to forget their own and break foes to feel whole.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Liam Sharp",
+        "imageId": "10634fb3-8222-4778-8b2f-e9d0cae90b81"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bloodthirst",
+      "Trample"
+    ],
+    "setCode": "gk2",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILKWEAVER_ELITE": {
+    "scryfallId": "bc4158d1-6647-4e82-9948-a5d82d1fe940",
+    "oracleId": "3d0eb524-15e7-46f2-8f53-db08a07944d7",
+    "name": "Silkweaver Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silkweaver Elite",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nRevolt — When this creature enters, if a permanent left the battlefield under your control this turn, draw a card.",
+        "flavorText": "Elvish weavers use spidersilk to make everything from tapestries to rappelling ropes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "bc4158d1-6647-4e82-9948-a5d82d1fe940"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Revolt"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AER-125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOMBERWALD_SPIDER": {
+    "scryfallId": "43003ad7-2f42-4c85-8b00-77cbf3f50a7b",
+    "oracleId": "8b3526c4-efc8-42be-a0ab-de10c4cc986d",
+    "name": "Somberwald Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Somberwald Spider",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nMorbid — This creature enters with two +1/+1 counters on it if a creature died this turn.",
+        "flavorText": "Stensian vampires encourage spiders near their manors so they can rob the webs.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "43003ad7-2f42-4c85-8b00-77cbf3f50a7b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Morbid"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORM_FLEET_AERIALIST": {
+    "scryfallId": "9de1acd5-bee4-48fe-951d-7936e20f0a71",
+    "oracleId": "b128d0cf-77d9-4751-99c6-0f3bc3660318",
+    "name": "Storm Fleet Aerialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Storm Fleet Aerialist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Flying\nRaid — This creature enters with a +1/+1 counter on it if you attacked this turn.",
+        "flavorText": "\"Only one thing beats the freedom of the sea: the freedom of the sky.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "9de1acd5-bee4-48fe-951d-7936e20f0a71"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Raid"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMBLOOD_BERSERKER": {
+    "scryfallId": "3fc6e8a2-99fc-434a-a1c4-0f425686c54a",
+    "oracleId": "84e56125-3fbb-4229-8aa0-8f8acff27038",
+    "name": "Stormblood Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormblood Berserker",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Bloodthirst 2 (If an opponent was dealt damage this turn, this creature enters with two +1/+1 counters on it.)\nMenace (This creature can't be blocked except by two or more creatures.)",
+        "flavorText": "Blood is holy to those whose god is War.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Min Yum",
+        "imageId": "3fc6e8a2-99fc-434a-a1c4-0f425686c54a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bloodthirst",
+      "Menace"
+    ],
+    "setCode": "e01",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWAGGERING_CORSAIR": {
+    "scryfallId": "22da9f6a-9598-4cfe-b465-719266b65dee",
+    "oracleId": "48fa47c0-544e-4374-a0a6-ef8f65cdf0dd",
+    "name": "Swaggering Corsair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swaggering Corsair",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Raid — This creature enters with a +1/+1 counter on it if you attacked this turn.",
+        "flavorText": "\"I'm about to make you famous. From the golden city to High and Dry, they'll talk about how fast you died!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "22da9f6a-9598-4cfe-b465-719266b65dee"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULVENWALD_BEAR": {
+    "scryfallId": "9e3837a7-854a-440d-93d7-d36f50149346",
+    "oracleId": "2a79c29c-e539-49c5-b10c-1d5fd77842c9",
+    "name": "Ulvenwald Bear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ulvenwald Bear",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Bear",
+        "oracleText": "Morbid — When this creature enters, if a creature died this turn, put two +1/+1 counters on target creature.",
+        "flavorText": "Out chasing bears\n—Kessig expression meaning \"died in the woods\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "9e3837a7-854a-440d-93d7-d36f50149346"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Morbid"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAMPIRE_OUTCASTS": {
+    "scryfallId": "1286132d-1697-44da-ab97-387735265c01",
+    "oracleId": "25ad4e88-b5ee-4853-a4fc-0a0420c746f6",
+    "name": "Vampire Outcasts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vampire Outcasts",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Bloodthirst 2 (If an opponent was dealt damage this turn, this creature enters with two +1/+1 counters on it.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "1286132d-1697-44da-ab97-387735265c01"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Bloodthirst"
+    ],
+    "setCode": "m12",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_REBEL": {
+    "scryfallId": "1066815f-74fa-4f0d-90ea-04176b1227ce",
+    "oracleId": "273bf1a8-42a9-4db5-bd83-06db4cb5e5df",
+    "name": "Vengeful Rebel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Rebel",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Aetherborn Warrior",
+        "oracleText": "Revolt — When this creature enters, if a permanent left the battlefield under your control this turn, target creature an opponent controls gets -3/-3 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "1066815f-74fa-4f0d-90ea-04176b1227ce"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Revolt"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAKEDANCER": {
+    "scryfallId": "9e20cdcc-1580-4495-9627-2f799b05e359",
+    "oracleId": "e850743e-e4c4-4a09-b797-d5f688b51451",
+    "name": "Wakedancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wakedancer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Morbid — When this creature enters, if a creature died this turn, create a 2/2 black Zombie creature token.",
+        "flavorText": "Havengul wakes are widely regarded as great entertainment. If you're lucky, the guest of honor climbs out of the casket and joins in the festivities.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "9e20cdcc-1580-4495-9627-2f799b05e359"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Morbid"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "512",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CINDERING_CUTTHROAT": {
+    "scryfallId": "b2ea10dd-21ea-4622-be27-79d03a802b85",
+    "oracleId": "46e8bec0-1a09-4e6e-b78a-7ba161686ca9",
+    "name": "Cindering Cutthroat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cindering Cutthroat",
+        "manaCost": "{2}{B/R}",
+        "typeLine": "Creature — Lizard Assassin",
+        "oracleText": "This creature enters with a +1/+1 counter on it if an opponent lost life this turn.\n{1}{B/R}: This creature gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"We don't 'play' with fire. It is strictly business.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "b2ea10dd-21ea-4622-be27-79d03a802b85"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "blb",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPAGING_MONUMENT": {
+    "scryfallId": "b5fbe445-a788-4624-8ecf-8bc06c3ca8f8",
+    "oracleId": "3984478b-debb-4a65-ab5b-4bc134e03d82",
+    "name": "Rampaging Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampaging Monument",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Cleric",
+        "oracleText": "Trample\nThis creature enters with three +1/+1 counters on it.\nWhenever you cast a multicolored spell, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Be advised: suspect is nine stories tall, marble hair, answers to Saint Gusztav.\"",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tyler Walpole",
+        "imageId": "b5fbe445-a788-4624-8ecf-8bc06c3ca8f8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -204971,6 +206748,39 @@
     ],
     "setCode": "tlrw",
     "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "NINJA_1_1_B_CREATURE_TOKEN": {
+    "scryfallId": "a7b76498-d696-40d1-b7c7-91657525b44f",
+    "oracleId": "640ee47b-ed18-424b-9e04-e03ec031ba66",
+    "name": "Ninja",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ninja",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ninja",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "a7b76498-d696-40d1-b7c7-91657525b44f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttmt",
+    "collectorNumber": "5",
     "commanderLegality": "not_legal",
     "singleImage": true
   },

@@ -7,6 +7,56 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CRUEL_ADMINISTRATOR_SCRIPT } from './cards/cruelAdministrator';
+import { AIRDROP_AERONAUTS_SCRIPT } from './cards/airdropAeronauts';
+import { BAT_WHISPERER_SCRIPT } from './cards/batWhisperer';
+import { BLOOD_OGRE_SCRIPT } from './cards/bloodOgre';
+import { BLOODRAGE_VAMPIRE_SCRIPT } from './cards/bloodrageVampire';
+import { BLOODSCALE_PROWLER_SCRIPT } from './cards/bloodscaleProwler';
+import { BLOODTITHE_COLLECTOR_SCRIPT } from './cards/bloodtitheCollector';
+import { BOGARDAN_LANCER_SCRIPT } from './cards/bogardanLancer';
+import { CACKLING_SLASHER_SCRIPT } from './cards/cacklingSlasher';
+import { CARNAGE_WURM_SCRIPT } from './cards/carnageWurm';
+import { COUNTLESS_GEARS_RENEGADE_SCRIPT } from './cards/countlessGearsRenegade';
+import { COURIER_BAT_SCRIPT } from './cards/courierBat';
+import { DEADEYE_HARPOONER_SCRIPT } from './cards/deadeyeHarpooner';
+import { DEADEYE_TORMENTOR_SCRIPT } from './cards/deadeyeTormentor';
+import { DUSKHUNTER_BAT_SCRIPT } from './cards/duskhunterBat';
+import { EFFORTLESS_MASTER_SCRIPT } from './cards/effortlessMaster';
+import { EMISSARY_OF_THE_SLEEPLESS_SCRIPT } from './cards/emissaryOfTheSleepless';
+import { FESTERHIDE_BOAR_SCRIPT } from './cards/festerhideBoar';
+import { FOOT_MYSTIC_SCRIPT } from './cards/footMystic';
+import { FRILLED_SPARKSHOOTER_SCRIPT } from './cards/frilledSparkshooter';
+import { FUNNEL_WEB_RECLUSE_SCRIPT } from './cards/funnelWebRecluse';
+import { GHOR_CLAN_SAVAGE_SCRIPT } from './cards/ghorClanSavage';
+import { GOBLIN_BOARDERS_SCRIPT } from './cards/goblinBoarders';
+import { GOREHORN_MINOTAURS_SCRIPT } from './cards/gorehornMinotaurs';
+import { GRAVETILLER_WURM_SCRIPT } from './cards/gravetillerWurm';
+import { GREENWHEEL_LIBERATOR_SCRIPT } from './cards/greenwheelLiberator';
+import { HOLLOWHENGE_SCAVENGER_SCRIPT } from './cards/hollowhengeScavenger';
+import { LIFECRAFT_CAVALRY_SCRIPT } from './cards/lifecraftCavalry';
+import { LURKING_CROCODILE_SCRIPT } from './cards/lurkingCrocodile';
+import { MARDU_SKULLHUNTER_SCRIPT } from './cards/marduSkullhunter';
+import { MORKRUT_BANSHEE_SCRIPT } from './cards/morkrutBanshee';
+import { MOUNTED_DREADKNIGHT_SCRIPT } from './cards/mountedDreadknight';
+import { NARNAM_RENEGADE_SCRIPT } from './cards/narnamRenegade';
+import { NIGHT_MARKET_AERONAUT_SCRIPT } from './cards/nightMarketAeronaut';
+import { NIGHTSQUAD_COMMANDO_SCRIPT } from './cards/nightsquadCommando';
+import { PUTRID_PALS_SCRIPT } from './cards/putridPals';
+import { RENEGADE_RALLIER_SCRIPT } from './cards/renegadeRallier';
+import { RIGGING_RUNNER_SCRIPT } from './cards/riggingRunner';
+import { SCAB_CLAN_MAULER_SCRIPT } from './cards/scabClanMauler';
+import { SILKWEAVER_ELITE_SCRIPT } from './cards/silkweaverElite';
+import { SOMBERWALD_SPIDER_SCRIPT } from './cards/somberwaldSpider';
+import { STORM_FLEET_AERIALIST_SCRIPT } from './cards/stormFleetAerialist';
+import { STORMBLOOD_BERSERKER_SCRIPT } from './cards/stormbloodBerserker';
+import { SWAGGERING_CORSAIR_SCRIPT } from './cards/swaggeringCorsair';
+import { ULVENWALD_BEAR_SCRIPT } from './cards/ulvenwaldBear';
+import { VAMPIRE_OUTCASTS_SCRIPT } from './cards/vampireOutcasts';
+import { VENGEFUL_REBEL_SCRIPT } from './cards/vengefulRebel';
+import { WAKEDANCER_SCRIPT } from './cards/wakedancer';
+import { CINDERING_CUTTHROAT_SCRIPT } from './cards/cinderingCutthroat';
+import { RAMPAGING_MONUMENT_SCRIPT } from './cards/rampagingMonument';
 import { ABUNDANT_COUNTRYSIDE_SCRIPT } from './cards/abundantCountryside';
 import { AVENGERS_TOWER_SCRIPT } from './cards/avengersTower';
 import { CORMELA_GLAMOUR_THIEF_SCRIPT } from './cards/cormelaGlamourThief';
@@ -5570,6 +5620,56 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CRUEL_ADMINISTRATOR_SCRIPT,
+  AIRDROP_AERONAUTS_SCRIPT,
+  BAT_WHISPERER_SCRIPT,
+  BLOOD_OGRE_SCRIPT,
+  BLOODRAGE_VAMPIRE_SCRIPT,
+  BLOODSCALE_PROWLER_SCRIPT,
+  BLOODTITHE_COLLECTOR_SCRIPT,
+  BOGARDAN_LANCER_SCRIPT,
+  CACKLING_SLASHER_SCRIPT,
+  CARNAGE_WURM_SCRIPT,
+  COUNTLESS_GEARS_RENEGADE_SCRIPT,
+  COURIER_BAT_SCRIPT,
+  DEADEYE_HARPOONER_SCRIPT,
+  DEADEYE_TORMENTOR_SCRIPT,
+  DUSKHUNTER_BAT_SCRIPT,
+  EFFORTLESS_MASTER_SCRIPT,
+  EMISSARY_OF_THE_SLEEPLESS_SCRIPT,
+  FESTERHIDE_BOAR_SCRIPT,
+  FOOT_MYSTIC_SCRIPT,
+  FRILLED_SPARKSHOOTER_SCRIPT,
+  FUNNEL_WEB_RECLUSE_SCRIPT,
+  GHOR_CLAN_SAVAGE_SCRIPT,
+  GOBLIN_BOARDERS_SCRIPT,
+  GOREHORN_MINOTAURS_SCRIPT,
+  GRAVETILLER_WURM_SCRIPT,
+  GREENWHEEL_LIBERATOR_SCRIPT,
+  HOLLOWHENGE_SCAVENGER_SCRIPT,
+  LIFECRAFT_CAVALRY_SCRIPT,
+  LURKING_CROCODILE_SCRIPT,
+  MARDU_SKULLHUNTER_SCRIPT,
+  MORKRUT_BANSHEE_SCRIPT,
+  MOUNTED_DREADKNIGHT_SCRIPT,
+  NARNAM_RENEGADE_SCRIPT,
+  NIGHT_MARKET_AERONAUT_SCRIPT,
+  NIGHTSQUAD_COMMANDO_SCRIPT,
+  PUTRID_PALS_SCRIPT,
+  RENEGADE_RALLIER_SCRIPT,
+  RIGGING_RUNNER_SCRIPT,
+  SCAB_CLAN_MAULER_SCRIPT,
+  SILKWEAVER_ELITE_SCRIPT,
+  SOMBERWALD_SPIDER_SCRIPT,
+  STORM_FLEET_AERIALIST_SCRIPT,
+  STORMBLOOD_BERSERKER_SCRIPT,
+  SWAGGERING_CORSAIR_SCRIPT,
+  ULVENWALD_BEAR_SCRIPT,
+  VAMPIRE_OUTCASTS_SCRIPT,
+  VENGEFUL_REBEL_SCRIPT,
+  WAKEDANCER_SCRIPT,
+  CINDERING_CUTTHROAT_SCRIPT,
+  RAMPAGING_MONUMENT_SCRIPT,
   ABUNDANT_COUNTRYSIDE_SCRIPT,
   AVENGERS_TOWER_SCRIPT,
   CORMELA_GLAMOUR_THIEF_SCRIPT,

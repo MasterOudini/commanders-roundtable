@@ -1937,6 +1937,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D397 - the one card the three legendary any-colour scopes made offerable, refused by the row maker.
   ['Plaza of Heroes', 'a cost the engine does not charge (cost: Exile this land) beside the any-colour scopes the seam built - the row maker refuses the exile-self cost'],
 
+  // D398 - this-turn conditions: the four the selector offered after the seam (an enters-with line the
+  // classifier had never offered, or a card whose other line the turn record made readable) that the
+  // row maker refused, by reason.
+  ['Patrolling Peacemaker', 'a crime head (whenever an opponent commits a crime) outside the head library - the turn record keeps no crime'],
+  ['Pentavus', 'a sacrifice cost whose fodder is its own Pentavite token - no fixture the suite can put down'],
+  ['Spike Weaver', 'a combat-damage prevention shield with no target (prevent all combat damage this turn) the suite cannot prove without an attack'],
+  ['Swarm Shambler', 'a becomes-the-target head filtered by a +1/+1 counter on the targeted creature - outside the head library'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

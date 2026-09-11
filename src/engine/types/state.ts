@@ -962,6 +962,29 @@ export interface TurnMemory {
   readonly gainedLife: Readonly<Record<PlayerId, boolean>>;
   /** How many creatures the active player declared as attackers this turn. */
   readonly attackers: number;
+  /**
+   * D398 - what LEFT the battlefield this turn, to ANY zone, and who controlled it
+   * then (last known information, like `died`): "if a permanent left the
+   * battlefield under your control this turn" (revolt). `died` is the subset that
+   * went to a graveyard.
+   */
+  readonly left: readonly { readonly card: InstanceId; readonly controller: PlayerId }[];
+  /**
+   * D398 - the damage dealt to each PLAYER this turn, combat and noncombat
+   * (Bloodthirst's "if an opponent was dealt damage this turn"). Life lost without
+   * damage is not here, which is the difference the keyword is written on.
+   */
+  readonly damaged: Readonly<Record<PlayerId, number>>;
+  /** D398 - how much life each player gained / lost this turn; `gainedLife` / `lostLife` above say only WHETHER. */
+  readonly lifeGained: Readonly<Record<PlayerId, number>>;
+  readonly lifeLost: Readonly<Record<PlayerId, number>>;
+  /**
+   * D398 - the cards put into each player's graveyard from ANYWHERE this turn
+   * ("if you descended this turn" - a permanent card put into your graveyard from
+   * anywhere, CR 702.170). Ids, like the rest: the CHECK derives which are
+   * permanent cards.
+   */
+  readonly toGraveyard: Readonly<Record<PlayerId, readonly InstanceId[]>>;
 }
 
 export interface TurnState {

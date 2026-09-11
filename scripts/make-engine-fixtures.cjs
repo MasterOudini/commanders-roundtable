@@ -6649,6 +6649,58 @@ const WANTED = [
   // D397 - the any-colour scopes over legendary permanents (Mox Amber, Plaza of Heroes; The Grey Havens is a fixture already): a tail the parser widened to all five colours since D116, resolved against the board now
   'Mox Amber',
   'Plaza of Heroes',
+  // D398 - this-turn conditions: the wave the turn-record seam made rowable (an intervening if on an enters head, an enters-with line with a trailing if, Bloodthirst - the same closed reader the statics use).
+  'Cruel Administrator',
+  'Airdrop Aeronauts',
+  'Bat Whisperer',
+  'Blood Ogre',
+  'Bloodrage Vampire',
+  'Bloodscale Prowler',
+  'Bloodtithe Collector',
+  'Bogardan Lancer',
+  'Cackling Slasher',
+  'Carnage Wurm',
+  'Countless Gears Renegade',
+  'Courier Bat',
+  'Deadeye Harpooner',
+  'Deadeye Tormentor',
+  'Duskhunter Bat',
+  'Effortless Master',
+  'Emissary of the Sleepless',
+  'Festerhide Boar',
+  'Foot Mystic',
+  'Frilled Sparkshooter',
+  'Funnel-Web Recluse',
+  'Ghor-Clan Savage',
+  'Goblin Boarders',
+  'Gorehorn Minotaurs',
+  'Gravetiller Wurm',
+  'Greenwheel Liberator',
+  'Hollowhenge Scavenger',
+  'Lifecraft Cavalry',
+  'Lurking Crocodile',
+  'Mardu Skullhunter',
+  'Morkrut Banshee',
+  'Mounted Dreadknight',
+  'Narnam Renegade',
+  'Night Market Aeronaut',
+  'Nightsquad Commando',
+  'Putrid Pals',
+  'Renegade Rallier',
+  'Rigging Runner',
+  'Scab-Clan Mauler',
+  'Silkweaver Elite',
+  'Somberwald Spider',
+  'Storm Fleet Aerialist',
+  'Stormblood Berserker',
+  'Swaggering Corsair',
+  'Ulvenwald Bear',
+  'Vampire Outcasts',
+  'Vengeful Rebel',
+  'Wakedancer',
+  'Cindering Cutthroat',
+  'Rampaging Monument',
+  // D398 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -6819,6 +6871,9 @@ const WANTED_TOKENS = [
   // D397: the 1/1 changeling Shapeshifter Lupinflower Village makes, pinned to
   // the printing TOKEN_TABLE names (the wave's own token-pins-needed list).
   { name: 'Shapeshifter', set: 'tlrw', cn: '11', key: 'SHAPESHIFTER_1_1_CREATURE_CHANGELING_TOKEN' },
+  // D398: the 1/1 black Ninja Foot Mystic's Disappear trigger makes, pinned to the
+  // printing TOKEN_TABLE names (the wave's own token-pins-needed list).
+  { name: 'Ninja', set: 'ttmt', cn: '5', key: 'NINJA_1_1_B_CREATURE_TOKEN' },
   // D268: Weirding Shaman makes two of these. ⚠️ It was in TOKEN_TABLE but
   // NOT here, and the two lists are not the same check: TOKEN_TABLE gives a
   // script the printing to create, WANTED_TOKENS is what the TEST ORACLE

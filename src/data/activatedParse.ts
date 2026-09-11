@@ -105,11 +105,44 @@ export interface ActivationRead {
  * both ends, as the rest of this vocabulary is, and a wording outside the list stays
  * unread rather than half-read.
  */
-const TURN_MEMORY_RE =
-  /^if (?:(an opponent|you) (?:lost|gained) life this turn|(?:you've cast (?:a noncreature|an instant or sorcery|two or more) spells? this turn)|a creature died this turn|you've discarded a card this turn|you created a token this turn|an artifact entered under your control this turn|you had a creature enter the battlefield under your control this turn|a card left your graveyard this turn|you attacked with two or more creatures this turn)$/i;
+// D398 - the set widened for the conditions a trigger's intervening if, an entering
+// replacement and a static print (the same closed reader serves "Activate only if"):
+// amounts, attacks, exits from the battlefield, damage to a player, the source's own
+// entry, descend. Every wording is still anchored at both ends.
+const TM_NUM = '(?:two|three|four|five|six|seven|eight|nine|ten|\\d+)';
+const TURN_MEMORY_RE = new RegExp(
+  '^if (?:' +
+    [
+      '(?:an opponent|you) (?:lost|gained) life this turn',
+      `you gained ${TM_NUM} or more life this turn`,
+      'an opponent was dealt (?:combat )?damage this turn',
+      "you've cast (?:a noncreature|an instant or sorcery|a creature|another|two or more|three or more|four or more) spells? this turn",
+      '(?:a|another) creature died this turn',
+      `${TM_NUM} or more creatures died this turn`,
+      "you've discarded a card this turn",
+      'you created a token this turn',
+      'an artifact entered under your control this turn',
+      'you had a creature enter the battlefield under your control this turn',
+      'a (?:land|creature|artifact) entered the battlefield under your control this turn',
+      `${TM_NUM} or more nonland permanents entered the battlefield under your control this turn`,
+      '(?:this (?:land|creature|permanent)|it) entered this turn',
+      'a card left your graveyard this turn',
+      'you attacked this turn',
+      `you attacked with ${TM_NUM} or more creatures this turn`,
+      'a permanent (?:left the battlefield under your control|you controlled left the battlefield) this turn',
+      'a nonland permanent left the battlefield this turn',
+      `you've drawn ${TM_NUM} or more cards this turn`,
+      'you descended this turn',
+    ].join('|') +
+    ')$',
+  'i',
+);
 
 const P_CREATURE = [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }];
 const P_ARTIFACT = [{ supertypes: [], types: ['Artifact'], subtypes: [], colors: [] }];
+const P_LAND = [{ supertypes: [], types: ['Land'], subtypes: [], colors: [] }];
+/** D398 - "a permanent card": any one of the permanent types (CR 110.4). */
+const P_PERMANENT = ['Artifact', 'Creature', 'Enchantment', 'Land', 'Planeswalker', 'Battle'].map((t) => ({ supertypes: [], types: [t], subtypes: [], colors: [] }));
 const P_INSTANT_SORCERY = [
   { supertypes: [], types: ['Instant'], subtypes: [], colors: [] },
   { supertypes: [], types: ['Sorcery'], subtypes: [], colors: [] },
@@ -124,21 +157,40 @@ function turnMemoryCondition(mm: RegExpExecArray): ActivationCondition | null {
     count: number,
     any: readonly PermanentPredicate[] | null = null,
     none: readonly PermanentPredicate[] | null = null,
-  ): ActivationCondition => ({ kind: "turnMemory", what, who, count, any, none });
+    flags: { readonly self?: true; readonly excludeSelf?: true } = {},
+  ): ActivationCondition => ({ kind: "turnMemory", what, who, count, any, none, ...flags });
+  const num = (re: RegExp): number => acNumber(re.exec(c)?.[1]) ?? 0;
   if (/an opponent lost life this turn/.test(c)) return of("lostLife", "opponent", 1);
   if (/you lost life this turn/.test(c)) return of("lostLife", "you", 1);
   if (/you gained life this turn/.test(c)) return of("gainedLife", "you", 1);
   if (/an opponent gained life this turn/.test(c)) return of("gainedLife", "opponent", 1);
+  // D398 - the amounts, damage, attacks, exits, the source's own entry, descend.
+  if (/you gained (\w+) or more life this turn/.test(c)) return of("lifeGained", "you", num(/you gained (\w+) or more life/));
+  if (/an opponent was dealt (?:combat )?damage this turn/.test(c)) return of("damaged", "opponent", 1);
   if (/cast a noncreature spell this turn/.test(c)) return of("cast", "you", 1, null, P_CREATURE);
   if (/cast an instant or sorcery spell this turn/.test(c)) return of("cast", "you", 1, P_INSTANT_SORCERY);
-  if (/cast two or more spells this turn/.test(c)) return of("cast", "you", 2);
+  if (/cast a creature spell this turn/.test(c)) return of("cast", "you", 1, P_CREATURE);
+  if (/cast another spell this turn/.test(c)) return of("cast", "you", 1, null, null, { excludeSelf: true });
+  if (/cast (\w+) or more spells this turn/.test(c)) return of("cast", "you", num(/cast (\w+) or more spells/));
+  if (/another creature died this turn/.test(c)) return of("died", "any", 1, P_CREATURE, null, { excludeSelf: true });
   if (/a creature died this turn/.test(c)) return of("died", "any", 1, P_CREATURE);
+  if (/(\w+) or more creatures died this turn/.test(c)) return of("died", "any", num(/(\w+) or more creatures died/), P_CREATURE);
   if (/you've discarded a card this turn/.test(c)) return of("discarded", "you", 1);
   if (/you created a token this turn/.test(c)) return of("tokensCreated", "you", 1);
   if (/an artifact entered under your control this turn/.test(c)) return of("entered", "you", 1, P_ARTIFACT);
   if (/you had a creature enter the battlefield under your control this turn/.test(c)) return of("entered", "you", 1, P_CREATURE);
+  if (/a land entered the battlefield under your control this turn/.test(c)) return of("entered", "you", 1, P_LAND);
+  if (/a creature entered the battlefield under your control this turn/.test(c)) return of("entered", "you", 1, P_CREATURE);
+  if (/an artifact entered the battlefield under your control this turn/.test(c)) return of("entered", "you", 1, P_ARTIFACT);
+  if (/(\w+) or more nonland permanents entered the battlefield under your control this turn/.test(c)) return of("entered", "you", num(/(\w+) or more nonland/), null, P_LAND);
+  if (/(?:this (?:land|creature|permanent)|it) entered this turn/.test(c)) return of("entered", "you", 1, null, null, { self: true });
   if (/a card left your graveyard this turn/.test(c)) return of("leftGraveyard", "you", 1);
-  if (/you attacked with two or more creatures this turn/.test(c)) return of("attackers", "any", 2);
+  if (/you attacked with (\w+) or more creatures this turn/.test(c)) return of("attackers", "you", num(/you attacked with (\w+) or more/));
+  if (/you attacked this turn/.test(c)) return of("attackers", "you", 1);
+  if (/a permanent (?:left the battlefield under your control|you controlled left the battlefield) this turn/.test(c)) return of("left", "you", 1);
+  if (/a nonland permanent left the battlefield this turn/.test(c)) return of("left", "any", 1, null, P_LAND);
+  if (/you've drawn (\w+) or more cards this turn/.test(c)) return of("drawn", "you", num(/drawn (\w+) or more/));
+  if (/you descended this turn/.test(c)) return of("toGraveyard", "you", 1, P_PERMANENT);
   return null;
 }
 

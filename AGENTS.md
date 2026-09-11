@@ -14828,6 +14828,112 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
       NEVER BLOCKS; then D396's list unchanged.
 
+- [x] **M6.4ie — THIS-TURN CONDITIONS on every ability kind: the turn record
+      widened, one closed reader for an intervening if, an entering replacement's
+      trailing if and a static's gate, and the arm that proves a condition by the
+      fire that does not happen (2026-09-11):** **8,635 of 31,692 Commander-legal
+      cards now execute completely, up from 8,585 (+50, every one a generated
+      row).** `SHIPPED_SCRIPTS` 5,544 → **5,594**; ledger 1,240 → **1,244** (four
+      ADDED by reason). Fixtures 6,128 → **6,179** (6,022 by name + 150 tokens: the
+      50 rowed cards and one token pin — Foot Mystic's Ninja). `scriptableToday`
+      1,334 → **1,338** (the seam offered 54, the wave took 50, the four refused
+      are ledgered); the select pool 0 → 54 → 0; the ladder `[1338, 1427, 2834,
+      4481, 5818]`. Bot reach 8,512 → **8,562** from 257 commanders. Decisions in
+      **D398**; the seam on Fable 5.1, the close-out on Opus 5.
+      ⚠️ **THE MEASUREMENT CHOSE IT, OVER EVERY ABILITY KIND:** one sentence shape
+      printed on three ability kinds — a trigger's intervening if (CR 603.4), an
+      entering replacement's trailing if (Bloodthirst, Raid, Revolt, Morbid) and a
+      static's gate — which the engine had read at exactly ONE site, D348's twelve
+      wordings behind `Activate only if`. Priced with the real accounting, the
+      condition stood OUT of the line: **189 script-only cards** (died 33, attacked
+      29, entered 23, gained life 23, spells 21, left 19, an nth resolution 16,
+      lost life 11, descended 6, drawn 3), 213 blocked elsewhere, 28 already
+      complete, and 172 whose condition is an AMOUNT (a count, for later); the
+      control family (159 / 95 one-piece) lost on worth per line.
+      ⚠️ **THE SEAM:** `TurnMemory` gains `left` (every exit, the controller read
+      BEFORE the batch lands — `died` is its graveyard subset), `damaged`,
+      `lifeGained` / `lifeLost` (the AMOUNTS) and `toGraveyard` (descend), cleared
+      by `TurnBegan`; ⚠️ a gap older than this decision closed with it —
+      `applyDamage` moves life WITHOUT a `LifeChanged`, so D348's `lostLife` had
+      never seen combat damage (`recordDamage` records it off the damage events,
+      poison excepted, lifelink's gain beside it). `TURN_MEMORY_RE` is ONE closed
+      reader of twenty wordings anchored at both ends, one `turnMemory` condition
+      kind (`what, who, count, any, none, self?, excludeSelf?`), and
+      `activationConditionsHold` answers it. The classifier sees PAST the
+      condition (`withoutTurnCondition`: Bloodthirst N is a plain enters-with, the
+      head's and the trailing if are peeled, and the BARE sentence is asked — a
+      card is scriptable through the condition only if scriptable without it) and
+      `entersWithRowShape` files the plain enters-with where `effect:counter` had
+      held it: the offer went 8 → 19 → 54. The generator compiles the condition
+      into DERIVE-FREE per-module helpers (D317): a trigger def gets it in
+      `matches` and again at the top of `resolve` (CR 603.4), an enters-with
+      replacement in `applies`. The arm proves it by the fire that does not happen
+      (D381): a trigger fires FIRST with the record empty and reads its
+      `AbilityPutOnStack` count unchanged; an enters-with row CASTS the card with
+      the record empty, reads zero counters, goes back to hand, plays the recipe,
+      and the fire's own cast is the entry the asserts read.
+      ⚠️⚠️ **THE PORT'S FIRST RUN WAS 30 RED, AND THE SHAPE OF THE RED SET WAS
+      THE DIAGNOSIS:** exactly the 30 conditioned enters-with rows — 29 rejected
+      `wrongZone`, the thirtieth a tsc fault — and every trigger-conditioned suite
+      green. The two-stage arm re-entered the card by a MANUAL MOVE and the fire
+      then cast a card already on the battlefield, and its stage one was VACUOUS
+      (a card starting in hand had never entered before its zero-counter check —
+      D128's green tick); and the castCount recipe declared `const castC` once per
+      spell (Effortless Master's "two or more"). Both fixed at the GENERATOR
+      (D267): stage one casts, the variable is suffixed by index and each cast
+      settles before the next (D256). Re-rowed from the SAVED line probe (D395's
+      rule — never after the port), names byte-identical, second port **50 of 50,
+      103 tests, tsc clean**.
+      **Landed:** 50 rows — 30 conditioned enters-with (Bloodthirst 1 ×6, 2 ×4,
+      3 ×2; Raid ×5; Revolt ×5; Morbid ×4; Effortless Master's two spells; the
+      lost-life three), Rampaging Monument's plain enters-with, and 19
+      conditioned enters triggers (seven tokens, eight vocabulary payloads, a draw,
+      two life gains). Refused by reason (4): a crime head, a Pentavite fodder, a
+      shield with no target, a becomes-the-target head with a counter filter.
+      ⚠️⚠️ **THE CANARY MEASURED THE DRIVER: THE FUZZ DRIVER RARELY ATTACKS.** The
+      first gate went red on D398's own floor — Rigging Runner and Nightsquad
+      Commando, both on Raid, ZERO over 500 seeds with every hash equal. Four
+      throwaway probes settled it: the staples were dealt and cast, but the
+      driver's `declareAttackers` answer is a random subset over EVERY untapped
+      permanent (lands included), refused whole when one pick is illegal — **97
+      real attacks against 2,948 empty declarations in 60 seeds** — so every
+      combat-borne condition sits at ~1% of creature casts. The one fact the
+      driver produces at the START of a caster's turn is an upkeep trigger, so
+      the canary is UPKEEP-ANCHORED: Cindering Cutthroat beside Drana's Emissary
+      (each opponent loses 1 at its controller's upkeep), Courier Bat beside
+      Ajani's Mantra, four each, ONE floor over the union at gate size (measured
+      1 + 1 at 60 seeds). Fixing the declaration reshapes every canary (D193):
+      a GATE decision beside D385's "the driver never blocks".
+      Fixtures 6,179 (6,022 by name + 150 tokens) · botPool artifact 486 /
+      creature 5,066 / enchantment 485 / instant 1,137 / land 596 / sorcery 865 —
+      auto 1,312 / assisted 1,988 · `oracleParse` `effect:auto` 5,741 ·
+      `activated:nonManaCost` 2,857 → 2,835 (22 activated lines with a this-turn
+      condition payable now) · tier3 silentAfter 8,928 · the `counter` primitive
+      1,232 · `token` 951 · batch.json 54 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5757 files,
+      28110 passed / 11 skipped · 500-seed gate, 6 shards, 1083.3 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D398): ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate
+      decision — declare from the prompt's own legal list, then re-measure every
+      canary); the end-step and combat-step heads with a
+      this-turn condition (53 — the next wave); `attacked with N or more` at N ≥ 2;
+      `selfEntered` under a head; the payload-level "If …" sentences; the
+      nth-resolution memory (16); the 172 AMOUNT forms (`for each spell you've
+      cast this turn` — the variable pump's shape one record over); the four this
+      wave refused; the derive's comment-number rot (rename file-name tokens only,
+      derive399); then D397's list unchanged — the restriction's exotic purposes
+      (14), the chooser price beside a restriction, the "any combination" amounts,
+      the pool UI tagging a bucket, the search payload as an ACTIVATED effect and
+      the two-name search, Plaza of Heroes' exile-self cost, the twenty-two older
+      fight and bite suites, "fights another target creature", token copies (15),
+      the untap skip (15), the delayed action (12), the permanent animation (1),
+      the scoped can't-block forms and "must be blocked", the durations proper
+      (23 / 33 / 14), the permanent control family (20) and exchange control
+      (24), the object stamp (CR 400.7), the activation restrictions (313), the
+      keyword entry replacements (22), copy (~200), the prompt CONTINUATION seam
+      proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
+      FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

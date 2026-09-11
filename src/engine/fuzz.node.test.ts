@@ -188,6 +188,18 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // land is only useful once tapped and a creature is only cast once affordable.
   { names: ['Ancient Ziggurat'], copiesPerSeat: 2,
     counterKeys: ['restrictedManaMade', 'restrictedManaSpent'], rotHistory: 'D397' },
+  // D398 - THIS-TURN CONDITIONS on a replacement and on a trigger. `turn.memory` is in the state
+  // hash and the reducer fills it in every game, so equal hashes vouch for the RECORD and not
+  // for a def ever reading it. A condition is reachable by this driver only when a staple
+  // satisfies it at the START of the caster's turn: the driver declares 97 real attacks against
+  // 2,948 empty ones in 60 seeds (a random subset over every untapped permanent, refused whole
+  // when one pick is illegal), so Raid and every combat-borne condition sit at zero over 500
+  // seeds - measured, gate 398's first run. Drana's Emissary drains each opponent at its
+  // controller's upkeep, which makes Cindering Cutthroat's `an opponent lost life this turn`
+  // hold for that whole turn; Ajani's Mantra's upkeep gain does the same for Courier Bat's
+  // `you gained life this turn`. Four each; the floor is over the union of the two counters.
+  { names: ['Cindering Cutthroat', "Drana's Emissary", 'Courier Bat'], copiesPerSeat: 4,
+    counterKeys: ['thisTurnEntersWith', 'thisTurnTriggers'], rotHistory: 'D398' },
   // D372 - the GRANTED MANA ABILITY: a production a layer-6 static pushed onto a recipient
   // that prints none. Cryptolith Rite makes every creature its controller has a source, so
   // the solver auto-taps granted mana whenever a creature stands and a spell is cast.
@@ -815,6 +827,9 @@ interface Run {
   /** D397 - mana made under a SPEND RESTRICTION, and spends that drew on a restricted bucket. */
   readonly restrictedManaMade: number;
   readonly restrictedManaSpent: number;
+  /** D398 - an enters-with replacement whose this-turn condition was MET, and a trigger whose was. */
+  readonly thisTurnEntersWith: number;
+  readonly thisTurnTriggers: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
   /** D373 - a granted ability's payload that landed on its own SOURCE (the recipient). */
@@ -1010,6 +1025,26 @@ function runOne(seed: number): Run {
     // the fact that the solver funded something from restricted mana.
     restrictedManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.only !== undefined).length,
     restrictedManaSpent: game.log.filter((e) => e.body.t === 'ManaSpent' && e.body.restricted.length > 0).length,
+    // D398 - a +1/+1 counter Cindering Cutthroat's replacement put on itself as it entered: the
+    // replacement returns the move and the counters together, so they are ADJACENT on the log,
+    // and only a met `an opponent lost life this turn` writes the second one. A manual counter
+    // is a CountersChanged with no entry move before it, so the adjacency is the D130 filter too.
+    thisTurnEntersWith: game.log.filter((e, i) => {
+      if (e.body.t !== 'CountersChanged') return false;
+      const prev = game.log[i - 1]?.body;
+      if (!prev || prev.t !== 'CardsMoved') return false;
+      return e.body.changes.some((c) => {
+        if (c.kind !== '+1/+1' || c.delta <= 0) return false;
+        const inst = game.state.cards[c.card];
+        if (!inst || ORACLE.byPrinting(inst.printingId)?.name !== 'Cindering Cutthroat') return false;
+        return prev.moves.some((m) => m.card === c.card && m.to.kind === 'battlefield');
+      });
+    }).length,
+    // D398 - Courier Bat's enters trigger reaches the stack only when `matches` read a met
+    // condition (CR 603.4), so the stacking IS the proof that the record was consulted.
+    thisTurnTriggers: game.log.filter(
+      (e) => e.body.t === 'AbilityPutOnStack' && /^Courier Bat - /.test(e.body.obj.label),
+    ).length,
     // D377 - the three rules ACTIONS the move records. Counted per MOVE rather than per event,
     // because one batch is one simultaneous sacrifice of N permanents and each is its own.
     sacrificesRecorded: countMoves(game, 'sacrifice'),
@@ -1231,6 +1266,8 @@ const TOTAL_KEYS = [
   'snowManaMade',
   'restrictedManaMade',
   'restrictedManaSpent',
+  'thisTurnEntersWith',
+  'thisTurnTriggers',
   'grantedManaMade',
   'selfAimedResolved',
   'sacrificesRecorded',
@@ -1489,6 +1526,12 @@ function assertFloors(totals: Totals, seeds: number): void {
       // bucket is proven only by mana that carried the restriction and a spend that drew on it.
       if (seeds >= 500) expect(totals.restrictedManaMade).toBeGreaterThan(0);
       if (seeds >= 500) expect(totals.restrictedManaSpent).toBeGreaterThan(0);
+      // D398 - at gate size only, and over the UNION of the two counters: a this-turn condition
+      // is proven only by a counter or a stacking that a MET record produced, and under a driver
+      // that rarely attacks each side alone is a ~10-per-500 event (measured: 1 + 1 at 60 seeds
+      // with four staples a seat). The unit suites prove each side both ways; the gate proves
+      // that real games read the record at all.
+      if (seeds >= 500) expect(totals.thisTurnEntersWith + totals.thisTurnTriggers).toBeGreaterThan(0);
       // D372 - at gate size only: two Cryptolith Rites a seat, and a granted production is
       // proven only by mana a recipient actually made.
       if (seeds >= 500) expect(totals.grantedManaMade).toBeGreaterThan(0);
@@ -1534,6 +1577,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
           `${totals.snowManaMade} mana made by a snow source · ` +
           `${totals.restrictedManaMade} made under a spend restriction / ${totals.restrictedManaSpent} spends that drew on it · ` +
+          `${totals.thisTurnEntersWith} entered with a counter under a this-turn condition / ${totals.thisTurnTriggers} triggers stacked under one · ` +
           `${totals.grantedManaMade} by a granted mana ability · ` +
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +

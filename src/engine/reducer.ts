@@ -97,7 +97,39 @@ export const EMPTY_TURN_MEMORY: TurnMemory = {
   lostLife: {},
   gainedLife: {},
   attackers: 0,
+  left: [],
+  damaged: {},
+  lifeGained: {},
+  lifeLost: {},
+  toGraveyard: {},
 };
+
+/**
+ * D398 - what damage does to the turn record. Damage dealt to a player is remembered
+ * as DAMAGE (Bloodthirst), and - because `applyDamage` moves the life total itself
+ * with no `LifeChanged` event - as LIFE LOST too (CR 120.3a), unless infect turned it
+ * into poison (CR 702.90b); lifelink is life GAINED (CR 702.15b). Until D398 the D348
+ * record saw life move only through `LifeChanged`, so "an opponent lost life this
+ * turn" was false after every unblocked attack.
+ */
+function recordDamage(memory: TurnMemory, damages: readonly ResolvedDamage[]): TurnMemory {
+  let m = memory;
+  for (const d of damages) {
+    if (d.amount <= 0) continue;
+    if (d.target.kind === 'player') {
+      const id = d.target.id;
+      m = { ...m, damaged: { ...m.damaged, [id]: (m.damaged[id] ?? 0) + d.amount } };
+      if (d.applyAs !== 'poison') {
+        m = { ...m, lostLife: { ...m.lostLife, [id]: true }, lifeLost: { ...m.lifeLost, [id]: (m.lifeLost[id] ?? 0) + d.amount } };
+      }
+    }
+    if (d.lifelinkTo) {
+      const to = d.lifelinkTo;
+      m = { ...m, gainedLife: { ...m.gainedLife, [to]: true }, lifeGained: { ...m.lifeGained, [to]: (m.lifeGained[to] ?? 0) + d.amount } };
+    }
+  }
+  return m;
+}
 
 /**
  * D348 - what a batch of moves adds to the turn record: what died, what entered,
@@ -109,12 +141,19 @@ function recordMoves(memory: TurnMemory, moves: readonly CardMove[], before: Rea
   let entered = memory.entered;
   let leftGraveyard = memory.leftGraveyard;
   let discarded = memory.discarded;
+  let left = memory.left;
+  let toGraveyard = memory.toGraveyard;
   for (const move of moves) {
     if (move.from.kind === 'battlefield' && move.to.kind === 'graveyard') {
       // ⚠️ The controller it had WHEN it died (CR 608.2h, last known information):
       // read off the instance BEFORE the batch applies, not after it lands.
       const controller = before[move.card]?.controller ?? move.from.player;
       if (controller !== null && controller !== undefined) died = [...died, { card: move.card, controller }];
+    }
+    // D398 - ANY exit from the battlefield, with the controller it had then (revolt reads this).
+    if (move.from.kind === 'battlefield' && move.to.kind !== 'battlefield') {
+      const controller = before[move.card]?.controller ?? move.from.player;
+      if (controller !== null && controller !== undefined) left = [...left, { card: move.card, controller }];
     }
     if (move.to.kind === 'battlefield' && move.from.kind !== 'battlefield') {
       const who = move.to.player ?? before[move.card]?.owner ?? null;
@@ -128,8 +167,13 @@ function recordMoves(memory: TurnMemory, moves: readonly CardMove[], before: Rea
       const who = move.from.player;
       if (who !== null) discarded = { ...discarded, [who]: (discarded[who] ?? 0) + 1 };
     }
+    // D398 - a card put into a graveyard from ANYWHERE (descend), on the graveyard owner's slot.
+    if (move.to.kind === 'graveyard' && move.from.kind !== 'graveyard') {
+      const who = move.to.player ?? before[move.card]?.owner ?? null;
+      if (who !== null) toGraveyard = { ...toGraveyard, [who]: [...(toGraveyard[who] ?? []), move.card] };
+    }
   }
-  return { ...memory, died, entered, leftGraveyard, discarded };
+  return { ...memory, died, entered, leftGraveyard, discarded, left, toGraveyard };
 }
 
 /** D336 - the turn memory: a SPELL cast counts on its controller's tally; an ability put on the stack does not. */
@@ -662,12 +706,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // ── players ──────────────────────────────────────────────────────────
     case 'LifeChanged': {
       // D348 - the turn remembers that this player lost or gained life.
+      // D398 - and HOW MUCH, beside whether ("if you gained 3 or more life this turn").
+      const m = state.turn.memory;
       const memory =
         body.delta < 0
-          ? { ...state.turn.memory, lostLife: { ...state.turn.memory.lostLife, [body.player]: true } }
+          ? { ...m, lostLife: { ...m.lostLife, [body.player]: true }, lifeLost: { ...m.lifeLost, [body.player]: (m.lifeLost[body.player] ?? 0) - body.delta } }
           : body.delta > 0
-            ? { ...state.turn.memory, gainedLife: { ...state.turn.memory.gainedLife, [body.player]: true } }
-            : state.turn.memory;
+            ? { ...m, gainedLife: { ...m.gainedLife, [body.player]: true }, lifeGained: { ...m.lifeGained, [body.player]: (m.lifeGained[body.player] ?? 0) + body.delta } }
+            : m;
       return withPlayer({ ...state, turn: { ...state.turn, memory } }, body.player, { life: body.to });
     }
 
@@ -1052,7 +1098,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             ),
           } satisfies CombatState)
         : null;
-      return { ...marked, combat };
+      // D398 - the turn remembers combat damage dealt to a player (Bloodthirst).
+      return { ...marked, combat, turn: { ...marked.turn, memory: recordDamage(marked.turn.memory, body.damages) } };
     }
 
     case 'RemovedFromCombat': {
@@ -1088,8 +1135,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // ⚠️ Damage from a SPELL, applied by the same helper combat damage uses.
     // Infect, wither, deathtouch, lifelink and the commander tally therefore
     // cannot drift between the two ways damage reaches a permanent or a player.
-    case 'DamageDealt':
-      return applyDamage(state, body.damages);
+    case 'DamageDealt': {
+      // D398 - the turn remembers damage dealt to a player (Bloodthirst).
+      const dealt = applyDamage(state, body.damages);
+      return { ...dealt, turn: { ...dealt.turn, memory: recordDamage(dealt.turn.memory, body.damages) } };
+    }
 
     case 'PtModifiedUntilEndOfTurn':
       return {

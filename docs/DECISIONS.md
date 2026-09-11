@@ -30124,3 +30124,209 @@ control (24); the object stamp (CR 400.7); the activation restrictions (313); th
 entry replacements (22), copy (~200), the prompt CONTINUATION seam proper, the two gate
 items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
 D396's list unchanged.
+
+## D398 — THIS-TURN CONDITIONS on every ability kind: the turn record widened, one closed reader for an intervening if, an entering replacement's trailing if and a static's gate, and the arm that proves a condition by the fire that does not happen (2026-09-11)
+
+**8,635 of 31,692 Commander-legal cards now execute completely, up from 8,585
+(+50, every one a generated row).** `SHIPPED_SCRIPTS` 5,544 → **5,594**; the REFUSED
+ledger 1,240 → **1,244** (four ADDED by reason — the cards the classifier offered and
+the row maker refused: Patrolling Peacemaker's crime head, Pentavus' Pentavite fodder,
+Spike Weaver's shield with no target, Swarm Shambler's becomes-the-target head with a
+counter filter). Fixtures 6,128 → **6,179** (6,022 by name + 150 tokens: the 50 rowed
+cards and one token pin — the 1/1 black Ninja Foot Mystic's Disappear trigger makes).
+`scriptableToday` 1,334 → **1,338** (the seam offered 54, the wave took 50, the four
+refused are ledgered); the select pool 0 → 54 → 0; the ladder
+`[1338, 1427, 2834, 4481, 5818]`. Bot reach 8,512 → **8,562** from 257 commanders.
+The seam and the diagnosis on Fable 5.1; the re-port and the close-out on Opus 5.
+
+### The measurement chose it — by the honest count, over every ability kind
+
+The seam map after D397 was priced by what would LAND (D343/D354) with the
+`price-seams398.cjs` family of probes. The THIS-TURN condition is one sentence shape
+printed on three ability kinds — a trigger's intervening if (CR 603.4), an entering
+replacement's trailing if (`enters with a +1/+1 counter on it if you attacked this
+turn`, and the keyword forms Bloodthirst / Raid / Revolt / Morbid), and a static's
+gate — and the engine had read it at exactly ONE site: D348's twelve wordings behind
+`Activate only if`. Priced with the real accounting (`zz-probe-turn398`, the condition
+stood OUT of the line, the rest of the card asked to parse): **189 script-only cards**
+across the families the turn would have to remember — died 33, attacked 29, entered
+23, gained life 23, spells cast 21, left the battlefield 19, an nth resolution 16, lost
+life 11, descended 6, drawn 3 — beside 213 blocked on another line, 28 already complete
+under D348's reader, and **172 whose condition is an AMOUNT** (`for each spell you've
+cast this turn`), which is a count rather than a question and stays for later. The
+control family priced beside it (`price-control398.cjs`: 159 cards, 95 one-piece,
+exchange and permanent control) lost on worth per line.
+
+### The seam
+
+- **The turn remembers more** (`TurnMemory`, `state.ts` / `reducer.ts`): beside D348's
+  cast, died, entered, leftGraveyard, discarded, tokensCreated, lostLife, gainedLife and
+  attackers — `left` (every battlefield exit, with the controller read BEFORE the batch
+  lands, CR 608.2h: `died` is its graveyard subset), `damaged` (damage dealt to each
+  player, combat or not), `lifeGained` / `lifeLost` (the AMOUNTS beside the facts),
+  `toGraveyard` (a card put into a graveyard from anywhere — descend). ⚠️ **A gap older
+  than this decision closed with it**: `applyDamage` moves life WITHOUT a `LifeChanged`,
+  so D348's `lostLife` had never seen combat damage — `recordDamage` records the loss off
+  the damage events themselves (poison excepted, lifelink's gain beside it). Cleared by
+  `TurnBegan` like every other turn tally.
+- **One closed reader** (`TURN_MEMORY_RE`, `activatedParse.ts`): twenty wordings, every
+  one anchored at both ends (D90), the D348 twelve among them — attacked, attacked with
+  N, the exits, dealt damage, gained N life, another / N spells, a creature spell,
+  another creature died, N creatures died, this land entered, a land / creature /
+  artifact entered, N nonland permanents entered, drawn N, descended. One
+  `ActivationCondition` kind for every clause (`turnMemory {what, who, count, any, none,
+  self?, excludeSelf?}`), because the record is one map and the question is always the
+  same shape; `activationConditionsHold` answers it — `attackers` with `who: 'you'`
+  requires the active player, `drawn` reads the turn's draw count, the source itself is
+  required by "this land entered" and excluded by "another spell".
+- **The classifier sees past the condition** (`withoutTurnCondition`, `primitives.ts`):
+  Bloodthirst N is a plain enters-with, a head's intervening if and an enters-with's
+  trailing if are peeled (the ability word stripped), and the BARE sentence is asked of
+  `primitiveFor` — a card is scriptable through the condition only if it is scriptable
+  without it (a recursion, and only a `scriptable` bare answer counts); beside it
+  `entersWithRowShape`, because the plain enters-with had been filed under
+  `effect:counter` and Bloodthirst under `keyword:other`. The offer went 8 → 19 → 54 as
+  the two hooks landed.
+- **The generator compiles the condition** (`gen98-cond.cjs` + `gen-oneshot98.cjs`):
+  a row carries `ifCond` (the parsed condition and its STAGE — always met, met at the
+  baseline, the break, the recipe, the deck it needs, the early attack); a trigger def
+  gets the conjunct in `matches` (`withDuring`) AND a re-check at the top of `resolve`
+  (CR 603.4 — an intervening if is asked twice); an enters-with replacement gets
+  `ifCondNOf(ctx, self) &&` in `applies`. Every helper is DERIVE-FREE (D317/D388: a
+  replacement's condition is asked inside the funnel, a static's inside a derive) —
+  it reads `ctx.state.turn.memory`, the PRINTED faces and the seating.
+- **The arm proves the condition by the fire that does not happen** (D381): a trigger
+  row fires FIRST with the record EMPTY and reads the generic mark — the count of its
+  own `AbilityPutOnStack` unchanged — then plays the recipe (a damage that taps the
+  Cyclops first, an attack with the early Bears on turn three, a spell cast, a death,
+  a life gain) and fires again; an enters-with row CASTS the card on turn three with
+  the record empty, reads zero counters, sends it back to hand, plays the recipe, and
+  the fire's own cast is the entry the asserts read.
+- `src/engine/turnConditions.test.ts` (8): exits with their controller whatever the
+  destination; damage to a player remembered, life lost without damage not damage,
+  attacked the active player alone; the amounts beside the facts; descend with the
+  permanent-card check derived; the source required and excluded; drawn off the draw
+  count; a new turn clears every widened fact; the D348 wordings still read and a
+  wording outside the set stays unread.
+- **Fuzz**: Cindering Cutthroat beside Drana's Emissary, and Courier Bat beside the
+  Mantra that was already a staple, feed `thisTurnEntersWith` / `thisTurnTriggers`, with
+  ONE floor over their union at gate size (7 entered with a counter under a met
+  condition / 24 triggers stacked under one over the gate's 500 seeds). ⚠️ The first
+  pair — Rigging Runner and Nightsquad Commando on Raid — read ZERO over 500 seeds and
+  the gate went red on its own canary; see the finding below. `turn.memory` is in the
+  state hash
+  and the reducer fills it in every game, so equal hashes vouch for the RECORD and for
+  nothing about a def ever reading it (D364's argument, one field over).
+
+### The wave — 54 offered, 50 rows, the four refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **54** in `batch.json` — landed
+BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **50
+rows / 53 abilities**: 30 conditioned enters-with rows (Bloodthirst 1 ×6 — Blood Ogre,
+Bloodrage Vampire, Bloodscale Prowler, Bogardan Lancer, Duskhunter Bat, Lurking
+Crocodile — Bloodthirst 2 ×4 — Gorehorn Minotaurs, Scab-Clan Mauler, Stormblood
+Berserker, Vampire Outcasts — Bloodthirst 3 ×2 — Carnage Wurm, Ghor-Clan Savage — Raid
+×5 — Rigging Runner, Goblin Boarders, Swaggering Corsair, Storm Fleet Aerialist, Cruel
+Administrator — Revolt ×5, Morbid ×4, Effortless Master's two spells, and the lost-life
+three — Cindering Cutthroat, Frilled Sparkshooter, Mounted Dreadknight), one PLAIN
+enters-with the classifier had filed under `effect:counter` until `entersWithRowShape`
+(Rampaging Monument, beside its multicolored-cast counter), and 19 trigger-conditioned
+enters rows (a token — Bat
+Whisperer, Nightsquad Commando, Wakedancer, Emissary of the Sleepless, Funnel-Web
+Recluse, Countless Gears Renegade, Foot Mystic; a vocabulary payload — Bloodtithe
+Collector's each-opponent discard, Deadeye Tormentor's and Mardu Skullhunter's targeted
+discards, Deadeye Harpooner's tapped-creature destroy, Morkrut Banshee's -4/-4 and
+Vengeful Rebel's -3/-3, Courier Bat's and Renegade Rallier's graveyard returns,
+Ulvenwald Bear's two counters; a draw — Silkweaver Elite; a life gain — Airdrop
+Aeronauts, Hollowhenge Scavenger). The line probe ran BEFORE the port (D395's rule).
+
+⚠️⚠️ **THE PORT'S FIRST RUN WAS 30 RED, AND BOTH FAULTS WERE THE GENERATOR'S.** The
+red set was EXACTLY the 30 conditioned enters-with rows — 29 on one rejection and the
+thirtieth on a tsc fault — with every trigger-conditioned suite green, which localised
+the fault to the two-stage arm before a line of the log was read. (1) The arm re-entered the card by a MANUAL MOVE after the
+recipe, and the fire then cast a card already on the battlefield (`wrongZone` in all
+29); and its stage one was VACUOUS — a row that starts in hand had never entered before
+its zero-counter check. Stage one CASTS the card now, proves no counter, sends it back
+to hand, plays the recipe, and the fire's own cast is the re-entry. (2) The castCount
+recipe declared `const castC` once per spell, so "two or more spells" was a duplicate
+declaration (Effortless Master); the variable is suffixed by index and each cast
+SETTLES before the next, because a sorcery needs an empty stack (D256). Both fixed at
+the generator (D267), the rows re-derived from the saved line probe, the names list
+byte-identical to the port's, the second port **50 of 50 files, 103 tests, tsc clean.**
+
+### The canary that measured the driver — ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS
+
+Gate 398's first run went red on D398's own floor: `thisTurnEntersWith` and
+`thisTurnTriggers` both ZERO over 500 seeds, every hash equal, the unit stage green. Four
+throwaway copies of the fuzz test (`make-fuzz-probe*.cjs`, writing to files — vitest's
+console is not captured) settled it in an hour. The staples WERE dealt (eight a game) and
+CAST (Rigging Runner 16 times in 60 seeds, the Commando 11), and a cast that followed an
+attack in the caster's own turn resolved with NO counter — because the attack the probe had
+counted was an EMPTY declaration. **The driver's `declareAttackers` answer draws a random
+subset over EVERY untapped permanent the player controls, lands and summoning-sick
+creatures included, and the handler refuses the whole declaration when any pick is
+illegal: 97 real attacks against 2,948 empty declarations in 60 seeds.** Raid, and every
+condition that needs combat (Bloodthirst's damage, the lost-life forms), sits at ~1% of
+creature casts and at zero over a 500-seed gate; a creature dying or a permanent of the
+caster's leaving before a cast in the same turn is the same ~1%, six Bile Urchins a seat
+notwithstanding, because the sacrifice lands on whoever's turn the driver happens to pick
+it. The ONE fact this driver produces at the START of a caster's turn is Ajani's Mantra's
+upkeep gain (5.8% of creature casts follow it). So the canary is UPKEEP-ANCHORED: Drana's
+Emissary drains each opponent at its controller's upkeep, which makes Cindering Cutthroat's
+`an opponent lost life this turn` hold for that whole turn; the Mantra's gain does the same
+for Courier Bat. Measured at 60 seeds with four of each a seat: one enters-with hit and one
+trigger, so the floor is over the UNION of the two counters at gate size (each side alone is
+a ~10-per-500 event), and both are still reported. ⚠️ Teaching the driver to declare from
+the prompt's OWN legal list would make attacks common — and reshape every seed's games and
+every canary's number (D193), which is why it is named beside D385's "the driver never
+blocks" as a GATE decision rather than folded into this one.
+
+### Traps
+
+- THE RED SET'S SHAPE IS THE DIAGNOSIS: 29 of 30 reds on one row kind, 0 on the other,
+  names the arm before the log does.
+- A TWO-STAGE ARM'S RE-ENTRY IS THE FIRE'S OWN CAST, never a manual move beside a cast.
+- A STAGE-ONE CHECK ON A CARD THAT NEVER ENTERED IS A GREEN TICK OVER NOTHING (D128):
+  a row that starts in hand must be CAST before its "the replacement did not apply".
+- A RECIPE THAT CASTS N SPELLS DECLARES N VARIABLES and settles between them.
+- A DERIVE THAT RENAMES EVERY "D397" IN A CHAIN FILE'S COMMENTS ROTS THE PROVENANCE
+  (fix in derive399: rename file-name tokens and the header line only).
+- `applyDamage` moves life without a `LifeChanged`: a turn record fed by life events
+  alone never sees combat damage (the D348 gap, closed here by `recordDamage`).
+- A line probe's payload harvest must strip a true ability word and peel the
+  intervening if, or the row maker refuses every conditioned payload as "not a pump".
+- A CANARY'S CONDITION MUST BE ONE THE DRIVER MEETS, MEASURED: a staple picked for its
+  cost is a green tick over nothing if its condition needs combat; probe the rate at
+  60 seeds with a throwaway copy of the fuzz test BEFORE the gate, and anchor the
+  condition at the start of the caster's turn (an upkeep trigger) when the driver's
+  own play cannot reach it.
+- A probe that counts `AttackersDeclared` without `attackers.length > 0` counts the
+  driver's empty declarations as attacks (2,948 of 3,045).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5757 files, 28110
+passed / 11 skipped · 500-seed gate, 6 shards, 1083.3 s wall · build clean · probe
+124/124 · battery 140/140; the 60-seed fuzz leg green at 639.2 s.**
+
+⚠️ **Reportables** (D398): ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (97 real declarations
+against 2,948 empty in 60 seeds — the random subset over every untapped permanent; a gate
+decision beside "the driver never blocks", D385, because the fix reshapes every canary);
+the end-step and combat-step heads with a this-turn condition
+(53 — the same reader under heads the arm fires at a different moment: the next wave);
+`attacked with N or more creatures` at N ≥ 2 (a recipe with two attackers);
+`selfEntered` under a head (the source's own entry, which the enters arm satisfies by
+construction and the trigger arm does not); the payload-level "If …" sentences (a
+condition INSIDE the effect rather than on the head); the nth-resolution memory (16 —
+"if this is the second time this ability has resolved this turn"); the 172 AMOUNT forms
+(`for each spell you've cast this turn` — a count over the record, the variable pump's
+shape one record over); the four this wave refused (a crime head, a Pentavite fodder,
+a shield with no target, a becomes-the-target head with a counter filter); then D397's
+list unchanged — the restriction's exotic purposes (14), the chooser price beside a
+restriction, the "any combination" amounts, the pool UI tagging a bucket, the search
+payload as an ACTIVATED effect and the two-name search, Plaza of Heroes' exile-self
+cost, the twenty-two older fight and bite suites, "fights another target creature",
+token copies (15), the untap skip (15), the delayed action (12), the permanent
+animation (1), the scoped can't-block forms and "must be blocked", the durations proper
+(23 / 33 / 14), the permanent control family (20) and exchange control (24), the object
+stamp (CR 400.7), the activation restrictions (313), the keyword entry replacements
+(22), copy (~200), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

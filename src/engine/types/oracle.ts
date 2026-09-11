@@ -1005,10 +1005,23 @@ export type ActivationCondition =
       readonly who: 'you' | 'opponent' | 'any';
       readonly count: number;
       readonly any: readonly import("../../data/replacementParse").PermanentPredicate[] | null;
-      readonly none: readonly import("../../data/replacementParse").PermanentPredicate[] | null };
+      readonly none: readonly import("../../data/replacementParse").PermanentPredicate[] | null;
+      /** D398 - the recorded card must be the SOURCE itself: "if this land entered this turn". */
+      readonly self?: true;
+      /** D398 - the source itself does not count: "if you've cast ANOTHER spell this turn", "if another creature died this turn". */
+      readonly excludeSelf?: true };
 
-/** D348 - which slot of the turn record a condition asks about. */
-export type TurnMemoryQuestion = 'cast' | 'died' | 'entered' | 'leftGraveyard' | 'discarded' | 'tokensCreated' | 'lostLife' | 'gainedLife' | 'attackers';
+/**
+ * D348 - which slot of the turn record a condition asks about.
+ *
+ * D398 - `left` (any exit from the battlefield, `died` its graveyard subset),
+ * `damaged` (damage dealt to a player), `toGraveyard` (a card put into a graveyard
+ * from anywhere - descend), `drawn` (`TurnState.cardsDrawn`), and the AMOUNTS
+ * `lifeGained` / `lifeLost` beside the booleans ("if you gained 3 or more life").
+ */
+export type TurnMemoryQuestion =
+  | 'cast' | 'died' | 'entered' | 'leftGraveyard' | 'discarded' | 'tokensCreated' | 'lostLife' | 'gainedLife' | 'attackers'
+  | 'left' | 'damaged' | 'toGraveyard' | 'drawn' | 'lifeGained' | 'lifeLost';
 
 /**
  * D367 - ONE activated ability a permanent HAS because ANOTHER permanent's

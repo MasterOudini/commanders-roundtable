@@ -127,6 +127,34 @@ function withoutMay(text: string): string {
 }
 
 /**
+ * D398 - THE THIS-TURN CONDITIONS THE ROW MAKER READS (`gen98-cond.cjs`, one closed
+ * reader over the turn record of D348/D398): a trigger's intervening if on an ENTERS
+ * head, an enters-with line's trailing if, and Bloodthirst - the enters-with line with
+ * "an opponent was dealt damage this turn" in front of it (CR 702.54). A line carrying
+ * one is classified by what is LEFT once the condition is stood out, and only when
+ * that is `scriptable`: a payload still blocked keeps the bucket it had. The set
+ * mirrors the parser's (`activatedParse.ts`) and the generator's, and a wording
+ * outside it stays where it was (`duration`, mostly) - never widened by shape.
+ */
+const TURN_COND =
+  "(?:you attacked this turn|you attacked with (?:two|three|four|five|\\d+) or more creatures this turn|(?:a|another) creature died this turn|(?:two|three|four|five|\\d+) or more creatures died this turn|a permanent (?:left the battlefield under your control|you controlled left the battlefield) this turn|a nonland permanent left the battlefield this turn|you gained life this turn|you gained (?:two|three|four|five|\\d+) or more life this turn|you lost life this turn|an opponent lost life this turn|an opponent was dealt damage this turn|you've cast (?:another|a noncreature|a creature|an instant or sorcery) spell this turn|you've cast (?:two|three|four|\\d+) or more spells this turn|you've drawn (?:two|three|four|\\d+) or more cards this turn|you descended this turn|(?:this (?:land|creature|permanent)|it) entered this turn|a (?:land|creature|artifact) entered the battlefield under your control this turn|(?:two|three|four|\\d+) or more nonland permanents entered the battlefield under your control this turn|you've discarded a card this turn|a card left your graveyard this turn|you created a token this turn)";
+/** A TRUE ability word before an enters head has no rules meaning of its own (CR 207.2c); read past it once its condition is stood out. */
+const ABILITY_WORD_PREFIX = /^[A-Z][a-z]+(?: \d+)? — /;
+const ETB_IF = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${TURN_COND}, `, 'i');
+const ENTERS_WITH_IF = new RegExp(`^((?:This creature|~|[A-Z][^,]*?) enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it) if ${TURN_COND}\\.$`, 'i');
+const BLOODTHIRST_LINE = /^Bloodthirst (\d+)$/;
+const COUNT_WORD: Readonly<Record<number, string>> = { 1: 'a', 2: 'two', 3: 'three', 4: 'four', 5: 'five' };
+export function withoutTurnCondition(text: string): string {
+  const bt = BLOODTHIRST_LINE.exec(text);
+  if (bt) return `This creature enters with ${COUNT_WORD[Number(bt[1])] ?? bt[1]} +1/+1 counter${bt[1] === '1' ? '' : 's'} on it.`;
+  const etb = ETB_IF.exec(text);
+  if (etb) return (etb[1] + ', ' + text.slice(etb[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  const ew = ENTERS_WITH_IF.exec(text);
+  if (ew) return (ew[1] + '.').replace(ABILITY_WORD_PREFIX, '');
+  return text;
+}
+
+/**
  * Could a script express this effect today?
  *
  * ⚠️ `isInstantOrSorcery: true` is a deliberate lie to the parser, and the only
@@ -501,6 +529,17 @@ export function staticRowShape(text: string): boolean {
 }
 
 /**
+ * D398 - the enters-with replacement a table row emits since D371 (`entersWithCounters`,
+ * CR 614.12), which this classifier had filed under `replacement` all along: no plain
+ * "enters with N +1/+1 counters" card was ever OFFERED, and the conditional form
+ * (`withoutTurnCondition`) and Bloodthirst stand down to exactly this line.
+ */
+const ENTERS_WITH_ROW = /^(?:This creature|~) enters with (?:a|an|one|two|three|four|five) \+1\/\+1 counters? on it\.$/;
+export function entersWithRowShape(text: string): boolean {
+  return ENTERS_WITH_ROW.test(text);
+}
+
+/**
  * D301 - THE ONE-SHOT SEAM. An ACTIVATED line whose effect is a pump or keyword
  * grant until end of turn on the permanent itself or on the controller's
  * creatures (or all creatures) is a table row (d301/gen-oneshot.cjs): the
@@ -761,6 +800,12 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // `morphLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^(?:morph|megamorph)\b/i.test(text)) return morphLineRuns(text) ? 'scriptable' : 'keyword:altCost';
 
+  // D398 - a this-turn CONDITION the row maker reads is not a duration (and Bloodthirst
+  // is not a bare keyword): stand it out and ask about the rest. Only a `scriptable`
+  // answer counts; anything else keeps the classification the whole line has below.
+  const bare = withoutTurnCondition(text);
+  if (bare !== text && primitiveFor({ ...line, text: bare }, cardName, spellFace) === 'scriptable') return 'scriptable';
+
   // A keyword ability is not a sentence — check the shape before reading it as
   // one. See `KEYWORD_LINES`.
   for (const [primitive, re] of KEYWORD_LINES) if (re.test(text)) return primitive;
@@ -802,6 +847,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D300: a static a table row can emit is scriptable - asked BEFORE the rows,
   // because `LAYER6` would otherwise file it (see `staticRowShape`).
   if (staticRowShape(text)) return 'scriptable';
+  // D398: the enters-with replacement a table row emits (see `entersWithRowShape`).
+  if (entersWithRowShape(text)) return 'scriptable';
   // D301: an activated one-shot pump a table row can emit (see `oneShotRowShape`).
   if (oneShotRowShape(text, cardName)) return 'scriptable';
   // D302: a triggered one-shot self-pump under a library head (see `oneShotTriggerShape`).

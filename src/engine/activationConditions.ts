@@ -122,6 +122,10 @@ export function activationConditionsHold(
         const whose = (id: PlayerId): boolean =>
           cond.who === 'any' ? true : cond.who === 'you' ? id === player : id !== player;
         const fits = (id: InstanceId): boolean => {
+          // D398 - the source itself may be REQUIRED ("this land entered this turn") or
+          // EXCLUDED ("another spell", "another creature died") before any predicate is asked.
+          if (cond.self && id !== source) return false;
+          if (cond.excludeSelf && id === source) return false;
           if (!cond.any && !cond.none) return true;
           const chars = d(id);
           if (cond.any && !cond.any.some((p) => matchesAny(chars, [p]))) return false;
@@ -129,16 +133,20 @@ export function activationConditionsHold(
           return true;
         };
         let seen = 0;
-        if (cond.what === 'died') {
-          seen = memory.died.filter((e) => whose(e.controller) && fits(e.card)).length;
-        } else if (cond.what === 'cast' || cond.what === 'entered') {
+        if (cond.what === 'died' || cond.what === 'left') {
+          seen = memory[cond.what].filter((e) => whose(e.controller) && fits(e.card)).length;
+        } else if (cond.what === 'cast' || cond.what === 'entered' || cond.what === 'toGraveyard') {
           const per = memory[cond.what];
           for (const [id, cards] of Object.entries(per)) if (whose(id)) seen += cards.filter(fits).length;
         } else if (cond.what === 'lostLife' || cond.what === 'gainedLife') {
           const per = memory[cond.what];
           for (const [id, did] of Object.entries(per)) if (did && whose(id)) seen += 1;
         } else if (cond.what === 'attackers') {
-          seen = memory.attackers;
+          // D398 - only the active player declares attackers: "you attacked this turn"
+          // asked by anyone else is no, however many creatures the active player sent.
+          seen = cond.who === 'you' && state.turn.activePlayer !== player ? 0 : memory.attackers;
+        } else if (cond.what === 'drawn') {
+          for (const [id, n] of Object.entries(state.turn.cardsDrawn)) if (whose(id)) seen += n;
         } else {
           const per = memory[cond.what];
           for (const [id, n] of Object.entries(per)) if (whose(id)) seen += n;
