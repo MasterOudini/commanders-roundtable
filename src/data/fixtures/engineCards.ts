@@ -5858,6 +5858,28 @@ export const NEZUMI_INFORMANT: CardData = F.NEZUMI_INFORMANT as CardData;
 export const AGENT_OF_THE_FATES: CardData = F.AGENT_OF_THE_FATES as CardData;
 export const SERUM_RAKER: CardData = F.SERUM_RAKER as CardData;
 export const EARSPLITTING_RATS: CardData = F.EARSPLITTING_RATS as CardData;
+export const GRIM_AFFLICTION: CardData = F.GRIM_AFFLICTION as CardData;
+export const VIVISURGEON_S_INSIGHT: CardData = F.VIVISURGEON_S_INSIGHT as CardData;
+export const ATRAXA_PRAETORS_VOICE: CardData = F.ATRAXA_PRAETORS_VOICE as CardData;
+export const BLIGHTBELLY_RAT: CardData = F.BLIGHTBELLY_RAT as CardData;
+export const BLOOM_HULK: CardData = F.BLOOM_HULK as CardData;
+export const COPPER_LONGLEGS: CardData = F.COPPER_LONGLEGS as CardData;
+export const CORE_PROWLER: CardData = F.CORE_PROWLER as CardData;
+export const FLUX_CHANNELER: CardData = F.FLUX_CHANNELER as CardData;
+export const HUATLI_S_RAPTOR: CardData = F.HUATLI_S_RAPTOR as CardData;
+export const INEXORABLE_TIDE: CardData = F.INEXORABLE_TIDE as CardData;
+export const KARN_S_BASTION: CardData = F.KARN_S_BASTION as CardData;
+export const KILO_APOGEE_MIND: CardData = F.KILO_APOGEE_MIND as CardData;
+export const KIORA_S_DAMBREAKER: CardData = F.KIORA_S_DAMBREAKER as CardData;
+export const MARTYR_FOR_THE_CAUSE: CardData = F.MARTYR_FOR_THE_CAUSE as CardData;
+export const METASTATIC_EVANGEL: CardData = F.METASTATIC_EVANGEL as CardData;
+export const PLAGUEMAW_BEAST: CardData = F.PLAGUEMAW_BEAST as CardData;
+export const SURGE_CONDUCTOR: CardData = F.SURGE_CONDUCTOR as CardData;
+export const THRONE_OF_GETH: CardData = F.THRONE_OF_GETH as CardData;
+export const THRUMMINGBIRD: CardData = F.THRUMMINGBIRD as CardData;
+export const VIRAL_DRAKE: CardData = F.VIRAL_DRAKE as CardData;
+export const CONTAGION_CLASP: CardData = F.CONTAGION_CLASP as CardData;
+export const MERFOLK_SKYDIVER: CardData = F.MERFOLK_SKYDIVER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11849,6 +11871,28 @@ export const ENGINE_CARDS: CardData[] = [
   AGENT_OF_THE_FATES,
   SERUM_RAKER,
   EARSPLITTING_RATS,
+  GRIM_AFFLICTION,
+  VIVISURGEON_S_INSIGHT,
+  ATRAXA_PRAETORS_VOICE,
+  BLIGHTBELLY_RAT,
+  BLOOM_HULK,
+  COPPER_LONGLEGS,
+  CORE_PROWLER,
+  FLUX_CHANNELER,
+  HUATLI_S_RAPTOR,
+  INEXORABLE_TIDE,
+  KARN_S_BASTION,
+  KILO_APOGEE_MIND,
+  KIORA_S_DAMBREAKER,
+  MARTYR_FOR_THE_CAUSE,
+  METASTATIC_EVANGEL,
+  PLAGUEMAW_BEAST,
+  SURGE_CONDUCTOR,
+  THRONE_OF_GETH,
+  THRUMMINGBIRD,
+  VIRAL_DRAKE,
+  CONTAGION_CLASP,
+  MERFOLK_SKYDIVER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

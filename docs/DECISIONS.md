@@ -29037,3 +29037,174 @@ proliferate (48), the durations (33), spend-restricted mana (56), exchange contr
 (24), the keyword entry replacements (23), copy (~200); the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D389's list
 unchanged.
+
+
+## D391 — PROLIFERATE: a prompt over every permanent and player that carries a counter, raised only when something does, and answered on the table (2026-09-11)
+
+**8,381 of 31,692 Commander-legal cards now execute completely, up from 8,347
+(+34: THIRTEEN with no script at all, then 21 generated rows in one wave).**
+`SHIPPED_SCRIPTS` 5,445 → **5,466**; the REFUSED ledger 1,211 → **1,215** (four
+ADDED by reason — the cards the classifier offered after the wave and the row maker
+refused). Fixtures 5,988 → **6,010** (5,855 by name + 148 tokens: the rowed cards
+and the seam's two proof spells). `scriptableToday` 1,307 → **1,332** by the SEAM
+and → **1,311** by the WAVE, both directions in one decision (D363/D384); the select
+pool 0 → 25 → 4 → 0; the ladder `[1311, 1400, 2837, 4530, 5871]`. Bot reach 8,281 →
+**8,315** from 251 commanders. M6.4hx, on Fable 5.1.
+
+### The measurement chose it, and it is the first ask raised on a scratch state
+
+D390's reportables carried the brief's engine seams with their one-piece counts, and
+a fresh true-leftover after `02710386` (23,345 incomplete, 11,657 one-piece) priced
+them again by the cards that would LAND (D384): proliferate is **48 one-piece cards
+over 22 shapes** — `Proliferate.` as a spell's last sentence, `…, then proliferate.`
+after a counter, a draw or a damage, and the same word as a trigger payload under
+enters, dies, combat-damage, cast, tapped and end-step heads and as an activated
+ability priced in mana, a tap or a sacrifice — the densest candidate that is ONE
+seam: one prompt, one reader, one event. Threaten (49) needs the durations
+mechanism first, copy is CR 707, the keyword entry replacements are 22 cards over
+three keywords.
+
+### The seam: a bare asking sentence, a scratch state, no ids, one reader, one event
+
+- **CR 701.27a IS ONE SENTENCE.** `proliferate` is an `EffectKind` of its own,
+  parsed from the bare `Proliferate.` and from `…, then proliferate.` — which
+  `sentences()` splits off into its own sentence first, so `Put a -1/-1 counter on
+  target creature, then proliferate.` reads `['counter', 'proliferate']` and
+  Tezzeret's Gambit `['draw', 'proliferate']`. It ASKS, so it must be the sentence
+  list's last (D195's rule): `Proliferate. Draw a card.` (Steady Progress,
+  Contentious Plan) is refused by name, and so is `You may pay {2}. If you do,
+  proliferate.` — the pay body refuses an asking kind (D195's list).
+- **THE ASK IS RAISED ON A SCRATCH STATE.** The executor folds the events the
+  resolution has already produced onto the state (the reducer's own `apply`, never
+  a second implementation) and asks `proliferateCandidates` of THAT board: Grim
+  Affliction's own -1/-1 counter is a candidate the moment it is placed, and a
+  proliferate with nothing to grow raises no prompt at all (D137's shape —
+  Vivisurgeon's Insight on a counterless board draws its three cards and asks
+  nothing). An earlier `AwaitingSet` in the same resolution stops it, as it stops
+  every asking kind.
+- **THE PROMPT SHIPS NO IDS.** `proliferateChoice` carries `kind`, `label`,
+  `player` and nothing else (pinned by a keys test); the candidates — every
+  permanent on the battlefield with any counter above zero, every player still in
+  the game with poison — come from `proliferateCandidates(state)`, the ONE reader
+  the executor, the answer handler and the fuzz driver share. It is named apart
+  from the effect kind on purpose: the producer guard scans `src/data` for
+  `kind: '…'` constructions (D357), and an EFFECT kind that shares a PROMPT kind's
+  name would count the parser as a producer.
+- **ONE EVENT PER KIND OF CHANGE.** `AnswerProliferate` names the permanents and
+  the players; the handler refuses the wrong player or kind (`notAwaitingThat`), a
+  duplicate (`noSuchCard`), a permanent without a counter and a player without
+  poison (`illegalTarget`), and emits `Proliferated` (the marker the canaries
+  count), ONE `CountersChanged` carrying +1 of every kind above zero on every
+  chosen permanent (a charge counter beside a -1/-1 grows both), and a
+  `PoisonChanged` per chosen player, then the narration. An empty answer is legal
+  and lands nothing — choosing is the player's (CR 701.27a: "any number").
+- **FOUR ANSWERERS AND ONE CONTROL, shipped together** (D143/D144): the bot grows
+  its own permanents that carry anything but a bare -1/-1, an opponent's that
+  carry -1/-1 and no +1/+1, and every opponent with poison; the harness and the net
+  driver answer nothing; the fuzz driver a random subset. The client gains a
+  `proliferate` table mode — the veil over BOTH battlefields lit where a counter
+  sits and over every poisoned player, a click TOGGLES a pick (the chosen stay
+  legal), Escape backs one out, and the prompt bar's button commits the set. Grim
+  Affliction is a canary staple feeding `proliferateAsks` / `proliferations`,
+  floored at gate size - **32 asks raised / 12 answered with something
+  over the gate's 500 seeds**.
+
+### The wave — 25 in the pool, 21 rows, the four refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam: every card whose single
+leftover line is a proliferate under a head the library holds, or a counter line
+beside a proliferate the vocabulary now runs — **25** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **21
+rows**: the payload under enters (Bloom Hulk, Huatli's Raptor, Kiora's Dambreaker;
+another nontoken creature or artifact entering — Metastatic Evangel, Surge
+Conductor), dies (Blightbelly Rat, Core Prowler, Martyr for the Cause), combat
+damage to a player (Bloated Contaminator, Thrummingbird), a cast (Inexorable Tide;
+a noncreature spell — Flux Channeler), becoming tapped (Kilo, Apogee Mind) and the
+end step (Atraxa, Praetors' Voice); as an activated ability priced in mana (Viral
+Drake), mana and a tap (Karn's Bastion), a tap and a sacrifice (Throne of Geth,
+Plaguemaw Beast) and mana and the creature itself (Copper Longlegs); and the two
+whose OTHER line was the leftover — Contagion Clasp's and Merfolk Skydiver's
+entering counter, their proliferate abilities running from the vocabulary. **Four
+refused by reason** and ledgered, since the selector offers them again: Grateful
+Apparition and Guildpact Informant (combat damage to a player OR a planeswalker —
+the two-noun connect head the library does not hold), Gulping Scraptrap (`enters or
+dies` — a compound head outside the closed reader), Norn's Choirmaster (a commander
+head). **Thirteen spells landed with NO script at all**: Grim Affliction,
+Vivisurgeon's Insight, Tezzeret's Gambit, Volt Charge, Whisper of the Dross, Spread
+the Sickness, Courage in Crisis, Atomize, Fuel for the Cause, Unnatural
+Restoration, Thirsting Roots, Wanderer's Strike, Drown in Ichor.
+
+The generator learned the proliferate arm: the armed board deals p1 a Grizzly
+Bears and puts ONE +1/+1 counter on it, so the payload has something to grow; the
+fire walks to the prompt (an asking kind — D390's walk predicate widened by one
+kind); p1 answers with the Bears and the assert reads two counters on it.
+
+### The traps this decision paid for
+
+- ⚠️ **SBA 8 ANNIHILATES +1/+1 WITH -1/-1** (CR 704.5q). The seam's test put a
+  +1/+1 counter beside Grim Affliction's -1/-1 to prove that every kind grows and
+  read `{}` — the pair had annihilated at the next check. A second KIND on one
+  creature is a charge counter.
+- ⚠️ **AN EFFECT KIND MUST NEVER SHARE A NAME WITH A PROMPT KIND** (D357). The
+  producer guard scans `src/data` for `kind: '…'` constructions; an effect named
+  like the prompt counts the parser as a producer. `proliferate` the effect,
+  `proliferateChoice` the prompt.
+- ⚠️ **`Proliferate.` FIRST IS THE CONTINUATION SEAM AGAIN.** Steady Progress and
+  Contentious Plan read `Proliferate. Draw a card.` — an ask followed by a second
+  effect in one resolution — and D195's ask-last rule refuses them by design; they
+  are the proliferate-side witnesses of the seam Liliana's Spoils named (D389).
+- ⚠️ **A DERIVED CLOSE-OUT SCRIPT CARRIES THE PREVIOUS DECISION'S ANCHORS.** The
+  derived repin quoted D389's pins as its FROM side. The FROM side must quote the
+  pins as the PREVIOUS decision LEFT them, read off the live suites — and two pins
+  D390 never moved (the `counter` primitive, the bot pool's lands) moved this time.
+- ⚠️ **NOTHING IN THE CHAIN WRITES A HELPERS FILE.** D390's `helpers-d390.json`
+  was hand-written, and the derived port refused on a file no step produces. The
+  sweep over the suites' OWN names lists proves what the WANTED list is missing
+  (0 here); the step is gone.
+- ⚠️⚠️ **THE VEIL'S `active` LIST IS A SECOND MODE REGISTRY.** A table mode that
+  computes its targets in `GameLayer`, toggles in `aimCommit` and speaks in
+  `PromptBar` but is not in `AimVeil`'s `active` prop renders NO veil: the prompt
+  bar showed the proliferate copy and the board stayed dark — the click-check
+  caught it before a player did (D144's rule paying for itself). And the block's
+  `finally` answers the ask UNCONDITIONALLY now: `view().awaiting` lags the engine
+  (D389), so a cleanup gated on it left the prompt open and the arming effect
+  re-armed the mode after every Escape, three sections deep. The pre-cast counter
+  read lagged the same way ("counter before 0" with the Bears plainly lit): it
+  settles first now and is REPORTED, not asserted — the growth to two after the
+  answer is the proof (D146).
+- ⚠️ **A BACKTICK IN A COMMENT INSIDE THE `js()` TEMPLATE LITERAL ENDS THE
+  LITERAL** — the battery file failed `node --check` on a comment that quoted a
+  call the way this document does.
+- ⚠️ **A TOGGLE'S TYPE IS THE CHOICE'S SHAPE, NOT `typeof` A LOCAL** — `tsc`
+  refused the aim commit's toggle branch until the comparator took a structural
+  `{ kind, id }`.
+
+**Measured:** `blocked` 23,345 → 23,311 · the `counter` primitive 1,345 → 1,306
+(the proliferate lines left it) · ladder `[1311, 1400, 2837, 4530, 5871]` · residue
+`other` 2,991 unchanged · tier3 `silentAfter` 8,648 → **8,682**, `silentBefore`
+24,523 → 24,598, `abilityText` 14,678 → 14,662, `payable` 4,133 → 4,126 ·
+`oracleParse` `effect:auto` 5,416 → **5,453**, `effect:none` 13,126 → 13,088,
+`effect:partial` 5,789 → 5,790 · botPool auto 1,190 → **1,203**, assisted 2,011 →
+2,009, autoAnyFace 1,199 → 1,212, artifact 453 → 455, creature 4,938 → 4,955,
+enchantment 479 → 480 (both sites), instant 1,090 → 1,095, land 567 → 568, sorcery
+820 → 828 · the bot's reach 8,281 → **8,315** from 251 commanders · select pool
+0 → 25 → 4 → 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5621 files, 27550
+passed / 11 skipped · 500-seed gate, 6 shards, 989.5 s wall · build clean · probe
+124/124 · battery 140/140 with the two proliferate checks.** Engine:
+`proliferate.test.ts` (7 — the parse pins and refusals; the ask over a -1/-1
+Dreadmaw with its keys pinned; a charge counter beside the -1/-1 growing both in
+ONE `CountersChanged`; four refusals then an empty answer accepted; poison 2 → 3; a
+counterless board raising no prompt); the 60-seed fuzz leg green at 567 s.
+
+⚠️ **Reportables** (D391): proliferate's own tail — the two-noun connect head
+(`combat damage to a player or planeswalker`, two cards), the compound `enters or
+dies` head, the commander head, `You may pay {2}. If you do, proliferate.`; **the
+prompt CONTINUATION seam proper** — an ask followed by a second effect in one
+resolution (Liliana's Spoils; Steady Progress and Contentious Plan now), of which
+the queue (D390) is one shape; then the brief's engine seams — threaten (49), the
+durations (33), spend-restricted mana (56), exchange control (24), the keyword
+entry replacements (22 over three keywords), copy (~200); the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D390's list
+unchanged.

@@ -224,6 +224,13 @@ export type Intent =
       readonly toTop: readonly InstanceId[];
       readonly toBottom: readonly InstanceId[];
     }
+  /** D391 - proliferate: the permanents and players chosen (any number; none is a legal answer). */
+  | {
+      readonly t: 'AnswerProliferate';
+      readonly player: PlayerId;
+      readonly permanents: readonly InstanceId[];
+      readonly players: readonly PlayerId[];
+    }
 
   // Tier 3 — manual tools. NOT enforced; every one is marked in the log.
   | { readonly t: 'ManualMoveCard'; readonly player: PlayerId; readonly card: InstanceId; readonly to: { readonly kind: 'library' | 'hand' | 'battlefield' | 'graveyard' | 'exile' | 'command'; readonly player: PlayerId }; readonly placement?: 'top' | 'bottom'; readonly faceDown?: boolean }

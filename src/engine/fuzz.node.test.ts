@@ -26,6 +26,7 @@ import {
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { predicateAdmits } from '../data/replacementParse';
+import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
 import type { Intent } from './types/intents';
@@ -133,6 +134,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // every opponent, whose resolutions ask the players in APNAP order and move every pick at once.
   { names: ['Innocent Blood', 'Unnerve'], copiesPerSeat: 1,
     counterKeys: ['queueAsks', 'queueBatches'], rotHistory: 'D390' },
+  { names: ['Grim Affliction'], copiesPerSeat: 1,
+    counterKeys: ['proliferateAsks', 'proliferations'], rotHistory: 'D391' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -558,6 +561,20 @@ function answerFor(state: GameState, p: Picker): Intent | null {
      * than taking the first `count`, so the discard is not always the same
      * corner of the hand and a replay that depended on the order would diverge.
      */
+    /**
+     * D391 - proliferate: a RANDOM subset of what carries a counter, so both "something" and
+     * "nothing" are reached and the counters that grow are not always the same corner of the
+     * board. The harness chooses none; a gate that always did would never add a counter here.
+     */
+    case 'proliferateChoice': {
+      const c = proliferateCandidates(state);
+      return {
+        t: 'AnswerProliferate',
+        player: awaiting.player,
+        permanents: c.permanents.filter(() => p.below(2) === 0),
+        players: c.players.filter(() => p.below(2) === 0),
+      };
+    }
     case 'searchLibrary': {
       // ⚠️ FINDS SOMETHING WHENEVER IT CAN. Failing to find is legal and the harness does it, but
       // a gate that always declined would never move a card, never tap one and never shuffle -
@@ -762,6 +779,9 @@ interface Run {
   /** D390 - player queues raised (a resolution that had to ask several players) and completed. */
   readonly queueAsks: number;
   readonly queueBatches: number;
+  /** D391 - proliferate prompts raised, and answers that chose at least one thing. */
+  readonly proliferateAsks: number;
+  readonly proliferations: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -1012,6 +1032,8 @@ function runOne(seed: number): Run {
     // answer; the two together are what the staple's resolution exists to drive.
     queueAsks: game.log.filter((e) => e.body.t === 'AsksQueued').length,
     queueBatches: game.log.filter((e) => e.body.t === 'AsksResolved').length,
+    proliferateAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'proliferateChoice').length,
+    proliferations: game.log.filter((e) => e.body.t === 'Proliferated' && e.body.permanents.length + e.body.players.length > 0).length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1155,6 +1177,8 @@ const TOTAL_KEYS = [
   'scryChoices',
   'queueAsks',
   'queueBatches',
+  'proliferateAsks',
+  'proliferations',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1390,6 +1414,13 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.queueAsks).toBeGreaterThan(0);
         expect(totals.queueBatches).toBeGreaterThan(0);
       }
+      // D391 - Grim Affliction is a staple in every pool: a -1/-1 counter on a target creature,
+      // then the ask, and the driver answers at random - so at gate size the prompt must have been
+      // raised and something must have grown at least once.
+      if (seeds >= 500) {
+        expect(totals.proliferateAsks).toBeGreaterThan(0);
+        expect(totals.proliferations).toBeGreaterThan(0);
+      }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
       if (seeds >= 500) expect(totals.snowManaMade).toBeGreaterThan(0);
@@ -1442,6 +1473,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined · ` +
           `${totals.queueAsks} player queues raised / ${totals.queueBatches} completed · ` +
+          `${totals.proliferateAsks} proliferate asks / ${totals.proliferations} answered with something · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

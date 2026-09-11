@@ -14354,6 +14354,80 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
       D389's list unchanged.
 
+- [x] **M6.4hx — PROLIFERATE: a prompt over every permanent and player that
+      carries a counter, raised only when something does, and answered on the
+      table (2026-09-11):** **8,381 of 31,692 Commander-legal cards now execute
+      completely, up from 8,347 (+34: THIRTEEN with no script at all, then 21
+      generated rows in one wave).** `SHIPPED_SCRIPTS` 5,445 → **5,466**; ledger
+      1,211 → **1,215** (four ADDED by reason). Fixtures 5,988 → **6,010**.
+      `scriptableToday` 1,307 → 1,332 by the SEAM and → **1,311** by the WAVE;
+      the select pool 0 → 25 → 4 → 0; the ladder `[1311, 1400, 2837, 4530,
+      5871]`. Bot reach 8,281 → **8,315** from 251 commanders. Decisions in
+      **D391**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** a fresh true-leftover after D390 priced
+      the brief's engine seams by the cards that would LAND — proliferate 48
+      one-piece cards over 22 shapes, the densest candidate that is ONE seam:
+      one prompt, one reader, one event.
+      ⚠️ **THE SEAM:** CR 701.27a is one sentence — `proliferate` is an
+      `EffectKind` parsed from the bare `Proliferate.` and from `…, then
+      proliferate.` (which `sentences()` splits off first); an ASKING kind, so
+      last (D195 — `Proliferate. Draw a card.` is refused by name). The ask is
+      raised on a SCRATCH state (the resolution's events so far folded on by the
+      reducer's `apply`) and only when `proliferateCandidates` finds something —
+      a proliferate with nothing to grow raises no prompt (D137's shape). The
+      prompt `proliferateChoice` ships NO ids (`kind`, `label`, `player` —
+      pinned) and is named apart from the effect kind because the producer guard
+      scans `kind: '…'` constructions (D357); `proliferateCandidates(state)` is
+      the ONE reader (executor, handler, fuzz); the answer emits `Proliferated`,
+      ONE `CountersChanged` (+1 of every kind above zero per chosen permanent) and
+      a `PoisonChanged` per chosen player; the wrong player, a duplicate, a
+      counterless permanent and an unpoisoned player are refused by name. Four
+      answerers and the client's `proliferate` table mode (a TOGGLE veil over
+      both battlefields and the poisoned players; the bar's button commits)
+      shipped together (D143/D144); Grim Affliction is a canary staple feeding
+      `proliferateAsks` / `proliferations` at gate size (32 raised / 12
+      answered with something over the gate's 500 seeds).
+      ⚠️ **THE WAVE:** 25 in the pool → 21 rows (the payload under enters, dies,
+      combat-damage, cast, tapped and end-step heads; as an activated ability
+      priced in mana, a tap, a sacrifice; two rows over a counter line beside a
+      proliferate the vocabulary runs), four ledgered by reason (the two-noun
+      connect head `a player or planeswalker`, a compound `enters or dies` head,
+      a commander head); thirteen spells with NO script. The generator's
+      proliferate arm deals p1 a Bears with ONE +1/+1 counter, walks to the
+      prompt, answers with the Bears and reads two counters.
+      ⚠️ **Traps:** SBA 8 annihilates +1/+1 with -1/-1 (CR 704.5q — a second KIND
+      on one creature is a charge counter); an EFFECT kind must never share a
+      PROMPT kind's name (D357); `Proliferate.` first is the continuation seam
+      again (Steady Progress, Contentious Plan); a derived close-out script
+      carries the PREVIOUS decision's anchors — the repin's FROM side quotes the
+      pins as the previous decision LEFT them, and two pins D390 never moved
+      (`counter`, `land`) moved; nothing in the chain writes a helpers file (the
+      sweep over the suites' own names lists is the proof); a toggle's comparator
+      takes the choice's structural shape, not `typeof` a local; ⚠️⚠️ **THE
+      VEIL'S `active` LIST IS A SECOND MODE REGISTRY** — a table mode outside
+      `AimVeil`'s `active` prop renders NO veil under an armed prompt (the
+      click-check caught it, D144), and a battery cleanup gated on
+      `view().awaiting` leaves the ask open because the view LAGS (answer
+      unconditionally); a backtick in a comment INSIDE the `js()` template
+      literal ends the literal.
+      Fixtures 6,010 (5,855 by name + 148 tokens) · botPool artifact 455 /
+      creature 4,955 / enchantment 480 / instant 1,095 / land 568 / sorcery 828 —
+      auto 1,203 / assisted 2,009 · `oracleParse` `effect:auto` 5,453 · tier3
+      silentAfter 8,682 · the `counter` primitive 1,306 · residue other 2,991 ·
+      batch.json 25 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5621 files,
+      27550 passed / 11 skipped · 500-seed gate, 6 shards, 989.5 s wall · build
+      clean · probe 124/124 · battery 140/140 (the two proliferate checks).**
+      ⚠️ **Reportables** (D391): proliferate's own tail (the two-noun connect
+      head, the compound `enters or dies` head, the commander head, the pay-then-
+      proliferate body); **the prompt CONTINUATION seam proper** (an ask followed
+      by a second effect in one resolution — Liliana's Spoils, Steady Progress,
+      Contentious Plan; the queue is one shape of it); then the brief's engine
+      seams — threaten (49), the durations (33), spend-restricted mana (56),
+      exchange control (24), the keyword entry replacements (22 over three
+      keywords), copy (~200); the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D390's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

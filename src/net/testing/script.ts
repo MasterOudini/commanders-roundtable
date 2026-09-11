@@ -161,6 +161,11 @@ export function simplestIntent(
           ? { t: 'ChooseTargets', player: awaiting.player, targets }
           : { t: 'CancelPendingCast', player: awaiting.player };
       }
+      /** D391 - proliferate nothing: always legal. */
+      case 'proliferateChoice':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerProliferate', player: awaiting.player, permanents: [], players: [] }
+          : null;
       /** D195 — keep everything in revealed order: the no-op scry, always legal. */
       case 'scryChoice':
         return awaiting.player === snapshot.you

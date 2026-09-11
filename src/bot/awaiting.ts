@@ -450,6 +450,33 @@ export function answerAwaiting(
      * state, and it executes no judgement it does not have. `view.peek` is
      * top-first, which is also `toTop`'s first-entry-first.
      */
+    /**
+     * D391 - proliferate, a POLICY said to be one: my own permanents whose counters are not only
+     * -1/-1, every opponent's permanent carrying -1/-1 and no +1/+1, and every opponent with
+     * poison; never my own -1/-1 alone, never an opponent's +1/+1. Read off the VIEW - counters
+     * and poison are public, and `src/bot/` may not import an engine module taking a GameState.
+     */
+    case 'proliferateChoice': {
+      if (awaiting.player !== me) return wait('not my proliferate');
+      const permanents: InstanceId[] = [];
+      for (const seat of Object.keys(view.seats) as PlayerId[]) {
+        for (const id of view.zones[`bf:${seat}`] ?? []) {
+          const c = view.cards[id];
+          if (!c) continue;
+          const kinds = Object.entries(c.counters).filter(([, v]) => v > 0).map(([k]) => k);
+          if (kinds.length === 0) continue;
+          const minus = kinds.includes('-1/-1');
+          const other = kinds.some((k) => k !== '-1/-1');
+          const take = seat === me ? other : minus && !kinds.includes('+1/+1');
+          if (take) permanents.push(id);
+        }
+      }
+      const players = (Object.keys(view.seats) as PlayerId[]).filter((p) => p !== me && (view.seats[p]?.poison ?? 0) > 0);
+      return act(
+        { t: 'AnswerProliferate', player: me, permanents, players },
+        `proliferate ${permanents.length} permanent${permanents.length === 1 ? '' : 's'} and ${players.length} player${players.length === 1 ? '' : 's'}`,
+      );
+    }
     case 'scryChoice': {
       if (awaiting.player !== me) return wait('not my scry');
       const shown = view.peek ?? [];

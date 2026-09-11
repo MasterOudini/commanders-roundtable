@@ -4832,6 +4832,132 @@ async function sectionPrompts(js, send) {
   }
 
   /**
+   * PROLIFERATE (D391), driven by real clicks: `Whisper of the Dross` shrinks the Bears until end
+   * of turn and then asks the caster which permanents and players get another counter of each
+   * kind they already carry. The viewer answers ON THE TABLE - the veil lights only what carries
+   * a counter (the Bears with its +1/+1, never the Swamp beside it), a click TOGGLES the pick,
+   * and the prompt bar's button commits the set. D144's rule, paid up front, with D390's lessons
+   * applied before a check was written: the viewer is SET, priority is WALKED to p1 before
+   * anything is funded, the block waits for a HIT rather than the veil, every post-click read
+   * waits on `table.settle` and reads the view only after it, and the finally answers the ask
+   * with nothing if it is still open and drops the mode.
+   */
+  const prolif = await js(`(async () => {
+    const out = {};
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const deck = {
+      id: 'battery-prolif', name: 'battery prolif',
+      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+      commanders: [{ quantity: 1, name: 'Talrand, Sky Summoner', section: 'commander', lineNo: 1, raw: '1x Talrand, Sky Summoner' }],
+      main: [mk('Whisper of the Dross', 20), mk('Grizzly Bears', 20), mk('Swamp', 59)], sideboard: [], houseRuled: true, sourceText: '',
+    };
+    const wait = (ms) => new Promise((x) => setTimeout(x, ms));
+    const nameOf = (v, k) => (v.cards[k] && v.cards[k].card && v.cards[k].card.name) || '';
+    const plusOn = (v, k) => (((v.cards[k] || {}).counters || {})['+1/+1']) || 0;
+    let savedId = null;
+    let e = null;
+    try {
+      const saved = await window.crt.decks.save(deck);
+      savedId = saved.id;
+      const solo = await import('/src/game/solo.ts');
+      const r = await solo.startSolo({ seats: 2, deckIds: [savedId, null], seed: 'battery-prolif' });
+      if (!r.ok) { out.error = r.message; return out; }
+      e = window.__crt.engine;
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await wait(700);
+      e.setViewer('p1');
+      await wait(300);
+      for (let i = 0; i < 80; i++) {
+        const v = e.view();
+        if (v.priority === 'p1' && !v.awaiting) break;
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(150);
+      }
+      const inHand = (n) => (e.view().zones['hand:p1'] || []).filter((k) => nameOf(e.view(), k) === n);
+      for (let attempt = 0; attempt < 8 && (inHand('Grizzly Bears').length < 1 || inHand('Whisper of the Dross').length < 1 || inHand('Swamp').length < 1); attempt++) {
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 4 });
+        await wait(250);
+      }
+      const bears = inHand('Grizzly Bears')[0];
+      const whisper = inHand('Whisper of the Dross')[0];
+      const swamp = inHand('Swamp')[0];
+      if (!bears || !whisper || !swamp) { out.error = 'the hand never held a Bears, a Whisper of the Dross and a Swamp'; return out; }
+      e.submit({ t: 'ManualMoveCard', player: 'p1', card: bears, to: { kind: 'battlefield', player: 'p1' } });
+      e.submit({ t: 'ManualMoveCard', player: 'p1', card: swamp, to: { kind: 'battlefield', player: 'p1' } });
+      await wait(400);
+      // The Bears carries ONE +1/+1 counter: the only thing on the table a proliferate can grow.
+      e.submit({ t: 'ManualSetCounter', player: 'p1', card: bears, kind: '+1/+1', delta: 1 });
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 });
+      await wait(300);
+      // The view LAGS the engine (D146/D390): settle before the read, and the number is reported,
+      // not asserted - the growth to TWO after the answer is the proof.
+      out.settled0 = await window.__crt.table.settle(3000);
+      out.counterBefore = plusOn(e.view(), bears);
+      out.cast = e.submit({ t: 'CastSpell', player: 'p1', card: whisper, targets: [{ kind: 'card', id: bears }] });
+      for (let i = 0; i < 40 && !document.querySelector('[data-aim-veil]'); i++) {
+        const v = e.view();
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(250);
+      }
+      out.veilSeen = !!document.querySelector('[data-aim-veil]');
+      // The hits are an EFFECT of the veil rendering, one commit later (D390): wait for one.
+      for (let i = 0; i < 30 && document.querySelectorAll('[data-aim-legal="1"]').length === 0; i++) await wait(150);
+      const legal = [].slice.call(document.querySelectorAll('[data-aim-legal="1"]')).map((el) => el.getAttribute('data-aim-card')).filter(Boolean);
+      const v1 = e.view();
+      out.legalNames = legal.map((k) => nameOf(v1, k));
+      const dark = [].slice.call(document.querySelectorAll('[data-aim-key][data-aim-legal="0"]')).map((el) => el.getAttribute('data-aim-card')).filter(Boolean);
+      out.darkNames = dark.map((k) => nameOf(v1, k));
+      out.swampOffered = out.darkNames.includes('Swamp');
+      out.swampLegal = legal.some((k) => nameOf(v1, k) === 'Swamp');
+      out.bar = (document.querySelector('[data-prompt-bar]') || document.body).textContent || '';
+      if (legal.length === 0) { out.error = 'the veil never offered a pick (veil ' + out.veilSeen + ', cast ' + JSON.stringify(out.cast) + ', bar ' + JSON.stringify(String(out.bar).slice(0, 100)) + ')'; return out; }
+      // One click TOGGLES the Bears in; the bar's button commits the set.
+      document.querySelector('[data-aim-card="' + bears + '"]').click();
+      await wait(300);
+      const button = document.querySelector('[data-action="proliferate-submit"]');
+      out.buttonSeen = !!button;
+      if (!button) { out.error = 'the prompt bar never offered the proliferate button (bar ' + JSON.stringify(String(out.bar).slice(0, 100)) + ')'; return out; }
+      button.click();
+      await wait(300);
+      out.veilAfter = !!document.querySelector('[data-aim-veil]');
+      out.settled = await window.__crt.table.settle(6000);
+      await wait(300);
+      const v2 = e.view();
+      out.counterAfter = plusOn(v2, bears);
+      out.bearsOnBf = (v2.zones['bf:p1'] || []).includes(bears);
+      out.awaitingAfter = v2.awaiting ? v2.awaiting.kind : null;
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+    } finally {
+      // Leave nothing behind (D144): answer the ask with nothing if it is still open (the error
+      // path), then drop the table MODE, which is UI state and outlives the game.
+      // view().awaiting LAGS the engine (D389), so the answer is unconditional: a closed ask
+      // refuses it harmlessly, an open one lands nothing and closes.
+      try {
+        if (e) out.cleanupAnswered = e.submit({ t: 'AnswerProliferate', player: 'p1', permanents: [], players: [] });
+      } catch (e3) { out.cleanupAnswer = String(e3); }
+      await wait(400);
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      await wait(200);
+      out.veilLeft = !!document.querySelector('[data-aim-veil]');
+      if (savedId) { try { await window.crt.decks.delete(savedId); } catch (e2) { out.cleanup = String(e2); } }
+    }
+    return out;
+  })()`);
+  if (prolif.error) {
+    check('a proliferate arms the counter pick on the table', false, prolif.error);
+  } else {
+    // Only what carries a counter is lit: the Bears with its +1/+1; the Swamp beside it is offered DARK.
+    check('a proliferate arms the pick with only what carries a counter',
+      prolif.legalNames.length === 1 && prolif.legalNames[0] === 'Grizzly Bears' && prolif.swampOffered === true && prolif.swampLegal === false,
+      `legal: ${prolif.legalNames.join(', ')} · swamp offered: ${prolif.swampOffered} · swamp legal: ${prolif.swampLegal} · counter before ${prolif.counterBefore}`);
+    check('one click toggles the Bears in and the bar commits it: a second counter, the veil closed and nothing left armed',
+      prolif.buttonSeen === true && prolif.veilAfter === false && prolif.counterAfter === 2 && prolif.bearsOnBf === true && prolif.veilLeft === false,
+      `button ${prolif.buttonSeen}, veil ${prolif.veilAfter}, counter ${prolif.counterBefore} -> ${prolif.counterAfter}, on bf ${prolif.bearsOnBf}, awaiting ${prolif.awaitingAfter}, veil left ${prolif.veilLeft}, settled ${JSON.stringify(prolif.settled)}`);
+  }
+
+  /**
    * PAY-TO-ENTER (D136) and the HAND DISCARD (D137), driven by real clicks.
    *
    * ⚠️ **D144's own reportable.** Both prompts were driven by hand when they

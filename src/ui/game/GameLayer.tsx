@@ -22,6 +22,7 @@ import { chosenIdsFor, onVeilPick } from './aimCommit';
 import { bandFor, zoneCards, zoneId } from '../../view/types';
 import type { CardData } from '../../data/cardTypes';
 import type { StopPolicy, TargetChoice } from '../../engine/types/state';
+import type { PlayerId } from '../../engine/types/ids';
 
 // Everything the engine adds on top of the M2 table, in one overlay.
 //
@@ -105,6 +106,24 @@ export function GameLayer({
       setTargets(pool.map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // D391 - proliferate: every permanent with a counter on it, either side, and every player with
+    // poison. Counters are public, so the client lists them itself; the host checks every pick.
+    // The chosen stay legal, because a click on one of them takes it back out (a toggle).
+    if (mode.kind === 'proliferate') {
+      const seatIds = Object.keys(view.seats) as PlayerId[];
+      const cards = seatIds.flatMap((seat) =>
+        (view.zones[zoneId('bf', seat)] ?? []).filter((id) => {
+          const c = view.cards[id];
+          return !!c && Object.values(c.counters).some((v) => v > 0);
+        }),
+      );
+      const players = seatIds.filter((p) => (view.seats[p]?.poison ?? 0) > 0);
+      setTargets([
+        ...cards.map((id) => ({ kind: 'card' as const, id })),
+        ...players.map((id) => ({ kind: 'player' as const, id })),
+      ]);
+      return;
+    }
     // Blocking is the same overlay with a different legal set, and it has TWO
     // stages: pick one of your creatures, then pick what it blocks.
     //
@@ -173,7 +192,8 @@ export function GameLayer({
           mode.kind === 'attach' ||
           mode.kind === 'sacrifice' ||
           mode.kind === 'costPick' ||
-          mode.kind === 'boardPick'
+          mode.kind === 'boardPick' ||
+          mode.kind === 'proliferate'
         }
         legalTargets={targets}
         chosenIds={chosenIdsFor(mode)}

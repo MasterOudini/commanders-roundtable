@@ -501,6 +501,8 @@ export type EffectKind =
    * one entry per creature, all ending at cleanup.
    */
   | 'massPump'
+  /** D391 - CR 701.27a: one more counter of each kind on the permanents and players chosen. */
+  | 'proliferate'
   | 'tap'
   | 'untap'
   /**

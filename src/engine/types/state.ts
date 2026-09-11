@@ -895,6 +895,12 @@ export type Awaiting =
       readonly thenDraw: number;
       readonly label: string;
     }
+  /**
+   * D391 - proliferate (CR 701.27a): choose any number of permanents and players that have a
+   * counter. It ships NO ids - counters and poison are public, so the client lists what carries
+   * one from its own view and the host checks every pick against the board as it stands.
+   */
+  | { readonly kind: 'proliferateChoice'; readonly player: PlayerId; readonly label: string }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
 export interface PriorityState {

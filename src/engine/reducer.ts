@@ -841,6 +841,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'AsksResolved':
       return { ...state, pendingAsks: null };
 
+    // D391 - a marker; the CountersChanged and PoisonChanged that follow it do the work.
+    case 'Proliferated':
+      return state;
+
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 

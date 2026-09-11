@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BLOATED_CONTAMINATOR_SCRIPT } from './cards/bloatedContaminator';
+import { ATRAXA_PRAETORS_VOICE_SCRIPT } from './cards/atraxaPraetorsVoice';
+import { BLIGHTBELLY_RAT_SCRIPT } from './cards/blightbellyRat';
+import { BLOOM_HULK_SCRIPT } from './cards/bloomHulk';
+import { COPPER_LONGLEGS_SCRIPT } from './cards/copperLonglegs';
+import { CORE_PROWLER_SCRIPT } from './cards/coreProwler';
+import { FLUX_CHANNELER_SCRIPT } from './cards/fluxChanneler';
+import { HUATLIS_RAPTOR_SCRIPT } from './cards/huatlisRaptor';
+import { INEXORABLE_TIDE_SCRIPT } from './cards/inexorableTide';
+import { KARNS_BASTION_SCRIPT } from './cards/karnsBastion';
+import { KILO_APOGEE_MIND_SCRIPT } from './cards/kiloApogeeMind';
+import { KIORAS_DAMBREAKER_SCRIPT } from './cards/kiorasDambreaker';
+import { MARTYR_FOR_THE_CAUSE_SCRIPT } from './cards/martyrForTheCause';
+import { METASTATIC_EVANGEL_SCRIPT } from './cards/metastaticEvangel';
+import { PLAGUEMAW_BEAST_SCRIPT } from './cards/plaguemawBeast';
+import { SURGE_CONDUCTOR_SCRIPT } from './cards/surgeConductor';
+import { THRONE_OF_GETH_SCRIPT } from './cards/throneOfGeth';
+import { THRUMMINGBIRD_SCRIPT } from './cards/thrummingbird';
+import { VIRAL_DRAKE_SCRIPT } from './cards/viralDrake';
+import { CONTAGION_CLASP_SCRIPT } from './cards/contagionClasp';
+import { MERFOLK_SKYDIVER_SCRIPT } from './cards/merfolkSkydiver';
 import { EARSPLITTING_RATS_SCRIPT } from './cards/earsplittingRats';
 import { LILIANAS_SPECTER_SCRIPT } from './cards/lilianasSpecter';
 import { FLESHBAG_MARAUDER_SCRIPT } from './cards/fleshbagMarauder';
@@ -5471,6 +5492,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLOATED_CONTAMINATOR_SCRIPT,
+  ATRAXA_PRAETORS_VOICE_SCRIPT,
+  BLIGHTBELLY_RAT_SCRIPT,
+  BLOOM_HULK_SCRIPT,
+  COPPER_LONGLEGS_SCRIPT,
+  CORE_PROWLER_SCRIPT,
+  FLUX_CHANNELER_SCRIPT,
+  HUATLIS_RAPTOR_SCRIPT,
+  INEXORABLE_TIDE_SCRIPT,
+  KARNS_BASTION_SCRIPT,
+  KILO_APOGEE_MIND_SCRIPT,
+  KIORAS_DAMBREAKER_SCRIPT,
+  MARTYR_FOR_THE_CAUSE_SCRIPT,
+  METASTATIC_EVANGEL_SCRIPT,
+  PLAGUEMAW_BEAST_SCRIPT,
+  SURGE_CONDUCTOR_SCRIPT,
+  THRONE_OF_GETH_SCRIPT,
+  THRUMMINGBIRD_SCRIPT,
+  VIRAL_DRAKE_SCRIPT,
+  CONTAGION_CLASP_SCRIPT,
+  MERFOLK_SKYDIVER_SCRIPT,
   EARSPLITTING_RATS_SCRIPT,
   LILIANAS_SPECTER_SCRIPT,
   FLESHBAG_MARAUDER_SCRIPT,

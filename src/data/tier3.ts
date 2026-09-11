@@ -110,7 +110,7 @@ const NAMED: Readonly<Record<string, string>> = {
   madness: 'cast it from the graveyard with the manual tools',
   cascade: 'reveal and cast with the manual tools',
   storm: 'copy the spell yourself',
-  proliferate: 'add the counters yourself',
+  // D391 - proliferate is the engine's now (CR 701.27a): no note.
   changeling: 'it is not treated as every creature type',
   phasing: 'phase it in and out with the manual tools',
   banding: 'agree the damage assignment at the table',

@@ -147,6 +147,13 @@ export function useEngineTable() {
     setMode({ kind: 'boardPick', name: awaiting.label, count: awaiting.count, chosen: [] });
   }, [awaiting, mode.kind, setMode, viewer]);
 
+  // D391 - a proliferate ask arms the same way; the picks toggle and the bar's button commits.
+  useEffect(() => {
+    if (awaiting?.kind !== 'proliferateChoice' || awaiting.player !== viewer) return;
+    if (mode.kind !== 'idle') return;
+    setMode({ kind: 'proliferate', name: awaiting.label, chosen: [] });
+  }, [awaiting, mode.kind, setMode, viewer]);
+
   /**
    * Enter targeting for a spell or ability, if it wants any.
    *

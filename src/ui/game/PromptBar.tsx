@@ -183,6 +183,9 @@ function describe(
           return `${nameOf(seats, awaiting.player)} is ${awaiting.toGraveyard ? 'surveilling' : 'scrying'} ${awaiting.count}.`;
         }
         return `${awaiting.label}: click cards to send to the ${awaiting.toGraveyard ? 'graveyard' : 'bottom'}; the rest stay on top in the order shown.`;
+      case 'proliferateChoice':
+        if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is proliferating.`;
+        return `${awaiting.label}: click the permanents with counters and the players with poison to proliferate, then confirm.`;
       case 'rewindVote':
         return awaiting.proposer === viewer
           ? `You proposed rewinding to event ${awaiting.toEventCount}.`
@@ -347,7 +350,9 @@ export function PromptBar() {
                     ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
                     : mode.kind === 'boardPick'
                       ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to sacrifice`
-                      : describe(awaiting, priority, seats, viewer)}
+                      : mode.kind === 'proliferate'
+                        ? `${mode.name}: ${mode.chosen.length} chosen to proliferate — click to add or remove, then confirm`
+                        : describe(awaiting, priority, seats, viewer)}
         </p>
         {/* ⚠️ THE HONESTY LINE, and it is not decoration. `tier3.ts` established
             that a category the app does not enforce has to be SAID on the card;
@@ -526,6 +531,24 @@ export function PromptBar() {
               </button>
             )}
           </>
+        )}
+        {/* D391 - proliferate commits by a BUTTON: choosing nothing is a legal answer (D195's rule
+            for the scry), so no click can be the last one. */}
+        {mode.kind === 'proliferate' && awaiting?.kind === 'proliferateChoice' && mine('proliferateChoice') && (
+          <button
+            type="button"
+            className={BTN}
+            data-action="proliferate-submit"
+            onClick={() => {
+              const permanents = mode.chosen.flatMap((c) => (c.kind === 'card' ? [c.id] : []));
+              const players = mode.chosen.flatMap((c) => (c.kind === 'player' ? [c.id] : []));
+              useAim.getState().reset();
+              setMode({ kind: 'idle' });
+              send({ t: 'AnswerProliferate', player: viewer, permanents, players });
+            }}
+          >
+            {mode.chosen.length === 0 ? 'Proliferate nothing' : `Proliferate ${mode.chosen.length}`}
+          </button>
         )}
         {awaiting?.kind === 'chooseColor' && mine('chooseColor') && (
           <>

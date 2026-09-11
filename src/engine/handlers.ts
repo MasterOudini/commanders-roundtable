@@ -38,6 +38,7 @@ import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
 import { askBatch, askCandidates, drawEvents, effectResult } from './effects';
+import { proliferateCandidates } from './proliferate';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
@@ -134,6 +135,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerOrderCards(state, intent);
     case 'AnswerScry':
       return answerScry(state, intent);
+    case 'AnswerProliferate':
+      return answerProliferate(state, intent);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -3193,6 +3196,53 @@ function answerScry(
     events.push(...drawEvents(scratch, intent.player, awaiting.thenDraw));
   }
 
+  return accept(events);
+}
+
+/**
+ * D391 - proliferate (CR 701.27a). The answer names any number of permanents and players with a
+ * counter; the host checks each against the board AS IT STANDS (nothing can happen between the
+ * ask and the answer) - a permanent with no counter, a player with no poison, another player's
+ * answer and a duplicate are refused by name. ONE `CountersChanged` batch carries one more
+ * counter of each kind on every chosen permanent; each chosen player takes a poison counter, the
+ * only player counter this engine tracks. The `Proliferated` marker goes first, so the fuzz
+ * canary can count what was chosen - the replay hash cannot tell these counters from any other.
+ */
+function answerProliferate(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerProliferate' }>,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'proliferateChoice' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not proliferating.');
+  }
+  if (new Set(intent.permanents).size !== intent.permanents.length || new Set(intent.players).size !== intent.players.length) {
+    return reject('noSuchCard', 'You named the same thing twice.');
+  }
+  const cands = proliferateCandidates(state);
+  for (const card of intent.permanents) {
+    if (!cands.permanents.includes(card)) return reject('illegalTarget', 'That permanent has no counter on it.');
+  }
+  for (const p of intent.players) {
+    if (!cands.players.includes(p)) return reject('illegalTarget', 'That player has no counters.');
+  }
+  const changes = intent.permanents.flatMap((card) =>
+    Object.entries(state.cards[card]?.counters ?? {})
+      .filter(([, v]) => v > 0)
+      .map(([kind]) => ({ card, kind, delta: 1 })),
+  );
+  const chosen = intent.permanents.length + intent.players.length;
+  const summary =
+    chosen === 0
+      ? ' nothing'
+      : `: ${intent.permanents.length} permanent${intent.permanents.length === 1 ? '' : 's'} and ${intent.players.length} player${intent.players.length === 1 ? '' : 's'}`;
+  const events: EventBody[] = [
+    { t: 'AwaitingSet', awaiting: null },
+    { t: 'Proliferated', player: intent.player, permanents: [...intent.permanents], players: [...intent.players] },
+    ...(changes.length > 0 ? [{ t: 'CountersChanged' as const, changes }] : []),
+    ...intent.players.map((p) => ({ t: 'PoisonChanged' as const, player: p, delta: 1, to: (state.players[p]?.poison ?? 0) + 1 })),
+    narrated(n`${who(state, intent.player)} ${vb(intent.player, 'proliferates', 'proliferate')}${summary}.`, intent.player),
+  ];
   return accept(events);
 }
 

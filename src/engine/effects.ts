@@ -19,6 +19,8 @@ import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type EffectSpec, type LookFilter } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { faceOf } from './oracle';
+import { apply } from './reducer';
+import { proliferateCandidates } from './proliferate';
 import type { GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -849,6 +851,26 @@ export function effectResult(
             label: obj.label,
           },
         });
+        break;
+      }
+
+      /**
+       * D391 - proliferate (CR 701.27a). The prompt ships no ids (counters are public; the client
+       * lists what carries one) and the answer handler validates every pick against the board as
+       * it stands, then puts one more counter of each kind present. Raised only when SOMETHING
+       * carries a counter once the sentences before it have landed - "Put a +1/+1 counter on
+       * target creature, then proliferate" must offer that creature - so the candidates are read
+       * off a scratch state the events so far are folded onto, the way the scry's rider is
+       * (D195). Nothing to choose is no prompt (D137's rule).
+       */
+      case 'proliferate': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        let scratch = state;
+        for (const body of out) {
+          scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+        }
+        if (!proliferateCandidates(scratch).any) break;
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'proliferateChoice', player: controller, label: obj.label } });
         break;
       }
 

@@ -352,6 +352,12 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   | { readonly t: 'AsksResolved' }
+  /**
+   * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
+   * exists because the replay hash cannot tell a proliferated counter from any other (D364's
+   * rule), so the fuzz canary counts these instead.
+   */
+  | { readonly t: 'Proliferated'; readonly player: PlayerId; readonly permanents: readonly InstanceId[]; readonly players: readonly PlayerId[] }
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
   | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
   /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */

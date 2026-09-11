@@ -1895,6 +1895,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
   ["Ultimo, Civilization's End", 'hand-activated ability (channel-shaped: Discard this card)'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
+  // D391 - proliferate: the four the selector offered after the wave that the row maker refused, by reason.
+  ['Grateful Apparition', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
+  ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
+  ['Gulping Scraptrap', 'a compound head (this creature enters OR dies) outside the closed reader'],
+  ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

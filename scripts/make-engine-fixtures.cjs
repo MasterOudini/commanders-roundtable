@@ -6493,6 +6493,30 @@ const WANTED = [
   // D390 - the helpers the queue suites deal (the fodder p1 gives up, the fixtures the heads need).
   // D390 - the second wave: the two-line card the selector still offered after the first.
   'Earsplitting Rats',
+  // D391 - proliferate: the seam's proof spells (Grim Affliction puts a counter then asks; Vivisurgeon's Insight asks with nothing to choose).
+  'Grim Affliction',
+  "Vivisurgeon's Insight",
+  // D391 - proliferate: the wave the ask made rowable (the fodder is the Grizzly Bears the fixtures already hold).
+  "Atraxa, Praetors' Voice",
+  'Blightbelly Rat',
+  'Bloom Hulk',
+  'Copper Longlegs',
+  'Core Prowler',
+  'Flux Channeler',
+  "Huatli's Raptor",
+  'Inexorable Tide',
+  "Karn's Bastion",
+  'Kilo, Apogee Mind',
+  "Kiora's Dambreaker",
+  'Martyr for the Cause',
+  'Metastatic Evangel',
+  'Plaguemaw Beast',
+  'Surge Conductor',
+  'Throne of Geth',
+  'Thrummingbird',
+  'Viral Drake',
+  'Contagion Clasp',
+  'Merfolk Skydiver',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

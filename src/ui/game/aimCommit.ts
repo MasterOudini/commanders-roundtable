@@ -51,6 +51,7 @@ export function pickTarget(choice: TargetChoice): void {
 /** Everything already picked, so the veil can ring it. Ids only — kinds do not collide here. */
 export function chosenIdsFor(mode: TableMode): ReadonlySet<string> {
   if (mode.kind === 'targeting') return new Set(mode.chosen.map((c) => c.id));
+  if (mode.kind === 'proliferate') return new Set(mode.chosen.map((c) => c.id));
   if (mode.kind === 'blockers') {
     const ids = mode.blocks.flatMap((b) => [b.blocker, b.attacker]);
     if (mode.pendingBlocker) ids.push(mode.pendingBlocker);
@@ -142,6 +143,20 @@ export function onVeilPick(choice: TargetChoice): void {
     useAim.getState().reset();
     table.setMode({ kind: 'idle' });
     session.submit({ t: 'AnswerChooseFromZone', player: table.viewer, cards: chosen });
+    return;
+  }
+
+  // D391 - proliferate: a TOGGLE over permanents and players; the prompt bar's button commits,
+  // because choosing none is a legal answer and no click can be the last one.
+  if (mode.kind === 'proliferate') {
+    if (choice.kind !== 'card' && choice.kind !== 'player') return;
+    // Structural, not `typeof choice`: the guard above narrowed the pick to card|player, and the
+    // chosen list still holds the whole TargetChoice union.
+    const same = (c: { readonly kind: string; readonly id: string }): boolean => c.kind === choice.kind && c.id === choice.id;
+    table.setMode({
+      ...mode,
+      chosen: mode.chosen.some(same) ? mode.chosen.filter((c) => !same(c)) : [...mode.chosen, choice],
+    });
     return;
   }
 

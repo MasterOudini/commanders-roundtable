@@ -553,6 +553,9 @@ export function simplestAnswer(
      * revealed run reads top-first when reversed — library top is the END of
      * the array.
      */
+    /** D391 - proliferate nothing: legal on any board, and it runs no card text a test did not ask for. */
+    case 'proliferateChoice':
+      return { t: 'AnswerProliferate', player: awaiting.player, permanents: [], players: [] };
     case 'scryChoice': {
       const shown = (state.zones.library[awaiting.player] ?? []).filter((id) =>
         state.cards[id]?.revealedTo.includes(awaiting.player),

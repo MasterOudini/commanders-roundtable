@@ -197309,6 +197309,783 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GRIM_AFFLICTION": {
+    "scryfallId": "33da8323-86b2-48c8-b77a-578bbdfa2bde",
+    "oracleId": "411ba1a2-30bb-4618-b874-6be0d996f07d",
+    "name": "Grim Affliction",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grim Affliction",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Put a -1/-1 counter on target creature, then proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "Even the small wounds let hope bleed out.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Erica Yang",
+        "imageId": "33da8323-86b2-48c8-b77a-578bbdfa2bde"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM2-84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIVISURGEON_S_INSIGHT": {
+    "scryfallId": "cd244359-781e-4e1d-946d-243664f40c7c",
+    "oracleId": "cf6ff089-63d7-4a98-b95d-2837c017a866",
+    "name": "Vivisurgeon's Insight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vivisurgeon's Insight",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw three cards. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"Experimental Log 290: Leaving the subject's pain receptors active appears to yield an unprecedented combination of incoherence and hyperawareness.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Burn",
+        "imageId": "cd244359-781e-4e1d-946d-243664f40c7c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATRAXA_PRAETORS_VOICE": {
+    "scryfallId": "124c4959-4298-4d6e-83e9-7c35a620d660",
+    "oracleId": "7e6b9b59-cd68-4e3c-827b-38833c92d6eb",
+    "name": "Atraxa, Praetors' Voice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Atraxa, Praetors' Voice",
+        "manaCost": "{G}{W}{U}{B}",
+        "typeLine": "Legendary Creature — Phyrexian Angel Horror",
+        "oracleText": "Flying, vigilance, deathtouch, lifelink\nAt the beginning of your end step, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "124c4959-4298-4d6e-83e9-7c35a620d660"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Deathtouch",
+      "Flying",
+      "Lifelink",
+      "Vigilance",
+      "Proliferate"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "82874",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHTBELLY_RAT": {
+    "scryfallId": "20364e49-0948-411a-b58f-b0d12fedce43",
+    "oracleId": "b0102259-7a2c-470e-b04b-4a1f615d057c",
+    "name": "Blightbelly Rat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blightbelly Rat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Phyrexian Rat",
+        "oracleText": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nWhen this creature dies, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Flavio Girón",
+        "imageId": "20364e49-0948-411a-b58f-b0d12fedce43"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Toxic",
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "289",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOM_HULK": {
+    "scryfallId": "6a14fc22-2c70-454b-b8ef-0e41f0e21ada",
+    "oracleId": "c99896a8-8b58-4946-8f2d-b4e2562f278a",
+    "name": "Bloom Hulk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloom Hulk",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Plant Elemental",
+        "oracleText": "When this creature enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"Tread upon these flower beds at your own peril.\"\n—Emmara",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Even Amundsen",
+        "imageId": "6a14fc22-2c70-454b-b8ef-0e41f0e21ada"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "WAR-154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COPPER_LONGLEGS": {
+    "scryfallId": "f8855fbf-4f1e-4c44-9653-bbbfc3f2fafd",
+    "oracleId": "066f6a3d-5e7b-40a4-b348-6dfb5d5239de",
+    "name": "Copper Longlegs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Copper Longlegs",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Phyrexian Spider",
+        "oracleText": "Reach\n{1}{G}, Sacrifice this creature: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "Its webs are not true silk, but woven from thousands of delicate mycosynth strands.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "f8855fbf-4f1e-4c44-9653-bbbfc3f2fafd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORE_PROWLER": {
+    "scryfallId": "05414ba7-0f59-4c73-931c-e599d149d3ba",
+    "oracleId": "0ad44727-41c3-471c-b038-1bf43c5f296a",
+    "name": "Core Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Core Prowler",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Phyrexian Horror",
+        "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\nWhen this creature dies, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Allsop",
+        "imageId": "05414ba7-0f59-4c73-931c-e599d149d3ba"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Proliferate",
+      "Infect"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLUX_CHANNELER": {
+    "scryfallId": "26a679fa-cefc-4222-a12c-3ab886940956",
+    "oracleId": "83874e60-291b-47a7-ba9f-69437fa7e3c7",
+    "name": "Flux Channeler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flux Channeler",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you cast a noncreature spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"Inform our allies in the Tenth and throw the circuit. It's about to get weird.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "26a679fa-cefc-4222-a12c-3ab886940956"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "WAR-52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUATLI_S_RAPTOR": {
+    "scryfallId": "ba680ad0-6134-46e0-8fcb-532b2052eca7",
+    "oracleId": "999ece12-0f1f-4b20-a600-b7f1a584bbb4",
+    "name": "Huatli's Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Huatli's Raptor",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Vigilance\nWhen this creature enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "The essence of Ixalan was never far from Huatli's heart.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "ba680ad0-6134-46e0-8fcb-532b2052eca7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Proliferate"
+    ],
+    "setCode": "war",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INEXORABLE_TIDE": {
+    "scryfallId": "06a6a6c9-6ade-4095-bbe9-995806d946ed",
+    "oracleId": "40ec0a47-badf-4074-b0a8-749bb7c17b95",
+    "name": "Inexorable Tide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inexorable Tide",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast a spell, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "06a6a6c9-6ade-4095-bbe9-995806d946ed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "ha2",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARN_S_BASTION": {
+    "scryfallId": "0d6b189b-c4db-4606-8f90-7807ed66be99",
+    "oracleId": "9fb8cd81-403a-4988-8f1c-b8eccf8abd9c",
+    "name": "Karn's Bastion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karn's Bastion",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}, {T}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"I can't protect everyone here. But those I can, I will.\"\n—Karn",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "0d6b189b-c4db-4606-8f90-7807ed66be99"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "pwar",
+    "collectorNumber": "248s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KILO_APOGEE_MIND": {
+    "scryfallId": "307a859e-eb80-4af6-b731-92e4767b5100",
+    "oracleId": "7a884166-de5a-43ba-8855-4999f39f2059",
+    "name": "Kilo, Apogee Mind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kilo, Apogee Mind",
+        "manaCost": "{U}{R}{W}",
+        "typeLine": "Legendary Artifact Creature — Robot Artificer",
+        "oracleText": "Haste\nWhenever Kilo becomes tapped, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "Both sculptor and sculpted.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "307a859e-eb80-4af6-b731-92e4767b5100"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste",
+      "Proliferate"
+    ],
+    "setCode": "eoc",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIORA_S_DAMBREAKER": {
+    "scryfallId": "02754f2f-03f3-4064-9d0f-6d2a3784af95",
+    "oracleId": "795b903b-5260-4c06-b26f-a89cecdfa1f8",
+    "name": "Kiora's Dambreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kiora's Dambreaker",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Leviathan",
+        "oracleText": "When this creature enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"When your enemy flees, send the sea to pursue them.\"\n—Kiora",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "02754f2f-03f3-4064-9d0f-6d2a3784af95"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARTYR_FOR_THE_CAUSE": {
+    "scryfallId": "acfbc8ca-a574-461e-92ea-c6010daa8230",
+    "oracleId": "b19cbb92-bdf9-4b34-bd16-db5a594f51b7",
+    "name": "Martyr for the Cause",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Martyr for the Cause",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature dies, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"If I am to die in service, there is no more worthy fight than this.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "acfbc8ca-a574-461e-92ea-c6010daa8230"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "war",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "METASTATIC_EVANGEL": {
+    "scryfallId": "774e115a-c0dc-4901-9a1f-87754304e378",
+    "oracleId": "0a27bd77-ec13-4e8d-acad-9aa9c66b3b73",
+    "name": "Metastatic Evangel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Metastatic Evangel",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Phyrexian Human Cleric",
+        "oracleText": "Whenever another nontoken creature you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"I am no sleeper agent. I am a liberator. It is you who are asleep.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "774e115a-c0dc-4901-9a1f-87754304e378"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLAGUEMAW_BEAST": {
+    "scryfallId": "52341830-8cea-421f-b901-9229004f2d45",
+    "oracleId": "22252186-15d0-468f-8cab-c74db9b71439",
+    "name": "Plaguemaw Beast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plaguemaw Beast",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "{T}, Sacrifice a creature: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "Phyrexia's spiral of consumption grows ever wider and darker.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Whit Brachna",
+        "imageId": "52341830-8cea-421f-b901-9229004f2d45"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SURGE_CONDUCTOR": {
+    "scryfallId": "686c005b-39c8-4c6c-bf5a-462774f1d6d9",
+    "oracleId": "dc11d9dc-7d18-45dc-955b-d0ba71fc0db8",
+    "name": "Surge Conductor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Surge Conductor",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Robot",
+        "oracleText": "Whenever another nontoken artifact you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "A conductor for an electric symphony.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alexandr Leskinen",
+        "imageId": "686c005b-39c8-4c6c-bf5a-462774f1d6d9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "eoc",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRONE_OF_GETH": {
+    "scryfallId": "583d7386-3eb5-4f1d-8da9-f00e020a307b",
+    "oracleId": "5a5f39ab-21b4-415f-aa1f-d8fad420d372",
+    "name": "Throne of Geth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Throne of Geth",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Sacrifice an artifact: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "At the heart of Ish Sah, Geth stokes the dark fires of Phyrexia.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jana Schirmer & Johannes Voss",
+        "imageId": "583d7386-3eb5-4f1d-8da9-f00e020a307b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "som",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRUMMINGBIRD": {
+    "scryfallId": "39fff05f-84f3-43ec-9752-86b156ec0c5b",
+    "oracleId": "eac94269-4baa-4b8e-a0fd-d6b227d1cde3",
+    "name": "Thrummingbird",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrummingbird",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Phyrexian Bird Horror",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Flavio Girón",
+        "imageId": "39fff05f-84f3-43ec-9752-86b156ec0c5b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "432",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRAL_DRAKE": {
+    "scryfallId": "26b098d7-9b8d-47a1-9694-22b0f0ef25ff",
+    "oracleId": "3b1647d1-9aec-454f-a215-e28633cb7a2d",
+    "name": "Viral Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viral Drake",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Phyrexian Drake",
+        "oracleText": "Flying\nInfect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)\n{3}{U}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "26b098d7-9b8d-47a1-9694-22b0f0ef25ff"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Proliferate",
+      "Infect"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "NPH-49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONTAGION_CLASP": {
+    "scryfallId": "0a5bd288-0488-4354-a201-717bdaa10d44",
+    "oracleId": "43f2d81e-aa01-4fa9-9046-6a27a05dbd2d",
+    "name": "Contagion Clasp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Contagion Clasp",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, put a -1/-1 counter on target creature.\n{4}, {T}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zuzanna Wużyk",
+        "imageId": "0a5bd288-0488-4354-a201-717bdaa10d44"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERFOLK_SKYDIVER": {
+    "scryfallId": "2bf211eb-837b-4c02-b02e-8d9e62f1abb1",
+    "oracleId": "5d2ccaa4-4815-4987-889f-d08c4d1e7a8e",
+    "name": "Merfolk Skydiver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merfolk Skydiver",
+        "manaCost": "{G}{U}",
+        "typeLine": "Creature — Merfolk Mutant",
+        "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on target creature you control.\n{3}{G}{U}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "2bf211eb-837b-4c02-b02e-8d9e62f1abb1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Proliferate"
+    ],
+    "setCode": "war",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

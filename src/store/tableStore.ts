@@ -168,6 +168,17 @@ export type TableMode =
       readonly name: string;
       readonly count: number;
       readonly chosen: readonly string[];
+    }
+  /**
+   * D391 - answering a PROLIFERATE ask (CR 701.27a): any number of permanents with a counter, on
+   * either side, and players with poison, toggled on the veil and committed by the prompt bar's
+   * button - none is a legal answer (D195's rule for the scry). TIER 1: the host re-validates
+   * every pick against the board.
+   */
+  | {
+      readonly kind: 'proliferate';
+      readonly name: string;
+      readonly chosen: readonly TargetChoice[];
     };
 
 export interface NumberRequest {
@@ -500,7 +511,13 @@ export const useTable = create<TableUi>((set, get) => ({
     // to drop the aim with it — the same reason the pending blocker does. The
     // sacrifice pick pins its tail to the ability's source (D168), so it backs
     // out the same way.
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick') {
+    // D391 - a proliferate pick backs out one choice at a time; with none left the mode drops
+    // and the prompt re-arms it (the game cannot proceed unanswered - the button answers "none").
+    if (mode.kind === 'proliferate' && mode.chosen.length > 0) {
+      set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
+      return;
+    }
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'proliferate') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;
