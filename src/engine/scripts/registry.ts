@@ -7,6 +7,51 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GUARDIAN_IDOL_SCRIPT } from './cards/guardianIdol';
+import { TREETOP_VILLAGE_SCRIPT } from './cards/treetopVillage';
+import { ALLOY_ANIMIST_SCRIPT } from './cards/alloyAnimist';
+import { ATARKA_MONUMENT_SCRIPT } from './cards/atarkaMonument';
+import { AZORIUS_KEYRUNE_SCRIPT } from './cards/azoriusKeyrune';
+import { BOROS_KEYRUNE_SCRIPT } from './cards/borosKeyrune';
+import { CAVE_OF_THE_FROST_DRAGON_SCRIPT } from './cards/caveOfTheFrostDragon';
+import { CELESTIAL_COLONNADE_SCRIPT } from './cards/celestialColonnade';
+import { DARKSTEEL_BRUTE_SCRIPT } from './cards/darksteelBrute';
+import { DREAD_STATUARY_SCRIPT } from './cards/dreadStatuary';
+import { DROMOKA_MONUMENT_SCRIPT } from './cards/dromokaMonument';
+import { FAERIE_CONCLAVE_SCRIPT } from './cards/faerieConclave';
+import { FIRDOCH_CORE_SCRIPT } from './cards/firdochCore';
+import { FORBIDDING_WATCHTOWER_SCRIPT } from './cards/forbiddingWatchtower';
+import { FOUNTAIN_OF_ICHOR_SCRIPT } from './cards/fountainOfIchor';
+import { GHITU_ENCAMPMENT_SCRIPT } from './cards/ghituEncampment';
+import { GOLGARI_KEYRUNE_SCRIPT } from './cards/golgariKeyrune';
+import { GRUUL_KEYRUNE_SCRIPT } from './cards/gruulKeyrune';
+import { HALCYON_GLAZE_SCRIPT } from './cards/halcyonGlaze';
+import { HISSING_QUAGMIRE_SCRIPT } from './cards/hissingQuagmire';
+import { INKMOTH_NEXUS_SCRIPT } from './cards/inkmothNexus';
+import { JADE_IDOL_SCRIPT } from './cards/jadeIdol';
+import { KOLAGHAN_MONUMENT_SCRIPT } from './cards/kolaghanMonument';
+import { LUMBERING_FALLS_SCRIPT } from './cards/lumberingFalls';
+import { NEEDLE_SPIRES_SCRIPT } from './cards/needleSpires';
+import { OJUTAI_MONUMENT_SCRIPT } from './cards/ojutaiMonument';
+import { ORZHOV_KEYRUNE_SCRIPT } from './cards/orzhovKeyrune';
+import { RAKDOS_KEYRUNE_SCRIPT } from './cards/rakdosKeyrune';
+import { SELESNYA_KEYRUNE_SCRIPT } from './cards/selesnyaKeyrune';
+import { SHAMBLING_VENT_SCRIPT } from './cards/shamblingVent';
+import { SILUMGAR_MONUMENT_SCRIPT } from './cards/silumgarMonument';
+import { SIMIC_KEYRUNE_SCRIPT } from './cards/simicKeyrune';
+import { SOILSHAPER_SCRIPT } from './cards/soilshaper';
+import { STILL_LIFE_SCRIPT } from './cards/stillLife';
+import { STIRRING_WILDWOOD_SCRIPT } from './cards/stirringWildwood';
+import { STUFFED_BEAR_SCRIPT } from './cards/stuffedBear';
+import { THUNDER_TOTEM_SCRIPT } from './cards/thunderTotem';
+import { XANTHIC_STATUE_SCRIPT } from './cards/xanthicStatue';
+import { ENSOULED_SCIMITAR_SCRIPT } from './cards/ensouledScimitar';
+import { EYE_OF_MALCATOR_SCRIPT } from './cards/eyeOfMalcator';
+import { GRUUL_WAR_PLOW_SCRIPT } from './cards/gruulWarPlow';
+import { IRON_SUITCASE_SCRIPT } from './cards/ironSuitcase';
+import { KAMAHL_FIST_OF_KROSA_SCRIPT } from './cards/kamahlFistOfKrosa';
+import { LEVITATING_STATUE_SCRIPT } from './cards/levitatingStatue';
+import { TOUGH_COOKIE_SCRIPT } from './cards/toughCookie';
 import { BOLA_WARRIOR_SCRIPT } from './cards/bolaWarrior';
 import { CHAINWHIP_CYCLOPS_SCRIPT } from './cards/chainwhipCyclops';
 import { CROSSWAY_VAMPIRE_SCRIPT } from './cards/crosswayVampire';
@@ -5526,6 +5571,51 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GUARDIAN_IDOL_SCRIPT,
+  TREETOP_VILLAGE_SCRIPT,
+  ALLOY_ANIMIST_SCRIPT,
+  ATARKA_MONUMENT_SCRIPT,
+  AZORIUS_KEYRUNE_SCRIPT,
+  BOROS_KEYRUNE_SCRIPT,
+  CAVE_OF_THE_FROST_DRAGON_SCRIPT,
+  CELESTIAL_COLONNADE_SCRIPT,
+  DARKSTEEL_BRUTE_SCRIPT,
+  DREAD_STATUARY_SCRIPT,
+  DROMOKA_MONUMENT_SCRIPT,
+  FAERIE_CONCLAVE_SCRIPT,
+  FIRDOCH_CORE_SCRIPT,
+  FORBIDDING_WATCHTOWER_SCRIPT,
+  FOUNTAIN_OF_ICHOR_SCRIPT,
+  GHITU_ENCAMPMENT_SCRIPT,
+  GOLGARI_KEYRUNE_SCRIPT,
+  GRUUL_KEYRUNE_SCRIPT,
+  HALCYON_GLAZE_SCRIPT,
+  HISSING_QUAGMIRE_SCRIPT,
+  INKMOTH_NEXUS_SCRIPT,
+  JADE_IDOL_SCRIPT,
+  KOLAGHAN_MONUMENT_SCRIPT,
+  LUMBERING_FALLS_SCRIPT,
+  NEEDLE_SPIRES_SCRIPT,
+  OJUTAI_MONUMENT_SCRIPT,
+  ORZHOV_KEYRUNE_SCRIPT,
+  RAKDOS_KEYRUNE_SCRIPT,
+  SELESNYA_KEYRUNE_SCRIPT,
+  SHAMBLING_VENT_SCRIPT,
+  SILUMGAR_MONUMENT_SCRIPT,
+  SIMIC_KEYRUNE_SCRIPT,
+  SOILSHAPER_SCRIPT,
+  STILL_LIFE_SCRIPT,
+  STIRRING_WILDWOOD_SCRIPT,
+  STUFFED_BEAR_SCRIPT,
+  THUNDER_TOTEM_SCRIPT,
+  XANTHIC_STATUE_SCRIPT,
+  ENSOULED_SCIMITAR_SCRIPT,
+  EYE_OF_MALCATOR_SCRIPT,
+  GRUUL_WAR_PLOW_SCRIPT,
+  IRON_SUITCASE_SCRIPT,
+  KAMAHL_FIST_OF_KROSA_SCRIPT,
+  LEVITATING_STATUE_SCRIPT,
+  TOUGH_COOKIE_SCRIPT,
   BOLA_WARRIOR_SCRIPT,
   CHAINWHIP_CYCLOPS_SCRIPT,
   CROSSWAY_VAMPIRE_SCRIPT,

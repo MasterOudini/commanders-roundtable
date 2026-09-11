@@ -607,7 +607,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Humble', 'until-end-of-turn base P/T set'],
   ['Hurl into History', 'discover mechanic'],
   ['Hurl Through Hell', 'play-from-exile permission'],
-  ['Hydroform', 'land animation'],
+
   ['Hypothesizzle', 'script-raised prompt'],
   // D219 — Illicit Auction runs a life-BIDDING loop for control of the
   // creature (a NEW class, and a genuinely multi-player prompt cycle);
@@ -1517,7 +1517,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Ureni's Rebuff", 'harmonize mechanic'],
   ['Verdant Rebirth', 'quoted-ability temporary grant'],
   ['Viridescent Wisps', 'UEOT color change'],
-  ['Vivify', 'until-end-of-turn type change with P/T set'],
+
   ['Wash Away', 'cleave mechanic'],
   ['Wheel of Fate', 'suspend mechanic'],
   ['Wild Ride', 'harmonize mechanic'],
@@ -1917,6 +1917,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Malicious Intent', 'a quoted grant on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
   ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   ['Quakefoot Cyclops', 'a counted clause (up to two target creatures) the suite has no fixture for'],
+  // D395 - the animate family: the four the selector offered after the seam that the row maker refused, by reason.
+  ['Balduvian Conjurer', 'a target the suite has no fixture for (target snow land)'],
+  ['Hostile Desert', 'an activation cost the engine cannot charge (exile a land card from your graveyard)'],
+  ['Restless Anchorage', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
+  ['Restless Bivouac', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

@@ -155,6 +155,17 @@ function computeDerived(
     for (const t of mod.types) if (!types.includes(t)) types.push(t);
     chars.typeLine = { ...chars.typeLine, types };
   }
+  // D395 - the animate family: subtypes gained until end of turn (an Ape, an Elemental) at layer 4
+  // beside the types, and the colours it SETS at layer 5 (CR 613.1e - "becomes a green creature").
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id) continue;
+    if (mod.subtypes !== undefined) {
+      const subtypes = [...chars.typeLine.subtypes];
+      for (const t of mod.subtypes) if (!subtypes.includes(t)) subtypes.push(t);
+      chars.typeLine = { ...chars.typeLine, subtypes };
+    }
+    if (mod.colors !== undefined) chars.colors = [...mod.colors];
+  }
   applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
   applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 
@@ -171,6 +182,14 @@ function computeDerived(
   // the manual tool is "this creature's base is 4/4 now" — and a +1/+1 counter
   // must still make it a 5/5. Applying it after counters would make the counter
   // silently do nothing, which reads as a broken counter tool. See DECISIONS D34.
+  // D395 - the animate family sets the base P/T here (CR 613.4b): "This land becomes a 3/3 ..."
+  // gives a land, which has none, a base of 3/3. The last entry written wins, and the Tier-3
+  // override below still wins over it (D34).
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id || mod.basePt === undefined) continue;
+    chars.power = mod.basePt.power;
+    chars.toughness = mod.basePt.toughness;
+  }
   if (inst.ptOverride !== null) {
     chars.power = inst.ptOverride.power;
     chars.toughness = inst.ptOverride.toughness;

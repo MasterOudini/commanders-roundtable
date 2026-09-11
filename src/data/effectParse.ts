@@ -862,6 +862,47 @@ const RULES: readonly Rule[] = [
   // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
   // are a different reader and stay unread until they are measured.
   { kind: 'cantBlock', re: new RegExp(`^${TARGET} can't block this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D395 - the ANIMATE family: "<this land | target land> becomes a N/N [colour [and colour]] [Type
+  // words] [artifact] creature [with KW [and KW]] [in addition to its other types] until end of
+  // turn." - the duration fronted or trailing, exactly one of the two. The subject is the self or a
+  // target; the colours SET the colour (CR 613.1e); the words before "creature" are the subtypes;
+  // "artifact creature" adds Artifact; "It's still a land." beside it is a noop. An X in the P/T
+  // is not a number and stays unread, as every counted X does.
+  {
+    kind: 'animate',
+    re: new RegExp(
+      `^(until end of turn, )?(${SELF}|${TARGET}) becomes an? (${NUM})/(${NUM}) (?:(white|blue|black|red|green|colorless)(?: and (white|blue|black|red|green))? )?((?:[a-z]+ )*?)(artifact )?creature(?: with (${KW})(?: and (${KW}))?)?(?: in addition to its other types)?( until end of turn)?\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const fronted = m[1] !== undefined;
+      const trailing = m[11] !== undefined;
+      if (fronted === trailing) return null;
+      const power = num(m[3]);
+      const toughness = num(m[4]);
+      if (power === null || toughness === null) return null;
+      const LETTER: Readonly<Record<string, 'W' | 'U' | 'B' | 'R' | 'G'>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+      const colors: ('W' | 'U' | 'B' | 'R' | 'G')[] = [];
+      for (const c of [m[5], m[6]]) {
+        if (c === undefined) continue;
+        const l = LETTER[c.toLowerCase()];
+        if (l !== undefined && !colors.includes(l)) colors.push(l);
+      }
+      const subtypes = (m[7] ?? '').split(' ').map((w) => w.trim()).filter((w) => w !== '').map((w) => w.charAt(0).toUpperCase() + w.slice(1));
+      // Groups: 1 fronted, 2 subject, 3/4 P/T, 5/6 colours, 7 subtype words, 8 artifact, 9/10
+      // keywords, 11 trailing.
+      const keywords = m[9] === undefined ? [] : grantedKeywords(m[9], m[10]);
+      if (keywords === null) return null;
+      const self = new RegExp(`^${SELF}$`, 'i').test(m[2] ?? '');
+      return {
+        ...BASE,
+        ...(self ? { targetIndex: -1, self: true } : {}),
+        animate: { power, toughness, colors, subtypes, artifact: m[8] !== undefined, keywords },
+      };
+    },
+  },
+  // D395 - the reminder beside an animation: it adds nothing of its own.
+  { kind: 'noop', re: /^it(?:'|’)s still an? (?:land|artifact|enchantment|creature|permanent)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   {
     kind: 'draw',
     re: /^(?:you )?draw (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,

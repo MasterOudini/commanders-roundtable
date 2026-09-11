@@ -1075,6 +1075,15 @@ export interface GameState {
      * replay hash are untouched; an entry carrying it is inert at every layer `derive` reads.
      */
     readonly cantBlock?: true;
+    /**
+     * D395 - the ANIMATE family ("This land becomes a 3/3 green Ape creature with trample until end
+     * of turn."): the base P/T set at layer 7b (CR 613.4b), the subtypes gained at layer 4 beside
+     * `types`, and the colours set at layer 5 - each optional so every earlier entry and its
+     * replay hash are untouched, each read by `derive` at its own layer.
+     */
+    readonly basePt?: { readonly power: number; readonly toughness: number };
+    readonly subtypes?: readonly string[];
+    readonly colors?: readonly ('W' | 'U' | 'B' | 'R' | 'G')[];
   }[];
   /**
    * D330 - CR 701.19: regeneration shields per permanent (instance id), each

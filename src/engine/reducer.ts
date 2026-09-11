@@ -1080,6 +1080,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
             ...(body.types !== undefined ? { types: body.types } : {}),
             // D394 - the can't-block restriction rides the same entry, spread-conditional too.
             ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),
+            // D395 - the animate family's three fields, spread-conditional too.
+            ...(body.basePt !== undefined ? { basePt: body.basePt } : {}),
+            ...(body.subtypes !== undefined ? { subtypes: body.subtypes } : {}),
+            ...(body.colors !== undefined ? { colors: body.colors } : {}),
           },
         ],
       };

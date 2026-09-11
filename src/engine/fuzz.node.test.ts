@@ -144,6 +144,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // whose second sentence is the referent form, so the flag is set at gate size.
   { names: ['Mugging'], copiesPerSeat: 1,
     counterKeys: ['cantBlockSet'], rotHistory: 'D394' },
+  // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
+  // set at layer 7b (and ended at cleanup) is exercised at gate size.
+  { names: ['Guardian Idol'], copiesPerSeat: 1,
+    counterKeys: ['animations'], rotHistory: 'D395' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -793,6 +797,7 @@ interface Run {
   readonly controlTaken: number;
   readonly controlReverted: number;
   readonly cantBlockSet: number;
+  readonly animations: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -1048,6 +1053,7 @@ function runOne(seed: number): Run {
     controlTaken: game.log.filter((e) => e.body.t === 'ControlChangedUntilEndOfTurn').length,
     controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
     cantBlockSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBlock === true).length,
+    animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1196,6 +1202,7 @@ const TOTAL_KEYS = [
   'controlTaken',
   'controlReverted',
   'cantBlockSet',
+  'animations',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1442,6 +1449,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.controlReverted).toBeGreaterThan(0);
         // D394 - a can't-block restriction set at least once at gate size.
         expect(totals.cantBlockSet).toBeGreaterThan(0);
+        // D395 - a permanent animated at least once at gate size.
+        expect(totals.animations).toBeGreaterThan(0);
       }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
@@ -1498,6 +1507,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.proliferateAsks} proliferate asks / ${totals.proliferations} answered with something · ` +
           `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
           `${totals.cantBlockSet} can't-block restrictions set · ` +
+          `${totals.animations} permanents animated · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

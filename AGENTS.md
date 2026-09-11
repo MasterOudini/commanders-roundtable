@@ -14627,6 +14627,71 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS;
       then D393's list unchanged.
 
+- [x] **M6.4ib — THE ANIMATE FAMILY: a base P/T, types, colours and keywords on
+      the one until-end-of-turn entry, read at four layers (2026-09-11):**
+      **8,530 of 31,692 Commander-legal cards now execute completely, up from
+      8,483 (+47: TWO with no script at all, then 45 generated rows in one
+      wave).** `SHIPPED_SCRIPTS` 5,500 → **5,545**; ledger 1,229 → **1,231** (four
+      ADDED by reason, TWO DELETED — their class built, named by the
+      stale-refusal guard). Fixtures 6,055 → **6,101**. `scriptableToday` 1,324 →
+      1,371 by the SEAM and → **1,326** by the WAVE; the select pool 0 → 49 → 4 →
+      0; the ladder `[1326, 1415, 2819, 4494, 5835]`. Bot reach 8,412 → **8,459**
+      from 256 commanders. Decisions in **D395**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** two families by structure (the delayed
+      action at the next end step 142, "becomes a N/N … creature" 121) priced
+      with the real parser — 12 and 38 landings; the parser's count picked.
+      ⚠️ **THE SEAM:** `PtModifiedUntilEndOfTurn` carries optional `basePt`,
+      `subtypes` and `colors` beside the keywords, types and can't-block flag;
+      the reducer spreads them onto the `untilEndOfTurn` entry, cleanup clears
+      them (CR 514.2), earlier events and entries byte-identical; `derive` reads
+      the types and subtypes at layer 4, the colours at layer 5 (SET, CR
+      613.1e), the base P/T at layer 7b before the Tier-3 override (CR 613.4b —
+      a land reads 3/3 and a counter still adds at 7d), the keywords at layer 6.
+      One rule reads `<this land | this artifact | target land> becomes a N/N
+      [colour [and colour]] [Type words] [artifact] creature [with KW [and KW]]
+      [in addition to its other types]` with the duration FRONTED or TRAILING
+      (exactly one), captures the shape (`EffectSpec.animate`), aims at the self
+      (`SELF_AIMED`) or a target; "It's still a land." is a `noop`; an X stays
+      unread. No prompt, no client mode; Guardian Idol feeds `animations` at gate
+      size.
+      ⚠️ **THE WAVE:** 49 in the pool → 45 rows (the manlands, the keyrunes, the
+      monuments, the idols and statues — self-animations priced in mana or a tap
+      — and Kamahl's targeted land), four ledgered by reason (a snow-land
+      fixture, an exile-from-graveyard cost, "whenever this land attacks" twice);
+      Hydroform and Vivify with NO script, their stale ledger rows deleted. The
+      generator's `animate` arm reads the base P/T off its derive helper.
+      ⚠️ **Traps:** count the capture groups, or name them (keywords and the
+      artifact word swapped — every pin red at once); the engine indexes
+      ACTIVATED abilities, not printed lines (Ensouled Scimitar's Equip is
+      ability 1 after its animation; the line probe reads the engine's list
+      now); ⚠️⚠️ THE LINE PROBE RUNS BEFORE THE PORT, NEVER AFTER (re-run after
+      the wave it read every rowed card as complete, rowed nothing, emptied the
+      names and modules lists, and a re-port from the empty list ran the whole
+      unit suite by accident — an empty file list is "everything"); the
+      stale-refusal guard is the other half of a seam (D187); price by the
+      honest count, twice (D384).
+      Fixtures 6,101 (5,946 by name + 148 tokens) · botPool artifact 483 /
+      creature 4,993 / enchantment 485 / instant 1,132 / land 582 / sorcery 855 —
+      auto 1,275 / assisted 1,997 · `oracleParse` `effect:auto` 5,635 · tier3
+      silentAfter 8,830 · the `counter` primitive 1,287 · `activatedCost` 2,164 ·
+      batch.json 49 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5704 files,
+      27895 passed / 11 skipped · 500-seed gate, 6 shards, 1014.4 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D395): the animate tail (the PERMANENT animation with no
+      end — 118 by structure, measure it; "until end of combat"; an X/X; "with
+      all creature types"); the generator's tail (the "whenever this land
+      attacks" head, a snow-land fixture, the exile-from-graveyard cost, the paid
+      trigger payload, the counted-clause fixture); the delayed action (12 — token
+      copies are its biggest shape); bite + fight (20); the untap skip (15); the
+      scoped can't-block forms and "must be blocked"; the durations proper (23 /
+      33 / 14); the permanent control family (20) and exchange control (24); the
+      object stamp (CR 400.7); the activation restrictions (313 — the tail is the
+      payloads); then spend-restricted mana (56), the keyword entry replacements
+      (22), copy (~200), the prompt CONTINUATION seam proper, the two gate items —
+      the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
+      D394's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

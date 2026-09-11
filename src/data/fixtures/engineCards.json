@@ -199606,6 +199606,1460 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TREETOP_VILLAGE": {
+    "scryfallId": "02212bd8-0c0f-4e8e-99f1-a8477476c03a",
+    "oracleId": "b53f216d-1592-4eee-b204-502a805fbc8c",
+    "name": "Treetop Village",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treetop Village",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G}.\n{1}{G}: This land becomes a 3/3 green Ape creature with trample until end of turn. It's still a land. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony S. Waters",
+        "imageId": "02212bd8-0c0f-4e8e-99f1-a8477476c03a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ulg",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUARDIAN_IDOL": {
+    "scryfallId": "1537f377-64c3-4c3b-a276-28d8234c029b",
+    "oracleId": "829d2e11-192f-4093-99f8-e13767b321a2",
+    "name": "Guardian Idol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guardian Idol",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters tapped.\n{T}: Add {C}.\n{2}: This artifact becomes a 2/2 Golem artifact creature until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "1537f377-64c3-4c3b-a276-28d8234c029b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "753",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HYDROFORM": {
+    "scryfallId": "2c4e1f41-4aed-451b-bbaa-6cc6780cd6c9",
+    "oracleId": "d8b6ea82-da4e-4763-84b1-4caa214ed945",
+    "name": "Hydroform",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hydroform",
+        "manaCost": "{G}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Target land becomes a 3/3 Elemental creature with flying until end of turn. It's still a land.",
+        "flavorText": "\"While the sea may be our home, the sky is our destiny.\"\n—Prime Speaker Zegana",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "2c4e1f41-4aed-451b-bbaa-6cc6780cd6c9"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALLOY_ANIMIST": {
+    "scryfallId": "71a49b18-a339-401c-ab77-fcd04772cf69",
+    "oracleId": "4acacdd2-a736-43a2-ad67-891b9bd124f8",
+    "name": "Alloy Animist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alloy Animist",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "{2}{G}: Until end of turn, target noncreature artifact you control becomes a 4/4 artifact creature.",
+        "flavorText": "\"This metal belonged to Argoth before it was ripped from the ground. Now it belongs to Argoth again.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "71a49b18-a339-401c-ab77-fcd04772cf69"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATARKA_MONUMENT": {
+    "scryfallId": "5e9fc80b-9602-4250-a282-e44aab6f8feb",
+    "oracleId": "eb287c04-97f5-4e47-beb1-66cc7d15e748",
+    "name": "Atarka Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Atarka Monument",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {R} or {G}.\n{4}{R}{G}: This artifact becomes a 4/4 red and green Dragon artifact creature with flying until end of turn.",
+        "flavorText": "Atarka is worshipped and fed by her subjects at Ayagor, the Dragon's Bowl.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "5e9fc80b-9602-4250-a282-e44aab6f8feb"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "scd",
+    "collectorNumber": "258",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZORIUS_KEYRUNE": {
+    "scryfallId": "23a05db7-dcae-4180-8ad1-60ba6fb30816",
+    "oracleId": "7266b491-54e6-4393-a448-d5ae99d965c6",
+    "name": "Azorius Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azorius Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {W} or {U}.\n{W}{U}: This artifact becomes a 2/2 white and blue Bird artifact creature with flying until end of turn.",
+        "flavorText": "\"The higher the mind soars, the greater its understanding of the law.\"\n—Isperia",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "23a05db7-dcae-4180-8ad1-60ba6fb30816"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOROS_KEYRUNE": {
+    "scryfallId": "c4b65847-fee2-4e00-b598-7363059ec3ff",
+    "oracleId": "991ae2f7-3f8e-4364-8698-5277786d7dcd",
+    "name": "Boros Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boros Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {R} or {W}.\n{R}{W}: This artifact becomes a 1/1 red and white Soldier artifact creature with double strike until end of turn. (It deals both first-strike and regular combat damage.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "c4b65847-fee2-4e00-b598-7363059ec3ff"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAVE_OF_THE_FROST_DRAGON": {
+    "scryfallId": "30f1734e-33b1-45b5-bc27-0547a8e8f950",
+    "oracleId": "1e4146d2-cfa0-4f5e-9761-3c83519b90c3",
+    "name": "Cave of the Frost Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cave of the Frost Dragon",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "If you control two or more other lands, this land enters tapped.\n{T}: Add {W}.\n{4}{W}: This land becomes a 3/4 white Dragon creature with flying until end of turn. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johannes Voss",
+        "imageId": "30f1734e-33b1-45b5-bc27-0547a8e8f950"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pafr",
+    "collectorNumber": "253p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CELESTIAL_COLONNADE": {
+    "scryfallId": "051f18b2-9d16-4831-8f7e-458877b0c1fa",
+    "oracleId": "876ac6f6-74de-4666-84c6-83d81f054723",
+    "name": "Celestial Colonnade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Celestial Colonnade",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {W} or {U}.\n{3}{W}{U}: Until end of turn, this land becomes a 4/4 white and blue Elemental creature with flying and vigilance. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "051f18b2-9d16-4831-8f7e-458877b0c1fa"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "puma",
+    "collectorNumber": "U33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARKSTEEL_BRUTE": {
+    "scryfallId": "06125c05-a345-481d-bc7f-bf234b946b5b",
+    "oracleId": "4f7d2774-2aec-4992-b35b-e03265e517af",
+    "name": "Darksteel Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Darksteel Brute",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Indestructible (Damage and effects that say \"destroy\" don't destroy this artifact.)\n{3}: This artifact becomes a 2/2 Beast artifact creature until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nottsuo",
+        "imageId": "06125c05-a345-481d-bc7f-bf234b946b5b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Indestructible"
+    ],
+    "setCode": "dst",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAD_STATUARY": {
+    "scryfallId": "6814d15f-e7a5-4a73-9adc-88a1a4dec6cc",
+    "oracleId": "a9789ce4-69cf-435c-b99a-78a21609830c",
+    "name": "Dread Statuary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dread Statuary",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}: This land becomes a 4/2 Golem artifact creature until end of turn. It's still a land.",
+        "flavorText": "The last reliable landmark in Tazeem just walked away.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason A. Engle",
+        "imageId": "6814d15f-e7a5-4a73-9adc-88a1a4dec6cc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROMOKA_MONUMENT": {
+    "scryfallId": "d4df975f-b6ef-4e8e-8be8-529c0ffd8a37",
+    "oracleId": "1c587200-02cc-4c5f-86fe-d13cc7bdad8b",
+    "name": "Dromoka Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dromoka Monument",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {G} or {W}.\n{4}{G}{W}: This artifact becomes a 4/4 green and white Dragon artifact creature with flying until end of turn.",
+        "flavorText": "Dromoka rules her clan from the Great Aerie atop Arashin, the central city of the Shifting Wastes.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "d4df975f-b6ef-4e8e-8be8-529c0ffd8a37"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_CONCLAVE": {
+    "scryfallId": "29e8460b-cf14-40cc-8adc-c8650c6a02d1",
+    "oracleId": "0c25f6b1-8fb3-4406-9605-0282d2dbbcec",
+    "name": "Faerie Conclave",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Conclave",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {U}.\n{1}{U}: This land becomes a 2/1 blue Faerie creature with flying until end of turn. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Stephan Martiniere",
+        "imageId": "29e8460b-cf14-40cc-8adc-c8650c6a02d1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "351★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRDOCH_CORE": {
+    "scryfallId": "8e45cd37-bf97-4742-978d-96f96ed653cd",
+    "oracleId": "126c75c0-414b-4e55-8747-2b5566ce716f",
+    "name": "Firdoch Core",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firdoch Core",
+        "manaCost": "{3}",
+        "typeLine": "Kindred Artifact — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\n{T}: Add one mana of any color.\n{4}: This artifact becomes a 4/4 artifact creature until end of turn.",
+        "flavorText": "As Isilu drifted past in a swirl of shadow and moonlight, the strange, half-buried stones began to wake.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason A. Engle",
+        "imageId": "8e45cd37-bf97-4742-978d-96f96ed653cd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "255",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORBIDDING_WATCHTOWER": {
+    "scryfallId": "5efb8c9c-3108-4a06-8ad9-a0dbe3cc5c02",
+    "oracleId": "cabf7953-0fac-4dbb-b3ae-05e85e02b3fc",
+    "name": "Forbidding Watchtower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forbidding Watchtower",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {W}.\n{1}{W}: This land becomes a 1/5 white Soldier creature until end of turn. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aleksi Briclot",
+        "imageId": "5efb8c9c-3108-4a06-8ad9-a0dbe3cc5c02"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "352",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNTAIN_OF_ICHOR": {
+    "scryfallId": "b022a628-4883-427a-8477-0e87d1a71028",
+    "oracleId": "9082d364-9fe4-47bd-9097-8888ae75b2e1",
+    "name": "Fountain of Ichor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fountain of Ichor",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add one mana of any color.\n{3}: This artifact becomes a 3/3 Dinosaur artifact creature until end of turn.",
+        "flavorText": "Sun Empire priests thought they were digging a well. What they tapped was something different entirely.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "b022a628-4883-427a-8477-0e87d1a71028"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHITU_ENCAMPMENT": {
+    "scryfallId": "0a4f58d5-1dc0-4824-a554-56adc1700d33",
+    "oracleId": "9cc02c16-8cf9-4ac7-9475-231c27121968",
+    "name": "Ghitu Encampment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghitu Encampment",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {R}.\n{1}{R}: This land becomes a 2/1 red Warrior creature with first strike until end of turn. It's still a land. (It deals combat damage before creatures without first strike.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "0a4f58d5-1dc0-4824-a554-56adc1700d33"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "353",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLGARI_KEYRUNE": {
+    "scryfallId": "913b803f-ba82-4660-86be-49677d1e32c9",
+    "oracleId": "ec970eba-230a-4c41-874a-4a74abf3214e",
+    "name": "Golgari Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Golgari Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {B} or {G}.\n{B}{G}: This artifact becomes a 2/2 black and green Insect artifact creature with deathtouch until end of turn.",
+        "flavorText": "Like a single ant, it only hints at the colony below.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "913b803f-ba82-4660-86be-49677d1e32c9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRUUL_KEYRUNE": {
+    "scryfallId": "7cf96f1c-066e-4fde-acb8-4674842fb6c2",
+    "oracleId": "98bdb1e1-7550-47e8-aa06-f81802b257a0",
+    "name": "Gruul Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gruul Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {R} or {G}.\n{R}{G}: This artifact becomes a 3/2 red and green Beast artifact creature with trample until end of turn.",
+        "flavorText": "As perilous and unpredictable as the wilds themselves.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "7cf96f1c-066e-4fde-acb8-4674842fb6c2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALCYON_GLAZE": {
+    "scryfallId": "fafd3018-1cfe-4c41-a08c-5c2ba3528c7e",
+    "oracleId": "36a247d6-0d40-4f61-935c-60f42aa98562",
+    "name": "Halcyon Glaze",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Halcyon Glaze",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast a creature spell, this enchantment becomes a 4/4 Illusion creature with flying in addition to its other types until end of turn.",
+        "flavorText": "\"Earth to æther, window to wonder, stillness to the sky.\"\n—Glazing incantation",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Avon",
+        "imageId": "fafd3018-1cfe-4c41-a08c-5c2ba3528c7e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HISSING_QUAGMIRE": {
+    "scryfallId": "6ef11b54-205a-48e9-92d0-5d416be869ef",
+    "oracleId": "7fff5224-c002-4a32-86fe-9a4b18d78b50",
+    "name": "Hissing Quagmire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hissing Quagmire",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {B} or {G}.\n{1}{B}{G}: Until end of turn, this land becomes a 2/2 black and green Elemental creature with deathtouch. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "6ef11b54-205a-48e9-92d0-5d416be869ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INKMOTH_NEXUS": {
+    "scryfallId": "0aec35cb-aaa8-4952-b421-a8b6c26d5e74",
+    "oracleId": "675281ff-b81f-4e5e-9f85-9f8cd202b50b",
+    "name": "Inkmoth Nexus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inkmoth Nexus",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}: This land becomes a 1/1 Phyrexian Blinkmoth artifact creature with flying and infect until end of turn. It's still a land. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Matteo Bassini",
+        "imageId": "0aec35cb-aaa8-4952-b421-a8b6c26d5e74"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "eos",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JADE_IDOL": {
+    "scryfallId": "a58f63c5-cdc5-4079-a727-cff45668d546",
+    "oracleId": "36b4daf5-6568-402b-a4f9-fe3ffddc847c",
+    "name": "Jade Idol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jade Idol",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, this artifact becomes a 4/4 Spirit artifact creature until end of turn.",
+        "flavorText": "Before the Kami War, the shishi were symbolic guardians, protecting the shrines where they stood. But after the kami turned on the material world, shishi began pouncing from their perches to attack would-be supplicants.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ben Thompson",
+        "imageId": "a58f63c5-cdc5-4079-a727-cff45668d546"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOLAGHAN_MONUMENT": {
+    "scryfallId": "3efb210e-00a9-470e-ac30-4036a7befd4c",
+    "oracleId": "d8b79fed-9817-4b91-ac2e-e9fa955dd43c",
+    "name": "Kolaghan Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kolaghan Monument",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {B} or {R}.\n{4}{B}{R}: This artifact becomes a 4/4 black and red Dragon artifact creature with flying until end of turn.",
+        "flavorText": "Kolaghan has no lasting home, but her disciples leave relics to mark her conquests.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "3efb210e-00a9-470e-ac30-4036a7befd4c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ima",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUMBERING_FALLS": {
+    "scryfallId": "5d0edcbd-94d8-42e0-a76c-b98c2a126847",
+    "oracleId": "c2878f4e-3044-4d60-8ec1-b325edfca397",
+    "name": "Lumbering Falls",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lumbering Falls",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G} or {U}.\n{2}{G}{U}: Until end of turn, this land becomes a 3/3 green and blue Elemental creature with hexproof. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "5d0edcbd-94d8-42e0-a76c-b98c2a126847"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "299",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEEDLE_SPIRES": {
+    "scryfallId": "08fb8639-a0bb-4ad7-86b0-46116a078556",
+    "oracleId": "e7bb8160-0a4b-4e46-b196-7a19fb388d8e",
+    "name": "Needle Spires",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Needle Spires",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {R} or {W}.\n{2}{R}{W}: Until end of turn, this land becomes a 2/1 red and white Elemental creature with double strike. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lorenzo Lanfranconi",
+        "imageId": "08fb8639-a0bb-4ad7-86b0-46116a078556"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "eos",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OJUTAI_MONUMENT": {
+    "scryfallId": "8ef29942-a7e3-4e47-9f95-527a5d7e4f1d",
+    "oracleId": "d6b4810f-2bee-4c83-b13d-c46fb7dd8e08",
+    "name": "Ojutai Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ojutai Monument",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {W} or {U}.\n{4}{W}{U}: This artifact becomes a 4/4 white and blue Dragon artifact creature with flying until end of turn.",
+        "flavorText": "Ojutai spends time at all his strongholds, but he most favors Cori Stronghold for his meditation.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "8ef29942-a7e3-4e47-9f95-527a5d7e4f1d"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "242",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORZHOV_KEYRUNE": {
+    "scryfallId": "fd5c0f38-916a-4f6c-b678-7447cb0709e0",
+    "oracleId": "9808c424-0d74-45b8-a092-fd296c6833d2",
+    "name": "Orzhov Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orzhov Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {W} or {B}.\n{W}{B}: This artifact becomes a 1/4 white and black Thrull artifact creature with lifelink until end of turn.",
+        "flavorText": "You only need to wield it once to appreciate the power of control.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "fd5c0f38-916a-4f6c-b678-7447cb0709e0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKDOS_KEYRUNE": {
+    "scryfallId": "f5647ef4-736e-4861-8718-06c53a2253b3",
+    "oracleId": "3986b284-f943-4570-ba26-3419910feeef",
+    "name": "Rakdos Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakdos Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {B} or {R}.\n{B}{R}: This artifact becomes a 3/1 black and red Devil artifact creature with first strike until end of turn.",
+        "flavorText": "The Rakdos use it for everything you can think of and plenty more than that.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "f5647ef4-736e-4861-8718-06c53a2253b3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gk2",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELESNYA_KEYRUNE": {
+    "scryfallId": "1645eafd-cd17-463a-9d7e-42f5f7b5196f",
+    "oracleId": "d4ecee6d-b23f-48e7-b7e5-347027225709",
+    "name": "Selesnya Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selesnya Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {G} or {W}.\n{G}{W}: This artifact becomes a 3/3 green and white Wolf artifact creature until end of turn.",
+        "flavorText": "A mark of unity when you want one; a fierce guardian when you need one.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "1645eafd-cd17-463a-9d7e-42f5f7b5196f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAMBLING_VENT": {
+    "scryfallId": "1f5bf05a-04a1-4dde-845b-eced21a785fa",
+    "oracleId": "4725abd4-06bc-464a-bc5b-c9e0f71ec079",
+    "name": "Shambling Vent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shambling Vent",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {W} or {B}.\n{1}{W}{B}: Until end of turn, this land becomes a 2/3 white and black Elemental creature with lifelink. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jung Park",
+        "imageId": "1f5bf05a-04a1-4dde-845b-eced21a785fa"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "914",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILUMGAR_MONUMENT": {
+    "scryfallId": "3243e300-1420-4e96-a3d3-610c3723a11f",
+    "oracleId": "0b88268c-7fcb-4fd2-96cd-f93b37413283",
+    "name": "Silumgar Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silumgar Monument",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {U} or {B}.\n{4}{U}{B}: This artifact becomes a 4/4 blue and black Dragon artifact creature with flying until end of turn.",
+        "flavorText": "Silumgar dominates his clan from a fortress on the Marang River, where he rests upon piles of treasure.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "3243e300-1420-4e96-a3d3-610c3723a11f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMIC_KEYRUNE": {
+    "scryfallId": "bc0906ce-223b-4bb2-b614-6e2e13dbb18c",
+    "oracleId": "9e737a22-a352-411d-8412-96770c7f6cce",
+    "name": "Simic Keyrune",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Simic Keyrune",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {G} or {U}.\n{G}{U}: This artifact becomes a 2/3 green and blue Crab artifact creature with hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "bc0906ce-223b-4bb2-b614-6e2e13dbb18c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "c15",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOILSHAPER": {
+    "scryfallId": "ae4066c3-bcb0-41c4-a4d3-a22bd186fd13",
+    "oracleId": "8c166a06-b056-4a05-ae23-715289e12e36",
+    "name": "Soilshaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soilshaper",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, target land becomes a 3/3 creature until end of turn. It's still a land.",
+        "flavorText": "It spoke with the voice of nature, but its words were curses spat upon humankind.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "ae4066c3-bcb0-41c4-a4d3-a22bd186fd13"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STILL_LIFE": {
+    "scryfallId": "12be33d7-f25e-4dbf-9706-74403103b127",
+    "oracleId": "55159adc-36f0-4088-8930-5d9b45f76365",
+    "name": "Still Life",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Still Life",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{G}{G}: This enchantment becomes a 4/3 Centaur creature in addition to its other types until end of turn.",
+        "flavorText": "The centaurs' simple magic can undo a basilisk's gaze, but only for a short time.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "12be33d7-f25e-4dbf-9706-74403103b127"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "275",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STIRRING_WILDWOOD": {
+    "scryfallId": "02c54350-36ad-4d09-9e01-a5ffc7fef54c",
+    "oracleId": "e900f211-dc8b-40f7-a217-1b1462b15c26",
+    "name": "Stirring Wildwood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stirring Wildwood",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G} or {W}.\n{1}{G}{W}: Until end of turn, this land becomes a 3/4 green and white Elemental creature with reach. It's still a land.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erikas Perl",
+        "imageId": "02c54350-36ad-4d09-9e01-a5ffc7fef54c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "eos",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STUFFED_BEAR": {
+    "scryfallId": "4cd40276-016b-475f-906f-74d31dceaf70",
+    "oracleId": "1402c116-194e-49ca-a8c1-09ca659c220c",
+    "name": "Stuffed Bear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stuffed Bear",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}: This artifact becomes a 4/4 green Bear artifact creature until end of turn.",
+        "flavorText": "It takes a taxidermist of unusual skill to cleanly stuff and mount a beast without severing its primal, predatory drive.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "4cd40276-016b-475f-906f-74d31dceaf70"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mid",
+    "collectorNumber": "259",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDER_TOTEM": {
+    "scryfallId": "5fc332da-e93f-45b1-912c-06af41b412e9",
+    "oracleId": "89560e1c-b7fb-46b7-955e-647e3ae9091b",
+    "name": "Thunder Totem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thunder Totem",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add {W}.\n{1}{W}{W}: This artifact becomes a 2/2 white Spirit artifact creature with flying and first strike until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Gallegos",
+        "imageId": "5fc332da-e93f-45b1-912c-06af41b412e9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsp",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "XANTHIC_STATUE": {
+    "scryfallId": "8becb285-cd91-4de0-af59-ddaa7d8c5366",
+    "oracleId": "a8de92c4-84cb-40e7-8e34-428380726ed4",
+    "name": "Xanthic Statue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Xanthic Statue",
+        "manaCost": "{8}",
+        "typeLine": "Artifact",
+        "oracleText": "{5}: Until end of turn, this artifact becomes an 8/8 Golem artifact creature with trample.",
+        "flavorText": "\"Until you have lived as a statue, do not talk to me of pigeons.\"\n—Karn, silver golem",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hannibal King",
+        "imageId": "8becb285-cd91-4de0-af59-ddaa7d8c5366"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 8,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENSOULED_SCIMITAR": {
+    "scryfallId": "9d2a16e2-ea98-4bf2-9e5c-7612d2dd039b",
+    "oracleId": "aa5865f5-aafc-4e46-995b-f005aeefde91",
+    "name": "Ensouled Scimitar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ensouled Scimitar",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "{3}: This artifact becomes a 1/5 Spirit artifact creature with flying until end of turn. (Equipment that's a creature can't equip a creature.)\nEquipped creature gets +1/+5.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "9d2a16e2-ea98-4bf2-9e5c-7612d2dd039b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYE_OF_MALCATOR": {
+    "scryfallId": "7cc4246b-ff59-44b2-acff-c0bb6e4cd6ac",
+    "oracleId": "7270b5b6-a571-4e6d-91de-03f7cc035b3c",
+    "name": "Eye of Malcator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eye of Malcator",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)\nWhenever another artifact you control enters, this artifact becomes a 4/4 Phyrexian Eye artifact creature until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jonas De Ro",
+        "imageId": "7cc4246b-ff59-44b2-acff-c0bb6e4cd6ac"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "one",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRUUL_WAR_PLOW": {
+    "scryfallId": "92efc66e-4112-413b-ae7c-85f270abc4ff",
+    "oracleId": "6dba119e-1b08-42e0-8d0a-b606bd90af02",
+    "name": "Gruul War Plow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gruul War Plow",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "Creatures you control have trample.\n{1}{R}{G}: This artifact becomes a 4/4 Juggernaut artifact creature until end of turn.",
+        "flavorText": "\"Steering apparatus?! What for? Rip it out, sharpen it, and lash it to the front!\"\n—Ktank, Gruul plowmaster",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martina Pilcerova",
+        "imageId": "92efc66e-4112-413b-ae7c-85f270abc4ff"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "gpt",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRON_SUITCASE": {
+    "scryfallId": "018d8d89-c90e-4245-93d3-6f8af4c95f81",
+    "oracleId": "d2ba20a0-7c08-49ed-b960-4b3154a8c025",
+    "name": "Iron Suitcase",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iron Suitcase",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)\n{3}: This artifact becomes a 3/3 Construct artifact creature with flying until end of turn.",
+        "flavorText": "Iron Man always has a spare suit on hand.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kevin Glint",
+        "imageId": "018d8d89-c90e-4245-93d3-6f8af4c95f81"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "750",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMAHL_FIST_OF_KROSA": {
+    "scryfallId": "11ef4c48-978c-41f5-b347-230433326f7c",
+    "oracleId": "8b21146d-3e92-46e7-b5d9-8240fba5088e",
+    "name": "Kamahl, Fist of Krosa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kamahl, Fist of Krosa",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Creature — Human Druid",
+        "oracleText": "{G}: Target land becomes a 1/1 creature until end of turn. It's still a land.\n{2}{G}{G}{G}: Creatures you control get +3/+3 and gain trample until end of turn.",
+        "flavorText": "\"My mind has changed. My strength has not.\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "11ef4c48-978c-41f5-b347-230433326f7c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "dmr",
+    "collectorNumber": "344",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEVITATING_STATUE": {
+    "scryfallId": "9c0a17e2-e019-4686-9795-651da2d2955c",
+    "oracleId": "259ca16d-7753-402b-bcd0-2425500dee99",
+    "name": "Levitating Statue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Levitating Statue",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Flying\nWhenever you cast a noncreature spell, put a +1/+1 counter on this artifact.\n{2}: This artifact becomes a 1/1 Construct artifact creature until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Artur Nakhodkin",
+        "imageId": "9c0a17e2-e019-4686-9795-651da2d2955c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOUGH_COOKIE": {
+    "scryfallId": "09ffe48f-abfa-4110-805e-35671b42386d",
+    "oracleId": "8a1a5862-c027-4c15-99a7-1795d0da96da",
+    "name": "Tough Cookie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tough Cookie",
+        "manaCost": "{1}{G}",
+        "typeLine": "Artifact Creature — Food Golem",
+        "oracleText": "When this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{2}{G}: Until end of turn, target noncreature artifact you control becomes a 4/4 artifact creature.\n{2}, {T}, Sacrifice this creature: You gain 3 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "09ffe48f-abfa-4110-805e-35671b42386d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "731",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

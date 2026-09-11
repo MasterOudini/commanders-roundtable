@@ -517,6 +517,13 @@ export type EffectKind =
    */
   | 'cantBlock'
   /**
+   * D395 - the ANIMATE family: "<this land | target land> becomes a N/N [colour] [Type] [artifact]
+   * creature [with KW] until end of turn." - a base P/T at layer 7b, subtypes at layer 4, colours
+   * at layer 5 and keywords at layer 6, all on the one until-end-of-turn entry. "It's still a
+   * land." is a `noop` beside it.
+   */
+  | 'animate'
+  /**
    * D373 - CR 701.19: "Regenerate this creature." / "Regenerate target creature." -
    * a shield on the permanent, spent by the next destruction this turn (`destroy`
    * and `sba.ts` both read it; cleanup clears it with the other until-end-of-turn
@@ -774,7 +781,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate']);
 
 export interface EffectSpec {
   readonly kind: EffectKind;
@@ -849,6 +856,15 @@ export interface EffectSpec {
    * other clause.
    */
   readonly referent?: true;
+  /** D395 - the animate family's shape: what the permanent becomes until end of turn. */
+  readonly animate?: {
+    readonly power: number;
+    readonly toughness: number;
+    readonly colors: readonly ('W' | 'U' | 'B' | 'R' | 'G')[];
+    readonly subtypes: readonly string[];
+    readonly artifact: boolean;
+    readonly keywords: readonly Keyword[];
+  };
   /** D330 - "It can't be regenerated." rides the destroy it follows: the shield is not consulted. */
   readonly noRegenerate?: boolean;
   /**

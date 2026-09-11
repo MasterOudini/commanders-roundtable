@@ -513,6 +513,27 @@ export function effectResult(
         break;
       }
 
+      // D395 - the ANIMATE family (CR 613.4b): a base P/T at layer 7b, Creature (and Artifact when
+      // the text says so) with its subtypes at layer 4, colours at layer 5 and keywords at layer 6,
+      // all on the one until-end-of-turn entry the pumps ride; cleanup ends it with them.
+      case 'animate': {
+        if (aim?.kind !== 'card' || !effect.animate) break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        const a = effect.animate;
+        out.push({
+          t: 'PtModifiedUntilEndOfTurn',
+          card: aim.id,
+          power: 0,
+          toughness: 0,
+          ...(a.keywords.length > 0 ? { keywords: a.keywords } : {}),
+          types: ['Creature', ...(a.artifact ? ['Artifact'] : [])],
+          ...(a.subtypes.length > 0 ? { subtypes: a.subtypes } : {}),
+          basePt: { power: a.power, toughness: a.toughness },
+          ...(a.colors.length > 0 ? { colors: a.colors } : {}),
+        });
+        break;
+      }
+
       // D393 - THREATEN (CR 514.2): the permanent is the controller's until cleanup hands it
       // back. Taking what is already yours changes nothing and remembers nothing.
       case 'control': {
