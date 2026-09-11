@@ -15088,6 +15088,87 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4ih — THE CONDITIONAL STATIC OFFERED: the classifier admits the
+      `as long as` statics the row maker has read since D351/D398, the condition
+      reader widened by the typed graveyard count, a keyword list on the self body
+      (2026-09-11):** **8,759 of 31,692 Commander-legal cards now execute
+      completely, up from 8,713 (+46, every one a generated row).**
+      `SHIPPED_SCRIPTS` 5,664 → **5,710**; ledger 1,255 → **1,261**
+      (six ADDED by reason). Fixtures 6,252 → **6,298** (6,141 by name +
+      150 tokens: the 46 rowed cards). `scriptableToday` 1,350 → **1,356** (the
+      admission offered 52, the wave took 46, the rest are ledgered); the
+      select pool 0 → 52 → 0; the ladder `[1356, 1447, 2814, 4452, 5774]`. Bot reach 8,640 →
+      **8,686** from 265 commanders. Decisions in **D401**; no engine change — the
+      classifier, the row maker and the condition reader, on Opus 5.
+      ⚠️ **THE MEASUREMENT ASKED THE OTHER WAY ROUND:** not what the classifier's
+      bare body admits (19) but what the ROW MAKER already reads — the body
+      vocabulary times `parseCond` finds **82 cards carrying a readable
+      conditional static, 39 of them script-only** with NO widening, because the
+      classifier had filed every one under `layer6:conditional` and none was ever
+      OFFERED (the conditional rows the arc landed came in as a second line of a
+      card offered for another). The refused-condition tail (201): the HOST's
+      characteristics first (enchanted permanent is a creature 9, enchanted
+      creature is a colour 15, equipped creature is legendary or a Human 5), then
+      stickers, a planeswalker by name, colour pairs, tokens, "modified", crimes,
+      the incarnations' graveyard statics; the typed graveyard count (7) and "you
+      had another creature enter" (2) are cheap and in.
+      ⚠️ **THE SEAM:** `condStaticRowShape` in the classifier — `As long as
+      <cond>, <body>.` and `<body> as long as <cond>.`, the body a self static, an
+      unscoped anthem or an enchanted / equipped-creature static, the condition in
+      `STATIC_COND`, a MIRROR of `parseCond`'s wordings beside D398's `TURN_COND`
+      (case-sensitive like the reader, keywords alone like the threshold def).
+      The reader gains `gyTyped` (a helper counting printed types off the
+      graveyard, a stage burying typed fixtures) and the "another creature
+      entered" wording (the source excluded). The row maker: Infusion joins the
+      ability words; a keyword LIST on the self body reads through `grantBody`; a
+      life condition beside a gain-life head on the same card is refused — the
+      stage that meets it is a `ManualSetLife` that is a GAIN, and the head
+      answers with a counter that moves the P/T the proof reads.
+      ⚠️ **THE PORT'S FIRST RUN WAS 46 OF 47** (Twinblade Paladin, the pair
+      above — pulled at the draft: the registry, WANTED, the files, the fixture
+      pins by hand). Second port **46 of 46, 128 tests, tsc clean**.
+      **Landed:** 46 rows / 81 abilities / 56 conditional statics — `you control
+      <pred>` 34 (a basic land type 15, a coloured creature 12 — the five
+      Scarecrows and Minotaur Tactician — an artifact or enchantment 4, a colour
+      pair, another Faerie, artifacts), the typed graveyard count 7, Delirium 3,
+      attacking 3, another creature entered 2, gained life 2, the spell count,
+      enchanted, the draws, the hand. Refused by reason (six): a modal
+      face, an own-entry condition, two activated searches, a search under a
+      head, the life-beside-gain-life pair.
+      No new canary (the defs, the helpers and the stages are D398's). botPool
+      creature 5,175 · tier3 silentAfter 9,050, residual 225 · `layer6` 1,095 →
+      1,064 (conditional 96 → 88) · batch.json 52 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5874 files,
+      28636 passed / 11 skipped · 500-seed gate, 6 shards, 1247.1 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D401): the HOST characteristics under an attached
+      static (29 — a `host` variable the stage swaps; `ManualAttach` exists);
+      "you control a token" (`ManualCreateToken` exists; the reader needs a token
+      predicate); the own-entry static; a protection or landwalk on a conditional
+      self body; the incarnations' graveyard statics (5); stickers, a
+      planeswalker by name, a colour pair, "modified", a crime; the search
+      payloads on an activated line and under a head; then D400's list unchanged
+      — the entry-turn fire with a PROMPT, `Whenever you attack` and the
+      each-combat head, `attacked with N or more` at N ≥ 2, the `for each <X>`
+      family, the payment heads, the search residue, the five D400 refused, the
+      scoped grant, the blocker-predicate form (8 + 1), the can't-block stand-in's
+      overstatement, `can't attack` (3) and `can't attack or block` (2 + 1), the
+      six D399 refused, ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision),
+      `selfEntered` under a head, the payload-level "If …" sentences, the
+      nth-resolution memory (16), the 172 AMOUNT forms, the four D398 refused, the
+      restriction's exotic purposes (14), the chooser price beside a restriction,
+      the "any combination" amounts, the pool UI tagging a bucket, the search
+      payload as an ACTIVATED effect and the two-name search, Plaza of Heroes'
+      exile-self cost, the twenty-two older fight and bite suites, "fights
+      another target creature", token copies (15), the untap skip (15), the
+      delayed action (12), the permanent animation (1), the scoped can't-block
+      forms and "must be blocked", the durations proper (23 / 33 / 14), the
+      permanent control family (20) and exchange control (24), the object stamp
+      (CR 400.7), the activation restrictions (313), the keyword entry
+      replacements (22), copy (~200), the prompt CONTINUATION seam proper, the two
+      gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+      NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

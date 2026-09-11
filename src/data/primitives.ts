@@ -529,6 +529,51 @@ const STATIC_ROW_SHAPES: readonly RegExp[] = [
   new RegExp(`${STATIC_HEAD} get [+-]\\d+/[+-]\\d+(?: and have ${STATIC_KWS})?\\.$`),
 ];
 
+/**
+ * D401 - THE CONDITIONAL STATIC the row maker reads since D351/D398 (`parseStatic`'s `as long as`
+ * branch over gen-cond's ONE closed condition reader): a self static, an unscoped anthem or an
+ * enchanted / equipped-creature static, gated by a condition in the closed set below. The set is a
+ * MIRROR of `parseCond` - every alternative here is a wording that reader takes and stages - so this
+ * cannot claim a line the row would then refuse (D90). The classifier had filed every one of these
+ * under `layer6:conditional` and none was ever OFFERED: the rows the arc landed came in as a second
+ * line of a card offered for another. Measured before it was built: 39 cards whose every leftover
+ * line is one of these, 82 carrying one. A condition outside the set stays where it was.
+ */
+const COND_NUM = '(?:one|two|three|four|five|six|seven|eight|nine|ten|thirteen|twenty|\\d+)';
+const COND_PRED = '(?:(?:another|other) )?(?:(?:untapped|tapped) )?(?:multicolored )?(?:nonland )?(?:(?:basic|legendary|snow) )?(?:(?:white|blue|black|red|green) )?(?:artifact creatures?|(?:artifact|creature|land|enchantment|planeswalker|permanent)s?|[A-Z][a-z]+)';
+const STATIC_COND = [
+  `(?:there are )?${COND_NUM} or more cards (?:are )?in your graveyard`,
+  `there are ${COND_NUM} or more card types among cards in your graveyard`,
+  `(?:there are )?${COND_NUM} or more (?:permanent|creature|land|artifact|instant and/or sorcery|instant or sorcery) cards (?:are )?in your graveyard`,
+  `you control (?:${COND_NUM} or more |an? |another |other |no )${COND_PRED}`,
+  `an opponent controls (?:an? |no )${COND_PRED}`,
+  `(?:this creature|it|~)(?:'s| is) (?:equipped|enchanted)`,
+  `(?:this (?:creature|artifact|permanent|enchantment|land)|it|~)(?:'s| is) (?:untapped|tapped)`,
+  `(?:it|this creature|~)(?:'s| is) (?:attacking|blocking)`,
+  `(?:it|this creature|~) has (?:an? |no )?(?:[+-]\\d+/[+-]\\d+|[a-z]+) counters? on it`,
+  `you have no cards in hand`,
+  `you have ${COND_NUM} or (?:more|fewer|less) cards in hand`,
+  `you have more cards in hand than each opponent`,
+  `you've drawn ${COND_NUM} or more cards this turn`,
+  `you've cast (?:an? )?(?:instant or sorcery |noncreature |creature |historic )?spells? this turn`,
+  `${COND_NUM} or more (?:nonland )?(?:permanents|creatures|lands)(?: have)? entered (?:the battlefield )?under your control this turn`,
+  `you had another creature enter the battlefield under your control this turn`,
+  `a creature died this turn`,
+  `you control your commander`,
+  `(?:you have|an opponent has) ${COND_NUM} or (?:less|fewer|more) life`,
+  `an opponent (?:has ${COND_NUM} or more poison counters|is poisoned)`,
+  `an opponent has ${COND_NUM} or more cards in their graveyard`,
+  TURN_COND,
+].join('|');
+const COND_PT = '[+-]\\d+/[+-]\\d+';
+const COND_KWS = `${STATIC_KW}(?:(?:, | and |, and )${STATIC_KW})*`;
+const COND_BODY = `(?:(?:This creature|this creature|~|It|it) (?:gets ${COND_PT}|has ${COND_KWS}|gets ${COND_PT} and has ${COND_KWS})|(?:Creatures you control|creatures you control|Other creatures you control|other creatures you control) (?:get ${COND_PT}|have ${COND_KWS}|get ${COND_PT} and have ${COND_KWS})|(?:Enchanted creature|enchanted creature|Equipped creature|equipped creature) (?:gets ${COND_PT}|has ${COND_KWS}|gets ${COND_PT} and has ${COND_KWS}))`;
+const COND_STATIC_LEAD = new RegExp(`^(?:[A-Z][a-z]+(?: \\d+)? — )?As long as (?:${STATIC_COND}), ${COND_BODY}\\.$`);
+const COND_STATIC_TRAIL = new RegExp(`^(?:[A-Z][a-z]+(?: \\d+)? — )?${COND_BODY} as long as (?:${STATIC_COND})\\.$`);
+export function condStaticRowShape(text: string): boolean {
+  return COND_STATIC_LEAD.test(text) || COND_STATIC_TRAIL.test(text);
+}
+
 /** Is this printed line a static a table row can emit (D300)? */
 export function staticRowShape(text: string): boolean {
   return STATIC_ROW_SHAPES.some((re) => re.test(text));
@@ -853,6 +898,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D300: a static a table row can emit is scriptable - asked BEFORE the rows,
   // because `LAYER6` would otherwise file it (see `staticRowShape`).
   if (staticRowShape(text)) return 'scriptable';
+  // D401: the conditional static the row maker reads (see `condStaticRowShape`).
+  if (condStaticRowShape(text)) return 'scriptable';
   // D398: the enters-with replacement a table row emits (see `entersWithRowShape`).
   if (entersWithRowShape(text)) return 'scriptable';
   // D301: an activated one-shot pump a table row can emit (see `oneShotRowShape`).

@@ -1962,6 +1962,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Liliana's Devotee", 'a payment prompt whose paid branch creates a token (the suite asserts no token payload behind a pay prompt) under the conditioned end-step head'],
   ['Corpses of the Lost', 'a scoped anthem over Skeletons (Skeletons you control get +1/+0 and have haste) beside the conditioned end-step head - Skeleton is outside the scope list'],
 
+  // D401 - the conditional statics: the nine the selector offered after the classifier admitted
+  // them that the row maker refused (or the draft pulled), by reason.
+  ['Blackbloom Rogue // Blackbloom Bog', 'a modal double-faced card offered for its front face (multi-face layout)'],
+  ['Crew Captain', 'a static gated by the source entering this turn (it entered this turn) - the suite cannot stage the entry turn as the broken state'],
+  ['Elvish Reclaimer', 'a search onto the battlefield as an ACTIVATED effect - the row maker reads no search payload on an activated line'],
+  ['Magitek Infantry', 'a search onto the battlefield as an ACTIVATED effect - the row maker reads no search payload on an activated line'],
+  ['Spineseeker Centipede', 'a search to hand as a TRIGGER payload - the row maker reads no search payload under a head'],
+  ['Twinblade Paladin', 'a life condition beside a gain-life head on the same card - the stage that meets the condition is a life gain the head answers with a counter (a draft-time pull)'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

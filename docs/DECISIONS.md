@@ -30624,3 +30624,148 @@ control family (20) and exchange control (24), the object stamp (CR 400.7), the 
 restrictions (313), the keyword entry replacements (22), copy (~200), the prompt
 CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
 THE FUZZ DRIVER NEVER BLOCKS.
+
+## D401 — THE CONDITIONAL STATIC OFFERED: the classifier admits the `as long as` statics the row maker has read since D351/D398 (a self static, an anthem, an attached static, gated by the one closed condition reader), the reader widened by the typed graveyard count, and a keyword list on the self body (2026-09-11)
+
+**8,759 of 31,692 Commander-legal cards now execute completely, up from 8,713
+(+46, every one a generated row).** `SHIPPED_SCRIPTS` 5,664 → **5,710**; the REFUSED
+ledger 1,255 → **1,261** (six ADDED by reason — the cards the classifier
+offered and the row maker refused or the draft pulled: Blackbloom Rogue's modal face, Crew
+Captain's own-entry condition, Elvish Reclaimer's and Magitek Infantry's activated
+searches, Spineseeker Centipede's search under a head, Twinblade Paladin's life condition
+beside its gain-life head). Fixtures 6,252 → **6,298** (6,141 by name + 150 tokens: the 46
+rowed cards). `scriptableToday` 1,350 → **1,356** (the admission offered 52, the
+wave took 46, the rest are ledgered); the select pool 0 → 52 → 0; the ladder
+`[1356, 1447, 2814, 4452, 5774]`. Bot reach 8,640 → **8,686** from 265 commanders. No engine change — the
+classifier, the row maker and the condition reader, on Opus 5.
+
+### The measurement chose it — and named the tail it leaves
+
+The `as long as` statics were the first of the four tails D400 priced (19 script-only by the
+CLASSIFIER's bare body, 826 base-blocked), and the honest question was the other way round:
+what does the ROW MAKER already read? `cond-readable401.cjs` (the body vocabulary — a self
+static, an unscoped anthem, an enchanted or equipped creature static — times `parseCond`)
+found **82 cards carrying a readable conditional static and 201 refused conditions**, and
+`zz-probe-cond401` (every other leftover line asked of the classifier) made it **39
+script-only cards, 43 blocked elsewhere** — with NO widening. The classifier had filed every
+one under `layer6:conditional` and none was ever OFFERED: the conditional rows the arc had
+landed (D351's Threshold, D398's static gate) came in as a SECOND line of a card offered for
+another. The refused-condition tail, by what a widening would land (`wouldLand`, 139 by the
+loose count): the HOST's characteristics — enchanted permanent is a creature 9, enchanted
+creature is white / red / green / black / blue 15, equipped creature is legendary or a Human
+5 — then stickers 5, a planeswalker by name 5, a colour pair 6, "you control a token" 2,
+"it's modified" 2, a crime 2, the incarnations' graveyard statics 5 (Anger, Brawn, Wonder
+…), the typed graveyard counts 7 and "you had another creature enter" 2. The last two are
+cheap and in; the host characteristics are the next step (the attached proof is wired to
+`bearsB`, and a host that must be white or legendary needs a `host` variable the stage
+swaps).
+
+### The seam — one admission, two widenings, no engine
+
+- **The classifier** (`condStaticRowShape`, `primitives.ts`): `As long as <cond>, <body>.`
+  and `<body> as long as <cond>.` (an ability word before either read past) are scriptable
+  when the body is a self static (`This creature gets +N/+N`, `has <keywords>`, both), an
+  unscoped anthem (`Creatures you control …`, `Other creatures you control …`) or an
+  enchanted / equipped-creature static, and the condition is in `STATIC_COND` — a MIRROR of
+  `parseCond`'s wordings (the graveyard counts, `you control <pred>` over `readPred`'s
+  grammar, the attached / tapped / attacking / counter states of the source, the hand, the
+  draws and casts, the entries, a death, the commander, life, poison, an opponent's
+  graveyard) with D398's `TURN_COND` beside them. The offer went 0 → 52.
+- **The reader** (`gen101-cond.cjs`): `gyTyped` — `N or more (permanent | creature | land |
+  artifact | instant and/or sorcery) cards in your graveyard`, the helper counting printed
+  types off the graveyard, the stage burying typed fixtures (Grizzly Bears, Forest, Sol
+  Ring, Divination and Lightning Bolt alternating); and the wording `you had another
+  creature enter the battlefield under your control this turn` as the `entered` kind with
+  the source itself excluded.
+- **The row maker** (`make-rows101.cjs`): Infusion joins the ability words; a keyword LIST on
+  the self body (`gets +2/+2 and has flying, first strike, and trample` — Thran Golem) reads
+  through `grantBody` when the two-keyword body refuses (a landwalk or a protection in it
+  stays refused: the threshold def carries keywords alone); and a life condition beside a
+  gain-life head on the same card is refused — the stage that meets `you have 25 or more
+  life` is a `ManualSetLife` that is a GAIN, and the head answers it with a counter that
+  moves the P/T the proof reads (Twinblade Paladin, the port's one red, pulled at the draft).
+- No new canary: the statics' defs, the condition helpers and the stages are D398's,
+  already under the gate's floor.
+
+### The wave — 52 offered, 46 rows, the rest ledgered by reason
+
+The pool is the classifier's OWN offer after the admission — **52** in `batch.json` —
+landed BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **46
+rows / 81 abilities, 56 of them conditional statics**: by condition, `you control <pred>` 34
+— a basic land type 15 (Plains: Arctic Aven, Hedge Troll, Sunblade Elf, Wild Nacatl; Island:
+Coastal Bulwark, Dauntless River Marshal, Harbor Bandit; Swamp: Crimson Muckwader, Jorubai
+Murk Lurker, Sedge Troll; Mountain: Flinthoof Boar, Nightfire Giant, Wild Nacatl; Forest:
+Kird Chieftain, Prized Elephant), a coloured creature 12 (the Scarecrows — Blazethorn,
+Rattleblaze, Thornwatch, Watchwing, Wingrattle — and Minotaur Tactician), an artifact or an
+enchantment 4 (Nezumi Bladeblesser, Shinechaser), a red or a white permanent (Cliffrunner
+Behemoth), another Faerie (Barrow Naughty), artifacts (Shimmer Dragon); the typed graveyard
+count 7 (Basking Capybara, Echo of Dusk, Frilled Cave-Wurm, Ghitu Lavarunner, Reclusive
+Taxidermist, Spelleater Wolverine, Didact Echo); the card types in the graveyard 3 (Desperate
+Sentry, Foul Watcher, Grim Flayer — Delirium); attacking 3 (Adanto Vanguard, Blood Petal
+Celebrant, Voldaren Stinger); another creature entered 2 (Bellowing Elk, Saddled Rimestag);
+gained life 2 (Ulna Alley Shopkeep, Thornfist Striker's anthem — Infusion); the spell count
+(Brightspear Zealot), enchanted (Thran Golem), the draws (Messenger Hawk), the hand (Rakdos
+Pit Dragon). The line probe ran BEFORE the port (D395's rule).
+
+⚠️ **THE PORT'S FIRST RUN WAS 46 OF 47** — Twinblade Paladin red on its own pair: "Whenever
+you gain life, put a +1/+1 counter on this creature" beside "As long as you have 25 or more
+life, this creature has double strike". The condition's stage sets the life to 24 and then
+to 25, and the second set is a GAIN the head answers with a counter, so the static's
+absent-check read a 4/4 where the base is 3/3. The engine was right; the pair is refused at
+the row maker and the card pulled at the draft (the registry's import and entry, the WANTED
+name, the two files, the fixture pins moved by hand — `T − K − 7` re-read off the
+regenerated file). Second port **46 of 46, 128 tests, tsc clean**.
+
+Refused by reason (six, ledgered): Blackbloom Rogue // Blackbloom Bog (a modal
+double-faced card offered for its front face), Crew Captain (`it entered this turn` — the
+suite cannot stage the entry turn as the broken state), Elvish Reclaimer and Magitek Infantry
+(a search onto the battlefield as an ACTIVATED effect), Spineseeker Centipede (a search to
+hand under a head), Twinblade Paladin (the pair above).
+
+### Traps
+
+- A HEREDOC PART FILE HALVES ITS BACKSLASHES TOO: `'\d'` in a TS string arrived as
+  `'\d'`, which is `d`, tsc-green and silently wrong; and a repair regex that spells
+  `\.` matches ANY character. Grep the file after every heredoc; spell backslashes by
+  character code in a fixer, never in a regex literal.
+- A MIRROR WITH AN `i` FLAG IS NOT A MIRROR: the reader's subtype is `[A-Z][a-z]+`,
+  case-sensitive, and the classifier's copy under `i` admitted `you control a token`;
+  the keyword list admitted a protection the threshold body refuses. The flag and the
+  extras are gone; a wording the classifier admits and the reader refuses is a ledger
+  entry, so the two sets are ONE set.
+- THE STAGE THAT MEETS A CONDITION MAY FIRE THE CARD'S OWN HEAD: a life set is a life
+  gain; refuse the pair at the row maker (a gain-life head beside a life condition).
+- A DRAFT-TIME PULL AFTER THE PORT owes five things: the registry import and entry, the
+  WANTED name, the two files, the fixture pins, and the names-before file the re-port
+  check compares.
+- THE ROW MAKER'S ABILITY WORDS ARE THE CLASSIFIER'S PREFIX (D400 again): Infusion.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5874 files, 28636
+passed / 11 skipped · 500-seed gate, 6 shards, 1247.1 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D401): the HOST characteristics under an attached static (enchanted
+permanent is a creature 9, enchanted creature is <colour> 15, equipped creature is
+legendary or a Human 5 — a `host` variable the stage swaps, `ManualAttach` exists); "you
+control a token" (2 — `ManualCreateToken` exists, the reader needs a token predicate); the
+own-entry static (Crew Captain); a protection or a landwalk on a conditional self body; the
+incarnations' graveyard statics (5 — `activeZones: ['graveyard']`); stickers, a planeswalker
+by name, a colour pair, "it's modified", a crime; the search payloads on an activated line
+and under a head (3); then D400's list unchanged — the entry-turn fire with a PROMPT,
+`Whenever you attack` and the each-combat head, `attacked with N or more` at N ≥ 2, the
+`for each <X>` family (the count vocabulary reads 75 of 508 one-piece), the payment heads (a
+colour-filtered cast head, 14 ledgered), the search residue, the five D400 refused, the
+scoped grant, the blocker-predicate form (8 + 1), the can't-block stand-in's overstatement,
+`can't attack` (3) and `can't attack or block` (2 + 1), the six D399 refused, ⚠️⚠️ THE FUZZ
+DRIVER RARELY ATTACKS (a gate decision), `selfEntered` under a head, the payload-level "If
+…" sentences, the nth-resolution memory (16), the 172 AMOUNT forms, the four D398 refused,
+the restriction's exotic purposes (14), the chooser price beside a restriction, the "any
+combination" amounts, the pool UI tagging a bucket, the search payload as an ACTIVATED
+effect and the two-name search, Plaza of Heroes' exile-self cost, the twenty-two older
+fight and bite suites, "fights another target creature", token copies (15), the untap skip
+(15), the delayed action (12), the permanent animation (1), the scoped can't-block forms
+and "must be blocked", the durations proper (23 / 33 / 14), the permanent control family
+(20) and exchange control (24), the object stamp (CR 400.7), the activation restrictions
+(313), the keyword entry replacements (22), copy (~200), the prompt CONTINUATION seam
+proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+NEVER BLOCKS.

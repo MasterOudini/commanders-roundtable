@@ -7,6 +7,52 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BASKING_CAPYBARA_SCRIPT } from './cards/baskingCapybara';
+import { BELLOWING_ELK_SCRIPT } from './cards/bellowingElk';
+import { BRIGHTSPEAR_ZEALOT_SCRIPT } from './cards/brightspearZealot';
+import { ECHO_OF_DUSK_SCRIPT } from './cards/echoOfDusk';
+import { FRILLED_CAVE_WURM_SCRIPT } from './cards/frilledCaveWurm';
+import { GHITU_LAVARUNNER_SCRIPT } from './cards/ghituLavarunner';
+import { RECLUSIVE_TAXIDERMIST_SCRIPT } from './cards/reclusiveTaxidermist';
+import { SADDLED_RIMESTAG_SCRIPT } from './cards/saddledRimestag';
+import { SPELLEATER_WOLVERINE_SCRIPT } from './cards/spelleaterWolverine';
+import { THORNFIST_STRIKER_SCRIPT } from './cards/thornfistStriker';
+import { THRAN_GOLEM_SCRIPT } from './cards/thranGolem';
+import { ULNA_ALLEY_SHOPKEEP_SCRIPT } from './cards/ulnaAlleyShopkeep';
+import { ADANTO_VANGUARD_SCRIPT } from './cards/adantoVanguard';
+import { ARCTIC_AVEN_SCRIPT } from './cards/arcticAven';
+import { BARROW_NAUGHTY_SCRIPT } from './cards/barrowNaughty';
+import { BLAZETHORN_SCARECROW_SCRIPT } from './cards/blazethornScarecrow';
+import { BLOOD_PETAL_CELEBRANT_SCRIPT } from './cards/bloodPetalCelebrant';
+import { CLIFFRUNNER_BEHEMOTH_SCRIPT } from './cards/cliffrunnerBehemoth';
+import { COASTAL_BULWARK_SCRIPT } from './cards/coastalBulwark';
+import { CRIMSON_MUCKWADER_SCRIPT } from './cards/crimsonMuckwader';
+import { DAUNTLESS_RIVER_MARSHAL_SCRIPT } from './cards/dauntlessRiverMarshal';
+import { DESPERATE_SENTRY_SCRIPT } from './cards/desperateSentry';
+import { DIDACT_ECHO_SCRIPT } from './cards/didactEcho';
+import { FLINTHOOF_BOAR_SCRIPT } from './cards/flinthoofBoar';
+import { FOUL_WATCHER_SCRIPT } from './cards/foulWatcher';
+import { GRIM_FLAYER_SCRIPT } from './cards/grimFlayer';
+import { HARBOR_BANDIT_SCRIPT } from './cards/harborBandit';
+import { HEDGE_TROLL_SCRIPT } from './cards/hedgeTroll';
+import { JORUBAI_MURK_LURKER_SCRIPT } from './cards/jorubaiMurkLurker';
+import { KIRD_CHIEFTAIN_SCRIPT } from './cards/kirdChieftain';
+import { MESSENGER_HAWK_SCRIPT } from './cards/messengerHawk';
+import { MINOTAUR_TACTICIAN_SCRIPT } from './cards/minotaurTactician';
+import { NEZUMI_BLADEBLESSER_SCRIPT } from './cards/nezumiBladeblesser';
+import { NIGHTFIRE_GIANT_SCRIPT } from './cards/nightfireGiant';
+import { PRIZED_ELEPHANT_SCRIPT } from './cards/prizedElephant';
+import { RATTLEBLAZE_SCARECROW_SCRIPT } from './cards/rattleblazeScarecrow';
+import { SEDGE_TROLL_SCRIPT } from './cards/sedgeTroll';
+import { SHIMMER_DRAGON_SCRIPT } from './cards/shimmerDragon';
+import { SHINECHASER_SCRIPT } from './cards/shinechaser';
+import { SUNBLADE_ELF_SCRIPT } from './cards/sunbladeElf';
+import { THORNWATCH_SCARECROW_SCRIPT } from './cards/thornwatchScarecrow';
+import { VOLDAREN_STINGER_SCRIPT } from './cards/voldarenStinger';
+import { WATCHWING_SCARECROW_SCRIPT } from './cards/watchwingScarecrow';
+import { WILD_NACATL_SCRIPT } from './cards/wildNacatl';
+import { WINGRATTLE_SCARECROW_SCRIPT } from './cards/wingrattleScarecrow';
+import { RAKDOS_PIT_DRAGON_SCRIPT } from './cards/rakdosPitDragon';
 import { ANGELIC_ACCORD_SCRIPT } from './cards/angelicAccord';
 import { BELLIGERENT_OF_THE_BALL_SCRIPT } from './cards/belligerentOfTheBall';
 import { BULETTE_SCRIPT } from './cards/bulette';
@@ -5690,6 +5736,52 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BASKING_CAPYBARA_SCRIPT,
+  BELLOWING_ELK_SCRIPT,
+  BRIGHTSPEAR_ZEALOT_SCRIPT,
+  ECHO_OF_DUSK_SCRIPT,
+  FRILLED_CAVE_WURM_SCRIPT,
+  GHITU_LAVARUNNER_SCRIPT,
+  RECLUSIVE_TAXIDERMIST_SCRIPT,
+  SADDLED_RIMESTAG_SCRIPT,
+  SPELLEATER_WOLVERINE_SCRIPT,
+  THORNFIST_STRIKER_SCRIPT,
+  THRAN_GOLEM_SCRIPT,
+  ULNA_ALLEY_SHOPKEEP_SCRIPT,
+  ADANTO_VANGUARD_SCRIPT,
+  ARCTIC_AVEN_SCRIPT,
+  BARROW_NAUGHTY_SCRIPT,
+  BLAZETHORN_SCARECROW_SCRIPT,
+  BLOOD_PETAL_CELEBRANT_SCRIPT,
+  CLIFFRUNNER_BEHEMOTH_SCRIPT,
+  COASTAL_BULWARK_SCRIPT,
+  CRIMSON_MUCKWADER_SCRIPT,
+  DAUNTLESS_RIVER_MARSHAL_SCRIPT,
+  DESPERATE_SENTRY_SCRIPT,
+  DIDACT_ECHO_SCRIPT,
+  FLINTHOOF_BOAR_SCRIPT,
+  FOUL_WATCHER_SCRIPT,
+  GRIM_FLAYER_SCRIPT,
+  HARBOR_BANDIT_SCRIPT,
+  HEDGE_TROLL_SCRIPT,
+  JORUBAI_MURK_LURKER_SCRIPT,
+  KIRD_CHIEFTAIN_SCRIPT,
+  MESSENGER_HAWK_SCRIPT,
+  MINOTAUR_TACTICIAN_SCRIPT,
+  NEZUMI_BLADEBLESSER_SCRIPT,
+  NIGHTFIRE_GIANT_SCRIPT,
+  PRIZED_ELEPHANT_SCRIPT,
+  RATTLEBLAZE_SCARECROW_SCRIPT,
+  SEDGE_TROLL_SCRIPT,
+  SHIMMER_DRAGON_SCRIPT,
+  SHINECHASER_SCRIPT,
+  SUNBLADE_ELF_SCRIPT,
+  THORNWATCH_SCARECROW_SCRIPT,
+  VOLDAREN_STINGER_SCRIPT,
+  WATCHWING_SCARECROW_SCRIPT,
+  WILD_NACATL_SCRIPT,
+  WINGRATTLE_SCARECROW_SCRIPT,
+  RAKDOS_PIT_DRAGON_SCRIPT,
   ANGELIC_ACCORD_SCRIPT,
   BELLIGERENT_OF_THE_BALL_SCRIPT,
   BULETTE_SCRIPT,
