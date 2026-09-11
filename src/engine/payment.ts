@@ -39,6 +39,8 @@ import {
 } from './types/mana';
 import type { ManaOutput, OracleDb } from './types/oracle';
 import type { GameState } from './types/state';
+import type { RestrictedMana } from './types/mana';
+import { OTHER_PURPOSE, fitPool, restrictionAllows, type SpendPurpose } from './spend';
 
 const KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 
@@ -47,6 +49,8 @@ export interface SolveInput {
   readonly pool: ManaPool;
   /** D364 - of `pool`, how much came from a snow source. A sub-pool. */
   readonly poolSnow: ManaPool;
+  /** D397 - of `pool`, what is held under a spend restriction, by sentence. Sub-pools. */
+  readonly poolRestricted: readonly RestrictedMana[];
   readonly sources: readonly ManaSource[];
   readonly lifeAvailable: number;
   readonly eventCount: number;
@@ -63,6 +67,7 @@ export function solveInputFor(
   return {
     pool: p?.pool ?? EMPTY_POOL,
     poolSnow: p?.poolSnow ?? EMPTY_POOL,
+    poolRestricted: p?.poolRestricted ?? [],
     sources: manaSourcesOf(state, oracle, scripts, player, cache ? { cache } : {}),
     lifeAvailable: p?.life ?? 0,
     eventCount: state.eventCount,
@@ -208,7 +213,29 @@ function restOf(c: ConcreteProblem): ConcreteProblem {
   return c.snow === 0 ? c : { ...c, snow: 0, totalMana: c.totalMana - c.snow };
 }
 
-export function affordable(input: SolveInput, problem: PaymentProblem): boolean {
+/**
+ * D397 - THE ONE SEAM THAT ENFORCES A SPEND RESTRICTION: the input MINUS every pool
+ * bucket and every source whose restriction the purpose does not fit. The solver then
+ * runs on mana that may pay for this, and only that. The inverse of `reserveSnow`: snow
+ * is mana a cost DEMANDS, a restriction is mana a cost CANNOT USE.
+ *
+ * ⚠️ The purpose defaults to `other` everywhere a caller does not say - the safe
+ * direction: restricted mana is withheld, never spent on something the card forbids.
+ */
+export function fitFor(input: SolveInput, purpose: SpendPurpose): SolveInput {
+  const excluded = input.poolRestricted.filter((b) => !restrictionAllows(b.restriction, purpose));
+  const sources = input.sources.filter((s) => s.restriction === null || restrictionAllows(s.restriction, purpose));
+  if (excluded.length === 0 && sources.length === input.sources.length) return input;
+  const pool = fitPool(input.pool, input.poolRestricted, purpose);
+  // The snow sub-pool can only ever describe mana that is still there.
+  const poolSnow: Record<ManaSymbolKey, number> = { ...input.poolSnow };
+  for (const k of KEYS) poolSnow[k] = Math.min(poolSnow[k], pool[k]);
+  return { ...input, pool, poolSnow: poolSnow as ManaPool, sources };
+}
+
+export function affordable(raw: SolveInput, problem: PaymentProblem, purpose: SpendPurpose = OTHER_PURPOSE): boolean {
+  // D397 - restricted mana the purpose does not fit is gone before anything else looks.
+  const input = fitFor(raw, purpose);
   // ⚠️ D363 refused `{S}` outright, because the pool recorded WHAT mana it held and
   // never WHERE it came from - so `{1}{S}` was charged as `{2}` and Arcum's Astrolabe
   // was castable off two Mountains. D364 gave the pool that record: the snow symbols
@@ -243,7 +270,10 @@ function emptyWorking(): Working {
  * `null` is not an error — it is the answer to "can I cast this", and callers
  * turn it into `'cannotAfford'` with the cost in the message.
  */
-export function suggestPayment(input: SolveInput, problem: PaymentProblem): PaymentPlan | null {
+export function suggestPayment(raw: SolveInput, problem: PaymentProblem, purpose: SpendPurpose = OTHER_PURPOSE): PaymentPlan | null {
+  // D397 - the plan is built over the FITTED input, so its pool spend never names
+  // restricted mana the purpose cannot use and its taps never include a source it cannot.
+  const input = fitFor(raw, purpose);
   // D364 - the snow symbols are paid before anything else, and the plan the solver
   // builds for the remainder is merged with those taps. `finish` still prices the
   // pool spend against the WHOLE concrete problem, so the reserved mana is spent too.
@@ -647,6 +677,7 @@ export function validatePlan(
   player: PlayerId,
   problem: PaymentProblem,
   plan: PaymentPlan,
+  purpose: SpendPurpose = OTHER_PURPOSE,
 ): PlanProblem {
   const sources = manaSourcesOf(state, oracle, scripts, player, { includeConditional: true });
   const byCard = new Map<string, ManaSource[]>();
@@ -660,6 +691,8 @@ export function validatePlan(
     const options = byCard.get(tapPlan.source);
     const source = options?.find((s) => s.abilityIndex === tapPlan.abilityIndex);
     if (!source) return plan.forEventCount === state.eventCount ? 'invalid' : 'stale';
+    // D397 - a plan built by hand cannot tap a restricted source for something it forbids.
+    if (source.restriction && !restrictionAllows(source.restriction, purpose)) return 'invalid';
     const output = source.outputs[tapPlan.outputChoice];
     if (!output) return 'invalid';
     for (const k of KEYS) produced[k] += output.mana[k];
@@ -668,7 +701,9 @@ export function validatePlan(
   const p = state.players[player];
   if (!p) return 'invalid';
   const total: Record<ManaSymbolKey, number> = { ...produced };
-  for (const k of KEYS) total[k] += p.pool[k];
+  // D397 - the pool MINUS what the purpose cannot spend, exactly as the plan was built.
+  const usable = fitPool(p.pool, p.poolRestricted, purpose);
+  for (const k of KEYS) total[k] += usable[k];
 
   const concrete = hybridCombinations(problem).find(
     (c) =>

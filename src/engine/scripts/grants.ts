@@ -106,8 +106,11 @@ export function grantedTriggerRef(ref: AbilityRef, name: string): AbilityRef {
  * protection, one parser over).
  *
  * Refused by name (D90): a line that is not exactly one mana ability, and a
- * CONDITIONAL one - a spend restriction, an unread cost piece, an amount the
- * engine cannot compute - which it would otherwise offer and then half-run.
+ * CONDITIONAL one - a spend restriction the reader cannot express, an unread
+ * cost piece, an amount the engine cannot compute - which it would otherwise
+ * offer and then half-run. D397 - a spend restriction the reader DOES express
+ * rides the production (`restriction`) and is enforced at payment like a
+ * printed one, so such a line is no longer conditional and the grant claims it.
  */
 export function grantedMana(quoted: string, name: string): ManaProduction {
   const face = { name, oracleText: quoted } as unknown as CardFace;
@@ -118,7 +121,7 @@ export function grantedMana(quoted: string, name: string): ManaProduction {
   }
   const prod = parsed[0] as ManaProduction;
   if (prod.conditional) {
-    throw new Error(`${name}: the quoted mana ability "${quoted}" is conditional (a spend restriction, a cost the engine does not charge, or an amount it cannot compute) - the grant must not claim it (D90).`);
+    throw new Error(`${name}: the quoted mana ability "${quoted}" is conditional (a spend restriction the reader cannot express, a cost the engine does not charge, or an amount it cannot compute) - the grant must not claim it (D90).`);
   }
   return prod;
 }

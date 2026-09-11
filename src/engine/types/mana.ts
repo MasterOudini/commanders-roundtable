@@ -21,6 +21,52 @@ export const MANA_KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'
 export const EMPTY_POOL: ManaPool = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
 
 /**
+ * D397 - SPEND-RESTRICTED MANA. "Spend this mana only to cast creature spells" (Ancient
+ * Ziggurat), "... only to cast artifact spells or activate abilities of artifacts"
+ * (Vedalken Engineer), "... only to activate abilities" (Omen Hawker).
+ *
+ * A restriction is read off the mana line as a list of ALTERNATIVES, each a CONJUNCTION
+ * of type-line terms the thing being paid for must satisfy: `colorless Eldrazi spells`
+ * is one alternative of two terms, `a Knight or Equipment spell` two alternatives of one
+ * term each, `spells` one EMPTY conjunction (any spell). `spells: null` means the mana
+ * pays for no spell at all, `abilities: null` for no ability; an empty conjunction in
+ * `abilities` is "activate an ability" of anything. What it can never pay for is
+ * anything else - a ward tax, a "pay {2} or sacrifice" prompt, a morph turned face up -
+ * and the payment path says so by asking with a purpose of kind `other`.
+ *
+ * ⚠️ Read by ONE reader (`parseSpendRestriction` in `oracleParse.ts`) and enforced at
+ * ONE seam (`fitFor` in `payment.ts`): a purpose a restriction does not fit sees neither
+ * the source nor the mana it already made. A sentence the reader cannot express leaves
+ * the line `conditional`, exactly as before - tapped by hand, the restriction the
+ * player's - never widened to something the card does not say (D90).
+ */
+export type SpendTerm =
+  | { readonly kind: 'type'; readonly value: string }
+  | { readonly kind: 'subtype'; readonly value: string }
+  | { readonly kind: 'supertype'; readonly value: string }
+  | { readonly kind: 'colorless' }
+  | { readonly kind: 'multicolored' }
+  | { readonly kind: 'monocolored' };
+
+/** Every term must hold of the spell, or of the ability's source. */
+export type SpendConjunction = readonly SpendTerm[];
+
+export interface SpendRestriction {
+  /** The spells this mana may be spent to cast (any alternative), or null for none. */
+  readonly spells: readonly SpendConjunction[] | null;
+  /** The sources whose abilities this mana may be spent to activate, or null for none. */
+  readonly abilities: readonly SpendConjunction[] | null;
+  /** The printed sentence, which is also the bucket's identity in the pool. */
+  readonly text: string;
+}
+
+/** D397 - a sub-pool of `PlayerState.pool`: mana held under one restriction. */
+export interface RestrictedMana {
+  readonly restriction: SpendRestriction;
+  readonly mana: ManaPool;
+}
+
+/**
  * One branch of a hybrid symbol.
  *
  * ⚠️ Phyrexian is modelled as a hybrid whose second option is `life`, rather

@@ -17,7 +17,7 @@
 
 import type { CardData, CardFace, ColorLetter } from './cardTypes';
 import { scrub } from './targetParse';
-import type { HybridOption, HybridSymbol, ManaCost, ManaPool } from '../engine/types/mana';
+import type { HybridOption, HybridSymbol, ManaCost, ManaPool, SpendConjunction, SpendRestriction, SpendTerm } from '../engine/types/mana';
 import { EMPTY_POOL } from '../engine/types/mana';
 import type {
   Keyword,
@@ -534,7 +534,10 @@ function poolKey(p: ManaPool): string {
 }
 
 function outputKey(o: ManaProduction): string {
-  return `${o.requiresTap}|${o.conditional}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}|${o.extraCost ? `${o.extraCost.mana?.raw ?? ''}/${o.extraCost.life}/${o.extraCost.sacrificeSelf ? 's' : ''}` : '-'}`;
+  // D397 - the restriction is part of the identity: `{T}: Add {C}.` beside `{T}: Add {C}. Spend
+  // this mana only to cast an artifact spell.` are two abilities, and a key without the sentence
+  // dropped the second as a duplicate (eleven lines across the database, found by the parse pin).
+  return `${o.requiresTap}|${o.conditional}|${o.restriction?.text ?? '-'}|${o.anyColor ? `${o.anyColor.scope}:${o.anyColor.amount}` : '-'}|${o.outputs.map((x) => poolKey(x.mana)).join(',')}|${o.extraCost ? `${o.extraCost.mana?.raw ?? ''}/${o.extraCost.life}/${o.extraCost.sacrificeSelf ? 's' : ''}` : '-'}`;
 }
 
 /** Text that makes the amount or usability of the mana unknowable to the engine. */
@@ -576,6 +579,100 @@ function chargeablePieces(cost: string, name: string): { readonly mana: ManaCost
 
 const CONDITIONAL_RE =
   /\b(if\b|unless\b|only\b|for each\b|equal to\b|that much\b|X\b|Activate only\b|as long as\b|instead\b|choose\b|reveal\b|whenever\b|when\b|at the beginning\b)/i;
+
+// ── D397 - the spend restriction ─────────────────────────────────────────────
+
+const SPEND_ONLY_RE = /^Spend this mana only (.+)\.$/;
+const SPEND_TYPES: Readonly<Record<string, string>> = {
+  artifact: 'Artifact', creature: 'Creature', enchantment: 'Enchantment', instant: 'Instant', sorcery: 'Sorcery',
+  planeswalker: 'Planeswalker', land: 'Land', battle: 'Battle', kindred: 'Kindred',
+};
+
+/** One word of a predicate: a card type, `legendary`, a colour category, or a Capitalized subtype. */
+function spendTerm(word: string): SpendTerm | null {
+  const type = SPEND_TYPES[word];
+  if (type) return { kind: 'type', value: type };
+  if (word === 'legendary') return { kind: 'supertype', value: 'Legendary' };
+  if (word === 'colorless' || word === 'multicolored' || word === 'monocolored') return { kind: word };
+  if (/^[A-Z][a-z]+$/.test(word)) return { kind: 'subtype', value: word };
+  return null;
+}
+
+/**
+ * `colorless Eldrazi`, `a Knight or Equipment`, `Vampire, Cleric, and/or Demon`, `instant and
+ * sorcery`: the list separators are alternatives, the words inside one are a conjunction.
+ * `plural` says the words may carry an English plural (`abilities of artifacts`, `of Elementals`).
+ */
+function spendPredicate(text: string, plural: boolean): readonly SpendConjunction[] | null {
+  const t = text.replace(/^(?:a|an)\s+/, '').trim();
+  if (t === '') return [[]];
+  const out: SpendConjunction[] = [];
+  for (const alt of t.split(/\s*,\s*(?:and\/or|or|and)?\s*|\s+(?:and\/or|or|and)\s+/)) {
+    if (alt === '') continue;
+    const terms: SpendTerm[] = [];
+    for (const word of alt.split(/\s+/)) {
+      // ⚠️ The singular FIRST when the word is plural by position (`abilities of artifacts`,
+      // `of Elementals`): a Capitalized plural would otherwise read as a subtype of its own.
+      // `Eldrazi` is its own plural and never ends in an s. Never a spell's word, which is
+      // always singular before `spell(s)`.
+      const term = plural && word.endsWith('s') ? (spendTerm(word.slice(0, -1)) ?? spendTerm(word)) : spendTerm(word);
+      if (term === null) return null;
+      terms.push(term);
+    }
+    out.push(terms);
+  }
+  return out.length === 0 ? null : out;
+}
+
+/**
+ * D397 - THE ONE READER of "Spend this mana only ...": what the mana may pay for, as
+ * alternatives of `cast <predicate> spells` and `activate abilities [of <predicate>]`.
+ * Anything it cannot express - a foretell, a kicked spell, a face-down cast, a cost
+ * that contains {X}, a spell you don't own, cumulative upkeep - returns null and the
+ * line stays `conditional`: tapped by hand, the restriction the player's, as before.
+ */
+export function parseSpendRestriction(sentence: string): SpendRestriction | null {
+  const m = SPEND_ONLY_RE.exec(sentence.trim());
+  if (!m) return null;
+  const rest = (m[1] ?? '').replace(/\bor to\b/g, 'or');
+  let spells: SpendConjunction[] | null = null;
+  let abilities: SpendConjunction[] | null = null;
+  // `... or activate ...`, `... or cast ...`, `... or a Chandra planeswalker spell` split the
+  // alternatives; `a Knight or Equipment spell` does not, because `Equipment` is neither.
+  for (const raw of rest.split(/\s+or\s+(?=(?:to\s+)?(?:cast|activate)\b|an?\s+)/)) {
+    const part = raw.replace(/^to\s+/, '').trim();
+    const cast = /^cast\s+(.*?)\s*spells?$/.exec(part) ?? /^((?:a|an)\s+.*?)\s*spell$/.exec(part);
+    if (cast) {
+      const pred = spendPredicate(cast[1] ?? '', false);
+      if (pred === null) return null;
+      spells = [...(spells ?? []), ...pred];
+      continue;
+    }
+    const act = /^activate\s+(?:an\s+ability|abilities)(?:\s+of\s+(.+?))?$/.exec(part);
+    if (act) {
+      const source = (act[1] ?? '').replace(/\s+(?:sources?|permanents?)$/, '');
+      const pred = spendPredicate(source, true);
+      if (pred === null) return null;
+      abilities = [...(abilities ?? []), ...pred];
+      continue;
+    }
+    return null;
+  }
+  if (spells === null && abilities === null) return null;
+  return { spells, abilities, text: sentence.trim() };
+}
+
+/**
+ * D397 - the mana line's sentences: the add clause and, when it is exactly the second of
+ * two, its spend restriction. A third sentence is something else again and reads as none.
+ */
+function spendRestrictionOf(effect: string): { readonly restriction: SpendRestriction | null; readonly effectWithout: string } {
+  const sentences = effect.split(/(?<=[.!])\s+/).map((s) => s.trim()).filter((s) => s !== '');
+  if (sentences.length !== 2) return { restriction: null, effectWithout: effect };
+  const restriction = parseSpendRestriction(sentences[1] ?? '');
+  if (!restriction) return { restriction: null, effectWithout: effect };
+  return { restriction, effectWithout: ' ' + (sentences[0] ?? '') };
+}
 
 /**
  * Every mana ability a face has, from both its printed text and its land types.
@@ -683,7 +780,13 @@ export function parseManaProduction(
     // by hand, the extra cost the player's, exactly as before.
     const charged = extraCost ? chargeablePieces(cost, face.name) : null;
     const unchargedExtra = extraCost && charged === null;
-    const conditional = unchargedExtra || CONDITIONAL_RE.test(effect) || /\bonly\b/i.test(line);
+    // D397 - a spend restriction the reader expressed is not a condition any more: the
+    // payment path enforces it. The "only" test runs over the line WITHOUT that sentence,
+    // so an "Activate only if" beside it still keeps the line conditional.
+    const spend = spendRestrictionOf(effect);
+    const restriction = spend.restriction;
+    const conditional =
+      unchargedExtra || CONDITIONAL_RE.test(spend.effectWithout) || /\bonly\b/i.test(restriction ? cost + ':' + spend.effectWithout : line);
 
     // "Add one mana of any color", "Add two mana of any one color".
     // ⚠️ "any TYPE" as well as "any color". Reflecting Pool, Horizon of Progress
@@ -711,6 +814,7 @@ export function parseManaProduction(
         // resolves to the empty set and the source simply offers nothing.
         conditional: unchargedExtra,
         extraCost: charged,
+        restriction,
         text: printed,
         line: lineIndex,
       });
@@ -726,8 +830,18 @@ export function parseManaProduction(
         warn('mana:variableAmount');
         continue;
       }
-      const tail = (anyMatch[3] ?? '').toLowerCase();
+      const tail = (anyMatch[3] ?? '').toLowerCase().trim();
       const identityScoped = tail.includes("commander's color identity") || tail.includes('commander’s color identity');
+      // D397 - the three "among legendary ..." sets, each one printed wording, resolved at solve
+      // time against the board or the graveyard (`manaSourcesOf`). Exactly these three.
+      const legendaryScope =
+        tail === 'among legendary permanents you control'
+          ? ('legendaryYou' as const)
+          : tail === 'among legendary creatures and planeswalkers you control'
+            ? ('legendaryCreaturesWalkersYou' as const)
+            : tail === 'among legendary creature cards in your graveyard'
+              ? ('legendaryGraveyard' as const)
+              : null;
       // ⚠️ EXACTLY these two phrasings, and nothing looser. "a Gate you control
       // could produce" is the same SHAPE and a different SET, and answering it
       // with every colour your lands make would offer mana the card cannot
@@ -743,8 +857,18 @@ export function parseManaProduction(
         warn('mana:anyScopeUnread');
         continue;
       }
+      // D397 - ANY OTHER TAIL IS A SCOPE THE ENGINE CANNOT RESOLVE, and it refuses the same way.
+      // "Add one mana of any color AMONG LEGENDARY PERMANENTS YOU CONTROL" (Plaza of Heroes, Mox
+      // Amber, The Grey Havens) fell through to scope 'all' since D116 - five colours off an empty
+      // board, the never-half-execute rule (D90) broken on a land. Those three are the named
+      // scopes above now; measured over the database, the only tail that still reaches here is
+      // Paliano's draft-time choice, unread rather than wrong (no draft happens in Commander).
+      if (!identityScoped && !boardScope && !legendaryScope && tail !== '') {
+        warn('mana:anyScopeUnread');
+        continue;
+      }
       if (tail.includes('combination')) warn('mana:anyCombination');
-      const scope = identityScoped ? ('identity' as const) : (boardScope ?? ('all' as const));
+      const scope = identityScoped ? ('identity' as const) : (boardScope ?? legendaryScope ?? ('all' as const));
       push({
         outputs: [],
         anyColor: { scope, amount },
@@ -754,6 +878,7 @@ export function parseManaProduction(
         // board-scoped one — it knows what is on the battlefield exactly too.
         conditional: scope === 'all' ? conditional : unchargedExtra,
         extraCost: charged,
+        restriction,
         // D355 - Grand Coliseum prices its any-colour line exactly as a painland prices its two.
         drawback: readManaDrawback(line, face.name),
         text: printed,
@@ -776,9 +901,13 @@ export function parseManaProduction(
     for (const alt of alternatives) {
       const tokens = alt.match(/\{[^}]+\}/g);
       if (!tokens) continue;
+      // D397 - `Add six {G}` (Castle Garenbrig) is six of the one symbol, not one. Read
+      // before the restriction was, the line was conditional and the miscount unreachable;
+      // an enforced restriction would have landed it at a sixth of its mana (D90).
+      const times = tokens.length === 1 ? (wordToNumber(/^\s*(\w+)\s+\{/.exec(alt)?.[1] ?? 'one') ?? 1) : 1;
       const acc: Record<string, number> = {};
       let amount = 0;
-      for (const token of tokens) {
+      for (const token of tokens.length === 1 ? Array<string>(times).fill(tokens[0] ?? '') : tokens) {
         const sym = token.slice(1, -1).toUpperCase();
         if (sym === 'S') {
           // Snow mana: treated as colourless in the pool, since restricted mana
@@ -803,7 +932,7 @@ export function parseManaProduction(
     }
     // D355 - the price the line charges beside the mana, read from the SCRUBBED line so a
     // quoted granted ability's sentence can never be mistaken for this card's own.
-    push({ outputs, anyColor: null, requiresTap, conditional, extraCost: charged, drawback: readManaDrawback(line, face.name), text: printed, line: lineIndex });
+    push({ outputs, anyColor: null, requiresTap, conditional, extraCost: charged, restriction, drawback: readManaDrawback(line, face.name), text: printed, line: lineIndex });
   }
 
   return out;
@@ -849,6 +978,16 @@ function wordToNumber(word: string): number | null {
       return 2;
     case 'three':
       return 3;
+    // D397 - the count words a symbol is multiplied by (`Add six {G}`); an any-colour
+    // amount above three is still refused by its own caller, as before.
+    case 'four':
+      return 4;
+    case 'five':
+      return 5;
+    case 'six':
+      return 6;
+    case 'seven':
+      return 7;
     default:
       return null;
   }

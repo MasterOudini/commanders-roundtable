@@ -449,13 +449,13 @@ const POOL: Record<string, number> = {
   // M6.4hp (D383): the SCOPED BOARD EFFECT reads a sentence about a whole scope, so +17 instants
   // and +17 sorceries flip with no script at all, beside the wave's +25 creatures and +2
   // enchantments.
-  creature: 4998,
+  creature: 5016,
   instant: 1137,
   sorcery: 865,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
-  land: 582,
-  artifact: 484,
+  land: 596,
+  artifact: 486,
   enchantment: 485,
 };
 

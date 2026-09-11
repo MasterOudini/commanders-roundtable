@@ -34,6 +34,8 @@ import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
 import { suggestPayment, solveInputFor, validatePlan } from './payment';
+import { OTHER_PURPOSE, abilityPurpose, bucketsFitting, fitPool, restrictedOfSpend, spellPurpose, type SpendPurpose } from './spend';
+import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
@@ -53,7 +55,7 @@ import type {
 } from './types/oracle';
 import { predicateAdmits, type PermanentPredicate } from '../data/replacementParse';
 import { candidatesFromState, validateTargets } from './targets';
-import { EMPTY_POOL, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
+import { EMPTY_POOL, addPool, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
 import {
   accept,
   reject,
@@ -501,9 +503,10 @@ function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' 
   if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
   const problem = buildPaymentProblem(face.morphCost, 0, [], 0);
   const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
-  const chosen = intent.plan ?? suggestPayment(solve, problem);
+  // D397 - a special action (CR 708.7), neither a spell nor an ability: restricted mana never pays it.
+  const chosen = intent.plan ?? suggestPayment(solve, problem, OTHER_PURPOSE);
   if (!chosen) return reject('cannotAfford', `You cannot pay ${face.morphCostText ?? 'the morph cost'} to turn ${face.name} face up.`);
-  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen);
+  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
   if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
   const events: EventBody[] = [];
@@ -514,7 +517,7 @@ function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' 
       tax: 0,
       from: { kind: 'battlefield', player: intent.player },
       identity: oracleCard.colorIdentity,
-    }),
+    }, OTHER_PURPOSE),
   );
   events.push({ t: 'FaceDownSet', card: intent.card, faceDown: false });
   if (face.megamorph) events.push({ t: 'CountersChanged', changes: [{ card: intent.card, kind: '+1/+1', delta: 1 }] });
@@ -1428,14 +1431,16 @@ interface CompleteArgs {
 function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): HandleResult {
   const { setup } = args;
   const solve = solveInputFor(state, deps.oracle, deps.scripts, args.player);
-  const plan = args.plan ?? suggestPayment(solve, setup.problem);
+  // D397 - the spell this face is cast as, face down a colourless creature (CR 708.2).
+  const purpose = spellPurpose(setup.face, setup.faceDown === true);
+  const plan = args.plan ?? suggestPayment(solve, setup.problem, purpose);
   if (!plan) {
     return reject(
       'cannotAfford',
       `You cannot pay ${setup.face.manaCost?.raw ?? ''}${setup.tax > 0 ? ` plus {${setup.tax}} commander tax` : ''} for ${setup.face.name}.`,
     );
   }
-  const problem = validatePlan(state, deps.oracle, deps.scripts, args.player, setup.problem, plan);
+  const problem = validatePlan(state, deps.oracle, deps.scripts, args.player, setup.problem, plan, purpose);
   if (problem === 'stale') {
     return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   }
@@ -1458,7 +1463,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
       ],
     },
   ];
-  events.push(...payEvents(state, deps, args.player, plan, setup));
+  events.push(...payEvents(state, deps, args.player, plan, setup, purpose));
 
   const card = state.cards[args.card];
   const obj: StackObject = {
@@ -1520,9 +1525,12 @@ function finishAbility(
   lead: readonly EventBody[] = [],
 ): HandleResult {
   const solve = solveInputFor(state, deps.oracle, deps.scripts, pending.player);
-  const chosen = plan ?? suggestPayment(solve, pending.problem);
+  // D397 - an ability of ITS SOURCE: restricted mana that names the source's kind pays it.
+  const src = derive(state, deps.oracle, deps.scripts, pending.card);
+  const purpose = abilityPurpose(src.typeLine, src.colors);
+  const chosen = plan ?? suggestPayment(solve, pending.problem, purpose);
   if (!chosen) return reject('cannotAfford', `You cannot pay ${ability.costText} for ${face.name}.`);
-  const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen);
+  const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen, purpose);
   if (problem === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (problem === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
 
@@ -1538,7 +1546,7 @@ function finishAbility(
       tax: 0,
       from: pending.from,
       identity,
-    }),
+    }, purpose),
   );
   // CR 602.2b — the tap is part of the COST, so it is paid now, in this batch.
   if (ability.requiresTap) events.push({ t: 'PermanentsTapped', cards: [pending.card] });
@@ -1871,11 +1879,14 @@ function finishFromPending(
 ): HandleResult {
   const plan = opts.plan;
   const solve = solveInputFor(state, deps.oracle, deps.scripts, pending.player);
-  const chosen = plan ?? suggestPayment(solve, pending.problem);
+  // D397 - what this pays for: the spell the face is cast as, or the ability of its source.
+  const src = pending.kind === 'ability' ? derive(state, deps.oracle, deps.scripts, pending.card) : null;
+  const purpose = src ? abilityPurpose(src.typeLine, src.colors) : spellPurpose(face, pending.faceDown === true);
+  const chosen = plan ?? suggestPayment(solve, pending.problem, purpose);
   if (!chosen) {
     return reject('cannotAfford', `You cannot pay for ${face.name} with X = ${pending.xValue ?? 0}.`);
   }
-  const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen);
+  const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen, purpose);
   if (problem === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (problem === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
 
@@ -1897,7 +1908,7 @@ function finishFromPending(
   if (pending.xValue !== null && !opts.xAlreadyLogged) {
     events.push({ t: 'XChosen', x: pending.xValue, problem: pending.problem });
   }
-  events.push(...payEvents(state, deps, pending.player, chosen, setup));
+  events.push(...payEvents(state, deps, pending.player, chosen, setup, purpose));
 
   const card = state.cards[pending.card];
   const obj: StackObject = {
@@ -1972,11 +1983,16 @@ function payEvents(
   player: PlayerId,
   plan: import('./types/mana').PaymentPlan,
   setup: CastSetup | Pick<CastSetup, 'problem'>,
+  purpose: SpendPurpose,
 ): EventBody[] {
   const events: EventBody[] = [];
   const sources = manaSourcesOf(state, deps.oracle, deps.scripts, player, { includeConditional: true });
   const produced: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
   const producedSnow: Record<ManaSymbolKey, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+  // D397 - the FITTING buckets this spend may draw on: what the pool held under a restriction
+  // the purpose fits, plus what the plan's own taps make under one (every tap in a validated
+  // plan fits, so its mana lands in a fitting bucket and is spent straight back out of it).
+  let fitting: readonly RestrictedMana[] = bucketsFitting(state.players[player]?.poolRestricted ?? [], purpose);
   const tapped: InstanceId[] = [];
 
   for (const tap of plan.taps) {
@@ -1987,7 +2003,12 @@ function payEvents(
     for (const k of KEYS) produced[k] += output.mana[k];
     // D364 - snow mana is recorded as it is made; the source knows, the pool remembers.
     if (source.snow) for (const k of KEYS) producedSnow[k] += output.mana[k];
-    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source, snow: source.snow });
+    const only = source.restriction;
+    events.push({ t: 'ManaAdded', player, mana: output.mana, source: tap.source, snow: source.snow, ...(only ? { only } : {}) });
+    if (only) {
+      const at = fitting.findIndex((b) => b.restriction.text === only.text);
+      fitting = at < 0 ? [...fitting, { restriction: only, mana: output.mana }] : fitting.map((b, i) => (i === at ? { restriction: b.restriction, mana: addPool(b.mana, output.mana) } : b));
+    }
   }
   if (tapped.length > 0) events.push({ t: 'PermanentsTapped', cards: tapped });
 
@@ -1996,7 +2017,8 @@ function payEvents(
       c.hybridChoices.length === plan.hybridChoices.length &&
       c.hybridChoices.every((h, i) => plan.hybridChoices[i]?.option === h.option),
   );
-  const pool = state.players[player]?.pool ?? EMPTY_POOL;
+  // D397 - the pool MINUS the restricted mana this purpose cannot spend, as the plan was built.
+  const pool = fitPool(state.players[player]?.pool ?? EMPTY_POOL, state.players[player]?.poolRestricted ?? [], purpose);
   const total: Record<ManaSymbolKey, number> = { ...produced };
   for (const k of KEYS) total[k] += pool[k];
   const spend = concrete ? spendFromPool(total as ManaPool, concrete) : null;
@@ -2005,12 +2027,14 @@ function payEvents(
     // so what is available as snow is the pool's own plus everything just produced.
     const poolSnow = state.players[player]?.poolSnow ?? EMPTY_POOL;
     const snowAvailable: Record<ManaSymbolKey, number> = { ...producedSnow };
-    for (const k of KEYS) snowAvailable[k] += poolSnow[k];
+    for (const k of KEYS) snowAvailable[k] += Math.min(poolSnow[k], pool[k]);
     events.push({
       t: 'ManaSpent',
       player,
       mana: spend,
       snow: snowOfSpend(spend, snowAvailable, total, concrete?.snow ?? 0),
+      // D397 - restricted mana that fits is spent FIRST; the buckets it came out of, named.
+      restricted: restrictedOfSpend(spend, fitting),
     });
   }
   if (plan.lifePaid > 0) {
@@ -2040,9 +2064,13 @@ function tapForMana(
   if (!output) return reject('notAManaAbility', 'That is not one of its mana options.');
   const card = state.cards[intent.card];
   if (source.requiresTap && card?.tapped) return reject('alreadyTapped', 'That permanent is already tapped.');
+  // D397 - the price beside the {T} is an ability of THIS source: restricted mana that names
+  // its kind ("activate abilities of creatures") pays it, any other restricted mana cannot.
+  const self = derive(state, deps.oracle, deps.scripts, intent.card);
+  const purpose = abilityPurpose(self.typeLine, self.colors);
   // D325 - the cost beside the {T}, charged at the tap: mana from the pool, life, the
   // permanent's own sacrifice. Not payable now: refused, like an unaffordable spell.
-  const extra = source.extraCost ? extraCostSpend(state, intent.player, source.extraCost) : null;
+  const extra = source.extraCost ? extraCostSpend(state, intent.player, source.extraCost, purpose) : null;
   if (source.extraCost && !extra) return reject('cannotAfford', 'That mana ability has a cost you cannot pay right now.');
 
   const events: EventBody[] = [];
@@ -2063,6 +2091,7 @@ function tapForMana(
       player: intent.player,
       mana: extra.mana,
       snow: snowOfSpend(extra.mana, snowHave, have, 0),
+      restricted: restrictedOfSpend(extra.mana, bucketsFitting(me?.poolRestricted ?? [], purpose)),
     });
   }
   if (extra && extra.life > 0) {
@@ -2074,7 +2103,9 @@ function tapForMana(
   }
   // D364 - THE ONE SITE THAT DECIDES WHETHER `{S}` CAN EVER BE PAID: a permanent with
   // the Snow supertype makes snow mana, read DERIVED (a permanent can be made snow).
-  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card, snow: source.snow });
+  // D397 - and whether it is SPEND-RESTRICTED: the mana lands in its bucket, and only a payment
+  // the restriction fits ever draws on it.
+  events.push({ t: 'ManaAdded', player: intent.player, mana: output.mana, source: intent.card, snow: source.snow, ...(source.restriction ? { only: source.restriction } : {}) });
   // D355 - THE PRICE THE LINE CHARGES, in the SAME accept as the mana. A mana ability does not
   // use the stack (CR 605.1), so there is no window between the two in which anything could
   // respond - and a player who taps a painland at 1 life has already lost when the mana appears.
@@ -2098,8 +2129,10 @@ function tapForMana(
   //
   // ⚠️ It names the MANA, because "you tapped a land" is not the question a
   // player scans the log for; "where did that {U} come from" is.
-  const name = derive(state, deps.oracle, deps.scripts, intent.card).name || 'a permanent';
-  const added = costStringOf(output.mana);
+  const name = self.name || 'a permanent';
+  // D397 - the restriction is said aloud with the mana, so a pool that will not pay for the
+  // next spell is never a mystery: "taps Mishra's Workshop for {C}{C}{C} (Spend this mana ...)".
+  const added = costStringOf(output.mana) + (source.restriction ? ` (${source.restriction.text})` : '');
   events.push(
     narrated(
       source.requiresTap
@@ -2567,12 +2600,13 @@ function answerPayMana(
       return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
     }
     const problem = buildPaymentProblem(awaiting.cost, 0, [], 0, awaiting.life);
-    const chosen = intent.plan ?? suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, intent.player), problem);
+    // D397 - a payment prompt is neither a spell nor an ability: restricted mana never pays it.
+    const chosen = intent.plan ?? suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, intent.player), problem, OTHER_PURPOSE);
     if (!chosen) return reject('cannotAfford', `You cannot pay ${awaiting.cost?.raw ?? ''} for ${awaiting.label}.`);
-    const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen);
+    const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
     if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
     if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
-    events.push(...payEvents(state, deps, intent.player, chosen, { problem }));
+    events.push(...payEvents(state, deps, intent.player, chosen, { problem }, OTHER_PURPOSE));
     events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'pays', 'pay')} ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${String(awaiting.life)} life` : ''} for ${awaiting.label}.`, intent.player));
   } else {
     events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'does', 'do')} not pay for ${awaiting.label}.`, intent.player));

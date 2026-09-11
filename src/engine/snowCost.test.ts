@@ -32,6 +32,7 @@ const problemFor = (raw: string) => buildPaymentProblem(parseManaCost(raw), 0, [
 const ordinary: SolveInput = {
   pool: { ...EMPTY_POOL, R: 5, G: 5 },
   poolSnow: EMPTY_POOL,
+  poolRestricted: [],
   sources: [],
   lifeAvailable: 40,
   eventCount: 0,
@@ -47,6 +48,7 @@ const snowLand = (card: string, key: 'G' | 'U', snow: boolean, rank = 0): ManaSo
   requiresTap: true,
   conditional: false,
   snow,
+  restriction: null,
   flexibilityRank: rank,
 });
 

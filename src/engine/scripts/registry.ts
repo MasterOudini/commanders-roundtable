@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABUNDANT_COUNTRYSIDE_SCRIPT } from './cards/abundantCountryside';
+import { AVENGERS_TOWER_SCRIPT } from './cards/avengersTower';
+import { CORMELA_GLAMOUR_THIEF_SCRIPT } from './cards/cormelaGlamourThief';
+import { GALLIFREY_COUNCIL_CHAMBER_SCRIPT } from './cards/gallifreyCouncilChamber';
+import { JASMINE_DRAGON_TEA_SHOP_SCRIPT } from './cards/jasmineDragonTeaShop';
+import { LUPINFLOWER_VILLAGE_SCRIPT } from './cards/lupinflowerVillage';
 import { CALDERA_PYREMAW_SCRIPT } from './cards/calderaPyremaw';
 import { HATEFLAYER_SCRIPT } from './cards/hateflayer';
 import { SIFS_SPEARMASTER_SCRIPT } from './cards/sifsSpearmaster';
@@ -5564,6 +5570,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABUNDANT_COUNTRYSIDE_SCRIPT,
+  AVENGERS_TOWER_SCRIPT,
+  CORMELA_GLAMOUR_THIEF_SCRIPT,
+  GALLIFREY_COUNCIL_CHAMBER_SCRIPT,
+  JASMINE_DRAGON_TEA_SHOP_SCRIPT,
+  LUPINFLOWER_VILLAGE_SCRIPT,
   CALDERA_PYREMAW_SCRIPT,
   HATEFLAYER_SCRIPT,
   SIFS_SPEARMASTER_SCRIPT,

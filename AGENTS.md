@@ -14758,6 +14758,76 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS;
       then D395's list unchanged.
 
+- [x] **M6.4id — SPEND-RESTRICTED MANA: a sub-pool per printed sentence, a
+      purpose on the payment path, and the any-colour tail the parser had been
+      widening for ten decisions (2026-09-11):** **8,585 of 31,692
+      Commander-legal cards now execute completely, up from 8,551 (+34:
+      TWENTY-EIGHT with no script at all, then 6 generated rows in one wave).**
+      `SHIPPED_SCRIPTS` 5,538 → **5,544**; ledger 1,237 → **1,240**
+      (three ADDED by reason, one RELABELLED). Fixtures 6,110 → **6,128**.
+      `scriptableToday` 1,330 → **1,334**; the select pool 0 → 8 → 0; the
+      ladder `[1334, 1423, 2827, 4499, 5842]`. Bot reach 8,478 → **8,512** from 257 commanders.
+      Decisions in **D397**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT, BY THE HONEST COUNT:** the restriction
+      priced with the real accounting (the sentence stood OUT of the line) — 26
+      land, 14 complete-but-refused (the exotic purposes), 16 on another
+      sentence — against the untap skip 15 and token copies 15; and printing
+      the productions found `Add six {G}` read as ONE green.
+      ⚠️ **THE SEAM:** `parseSpendRestriction` is the ONE reader (alternatives of
+      conjunctions over a closed term set: a card type, legendary, a colour
+      category, a Capitalised subtype); `PlayerState.poolRestricted` is a
+      sub-pool per printed sentence beside `poolSnow`, bounded by the pool and
+      asserted; `ManaAdded.only?` / `ManaSpent.restricted`; a `SpendPurpose` is
+      CHARACTERISTICS (the client previews from a PlayerView, D53) — a spell's
+      face, a face-down creature, an ability's derived source, or `other`; and
+      `fitFor` subtracts every non-fitting bucket and source BEFORE the solver
+      runs (the inverse of `reserveSnow`; the solver untouched), default `other`
+      — the safe direction. `validatePlan` refuses a hand-written plan that
+      spends a non-fitting bucket; `payEvents` spends the fitting buckets first
+      and names them; a restricted source ranks below a basic. Ancient Ziggurat
+      feeds `restrictedManaMade` / `restrictedManaSpent` at gate size.
+      ⚠️ **THE WAVE:** 8 in the pool → 6 rows (two token makers, two filtered
+      looks, a dies-return, an enters surveil — each beside a restricted line),
+      two ledgered by reason (a search as an ACTIVATED effect, a two-name
+      search); twenty-eight cards with NO script (Ancient Ziggurat, Mishra's
+      Workshop, Eldrazi Temple, Pillar of the Paruns, Vodalian Arcanist …).
+      ⚠️⚠️ **TWO PARSER BUGS, FOUND BY PINS MOVING THE WRONG WAY:** a dedupe key
+      without the sentence dropped a restricted line as a duplicate of an
+      unrestricted one (eleven lines; `manaAbility` FELL); and `any color among
+      legendary permanents you control` parsed to ALL FIVE COLOURS since D116
+      (Mox Amber, The Grey Havens — a shipped script on a line the engine ran
+      wrong, named by the shipped-scripts guard the day the tail was refused).
+      Three "among legendary …" scopes beside `landsYou` now, an empty set the
+      honest answer; Paliano's draft-time tail stays unread.
+      ⚠️ **Traps:** the sweep names a derived fixture and the port must feed it
+      back (Big Bertha); a derive's file list is a rot site (the memory
+      applier's next-anchor file was not carried); a multi-file part text needs
+      its own counted driver; Shock is no fixture.
+      Fixtures 6,128 (5,972 by name + 149 tokens) · botPool artifact 486 /
+      creature 5,016 / enchantment 485 / instant 1,137 / land 596 / sorcery 865 —
+      auto 1,312 / assisted 1,988 ·
+      `oracleParse` `effect:auto` 5,741 · tier3 silentAfter 8,890 · `manaPart`
+      363 · the `counter` primitive 1,284 · `activatedCost` 2,081 · batch.json 8 ·
+      select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5706 files,
+      27898 passed / 11 skipped · 500-seed gate, 6 shards, 997.0 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D397): the restriction's tail — the 14 exotic purposes
+      (each a cast-time property the payment path would need to know), the mana
+      ability with a CHOOSER price beside a restriction, the "any combination"
+      amounts, the pool UI tagging a bucket, a granted restricted mana ability's
+      proof both ways (Leyline Immersion); the search payload as an ACTIVATED
+      effect and the two-name search; Plaza of Heroes' exile-self cost; the
+      twenty-two older fight and bite suites without the predicate test; "fights
+      another target creature" (five); token copies (15); the untap skip (15);
+      the delayed action (12); the permanent animation (1); the scoped can't-block
+      forms and "must be blocked"; the durations proper (23 / 33 / 14); the
+      permanent control family (20) and exchange control (24); the object stamp
+      (CR 400.7); the activation restrictions (313); then the keyword entry
+      replacements (22), copy (~200), the prompt CONTINUATION seam proper, the two
+      gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+      NEVER BLOCKS; then D396's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

@@ -478,12 +478,17 @@ export function linesUnaccounted(
   // D355 - a line whose second sentence is a PRICE the engine charges at the tap. Asked of the
   // parser that read it, never re-read here - the fifth time this file has had to say so (D134).
   const priced = new Set<number>();
+  // D397 - a line whose second sentence is a SPEND RESTRICTION the parser read and the payment
+  // path enforces. Asked of the parser that read it (it sets `restriction` only when that
+  // sentence is exactly the second of two), never re-read here.
+  const restricted = new Set<number>();
   if (face.isPermanent) {
     for (const p of face.producesMana) {
       if (p.line === null) continue;
       anyMana.add(p.line);
       if (!p.conditional) modelled.add(p.line);
       if (!p.conditional && p.drawback) priced.add(p.line);
+      if (!p.conditional && p.restriction) restricted.add(p.line);
     }
   }
 
@@ -492,7 +497,8 @@ export function linesUnaccounted(
     const line = text.trim();
     if (line === '') continue;
     // D355 - a priced line is accounted for too: the mana AND the damage happen, in one action.
-    if (modelled.has(i) && (isManaOnlyLine(line) || priced.has(i))) continue;
+    // D397 - and a restricted one: the mana is made under its restriction and spent under it.
+    if (modelled.has(i) && (isManaOnlyLine(line) || priced.has(i) || restricted.has(i))) continue;
     // ⚠️ ASKED OF THE PARSER THAT DECIDED IT, never re-read here — the fourth
     // time this file has had to say so. `face.entersTapped` is already the
     // answer to "is this the unconditional clause"; a second regex here would

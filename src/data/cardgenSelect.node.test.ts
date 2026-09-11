@@ -1931,6 +1931,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Markov Enforcer', 'a compound head (whenever this creature or another Vampire enters) outside the closed reader'],
   ['Vivien of the Arkbow', 'planeswalker loyalty abilities'],
 
+  // D397 - spend-restricted mana: the two the selector offered after the seam that the row maker refused, by reason.
+  ['Maelstrom of the Spirit Dragon', 'a search payload (for a Dragon card, reveal it, to hand) as an ACTIVATED effect the row maker does not read - the search arm reads a trigger payload'],
+  ['Renowned Weaponsmith', 'a search payload naming two cards by NAME (Heart-Piercer Bow or Vial of Dragonfire) - the search predicate reads types, subtypes and one name'],
+  // D397 - the one card the three legendary any-colour scopes made offerable, refused by the row maker.
+  ['Plaza of Heroes', 'a cost the engine does not charge (cost: Exile this land) beside the any-colour scopes the seam built - the row maker refuses the exile-self cost'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.
@@ -2095,7 +2101,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D372 (M6.4he) - THE GRANTED MANA ABILITY: of the twelve quoted mana grants, eleven landed and
   // this one did not, for a restriction on the MANA rather than for anything about the grant.
-  ["Leyline Immersion", 'a granted MANA ability with a SPEND restriction (mana only for spells) - restricted mana in the pool is a concept the engine does not have'],
+  ["Leyline Immersion", 'a granted MANA ability whose amount ("five mana in any combination of colors") the mana parser cannot read - its spend restriction (mana only for spells) is read and enforced since D397'],
   // D374 - THE FILTERED TRIGGER HEAD: of the 224 D373 made offerable the row maker took 60 and
   // refused these 164, each by the reason it gave. Ninety-three are a head the library still does
   // not hold in any base; seventeen are a filtered head whose SUBJECT the closed reader cannot

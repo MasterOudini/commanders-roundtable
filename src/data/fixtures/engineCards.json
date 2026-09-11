@@ -201364,6 +201364,537 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ANCIENT_ZIGGURAT": {
+    "scryfallId": "0348247d-0a70-4961-8590-9de41386c69b",
+    "oracleId": "0baabe39-72ae-47bd-a095-cbf7eb8a6361",
+    "name": "Ancient Ziggurat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ancient Ziggurat",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add one mana of any color. Spend this mana only to cast a creature spell.",
+        "flavorText": "Built in honor of Alara's creatures, the ziggurat vanished long ago. When Progenitus awakened, the temple emerged again.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "0348247d-0a70-4961-8590-9de41386c69b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELDRAZI_TEMPLE": {
+    "scryfallId": "00372c7a-2e83-4a26-9642-0d092dfcf861",
+    "oracleId": "7fab8d65-af51-47d3-8f10-2676bf6e8ba3",
+    "name": "Eldrazi Temple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eldrazi Temple",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {C}{C}. Spend this mana only to cast colorless Eldrazi spells or activate abilities of colorless Eldrazi.",
+        "flavorText": "It housed a congregation of broken, screaming souls.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aleksi Briclot",
+        "imageId": "00372c7a-2e83-4a26-9642-0d092dfcf861"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMEN_HAWKER": {
+    "scryfallId": "d0749c3c-e3f7-4c96-8c5b-4fd2401544c4",
+    "oracleId": "215fd0b4-5817-4335-a0ed-1694e44bde41",
+    "name": "Omen Hawker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Omen Hawker",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Octopus Advisor",
+        "oracleText": "{T}: Add {C}{U}. Spend this mana only to activate abilities.",
+        "flavorText": "After years of fabricating visions for naive customers of the Obscura, Stafano was flummoxed by the nightmarish scenes that played out unbidden in his mind's eye.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "d0749c3c-e3f7-4c96-8c5b-4fd2401544c4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mom",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAGE_OF_THE_UNKNOWABLE": {
+    "scryfallId": "9f481ab3-ca6c-4a5c-aa32-d087464fc4da",
+    "oracleId": "359a570e-92a7-4954-9a05-89cc75df57e7",
+    "name": "Sage of the Unknowable",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sage of the Unknowable",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Add {C}. Spend this mana only to cast a colorless spell or to activate an ability.",
+        "flavorText": "\"Someday, we will walk the Blind Eternities and see the truths that lie beyond the stifling veil of reality.\"",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "9f481ab3-ca6c-4a5c-aa32-d087464fc4da"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CASTLE_GARENBRIG": {
+    "scryfallId": "aad91a78-2142-4a0b-a02b-f0f26cb2f3ae",
+    "oracleId": "de75e5dd-8a52-406c-b55c-96d686885500",
+    "name": "Castle Garenbrig",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Castle Garenbrig",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped unless you control a Forest.\n{T}: Add {G}.\n{2}{G}{G}, {T}: Add six {G}. Spend this mana only to cast creature spells or activate abilities of creatures.",
+        "flavorText": "Without Garenbrig's strength, the realm would succumb to the wilds.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "aad91a78-2142-4a0b-a02b-f0f26cb2f3ae"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "peld",
+    "collectorNumber": "240s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELFHAME_DRUID": {
+    "scryfallId": "5e62226e-3585-42d2-9b7a-2462fcd967f5",
+    "oracleId": "519fccdb-fde4-42cb-b2ca-35fc36cf984a",
+    "name": "Elfhame Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elfhame Druid",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "{T}: Add {G}.\n{T}: Add {G}{G}. Spend this mana only to cast kicked spells.",
+        "flavorText": "The bond between Llanowar elves and their kavu empowers both.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "5e62226e-3585-42d2-9b7a-2462fcd967f5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VODALIAN_ARCANIST": {
+    "scryfallId": "5c7795fb-2995-4dff-bc1b-7809bfbb1657",
+    "oracleId": "1d07856b-d9ef-418c-bd06-3888dbcaddf4",
+    "name": "Vodalian Arcanist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vodalian Arcanist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{T}: Add {C}. Spend this mana only to cast an instant or sorcery spell.",
+        "flavorText": "The Vodalian Empire tends to be insular. The scholarly Volshe caste are the exception, using education as an antidote to xenophobia.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "5c7795fb-2995-4dff-bc1b-7809bfbb1657"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISHRA_S_WORKSHOP": {
+    "scryfallId": "135de5c7-6ac9-4b68-8f1a-97f120a4b125",
+    "oracleId": "ba284fe6-bb29-455c-8321-9714a0cdc05e",
+    "name": "Mishra's Workshop",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mishra's Workshop",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}{C}{C}. Spend this mana only to cast artifact spells.",
+        "flavorText": "Though he eventually came to despise Tocasia, Mishra listened well to her lessons on clarity of purpose. Unlike his brother, he focused his mind on a single goal.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kaja Foglio",
+        "imageId": "135de5c7-6ac9-4b68-8f1a-97f120a4b125"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "atq",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABUNDANT_COUNTRYSIDE": {
+    "scryfallId": "37478625-dd07-476d-bd9b-b2e0d71ac0d1",
+    "oracleId": "e3eb6f90-ccfc-41e7-bff6-0b378226bc7e",
+    "name": "Abundant Countryside",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abundant Countryside",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell.\n{6}, {T}: Create a 1/1 colorless Shapeshifter creature token with changeling. (It's every creature type.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Iris Compiet",
+        "imageId": "37478625-dd07-476d-bd9b-b2e0d71ac0d1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ecc",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVENGERS_TOWER": {
+    "scryfallId": "1292713f-1462-438f-a3a2-1f69ece99668",
+    "oracleId": "c5fc8e7c-a87e-4586-a13c-d30e0a3aafbf",
+    "name": "Avengers Tower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avengers Tower",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Hero spell or to activate an ability of a Hero source.\n{4}, {T}: Look at the top three cards of your library. You may reveal a Hero card from among them and put it into your hand. Put the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johan Grenier",
+        "imageId": "1292713f-1462-438f-a3a2-1f69ece99668"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "334",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORMELA_GLAMOUR_THIEF": {
+    "scryfallId": "221ac34a-94ed-4c49-afad-b19cac541731",
+    "oracleId": "3cd9bac9-0abc-43d8-9f84-94f965f7a2e0",
+    "name": "Cormela, Glamour Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cormela, Glamour Thief",
+        "manaCost": "{1}{U}{B}{R}",
+        "typeLine": "Legendary Creature — Vampire Rogue",
+        "oracleText": "Haste\n{1}, {T}: Add {U}{B}{R}. Spend this mana only to cast instant and/or sorcery spells.\nWhen Cormela dies, return up to one target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "She sees the world as a gift meant for her.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "221ac34a-94ed-4c49-afad-b19cac541731"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALLIFREY_COUNCIL_CHAMBER": {
+    "scryfallId": "0e03370a-05a7-4f84-aadd-9eba459e2696",
+    "oracleId": "26e4b49e-77e7-41d9-94c5-924669a82591",
+    "name": "Gallifrey Council Chamber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gallifrey Council Chamber",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "When Gallifrey Council Chamber enters, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Time Lord or Alien spell or activate an ability of a Time Lord or Alien.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lixin Yin",
+        "imageId": "0e03370a-05a7-4f84-aadd-9eba459e2696"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "who",
+    "collectorNumber": "1053",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JASMINE_DRAGON_TEA_SHOP": {
+    "scryfallId": "4487d299-1571-4d44-81bb-9bf54fb33fbc",
+    "oracleId": "d9a24444-289f-473f-9985-8df275257555",
+    "name": "Jasmine Dragon Tea Shop",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jasmine Dragon Tea Shop",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast an Ally spell or activate an ability of an Ally source.\n{5}, {T}: Create a 1/1 white Ally creature token.",
+        "flavorText": "Where the secret ingredient truly is love.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leanna Crossan",
+        "imageId": "4487d299-1571-4d44-81bb-9bf54fb33fbc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "390",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUPINFLOWER_VILLAGE": {
+    "scryfallId": "8ab9d56f-9178-4ec9-a5f6-b934f50d8d9d",
+    "oracleId": "b6c7c708-5212-4100-b954-b77855b27915",
+    "name": "Lupinflower Village",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lupinflower Village",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {W}. Spend this mana only to cast a creature spell.\n{1}{W}, {T}, Sacrifice this land: Look at the top six cards of your library. You may reveal a Bat, Bird, Mouse, or Rabbit card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "8ab9d56f-9178-4ec9-a5f6-b934f50d8d9d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "blb",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIG_BERTHA": {
+    "scryfallId": "bca1d8ba-69a5-4246-bfb8-150d72206c18",
+    "oracleId": "32654ffa-b869-4f8b-a153-4242e8f9d92e",
+    "name": "Big Bertha",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Big Bertha",
+        "manaCost": "{X}{G}",
+        "typeLine": "Legendary Creature — Mutant Hero",
+        "oracleText": "Vigilance\nBig Bertha enters with X +1/+1 counters on her.\n{1}{G}, {T}: Put a +1/+1 counter on Big Bertha.",
+        "flavorText": "\"I've got a body that can stop traffic!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Junggeun Yoon",
+        "imageId": "bca1d8ba-69a5-4246-bfb8-150d72206c18"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "714",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOX_AMBER": {
+    "scryfallId": "08827428-b258-405e-8055-462e61fc155d",
+    "oracleId": "7a43bd27-fdd8-41f0-9bc4-92568f3408f1",
+    "name": "Mox Amber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mox Amber",
+        "manaCost": "{0}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "{T}: Add one mana of any color among legendary creatures and planeswalkers you control.",
+        "flavorText": "A moment in time made tangible, it has the power to realize epic visions.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steven Belledin",
+        "imageId": "08827428-b258-405e-8055-462e61fc155d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pdom",
+    "collectorNumber": "224s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLAZA_OF_HEROES": {
+    "scryfallId": "2375d88b-b49f-43b2-a4cd-bfa2c9faa879",
+    "oracleId": "9c58d241-4d9f-4b46-b8ee-f4587f9acfd6",
+    "name": "Plaza of Heroes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plaza of Heroes",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a legendary spell.\n{T}: Add one mana of any color among legendary permanents you control.\n{3}, {T}, Exile this land: Target legendary creature gains hexproof and indestructible until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Taurin Clarke",
+        "imageId": "2375d88b-b49f-43b2-a4cd-bfa2c9faa879"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "483",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -204409,6 +204940,37 @@
     "keywords": [],
     "setCode": "ttsr",
     "collectorNumber": "14",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SHAPESHIFTER_1_1_CREATURE_CHANGELING_TOKEN": {
+    "scryfallId": "1a7d89ca-8611-4bda-b5c8-0350ce091102",
+    "oracleId": "fe8478ec-2af9-472b-b104-a71521a3559f",
+    "name": "Shapeshifter",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Shapeshifter",
+        "manaCost": "",
+        "typeLine": "Token Creature — Shapeshifter",
+        "oracleText": "Changeling",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "1a7d89ca-8611-4bda-b5c8-0350ce091102"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "tlrw",
+    "collectorNumber": "11",
     "commanderLegality": "not_legal",
     "singleImage": true
   },

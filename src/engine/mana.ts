@@ -20,6 +20,9 @@ import {
 } from './types/mana';
 import type { ManaOutput, ManaProduction, OracleDb } from './types/oracle';
 import type { GameState } from './types/state';
+import { faceColors, fitPool, type SpendPurpose } from './spend';
+import type { SpendRestriction } from './types/mana';
+import { faceOf } from './oracle';
 
 /** One tappable mana ability, with its `anyColor` already expanded. */
 export interface ManaSource {
@@ -38,6 +41,13 @@ export interface ManaSource {
    * `{S}` is paid by mana from one of these, of any colour.
    */
   readonly snow: boolean;
+  /**
+   * D397 - the SPEND RESTRICTION the line prints and the engine read, or null. A
+   * source whose restriction the purpose does not fit is dropped by `fitFor` before
+   * the solver sees it; one it fits ranks below a basic land, so the solver spends
+   * the mana that can do the least first.
+   */
+  readonly restriction: SpendRestriction | null;
   /**
    * Spend the LEAST flexible source first. A basic Forest is 0; an any-colour
    * creature is 6. This is what makes an auto-tap suggestion *good* rather than
@@ -137,7 +147,14 @@ export function manaSourcesOf(
               // says.
               prod.anyColor?.scope === 'chosen'
               ? (card.chosenColor === null ? [] : [card.chosenColor])
-              : identity;
+              : // D397 - the legendary scopes, off the board and the graveyard as they stand.
+                prod.anyColor?.scope === 'legendaryYou'
+                ? legendaryColours(state, oracle, scripts, player, 'permanents', opts.cache)
+                : prod.anyColor?.scope === 'legendaryCreaturesWalkersYou'
+                  ? legendaryColours(state, oracle, scripts, player, 'creaturesWalkers', opts.cache)
+                  : prod.anyColor?.scope === 'legendaryGraveyard'
+                    ? graveyardLegendaryCreatureColours(state, oracle, player)
+                    : identity;
       const outputs = expandOutputs(prod.outputs, prod.anyColor, scoped);
       if (outputs.length === 0) continue;
       out.push({
@@ -153,7 +170,10 @@ export function manaSourcesOf(
         // charges it. A production with no price passes null, which is what every source but the
         // painlands and the Talismans is.
         drawback: prod.drawback ?? null,
-        flexibilityRank: rankOf(d, outputs),
+        // D397 - the restriction the line prints, carried to the payment path that enforces it.
+        restriction: prod.restriction ?? null,
+        // D397 - a restricted source is less flexible than anything unrestricted: below a basic.
+        flexibilityRank: rankOf(d, outputs) - (prod.restriction ? 1 : 0),
       });
     }
   }
@@ -202,6 +222,51 @@ function boardColours(
   return out;
 }
 
+/**
+ * D397 - the colours of the legendary permanents a player controls (Plaza of Heroes), or of
+ * their legendary creatures and planeswalkers alone (Mox Amber), read DERIVED - a permanent
+ * made legendary, or recoloured, counts as the board has it. Empty when there is none, which
+ * is what the card says.
+ */
+function legendaryColours(
+  state: GameState,
+  oracle: OracleDb,
+  scripts: ScriptRegistry,
+  player: PlayerId,
+  which: 'permanents' | 'creaturesWalkers',
+  cache?: DeriveCache,
+): Color[] {
+  const set = new Set<Color>();
+  for (const id of state.zones.battlefield) {
+    const card = state.cards[id];
+    if (!card || card.phasedOut || card.controller !== player) continue;
+    const d = derive(state, oracle, scripts, id, cache);
+    if (!d.typeLine.supertypes.includes('Legendary')) continue;
+    if (which === 'creaturesWalkers' && !d.typeLine.types.includes('Creature') && !d.typeLine.types.includes('Planeswalker')) continue;
+    for (const c of d.colors) set.add(c);
+  }
+  return COLORS.filter((c) => set.has(c));
+}
+
+/**
+ * D397 - the colours of the legendary creature CARDS in a player's graveyard (The Grey Havens),
+ * read off the printed faces - a card in a graveyard has no battlefield derivation (D171) -
+ * with devoid honoured as `spellPurpose` honours it.
+ */
+function graveyardLegendaryCreatureColours(state: GameState, oracle: OracleDb, player: PlayerId): Color[] {
+  const set = new Set<Color>();
+  for (const id of state.zones.graveyard[player] ?? []) {
+    const inst = state.cards[id];
+    if (!inst) continue;
+    const oc = oracle.byPrinting(inst.printingId);
+    if (!oc) continue;
+    const face = faceOf(oc, inst.faceIndex);
+    if (!face.typeLine.supertypes.includes('Legendary') || !face.typeLine.types.includes('Creature')) continue;
+    for (const c of faceColors(face)) set.add(c);
+  }
+  return COLORS.filter((c) => set.has(c));
+}
+
 /** The union over everyone else — Exotic Orchard reads every opponent, not one. */
 function opponentColours(
   state: GameState,
@@ -238,7 +303,7 @@ function canTapForAbility(
  */
 function expandOutputs(
   outputs: readonly ManaOutput[],
-  anyColor: { scope: 'all' | 'identity' | 'landsYou' | 'landsOpponents' | 'chosen'; amount: number } | null,
+  anyColor: ManaProduction['anyColor'],
   /**
    * The colours this particular scope resolves to. `all` ignores it; every other
    * scope has already been worked out by the caller, which is the only place
@@ -494,7 +559,7 @@ export function poolAsPool(spend: Record<ManaSymbolKey, number>): ManaPool {
  * first - the solver never prices mana against mana), the life off the total
  * (a player may pay life they have, CR 119.4). Null when it cannot be paid.
  */
-export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNullable<ManaProduction['extraCost']>): { readonly mana: ManaPool | null; readonly life: number } | null {
+export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNullable<ManaProduction['extraCost']>, purpose: SpendPurpose): { readonly mana: ManaPool | null; readonly life: number } | null {
   const me = state.players[player];
   if (!me) return null;
   if (extra.life > 0 && me.life < extra.life) return null;
@@ -502,7 +567,9 @@ export function extraCostSpend(state: GameState, player: PlayerId, extra: NonNul
   if (extra.mana) {
     const concrete = hybridCombinations(buildPaymentProblem(extra.mana, 0, [], 0, 0))[0];
     if (!concrete) return null;
-    const spend = spendFromPool(me.pool, concrete);
+    // D397 - a mana ability's own price is an ABILITY of its source: restricted mana that
+    // fits that purpose pays it, mana that does not is not in the pool it draws on.
+    const spend = spendFromPool(fitPool(me.pool, me.poolRestricted, purpose), concrete);
     if (!spend) return null;
     mana = spend;
   }

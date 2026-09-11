@@ -119,6 +119,26 @@ export function checkInvariants(state: GameState): string[] {
       const held = player.pool[k as keyof typeof player.pool];
       if (v > held) problems.push(`${p} has ${v} snow ${k} but only ${held} ${k} in the pool`);
     }
+    // D397 - the restricted buckets are SUB-POOLS too: none negative, no two under one
+    // sentence, and their sum per key never above the pool it describes - or a spend could
+    // take restricted mana out of the pool and leave it in its bucket, payable twice.
+    const bucketTexts = new Set<string>();
+    const bucketSum: Record<string, number> = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+    for (const b of player.poolRestricted) {
+      if (bucketTexts.has(b.restriction.text)) problems.push(`${p} holds two restricted buckets for "${b.restriction.text}"`);
+      bucketTexts.add(b.restriction.text);
+      let any = 0;
+      for (const [k, v] of Object.entries(b.mana)) {
+        if (v < 0) problems.push(`${p} has a negative ${k} in a restricted bucket`);
+        bucketSum[k] = (bucketSum[k] ?? 0) + v;
+        any += v;
+      }
+      if (any === 0) problems.push(`${p} holds an empty restricted bucket for "${b.restriction.text}"`);
+    }
+    for (const [k, v] of Object.entries(bucketSum)) {
+      const held = player.pool[k as keyof typeof player.pool];
+      if (v > held) problems.push(`${p} has ${v} restricted ${k} but only ${held} ${k} in the pool`);
+    }
     for (const id of player.commanderIds) {
       const card = state.cards[id];
       if (!card) problems.push(`${p} names missing commander ${id}`);

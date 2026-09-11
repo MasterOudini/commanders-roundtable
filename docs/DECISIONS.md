@@ -29932,3 +29932,195 @@ payloads); then spend-restricted mana (56), the keyword entry replacements (22),
 copy (~200), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D395's list
 unchanged.
+
+
+## D397 — SPEND-RESTRICTED MANA: a sub-pool per printed sentence, a purpose on the payment path, and the any-colour tail the parser had been widening for ten decisions (2026-09-11)
+
+**8,585 of 31,692 Commander-legal cards now execute completely, up from 8,551
+(+34: TWENTY-EIGHT with no script at all, then 6 generated rows in one wave).**
+`SHIPPED_SCRIPTS` 5,538 → **5,544**; the REFUSED ledger 1,237 → **1,240** (three
+ADDED by reason — the cards the classifier offered after the seam and the row maker
+refused — and one RELABELLED, Leyline Immersion, whose refusal had named the concept
+this decision builds). Fixtures 6,110 → **6,128** (5,972 by name + 149 tokens: the
+seam's eight proof cards, the six rowed cards, the Hero keep a look arm derived, the
+two scope fixtures, and one token pin — the changeling Shapeshifter Abundant
+Countryside makes). `scriptableToday` 1,330 → **1,334** after the seam, the wave
+and the scope widening together (the seam's own offer was 8, the wave took 6, the
+scopes opened 1); the select pool 0 → 8 → 0; the ladder `[1334, 1423, 2827, 4499, 5842]`. Bot reach
+8,478 → **8,512** from 257 commanders. On Fable 5.1.
+
+### The measurement chose it — by the honest count, twice
+
+The fresh true-leftover after D396 (23,141 incomplete, 11,484 one-piece) was grouped by
+STRUCTURE (`price397-pre.cjs`): token copies 92 (15 by the parser), the untap skip 71
+(15), the delayed action 142 (12), the spend restriction 56, must-be-blocked 16, the
+scoped can't-block forms 9. The restriction was then priced with the REAL accounting
+rather than by shape (`zz-probe-spend397`): the "Spend this mana only …" sentence
+stood OUT of the line and `engineCompleteness` asked whether the card is then complete,
+the sentence classified by the grammar the seam would carry — **26 land** (19 spell
+predicates, 8 spell-or-ability, 1 ability-only), 14 complete-but-refused (kicked,
+foretell, disturb, flashback, a face-down cast, doors, {X} costs, cumulative upkeep,
+cards you don't own, devoid, power-up abilities — cast-time properties the payment path
+cannot see), 16 still incomplete on another sentence. The densest candidate that is ONE
+seam: one reader, one sub-pool, one seam in the payment path. Landed 28: the two the
+pricing's line filter missed carry TWO restricted lines each (Hydro-Channeler,
+Steelswarm Operator), read the same way.
+
+⚠️ **AND THE PRICING PRINTED THE PRODUCTIONS, WHICH IS HOW IT FOUND A MISCOUNT.**
+`Add six {G}` (Castle Garenbrig) read as ONE green since the parser was written —
+unreachable while the line's "only" kept it conditional, and the moment the restriction
+was enforced the card would have landed at a sixth of its mana (D90). The count word
+multiplies the symbol now. A shape count is not a landing count, and a landing count is
+not a correctness check.
+
+### The seam
+
+- **The reader** (`parseSpendRestriction`, `oracleParse.ts`): `Spend this mana only
+  <alternatives>.` where an alternative is `cast <predicate> spells` or `activate
+  abilities [of <predicate> sources]`; a predicate is a list (`a Knight or Equipment`,
+  `Vampire, Cleric, and/or Demon`, `instant and sorcery` — alternatives) of conjunctions
+  (`colorless Eldrazi`, `a Chandra planeswalker` — every term must hold) over a CLOSED
+  term set: a card type, `legendary`, a colour category (colorless / multicolored /
+  monocolored), a Capitalised subtype (a plural read back to the singular only in the
+  source position — `abilities of Elementals`). `SpendRestriction { spells, abilities,
+  text }`: an empty conjunction is "any", `null` is "never". A sentence the reader cannot
+  express leaves the line `conditional` exactly as before — tapped by hand, the
+  restriction the player's — never widened (D90). Exactly two sentences on the line, or
+  it is not read (D355's boundary).
+- **The sub-pool** (`PlayerState.poolRestricted`): one `RestrictedMana` bucket per
+  printed sentence beside `poolSnow` (D364), both bounded by `pool` — the invariants
+  assert none negative, none empty, no two under one sentence, the sum per key never
+  above the pool. `ManaAdded.only?` carries the restriction from the source (OPTIONAL,
+  for D377's reason: two dozen ritual scripts construct a plain `ManaAdded` and none is
+  restricted; the fuzz canary keeps the one emitter honest); `ManaSpent.restricted` is
+  REQUIRED — one emitter, and a spend that forgot its buckets would leave restricted mana
+  in the pool after it was spent. The reducer moves what the payment NAMES (the plan's
+  decision, D364); `ManaPoolEmptied` clears the buckets with the pool.
+- **The purpose** (`spend.ts`): CHARACTERISTICS, never a card — the client previews from
+  a `PlayerView` (D53). `spellPurpose(face, faceDown)`: a devoid face is colourless, a
+  face-down spell a colourless creature with no subtypes (CR 708.2); `abilityPurpose`
+  reads the SOURCE's derived type line and colours (CR 113.7a); `OTHER_PURPOSE` fits
+  nothing — a ward tax, a `payMana` prompt, a morph turned face up, a mana ability's own
+  price on a non-fitting source. A two-word subtype (`Time Lord`) reads as the
+  conjunction of its words, which is how `parseTypeLine` records it.
+- **The seam** (`fitFor`, `payment.ts`): the input MINUS every bucket and every source
+  whose restriction the purpose does not fit, BEFORE the solver runs — the three tiers and
+  the min-cost max-flow untouched, the inverse of D364's `reserveSnow` (snow is mana a
+  cost DEMANDS, a restriction is mana a cost CANNOT USE). `affordable`, `suggestPayment`
+  and `validatePlan` take a purpose, default `other` — the SAFE direction: a caller that
+  forgets is under-permissive, never over. `validatePlan` refuses a hand-written plan
+  that taps a non-fitting source or spends a non-fitting bucket; `payEvents` spends the
+  FITTING buckets first and the general mana last, and names the buckets. A restricted
+  source ranks below a basic (`flexibilityRank - 1`): the least flexible mana is spent
+  first. Every payment site names its purpose — the cast (the spell's face, or the
+  face-down creature), the ability (its source, derived), the morph turn-up, the payment
+  prompt and the effect-side price (`other`), the client's two previews.
+- **The accounting** claims the line when its production is unconditional and carries a
+  read restriction; `tapForMana` says the restriction aloud with the mana. The tier-3
+  `manaPart` note fell 434 → **363**: the seam reaches 71 lines across the database,
+  more than the 34 cards it lands, because a line can be read and its card still owe
+  another.
+- **Fuzz**: Ancient Ziggurat is a canary staple (D193) feeding `restrictedManaMade` /
+  `restrictedManaSpent` at gate size (1,736 made under a restriction / 893
+  spends that drew on a bucket over the gate's 500 seeds). `poolRestricted` is in the
+  state hash, so without a restricted source in the pool equal replay hashes would prove
+  nothing (D364's argument).
+- `src/engine/spendRestriction.test.ts` (17): the parse of every printed shape and four
+  refusals; the accounting both ways (Elfhame Druid's kicked restriction stays
+  incomplete); the predicate; the payment path with a bucket and a source (a restricted
+  source tapped for a creature and dropped for an instant; beside a Forest the restricted
+  one pays the creature and the Forest alone the instant); in play — two Ziggurats fund
+  a creature and never a Lightning Bolt, a hand-written plan refused, the bucket filled,
+  drained and emptied at the step boundary, ordinary mana spent beside a bucket, Omen
+  Hawker's mana activating a cycling and never casting; every game replays.
+- `src/engine/grantedMana.test.ts` (D372): its refusal pin MOVED — a restriction the
+  reader expresses rides a GRANTED production too (`grantedMana` returns the production
+  whole), so the grant claims it and the payment path enforces it like a printed one;
+  one the reader cannot express (`cast kicked spells`) still leaves the line conditional
+  and still refuses. Found by the gate, not by the seam's own suite: the pin had said
+  "conditional" of every restriction since D372.
+
+### The wave — 8 in the pool, 6 rows, the two refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **8** in `batch.json` — landed
+BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **6
+rows**: two token makers behind a restricted line (Abundant Countryside's changeling
+Shapeshifter for {6}, {T}; Jasmine Dragon Tea Shop's Ally for {5}, {T}), two filtered
+library looks (Avengers Tower's Hero keep for {4}, {T}; Lupinflower Village's four-subtype
+keep for {1}{W}, {T} and its own sacrifice, the rest in a random order — D389's arm),
+Cormela, Glamour Thief's dies-return of an instant or sorcery card, and Gallifrey
+Council Chamber's enters surveil — every one beside a restricted mana line the engine
+runs now. Two refused and ledgered: Maelstrom of the Spirit Dragon (a search payload as
+an ACTIVATED effect — the search arm reads a trigger payload) and Renowned Weaponsmith (a
+search naming TWO cards). The line probe ran BEFORE the port (D395's rule).
+
+⚠️ **THE SWEEP NAMED THE DERIVED FIXTURE AND THE PORT DID NOT READ IT.** Avengers
+Tower's look arm derived Big Bertha as its Hero keep (D360's derivation); the deck-name
+sweep found it missing from WANTED, wrote it to `sweep-missing-names.json`, and the port
+regenerated the fixtures without that file — one suite red on "no fixture card named".
+A sweep that only REPORTS is a check nothing consumes: the port feeds the missing list to
+`add-wanted-json` before it regenerates now, and the second port was six of six.
+
+### The scope widening the seam exposed — a bug ten decisions old
+
+⚠️⚠️ **THE MEASUREMENT FOUND TWO PARSER BUGS, BOTH BY A PIN MOVING THE WRONG WAY.**
+(1) The parse report's `manaAbility` FELL by eleven where a seam can only raise it:
+`parseManaProduction` dedupes a face's productions by tap, condition, amount and cost,
+so a restricted line identical in everything but its sentence to an unrestricted one on
+the same face (`{T}: Add {C}.` beside `{T}: Add {C}. Spend this mana only to cast an
+artifact spell.`) was DROPPED as a duplicate the moment its condition matched. The
+sentence is part of the key now. (2) The classifier then offered Plaza of Heroes, and
+reading its lines one by one showed `{T}: Add one mana of any color among legendary
+permanents you control` parsed to scope `all` — FIVE COLOURS OFF AN EMPTY BOARD, since
+D116, because the refusal was keyed on the words `could produce` rather than on the tail
+being non-empty. Measured over the database: three "among legendary …" wordings and one
+draft-time choice reach that branch. Refusing every unnamed tail made **Mox Amber and
+The Grey Havens INCOMPLETE** — both had counted complete with a wrong production, and
+The Grey Havens carries a SHIPPED script (the shipped-scripts guard named it: a script
+ships for it, but the accounting refuses it). So the three wordings are SCOPES beside
+`landsYou` (`legendaryYou`, `legendaryCreaturesWalkersYou`, `legendaryGraveyard`),
+resolved at solve time — DERIVED colours for a permanent, printed ones for a graveyard
+card (D171), devoid honoured — and an EMPTY set is the honest answer: Mox Amber with no
+legend makes nothing. Paliano's `chosen as you drafted` stays unread.
+`src/engine/anyColorScope.test.ts` (4): the three scopes parsed, the Gate and the draft
+tails refused, the accounting (Plaza of Heroes still owes its exile-self line), and in
+play — the Mox offers nothing, then Kess's three colours, then nothing again once Kess
+is in the graveyard, where the Havens offer them instead; the game replays.
+
+### Traps
+
+- A LINE HELD CONDITIONAL FOR ONE REASON HIDES A MISCOUNT FOR ANOTHER (`Add six {G}`).
+- A DEDUPE KEY THAT DOES NOT KNOW THE NEW FIELD DROPS THE NEW LINE (eleven lines).
+- AN ANY-COLOUR TAIL THE PARSER CANNOT NAME MUST REFUSE, NOT WIDEN (Mox Amber, since
+  D116) — and a shipped script on a line the engine runs wrong is found by the
+  shipped-scripts guard the day the line is refused.
+- THE SWEEP NAMES THE DERIVED FIXTURE; THE PORT MUST FEED IT BACK (Big Bertha).
+- A DERIVE'S FILE LIST IS A ROT SITE (the memory applier's next-anchor file was not
+  carried; verify every file an applier reads exists before the gate).
+- A MULTI-FILE PART TEXT NEEDS ITS OWN DRIVER (`apply-parts-d397.cjs` splits on
+  `@@FILE@@` headers and applies each section counted).
+- A test fixture list is not the card database: Shock is no fixture, Lightning Bolt is.
+- The 60-seed leg's console report is not captured by a redirect (a 239-byte log): read
+  the counters off the gate's shard outputs.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5706 files, 27898
+passed / 11 skipped · 500-seed gate, 6 shards, 997.0 s wall · build clean · probe
+124/124 · battery 140/140; the 60-seed fuzz leg green at 632 s.**
+
+⚠️ **Reportables** (D397): the restriction's own tail — the 14 exotic purposes
+(kicked, foretell, disturb, flashback, a face-down cast, doors, {X} costs, cumulative
+upkeep, cards you don't own, devoid, power-up abilities: each a cast-time property the
+payment path would need to know), the mana ability with a CHOOSER price beside a
+restriction (Slobad, Master of Dark Rites), Great Hall's and Vedalken Engineer's kin
+whose amount is "any combination", the pool UI tagging a restricted bucket, a granted
+restricted mana ability's proof both ways in the D372 generator (Leyline Immersion, whose
+amount the parser cannot read either); the search payload as an ACTIVATED effect and the
+two-name search (the wave's two refusals); Plaza of Heroes' exile-self cost; the
+twenty-two older fight and bite suites without the predicate test; "fights another
+target creature" (five); token copies (15), the untap skip (15), the delayed action
+(12), the permanent animation (1), the scoped can't-block forms and "must be blocked";
+the durations proper (23 / 33 / 14); the permanent control family (20) and exchange
+control (24); the object stamp (CR 400.7); the activation restrictions (313); the keyword
+entry replacements (22), copy (~200), the prompt CONTINUATION seam proper, the two gate
+items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
+D396's list unchanged.

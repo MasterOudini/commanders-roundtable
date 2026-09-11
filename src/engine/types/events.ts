@@ -24,7 +24,7 @@ import type {
   StackId,
   ZoneRef,
 } from './ids';
-import type { ManaPool } from './mana';
+import type { ManaPool, RestrictedMana, SpendRestriction } from './mana';
 import type { NarrationPart } from './narration';
 import type { Keyword } from './oracle';
 import type {
@@ -263,9 +263,20 @@ export type EventBody =
       readonly mana: ManaPool;
       readonly source: InstanceId | null;
       readonly snow: boolean;
+      /**
+       * D397 - the SPEND RESTRICTION this mana carries, when its source printed one the
+       * engine read. Optional, unlike `snow`: two dozen shipped spell scripts emit a plain
+       * `ManaAdded` (Dark Ritual, Rite of Flame ...) and none of them is restricted; the
+       * fuzz canary `restrictedManaMade` keeps the emitter that must fill it honest.
+       */
+      readonly only?: SpendRestriction;
     }
-  /** D364 - `snow` is the SUB-POOL of this spend that came from snow mana. */
-  | { readonly t: 'ManaSpent'; readonly player: PlayerId; readonly mana: ManaPool; readonly snow: ManaPool }
+  /**
+   * D364 - `snow` is the SUB-POOL of this spend that came from snow mana. D397 - `restricted`
+   * is the SUB-POOLS it came from by restriction, REQUIRED: one emitter, and a spend that
+   * forgot its buckets would leave restricted mana in the pool after it was spent.
+   */
+  | { readonly t: 'ManaSpent'; readonly player: PlayerId; readonly mana: ManaPool; readonly snow: ManaPool; readonly restricted: readonly RestrictedMana[] }
   /** `lost` is what the pool held, so the UI can say "you lost {R}{R}". */
   | { readonly t: 'ManaPoolEmptied'; readonly player: PlayerId; readonly lost: ManaPool }
   | {

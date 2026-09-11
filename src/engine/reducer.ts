@@ -18,7 +18,22 @@ import type { RngState } from './rng';
 import { addToZone, removeFromZone } from './zones';
 import type { CardMove, EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
-import { EMPTY_POOL, addPool, subPool } from './types/mana';
+import { EMPTY_POOL, addPool, subPool, type ManaPool, type RestrictedMana, type SpendRestriction } from './types/mana';
+
+/**
+ * D397 - one restricted bucket moved by `sign` times `mana`, keyed by the printed sentence.
+ * A bucket that reaches empty is dropped, so the buckets a player holds are exactly the
+ * restrictions their pool is under - and the state hash says so.
+ */
+function addRestricted(buckets: readonly RestrictedMana[], restriction: SpendRestriction, mana: ManaPool, sign = 1): readonly RestrictedMana[] {
+  const delta: ManaPool = sign === 1 ? mana : { W: -mana.W, U: -mana.U, B: -mana.B, R: -mana.R, G: -mana.G, C: -mana.C };
+  const at = buckets.findIndex((b) => b.restriction.text === restriction.text);
+  const merged = addPool(at >= 0 ? (buckets[at]?.mana ?? EMPTY_POOL) : EMPTY_POOL, delta);
+  const empty = merged.W === 0 && merged.U === 0 && merged.B === 0 && merged.R === 0 && merged.G === 0 && merged.C === 0;
+  if (at < 0) return empty ? buckets : [...buckets, { restriction, mana: merged }];
+  if (empty) return buckets.filter((_, i) => i !== at);
+  return buckets.map((b, i) => (i === at ? { restriction: b.restriction, mana: merged } : b));
+}
 import {
   DEFAULT_STOPS,
   type CardInstance,
@@ -289,6 +304,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           poison: 0,
           pool: EMPTY_POOL,
           poolSnow: EMPTY_POOL,
+          poolRestricted: [],
           commanderDamage: {},
           commanderIds: [],
           landsPlayedThisTurn: 0,
@@ -665,9 +681,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
       const p = state.players[body.player];
       if (!p) return state;
       // D364 - snow mana lands in BOTH pools; the sub-pool is what `{S}` can spend.
+      // D397 - restricted mana lands in its bucket too, one per printed sentence.
       return withPlayer(state, body.player, {
         pool: addPool(p.pool, body.mana),
         poolSnow: body.snow ? addPool(p.poolSnow, body.mana) : p.poolSnow,
+        poolRestricted: body.only ? addRestricted(p.poolRestricted, body.only, body.mana) : p.poolRestricted,
       });
     }
 
@@ -677,14 +695,18 @@ function applyBody(state: GameState, body: EventBody): GameState {
       // D364 - the payment says how much of what it spent was snow mana; the
       // sub-pool cannot be inferred here, because which mana paid which symbol
       // is the PLAN's decision and this reducer has no plan.
+      // D397 - the same for the restricted buckets: the payment names each one it drew on.
+      let poolRestricted = p.poolRestricted;
+      for (const r of body.restricted) poolRestricted = addRestricted(poolRestricted, r.restriction, r.mana, -1);
       return withPlayer(state, body.player, {
         pool: subPool(p.pool, body.mana),
         poolSnow: subPool(p.poolSnow, body.snow),
+        poolRestricted,
       });
     }
 
     case 'ManaPoolEmptied':
-      return withPlayer(state, body.player, { pool: EMPTY_POOL, poolSnow: EMPTY_POOL });
+      return withPlayer(state, body.player, { pool: EMPTY_POOL, poolSnow: EMPTY_POOL, poolRestricted: [] });
 
     case 'CommanderDamageDealt': {
       const p = state.players[body.player];

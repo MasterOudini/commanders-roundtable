@@ -27,7 +27,7 @@ import type {
   StackId,
   ZoneRef,
 } from './ids';
-import type { ManaCost, ManaPool, PaymentProblem } from './mana';
+import type { ManaCost, ManaPool, PaymentProblem, RestrictedMana } from './mana';
 import type { NarrationPart } from './narration';
 import type {
   Keyword,
@@ -140,6 +140,15 @@ export interface PlayerState {
    * cannot be a seventh key: `{S}` is paid by snow mana of ANY colour.
    */
   readonly poolSnow: ManaPool;
+  /**
+   * D397 - of the mana in `pool`, what is held under a SPEND RESTRICTION, one bucket
+   * per printed sentence ("Spend this mana only to cast creature spells").
+   *
+   * SUB-POOLS, like `poolSnow`: the buckets' sum never exceeds the pool per key
+   * (asserted in `invariants.ts`). The payment path subtracts every bucket whose
+   * restriction does not fit what is being paid for before the solver ever runs.
+   */
+  readonly poolRestricted: readonly RestrictedMana[];
   /**
    * Keyed by the COMMANDER'S INSTANCE ID, not by player.
    *

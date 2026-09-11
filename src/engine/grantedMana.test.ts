@@ -231,7 +231,14 @@ describe('D372 - the granted mana ability', () => {
 
   test("the reader refuses what the engine would half-run", () => {
     expect(() => grantedMana('{T}: Add five mana in any combination of colors. Spend this mana only to cast spells.', 'x')).toThrow('exactly one');
-    expect(() => grantedMana('{T}: Add {G}. Spend this mana only to cast creature spells.', 'x')).toThrow('conditional');
+    // D397 - a spend restriction the reader EXPRESSES rides the production and is enforced at
+    // payment like a printed one, so the grant claims it; one it cannot express (a cast-time
+    // property such as kicked) leaves the line conditional and still refuses.
+    const restricted = grantedMana('{T}: Add {G}. Spend this mana only to cast creature spells.', 'x');
+    expect(restricted.conditional).toBe(false);
+    expect(restricted.restriction?.text).toBe('Spend this mana only to cast creature spells.');
+    expect(restricted.restriction?.spells).toEqual([[{ kind: 'type', value: 'Creature' }]]);
+    expect(() => grantedMana('{T}: Add {G}. Spend this mana only to cast kicked spells.', 'x')).toThrow('conditional');
     expect(() => grantedMana('{T}: Draw a card.', 'x')).toThrow('exactly one');
     expect(() => grantedMana('{T}: Add {G}.' + String.fromCharCode(10) + '{T}: Add {U}.', 'x')).toThrow('exactly one');
     expect(grantedMana('{T}, Pay 1 life: Add one mana of any color.', 'x').extraCost?.life).toBe(1);

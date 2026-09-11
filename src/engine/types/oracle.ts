@@ -16,7 +16,7 @@ import type { CardData, ColorLetter } from '../../data/cardTypes';
 import type { TokenRef } from '../../data/tokenTable';
 import type { EntersTapped, EntersTappedCondition, PermanentPredicate } from '../../data/replacementParse';
 import type { ManaCost } from './mana';
-import type { ManaPool } from './mana';
+import type { ManaPool, SpendRestriction } from './mana';
 import type { AbilityRef, InstanceId, OracleId, PrintingId } from './ids';
 
 /**
@@ -147,7 +147,15 @@ export interface ManaProduction {
    * rather than being widened to something the card cannot do.
    */
   readonly anyColor: {
-    readonly scope: 'all' | 'identity' | 'landsYou' | 'landsOpponents' | 'chosen';
+    /**
+     * D397 - three more sets the board answers exactly, one wording each: `among legendary
+     * permanents you control` (Plaza of Heroes), `among legendary creatures and planeswalkers
+     * you control` (Mox Amber), `among legendary creature cards in your graveyard` (The Grey
+     * Havens). Resolved like `landsYou` - at solve time, off DERIVED colours for a permanent
+     * and printed ones for a graveyard card - and an EMPTY set is an honest answer: Mox Amber
+     * on a board with no legend makes nothing.
+     */
+    readonly scope: 'all' | 'identity' | 'landsYou' | 'landsOpponents' | 'chosen' | 'legendaryYou' | 'legendaryCreaturesWalkersYou' | 'legendaryGraveyard';
     readonly amount: number;
   } | null;
   readonly requiresTap: boolean;
@@ -185,6 +193,12 @@ export interface ManaProduction {
    * true answer rather than a convenient one.
    */
   readonly drawback?: { readonly kind: 'damageToYou'; readonly amount: number } | null;
+  /**
+   * D397 - the "Spend this mana only ..." sentence beside the mana, READ: what the mana
+   * may pay for. Null when the line prints no restriction; a restriction the reader
+   * cannot express is not here at all - the line stays `conditional` instead.
+   */
+  readonly restriction?: SpendRestriction | null;
   readonly text: string;
   /**
    * Index of the oracle-text line this was parsed from, or null for the

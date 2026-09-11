@@ -6627,6 +6627,28 @@ const WANTED = [
   'Spikeshot Elder',
   'Spikeshot Goblin',
   'Triangle of War',
+  // D397 - the spend-restriction seam: the restricted sources its test reads (a creature-spell any-colour land, a colorless-Eldrazi land, an abilities-only creature, a colorless-spell-or-ability creature, a count-word six mana Castle) and Elfhame Druid, whose kicked restriction must STAY refused
+  'Ancient Ziggurat',
+  'Eldrazi Temple',
+  'Omen Hawker',
+  'Sage of the Unknowable',
+  'Castle Garenbrig',
+  'Elfhame Druid',
+  'Vodalian Arcanist',
+  "Mishra's Workshop",
+  // D397 - spend-restricted mana: the wave the restriction seam made rowable (a restricted mana line beside a trigger or an activated ability the row maker reads).
+  'Abundant Countryside',
+  'Avengers Tower',
+  'Cormela, Glamour Thief',
+  'Gallifrey Council Chamber',
+  'Jasmine Dragon Tea Shop',
+  'Lupinflower Village',
+  // D397 - spend-restricted mana: the wave the restriction seam made rowable (a restricted mana line beside a trigger or an activated ability the row maker reads).
+  // D397 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Big Bertha',
+  // D397 - the any-colour scopes over legendary permanents (Mox Amber, Plaza of Heroes; The Grey Havens is a fixture already): a tail the parser widened to all five colours since D116, resolved against the board now
+  'Mox Amber',
+  'Plaza of Heroes',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -6794,6 +6816,9 @@ const WANTED_TOKENS = [
   // and Urza's Factory's Assembly-Worker.
   { name: 'Dragon', set: 'tc17', cn: '7', key: 'DRAGON_66_TOKEN' },
   { name: 'Assembly-Worker', set: 'ttsr', cn: '14', key: 'ASSEMBLY_WORKER_TOKEN' },
+  // D397: the 1/1 changeling Shapeshifter Lupinflower Village makes, pinned to
+  // the printing TOKEN_TABLE names (the wave's own token-pins-needed list).
+  { name: 'Shapeshifter', set: 'tlrw', cn: '11', key: 'SHAPESHIFTER_1_1_CREATURE_CHANGELING_TOKEN' },
   // D268: Weirding Shaman makes two of these. ⚠️ It was in TOKEN_TABLE but
   // NOT here, and the two lists are not the same check: TOKEN_TABLE gives a
   // script the printing to create, WANTED_TOKENS is what the TEST ORACLE

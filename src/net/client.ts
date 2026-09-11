@@ -21,6 +21,7 @@ import { applyPatch, viewHash } from '../engine/diffView';
 import { buildPaymentProblem, wardTaxFrom } from '../engine/mana';
 import { faceOf } from '../engine/oracle';
 import { suggestPayment } from '../engine/payment';
+import { OTHER_PURPOSE, spellPurpose } from '../engine/spend';
 import type { LegalAction } from '../engine/legal';
 import type { ManaCost, PaymentPlan } from '../engine/types/mana';
 import type { InstanceId, PlayerId } from '../engine/types/ids';
@@ -114,7 +115,7 @@ const EMPTY_SESSION: SessionState = {
   finished: false,
   winners: [],
   legal: [],
-  solve: { pool: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, poolSnow: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, sources: [], lifeAvailable: 0, eventCount: 0 },
+  solve: { pool: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, poolSnow: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 }, poolRestricted: [], sources: [], lifeAvailable: 0, eventCount: 0 },
   seats: [],
   stateHash: '',
 };
@@ -423,7 +424,8 @@ export class ClientSession {
    */
   previewPayment(cost: ManaCost | null, life: number): { plan: PaymentPlan | null; taps: readonly InstanceId[] } {
     const problem = buildPaymentProblem(cost, 0, [], 0, life);
-    const plan = suggestPayment(this.session.solve, problem);
+    // D397 - a payment prompt is neither a spell nor an ability: restricted mana never pays it.
+    const plan = suggestPayment(this.session.solve, problem, OTHER_PURPOSE);
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
@@ -443,7 +445,8 @@ export class ClientSession {
     // client's own (a `PlayerView`, not a `GameState`); the sum is shared.
     const ward = wardTaxFrom(this.wardFacesFor(targets));
     const problem = buildPaymentProblem(face.manaCost, xValue, ward.mana, action.tax, ward.life);
-    const plan = suggestPayment(this.session.solve, problem);
+    // D397 - the SAME purpose the host charges with (D53): the spell this face is cast as.
+    const plan = suggestPayment(this.session.solve, problem, spellPurpose(face, action.faceDown === true));
     return {
       card: cardId,
       name: face.name,

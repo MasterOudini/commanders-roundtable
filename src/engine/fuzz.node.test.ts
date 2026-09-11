@@ -181,6 +181,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // because it never moved. Two per seat, because a land is only useful once tapped.
   { names: ['Snow-Covered Forest'], copiesPerSeat: 2,
     counterKeys: ['snowManaMade'], rotHistory: 'D364' },
+  // D397 - the SPEND-RESTRICTED SOURCE. `poolRestricted` is in the state hash, so without a
+  // restricted source in the pool 500 seeds of equal replay hashes would prove nothing about
+  // it. Ancient Ziggurat makes any colour that may pay for a CREATURE SPELL only; the solver
+  // funds a creature from it and withholds it from everything else. Two per seat, because a
+  // land is only useful once tapped and a creature is only cast once affordable.
+  { names: ['Ancient Ziggurat'], copiesPerSeat: 2,
+    counterKeys: ['restrictedManaMade', 'restrictedManaSpent'], rotHistory: 'D397' },
   // D372 - the GRANTED MANA ABILITY: a production a layer-6 static pushed onto a recipient
   // that prints none. Cryptolith Rite makes every creature its controller has a source, so
   // the solver auto-taps granted mana whenever a creature stands and a spell is cast.
@@ -805,6 +812,9 @@ interface Run {
   readonly fights: number;
   readonly bites: number;
   readonly snowManaMade: number;
+  /** D397 - mana made under a SPEND RESTRICTION, and spends that drew on a restricted bucket. */
+  readonly restrictedManaMade: number;
+  readonly restrictedManaSpent: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
   /** D373 - a granted ability's payload that landed on its own SOURCE (the recipient). */
@@ -995,6 +1005,11 @@ function runOne(seed: number): Run {
     // D364 - mana a SNOW SOURCE made. Counted off the event rather than off the pool,
     // because a pool is emptied at every step boundary and the making is the fact.
     snowManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.snow).length,
+    // D397 - restricted mana made, and the spends that named a restricted bucket. Counted off
+    // the events: the pool empties at every step boundary, and a bucket a payment drew on is
+    // the fact that the solver funded something from restricted mana.
+    restrictedManaMade: game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.only !== undefined).length,
+    restrictedManaSpent: game.log.filter((e) => e.body.t === 'ManaSpent' && e.body.restricted.length > 0).length,
     // D377 - the three rules ACTIONS the move records. Counted per MOVE rather than per event,
     // because one batch is one simultaneous sacrifice of N permanents and each is its own.
     sacrificesRecorded: countMoves(game, 'sacrifice'),
@@ -1214,6 +1229,8 @@ const TOTAL_KEYS = [
   'fights',
   'bites',
   'snowManaMade',
+  'restrictedManaMade',
+  'restrictedManaSpent',
   'grantedManaMade',
   'selfAimedResolved',
   'sacrificesRecorded',
@@ -1468,6 +1485,10 @@ function assertFloors(totals: Totals, seeds: number): void {
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
       if (seeds >= 500) expect(totals.snowManaMade).toBeGreaterThan(0);
+      // D397 - at gate size only: two Ancient Ziggurats a seat, and a pool with a restricted
+      // bucket is proven only by mana that carried the restriction and a spend that drew on it.
+      if (seeds >= 500) expect(totals.restrictedManaMade).toBeGreaterThan(0);
+      if (seeds >= 500) expect(totals.restrictedManaSpent).toBeGreaterThan(0);
       // D372 - at gate size only: two Cryptolith Rites a seat, and a granted production is
       // proven only by mana a recipient actually made.
       if (seeds >= 500) expect(totals.grantedManaMade).toBeGreaterThan(0);
@@ -1512,6 +1533,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.entersPaid} paid life to enter untapped / ${totals.entersDeclined} declined · ` +
           `${totals.discardsChosen} discards chosen, ${totals.cardsDiscarded} moves of hand→graveyard · ` +
           `${totals.snowManaMade} mana made by a snow source · ` +
+          `${totals.restrictedManaMade} made under a spend restriction / ${totals.restrictedManaSpent} spends that drew on it · ` +
           `${totals.grantedManaMade} by a granted mana ability · ` +
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +

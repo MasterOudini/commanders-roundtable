@@ -28,6 +28,7 @@ import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { solveInputFor, suggestPayment } from './payment';
+import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
 
 /** The thing a clause is pointed at, already checked for still being there. */
@@ -435,7 +436,7 @@ export function effectResult(
         const seat = state.players[payer];
         const problem = buildPaymentProblem(pay.cost, 0, [], 0, pay.life);
         const can =
-          !!seat && seat.life >= pay.life && (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem) !== null);
+          !!seat && seat.life >= pay.life && (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null);
         if (!can) {
           out.push(narrated(`${obj.label} - the price cannot be paid.`, obj.controller, obj.identity));
           out.push(...effectResult(state, deps, obj, pay.ifNotPaid, cache).events);

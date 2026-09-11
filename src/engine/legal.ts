@@ -12,6 +12,7 @@ import { castReduction } from './costs';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf } from './mana';
 import { affordable, solveInputFor, type SolveInput } from './payment';
+import { OTHER_PURPOSE, abilityPurpose, faceColors, spellPurpose } from './spend';
 import { isMainPhase } from './turn';
 import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
@@ -197,7 +198,7 @@ export function legalActions(
           card: id,
           faceIndex,
           from: { kind: 'hand', player },
-          affordable: affordable(context.solve, buildPaymentProblem(MORPH_CAST_COST, 0, [], 0)),
+          affordable: affordable(context.solve, buildPaymentProblem(MORPH_CAST_COST, 0, [], 0), spellPurpose(face, true)),
           isCommanderCast: false,
           tax: 0,
           hasX: false,
@@ -247,8 +248,9 @@ export function legalActions(
     // D325 - a source with a cost beside the {T} is offered only while that cost can be
     // paid now (the pool covers the mana, the life is there): the tap charges it, so an
     // unpayable one is not on the menu.
-    if (source.extraCost && !extraCostSpend(state, player, source.extraCost)) continue;
     const d = derive(state, oracle, scripts, source.card, context.cache);
+    // D397 - the price beside the {T} is an ability of THIS source; restricted mana that fits pays it.
+    if (source.extraCost && !extraCostSpend(state, player, source.extraCost, abilityPurpose(d.typeLine, d.colors))) continue;
     out.push({
       t: 'TapForMana',
       card: source.card,
@@ -281,7 +283,7 @@ export function legalActions(
         t: 'ActivateAbility',
         card: id,
         abilityIndex: ability.index,
-        affordable: affordable(context.solve, problem),
+        affordable: affordable(context.solve, problem, abilityPurpose(face.typeLine, faceColors(face))),
         requiresTap: false,
         costText: ability.costText,
         effectText: ability.effectText,
@@ -328,7 +330,7 @@ export function legalActions(
         t: 'ActivateAbility',
         card: id,
         abilityIndex: ability.index,
-        affordable: affordable(context.solve, problem),
+        affordable: affordable(context.solve, problem, abilityPurpose(face.typeLine, faceColors(face))),
         requiresTap: false,
         costText: ability.costText,
         effectText: ability.effectText,
@@ -500,7 +502,7 @@ export function legalActions(
         // a full payment PLAN per ability took the 40-source solver benchmark
         // from under 1 ms to 1.3 ms, and legalActions runs on every priority
         // grant — the plan is only ever needed once, when the player commits.
-        affordable: affordable(context.solve, problem),
+        affordable: affordable(context.solve, problem, abilityPurpose(d.typeLine, d.colors)),
         requiresTap: ability.requiresTap,
         costText: ability.costText,
         effectText: ability.effectText,
@@ -544,7 +546,8 @@ export function legalActions(
     out.push({
       t: 'TurnFaceUp',
       card: id,
-      affordable: affordable(context.solve, buildPaymentProblem(face.morphCost, 0, [], 0)),
+      // D397 - a special action, neither a spell nor an ability: restricted mana never pays it.
+      affordable: affordable(context.solve, buildPaymentProblem(face.morphCost, 0, [], 0), OTHER_PURPOSE),
       costText: face.morphCostText ?? '',
       label: `Turn ${face.name} face up`,
     });
@@ -825,7 +828,7 @@ function castAction(
     card: id,
     faceIndex,
     from,
-    affordable: affordable(ctx.solve, problem),
+    affordable: affordable(ctx.solve, problem, spellPurpose(face, false)),
     isCommanderCast: from.kind === 'command' && inst.isCommander,
     tax,
     hasX,

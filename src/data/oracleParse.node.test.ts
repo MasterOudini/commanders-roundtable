@@ -300,7 +300,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // "any colour" (Command Tower, Reflecting Pool, Pillar of the Paruns).
     // Pinned as a floor, because "zero of zero" satisfies the assertion below.
     expect(report.lands.multiColour).toBeGreaterThan(4000);
-    // ⚠️ TWENTY-SIX PRINTINGS ARE NOT COVERED, and the list is named rather
+    // ⚠️ TWENTY-SEVEN PRINTINGS ARE NOT COVERED, and the list is named rather
     // than rounded off. Every one is a scope the ingest genuinely cannot
     // resolve, in THREE families since D147: a SUBTYPE-scoped set ("a Gate you
     // control could produce" — Plaza of Harmony, Gond Gate, Pit of Offerings), a
@@ -329,10 +329,15 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       'Springjack Pasture',
       'The World Tree',
     ]);
-    // ⚠️ PRINTINGS, not names — 26 across the nine cards above, where the list
-    // itself is deduplicated. It was 13 across five until D147 added four
-    // lands whose any-colour ability turned out not to be theirs to use.
-    expect(report.lands.oneOption).toBe(26);
+    // ⚠️ PRINTINGS, not names — 27: 25 across the nine cards above, where the
+    // list itself is deduplicated, and two past its twenty-entry cap: Forgotten
+    // Monument (a granted any-colour ability, The World Tree family) and, since
+    // D397, Paliano, the High City — its draft-time tail ("chosen as you
+    // drafted") had parsed to all five colours since D116 and is refused now;
+    // no draft happens in Commander, so the card offers nothing, honestly. It
+    // was 13 across five until D147 added four lands whose any-colour ability
+    // turned out not to be theirs to use.
+    expect(report.lands.oneOption).toBe(27);
   });
 
   test('nothing throws', () => {
@@ -458,7 +463,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // control could produce", and nothing else. Answering it with every colour
       // your lands make would offer mana the card cannot produce, so it warns
       // and produces nothing.
-      'mana:anyScopeUnread': 16,
+      'mana:anyScopeUnread': 22,
       // 549 → 551 in M6.4b (D159): two long-cost lines reclassified
       // sentence→activated by the brace rule carry a count clause the parser
       // declines to guess — invisible to targeting before, honestly counted now.
@@ -515,7 +520,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
       payable: 35844,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
-      manaAbility: 11584,
+      manaAbility: 11578,
       targeted: 11944,
     });
   });
