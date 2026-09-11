@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TRANSLUMINANT_SCRIPT } from './cards/transluminant';
+import { CARRIER_PIGEONS_SCRIPT } from './cards/carrierPigeons';
+import { PYKNITE_SCRIPT } from './cards/pyknite';
+import { KROVIKAN_FETISH_SCRIPT } from './cards/krovikanFetish';
+import { RITUAL_OF_STEEL_SCRIPT } from './cards/ritualOfSteel';
 import { BASKING_CAPYBARA_SCRIPT } from './cards/baskingCapybara';
 import { BELLOWING_ELK_SCRIPT } from './cards/bellowingElk';
 import { BRIGHTSPEAR_ZEALOT_SCRIPT } from './cards/brightspearZealot';
@@ -5736,6 +5741,11 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TRANSLUMINANT_SCRIPT,
+  CARRIER_PIGEONS_SCRIPT,
+  PYKNITE_SCRIPT,
+  KROVIKAN_FETISH_SCRIPT,
+  RITUAL_OF_STEEL_SCRIPT,
   BASKING_CAPYBARA_SCRIPT,
   BELLOWING_ELK_SCRIPT,
   BRIGHTSPEAR_ZEALOT_SCRIPT,

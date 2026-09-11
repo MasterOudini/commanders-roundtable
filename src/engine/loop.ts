@@ -266,6 +266,8 @@ export function stackPendingTriggers(
       castFrom: null,
       // The per-item firing's subject rides through to `resolve` (D190).
       ...(trigger.item !== undefined ? { item: trigger.item } : {}),
+      // D402 - a delayed trigger's effects ride onto the stack; the armed entry leaves the list as it goes on.
+      ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
     };
     events.push({ t: 'AbilityPutOnStack', obj });
     events.push(
@@ -1000,6 +1002,13 @@ export function resolveAbility(
     { t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller },
   ];
   const def = triggerDefFor(deps, obj);
+
+  // D402 - a DELAYED trigger runs the effects it carried onto the stack, over no targets (CR 603.7).
+  if (obj.delayedEffects) {
+    events.push(...effectResult(state, deps, obj, obj.delayedEffects).events);
+    events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
+    return events;
+  }
 
   // ⚠️ CR 608.2b — AN ABILITY WHOSE EVERY TARGET IS ILLEGAL DOES NOT RESOLVE.
   // The board moves between the moment targets are chosen and the moment the

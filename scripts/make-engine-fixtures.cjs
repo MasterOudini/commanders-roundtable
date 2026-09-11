@@ -6705,6 +6705,10 @@ const WANTED = [
   'Infiltrate',
   'Artful Dodge',
   'Stealth Mission',
+  // D402 - the delayed trigger: the seam's proof cards (Blessed Wine is the fuzz staple).
+  'Blessed Wine',
+  'Fevered Strength',
+  'Transluminant',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6827,6 +6831,12 @@ const WANTED = [
   'Wingrattle Scarecrow',
   'Rakdos Pit Dragon',
   // D401 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D402 - the delayed trigger (CR 603.7): the rows whose payload waits for a later step (a draw at the next upkeep, a token at the next end step).
+  'Carrier Pigeons',
+  'Pyknite',
+  'Krovikan Fetish',
+  'Ritual of Steel',
+  // D402 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

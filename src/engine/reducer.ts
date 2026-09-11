@@ -402,6 +402,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         combat: null,
         pendingCast: null,
         pendingTriggers: [],
+        delayedTriggers: [],
         winners: [],
         gamePhase: 'lobby',
       };
@@ -938,6 +939,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return {
         ...state,
         stack: [...state.stack, body.obj],
+        // D402 - a delayed trigger leaves the armed list as its ability goes on the stack.
+        ...(body.obj.delayedEffects ? { delayedTriggers: state.delayedTriggers.filter((d) => d.id !== body.obj.abilityRef) } : {}),
         pendingCast: null,
         turn: recordSpell(recordActivation(state.turn, body.obj), body),
         priority: {
@@ -1141,6 +1144,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return { ...dealt, turn: { ...dealt.turn, memory: recordDamage(dealt.turn.memory, body.damages) } };
     }
 
+    // D402 - a delayed trigger armed: kept until its step begins (see `collectTriggers`).
+    case 'DelayedTriggerArmed':
+      return { ...state, delayedTriggers: [...state.delayedTriggers, body.trigger] };
     case 'PtModifiedUntilEndOfTurn':
       return {
         ...state,

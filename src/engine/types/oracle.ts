@@ -811,6 +811,18 @@ export interface PaySpec {
  */
 export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked']);
 
+/**
+ * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first
+ * such step to begin after the arming (the next end step of ANY turn); `controller` is the
+ * first such step of the controller's own turn (`your next upkeep`). `the next turn's upkeep`
+ * is `upkeep` + `next` with the turn required to be a LATER one, which the bus reads off the
+ * arming turn.
+ */
+export interface DelayWhen {
+  readonly step: 'upkeep' | 'end';
+  readonly whose: 'next' | 'controller';
+}
+
 export interface EffectSpec {
   readonly kind: EffectKind;
   /** Damage dealt, life gained/lost, cards drawn. 0 where it does not apply. */
@@ -859,6 +871,15 @@ export interface EffectSpec {
   readonly cantBeBlocked: boolean;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
+  /**
+   * D402 - THE DELAYED TRIGGER (CR 603.7): this effect happens at the beginning of a LATER step
+   * (`Draw a card at the beginning of the next turn's upkeep.`) rather than on resolution. The
+   * resolution ARMS it (`DelayedTriggerArmed` carrying this spec with `delay` cleared) and the
+   * trigger bus puts it on the stack when that step begins. REQUIRED (D355/D356's rule), `null`
+   * on every effect that happens now. Only a sentence with no target, no referent and no ask
+   * is read delayed (the vocabulary's rule).
+   */
+  readonly delay: DelayWhen | null;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape

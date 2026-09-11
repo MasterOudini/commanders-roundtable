@@ -16,6 +16,7 @@ import { faceOf } from './oracle';
 import { narrated } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import { KEYWORD_TRIGGERS } from './keywordTriggers';
+import { STEP_ORDER } from './turn';
 import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
@@ -27,6 +28,7 @@ import {
   type CardInstance,
   type GameState,
   type PendingReplacement,
+  type Step,
   type PendingTrigger,
 } from './types/state';
 
@@ -873,6 +875,9 @@ function withTransformCounters(
  * creature dies" needs last-known information about an object that no longer
  * exists, which only `before` has.
  */
+const STEP_INDEX_MAP = new Map(STEP_ORDER.map((s, i) => [s.step, i]));
+const STEP_INDEX = (step: Step): number => STEP_INDEX_MAP.get(step) ?? 0;
+
 export function collectTriggers(
   before: GameState,
   after: GameState,
@@ -1144,6 +1149,23 @@ export function collectTriggers(
             ...(item !== undefined ? { item } : {}),
           });
         }
+      }
+    }
+    // D402 - THE DELAYED TRIGGERS (CR 603.7): an armed entry fires at the first matching step to
+    // BEGIN after its arming - the same turn if that step is still ahead, else a later turn; `your
+    // next upkeep` waits for the controller's own turn; an upkeep is always a LATER turn's (the
+    // arming happened after this turn's). The entry leaves the list as the ability goes on the
+    // stack (the reducer, on `AbilityPutOnStack` carrying `delayedEffects`).
+    if (event.body.t === 'StepBegan') {
+      const step = event.body.step;
+      for (const d of after.delayedTriggers) {
+        if (d.when.step !== step) continue;
+        if (d.source === null) continue;
+        if (d.when.whose === 'controller' && after.turn.activePlayer !== d.controller) continue;
+        const later = after.turn.turnNumber > d.armedTurn;
+        const ahead = after.turn.turnNumber === d.armedTurn && STEP_INDEX(step) > STEP_INDEX(d.armedStep);
+        if (step === 'upkeep' ? !later : !(later || ahead)) continue;
+        out.push({ id: `t${n++}`, source: d.source, controller: d.controller, abilityRef: d.id, label: d.label, optional: false, specs: [], delayed: d.id });
       }
     }
   }

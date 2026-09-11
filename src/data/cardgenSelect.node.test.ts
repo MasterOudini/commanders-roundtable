@@ -1971,6 +1971,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spineseeker Centipede', 'a search to hand as a TRIGGER payload - the row maker reads no search payload under a head'],
   ['Twinblade Paladin', 'a life condition beside a gain-life head on the same card - the stage that meets the condition is a life gain the head answers with a counter (a draft-time pull)'],
 
+  // D402 - the delayed trigger: the eleven spells the classifier offered once their cantrip line
+  // (draw a card at the beginning of the next turn's upkeep) read, each refused for its OTHER line.
+  ['Balduvian Rage', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (+X/+0 where X is the mana spent)'],
+  ['Clairvoyance', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (look at target player hand)'],
+  ['Force Void', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (counter target spell unless its controller pays - the payment prompt on a spell row)'],
+  ['Formation', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (banding)'],
+  ['Headstone', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (exile target card from a graveyard)'],
+  ['Jinx', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (a land becomes a basic land type of your choice)'],
+  ['Jolt', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (you may tap or untap target permanent)'],
+  ['Mind Ravel', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (target player discards a card)'],
+  ['Prophecy', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (reveal the top card of target opponent library, a land untaps)'],
+  ['Soul Rend', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (destroy target creature if it is white)'],
+  ["Telim'Tor's Edict", 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (exile target permanent you own or control)'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

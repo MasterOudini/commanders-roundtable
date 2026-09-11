@@ -203773,6 +203773,106 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLESSED_WINE": {
+    "scryfallId": "6b9a92f9-9bbc-4887-9fbc-0f7212fd5e66",
+    "oracleId": "8079007c-a07a-4d71-bb08-e1dd215297de",
+    "name": "Blessed Wine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blessed Wine",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "You gain 1 life.\nDraw a card at the beginning of the next turn's upkeep.",
+        "flavorText": "\"May the bounty of Kjeld enrich your days.\"\n—Halvor Arenson, Kjeldoran Priest",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kaja Foglio",
+        "imageId": "6b9a92f9-9bbc-4887-9fbc-0f7212fd5e66"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEVERED_STRENGTH": {
+    "scryfallId": "13e53d6c-67f5-4d74-8205-6325c75d1d07",
+    "oracleId": "52512d7a-9b1c-4475-80aa-c95f4efa1015",
+    "name": "Fevered Strength",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fevered Strength",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +2/+0 until end of turn.\nDraw a card at the beginning of the next turn's upkeep.",
+        "flavorText": "\"The burst of strength brought on by this plague should not be mistaken for a sign of renewed health.\"\n—Kolbjörn, High Honored Druid",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "13e53d6c-67f5-4d74-8205-6325c75d1d07"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "all",
+    "collectorNumber": "50a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRANSLUMINANT": {
+    "scryfallId": "2f28187b-2c99-4502-99d5-3a53ff3fa008",
+    "oracleId": "f4d54a89-8409-4fbc-b01f-3b03f352820f",
+    "name": "Transluminant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Transluminant",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dryad Shaman",
+        "oracleText": "{W}, Sacrifice this creature: Create a 1/1 white Spirit creature token with flying at the beginning of the next end step.",
+        "flavorText": "\"Forget yourself. Forget your city. Forget your homes, your families, the debts and obligations that hold you to this world.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "2f28187b-2c99-4502-99d5-3a53ff3fa008"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -207711,6 +207811,144 @@
     ],
     "setCode": "dd2",
     "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARRIER_PIGEONS": {
+    "scryfallId": "5543b08d-d470-435e-83d9-a3a84c1cc2e6",
+    "oracleId": "2d30a634-43c6-4e78-ba10-7ef7ee17ac40",
+    "name": "Carrier Pigeons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carrier Pigeons",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, draw a card at the beginning of the next turn's upkeep.",
+        "flavorText": "\"Birds know no borders! Why, then, should we?\"\n—General Varchild, in a missive to King Darien of Kjeldor",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pat Lewis",
+        "imageId": "5543b08d-d470-435e-83d9-a3a84c1cc2e6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "all",
+    "collectorNumber": "1a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYKNITE": {
+    "scryfallId": "6ffc64e4-ae3c-49f9-8ed6-518dd497bfe6",
+    "oracleId": "857f9a8d-ba77-4afd-922d-994f66e478ef",
+    "name": "Pyknite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pyknite",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Ouphe",
+        "oracleText": "When this creature enters, draw a card at the beginning of the next turn's upkeep.",
+        "flavorText": "\"Never cross a Pyknite, if you value your scalp.\"\n—Lovisa Coldeyes, Balduvian Chieftain",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "6ffc64e4-ae3c-49f9-8ed6-518dd497bfe6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "258",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROVIKAN_FETISH": {
+    "scryfallId": "73f75891-00fa-428b-a3cb-88867ff35cd2",
+    "oracleId": "20c7630d-a97f-4f09-9ec5-b7a1739107de",
+    "name": "Krovikan Fetish",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krovikan Fetish",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, draw a card at the beginning of the next turn's upkeep.\nEnchanted creature gets +1/+1.",
+        "flavorText": "Some Krovikans find strength in the ears and eyes of their victims and wear such fetishes into battle.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "73f75891-00fa-428b-a3cb-88867ff35cd2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RITUAL_OF_STEEL": {
+    "scryfallId": "21205189-0d00-44d5-9772-820e607dba25",
+    "oracleId": "0af91b63-a874-4184-8f8f-3871429fd1ad",
+    "name": "Ritual of Steel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ritual of Steel",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, draw a card at the beginning of the next turn's upkeep.\nEnchanted creature gets +0/+2.",
+        "flavorText": "\"Our soldiers are blessed with lizard scales as hard and cold as steel.\"\n—Sidar Jabari",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "21205189-0d00-44d5-9772-820e607dba25"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "36",
     "commanderLegality": "legal",
     "singleImage": true
   },

@@ -16,12 +16,12 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type EffectSpec, type LookFilter } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
-import type { GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
+import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
 import { n, narrated, vb, who } from './narrate';
@@ -94,6 +94,12 @@ export function effectEvents(
  * which is why `effectEvents` still exists and still returns an array; the ones
  * that can use this and are checked by `tsc`.
  */
+/** D402 - the delay, in words, for the narration. */
+function delayLabel(when: DelayWhen): string {
+  const step = when.step === 'upkeep' ? 'upkeep' : 'end step';
+  return when.whose === 'controller' ? `at the beginning of your next ${step}` : `at the beginning of the next ${step}`;
+}
+
 export function effectResult(
   state: GameState,
   deps: EngineDeps,
@@ -175,6 +181,24 @@ export function effectResult(
       continue;
     }
 
+    // D402 - a DELAYED effect is armed now and runs when its step begins (CR 603.7): the entry
+    // carries the same spec with the delay cleared, the resolving object's id and this clause's
+    // position for a replay-stable id, and the turn and step it was armed in.
+    if (effect.delay) {
+      const trigger: DelayedTrigger = {
+        id: `${obj.id}-d${effects.indexOf(effect)}`,
+        controller,
+        source: source ?? null,
+        when: effect.delay,
+        armedTurn: state.turn.turnNumber,
+        armedStep: state.turn.step,
+        effects: [{ ...effect, delay: null }],
+        label: `${obj.label} — ${effect.text}`,
+      };
+      out.push({ t: 'DelayedTriggerArmed', trigger });
+      out.push(narrated(`${obj.label} — “${effect.text}” will happen ${delayLabel(effect.delay)}.`, obj.controller, obj.identity));
+      continue;
+    }
     switch (effect.kind) {
       case 'damage': {
         if (!aim || aim.kind === 'stack' || !source) break;

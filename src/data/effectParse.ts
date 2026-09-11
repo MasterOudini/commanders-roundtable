@@ -25,6 +25,7 @@ import type {
   BoardScope,
   CounterKind,
   EffectKind,
+  DelayWhen,
   EffectMode,
   EffectSpec,
   Keyword,
@@ -33,6 +34,7 @@ import type {
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
+import { SELF_AIMED } from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
@@ -211,6 +213,7 @@ const BASE: EffectFields = {
   pay: null,
   cantBeBlocked: false,
   sacrifice: null,
+  delay: null,
 };
 
 /**
@@ -1587,9 +1590,43 @@ function matchPayment(sentence: string): EffectSpec | null {
   return null;
 }
 
+/**
+ * D402 - THE DELAYED TRIGGER'S CLAUSE (CR 603.7). `Draw a card at the beginning of the next turn's
+ * upkeep.` is `Draw a card.` armed for a later step, and `At the beginning of the next end step,
+ * sacrifice it.` is the same shape led. The inner sentence is asked of the rules as it stands, and
+ * the delay rides the spec. ⚠️ Only an effect with NO target, NO referent, NO ask and NO payment
+ * is read delayed: the fire runs over an empty target list long after the picks were legal, and a
+ * referent (`it`, `that creature`) names an object the executor does not carry across the wait.
+ * `the next turn's upkeep` and `the next upkeep` are the same step of the next turn; `your next
+ * upkeep` waits for the controller's own; `the next end step` is the first end step to begin.
+ */
+const DELAY_TAIL = /^(.+?) at the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)\.$/i;
+const DELAY_HEAD = /^At the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step), (.+)$/i;
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate']);
+function delayWhen(phrase: string): DelayWhen {
+  const p = phrase.toLowerCase();
+  return { step: p.includes('upkeep') ? 'upkeep' : 'end', whose: p.startsWith('your') ? 'controller' : 'next' };
+}
+function matchDelayed(sentence: string): EffectSpec | null {
+  const tail = DELAY_TAIL.exec(sentence);
+  const head = tail ? null : DELAY_HEAD.exec(sentence);
+  if (!tail && !head) return null;
+  const innerText0 = tail ? (tail[1] ?? '') : (head?.[2] ?? '');
+  const innerText = innerText0.charAt(0).toUpperCase() + innerText0.slice(1) + (innerText0.endsWith('.') ? '' : '.');
+  const inner = matchRule(innerText);
+  if (!inner) return null;
+  // A SELF-aimed effect (a sacrifice of the source, a pump on it) names an object the fire may not find; a
+  // draw or a life gain is aimed at the CONTROLLER and carries no such mark.
+  if (inner.targetIndex !== -1 || inner.referent || (inner.self && SELF_AIMED.has(inner.kind)) || inner.kind === 'sacrificeSelf' || inner.pay || inner.atRandom || DELAY_ASKS.has(inner.kind)) return null;
+  return { ...inner, text: sentence, delay: delayWhen((tail ? tail[2] : head?.[1]) ?? '') };
+}
+
 function matchSentence(sentence: string): EffectSpec | null {
   const paid = matchPayment(sentence);
   if (paid) return paid;
+  // D402 - a delayed sentence before the rules: the rules would read `Draw a card at the`... as nothing.
+  const delayed = matchDelayed(sentence);
+  if (delayed) return delayed;
   return matchRule(sentence);
 }
 

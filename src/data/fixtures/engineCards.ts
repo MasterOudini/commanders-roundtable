@@ -6050,6 +6050,9 @@ export const RAMPAGING_MONUMENT: CardData = F.RAMPAGING_MONUMENT as CardData;
 export const INFILTRATE: CardData = F.INFILTRATE as CardData;
 export const ARTFUL_DODGE: CardData = F.ARTFUL_DODGE as CardData;
 export const STEALTH_MISSION: CardData = F.STEALTH_MISSION as CardData;
+export const BLESSED_WINE: CardData = F.BLESSED_WINE as CardData;
+export const FEVERED_STRENGTH: CardData = F.FEVERED_STRENGTH as CardData;
+export const TRANSLUMINANT: CardData = F.TRANSLUMINANT as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6166,6 +6169,10 @@ export const WATCHWING_SCARECROW: CardData = F.WATCHWING_SCARECROW as CardData;
 export const WILD_NACATL: CardData = F.WILD_NACATL as CardData;
 export const WINGRATTLE_SCARECROW: CardData = F.WINGRATTLE_SCARECROW as CardData;
 export const RAKDOS_PIT_DRAGON: CardData = F.RAKDOS_PIT_DRAGON as CardData;
+export const CARRIER_PIGEONS: CardData = F.CARRIER_PIGEONS as CardData;
+export const PYKNITE: CardData = F.PYKNITE as CardData;
+export const KROVIKAN_FETISH: CardData = F.KROVIKAN_FETISH as CardData;
+export const RITUAL_OF_STEEL: CardData = F.RITUAL_OF_STEEL as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12351,6 +12358,9 @@ export const ENGINE_CARDS: CardData[] = [
   INFILTRATE,
   ARTFUL_DODGE,
   STEALTH_MISSION,
+  BLESSED_WINE,
+  FEVERED_STRENGTH,
+  TRANSLUMINANT,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12467,6 +12477,10 @@ export const ENGINE_CARDS: CardData[] = [
   WILD_NACATL,
   WINGRATTLE_SCARECROW,
   RAKDOS_PIT_DRAGON,
+  CARRIER_PIGEONS,
+  PYKNITE,
+  KROVIKAN_FETISH,
+  RITUAL_OF_STEEL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

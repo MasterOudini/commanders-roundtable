@@ -15169,6 +15169,94 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
       NEVER BLOCKS.
 
+- [x] **M6.4ii — THE DELAYED TRIGGER (CR 603.7): "at the beginning of the next
+      turn's upkeep / the next end step / your next upkeep" as an effect ARMED at
+      resolution and fired by the trigger bus when that step begins (2026-09-12):**
+      **8,776 of 31,692 Commander-legal cards now execute completely, up from 8,759
+      (+17: twelve spells the seam completes with no script and five generated
+      rows).** `SHIPPED_SCRIPTS` 5,710 → **5,715**; ledger 1,261 → **1,272**
+      (eleven ADDED by reason). Fixtures 6,298 → **6,305** (6,148 by name + 150
+      tokens). `scriptableToday` 1,356 → **1,368** (the seam offered 16, the wave
+      took 5, the eleven refused are ledgered); the select pool 0 → 16 → 0; the
+      ladder `[1368, 1459, 2828, 4467, 5788]`. Bot reach 8,686 → **8,703** from 265
+      commanders. Decisions in **D402**; an engine seam on Opus 5 by the user's
+      choice (bounded seams with a precedent stay on Opus while the Fable budget is
+      low; copy waits for Fable).
+      ⚠️ **THE MEASUREMENT CHOSE IT AND PRICED TWO SEAMS AWAY:** the "up-to-N
+      under-answer" (28 ledgered) is BUILT since D299 (`min: 0` at the validator),
+      its entries blocked by other clauses under a stale label; the "script-raised
+      prompt" class (80) is five prompts and forty singletons. The delayed trigger,
+      priced with the delay stood out: **26 script-only, 355 blocked elsewhere**,
+      the shape on **403 cards** (the next end step 288, the next turn 55); the Ice
+      Age cantrip `Draw a card at the beginning of the next turn's upkeep` on 44
+      lines is the dense exact shape; the flicker and Sneak Attack tails are
+      REFERENTS across the wait, left for a later seam.
+      ⚠️ **THE SEAM:** `GameState.delayedTriggers` (a hashed LIST of `{ id,
+      controller, source, when, armedTurn, armedStep, effects, label }`; `DelayWhen`
+      = `{ step: upkeep | end, whose: next | controller }`); the executor meets an
+      effect with `delay` before its kind switch and emits `DelayedTriggerArmed`
+      (the spec with `delay` cleared, a replay-stable id, the arming turn and step)
+      instead of running it; the bus scans the list on every `StepBegan` — due when
+      the step matches, the controller's own turn for `your next …`, and the step is
+      the FIRST such to begin after the arming (this turn if still ahead by
+      `STEP_ORDER`, a later turn otherwise, an upkeep always a later turn's) — and
+      the pending trigger's `delayed: id` rides onto the stack as
+      `delayedEffects`, run by `resolveAbility` over no targets before any def
+      lookup; the reducer drops the entry as the ability goes on. `matchDelayed`
+      reads the four wordings (either apostrophe) in tail and led positions,
+      asking the rules of the inner sentence; only an effect with NO target,
+      referent, self aim of a `SELF_AIMED` kind, self sacrifice, ask, payment or
+      randomness is delayed (`Sacrifice it` after a token names the TOKEN — the
+      rules' `sacrificeSelf` would have eaten the spell). The row maker sends a
+      delayed token to the vocabulary; the arm asserts NOTHING NOW but an armed
+      entry, walks to the step and reads the payload against a baseline taken
+      before the walk (a draw, a life gain or a token under a turn-3 head).
+      `src/engine/delayedTriggers.test.ts` (3): the forms and the refusals, Blessed
+      Wine's draw at the opponent's upkeep and never again with the replay hash
+      equal, the bus's timing over the reducer (this turn's end step from the main
+      phase, the next turn's from the end step, the controller's own upkeep).
+      **Fuzz:** Blessed Wine a staple (one a seat, {1}{W}, no target) feeding
+      `delayedArmed` / `delayedFired`, a floor over each at gate size (62 /
+      61).
+      **Landed:** 5 rows — Carrier Pigeons, Pyknite, Krovikan Fetish, Ritual of
+      Steel (the cantrip under an enters head, two beside an Aura static),
+      Transluminant (a delayed token behind a self-sacrifice cost); twelve spells
+      complete with no script (Blessed Wine, Heal, Updraft, Fevered Strength …).
+      Refused by reason (11): the spells whose other line is outside the SpellDef
+      vocabulary. botPool auto 1,332 / assisted 2,000 · `oracleParse`
+      `effect:auto` 5,776 · tier3 silentAfter 9,067 · batch.json 16 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5880 files,
+      28661 passed / 11 skipped · 500-seed gate, 6 shards, 973.8 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D402): the REFERENT across the wait (the flicker family
+      ~10, the Sneak Attack tails, a delayed discard — an entry carrying the
+      object ids its immediate clauses touched or created); the self-aimed delayed
+      forms; a delayed payload under a head fired past turn 3; the eleven spells
+      refused; the "up-to-N under-answer" ledger class to relabel or drain (28);
+      the "script-raised prompt" class (80 — reveal-and-pick 15, a hand choice
+      with an ordering 11, a free cast 6); then D401's list unchanged — the HOST
+      characteristics under an attached static (29), "you control a token", the
+      own-entry static, a protection or landwalk on a conditional self body, the
+      incarnations' graveyard statics (5), the search payloads on an activated
+      line and under a head, the entry-turn fire with a PROMPT, `Whenever you
+      attack` and the each-combat head, `attacked with N or more` at N ≥ 2, the
+      `for each <X>` family, the payment heads, the search residue, the scoped
+      grant, the blocker-predicate form (8 + 1), the can't-block stand-in's
+      overstatement, `can't attack` (3) and `can't attack or block` (2 + 1),
+      ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), `selfEntered` under
+      a head, the payload-level "If …" sentences, the nth-resolution memory (16),
+      the 172 AMOUNT forms, the restriction's exotic purposes (14), the chooser
+      price beside a restriction, the "any combination" amounts, the pool UI
+      tagging a bucket, the two-name search, Plaza of Heroes' exile-self cost, the
+      twenty-two older fight and bite suites, "fights another target creature",
+      token copies (15), the untap skip (15), the permanent animation (1), the
+      scoped can't-block forms and "must be blocked", the durations proper (23 /
+      33 / 14), the permanent control family (20) and exchange control (24), the
+      object stamp (CR 400.7), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

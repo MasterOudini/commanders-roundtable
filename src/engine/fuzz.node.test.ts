@@ -148,6 +148,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // seat can aim at any creature, so the flag is set at gate size whether or not it then attacks.
   { names: ['Infiltrate'], copiesPerSeat: 1,
     counterKeys: ['cantBeBlockedSet'], rotHistory: 'D399' },
+  // D402 - the delayed trigger (CR 603.7): a {1}{W} instant with no target whose draw waits for the
+  // next turn's upkeep, so an arming and a fire are both reached at gate size without combat.
+  { names: ['Blessed Wine'], copiesPerSeat: 1,
+    counterKeys: ['delayedArmed', 'delayedFired'], rotHistory: 'D402' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
@@ -826,6 +830,9 @@ interface Run {
   readonly cantBlockSet: number;
   /** D399 - until-end-of-turn entries carrying the can't-be-blocked evasion. */
   readonly cantBeBlockedSet: number;
+  /** D402 - delayed triggers armed by a resolution, and fired at their step. */
+  readonly delayedArmed: number;
+  readonly delayedFired: number;
   readonly animations: number;
   readonly fights: number;
   readonly bites: number;
@@ -1116,6 +1123,8 @@ function runOne(seed: number): Run {
     controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
     cantBlockSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBlock === true).length,
     cantBeBlockedSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBeBlocked === true).length,
+    delayedArmed: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed').length,
+    delayedFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
     bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
@@ -1268,6 +1277,8 @@ const TOTAL_KEYS = [
   'controlReverted',
   'cantBlockSet',
   'cantBeBlockedSet',
+  'delayedArmed',
+  'delayedFired',
   'animations',
   'fights',
   'bites',
@@ -1523,6 +1534,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.cantBlockSet).toBeGreaterThan(0);
         // D399 - one Infiltrate a seat, the evasion set at gate size.
         expect(totals.cantBeBlockedSet).toBeGreaterThan(0);
+        // D402 - one Blessed Wine a seat: a delayed trigger armed AND fired at gate size.
+        expect(totals.delayedArmed).toBeGreaterThan(0);
+        expect(totals.delayedFired).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1597,6 +1611,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
           `${totals.cantBlockSet} can't-block restrictions set · ` +
           `${totals.cantBeBlockedSet} can't-be-blocked evasions set · ` +
+          `${totals.delayedArmed} delayed triggers armed / ${totals.delayedFired} fired · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

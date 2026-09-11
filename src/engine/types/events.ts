@@ -36,6 +36,7 @@ import type {
   PendingAsks,
   PendingReplacement,
   PendingTrigger,
+  DelayedTrigger,
   Phase,
   PreventionShield,
   StackObject,
@@ -515,6 +516,14 @@ export type EventBody =
    * at 7c, which is where CR puts them and after `ptOverride` at 7b — so a
    * manual "this is a 4/4 now" plus a Giant Growth still reads as a 7/7.
    */
+  /**
+   * D402 - a resolution ARMED a delayed trigger (CR 603.7): the entry goes on
+   * `state.delayedTriggers` and the trigger bus fires it when its step begins.
+   */
+  | {
+      readonly t: 'DelayedTriggerArmed';
+      readonly trigger: DelayedTrigger;
+    }
   | {
       readonly t: 'PtModifiedUntilEndOfTurn';
       readonly card: InstanceId;

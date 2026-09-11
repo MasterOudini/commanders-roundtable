@@ -30769,3 +30769,164 @@ and "must be blocked", the durations proper (23 / 33 / 14), the permanent contro
 (313), the keyword entry replacements (22), copy (~200), the prompt CONTINUATION seam
 proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
 NEVER BLOCKS.
+
+## D402 — THE DELAYED TRIGGER (CR 603.7): "at the beginning of the next turn's upkeep / the next end step / your next upkeep" as an effect ARMED at resolution and fired by the trigger bus when that step begins — an engine seam on Opus, the first of the bounded seams the user chose while the Fable budget is low (2026-09-12)
+
+**8,776 of 31,692 Commander-legal cards now execute completely, up from 8,759
+(+17: twelve spells the seam completes with no script — Blessed Wine, Heal, Updraft, Fevered Strength, Feral Instinct, Lightning Blow, Infuse, Enervate, Flare, Touch of Death, Swift Maneuver and Mystic Melting — and five generated
+rows).** `SHIPPED_SCRIPTS` 5,710 → **5,715**; the REFUSED ledger 1,261 → **1,272** (eleven
+ADDED by reason — the spells the classifier offered once their cantrip line read, each
+refused for its OTHER line: Balduvian Rage's +X/+0, Clairvoyance's look at a hand, Force
+Void's counter-unless-pays, Formation's banding, Headstone's graveyard exile, Jinx's land
+type, Jolt's tap-or-untap, Mind Ravel's discard, Prophecy's reveal, Soul Rend's
+destroy-if-white, Telim'Tor's Edict's exile). Fixtures 6,298 → **6,305** (6,148 by name +
+150 tokens: the three proof cards — Blessed Wine, Fevered Strength, Transluminant — and the
+five rowed cards, one of them a proof card). `scriptableToday` 1,356 → **1,368** (the seam
+offered 16, the wave took 5, the eleven refused are ledgered); the select pool 0 → 16 → 0;
+the ladder `[1368, 1459, 2828, 4467, 5788]`. Bot reach 8,686 → **8,703** from 265
+commanders. Built on Opus 5 by the user's choice (feedback_model_switch_points, refined
+2026-09-11: bounded seams with a precedent stay on Opus while the Fable budget is low).
+
+### The measurement chose it — and two seams fell out on the way
+
+After D401 the mechanical tails measured under twenty cards each (the host characteristics
+under an attached static ~14, "you control a token" 2, the incarnations' graveyard statics
+5), so the pick moved to the bounded ENGINE seams. Two were priced away before a line was
+written: the "up-to-N under-answer" (28 ledgered) is BUILT already — D299 marks the clause
+optional and `validateTargets` takes `min: 0` — and its ledger entries are cards blocked
+by their other clauses under a stale label; the "script-raised prompt" class (80) is five
+prompts (a reveal-and-pick 15, a hand choice with an ordering 11, a free cast 6, discards
+4, exiles 2) and forty singletons, a long tail. The DELAYED TRIGGER was priced by what
+would land (`zz-probe-delayed402`, the delay stood out of the sentence, the immediate
+sentence asked of the parser or the classifier): **26 script-only cards — 14 spells, 12
+permanents — and 355 blocked elsewhere**, the shape sitting on **403 cards** (the next end
+step 288, the next turn 55, your next upkeep 20). The dense exact shape is the Ice Age
+cantrip — `Draw a card at the beginning of the next turn's upkeep.` on 44 lines — and the
+flicker and Sneak Attack tails (`Return it … / Sacrifice it at the beginning of the next
+end step`) are REFERENTS across the wait, priced and left for a later seam.
+
+### The seam — one list, one event, the bus, the executor, four parse forms
+
+- **The state remembers what is armed** (`GameState.delayedTriggers`, `state.ts`): a LIST
+  of `{ id, controller, source, when, armedTurn, armedStep, effects, label }`, hashed with
+  the state, never folded into a card — the spell that armed it is in the graveyard by the
+  time it fires. `DelayWhen` (`oracle.ts`) is `{ step: 'upkeep' | 'end', whose: 'next' |
+  'controller' }`.
+- **One event arms it** (`DelayedTriggerArmed`, `events.ts` / `reducer.ts`): the executor
+  (`effects.ts`) meets an effect with `delay` BEFORE its kind switch and emits the entry —
+  the same spec with `delay` cleared, the resolving object's id and the clause's index for
+  a replay-stable id, the turn and step it was armed in — instead of running it; the reducer
+  appends. The entry leaves the list as its ability goes on the stack: the reducer's
+  `AbilityPutOnStack` case drops the entry whose id the object's `abilityRef` names.
+- **The bus fires it** (`collectTriggers`, `triggers.ts`): on every `StepBegan` the armed
+  list is scanned; an entry is due when the step matches, the controller's own turn is
+  active for `your next …`, and the step is the first such to BEGIN after the arming — the
+  same turn if it is still ahead (`STEP_ORDER`'s index), a later turn otherwise, and an
+  upkeep always a LATER turn's (the arming happened after this turn's). The pending trigger
+  carries `delayed: id`; `drainTriggers` (`loop.ts`) copies the entry's effects onto the
+  stack object as `delayedEffects`, and `resolveAbility` runs them through `effectResult`
+  over no targets, before any def lookup.
+- **Four parse forms** (`matchDelayed`, `effectParse.ts`, asked before the rules): `<X> at
+  the beginning of the next turn's upkeep.` (either apostrophe — the fixture's is curly),
+  `… the next upkeep`, `… your next upkeep`, `… the next end step` / `your next end step`,
+  and the led form `At the beginning of …, <X>.`; the inner sentence is asked of the rules
+  as it stands and the delay rides the spec. ⚠️ Only an effect with NO target, NO
+  referent, NO self aim of a `SELF_AIMED` kind, NO self sacrifice, NO ask, NO payment and
+  NO randomness is read delayed: the fire runs over an empty target list turns after the
+  picks were legal, and `Sacrifice it` after `Create a token` names the TOKEN, which the
+  executor does not carry across the wait — the inner `sacrificeSelf` the rules produce for
+  it would have eaten the spell itself. `EffectSpec.delay` is REQUIRED (D355/D356's rule).
+- **The row maker and the arm** (`make-rows102.cjs`, `gen102-vocab.cjs`): a delayed token
+  falls to the vocabulary rather than the token-key reader (which swallowed the delay into
+  the keywords); the vocabulary arm asserts a delayed payload as NOTHING NOW but an armed
+  entry, walks to the step (turn 4's upkeep for the next turn's, turn 5's for the
+  controller's own, this turn's end step for the next end step — the fire is on turn 3),
+  and reads the payload against a baseline taken just before the walk, only the baselines
+  the asserts read declared (tsc refuses an unused local); a draw, a life gain or a token
+  under a head the suite fires on turn 3, refused otherwise.
+- `src/engine/delayedTriggers.test.ts` (3): the four forms and the led form, the refusals
+  (a referent sacrifice, a targeted destroy); Blessed Wine cast on turn 3 — the life now,
+  the draw not, one entry armed, nothing at its own end step, the card at the NEXT turn's
+  upkeep (the opponent's), the entry gone, one `AbilityPutOnStack` carrying
+  `delayedEffects`, never again two turns on, the replay hash equal; and the bus over the
+  reducer — armed in the main phase it fires at this turn's end step and not at an upkeep,
+  armed DURING the end step it waits for the next turn's, `your next upkeep` skips the
+  opponent's upkeep.
+- **Fuzz**: Blessed Wine is a staple (one a seat, {1}{W}, no target) feeding
+  `delayedArmed` (`DelayedTriggerArmed` events) and `delayedFired` (an `AbilityPutOnStack`
+  carrying `delayedEffects`), a floor over each at gate size — **62 armed / 61
+  fired over the gate's 500 seeds**. The driver casts a targetless {1}{W} instant without
+  combat (D398's lesson).
+
+### The wave — 16 offered, 5 rows, the eleven refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **16** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **5 rows / 7
+abilities**: the Ice Age cantrip creatures (Carrier Pigeons, Pyknite — `When this creature
+enters, draw a card at the beginning of the next turn's upkeep`), the two Auras that do the
+same beside their enchanted-creature static (Krovikan Fetish, Ritual of Steel), and
+Transluminant (`{W}, Sacrifice this creature: Create a 1/1 white Spirit creature token with
+flying at the beginning of the next end step` — the self-sacrifice cost a row pays). The
+line probe ran BEFORE the port (D395's rule); the port's first run **5 of 5 files, 12 tests**,
+tsc red on two unused baselines the delayed block declared (`lifeD`, `boardD` beside a draw
+— fixed at the generator: only the baselines the asserts read), second port **5 of 5, tsc
+clean**.
+
+Refused by reason (11, ledgered): the eleven SPELLS the classifier offered once their
+cantrip line read, each refused for its OTHER line outside the SpellDef vocabulary
+(Balduvian Rage, Clairvoyance, Force Void, Formation, Headstone, Jinx, Jolt, Mind Ravel,
+Prophecy, Soul Rend, Telim'Tor's Edict).
+
+### Traps
+
+- THE HARNESS AUTO-PASSES THROUGH THE UPKEEP: a game test that waits for `step ===
+  'upkeep'` never sees it unless it holds everywhere (`holdEverywhere`) — the trigger fired
+  and resolved inside one `PassPriority`, and the probe saw turn 47 with the game over.
+- THE FIXTURE'S APOSTROPHE IS CURLY: `turn's` in a regex reads the test's literal and not
+  the printed text; the delay regex takes both.
+- `SELF` ON A DRAW MEANS THE CONTROLLER: the parser marks a draw `self: true` with no
+  self-aim; a guard that refused every self effect refused the cantrips. Refuse the self
+  aim of a `SELF_AIMED` kind and the self sacrifice, nothing else.
+- "SACRIFICE IT" AFTER "CREATE A TOKEN" IS NOT A SELF SACRIFICE: the rules read it as
+  `sacrificeSelf` (D369's body) and the delayed wrapper would have armed the spell eating
+  itself — the referent is refused by name.
+- A SELF-SACRIFICE COST IS PAID ONLY BY A DEF (D159): a permanent's delayed token behind
+  `Sacrifice this creature` is a ROW, never the parsed path — the engine test proves the end
+  step's timing at the bus, over the reducer, with a synthetic entry.
+- THE TOKEN-KEY READER SWALLOWS A DELAY INTO THE KEYWORDS: a `Create … at the beginning
+  of …` payload must fall to the vocabulary.
+- A GENERATED `const` NOBODY READS IS A tsc ERROR (`noUnusedLocals`): declare only the
+  baselines the asserts read.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5880 files, 28661
+passed / 11 skipped · 500-seed gate, 6 shards, 973.8 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D402): the REFERENT across the wait (`Return it to the battlefield … at
+the beginning of the next end step` — the flicker family ~10; `Sacrifice it / Exile it at the
+beginning of the next end step` — the Sneak Attack tails; `Discard N cards at the beginning
+of the next end step` — an ask) — an entry that carries the object ids its immediate
+clauses touched or created; the self-aimed delayed forms (`Sacrifice this creature at the
+beginning of the next end step`); a delayed payload under a head the suite fires past turn
+3 (the step heads, an intervening if); the eleven spells refused (their other lines); the
+"up-to-N under-answer" ledger class (28) — BUILT since D299, relabel or drain by their real
+blockers; the "script-raised prompt" class (80) — five prompts and forty singletons
+(reveal-and-pick 15, hand choice with an ordering 11, a free cast 6); then D401's list
+unchanged — the HOST characteristics under an attached static (29), "you control a token",
+the own-entry static, a protection or landwalk on a conditional self body, the
+incarnations' graveyard statics (5), the search payloads on an activated line and under a
+head, the entry-turn fire with a PROMPT, `Whenever you attack` and the each-combat head,
+`attacked with N or more` at N ≥ 2, the `for each <X>` family, the payment heads, the search
+residue, the scoped grant, the blocker-predicate form (8 + 1), the can't-block stand-in's
+overstatement, `can't attack` (3) and `can't attack or block` (2 + 1), ⚠️⚠️ THE FUZZ DRIVER
+RARELY ATTACKS (a gate decision), `selfEntered` under a head, the payload-level "If …"
+sentences, the nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic
+purposes (14), the chooser price beside a restriction, the "any combination" amounts, the
+pool UI tagging a bucket, the two-name search, Plaza of Heroes' exile-self cost, the
+twenty-two older fight and bite suites, "fights another target creature", token copies
+(15), the untap skip (15), the permanent animation (1), the scoped can't-block forms and
+"must be blocked", the durations proper (23 / 33 / 14), the permanent control family (20)
+and exchange control (24), the object stamp (CR 400.7), the activation restrictions (313),
+the keyword entry replacements (22), copy (~200 — the subsystem that waits for Fable), the
+prompt CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and
+⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

@@ -36,6 +36,7 @@ import type {
   SearchQualifier,
   TargetSpec,
   EffectSpec,
+  DelayWhen,
 } from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
@@ -295,6 +296,12 @@ export interface StackObject {
   /** D309 - cast face down (morph): a nameless colorless 2/2 creature spell. */
   readonly faceDown?: true;
   /**
+   * D402 - a DELAYED trigger's effects, carried onto the stack by `drainTriggers` because the
+   * reducer drops the armed entry as the ability goes on: `resolveTop` runs them over no targets
+   * (the vocabulary's executor, `effectResult`). Absent on every other object.
+   */
+  readonly delayedEffects?: readonly EffectSpec[];
+  /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
    * tapped permanent THIS firing answers. Absent on every other object.
@@ -451,6 +458,21 @@ export interface PendingCast {
   readonly targetSlots?: readonly number[];
 }
 
+/** D402 - a delayed trigger waiting for its step (CR 603.7). See `GameState.delayedTriggers`. */
+export interface DelayedTrigger {
+  readonly id: string;
+  readonly controller: PlayerId;
+  /** The card whose resolution armed it (in whatever zone it is by now), or null for a chit. */
+  readonly source: InstanceId | null;
+  readonly when: DelayWhen;
+  /** The turn and step it was armed in: the fire needs a step that BEGINS after this one. */
+  readonly armedTurn: number;
+  readonly armedStep: Step;
+  /** The effects the fire runs, `delay` cleared, over no targets. */
+  readonly effects: readonly EffectSpec[];
+  readonly label: string;
+}
+
 export interface PendingTrigger {
   readonly id: string;
   readonly source: InstanceId;
@@ -465,6 +487,8 @@ export interface PendingTrigger {
    * every pre-D190 pending — and its replay — is untouched.
    */
   readonly item?: InstanceId;
+  /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
+  readonly delayed?: string;
   /**
    * One per printed target clause, copied from the `TriggerDef` when the bus
    * found it. Empty for the overwhelming majority of triggers.
@@ -1137,6 +1161,14 @@ export interface GameState {
    */
   readonly preventionShields: readonly PreventionShield[];
   readonly pendingTriggers: readonly PendingTrigger[];
+  /**
+   * D402 - THE DELAYED TRIGGERS ARMED AND NOT YET FIRED (CR 603.7): a resolution that says
+   * `at the beginning of the next end step` puts one here; the trigger bus turns it into a
+   * pending trigger when that step begins, and the reducer drops it as the ability goes on the
+   * stack. A LIST, hashed with the state, never folded into a card: the spell that armed it is
+   * in the graveyard by then. Cleared by nothing but its own fire.
+   */
+  readonly delayedTriggers: readonly DelayedTrigger[];
   readonly winners: readonly PlayerId[];
   /**
    * D332 - the monarch (CR 724): draws a card at the beginning of their end
