@@ -512,6 +512,11 @@ export type EffectKind =
    */
   | 'control'
   /**
+   * D394 - "<target> can't block this turn." (CR 509.1b with an END): an until-end-of-turn entry
+   * `canBlock` reads and cleanup clears; the same list the pumps and the grants ride.
+   */
+  | 'cantBlock'
+  /**
    * D373 - CR 701.19: "Regenerate this creature." / "Regenerate target creature." -
    * a shield on the permanent, spent by the next destruction this turn (`destroy`
    * and `sba.ts` both read it; cleanup clears it with the other until-end-of-turn

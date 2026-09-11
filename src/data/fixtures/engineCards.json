@@ -198490,6 +198490,1122 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MUGGING": {
+    "scryfallId": "05ca502f-73a3-42f3-b7ad-f69aa239900a",
+    "oracleId": "2e4f08c2-1bad-4a85-8aad-9bb34a5579b1",
+    "name": "Mugging",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mugging",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Mugging deals 2 damage to target creature. That creature can't block this turn.",
+        "flavorText": "Scream: muffled. Pockets: emptied. Neck function: never the same again.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "05ca502f-73a3-42f3-b7ad-f69aa239900a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PANIC_ATTACK": {
+    "scryfallId": "6b65b86b-a346-4b86-bca4-83dae3f14c1b",
+    "oracleId": "c1346677-d89e-49d0-9819-08805f00bb64",
+    "name": "Panic Attack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Panic Attack",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Up to three target creatures can't block this turn.",
+        "flavorText": "Sometimes everyone decides to go for help at the same time.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "6b65b86b-a346-4b86-bca4-83dae3f14c1b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "209",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WRAP_IN_FLAMES": {
+    "scryfallId": "82e1dcb2-9471-48d9-98c8-12194e3a88ac",
+    "oracleId": "b46efd59-eda7-4fe6-ace7-67ca8f6c088d",
+    "name": "Wrap in Flames",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wrap in Flames",
+        "manaCost": "{3}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Wrap in Flames deals 1 damage to each of up to three target creatures. Those creatures can't block this turn.",
+        "flavorText": "\"Our pyromancer's flames may not have killed them, but they bought us the time we needed.\"\n—*The War Diaries*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Véronique Meignaud",
+        "imageId": "82e1dcb2-9471-48d9-98c8-12194e3a88ac"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOLA_WARRIOR": {
+    "scryfallId": "dc6e1de6-e7e0-4037-896a-f80c54b8ef5c",
+    "oracleId": "13f41253-364f-40a5-a7cd-84d8785b2460",
+    "name": "Bola Warrior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bola Warrior",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Spellshaper Warrior",
+        "oracleText": "{R}, {T}, Discard a card: Target creature can't block this turn.",
+        "flavorText": "The ingredients for panic include equal parts danger, uncertainty, and helplessness.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "dc6e1de6-e7e0-4037-896a-f80c54b8ef5c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAINWHIP_CYCLOPS": {
+    "scryfallId": "99489029-f1e0-4b6c-a300-95e940e01112",
+    "oracleId": "a0324f33-3f25-4374-affa-c7b5b54bc8d7",
+    "name": "Chainwhip Cyclops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chainwhip Cyclops",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Cyclops Warrior",
+        "oracleText": "{3}{R}: Target creature can't block this turn.",
+        "flavorText": "\"You say this Tenth District, not Rubblebelt. But where smash happen, that Rubblebelt. Rubblebelt state of mind.\"\n—Urgdar, cyclops philosopher",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "99489029-f1e0-4b6c-a300-95e940e01112"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROSSWAY_VAMPIRE": {
+    "scryfallId": "3e7a137f-e19e-43a6-aab8-02b175c9d626",
+    "oracleId": "543071da-fc89-4274-a2ae-d5d755d1f2a9",
+    "name": "Crossway Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crossway Vampire",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "When this creature enters, target creature can't block this turn.",
+        "flavorText": "\"Do not flatter Fate. It did not guide you into my clutches tonight. That was all my doing.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Evans",
+        "imageId": "3e7a137f-e19e-43a6-aab8-02b175c9d626"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FERVENT_CATHAR": {
+    "scryfallId": "0fceeb14-a22a-4ab6-9e6d-ba375b6865c0",
+    "oracleId": "94bcae2f-86a6-4d38-b8e1-5ebf69dc7cbc",
+    "name": "Fervent Cathar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fervent Cathar",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Haste\nWhen this creature enters, target creature can't block this turn.",
+        "flavorText": "\"I'll put my sword down only to die. And I don't plan on doing that today.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "0fceeb14-a22a-4ab6-9e6d-ba375b6865c0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_BATTLE_JESTER": {
+    "scryfallId": "c13e56b0-becc-4bc2-9ba3-23b3ca8bfe58",
+    "oracleId": "eba01ee1-55c4-48db-843b-fd6d48c32eda",
+    "name": "Goblin Battle Jester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Battle Jester",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Whenever you cast a red spell, target creature can't block this turn.",
+        "flavorText": "Somehow goblins found a tactical advantage by sending a clown to war.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "c13e56b0-becc-4bc2-9ba3-23b3ca8bfe58"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m13",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_SHORTCUTTER": {
+    "scryfallId": "5daeaa2e-68e5-4f49-9220-58c0c9b1a3d0",
+    "oracleId": "29863706-fa4e-49ed-9f40-69ae503abba3",
+    "name": "Goblin Shortcutter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Shortcutter",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Scout",
+        "oracleText": "When this creature enters, target creature can't block this turn.",
+        "flavorText": "\"Goblins are cheap, but be careful. It's a lot easier to steal from a corpse than a customer.\"\n—Samila, Murasa Expeditionary House",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "5daeaa2e-68e5-4f49-9220-58c0c9b1a3d0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GROTAG_THRASHER": {
+    "scryfallId": "9275cb0a-e777-40f8-934a-a3f6e6071ec6",
+    "oracleId": "fcfe4750-5311-45d2-8d8e-7b71e69368a2",
+    "name": "Grotag Thrasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grotag Thrasher",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "Whenever this creature attacks, target creature can't block this turn.",
+        "flavorText": "The goblin fancied himself a rider. The lizard was happy with its new flail.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "9275cb0a-e777-40f8-934a-a3f6e6071ec6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALL_MONITOR": {
+    "scryfallId": "02fdc551-0b22-49f4-8765-143ad82f16a3",
+    "oracleId": "937a04c2-41be-4ff3-8992-6628a9ee9792",
+    "name": "Hall Monitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hall Monitor",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Lizard Shaman",
+        "oracleText": "Haste\n{1}{R}, {T}: Target creature can't block this turn.",
+        "flavorText": "\"No unauthorized summoning. No writing in the library books. And absolutely no indoor dueling!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Forrest Imel",
+        "imageId": "02fdc551-0b22-49f4-8765-143ad82f16a3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "stx",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JAMURAAN_LION": {
+    "scryfallId": "a30df3d3-17b3-4bd0-b566-ed4d32a921f2",
+    "oracleId": "b558541f-ae57-41f7-a5bd-e23fa35e68b4",
+    "name": "Jamuraan Lion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jamuraan Lion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "{W}, {T}: Target creature can't block this turn.",
+        "flavorText": "Der Löwe zwinkerte\n—Ausdruck der Femeref für \"noch einmal davongekommen sein\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Stuart Griffin",
+        "imageId": "a30df3d3-17b3-4bd0-b566-ed4d32a921f2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pmei",
+    "collectorNumber": "1996-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_FIRE_S_ROAR": {
+    "scryfallId": "4380118d-f209-446d-829b-3564796e0219",
+    "oracleId": "c247382f-821e-4f3c-9d34-450794ce74c3",
+    "name": "Kami of Fire's Roar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of Fire's Roar",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, target creature can't block this turn.",
+        "flavorText": "\"I can hear the shamans chanting in the hills. They say their magic will protect us from the kami, that our gold has bought our safety. But no one sleeps soundly tonight.\"\n—Scroll fragment from the ruins of Reito",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "4380118d-f209-446d-829b-3564796e0219"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KRARK_CLAN_OGRE": {
+    "scryfallId": "649f561c-0b90-4f1d-a003-bab351632bd3",
+    "oracleId": "5de63529-7dea-4018-bf46-afb4bc8b69fd",
+    "name": "Krark-Clan Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krark-Clan Ogre",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Ogre",
+        "oracleText": "{R}, Sacrifice an artifact: Target creature can't block this turn.",
+        "flavorText": "The Krark Clan believes it's caught an ogre. The ogre believes he's caught seven goblins.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "649f561c-0b90-4f1d-a003-bab351632bd3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAMBHOLT_HARRIER": {
+    "scryfallId": "53e893cc-2401-4713-90ae-d56dc33b289a",
+    "oracleId": "84c7d60a-7a7a-4344-8db5-d658792e3ac4",
+    "name": "Lambholt Harrier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lambholt Harrier",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "{3}{R}: Target creature can't block this turn.",
+        "flavorText": "\"This Tovolar is no brainless brute. He sends his howling minions to terrorize a village for months. Sleepless nights and fear take their toll. Only then, when morale is at its worst, does he strike.\"\n—Barnes, village watch",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "53e893cc-2401-4713-90ae-d56dc33b289a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dbl",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARDU_ROUGHRIDER": {
+    "scryfallId": "9f813df8-ffe5-4009-9290-43e5497fd940",
+    "oracleId": "10177654-c342-4537-a141-887a3fef13e8",
+    "name": "Mardu Roughrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mardu Roughrider",
+        "manaCost": "{2}{R}{W}{B}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "Whenever this creature attacks, target creature can't block this turn.",
+        "flavorText": "The most ferocious saddlebrutes lead the assault, ramming through massed pikes and stout barricades as if they were paper and silk.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "9f813df8-ffe5-4009-9290-43e5497fd940"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "KTK-187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCILESS_JAVELINEER": {
+    "scryfallId": "2e3ba102-ef8b-43ca-8add-6cc87ab3af9f",
+    "oracleId": "dd2b59b4-281e-4b51-8998-9b20a846ddbf",
+    "name": "Merciless Javelineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merciless Javelineer",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "{2}, Discard a card: Put a -1/-1 counter on target creature. That creature can't block this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "2e3ba102-ef8b-43ca-8add-6cc87ab3af9f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RENEGADE_WHEELSMITH": {
+    "scryfallId": "6956a341-10fd-48af-b382-88c2b2934a3e",
+    "oracleId": "d3caee32-25b7-4ef7-9f9a-e31d08720086",
+    "name": "Renegade Wheelsmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Renegade Wheelsmith",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Creature — Dwarf Pilot",
+        "oracleText": "Whenever this creature becomes tapped, target creature can't block this turn.",
+        "flavorText": "Many veterans of the Ovalchase racetrack turned their talents to the renegade cause.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "6956a341-10fd-48af-b382-88c2b2934a3e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIEGEBREAKER_GIANT": {
+    "scryfallId": "ede2b911-8eec-4993-ab1c-59b55dfb11b4",
+    "oracleId": "fcd281e3-f336-449f-a887-4b98dc14dfe7",
+    "name": "Siegebreaker Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Siegebreaker Giant",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\n{3}{R}: Target creature can't block this turn.",
+        "flavorText": "No rampart can withstand the fury of a giant.",
+        "power": "6",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Even Amundsen",
+        "imageId": "ede2b911-8eec-4993-ab1c-59b55dfb11b4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMELT_WARD_MINOTAUR": {
+    "scryfallId": "f851d74e-90ad-417f-8372-8437d2d68b0d",
+    "oracleId": "ee25680a-d01a-4ddb-908b-27a9bea0ceae",
+    "name": "Smelt-Ward Minotaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smelt-Ward Minotaur",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "Whenever you cast an instant or sorcery spell, target creature an opponent controls can't block this turn.",
+        "flavorText": "\"Don't arrest him—enlist him!\"\n—Commander Yaszen",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wisnu Tan",
+        "imageId": "f851d74e-90ad-417f-8372-8437d2d68b0d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMOLDERING_SPIRES": {
+    "scryfallId": "ad1b05db-4475-49cd-99a3-5e5640c6da9b",
+    "oracleId": "cfa3288d-e521-4a13-bcb3-7950a94e1746",
+    "name": "Smoldering Spires",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smoldering Spires",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, target creature can't block this turn.\n{T}: Add {R}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "ad1b05db-4475-49cd-99a3-5e5640c6da9b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOWER_OF_CHAOS": {
+    "scryfallId": "7ff50606-491c-4946-8d03-719b01cfad77",
+    "oracleId": "2ec1860b-89cc-4529-8b8c-fb47f79f2b4b",
+    "name": "Sower of Chaos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sower of Chaos",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "{2}{R}: Target creature can't block this turn.",
+        "flavorText": "After a few minutes in the cathar's attire, Vizrik started getting all kinds of new ideas.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "7ff50606-491c-4946-8d03-719b01cfad77"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_MAN_WEB_SPINNER": {
+    "scryfallId": "acf20da5-e460-4191-ad68-eae398bb7c5d",
+    "oracleId": "d586ef58-ca9e-4c6d-94d6-3b8d782b11e1",
+    "name": "Spider-Man, Web-Spinner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Man, Web-Spinner",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "Double strike (This creature deals both first-strike and regular combat damage.)\nHaste (This creature can attack and {T} as soon as he comes under your control.)\nWhenever Spider-Man attacks, target creature can't block this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Junggeun Yoon",
+        "imageId": "acf20da5-e460-4191-ad68-eae398bb7c5d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Double strike"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "832",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STUN_SNIPER": {
+    "scryfallId": "277bdef5-4887-42f5-b7c2-8c18f03db365",
+    "oracleId": "f5bdf226-7a83-469b-bc49-87af388d9020",
+    "name": "Stun Sniper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stun Sniper",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Archer",
+        "oracleText": "{1}, {T}: This creature deals 1 damage to target creature. Tap that creature.",
+        "flavorText": "The tips of her bolts are blunt, but her aim is deadly sharp.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "277bdef5-4887-42f5-b7c2-8c18f03db365"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddl",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMIT_INTIMIDATOR": {
+    "scryfallId": "e3cba0b1-7c22-4e51-b9cf-5bf01e67a222",
+    "oracleId": "b772d35a-d365-47ce-b1dd-a2ba574c74ea",
+    "name": "Summit Intimidator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Summit Intimidator",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Yeti",
+        "oracleText": "Reach\nWhen this creature enters, target creature can't block this turn.",
+        "flavorText": "\"If you see a yeti of Qadat, then it has surely already seen you. And if you are within sight, you are within range.\"\n—Nitula, Temur hunter",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "e3cba0b1-7c22-4e51-b9cf-5bf01e67a222"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSTOPPABLE_OGRE": {
+    "scryfallId": "719f20d9-2baa-49b3-8c6a-89f21a07d538",
+    "oracleId": "1733777d-87fe-4975-b099-1ff803a721e8",
+    "name": "Unstoppable Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unstoppable Ogre",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact Creature — Ogre Warrior",
+        "oracleText": "When this creature enters, target creature can't block this turn.",
+        "flavorText": "Touma never met a door he didn't hate.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Xavier Ribeiro",
+        "imageId": "719f20d9-2baa-49b3-8c6a-89f21a07d538"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOLDAREN_DUELIST": {
+    "scryfallId": "2a838f4d-1277-42ed-9f0a-d6112f7b5b4c",
+    "oracleId": "a96d0496-babc-4774-9b72-bea9d2b22743",
+    "name": "Voldaren Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Voldaren Duelist",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "Haste\nWhen this creature enters, target creature can't block this turn.",
+        "flavorText": "\"I have yet to find my equal.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "2a838f4d-1277-42ed-9f0a-d6112f7b5b4c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "SOI-191",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_ASPIRANT": {
+    "scryfallId": "075947cd-2e06-486a-83a7-97321445a679",
+    "oracleId": "6db51087-6995-4ed4-978a-3d17d60019af",
+    "name": "Blood Aspirant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Aspirant",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Satyr Berserker",
+        "oracleText": "Whenever you sacrifice a permanent, put a +1/+1 counter on this creature.\n{1}{R}, {T}, Sacrifice a creature or enchantment: This creature deals 1 damage to target creature. That creature can't block this turn.",
+        "flavorText": "It's a small step from revel to bloodbath.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "075947cd-2e06-486a-83a7-97321445a679"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARTOUCHE_OF_ZEAL": {
+    "scryfallId": "36323cd9-70f9-423c-a0ef-9c2758f7201c",
+    "oracleId": "4fa23be3-a192-45ab-bdf6-646d4be305e1",
+    "name": "Cartouche of Zeal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cartouche of Zeal",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura Cartouche",
+        "oracleText": "Enchant creature you control\nWhen this Aura enters, target creature can't block this turn.\nEnchanted creature gets +1/+1 and has haste. (It can attack and {T} no matter when it came under your control.)",
+        "flavorText": "The fifth cartouche is the final affirmation of glory, granted only to the worthy dead.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "36323cd9-70f9-423c-a0ef-9c2758f7201c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AKH-124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_RIMERUNNER": {
+    "scryfallId": "0254a437-5240-40ca-bf7b-d30b95942bf5",
+    "oracleId": "8505f9a6-a510-43f9-a96d-b840b353e144",
+    "name": "Goblin Rimerunner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Rimerunner",
+        "manaCost": "{2}{R}",
+        "typeLine": "Snow Creature — Goblin Warrior",
+        "oracleText": "{T}: Target creature can't block this turn.\n{S}: This creature gains haste until end of turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Rimerunners set off avalanches to immobilize foes as well as to create more challenging slopes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "0254a437-5240-40ca-bf7b-d30b95942bf5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "csp",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAMMERHAND": {
+    "scryfallId": "30239853-18e9-47ad-8926-c0752134f380",
+    "oracleId": "8efa0026-c3f8-44e0-8f55-729f9c30ac93",
+    "name": "Hammerhand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hammerhand",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, target creature can't block this turn.\nEnchanted creature gets +1/+1 and has haste.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "30239853-18e9-47ad-8926-c0752134f380"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "e01",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAR_SQUEAK": {
+    "scryfallId": "105964a7-88b7-4340-aa66-e908189a3638",
+    "oracleId": "54702a84-3125-41a7-a875-fe2ec870836d",
+    "name": "War Squeak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "War Squeak",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, target creature an opponent controls can't block this turn.\nEnchanted creature gets +1/+1 and has haste.",
+        "flavorText": "Dangers sharper than thorns can hide among flowers.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "105964a7-88b7-4340-aa66-e908189a3638"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIA_NALAAR": {
+    "scryfallId": "00604865-a6af-4ce1-8010-f9c276c2c945",
+    "oracleId": "715336f5-a708-488b-9f30-5702a9013af0",
+    "name": "Pia Nalaar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pia Nalaar",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Human Artificer",
+        "oracleText": "When Pia Nalaar enters, create a 1/1 colorless Thopter artifact creature token with flying.\n{1}{R}: Target artifact creature gets +1/+0 until end of turn.\n{1}, Sacrifice an artifact: Target creature can't block this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "00604865-a6af-4ce1-8010-f9c276c2c945"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pkld",
+    "collectorNumber": "124s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

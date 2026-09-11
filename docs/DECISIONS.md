@@ -29503,3 +29503,137 @@ tail is the payloads); the fronted duration (80, lands 5); then the brief's engi
 seams — spend-restricted mana (56), the keyword entry replacements (22), copy
 (~200); the prompt CONTINUATION seam proper; the two gate items — the tournament
 floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D392's list unchanged.
+
+
+## D394 — THE CAN'T-BLOCK RESTRICTION: a flag on the until-end-of-turn list, read where blocking is decided, cleared with the pumps (2026-09-11)
+
+**8,483 of 31,692 Commander-legal cards now execute completely, up from 8,440
+(+43: THIRTEEN with no script at all, then 30 generated rows in one wave).**
+`SHIPPED_SCRIPTS` 5,470 → **5,500**; the REFUSED ledger 1,222 → **1,229** (seven
+ADDED by reason — the cards the classifier offered after the seam and the row maker
+refused). Fixtures 6,022 → **6,055** (5,900 by name + 148 tokens: the 30 rowed
+cards and the seam's three proof spells). `scriptableToday` 1,317 → **1,354** by the
+SEAM and → **1,324** by the WAVE (D363/D384); the select pool 0 → 37 → 7 → 0; the
+ladder `[1324, 1413, 2814, 4489, 5829]`. Bot reach 8,370 → **8,412** from 255
+commanders. M6.4ia, on Fable 5.1.
+
+### The measurement chose it: three neighbours priced, the honest count picked
+
+The fresh true-leftover after `39ea254c` (23,252 incomplete, 11,574 one-piece
+line-only) was grouped by STRUCTURE again: a delayed action at the next end step
+142, animate 121, "can't block this turn / must be blocked" 86, the bite 72, the
+untap skip 71, fight 44. Three were priced with the REAL parser — the sentence stood
+in by kinds the vocabulary reads, or dropped as if read, and the rest of the line
+asked to parse as a spell or as a payload under its head: **bite + fight 20** (10
+spells, 10 payloads; "another target creature" is unenforced in the targeting layer
+and holds five more), **the untap skip 15** (2 + 13), **the can't-block restriction
+37** (13 + 24). A shape count is not a landing count (D384, D393's lesson): the
+families said 142 / 121 / 86 / 72 / 71 and the honest counts said 37 / 20 / 15. The
+restriction it is — the cheapest mechanism on the board (no new event, no new list)
+and the densest by what would land.
+
+### The seam: one flag, one reader, no new state
+
+- **THE FLAG RIDES THE LIST THE PUMPS RIDE.** `PtModifiedUntilEndOfTurn` carries an
+  optional `cantBlock: true` (power 0, toughness 0 — inert at every layer `derive`
+  reads; every earlier event and entry byte-identical), the reducer spreads it onto
+  the `untilEndOfTurn` entry like the keywords and the types, and cleanup clears it
+  with the rest (CR 514.2). It is in the state hash; a replay that dropped it would
+  be caught by the 500-seed gate.
+- **`canBlock` READS IT WHERE THE RULE IS DECIDED** (CR 509.1b): after the tapped
+  check, an entry for the blocker with the flag refuses the block with a rejection
+  of its own, `cantBlockThisTurn`, and its own text ("… can't block this turn.") —
+  every other member of that union names a printed evasion; this one names the
+  printed restriction. The bot's blocker planning and the client's blockers veil go
+  through `canBlock` already, so nothing else moved. With the only potential blocker
+  restricted, the engine declares no blockers itself and never asks (D119's rule for
+  a prompt with nothing in it).
+- **THE VOCABULARY** (`effectParse`): `<target> can't block this turn.` is the
+  `cantBlock` kind, aimed like any targeted clause, COUNTED forms included ("Up to
+  three target creatures …" runs once per pick); the scoped forms ("Creatures
+  without flying can't block this turn.") are a different reader and stay unread
+  until measured. The referent reads "That creature can't block this turn." after
+  the damage (Mugging) and — new to the referent — the COUNTED plural "Those
+  creatures can't block this turn." after "each of up to three target creatures"
+  (Wrap in Flames): `those creatures` / `those permanents` join the referent set, and
+  a referent clause after a counted clause carries the counted clause's optional
+  mark and runs over the same picks.
+- **THE CANARY.** Mugging is a fuzz staple feeding `cantBlockSet`, floored at gate
+  size.
+
+### The wave — 37 in the pool, 30 rows, the seven refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **37** in `batch.json`, more
+than the probe's 24 because the referent reads payloads the probe's regex did not
+stand in — landed BY NAME with the row maker's refusal histogram as the measurement
+(D352/D364). **30 rows**: the restriction under enters, attacks, becomes-tapped and
+cast heads (Fervent Cathar, Voldaren Duelist, Crossway Vampire, Goblin Shortcutter,
+Grotag Thrasher, Mardu Roughrider, Renegade Wheelsmith, Smelt-Ward Minotaur, Kami of
+Fire's Roar, Smoldering Spires, Sower of Chaos, Summit Intimidator, Unstoppable Ogre,
+Pia Nalaar …), as an activated ability priced in mana, a tap, a discard or a
+sacrifice (Hall Monitor, Jamuraan Lion, Chainwhip Cyclops, Merciless Javelineer,
+Stun Sniper, Goblin Rimerunner, Siegebreaker Giant, Lambholt Harrier, Blood
+Aspirant …), and on an Aura's enters (Cartouche of Zeal, Hammerhand). **Seven
+refused by reason** and ledgered, since the selector offers them again: three paid
+trigger payloads ("Pay {R}. If you do, target creature can't block this turn." —
+Frenzied Goblin, Intimidator Initiate, Panic Spellbomb — the head arm takes one
+pump), two quoted grants on an enchanted permanent (Hostile Realm, Malicious
+Intent — D384's generator), two counted clauses the suite has no fixture for ("up to
+two target creatures" — Markov Warlord, Quakefoot Cyclops). **Thirteen spells landed
+with NO script at all**: Mugging, Stun, Abandon the Post, Blindblast, Bellowing
+Bruiser's adventure half, Renegade Tactics, Panic Attack, Sparkmage's Gambit, Wrap in
+Flames, Duel Tactics, Seismic Shift, Nightbird's Clutches, Unearthly Blizzard.
+
+The generator learned the `cantBlock` arm: the suite reads the until-end-of-turn
+entry on the fixture before the turn ends, and only if the same payload's damage
+left the fixture on the battlefield.
+
+### The traps this decision paid for
+
+- ⚠️ **A CLAUSE'S PHRASE IS ITS TARGET FIRST, THE SELF ONLY WITHOUT ONE** (D392,
+  corrected). "~ deals 2 damage to target creature. That creature can't block this
+  turn." starts with the self marker and is about the creature dealt the damage;
+  the first cut read the referent as `~`, the second clause fell silent and the
+  spell went assisted — the seam test caught it before a card did.
+- ⚠️ **A RESTRICTED-ONLY BOARD IS A PROMPT WITH NOTHING IN IT** (D119). The in-play
+  test waited for the blockers prompt with the mugged creature as the only
+  potential blocker, and the engine — rightly — never asked. The defender keeps a
+  second, unrestricted creature now, and the refusal is read off the submit.
+- ⚠️ **PRICE THREE NEIGHBOURS BEFORE THE PICK** (D384, D393). The pick came from the
+  honest counts (37 / 20 / 15), not from the family sizes (86 / 116 / 71).
+- ⚠️ **A DERIVED PORT CARRIES THE PREVIOUS DECISION'S PROSE** (D392, D393, again).
+  The WANTED comment said "threaten"; read every string a derived script WRITES.
+
+**Measured:** `blocked` 23,252 → 23,209 · the `counter` primitive 1,290 → 1,289 ·
+`activatedCost` 2,226 → 2,225 · residue `other` 2,990 → 2,988 · ladder `[1324, 1413,
+2814, 4489, 5829]` · tier3 `silentAfter` 8,741 → **8,783**, `silentBefore` 24,649 →
+24,661, `abilityText` 14,655 → 14,636, `payable` 4,123 → 4,110 · `oracleParse`
+`effect:auto` 5,594 → **5,633**, `effect:none` 12,995 → 12,971, `effect:partial`
+5,742 → 5,727 · botPool auto 1,261 → **1,273**, assisted 1,994 → 1,993, autoAnyFace
+1,269 → 1,281, creature 4,962 → 4,989, enchantment 480 → 483 (both sites), instant
+1,128 → 1,130, land 568 → 569, sorcery 845 → 855 · the bot's reach 8,370 → **8,412**
+from 255 commanders · select pool 0 → 37 → 7 → 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5658 files, 27704
+passed / 11 skipped · 500-seed gate, 6 shards, 958.9 s wall · build clean · probe
+124/124 · battery 140/140.** Engine: `cantBlock.test.ts` (3 — the sentence alone,
+after damage through the referent, counted, and counted through the plural
+referent; the scoped form refused; in play: the mugged creature is refused as a
+blocker with the printed reason while the other creature blocks, the flag is gone
+after cleanup, replay hash equal); the 60-seed fuzz leg green at 634.55 s.
+
+⚠️ **Reportables** (D394): the scoped can't-block forms ("Creatures without flying
+can't block this turn.", "Creatures your opponents control can't block this turn.")
+and "must be blocked this turn if able" (a requirement, CR 508.1d); the generator's
+tail — the paid trigger payload ("Pay {R}. If you do, …" — the head arm takes one
+pump) and the counted-clause fixture ("up to two target creatures"); bite + fight
+(20 by the honest count; "another target creature" unenforced in the targeting layer
+holds five more; "any target" bites and "to that creature" objects add ~8); the
+untap skip (15); the delayed action at the next end step (142 by structure — measure
+it); the animate family (121 / 58 — measure it); the durations proper (`for as long
+as you control` 23, `remains exiled` 33, `remains on the battlefield` 14); the
+permanent control family (20) and exchange control (24); the object stamp (CR
+400.7); the activation restrictions (313 — the tail is the payloads); then
+spend-restricted mana (56), the keyword entry replacements (22), copy (~200), the
+prompt CONTINUATION seam proper, the two gate items — the tournament floor's
+MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D393's list unchanged.

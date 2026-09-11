@@ -1909,6 +1909,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Turn Against', 'a keyword line (Devoid) beside a spell text the vocabulary reads - the spell-side keyword claim'],
   ["Kari Zev's Expertise", 'a noun the target parser cannot place (creature or Vehicle) and a free cast from the hand'],
   ['Sarkhan Vol', 'planeswalker loyalty abilities'],
+  // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
+  ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
+  ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
+  ['Panic Spellbomb', 'a paid trigger payload (Pay {R}. If you do, draw a card.) - the head arm takes one pump'],
+  ['Hostile Realm', 'a quoted grant on an enchanted land (Enchanted land has ...) - the grant generator, not the mainline row maker'],
+  ['Malicious Intent', 'a quoted grant on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
+  ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
+  ['Quakefoot Cyclops', 'a counted clause (up to two target creatures) the suite has no fixture for'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

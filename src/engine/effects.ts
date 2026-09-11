@@ -504,6 +504,15 @@ export function effectResult(
         break;
       }
 
+      // D394 - "can't block this turn" (CR 509.1b with an END): an until-end-of-turn entry that
+      // `canBlock` reads and cleanup clears, riding the same event as the pumps and the grants.
+      case 'cantBlock': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, cantBlock: true });
+        break;
+      }
+
       // D393 - THREATEN (CR 514.2): the permanent is the controller's until cleanup hands it
       // back. Taking what is already yours changes nothing and remembers nothing.
       case 'control': {

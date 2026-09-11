@@ -140,6 +140,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // so the cleanup revert is exercised at gate size.
   { names: ['Act of Treason'], copiesPerSeat: 1,
     counterKeys: ['controlTaken', 'controlReverted'], rotHistory: 'D393' },
+  // D394 - the can't-block restriction (CR 509.1b with an END): a {R} instant every seat can cast
+  // whose second sentence is the referent form, so the flag is set at gate size.
+  { names: ['Mugging'], copiesPerSeat: 1,
+    counterKeys: ['cantBlockSet'], rotHistory: 'D394' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -788,6 +792,7 @@ interface Run {
   readonly proliferations: number;
   readonly controlTaken: number;
   readonly controlReverted: number;
+  readonly cantBlockSet: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -1042,6 +1047,7 @@ function runOne(seed: number): Run {
     proliferations: game.log.filter((e) => e.body.t === 'Proliferated' && e.body.permanents.length + e.body.players.length > 0).length,
     controlTaken: game.log.filter((e) => e.body.t === 'ControlChangedUntilEndOfTurn').length,
     controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
+    cantBlockSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBlock === true).length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1189,6 +1195,7 @@ const TOTAL_KEYS = [
   'proliferations',
   'controlTaken',
   'controlReverted',
+  'cantBlockSet',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1433,6 +1440,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D393 - a permanent taken until end of turn, and handed back at cleanup, at gate size.
         expect(totals.controlTaken).toBeGreaterThan(0);
         expect(totals.controlReverted).toBeGreaterThan(0);
+        // D394 - a can't-block restriction set at least once at gate size.
+        expect(totals.cantBlockSet).toBeGreaterThan(0);
       }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
@@ -1488,6 +1497,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.queueAsks} player queues raised / ${totals.queueBatches} completed · ` +
           `${totals.proliferateAsks} proliferate asks / ${totals.proliferations} answered with something · ` +
           `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
+          `${totals.cantBlockSet} can't-block restrictions set · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

@@ -1069,6 +1069,12 @@ export interface GameState {
      * an entry carrying it has power 0 / toughness 0 and is inert at every layer `derive` reads.
      */
     readonly controlRevert?: PlayerId;
+    /**
+     * D394 - "can't block this turn" (CR 509.1b's restriction with an END): read by `canBlock`
+     * for the blocker, cleared with the rest at cleanup. Optional so every earlier entry and its
+     * replay hash are untouched; an entry carrying it is inert at every layer `derive` reads.
+     */
+    readonly cantBlock?: true;
   }[];
   /**
    * D330 - CR 701.19: regeneration shields per permanent (instance id), each

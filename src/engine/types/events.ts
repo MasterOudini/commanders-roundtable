@@ -517,6 +517,11 @@ export type EventBody =
       readonly keywords?: readonly Keyword[];
       /** D311 - card types GAINED until end of turn (crew: Artifact, Creature). Read at layer 4. */
       readonly types?: readonly string[];
+      /**
+       * D394 - "can't block this turn": a restriction with an END, riding the same event as the
+       * pumps and grants (power 0 / toughness 0), read by `canBlock`, cleared at cleanup.
+       */
+      readonly cantBlock?: true;
     }
   /**
    * D393 - THREATEN: `controller` takes the permanent until end of turn and `revertTo` gets it

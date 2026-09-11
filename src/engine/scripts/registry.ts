@@ -7,6 +7,36 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BOLA_WARRIOR_SCRIPT } from './cards/bolaWarrior';
+import { CHAINWHIP_CYCLOPS_SCRIPT } from './cards/chainwhipCyclops';
+import { CROSSWAY_VAMPIRE_SCRIPT } from './cards/crosswayVampire';
+import { FERVENT_CATHAR_SCRIPT } from './cards/ferventCathar';
+import { GOBLIN_BATTLE_JESTER_SCRIPT } from './cards/goblinBattleJester';
+import { GOBLIN_SHORTCUTTER_SCRIPT } from './cards/goblinShortcutter';
+import { GROTAG_THRASHER_SCRIPT } from './cards/grotagThrasher';
+import { HALL_MONITOR_SCRIPT } from './cards/hallMonitor';
+import { JAMURAAN_LION_SCRIPT } from './cards/jamuraanLion';
+import { KAMI_OF_FIRES_ROAR_SCRIPT } from './cards/kamiOfFiresRoar';
+import { KRARK_CLAN_OGRE_SCRIPT } from './cards/krarkClanOgre';
+import { LAMBHOLT_HARRIER_SCRIPT } from './cards/lambholtHarrier';
+import { MARDU_ROUGHRIDER_SCRIPT } from './cards/marduRoughrider';
+import { MERCILESS_JAVELINEER_SCRIPT } from './cards/mercilessJavelineer';
+import { RENEGADE_WHEELSMITH_SCRIPT } from './cards/renegadeWheelsmith';
+import { SIEGEBREAKER_GIANT_SCRIPT } from './cards/siegebreakerGiant';
+import { SMELT_WARD_MINOTAUR_SCRIPT } from './cards/smeltWardMinotaur';
+import { SMOLDERING_SPIRES_SCRIPT } from './cards/smolderingSpires';
+import { SOWER_OF_CHAOS_SCRIPT } from './cards/sowerOfChaos';
+import { SPIDER_MAN_WEB_SPINNER_SCRIPT } from './cards/spiderManWebSpinner';
+import { STUN_SNIPER_SCRIPT } from './cards/stunSniper';
+import { SUMMIT_INTIMIDATOR_SCRIPT } from './cards/summitIntimidator';
+import { UNSTOPPABLE_OGRE_SCRIPT } from './cards/unstoppableOgre';
+import { VOLDAREN_DUELIST_SCRIPT } from './cards/voldarenDuelist';
+import { BLOOD_ASPIRANT_SCRIPT } from './cards/bloodAspirant';
+import { CARTOUCHE_OF_ZEAL_SCRIPT } from './cards/cartoucheOfZeal';
+import { GOBLIN_RIMERUNNER_SCRIPT } from './cards/goblinRimerunner';
+import { HAMMERHAND_SCRIPT } from './cards/hammerhand';
+import { WAR_SQUEAK_SCRIPT } from './cards/warSqueak';
+import { PIA_NALAAR_SCRIPT } from './cards/piaNalaar';
 import { CONQUERING_MANTICORE_SCRIPT } from './cards/conqueringManticore';
 import { ENTHRALLING_VICTOR_SCRIPT } from './cards/enthrallingVictor';
 import { ZEALOUS_CONSCRIPTS_SCRIPT } from './cards/zealousConscripts';
@@ -5496,6 +5526,36 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BOLA_WARRIOR_SCRIPT,
+  CHAINWHIP_CYCLOPS_SCRIPT,
+  CROSSWAY_VAMPIRE_SCRIPT,
+  FERVENT_CATHAR_SCRIPT,
+  GOBLIN_BATTLE_JESTER_SCRIPT,
+  GOBLIN_SHORTCUTTER_SCRIPT,
+  GROTAG_THRASHER_SCRIPT,
+  HALL_MONITOR_SCRIPT,
+  JAMURAAN_LION_SCRIPT,
+  KAMI_OF_FIRES_ROAR_SCRIPT,
+  KRARK_CLAN_OGRE_SCRIPT,
+  LAMBHOLT_HARRIER_SCRIPT,
+  MARDU_ROUGHRIDER_SCRIPT,
+  MERCILESS_JAVELINEER_SCRIPT,
+  RENEGADE_WHEELSMITH_SCRIPT,
+  SIEGEBREAKER_GIANT_SCRIPT,
+  SMELT_WARD_MINOTAUR_SCRIPT,
+  SMOLDERING_SPIRES_SCRIPT,
+  SOWER_OF_CHAOS_SCRIPT,
+  SPIDER_MAN_WEB_SPINNER_SCRIPT,
+  STUN_SNIPER_SCRIPT,
+  SUMMIT_INTIMIDATOR_SCRIPT,
+  UNSTOPPABLE_OGRE_SCRIPT,
+  VOLDAREN_DUELIST_SCRIPT,
+  BLOOD_ASPIRANT_SCRIPT,
+  CARTOUCHE_OF_ZEAL_SCRIPT,
+  GOBLIN_RIMERUNNER_SCRIPT,
+  HAMMERHAND_SCRIPT,
+  WAR_SQUEAK_SCRIPT,
+  PIA_NALAAR_SCRIPT,
   CONQUERING_MANTICORE_SCRIPT,
   ENTHRALLING_VICTOR_SCRIPT,
   ZEALOUS_CONSCRIPTS_SCRIPT,

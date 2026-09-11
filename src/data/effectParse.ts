@@ -858,6 +858,10 @@ const RULES: readonly Rule[] = [
   // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
   // creature.") is a different family and stays unread until it is measured and built.
   { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D394 - "can't block this turn": a restriction WITH AN END (CR 509.1b), on the until-end-of-turn
+  // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
+  // are a different reader and stay unread until they are measured.
+  { kind: 'cantBlock', re: new RegExp(`^${TARGET} can't block this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   {
     kind: 'draw',
     re: /^(?:you )?draw (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,
@@ -1396,17 +1400,23 @@ interface Clause {
  * is left unread, exactly as before. "Its controller", "that player" and "them" are not
  * referents here: a player or a counted set is a different subject, refused by name.
  */
-const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker))';
+// D394 - the COUNTED referent ("Those creatures can't block this turn." after "up to three target
+// creatures"): the clause inherits the counted phrase and runs once per pick, as the clause it
+// refers to does.
+const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker)|those (?:creatures|permanents))';
 const REFERENT_LEAD = new RegExp(`^(?:then )?${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_ANY = new RegExp(`(?<![a-z])${REFERENT}(?![a-z'])`, 'gi');
 const PHRASE_TARGET = new RegExp(TARGET, 'i');
 const PHRASE_SELF = new RegExp(`^(?:then )?${SELF}(?![a-z])`, 'i');
 
+// D394 - the TARGET first: "~ deals 2 damage to target creature. That creature can't block this
+// turn." is about the creature dealt the damage, not the source, however the sentence starts. The
+// self is the phrase only when the sentence names no target at all.
 function phraseOf(text: string): string | null {
-  if (PHRASE_SELF.test(text)) return '~';
   const m = text.match(PHRASE_TARGET);
-  return m ? m[0] : null;
+  if (m) return m[0];
+  return PHRASE_SELF.test(text) ? '~' : null;
 }
 
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
@@ -1574,6 +1584,9 @@ export function parseEffects(
   // Each understood clause consumes the next target in printed order, which is
   // the same order `targetParse` produced its specs in.
   let nextTarget = 0;
+  // D394 - a referent clause after a COUNTED clause ("Those creatures can't block this turn.")
+  // runs over the same picks, so it carries the same optional mark.
+  let lastOptional = false;
   for (const clause of clauses) {
     const spec0 = clause.spec;
     if (!spec0) continue;
@@ -1584,11 +1597,12 @@ export function parseEffects(
     understood++;
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);
+    if (spec.targetIndex !== -1 && !spec.referent) lastOptional = optional;
     const placed =
       spec.targetIndex === -1
         ? spec
         : spec.referent
-          ? { ...spec, targetIndex: nextTarget - 1 }
+          ? { ...spec, targetIndex: nextTarget - 1, ...(lastOptional ? { optional: true as const } : {}) }
           : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
     // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
     effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);

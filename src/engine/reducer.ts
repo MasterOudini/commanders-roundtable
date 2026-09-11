@@ -1078,6 +1078,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             // exact pre-D194 entry — hash-identical replays.
             ...(body.keywords !== undefined ? { keywords: body.keywords } : {}),
             ...(body.types !== undefined ? { types: body.types } : {}),
+            // D394 - the can't-block restriction rides the same entry, spread-conditional too.
+            ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),
           },
         ],
       };
