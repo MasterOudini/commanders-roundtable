@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CALDERA_PYREMAW_SCRIPT } from './cards/calderaPyremaw';
+import { HATEFLAYER_SCRIPT } from './cards/hateflayer';
+import { SIFS_SPEARMASTER_SCRIPT } from './cards/sifsSpearmaster';
+import { SPIKESHOT_ELDER_SCRIPT } from './cards/spikeshotElder';
+import { SPIKESHOT_GOBLIN_SCRIPT } from './cards/spikeshotGoblin';
+import { TRIANGLE_OF_WAR_SCRIPT } from './cards/triangleOfWar';
 import { GUARDIAN_IDOL_SCRIPT } from './cards/guardianIdol';
 import { TREETOP_VILLAGE_SCRIPT } from './cards/treetopVillage';
 import { ALLOY_ANIMIST_SCRIPT } from './cards/alloyAnimist';
@@ -3519,14 +3525,11 @@ import { SKYWAY_SNIPER_SCRIPT } from './cards/skywaySniper';
 import { SPIRE_MANGLER_SCRIPT } from './cards/spireMangler';
 import { STORM_FRONT_SCRIPT } from './cards/stormFront';
 import { PREDATOR_FLAGSHIP_SCRIPT } from './cards/predatorFlagship';
-import { WING_PUNCTURE_SCRIPT } from './cards/wingPuncture';
 import { PISTUS_STRIKE_SCRIPT } from './cards/pistusStrike';
 import { SAGITTARS_VOLLEY_SCRIPT } from './cards/sagittarsVolley';
 import { EATEN_BY_SPIDERS_SCRIPT } from './cards/eatenBySpiders';
 import { FORCED_LANDING_SCRIPT } from './cards/forcedLanding';
-import { ASSERT_PERFECTION_SCRIPT } from './cards/assertPerfection';
 import { BIONIC_BLOW_SCRIPT } from './cards/bionicBlow';
-import { CHELONIAN_TACKLE_SCRIPT } from './cards/chelonianTackle';
 import { DONATELLOS_SCIENCE_LESSON_SCRIPT } from './cards/donatellosScienceLesson';
 import { MABELS_METTLE_SCRIPT } from './cards/mabelsMettle';
 import { PRIMAL_MIGHT_SCRIPT } from './cards/primalMight';
@@ -3643,7 +3646,6 @@ import { SIEGE_VETERAN_SCRIPT } from './cards/siegeVeteran';
 import { SIEGE_GANG_COMMANDER_SCRIPT } from './cards/siegeGangCommander';
 import { PIA_AND_KIRAN_NALAAR_SCRIPT } from './cards/piaAndKiranNalaar';
 import { POTION_OF_HEALING_SCRIPT } from './cards/potionOfHealing';
-import { PRIZEFIGHT_SCRIPT } from './cards/prizefight';
 import { PROLOGUE_TO_PHYRESIS_SCRIPT } from './cards/prologueToPhyresis';
 import { PROSPEROUS_INNKEEPER_SCRIPT } from './cards/prosperousInnkeeper';
 import { RAVAGING_BLAZE_SCRIPT } from './cards/ravagingBlaze';
@@ -3756,7 +3758,6 @@ import { WHIRLERMAKER_SCRIPT } from './cards/whirlermaker';
 import { WHIRLWIND_SCRIPT } from './cards/whirlwind';
 import { WHIRLWIND_OF_THOUGHT_SCRIPT } from './cards/whirlwindOfThought';
 import { WHISPER_AGENT_SCRIPT } from './cards/whisperAgent';
-import { WILD_INSTINCTS_SCRIPT } from './cards/wildInstincts';
 import { WILDHEART_INVOKER_SCRIPT } from './cards/wildheartInvoker';
 import { WILLOW_WIND_SCRIPT } from './cards/willowWind';
 import { WILY_GOBLIN_SCRIPT } from './cards/wilyGoblin';
@@ -3948,7 +3949,6 @@ import { THRAXODEMON_SCRIPT } from './cards/thraxodemon';
 import { THREE_TREE_SCRIBE_SCRIPT } from './cards/threeTreeScribe';
 import { TEMPORAL_SPRING_SCRIPT } from './cards/temporalSpring';
 import { TEMUR_BANNER_SCRIPT } from './cards/temurBanner';
-import { TENDERIZE_SCRIPT } from './cards/tenderize';
 import { TENDRILS_OF_CORRUPTION_SCRIPT } from './cards/tendrilsOfCorruption';
 import { TENTH_DISTRICT_GUARD_SCRIPT } from './cards/tenthDistrictGuard';
 import { TERASHIS_GRASP_SCRIPT } from './cards/terashisGrasp';
@@ -4681,7 +4681,6 @@ import { HORIZON_SCHOLAR_SCRIPT } from './cards/horizonScholar';
 import { HORRIFIC_ASSAULT_SCRIPT } from './cards/horrificAssault';
 import { HOUR_OF_GLORY_SCRIPT } from './cards/hourOfGlory';
 import { HOWL_FROM_BEYOND_SCRIPT } from './cards/howlFromBeyond';
-import { HUATLIS_FINAL_STRIKE_SCRIPT } from './cards/huatlisFinalStrike';
 import { HUBRIS_SCRIPT } from './cards/hubris';
 import { HUNGER_OF_THE_NIM_SCRIPT } from './cards/hungerOfTheNim';
 import { HUNGRY_FLAMES_SCRIPT } from './cards/hungryFlames';
@@ -4787,7 +4786,6 @@ import { FATEFUL_ABSENCE_SCRIPT } from './cards/fatefulAbsence';
 import { FATEFUL_SHOWDOWN_SCRIPT } from './cards/fatefulShowdown';
 import { FAULT_LINE_SCRIPT } from './cards/faultLine';
 import { FEAR_OF_SURVEILLANCE_SCRIPT } from './cards/fearOfSurveillance';
-import { EPIC_CONFRONTATION_SCRIPT } from './cards/epicConfrontation';
 import { ESSENCE_BACKLASH_SCRIPT } from './cards/essenceBacklash';
 import { ESSENCE_DRAIN_SCRIPT } from './cards/essenceDrain';
 import { ESSENCE_EXTRACTION_SCRIPT } from './cards/essenceExtraction';
@@ -4915,7 +4913,6 @@ import { CITYWATCH_SPHINX_SCRIPT } from './cards/citywatchSphinx';
 import { CITYWIDE_BUST_SCRIPT } from './cards/citywideBust';
 import { CLEANFALL_SCRIPT } from './cards/cleanfall';
 import { CLEANSING_BEAM_SCRIPT } from './cards/cleansingBeam';
-import { CLEAR_SHOT_SCRIPT } from './cards/clearShot';
 import { CLEAR_THE_LAND_SCRIPT } from './cards/clearTheLand';
 import { CLOUDKILL_SCRIPT } from './cards/cloudkill';
 import { CLOUDREADER_SPHINX_SCRIPT } from './cards/cloudreaderSphinx';
@@ -5008,8 +5005,6 @@ import { ANCHOR_TO_THE_AETHER_SCRIPT } from './cards/anchorToTheAether';
 import { AMNESIA_SCRIPT } from './cards/amnesia';
 import { AETHER_TRADEWINDS_SCRIPT } from './cards/aetherTradewinds';
 import { ANARCHY_SCRIPT } from './cards/anarchy';
-import { AGGRESSIVE_INSTINCT_SCRIPT } from './cards/aggressiveInstinct';
-import { AMBUSCADE_SCRIPT } from './cards/ambuscade';
 import { ANGELHEART_PROTECTOR_SCRIPT } from './cards/angelheartProtector';
 import { ALPHA_BRAWL_SCRIPT } from './cards/alphaBrawl';
 import { AN_HAVVA_INN_SCRIPT } from './cards/anHavvaInn';
@@ -5040,8 +5035,6 @@ import { FUMIGATE_SCRIPT } from './cards/fumigate';
 import { SLASH_THE_RANKS_SCRIPT } from './cards/slashTheRanks';
 import { FELL_THE_MIGHTY_SCRIPT } from './cards/fellTheMighty';
 import { SOLAR_BLAZE_SCRIPT } from './cards/solarBlaze';
-import { PREY_UPON_SCRIPT } from './cards/preyUpon';
-import { RABID_BITE_SCRIPT } from './cards/rabidBite';
 import { CHANDRAS_IGNITION_SCRIPT } from './cards/chandrasIgnition';
 import { SQUALL_LINE_SCRIPT } from './cards/squallLine';
 import { RECKLESS_RAGE_SCRIPT } from './cards/recklessRage';
@@ -5571,6 +5564,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CALDERA_PYREMAW_SCRIPT,
+  HATEFLAYER_SCRIPT,
+  SIFS_SPEARMASTER_SCRIPT,
+  SPIKESHOT_ELDER_SCRIPT,
+  SPIKESHOT_GOBLIN_SCRIPT,
+  TRIANGLE_OF_WAR_SCRIPT,
   GUARDIAN_IDOL_SCRIPT,
   TREETOP_VILLAGE_SCRIPT,
   ALLOY_ANIMIST_SCRIPT,
@@ -9083,14 +9082,11 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   SPIRE_MANGLER_SCRIPT,
   STORM_FRONT_SCRIPT,
   PREDATOR_FLAGSHIP_SCRIPT,
-  WING_PUNCTURE_SCRIPT,
   PISTUS_STRIKE_SCRIPT,
   SAGITTARS_VOLLEY_SCRIPT,
   EATEN_BY_SPIDERS_SCRIPT,
   FORCED_LANDING_SCRIPT,
-  ASSERT_PERFECTION_SCRIPT,
   BIONIC_BLOW_SCRIPT,
-  CHELONIAN_TACKLE_SCRIPT,
   DONATELLOS_SCIENCE_LESSON_SCRIPT,
   MABELS_METTLE_SCRIPT,
   PRIMAL_MIGHT_SCRIPT,
@@ -9207,7 +9203,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   SIEGE_GANG_COMMANDER_SCRIPT,
   PIA_AND_KIRAN_NALAAR_SCRIPT,
   POTION_OF_HEALING_SCRIPT,
-  PRIZEFIGHT_SCRIPT,
   PROLOGUE_TO_PHYRESIS_SCRIPT,
   PROSPEROUS_INNKEEPER_SCRIPT,
   RAVAGING_BLAZE_SCRIPT,
@@ -9320,7 +9315,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   WHIRLWIND_SCRIPT,
   WHIRLWIND_OF_THOUGHT_SCRIPT,
   WHISPER_AGENT_SCRIPT,
-  WILD_INSTINCTS_SCRIPT,
   WILDHEART_INVOKER_SCRIPT,
   WILLOW_WIND_SCRIPT,
   WILY_GOBLIN_SCRIPT,
@@ -9512,7 +9506,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   THREE_TREE_SCRIBE_SCRIPT,
   TEMPORAL_SPRING_SCRIPT,
   TEMUR_BANNER_SCRIPT,
-  TENDERIZE_SCRIPT,
   TENDRILS_OF_CORRUPTION_SCRIPT,
   TENTH_DISTRICT_GUARD_SCRIPT,
   TERASHIS_GRASP_SCRIPT,
@@ -10244,7 +10237,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HORRIFIC_ASSAULT_SCRIPT,
   HOUR_OF_GLORY_SCRIPT,
   HOWL_FROM_BEYOND_SCRIPT,
-  HUATLIS_FINAL_STRIKE_SCRIPT,
   HUBRIS_SCRIPT,
   HUNGER_OF_THE_NIM_SCRIPT,
   HUNGRY_FLAMES_SCRIPT,
@@ -10350,7 +10342,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   FATEFUL_SHOWDOWN_SCRIPT,
   FAULT_LINE_SCRIPT,
   FEAR_OF_SURVEILLANCE_SCRIPT,
-  EPIC_CONFRONTATION_SCRIPT,
   ESSENCE_BACKLASH_SCRIPT,
   ESSENCE_DRAIN_SCRIPT,
   ESSENCE_EXTRACTION_SCRIPT,
@@ -10478,7 +10469,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   CITYWIDE_BUST_SCRIPT,
   CLEANFALL_SCRIPT,
   CLEANSING_BEAM_SCRIPT,
-  CLEAR_SHOT_SCRIPT,
   CLEAR_THE_LAND_SCRIPT,
   CLOUDKILL_SCRIPT,
   CLOUDREADER_SPHINX_SCRIPT,
@@ -10571,8 +10561,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   AMNESIA_SCRIPT,
   AETHER_TRADEWINDS_SCRIPT,
   ANARCHY_SCRIPT,
-  AGGRESSIVE_INSTINCT_SCRIPT,
-  AMBUSCADE_SCRIPT,
   ANGELHEART_PROTECTOR_SCRIPT,
   ALPHA_BRAWL_SCRIPT,
   AN_HAVVA_INN_SCRIPT,
@@ -10603,8 +10591,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   SLASH_THE_RANKS_SCRIPT,
   FELL_THE_MIGHTY_SCRIPT,
   SOLAR_BLAZE_SCRIPT,
-  PREY_UPON_SCRIPT,
-  RABID_BITE_SCRIPT,
   CHANDRAS_IGNITION_SCRIPT,
   SQUALL_LINE_SCRIPT,
   RECKLESS_RAGE_SCRIPT,

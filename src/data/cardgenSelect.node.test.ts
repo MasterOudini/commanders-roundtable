@@ -1751,7 +1751,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fade from Memory', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Frostveil Ambush', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Go for Blood', 'a spell line outside the vocabulary (its cycling runs)'],
+
   ['Inferno Jet', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
@@ -1922,6 +1922,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hostile Desert', 'an activation cost the engine cannot charge (exile a land card from your graveyard)'],
   ['Restless Anchorage', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
   ['Restless Bivouac', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
+  // D396 - bite and fight: the seven the selector offered after the seam that the row maker refused, by reason.
+  ['Burning Anger', 'a quoted grant of a bite on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
+  ["Sinstriker's Will", 'a quoted grant of a bite on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
+  ['Surestrike Trident', 'a quoted grant of a bite on an equipped creature (Equipped creature has first strike and ...) - the grant generator, not the mainline row maker'],
+  ['Thorn Mammoth', 'a fight payload under the this-or-another-creature-enters head - the head arm takes one pump'],
+  ['Legolas, Master Archer', 'a filtered cast head outside the closed reader (whenever you cast a spell that targets ...)'],
+  ['Markov Enforcer', 'a compound head (whenever this creature or another Vampire enters) outside the closed reader'],
+  ['Vivien of the Arkbow', 'planeswalker loyalty abilities'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

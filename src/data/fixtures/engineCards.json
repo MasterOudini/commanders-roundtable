@@ -201060,6 +201060,310 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GO_FOR_BLOOD": {
+    "scryfallId": "40185b55-7693-429f-8d0a-2853d6beda90",
+    "oracleId": "11cf103c-f8a3-4892-942d-2c4472dd5716",
+    "name": "Go for Blood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Go for Blood",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature you control fights target creature you don't control. (Each deals damage equal to its power to the other.)\nCycling {1} ({1}, Discard this card: Draw a card.)",
+        "flavorText": "Lukka's bond provided not only friendship, but also the most powerful weapon in his arsenal.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "40185b55-7693-429f-8d0a-2853d6beda90"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Fight",
+      "Cycling"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "540",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NATURE_S_WAY": {
+    "scryfallId": "29a4abe5-9770-4a55-b20a-2ceb6bb00db6",
+    "oracleId": "8c04663a-1023-49a5-a0b9-78f24a72fb1e",
+    "name": "Nature's Way",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nature's Way",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature you control gains vigilance and trample until end of turn. It deals damage equal to its power to target creature you don't control.",
+        "flavorText": "Many elves incorporate the beauty of nature into their inventions. Very few capture its savagery.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "29a4abe5-9770-4a55-b20a-2ceb6bb00db6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddu",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNT_THE_WEAK": {
+    "scryfallId": "05d6cab6-b0f9-4631-a4bd-5ff1d6d53880",
+    "oracleId": "37864d13-2aaa-477b-8453-a42f77ab4437",
+    "name": "Hunt the Weak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hunt the Weak",
+        "manaCost": "{3}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put a +1/+1 counter on target creature you control. Then that creature fights target creature you don't control. (Each deals damage equal to its power to the other.)",
+        "flavorText": "\"Death lizard approaching, cap'n!\"\n—Brint Doobin, last words",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "05d6cab6-b0f9-4631-a4bd-5ff1d6d53880"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fight"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALDERA_PYREMAW": {
+    "scryfallId": "ec76d618-9e92-438c-9fbc-16994b805511",
+    "oracleId": "3eb5ae68-7f76-4874-80a4-80058b10fc7a",
+    "name": "Caldera Pyremaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caldera Pyremaw",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, put a +1/+1 counter on this creature. Then this creature deals damage equal to its power to target opponent.",
+        "flavorText": "It's the reason monks gave up on mapping Qadat.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "ec76d618-9e92-438c-9fbc-16994b805511"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HATEFLAYER": {
+    "scryfallId": "38c26ba3-e325-433b-b653-4e80e737b54d",
+    "oracleId": "681d07e6-234f-4544-a2ea-bfbefe6b0b36",
+    "name": "Hateflayer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hateflayer",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Wither (This deals damage to creatures in the form of -1/-1 counters.)\n{2}{R}, {Q}: This creature deals damage equal to its power to any target. ({Q} is the untap symbol.)",
+        "flavorText": "It has no safe side.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "38c26ba3-e325-433b-b653-4e80e737b54d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Wither"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIF_S_SPEARMASTER": {
+    "scryfallId": "7fed8476-176b-47a4-a646-368ca4b52f41",
+    "oracleId": "9ae33bde-ccc9-40e2-9957-05cd9725f8cf",
+    "name": "Sif's Spearmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sif's Spearmaster",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — God Warrior Hero",
+        "oracleText": "{T}: This creature deals damage equal to its power to target opponent.",
+        "flavorText": "\"Strike now for honor! For glory! For Asgard!\"\n—Sif",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mintautas Šukys",
+        "imageId": "7fed8476-176b-47a4-a646-368ca4b52f41"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "765",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKESHOT_ELDER": {
+    "scryfallId": "14c14e44-20ff-4128-b07d-4b751fc82d4e",
+    "oracleId": "8307bfb0-3ab2-467f-b13c-ad4acadf319c",
+    "name": "Spikeshot Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spikeshot Elder",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "{1}{R}{R}: This creature deals damage equal to its power to any target.",
+        "flavorText": "Now that he knows a thousand ways of hurting people, his next shamanic quest is to discover a thousand more.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Izzy",
+        "imageId": "14c14e44-20ff-4128-b07d-4b751fc82d4e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKESHOT_GOBLIN": {
+    "scryfallId": "147c826a-b664-4afa-ae7f-284ddce80861",
+    "oracleId": "3cbd4c8e-fe3f-4a7c-90a5-7bc656d7bb10",
+    "name": "Spikeshot Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spikeshot Goblin",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "{R}, {T}: This creature deals damage equal to its power to any target.",
+        "flavorText": "The path of a goblin shaman is a journey through a thousand ways of hurting people.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "147c826a-b664-4afa-ae7f-284ddce80861"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIANGLE_OF_WAR": {
+    "scryfallId": "4c1d7d4d-bed7-4d28-a304-ad33f42e9831",
+    "oracleId": "6d4daf9c-e2f4-4d0e-b2e4-ded04d644b11",
+    "name": "Triangle of War",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Triangle of War",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, Sacrifice this artifact: Target creature you control fights target creature an opponent controls. (Each deals damage equal to its power to the other.)",
+        "flavorText": "The Zhalfirin war triangle represents a trinity of might, faith, and guile.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ian Miller",
+        "imageId": "4c1d7d4d-bed7-4d28-a304-ad33f42e9831"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Fight"
+    ],
+    "setCode": "vis",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

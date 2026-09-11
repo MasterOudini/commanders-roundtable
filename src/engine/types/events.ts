@@ -535,6 +535,12 @@ export type EventBody =
    * step before `UntilEndOfTurnEnded` clears the entry that remembered it.
    */
   | { readonly t: 'ControlChangedUntilEndOfTurn'; readonly card: InstanceId; readonly controller: PlayerId; readonly revertTo: PlayerId }
+  /**
+   * D396 - a marker beside a bite's or a fight's `DamageDealt` (CR 701.12): who bit whom, and
+   * whether the damage went both ways. Nothing in the state moves on it; the fuzz canaries and the
+   * narration read it.
+   */
+  | { readonly t: 'Fought'; readonly subject: InstanceId; readonly other: InstanceId; readonly mutual: boolean }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }
 

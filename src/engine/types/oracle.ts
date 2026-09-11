@@ -524,6 +524,14 @@ export type EffectKind =
    */
   | 'animate'
   /**
+   * D396 - BITE and FIGHT (CR 701.12): "<subject> deals damage equal to its power to <target>." and
+   * "<subject> fights <target>." - two operands, one `DamageDealt`. The subject is a target, the
+   * self, or the referent; the object is the clause's OTHER target (`otherTargetIndex`). A bite is
+   * the one-way half; a fight deals both ways at once.
+   */
+  | 'bite'
+  | 'fight'
+  /**
    * D373 - CR 701.19: "Regenerate this creature." / "Regenerate target creature." -
    * a shield on the permanent, spent by the next destruction this turn (`destroy`
    * and `sba.ts` both read it; cleanup clears it with the other until-end-of-turn
@@ -781,7 +789,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight']);
 
 export interface EffectSpec {
   readonly kind: EffectKind;
@@ -856,6 +864,11 @@ export interface EffectSpec {
    * other clause.
    */
   readonly referent?: true;
+  /**
+   * D396 - the clause's OTHER target (a bite's or a fight's object), a second index the clause
+   * consumes in printed order after its subject. Absent on every one-operand clause.
+   */
+  readonly otherTargetIndex?: number;
   /** D395 - the animate family's shape: what the permanent becomes until end of turn. */
   readonly animate?: {
     readonly power: number;

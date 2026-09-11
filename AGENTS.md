@@ -14692,6 +14692,72 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
       D394's list unchanged.
 
+- [x] **M6.4ic — BITE AND FIGHT: two operands on one clause, one DamageDealt,
+      and thirteen hand scripts retired by the predicate (2026-09-11):** **8,551
+      of 31,692 Commander-legal cards now execute completely, up from 8,530
+      (+21: FIFTEEN with no script at all, then 6 generated rows in one wave).**
+      `SHIPPED_SCRIPTS` 5,545 → **5,538** (six rows landed, THIRTEEN spell defs
+      RETIRED — D187's rule); ledger 1,231 → **1,237** (seven ADDED by reason,
+      one DELETED as built). Fixtures 6,101 → **6,110**. `scriptableToday` 1,326
+      → 1,336 by the SEAM and → **1,330** by the WAVE; the select pool 0 → 13 →
+      7 → 0; the ladder `[1330, 1419, 2819, 4489, 5829]`. Bot reach 8,459 →
+      **8,478** from 256 commanders. Decisions in **D396**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** four families priced with the real parser
+      — token copies 15, the permanent animation 1, the untap skip 15, the
+      delayed action 12, bite + fight 20 — against family sizes of 92 / 62 / 71
+      / 142 / 116; the honest count picked.
+      ⚠️ **THE SEAM:** `EffectSpec.otherTargetIndex` is the clause's OTHER
+      target, handed out by `parseEffects` after the subject's index in printed
+      order (a two-target spell `[0, 1]`, a self subject `[-1, 0]`, a referent
+      subject the previous target and `[0, 1]`); the `bite` and `fight` kinds
+      read `<subject> deals damage equal to its power to <target>.` and
+      `<subject> fights <target>.` with the subject a target or the self and a
+      leading "Then" print; the executor resolves the object through the same
+      `picksFor` / `aimOf`, requires both on the battlefield and both creatures
+      at resolution (CR 701.12b/c), emits ONE `DamageDealt` (one entry for a
+      bite, two for a fight) through `damageTo` so every damage keyword rides
+      along, and a `Fought` marker beside it (the reducer ignores it; the
+      canaries and the narration read it). "Fights each other" and "you may
+      have it fight" stay unread; "another target creature" parses but the
+      targeting layer holds "another" unenforced. Prey Upon and Rabid Bite feed
+      `fights` / `bites` at gate size — after the predicate retired them.
+      ⚠️ **THE WAVE:** 13 in the pool → 6 rows (bites as activated abilities —
+      Spikeshot Goblin, Spikeshot Elder, Sif's Spearmaster, Hateflayer; a fight
+      with a sacrifice — Triangle of War; a bite under a head — Caldera Pyremaw),
+      seven ledgered by reason (three quoted grants, a fight payload under the
+      this-or-another head, a filtered cast head, a compound head, a
+      planeswalker); fifteen spells with NO script (Go for Blood, Hunt the Weak,
+      Kapow!, Nature's Way, Hunter's Edge, Felling Blow, Khalni Ambush …).
+      ⚠️ **Traps:** a derived generator renames its own comments (an anchor on
+      "D395 - an animated permanent …" matched nothing; quote the renamed text
+      or anchor on code); the generator probes its own asserts with a NULL row
+      (`needsKw` — guard the row in every self-aimed assert); the predicate names
+      the retirements and the twenty-two older suites without it are a latent
+      duplicate (Pounce, Savage Smash …); a cost is read off the card, not
+      remembered ({1}{R} paid with one mana); a stale ledger row's text is read
+      off the ledger.
+      Fixtures 6,110 (5,955 by name + 148 tokens) · botPool artifact 484 /
+      creature 4,998 / enchantment 485 / instant 1,137 / land 582 / sorcery 865 —
+      auto 1,312 / assisted 1,988 · `oracleParse` `effect:auto` 5,741 · tier3
+      silentAfter 8,851 · the `counter` primitive 1,282 · `damage` 747 ·
+      `activatedCost` 2,154 · batch.json 13 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5698 files,
+      27851 passed / 11 skipped · 500-seed gate, 6 shards, 999.3 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D396): the twenty-two older fight and bite suites
+      without the predicate test (retire under a predicate added by hand);
+      "fights another target creature" (five — enforce "another" for a two-target
+      sentence); "fights each other" and "you may have it fight"; the token-copy
+      primitive (15 by the honest count); the untap skip (15); the delayed action
+      (12); the permanent animation (1 today, 62 by structure); the scoped
+      can't-block forms and "must be blocked"; the durations proper (23 / 33 /
+      14); the permanent control family (20) and exchange control (24); the
+      object stamp (CR 400.7); the activation restrictions (313 — the tail is the
+      payloads); then spend-restricted mana (56), the keyword entry replacements
+      (22), copy (~200), the prompt CONTINUATION seam proper, the two gate items
+      — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS;
+      then D395's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

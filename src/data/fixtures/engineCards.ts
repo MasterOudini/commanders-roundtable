@@ -5971,6 +5971,15 @@ export const IRON_SUITCASE: CardData = F.IRON_SUITCASE as CardData;
 export const KAMAHL_FIST_OF_KROSA: CardData = F.KAMAHL_FIST_OF_KROSA as CardData;
 export const LEVITATING_STATUE: CardData = F.LEVITATING_STATUE as CardData;
 export const TOUGH_COOKIE: CardData = F.TOUGH_COOKIE as CardData;
+export const GO_FOR_BLOOD: CardData = F.GO_FOR_BLOOD as CardData;
+export const NATURE_S_WAY: CardData = F.NATURE_S_WAY as CardData;
+export const HUNT_THE_WEAK: CardData = F.HUNT_THE_WEAK as CardData;
+export const CALDERA_PYREMAW: CardData = F.CALDERA_PYREMAW as CardData;
+export const HATEFLAYER: CardData = F.HATEFLAYER as CardData;
+export const SIF_S_SPEARMASTER: CardData = F.SIF_S_SPEARMASTER as CardData;
+export const SPIKESHOT_ELDER: CardData = F.SPIKESHOT_ELDER as CardData;
+export const SPIKESHOT_GOBLIN: CardData = F.SPIKESHOT_GOBLIN as CardData;
+export const TRIANGLE_OF_WAR: CardData = F.TRIANGLE_OF_WAR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12075,6 +12084,15 @@ export const ENGINE_CARDS: CardData[] = [
   KAMAHL_FIST_OF_KROSA,
   LEVITATING_STATUE,
   TOUGH_COOKIE,
+  GO_FOR_BLOOD,
+  NATURE_S_WAY,
+  HUNT_THE_WEAK,
+  CALDERA_PYREMAW,
+  HATEFLAYER,
+  SIF_S_SPEARMASTER,
+  SPIKESHOT_ELDER,
+  SPIKESHOT_GOBLIN,
+  TRIANGLE_OF_WAR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

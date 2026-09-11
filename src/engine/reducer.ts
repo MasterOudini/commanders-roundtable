@@ -845,6 +845,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Proliferated':
       return state;
 
+    // D396 - a bite's or a fight's marker: the damage beside it moves the state, this does not.
+    case 'Fought':
+      return state;
+
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 

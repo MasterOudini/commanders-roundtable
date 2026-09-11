@@ -193,12 +193,12 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // (primitives records the same move as token 969 -> 961).
       // D383 - the SCOPED BOARD EFFECT reads a card's other sentence first, so one more card
       // leaves this sole-need population (primitives records the same move as token 958 -> 957).
-      cards: 955,
-      lines: 993,
-      parsed: 253,
-      unique: 231,
+      cards: 954,
+      lines: 992,
+      parsed: 252,
+      unique: 230,
       noMatch: 22,
-      cardsFullyResolved: 217,
+      cardsFullyResolved: 216,
     });
   });
 

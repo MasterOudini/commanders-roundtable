@@ -903,6 +903,28 @@ const RULES: readonly Rule[] = [
   },
   // D395 - the reminder beside an animation: it adds nothing of its own.
   { kind: 'noop', re: /^it(?:'|’)s still an? (?:land|artifact|enchantment|creature|permanent)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D396 - BITE and FIGHT (CR 701.12): two operands. The subject is the self ("~", "this creature")
+  // or a target; the object is the clause's OTHER target, a second index `parseEffects` hands out
+  // after the subject's. The referent forms ("that creature fights ...") arrive here rewritten to
+  // the subject's phrase (D392) and read as the target-subject shape; a leading "Then" is print.
+  // "Fights each other" (the opponent's choice) and "fights another target creature" (the
+  // targeting layer holds "another" unenforced) stay outside, refused by name.
+  {
+    kind: 'bite',
+    re: new RegExp(`^(?:then )?(${SELF}|${TARGET}) deals damage equal to its power to (${TARGET})\\.$`, 'i'),
+    build: (m) => {
+      const self = new RegExp(`^${SELF}$`, 'i').test(m[1] ?? '');
+      return { ...BASE, ...(self ? { targetIndex: -1, self: true } : {}), otherTargetIndex: 0 };
+    },
+  },
+  {
+    kind: 'fight',
+    re: new RegExp(`^(?:then )?(${SELF}|${TARGET}) fights (${TARGET})\\.$`, 'i'),
+    build: (m) => {
+      const self = new RegExp(`^${SELF}$`, 'i').test(m[1] ?? '');
+      return { ...BASE, ...(self ? { targetIndex: -1, self: true } : {}), otherTargetIndex: 0 };
+    },
+  },
   {
     kind: 'draw',
     re: /^(?:you )?draw (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,
@@ -1639,12 +1661,15 @@ export function parseEffects(
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);
     if (spec.targetIndex !== -1 && !spec.referent) lastOptional = optional;
-    const placed =
+    const placed0 =
       spec.targetIndex === -1
         ? spec
         : spec.referent
           ? { ...spec, targetIndex: nextTarget - 1, ...(lastOptional ? { optional: true as const } : {}) }
           : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
+    // D396 - a two-operand clause (a bite, a fight) consumes a SECOND index for its object, after
+    // its subject's, in printed order - the self and the referent subjects consume none of their own.
+    const placed = placed0.otherTargetIndex === undefined ? placed0 : { ...placed0, otherTargetIndex: nextTarget++ };
     // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
     effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);
   }

@@ -148,6 +148,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
     counterKeys: ['animations'], rotHistory: 'D395' },
+  // D396 - bite and fight (CR 701.12): a {G} fight and a {1}{G} bite every seat can cast, so the
+  // two-operand resolution and its one DamageDealt are exercised at gate size.
+  { names: ['Prey Upon', 'Rabid Bite'], copiesPerSeat: 1,
+    counterKeys: ['fights', 'bites'], rotHistory: 'D396' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -798,6 +802,8 @@ interface Run {
   readonly controlReverted: number;
   readonly cantBlockSet: number;
   readonly animations: number;
+  readonly fights: number;
+  readonly bites: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -1054,6 +1060,8 @@ function runOne(seed: number): Run {
     controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
     cantBlockSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBlock === true).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
+    fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
+    bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1203,6 +1211,8 @@ const TOTAL_KEYS = [
   'controlReverted',
   'cantBlockSet',
   'animations',
+  'fights',
+  'bites',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1451,6 +1461,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.cantBlockSet).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
+        // D396 - a fight and a bite resolved at least once at gate size.
+        expect(totals.fights).toBeGreaterThan(0);
+        expect(totals.bites).toBeGreaterThan(0);
       }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
@@ -1508,6 +1521,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
           `${totals.cantBlockSet} can't-block restrictions set · ` +
           `${totals.animations} permanents animated · ` +
+          `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

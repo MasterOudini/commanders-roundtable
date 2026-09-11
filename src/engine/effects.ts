@@ -513,6 +513,35 @@ export function effectResult(
         break;
       }
 
+      // D396 - BITE and FIGHT (CR 701.12): the subject (this step's aim - a target, the self, or the
+      // referent) deals damage equal to its power to the clause's OTHER target; a fight deals both
+      // ways at once, in ONE `DamageDealt`. Either operand gone from the battlefield, or not a
+      // creature at resolution, means no damage at all (CR 701.12b/c) - and the step says so.
+      case 'bite':
+      case 'fight': {
+        if (aim?.kind !== 'card' || effect.otherTargetIndex === undefined) break;
+        const otherAim = picksFor(obj, effect.otherTargetIndex)
+          .map((c) => aimOf(state, c))
+          .find((a): a is Aim => a !== null && a.kind === 'card');
+        if (!otherAim || otherAim.kind !== 'card') break;
+        const a = state.cards[aim.id];
+        const b = state.cards[otherAim.id];
+        if (!a || !b || a.zone.kind !== 'battlefield' || b.zone.kind !== 'battlefield' || a.id === b.id) break;
+        const da = derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        const db = derive(state, deps.oracle, deps.scripts, otherAim.id, cache);
+        if (!da.isCreature || !db.isCreature) {
+          out.push(narrated(`${obj.label}: ${da.name} and ${db.name} are not both creatures, so no damage is dealt.`, obj.controller));
+          break;
+        }
+        const damages: ResolvedDamage[] = [];
+        if ((da.power ?? 0) > 0) damages.push(damageTo(state, deps, aim.id, otherAim, da.power ?? 0, cache));
+        if (effect.kind === 'fight' && (db.power ?? 0) > 0) damages.push(damageTo(state, deps, otherAim.id, aim, db.power ?? 0, cache));
+        out.push({ t: 'Fought', subject: aim.id, other: otherAim.id, mutual: effect.kind === 'fight' });
+        if (damages.length > 0) out.push({ t: 'DamageDealt', damages });
+        out.push(narrated(effect.kind === 'fight' ? `${da.name} fights ${db.name}.` : `${da.name} deals ${da.power ?? 0} damage to ${db.name}.`, obj.controller));
+        break;
+      }
+
       // D395 - the ANIMATE family (CR 613.4b): a base P/T at layer 7b, Creature (and Artifact when
       // the text says so) with its subtypes at layer 4, colours at layer 5 and keywords at layer 6,
       // all on the one until-end-of-turn entry the pumps ride; cleanup ends it with them.

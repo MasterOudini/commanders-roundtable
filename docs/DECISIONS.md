@@ -29782,3 +29782,153 @@ tail is the payloads); then spend-restricted mana (56), the keyword entry
 replacements (22), copy (~200), the prompt CONTINUATION seam proper, the two gate
 items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
 D394's list unchanged.
+
+
+## D396 — BITE AND FIGHT: two operands on one clause, one DamageDealt, and thirteen hand scripts retired by the predicate (2026-09-11)
+
+**8,551 of 31,692 Commander-legal cards now execute completely, up from 8,530
+(+21: FIFTEEN with no script at all, then 6 generated rows in one wave).**
+`SHIPPED_SCRIPTS` 5,545 → **5,538** (six rows landed and THIRTEEN spell defs RETIRED
+by D187's rule — the vocabulary reads their whole text now); the REFUSED ledger
+1,231 → **1,237** (seven ADDED by reason — the cards the classifier offered after the
+seam and the row maker refused — and one DELETED, its class built: Go for Blood,
+named by the stale-refusal guard). Fixtures 6,101 → **6,110** (5,955 by name + 148
+tokens: the six rowed cards and the seam's three proof spells). `scriptableToday`
+1,326 → **1,336** by the SEAM and → **1,330** by the WAVE (D363/D384); the select pool
+0 → 13 → 7 → 0; the ladder `[1330, 1419, 2819, 4489, 5829]`. Bot reach 8,459 →
+**8,478** from 256 commanders. M6.4ic, on Fable 5.1.
+
+### The measurement chose it: the honest counts, four families deep
+
+The fresh true-leftover after `aebdac6d` (23,162 incomplete, 11,540 one-piece
+line-only) was grouped by STRUCTURE again — token copies 92, enters-as-a-copy 44,
+the bite 72, the untap skip 71, fight 44, the delayed action 142, the permanent
+animation 62 — and the candidates priced with the REAL parser: the token copies
+stood in by a token creation land **15** (13 plain, 2 with an "except"); the
+permanent animation with no end lands **1**; the untap skip 15 and the delayed
+action 12 (D394's and D395's counts, still fresh); **bite + fight 20** by D394's
+stand-in, with "any target" bites and "to that creature" objects not stood in and
+five "another target creature" spells behind the targeting layer's unenforced
+"another". A shape count is not a landing count (D384): 92 / 142 / 116 by the
+family, 15 / 12 / 20 by the parser. Bite and fight it is — two operands, one
+event, no prompt, no new state, and a family the hand scripts had been carrying
+one card at a time since D234.
+
+### The seam: two indices on one clause, one event, one marker
+
+- **TWO OPERANDS ARE TWO INDICES.** `EffectSpec.otherTargetIndex` is the clause's
+  OTHER target: `parseEffects` hands it out after the subject's index, in printed
+  order — a two-target spell reads `[0, 1]`; a self subject ("this creature fights
+  up to one target creature you don't control") consumes no index of its own and
+  reads `[-1, 0]`; a referent subject ("Then that creature fights target creature
+  you don't control", D392) reads the previous target and `[0, 1]`. The targeting
+  layer's count and the effect count agree by construction.
+- **THE VOCABULARY** (`effectParse`): `<subject> deals damage equal to its power to
+  <target>.` is the `bite` kind and `<subject> fights <target>.` the `fight` kind,
+  the subject a target or the self (`SELF_AIMED`, D373), a leading "Then" print;
+  "any target" is a target the grammar already holds. "Fights each other" (the
+  opponent's choice — Arena) and "you may have it fight …" (an optional body) stay
+  outside, refused by name; "fights another target creature" parses but the
+  targeting layer holds "another" unenforced, so the classifier keeps those five
+  cards out.
+- **THE EXECUTOR** resolves the object through the same `picksFor` / `aimOf` the
+  subject went through, requires both on the battlefield and both creatures at
+  resolution (CR 701.12b/c — otherwise no damage at all, said aloud), and emits
+  ONE `DamageDealt` with one entry (a bite) or two (a fight) through `damageTo`, so
+  deathtouch, lifelink, infect and wither ride along as they do for every damage
+  event; a `Fought` marker (subject, other, mutual) sits beside it for the canaries
+  and the narration. Nothing in the state moves on the marker.
+- **THE PREDICATE DID ITS JOB, THIRTEEN TIMES** (D187, D295). The 35 hand-written
+  fight and bite suites were run after the seam: thirteen went red on the
+  suppression predicate — Aggressive Instinct, Ambuscade, Assert Perfection,
+  Chelonian Tackle, Clear Shot, Epic Confrontation, Huatli's Final Strike, Prey
+  Upon, Prizefight, Rabid Bite, Tenderize, Wild Instincts, Wing Puncture — and were
+  retired with D295's tool. Prey Upon and Rabid Bite are fuzz staples now, feeding
+  `fights` / `bites` at gate size.
+
+### The wave — 13 in the pool, 6 rows, the seven refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **13** in `batch.json` —
+landed BY NAME with the row maker's refusal histogram as the measurement
+(D352/D364). **6 rows**: a bite as an activated ability priced in mana and a tap
+(Spikeshot Goblin, Spikeshot Elder, Sif's Spearmaster, Hateflayer), a fight as an
+activated ability with a sacrifice (Triangle of War) and a bite under a head
+(Caldera Pyremaw). **Seven refused by reason** and ledgered, since the selector
+offers them again: three quoted grants of a bite on an enchanted or equipped
+creature (Burning Anger, Sinstriker's Will, Surestrike Trident — D384's generator),
+Thorn Mammoth (a fight payload under the this-or-another-creature-enters head, whose
+arm takes one pump), Legolas, Master Archer (a filtered cast head outside the closed
+reader), Markov Enforcer (a compound head), Vivien of the Arkbow (loyalty
+abilities). **Fifteen spells landed with NO script at all**: Go for Blood, Hunt the
+Weak, Kapow!, Nature's Way, Hunter's Edge, Felling Blow, Khalni Ambush, Stew the
+Coneys, Bridgeworks Battle, Bushwhack, Diplomatic Relations, Giantfall, Decisive
+Denial, Undercity Uprising, Plow Through.
+
+The generator learned the `bite` / `fight` arm: the subject (the row's own card, or
+the fixture its index names) deals its power to the clause's other fixture, a fight
+deals the other's power back, and lethal damage is read as the graveyard the way
+the damage case reads it.
+
+### The traps this decision paid for
+
+- ⚠️ **A DERIVED GENERATOR RENAMES ITS OWN COMMENTS** (D362). The generator part
+  anchored on the previous decision's comment ("D395 - an animated permanent …")
+  and matched nothing: the derived copy already said D396. Quote the renamed text,
+  or anchor on code.
+- ⚠️ **THE GENERATOR PROBES ITS OWN ASSERTS WITH A NULL ROW.** `needsKw` renders the
+  assert lines once with no row to decide which helpers the suite declares; the
+  new arm read the row's own base without a guard and the whole generation died
+  three frames away from the arm ("reading 'base'"). Guarded; every self-aimed
+  assert reads the row through `r &&`.
+- ⚠️ **THE PREDICATE NAMES THE RETIREMENTS; THE OLDER SUITES WITHOUT IT ARE A LATENT
+  DUPLICATE** (D187, D295). Thirteen suites went red and retired; twenty-two others
+  (Pounce, Savage Smash, Ruthless Predation, Bite Down, Chandra's Ignition …) stayed
+  green only because their suites predate the predicate test. A script the
+  vocabulary reads whole still runs by the script — harmless, and a reportable.
+- ⚠️ **A COST IS READ OFF THE CARD, NOT REMEMBERED.** Two in-play proofs paid one
+  mana for {1}{R} and {1}{G} spells and were refused `cannotAfford`; the fix was
+  one number each, read off the fixture's text.
+- ⚠️ **A STALE LEDGER ROW'S TEXT IS READ OFF THE LEDGER** (D395's guard again). The
+  guard named Go for Blood; the first deletion anchored on a guessed reason and
+  matched nothing — the row said "a spell line outside the vocabulary (its
+  cycling runs)". The row's own text is the anchor.
+
+**Measured:** `blocked` 23,162 → 23,141 · the `counter` primitive 1,287 → 1,282,
+`layer6` 1,095 → 1,091 (grant 665 → 661, temporary 494 → 491), the `token`
+primitive 955 → 954 (tokenParse: cards 955 → 954, lines 993 → 992, parsed 253 →
+252, unique 231 → 230, fully resolved 217 → 216) · byOwner spell 340 → 339,
+predefined 143 → 142 · `activatedCost` 2,164 → 2,154, `damage` 749 → 747,
+`triggeredShell` 1,969 → 1,966, residue `other` 2,988 → 2,986 · ladder `[1330,
+1419, 2819, 4489, 5829]` · tier3 `silentAfter` 8,830 → **8,851**, `silentBefore`
+24,663 → 24,678, `abilityText` 14,627 → 14,626, `payable` 4,069 → 4,064 ·
+`oracleParse` `effect:auto` 5,635 → **5,741**, `effect:none` 12,957 → 12,867,
+`effect:partial` 5,739 → 5,723 · botPool auto 1,275 → **1,312**, assisted 1,997 →
+1,988, autoAnyFace 1,283 → 1,320, artifact 483 → 484, creature 4,993 → 4,998,
+instant 1,132 → 1,137, sorcery 855 → 865 · the bot's reach 8,459 → **8,478** from
+256 commanders · select pool 0 → 13 → 7 → 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5698 files, 27851
+passed / 11 skipped · 500-seed gate, 6 shards, 999.3 s wall · build clean · probe
+124/124 · battery 140/140.** Engine: `fight.test.ts` (5 — two indices for the
+two-target fight and the referent forms, one for the self forms, Arena's
+opponent-chooses form refused; in play one `DamageDealt` with two entries, the
+lethal creature dead, the bite one way, the counter first, replay hashes equal);
+the 60-seed fuzz leg green at 616 s.
+
+⚠️ **Reportables** (D396): the twenty-two older fight and bite suites without the
+predicate test (retire them under a predicate added by hand); "fights another
+target creature" (five cards — enforce "another" in the targeting layer for a
+two-target sentence, where one object cannot answer two clauses anyway); "fights
+each other" (the opponent's choice — Arena, Magus of the Arena); "you may have it
+fight …" (an optional body, three cards); the token-copy primitive (15 by the honest
+count — a token that carries the copied card's ids, the "except" modifiers a
+follow-up); the untap skip (15); the delayed action at the next end step (12); the
+permanent animation with no end (1 today, 62 by structure — the rest wait on a
+condition or a keyword); the scoped can't-block forms and "must be blocked"; the
+durations proper (`for as long as you control` 23, `remains exiled` 33, `remains on
+the battlefield` 14); the permanent control family (20) and exchange control (24);
+the object stamp (CR 400.7); the activation restrictions (313 — the tail is the
+payloads); then spend-restricted mana (56), the keyword entry replacements (22),
+copy (~200), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D395's list
+unchanged.

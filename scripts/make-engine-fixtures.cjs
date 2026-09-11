@@ -6616,6 +6616,17 @@ const WANTED = [
   'Kamahl, Fist of Krosa',
   'Levitating Statue',
   'Tough Cookie',
+  // D396 - bite and fight: the seam's proof spells (a two-target fight, a referent bite after a pump, a referent fight after a counter).
+  'Go for Blood',
+  "Nature's Way",
+  'Hunt the Weak',
+  // D396 - bite and fight: the wave the two-operand damage made rowable (a creature that fights or bites a target under a head, or as an activated ability).
+  'Caldera Pyremaw',
+  'Hateflayer',
+  "Sif's Spearmaster",
+  'Spikeshot Elder',
+  'Spikeshot Goblin',
+  'Triangle of War',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
