@@ -15257,6 +15257,102 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4ij — KICKER (CR 702.33): the optional additional cost announced at
+      cast, priced with the payment, remembered on the stack object and on the
+      permanent, and the four things that read it — a spell's `If this spell was
+      kicked` clause, an enters head's intervening if, an enters-with line's
+      condition, the bot and the review that choose to pay it (2026-09-12):**
+      **8,826 of 31,692 Commander-legal cards now execute completely, up from
+      8,776 (+50: 42 generated rows and eight spells the seam completes with no
+      script).** `SHIPPED_SCRIPTS` 5,715 → **5,757**; ledger 1,272 → **1,286**
+      (fourteen ADDED by reason). Fixtures 6,305 → **6,349** (6,192 by name + 150
+      tokens). `scriptableToday` 1,368 → **1,382** (the seam offered 56, the wave
+      took 42, the fourteen refused are ledgered); the select pool 0 → 56 → 0; the
+      ladder `[1382, 1473, 2853, 4514, 5848]`. Bot reach 8,703 → **8,753** from
+      265 commanders. Decisions in **D403**; an engine seam on Opus 5 by the
+      user's choice — the first step of the COST MODIFICATION subsystem.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the shape map over EVERY leftover line is a
+      long tail everywhere but at the keyword costs — 220 cards carry a kick;
+      priced with the Kicker line stood out and the kicked conditions peeled:
+      **44 script-only (35 permanents, 9 spells), 176 blocked elsewhere**; the
+      kicked-clause shapes are `enters with N +1/+1 counters` 26, the `instead`
+      rewrites 6 (unread), a draw, a token, a life gain, a counter.
+      ⚠️ **THE SEAM:** `parseKicker` reads `Kicker {M}` / `Multikicker {M}` onto
+      the face (the `and/or` two-kicker form null), the line CLAIMED in the
+      coverage, dropped from a spell's clauses (with Cycling and Flashback), no
+      Tier-3 note. `CastSpell.kicked` announces the count (1, or any for a
+      multikicker; `kickProblem` refuses the rest by name); `prepareCast` prices
+      it with the ward and the X and targets stages reprice the same kick (D53);
+      the stack object and the pending cast carry it; the resolution puts it on
+      the `CardMove` and the reducer writes `CardInstance.kicked` after the entry
+      reset. The executor skips an `ifKicked` effect on an unkicked spell and
+      SAYS so; `matchKicked` reads `If this spell was kicked, <X>.` as X gated
+      (`EffectSpec.ifKicked` REQUIRED). The legal action names `kicker: once |
+      many`, `previewCast` prices a count, the payment review shows a Kick /
+      Unkick toggle or a count prompt and sends what it priced, the bot kicks
+      when the kicked cast has a plan. The classifier: the Kicker line is the
+      engine's own; `ETB_IF_KICK` / `LEAD_IF_KICK` peel the kicked conditions.
+      The row maker reads `it was kicked` (`parseCond`'s `kicked`, a helper on
+      the permanent, no board recipe), the kick mana off the card's own Kicker
+      line, a kicked row starts in hand, its enters head fires by a KICKED CAST,
+      the intervening-if arm's unmet stage is a manual entry sent back to the
+      hand, an enters-with row's unmet stage casts unkicked, and the
+      replacement's `applies` reads the MOVE's kick (no helper, no context).
+      `src/engine/kicker.test.ts` (3): the costs and the claim; Into the Roil
+      refused short of mana, refused kicked twice, kicked once bounces AND
+      draws, unkicked bounces and narrates the skipped clause, the replay hash
+      equal; Skitter of Lizards kicked twice carries 2 on the stack and on the
+      permanent, the pool spent.
+      **Fuzz:** the driver ALWAYS tries the kick; Ardent Soldier a staple (two
+      a seat, {1}{W} kicked for {2}) feeding `kickedCasts` / `kickedEntries`, a
+      floor over each at gate size (34 / 34). ⚠️ The first canary
+      (Goblin Bushwhacker, {R} + {R}, kicked half the time) read ZERO over 60
+      seeds — a kick's price is the SECOND coloured source (D398's measurement
+      rule caught it before the gate).
+      **Landed:** 42 rows — eleven enters-with rows gated on the kick (one to
+      five counters), thirty-one enters heads with `if it was kicked` (a mass
+      pump, a self pump, a token, a draw, a life gain, twenty-three vocabulary
+      payloads: the Emissaries' destroys and bounces, six graveyard returns, a
+      control gain, a look, discards, a sacrifice queue). Refused by reason (14):
+      nine spells this generator does not row, two counted clauses without a
+      fixture set, an own-entry static, `whenever you cast a kicked spell`, a
+      random discard. botPool creature 5,220 / instant 1,156 / sorcery 874 — auto
+      1,340 / assisted 1,996 · `oracleParse` `effect:auto` 5,801 · tier3
+      silentAfter 9,117 · the `counter` primitive 1,239 · `token` 953 ·
+      batch.json 56 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5923 files,
+      28840 passed / 11 skipped · 500-seed gate, 6 shards, 1125.8 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D403): the two-kicker `and/or` form (17); a MULTIKICKER
+      row (`a counter for each time it was kicked`, 7) and the bot's multikicker
+      count; the `instead` rewrites (6); `whenever you cast a kicked spell`; the
+      nine spells with a kicked clause this generator does not row; the two
+      counted clauses without a fixture set; the own-entry static; then D402's
+      list unchanged — the REFERENT across the wait, the self-aimed delayed
+      forms, a delayed payload under a head fired past turn 3, the "up-to-N
+      under-answer" ledger class to relabel, the "script-raised prompt" class,
+      the HOST characteristics under an attached static (29), "you control a
+      token", the incarnations' graveyard statics (5), the search payloads on an
+      activated line and under a head, the entry-turn fire with a PROMPT,
+      `Whenever you attack` and the each-combat head, `attacked with N or more`
+      at N ≥ 2, the `for each <X>` family, the payment heads, the search residue,
+      the scoped grant, the blocker-predicate form (8 + 1), the can't-block
+      stand-in's overstatement, `can't attack` (3) and `can't attack or block`
+      (2 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision),
+      `selfEntered` under a head, the payload-level "If …" sentences, the
+      nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic
+      purposes (14), the chooser price beside a restriction, the "any
+      combination" amounts, the pool UI tagging a bucket, the two-name search,
+      Plaza of Heroes' exile-self cost, the twenty-two older fight and bite
+      suites, "fights another target creature", token copies (15), the untap
+      skip (15), the permanent animation (1), the scoped can't-block forms and
+      "must be blocked", the durations proper (23 / 33 / 14), the permanent
+      control family (20) and exchange control (24), the object stamp (CR
+      400.7), the activation restrictions (313), the keyword entry replacements
+      (22), copy (~200 — waits for Fable), the prompt CONTINUATION seam proper,
+      the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ
+      DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

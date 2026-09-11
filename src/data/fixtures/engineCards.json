@@ -203873,6 +203873,112 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "INTO_THE_ROIL": {
+    "scryfallId": "17b14898-2862-407b-a581-a027e571007a",
+    "oracleId": "c2898bbd-82a4-4d26-b6ee-169b0ebe71b4",
+    "name": "Into the Roil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Into the Roil",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Kicker {1}{U} (You may pay an additional {1}{U} as you cast this spell.)\nReturn target nonland permanent to its owner's hand. If this spell was kicked, draw a card.",
+        "flavorText": "\"Roil tide! Roil tide! Tie yourselves down!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "17b14898-2862-407b-a581-a027e571007a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "c17",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_BUSHWHACKER": {
+    "scryfallId": "052df800-9f13-4469-9e8c-16d327025aa0",
+    "oracleId": "878b6808-48af-4047-ac35-bfc58bf92e7d",
+    "name": "Goblin Bushwhacker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Bushwhacker",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Kicker {R} (You may pay an additional {R} as you cast this spell.)\nWhen this creature enters, if it was kicked, creatures you control get +1/+0 and gain haste until end of turn.",
+        "flavorText": "\"Follow me. I know these hills like the back of my stabbing knife.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dominik Mayer",
+        "imageId": "052df800-9f13-4469-9e8c-16d327025aa0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "spg",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKITTER_OF_LIZARDS": {
+    "scryfallId": "153c1465-9cbc-424b-8147-79e95fd45b3d",
+    "oracleId": "14646c85-12ad-4b99-a2af-e4a790e034ef",
+    "name": "Skitter of Lizards",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skitter of Lizards",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "Multikicker {1}{R} (You may pay an additional {1}{R} any number of times as you cast this spell.)\nHaste\nThis creature enters with a +1/+1 counter on it for each time it was kicked.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "153c1465-9cbc-424b-8147-79e95fd45b3d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste",
+      "Multikicker"
+    ],
+    "setCode": "wwk",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -207949,6 +208055,1479 @@
     ],
     "setCode": "mir",
     "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACADEMY_DRAKE": {
+    "scryfallId": "f8bacb12-da46-4b00-804f-9ff6bff452bc",
+    "oracleId": "65f3ebeb-1ca5-4923-b681-032579991c8a",
+    "name": "Academy Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Academy Drake",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nFlying\nIf this creature was kicked, it enters with two +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "f8bacb12-da46-4b00-804f-9ff6bff452bc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARDENT_SOLDIER": {
+    "scryfallId": "39dce974-846f-4365-b0a5-851e38668e7d",
+    "oracleId": "a56d301b-8f4c-4f12-8ee0-34c6b66faee0",
+    "name": "Ardent Soldier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ardent Soldier",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Kicker {2} (You may pay an additional {2} as you cast this spell.)\nVigilance\nIf this creature was kicked, it enters with a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "39dce974-846f-4365-b0a5-851e38668e7d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALOTH_GORGER": {
+    "scryfallId": "095bb4ac-2a5c-491f-9530-223b20709419",
+    "oracleId": "7f9bc0c9-0333-4c02-bc14-e6affe848b5d",
+    "name": "Baloth Gorger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baloth Gorger",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nIf this creature was kicked, it enters with three +1/+1 counters on it.",
+        "flavorText": "A baloth only cares about the many things it eats and the few things that eat it.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "095bb4ac-2a5c-491f-9530-223b20709419"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DOM-156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENALISH_EMISSARY": {
+    "scryfallId": "6b82d56e-80d7-4be9-ac22-de3257efc458",
+    "oracleId": "99f2e195-5da5-4239-87e0-ed552643e7b5",
+    "name": "Benalish Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benalish Emissary",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {1}{G} (You may pay an additional {1}{G} as you cast this spell.)\nWhen this creature enters, if it was kicked, destroy target land.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "6b82d56e-80d7-4be9-ac22-de3257efc458"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENALISH_SLEEPER": {
+    "scryfallId": "f96089ea-20cf-496d-84a6-9b660c2ef672",
+    "oracleId": "14c3692d-16a9-4ef0-98cd-60d15e4aa31f",
+    "name": "Benalish Sleeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benalish Sleeper",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Phyrexian Human Soldier",
+        "oracleText": "Kicker {B} (You may pay an additional {B} as you cast this spell.)\nWhen this creature enters, if it was kicked, each player sacrifices a creature of their choice.",
+        "flavorText": "Even he didn't know what he was until he felt his skin shifting and splitting, his mind overtaken by a chaos of whispers.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "f96089ea-20cf-496d-84a6-9b660c2ef672"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOG_BADGER": {
+    "scryfallId": "3d31d878-9114-4205-b7a9-bb13ce6aedd2",
+    "oracleId": "6d8e464c-9df1-46b1-88e6-dcc7fe7b7caa",
+    "name": "Bog Badger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bog Badger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Badger",
+        "oracleText": "Kicker {B} (You may pay an additional {B} as you cast this spell.)\nWhen this creature enters, if it was kicked, creatures you control gain menace until end of turn. (A creature with menace can't be blocked except by two or more creatures.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "3d31d878-9114-4205-b7a9-bb13ce6aedd2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALIGO_SKIN_WITCH": {
+    "scryfallId": "2e23ee25-2005-4e81-a807-f52c0dbfb192",
+    "oracleId": "e62c943e-03ac-4a8a-ad3d-faa76b79824c",
+    "name": "Caligo Skin-Witch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caligo Skin-Witch",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {3}{B} (You may pay an additional {3}{B} as you cast this spell.)\nWhen this creature enters, if it was kicked, each opponent discards two cards.",
+        "flavorText": "\"Take their faces. The lips of these unbelievers may yet honor the Demonlord.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "2e23ee25-2005-4e81-a807-f52c0dbfb192"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CITANUL_WOODREADERS": {
+    "scryfallId": "346cd5c0-f56f-4419-b9d2-478d8455f2b8",
+    "oracleId": "a4555bd2-be42-442a-8ead-3398318e91c5",
+    "name": "Citanul Woodreaders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Citanul Woodreaders",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Kicker {2}{G} (You may pay an additional {2}{G} as you cast this spell.)\nWhen this creature enters, if it was kicked, draw two cards.",
+        "flavorText": "They seek out living trees to glean age-old secrets from sap and wood.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "346cd5c0-f56f-4419-b9d2-478d8455f2b8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXCAVATION_ELEPHANT": {
+    "scryfallId": "760ce08a-49d3-4cdf-bbe2-33dd8a6a7966",
+    "oracleId": "45fa04ee-3b5c-45b3-8c09-bda08cca3630",
+    "name": "Excavation Elephant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Excavation Elephant",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "Kicker {1}{W} (You may pay an additional {1}{W} as you cast this spell.)\nWhen this creature enters, if it was kicked, return target artifact card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "760ce08a-49d3-4cdf-bbe2-33dd8a6a7966"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHASTLY_GLOOMHUNTER": {
+    "scryfallId": "f272ac54-fea8-4044-83e2-f8fdc10f467d",
+    "oracleId": "70ab65ff-724f-4126-b472-97fa03ca3a34",
+    "name": "Ghastly Gloomhunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghastly Gloomhunter",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Bat",
+        "oracleText": "Kicker {3}{B} (You may pay an additional {3}{B} as you cast this spell.)\nFlying, lifelink\nIf this creature was kicked, it enters with two +1/+1 counters on it.",
+        "flavorText": "Stinking, silent death.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "f272ac54-fea8-4044-83e2-f8fdc10f467d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker",
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHITU_CHRONICLER": {
+    "scryfallId": "d3ca6dd9-040a-4122-9308-8dcd0d506ada",
+    "oracleId": "ab8a00c2-dbb0-48c3-9d13-ad6f1e2f3a18",
+    "name": "Ghitu Chronicler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghitu Chronicler",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {3}{R} (You may pay an additional {3}{R} as you cast this spell.)\nWhen this creature enters, if it was kicked, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "\"What fire forged, fire remembers.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "d3ca6dd9-040a-4122-9308-8dcd0d506ada"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_RUINBLASTER": {
+    "scryfallId": "0d95d1f3-7ec1-4279-ade7-3f339f2f33da",
+    "oracleId": "d99fa026-6347-450a-9011-1fd79070a55c",
+    "name": "Goblin Ruinblaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Ruinblaster",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "Kicker {R} (You may pay an additional {R} as you cast this spell.)\nHaste\nWhen this creature enters, if it was kicked, destroy target nonbasic land.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "0d95d1f3-7ec1-4279-ade7-3f339f2f33da"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste",
+      "Kicker"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEARTSTABBER_MOSQUITO": {
+    "scryfallId": "1d20016d-2b5a-445e-a59b-5305e76f549c",
+    "oracleId": "f8fca88f-5eab-4854-913c-44261720a4d2",
+    "name": "Heartstabber Mosquito",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heartstabber Mosquito",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Kicker {2}{B} (You may pay an additional {2}{B} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, destroy target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "1d20016d-2b5a-445e-a59b-5305e76f549c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUNIPER_ORDER_ROOTWEAVER": {
+    "scryfallId": "c56cf82f-8bbb-49ae-ad93-291cbec9126e",
+    "oracleId": "5914d4d5-51b8-49c2-9459-bf5579df4990",
+    "name": "Juniper Order Rootweaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Juniper Order Rootweaver",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Kicker {G} (You may pay an additional {G} as you cast this spell.)\nWhen this creature enters, if it was kicked, put a +1/+1 counter on target creature you control.",
+        "flavorText": "\"What Phyrexia takes, the grace of Freyalise shall replenish.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "c56cf82f-8bbb-49ae-ad93-291cbec9126e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_OVERSEER": {
+    "scryfallId": "350513cc-2bbe-4eb3-986e-bbd957512a49",
+    "oracleId": "1b1dc78b-0102-49d6-8e54-89bc18a1628f",
+    "name": "Keldon Overseer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Overseer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Kicker {3}{R} (You may pay an additional {3}{R} as you cast this spell.)\nHaste\nWhen this creature enters, if it was kicked, gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "350513cc-2bbe-4eb3-986e-bbd957512a49"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste",
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DOM-134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_AERONAUT": {
+    "scryfallId": "87ae3eb8-b570-4129-9d4e-b7afa8fc4840",
+    "oracleId": "1adb733c-d18a-4019-9229-0ad701a15b1a",
+    "name": "Kor Aeronaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Aeronaut",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Kor Soldier",
+        "oracleText": "Kicker {1}{W} (You may pay an additional {1}{W} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, target creature gains flying until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "87ae3eb8-b570-4129-9d4e-b7afa8fc4840"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_SANCTIFIERS": {
+    "scryfallId": "038b04fe-d77a-4192-a084-654ef39aa9ff",
+    "oracleId": "55d8ac5b-622c-42a9-83dc-f2c1c6c2506f",
+    "name": "Kor Sanctifiers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Sanctifiers",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kor Cleric",
+        "oracleText": "Kicker {W} (You may pay an additional {W} as you cast this spell.)\nWhen this creature enters, if it was kicked, destroy target artifact or enchantment.",
+        "flavorText": "\"Why keep such trinkets? They only add weight to your travels.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "038b04fe-d77a-4192-a084-654ef39aa9ff"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_DRUID": {
+    "scryfallId": "c058f020-2225-4378-b53a-4460d70a490f",
+    "oracleId": "1fbed9e4-86f6-4115-8468-8593e340701f",
+    "name": "Krosan Druid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Druid",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Centaur Druid",
+        "oracleText": "Kicker {4}{G} (You may pay an additional {4}{G} as you cast this spell.)\nWhen this creature enters, if it was kicked, you gain 10 life.",
+        "flavorText": "\"Druids endure disaster as seeds endure winter. Now Krosa blooms once more.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "c058f020-2225-4378-b53a-4460d70a490f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DOM-167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLANOWAR_ELITE": {
+    "scryfallId": "1d5d20ee-d5a5-4030-a2a1-8624c0ccc486",
+    "oracleId": "9e112393-962b-461e-a605-9f8d6a1ebaa4",
+    "name": "Llanowar Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Llanowar Elite",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Kicker {8} (You may pay an additional {8} as you cast this spell.)\nTrample\nIf this creature was kicked, it enters with five +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "1d5d20ee-d5a5-4030-a2a1-8624c0ccc486"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Trample",
+      "Kicker"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "B17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLD_SHAMBLER": {
+    "scryfallId": "2fff6824-ebd7-4a13-8897-ee2467aab111",
+    "oracleId": "7aba1039-f108-423e-8aa4-d9d8b4da2414",
+    "name": "Mold Shambler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mold Shambler",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Fungus Beast",
+        "oracleText": "Kicker {1}{G} (You may pay an additional {1}{G} as you cast this spell.)\nWhen this creature enters, if it was kicked, destroy target noncreature permanent.",
+        "flavorText": "When civilization encroaches on nature, Zendikar encroaches back.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "2fff6824-ebd7-4a13-8897-ee2467aab111"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NULLPRIEST_OF_OBLIVION": {
+    "scryfallId": "0195245a-a48f-4972-a7ce-1e7eb82d4d77",
+    "oracleId": "c1111228-ef88-4b64-91e0-66ee32a1f5e4",
+    "name": "Nullpriest of Oblivion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nullpriest of Oblivion",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Kicker {3}{B} (You may pay an additional {3}{B} as you cast this spell.)\nLifelink\nMenace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, if it was kicked, return target creature card from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "0195245a-a48f-4972-a7ce-1e7eb82d4d77"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Menace",
+      "Kicker"
+    ],
+    "setCode": "pznr",
+    "collectorNumber": "118p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORAN_RIEF_RECLUSE": {
+    "scryfallId": "37a69043-23f5-478e-bf9b-f170e326c0e0",
+    "oracleId": "043fa53c-8a46-4fbd-836f-2403c62e0121",
+    "name": "Oran-Rief Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oran-Rief Recluse",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Kicker {2}{G} (You may pay an additional {2}{G} as you cast this spell.)\nReach (This creature can block creatures with flying.)\nWhen this creature enters, if it was kicked, destroy target creature with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "37a69043-23f5-478e-bf9b-f170e326c0e0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Kicker"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_MISSIONARY": {
+    "scryfallId": "18e6aa5e-84df-4fb2-8a52-5065383445d5",
+    "oracleId": "be04f54f-59fa-4f0a-b8b5-790d568932b6",
+    "name": "Phyrexian Missionary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Missionary",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Phyrexian Human Cleric",
+        "oracleText": "Kicker {1}{B} (You may pay an additional {1}{B} as you cast this spell.)\nLifelink\nWhen this creature enters, if it was kicked, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "18e6aa5e-84df-4fb2-8a52-5065383445d5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DMU-27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PINCER_SPIDER": {
+    "scryfallId": "23271658-19ae-420d-beeb-4bed4fdbb891",
+    "oracleId": "fbe25c32-db20-464c-a0ed-d90e75b111a9",
+    "name": "Pincer Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pincer Spider",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Kicker {3} (You may pay an additional {3} as you cast this spell.)\nReach (This creature can block creatures with flying.)\nIf this creature was kicked, it enters with a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "23271658-19ae-420d-beeb-4bed4fdbb891"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORCH_RIDER": {
+    "scryfallId": "9ec9d3eb-4729-49a9-8146-7388ff2629df",
+    "oracleId": "8165acd4-ac62-47f1-97dd-01860aee29ee",
+    "name": "Scorch Rider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scorch Rider",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Kicker {1}{R} (You may pay an additional {1}{R} as you cast this spell.)\nWhen this creature enters, if it was kicked, it gains haste until end of turn.",
+        "flavorText": "\"Lava flows where it pleases. I'm just happy to be along for the ride!\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "9ec9d3eb-4729-49a9-8146-7388ff2629df"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERGEANT_AT_ARMS": {
+    "scryfallId": "8f70b1ee-47b6-4904-850d-8ea8064bd27d",
+    "oracleId": "2ea95e03-b95d-4ccf-afc6-1a26ac6cf354",
+    "name": "Sergeant-at-Arms",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sergeant-at-Arms",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Kicker {2}{W} (You may pay an additional {2}{W} as you cast this spell.)\nWhen this creature enters, if it was kicked, create two 1/1 white Soldier creature tokens.",
+        "flavorText": "Knights get the glory. Soldiers get things done.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "8f70b1ee-47b6-4904-850d-8ea8064bd27d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHALAI_S_ACOLYTE": {
+    "scryfallId": "39996722-e7f2-41e4-aa1e-2b6778d7b535",
+    "oracleId": "53ec394a-5aaa-4d83-82ec-f00e99902c0d",
+    "name": "Shalai's Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shalai's Acolyte",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Kicker {1}{G} (You may pay an additional {1}{G} as you cast this spell.)\nFlying\nIf this creature was kicked, it enters with two +1/+1 counters on it.",
+        "flavorText": "Armed by Multani, she protected the forest from above.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "39996722-e7f2-41e4-aa1e-2b6778d7b535"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIVAN_EMISSARY": {
+    "scryfallId": "945c596e-492e-4cf5-857c-4ddbbdd78485",
+    "oracleId": "1b885600-def1-4b2c-a6cb-02df34d58a1b",
+    "name": "Shivan Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shivan Emissary",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {1}{B} (You may pay an additional {1}{B} as you cast this spell.)\nWhen this creature enters, if it was kicked, destroy target nonblack creature. It can't be regenerated.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "945c596e-492e-4cf5-857c-4ddbbdd78485"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRONGHOLD_CONFESSOR": {
+    "scryfallId": "ab3fcc43-839b-48c1-91e3-7cc80d8c7f9a",
+    "oracleId": "e7c200a9-4793-44c8-ba8d-6298dc83bbac",
+    "name": "Stronghold Confessor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stronghold Confessor",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Kicker {3} (You may pay an additional {3} as you cast this spell.)\nMenace (This creature can't be blocked except by two or more creatures.)\nIf this creature was kicked, it enters with two +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "ab3fcc43-839b-48c1-91e3-7cc80d8c7f9a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Menace",
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_BLESSED_HEALER": {
+    "scryfallId": "323d029e-9a88-4188-b3a4-38ef32cffc9f",
+    "oracleId": "1729c6f2-2452-4fbc-a1bc-3e625f2ad8e1",
+    "name": "Sun-Blessed Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun-Blessed Healer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Kicker {1}{W} (You may pay an additional {1}{W} as you cast this spell.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature enters, if it was kicked, return target nonland permanent card with mana value 2 or less from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "323d029e-9a88-4188-b3a4-38ef32cffc9f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Kicker"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAZEEM_ROILMAGE": {
+    "scryfallId": "6f222fb7-375d-4ee2-9ff6-bd71f63ab31a",
+    "oracleId": "55a277b4-575f-463b-913c-7857acad20be",
+    "name": "Tazeem Roilmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tazeem Roilmage",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nWhen this creature enters, if it was kicked, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "\"The Roil can be directed. Observe.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "6f222fb7-375d-4ee2-9ff6-bd71f63ab31a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOLARIAN_EMISSARY": {
+    "scryfallId": "1cbc55e5-b84c-4449-a288-ec26cdd3997c",
+    "oracleId": "8042ade2-f589-4c3e-a461-a4c284a67ee4",
+    "name": "Tolarian Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tolarian Emissary",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {1}{W} (You may pay an additional {1}{W} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, destroy target enchantment.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "1cbc55e5-b84c-4449-a288-ec26cdd3997c"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNTAMED_KAVU": {
+    "scryfallId": "3c4cf84a-2024-45bb-9e24-8a9a6d9ad247",
+    "oracleId": "ce585b28-f22f-41ba-8858-aebc0164922d",
+    "name": "Untamed Kavu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Untamed Kavu",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "Kicker {3} (You may pay an additional {3} as you cast this spell.)\nVigilance, trample\nIf this creature was kicked, it enters with three +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "3c4cf84a-2024-45bb-9e24-8a9a6d9ad247"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Trample",
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URBORG_EMISSARY": {
+    "scryfallId": "74b8a44c-dc1f-4ea9-ad83-a301e623e8fc",
+    "oracleId": "f30943f1-473f-4fa4-b6a7-3dfbd1995ba9",
+    "name": "Urborg Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urborg Emissary",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {1}{U} (You may pay an additional {1}{U} as you cast this spell.)\nWhen this creature enters, if it was kicked, return target permanent to its owner's hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "74b8a44c-dc1f-4ea9-ad83-a301e623e8fc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "E50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERDURAN_EMISSARY": {
+    "scryfallId": "55f3361b-e2e7-4297-85c2-94323f90cc90",
+    "oracleId": "915bd598-c3dd-4982-bdcc-5904a6f17436",
+    "name": "Verduran Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Verduran Emissary",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {1}{R} (You may pay an additional {1}{R} as you cast this spell.)\nWhen this creature enters, if it was kicked, destroy target artifact. It can't be regenerated.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alton Lawson",
+        "imageId": "55f3361b-e2e7-4297-85c2-94323f90cc90"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VINESHAPER_PRODIGY": {
+    "scryfallId": "545cddde-8018-4fdd-874d-b5193b73b414",
+    "oracleId": "c41172c6-5133-48ed-bde0-3168b5371c18",
+    "name": "Vineshaper Prodigy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vineshaper Prodigy",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "Kicker {1}{U} (You may pay an additional {1}{U} as you cast this spell.)\nWhen this creature enters, if it was kicked, look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Inka Schulz",
+        "imageId": "545cddde-8018-4fdd-874d-b5193b73b414"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_ICONOCLAST": {
+    "scryfallId": "1b1af9be-7f5e-48e9-a6e7-9261e199812e",
+    "oracleId": "9900c771-ab81-415e-90a7-123c1bacfa83",
+    "name": "Yavimaya Iconoclast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Iconoclast",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Kicker {R} (You may pay an additional {R} as you cast this spell.)\nTrample\nWhen this creature enters, if it was kicked, it gets +1/+1 and gains haste until end of turn.",
+        "flavorText": "Steel weapons hold a forbidden allure to some of the younger Yavimayans.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "1b1af9be-7f5e-48e9-a6e7-9261e199812e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample",
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHITU_AMPLIFIER": {
+    "scryfallId": "b1845806-7585-40d5-9d3a-f13667e6a9d2",
+    "oracleId": "a965898b-9c68-46cb-82a5-a1e11397f68f",
+    "name": "Ghitu Amplifier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghitu Amplifier",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {2}{U} (You may pay an additional {2}{U} as you cast this spell.)\nWhen this creature enters, if it was kicked, return target creature an opponent controls to its owner's hand.\nWhenever you cast an instant or sorcery spell, this creature gets +2/+0 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "b1845806-7585-40d5-9d3a-f13667e6a9d2"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_WARHORSE": {
+    "scryfallId": "f42167ef-7858-4c66-b1bc-41c3288a8ee8",
+    "oracleId": "05075332-6856-4147-a22d-3a5bd1e96b7b",
+    "name": "Phyrexian Warhorse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Warhorse",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Phyrexian Horse",
+        "oracleText": "Kicker {W} (You may pay an additional {W} as you cast this spell.)\nWhen this creature enters, if it was kicked, create a 1/1 white Soldier creature token.\n{1}, Sacrifice another creature: This creature gets +2/+1 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Cold",
+        "imageId": "f42167ef-7858-4c66-b1bc-41c3288a8ee8"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URBORG_SKELETON": {
+    "scryfallId": "467e9486-1604-4fa2-ab1f-be0d7a036798",
+    "oracleId": "712d7eb4-4044-4852-a5da-57635d3086b0",
+    "name": "Urborg Skeleton",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urborg Skeleton",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Skeleton",
+        "oracleText": "Kicker {3} (You may pay an additional {3} as you cast this spell.)\n{B}: Regenerate this creature.\nIf this creature was kicked, it enters with a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tom Wänerstrand",
+        "imageId": "467e9486-1604-4fa2-ab1f-be0d7a036798"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Regenerate",
+      "Kicker"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "134★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIASHINO_BRANCHRIDER": {
+    "scryfallId": "1f08749e-05e0-4fb4-a4ae-35e7187584ab",
+    "oracleId": "50fcb431-626c-4db5-aa2c-445f3b81e7fa",
+    "name": "Viashino Branchrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viashino Branchrider",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "Kicker {2}{G} (You may pay an additional {2}{G} as you cast this spell.)\nHaste\nIf this creature was kicked, it enters with two +1/+1 counters on it.\n{2}{R}: This creature gets +2/+0 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "1f08749e-05e0-4fb4-a4ae-35e7187584ab"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste",
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "150",
     "commanderLegality": "legal",
     "singleImage": true
   },

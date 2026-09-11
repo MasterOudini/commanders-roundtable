@@ -169,11 +169,15 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
     // ⚠️ Through `previewCast`, not a bare `CastSpell`. That is the path a real
     // player takes and the one that proves the client's solver and the host's
     // validator agree about a plan built from a `SolveInput` off the wire.
-    const preview = port.previewCast(cast.card, 0, targets);
+    // D403 - a kicker is paid when the kicked cast has a plan: the kick is what the card is for, and
+    // an unkicked cast is the fallback. One kick of a multikicker (the count is a price the bot
+    // does not weigh yet).
+    const kicked = cast.kicker ? port.previewCast(cast.card, 0, targets, 1) : null;
+    const preview = kicked?.plan ? kicked : port.previewCast(cast.card, 0, targets);
     if (!preview?.plan) continue;
     return act(
-      { t: 'CastSpell', player: me, card: cast.card, faceIndex: cast.faceIndex, plan: preview.plan, targets },
-      `cast ${cast.label}`,
+      { t: 'CastSpell', player: me, card: cast.card, faceIndex: cast.faceIndex, plan: preview.plan, targets, ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}) },
+      `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}`,
     );
   }
 

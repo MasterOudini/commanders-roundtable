@@ -294,6 +294,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     typeOverride: null,
     chosenColor: null,
     faceIndex: 0,
+    // D403 - a permanent remembers its kick only from the spell it entered as.
+    kicked: undefined,
   };
 }
 
@@ -520,6 +522,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           // ⚠️ AFTER `base`, which carries `clearBattlefieldFields`'s reset to 0.
           // Absent — every ordinary card — this changes nothing at all. See D155.
           ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
+          // D403 - after the reset too: the kick the entering spell was cast with.
+          ...(move.kicked === undefined ? {} : { kicked: move.kicked }),
           // A reveal is about a card sitting in a hidden zone. Once it moves,
           // the reveal is meaningless and keeping it would leak the new zone.
           revealedTo: [],

@@ -79,6 +79,8 @@ export type TableMode =
       readonly faceIndex?: number;
       readonly xValue: number;
       readonly targets: readonly TargetChoice[];
+      /** D403 - the kicker count the player announced in the review (0 unkicked). */
+      readonly kicked?: number;
     }
   /**
    * Choosing attackers, before submitting them as one declaration.

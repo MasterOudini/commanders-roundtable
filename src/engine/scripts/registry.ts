@@ -7,6 +7,48 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GOBLIN_BUSHWHACKER_SCRIPT } from './cards/goblinBushwhacker';
+import { ACADEMY_DRAKE_SCRIPT } from './cards/academyDrake';
+import { ARDENT_SOLDIER_SCRIPT } from './cards/ardentSoldier';
+import { BALOTH_GORGER_SCRIPT } from './cards/balothGorger';
+import { BENALISH_EMISSARY_SCRIPT } from './cards/benalishEmissary';
+import { BENALISH_SLEEPER_SCRIPT } from './cards/benalishSleeper';
+import { BOG_BADGER_SCRIPT } from './cards/bogBadger';
+import { CALIGO_SKIN_WITCH_SCRIPT } from './cards/caligoSkinWitch';
+import { CITANUL_WOODREADERS_SCRIPT } from './cards/citanulWoodreaders';
+import { EXCAVATION_ELEPHANT_SCRIPT } from './cards/excavationElephant';
+import { GHASTLY_GLOOMHUNTER_SCRIPT } from './cards/ghastlyGloomhunter';
+import { GHITU_CHRONICLER_SCRIPT } from './cards/ghituChronicler';
+import { GOBLIN_RUINBLASTER_SCRIPT } from './cards/goblinRuinblaster';
+import { HEARTSTABBER_MOSQUITO_SCRIPT } from './cards/heartstabberMosquito';
+import { JUNIPER_ORDER_ROOTWEAVER_SCRIPT } from './cards/juniperOrderRootweaver';
+import { KELDON_OVERSEER_SCRIPT } from './cards/keldonOverseer';
+import { KOR_AERONAUT_SCRIPT } from './cards/korAeronaut';
+import { KOR_SANCTIFIERS_SCRIPT } from './cards/korSanctifiers';
+import { KROSAN_DRUID_SCRIPT } from './cards/krosanDruid';
+import { LLANOWAR_ELITE_SCRIPT } from './cards/llanowarElite';
+import { MOLD_SHAMBLER_SCRIPT } from './cards/moldShambler';
+import { NULLPRIEST_OF_OBLIVION_SCRIPT } from './cards/nullpriestOfOblivion';
+import { ORAN_RIEF_RECLUSE_SCRIPT } from './cards/oranRiefRecluse';
+import { PHYREXIAN_MISSIONARY_SCRIPT } from './cards/phyrexianMissionary';
+import { PINCER_SPIDER_SCRIPT } from './cards/pincerSpider';
+import { SCORCH_RIDER_SCRIPT } from './cards/scorchRider';
+import { SERGEANT_AT_ARMS_SCRIPT } from './cards/sergeantAtArms';
+import { SHALAIS_ACOLYTE_SCRIPT } from './cards/shalaisAcolyte';
+import { SHIVAN_EMISSARY_SCRIPT } from './cards/shivanEmissary';
+import { STRONGHOLD_CONFESSOR_SCRIPT } from './cards/strongholdConfessor';
+import { SUN_BLESSED_HEALER_SCRIPT } from './cards/sunBlessedHealer';
+import { TAZEEM_ROILMAGE_SCRIPT } from './cards/tazeemRoilmage';
+import { TOLARIAN_EMISSARY_SCRIPT } from './cards/tolarianEmissary';
+import { UNTAMED_KAVU_SCRIPT } from './cards/untamedKavu';
+import { URBORG_EMISSARY_SCRIPT } from './cards/urborgEmissary';
+import { VERDURAN_EMISSARY_SCRIPT } from './cards/verduranEmissary';
+import { VINESHAPER_PRODIGY_SCRIPT } from './cards/vineshaperProdigy';
+import { YAVIMAYA_ICONOCLAST_SCRIPT } from './cards/yavimayaIconoclast';
+import { GHITU_AMPLIFIER_SCRIPT } from './cards/ghituAmplifier';
+import { PHYREXIAN_WARHORSE_SCRIPT } from './cards/phyrexianWarhorse';
+import { URBORG_SKELETON_SCRIPT } from './cards/urborgSkeleton';
+import { VIASHINO_BRANCHRIDER_SCRIPT } from './cards/viashinoBranchrider';
 import { TRANSLUMINANT_SCRIPT } from './cards/transluminant';
 import { CARRIER_PIGEONS_SCRIPT } from './cards/carrierPigeons';
 import { PYKNITE_SCRIPT } from './cards/pyknite';
@@ -5741,6 +5783,48 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GOBLIN_BUSHWHACKER_SCRIPT,
+  ACADEMY_DRAKE_SCRIPT,
+  ARDENT_SOLDIER_SCRIPT,
+  BALOTH_GORGER_SCRIPT,
+  BENALISH_EMISSARY_SCRIPT,
+  BENALISH_SLEEPER_SCRIPT,
+  BOG_BADGER_SCRIPT,
+  CALIGO_SKIN_WITCH_SCRIPT,
+  CITANUL_WOODREADERS_SCRIPT,
+  EXCAVATION_ELEPHANT_SCRIPT,
+  GHASTLY_GLOOMHUNTER_SCRIPT,
+  GHITU_CHRONICLER_SCRIPT,
+  GOBLIN_RUINBLASTER_SCRIPT,
+  HEARTSTABBER_MOSQUITO_SCRIPT,
+  JUNIPER_ORDER_ROOTWEAVER_SCRIPT,
+  KELDON_OVERSEER_SCRIPT,
+  KOR_AERONAUT_SCRIPT,
+  KOR_SANCTIFIERS_SCRIPT,
+  KROSAN_DRUID_SCRIPT,
+  LLANOWAR_ELITE_SCRIPT,
+  MOLD_SHAMBLER_SCRIPT,
+  NULLPRIEST_OF_OBLIVION_SCRIPT,
+  ORAN_RIEF_RECLUSE_SCRIPT,
+  PHYREXIAN_MISSIONARY_SCRIPT,
+  PINCER_SPIDER_SCRIPT,
+  SCORCH_RIDER_SCRIPT,
+  SERGEANT_AT_ARMS_SCRIPT,
+  SHALAIS_ACOLYTE_SCRIPT,
+  SHIVAN_EMISSARY_SCRIPT,
+  STRONGHOLD_CONFESSOR_SCRIPT,
+  SUN_BLESSED_HEALER_SCRIPT,
+  TAZEEM_ROILMAGE_SCRIPT,
+  TOLARIAN_EMISSARY_SCRIPT,
+  UNTAMED_KAVU_SCRIPT,
+  URBORG_EMISSARY_SCRIPT,
+  VERDURAN_EMISSARY_SCRIPT,
+  VINESHAPER_PRODIGY_SCRIPT,
+  YAVIMAYA_ICONOCLAST_SCRIPT,
+  GHITU_AMPLIFIER_SCRIPT,
+  PHYREXIAN_WARHORSE_SCRIPT,
+  URBORG_SKELETON_SCRIPT,
+  VIASHINO_BRANCHRIDER_SCRIPT,
   TRANSLUMINANT_SCRIPT,
   CARRIER_PIGEONS_SCRIPT,
   PYKNITE_SCRIPT,

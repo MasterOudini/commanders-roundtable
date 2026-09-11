@@ -881,6 +881,12 @@ export interface EffectSpec {
    */
   readonly delay: DelayWhen | null;
   /**
+   * D403 - `If this spell was kicked, <X>.`: this effect happens only when the spell was cast
+   * kicked (`StackObject.kicked` > 0). REQUIRED (D355/D356's rule), `false` on every other effect.
+   * The `instead` forms (`it deals 4 damage instead`) stay unread.
+   */
+  readonly ifKicked: boolean;
+  /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape
    * (Preordain, Consider). It rides the spec because the draw must see the
@@ -1352,6 +1358,14 @@ export interface OracleFace {
    * "Flashback-<other cost>" stays null.
    */
   readonly flashbackCost: ManaCost | null;
+  /**
+   * D403 - KICKER (CR 702.33): the optional additional cost `Kicker {M}` on its own line, paid at
+   * cast time when the caster chooses (`CastSpell.kicked`), and `Multikicker {M}` paid any number
+   * of times. The two-kicker form (`Kicker {M} and/or {M}`) is null: a choice the intent does not
+   * carry yet. Read once at ingest, like `flashbackCost`.
+   */
+  readonly kickerCost: ManaCost | null;
+  readonly multikickerCost: ManaCost | null;
   /**
    * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" as a mana cost (CR
    * 702.37): cast face down as a 2/2 for {3}, turned face up for this. Null

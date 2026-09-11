@@ -152,6 +152,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // next turn's upkeep, so an arming and a fire are both reached at gate size without combat.
   { names: ['Blessed Wine'], copiesPerSeat: 1,
     counterKeys: ['delayedArmed', 'delayedFired'], rotHistory: 'D402' },
+  // D403 - kicker (CR 702.33): Ardent Soldier ({1}{W} kicked for {2} - one coloured source and three
+  // lands, which the core deals every seat) enters with a counter when kicked; the driver always
+  // tries the kick. Goblin Bushwhacker ({R} + {R}) read ZERO kicked casts over 60 seeds: two red
+  // sources at once are rare in a core with one basic of each colour, so it stays a plain deal.
+  { names: ['Ardent Soldier'], copiesPerSeat: 2,
+    counterKeys: ['kickedCasts', 'kickedEntries'], rotHistory: 'D403' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
@@ -704,7 +710,10 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       return { t: 'PlayLand', player: holder, card: chosen.card, faceIndex: chosen.faceIndex };
     case 'CastSpell':
       // D309 - a face-down (morph) offer is cast face down, for {3}.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}) };
+      // D403 - a kicker is ALWAYS tried kicked (a cast the pool cannot pay is rejected, not a wedge, and
+      // the driver's next pick may cast it plain): half the time read ZERO over 60 seeds - a second
+      // coloured source beside the first is rare in a core that deals one basic of each colour.
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -833,6 +842,9 @@ interface Run {
   /** D402 - delayed triggers armed by a resolution, and fired at their step. */
   readonly delayedArmed: number;
   readonly delayedFired: number;
+  /** D403 - spells cast kicked, and permanents that entered kicked (the move carries the count). */
+  readonly kickedCasts: number;
+  readonly kickedEntries: number;
   readonly animations: number;
   readonly fights: number;
   readonly bites: number;
@@ -1125,6 +1137,8 @@ function runOne(seed: number): Run {
     cantBeBlockedSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBeBlocked === true).length,
     delayedArmed: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed').length,
     delayedFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined).length,
+    kickedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0).length,
+    kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
     bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
@@ -1279,6 +1293,8 @@ const TOTAL_KEYS = [
   'cantBeBlockedSet',
   'delayedArmed',
   'delayedFired',
+  'kickedCasts',
+  'kickedEntries',
   'animations',
   'fights',
   'bites',
@@ -1537,6 +1553,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D402 - one Blessed Wine a seat: a delayed trigger armed AND fired at gate size.
         expect(totals.delayedArmed).toBeGreaterThan(0);
         expect(totals.delayedFired).toBeGreaterThan(0);
+        // D403 - one Ardent Soldier a seat, the kick always tried: a kicked cast and a kicked entry at gate size.
+        expect(totals.kickedCasts).toBeGreaterThan(0);
+        expect(totals.kickedEntries).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1612,6 +1631,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.cantBlockSet} can't-block restrictions set · ` +
           `${totals.cantBeBlockedSet} can't-be-blocked evasions set · ` +
           `${totals.delayedArmed} delayed triggers armed / ${totals.delayedFired} fired · ` +
+          `${totals.kickedCasts} kicked casts / ${totals.kickedEntries} kicked entries · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

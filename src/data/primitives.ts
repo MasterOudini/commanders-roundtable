@@ -140,6 +140,12 @@ const TURN_COND =
   "(?:you attacked this turn|you attacked with (?:two|three|four|five|\\d+) or more creatures this turn|(?:a|another) creature died this turn|(?:two|three|four|five|\\d+) or more creatures died this turn|a permanent (?:left the battlefield under your control|you controlled left the battlefield) this turn|a nonland permanent left the battlefield this turn|you gained life this turn|you gained (?:two|three|four|five|\\d+) or more life this turn|you lost life this turn|an opponent lost life this turn|an opponent was dealt damage this turn|you've cast (?:another|a noncreature|a creature|an instant or sorcery) spell this turn|you've cast (?:two|three|four|\\d+) or more spells this turn|you've drawn (?:two|three|four|\\d+) or more cards this turn|you descended this turn|(?:this (?:land|creature|permanent)|it) entered this turn|a (?:land|creature|artifact) entered the battlefield under your control this turn|(?:two|three|four|\\d+) or more nonland permanents entered the battlefield under your control this turn|you've discarded a card this turn|a card left your graveyard this turn|you created a token this turn)";
 /** A TRUE ability word before an enters head has no rules meaning of its own (CR 207.2c); read past it once its condition is stood out. */
 const ABILITY_WORD_PREFIX = /^[A-Z][a-z]+(?: \d+)? — /;
+// D403 - the kicked conditions the row maker reads (`gen-cond`'s `kicked` kind): the cast announced
+// a kick, which the permanent remembers. The `with its {M} kicker` form names ONE of two kickers
+// (`Kicker {M} and/or {M}`), a choice the cast does not carry, and stays unread.
+const KICK_COND = '(?:it was kicked|this creature was kicked|this permanent was kicked|this spell was kicked)';
+const ETB_IF_KICK = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${KICK_COND}, `, 'i');
+const LEAD_IF_KICK = new RegExp(`^If ${KICK_COND}, (it|this creature) (enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it)\\.$`, 'i');
 const ETB_IF = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${TURN_COND}, `, 'i');
 const ENTERS_WITH_IF = new RegExp(`^((?:This creature|~|[A-Z][^,]*?) enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it) if ${TURN_COND}\\.$`, 'i');
 const BLOODTHIRST_LINE = /^Bloodthirst (\d+)$/;
@@ -155,6 +161,11 @@ export function withoutTurnCondition(text: string): string {
   if (etb) return (etb[1] + ', ' + text.slice(etb[0].length)).replace(ABILITY_WORD_PREFIX, '');
   const st = STEP_IF.exec(text);
   if (st) return (st[1] + ', ' + text.slice(st[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  // D403 - the kicked conditions: an enters head's intervening if, and the led enters-with form.
+  const ek = ETB_IF_KICK.exec(text);
+  if (ek) return (ek[1] + ', ' + text.slice(ek[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  const lk = LEAD_IF_KICK.exec(text);
+  if (lk) return 'This creature ' + lk[2] + '.';
   const ew = ENTERS_WITH_IF.exec(text);
   if (ew) return (ew[1] + '.').replace(ABILITY_WORD_PREFIX, '');
   return text;
@@ -838,6 +849,10 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D306 - a Cycling line with a mana cost is the engine's own (see
   // `cyclingLineRuns`); a landcycling or a non-mana cycling stays `keyword:altCost`.
   if (/^cycling\b/i.test(text)) return cyclingLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  // D403 - a Kicker / Multikicker line with a mana cost is the engine's own (`CastSpell.kicked`,
+  // the payment prices it, the stack object and the permanent remember it); the two-kicker
+  // `and/or` form stays `keyword:altCost` (a choice the intent does not carry).
+  if (/^(?:kicker|multikicker) (?:\{[^}]+\})+$/i.test(text)) return 'scriptable';
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';

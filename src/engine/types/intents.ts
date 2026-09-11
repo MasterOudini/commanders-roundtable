@@ -55,6 +55,12 @@ export type Intent =
       readonly modes?: readonly number[];
       /** D309 - cast face down as a 2/2 for {3} (morph, CR 702.37a). */
       readonly faceDown?: boolean;
+      /**
+       * D403 - KICKER (CR 702.33): how many times the kicker is paid - 1 for `Kicker {M}`, any
+       * number for `Multikicker {M}`; absent or 0 casts the spell unkicked. The host adds the
+       * cost to the payment and the stack object remembers the count.
+       */
+      readonly kicked?: number;
     }
   /**
    * D309 - THE MORPH SEAM: turning a face-down permanent you control face up

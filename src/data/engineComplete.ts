@@ -527,6 +527,10 @@ export function linesUnaccounted(
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;
+    // D403 - a Kicker / Multikicker line the engine CHARGES at cast time (`CastSpell.kicked`):
+    // the cost is read off the face, the payment adds it, the stack object remembers it.
+    if (face.kickerCost !== null && /^Kicker (?:\{[^}]+\})+$/.test(line)) continue;
+    if (face.multikickerCost !== null && /^Multikicker (?:\{[^}]+\})+$/.test(line)) continue;
     // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
     // turned face up for the cost). Asked of the parser that read it.
     if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;

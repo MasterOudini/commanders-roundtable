@@ -475,6 +475,20 @@ export function parseWard(oracleText: string, warn: Warn = NOOP_WARN): ManaCost 
  * D307 - "Flashback {N}" on its own line (reminder text aside), read as a mana
  * cost. A dash cost ("Flashback-Pay 3 life.") is null: the engine cannot pay it.
  */
+/** D403 - `Kicker {M}` / `Multikicker {M}` on its own line (reminder text aside), as a mana cost. */
+export function parseKicker(oracleText: string, warn: Warn = NOOP_WARN): { kicker: ManaCost | null; multikicker: ManaCost | null } {
+  let kicker: ManaCost | null = null;
+  let multikicker: ManaCost | null = null;
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const k = /^Kicker ((?:\{[^}]+\})+)$/.exec(line);
+    if (k) kicker = parseManaCost(k[1] ?? '', warn);
+    const m = /^Multikicker ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) multikicker = parseManaCost(m[1] ?? '', warn);
+  }
+  return { kicker, multikicker };
+}
+
 export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -1018,6 +1032,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const wardCost = parseWard(face.oracleText, warn);
   const wardLife = parseWardLife(face.oracleText, warn);
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
+  const kicked = parseKicker(face.oracleText, warn);
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const costReductions = parseCostReductions(face.oracleText);
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
@@ -1085,6 +1100,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     instantSpeed: typeLine.types.includes('Instant') || keywords.includes('flash'),
     wardCost,
     flashbackCost,
+    kickerCost: kicked.kicker,
+    multikickerCost: kicked.multikicker,
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,

@@ -41,6 +41,8 @@ export type LegalAction =
       readonly label: string;
       /** D309 - the face-down (morph) cast: a 2/2 for {3}. */
       readonly faceDown?: true;
+      /** D403 - the face has a kicker the cast may announce (`CastSpell.kicked`), or a multikicker. */
+      readonly kicker?: 'once' | 'many';
     }
   | {
       readonly t: 'TapForMana';
@@ -833,6 +835,8 @@ function castAction(
     tax,
     hasX,
     label: face.name,
+    // D403 - a kick is offered, not priced: the preview prices the count the player announces.
+    ...(face.multikickerCost !== null ? { kicker: 'many' as const } : face.kickerCost !== null ? { kicker: 'once' as const } : {}),
   };
 }
 

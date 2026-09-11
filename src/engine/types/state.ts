@@ -197,6 +197,13 @@ export interface CardInstance {
   readonly isToken: boolean;
   /** D340 - Renown (CR 702.112): set by `BecameRenowned`, cleared with the other battlefield fields when it leaves. */
   readonly renowned: boolean;
+  /**
+   * D403 - how many times this permanent's spell was kicked as it was cast (CR 702.33), for
+   * `enters with counters if it was kicked` and `if it was kicked` conditions; cleared on entry
+   * like every battlefield field, so a permanent that entered by any other way reads nothing.
+   * (`undefined` is admitted explicitly: the reset writes it, and the hash drops it.)
+   */
+  readonly kicked?: number | undefined;
   /** CR 903.8. Survives zone changes, which is the whole point. */
   readonly commanderCastCount: number;
   /** Tier-3 manual override, applied at layer 7d. */
@@ -301,6 +308,12 @@ export interface StackObject {
    * (the vocabulary's executor, `effectResult`). Absent on every other object.
    */
   readonly delayedEffects?: readonly EffectSpec[];
+  /**
+   * D403 - KICKER (CR 702.33): the number of times the kicker was paid, absent when the spell
+   * was not kicked. Read by the executor (`If this spell was kicked, ...`) and carried onto the
+   * permanent the spell becomes (`CardMove.kicked`, `CardInstance.kicked`).
+   */
+  readonly kicked?: number;
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -431,6 +444,8 @@ export interface PendingCast {
   readonly taxApplied: number;
   /** D309 - a face-down (morph) cast. */
   readonly faceDown?: true;
+  /** D403 - the kicker count the cast was announced with (CR 702.33), carried to the `StackObject`. */
+  readonly kicked?: number;
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
   readonly faceIndex: number;
   /**

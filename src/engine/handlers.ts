@@ -376,6 +376,28 @@ interface CastSetup {
   readonly identity: readonly import('../data/cardTypes').ColorLetter[];
   /** D309 - a face-down (morph) cast: {3}, a nameless colorless 2/2. */
   readonly faceDown?: boolean;
+  /** D403 - the kicker count the cast announced (0 when unkicked), priced into `problem`. */
+  readonly kicked: number;
+}
+
+/**
+ * D403 - KICKER (CR 702.33): the additional mana a kick adds to the problem - the kicker cost once,
+ * or the multikicker cost `kicked` times. The caller has already refused a count the face cannot
+ * take (`kickProblem`). Read by every rebuild of the problem, so the X and targets stages price
+ * the same kick the announcement did (D53: one payment previewed, the same one charged).
+ */
+function kickerMana(face: ReturnType<typeof faceOf>, kicked: number): ManaCost[] {
+  if (kicked <= 0) return [];
+  if (face.multikickerCost !== null) return Array.from({ length: kicked }, () => face.multikickerCost as ManaCost);
+  return face.kickerCost !== null ? [face.kickerCost] : [];
+}
+/** D403 - why a kick count cannot be announced on this face, or null when it can. */
+function kickProblem(face: ReturnType<typeof faceOf>, kicked: number): string | null {
+  if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
+  if (kicked === 0) return null;
+  if (face.multikickerCost !== null) return null;
+  if (face.kickerCost === null) return `${face.name} has no kicker the app can charge.`;
+  return kicked === 1 ? null : `${face.name} can be kicked once.`;
 }
 
 /** D309 - the cost of casting any card face down (CR 702.37a). */
@@ -430,6 +452,7 @@ function prepareCast(
   xValue: number,
   targets: readonly TargetChoice[] = [],
   faceDown = false,
+  kicked = 0,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -476,9 +499,12 @@ function prepareCast(
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   const cost = faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
   if (cost === null) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
-  const problem = buildPaymentProblem(cost, xValue, ward.mana, tax, ward.life);
+  // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
+  const kickWhy = faceDown ? (kicked > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked);
+  if (kickWhy) return { error: reject('notCastable', kickWhy) };
+  const problem = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked)], tax, ward.life);
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -558,6 +584,7 @@ function castSpell(
     intent.xValue ?? 0,
     intent.targets ?? [],
     intent.faceDown === true,
+    intent.kicked ?? 0,
   );
   if ('error' in setup) return setup.error;
 
@@ -633,6 +660,7 @@ function castSpell(
       lifePaid: 0,
       isCommanderCast: setup.from.kind === 'command',
       taxApplied: setup.tax,
+      ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     };
     return accept([
       {
@@ -707,7 +735,8 @@ function chooseX(
   const oracleCard = card ? deps.oracle.byPrinting(card.printingId) : undefined;
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
-  const problem = buildPaymentProblem(face.manaCost, intent.x, [], pending.taxApplied);
+  // D403 - the kick announced with the cast stays in the problem X resizes.
+  const problem = buildPaymentProblem(face.manaCost, intent.x, kickerMana(face, pending.kicked ?? 0), pending.taxApplied);
 
   // CR 601.2c follows 601.2b: with X known, ask for the targets it may size.
   // D343 - a modal spell aims the CHOSEN modes' clauses.
@@ -1354,7 +1383,8 @@ function chooseTargets(
   const problem = buildPaymentProblem(
     face.manaCost,
     pending.xValue ?? 0,
-    ward.mana,
+    // D403 - the kick announced with the cast stays in the problem the targets reprice.
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0)],
     pending.taxApplied,
     ward.life,
   );
@@ -1484,6 +1514,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     isCommanderCast: setup.from.kind === 'command',
     castFrom: setup.from,
     ...(setup.faceDown ? { faceDown: true as const } : {}),
+    ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -1895,6 +1926,7 @@ function finishFromPending(
     face,
     tax: pending.taxApplied,
     from: pending.from,
+    kicked: pending.kicked ?? 0,
     identity,
   };
   const events: EventBody[] = [...(opts.lead ?? [])];
@@ -1928,6 +1960,7 @@ function finishFromPending(
     taxApplied: pending.taxApplied,
     isCommanderCast: pending.isCommanderCast,
     castFrom: pending.from,
+    ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {

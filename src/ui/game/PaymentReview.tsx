@@ -22,7 +22,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0) : null),
     [mode],
   );
 
@@ -44,6 +44,8 @@ export function PaymentReview() {
       // Omitted for every ordinary card; face 0 is the engine's default. D155.
       ...(mode.faceIndex ? { faceIndex: mode.faceIndex } : {}),
       ...(preview.hasX ? { xValue: mode.xValue } : {}),
+      // D403 - the kick the review priced is the kick the host charges (D53).
+      ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
       ...(preview.plan ? { plan: preview.plan } : {}),
       // ⚠️ ALWAYS sent, even when empty, and the difference is load-bearing: an
       // OMITTED `targets` tells the engine "stop and ask me", while an empty
@@ -88,6 +90,33 @@ export function PaymentReview() {
             }
           >
             Change…
+          </button>
+        </div>
+      )}
+
+      {preview.kicker && (
+        <div className="mt-2 flex items-center gap-2" data-payment-kicker="">
+          <span className="text-xs text-crt-dim">
+            {preview.kicker.many ? `Kicked ${preview.kicked} time${preview.kicked === 1 ? '' : 's'}` : preview.kicked > 0 ? 'Kicked' : 'Not kicked'} ({preview.kicker.cost}{preview.kicker.many ? ' each' : ''})
+          </span>
+          <button
+            type="button"
+            className={BTN_GHOST_SMALL}
+            data-payment="set-kick"
+            onClick={() =>
+              preview.kicker?.many
+                ? askNumber({
+                    title: `Kick ${preview.name} how many times?`,
+                    label: 'Kicks',
+                    initial: preview.kicked,
+                    min: 0,
+                    max: 20,
+                    onSubmit: (kicked) => setMode({ ...mode, kicked }),
+                  })
+                : setMode({ ...mode, kicked: preview.kicked > 0 ? 0 : 1 })
+            }
+          >
+            {preview.kicker.many ? 'Change…' : preview.kicked > 0 ? 'Unkick' : 'Kick'}
           </button>
         </div>
       )}

@@ -181,6 +181,12 @@ export function effectResult(
       continue;
     }
 
+    // D403 - `If this spell was kicked, ...` on a spell that was not: the clause does nothing, and
+    // the narration says so rather than saying nothing (D90's other direction is silence).
+    if (effect.ifKicked && !((obj.kicked ?? 0) > 0)) {
+      out.push(narrated(`${obj.label} was not kicked — “${effect.text}” does nothing.`, obj.controller, obj.identity));
+      continue;
+    }
     // D402 - a DELAYED effect is armed now and runs when its step begins (CR 603.7): the entry
     // carries the same spec with the delay cleared, the resolving object's id and this clause's
     // position for a replay-stable id, and the turn and step it was armed in.

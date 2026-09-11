@@ -43,6 +43,8 @@ export interface BotPort {
     cardId: InstanceId,
     xValue?: number,
     targets?: readonly TargetChoice[],
+    /** D403 - the kicker count to price (0 or absent: unkicked). */
+    kicked?: number,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

@@ -1985,6 +1985,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Soul Rend', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (destroy target creature if it is white)'],
   ["Telim'Tor's Edict", 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (exile target permanent you own or control)'],
 
+  // D403 - kicker: the fourteen the selector offered once the Kicker line and the kicked conditions read
+  // that the row maker refused, by reason (the nine spells for their other lines - this generator rows
+  // no spell but a mass pump; the rest by name).
+  ['Agonizing Demise', 'a spell line outside the row vocabulary beside its kicked clause (the generator rows no spell but a mass pump)'],
+  ['Fires of Victory', 'a spell line outside the row vocabulary beside its kicked clause (damage equal to the cards in hand)'],
+  ['Jilt', 'a spell line outside the row vocabulary beside its kicked clause (a bounce and a kicked damage)'],
+  ["Orim's Thunder", 'a spell line outside the row vocabulary beside its kicked clause (a destroy and a kicked damage equal to the mana value)'],
+  ['Spell Contortion', 'a multikicker spell (a counter unless pays, a draw for each time it was kicked) outside the row vocabulary'],
+  ['Tribute to Urborg', 'a spell line outside the row vocabulary beside its kicked clause (-2/-2 and a kicked extra)'],
+  ['Hunting Wilds', 'a spell line outside the row vocabulary beside its kicked clause (a search onto the battlefield, the kicked untap and animation)'],
+  ['Molten Disaster', 'a spell line outside the row vocabulary beside its kicked clause (X damage to each creature without flying; split second if kicked)'],
+  ['Protect the Negotiators', 'a spell line outside the row vocabulary beside its kicked clause (a counter unless pays; a kicked mass pump)'],
+  ['Kitesail Cleric', 'a counted clause (tap up to two target creatures) the suite has no fixture pair for, under a kicked enters head'],
+  ['Tempest Owl', 'a counted clause (tap up to three target permanents) the suite has no fixture set for, under a kicked enters head'],
+  ['Keldon Strike Team', 'a static gated by the source entering this turn (as long as this creature entered this turn) the suite cannot stage as the broken state, beside its kicked enters head'],
+  ['Roost of Drakes', 'a filtered cast head (whenever you cast a kicked spell) outside the closed reader - kicked is not an adjective the filter reads'],
+  ['Tourach, Dread Cantor', 'a trigger payload the vocabulary refuses (target opponent discards two cards at random - randomness a def cannot thread) under a kicked enters head'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

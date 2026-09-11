@@ -89,6 +89,9 @@ export interface CastPreview {
   /** Instance ids the plan would tap, for the review highlight. */
   readonly taps: readonly InstanceId[];
   readonly lifePaid: number;
+  /** D403 - the kicker cost the face prints (once, or any number of times), and the count this preview priced. */
+  readonly kicker: { readonly cost: string; readonly many: boolean } | null;
+  readonly kicked: number;
 }
 
 export interface ClientOptions {
@@ -429,7 +432,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = []): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -444,7 +447,10 @@ export class ClientSession {
     // are pointing at rather than on the card in your hand. The lookup is the
     // client's own (a `PlayerView`, not a `GameState`); the sum is shared.
     const ward = wardTaxFrom(this.wardFacesFor(targets));
-    const problem = buildPaymentProblem(face.manaCost, xValue, ward.mana, action.tax, ward.life);
+    // D403 - the kick the player announced, priced with the ward (the host prices the same count).
+    const kickCost = face.multikickerCost ?? face.kickerCost;
+    const kickMana = kicked > 0 && kickCost ? Array.from({ length: face.multikickerCost ? kicked : 1 }, () => kickCost) : [];
+    const problem = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana], action.tax, ward.life);
     // D397 - the SAME purpose the host charges with (D53): the spell this face is cast as.
     const plan = suggestPayment(this.session.solve, problem, spellPurpose(face, action.faceDown === true));
     return {
@@ -456,6 +462,8 @@ export class ClientSession {
       plan,
       taps: plan?.taps.map((t) => t.source) ?? [],
       lifePaid: plan?.lifePaid ?? 0,
+      kicker: kickCost ? { cost: kickCost.raw, many: face.multikickerCost !== null } : null,
+      kicked: kickCost ? kicked : 0,
     };
   }
 

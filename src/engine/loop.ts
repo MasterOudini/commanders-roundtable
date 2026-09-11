@@ -781,6 +781,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.faceIndex === 0 ? {} : { faceIndex: obj.faceIndex }),
           // D309 - a face-down spell resolves into a face-down permanent (CR 708.4).
           ...(obj.faceDown ? { faceDown: true } : {}),
+          // D403 - the kick the spell was cast with rides onto the permanent it becomes.
+          ...(obj.kicked !== undefined && obj.kicked > 0 ? { kicked: obj.kicked } : {}),
         },
       ],
     });

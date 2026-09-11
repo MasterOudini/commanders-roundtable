@@ -214,6 +214,7 @@ const BASE: EffectFields = {
   cantBeBlocked: false,
   sacrifice: null,
   delay: null,
+  ifKicked: false,
 };
 
 /**
@@ -1621,9 +1622,30 @@ function matchDelayed(sentence: string): EffectSpec | null {
   return { ...inner, text: sentence, delay: delayWhen((tail ? tail[2] : head?.[1]) ?? '') };
 }
 
+/**
+ * D403 - KICKER'S CONDITIONAL CLAUSE (CR 702.33): `If this spell was kicked, <X>.` is X gated on the
+ * kick the cast announced (`StackObject.kicked`), and the executor skips it - saying so - on an
+ * unkicked spell. The inner sentence is asked of the rules as it stands (a target, a referent, an
+ * ask are all fine: the clause runs in the spell's own resolution, unlike a delayed one). The
+ * `instead` forms (`it deals 4 damage instead`) do not read as a sentence and stay unread.
+ */
+const IF_KICKED = /^If this spell was kicked, (.+)$/i;
+function matchKicked(sentence: string): EffectSpec | null {
+  const m = IF_KICKED.exec(sentence);
+  if (!m) return null;
+  const rest0 = m[1] ?? '';
+  const rest = rest0.charAt(0).toUpperCase() + rest0.slice(1);
+  const inner = matchPayment(rest) ?? matchRule(rest);
+  if (!inner) return null;
+  return { ...inner, text: sentence, ifKicked: true };
+}
+
 function matchSentence(sentence: string): EffectSpec | null {
   const paid = matchPayment(sentence);
   if (paid) return paid;
+  // D403 - the kicked clause before the rules (its inner sentence is what the rules read).
+  const kicked = matchKicked(sentence);
+  if (kicked) return kicked;
   // D402 - a delayed sentence before the rules: the rules would read `Draw a card at the`... as nothing.
   const delayed = matchDelayed(sentence);
   if (delayed) return delayed;
@@ -1699,7 +1721,8 @@ export function parseEffects(
     .join('\n');
   const clean = scrub(selfRef(priced, cardName))
     .split('\n')
-    .filter((l) => !/^(?:Cycling|Flashback) (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
+    .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };

@@ -54,6 +54,8 @@ export interface CardMove {
   readonly to: ZoneRef;
   readonly placement?: ZonePlacement;
   readonly faceDown?: boolean;
+  /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
+  readonly kicked?: number;
   /**
    * The face this card is moving AS — CR 712, a modal DFC's back face. Omit for
    * every ordinary card.
