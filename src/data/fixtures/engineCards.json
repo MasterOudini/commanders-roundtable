@@ -198086,6 +198086,212 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "VINES_OF_THE_RECLUSE": {
+    "scryfallId": "02109319-105b-4c00-abf9-1f012ae98e33",
+    "oracleId": "5372445b-5f67-435e-a736-61c6cb4f9c6e",
+    "name": "Vines of the Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vines of the Recluse",
+        "manaCost": "{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +1/+2 and gains reach until end of turn. Untap it. (A creature with reach can block creatures with flying.)",
+        "flavorText": "\"The most elegant solutions are found in nature. You just have to know where to look.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "02109319-105b-4c00-abf9-1f012ae98e33"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AIM_HIGH": {
+    "scryfallId": "02c41d89-334e-40bc-b53b-d63f2687627c",
+    "oracleId": "c169929a-850b-4d46-9f14-a922f4465d85",
+    "name": "Aim High",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aim High",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Untap target creature. It gets +2/+2 and gains reach until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "02c41d89-334e-40bc-b53b-d63f2687627c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sir",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROSA_RESOLUTE_WHITE_MAGE": {
+    "scryfallId": "c44e0ad6-9f44-4e4c-8c3b-3ee99409a740",
+    "oracleId": "9c4fdd20-0396-40b7-8687-43b1035b6956",
+    "name": "Rosa, Resolute White Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rosa, Resolute White Mage",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Noble Cleric",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nAt the beginning of combat on your turn, put a +1/+1 counter on target creature you control. It gains lifelink until end of turn. (Damage dealt by the creature also causes you to gain that much life.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christian Angel",
+        "imageId": "c44e0ad6-9f44-4e4c-8c3b-3ee99409a740"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "555",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEEDCRADLE_WITCH": {
+    "scryfallId": "a0ae8525-ce10-40bd-8980-a05fb81a0fac",
+    "oracleId": "278ea996-3094-4a76-b6e1-db1d002e5502",
+    "name": "Seedcradle Witch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seedcradle Witch",
+        "manaCost": "{G/W}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{2}{G}{W}: Target creature gets +3/+3 until end of turn. Untap that creature.",
+        "flavorText": "She whispered a prayer for strength, and her wishes wafted away like seeds on the wind.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "a0ae8525-ce10-40bd-8980-a05fb81a0fac"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_MAN_PETER_PARKER": {
+    "scryfallId": "415bf221-215b-4c9f-b995-8d31ca95adc0",
+    "oracleId": "5be3243a-6840-4601-96c8-ffb756041d49",
+    "name": "Spider-Man, Peter Parker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Man, Peter Parker",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever you gain life, put a +1/+1 counter on target creature you control. It gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "\"Heroes save people. It's what we do.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Rivera",
+        "imageId": "415bf221-215b-4c9f-b995-8d31ca95adc0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "spe",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUAC_MARSHMALLOW_PIZZA": {
+    "scryfallId": "a5405de0-16c9-4e5a-8ceb-00508e212f12",
+    "oracleId": "d6d83a51-9d57-44a7-aae3-a96d43ec5ac8",
+    "name": "Guac & Marshmallow Pizza",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guac & Marshmallow Pizza",
+        "manaCost": "{G}",
+        "typeLine": "Artifact — Food",
+        "oracleText": "Flash\nWhen this artifact enters, target creature gets +2/+2 until end of turn. Untap it.\n{2}, {T}, Sacrifice this artifact: You gain 3 life.",
+        "flavorText": "\"There is no fear in my heart. I will overcome even this challenge!\"\n—Leonardo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brandon L. Hunt",
+        "imageId": "a5405de0-16c9-4e5a-8ceb-00508e212f12"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

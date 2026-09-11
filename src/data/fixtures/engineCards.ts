@@ -5880,6 +5880,12 @@ export const THRUMMINGBIRD: CardData = F.THRUMMINGBIRD as CardData;
 export const VIRAL_DRAKE: CardData = F.VIRAL_DRAKE as CardData;
 export const CONTAGION_CLASP: CardData = F.CONTAGION_CLASP as CardData;
 export const MERFOLK_SKYDIVER: CardData = F.MERFOLK_SKYDIVER as CardData;
+export const VINES_OF_THE_RECLUSE: CardData = F.VINES_OF_THE_RECLUSE as CardData;
+export const AIM_HIGH: CardData = F.AIM_HIGH as CardData;
+export const ROSA_RESOLUTE_WHITE_MAGE: CardData = F.ROSA_RESOLUTE_WHITE_MAGE as CardData;
+export const SEEDCRADLE_WITCH: CardData = F.SEEDCRADLE_WITCH as CardData;
+export const SPIDER_MAN_PETER_PARKER: CardData = F.SPIDER_MAN_PETER_PARKER as CardData;
+export const GUAC_MARSHMALLOW_PIZZA: CardData = F.GUAC_MARSHMALLOW_PIZZA as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11893,6 +11899,12 @@ export const ENGINE_CARDS: CardData[] = [
   VIRAL_DRAKE,
   CONTAGION_CLASP,
   MERFOLK_SKYDIVER,
+  VINES_OF_THE_RECLUSE,
+  AIM_HIGH,
+  ROSA_RESOLUTE_WHITE_MAGE,
+  SEEDCRADLE_WITCH,
+  SPIDER_MAN_PETER_PARKER,
+  GUAC_MARSHMALLOW_PIZZA,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

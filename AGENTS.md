@@ -14428,6 +14428,77 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       keywords), copy (~200); the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D390's list unchanged.
 
+- [x] **M6.4hy — THE REFERENT SUBJECT: a later sentence about the previous target
+      is read by the explicit rule and aimed where that clause aimed
+      (2026-09-11):** **8,423 of 31,692 Commander-legal cards now execute
+      completely, up from 8,381 (+42: THIRTY-EIGHT with no script at all, then 4
+      generated rows in one wave).** `SHIPPED_SCRIPTS` 5,466 → **5,466** (four rows, four spell defs RETIRED — D187's rule); ledger
+      1,215 → **1,218** (three ADDED by reason). Fixtures 6,010 → **6,016**.
+      `scriptableToday` 1,311 → 1,317 by the SEAM and → **1,313** by the WAVE;
+      the select pool 0 → 7 → 3 → 0; the ladder `[1313, 1402, 2819, 4495,
+      5837]`. Bot reach 8,315 → **8,354** from 253 commanders. Decisions in
+      **D392**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT — BY STRUCTURE, NOT BY FAMILY:** the fresh
+      true-leftover priced threaten, the regenerate clause and half of fight as
+      three seams by shape; grouped by what a sentence is ABOUT, 563 one-piece
+      cards carry a later sentence whose subject is the previous target ("Untap
+      that creature.", "It gains haste until end of turn.", "It can't be
+      regenerated."), and the parser's own D373 note had named the gap. Priced
+      with the real parser: 32 spells and 7 payloads; landed: 38 and 4.
+      ⚠️ **THE SEAM (parser only — no intent, no prompt, no event):** every
+      clause carries what it is ABOUT (`Clause.phrase`: its first target phrase
+      as printed, `~` after a self subject, or the phrase inherited from the
+      clause it referred to); a sentence no rule reads on its own that STARTS
+      with `it` / `that <noun>`, or with untap / tap / destroy / exile /
+      sacrifice / return / attach followed by one, is rewritten with that phrase
+      in the text handed to the rules ONLY (`referentRewrite`) and matched as
+      usual; the clause keeps its PRINTED text, so the targeting layer's count
+      and the effect count agree, and `parseEffects` aims it at `nextTarget - 1`
+      (`EffectSpec.referent`) instead of consuming a target — a referent after
+      two targets points at the LAST. Refused by name: a referent with nothing
+      before it, "its controller" / "that player" / "them" (read by their own
+      rules or not at all, never rewritten), "it's".
+      ⚠️ **THE WAVE:** 7 in the pool → 4 rows (a counter then lifelink under
+      the combat head, a counter then indestructible under a life-gain head, an
+      activated +3/+3 then untapped, a +2/+2 then untapped), three ledgered by
+      reason (a cycling head, a two-clause payload under the cast head where the
+      head arm takes one pump, an attack head on a card with no creature body);
+      thirty-eight cards with NO script (the pump-then-untap and counter-then-
+      keyword instants: Vines of the Recluse, Aim High, Snakeskin Veil, Arbor
+      Armament, Assure …). The generator sums a counter's delta into the P/T a
+      pump on the same fixture asserts.
+      ⚠️ **Traps:** count the STRUCTURE, not the family (a pricer by exact shape
+      hides a shape that runs across families); a counter and a pump on one
+      fixture ADD UP (the suites expected a 5/2 to stay 5/2 under a +1/+1
+      counter); a negative pin is checked against the rule table first ("its
+      controller draws a card" has a rule of its own); the probe's type filter
+      undercounts (six instants, an adventure half and a modal face — read the
+      landing off the true-leftover DIFF); a derived port carries the previous
+      decision's PROSE (the WANTED comment said "proliferate"); the suppression
+      predicate did its job — four hand spell defs the referent reads went red in
+      the gate and were retired with D295's tool (a mixed-EOL registry: split on
+      LF, keep each line's CR) — and D373's never-read pin described the old
+      meaning (rewritten, D117).
+      Fixtures 6,016 (5,861 by name + 148 tokens) · botPool artifact 456 /
+      creature 4,959 / enchantment 480 / instant 1,127 / land 568 / sorcery 833 —
+      auto 1,248 / assisted 1,968 · `oracleParse` `effect:auto` 5,550 · tier3
+      silentAfter 8,724 · the `counter` primitive 1,290 · `layer6` 1,111 (grant
+      681, temporary 510) · residue other 2,991 · batch.json 7 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5622 files,
+      27551 passed / 11 skipped · 500-seed gate, 6 shards, 979.2 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D392): with the referent read, THREATEN is one missing
+      sentence in 44 cards — `Gain control of target creature until end of
+      turn.`, a temporary CONTROL with an END (the durations mechanism) — D393's
+      candidate; the referent's own tail (the animate-land family "It's still a
+      land." 28, the delayed sacrifice 13, the doesn't-untap duration 14, the
+      combat restrictions with an end, the bite 7, the fight forms, the player
+      and counted referents); then the brief's engine seams — spend-restricted
+      mana (56), the durations, exchange control (24), the keyword entry
+      replacements (22), copy (~200); the prompt CONTINUATION seam proper; the
+      two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+      NEVER BLOCKS; then D391's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

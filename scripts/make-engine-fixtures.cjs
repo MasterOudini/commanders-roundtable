@@ -6517,6 +6517,14 @@ const WANTED = [
   'Viral Drake',
   'Contagion Clasp',
   'Merfolk Skydiver',
+  // D392 - the referent subject: the seam's two proof spells (a pump then an untap, an untap then a pump).
+  'Vines of the Recluse',
+  'Aim High',
+  // D392 - the referent subject: the wave the rewrite made rowable (a pump or a counter, then the same creature untapped or granted a keyword).
+  'Rosa, Resolute White Mage',
+  'Seedcradle Witch',
+  'Spider-Man, Peter Parker',
+  'Guac & Marshmallow Pizza',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

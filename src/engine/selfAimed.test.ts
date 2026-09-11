@@ -169,8 +169,13 @@ describe('D373 - the self subject in the vocabulary', () => {
     expect(clue.effects[0]?.token?.name).toBe('Clue');
   });
 
-  test('"it" is NEVER a subject on the spell path: the previous target keeps its sentence', () => {
-    expect(parseEffects('Target creature gets +2/+2 until end of turn. Untap it.', 'X', true).mode).not.toBe('auto');
+  // D392 - on the spell path "it" is the previous sentence's TARGET (never the self): the referent
+  // rewrite reads it by the explicit rule and aims it at that target; with nothing before it the
+  // sentence stays unread. (D117: the old pin said "never read"; the meaning changed, so the test did.)
+  test('"it" is NEVER the self on the spell path: it is the previous target, read as such or not at all', () => {
+    const p = parseEffects('Target creature gets +2/+2 until end of turn. Untap it.', 'X', true);
+    expect(p.mode).toBe('auto');
+    expect(p.effects.map((e) => [e.kind, e.targetIndex, e.self, e.referent ?? false])).toEqual([['pump', 0, false, false], ['untap', 0, false, true]]);
     expect(parseEffects('Put a +1/+1 counter on it.', 'X', true).mode).not.toBe('auto');
     expect(parseEffects('It gains flying until end of turn.', 'X', true).mode).not.toBe('auto');
     // The mass pump is untouched by the new subject.

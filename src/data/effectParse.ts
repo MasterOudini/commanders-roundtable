@@ -165,7 +165,9 @@ const NUM = '(?:\\d+)';
  * ⚠️ NEVER `it`. On a spell "it" is the previous sentence's target ("Destroy
  * target creature. It can't be regenerated.", "... Untap it."), and a rule that
  * admitted it here would read that sentence for the spell itself - a whole card
- * going `auto` over a clause aimed at the wrong thing. A QUOTED body's leading
+ * going `auto` over a clause aimed at the wrong thing. The REFERENT rewrite
+ * (D392, `referentRewrite` below) reads it for what it is: the previous clause's
+ * subject, spelled out before the rule sees the sentence. A QUOTED body's leading
  * "it" IS its recipient, and the vocabulary bridge spells it `~` before the parse,
  * where the text is known to be a quoted body (`scripts/vocabulary.ts`).
  */
@@ -1348,6 +1350,12 @@ const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three)|any number of) target\b/i;
 interface Clause {
   readonly text: string;
   readonly spec: EffectSpec | null;
+  /**
+   * D392 - what the clause is ABOUT, for the sentence after it: its first target phrase as
+   * printed, `~` for a self subject, or the phrase inherited from the clause it referred to;
+   * null when the clause names nothing a later sentence could point back at.
+   */
+  readonly phrase: string | null;
 }
 
 /**
@@ -1372,6 +1380,39 @@ interface Clause {
  * on by one, so the sentence after it still gets its own chance — the join list
  * could not do that, because it consumed the pair unconditionally.
  */
+/**
+ * D392 - THE REFERENT SUBJECT. A later sentence about the previous clause's subject ("Untap
+ * that creature.", "It gains haste until end of turn.", "That creature gains reach until end
+ * of turn.") is read by the rule its explicit form is read by: the referent is replaced, in
+ * the sentence handed to the rules only, by the previous clause's phrase - its first target
+ * phrase as printed, or `~` after a self subject - and the clause keeps its PRINTED text, so
+ * the targeting layer (which counts `target` phrases in the printed text) and the effect
+ * count still agree; `parseEffects` aims the clause where the previous one aimed instead of
+ * consuming a target. Only a sentence that STARTS with the referent, or with one of the verbs
+ * that take it as their object, is rewritten; a referent with nothing before it to point at
+ * is left unread, exactly as before. "Its controller", "that player" and "them" are not
+ * referents here: a player or a counted set is a different subject, refused by name.
+ */
+const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker))';
+const REFERENT_LEAD = new RegExp(`^(?:then )?${REFERENT}(?![a-z'])`, 'i');
+const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
+const REFERENT_ANY = new RegExp(`(?<![a-z])${REFERENT}(?![a-z'])`, 'gi');
+const PHRASE_TARGET = new RegExp(TARGET, 'i');
+const PHRASE_SELF = new RegExp(`^(?:then )?${SELF}(?![a-z])`, 'i');
+
+function phraseOf(text: string): string | null {
+  if (PHRASE_SELF.test(text)) return '~';
+  const m = text.match(PHRASE_TARGET);
+  return m ? m[0] : null;
+}
+
+function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
+  if (!previous?.spec || previous.phrase === null) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence)) return null;
+  const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
+  return hit ? { ...hit, text: sentence, referent: true } : null;
+}
+
 function clausesOf(text: string): Clause[] {
   const raw = sentences(text);
   const out: Clause[] = [];
@@ -1387,7 +1428,12 @@ function clausesOf(text: string): Clause[] {
         break;
       }
     }
-    out.push({ text: raw.slice(i, i + span).join(' '), spec });
+    // D392 - a sentence no rule reads on its own may be about the clause before it.
+    const previous = out[out.length - 1];
+    const referred = spec === null ? referentRewrite(raw[i] ?? '', previous) : null;
+    if (referred) spec = referred;
+    const clauseText = raw.slice(i, i + span).join(' ');
+    out.push({ text: clauseText, spec, phrase: referred ? (previous?.phrase ?? null) : phraseOf(clauseText) });
     i += span;
   }
   return out;
@@ -1529,10 +1575,18 @@ export function parseEffects(
     const spec0 = clause.spec;
     if (!spec0) continue;
     const spec = withSelfName(spec0, cardName);
+    // D392 - a referent clause aims where the previous target went; with no target before it
+    // there is nothing to point at, and the sentence stays unread.
+    if (spec.referent && spec.targetIndex !== -1 && nextTarget === 0) continue;
     understood++;
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);
-    const placed = spec.targetIndex === -1 ? spec : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
+    const placed =
+      spec.targetIndex === -1
+        ? spec
+        : spec.referent
+          ? { ...spec, targetIndex: nextTarget - 1 }
+          : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
     // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
     effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);
   }

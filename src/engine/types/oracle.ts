@@ -830,6 +830,14 @@ export interface EffectSpec {
    * says a target has.
    */
   readonly self: boolean;
+  /**
+   * D392 - THE REFERENT SUBJECT: the clause is about the previous clause's subject ("Untap that
+   * creature.", "It gains haste until end of turn."). `effectParse` read it by the rule its
+   * explicit form is read by and aims it where the previous clause aimed - it consumes NO target
+   * of its own, so the printed target count and the effect count still agree. Absent on every
+   * other clause.
+   */
+  readonly referent?: true;
   /** D330 - "It can't be regenerated." rides the destroy it follows: the shield is not consulted. */
   readonly noRegenerate?: boolean;
   /**

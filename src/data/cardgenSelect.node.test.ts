@@ -1900,6 +1900,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
   ['Gulping Scraptrap', 'a compound head (this creature enters OR dies) outside the closed reader'],
   ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
+  // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
+  ['Agonasaur Rex', 'trigger head not in the library (when you cycle this card)'],
+  ['Blistercoil Weird', 'a two-clause payload under the cast head (a self pump, then the same creature untapped) - the head arm takes one pump'],
+  ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

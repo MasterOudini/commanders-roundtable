@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ROSA_RESOLUTE_WHITE_MAGE_SCRIPT } from './cards/rosaResoluteWhiteMage';
+import { SEEDCRADLE_WITCH_SCRIPT } from './cards/seedcradleWitch';
+import { SPIDER_MAN_PETER_PARKER_SCRIPT } from './cards/spiderManPeterParker';
+import { GUAC_MARSHMALLOW_PIZZA_SCRIPT } from './cards/guacMarshmallowPizza';
 import { BLOATED_CONTAMINATOR_SCRIPT } from './cards/bloatedContaminator';
 import { ATRAXA_PRAETORS_VOICE_SCRIPT } from './cards/atraxaPraetorsVoice';
 import { BLIGHTBELLY_RAT_SCRIPT } from './cards/blightbellyRat';
@@ -3761,7 +3765,6 @@ import { VEIL_OF_ASSIMILATION_SCRIPT } from './cards/veilOfAssimilation';
 import { VENERABLE_MONK_SCRIPT } from './cards/venerableMonk';
 import { VERDANT_FORCE_SCRIPT } from './cards/verdantForce';
 import { VESSEL_OF_EPHEMERA_SCRIPT } from './cards/vesselOfEphemera';
-import { VETERANS_REFLEXES_SCRIPT } from './cards/veteransReflexes';
 import { UNDO_SCRIPT } from './cards/undo';
 import { UNIFIED_WILL_SCRIPT } from './cards/unifiedWill';
 import { UNION_OF_THE_THIRD_PATH_SCRIPT } from './cards/unionOfTheThirdPath';
@@ -4404,7 +4407,6 @@ import { ORC_SURESHOT_SCRIPT } from './cards/orcSureshot';
 import { ORCISH_BLOODPAINTER_SCRIPT } from './cards/orcishBloodpainter';
 import { ORCISH_MECHANICS_SCRIPT } from './cards/orcishMechanics';
 import { ORCISH_VANDAL_SCRIPT } from './cards/orcishVandal';
-import { ORNAMENTAL_COURAGE_SCRIPT } from './cards/ornamentalCourage';
 import { ORNERY_KUDU_SCRIPT } from './cards/orneryKudu';
 import { ORZHOV_CLUESTONE_SCRIPT } from './cards/orzhovCluestone';
 import { NO_WITNESSES_SCRIPT } from './cards/noWitnesses';
@@ -4560,7 +4562,6 @@ import { LANGUISH_SCRIPT } from './cards/languish';
 import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
 import { INSPIRATION_SCRIPT } from './cards/inspiration';
 import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
-import { INSPIRIT_SCRIPT } from './cards/inspirit';
 import { INUNDATE_SCRIPT } from './cards/inundate';
 import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
 import { INVINCIBLE_HYMN_SCRIPT } from './cards/invincibleHymn';
@@ -4653,7 +4654,6 @@ import { GATES_ABLAZE_SCRIPT } from './cards/gatesAblaze';
 import { GAZE_OF_ADAMARO_SCRIPT } from './cards/gazeOfAdamaro';
 import { GAZE_OF_GRANITE_SCRIPT } from './cards/gazeOfGranite';
 import { GEIST_OF_THE_ARCHIVES_SCRIPT } from './cards/geistOfTheArchives';
-import { GERRARDS_COMMAND_SCRIPT } from './cards/gerrardsCommand';
 import { GERRARDS_WISDOM_SCRIPT } from './cards/gerrardsWisdom';
 import { GHOULS_FEAST_SCRIPT } from './cards/ghoulsFeast';
 import { GIANTS_IRE_SCRIPT } from './cards/giantsIre';
@@ -5492,6 +5492,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ROSA_RESOLUTE_WHITE_MAGE_SCRIPT,
+  SEEDCRADLE_WITCH_SCRIPT,
+  SPIDER_MAN_PETER_PARKER_SCRIPT,
+  GUAC_MARSHMALLOW_PIZZA_SCRIPT,
   BLOATED_CONTAMINATOR_SCRIPT,
   ATRAXA_PRAETORS_VOICE_SCRIPT,
   BLIGHTBELLY_RAT_SCRIPT,
@@ -9246,7 +9250,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VENERABLE_MONK_SCRIPT,
   VERDANT_FORCE_SCRIPT,
   VESSEL_OF_EPHEMERA_SCRIPT,
-  VETERANS_REFLEXES_SCRIPT,
   UNDO_SCRIPT,
   UNIFIED_WILL_SCRIPT,
   UNION_OF_THE_THIRD_PATH_SCRIPT,
@@ -9888,7 +9891,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ORCISH_BLOODPAINTER_SCRIPT,
   ORCISH_MECHANICS_SCRIPT,
   ORCISH_VANDAL_SCRIPT,
-  ORNAMENTAL_COURAGE_SCRIPT,
   ORNERY_KUDU_SCRIPT,
   ORZHOV_CLUESTONE_SCRIPT,
   NO_WITNESSES_SCRIPT,
@@ -10044,7 +10046,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   LAQUATUSS_CREATIVITY_SCRIPT,
   INSPIRATION_SCRIPT,
   INSPIRED_ULTIMATUM_SCRIPT,
-  INSPIRIT_SCRIPT,
   INUNDATE_SCRIPT,
   INVIGORATING_FALLS_SCRIPT,
   INVINCIBLE_HYMN_SCRIPT,
@@ -10137,7 +10138,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   GAZE_OF_ADAMARO_SCRIPT,
   GAZE_OF_GRANITE_SCRIPT,
   GEIST_OF_THE_ARCHIVES_SCRIPT,
-  GERRARDS_COMMAND_SCRIPT,
   GERRARDS_WISDOM_SCRIPT,
   GHOULS_FEAST_SCRIPT,
   GIANTS_IRE_SCRIPT,
