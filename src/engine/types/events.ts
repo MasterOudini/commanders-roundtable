@@ -533,6 +533,11 @@ export type EventBody =
        * pumps and grants (power 0 / toughness 0), read by `canBlock`, cleared at cleanup.
        */
       readonly cantBlock?: true;
+      /**
+       * D399 - "can't be blocked this turn": the evasion with an END, read by `canBlock` for the
+       * ATTACKER (CR 509.1b's other side), riding the same event, cleared at cleanup.
+       */
+      readonly cantBeBlocked?: true;
       /** D395 - the animate family: base P/T (layer 7b), subtypes (layer 4) and colours (layer 5) until end of turn. */
       readonly basePt?: { readonly power: number; readonly toughness: number };
       readonly subtypes?: readonly string[];

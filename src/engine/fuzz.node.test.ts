@@ -144,6 +144,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // whose second sentence is the referent form, so the flag is set at gate size.
   { names: ['Mugging'], copiesPerSeat: 1,
     counterKeys: ['cantBlockSet'], rotHistory: 'D394' },
+  // D399 - the can't-be-blocked evasion (CR 509.1b's other side, with an END): a {U} instant every
+  // seat can aim at any creature, so the flag is set at gate size whether or not it then attacks.
+  { names: ['Infiltrate'], copiesPerSeat: 1,
+    counterKeys: ['cantBeBlockedSet'], rotHistory: 'D399' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
@@ -820,6 +824,8 @@ interface Run {
   readonly controlTaken: number;
   readonly controlReverted: number;
   readonly cantBlockSet: number;
+  /** D399 - until-end-of-turn entries carrying the can't-be-blocked evasion. */
+  readonly cantBeBlockedSet: number;
   readonly animations: number;
   readonly fights: number;
   readonly bites: number;
@@ -1109,6 +1115,7 @@ function runOne(seed: number): Run {
     controlTaken: game.log.filter((e) => e.body.t === 'ControlChangedUntilEndOfTurn').length,
     controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
     cantBlockSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBlock === true).length,
+    cantBeBlockedSet: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.cantBeBlocked === true).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
     bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
@@ -1260,6 +1267,7 @@ const TOTAL_KEYS = [
   'controlTaken',
   'controlReverted',
   'cantBlockSet',
+  'cantBeBlockedSet',
   'animations',
   'fights',
   'bites',
@@ -1513,6 +1521,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.controlReverted).toBeGreaterThan(0);
         // D394 - a can't-block restriction set at least once at gate size.
         expect(totals.cantBlockSet).toBeGreaterThan(0);
+        // D399 - one Infiltrate a seat, the evasion set at gate size.
+        expect(totals.cantBeBlockedSet).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1586,6 +1596,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.proliferateAsks} proliferate asks / ${totals.proliferations} answered with something · ` +
           `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
           `${totals.cantBlockSet} can't-block restrictions set · ` +
+          `${totals.cantBeBlockedSet} can't-be-blocked evasions set · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

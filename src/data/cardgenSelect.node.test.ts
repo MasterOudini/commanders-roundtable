@@ -1945,6 +1945,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spike Weaver', 'a combat-damage prevention shield with no target (prevent all combat damage this turn) the suite cannot prove without an attack'],
   ['Swarm Shambler', 'a becomes-the-target head filtered by a +1/+1 counter on the targeted creature - outside the head library'],
 
+  // D399 - the temporary unblockable grant: the six the selector offered after the seam that the
+  // row maker refused, by reason (none of them the grant itself).
+  ['Merfolk Cave-Diver', 'an explores head (whenever a creature you control explores) outside the head library - the engine has no explore'],
+  ['Escape Tunnel', 'a search payload that puts the found land onto the battlefield tapped - the row maker reads only a search to hand'],
+  ['Guild Thief', 'an ability-word activated line (Cunning Action) - the row maker refuses ability words on an activated line'],
+  ['Key to the City', 'a filtered head (whenever this artifact becomes untapped) outside the closed reader - untapped is not a head the library holds'],
+  ['Slip Through Space', 'a spell whose other line is Devoid (a colour-changing static) outside the vocabulary'],
+  ['Ghostly Pilferer', 'a trigger payload that is a may-pay-then-draw (pay {2}, if you do, draw a card) - the vocabulary reads neither the optional cost nor the conditional'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

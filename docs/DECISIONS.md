@@ -30330,3 +30330,155 @@ animation (1), the scoped can't-block forms and "must be blocked", the durations
 stamp (CR 400.7), the activation restrictions (313), the keyword entry replacements
 (22), copy (~200), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
+## D399 — THE TEMPORARY UNBLOCKABLE GRANT: `can't be blocked this turn` as a rider on the until-end-of-turn list, one combat rejection, the parser's four forms, and the self pump that carries the rider (2026-09-11)
+
+**8,683 of 31,692 Commander-legal cards now execute completely, up from 8,635
+(+48: 40 generated rows and eight cards the seam completes with no script —
+Infiltrate, Artful Dodge, Stealth Mission, Ghostform, Touch of Invisibility, Trailblazer, Enter the Enigma and Hearth Charm).** `SHIPPED_SCRIPTS` 5,594 →
+**5,634**; the REFUSED ledger 1,244 → **1,250** (six ADDED by reason — the cards the
+classifier offered and the row maker refused: Merfolk Cave-Diver's explores head, Escape
+Tunnel's search onto the battlefield, Guild Thief's ability-word activation, Key to the
+City's becomes-untapped head, Slip Through Space's Devoid, Ghostly Pilferer's
+may-pay-then-draw payload). Fixtures 6,179 → **6,222** (6,065 by name + 150 tokens: the
+three proof spells and the 40 rowed cards). `scriptableToday` 1,338 → **1,344** (the seam
+offered 46, the wave took 40, the six refused are ledgered); the select pool 0 → 46 → 0;
+the ladder `[1344, 1434, 2845, 4493, 5830]`. Bot reach 8,562 → **8,610** from 260
+commanders. Built end to end on Opus 5: the seam is D394's mirror (the can't-block
+restriction, one direction over), which is why it needed no new engine design.
+
+### The measurement chose it — the densest this-turn seam after D398
+
+The evasion family was priced by what would LAND (`zz-probe-evasion399`, the sentence stood
+OUT of the line, the rest of the card asked to parse — D343/D354's honest stand-in): **"can't
+be blocked this turn" 75 script-only cards, 6 complete, 92 blocked elsewhere**; beside it
+"can't block this turn" 41 script-only by the stand-in (OVERSTATED — the stand-in counts the
+scoped, counted and goad forms D394's reader refuses on purpose), "can't be blocked by
+creatures with power N or less" 8 + 1 complete, "can't attack" 3, "can't attack or block" 2 +
+1 complete, 42 already complete under the older readers, 56 unmatched. By subject: `Target
+creature` 24, `This creature` 20, `Target creature with power N or less` 12, `It` 8 (the
+referent form D392 reads), and **the rider — `gets +N/+N until end of turn and can't be
+blocked this turn` — 7 on the card itself and 3 on a target**. The D398 reportables
+(the end-step and combat heads with a condition, 53) are a generator-only wave and stay
+next in line.
+
+### The seam — one field, one rejection, four parse forms
+
+- **The grant rides the list the engine already clears** (`events.ts`, `state.ts`,
+  `reducer.ts`): `PtModifiedUntilEndOfTurn` carries an optional `cantBeBlocked: true`
+  beside its power, toughness and keywords, and the `untilEndOfTurn` entry keeps it; the
+  reducer spreads the field CONDITIONALLY, so an entry without the rider is shaped exactly
+  as D398 left it. Cleanup drops it with the pump (CR 514.2) — no second list, no second
+  clearing site, and the state hash already covers the list.
+- **One rejection** (`combat.ts`): `canBlock` answers `cantBeBlockedThisTurn` when the
+  attacker is on the list with the rider, AFTER the blocker's own can't-block check (D394)
+  and before the evasion keywords; the narration reads "X can't be blocked this turn."
+  The engine asks nobody to block when no legal block exists (D232/D234), so a lone
+  unblockable attacker draws no `declareBlockers` prompt at all — the second proof game
+  puts a second attacker beside it so the refusal itself is read.
+- **Four parse forms** (`effectParse.ts`, `EffectKind` += `cantBeBlocked`, SELF-AIMED, the
+  `cantBeBlocked` field REQUIRED on `EffectSpec` and false in the one constructor): `Target
+  creature can't be blocked this turn.` (the TARGET grammar carries the power predicate,
+  so `Target creature with power 2 or less` reads with no second rule), `This creature
+  can't be blocked this turn.` (self), and the two rider forms — a pump on the target or
+  on the card itself `until end of turn and can't be blocked this turn` — read as ONE
+  `pump` with the rider set, because the printed sentence is one event. The executor
+  spreads the rider onto the pump's event and emits a zero pump with the rider for the
+  bare grant. The scoped form (`Creatures you control can't be blocked this turn`) and the
+  predicate form (`can't be blocked by creatures with power 2 or less`) stay unread and
+  are pinned so.
+- **The row maker carries the rider on the self pump** (`make-rows99.cjs`, `SELF`): the
+  first row run refused six cards as "trigger payload not a pump" — every one the rider
+  form on a trigger (`~ gets +1/+0 until end of turn and can't be blocked this turn`).
+  The reader takes the rider as an optional group and the row carries a flag; the
+  generator's `pumpBody` spreads `cantBeBlocked: true` onto the event and the assert reads
+  the until-end-of-turn list (`gen-oneshot99.cjs`); the vocabulary arm asserts the bare
+  grant the same way (`gen99-vocab.cjs`). Widened at the ROW MAKER before the port, so the
+  port's first run was green.
+- `src/engine/cantBeBlocked.test.ts` (4): the four forms and the referent form
+  (Stealth Mission's `That creature`), the optional `Up to two target creatures`, the
+  predicate and scoped forms refused; Infiltrate on the Bears — the entry remembered, the
+  attack draws no block prompt, cleanup clears it, two turns later the block is offered
+  and accepted, the replay hash equal; two attackers — the block against the unblockable
+  Bears refused by name, the other Bears blocked and dead to the Dreadmaw.
+- **Fuzz**: Infiltrate is a staple (one a seat, D394's Mugging row one seam over) feeding
+  `cantBeBlockedSet` (every `PtModifiedUntilEndOfTurn` with the rider), floor > 0 at gate
+  size — **96 grants set over the gate's 500 seeds**. The staple's cast needs only
+  a creature on the battlefield and one blue, so the driver reaches it without combat
+  (D398's lesson: a canary's condition must be one the driver MEETS).
+
+### The wave — 46 offered, 40 rows, the six refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam — **46** in `batch.json` — landed
+BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **40 rows /
+49 abilities**: nine activated self grants (`{2}{U}: ~ can't be blocked this turn` and its
+kin — Agent of Horizons, Ashiok's Skulker, Blockade Runner, Frilled Sea Serpent, Frostpeak
+Yeti, Gearseeker Serpent, Trespassing Souleater, Spincrusher, Sure-Footed Infiltrator);
+eleven activated target grants with the power predicate (power 2 or less — Crafty
+Pathmage, Dwarven Nomad, Dwarven Warriors, Goblin Tunneler, Pathmaker Initiate, Ragged
+Playmate, Sneaking Guide, Soratami Mirror-Guard, Tawnos's Wand; power 3 or less — Access
+Tunnel; you control with power 2 or less — Underfoot Underdogs); eight activated target
+grants (Rogue's Passage, Amphin Pathmage, Coralhelm Guide, Passwall Adept, Suspicious
+Bookcase, Wormhole Serpent, Jhessian Balmgiver, Whirler Rogue); the RIDER on a triggered
+self pump ×7 (a noncreature cast — Elusive Spellfist, TVA Bureaucrat; a discard — Cunning
+Survivor; another creature entering — Glassdust Hulk; the second spell — Incursion
+Specialist; the second card — Otter-Penguin; a cast — Ant-Man, Reformed Rogue) and on an
+activated one (Vectis Agents); two enters triggers granting the predicate target
+(Spider-Man, Hometown Hero; Subterranean Scout), Gateway Sneak's creature-enters self grant
+and Bria, Riptide Rogue's noncreature-cast grant on a creature you control beside her
+prowess anthem; and the rows' other lines — three combat-damage draws (Gateway Sneak,
+Sure-Footed Infiltrator, Ant-Man), two enters tokens (Underfoot Underdogs, Whirler Rogue),
+Jhessian Balmgiver's prevention, Spincrusher's block counter. The line probe ran BEFORE the
+port (D395's rule); the port's first run **40 of 40 files, 97 tests, tsc clean** — the one
+generator change (the rider on `SELF`) was made at the row maker, before the port.
+
+Refused by reason (6, ledgered): Merfolk Cave-Diver (an explores head — the engine has no
+explore), Escape Tunnel (a search that puts the land onto the battlefield tapped — the row
+maker reads a search to hand), Guild Thief (an ability-word activated line, Cunning
+Action), Key to the City (a becomes-untapped head outside the closed reader), Slip Through
+Space (Devoid beside its grant), Ghostly Pilferer (a may-pay-then-draw trigger payload).
+
+### Traps
+
+- A RIDER ON A PAYLOAD THE ROW MAKER ALREADY READS IS A WIDENING, NOT A KIND: six
+  refusals "not a pump" on one wording name the reader; the `SELF` regex takes an
+  optional group, the row carries a flag, the emitter and the assert read the flag.
+- `parseEffects`'s third argument is `isInstantOrSorcery` and `false` returns `manual`
+  BEFORE a rule is tried: a parse test of a permanent's own line must pass `true`, or
+  the self form is refused for a reason that has nothing to do with the rule.
+- THE ENGINE ASKS NOBODY WHEN NO LEGAL BLOCK EXISTS (D232/D234): a lone unblockable
+  attacker draws no `declareBlockers` prompt, so a refusal is proven only with a second
+  attacker on the board.
+- AN OPTIONAL EVENT FIELD IS SPREAD CONDITIONALLY in the reducer, so every entry that
+  lacks it is shaped as before; a `cantBeBlocked: undefined` key on every pump is a
+  change with no reader.
+- The fixture by-name count is `T − K − 7` (the seven helper exports beside the cards).
+- A REQUIRED field on `EffectSpec` with ONE constructor (`BASE`) is the cheapest guard:
+  a rule that forgets it fails to compile, not to fire.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5798 files, 28291
+passed / 11 skipped · 500-seed gate, 6 shards, 1095.8 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D399): the scoped grant (`Creatures you control can't be blocked this
+turn` — the same list, a loop over the controller's creatures; unread on purpose until
+priced); the PREDICATE form (`can't be blocked by creatures with power 2 or less` — 8 + 1,
+a blocker-side predicate on the entry rather than a flag); the can't-block stand-in's
+overstatement (41 by the stand-in, the scoped, counted and goad forms among them — price
+the residue by production before building); `can't attack` (3) and `can't attack or
+block` (2 + 1); the six this wave refused (an explores head, a search onto the battlefield
+tapped, an ability-word activation, a becomes-untapped head, Devoid, a may-pay-then-draw
+payload); then D398's list unchanged — ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate
+decision), the end-step and combat-step heads with a this-turn condition (53 — the next
+generator-only wave), `attacked with N or more` at N ≥ 2, `selfEntered` under a head, the
+payload-level "If …" sentences, the nth-resolution memory (16), the 172 AMOUNT forms, the
+four D398 refused, the restriction's exotic purposes (14), the chooser price beside a
+restriction, the "any combination" amounts, the pool UI tagging a bucket, the search
+payload as an ACTIVATED effect and the two-name search, Plaza of Heroes' exile-self cost,
+the twenty-two older fight and bite suites, "fights another target creature", token copies
+(15), the untap skip (15), the delayed action (12), the permanent animation (1), the scoped
+can't-block forms and "must be blocked", the durations proper (23 / 33 / 14), the permanent
+control family (20) and exchange control (24), the object stamp (CR 400.7), the activation
+restrictions (313), the keyword entry replacements (22), copy (~200), the prompt
+CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
+THE FUZZ DRIVER NEVER BLOCKS.

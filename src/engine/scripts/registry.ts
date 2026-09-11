@@ -7,6 +7,46 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ROGUES_PASSAGE_SCRIPT } from './cards/roguesPassage';
+import { ACCESS_TUNNEL_SCRIPT } from './cards/accessTunnel';
+import { AGENT_OF_HORIZONS_SCRIPT } from './cards/agentOfHorizons';
+import { AMPHIN_PATHMAGE_SCRIPT } from './cards/amphinPathmage';
+import { ASHIOKS_SKULKER_SCRIPT } from './cards/ashioksSkulker';
+import { BLOCKADE_RUNNER_SCRIPT } from './cards/blockadeRunner';
+import { CORALHELM_GUIDE_SCRIPT } from './cards/coralhelmGuide';
+import { CRAFTY_PATHMAGE_SCRIPT } from './cards/craftyPathmage';
+import { CUNNING_SURVIVOR_SCRIPT } from './cards/cunningSurvivor';
+import { DWARVEN_NOMAD_SCRIPT } from './cards/dwarvenNomad';
+import { DWARVEN_WARRIORS_SCRIPT } from './cards/dwarvenWarriors';
+import { ELUSIVE_SPELLFIST_SCRIPT } from './cards/elusiveSpellfist';
+import { FRILLED_SEA_SERPENT_SCRIPT } from './cards/frilledSeaSerpent';
+import { FROSTPEAK_YETI_SCRIPT } from './cards/frostpeakYeti';
+import { GEARSEEKER_SERPENT_SCRIPT } from './cards/gearseekerSerpent';
+import { GLASSDUST_HULK_SCRIPT } from './cards/glassdustHulk';
+import { GOBLIN_TUNNELER_SCRIPT } from './cards/goblinTunneler';
+import { INCURSION_SPECIALIST_SCRIPT } from './cards/incursionSpecialist';
+import { OTTER_PENGUIN_SCRIPT } from './cards/otterPenguin';
+import { PASSWALL_ADEPT_SCRIPT } from './cards/passwallAdept';
+import { PATHMAKER_INITIATE_SCRIPT } from './cards/pathmakerInitiate';
+import { RAGGED_PLAYMATE_SCRIPT } from './cards/raggedPlaymate';
+import { SNEAKING_GUIDE_SCRIPT } from './cards/sneakingGuide';
+import { SORATAMI_MIRROR_GUARD_SCRIPT } from './cards/soratamiMirrorGuard';
+import { SPIDER_MAN_HOMETOWN_HERO_SCRIPT } from './cards/spiderManHometownHero';
+import { SUBTERRANEAN_SCOUT_SCRIPT } from './cards/subterraneanScout';
+import { SUSPICIOUS_BOOKCASE_SCRIPT } from './cards/suspiciousBookcase';
+import { TAWNOSS_WAND_SCRIPT } from './cards/tawnossWand';
+import { TRESPASSING_SOULEATER_SCRIPT } from './cards/trespassingSouleater';
+import { TVA_BUREAUCRAT_SCRIPT } from './cards/tvaBureaucrat';
+import { VECTIS_AGENTS_SCRIPT } from './cards/vectisAgents';
+import { WORMHOLE_SERPENT_SCRIPT } from './cards/wormholeSerpent';
+import { BRIA_RIPTIDE_ROGUE_SCRIPT } from './cards/briaRiptideRogue';
+import { GATEWAY_SNEAK_SCRIPT } from './cards/gatewaySneak';
+import { JHESSIAN_BALMGIVER_SCRIPT } from './cards/jhessianBalmgiver';
+import { SPINCRUSHER_SCRIPT } from './cards/spincrusher';
+import { SURE_FOOTED_INFILTRATOR_SCRIPT } from './cards/sureFootedInfiltrator';
+import { UNDERFOOT_UNDERDOGS_SCRIPT } from './cards/underfootUnderdogs';
+import { WHIRLER_ROGUE_SCRIPT } from './cards/whirlerRogue';
+import { ANT_MAN_REFORMED_ROGUE_SCRIPT } from './cards/antManReformedRogue';
 import { CRUEL_ADMINISTRATOR_SCRIPT } from './cards/cruelAdministrator';
 import { AIRDROP_AERONAUTS_SCRIPT } from './cards/airdropAeronauts';
 import { BAT_WHISPERER_SCRIPT } from './cards/batWhisperer';
@@ -5620,6 +5660,46 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ROGUES_PASSAGE_SCRIPT,
+  ACCESS_TUNNEL_SCRIPT,
+  AGENT_OF_HORIZONS_SCRIPT,
+  AMPHIN_PATHMAGE_SCRIPT,
+  ASHIOKS_SKULKER_SCRIPT,
+  BLOCKADE_RUNNER_SCRIPT,
+  CORALHELM_GUIDE_SCRIPT,
+  CRAFTY_PATHMAGE_SCRIPT,
+  CUNNING_SURVIVOR_SCRIPT,
+  DWARVEN_NOMAD_SCRIPT,
+  DWARVEN_WARRIORS_SCRIPT,
+  ELUSIVE_SPELLFIST_SCRIPT,
+  FRILLED_SEA_SERPENT_SCRIPT,
+  FROSTPEAK_YETI_SCRIPT,
+  GEARSEEKER_SERPENT_SCRIPT,
+  GLASSDUST_HULK_SCRIPT,
+  GOBLIN_TUNNELER_SCRIPT,
+  INCURSION_SPECIALIST_SCRIPT,
+  OTTER_PENGUIN_SCRIPT,
+  PASSWALL_ADEPT_SCRIPT,
+  PATHMAKER_INITIATE_SCRIPT,
+  RAGGED_PLAYMATE_SCRIPT,
+  SNEAKING_GUIDE_SCRIPT,
+  SORATAMI_MIRROR_GUARD_SCRIPT,
+  SPIDER_MAN_HOMETOWN_HERO_SCRIPT,
+  SUBTERRANEAN_SCOUT_SCRIPT,
+  SUSPICIOUS_BOOKCASE_SCRIPT,
+  TAWNOSS_WAND_SCRIPT,
+  TRESPASSING_SOULEATER_SCRIPT,
+  TVA_BUREAUCRAT_SCRIPT,
+  VECTIS_AGENTS_SCRIPT,
+  WORMHOLE_SERPENT_SCRIPT,
+  BRIA_RIPTIDE_ROGUE_SCRIPT,
+  GATEWAY_SNEAK_SCRIPT,
+  JHESSIAN_BALMGIVER_SCRIPT,
+  SPINCRUSHER_SCRIPT,
+  SURE_FOOTED_INFILTRATOR_SCRIPT,
+  UNDERFOOT_UNDERDOGS_SCRIPT,
+  WHIRLER_ROGUE_SCRIPT,
+  ANT_MAN_REFORMED_ROGUE_SCRIPT,
   CRUEL_ADMINISTRATOR_SCRIPT,
   AIRDROP_AERONAUTS_SCRIPT,
   BAT_WHISPERER_SCRIPT,

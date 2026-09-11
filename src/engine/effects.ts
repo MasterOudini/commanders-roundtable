@@ -301,6 +301,8 @@ export function effectResult(
           // D194 — the keyword rider. Spread-conditional so a plain pump
           // emits the exact pre-D194 event, hash-identical on replay.
           ...(effect.keywords.length > 0 ? { keywords: effect.keywords } : {}),
+          // D399 - the printed unblockable rider, on the same entry, spread-conditional too.
+          ...(effect.cantBeBlocked ? { cantBeBlocked: true as const } : {}),
         });
         break;
       }
@@ -507,6 +509,14 @@ export function effectResult(
 
       // D394 - "can't block this turn" (CR 509.1b with an END): an until-end-of-turn entry that
       // `canBlock` reads and cleanup clears, riding the same event as the pumps and the grants.
+      // D399 - "can't be blocked this turn": the same shape on the ATTACKER's side of the block.
+      case 'cantBeBlocked': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, cantBeBlocked: true });
+        break;
+      }
+
       case 'cantBlock': {
         if (aim?.kind !== 'card') break;
         if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;

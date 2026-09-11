@@ -203672,6 +203672,1428 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "INFILTRATE": {
+    "scryfallId": "c549b817-8ad6-44d0-9761-5e4ff9e62c71",
+    "oracleId": "081764b4-ef96-44aa-836c-05353efd215c",
+    "name": "Infiltrate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Infiltrate",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature can't be blocked this turn.",
+        "flavorText": "Getting in was the easy part. Getting out proved to be more difficult.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nelson DeCastro",
+        "imageId": "c549b817-8ad6-44d0-9761-5e4ff9e62c71"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARTFUL_DODGE": {
+    "scryfallId": "de6ce6aa-e19f-4299-9807-e68920e63c73",
+    "oracleId": "c174dcbb-03a0-439c-b3d8-ed61bd46dc67",
+    "name": "Artful Dodge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Artful Dodge",
+        "manaCost": "{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature can't be blocked this turn.\nFlashback {U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+        "flavorText": "Those who know the alleys and sewers of the Erdwal can disappear like smoke.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "de6ce6aa-e19f-4299-9807-e68920e63c73"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flashback"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEALTH_MISSION": {
+    "scryfallId": "7ddfd4f5-7fe1-4a22-9a85-bd9b75b16380",
+    "oracleId": "92419fbf-7a1b-428f-92d6-e9fd510dbfac",
+    "name": "Stealth Mission",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stealth Mission",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put two +1/+1 counters on target creature you control. That creature can't be blocked this turn.",
+        "flavorText": "\"What they don't know will definitely hurt them.\"\n—Lazav",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "7ddfd4f5-7fe1-4a22-9a85-bd9b75b16380"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROGUE_S_PASSAGE": {
+    "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
+    "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
+    "name": "Rogue's Passage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rogue's Passage",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christine Choi",
+        "imageId": "0749a9f8-934e-4376-8ace-69cae4cb619a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "273",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACCESS_TUNNEL": {
+    "scryfallId": "4bef5957-71a4-4fe0-b2ce-dff8e8690bd9",
+    "oracleId": "ed9cc560-f30b-4b60-a094-ccf93ed656a7",
+    "name": "Access Tunnel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Access Tunnel",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{3}, {T}: Target creature with power 3 or less can't be blocked this turn.",
+        "flavorText": "Oriq agents stick to the dark corners of Arcavios, unseen yet ever-present.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "4bef5957-71a4-4fe0-b2ce-dff8e8690bd9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdc",
+    "collectorNumber": "337",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_HORIZONS": {
+    "scryfallId": "cc08576f-1d48-4db4-9bb9-e039f75c98b8",
+    "oracleId": "668a6a9d-80fc-437b-99b8-6807e92eabca",
+    "name": "Agent of Horizons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of Horizons",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{2}{U}: This creature can't be blocked this turn.",
+        "flavorText": "The light in the woods just before dawn reveals a glimmering network of branches, roots, and spiderwebs. The acolytes of Kruphix walk this lattice unseen.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "cc08576f-1d48-4db4-9bb9-e039f75c98b8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMPHIN_PATHMAGE": {
+    "scryfallId": "e2b1115b-a025-4f27-843c-65f5544f805b",
+    "oracleId": "53e4273c-3292-47a0-90d1-8a0eb0eaf381",
+    "name": "Amphin Pathmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Amphin Pathmage",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Salamander Wizard",
+        "oracleText": "{2}{U}: Target creature can't be blocked this turn.",
+        "flavorText": "\"There are those who do not believe in the existence of the amphin. This seems somehow to be of their own design.\"\n—Gor Muldrak, *Cryptohistories*",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Winters",
+        "imageId": "e2b1115b-a025-4f27-843c-65f5544f805b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M15-45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHIOK_S_SKULKER": {
+    "scryfallId": "7dd5b0a1-104d-4e0f-82de-65487fbf01ff",
+    "oracleId": "ffaa2776-f61d-4eaa-8949-a0407f85214f",
+    "name": "Ashiok's Skulker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashiok's Skulker",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Nightmare",
+        "oracleText": "{3}{U}: This creature can't be blocked this turn.",
+        "flavorText": "\"Fear writhes and whispers in the shadows of your mind. It is the enemy you always knew would come.\"\n—Ashiok",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "7dd5b0a1-104d-4e0f-82de-65487fbf01ff"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOCKADE_RUNNER": {
+    "scryfallId": "59e483df-b58a-401e-85bc-0afda4bf7cac",
+    "oracleId": "f97df8f4-a7ef-45f9-9563-b76b4d2b03f5",
+    "name": "Blockade Runner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blockade Runner",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk",
+        "oracleText": "{U}: This creature can't be blocked this turn.",
+        "flavorText": "\"I need to get back to Mercadia City,\" said Sisay. \"We can get you there,\" the vizier answered. \"Easily.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "59e483df-b58a-401e-85bc-0afda4bf7cac"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORALHELM_GUIDE": {
+    "scryfallId": "0389a652-4ca8-45ab-ab3f-624c8f2626f7",
+    "oracleId": "979e670e-bbd8-4595-8d9d-ad1c0bc422e3",
+    "name": "Coralhelm Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coralhelm Guide",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Scout Ally",
+        "oracleText": "{4}{U}: Target creature can't be blocked this turn.",
+        "flavorText": "\"She knows every step of this coastline, both above and below the surface, and she has hideouts all along the way. She will get you there.\"\n—Jori En, expedition leader",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "0389a652-4ca8-45ab-ab3f-624c8f2626f7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bbd",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRAFTY_PATHMAGE": {
+    "scryfallId": "1e0ab433-35ab-4e7d-a78e-e4b11fee773d",
+    "oracleId": "c4020178-71d9-4363-a0bd-b9a7eecd5d02",
+    "name": "Crafty Pathmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crafty Pathmage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "Follow the pathmage\n—Otarian expression meaning \"escape quickly\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "1e0ab433-35ab-4e7d-a78e-e4b11fee773d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "71★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUNNING_SURVIVOR": {
+    "scryfallId": "2f9093e7-c129-4efa-9f25-a2366f92e15a",
+    "oracleId": "e6dfac7c-72ed-4db8-97b0-371ed9108b00",
+    "name": "Cunning Survivor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cunning Survivor",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever you cycle or discard a card, this creature gets +1/+0 until end of turn and can't be blocked this turn.",
+        "flavorText": "Initiates who had been through the Trial of Knowledge learned to see everything as pieces of a larger puzzle.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "2f9093e7-c129-4efa-9f25-a2366f92e15a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_NOMAD": {
+    "scryfallId": "30b09e65-5e69-48f8-be9b-a1e9706f18bf",
+    "oracleId": "db130ff4-7525-421f-b7e7-200921ecbdec",
+    "name": "Dwarven Nomad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Nomad",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dwarf Nomad",
+        "oracleText": "{T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "A dwarf's life belongs as much to the land as to the dwarf.\n—Creed of the Stonethrow Clan",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Kimble",
+        "imageId": "30b09e65-5e69-48f8-be9b-a1e9706f18bf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_WARRIORS": {
+    "scryfallId": "113d518a-2ce9-4747-9e6f-c6a464a78a49",
+    "oracleId": "cfc553cd-3b4c-47a9-bffb-e5790befb32c",
+    "name": "Dwarven Warriors",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Warriors",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "{T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "113d518a-2ce9-4747-9e6f-c6a464a78a49"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "2ed",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELUSIVE_SPELLFIST": {
+    "scryfallId": "aac94901-f4ec-4888-82ef-87fd2b20cf11",
+    "oracleId": "b9ba00f2-b11c-45d8-9c38-f9ade5d07d0f",
+    "name": "Elusive Spellfist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elusive Spellfist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Whenever you cast a noncreature spell, this creature gets +1/+0 until end of turn and can't be blocked this turn.",
+        "flavorText": "\"Learn to see an obstacle from a new perspective. Underneath, for example.\"\n—Chanyi, Ojutai monk",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "aac94901-f4ec-4888-82ef-87fd2b20cf11"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ima",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRILLED_SEA_SERPENT": {
+    "scryfallId": "0e82bd0d-647f-42bd-b6d2-9a5d2a7bcd2f",
+    "oracleId": "6dc534e8-e22b-4e3c-aa30-c6e4c84f698c",
+    "name": "Frilled Sea Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frilled Sea Serpent",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "{5}{U}{U}: This creature can't be blocked this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "0e82bd0d-647f-42bd-b6d2-9a5d2a7bcd2f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "anb",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROSTPEAK_YETI": {
+    "scryfallId": "328aade2-6196-48df-a19b-e61845c5d3a9",
+    "oracleId": "0363363b-a538-4cf6-ae6b-6b45cdabd99a",
+    "name": "Frostpeak Yeti",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frostpeak Yeti",
+        "manaCost": "{3}{U}",
+        "typeLine": "Snow Creature — Yeti",
+        "oracleText": "{1}{S}: This creature can't be blocked this turn. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": "Some heroes line their coats with yeti fur. More yetis line their bellies with heroes.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "328aade2-6196-48df-a19b-e61845c5d3a9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "301",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEARSEEKER_SERPENT": {
+    "scryfallId": "3dca0007-42d3-4ee2-8e88-361d80a7103c",
+    "oracleId": "fdbd8a95-1dc8-4df2-bab0-a93d1941a405",
+    "name": "Gearseeker Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gearseeker Serpent",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "Affinity for artifacts (This spell costs {1} less to cast for each artifact you control.)\n{5}{U}: This creature can't be blocked this turn.",
+        "flavorText": "The biggest collector of vehicles on Avishkar is also the largest.",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "J.P. Targete",
+        "imageId": "3dca0007-42d3-4ee2-8e88-361d80a7103c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Affinity"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLASSDUST_HULK": {
+    "scryfallId": "215a8c38-c968-4337-88b3-b0b03b249a4b",
+    "oracleId": "a1379c25-6daf-4efa-a517-6e6e25c31875",
+    "name": "Glassdust Hulk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glassdust Hulk",
+        "manaCost": "{3}{W}{U}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever another artifact you control enters, this creature gets +1/+1 until end of turn and can't be blocked this turn.\nCycling {W/U} ({W/U}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "215a8c38-c968-4337-88b3-b0b03b249a4b"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "2xm",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_TUNNELER": {
+    "scryfallId": "0b2e4a34-6255-4f89-a62d-941996c573e1",
+    "oracleId": "1005bc16-8a6a-476a-a647-4ed40d2e96de",
+    "name": "Goblin Tunneler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Tunneler",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "{T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"You never know what's going to be in goblin tunnels. Even in the best case, there will still be goblins.\"\n—Sachir, Akoum Expeditionary House",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "0b2e4a34-6255-4f89-a62d-941996c573e1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "roe",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INCURSION_SPECIALIST": {
+    "scryfallId": "290e56e0-e699-413a-9d6a-e740bf460b35",
+    "oracleId": "3c334eb3-e3fd-45b0-a36d-4681c9e72ac5",
+    "name": "Incursion Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Incursion Specialist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you cast your second spell each turn, this creature gets +2/+0 until end of turn and can't be blocked this turn.",
+        "flavorText": "\"Work for the Dimir again? That depends. Tell me more about this maze.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "290e56e0-e699-413a-9d6a-e740bf460b35"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OTTER_PENGUIN": {
+    "scryfallId": "480b6279-bb34-4b3f-a639-868b52af92b9",
+    "oracleId": "e2171c48-a816-41b2-aa55-e0ba2503fd6a",
+    "name": "Otter-Penguin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Otter-Penguin",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Otter Bird",
+        "oracleText": "Whenever you draw your second card each turn, this creature gets +1/+2 until end of turn and can't be blocked this turn.",
+        "flavorText": "\"Will you go penguin sledding with me?\"\n—Aang",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eilene Cherie",
+        "imageId": "480b6279-bb34-4b3f-a639-868b52af92b9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PASSWALL_ADEPT": {
+    "scryfallId": "422308b7-a163-447f-aabd-42944b4d4376",
+    "oracleId": "9a2bc266-4076-4923-b201-5898b18cbad9",
+    "name": "Passwall Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Passwall Adept",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{2}{U}: Target creature can't be blocked this turn.",
+        "flavorText": "\"My doors are called trespassing, my signatures, forgeries. They don't respect my talents, and I don't respect their labels.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Thacker",
+        "imageId": "422308b7-a163-447f-aabd-42944b4d4376"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATHMAKER_INITIATE": {
+    "scryfallId": "4535c643-7a2d-401b-8c2b-ac7fd6f594b8",
+    "oracleId": "c0247a19-9c8f-422c-88cf-9f298c3a8c96",
+    "name": "Pathmaker Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pathmaker Initiate",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "4535c643-7a2d-401b-8c2b-ac7fd6f594b8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAGGED_PLAYMATE": {
+    "scryfallId": "000499a4-3f39-4d25-a2a2-b2f014e30754",
+    "oracleId": "d0732ebf-91ad-4e3c-a09a-f410d20587fc",
+    "name": "Ragged Playmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ragged Playmate",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact Creature — Toy",
+        "oracleText": "{1}, {T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"You tried to throw me away, Henry. I don't like that at all.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kaitlyn McCulley",
+        "imageId": "000499a4-3f39-4d25-a2a2-b2f014e30754"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dsk",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNEAKING_GUIDE": {
+    "scryfallId": "569c9e8c-7808-49d0-82c1-72d5b835f51c",
+    "oracleId": "3eabd27c-bd65-479a-9743-e90e4273c016",
+    "name": "Sneaking Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sneaking Guide",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "{2}, {T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"I swear, it's a shortcut.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "569c9e8c-7808-49d0-82c1-72d5b835f51c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORATAMI_MIRROR_GUARD": {
+    "scryfallId": "3ff8968b-cd96-4f44-85f8-2af20d61d7cb",
+    "oracleId": "a3caf864-a9d4-4854-9fc3-408354ed1fe6",
+    "name": "Soratami Mirror-Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soratami Mirror-Guard",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Moonfolk Wizard",
+        "oracleText": "Flying\n{2}, Return a land you control to its owner's hand: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "3ff8968b-cd96-4f44-85f8-2af20d61d7cb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_MAN_HOMETOWN_HERO": {
+    "scryfallId": "76c448c7-58e3-480d-bbbb-7aa336fe7c9c",
+    "oracleId": "ef40224a-5b49-48b0-ad29-c6ce391548f5",
+    "name": "Spider-Man, Hometown Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Man, Hometown Hero",
+        "manaCost": "{4}{R}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nWhen Spider-Man enters, target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"Anyone who threatens NYC has to go through me.\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Thomas Chamberlain-Keen",
+        "imageId": "76c448c7-58e3-480d-bbbb-7aa336fe7c9c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "857",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBTERRANEAN_SCOUT": {
+    "scryfallId": "3c9289dd-f1a3-4be5-8ed1-4b4dd4e97743",
+    "oracleId": "19f66bfa-bdfc-430a-ae39-4535f0b28324",
+    "name": "Subterranean Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Subterranean Scout",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Scout",
+        "oracleText": "When this creature enters, target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "When things get ugly above ground, goblins resort to alternate routes of passage.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "3c9289dd-f1a3-4be5-8ed1-4b4dd4e97743"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUSPICIOUS_BOOKCASE": {
+    "scryfallId": "020dd1f9-1d8a-4099-b46e-8a98bf791fd3",
+    "oracleId": "ca611c90-7753-43dd-af91-81694d004eeb",
+    "name": "Suspicious Bookcase",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Suspicious Bookcase",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Wall",
+        "oracleText": "Defender\n{3}, {T}: Target creature can't be blocked this turn.",
+        "flavorText": "All the books were dusty with disuse, save the one titled *Camouflage and Its Practical Applications*.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "020dd1f9-1d8a-4099-b46e-8a98bf791fd3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "M19-246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAWNOS_S_WAND": {
+    "scryfallId": "0d34ad74-fe2c-4b17-be9a-cb63b60b7acb",
+    "oracleId": "2138533a-d33c-477a-9765-7369d1ec30b0",
+    "name": "Tawnos's Wand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tawnos's Wand",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Douglas Shuler",
+        "imageId": "0d34ad74-fe2c-4b17-be9a-cb63b60b7acb"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rin",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRESPASSING_SOULEATER": {
+    "scryfallId": "b5263269-9f64-43de-9e82-408644dbc628",
+    "oracleId": "4d19b4d1-49d1-44e9-a453-dcb08b5fa6e4",
+    "name": "Trespassing Souleater",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trespassing Souleater",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Phyrexian Construct",
+        "oracleText": "{U/P}: This creature can't be blocked this turn. ({U/P} can be paid with either {U} or 2 life.)",
+        "flavorText": "\"We thank the souleaters for surveilling our lives that we may be preserved from our own ignorance.\"\n—Drones' hymn of gratitude",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Scott Chou",
+        "imageId": "b5263269-9f64-43de-9e82-408644dbc628"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TVA_BUREAUCRAT": {
+    "scryfallId": "62da11c2-e37d-46e9-b225-ba864b7f2c11",
+    "oracleId": "e9638ad1-4e1d-4721-91f5-8cf13d0d0d0d",
+    "name": "TVA Bureaucrat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "TVA Bureaucrat",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "Whenever you cast a noncreature spell, this creature gets +1/+0 until end of turn and can't be blocked this turn.",
+        "flavorText": "\"Time is chaos. We supply order.\"\n—Mobius M. Mobius",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nino Is",
+        "imageId": "62da11c2-e37d-46e9-b225-ba864b7f2c11"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "761",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VECTIS_AGENTS": {
+    "scryfallId": "1e5ac1be-43e4-4535-8633-730f306c0d00",
+    "oracleId": "fd9bb758-a763-46bf-9e56-4be26e271741",
+    "name": "Vectis Agents",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vectis Agents",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Artifact Creature — Human Rogue",
+        "oracleText": "{U}{B}: This creature gets -2/-0 until end of turn and can't be blocked this turn.",
+        "flavorText": "With their life energy suppressed under their etherium enhancements, thieves from Esper found it surprisingly easy to explore the ruins of Grixis.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Chippy",
+        "imageId": "1e5ac1be-43e4-4535-8633-730f306c0d00"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WORMHOLE_SERPENT": {
+    "scryfallId": "2d0fd73f-e161-4e42-b4f9-9246a9dba785",
+    "oracleId": "6eb21aca-116e-427b-9e75-8adaee0cc62a",
+    "name": "Wormhole Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wormhole Serpent",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "{3}{U}: Target creature can't be blocked this turn.",
+        "flavorText": "After drownings, devourings, and one highly unpleasant algae infestation, unsupervised portal use on campus was banned.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "2d0fd73f-e161-4e42-b4f9-9246a9dba785"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIA_RIPTIDE_ROGUE": {
+    "scryfallId": "390c96b3-68da-4a42-89ab-d9ccc79ce0dd",
+    "oracleId": "d627996b-cbcd-4162-bd13-9ab286de64d1",
+    "name": "Bria, Riptide Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bria, Riptide Rogue",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Legendary Creature — Otter Rogue",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nOther creatures you control have prowess. (If a creature has multiple instances of prowess, each triggers separately.)\nWhenever you cast a noncreature spell, target creature you control can't be blocked this turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "390c96b3-68da-4a42-89ab-d9ccc79ce0dd"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "379",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATEWAY_SNEAK": {
+    "scryfallId": "3834176f-29c5-4511-87d6-75d0c348a770",
+    "oracleId": "66c227f2-0e74-43e2-ab24-3866d15c5eef",
+    "name": "Gateway Sneak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gateway Sneak",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Vedalken Rogue",
+        "oracleText": "Whenever a Gate you control enters, this creature can't be blocked this turn.\nWhenever this creature deals combat damage to a player, draw a card.",
+        "flavorText": "\"I've been through every guildgate in this city, and no one sees me come or go.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "3834176f-29c5-4511-87d6-75d0c348a770"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "592",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JHESSIAN_BALMGIVER": {
+    "scryfallId": "5e638e38-15b9-4081-8340-985d4646e3d7",
+    "oracleId": "2be283da-6d5a-442b-bd07-d06c16cb1214",
+    "name": "Jhessian Balmgiver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jhessian Balmgiver",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{T}: Prevent the next 1 damage that would be dealt to any target this turn.\n{T}: Target creature can't be blocked this turn.",
+        "flavorText": "\"You have two choices: heed my advice now or need my healing later.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "5e638e38-15b9-4081-8340-985d4646e3d7"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINCRUSHER": {
+    "scryfallId": "b1269a34-cec6-4978-a109-592723cd80dc",
+    "oracleId": "1932a19a-0c2b-4d16-a2ba-34ed136d8e70",
+    "name": "Spincrusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spincrusher",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Whenever this creature blocks, put a +1/+1 counter on it.\nRemove a +1/+1 counter from this creature: This creature can't be blocked this turn.",
+        "flavorText": "It rolls with the punches.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "b1269a34-cec6-4978-a109-592723cd80dc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SURE_FOOTED_INFILTRATOR": {
+    "scryfallId": "0505053c-8a9c-43ed-b44a-b52c56ba4f77",
+    "oracleId": "e6108735-8370-4611-ad59-d7da7fd0323f",
+    "name": "Sure-Footed Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sure-Footed Infiltrator",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "Tap another untapped Rogue you control: This creature can't be blocked this turn.\nWhenever this creature deals combat damage to a player, draw a card.",
+        "flavorText": "\"I've yet to discover the ruin that can keep me out.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "0505053c-8a9c-43ed-b44a-b52c56ba4f77"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERFOOT_UNDERDOGS": {
+    "scryfallId": "049acc79-1d68-410f-a081-88a7d40e823a",
+    "oracleId": "3740b86d-b0e6-4837-b408-e7f62b95c787",
+    "name": "Underfoot Underdogs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Underfoot Underdogs",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "When this creature enters, create a 1/1 red Goblin creature token.\n{1}, {T}: Target creature you control with power 2 or less can't be blocked this turn.",
+        "flavorText": "They're just as renowned for their banter as they are for their tactical teamwork.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "049acc79-1d68-410f-a081-88a7d40e823a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHIRLER_ROGUE": {
+    "scryfallId": "0db2339c-c792-42fd-805b-dc942e7fd91a",
+    "oracleId": "7060f2c8-fca0-4b7a-bddf-37682f434596",
+    "name": "Whirler Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whirler Rogue",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Rogue Artificer",
+        "oracleText": "When this creature enters, create two 1/1 colorless Thopter artifact creature tokens with flying.\nTap two untapped artifacts you control: Target creature can't be blocked this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "0db2339c-c792-42fd-805b-dc942e7fd91a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "gnt",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANT_MAN_REFORMED_ROGUE": {
+    "scryfallId": "777bc602-3c8d-43a1-812f-2103dc26b635",
+    "oracleId": "c51c429d-d8d7-40d6-9760-72c26acaed42",
+    "name": "Ant-Man, Reformed Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ant-Man, Reformed Rogue",
+        "manaCost": "{2}{G/U}",
+        "typeLine": "Legendary Creature — Human Rogue Hero",
+        "oracleText": "Whenever you cast a green spell, Ant-Man gets +1/+0 and gains trample until end of turn.\nWhenever you cast a blue spell, Ant-Man gets -1/-0 until end of turn and can't be blocked this turn.\nWhenever Ant-Man deals combat damage to a player, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "777bc602-3c8d-43a1-812f-2103dc26b635"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "739",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

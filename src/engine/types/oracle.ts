@@ -531,6 +531,12 @@ export type EffectKind =
    */
   | 'cantBlock'
   /**
+   * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
+   * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
+   * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).
+   */
+  | 'cantBeBlocked'
+  /**
    * D395 - the ANIMATE family: "<this land | target land> becomes a N/N [colour] [Type] [artifact]
    * creature [with KW] until end of turn." - a base P/T at layer 7b, subtypes at layer 4, colours
    * at layer 5 and keywords at layer 6, all on the one until-end-of-turn entry. "It's still a
@@ -803,7 +809,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked']);
 
 export interface EffectSpec {
   readonly kind: EffectKind;
@@ -845,6 +851,12 @@ export interface EffectSpec {
   readonly search: SearchSpec | null;
   /** `payOptional` only: the price and the branches (D369). REQUIRED, `null` elsewhere (D355). */
   readonly pay: PaySpec | null;
+  /**
+   * D399 - `pump` only: the printed rider "... until end of turn and can't be blocked this turn"
+   * ("gets +1/+0 until end of turn and can't be blocked this turn") rides the same until-end-of-turn
+   * entry as the pump. REQUIRED (D355/D356's rule), `false` on every other kind.
+   */
+  readonly cantBeBlocked: boolean;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
   /**

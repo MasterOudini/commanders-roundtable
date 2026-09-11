@@ -152,7 +152,10 @@ export type BlockRejection =
   | 'restricted'
   // D394 - "can't block this turn": a one-shot restriction with an END, on the
   // until-end-of-turn list (CR 509.1b, CR 514.2).
-  | 'cantBlockThisTurn';
+  | 'cantBlockThisTurn'
+  // D399 - "can't be blocked this turn": the ATTACKER carries the evasion with an END, on the
+  // same list (CR 509.1b, CR 514.2).
+  | 'cantBeBlockedThisTurn';
 
 /**
  * Per-pair blocking legality. The whole Tier-2 evasion surface, in one place.
@@ -175,6 +178,9 @@ export function canBlock(
   if (b.tapped) return 'tapped';
   // D394 - "can't block this turn" (the vocabulary's `cantBlock`), until cleanup clears it.
   if (state.untilEndOfTurn.some((m) => m.card === blocker && m.cantBlock === true)) return 'cantBlockThisTurn';
+  // D399 - "can't be blocked this turn" (the vocabulary's `cantBeBlocked`) on the ATTACKER, until
+  // cleanup clears it. Asked before any keyword: no blocker of any kind may be declared.
+  if (state.untilEndOfTurn.some((m) => m.card === attacker && m.cantBeBlocked === true)) return 'cantBeBlockedThisTurn';
   const bc = d(deps, blocker);
   const ac = d(deps, attacker);
   if (!bc.isCreature) return 'notACreature';
@@ -319,6 +325,8 @@ function blockRejectionText(
       return `Something on the battlefield stops ${bn} blocking ${an}.`;
     case 'cantBlockThisTurn':
       return `${bn} can't block this turn.`;
+    case 'cantBeBlockedThisTurn':
+      return `${an} can't be blocked this turn.`;
   }
 }
 

@@ -209,6 +209,7 @@ const BASE: EffectFields = {
   atRandom: false,
   thenDraw: 0,
   pay: null,
+  cantBeBlocked: false,
   sacrifice: null,
 };
 
@@ -862,6 +863,30 @@ const RULES: readonly Rule[] = [
   // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
   // are a different reader and stay unread until they are measured.
   { kind: 'cantBlock', re: new RegExp(`^${TARGET} can't block this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D399 - "can't be blocked this turn": the EVASION with an end (CR 509.1b's other side), the same
+  // list, read by `canBlock` for the attacker. A target, the self (D373), and the pump-with-rider
+  // ("gets +N/+N until end of turn and can't be blocked this turn") on one entry. The scoped forms
+  // and "can't be blocked by <predicate> this turn" are different readers and stay unread.
+  { kind: 'cantBeBlocked', re: new RegExp(`^${TARGET} can't be blocked this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'cantBeBlocked', re: new RegExp(`^${SELF} can't be blocked this turn\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${TARGET} gets ([+-]${NUM})/([+-]${NUM}) until end of turn and can't be blocked this turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      return Number.isFinite(p) && Number.isFinite(t) ? { ...BASE, power: p, toughness: t, cantBeBlocked: true } : null;
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${SELF} gets ([+-]${NUM})/([+-]${NUM}) until end of turn and can't be blocked this turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      return Number.isFinite(p) && Number.isFinite(t) ? { ...BASE, power: p, toughness: t, cantBeBlocked: true, targetIndex: -1, self: true } : null;
+    },
+  },
   // D395 - the ANIMATE family: "<this land | target land> becomes a N/N [colour [and colour]] [Type
   // words] [artifact] creature [with KW [and KW]] [in addition to its other types] until end of
   // turn." - the duration fronted or trailing, exactly one of the two. The subject is the self or a

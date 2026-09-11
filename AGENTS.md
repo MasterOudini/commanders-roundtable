@@ -14934,6 +14934,82 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
       FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4if — THE TEMPORARY UNBLOCKABLE GRANT: `can't be blocked this turn`
+      as a rider on the until-end-of-turn list, one combat rejection, the parser's
+      four forms, and the self pump that carries the rider (2026-09-11):** **8,683
+      of 31,692 Commander-legal cards now execute completely, up from 8,635 (+48:
+      40 generated rows and eight cards the seam completes with no script).**
+      `SHIPPED_SCRIPTS` 5,594 → **5,634**; ledger 1,244 → **1,250** (six ADDED by
+      reason). Fixtures 6,179 → **6,222** (6,065 by name + 150 tokens: the three
+      proof spells and the 40 rowed cards). `scriptableToday` 1,338 → **1,344**
+      (the seam offered 46, the wave took 40, the six refused are ledgered); the
+      select pool 0 → 46 → 0; the ladder `[1344, 1434, 2845, 4493, 5830]`. Bot
+      reach 8,562 → **8,610** from 260 commanders. Decisions in **D399**; built
+      end to end on Opus 5 as D394's mirror.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the evasion family priced by what would
+      LAND (`zz-probe-evasion399`, the sentence stood OUT of the line): "can't be
+      blocked this turn" **75 script-only, 6 complete, 92 blocked elsewhere**;
+      "can't block this turn" 41 by the stand-in (OVERSTATED — the scoped, counted
+      and goad forms D394 refuses on purpose), the blocker-predicate form 8 + 1,
+      "can't attack" 3, "can't attack or block" 2 + 1. By subject: `Target
+      creature` 24, `This creature` 20, the power predicate 12, `It` 8, and the
+      RIDER (`gets +N/+N until end of turn and can't be blocked this turn`) 7 + 3.
+      ⚠️ **THE SEAM:** `PtModifiedUntilEndOfTurn` carries an optional
+      `cantBeBlocked: true` and the `untilEndOfTurn` entry keeps it, spread
+      CONDITIONALLY in the reducer (an entry without it is shaped as before) and
+      dropped at cleanup with the pump — no second list, no second clearing site,
+      the state hash already covers it. `canBlock` answers `cantBeBlockedThisTurn`
+      after the blocker's own can't-block check (D394); the engine asks nobody
+      when no legal block exists (D232/D234), so the refusal is proven with a
+      second attacker beside the unblockable one. `effectParse` reads four forms —
+      the target (the TARGET grammar carries `with power 2 or less`), the self, and
+      the two rider forms as ONE `pump` with the rider set; `EffectSpec.cantBeBlocked`
+      is REQUIRED and false in the one constructor, so a rule that forgets it fails
+      to compile. The scoped and the blocker-predicate forms stay unread, pinned.
+      The row maker's `SELF` takes the rider as an optional group (six refusals "not
+      a pump" on one wording were the tell), the generator's `pumpBody` spreads it
+      onto the event and the assert reads the list; widened at the ROW MAKER before
+      the port, so the port's first run was **40 of 40, 97 tests, tsc clean**.
+      **Landed:** 40 rows — nine activated self grants, eleven activated target
+      grants with the power predicate, eight activated target grants, the rider on
+      seven triggered self pumps and one activated, two enters triggers granting
+      the predicate target, Gateway Sneak's and Bria's grants, and the rows' other
+      lines (three combat-damage draws, two enters tokens, a prevention, a block
+      counter). Refused by reason (6): an explores head, a search onto the
+      battlefield tapped, an ability-word activation, a becomes-untapped head,
+      Devoid, a may-pay-then-draw payload.
+      **Fuzz:** Infiltrate a staple (one a seat, Mugging's row one seam over)
+      feeding `cantBeBlockedSet`, floor > 0 at gate size; its cast needs a creature
+      and one blue, which the driver reaches without combat (D398's lesson).
+      Fixtures 6,222 (6,065 by name + 150 tokens) · botPool artifact 487 /
+      creature 5,103 / enchantment 485 / instant 1,140 / land 598 / sorcery 870 —
+      auto 1,320 / assisted 1,989 · `oracleParse` `effect:auto` 5,751 · tier3
+      silentAfter 8,976 · the `counter` primitive 1,231 · `token` 951 · batch.json
+      46 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5798 files,
+      28291 passed / 11 skipped · 500-seed gate, 6 shards, 1095.8 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D399): the scoped grant (`Creatures you control can't be
+      blocked this turn`); the blocker-predicate form (8 + 1); the can't-block
+      stand-in's overstatement (price the residue by production); `can't attack`
+      (3) and `can't attack or block` (2 + 1); the six refused; then D398's list
+      unchanged — ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      end-step and combat-step heads with a this-turn condition (53 — the next
+      generator-only wave), `attacked with N or more` at N ≥ 2, `selfEntered`
+      under a head, the payload-level "If …" sentences, the nth-resolution memory
+      (16), the 172 AMOUNT forms, the four D398 refused, the restriction's exotic
+      purposes (14), the chooser price beside a restriction, the "any combination"
+      amounts, the pool UI tagging a bucket, the search payload as an ACTIVATED
+      effect and the two-name search, Plaza of Heroes' exile-self cost, the
+      twenty-two older fight and bite suites, "fights another target creature",
+      token copies (15), the untap skip (15), the delayed action (12), the
+      permanent animation (1), the scoped can't-block forms and "must be blocked",
+      the durations proper (23 / 33 / 14), the permanent control family (20) and
+      exchange control (24), the object stamp (CR 400.7), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200), the
+      prompt CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

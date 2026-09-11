@@ -1108,6 +1108,11 @@ export interface GameState {
      */
     readonly cantBlock?: true;
     /**
+     * D399 - "can't be blocked this turn": read by `canBlock` for the ATTACKER, cleared with the
+     * rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.
+     */
+    readonly cantBeBlocked?: true;
+    /**
      * D395 - the ANIMATE family ("This land becomes a 3/3 green Ape creature with trample until end
      * of turn."): the base P/T set at layer 7b (CR 613.4b), the subtypes gained at layer 4 beside
      * `types`, and the colours set at layer 5 - each optional so every earlier entry and its

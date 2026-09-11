@@ -56,6 +56,8 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
   'reanimate',
   'controllerLosesLife',
   'controllerDraws',
+  // D399 - aimed at the attacker-to-be; the self form is in SELF_AIMED.
+  'cantBeBlocked',
 ]);
 
 /**

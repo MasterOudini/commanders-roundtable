@@ -1156,6 +1156,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             ...(body.types !== undefined ? { types: body.types } : {}),
             // D394 - the can't-block restriction rides the same entry, spread-conditional too.
             ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),
+            // D399 - the can't-be-blocked evasion rides the same entry, spread-conditional too.
+            ...(body.cantBeBlocked !== undefined ? { cantBeBlocked: body.cantBeBlocked } : {}),
             // D395 - the animate family's three fields, spread-conditional too.
             ...(body.basePt !== undefined ? { basePt: body.basePt } : {}),
             ...(body.subtypes !== undefined ? { subtypes: body.subtypes } : {}),
