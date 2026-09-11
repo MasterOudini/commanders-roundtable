@@ -143,12 +143,18 @@ const ABILITY_WORD_PREFIX = /^[A-Z][a-z]+(?: \d+)? — /;
 const ETB_IF = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${TURN_COND}, `, 'i');
 const ENTERS_WITH_IF = new RegExp(`^((?:This creature|~|[A-Z][^,]*?) enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it) if ${TURN_COND}\\.$`, 'i');
 const BLOODTHIRST_LINE = /^Bloodthirst (\d+)$/;
+// D400 - the same intervening if under the REFIRE heads the row maker fires twice by walking the
+// turns (the end step, each end step, the beginning of combat on your turn, this creature
+// attacking): the condition is stood out and the bare line asked, as under an enters head.
+const STEP_IF = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?(?:At the beginning of your end step|At the beginning of (?:the|each) end step|At the beginning of combat on your turn|Whenever (?:this creature|~) attacks)), if ${TURN_COND}, `, 'i');
 const COUNT_WORD: Readonly<Record<number, string>> = { 1: 'a', 2: 'two', 3: 'three', 4: 'four', 5: 'five' };
 export function withoutTurnCondition(text: string): string {
   const bt = BLOODTHIRST_LINE.exec(text);
   if (bt) return `This creature enters with ${COUNT_WORD[Number(bt[1])] ?? bt[1]} +1/+1 counter${bt[1] === '1' ? '' : 's'} on it.`;
   const etb = ETB_IF.exec(text);
   if (etb) return (etb[1] + ', ' + text.slice(etb[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  const st = STEP_IF.exec(text);
+  if (st) return (st[1] + ', ' + text.slice(st[0].length)).replace(ABILITY_WORD_PREFIX, '');
   const ew = ENTERS_WITH_IF.exec(text);
   if (ew) return (ew[1] + '.').replace(ABILITY_WORD_PREFIX, '');
   return text;

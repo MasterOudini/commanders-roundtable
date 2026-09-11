@@ -15010,6 +15010,84 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prompt CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4ig — THE INTERVENING IF UNDER THE REFIRE HEADS: D398's condition
+      reader under the end step, each end step, the beginning of combat and the
+      self attack, proven by walking the turns (2026-09-11):** **8,713 of 31,692
+      Commander-legal cards now execute completely, up from 8,683 (+30, every one
+      a generated row).** `SHIPPED_SCRIPTS` 5,634 → **5,664**; ledger 1,250 →
+      **1,255** (five ADDED by reason). Fixtures 6,222 → **6,252** (6,095 by name +
+      150 tokens: the 30 rowed cards). `scriptableToday` 1,344 → **1,350** (the
+      widening offered 35, the wave took 30, the five refused are ledgered); the
+      select pool 0 → 35 → 0; the ladder `[1350, 1440, 2852, 4490, 5812]`. Bot
+      reach 8,610 → **8,640** from 265 commanders. Decisions in **D400**; no engine
+      change — the classifier, the row maker and the generator, on Opus 5.
+      ⚠️ **THE MEASUREMENT CHOSE IT AND PRICED FOUR ALTERNATIVES:** the condition
+      stood out under EVERY trigger head (`zz-probe-heads400`): **38 script-only,
+      84 blocked elsewhere** — your end step 23, each end step 9, combat 3; died
+      8, descended 6, left 5. Set aside as long tails by the honest count: the
+      `as long as` statics (19 script-only, 826 base-blocked, 201 conditions
+      refused across a tail), the `for each <X>` family (1,246 lines, 508
+      one-piece, 75 in the count vocabulary over thirty bases), the search
+      residue (282 one-piece over exotic shapes), the payment family (387 cards,
+      325 shapes, the dense trigger form HEAD-blocked).
+      ⚠️ **THE SEAM:** `STEP_IF` in the classifier peels the condition under the
+      four REFIRE heads exactly as `ETB_IF` does under an enters head (Skyswarm
+      added to the ability words, mirrored in the row maker); the row maker's peel
+      takes the refire heads, tells the stager which turn the fire plays on
+      (`fireTurn: 7`) and admits `REFIRE_HEADS` at the refusal; `you may pay {M}.
+      If you do, …` is the PAYMENT PROMPT's own sentence and stays whole (the
+      optional peel had been handing the vocabulary `Pay {2}. If you do, …`,
+      refused as "not a pump"). The generator's `refireLines(a, T)` fires a step
+      or self-attack head on turn T; the intervening-if arm for a refire row walks
+      to turn 5's main phase, takes the empty-record mark THERE, fires the head
+      (nothing from this card on the stack), walks to turn 7, plays the recipe,
+      and the body's fire on turn 7 is the met stage. The def is D398's.
+      ⚠️ **THE PORT'S FIRST RUN WAS 3 RED ON ONE MESSAGE** ("the trigger fired
+      with its condition unmet"): the mark was taken on turn 3 and the walk to
+      turn 5 passed turn 3's OWN end step, where the card's entry HAD met the
+      condition (a creature entered; a card left your graveyard, the arm
+      entering the card from the graveyard). The engine was right; the mark is
+      taken on turn 5's main phase now. Second port **30 of 30, 65 tests, tsc
+      clean**.
+      **Landed:** 30 rows — twenty-three under your end step (counters on itself,
+      tokens, draws, scries, a payment prompt, a targeted counter pair), six under
+      each end step, three under the beginning of combat (Celebration's
+      two-or-more-nonland-permanents, a scry after a cast). Refused by reason
+      (5): two tokens outside `TOKEN_TABLE`, the Horse and Skeleton scopes, a
+      paid branch creating a token.
+      No new canary: the reader, the record and the helpers are D398's, already
+      under the gate's floor. botPool creature 5,129 / enchantment 489 · tier3
+      silentAfter 9,006 · the `counter` primitive 1,221 · `token` 943 (tokenParse
+      943 / 981 / 238 / 216 / 202) · batch.json 35 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5828 files,
+      28416 passed / 11 skipped · 500-seed gate, 6 shards, 1011.1 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D400): the entry-turn fire with a PROMPT (none this
+      wave; the arm would need to answer it); `Whenever you attack` and the
+      each-combat head (1 + 1); `attacked with N or more` at N ≥ 2; the `as long
+      as` residue (201 refused conditions by a long tail); the `for each <X>`
+      family (the count vocabulary reads 75 of 508 one-piece; the self static
+      `gets +N/+N for each` is a `modify` that counts); the payment heads (a
+      colour-filtered cast head, 14 ledgered); the search residue (the Rebel
+      searchers' mana-value predicate, 13); the five refused; then D399's list
+      unchanged — the scoped grant, the blocker-predicate form (8 + 1), the
+      can't-block stand-in's overstatement, `can't attack` (3) and `can't attack
+      or block` (2 + 1), the six D399 refused, ⚠️⚠️ THE FUZZ DRIVER RARELY
+      ATTACKS (a gate decision), `selfEntered` under a head, the payload-level
+      "If …" sentences, the nth-resolution memory (16), the 172 AMOUNT forms, the
+      four D398 refused, the restriction's exotic purposes (14), the chooser
+      price beside a restriction, the "any combination" amounts, the pool UI
+      tagging a bucket, the search payload as an ACTIVATED effect and the
+      two-name search, Plaza of Heroes' exile-self cost, the twenty-two older
+      fight and bite suites, "fights another target creature", token copies
+      (15), the untap skip (15), the delayed action (12), the permanent animation
+      (1), the scoped can't-block forms and "must be blocked", the durations
+      proper (23 / 33 / 14), the permanent control family (20) and exchange
+      control (24), the object stamp (CR 400.7), the activation restrictions
+      (313), the keyword entry replacements (22), copy (~200), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

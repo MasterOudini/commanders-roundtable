@@ -30482,3 +30482,145 @@ control family (20) and exchange control (24), the object stamp (CR 400.7), the 
 restrictions (313), the keyword entry replacements (22), copy (~200), the prompt
 CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
 THE FUZZ DRIVER NEVER BLOCKS.
+
+## D400 — THE INTERVENING IF UNDER THE REFIRE HEADS: D398's condition reader under the end step, each end step, the beginning of combat and the self attack, proven by walking the turns — an empty-record fire on turn 5, the recipe and the fire on turn 7 (2026-09-11)
+
+**8,713 of 31,692 Commander-legal cards now execute completely, up from 8,683
+(+30, every one a generated row).** `SHIPPED_SCRIPTS` 5,634 → **5,664**; the REFUSED
+ledger 1,250 → **1,255** (five ADDED by reason — the cards the classifier offered and the
+row maker refused: Valkyrie Harbinger's and Canonized in Blood's tokens outside
+`TOKEN_TABLE`, Crested Sunmare's Horse scope, Liliana's Devotee's paid branch that creates
+a token, Corpses of the Lost's Skeleton scope). Fixtures 6,222 → **6,252** (6,095 by name +
+150 tokens: the 30 rowed cards). `scriptableToday` 1,344 → **1,350** (the widening offered
+35, the wave took 30, the five refused are ledgered); the select pool 0 → 35 → 0; the ladder
+`[1350, 1440, 2852, 4490, 5812]`. Bot reach 8,610 → **8,640** from 265 commanders. No
+engine change — the classifier, the row maker and the generator only, on Opus 5.
+
+### The measurement chose it — and priced four alternatives
+
+D398's reportable was "the end-step and combat-step heads with a this-turn condition (53)";
+measured honestly over the fresh leftover (`zz-probe-heads400`: the condition stood out under
+EVERY trigger head, the bare line asked of the classifier): **38 script-only cards, 84 blocked
+elsewhere** — by head, your end step 23, each end step 9, the beginning of combat on your turn
+3, each combat 1, you attack 1, this creature attacks 1; by condition, a creature died 8,
+descended 6, a permanent left 5, gained N or more life 4, two or more nonland permanents
+entered 4, gained life 3, a card left your graveyard 3, and singles. Four families were
+priced beside it and set aside, each a long tail by the honest count: the `as long as`
+statics (19 script-only; 826 base-blocked, and the row maker's own readers — the body
+vocabulary times `parseCond` — land 13 more, with 201 conditions refused across a tail
+headed by "enchanted permanent is a creature" 11, "monstrous" 6, "the city's blessing" 5);
+the `for each <X>` family (1,246 lines, 508 one-piece cards, of which the count vocabulary
+reads 75 over thirty bases — "opponent" 14, "basic land type" 12 and "creature in your
+party" 10 lead the phrases outside it); the search residue (282 one-piece cards over exotic
+shapes — the Rebel searchers' "with mana value N or less" 13 the densest); and the payment
+family (387 cards, 325 shapes; the dense trigger form `you may pay {M}. If you do, …` is
+HEAD-blocked — "Whenever a player casts a <colour> spell" holds 14 in the ledger).
+
+### The seam — three readers, one arm, no engine
+
+- **The classifier** (`STEP_IF`, `primitives.ts`): the same peel `withoutTurnCondition`
+  makes under an enters head, under the four REFIRE heads — `At the beginning of your end
+  step`, `At the beginning of (?:the|each) end step`, `At the beginning of combat on your
+  turn`, `Whenever (?:this creature|~) attacks` — an ability word before them read past
+  (Skyswarm added to `TRUE_ABILITY_WORD`, which the row maker mirrors). The offer went
+  0 → 35.
+- **The row maker** (`make-rows100.cjs`): the intervening-if peel takes the refire heads
+  beside the enters head, and the stage is told which turn the fire plays on
+  (`fireTurn: 7` under a refire head, 3 under an enters head — `gen100-cond.cjs` walks an
+  attack recipe to THAT turn's combat). The refusal "an intervening if on a head the suite
+  does not fire twice" admits `REFIRE_HEADS`. ⚠️ `you may pay {M}. If you do, …` is the
+  PAYMENT PROMPT's own sentence (D369) and stays whole — the optional peel had been
+  stripping its `you may` and handing the vocabulary `Pay {2}. If you do, …`, refused as
+  "not a pump" (Markov Purifier, Liliana's Devotee, and D399's Ghostly Pilferer before them).
+- **The generator** (`gen-oneshot100.cjs`): `refireLines(a, T)` fires a step or self-attack
+  head on turn T (the end step, the beginning of combat, a declaration with the card
+  itself), and the four cases call it with `fireTurn(a)`; the intervening-if arm for a
+  refire row walks to turn 5's main phase, takes the empty-record mark THERE, fires the
+  head (nothing from this card may reach the stack), walks to turn 7's main phase, plays the
+  recipe, and the body's fire on turn 7 is the met stage. The def is D398's: the condition in
+  `matches` and again at the top of `resolve` (CR 603.4).
+- No engine change and no new canary: the reader, the record and the `ifCondNOf` helpers
+  are D398's, already under the gate's floor.
+
+### The wave — 35 offered, 30 rows, the five refused ledgered by reason
+
+The pool is the classifier's OWN offer after the widening — **35** in `batch.json` — landed
+BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **30 rows /
+34 abilities**: under your end step — a counter on itself when a creature died (Bulette,
+Cackling Prowler), when you descended (Child of the Volcano, Deep Goblin Skulltaker), when a
+permanent left (Michelangelo, Game Master; Solemn Recruit) or when you lost life (Savage
+Gorger); a token when a permanent left (Hidden Stockpile, Lord Dregg, Insect Invader), when
+you descended (Enterprising Scallywag), when a creature entered (Gargoyle Flock — Skyswarm),
+when you gained life (Griffin Aerie) or when you attacked (Searslicer Goblin — Raid); a draw
+when a creature entered (Lady of Laughter — Celebration), died (Twinblade Assassins) or a
+card left your graveyard (Primary Research, beside its enters-head return); a scry when a
+permanent left (Insectoid Exterminator) or you descended (Ruin-Lurker Bat); the payment
+prompt when you gained life (Markov Purifier); two counters on a target when a creature died
+(Needletooth Pack); under each end step — a token when you gained life (Angelic Accord, Regal
+Bloodlord), when a creature died (Old Flitterfang) or a card left your graveyard (Relic
+Retriever), a draw when you gained life (The Gaffer), a counter on itself when a creature
+died (Vashta Nerada), a targeted destroy when a creature died (Reaper from the Abyss); under
+the beginning of combat — a counter or a targeted pump when two or more nonland permanents
+entered (Pests of Honor, Belligerent of the Ball — Celebration) and a scry when you cast a
+spell (H.E.R.B.I.E., Lovable Robot). The line probe ran BEFORE the port (D395's rule).
+
+⚠️ **THE PORT'S FIRST RUN WAS 3 RED, ALL ON ONE MESSAGE — "the trigger fired with its
+condition unmet"** (Gargoyle Flock, Primary Research, Relic Retriever). The arm took the
+empty-record mark on turn 3 and then walked to turn 5, and the walk passed turn 3's OWN end
+step — where the card's entry that turn HAD met the condition (a creature entered; a card
+left your graveyard, because the arm enters the card from the graveyard). The engine was
+right and the proof was wrong: the mark is taken on turn 5's main phase now, after the
+entry turn's step has passed. Second port **30 of 30, 65 tests, tsc clean**.
+
+Refused by reason (5, ledgered): Valkyrie Harbinger and Canonized in Blood (tokens outside
+`TOKEN_TABLE` — a 4/4 Angel with flying and vigilance, a 4/3 Vampire Demon), Crested Sunmare
+(a scoped static over Horses beside the head), Liliana's Devotee (a paid branch that creates
+a token — the suite asserts no token behind a pay prompt), Corpses of the Lost (a scoped
+anthem over Skeletons beside the head).
+
+### Traps
+
+- THE EMPTY-RECORD MARK IS TAKEN ON THE STAGE TURN, never before the walk: a step the
+  walk passes on the entry turn fires when the entry itself meets the condition, and
+  that fire is correct.
+- A `you may pay` PAYLOAD IS THE PAYMENT PROMPT'S SENTENCE: the optional peel strips
+  `you may` from every other payload and must leave this one whole.
+- AN ABILITY WORD THE ROW MAKER DOES NOT LIST refuses the head as "not in the library"
+  while the classifier's generic prefix offers the card (Skyswarm): the two lists are
+  one list, mirrored.
+- A CHAINED RE-PORT SCRIPT CARRIES A STALE GENERATOR NAME (`gen-oneshot98` survived two
+  derives, because the wholesale rename touches only the decision number): read the
+  script before the run, and write the names-before file the check expects.
+- A RECIPE THAT NAMES A TURN NUMBER IS A RECIPE FOR ONE ARM: the attack recipes said
+  `turnNumber === 3`; the stager takes the fire turn from its caller now.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5828 files, 28416
+passed / 11 skipped · 500-seed gate, 6 shards, 1011.1 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D400): the entry-turn fire with a PROMPT (a condition the card's own
+entry meets fires at the entry turn's step; a payload that asks there would stall the walk
+— none this wave, and the arm would need to answer it); `Whenever you attack` and the
+each-combat head (1 + 1); `attacked with N or more creatures` at N ≥ 2; the `as long as`
+residue (201 conditions refused by a long tail — enchanted permanent is a creature 11,
+monstrous 6, the city's blessing 5, stickers 5); the `for each <X>` family (the count
+vocabulary reads 75 of 508 one-piece — "opponent", "basic land type" (domain) and "creature
+in your party" lead the phrases outside it; the self static `gets +N/+N for each` is a
+`modify` that counts, no engine change); the payment heads ("Whenever a player casts a
+<colour> spell" — 14 ledgered — a colour-filtered cast head); the search residue (the Rebel
+searchers' mana-value predicate, 13); the five refused (two tokens outside `TOKEN_TABLE`,
+the Horse and Skeleton scopes, a paid branch creating a token); then D399's list unchanged —
+the scoped grant, the blocker-predicate form (8 + 1), the can't-block stand-in's
+overstatement, `can't attack` (3) and `can't attack or block` (2 + 1), the six D399 refused,
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), `selfEntered` under a head, the
+payload-level "If …" sentences, the nth-resolution memory (16), the 172 AMOUNT forms, the
+four D398 refused, the restriction's exotic purposes (14), the chooser price beside a
+restriction, the "any combination" amounts, the pool UI tagging a bucket, the search payload
+as an ACTIVATED effect and the two-name search, Plaza of Heroes' exile-self cost, the
+twenty-two older fight and bite suites, "fights another target creature", token copies
+(15), the untap skip (15), the delayed action (12), the permanent animation (1), the scoped
+can't-block forms and "must be blocked", the durations proper (23 / 33 / 14), the permanent
+control family (20) and exchange control (24), the object stamp (CR 400.7), the activation
+restrictions (313), the keyword entry replacements (22), copy (~200), the prompt
+CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
+THE FUZZ DRIVER NEVER BLOCKS.

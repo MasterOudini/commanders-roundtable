@@ -1954,6 +1954,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Slip Through Space', 'a spell whose other line is Devoid (a colour-changing static) outside the vocabulary'],
   ['Ghostly Pilferer', 'a trigger payload that is a may-pay-then-draw (pay {2}, if you do, draw a card) - the vocabulary reads neither the optional cost nor the conditional'],
 
+  // D400 - the intervening if under the refire heads: the five the selector offered after the
+  // classifier widening that the row maker refused, by reason (none of them the condition itself).
+  ['Valkyrie Harbinger', 'a token outside TOKEN_TABLE (a 4/4 white Angel with flying and vigilance) under the conditioned end-step head'],
+  ['Canonized in Blood', 'a token outside TOKEN_TABLE (a 4/3 white and black Vampire Demon with flying) under the conditioned end-step head'],
+  ['Crested Sunmare', 'a scoped static over Horses (other Horses you control have indestructible) beside the conditioned end-step head - Horse is outside the scope list'],
+  ["Liliana's Devotee", 'a payment prompt whose paid branch creates a token (the suite asserts no token payload behind a pay prompt) under the conditioned end-step head'],
+  ['Corpses of the Lost', 'a scoped anthem over Skeletons (Skeletons you control get +1/+0 and have haste) beside the conditioned end-step head - Skeleton is outside the scope list'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

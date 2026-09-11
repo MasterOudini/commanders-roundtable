@@ -6747,6 +6747,38 @@ const WANTED = [
   'Whirler Rogue',
   'Ant-Man, Reformed Rogue',
   // D399 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D400 - the intervening if under the refire heads (the end step, each end step, combat on your turn, this creature attacking): the wave the widened classifier offered, fired on turn 7 after an empty-record stage on turn 5.
+  'Angelic Accord',
+  'Belligerent of the Ball',
+  'Bulette',
+  'Cackling Prowler',
+  'Child of the Volcano',
+  'Deep Goblin Skulltaker',
+  'Enterprising Scallywag',
+  'Gargoyle Flock',
+  'Griffin Aerie',
+  'H.E.R.B.I.E., Lovable Robot',
+  'Insectoid Exterminator',
+  'Lady of Laughter',
+  'Markov Purifier',
+  'Michelangelo, Game Master',
+  'Needletooth Pack',
+  'Pests of Honor',
+  'Reaper from the Abyss',
+  'Regal Bloodlord',
+  'Relic Retriever',
+  'Ruin-Lurker Bat',
+  'Savage Gorger',
+  'Searslicer Goblin',
+  'Solemn Recruit',
+  'The Gaffer',
+  'Twinblade Assassins',
+  'Vashta Nerada',
+  'Hidden Stockpile',
+  'Lord Dregg, Insect Invader',
+  'Old Flitterfang',
+  'Primary Research',
+  // D400 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

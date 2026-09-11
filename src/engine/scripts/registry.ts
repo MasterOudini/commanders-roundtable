@@ -7,6 +7,36 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ANGELIC_ACCORD_SCRIPT } from './cards/angelicAccord';
+import { BELLIGERENT_OF_THE_BALL_SCRIPT } from './cards/belligerentOfTheBall';
+import { BULETTE_SCRIPT } from './cards/bulette';
+import { CACKLING_PROWLER_SCRIPT } from './cards/cacklingProwler';
+import { CHILD_OF_THE_VOLCANO_SCRIPT } from './cards/childOfTheVolcano';
+import { DEEP_GOBLIN_SKULLTAKER_SCRIPT } from './cards/deepGoblinSkulltaker';
+import { ENTERPRISING_SCALLYWAG_SCRIPT } from './cards/enterprisingScallywag';
+import { GARGOYLE_FLOCK_SCRIPT } from './cards/gargoyleFlock';
+import { GRIFFIN_AERIE_SCRIPT } from './cards/griffinAerie';
+import { H_ERBIELOVABLE_ROBOT_SCRIPT } from './cards/hERBIELovableRobot';
+import { INSECTOID_EXTERMINATOR_SCRIPT } from './cards/insectoidExterminator';
+import { LADY_OF_LAUGHTER_SCRIPT } from './cards/ladyOfLaughter';
+import { MARKOV_PURIFIER_SCRIPT } from './cards/markovPurifier';
+import { MICHELANGELO_GAME_MASTER_SCRIPT } from './cards/michelangeloGameMaster';
+import { NEEDLETOOTH_PACK_SCRIPT } from './cards/needletoothPack';
+import { PESTS_OF_HONOR_SCRIPT } from './cards/pestsOfHonor';
+import { REAPER_FROM_THE_ABYSS_SCRIPT } from './cards/reaperFromTheAbyss';
+import { REGAL_BLOODLORD_SCRIPT } from './cards/regalBloodlord';
+import { RELIC_RETRIEVER_SCRIPT } from './cards/relicRetriever';
+import { RUIN_LURKER_BAT_SCRIPT } from './cards/ruinLurkerBat';
+import { SAVAGE_GORGER_SCRIPT } from './cards/savageGorger';
+import { SEARSLICER_GOBLIN_SCRIPT } from './cards/searslicerGoblin';
+import { SOLEMN_RECRUIT_SCRIPT } from './cards/solemnRecruit';
+import { THE_GAFFER_SCRIPT } from './cards/theGaffer';
+import { TWINBLADE_ASSASSINS_SCRIPT } from './cards/twinbladeAssassins';
+import { VASHTA_NERADA_SCRIPT } from './cards/vashtaNerada';
+import { HIDDEN_STOCKPILE_SCRIPT } from './cards/hiddenStockpile';
+import { LORD_DREGG_INSECT_INVADER_SCRIPT } from './cards/lordDreggInsectInvader';
+import { OLD_FLITTERFANG_SCRIPT } from './cards/oldFlitterfang';
+import { PRIMARY_RESEARCH_SCRIPT } from './cards/primaryResearch';
 import { ROGUES_PASSAGE_SCRIPT } from './cards/roguesPassage';
 import { ACCESS_TUNNEL_SCRIPT } from './cards/accessTunnel';
 import { AGENT_OF_HORIZONS_SCRIPT } from './cards/agentOfHorizons';
@@ -5660,6 +5690,36 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANGELIC_ACCORD_SCRIPT,
+  BELLIGERENT_OF_THE_BALL_SCRIPT,
+  BULETTE_SCRIPT,
+  CACKLING_PROWLER_SCRIPT,
+  CHILD_OF_THE_VOLCANO_SCRIPT,
+  DEEP_GOBLIN_SKULLTAKER_SCRIPT,
+  ENTERPRISING_SCALLYWAG_SCRIPT,
+  GARGOYLE_FLOCK_SCRIPT,
+  GRIFFIN_AERIE_SCRIPT,
+  H_ERBIELOVABLE_ROBOT_SCRIPT,
+  INSECTOID_EXTERMINATOR_SCRIPT,
+  LADY_OF_LAUGHTER_SCRIPT,
+  MARKOV_PURIFIER_SCRIPT,
+  MICHELANGELO_GAME_MASTER_SCRIPT,
+  NEEDLETOOTH_PACK_SCRIPT,
+  PESTS_OF_HONOR_SCRIPT,
+  REAPER_FROM_THE_ABYSS_SCRIPT,
+  REGAL_BLOODLORD_SCRIPT,
+  RELIC_RETRIEVER_SCRIPT,
+  RUIN_LURKER_BAT_SCRIPT,
+  SAVAGE_GORGER_SCRIPT,
+  SEARSLICER_GOBLIN_SCRIPT,
+  SOLEMN_RECRUIT_SCRIPT,
+  THE_GAFFER_SCRIPT,
+  TWINBLADE_ASSASSINS_SCRIPT,
+  VASHTA_NERADA_SCRIPT,
+  HIDDEN_STOCKPILE_SCRIPT,
+  LORD_DREGG_INSECT_INVADER_SCRIPT,
+  OLD_FLITTERFANG_SCRIPT,
+  PRIMARY_RESEARCH_SCRIPT,
   ROGUES_PASSAGE_SCRIPT,
   ACCESS_TUNNEL_SCRIPT,
   AGENT_OF_HORIZONS_SCRIPT,

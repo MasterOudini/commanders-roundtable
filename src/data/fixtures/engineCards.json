@@ -205094,6 +205094,1067 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ANGELIC_ACCORD": {
+    "scryfallId": "03f26bc2-53d7-4448-8021-de35aa82fcc6",
+    "oracleId": "aa95501f-bb59-494a-bcae-b74ca10ad57e",
+    "name": "Angelic Accord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angelic Accord",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of each end step, if you gained 4 or more life this turn, create a 4/4 white Angel creature token with flying.",
+        "flavorText": "As demons are drawn to suffering, angels are drawn to acts of benevolence.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "03f26bc2-53d7-4448-8021-de35aa82fcc6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m14",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BELLIGERENT_OF_THE_BALL": {
+    "scryfallId": "6658398a-46a5-4f41-9b1b-4a47f2822cf8",
+    "oracleId": "2be2f6c8-d8df-4e5c-a0c1-7566183bbe81",
+    "name": "Belligerent of the Ball",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Belligerent of the Ball",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Celebration — At the beginning of combat on your turn, if two or more nonland permanents entered the battlefield under your control this turn, target creature you control gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pascal Quidault",
+        "imageId": "6658398a-46a5-4f41-9b1b-4a47f2822cf8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BULETTE": {
+    "scryfallId": "206a9e7b-45c1-4213-8fc4-27d90e2ab0e9",
+    "oracleId": "4e690b82-9877-41f2-9dcd-cffdb6e3cd64",
+    "name": "Bulette",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bulette",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "At the beginning of your end step, if a creature died this turn, put a +1/+1 counter on this creature.",
+        "flavorText": "Capable of moving swiftly through even tightly-packed earth and leaping surprising distances above ground, bulettes are difficult to escape once they've caught scent of prey.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "206a9e7b-45c1-4213-8fc4-27d90e2ab0e9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CACKLING_PROWLER": {
+    "scryfallId": "1bd8e971-c075-4203-8d83-c28f22d4f9b9",
+    "oracleId": "898da62e-d29a-4ddc-be69-2ddec54614f5",
+    "name": "Cackling Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cackling Prowler",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Hyena Rogue",
+        "oracleText": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nMorbid — At the beginning of your end step, if a creature died this turn, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "1bd8e971-c075-4203-8d83-c28f22d4f9b9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ward",
+      "Morbid"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILD_OF_THE_VOLCANO": {
+    "scryfallId": "e964f026-9cbf-4fa2-acdc-60d19b88f183",
+    "oracleId": "701c8624-70d8-49df-84b1-d7b2a8e83552",
+    "name": "Child of the Volcano",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Child of the Volcano",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample\nAt the beginning of your end step, if you descended this turn, put a +1/+1 counter on this creature. (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": "It is a living eruption, unquenchable fury given form.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Uriah Voth",
+        "imageId": "e964f026-9cbf-4fa2-acdc-60d19b88f183"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEP_GOBLIN_SKULLTAKER": {
+    "scryfallId": "0b24bb7c-6b34-48b6-af94-f312ebdbb759",
+    "oracleId": "b7f56bbb-961a-4641-9446-7292ef188b1d",
+    "name": "Deep Goblin Skulltaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deep Goblin Skulltaker",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Menace\nAt the beginning of your end step, if you descended this turn, put a +1/+1 counter on this creature. (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": "\"Go away! I found it first!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "0b24bb7c-6b34-48b6-af94-f312ebdbb759"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENTERPRISING_SCALLYWAG": {
+    "scryfallId": "44420f52-2ed8-4f81-93e4-5decc77bed01",
+    "oracleId": "97607bf5-ca7b-4b1b-963e-390faf6e413e",
+    "name": "Enterprising Scallywag",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enterprising Scallywag",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "At the beginning of your end step, if you descended this turn, create a Treasure token. (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": "\"He would've wanted me to have it!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Denman Rooke",
+        "imageId": "44420f52-2ed8-4f81-93e4-5decc77bed01"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARGOYLE_FLOCK": {
+    "scryfallId": "0b8c7302-a5ae-484e-8ba5-397ffeb3b19c",
+    "oracleId": "6d24fc3e-eaa9-4ac8-b271-7dc83b812acf",
+    "name": "Gargoyle Flock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gargoyle Flock",
+        "manaCost": "{2}{G}{U}",
+        "typeLine": "Creature — Tyranid Gargoyle",
+        "oracleText": "Flying\nSkyswarm — At the beginning of your end step, if a creature entered the battlefield under your control this turn, create a 1/1 blue Tyranid Gargoyle creature token with flying.",
+        "flavorText": "They dive screaming on defensive lines, sowing chaos before the main assault begins.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Nikola Matkovic",
+        "imageId": "0b8c7302-a5ae-484e-8ba5-397ffeb3b19c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Skyswarm",
+      "Flying"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIFFIN_AERIE": {
+    "scryfallId": "2a64a64f-55d2-41e2-aa33-31daba8344c8",
+    "oracleId": "7cab62dc-a256-4da8-a3ea-b3903ec37077",
+    "name": "Griffin Aerie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Griffin Aerie",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your end step, if you gained 3 or more life this turn, create a 2/2 white Griffin creature token with flying.",
+        "flavorText": "When griffins started nesting atop the northern tower, the castellan worried they'd be a nuisance. Instead, they took the entire castle under their protection.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "2a64a64f-55d2-41e2-aa33-31daba8344c8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M21-22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "H_E_R_B_I_E_LOVABLE_ROBOT": {
+    "scryfallId": "5e2f9f4c-dbdd-4da6-b08f-1f4d3fcb1328",
+    "oracleId": "064a2f4a-ff3f-4622-8727-24b22965416d",
+    "name": "H.E.R.B.I.E., Lovable Robot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "H.E.R.B.I.E., Lovable Robot",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact Creature — Robot Scout",
+        "oracleText": "Flying\nAt the beginning of combat on your turn, if you've cast a noncreature spell this turn, surveil 1.\n{T}: Add {C}.\n{1}, {T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nanna Marie Steffensen",
+        "imageId": "5e2f9f4c-dbdd-4da6-b08f-1f4d3fcb1328"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Surveil"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSECTOID_EXTERMINATOR": {
+    "scryfallId": "ff26f7ff-7f70-4204-9b48-de9e21dc89ec",
+    "oracleId": "3d081701-514b-4611-b5a1-239b8f335fb6",
+    "name": "Insectoid Exterminator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Insectoid Exterminator",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Insect Mutant",
+        "oracleText": "Flying\nDisappear — At the beginning of your end step, if a permanent left the battlefield under your control this turn, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "ff26f7ff-7f70-4204-9b48-de9e21dc89ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry",
+      "Flying",
+      "Disappear"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LADY_OF_LAUGHTER": {
+    "scryfallId": "10ba4b10-5667-414c-a692-166a19b7d748",
+    "oracleId": "356a85d9-2570-448c-a455-f4ce915a604f",
+    "name": "Lady of Laughter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lady of Laughter",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Faerie Noble",
+        "oracleText": "Flying\nCelebration — At the beginning of your end step, if two or more nonland permanents entered the battlefield under your control this turn, draw a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kai Carpenter",
+        "imageId": "10ba4b10-5667-414c-a692-166a19b7d748"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "370",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKOV_PURIFIER": {
+    "scryfallId": "334ed675-db3c-4ec1-929d-f1a15269dcfc",
+    "oracleId": "d28eac97-f38a-4d2a-aeae-e758bd3ecf4e",
+    "name": "Markov Purifier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Markov Purifier",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Lifelink\nAt the beginning of your end step, if you gained life this turn, you may pay {2}. If you do, draw a card.",
+        "flavorText": "The ceremonial \"incense\" was a concoction of Edgar's own design, a precise blend of blood from his favorite human lineages.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "G-host Lee",
+        "imageId": "334ed675-db3c-4ec1-929d-f1a15269dcfc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "508",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MICHELANGELO_GAME_MASTER": {
+    "scryfallId": "2e914c3d-2eed-48bf-af9a-a8998fd5111d",
+    "oracleId": "594c6b1f-ff0e-4122-8b29-852632a22a79",
+    "name": "Michelangelo, Game Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Michelangelo, Game Master",
+        "manaCost": "{2}{G}",
+        "typeLine": "Legendary Creature — Mutant Ninja Turtle",
+        "oracleText": "Disappear — At the beginning of your end step, if a permanent left the battlefield under your control this turn, put a +1/+1 counter on Michelangelo.",
+        "flavorText": "\"A teacher must be ready to accept responsibility for the student, especially when the student is a weirdo.\"\n—Splinter",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eilene Cherie",
+        "imageId": "2e914c3d-2eed-48bf-af9a-a8998fd5111d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Disappear"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEEDLETOOTH_PACK": {
+    "scryfallId": "993c1679-e02b-44f2-b34e-12fd6b5142e9",
+    "oracleId": "ac68fe30-a4a5-45f6-8782-fed57718c42e",
+    "name": "Needletooth Pack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Needletooth Pack",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Morbid — At the beginning of your end step, if a creature died this turn, put two +1/+1 counters on target creature you control.",
+        "flavorText": "\"Nature's greatest predators sometimes come in small packages. A lot of small packages.\"\n—Vivien Reid",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Monztre",
+        "imageId": "993c1679-e02b-44f2-b34e-12fd6b5142e9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morbid"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PESTS_OF_HONOR": {
+    "scryfallId": "5671c2a0-51e8-4d5e-8409-87abd6c0a8ab",
+    "oracleId": "c2a4066a-f911-4622-beb2-683e7e10822f",
+    "name": "Pests of Honor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pests of Honor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Mouse",
+        "oracleText": "Celebration — At the beginning of combat on your turn, if two or more nonland permanents entered the battlefield under your control this turn, put a +1/+1 counter on this creature.",
+        "flavorText": "They dash—then dine.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "5671c2a0-51e8-4d5e-8409-87abd6c0a8ab"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Celebration"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REAPER_FROM_THE_ABYSS": {
+    "scryfallId": "0831a574-33c5-4ab2-b7f6-17db2829df51",
+    "oracleId": "d3a50d73-3a1f-43aa-ab97-c6c0031bb734",
+    "name": "Reaper from the Abyss",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reaper from the Abyss",
+        "manaCost": "{3}{B}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nMorbid — At the beginning of each end step, if a creature died this turn, destroy target non-Demon creature.",
+        "flavorText": "\"Avacyn has deserted you. I welcome your devotion in her stead.\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "0831a574-33c5-4ab2-b7f6-17db2829df51"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Morbid"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REGAL_BLOODLORD": {
+    "scryfallId": "65a75d3a-58cb-4ee0-88d3-52099cb57ac3",
+    "oracleId": "ce9d3382-23ca-4d35-ad30-5e2b75517012",
+    "name": "Regal Bloodlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Regal Bloodlord",
+        "manaCost": "{3}{W}{B}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "Flying\nAt the beginning of each end step, if you gained life this turn, create a 1/1 black Bat creature token with flying.",
+        "flavorText": "Those of esteemed birth earn a most esteemed death.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "65a75d3a-58cb-4ee0-88d3-52099cb57ac3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RELIC_RETRIEVER": {
+    "scryfallId": "2866da1d-62e9-4a0d-9e6c-793d2d38c884",
+    "oracleId": "689c41e9-800a-4998-bb04-74bf90141035",
+    "name": "Relic Retriever",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relic Retriever",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Spirit Monkey",
+        "oracleText": "First strike\nAt the beginning of each end step, if a card left your graveyard this turn, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "Students working in the field for the first time learn the benefits of small, agile spirit statues over large, strong ones.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aldo Domínguez",
+        "imageId": "2866da1d-62e9-4a0d-9e6c-793d2d38c884"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "First strike",
+      "Treasure"
+    ],
+    "setCode": "soc",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUIN_LURKER_BAT": {
+    "scryfallId": "d6bedf13-c2bc-4e5d-aba3-3c0d5495a9bb",
+    "oracleId": "e6f379ad-96b1-46c3-bbc6-a8cb57156a7f",
+    "name": "Ruin-Lurker Bat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruin-Lurker Bat",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Flying, lifelink\nAt the beginning of your end step, if you descended this turn, scry 1. (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": "\"Look! Aclazotz sends his children to watch over our pilgrimage.\"\n—Clavileño, First of the Blessed",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "d6bedf13-c2bc-4e5d-aba3-3c0d5495a9bb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry",
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVAGE_GORGER": {
+    "scryfallId": "2300b415-e791-4dca-8ebd-0b26871300b9",
+    "oracleId": "307d20fd-a9c9-4da9-b990-26c653054640",
+    "name": "Savage Gorger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savage Gorger",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nAt the beginning of your end step, if an opponent lost life this turn, put a +1/+1 counter on this creature. (Damage causes loss of life.)",
+        "flavorText": "\"I have no patience for sipping blood from crystal goblets. I want to bite and tear.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "2300b415-e791-4dca-8ebd-0b26871300b9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "M20-291",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEARSLICER_GOBLIN": {
+    "scryfallId": "0523f8d8-4324-4e1d-9a88-4fd871e93bb8",
+    "oracleId": "86ec0b56-497f-481c-a03a-c4e64e8e7404",
+    "name": "Searslicer Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Searslicer Goblin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Raid — At the beginning of your end step, if you attacked this turn, create a 1/1 red Goblin creature token.",
+        "flavorText": "Among the akki, promotions are regularly earned through important criteria like \"having the biggest weapon.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Arif Wijaya",
+        "imageId": "0523f8d8-4324-4e1d-9a88-4fd871e93bb8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "394",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLEMN_RECRUIT": {
+    "scryfallId": "4b93ee66-bc1d-42ad-8839-d77ab5992f14",
+    "oracleId": "cf747d6e-05ae-484d-9e72-1d0fb71fd4ff",
+    "name": "Solemn Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Solemn Recruit",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "Double strike\nRevolt — At the beginning of your end step, if a permanent left the battlefield under your control this turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"I can no longer sit in my workshop and ignore the events outside. My hammers strike for the people of Ghirapur.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "4b93ee66-bc1d-42ad-8839-d77ab5992f14"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Revolt",
+      "Double strike"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "708",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_GAFFER": {
+    "scryfallId": "4b4db080-dc29-40ca-a8ff-a7c8d5f87853",
+    "oracleId": "a177295e-3b58-4e46-a1cb-fc003a7a0848",
+    "name": "The Gaffer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Gaffer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Halfling Peasant",
+        "oracleText": "At the beginning of each end step, if you gained 3 or more life this turn, draw a card.",
+        "flavorText": "\"'Live and learn!' as my gaffer used to say. Though he was thinking of gardening, not of roosting like a bird, nor of trying to walk like a spider.\"\n—Sam",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chuck Lukacs",
+        "imageId": "4b4db080-dc29-40ca-a8ff-a7c8d5f87853"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "hoc",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWINBLADE_ASSASSINS": {
+    "scryfallId": "5d387b19-a0a7-45c0-b1e9-71ca55fb4adc",
+    "oracleId": "66093486-c9c3-42c5-97d1-ec0fe54f65b0",
+    "name": "Twinblade Assassins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twinblade Assassins",
+        "manaCost": "{3}{B}{G}",
+        "typeLine": "Creature — Elf Assassin",
+        "oracleText": "At the beginning of your end step, if a creature died this turn, draw a card.",
+        "flavorText": "Rumors swirl of a pair of deadly Golgari assassins known only as the Left and Right Hands of the Ochran.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Campbell White",
+        "imageId": "5d387b19-a0a7-45c0-b1e9-71ca55fb4adc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VASHTA_NERADA": {
+    "scryfallId": "8abacd86-9e99-4a9a-863c-260596201039",
+    "oracleId": "9ae26054-caf4-47a3-b4bb-3dc14a634740",
+    "name": "Vashta Nerada",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vashta Nerada",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Alien Horror",
+        "oracleText": "Indestructible\nShadow (This creature can block or be blocked by only creatures with shadow.)\nMorbid — At the beginning of each end step, if a creature died this turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"Hey, who turned out the lights?\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Fang Xinyu",
+        "imageId": "8abacd86-9e99-4a9a-863c-260596201039"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Shadow",
+      "Indestructible",
+      "Morbid"
+    ],
+    "setCode": "who",
+    "collectorNumber": "967",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIDDEN_STOCKPILE": {
+    "scryfallId": "25cd9d58-d957-487b-ad7b-a47ffd21defb",
+    "oracleId": "f5ded323-75c8-471e-a516-238b9d6b06d3",
+    "name": "Hidden Stockpile",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hidden Stockpile",
+        "manaCost": "{W}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Revolt — At the beginning of your end step, if a permanent left the battlefield under your control this turn, create a 1/1 colorless Servo artifact creature token.\n{1}, Sacrifice a creature: Scry 1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "25cd9d58-d957-487b-ad7b-a47ffd21defb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Revolt",
+      "Scry"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AER-129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORD_DREGG_INSECT_INVADER": {
+    "scryfallId": "8d1a9c8a-d0b6-4d83-a168-8078de4b14c7",
+    "oracleId": "2db77e35-a54a-4e9c-8081-c97822515879",
+    "name": "Lord Dregg, Insect Invader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lord Dregg, Insect Invader",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Insect Warrior",
+        "oracleText": "Flying\nDisappear — At the beginning of your end step, if a permanent left the battlefield under your control this turn, create a 1/1 black Insect Warrior creature token with flying.\n{3}{G}, Sacrifice a token: Draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "8d1a9c8a-d0b6-4d83-a168-8078de4b14c7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Disappear"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OLD_FLITTERFANG": {
+    "scryfallId": "67c77d6f-de14-423c-bf55-0fb289171004",
+    "oracleId": "f95bdf0d-5bd1-4215-b143-0930973807ce",
+    "name": "Old Flitterfang",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Old Flitterfang",
+        "manaCost": "{4}{B}",
+        "typeLine": "Legendary Creature — Rat Faerie",
+        "oracleText": "Flying\nAt the beginning of each end step, if a creature died this turn, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\n{2}{B}, Sacrifice another creature or artifact: Old Flitterfang gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "67c77d6f-de14-423c-bf55-0fb289171004"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Food"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIMARY_RESEARCH": {
+    "scryfallId": "f6fdb814-45c6-4d14-afff-7f5bd1bd10a1",
+    "oracleId": "51af3da5-0970-436e-baa6-3171889a40e0",
+    "name": "Primary Research",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Primary Research",
+        "manaCost": "{4}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, return target nonland permanent card with mana value 3 or less from your graveyard to the battlefield.\nAt the beginning of your end step, if a card left your graveyard this turn, draw a card.",
+        "flavorText": "Witnessing something firsthand is somehow both the best and the worst way to learn.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "f6fdb814-45c6-4d14-afff-7f5bd1bd10a1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
