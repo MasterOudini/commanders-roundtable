@@ -14262,10 +14262,14 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       have** (`commanderLegal` for `commanderLegality` - dead since D347): Little Girl
       (Unhinged, `{HW}`, mv 0.5) and Dance of Panic were derived as look fixtures and
       `oracleParse`'s mana-value pin caught the first at the gate (red 1) - the guard
-      reads the database's own field now, both suites re-derived on legal cards.
+      reads the database's own field now, both suites re-derived on legal cards; ⚠️ **the
+      look-panel battery block SKIPPED and recorded a PASS** — the viewer unset (D145),
+      mana funded before priority (CR 500.4), `view().awaiting` lagging under a prompt
+      (D146); fixed in the follow-up, every error a failure.
       **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5570 files,
       27333 passed / 11 skipped · 500-seed gate, 6 shards, 1415.6 s wall ·
-      build clean · probe 124/124 · battery green with the six look-panel checks.**
+      build clean · probe 124/124 · battery 136/136 (the six look-panel checks — the
+      first run SKIPPED them and recorded a pass; the follow-up commit ran them for real).**
       ⚠️ **Reportables** (D389): the look's tail (the four heads, the refused
       nouns, the intervening-ifs, `take: 0` under a head, a filtered look that
       takes two); the prompt CONTINUATION seam (Liliana's Spoils, the each-player

@@ -4620,6 +4620,22 @@ async function sectionPrompts(js, send) {
       e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
       e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
       await wait(700);
+      // D145: startSolo leaves the viewer wherever the turn order starts, and a hidden hand
+      // reads card: null - every name below would be empty and the block would skip.
+      e.setViewer('p1');
+      await wait(300);
+      // Priority must be p1's before anything is funded: startSolo may seat p2 first, and mana
+      // added before a step boundary is gone at it (CR 500.4). p1 auto-passes until its own main
+      // phase (a land drop is its first meaningful action) - past its own draw step, so the copy
+      // staged on top below cannot be drawn away.
+      for (let i = 0; i < 80; i++) {
+        const v = e.view();
+        if (v.priority === 'p1' && !v.awaiting) break;
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(150);
+      }
+      out.priority = e.view().priority;
+      out.step = e.view().turn && e.view().turn.step;
       // Two Infusions in hand: one to cast, one staged on TOP so the reveal holds a match.
       const inHand = () => (e.view().zones['hand:p1'] || []).filter((k) => nameOf(e.view(), k) === 'Arcane Infusion');
       for (let attempt = 0; attempt < 8 && inHand().length < 2; attempt++) {
@@ -4643,7 +4659,7 @@ async function sectionPrompts(js, send) {
       out.panelCards = els().length;
       out.hint = (document.querySelector('[data-peek-hint]') || {}).textContent || '';
       out.submitText = (document.querySelector('[data-peek-pick-submit]') || {}).textContent || '';
-      if (out.panelCards === 0) { out.error = 'panel never opened'; return out; }
+      if (out.panelCards === 0) { out.error = 'panel never opened (cast ' + JSON.stringify(out.cast) + ', priority ' + out.priority + ', step ' + out.step + ')'; return out; }
       const v1 = e.view();
       const ids = els().map((el) => el.dataset.peekCard);
       const land = ids.find((k) => nameOf(v1, k) !== 'Arcane Infusion');
@@ -4652,11 +4668,12 @@ async function sectionPrompts(js, send) {
       // A land is not an instant or sorcery card: the click is refused and no badge appears.
       if (land) { els()[ids.indexOf(land)].querySelector('[data-peek-pick]').click(); await wait(200); }
       out.badgeAfterLand = document.querySelectorAll('[data-peek-pick="1"]').length;
-      out.awaitingAfterLand = (e.view().awaiting && e.view().awaiting.kind) || null;
+      // D146: the view LAGS while the game is stopped on a prompt - the DOM is the detection.
+      out.panelAfterLand = document.querySelectorAll('[data-peek-card]').length;
       // The spell is; then the button commits it.
       if (spell) { els()[ids.indexOf(spell)].querySelector('[data-peek-pick]').click(); await wait(200); }
       out.badgeAfterSpell = document.querySelectorAll('[data-peek-pick="1"]').length;
-      out.awaitingAfterSpell = (e.view().awaiting && e.view().awaiting.kind) || null;
+      out.panelAfterSpell = document.querySelectorAll('[data-peek-card]').length;
       out.submitTextAfter = (document.querySelector('[data-peek-pick-submit]') || {}).textContent || '';
       document.querySelector('[data-peek-pick-submit]').click();
       await wait(800);
@@ -4672,8 +4689,9 @@ async function sectionPrompts(js, send) {
     return out;
   })()`);
   if (look.error) {
-    const fatal = look.error === 'panel never opened';
-    check('the filtered look opens the panel and takes real clicks', !fatal, look.error);
+    // ⚠️ Every error here is a FAILURE: the deck is 30% Arcane Infusion and the draw is manual,
+    // so there is no honest skip - the first run recorded one as a pass (D128, D389).
+    check('the filtered look opens the panel and takes real clicks', false, look.error);
   } else {
     check('a filtered look reveals four and offers a commit button, not a last click',
       look.panelCards === 4 && /Keep none/.test(look.submitText || ''), `${look.panelCards} cards · button "${look.submitText}"`);
@@ -4681,13 +4699,13 @@ async function sectionPrompts(js, send) {
       /instant or sorcery card/.test(look.hint || '') && /Keeping nothing is legal/.test(look.hint || ''), String(look.hint).slice(0, 90));
     check('the reveal holds a land and a spell to tell apart', look.hasBoth === true, JSON.stringify({ hasBoth: look.hasBoth }));
     check('clicking a land the filter does not name is refused, and the prompt stays up',
-      look.badgeAfterLand === 0 && look.awaitingAfterLand === 'chooseFromZone', `badges ${look.badgeAfterLand}, awaiting=${look.awaitingAfterLand}`);
+      look.badgeAfterLand === 0 && look.panelAfterLand === 4, `badges ${look.badgeAfterLand}, panel still ${look.panelAfterLand}`);
     check('clicking the spell rings it and the button counts it',
-      look.badgeAfterSpell === 1 && look.awaitingAfterSpell === 'chooseFromZone' && /Keep 1/.test(look.submitTextAfter || ''),
-      `badges ${look.badgeAfterSpell}, button "${look.submitTextAfter}"`);
+      look.badgeAfterSpell === 1 && look.panelAfterSpell === 4 && /Keep 1/.test(look.submitTextAfter || ''),
+      `badges ${look.badgeAfterSpell}, panel still ${look.panelAfterSpell}, button "${look.submitTextAfter}"`);
     check('the commit answers the prompt, closes the panel, and the kept card is in hand',
-      look.panelAfter === 0 && look.awaitingAfter === null && look.keptInHand === true && look.handAfter === look.handBefore,
-      `${look.panelAfter} cards left, awaiting=${look.awaitingAfter}, kept=${look.keptInHand}, hand ${look.handBefore} -> ${look.handAfter}`);
+      look.panelAfter === 0 && look.keptInHand === true && look.handAfter === look.handBefore,
+      `${look.panelAfter} cards left, kept=${look.keptInHand}, hand ${look.handBefore} -> ${look.handAfter}`);
   }
 
   /**

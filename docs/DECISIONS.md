@@ -28840,10 +28840,18 @@ shape, keyed on the trigger too).
   Cadet, Valgavoth's Lair) - fixtures 5,954 -> 5,953. A sweep of every pinned name
   found two more: Gobland (D360, the same guard - reported) and Emrakul, the Aeons
   Torn (D356's deliberate boundary).
+- ⚠️ **A BATTERY BLOCK SETS THE VIEWER, WALKS PRIORITY TO ITS SEAT BEFORE FUNDING A
+  CAST, AND READS THE DOM WHILE A PROMPT IS UP** (D145, D146, CR 500.4). The look-panel
+  block SKIPPED in the close-out's run and recorded the skip as a PASS (D128, in the one
+  place D144 built to prevent it): the viewer sat on p2 so p1's hand read `card: null`;
+  mana funded before p1 held priority emptied at the step boundary; `view().awaiting`
+  read null under a live prompt. The follow-up commit ran the six checks for real -
+  battery 136/136 - and every error in the block is a failure now.
 
 **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5570 files, 27333
 passed / 11 skipped · 500-seed gate, 6 shards, 1415.6 s wall · build clean · probe
-124/124 · battery green with the six new look-panel checks.**
+124/124 · battery 136/136 — the six look-panel checks, which the FIRST run recorded as
+a skipped PASS and the follow-up commit ran for real.**
 
 ⚠️ **Reportables** (D389): the look's own tail — the four heads outside the library
 (the attacker COUNT and the commander head among them, D381's and D371's named
