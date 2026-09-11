@@ -14280,6 +14280,80 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       (D360's Goblin search fixture, derived through the same dead guard - Emrakul is
       D356's deliberate boundary); then D388's list unchanged.
 
+- [x] **M6.4hw — THE PLAYER QUEUE: a resolution that asks several players asks
+      them in APNAP order, one prompt at a time, and lands the batch once
+      (2026-09-11):** **8,347 of 31,692 Commander-legal cards now execute
+      completely, up from 8,311 (+36: EIGHT with no script at all, then 28
+      generated rows in two waves).** `SHIPPED_SCRIPTS` 5,417 → **5,445**; ledger
+      1,207 → **1,211** (four ADDED by reason). Fixtures 5,953 → **5,988**.
+      `scriptableToday` 1,302 → 1,332 by the SEAM and → **1,307** by the WAVE;
+      the select pool 0 → 29 → 5 → 0; the ladder `[1307, 1396, 2832, 4563,
+      5904]`. Bot reach 8,245 → **8,281** from 249 commanders. Decisions in
+      **D390**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** D389's brief priced the each-player and
+      each-opponent sacrifices and discards at 56 one-piece cards — the densest
+      candidate that is ONE seam rather than a subsystem, and the prompt
+      CONTINUATION gap D389 named on the spell side (Liliana's Spoils) met from
+      the other side: one question to EACH player, and the resolution cannot end
+      until the last has answered.
+      ⚠️ **THE SEAM:** CR 101.4 decides the order (`apnapPlayers` — the active
+      player first); `GameState.pendingAsks` remembers who is still owed a
+      question (logged `AsksQueued`, cleared `AsksResolved`, in the state hash);
+      a player with NO choice is never asked (CR 701.8a's shape, D137 — a forced
+      pick recorded as the queue is built); the prompt ships NO ids (`count`,
+      `filter`, `kind`, `label`, `player`, `rest`, `zone` — pinned); the host
+      reads the battlefield candidates off the DERIVED characteristics and
+      re-validates every pick by name; the last answer emits ONE `CardsMoved`
+      with `reason: 'sacrifice' | 'discard'` (D377), so a sacrifice-EVENT head
+      fires once for the batch. The vocabulary: `each (player|opponent)
+      sacrifices a <noun> of their choice.` through the chooser reader
+      (`predicatesOf`, D168) and `each … discards N cards.`, both ASKING kinds
+      and therefore last (D195). Four answerers and the client's `boardPick`
+      veil shipped together (D143/D144); Innocent Blood and Unnerve are canary
+      staples feeding `queueAsks` / `queueBatches` at gate size (108 raised /
+      50 completed over the gate's 500 seeds).
+      ⚠️ **THE WAVE:** 49 in the pool → 27 rows (the queued sacrifice under dies,
+      enters, attacks and the second-spell heads; the queued discard under
+      enters, attacks and combat-damage heads), 22 refused by reason; eight
+      spells with NO script; then five two-line cards the classifier offered —
+      Earsplitting Rats landed, four ledgered (a compound-subject dies head, a
+      quoted grant of a queued discard, a sacrifice-EVENT head the library does
+      not hold, a channel-shaped hand activation). The generator's queue arm
+      DERIVES p1's fodder from the printed noun (D347/D360), deals it only when
+      p1 is asked, walks to the prompt OR the quiet board, and reads the discard
+      batch off the LOG (D260).
+      ⚠️ **Traps:** an asking payload under a combat-damage head keeps a walk to
+      the prompt or postcombat (Stronghold Rats — the quiet predicate needs
+      `pendingTriggers.length === 0`); an inline WANTED sweep captured a TEST
+      TITLE as a card name; ⚠️⚠️ **THE TABLE MODE OUTLIVED THE GAME** — the
+      board-pick battery block's error path left `boardPick` armed and two later
+      sections went red on a stuck veil; `setGameSetup` resets the mode and the
+      aim now, and the block answers the queue and escapes in its `finally`
+      (D144); the veil's HITS render an effect AFTER the veil div (wait for a
+      hit); two identical creatures are ONE slot and one hit (D112 — the Swamp
+      is offered DARK for a real negative); `view()` lags after the click (D146
+      — `table.settle`, then the DOM beside the view); the bot pool's enchantment
+      count is pinned TWICE (D267); a 60-seed fuzz leg outruns a 600 s foreground
+      timeout at 5,445 scripts; the applier's hand-branch anchor matched twice
+      and three per-line anchors matched nothing across a D389 comment.
+      Fixtures 5,988 (5,833 by name + 148 tokens) · botPool artifact 453 /
+      creature 4,938 / enchantment 479 / instant 1,090 / sorcery 820 — auto
+      1,190 / assisted 2,011 · `oracleParse` `effect:auto` 5,416 · tier3
+      silentAfter 8,648 · residue other 2,991 · batch.json 28 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5599 files,
+      27455 passed / 11 skipped · 500-seed gate, 6 shards, 1101.1 s wall · build
+      clean · probe 124/124 · battery 138/138 (the two board-pick checks).**
+      ⚠️ **Reportables** (D390): the queue's tail (the nouns the chooser reader
+      cannot place, the conditional and counted forms under a head, the
+      sacrifice-EVENT head, the compound-subject dies head, the quoted grant of
+      a queued discard); **the prompt CONTINUATION seam proper** (an ask followed
+      by a second ask in one resolution — Liliana's Spoils; the queue is one shape
+      of it); then the brief's engine seams — threaten (49), proliferate (48), the
+      durations (33), spend-restricted mana (56), exchange control (24), the
+      keyword entry replacements (23), copy (~200); the two gate items — the
+      tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
+      D389's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

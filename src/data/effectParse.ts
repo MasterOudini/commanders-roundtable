@@ -207,6 +207,7 @@ const BASE: EffectFields = {
   atRandom: false,
   thenDraw: 0,
   pay: null,
+  sacrifice: null,
 };
 
 /**
@@ -1071,6 +1072,41 @@ const RULES: readonly Rule[] = [
     },
   },
   /**
+   * D390 - "Each opponent discards a card." / "Each player discards two cards." - THE PLAYER
+   * QUEUE (CR 101.4): every player in the scope chooses in APNAP order, each seeing the choices
+   * before theirs, and then all discard at once. The scope rides `scopes` (one PLAYER scope), the
+   * clause aims at nobody (`targetIndex: -1`, `self: true` - D383's shape), and it ASKS, so it must
+   * be the sentence's last. This is the sentence the comment above refused since D137, and the
+   * field it would not invent is the scope D383 gave every board effect.
+   */
+  {
+    kind: 'discard',
+    re: new RegExp(`^each (player|opponent) discards (${COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null || n <= 0) return null;
+      const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }] };
+    },
+  },
+  /**
+   * D390 - "Each player sacrifices a creature of their choice." / "Each opponent sacrifices a
+   * permanent of their choice." - the same queue over the BATTLEFIELD. The noun goes through the
+   * sacrifice chooser's own reader (D168), so "a creature or planeswalker" is two arms and a word
+   * it cannot place ("with flying", "nontoken") refuses the sentence rather than widening it.
+   */
+  {
+    kind: 'sacrifice',
+    re: /^each (player|opponent) sacrifices (an? [A-Za-z ]+?) of their choice\.$/i,
+    build: (m) => {
+      const what = (m[2] ?? '').trim();
+      const predicates = predicatesOf(what.replace(/^an? /i, ''));
+      if (!predicates || predicates.length === 0) return null;
+      const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
+      return { ...BASE, amount: 1, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }], sacrifice: { predicates, what: what.replace(/^an? /i, '') } };
+    },
+  },
+  /**
    * M6.3k. `Raise Dead` and `Zombify` — the same sentence, two destinations.
    *
    * ⚠️ **THE TARGET DOES THE NARROWING, NOT THIS PATTERN**, and that is why the
@@ -1353,7 +1389,7 @@ function clausesOf(text: string): Clause[] {
 const PAY_COST = String.raw`((?:\{[^}]+\})+|\d+ life|(?:\{[^}]+\})+ and \d+ life)`;
 const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|you) pays? ${PAY_COST}\.$`, 'i');
 const MAY_PAY_RE = new RegExp(String.raw`^you may pay ${PAY_COST}\. if you do, (.+)$`, 'i');
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -1506,7 +1542,8 @@ export function parseEffects(
    * where the player applies the parts by hand. (`lookAtTop` chains its own
    * follow-ups through the answer, so it carries the same constraint.)
    */
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
+  // D390 - a queued sacrifice asks too (the first player with a real choice is prompted).
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

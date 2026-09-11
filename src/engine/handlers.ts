@@ -37,7 +37,7 @@ import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
-import { drawEvents, effectResult } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult } from './effects';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
@@ -2834,6 +2834,44 @@ function cardMatchesSearch(
   return predicateAdmits(face, predicates);
 }
 
+/**
+ * D390 - carry the player queue one answer further. The answering player's picks are recorded;
+ * every player next in line with no real choice is recorded too, without a prompt; the first with
+ * one is asked; and when nobody is left the queue clears and every pick moves in ONE batch.
+ */
+function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards: readonly InstanceId[]): HandleResult {
+  const pending = state.pendingAsks;
+  if (pending === null) return reject('notAwaitingThat', 'No question is queued for that answer.');
+  const chosen = [...pending.chosen, { player, cards }];
+  const remaining = [...pending.remaining];
+  while (remaining.length > 0) {
+    const next = remaining[0];
+    if (next === undefined) break;
+    const cands = askCandidates(state, deps, next, pending.verb, pending.filter);
+    if (cands.length > pending.count) {
+      const after = { ...pending, remaining: remaining.slice(1), chosen };
+      return accept([
+        { t: 'AsksQueued', pending: after },
+        {
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: next,
+            zone: pending.verb === 'sacrifice' ? 'battlefield' : 'hand',
+            rest: null,
+            count: pending.count,
+            ...(pending.filter ? { filter: pending.filter } : {}),
+            label: pending.label,
+          },
+        },
+      ]);
+    }
+    chosen.push({ player: next, cards: cands });
+    remaining.shift();
+  }
+  return accept([{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved' }, ...askBatch(state, pending.verb, chosen, pending.filter)]);
+}
+
 function answerChooseFromZone(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerChooseFromZone' }>,
@@ -2959,9 +2997,27 @@ function answerChooseFromZone(
     return mixed === null ? accept(events) : accept(events, mixed.next);
   }
 
+  /**
+   * D390 - a queued SACRIFICE: the picks are the player's own permanents the printed noun admits
+   * (DERIVED, exactly the list the offer was made from), and the queue decides what follows - the
+   * next player's question, or the whole batch at once.
+   */
+  if (awaiting.zone === 'battlefield') {
+    const legal = askCandidates(state, deps, intent.player, 'sacrifice', awaiting.filter ?? null);
+    for (const card of intent.cards) {
+      if (!legal.includes(card)) return reject('illegalTarget', `That is not ${awaiting.filter ? 'a ' + awaiting.filter.what : 'a permanent'} you control.`);
+    }
+    return advanceAsks(state, deps, intent.player, intent.cards);
+  }
+
   const hand = state.zones.hand[intent.player] ?? [];
   for (const card of intent.cards) {
     if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
+  }
+  // D390 - a discard inside a player queue is RECORDED, not applied: every player's discard happens
+  // at once when the last has chosen (CR 101.4). A lone discard prompt keeps today's path below.
+  if (state.pendingAsks !== null && state.pendingAsks.verb === 'discard') {
+    return advanceAsks(state, deps, intent.player, intent.cards);
   }
 
   // D377 - the DISCARD PROMPT's answer (D137). This is the path a spell that says "discard two

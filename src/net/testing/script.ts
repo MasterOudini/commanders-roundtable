@@ -124,10 +124,15 @@ export function simplestIntent(
         const v = session.currentView();
         // Two zones (D141): a library offers only what was just revealed.
         const hand =
-          awaiting.zone === 'library' ? (v.peek ?? []) : (v.zones[`hand:${awaiting.player}`] ?? []);
+          awaiting.zone === 'library'
+            ? (v.peek ?? [])
+            : awaiting.zone === 'battlefield'
+              ? (v.zones[`bf:${awaiting.player}`] ?? [])
+              : (v.zones[`hand:${awaiting.player}`] ?? []);
         // D389 - a filtered look admits only what its noun names; the driver reads the face it
         // holds through the one reader, and an empty answer is legal when the pick is optional.
-        const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+        // D390 - a queued sacrifice carries the printed noun too; a discard never does.
+        const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
         const eligible = filter
           ? hand.filter((id) => {
               const face = v.cards[id]?.card?.faces[0];

@@ -44,6 +44,16 @@ function isLand(card: CardView): boolean {
 }
 
 /** D389 - does a revealed card satisfy a look's filter? The face the client holds, through the one reader. */
+/** D390 - my own permanents, for a queued sacrifice (the hand helper above, one zone over). */
+function myPermanents(view: PlayerView, me: PlayerId): CardView[] {
+  const out: CardView[] = [];
+  for (const id of view.zones[`bf:${me}`] ?? []) {
+    const card = view.cards[id];
+    if (card) out.push(card);
+  }
+  return out;
+}
+
 function admitsCard(filter: LookFilter, c: CardView): boolean {
   const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
   return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
@@ -315,10 +325,13 @@ export function answerAwaiting(
       const pool =
         awaiting.zone === 'library'
           ? (view.peek ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c)
-          : myHand(view, me);
+          : awaiting.zone === 'battlefield'
+            ? myPermanents(view, me)
+            : myHand(view, me);
       // D389 - a look with a FILTER admits only the revealed cards the printed noun names, and
       // "you may" lets the answer be shorter than the count, down to nothing.
-      const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+      // D390 - a queued sacrifice carries the printed noun too; a discard never does.
+      const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
       const eligible = filter ? pool.filter((c) => admitsCard(filter, c)) : pool;
       const min = awaiting.min ?? awaiting.count;
       const ordered =
@@ -332,7 +345,11 @@ export function answerAwaiting(
       }
       return act(
         { t: 'AnswerChooseFromZone', player: me, cards },
-        awaiting.zone === 'library' ? `keep ${cards.length} for ${awaiting.label}` : `discard ${cards.length} to ${awaiting.label}`,
+        awaiting.zone === 'library'
+          ? `keep ${cards.length} for ${awaiting.label}`
+          : awaiting.zone === 'battlefield'
+            ? `sacrifice ${cards.length} to ${awaiting.label}`
+            : `discard ${cards.length} to ${awaiting.label}`,
       );
     }
 

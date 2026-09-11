@@ -28866,3 +28866,174 @@ threaten (49), proliferate (48), exchange control (24), the keyword entry
 replacements (23), the durations (33), copy (~200), spend-restricted mana (56); the
 two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
 BLOCKS; then D388's list unchanged.
+
+
+## D390 — THE PLAYER QUEUE: a resolution that asks several players asks them in APNAP order, one prompt at a time, and lands the batch once (2026-09-11)
+
+**8,347 of 31,692 Commander-legal cards now execute completely, up from 8,311
+(+36: EIGHT with no script at all, then 28 generated rows in two waves).**
+`SHIPPED_SCRIPTS` 5,417 → **5,445**; the REFUSED ledger 1,207 → **1,211** (four
+ADDED by reason — the cards the classifier offered after the wave and the row maker
+refused). Fixtures 5,953 → **5,988** (5,833 by name + 148 tokens: the 28 rowed
+cards, the nine proof cards of the seam's own test and the fodder the suites deal).
+`scriptableToday` 1,302 → **1,332** by the SEAM and → **1,307** by the WAVE, both
+directions in one decision (D363/D384); the select pool 0 → 29 → 5 → 0; the ladder
+`[1307, 1396, 2832, 4563, 5904]`. Bot reach 8,245 → **8,281** from 249 commanders.
+M6.4hw, on Fable 5.1.
+
+### The measurement chose it, and it is the continuation seam's first real shape
+
+D389's brief priced every engine-seam candidate on the board from a fresh
+true-leftover, and its own reportables named the densest one that is ONE seam rather
+than a subsystem: **the each-player and each-opponent sacrifices and discards, 56
+one-piece cards** — `Each player sacrifices a creature of their choice.`, `Each
+opponent discards two cards.` and the same sentences as trigger payloads under a
+dies, an enters or an attacks head. Copy is CR 707, threaten and the durations are
+effects with an END, proliferate is a prompt over counters; this is a prompt the
+engine ALREADY HAS (D137's `chooseFromZone`, D168's chooser reader) asked of
+SEVERAL players in turn. That is the prompt CONTINUATION gap D389 named on the spell
+side (Liliana's Spoils — two asks in one resolution), met from the other side: not
+two questions to one player, but one question to each player, and the resolution
+cannot end until the last has answered.
+
+### The seam: a queue on the state, APNAP, forced picks unasked, one batch at the end
+
+- **CR 101.4 decides the ORDER.** A resolution that must ask several players asks
+  the active player first and the rest in turn order (`apnapPlayers`). The engine
+  had one `Awaiting` slot and no way to remember who was still owed a question, so
+  `GameState.pendingAsks` is the memory — the verb, the players still to ask, the
+  count, the filter, the label, and every answer so far — logged as `AsksQueued`
+  (so a replay rebuilds it) and cleared by `AsksResolved`. It is part of the state
+  hash; the 500-seed gate would see a queue that replayed differently.
+- **A PLAYER WITH NO CHOICE IS NEVER ASKED** (CR 701.8a's shape, D137): a hand no
+  bigger than the count goes whole, a board with exactly one creature loses it, and
+  a player with nothing loses nothing — all recorded as FORCED picks the moment the
+  queue is built, so the first prompt goes to the first player who can actually
+  choose. A resolution where nobody can choose raises no prompt at all and lands at
+  once.
+- **THE PROMPT SHIPS NO IDS** (D137/D141/D142's rule for hidden zones, kept for the
+  public one so the client has ONE shape): `count`, `filter`, `kind`, `label`,
+  `player`, `rest`, `zone` and nothing else, pinned by a keys test. The battlefield
+  candidates are read on the HOST from the DERIVED characteristics (`askCandidates`
+  — a granted type counts, a Humility'd one does not), and every pick is
+  re-validated there: the wrong player, a card the noun does not admit, another
+  player's permanent and the wrong count are each refused by name.
+- **ONE BATCH AT THE END.** The answer handler (`advanceAsks`) records the pick,
+  forces the next players who have no choice, prompts the next who has one, and
+  when the last has answered emits `AwaitingSet null`, `AsksResolved` and ONE
+  `CardsMoved` carrying every player's cards with `reason: 'sacrifice'` or
+  `'discard'` (D377) — so a sacrifice-EVENT head fires once for the batch, as the
+  card's "whenever a player sacrifices" means it, and the narration says per player
+  what was given up ("… sacrifices a creature." / "… has nothing to sacrifice.").
+- **THE VOCABULARY** (`effectParse`): `each (player|opponent) sacrifices a <noun>
+  of their choice.` through `predicatesOf` — the chooser reader D168 built, so a
+  noun the sacrifice cost cannot place (`nontoken`, `multicolored`) is refused here
+  too — and `each (player|opponent) discards N cards.` with the counted words. Both
+  are ASKING kinds, so they must be the sentence's last (D195's rule), and the
+  discard rule keeps its scope on the spec so the same executor serves the spell
+  and the row.
+- **FOUR ANSWERERS AND ONE CONTROL, shipped together** (D143/D144): the bot picks
+  its least valuable admitted permanent, the harness and the net driver the first
+  legal one, the fuzz driver at random; the client gains a `boardPick` table mode —
+  the veil over the viewer's OWN battlefield, lit only where the printed face admits
+  the noun, one click per pick, the answer submitted on the last — and the prompt
+  bar says who is deciding and what to click. The fuzz gate carries Innocent Blood
+  and Unnerve as canary staples feeding `queueAsks` / `queueBatches`, floored at
+  gate size - **108 queues raised / 50 completed over the gate's 500 seeds**.
+
+### The wave — 49 in the pool, 27 rows, then one more, and the arm the generator learned
+
+The pool is every one-piece card whose single leftover line is one of the two
+queued sentences — as a spell, or as a payload under a head the library holds —
+on the FRESH leftover: **49**, landed BY NAME (D317/D374/D388's shape), with the
+row maker's own refusal histogram as the measurement (D352/D364). **27 rows** — the
+queued sacrifice under dies, enters, attacks and the second-spell heads (Fleshbag
+Marauder, Merciless Executioner, Demon's Disciple, Slum Reaper, Dictate of Erebos,
+Elvish Doomsayer …) and the queued discard under enters, attacks and combat-damage
+heads (Liliana's Specter, Burglar Rat, Elderfang Disciple, Stronghold Rats, Serum
+Raker, Screeching Buzzard …); **22 refused by reason**: twelve spells whose queued
+line sits beside a sentence the vocabulary does not read or names a noun the chooser
+reader cannot place (`nontoken`, `multicolored`, a council's dilemma), seven trigger
+payloads outside the queue arm (a Blight, an intervening-if, an either-or, a
+look-and-compare, an exile-to-graveyard, a bare `permanent` under a head), an
+ability-word line, a filtered head outside the closed reader, a multi-face card.
+**Eight spells landed with NO script at all** — the seam's own proof spells among
+them (Innocent Blood, Unnerve, Tremble, Simplify, Delirium Skeins). The classifier
+then offered FIVE two-line cards the pool had never held: a second wave landed
+Earsplitting Rats and ledgered the other four by reason — Butcher of Malakir (a
+compound-subject dies head, D381's named gap), Mindlash Sliver (a quoted grant of a
+queued discard — D384's generator, not the mainline), Merchant of Venom (a
+sacrifice-EVENT head the library does not hold — `CardMove.reason` makes it
+expressible now), Ultimo, Civilization's End (a channel-shaped hand activation).
+
+The generator learned the queue arm: the fodder p1 gives up is DERIVED from the
+printed noun the way a search's find is (D347/D360), dealt only when p1 is asked
+at all (an `each opponent` sentence never asks the caster); the fire walks to the
+prompt OR the quiet board, p1 answers with its fodder, p2 tries each of its
+permanents until one is accepted, and the assert reads the fodder in the
+graveyard, the board one lighter and `pendingAsks` null; a queued discard reads
+the batch off the LOG (D260) and the hand locally.
+
+### The traps this decision paid for
+
+- ⚠️ **AN ASKING PAYLOAD UNDER A COMBAT-DAMAGE HEAD KEEPS A WALK TO THE PROMPT OR
+  POSTCOMBAT** (Stronghold Rats). The generic combat walk had been stripped from
+  every asking row, so the fire stopped in the declare-attackers step and read
+  "the queued discard landed: expected undefined"; and the quiet predicate needs
+  `pendingTriggers.length === 0` — a stack that is empty while a trigger is still
+  pending is not quiet.
+- ⚠️ **AN INLINE WANTED SWEEP CAPTURED A TEST TITLE AS A CARD NAME** — the regex
+  over a suite read `test('…')` as a `put`. Removed, fixtures regenerated.
+- ⚠️ **THE VEIL'S HITS ARE RENDERED BY AN EFFECT AFTER THE VEIL DIV.** The
+  board-pick battery block read the hits the instant the veil appeared and read
+  none ("the veil never offered a pick" with the mode plainly armed on the prompt
+  bar). It waits for a hit now, and longer for the veil.
+- ⚠️⚠️ **THE TABLE MODE OUTLIVED THE GAME.** The block's error path left
+  `boardPick` armed, and the two battery sections after it went red on a stuck
+  veil (the optional-trigger bar read the board-pick copy; the MDFC face chooser
+  never opened). `tableStore.setGameSetup` — what every game start hands the
+  table — resets the mode and the aim now, and the block answers the queue and
+  escapes in its `finally` (D144).
+- ⚠️ **TWO IDENTICAL CREATURES ARE ONE SLOT AND ONE HIT** (D112). The check
+  expected two legal Bears and saw one pile; it expects one now, and the negative
+  is made REAL — a Swamp on the battlefield, offered DARK.
+- ⚠️ **`view()` LAGS AFTER THE CLICK** (D137/D146): "picked in gy false" was the
+  stale view with the game stopped. The block waits on `table.settle` and reads
+  the DOM beside the view.
+- ⚠️ **THE SECOND PIN SITE** (D267): the bot pool's enchantment count is pinned
+  twice; a repin that moves one leaves the other red. Grep for the old value.
+- ⚠️ **A 60-SEED FUZZ LEG OUTRUNS A 600 s FOREGROUND TIMEOUT** at 5,445 scripts —
+  run it in the background and read its log.
+- ⚠️ **INVARIANT 14, THE APPLIER FACE**: a hand-branch anchor matched twice
+  (prefixed with the accept lines above it); three anchors matched nothing because
+  a D389 comment sat between the lines they joined (per-line anchors); a duplicate
+  `zoneId` import; `ZoneKind` is `'bf'`, not `'battlefield'`.
+
+**Measured:** `blocked` 23,381 → 23,345 · ladder `[1307, 1396, 2832, 4563, 5904]`
+· residue `other` 2,992 → 2,991 · tier3 `silentAfter` 8,612 → **8,648**,
+`abilityText` 14,706 → 14,678, `payable` 4,134 → 4,133 · `oracleParse`
+`effect:auto` 5,390 → **5,416**, `effect:none` 13,181 → 13,126, `effect:partial`
+5,760 → 5,789 · botPool auto 1,182 → **1,190**, assisted 1,999 → 2,011,
+autoAnyFace 1,191 → 1,199, artifact 452 → 453, creature 4,912 → 4,938,
+enchantment 478 → 479, instant 1,089 → 1,090, sorcery 813 → 820 · the bot's reach
+8,245 → **8,281** from 249 commanders · select pool 0 → 29 → 5 → 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5599 files, 27455
+passed / 11 skipped · 500-seed gate, 6 shards, 1101.1 s wall · build clean · probe
+124/124 · battery 138/138 with the two board-pick checks.** Engine:
+`playerQueue.test.ts` (9 — the parse pins and refusals, the three-seat battlefield
+queue with its forced pick and empty player and one batch of two, two real
+choosers, nobody with a choice, the hand queue, the whole-hand forced pick).
+
+⚠️ **Reportables** (D390): the queue's own tail — the nouns the chooser reader
+cannot place (`nontoken`, `multicolored`), the conditional and counted forms under
+a head (a Blight, an intervening-if, an either-or), the sacrifice-EVENT head the
+library still does not hold (Merchant of Venom — expressible since D377), the
+compound-subject dies head (Butcher of Malakir, D381), the quoted grant of a queued
+discard (Mindlash Sliver — D384's generator); **the prompt CONTINUATION seam
+proper** — an ask followed by a second ask in one resolution (Liliana's Spoils),
+of which the queue is one shape; then the brief's engine seams — threaten (49),
+proliferate (48), the durations (33), spend-restricted mana (56), exchange control
+(24), the keyword entry replacements (23), copy (~200); the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D389's list
+unchanged.

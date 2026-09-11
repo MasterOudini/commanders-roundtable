@@ -155,7 +155,13 @@ function describe(
         if (awaiting.player !== viewer) {
           return awaiting.zone === 'library'
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`
-            : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
+            : awaiting.zone === 'battlefield'
+              ? `${nameOf(seats, awaiting.player)} is choosing ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} to sacrifice.`
+              : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
+        }
+        // D390 - a queued sacrifice: the veil is the control, the bar says what the noun admits.
+        if (awaiting.zone === 'battlefield') {
+          return `${awaiting.label}: click ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} you control to sacrifice.`;
         }
         if (awaiting.zone === 'library') {
           // D389 - a filtered, optional look names what may be kept and says nothing is legal.
@@ -339,7 +345,9 @@ export function PromptBar() {
                   ? `Choose what ${mode.name} sacrifices — ${mode.count - mode.chosen.length} more`
                   : mode.kind === 'costPick'
                     ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
-                    : describe(awaiting, priority, seats, viewer)}
+                    : mode.kind === 'boardPick'
+                      ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to sacrifice`
+                      : describe(awaiting, priority, seats, viewer)}
         </p>
         {/* ⚠️ THE HONESTY LINE, and it is not decoration. `tier3.ts` established
             that a category the app does not enforce has to be SAID on the card;

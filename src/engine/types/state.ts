@@ -373,6 +373,30 @@ export interface PendingReplacement {
   readonly queued: readonly EventBody[];
 }
 
+/**
+ * D390 - THE PLAYER QUEUE: one resolution that asks SEVERAL players in turn. CR 101.4 - the
+ * choices are made in APNAP order, each player seeing the ones before theirs, and then the actions
+ * happen at once. `effectResult` records every FORCED pick (a player with no more legal choices
+ * than the count gives them all, or nothing), raises the first real question and parks the rest
+ * here; the `chooseFromZone` answer records its picks, raises the next question or - on the last -
+ * applies EVERY pick in ONE `CardsMoved` and clears the queue.
+ *
+ * ⚠️ ON THE STATE, so in the hash and on the log (`AsksQueued`): a replay that re-derived the
+ * order or the forced picks would be re-deciding what the players already saw.
+ */
+export interface PendingAsks {
+  /** `sacrifice`: a permanent from the battlefield; `discard`: a card from the hand. */
+  readonly verb: 'sacrifice' | 'discard';
+  /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
+  readonly remaining: readonly PlayerId[];
+  /** What the sentence asks of each player. */
+  readonly count: number;
+  readonly filter: LookFilter | null;
+  readonly label: string;
+  /** Every pick so far, forced ones included, in the order they were made. */
+  readonly chosen: readonly { readonly player: PlayerId; readonly cards: readonly InstanceId[] }[];
+}
+
 export interface PendingCast {
   readonly player: PlayerId;
   readonly card: InstanceId;
@@ -789,7 +813,13 @@ export type Awaiting =
        * here would post one player's library top to every client, which is the
        * same leak the hand case exists to avoid.
        */
-      readonly zone: 'hand' | 'library';
+      /**
+       * D390 - `battlefield` for a sacrifice the player CHOOSES ("each player sacrifices a
+       * creature of their choice"). The one PUBLIC zone here, and the prompt still ships no ids
+       * for the mirror of the hand's reason: every client already holds the board. `filter` is
+       * the printed noun (D389's), asked of the DERIVED permanent by the host.
+       */
+      readonly zone: 'hand' | 'library' | 'battlefield';
       /**
        * Where the cards NOT chosen go — `library` prompts only, `null` for a
        * discard, where the unchosen simply stay in hand.
@@ -1005,6 +1035,8 @@ export interface GameState {
    * `PendingReplacement`.
    */
   readonly pendingReplacement: PendingReplacement | null;
+  /** D390 - the player queue, while a resolution is asking several players in turn. */
+  readonly pendingAsks: PendingAsks | null;
   /**
    * P/T modifiers that end at cleanup (CR layer 7c, CR 514.2).
    *

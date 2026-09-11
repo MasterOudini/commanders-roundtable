@@ -580,6 +580,14 @@ export type EffectKind =
    * sentence, never a spell's: "sacrifice this creature unless you pay {U}".
    */
   | 'sacrificeSelf'
+  /**
+   * D390 - "Each player sacrifices a creature of their choice." / "Each opponent sacrifices a
+   * permanent of their choice." - THE PLAYER QUEUE: every player in the spec's PLAYER scope
+   * chooses in APNAP order, each seeing the choices before theirs, then the sacrifices happen at
+   * once (CR 101.4). The noun is `sacrifice.predicates`; the count is `amount`. It ASKS, so it is
+   * the sentence's last (the ASKS rule). A scoped `discard` is the same queue over the hand.
+   */
+  | 'sacrifice'
   | 'discard'
   /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
@@ -721,6 +729,16 @@ export interface SearchSpec {
  * exactly what the vocabulary already runs; a branch that itself ASKS is
  * refused at parse time.
  */
+/**
+ * D390 - the each-player sacrifice's noun, read by the sacrifice chooser's OWN reader (D168's
+ * `predicatesOf`: "a creature or planeswalker" is two arms, and a word it cannot place refuses the
+ * whole sentence), plus the printed noun for the prompt and the log.
+ */
+export interface SacrificeSpec {
+  readonly predicates: readonly PermanentPredicate[];
+  readonly what: string;
+}
+
 export interface PaySpec {
   /** The mana, printed; `null` when the price is life alone. Never carries X. */
   readonly cost: ManaCost | null;
@@ -785,6 +803,8 @@ export interface EffectSpec {
   readonly search: SearchSpec | null;
   /** `payOptional` only: the price and the branches (D369). REQUIRED, `null` elsewhere (D355). */
   readonly pay: PaySpec | null;
+  /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
+  readonly sacrifice: SacrificeSpec | null;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape

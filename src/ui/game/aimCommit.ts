@@ -130,6 +130,21 @@ export function onVeilPick(choice: TargetChoice): void {
     return;
   }
 
+  // D390 - the queued sacrifice's answer: N permanents, then `AnswerChooseFromZone`. TIER 1 like
+  // the picks above - the host re-validates every id against the derived board.
+  if (mode.kind === 'boardPick') {
+    if (choice.kind !== 'card' || mode.chosen.includes(choice.id)) return;
+    const chosen = [...mode.chosen, choice.id];
+    if (chosen.length < mode.count) {
+      table.setMode({ ...mode, chosen });
+      return;
+    }
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    session.submit({ t: 'AnswerChooseFromZone', player: table.viewer, cards: chosen });
+    return;
+  }
+
   // Attaching is one pick: the host. ⚠️ It goes out as `ManualAttach`, a Tier-3
   // tool — the engine moves the attachment and logs it, and the equip COST and
   // its sorcery-speed timing remain the player's, because `Equip {2}` is not an

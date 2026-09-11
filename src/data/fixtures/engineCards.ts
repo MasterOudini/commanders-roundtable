@@ -5823,6 +5823,41 @@ export const MELETIS_ASTRONOMER: CardData = F.MELETIS_ASTRONOMER as CardData;
 export const BRIGHTWOOD_TRACKER: CardData = F.BRIGHTWOOD_TRACKER as CardData;
 export const SKALLA_WOLF: CardData = F.SKALLA_WOLF as CardData;
 export const VALGAVOTH_S_LAIR: CardData = F.VALGAVOTH_S_LAIR as CardData;
+export const INNOCENT_BLOOD: CardData = F.INNOCENT_BLOOD as CardData;
+export const UNNERVE: CardData = F.UNNERVE as CardData;
+export const TREMBLE: CardData = F.TREMBLE as CardData;
+export const DELIRIUM_SKEINS: CardData = F.DELIRIUM_SKEINS as CardData;
+export const SIMPLIFY: CardData = F.SIMPLIFY as CardData;
+export const FLESHBAG_MARAUDER: CardData = F.FLESHBAG_MARAUDER as CardData;
+export const LILIANA_S_SPECTER: CardData = F.LILIANA_S_SPECTER as CardData;
+export const CHAIN_DEVIL: CardData = F.CHAIN_DEVIL as CardData;
+export const VRASKA_S_FALL: CardData = F.VRASKA_S_FALL as CardData;
+export const ABYSSAL_GATEKEEPER: CardData = F.ABYSSAL_GATEKEEPER as CardData;
+export const SCREECHING_BUZZARD: CardData = F.SCREECHING_BUZZARD as CardData;
+export const SLUM_REAPER: CardData = F.SLUM_REAPER as CardData;
+export const DICTATE_OF_EREBOS: CardData = F.DICTATE_OF_EREBOS as CardData;
+export const NOXIOUS_TOAD: CardData = F.NOXIOUS_TOAD as CardData;
+export const SIBSIG_ICEBREAKERS: CardData = F.SIBSIG_ICEBREAKERS as CardData;
+export const MIASMIC_MUMMY: CardData = F.MIASMIC_MUMMY as CardData;
+export const ELDERFANG_DISCIPLE: CardData = F.ELDERFANG_DISCIPLE as CardData;
+export const VIRUS_BEETLE: CardData = F.VIRUS_BEETLE as CardData;
+export const DEMON_S_DISCIPLE: CardData = F.DEMON_S_DISCIPLE as CardData;
+export const STRONGHOLD_RATS: CardData = F.STRONGHOLD_RATS as CardData;
+export const CACKLING_FIEND: CardData = F.CACKLING_FIEND as CardData;
+export const THOUGHTRENDER_LAMIA: CardData = F.THOUGHTRENDER_LAMIA as CardData;
+export const RIPCLAW_WRANGLER: CardData = F.RIPCLAW_WRANGLER as CardData;
+export const HURLOON_SHAMAN: CardData = F.HURLOON_SHAMAN as CardData;
+export const ELVISH_DOOMSAYER: CardData = F.ELVISH_DOOMSAYER as CardData;
+export const MERCILESS_EXECUTIONER: CardData = F.MERCILESS_EXECUTIONER as CardData;
+export const AKKI_BLIZZARD_HERDER: CardData = F.AKKI_BLIZZARD_HERDER as CardData;
+export const HECTEYES: CardData = F.HECTEYES as CardData;
+export const ASHIOK_S_ADEPT: CardData = F.ASHIOK_S_ADEPT as CardData;
+export const BURGLAR_RAT: CardData = F.BURGLAR_RAT as CardData;
+export const CUNNING_LETHEMANCER: CardData = F.CUNNING_LETHEMANCER as CardData;
+export const NEZUMI_INFORMANT: CardData = F.NEZUMI_INFORMANT as CardData;
+export const AGENT_OF_THE_FATES: CardData = F.AGENT_OF_THE_FATES as CardData;
+export const SERUM_RAKER: CardData = F.SERUM_RAKER as CardData;
+export const EARSPLITTING_RATS: CardData = F.EARSPLITTING_RATS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -11779,6 +11814,41 @@ export const ENGINE_CARDS: CardData[] = [
   BRIGHTWOOD_TRACKER,
   SKALLA_WOLF,
   VALGAVOTH_S_LAIR,
+  INNOCENT_BLOOD,
+  UNNERVE,
+  TREMBLE,
+  DELIRIUM_SKEINS,
+  SIMPLIFY,
+  FLESHBAG_MARAUDER,
+  LILIANA_S_SPECTER,
+  CHAIN_DEVIL,
+  VRASKA_S_FALL,
+  ABYSSAL_GATEKEEPER,
+  SCREECHING_BUZZARD,
+  SLUM_REAPER,
+  DICTATE_OF_EREBOS,
+  NOXIOUS_TOAD,
+  SIBSIG_ICEBREAKERS,
+  MIASMIC_MUMMY,
+  ELDERFANG_DISCIPLE,
+  VIRUS_BEETLE,
+  DEMON_S_DISCIPLE,
+  STRONGHOLD_RATS,
+  CACKLING_FIEND,
+  THOUGHTRENDER_LAMIA,
+  RIPCLAW_WRANGLER,
+  HURLOON_SHAMAN,
+  ELVISH_DOOMSAYER,
+  MERCILESS_EXECUTIONER,
+  AKKI_BLIZZARD_HERDER,
+  HECTEYES,
+  ASHIOK_S_ADEPT,
+  BURGLAR_RAT,
+  CUNNING_LETHEMANCER,
+  NEZUMI_INFORMANT,
+  AGENT_OF_THE_FATES,
+  SERUM_RAKER,
+  EARSPLITTING_RATS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -137,6 +137,16 @@ export function useEngineTable() {
     useAim.getState().begin({ sourceKey: key, sourceRect: resolveKey(key), viaDrag: false });
   }, [awaiting, mode.kind, setMode, viewer]);
 
+  // D390 - a queued sacrifice ("each player sacrifices a creature of their choice") arms the
+  // board pick the way a trigger's aim arms the arrow: the prompt is the whole question, the
+  // veil offers only what the printed noun admits (`GameLayer`), and Escape re-arms it because
+  // the game genuinely cannot proceed unanswered.
+  useEffect(() => {
+    if (awaiting?.kind !== 'chooseFromZone' || awaiting.zone !== 'battlefield' || awaiting.player !== viewer) return;
+    if (mode.kind !== 'idle') return;
+    setMode({ kind: 'boardPick', name: awaiting.label, count: awaiting.count, chosen: [] });
+  }, [awaiting, mode.kind, setMode, viewer]);
+
   /**
    * Enter targeting for a spell or ability, if it wants any.
    *

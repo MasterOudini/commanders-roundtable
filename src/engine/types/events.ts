@@ -33,6 +33,7 @@ import type {
   GameOptions,
   LossReason,
   PendingCast,
+  PendingAsks,
   PendingReplacement,
   PendingTrigger,
   Phase,
@@ -344,6 +345,13 @@ export type EventBody =
   | { readonly t: 'ReplacementPending'; readonly pending: PendingReplacement }
   /** The funnel resumed; whatever it produced follows this event. */
   | { readonly t: 'ReplacementResolved' }
+  /**
+   * D390 - a resolution parked the players still to be asked. ON THE LOG for `ReplacementPending`'s
+   * reason: the queue is state, and a replay must not re-derive an order the players saw.
+   */
+  | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
+  /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
+  | { readonly t: 'AsksResolved' }
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
   | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
   /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */

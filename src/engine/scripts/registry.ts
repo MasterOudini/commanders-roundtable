@@ -7,6 +7,34 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { EARSPLITTING_RATS_SCRIPT } from './cards/earsplittingRats';
+import { LILIANAS_SPECTER_SCRIPT } from './cards/lilianasSpecter';
+import { FLESHBAG_MARAUDER_SCRIPT } from './cards/fleshbagMarauder';
+import { ABYSSAL_GATEKEEPER_SCRIPT } from './cards/abyssalGatekeeper';
+import { SCREECHING_BUZZARD_SCRIPT } from './cards/screechingBuzzard';
+import { SLUM_REAPER_SCRIPT } from './cards/slumReaper';
+import { DICTATE_OF_EREBOS_SCRIPT } from './cards/dictateOfErebos';
+import { NOXIOUS_TOAD_SCRIPT } from './cards/noxiousToad';
+import { SIBSIG_ICEBREAKERS_SCRIPT } from './cards/sibsigIcebreakers';
+import { MIASMIC_MUMMY_SCRIPT } from './cards/miasmicMummy';
+import { ELDERFANG_DISCIPLE_SCRIPT } from './cards/elderfangDisciple';
+import { VIRUS_BEETLE_SCRIPT } from './cards/virusBeetle';
+import { DEMONS_DISCIPLE_SCRIPT } from './cards/demonsDisciple';
+import { STRONGHOLD_RATS_SCRIPT } from './cards/strongholdRats';
+import { CACKLING_FIEND_SCRIPT } from './cards/cacklingFiend';
+import { THOUGHTRENDER_LAMIA_SCRIPT } from './cards/thoughtrenderLamia';
+import { RIPCLAW_WRANGLER_SCRIPT } from './cards/ripclawWrangler';
+import { HURLOON_SHAMAN_SCRIPT } from './cards/hurloonShaman';
+import { ELVISH_DOOMSAYER_SCRIPT } from './cards/elvishDoomsayer';
+import { MERCILESS_EXECUTIONER_SCRIPT } from './cards/mercilessExecutioner';
+import { AKKI_BLIZZARD_HERDER_SCRIPT } from './cards/akkiBlizzardHerder';
+import { HECTEYES_SCRIPT } from './cards/hecteyes';
+import { ASHIOKS_ADEPT_SCRIPT } from './cards/ashioksAdept';
+import { BURGLAR_RAT_SCRIPT } from './cards/burglarRat';
+import { CUNNING_LETHEMANCER_SCRIPT } from './cards/cunningLethemancer';
+import { NEZUMI_INFORMANT_SCRIPT } from './cards/nezumiInformant';
+import { AGENT_OF_THE_FATES_SCRIPT } from './cards/agentOfTheFates';
+import { SERUM_RAKER_SCRIPT } from './cards/serumRaker';
 import { TALAS_LOOKOUT_SCRIPT } from './cards/talasLookout';
 import { ECLIPSED_BOGGART_SCRIPT } from './cards/eclipsedBoggart';
 import { AUGUR_OF_BOLAS_SCRIPT } from './cards/augurOfBolas';
@@ -5443,6 +5471,34 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EARSPLITTING_RATS_SCRIPT,
+  LILIANAS_SPECTER_SCRIPT,
+  FLESHBAG_MARAUDER_SCRIPT,
+  ABYSSAL_GATEKEEPER_SCRIPT,
+  SCREECHING_BUZZARD_SCRIPT,
+  SLUM_REAPER_SCRIPT,
+  DICTATE_OF_EREBOS_SCRIPT,
+  NOXIOUS_TOAD_SCRIPT,
+  SIBSIG_ICEBREAKERS_SCRIPT,
+  MIASMIC_MUMMY_SCRIPT,
+  ELDERFANG_DISCIPLE_SCRIPT,
+  VIRUS_BEETLE_SCRIPT,
+  DEMONS_DISCIPLE_SCRIPT,
+  STRONGHOLD_RATS_SCRIPT,
+  CACKLING_FIEND_SCRIPT,
+  THOUGHTRENDER_LAMIA_SCRIPT,
+  RIPCLAW_WRANGLER_SCRIPT,
+  HURLOON_SHAMAN_SCRIPT,
+  ELVISH_DOOMSAYER_SCRIPT,
+  MERCILESS_EXECUTIONER_SCRIPT,
+  AKKI_BLIZZARD_HERDER_SCRIPT,
+  HECTEYES_SCRIPT,
+  ASHIOKS_ADEPT_SCRIPT,
+  BURGLAR_RAT_SCRIPT,
+  CUNNING_LETHEMANCER_SCRIPT,
+  NEZUMI_INFORMANT_SCRIPT,
+  AGENT_OF_THE_FATES_SCRIPT,
+  SERUM_RAKER_SCRIPT,
   TALAS_LOOKOUT_SCRIPT,
   ECLIPSED_BOGGART_SCRIPT,
   AUGUR_OF_BOLAS_SCRIPT,

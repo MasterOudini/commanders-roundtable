@@ -196131,6 +196131,1184 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "INNOCENT_BLOOD": {
+    "scryfallId": "1621e396-b7ea-4507-95a3-7206a8fe7903",
+    "oracleId": "6791ec3c-c397-4087-8c8c-84d3797df415",
+    "name": "Innocent Blood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Innocent Blood",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player sacrifices a creature of their choice.",
+        "flavorText": "Zombies mourn for the living and celebrate those who will soon be given the gift of death.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "1621e396-b7ea-4507-95a3-7206a8fe7903"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ema",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNNERVE": {
+    "scryfallId": "4cba1443-52e7-429b-a208-29e19f55e340",
+    "oracleId": "8386f43f-8106-415c-a9a6-7fd3f5b060f3",
+    "name": "Unnerve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unnerve",
+        "manaCost": "{3}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each opponent discards two cards.",
+        "flavorText": "\"If fear is the only tool you have left, then you'll never control me.\"\n—Xantcha, to Gix",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "4cba1443-52e7-429b-a208-29e19f55e340"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cn2",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREMBLE": {
+    "scryfallId": "7e1dc36f-3fdd-42cf-9d3a-695f4bf60c68",
+    "oracleId": "0fa0f562-e66f-4630-890a-9a4ae24fd6c0",
+    "name": "Tremble",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tremble",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player sacrifices a land of their choice.",
+        "flavorText": "Otaria's frequent tremors are the last stages of Dominaria's recovery from the Phyrexian war.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ciruelo",
+        "imageId": "7e1dc36f-3fdd-42cf-9d3a-695f4bf60c68"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DELIRIUM_SKEINS": {
+    "scryfallId": "3a480f1d-1959-4318-bf66-680266fcefd0",
+    "oracleId": "7397036f-8114-47cc-b52f-c532a6845d16",
+    "name": "Delirium Skeins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Delirium Skeins",
+        "manaCost": "{2}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player discards three cards.",
+        "flavorText": "There came a rush, a sudden fire in the mind. Then the two saw only the sooty fog of madness, heard only the crackling of their last thoughts burning away.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "3a480f1d-1959-4318-bf66-680266fcefd0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dis",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMPLIFY": {
+    "scryfallId": "7a43fd3e-1e08-400c-b22b-e22da82bcdee",
+    "oracleId": "853cac98-34dc-471f-af87-1a94b0022b67",
+    "name": "Simplify",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Simplify",
+        "manaCost": "{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player sacrifices an enchantment of their choice.",
+        "flavorText": "A blossom's petals close inward to shut out the frost.\n—Nantuko teaching",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Hildebrandt & Tim Hildebrandt",
+        "imageId": "7a43fd3e-1e08-400c-b22b-e22da82bcdee"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLESHBAG_MARAUDER": {
+    "scryfallId": "15d49ad9-3600-4f64-b284-4f096ed90b4d",
+    "oracleId": "4b1bf05e-753e-4350-a913-894cf3cecc0c",
+    "name": "Fleshbag Marauder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleshbag Marauder",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "When this creature enters, each player sacrifices a creature of their choice.",
+        "flavorText": "The slaughter of his people by unliving monsters, . . .",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "15d49ad9-3600-4f64-b284-4f096ed90b4d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LILIANA_S_SPECTER": {
+    "scryfallId": "0e348e20-f0bd-482f-b7de-475fa05753a4",
+    "oracleId": "1a7e0e55-41c3-4fd8-b718-55b59b5cab90",
+    "name": "Liliana's Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Liliana's Specter",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Flying\nWhen this creature enters, each opponent discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "0e348e20-f0bd-482f-b7de-475fa05753a4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dci",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAIN_DEVIL": {
+    "scryfallId": "351b64b3-5697-4b18-a0fa-334fb66c1bdb",
+    "oracleId": "b73bbdcc-e872-4da5-8d80-0fc9e52418bf",
+    "name": "Chain Devil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chain Devil",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "Animate Chains — When this creature enters, each player sacrifices a nontoken creature of their choice.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "351b64b3-5697-4b18-a0fa-334fb66c1bdb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Animate Chains"
+    ],
+    "setCode": "hbg",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VRASKA_S_FALL": {
+    "scryfallId": "0173b7b4-2832-4943-ba45-8ba498d7a056",
+    "oracleId": "33fd9192-3e9b-4d3a-92aa-06de29d449df",
+    "name": "Vraska's Fall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vraska's Fall",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Each opponent sacrifices a creature or planeswalker of their choice and gets a poison counter.",
+        "flavorText": "The dull, creeping pain of phyresis curdled in Vraska's blood. She knew as soon as it took her, she would betray everything—even Jace.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dibujante Nocturno",
+        "imageId": "0173b7b4-2832-4943-ba45-8ba498d7a056"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABYSSAL_GATEKEEPER": {
+    "scryfallId": "1734df5a-7d3a-46c7-a0ad-adbbd1be958f",
+    "oracleId": "4954181c-cb46-4cac-adc3-2c8b7693a211",
+    "name": "Abyssal Gatekeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abyssal Gatekeeper",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "When this creature dies, each player sacrifices a creature of their choice.",
+        "flavorText": "\"There are two ways for me to pass this gate. One involves you remaining conscious.\"\n—Gerrard of the *Weatherlight*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "1734df5a-7d3a-46c7-a0ad-adbbd1be958f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCREECHING_BUZZARD": {
+    "scryfallId": "1d4b887a-d928-4f6c-aa37-a0b09e87b91e",
+    "oracleId": "89acea5a-5601-4341-83a0-bde281c4bd85",
+    "name": "Screeching Buzzard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Screeching Buzzard",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature dies, each opponent discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "1d4b887a-d928-4f6c-aa37-a0b09e87b91e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLUM_REAPER": {
+    "scryfallId": "221b02f6-12d1-4228-b56c-4fe66b1e66de",
+    "oracleId": "0cf742c1-feb5-4108-9976-37fa58528212",
+    "name": "Slum Reaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slum Reaper",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "When this creature enters, each player sacrifices a creature of their choice.",
+        "flavorText": "It's sent into unguilded districts by the Orzhov to collect the souls of those no one will miss.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "221b02f6-12d1-4228-b56c-4fe66b1e66de"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bbd",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DICTATE_OF_EREBOS": {
+    "scryfallId": "343e7a7a-60d3-4a63-8428-25de639e5df1",
+    "oracleId": "7c777a41-e40a-4b40-96bf-8ddd5c12924c",
+    "name": "Dictate of Erebos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dictate of Erebos",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Flash\nWhenever a creature you control dies, each opponent sacrifices a creature of their choice.",
+        "flavorText": "\"Because I can make it quick. Or I can make it so much worse.\"\n—Ellie",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "343e7a7a-60d3-4a63-8428-25de639e5df1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "2204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOXIOUS_TOAD": {
+    "scryfallId": "354363a5-04ec-48ee-9cd7-04ae65c12f49",
+    "oracleId": "2fdc484e-b3c3-4f4e-99a1-26a1134aa1cd",
+    "name": "Noxious Toad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noxious Toad",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Frog",
+        "oracleText": "When this creature dies, each opponent discards a card.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adrian Smith",
+        "imageId": "354363a5-04ec-48ee-9cd7-04ae65c12f49"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "POR-104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIBSIG_ICEBREAKERS": {
+    "scryfallId": "3835752e-11a6-406c-8bff-b7d4f2f31d85",
+    "oracleId": "4880c976-b417-48e4-98a2-9e5a8da0d758",
+    "name": "Sibsig Icebreakers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sibsig Icebreakers",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, each player discards a card.",
+        "flavorText": "\"I almost envy them. They can't get frostbite.\"\n—Kirada, Silumgar enforcer",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "3835752e-11a6-406c-8bff-b7d4f2f31d85"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIASMIC_MUMMY": {
+    "scryfallId": "405c096c-a94b-4817-8c7f-f0551f6513e3",
+    "oracleId": "b5b049d4-242a-48ec-85d1-1ef66c8cfa4c",
+    "name": "Miasmic Mummy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Miasmic Mummy",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Jackal",
+        "oracleText": "When this creature enters, each player discards a card.",
+        "flavorText": "Its breath doesn't assault the senses. It pollutes the mind.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "E. M. Gist",
+        "imageId": "405c096c-a94b-4817-8c7f-f0551f6513e3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELDERFANG_DISCIPLE": {
+    "scryfallId": "419ade82-9767-405a-a4a0-15f413f9efb0",
+    "oracleId": "8db63f1a-0d63-4b11-966d-818d83a082f9",
+    "name": "Elderfang Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elderfang Disciple",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Elf Cleric",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "\"One day, the great serpent will rejoin us on Skemfar, and those who've wronged us will taste of our venom.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Miranda Meeks",
+        "imageId": "419ade82-9767-405a-a4a0-15f413f9efb0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "432",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRUS_BEETLE": {
+    "scryfallId": "488ee202-0d28-4cc0-8a7d-644d9878e952",
+    "oracleId": "e1e489f6-37e5-469e-bca3-0e9d3fc3fa95",
+    "name": "Virus Beetle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Virus Beetle",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact Creature — Insect",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "\"They'll be debugging their code for days before they figure out what happened!\"\n—Eita, Futurist agent",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "488ee202-0d28-4cc0-8a7d-644d9878e952"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMON_S_DISCIPLE": {
+    "scryfallId": "4c09c4b8-dcb3-4dfe-a892-718e0d1c5a8a",
+    "oracleId": "d5a33091-a348-4b13-8dbd-79ab0ad99afe",
+    "name": "Demon's Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demon's Disciple",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature enters, each player sacrifices a creature or planeswalker of their choice.",
+        "flavorText": "Taborax's cultists are the latest in a long history of beings who have desired to see Zendikar torn to pieces.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "4c09c4b8-dcb3-4dfe-a892-718e0d1c5a8a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "399",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRONGHOLD_RATS": {
+    "scryfallId": "6006922b-20f8-4f38-9522-9851541a6de5",
+    "oracleId": "e91053ae-682a-4bbe-8394-fd65e626bacc",
+    "name": "Stronghold Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stronghold Rats",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nWhenever this creature deals combat damage to a player, each player discards a card.",
+        "flavorText": "In the stronghold's dungeons, the shadows hide in the vermin.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "6006922b-20f8-4f38-9522-9851541a6de5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Shadow"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CACKLING_FIEND": {
+    "scryfallId": "6719cfb6-af52-4920-a3d7-87d22a7ea194",
+    "oracleId": "2029954b-6fa7-40d7-bb19-d7534c62be5d",
+    "name": "Cackling Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cackling Fiend",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "Its windpipe is only the first to amplify its maddening laughter.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Despain",
+        "imageId": "6719cfb6-af52-4920-a3d7-87d22a7ea194"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "brb",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUGHTRENDER_LAMIA": {
+    "scryfallId": "69799971-6e24-4b90-ba72-44c6393fc3c4",
+    "oracleId": "d97c4bca-6433-4cb0-b63a-fdf8360fc29c",
+    "name": "Thoughtrender Lamia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thoughtrender Lamia",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Enchantment Creature — Lamia",
+        "oracleText": "Constellation — Whenever this creature or another enchantment you control enters, each opponent discards a card.",
+        "flavorText": "Some predators can sense fear in their prey, but the lamia is drawn to madness.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "69799971-6e24-4b90-ba72-44c6393fc3c4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Constellation"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIPCLAW_WRANGLER": {
+    "scryfallId": "6ba1b096-7424-4ce9-8dfd-56a86fe612e4",
+    "oracleId": "6b2ffdb8-3681-4d64-ac03-8c860082e60e",
+    "name": "Ripclaw Wrangler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ripclaw Wrangler",
+        "manaCost": "{3}{B}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "When this Vehicle enters, each opponent discards a card.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": "Seize the day . . . and anything else that happens to catch your eye.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrew Griffith",
+        "imageId": "6ba1b096-7424-4ce9-8dfd-56a86fe612e4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "309",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HURLOON_SHAMAN": {
+    "scryfallId": "70a359c9-1889-426d-acaf-074cfd9f274d",
+    "oracleId": "9fc74fc9-bb02-4d9e-bb8e-f44f219d8946",
+    "name": "Hurloon Shaman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hurloon Shaman",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Minotaur Shaman",
+        "oracleText": "When this creature dies, each player sacrifices a land of their choice.",
+        "flavorText": "\"I believe it when they say they're connected to the land—looks like somebody plowed her face.\"\n—Tahngarth of the *Weatherlight*",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "70a359c9-1889-426d-acaf-074cfd9f274d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_DOOMSAYER": {
+    "scryfallId": "7b1264d2-c7c8-477f-84f6-c17b422aa45e",
+    "oracleId": "5fba553e-81b9-419b-aa20-b2a7cfcd042b",
+    "name": "Elvish Doomsayer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Doomsayer",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "When this creature dies, each opponent discards a card.",
+        "flavorText": "\"From a tiny doubt, the greatest fears grow and flourish. May the weeds of your mind be equally fruitful.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Denman Rooke",
+        "imageId": "7b1264d2-c7c8-477f-84f6-c17b422aa45e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCILESS_EXECUTIONER": {
+    "scryfallId": "7c588d7a-e352-40a0-9fc7-55c7b4bfd013",
+    "oracleId": "c3c45d50-9038-41df-bb2f-9bc40071845b",
+    "name": "Merciless Executioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merciless Executioner",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "When this creature enters, each player sacrifices a creature of their choice.",
+        "flavorText": "He enjoys his work, for he sees only the worst Abzan criminals: those who betray their own kin.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "7c588d7a-e352-40a0-9fc7-55c7b4bfd013"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "frf",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKKI_BLIZZARD_HERDER": {
+    "scryfallId": "7ce1ee90-67d1-4e83-ae1e-3bd71069aae4",
+    "oracleId": "16fe1f04-9bbf-43a3-ab14-395fdf4a3a43",
+    "name": "Akki Blizzard-Herder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akki Blizzard-Herder",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "When this creature dies, each player sacrifices a land of their choice.",
+        "flavorText": "\"It remains unclear whether the akki shamans could in fact create storms or simply predicted them.\"\n—*The History of Kamigawa*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "7ce1ee90-67d1-4e83-ae1e-3bd71069aae4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HECTEYES": {
+    "scryfallId": "8680d052-c07b-4d9b-bda9-b5f69f44f424",
+    "oracleId": "7a11b4ed-430d-4ef8-b0c1-6a022f12448c",
+    "name": "Hecteyes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hecteyes",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Ooze Horror",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "\"Once, the monsters of Hell poured forth into the world. They entered using a path known as the Jade Passage.\"\n—Hilda, Princess of Fynn",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "SHOSUKE",
+        "imageId": "8680d052-c07b-4d9b-bda9-b5f69f44f424"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHIOK_S_ADEPT": {
+    "scryfallId": "86acd1cc-5238-4734-a324-b4cecffc0bab",
+    "oracleId": "80eca17e-5dfd-4051-9f94-0c8aaf3747bf",
+    "name": "Ashiok's Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashiok's Adept",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Heroic — Whenever you cast a spell that targets this creature, each opponent discards a card.",
+        "flavorText": "\"Every nightmare is a caged bird that yearns to be set free.\"\n—Ashiok, Nightmare Weaver",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karla Ortiz",
+        "imageId": "86acd1cc-5238-4734-a324-b4cecffc0bab"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Heroic"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURGLAR_RAT": {
+    "scryfallId": "8e8bb46d-acc2-4631-89c7-b92f927a5940",
+    "oracleId": "2f807301-37df-4724-871a-08e3512b07b3",
+    "name": "Burglar Rat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burglar Rat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "\"Even rats hoard their treasures. Are your precious things so different?\"\n—Izoni",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "8e8bb46d-acc2-4631-89c7-b92f927a5940"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "384",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUNNING_LETHEMANCER": {
+    "scryfallId": "972891e6-6a23-40df-af22-adf8cd7ea582",
+    "oracleId": "d696aba9-ef3e-4f81-821a-c1df51431b8a",
+    "name": "Cunning Lethemancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cunning Lethemancer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "At the beginning of your upkeep, each player discards a card.",
+        "flavorText": "\"Give me your memories, and you will have release from the suffering they bring you.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paul Bonner",
+        "imageId": "972891e6-6a23-40df-af22-adf8cd7ea582"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEZUMI_INFORMANT": {
+    "scryfallId": "e36fbff8-471e-4cf8-8946-e1e5cdf598af",
+    "oracleId": "a70ffefb-840c-48c3-a59d-e12306086bb6",
+    "name": "Nezumi Informant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nezumi Informant",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat Rogue",
+        "oracleText": "When this creature enters, each opponent discards a card.",
+        "flavorText": "\"Tell Boss Umezawa there's a new gang moving in on our territory. I'm forwarding their insignia. Watch for it elsewhere.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "e36fbff8-471e-4cf8-8946-e1e5cdf598af"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mom",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_THE_FATES": {
+    "scryfallId": "ecd59977-8788-417d-ba50-e21b8a636bd3",
+    "oracleId": "45f88a6a-ac8a-4a53-a96b-f09ca33c79ba",
+    "name": "Agent of the Fates",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of the Fates",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "Deathtouch\nHeroic — Whenever you cast a spell that targets this creature, each opponent sacrifices a creature of their choice.",
+        "flavorText": "\"You are breathing borrowed air.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "ecd59977-8788-417d-ba50-e21b8a636bd3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Heroic",
+      "Deathtouch"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERUM_RAKER": {
+    "scryfallId": "f157d08a-7cd7-4120-a8bb-1b50fa0ba99b",
+    "oracleId": "7bb7b937-a7ad-4f5c-b173-df71556c48e9",
+    "name": "Serum Raker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serum Raker",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Phyrexian Drake",
+        "oracleText": "Flying\nWhen this creature dies, each player discards a card.",
+        "flavorText": "The serum from the blinkmoths they gather greases the joints of witch engines.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "f157d08a-7cd7-4120-a8bb-1b50fa0ba99b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EARSPLITTING_RATS": {
+    "scryfallId": "5dad63b5-ced3-4150-ad84-1ca05a892840",
+    "oracleId": "6c14ecbf-0097-4fd8-97a3-a32b532c21e0",
+    "name": "Earsplitting Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Earsplitting Rats",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, each player discards a card.\nDiscard a card: Regenerate this creature.",
+        "flavorText": "Rats come in one amount: too many.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "5dad63b5-ced3-4150-ad84-1ca05a892840"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

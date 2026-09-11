@@ -581,10 +581,13 @@ export function simplestAnswer(
           ? (state.zones.library[awaiting.player] ?? []).filter((id) =>
               state.cards[id]?.revealedTo.includes(awaiting.player),
             )
-          : (state.zones.hand[awaiting.player] ?? []);
+          : awaiting.zone === 'battlefield'
+            ? state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
+            : (state.zones.hand[awaiting.player] ?? []);
       // D389 - a filtered look admits only what its noun names, and "you may" takes nothing:
       // the eligible run, up to the count, is legal whether it is empty or full.
-      const filter = awaiting.zone === 'library' ? (awaiting.filter ?? null) : null;
+      // D390 - a queued sacrifice carries the printed noun too; a discard never does.
+      const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
       const eligible = filter
         ? pool.filter((id) => {
             const inst = state.cards[id];

@@ -6454,6 +6454,45 @@ const WANTED = [
   // D389 - the helpers the conditional suites deal (the fixtures a condition is met with).
   // D389 red1 - the legal enchantment the look fixture derivation picks once the legality guard reads the database's own field.
   "Valgavoth's Lair",
+  // D390 - the player queue: the seam's proof spells and the two permanents its wave is measured on.
+  'Innocent Blood',
+  'Unnerve',
+  'Tremble',
+  'Delirium Skeins',
+  'Simplify',
+  'Fleshbag Marauder',
+  "Liliana's Specter",
+  'Chain Devil',
+  "Vraska's Fall",
+  // D390 - the player queue: the wave the queue made rowable.
+  'Abyssal Gatekeeper',
+  'Screeching Buzzard',
+  'Slum Reaper',
+  'Dictate of Erebos',
+  'Noxious Toad',
+  'Sibsig Icebreakers',
+  'Miasmic Mummy',
+  'Elderfang Disciple',
+  'Virus Beetle',
+  "Demon's Disciple",
+  'Stronghold Rats',
+  'Cackling Fiend',
+  'Thoughtrender Lamia',
+  'Ripclaw Wrangler',
+  'Hurloon Shaman',
+  'Elvish Doomsayer',
+  'Merciless Executioner',
+  'Akki Blizzard-Herder',
+  'Hecteyes',
+  "Ashiok's Adept",
+  'Burglar Rat',
+  'Cunning Lethemancer',
+  'Nezumi Informant',
+  'Agent of the Fates',
+  'Serum Raker',
+  // D390 - the helpers the queue suites deal (the fodder p1 gives up, the fixtures the heads need).
+  // D390 - the second wave: the two-line card the selector still offered after the first.
+  'Earsplitting Rats',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

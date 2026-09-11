@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AimVeil } from './AimVeil';
+import { parseTypeLine } from '../../data/oracleParse';
+import { predicateAdmits } from '../../data/replacementParse';
 import { AttachmentsPanel, CardMenu, ManualToolsDrawer } from './ManualTools';
 import { ManaChoicePanel } from './ManaChoice';
 import { FaceChoicePanel } from './FaceChoice';
@@ -89,6 +91,20 @@ export function GameLayer({
       setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // D390 - the queued sacrifice: the viewer's own permanents the printed noun admits, read off
+    // the PRINTED face here (the host reads the DERIVED one and validates every pick), minus what
+    // is already chosen. An unfiltered prompt offers the whole board.
+    if (mode.kind === 'boardPick') {
+      const filter = awaiting?.kind === 'chooseFromZone' ? (awaiting.filter ?? null) : null;
+      const pool = (view.zones[zoneId('bf', viewer)] ?? []).filter((id) => {
+        if (mode.chosen.includes(id)) return false;
+        if (!filter) return true;
+        const face = view.cards[id]?.card?.faces[0];
+        return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
+      });
+      setTargets(pool.map((id) => ({ kind: 'card' as const, id })));
+      return;
+    }
     // Blocking is the same overlay with a different legal set, and it has TWO
     // stages: pick one of your creatures, then pick what it blocks.
     //
@@ -156,7 +172,8 @@ export function GameLayer({
           mode.kind === 'blockers' ||
           mode.kind === 'attach' ||
           mode.kind === 'sacrifice' ||
-          mode.kind === 'costPick'
+          mode.kind === 'costPick' ||
+          mode.kind === 'boardPick'
         }
         legalTargets={targets}
         chosenIds={chosenIdsFor(mode)}

@@ -16,12 +16,13 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type EffectSpec } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type EffectSpec, type LookFilter } from './types/oracle';
+import { predicateAdmits } from '../data/replacementParse';
 import { faceOf } from './oracle';
-import type { GameState, StackObject, TargetChoice } from './types/state';
+import type { GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
-import { narrated } from './narrate';
+import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { solveInputFor, suggestPayment } from './payment';
@@ -461,6 +462,22 @@ export function effectResult(
       }
 
       // D369 - Sacrifice this creature: the object's own source, if it is still on the battlefield.
+      /**
+       * D390 - THE PLAYER QUEUE (CR 101.4). "Each player sacrifices a creature of their choice":
+       * the players in the scope choose in APNAP order, each seeing the choices before theirs, and
+       * the sacrifices happen at once. A player with no more legal choices than the count is
+       * recorded without a prompt (everything they have, or nothing); the first player with a real
+       * one is asked, the rest are parked on `pendingAsks`, and the answer handler carries the queue
+       * to its end - so, like every asking effect, this one is its sentence's LAST (D195).
+       */
+      case 'sacrifice': {
+        if (!effect.sacrifice) break;
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const filter: LookFilter = { predicates: effect.sacrifice.predicates, what: effect.sacrifice.what };
+        out.push(...queueAsks(state, deps, controller, 'sacrifice', effect.scopes ?? [], effect.amount, filter, obj.label, cache));
+        break;
+      }
+
       case 'sacrificeSelf': {
         if (!source) break;
         const inst = state.cards[source];
@@ -744,6 +761,12 @@ export function effectResult(
       }
 
       case 'discard': {
+        // D390 - "each opponent discards a card": the player queue over the hand (see `sacrifice`).
+        if (effect.scopes !== undefined && effect.scopes.length > 0) {
+          if (out.some((e) => e.t === 'AwaitingSet')) break;
+          out.push(...queueAsks(state, deps, controller, 'discard', effect.scopes, effect.amount, null, obj.label, cache));
+          break;
+        }
         if (aim?.kind !== 'player') break;
         const hand = state.zones.hand[aim.id] ?? [];
         if (hand.length === 0) break;
@@ -941,6 +964,106 @@ function damageTo(
  * means what the card says.
  */
 const MASS_PUMP_SCOPE: BoardScope = { kind: 'creature', controller: 'you' };
+/** D390 - CR 101.4: the players who choose, in APNAP order from the active player. */
+export function apnapPlayers(state: GameState, players: readonly PlayerId[]): PlayerId[] {
+  const seats = state.seating;
+  const start = Math.max(0, seats.indexOf(state.turn.activePlayer));
+  const out: PlayerId[] = [];
+  for (let i = 0; i < seats.length; i++) {
+    const p = seats[(start + i) % seats.length];
+    if (p !== undefined && players.includes(p)) out.push(p);
+  }
+  return out;
+}
+
+/**
+ * D390 - what a player may answer a queued question with: the permanents they control that the
+ * printed noun admits (DERIVED - a type-changed permanent is what it is now, as the sacrifice
+ * chooser's own offer reads it), or every card in their hand. The host validates a pick against
+ * exactly this list.
+ */
+export function askCandidates(
+  state: GameState,
+  deps: EngineDeps,
+  player: PlayerId,
+  verb: 'sacrifice' | 'discard',
+  filter: LookFilter | null,
+  cache?: DeriveCache,
+): InstanceId[] {
+  if (verb === 'discard') return [...(state.zones.hand[player] ?? [])];
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player) continue;
+    if (filter) {
+      const d = derive(state, deps.oracle, deps.scripts, id, cache);
+      if (!predicateAdmits({ typeLine: d.typeLine, colors: d.colors }, filter.predicates)) continue;
+    }
+    out.push(id);
+  }
+  return out;
+}
+
+/**
+ * D390 - the queue's END: every recorded pick moves in ONE `CardsMoved` (the sacrifices - or the
+ * discards - are simultaneous, CR 101.4), carrying the reason a watcher reads (D377), and the log
+ * says what each player gave up.
+ */
+export function askBatch(state: GameState, verb: 'sacrifice' | 'discard', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+  const moves = chosen.flatMap((c) =>
+    c.cards.map((card) => ({
+      card,
+      from: verb === 'sacrifice' ? { kind: 'battlefield' as const, player: null } : { kind: 'hand' as const, player: c.player },
+      to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? c.player },
+      reason: verb,
+    })),
+  );
+  const out: EventBody[] = moves.length > 0 ? [{ t: 'CardsMoved', moves }] : [];
+  for (const c of chosen) {
+    const k = c.cards.length;
+    const thing = verb === 'discard' ? (k === 1 ? 'a card' : `${k} cards`) : k === 1 ? `a ${filter?.what ?? 'permanent'}` : `${k} permanents`;
+    out.push(
+      k === 0
+        ? narrated(n`${who(state, c.player)} ${vb(c.player, 'has', 'have')} nothing to ${verb}.`, c.player)
+        : narrated(n`${who(state, c.player)} ${vb(c.player, verb === 'discard' ? 'discards' : 'sacrifices', verb === 'discard' ? 'discard' : 'sacrifice')} ${thing}.`, c.player),
+    );
+  }
+  return out;
+}
+
+function queueAsks(
+  state: GameState,
+  deps: EngineDeps,
+  controller: PlayerId,
+  verb: 'sacrifice' | 'discard',
+  scopes: readonly BoardScope[],
+  count: number,
+  filter: LookFilter | null,
+  label: string,
+  cache?: DeriveCache,
+): EventBody[] {
+  const order = apnapPlayers(state, scopeMembers(state, deps, controller, scopes, cache).players);
+  const chosen: { player: PlayerId; cards: InstanceId[] }[] = [];
+  const remaining: PlayerId[] = [];
+  let first: PlayerId | null = null;
+  for (const p of order) {
+    if (first !== null) { remaining.push(p); continue; }
+    const cands = askCandidates(state, deps, p, verb, filter, cache);
+    // No more legal choices than the count is no choice at all (D137's rule for a hand, CR 701.8a).
+    if (cands.length <= count) { chosen.push({ player: p, cards: cands }); continue; }
+    first = p;
+  }
+  if (first === null) return askBatch(state, verb, chosen, filter);
+  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen };
+  return [
+    { t: 'AsksQueued', pending },
+    {
+      t: 'AwaitingSet',
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'sacrifice' ? 'battlefield' : 'hand', rest: null, count, ...(filter ? { filter } : {}), label },
+    },
+  ];
+}
+
 function scopeMembers(
   state: GameState,
   deps: EngineDeps,

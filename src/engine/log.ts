@@ -123,6 +123,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     combat: null,
     pendingCast: null,
     pendingReplacement: null,
+    pendingAsks: null,
     untilEndOfTurn: [],
     regenerationShields: {},
     preventionShields: [],

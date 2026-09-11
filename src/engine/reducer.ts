@@ -835,6 +835,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'ReplacementResolved':
       return { ...state, pendingReplacement: null };
 
+    case 'AsksQueued':
+      return { ...state, pendingAsks: body.pending };
+
+    case 'AsksResolved':
+      return { ...state, pendingAsks: null };
+
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 

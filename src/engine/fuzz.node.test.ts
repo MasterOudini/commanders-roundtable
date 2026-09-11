@@ -129,6 +129,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // simplestAnswer's no-op scry.
   { names: ['Preordain'], copiesPerSeat: 1,
     counterKeys: ['scryChoices'], rotHistory: 'D195' },
+  // D390 - the player queue (CR 101.4): a sacrifice every seat can cast and a discard aimed at
+  // every opponent, whose resolutions ask the players in APNAP order and move every pick at once.
+  { names: ['Innocent Blood', 'Unnerve'], copiesPerSeat: 1,
+    counterKeys: ['queueAsks', 'queueBatches'], rotHistory: 'D390' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -589,7 +593,16 @@ function answerFor(state: GameState, p: Picker): Intent | null {
               const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
               return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
             })
-          : [...(state.zones.hand[awaiting.player] ?? [])];
+          : awaiting.zone === 'battlefield'
+            ? state.zones.battlefield.filter((id) => {
+                // D390 - a queued sacrifice: my own permanents the printed noun admits.
+                const inst = state.cards[id];
+                if (!inst || inst.controller !== awaiting.player) return false;
+                if (!awaiting.filter) return true;
+                const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
+                return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
+              })
+            : [...(state.zones.hand[awaiting.player] ?? [])];
       const min = awaiting.min ?? awaiting.count;
       const most = Math.min(awaiting.count, pool.length);
       const want = most > min ? min + p.below(most - min + 1) : most;
@@ -746,6 +759,9 @@ interface Run {
   readonly replacementChoices: number;
   /** Scry/surveil prompts raised by a resolving effect (D195). */
   readonly scryChoices: number;
+  /** D390 - player queues raised (a resolution that had to ask several players) and completed. */
+  readonly queueAsks: number;
+  readonly queueBatches: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -992,6 +1008,10 @@ function runOne(seed: number): Run {
     scryChoices: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'scryChoice',
     ).length,
+    // D390 - a queue is raised only when somebody had a real choice, and resolved by the last
+    // answer; the two together are what the staple's resolution exists to drive.
+    queueAsks: game.log.filter((e) => e.body.t === 'AsksQueued').length,
+    queueBatches: game.log.filter((e) => e.body.t === 'AsksResolved').length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1133,6 +1153,8 @@ const TOTAL_KEYS = [
   'diesTriggers',
   'replacementChoices',
   'scryChoices',
+  'queueAsks',
+  'queueBatches',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1360,6 +1382,14 @@ function assertFloors(totals: Totals, seeds: number): void {
       // so at gate size the effect that stops and asks must have stopped and
       // asked somewhere.
       if (seeds >= 500) expect(totals.scryChoices).toBeGreaterThan(0);
+      // D390 - THE PLAYER QUEUE: Innocent Blood ({B}, each player sacrifices a creature of their
+      // choice) and Unnerve (each opponent discards two) are staples in every pool, and a queue
+      // is raised only where a player has more legal choices than the count - so at gate size
+      // some seat, somewhere, must have been asked and the batch must have followed.
+      if (seeds >= 500) {
+        expect(totals.queueAsks).toBeGreaterThan(0);
+        expect(totals.queueBatches).toBeGreaterThan(0);
+      }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
       if (seeds >= 500) expect(totals.snowManaMade).toBeGreaterThan(0);
@@ -1411,6 +1441,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.selfAimedResolved} granted payloads that hit their own source · ` +
           `${totals.sacrificesRecorded} sacrifices / ${totals.discardsRecorded} discards / ${totals.cyclingsRecorded} cyclings recorded · ` +
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined · ` +
+          `${totals.queueAsks} player queues raised / ${totals.queueBatches} completed · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

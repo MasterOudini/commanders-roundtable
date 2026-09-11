@@ -4709,6 +4709,129 @@ async function sectionPrompts(js, send) {
   }
 
   /**
+   * THE PLAYER QUEUE'S BOARD PICK (D390), driven by real clicks: `Innocent Blood` asks every
+   * player for a creature of their choice, and the viewer answers ON THE TABLE - the veil offers
+   * only what the printed noun admits (the Bears, never the Swamp), one click commits, and the
+   * batch lands when the last player has chosen. D144's rule, paid up front - and D389's three
+   * traps paid before a check was written: the viewer is SET, priority is WALKED to p1 before
+   * anything is funded, and every mid-prompt read is the DOM, never `view().awaiting`.
+   * And two the first run paid for: the veil's HITS are rendered by an effect AFTER the veil div,
+   * so the block waits for a hit rather than for the veil; and the table MODE outlives the game,
+   * so the finally answers the queue if it is still open and drops the mode, or the next block
+   * inherits a stuck pick (measured: two later sections went red on it). Two identical Bears are
+   * ONE slot and one hit (D112), so the legal set is one Bears pile beside a Swamp offered DARK;
+   * and the post-click reads wait on `table.settle` because `view()` lags one animation group and
+   * stays wrong once the game stops (D146) - "picked in gy false" was the stale view.
+   */
+  const queue = await js(`(async () => {
+    const out = {};
+    const mk = (n, q) => ({ quantity: q, name: n, section: 'main', lineNo: 1, raw: q + 'x ' + n });
+    const deck = {
+      id: 'battery-queue', name: 'battery queue',
+      createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+      commanders: [{ quantity: 1, name: 'Talrand, Sky Summoner', section: 'commander', lineNo: 1, raw: '1x Talrand, Sky Summoner' }],
+      main: [mk('Innocent Blood', 20), mk('Grizzly Bears', 20), mk('Swamp', 59)], sideboard: [], houseRuled: true, sourceText: '',
+    };
+    const wait = (ms) => new Promise((x) => setTimeout(x, ms));
+    const nameOf = (v, k) => (v.cards[k] && v.cards[k].card && v.cards[k].card.name) || '';
+    let savedId = null;
+    let e = null;
+    let bears = [];
+    try {
+      const saved = await window.crt.decks.save(deck);
+      savedId = saved.id;
+      const solo = await import('/src/game/solo.ts');
+      const r = await solo.startSolo({ seats: 2, deckIds: [savedId, null], seed: 'battery-queue' });
+      if (!r.ok) { out.error = r.message; return out; }
+      e = window.__crt.engine;
+      e.submit({ t: 'MulliganDecision', player: 'p1', keep: true });
+      e.submit({ t: 'MulliganDecision', player: 'p2', keep: true });
+      await wait(700);
+      e.setViewer('p1');
+      await wait(300);
+      for (let i = 0; i < 80; i++) {
+        const v = e.view();
+        if (v.priority === 'p1' && !v.awaiting) break;
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(150);
+      }
+      // Two Bears on p1's battlefield: a queued sacrifice with ONE creature would be forced.
+      const inHand = (n) => (e.view().zones['hand:p1'] || []).filter((k) => nameOf(e.view(), k) === n);
+      for (let attempt = 0; attempt < 8 && (inHand('Grizzly Bears').length < 2 || inHand('Innocent Blood').length < 1); attempt++) {
+        e.submit({ t: 'ManualDraw', player: 'p1', target: 'p1', count: 4 });
+        await wait(250);
+      }
+      bears = inHand('Grizzly Bears').slice(0, 2);
+      const blood = inHand('Innocent Blood')[0];
+      if (bears.length < 2 || !blood) { out.error = 'the hand never held two Bears and an Innocent Blood'; return out; }
+      for (const b of bears) e.submit({ t: 'ManualMoveCard', player: 'p1', card: b, to: { kind: 'battlefield', player: 'p1' } });
+      const swamp = inHand('Swamp')[0];
+      if (swamp) e.submit({ t: 'ManualMoveCard', player: 'p1', card: swamp, to: { kind: 'battlefield', player: 'p1' } });
+      await wait(400);
+      e.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 });
+      await wait(200);
+      out.cast = e.submit({ t: 'CastSpell', player: 'p1', card: blood, targets: [] });
+      for (let i = 0; i < 40 && !document.querySelector('[data-aim-veil]'); i++) {
+        const v = e.view();
+        if (v.priority && !v.awaiting) e.submit({ t: 'PassPriority', player: v.priority });
+        await wait(250);
+      }
+      out.veilSeen = !!document.querySelector('[data-aim-veil]');
+      // The hits are an EFFECT of the veil rendering, one commit later: wait for one.
+      for (let i = 0; i < 30 && document.querySelectorAll('[data-aim-legal="1"]').length === 0; i++) await wait(150);
+      const legal = [].slice.call(document.querySelectorAll('[data-aim-legal="1"]')).map((el) => el.getAttribute('data-aim-card')).filter(Boolean);
+      const v1 = e.view();
+      out.legalNames = legal.map((k) => nameOf(v1, k));
+      out.swampLegal = legal.some((k) => nameOf(v1, k) === 'Swamp');
+      const dark = [].slice.call(document.querySelectorAll('[data-aim-key][data-aim-legal="0"]')).map((el) => el.getAttribute('data-aim-card')).filter(Boolean);
+      out.darkNames = dark.map((k) => nameOf(v1, k));
+      out.swampOffered = out.darkNames.includes('Swamp');
+      out.bar = (document.querySelector('[data-prompt-bar]') || document.body).textContent || '';
+      if (legal.length === 0) { out.error = 'the veil never offered a pick (veil ' + out.veilSeen + ', cast ' + JSON.stringify(out.cast) + ', bar ' + JSON.stringify(String(out.bar).slice(0, 100)) + ')'; return out; }
+      const pick = legal.find((k) => nameOf(v1, k) === 'Grizzly Bears');
+      const other = bears.find((b) => b !== pick);
+      document.querySelector('[data-aim-card="' + pick + '"]').click();
+      await wait(300);
+      out.veilAfter = !!document.querySelector('[data-aim-veil]');
+      out.settled = await window.__crt.table.settle(6000);
+      await wait(300);
+      const v2 = e.view();
+      const gyDom = !!document.querySelector('[data-pile-draggable="gy"][data-instance-id="' + pick + '"], [data-pile-draggable="gy"] [data-instance-id="' + pick + '"]');
+      out.pickedInGy = (v2.zones['gy:p1'] || []).includes(pick) || gyDom;
+      out.otherOnBf = (v2.zones['bf:p1'] || []).includes(other);
+      out.gyCount = (v2.zones['gy:p1'] || []).length;
+    } catch (err) {
+      out.error = String(err && err.message ? err.message : err);
+    } finally {
+      // Leave nothing behind for the next block (D144): answer the queue if it is still open (the
+      // error path), then drop the table MODE, which is UI state and outlives the game.
+      try {
+        if (e && bears.length) {
+          const onBf = (e.view().zones['bf:p1'] || []).filter((k) => bears.includes(k));
+          if (onBf.length) e.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [onBf[0]] });
+        }
+      } catch (e3) { out.cleanupAnswer = String(e3); }
+      await wait(400);
+      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      await wait(200);
+      out.veilLeft = !!document.querySelector('[data-aim-veil]');
+      if (savedId) { try { await window.crt.decks.delete(savedId); } catch (e2) { out.cleanup = String(e2); } }
+    }
+    return out;
+  })()`);
+  if (queue.error) {
+    check('a queued sacrifice arms the board pick on the table', false, queue.error);
+  } else {
+    // Two identical Bears are ONE slot and one hit (D112); the Swamp beside them is offered DARK.
+    check('a queued sacrifice arms the board pick with only what the noun admits',
+      queue.legalNames.length === 1 && queue.legalNames[0] === 'Grizzly Bears' && queue.swampOffered === true && queue.swampLegal === false,
+      `legal: ${queue.legalNames.join(', ')} · swamp legal: ${queue.swampLegal}`);
+    check('one click answers it: the pick is sacrificed, the other creature stays, the veil closes and nothing is left armed',
+      queue.veilAfter === false && queue.pickedInGy === true && queue.otherOnBf === true && queue.veilLeft === false,
+      `veil ${queue.veilAfter}, picked in gy ${queue.pickedInGy}, other on bf ${queue.otherOnBf}, gy ${queue.gyCount}, veil left ${queue.veilLeft}, settled ${JSON.stringify(queue.settled)}`);
+  }
+
+  /**
    * PAY-TO-ENTER (D136) and the HAND DISCARD (D137), driven by real clicks.
    *
    * ⚠️ **D144's own reportable.** Both prompts were driven by hand when they

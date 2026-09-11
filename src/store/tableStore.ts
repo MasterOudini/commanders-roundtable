@@ -156,6 +156,18 @@ export type TableMode =
       readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'removeCounter';
       readonly count: number;
       readonly chosen: readonly string[];
+    }
+  /**
+   * D390 - answering a queued SACRIFICE ("each player sacrifices a creature of their choice"):
+   * N of the viewer's own permanents the printed noun admits, then `AnswerChooseFromZone`. Armed
+   * by the prompt itself (`useEngineTable`), the way a trigger's aim arms the arrow (D169); the
+   * host re-validates every pick against the derived board, so a stale click costs a refusal.
+   */
+  | {
+      readonly kind: 'boardPick';
+      readonly name: string;
+      readonly count: number;
+      readonly chosen: readonly string[];
     };
 
 export interface NumberRequest {
@@ -366,7 +378,12 @@ export const useTable = create<TableUi>((set, get) => ({
   textRequest: null,
 
   setMode: (mode) => set({ mode }),
-  setGameSetup: ({ tokens, stops }) => set({ tokens, stops }),
+  // A game starts in IDLE: the mode is UI state and would otherwise outlive the game that armed
+  // it (D390 - a board pick left open when a game ended put a veil over the next one).
+  setGameSetup: ({ tokens, stops }) => {
+    useAim.getState().reset();
+    set({ tokens, stops, mode: { kind: 'idle' } });
+  },
   /**
    * ⚠️ A PARTIAL DISCARD PICK DIES WITH THE PROMPT THAT ASKED FOR IT (D137).
    * The question can end without being answered — a rewind, a resync, the seat
@@ -483,7 +500,7 @@ export const useTable = create<TableUi>((set, get) => ({
     // to drop the aim with it — the same reason the pending blocker does. The
     // sacrifice pick pins its tail to the ability's source (D168), so it backs
     // out the same way.
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick') {
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

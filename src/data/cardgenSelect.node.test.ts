@@ -1889,6 +1889,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Visionary's Dance", 'hand-activated ability (channel-shaped: {2}, Discard this card)'],
   ['Creative Outburst', 'hand-activated ability (channel-shaped: {U/R}{U/R}, Discard this card)'],
   ["Liliana's Spoils", 'two asks in one resolution (a targeted discard, then the look) - the prompt continuation seam'],
+  // D390 - the player queue's wave: the four the selector offered that the row maker refused, by reason.
+  ['Butcher of Malakir', 'a compound-subject dies head (this creature OR another creature you control) outside the closed subject reader'],
+  ['Mindlash Sliver', 'a quoted grant of a queued discard (All Slivers have ...) - the grant generator, not the mainline row maker'],
+  ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
+  ["Ultimo, Civilization's End", 'hand-activated ability (channel-shaped: Discard this card)'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
