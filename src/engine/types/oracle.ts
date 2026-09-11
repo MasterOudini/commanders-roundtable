@@ -506,6 +506,12 @@ export type EffectKind =
   | 'tap'
   | 'untap'
   /**
+   * D393 - THREATEN: "Gain control of target <noun> until end of turn." - a control change WITH
+   * AN END. The executor emits `ControlChangedUntilEndOfTurn`; the cleanup step hands the
+   * permanent back (CR 514.2) if it is still on the battlefield.
+   */
+  | 'control'
+  /**
    * D373 - CR 701.19: "Regenerate this creature." / "Regenerate target creature." -
    * a shield on the permanent, spent by the next destruction this turn (`destroy`
    * and `sba.ts` both read it; cleanup clears it with the other until-end-of-turn

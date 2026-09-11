@@ -14499,6 +14499,68 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
       NEVER BLOCKS; then D391's list unchanged.
 
+- [x] **M6.4hz — THREATEN: a control change with an end, remembered on the
+      until-end-of-turn list and handed back by the cleanup step (2026-09-11):**
+      **8,440 of 31,692 Commander-legal cards now execute completely, up from
+      8,423 (+17: THIRTEEN with no script at all, then 4 generated rows in one
+      wave).** `SHIPPED_SCRIPTS` 5,466 → **5,470**; ledger 1,218 → **1,222**
+      (four ADDED by reason). Fixtures 6,016 → **6,022**. `scriptableToday`
+      1,313 → 1,321 by the SEAM and → **1,317** by the WAVE; the select pool
+      0 → 8 → 4 → 0; the ladder `[1317, 1406, 2805, 4481, 5821]`. Bot reach 8,354
+      → **8,370** from 253 commanders. Decisions in **D393**, on Fable 5.1.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** with D392's referent read, `Gain control
+      of target <noun> until end of turn.` was the ONE sentence missing from 49
+      threaten cards; priced with the real parser (the sentence stood in by a
+      tap): 12 spells and 2 payloads; landed 13 and 4. Two neighbours priced the
+      same way and NOT built: the fronted duration (80 lines, lands 5) and the
+      activation restrictions (313 lines — the tail is the payloads, 59 parse).
+      ⚠️ **THE SEAM:** `ControlChangedUntilEndOfTurn { card, controller,
+      revertTo }` moves the permanent, marks it summoning-sick (CR 302.6 — the
+      printed haste is what lets it attack) and appends an `untilEndOfTurn`
+      entry with `controlRevert` (power 0, toughness 0 — inert at every layer
+      `derive` reads; in the state hash; every earlier entry byte-identical);
+      the cleanup step emits one ordinary `ControlChanged` per remembered entry
+      whose card is still on the battlefield, newest first, before
+      `UntilEndOfTurnEnded` (CR 514.2); a permanent that left is a new object
+      (CR 400.7) and its entry is dropped. The vocabulary's `control` kind
+      reads the sentence with its end (the permanent form stays unread); the
+      executor refuses to take what is already yours; the bot's target order
+      already prefers what belongs to somebody else; no prompt, no client mode.
+      Act of Treason is a canary staple feeding `controlTaken` /
+      `controlReverted` at gate size.
+      ⚠️ **THE WAVE:** 8 in the pool → 4 rows (enters heads: Zealous
+      Conscripts, Conquering Manticore, Enthralling Victor, Eriette's Tempting
+      Apple), four ledgered by reason (a quoted grant, a spell-side Devoid
+      keyword line, a "creature or Vehicle" noun with a free cast, a
+      planeswalker); thirteen spells with NO script (Act of Treason, Hijack,
+      Act of Aggression, Claim the Firstborn, Wrangle, Portent of Betrayal …).
+      The generator's control arm reads the opponent's fixture as p1's.
+      ⚠️ **Traps:** the engine has NO OBJECT STAMP (CR 400.7 — the revert is
+      gated on "still on the battlefield"; a stolen creature bounced and recast
+      inside one turn is the named reportable); a SHAPE COUNT IS NOT A LANDING
+      COUNT (D384, twice over); the generator's ASSERTABLE set is a second
+      vocabulary; a derived port carries the previous decision's PROSE.
+      Fixtures 6,022 (5,867 by name + 148 tokens) · botPool artifact 457 /
+      creature 4,962 / enchantment 480 / instant 1,128 / land 568 / sorcery 845 —
+      auto 1,261 / assisted 1,994 · `oracleParse` `effect:auto` 5,594 · tier3
+      silentAfter 8,741 · `layer6` 1,095 (grant 665, temporary 494) · the
+      `token` primitive 955 · residue other 2,990 · batch.json 8 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5627 files,
+      27574 passed / 11 skipped · 500-seed gate, 6 shards, 1063.7 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D393): threaten's tail (the fronted duration, the
+      compound "put a counter on it and untap it", the conditionals, "for each
+      opponent", a sorcery-speed restriction, the compound heads, the spell-side
+      Devoid claim); the OBJECT STAMP; the PERMANENT control family and exchange
+      control (24); the durations proper — `for as long as you control` (23, the
+      same revert with a condition), `remains exiled` (33), `remains on the
+      battlefield` (14); the animate-land family (28); the bite (7) and the fight
+      kind (44); the activation restrictions (313 — the tail is the payloads);
+      then spend-restricted mana (56), the keyword entry replacements (22), copy
+      (~200), the prompt CONTINUATION seam proper, the two gate items — the
+      tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then
+      D392's list unchanged.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

@@ -1082,6 +1082,19 @@ function applyBody(state: GameState, body: EventBody): GameState {
         ],
       };
 
+    // D393 - THREATEN: the control change lands on the card (with CR 302.6's summoning sickness -
+    // it came under this player's control this turn) and the cleanup revert is remembered on the
+    // until-end-of-turn list, in the state hash.
+    case 'ControlChangedUntilEndOfTurn': {
+      const card = state.cards[body.card];
+      if (!card) return state;
+      return {
+        ...state,
+        cards: { ...state.cards, [body.card]: { ...card, controller: body.controller, summonedOnTurn: state.turn.turnNumber } },
+        untilEndOfTurn: [...state.untilEndOfTurn, { card: body.card, power: 0, toughness: 0, controlRevert: body.revertTo }],
+      };
+    }
+
     // D330 - CR 701.19: a regeneration shield on the permanent, spent by the
     // next destruction this turn.
     case 'BecameRenowned': {

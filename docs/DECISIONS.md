@@ -29366,3 +29366,140 @@ exchange control (24), the keyword entry replacements (22 over three keywords),
 copy (~200); the prompt CONTINUATION seam proper; the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D391's list
 unchanged.
+
+
+## D393 — THREATEN: a control change with an end, remembered on the until-end-of-turn list and handed back by the cleanup step (2026-09-11)
+
+**8,440 of 31,692 Commander-legal cards now execute completely, up from 8,423
+(+17: THIRTEEN with no script at all, then 4 generated rows in one wave).**
+`SHIPPED_SCRIPTS` 5,466 → **5,470**; the REFUSED ledger 1,218 → **1,222** (four
+ADDED by reason — the cards the classifier offered after the seam and the row maker
+refused). Fixtures 6,016 → **6,022** (5,867 by name + 148 tokens: the four rowed
+cards and the seam's two proof spells). `scriptableToday` 1,313 → **1,321** by the
+SEAM and → **1,317** by the WAVE (D363/D384); the select pool 0 → 8 → 4 → 0; the
+ladder `[1317, 1406, 2805, 4481, 5821]`. Bot reach 8,354 → **8,370** from 253
+commanders. M6.4hz, on Fable 5.1.
+
+### The measurement chose it, and priced two neighbours it did not build
+
+The fresh true-leftover after `875d5090` (23,269 incomplete, 11,590 one-piece
+line-only) held threaten at **49 by structure**, and with D392's referent read,
+`Gain control of target <noun> until end of turn.` was the ONE sentence missing
+from every one of them — the rest of Act of Treason ("Untap that creature. It gains
+haste until end of turn.") already reads. Priced with the real parser (the control
+sentence stood in by a tap): **12 spells land and 2 payloads parse**; the tail is
+extra clauses (a fronted duration, a compound "put a counter on it and untap it",
+conditionals, "for each opponent", a free cast) and heads the library does not hold.
+Two neighbours were priced the same way and NOT built: the fronted duration ("Until
+end of turn, target creature gets …", 80 one-piece lines) lands 5 under a
+normalization — the rest carry a scrubbed keyword the vocabulary cannot grant; the
+activation restrictions ("Activate only as a sorcery.", 313 lines over ~6 shapes)
+are blocked by their PAYLOADS, of which 59 parse, so a sorcery-speed reader would
+land at most 13. A shape count is not a landing count (D384). Threaten it is: the
+first control change with an END, the mechanism the durations family needs.
+
+### The seam: one event lands the change, the list remembers the revert, cleanup emits it
+
+- **THE CHANGE IS AN EVENT OF ITS OWN.** `ControlChangedUntilEndOfTurn { card,
+  controller, revertTo }`: the reducer moves the permanent to its new controller
+  and marks it summoning-sick (CR 302.6 — it came under this player's control this
+  turn; the printed "It gains haste until end of turn." is what lets it attack), and
+  appends an entry to `untilEndOfTurn` with `controlRevert: revertTo` — power 0,
+  toughness 0, no keywords, no types, so every layer `derive` reads is untouched by
+  it. The entry is in the state hash; a replay that dropped a revert would be
+  caught by the 500-seed gate. Every earlier entry and its hash are byte-identical.
+- **THE CLEANUP STEP HANDS IT BACK.** Where the loop already emits
+  `UntilEndOfTurnEnded` (CR 514.2), it first emits one ordinary `ControlChanged`
+  per remembered entry whose card is still on the battlefield — newest first, so a
+  permanent taken twice in one turn ends with the controller the FIRST entry
+  remembers — and then the list is cleared as before. A permanent that left the
+  battlefield is a new object (CR 400.7): its entry is dropped, nothing is emitted.
+- **THE VOCABULARY** (`effectParse`): `gain control of <target> until end of turn.`
+  is the `control` kind, aimed like any targeted clause; the permanent form ("Gain
+  control of target creature.") is a different family and stays unread until it is
+  measured. The executor refuses to take what is already yours (nothing changes,
+  nothing is remembered) and narrates the change. The bot's target order already
+  prefers what belongs to somebody else (D102's preference), so a bot threatens an
+  opponent's creature with no new policy; no prompt, no answerer, no client mode.
+- **THE CANARY.** Act of Treason is a fuzz staple feeding `controlTaken` /
+  `controlReverted`, floored at gate size, so a control change that is never handed
+  back cannot rot silently.
+
+### The wave — 8 in the pool, 4 rows, the four refused ledgered by reason
+
+The pool is the classifier's OWN offer after the seam: every permanent whose single
+leftover line is a threaten under a head the library holds, plus the two spells
+whose other line the vocabulary does not read — **8** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **4
+rows**, every one an enters head: Zealous Conscripts (target permanent), Conquering
+Manticore and Enthralling Victor (a creature an opponent controls, the latter with
+power 2 or less) and Eriette's Tempting Apple (an artifact's enters head). **Four
+refused by reason** and ledgered, since the selector offers them again: Chamber of
+Manipulation (a quoted grant of a threaten on an enchanted land — D384's generator,
+not the mainline), Turn Against (a Devoid keyword line beside a spell text the
+vocabulary reads — the spell-side keyword claim), Kari Zev's Expertise (a noun the
+target parser cannot place, "creature or Vehicle", and a free cast from the hand),
+Sarkhan Vol (planeswalker loyalty abilities). **Thirteen spells landed with NO
+script at all**: Act of Treason, Hijack, Act of Aggression, Claim the Firstborn,
+Wrangle, Portent of Betrayal, Limits of Solidarity, Lose Calm, Song-Mad Treachery,
+Traitorous Blood, Bloody Betrayal, Involuntary Employment, Metallic Mastery.
+
+The generator learned the control arm: the fixture is the opponent's (a clause with
+no controller word is an opponent's, D393's fixture rule as it always was), the
+suite reads it as p1's before the turn ends, and p1's board grows by one.
+
+### The traps this decision paid for
+
+- ⚠️ **THE ENGINE HAS NO OBJECT STAMP** (CR 400.7). A permanent that leaves the
+  battlefield and comes back in the same turn keeps its instance id, so the
+  cleanup revert is gated on "still on the battlefield" and nothing finer. A stolen
+  creature bounced and recast by its owner inside one turn would be handed to its
+  previous controller at cleanup — named here as the reportable it is; an
+  entered-on stamp on `CardState` is the fix when a card needs it.
+- ⚠️ **A SHAPE COUNT IS NOT A LANDING COUNT** (D384, twice over). The fronted
+  duration prices at 80 lines and lands 5; the activation restrictions price at
+  313 lines and their tail is the payloads (59 parse), not the restriction. Both
+  measured with the real parser, neither built, both recorded.
+- ⚠️ **THE GENERATOR'S ASSERTABLE SET IS A SECOND VOCABULARY** (D391's lesson
+  again). A new effect kind the vocabulary reads is refused by the row maker
+  until the generator can ASSERT it; the arm is one case and one name.
+- ⚠️ **A DERIVED PORT CARRIES THE PREVIOUS DECISION'S PROSE** (D392, again). The
+  WANTED comment in the derived port said "the referent subject"; read every
+  string a derived script WRITES before it runs.
+
+**Measured:** `blocked` 23,269 → 23,252 · `layer6` 1,111 → 1,095 (grant 681 →
+665, temporary 510 → 494) · the `token` primitive 957 → 955 (tokenParse: cards
+957 → 955, lines 995 → 993, parsed 255 → 253, unique 233 → 231, fully resolved
+219 → 217) · byOwner spell 342 → 340 · predefined 145 → 143 · residue `other`
+2,991 → 2,990 · ladder `[1317, 1406, 2805, 4481, 5821]` · tier3 `silentAfter`
+8,724 → **8,741**, `silentBefore` 24,636 → 24,649, `abilityText` 14,659 → 14,655,
+`payable` 4,124 → 4,123 · `oracleParse` `effect:auto` 5,550 → **5,594**,
+`effect:none` 13,081 → 12,995, `effect:partial` 5,700 → 5,742 · botPool auto
+1,248 → **1,261**, assisted 1,968 → 1,994, autoAnyFace 1,256 → 1,269, artifact
+456 → 457, creature 4,959 → 4,962, instant 1,127 → 1,128, sorcery 833 → 845 · the
+bot's reach 8,354 → **8,370** from 253 commanders · select pool 0 → 8 → 4 → 0.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5627 files, 27574
+passed / 11 skipped · 500-seed gate, 6 shards, 1063.7 s wall · build clean · probe
+124/124 · battery 140/140.** Engine: `control.test.ts` (5 — the sentence with its
+end and the whole Act of Treason text, the permanent and compound forms refused;
+in play: taken, untapped, hasty, sick under its new controller, attacks this turn
+and connects, back with its owner at cleanup with the revert forgotten, replay
+hash equal; a stolen creature that leaves is not handed back; taking what is
+already yours changes nothing); the 60-seed fuzz leg green at 631 s.
+
+⚠️ **Reportables** (D393): threaten's own tail — the fronted duration
+("Until end of turn, it gets +2/+0 and gains haste."), the compound "Put a +1/+1
+counter on it and untap it." (Mark of Mutiny), the conditionals, "for each
+opponent" (Mass Mutiny, Molten Primordial), Captivating Crew's sorcery-speed
+restriction, the compound heads, Turn Against's spell-side Devoid claim; **the
+object stamp** (CR 400.7); the PERMANENT control family ("Gain control of target
+creature.", exchange control 24 — measure it); the durations proper — `for as long
+as you control` (23: the same revert with a condition instead of the turn),
+`remains exiled` (33), `remains on the battlefield` (14); the animate-land family
+("It's still a land.", 28); the bite (7) and the fight kind (44); the activation
+restrictions (313 — the sorcery-speed and your-turn readers land ≤16 today; the
+tail is the payloads); the fronted duration (80, lands 5); then the brief's engine
+seams — spend-restricted mana (56), the keyword entry replacements (22), copy
+(~200); the prompt CONTINUATION seam proper; the two gate items — the tournament
+floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS; then D392's list unchanged.

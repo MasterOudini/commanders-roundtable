@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CONQUERING_MANTICORE_SCRIPT } from './cards/conqueringManticore';
+import { ENTHRALLING_VICTOR_SCRIPT } from './cards/enthrallingVictor';
+import { ZEALOUS_CONSCRIPTS_SCRIPT } from './cards/zealousConscripts';
+import { ERIETTES_TEMPTING_APPLE_SCRIPT } from './cards/eriettesTemptingApple';
 import { ROSA_RESOLUTE_WHITE_MAGE_SCRIPT } from './cards/rosaResoluteWhiteMage';
 import { SEEDCRADLE_WITCH_SCRIPT } from './cards/seedcradleWitch';
 import { SPIDER_MAN_PETER_PARKER_SCRIPT } from './cards/spiderManPeterParker';
@@ -5492,6 +5496,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CONQUERING_MANTICORE_SCRIPT,
+  ENTHRALLING_VICTOR_SCRIPT,
+  ZEALOUS_CONSCRIPTS_SCRIPT,
+  ERIETTES_TEMPTING_APPLE_SCRIPT,
   ROSA_RESOLUTE_WHITE_MAGE_SCRIPT,
   SEEDCRADLE_WITCH_SCRIPT,
   SPIDER_MAN_PETER_PARKER_SCRIPT,

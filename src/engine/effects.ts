@@ -504,6 +504,18 @@ export function effectResult(
         break;
       }
 
+      // D393 - THREATEN (CR 514.2): the permanent is the controller's until cleanup hands it
+      // back. Taking what is already yours changes nothing and remembers nothing.
+      case 'control': {
+        if (aim?.kind !== 'card') break;
+        const taken = state.cards[aim.id];
+        if (!taken || taken.zone.kind !== 'battlefield' || taken.controller === obj.controller) break;
+        const d = derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        out.push({ t: 'ControlChangedUntilEndOfTurn', card: aim.id, controller: obj.controller, revertTo: taken.controller });
+        out.push(narrated(`${obj.label}: ${d.name} changes control until end of turn.`, obj.controller));
+        break;
+      }
+
       case 'regenerate': {
         if (aim?.kind !== 'card') break;
         // D373 - CR 701.19: a shield on the permanent, spent by the next destruction this

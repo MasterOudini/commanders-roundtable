@@ -643,6 +643,16 @@ function endStep(state: GameState, deps: EngineDeps): Emitted {
     // CR 514.2 — "until end of turn" effects end here, in the same turn-based
     // action that wipes damage. A Giant Growth that outlived its turn would make
     // every subsequent combat wrong, quietly.
+    // D393 - THREATEN: a permanent taken until end of turn goes back first (CR 514.2), if it is
+    // still on the battlefield - one that left is a new object (CR 400.7) and its entry is
+    // dropped with the rest. A permanent taken twice this turn goes back to the controller the
+    // FIRST entry remembers: the reverts are emitted newest first, so the oldest is applied last.
+    for (const mod of [...state.untilEndOfTurn].reverse()) {
+      if (mod.controlRevert === undefined) continue;
+      const card = state.cards[mod.card];
+      if (!card || card.zone.kind !== 'battlefield') continue;
+      events.push({ t: 'ControlChanged', card: mod.card, controller: mod.controlRevert });
+    }
     if (
       state.untilEndOfTurn.length > 0 ||
       Object.keys(state.regenerationShields).length > 0 ||

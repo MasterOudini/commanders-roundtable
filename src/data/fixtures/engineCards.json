@@ -198292,6 +198292,204 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ACT_OF_TREASON": {
+    "scryfallId": "0ea8984c-7176-43e5-931b-c3b6f4747a8b",
+    "oracleId": "9d08af23-9f4a-4097-9abc-3b17475ab744",
+    "name": "Act of Treason",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Act of Treason",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
+        "flavorText": "\"Rage courses in every heart, yearning to betray its rational prison.\"\n—Sarkhan Vol",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "0ea8984c-7176-43e5-931b-c3b6f4747a8b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIJACK": {
+    "scryfallId": "0e925954-faa3-4d16-8442-e34af1f85fb6",
+    "oracleId": "fd5651f7-52f8-4845-8a1b-32e5d2e9b00e",
+    "name": "Hijack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hijack",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Gain control of target artifact or creature until end of turn. Untap it. It gains haste until end of turn.",
+        "flavorText": "\"Whoa there. Easy. We're just going to take a little detour.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "0e925954-faa3-4d16-8442-e34af1f85fb6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONQUERING_MANTICORE": {
+    "scryfallId": "95f5bf3f-3fa7-47db-981b-933cdb505398",
+    "oracleId": "140b58b9-7e82-4feb-99d7-5e8b707b845c",
+    "name": "Conquering Manticore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conquering Manticore",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Manticore",
+        "oracleText": "Flying\nWhen this creature enters, gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.",
+        "flavorText": "It speaks no commands but is always obeyed.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "95f5bf3f-3fa7-47db-981b-933cdb505398"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ddl",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENTHRALLING_VICTOR": {
+    "scryfallId": "226a0528-30ff-410a-aade-e2307d03daa0",
+    "oracleId": "fa58591b-240f-4527-8308-7b87263e784f",
+    "name": "Enthralling Victor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enthralling Victor",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, gain control of target creature an opponent controls with power 2 or less until end of turn. Untap that creature. It gains haste until end of turn. (It can attack and {T} this turn.)",
+        "flavorText": "If you stare at the sun for too long, you'll lose your ability to see clearly.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "226a0528-30ff-410a-aade-e2307d03daa0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "BBD-176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZEALOUS_CONSCRIPTS": {
+    "scryfallId": "2576152c-d8c1-4412-89db-6e21295c9b18",
+    "oracleId": "1dae6f39-2cbd-485c-b190-017a26401fd4",
+    "name": "Zealous Conscripts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zealous Conscripts",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Haste\nWhen this creature enters, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "2576152c-d8c1-4412-89db-6e21295c9b18"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "354",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ERIETTE_S_TEMPTING_APPLE": {
+    "scryfallId": "5b61711f-8982-4ff0-86ba-01e0125cd705",
+    "oracleId": "b26a2875-c704-491a-b82d-07c316e53611",
+    "name": "Eriette's Tempting Apple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eriette's Tempting Apple",
+        "manaCost": "{4}",
+        "typeLine": "Legendary Artifact — Food",
+        "oracleText": "When Eriette's Tempting Apple enters, gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\n{2}, {T}, Sacrifice Eriette's Tempting Apple: You gain 3 life.\n{2}, {T}, Sacrifice Eriette's Tempting Apple: Target opponent loses 3 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "5b61711f-8982-4ff0-86ba-01e0125cd705"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

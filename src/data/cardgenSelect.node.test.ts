@@ -1904,6 +1904,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Agonasaur Rex', 'trigger head not in the library (when you cycle this card)'],
   ['Blistercoil Weird', 'a two-clause payload under the cast head (a self pump, then the same creature untapped) - the head arm takes one pump'],
   ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
+  // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
+  ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
+  ['Turn Against', 'a keyword line (Devoid) beside a spell text the vocabulary reads - the spell-side keyword claim'],
+  ["Kari Zev's Expertise", 'a noun the target parser cannot place (creature or Vehicle) and a free cast from the hand'],
+  ['Sarkhan Vol', 'planeswalker loyalty abilities'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

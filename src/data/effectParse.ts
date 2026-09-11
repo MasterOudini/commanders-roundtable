@@ -855,6 +855,9 @@ const RULES: readonly Rule[] = [
   },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
+  // creature.") is a different family and stays unread until it is measured and built.
+  { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   {
     kind: 'draw',
     re: /^(?:you )?draw (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,

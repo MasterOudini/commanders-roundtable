@@ -1063,6 +1063,12 @@ export interface GameState {
     readonly keywords?: readonly Keyword[];
     /** D311 - card types gained until end of turn (a crewed Vehicle). Read at layer 4. */
     readonly types?: readonly string[];
+    /**
+     * D393 - the player the permanent goes BACK to at cleanup: a threaten's control change ends
+     * with the turn (CR 514.2). Optional so every earlier entry and its replay hash are untouched;
+     * an entry carrying it has power 0 / toughness 0 and is inert at every layer `derive` reads.
+     */
+    readonly controlRevert?: PlayerId;
   }[];
   /**
    * D330 - CR 701.19: regeneration shields per permanent (instance id), each

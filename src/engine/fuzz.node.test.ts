@@ -136,6 +136,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['queueAsks', 'queueBatches'], rotHistory: 'D390' },
   { names: ['Grim Affliction'], copiesPerSeat: 1,
     counterKeys: ['proliferateAsks', 'proliferations'], rotHistory: 'D391' },
+  // D393 - threaten (CR 514.2): a {2}{R} sorcery every seat can cast whose control change ENDS,
+  // so the cleanup revert is exercised at gate size.
+  { names: ['Act of Treason'], copiesPerSeat: 1,
+    counterKeys: ['controlTaken', 'controlReverted'], rotHistory: 'D393' },
   // D357 - the library search. A one-mana sorcery every seat can cast, whose resolution stops
   // and asks, and whose answer moves a card, taps it and shuffles - the three things the
   // prompt exists to drive.
@@ -782,6 +786,8 @@ interface Run {
   /** D391 - proliferate prompts raised, and answers that chose at least one thing. */
   readonly proliferateAsks: number;
   readonly proliferations: number;
+  readonly controlTaken: number;
+  readonly controlReverted: number;
   readonly snowManaMade: number;
   /** D372 - mana made by a permanent that PRINTS no mana ability (a granted one). */
   readonly grantedManaMade: number;
@@ -1034,6 +1040,8 @@ function runOne(seed: number): Run {
     queueBatches: game.log.filter((e) => e.body.t === 'AsksResolved').length,
     proliferateAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'proliferateChoice').length,
     proliferations: game.log.filter((e) => e.body.t === 'Proliferated' && e.body.permanents.length + e.body.players.length > 0).length,
+    controlTaken: game.log.filter((e) => e.body.t === 'ControlChangedUntilEndOfTurn').length,
+    controlReverted: game.log.filter((e) => e.body.t === 'ControlChanged').length,
     librarySearches: game.log.filter(
       (e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'searchLibrary',
     ).length,
@@ -1179,6 +1187,8 @@ const TOTAL_KEYS = [
   'queueBatches',
   'proliferateAsks',
   'proliferations',
+  'controlTaken',
+  'controlReverted',
   'snowManaMade',
   'grantedManaMade',
   'selfAimedResolved',
@@ -1420,6 +1430,9 @@ function assertFloors(totals: Totals, seeds: number): void {
       if (seeds >= 500) {
         expect(totals.proliferateAsks).toBeGreaterThan(0);
         expect(totals.proliferations).toBeGreaterThan(0);
+        // D393 - a permanent taken until end of turn, and handed back at cleanup, at gate size.
+        expect(totals.controlTaken).toBeGreaterThan(0);
+        expect(totals.controlReverted).toBeGreaterThan(0);
       }
       // D364 - at gate size only, like every rate canary: two snow lands a seat, and a
       // pool with provenance is only proven by mana that actually carried it.
@@ -1474,6 +1487,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.paymentsPaid} payments made / ${totals.paymentsDeclined} declined · ` +
           `${totals.queueAsks} player queues raised / ${totals.queueBatches} completed · ` +
           `${totals.proliferateAsks} proliferate asks / ${totals.proliferations} answered with something · ` +
+          `${totals.controlTaken} permanents taken until end of turn / ${totals.controlReverted} handed back · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );

@@ -518,6 +518,14 @@ export type EventBody =
       /** D311 - card types GAINED until end of turn (crew: Artifact, Creature). Read at layer 4. */
       readonly types?: readonly string[];
     }
+  /**
+   * D393 - THREATEN: `controller` takes the permanent until end of turn and `revertTo` gets it
+   * back at cleanup. The permanent came under a player's control this turn (CR 302.6), so the
+   * reducer marks it summoning-sick; the printed "It gains haste until end of turn." is what
+   * lets it attack. The revert itself is an ordinary `ControlChanged`, emitted by the cleanup
+   * step before `UntilEndOfTurnEnded` clears the entry that remembered it.
+   */
+  | { readonly t: 'ControlChangedUntilEndOfTurn'; readonly card: InstanceId; readonly controller: PlayerId; readonly revertTo: PlayerId }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }
 

@@ -6525,6 +6525,14 @@ const WANTED = [
   'Seedcradle Witch',
   'Spider-Man, Peter Parker',
   'Guac & Marshmallow Pizza',
+  // D393 - threaten: the seam's two proof spells (a creature, an artifact or creature) - Act of Treason is the fuzz canary staple.
+  'Act of Treason',
+  'Hijack',
+  // D393 - threaten: the wave the control-with-an-end made rowable (a creature taken until end of turn under an enters head).
+  'Conquering Manticore',
+  'Enthralling Victor',
+  'Zealous Conscripts',
+  "Eriette's Tempting Apple",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
