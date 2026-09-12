@@ -251,6 +251,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D417 - the play permission reads: the 16 the selector offered once `exile the top card ... you may play it` read
+  // that the row maker refused, by reason (seven trigger heads outside the library among them).
+  ['Armory Paladin', 'a filtered head outside the closed reader (whenever you cast an Aura or Equipment spell) beside its permission line'],
+  ['Capricious Sliver', 'a leftover line not among the printed lines (a Sliver static the probe split) beside its permission line'],
+  ['Molly Hayes, Runaway', 'a line that is neither an activated ability nor a library trigger (Power-up, an ability word) beside its permission line'],
+  ['Moria Marauder', 'a trigger head outside the library (whenever a Goblin or Orc you control deals combat damage to a player) beside its permission line'],
+  ['Ob Nixilis, Captive Kingpin', 'a trigger head outside the library (whenever one or more opponents each lose exactly 1 life) beside its permission line'],
+  ['Tempered in Solitude', 'an attack head on a card with no creature body (whenever a creature you control attacks alone) beside its permission line'],
+  ['Tuskeri Firewalker', 'an ability-word activated line (Boast) beside its permission line'],
+  ['Araña, Heart of the Spider', 'a vocabulary clause the suite has no fixture for (a combat-role clause) beside its permission line'],
+  ['Faldorn, Dread Wolf Herald', 'a filtered head outside the closed reader (whenever you cast a spell from exile or a land you control enters from exile) beside its permission line'],
+  ['Heroes for Hire', 'no ability parsed (a Background-style static beside its permission line)'],
+  ['Kami of Celebration', 'a trigger head outside the library (whenever a modified creature you control attacks) beside its permission line'],
+  ['Laelia, the Blade Reforged', 'a trigger head outside the library (whenever one or more cards are put into exile from your library) beside its permission line'],
+  ['Professional Face-Breaker', 'a trigger head outside the library (whenever one or more creatures you control deal combat damage to a player) beside its permission line'],
+  ['Scion of Opulence', 'a filtered head outside the closed reader (whenever this creature or another nontoken Vampire you control dies) beside its permission line'],
+  ['Spinneret and Spiderling', 'a trigger head outside the library (whenever you attack with two or more Spiders) beside its permission line'],
+  ['Syr Carah, the Bold', 'a trigger head outside the library (whenever ~ or an instant or sorcery spell you control deals damage to a player) beside its permission line'],
   // D416 - the hand reveal and choose reads: the 4 the selector offered once the reveal-and-choose sentences read
   // that the row maker refused, by reason (all four print a sentence after the ask).
   ['Brainbite', 'a hand reveal followed by a second sentence (draw a card) - the ask must be last (the prompt CONTINUATION seam)'],
@@ -369,7 +387,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Deadly Rollick', 'cast-time alternative cost'],
   ['About Face', 'until-end-of-turn power/toughness switch'],
   ['The Last Agni Kai', 'rule-changing (mana persistence)'],
-  ['Act on Impulse', 'play-from-exile permission'],
   ["Animist's Awakening", 'ctx.random'],
   ['Towering Viewpoint', 'ability-word activated cost'],
   ['Abnormal Endurance', 'temporary non-keyword ability grant'],
@@ -846,7 +863,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reach of Shadows', 'color target qualifier unenforced'],
   ['Reality Ripple', 'phasing'],
   ['Reality Shift', 'face-down (morph family)'],
-  ['Reckless Impulse', 'play-from-exile permission'],
   ['Recross the Paths', 'clash mechanic'],
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
@@ -1256,7 +1272,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Worldsoul's Rage", 'script-raised prompt'],
   ['Worst Fears', 'control-a-player'],
   ['Wrap in Vigor', 'regeneration'],
-  ["Wrenn's Resolve", 'play-from-exile permission'],
 
   // D271 (M6.4dh) — the END of the alphabet (W/Y/Z), ONE new class.
   //
@@ -1318,7 +1333,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Arwen Undómiel', 'scry-surveil event discriminator'],
   ["Baral's Expertise", 'up-to-N targeting'],
   ["Benefactor's Draught", 'delayed trigger'],
-  ['Blazing Crescendo', 'play-from-exile permission'],
   ['Blazing Shoal', 'cast-time alternative cost'],
 
   // D273 (M6.4dj) — the B/C residue; FOUR new classes, all keywords the
@@ -1419,7 +1433,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Inaction Injunction', 'detain mechanic'],
   ['Inquisitive Puppet', 'exile-self cost'],
   ['Inside Out', 'until-end-of-turn power/toughness switch'],
-  ['Inspired Tinkering', 'play-from-exile permission'],
   ['Invigorate', 'cast-time alternative cost'],
   ['Jan Jansen, Chaos Crafter', 'negated-type sacrifice predicate'],
 
@@ -1446,7 +1459,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Metrognome', 'discard-event discriminator'],
   ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
   ['Mindstab', 'suspend mechanic'],
-  ["Mjölnir's Might", 'play-from-exile permission'],
   ['Mnemonic Sphere', 'hand-activated ability'],
   ['Mogg Salvage', 'cast-time alternative cost'],
 

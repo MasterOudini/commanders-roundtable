@@ -262,6 +262,25 @@ export function legalActions(
     }
   }
 
+  // D417 - A PLAY PERMISSION: a card in exile the player may play until its deadline is offered as
+  // though it were in their hand - a land with the land drop, a spell at its own speed.
+  for (const perm of state.playPermissions) {
+    if (perm.player !== player) continue;
+    const inst = state.cards[perm.card];
+    if (!inst || inst.zone.kind !== 'exile') continue;
+    const card = cardFor(state, oracle, perm.card);
+    if (!card) continue;
+    for (const faceIndex of castableFaces(card)) {
+      const face = faceOf(card, faceIndex);
+      if (face.isLand) {
+        if (canLand) out.push({ t: 'PlayLand', card: perm.card, faceIndex, label: face.name });
+        continue;
+      }
+      const action = castAction(state, oracle, scripts, perm.card, faceIndex, { kind: 'exile', player: inst.zone.player ?? player }, context, sorcerySpeed);
+      if (action) out.push(action);
+    }
+  }
+
   // The command zone. A commander is castable from here at sorcery speed (or
   // any time with flash), with the tax folded into the cost.
   for (const id of state.zones.command[player] ?? []) {

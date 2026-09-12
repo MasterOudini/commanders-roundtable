@@ -407,6 +407,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         pendingCast: null,
         pendingTriggers: [],
         delayedTriggers: [],
+        playPermissions: [],
         winners: [],
         gamePhase: 'lobby',
       };
@@ -543,8 +544,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
           regenerationShields = Object.fromEntries(Object.entries(regenerationShields).filter(([k]) => k !== move.card));
         }
       }
+      // D417 - a card that left exile takes its play permission with it (it was cast, or moved by hand).
+      const movedOut = new Set(body.moves.filter((m) => m.from.kind === 'exile').map((m) => m.card));
+      const playPermissions = movedOut.size > 0 && state.playPermissions.some((p) => movedOut.has(p.card)) ? state.playPermissions.filter((p) => !movedOut.has(p.card)) : state.playPermissions;
       // D348 - the turn record, read off the instances BEFORE this batch applied.
-      return { ...state, zones, cards, regenerationShields, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } };
+      return { ...state, zones, cards, regenerationShields, playPermissions, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } };
     }
 
     case 'TokenCreated': {
@@ -1170,6 +1174,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D402 - a delayed trigger armed: kept until its step begins (see `collectTriggers`).
     case 'DelayedTriggerArmed':
       return { ...state, delayedTriggers: [...state.delayedTriggers, body.trigger] };
+    // D417 - a play permission: one entry per card (a second grant for the same card replaces the first).
+    case 'PlayPermissionGranted':
+      return { ...state, playPermissions: [...state.playPermissions.filter((p) => p.card !== body.permission.card), body.permission] };
+    case 'PlayPermissionsExpired':
+      return { ...state, playPermissions: state.playPermissions.filter((p) => !body.cards.includes(p.card)) };
     case 'PtModifiedUntilEndOfTurn':
       return {
         ...state,

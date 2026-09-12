@@ -37,6 +37,7 @@ import type {
   PendingReplacement,
   PendingTrigger,
   DelayedTrigger,
+  PlayPermission,
   Phase,
   PreventionShield,
   StackObject,
@@ -541,6 +542,10 @@ export type EventBody =
       readonly t: 'DelayedTriggerArmed';
       readonly trigger: DelayedTrigger;
     }
+  /** D417 - a resolution let `player` play `card` from exile until the deadline. */
+  | { readonly t: 'PlayPermissionGranted'; readonly permission: PlayPermission }
+  /** D417 - the deadline passed (a cleanup or an end step's turn action): these permissions are gone. */
+  | { readonly t: 'PlayPermissionsExpired'; readonly cards: readonly InstanceId[] }
   | {
       readonly t: 'PtModifiedUntilEndOfTurn';
       readonly card: InstanceId;

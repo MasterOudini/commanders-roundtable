@@ -6770,6 +6770,10 @@ const WANTED = [
   'Castigate',
   'Appetite for Brains',
   'Coercion',
+  // D417 - the play permission: the seam's proof spells (Reckless Impulse is the fuzz staple).
+  'Reckless Impulse',
+  "Wrenn's Resolve",
+  'Act on Impulse',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -7221,6 +7225,25 @@ const WANTED = [
   'Nimble Larcenist',
   'Sin Collector',
   // D416 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D417 - the play permission: the rows the selector offered once exile-the-top-and-play read, and their kin.
+  'Abbot of Keral Keep',
+  'Aerial Caravan',
+  "Alania's Pathmaker",
+  'Chase Stein, Runaway',
+  'Clockwork Percussionist',
+  'Cori Mountain Monastery',
+  'Count on Luck',
+  'Crimson Operative',
+  'Dark-Dweller Oracle',
+  'Diversion Specialist',
+  'Grotag Night-Runner',
+  'Ire Shaman',
+  'Kulrath Zealot',
+  'Prophetic Flamespeaker',
+  'Sizzling Changeling',
+  'Warehouse Thief',
+  'Wiccan, Young Avenger',
+  // D417 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

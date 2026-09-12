@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABBOT_OF_KERAL_KEEP_SCRIPT } from './cards/abbotOfKeralKeep';
+import { AERIAL_CARAVAN_SCRIPT } from './cards/aerialCaravan';
+import { ALANIAS_PATHMAKER_SCRIPT } from './cards/alaniasPathmaker';
+import { CHASE_STEIN_RUNAWAY_SCRIPT } from './cards/chaseSteinRunaway';
+import { CLOCKWORK_PERCUSSIONIST_SCRIPT } from './cards/clockworkPercussionist';
+import { CORI_MOUNTAIN_MONASTERY_SCRIPT } from './cards/coriMountainMonastery';
+import { COUNT_ON_LUCK_SCRIPT } from './cards/countOnLuck';
+import { CRIMSON_OPERATIVE_SCRIPT } from './cards/crimsonOperative';
+import { DARK_DWELLER_ORACLE_SCRIPT } from './cards/darkDwellerOracle';
+import { DIVERSION_SPECIALIST_SCRIPT } from './cards/diversionSpecialist';
+import { GROTAG_NIGHT_RUNNER_SCRIPT } from './cards/grotagNightRunner';
+import { IRE_SHAMAN_SCRIPT } from './cards/ireShaman';
+import { KULRATH_ZEALOT_SCRIPT } from './cards/kulrathZealot';
+import { PROPHETIC_FLAMESPEAKER_SCRIPT } from './cards/propheticFlamespeaker';
+import { SIZZLING_CHANGELING_SCRIPT } from './cards/sizzlingChangeling';
+import { WAREHOUSE_THIEF_SCRIPT } from './cards/warehouseThief';
+import { WICCAN_YOUNG_AVENGER_SCRIPT } from './cards/wiccanYoungAvenger';
 import { LIFEBANE_ZOMBIE_SCRIPT } from './cards/lifebaneZombie';
 import { NIMBLE_LARCENIST_SCRIPT } from './cards/nimbleLarcenist';
 import { SIN_COLLECTOR_SCRIPT } from './cards/sinCollector';
@@ -6046,6 +6063,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABBOT_OF_KERAL_KEEP_SCRIPT,
+  AERIAL_CARAVAN_SCRIPT,
+  ALANIAS_PATHMAKER_SCRIPT,
+  CHASE_STEIN_RUNAWAY_SCRIPT,
+  CLOCKWORK_PERCUSSIONIST_SCRIPT,
+  CORI_MOUNTAIN_MONASTERY_SCRIPT,
+  COUNT_ON_LUCK_SCRIPT,
+  CRIMSON_OPERATIVE_SCRIPT,
+  DARK_DWELLER_ORACLE_SCRIPT,
+  DIVERSION_SPECIALIST_SCRIPT,
+  GROTAG_NIGHT_RUNNER_SCRIPT,
+  IRE_SHAMAN_SCRIPT,
+  KULRATH_ZEALOT_SCRIPT,
+  PROPHETIC_FLAMESPEAKER_SCRIPT,
+  SIZZLING_CHANGELING_SCRIPT,
+  WAREHOUSE_THIEF_SCRIPT,
+  WICCAN_YOUNG_AVENGER_SCRIPT,
   LIFEBANE_ZOMBIE_SCRIPT,
   NIMBLE_LARCENIST_SCRIPT,
   SIN_COLLECTOR_SCRIPT,

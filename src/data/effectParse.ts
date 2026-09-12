@@ -227,6 +227,7 @@ const BASE: EffectFields = {
   exileScope: null,
   sacrifice: null,
   handChoice: null,
+  exilePlay: null,
   delay: null,
   ifKicked: false,
   untilLeaves: false,
@@ -1465,6 +1466,27 @@ const RULES: readonly Rule[] = [
       const qualifier = n ? { manaValue: { op: op === 'less' ? ('lte' as const) : ('gte' as const), n: Number(n) }, name: null } : null;
       const then = /discards/i.test(g['tail'] ?? '') ? ('discard' as const) : ('exile' as const);
       return { ...BASE, handChoice: { none, filter, what, qualifier, then, loseLife: g['life'] ? Number(g['life']) : 0 } };
+    },
+  },
+  /**
+   * D417 - THE PLAY PERMISSION: `Exile the top card of your library. Until the end of your next turn, you
+   * may play that card.` - two sentences, one effect: the cards go to exile face up and the caster may play
+   * each until the deadline (this turn; the end of your next turn; your next end step), a permission the
+   * legal offer, the cast and the land play read. `you may cast` (a spell-only permission), `without
+   * paying its mana cost`, a permission on ANOTHER player's card and a permission with a condition stay out.
+   */
+  {
+    kind: 'exileTopPlay',
+    re: new RegExp(
+      `^exile the top (?:(${COUNT}) )?cards? of your library\\. (?:until the end of your next turn, you may play (?:it|that card|those cards)|you may play (?:it|that card|those cards) (?<tail>this turn|until the end of your next turn|until end of turn)|until end of turn, you may play (?:it|that card|those cards)|until your next end step, you may play (?:it|that card|those cards))\\.$`,
+      'i',
+    ),
+    build: (m) => {
+      const n = m[1] === undefined ? 1 : num(m[1]);
+      if (n === null || n < 1) return null;
+      const text = m[0].toLowerCase();
+      const until = /next end step/.test(text) ? ('yourNextEndStep' as const) : /your next turn/.test(text) ? ('yourNextTurn' as const) : ('thisTurn' as const);
+      return { ...BASE, amount: n, targetIndex: -1, self: true, exilePlay: { count: n, until } };
     },
   },
   /** D389 - the plain "in a random order" (`Drawn from Dreams`), read for the same reason. */

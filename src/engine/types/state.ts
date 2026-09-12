@@ -532,6 +532,21 @@ export interface DelayedTrigger {
   readonly label: string;
 }
 
+/**
+ * D417 - A PLAY PERMISSION (CR 121.? by way of `you may play that card until ...`): a card in EXILE the
+ * player may play or cast as though it were in their hand, until a deadline - the end of this turn, the
+ * end of their next turn, or their next end step. Granted by an `exile the top card ...` resolution,
+ * dropped when the card leaves exile or when the deadline passes (the cleanup / end-step turn actions).
+ * A LIST, hashed with the state, never folded into a card.
+ */
+export interface PlayPermission {
+  readonly card: InstanceId;
+  readonly player: PlayerId;
+  readonly until: 'thisTurn' | 'yourNextTurn' | 'yourNextEndStep';
+  /** The turn the permission was granted in: `yourNextTurn` needs a later turn of the player's. */
+  readonly grantedTurn: number;
+}
+
 export interface PendingTrigger {
   readonly id: string;
   readonly source: InstanceId;
@@ -1262,6 +1277,8 @@ export interface GameState {
    * in the graveyard by then. Cleared by nothing but its own fire.
    */
   readonly delayedTriggers: readonly DelayedTrigger[];
+  /** D417 - the play permissions in force (a card in exile the player may play until its deadline). */
+  readonly playPermissions: readonly PlayPermission[];
   readonly winners: readonly PlayerId[];
   /**
    * D332 - the monarch (CR 724): draws a card at the beginning of their end

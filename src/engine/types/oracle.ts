@@ -720,7 +720,9 @@ export type EffectKind =
    */
   | 'exileIfDies'
   /** D416 - `Target opponent reveals their hand. You choose a <noun> card from it. That player discards that card.` */
-  | 'revealHandChoose';
+  | 'revealHandChoose'
+  /** D417 - `Exile the top card of your library. Until the end of your next turn, you may play that card.` */
+  | 'exileTopPlay';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.
@@ -946,6 +948,8 @@ export interface EffectSpec {
   readonly sacrifice: SacrificeSpec | null;
   /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly handChoice: HandChoice | null;
+  /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */
+  readonly exilePlay: { readonly count: number; readonly until: 'thisTurn' | 'yourNextTurn' | 'yourNextEndStep' } | null;
   /**
    * D402 - THE DELAYED TRIGGER (CR 603.7): this effect happens at the beginning of a LATER step
    * (`Draw a card at the beginning of the next turn's upkeep.`) rather than on resolution. The

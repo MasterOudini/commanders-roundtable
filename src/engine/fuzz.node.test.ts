@@ -233,6 +233,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // to every seat and the caster picks from it (a targeted sorcery is thin fuel, D413 - three of them).
   { names: ['Duress', 'Thoughtseize', 'Coercion'], copiesPerSeat: 1,
     counterKeys: ['handChoicesAsked'], rotHistory: 'D416' },
+  // D417 - the play permission: Reckless Impulse and Wrenn's Resolve exile the top two and let the caster
+  // play them until the end of their next turn; the driver casts and plays from exile through the legal list.
+  { names: ['Reckless Impulse', "Wrenn's Resolve", 'Act on Impulse'], copiesPerSeat: 2,
+    counterKeys: ['playedFromExile'], rotHistory: 'D417' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1048,6 +1052,9 @@ interface Run {
   /** D416 - hands revealed to every seat, and the picks the caster was asked for. */
   readonly handReveals: number;
   readonly handChoicesAsked: number;
+  /** D417 - play permissions granted, and the casts and land plays taken out of exile under one. */
+  readonly permissionsGranted: number;
+  readonly playedFromExile: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1397,6 +1404,16 @@ function runOne(seed: number): Run {
     // D416 - a hand revealed to EVERY seat (a look reveals to its controller alone), and the pick with an owner.
     handReveals: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.cards.length > 0 && e.body.to.length === game.state.seating.length).length,
     handChoicesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.owner !== undefined).length,
+    // D417 - a permission granted; a spell cast from exile (its object says so) or a land played out of exile
+    // (the move from exile to the battlefield beside a LandPlayed) under one.
+    permissionsGranted: game.log.filter((e) => e.body.t === 'PlayPermissionGranted').length,
+    playedFromExile:
+      game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
+      game.log.filter((e, i) => {
+        if (e.body.t !== 'LandPlayed') return false;
+        const prev = game.log[i - 1]?.body;
+        return !!prev && prev.t === 'CardsMoved' && prev.moves.some((m) => m.card === (e.body as { card: string }).card && m.from.kind === 'exile');
+      }).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1573,6 +1590,8 @@ const TOTAL_KEYS = [
   'verbPricesPaid',
   'handReveals',
   'handChoicesAsked',
+  'permissionsGranted',
+  'playedFromExile',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1870,6 +1889,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D416 - a hand was revealed and a pick asked at gate size.
         expect(totals.handReveals).toBeGreaterThan(0);
         expect(totals.handChoicesAsked).toBeGreaterThan(0);
+        // D417 - a permission was granted and taken (a cast or a land play out of exile) at gate size.
+        expect(totals.permissionsGranted).toBeGreaterThan(0);
+        expect(totals.playedFromExile).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1959,6 +1981,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.anotherTargets} another-targets / ${totals.anotherSelfPicks} self-picks · ` +
           `${totals.verbPricesAsked} verb prices asked / ${totals.verbPricesPaid} paid · ` +
           `${totals.handReveals} hands revealed / ${totals.handChoicesAsked} picks asked · ` +
+          `${totals.permissionsGranted} permissions / ${totals.playedFromExile} played from exile · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

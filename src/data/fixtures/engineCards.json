@@ -205504,6 +205504,105 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RECKLESS_IMPULSE": {
+    "scryfallId": "0a94c881-f78d-49f0-87b3-b4b4a59a9551",
+    "oracleId": "584cf0fd-112a-4ca6-9c0e-1f3228a7d325",
+    "name": "Reckless Impulse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reckless Impulse",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+        "flavorText": "A stitcher looks at their creation and sees the result of years of study and hours of toil. A devil sees a new plaything.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "0a94c881-f78d-49f0-87b3-b4b4a59a9551"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "VOW-174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WRENN_S_RESOLVE": {
+    "scryfallId": "763881c0-c8aa-4955-9d71-3049f982032c",
+    "oracleId": "a7d8c99c-cd44-4bad-82e6-7c7cff9bd89f",
+    "name": "Wrenn's Resolve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wrenn's Resolve",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Exile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+        "flavorText": "Even as she burned, Wrenn bent Realmbreaker to her will.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "763881c0-c8aa-4955-9d71-3049f982032c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MOM-173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACT_ON_IMPULSE": {
+    "scryfallId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29",
+    "oracleId": "19ad338a-c89f-406d-ad1a-222c22044e1b",
+    "name": "Act on Impulse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Act on Impulse",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Exile the top three cards of your library. Until end of turn, you may play those cards. (If you cast a spell this way, you still pay its costs. You can play a land this way only if you have an available land play remaining.)",
+        "flavorText": "\"You don't want to know what happens after I put on the goggles.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brad Rigney",
+        "imageId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "492",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -219918,6 +220017,588 @@
     "keywords": [],
     "setCode": "dgm",
     "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABBOT_OF_KERAL_KEEP": {
+    "scryfallId": "23e60446-324a-4a6a-ac75-d6d27d05a84d",
+    "oracleId": "09be0f69-9c7f-491f-964d-bfbbc2d4251f",
+    "name": "Abbot of Keral Keep",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abbot of Keral Keep",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen this creature enters, exile the top card of your library. Until end of turn, you may play that card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "23e60446-324a-4a6a-ac75-d6d27d05a84d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "pori",
+    "collectorNumber": "127s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERIAL_CARAVAN": {
+    "scryfallId": "adac91af-5165-4779-99f7-e75c83fa5d5d",
+    "oracleId": "d13aff7c-f0ee-44e2-ae1c-62cd86ad46a6",
+    "name": "Aerial Caravan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aerial Caravan",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flying\n{1}{U}{U}: Exile the top card of your library. Until end of turn, you may play that card. (Reveal the card as you exile it.)",
+        "flavorText": "Successful delivery is *not* guaranteed.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "adac91af-5165-4779-99f7-e75c83fa5d5d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALANIA_S_PATHMAKER": {
+    "scryfallId": "d3871fe6-e26e-4ab4-bd81-7e3c7b8135c1",
+    "oracleId": "ce36a450-68a6-4519-a9f0-0e3b772054eb",
+    "name": "Alania's Pathmaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alania's Pathmaker",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Otter Wizard",
+        "oracleText": "When this creature enters, exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "\"The frogfolk should worry less that the sky is falling and worry more about where it's landing.\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "d3871fe6-e26e-4ab4-bd81-7e3c7b8135c1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "blb",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHASE_STEIN_RUNAWAY": {
+    "scryfallId": "e4dab13d-98c3-4f78-b9be-cf29826fcd59",
+    "oracleId": "161ff063-b784-43c7-b608-f78be3daa5b2",
+    "name": "Chase Stein, Runaway",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chase Stein, Runaway",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "{T}, Discard a card: Exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "The Steins lamented their son didn't inherit their genius. Chase was just glad he didn't inherit their evil.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Pastrana",
+        "imageId": "e4dab13d-98c3-4f78-b9be-cf29826fcd59"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "682",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOCKWORK_PERCUSSIONIST": {
+    "scryfallId": "10986e5a-9fc6-41e2-8352-289328245171",
+    "oracleId": "3b74c8ac-9c19-45b0-935f-8630b8da4543",
+    "name": "Clockwork Percussionist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clockwork Percussionist",
+        "manaCost": "{R}",
+        "typeLine": "Artifact Creature — Monkey Toy",
+        "oracleText": "Haste\nWhen this creature dies, exile the top card of your library. You may play it until the end of your next turn.",
+        "flavorText": "Dance to its beat, or it will dance on your grave.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eric Wilkerson",
+        "imageId": "10986e5a-9fc6-41e2-8352-289328245171"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORI_MOUNTAIN_MONASTERY": {
+    "scryfallId": "14b7728e-710c-4553-8d16-fb59d1d752ea",
+    "oracleId": "35c60b66-8c85-432e-90fe-99c19d21ed15",
+    "name": "Cori Mountain Monastery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cori Mountain Monastery",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {R}.\n{3}{R}, {T}: Exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "Every spire is a physical dedication to the Way.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Arthur Yuan",
+        "imageId": "14b7728e-710c-4553-8d16-fb59d1d752ea"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ptdm",
+    "collectorNumber": "252s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COUNT_ON_LUCK": {
+    "scryfallId": "29bd066a-c533-40a6-ad62-9fc779d08ea9",
+    "oracleId": "73ad7bcd-4ffc-442c-b6b5-d935b9ccaaaf",
+    "name": "Count on Luck",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Count on Luck",
+        "manaCost": "{R}{R}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, exile the top card of your library. You may play that card this turn.",
+        "flavorText": "\"With your help, Loot, we're going to make a hell of an entrance,\" said Chandra. In less than fifteen minutes, she came to regret those words.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "29bd066a-c533-40a6-ad62-9fc779d08ea9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pdft",
+    "collectorNumber": "118p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRIMSON_OPERATIVE": {
+    "scryfallId": "6f10a7db-1343-43e7-9fd6-21147d51149c",
+    "oracleId": "d8863742-6c1c-415a-ad27-7def6d119c6a",
+    "name": "Crimson Operative",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crimson Operative",
+        "manaCost": "{3}{R}",
+        "typeLine": "Artifact Creature — Human Villain",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhen this creature enters, exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "\"I think you will find the latest version of my armor particularly impressive.\"\n—Crimson Dynamo, Dimitri Bukharin",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kevin Glint",
+        "imageId": "6f10a7db-1343-43e7-9fd6-21147d51149c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "848",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARK_DWELLER_ORACLE": {
+    "scryfallId": "29c7df4b-fc79-4a6f-8f85-677331470e23",
+    "oracleId": "17917b7a-2b2b-4a96-a21e-10cd91375660",
+    "name": "Dark-Dweller Oracle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dark-Dweller Oracle",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "{1}, Sacrifice a creature: Exile the top card of your library. You may play that card this turn. (You still pay its costs. You can play a land this way only if you have an available land play remaining.)",
+        "flavorText": "Eyes are unnecessary for seeing the future.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "29c7df4b-fc79-4a6f-8f85-677331470e23"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pm19",
+    "collectorNumber": "134s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVERSION_SPECIALIST": {
+    "scryfallId": "acc9b17c-4210-49f4-a920-b1dc9dfa950f",
+    "oracleId": "7130d063-fc1b-408b-97f2-14cb6b55d9cd",
+    "name": "Diversion Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diversion Specialist",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\n{1}, Sacrifice another creature or enchantment: Exile the top card of your library. You may play it this turn.",
+        "flavorText": "\"Hey! Fang-faces! Over here!\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "acc9b17c-4210-49f4-a920-b1dc9dfa950f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GROTAG_NIGHT_RUNNER": {
+    "scryfallId": "051c690b-5d10-4fbc-9ca1-12627bf070f3",
+    "oracleId": "623e261c-d4b9-4dea-930d-e0573a1deaee",
+    "name": "Grotag Night-Runner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grotag Night-Runner",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "Whenever this creature deals combat damage to a player, exile the top card of your library. You may play that card this turn.",
+        "flavorText": "Naturally inquisitive and adaptable, goblins can turn their small stature to their advantage as rogues.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "051c690b-5d10-4fbc-9ca1-12627bf070f3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "551",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRE_SHAMAN": {
+    "scryfallId": "18f8ac7a-a68a-4adf-995f-1cd96ee3d295",
+    "oracleId": "7f691e0d-dac5-4d7e-8727-dd2cab9a7863",
+    "name": "Ire Shaman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ire Shaman",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Orc Shaman",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nMegamorph {R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, exile the top card of your library. Until end of turn, you may play that card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jack Wang",
+        "imageId": "18f8ac7a-a68a-4adf-995f-1cd96ee3d295"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace",
+      "Megamorph"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KULRATH_ZEALOT": {
+    "scryfallId": "3502685d-4e57-4c5c-94c6-ae69048cdfbf",
+    "oracleId": "d18ca75c-3572-4851-9580-27bafe10edd6",
+    "name": "Kulrath Zealot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kulrath Zealot",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Elemental Warrior",
+        "oracleText": "When this creature enters, exile the top card of your library. Until the end of your next turn, you may play that card.\nBasic landcycling {1}{R} ({1}{R}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "The Path of Flame brought him power at the terrible cost of his own identity.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "3502685d-4e57-4c5c-94c6-ae69048cdfbf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROPHETIC_FLAMESPEAKER": {
+    "scryfallId": "73326c79-f884-42d5-8546-3db46ce4fe52",
+    "oracleId": "b290a59a-5752-46bb-90be-9792b57bd467",
+    "name": "Prophetic Flamespeaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prophetic Flamespeaker",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Double strike, trample\nWhenever this creature deals combat damage to a player, exile the top card of your library. You may play it this turn.",
+        "flavorText": "Fire to destroy. Fire to create.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "73326c79-f884-42d5-8546-3db46ce4fe52"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample",
+      "Double strike"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIZZLING_CHANGELING": {
+    "scryfallId": "e58f0722-9ad1-4952-9aee-ea8137c58911",
+    "oracleId": "60ad7aaa-8ce6-4449-8e8d-4ccf925010db",
+    "name": "Sizzling Changeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sizzling Changeling",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nWhen this creature dies, exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "Burrenton's forges call to it, and it arrives whenever they need to be relit.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "e58f0722-9ad1-4952-9aee-ea8137c58911"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAREHOUSE_THIEF": {
+    "scryfallId": "5e7a5951-4f71-47a0-ad80-f236f61d3f22",
+    "oracleId": "ddf34a38-29d5-4bf3-9b08-e7c9579a4200",
+    "name": "Warehouse Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warehouse Thief",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Tiefling Rogue",
+        "oracleText": "{2}, {T}, Sacrifice an artifact or creature: Exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "Wealthy patriars make up the vast majority of both his victims and his customers.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrea Piparo",
+        "imageId": "5e7a5951-4f71-47a0-ad80-f236f61d3f22"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WICCAN_YOUNG_AVENGER": {
+    "scryfallId": "6f210b47-e265-43ed-a336-538170c722af",
+    "oracleId": "a317d5f4-a998-4f72-b080-5345bc7cc668",
+    "name": "Wiccan, Young Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wiccan, Young Avenger",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Mutant Warlock Hero",
+        "oracleText": "Whenever you cast a noncreature spell, exile the top card of your library. Until your next end step, you may play that card.",
+        "flavorText": "\"Possibility is limited only by imagination.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Devine",
+        "imageId": "6f210b47-e265-43ed-a336-538170c722af"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "557",
     "commanderLegality": "legal",
     "singleImage": true
   },

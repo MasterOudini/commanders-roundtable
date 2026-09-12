@@ -129,6 +129,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     preventionShields: [],
     pendingTriggers: [],
     delayedTriggers: [],
+    playPermissions: [],
     winners: [],
     monarch: null,
     rng: seedRng(seed),
@@ -187,6 +188,8 @@ export function stateHash(state: GameState): string {
     combat: state.combat,
     pendingCast: state.pendingCast,
     pendingTriggers: state.pendingTriggers,
+    // D417 - a permission in force is state a replay must reproduce.
+    playPermissions: state.playPermissions,
     winners: state.winners,
     rng: state.rng,
     eventCount: state.eventCount,

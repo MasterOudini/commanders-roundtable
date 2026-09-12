@@ -335,7 +335,9 @@ function playLand(
   if (!canActAtSorcerySpeed(state, intent.player)) {
     return reject('timingRestriction', 'You can only play a land in your own main phase with an empty stack.');
   }
-  if (card.zone.kind !== 'hand' || card.zone.player !== intent.player) {
+  // D417 - a land in exile under a play permission is played as though from the hand.
+  const permitted = card.zone.kind === 'exile' && state.playPermissions.some((p) => p.card === intent.card && p.player === intent.player);
+  if (!permitted && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'That card is not in your hand.');
   }
   if (p.landsPlayedThisTurn >= p.maxLandsPerTurn) {
@@ -359,7 +361,7 @@ function playLand(
       moves: [
         {
           card: intent.card,
-          from: { kind: 'hand', player: intent.player },
+          from: permitted ? { kind: 'exile' as const, player: card.zone.player } : { kind: 'hand' as const, player: intent.player },
           to: { kind: 'battlefield', player: intent.player },
           // ⚠️ ON THE MOVE, so the replacement funnel — which reads the state
           // BEFORE this event — can see that `Malakir Mire` enters tapped and
@@ -755,10 +757,12 @@ function prepareCast(
   // D307 - FLASHBACK: the graveyard is a place to cast from when the face
   // prints a flashback cost the engine can pay (CR 702.34a).
   const flashback = from.kind === 'graveyard' && face.flashbackCost !== null;
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback) {
+  // D417 - a PLAY PERMISSION: exile is a place to cast from while the player holds one for the card.
+  const permitted = from.kind === 'exile' && state.playPermissions.some((p) => p.card === cardId && p.player === player);
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && !permitted) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
-  if (from.player !== player) return { error: reject('wrongZone', 'That is not your card.') };
+  if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }

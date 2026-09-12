@@ -649,7 +649,18 @@ function endStep(state: GameState, deps: EngineDeps): Emitted {
   // Cleanup's own turn-based actions, emitted as the step begins, because there
   // is no priority round in which to do them.
   events.push({ t: 'StepBegan', phase: next.phase, step: next.step });
+  // D417 - `until your next end step`: the active player's permissions of that kind end as their end step begins.
+  if (next.step === 'end') {
+    const due = state.playPermissions.filter((p) => p.until === 'yourNextEndStep' && p.player === state.turn.activePlayer).map((p) => p.card);
+    if (due.length > 0) events.push({ t: 'PlayPermissionsExpired', cards: due });
+  }
   if (next.step === 'cleanup') {
+    // D417 - `this turn` permissions end at cleanup; `until the end of your next turn` ones end at the
+    // cleanup of the player's own turn that began after the grant.
+    const due = state.playPermissions
+      .filter((p) => p.until === 'thisTurn' || (p.until === 'yourNextTurn' && p.player === state.turn.activePlayer && state.turn.turnNumber > p.grantedTurn))
+      .map((p) => p.card);
+    if (due.length > 0) events.push({ t: 'PlayPermissionsExpired', cards: due });
     const damaged = state.zones.battlefield.filter((id) => (state.cards[id]?.damage ?? 0) > 0);
     if (damaged.length > 0) events.push({ t: 'DamageCleared', cards: damaged });
     // CR 514.2 — "until end of turn" effects end here, in the same turn-based

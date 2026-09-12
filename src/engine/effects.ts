@@ -578,6 +578,32 @@ export function effectResult(
         break;
       }
 
+      /**
+       * D417 - THE PLAY PERMISSION: the top N of the controller's library go to exile face up (public - no
+       * reveal needed), and the controller may play each until the deadline: `state.playPermissions`, read
+       * by the legal offer, the cast and the land play, dropped when the card leaves exile or the deadline
+       * passes (the cleanup and end-step turn actions). A shorter library exiles what it has.
+       */
+      case 'exileTopPlay': {
+        const ep = effect.exilePlay;
+        if (!ep) break;
+        const lib = state.zones.library[controller] ?? [];
+        // The library is bottom-first: its last entries are the top.
+        const top = lib.slice(Math.max(0, lib.length - ep.count)).reverse();
+        if (top.length === 0) {
+          out.push(narrated(`${obj.label} - the library is empty.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({
+          t: 'CardsMoved',
+          moves: top.map((card) => ({ card, from: { kind: 'library' as const, player: controller }, to: { kind: 'exile' as const, player: state.cards[card]?.owner ?? controller } })),
+        });
+        for (const card of top) out.push({ t: 'PlayPermissionGranted', permission: { card, player: controller, until: ep.until, grantedTurn: state.turn.turnNumber } });
+        const deadline = ep.until === 'thisTurn' ? 'this turn' : ep.until === 'yourNextTurn' ? 'until the end of their next turn' : 'until their next end step';
+        out.push(narrated(n`${who(state, controller)} ${vb(controller, 'exiles', 'exile')} the top ${top.length === 1 ? 'card' : `${top.length} cards`} of the library and may play ${top.length === 1 ? 'it' : 'them'} ${deadline}.`, controller, obj.identity));
+        break;
+      }
+
       // D369 - Sacrifice this creature: the object's own source, if it is still on the battlefield.
       /**
        * D390 - THE PLAYER QUEUE (CR 101.4). "Each player sacrifices a creature of their choice":

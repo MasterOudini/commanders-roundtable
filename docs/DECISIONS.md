@@ -32941,3 +32941,136 @@ twenty-two older fight and bite suites, token copies (15), the permanent control
 exchange control (24), the activation restrictions (313), the keyword entry replacements (22),
 copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two
 gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D417 — THE PLAY PERMISSION (Reckless Impulse's family): `Exile the top card of your library. Until the end of your next turn, you may play that card.` — a card in exile the player may play or cast as though from the hand until a deadline (this turn, the end of their next turn, their next end step), the permission a list on the state read by the legal offer, the cast and the land play, dropped when the card leaves exile or the deadline passes at the cleanup / end-step turn actions (2026-09-12)
+
+**9,437 of 31,692 Commander-legal cards now execute completely, up from 9,413
+(+24: 17 generated rows — Kulrath Zealot, Grotag Night-Runner, Clockwork Percussionist, Crimson
+Operative, Dark-Dweller Oracle, Ire Shaman, Warehouse Thief, Abbot of Keral Keep, Chase Stein,
+Prophetic Flamespeaker, Sizzling Changeling, Wiccan, Alania's Pathmaker and their kin — and 7
+spells whole with no script: Reckless Impulse, Wrenn's Resolve, Act on Impulse, Blazing Crescendo,
+Campus Renovation, Inspired Tinkering, Mjölnir's Might).** `SHIPPED_SCRIPTS` 6,020 → **6,037**; the
+REFUSED ledger 1,365 → **1,375** (16 added by reason; SIX `play-from-exile permission` rows named
+STALE by the guard and deleted — the class the seam drains). Fixtures 6,654 → **6,674** (6,513 by
+name + 154 tokens: the 17 rows, the three staples). `scriptableToday` 1,465 → **1,475**; the select pool 0 → 33 → 0; the ladder
+`[1475, 1574, 2947, 4612, 5974]`. Bot reach 9,337 → **9,361** from 287 commanders. An engine seam on
+Opus 5 by the user's choice — the `playFromZone` hook the plan's Phase 3 named, built as a list.
+
+### The measurement chose it — 50 whole by the real readers, the ledger's own class
+
+After D416 the board's next single mechanism by the rewrite method was the exile-top-play
+permission: **50** one-piece cards flipped when the sentences were replaced by a draw, and the
+REFUSED ledger held a `play-from-exile permission` class of its own (24 rows) waiting on exactly
+this. The family's shapes (86 one-piece over 60): `Until the end of your next turn, you may play
+that card` (9 + 4 for two cards), `You may play that card this turn` (8), `You may play it until the
+end of your next turn` (5), `Until end of turn, you may play that card` (4), `Until your next end
+step, you may play it` (2) — under enters, dies, upkeep and combat-damage heads, on activations and
+on spells; the `you may cast` forms (a spell-only permission, `without paying its mana cost`, `if
+it's an instant or sorcery spell`), a permission with a condition (`During any turn you attacked
+with three or more creatures`) and the face-down piles stay out.
+
+### The seam — the list, the deadline, the offer, the cast and the land play
+
+- **The state** (`state.ts` `PlayPermission { card, player, until, grantedTurn }`,
+  `GameState.playPermissions` — a LIST hashed with the state; `events.ts`
+  `PlayPermissionGranted` / `PlayPermissionsExpired`; the reducer adds, drops on expiry, and drops
+  a permission whose card LEFT exile on the `CardsMoved` that moved it).
+- **The deadline** (`loop.ts`, the turn actions): `thisTurn` ends at the cleanup step's begin;
+  `yourNextTurn` at the cleanup of the granter's own turn that began after the grant (an
+  opponent's turn in between leaves it standing); `yourNextEndStep` the moment the granter's end
+  step begins.
+- **The offer** (`legal.ts`): for each permission of the player whose card is still in exile, a
+  land is offered as `PlayLand` with the land drop and a spell through `castAction` from `{ kind:
+  'exile' }` at its own speed — the same offers a hand card gets.
+- **The cast and the play** (`handlers.ts`): `castSetup` admits exile under a permission (beside
+  the flashback graveyard and the command zone; the card is the player's to cast even though the
+  exile zone is the owner's), and `playLand` admits a permitted land, moving it FROM exile so the
+  replacement funnel and the watchers see where it came from. A countered spell cast from exile
+  goes to the graveyard (only flashback exiles).
+- **The vocabulary** (`effectParse.ts`, kind `exileTopPlay`, `EffectSpec.exilePlay { count, until }`
+  — REQUIRED, null elsewhere): two sentences, one effect, the count optional (`the top card`), six
+  wordings over three deadlines; `effects.ts` moves the top N (the library is bottom-first) to
+  exile face up and grants one permission per card, an empty library saying so.
+- **The consumers**: the bot and the fuzz driver take the offers off the legal list as they take
+  any other; the zone browser has no cast button (D307's flashback gap — reportable).
+- `src/engine/playPermission.test.ts` (5): the six wordings and the two refusals; Reckless
+  Impulse — the top two in exile with a permission each, the land offered and played from exile,
+  the spell offered and cast, each permission leaving with its card; the next-turn deadline —
+  standing through the opponent's turn (who cannot cast it) and through the caster's next main
+  phase, gone after that turn's cleanup, the replay hash; the this-turn and next-end-step deadlines
+  on test-only triggers.
+- **The generator** (`gen117-vocab.cjs`): the payload's cards read in exile with a permission each
+  off the log (the top is whatever the deck holds).
+- **Fuzz**: Reckless Impulse, Wrenn's Resolve and Act on Impulse are staples (two a seat — twelve
+  permissions and ONE play at 60 with one copy of the first two: the driver's random pick rarely
+  lands on a permitted card before the deadline) feeding `permissionsGranted` and `playedFromExile`
+  (a spell cast whose object came from exile, or a land played out of it), floors on both — **250 granted / 27 played from exile over the gate's 500 seeds**
+  (26 / 2 at 60).
+
+### The wave — 17 rows and 7 whole
+
+The selector offered 33 once the permission read: 17 rowed (the enters heads — Kulrath Zealot,
+Crimson Operative, Warehouse Thief, Clockwork Percussionist; the combat-damage heads — Grotag
+Night-Runner, Prophetic Flamespeaker, Dark-Dweller Oracle's kin; the activations — Cori Mountain
+Monastery, Chase Stein, Wiccan; the dies and upkeep heads) and 16 refused by reason — seven trigger
+heads outside the library (a Goblin or Orc dealing combat damage, one or more opponents each losing
+exactly 1 life, a modified creature attacking, cards put into exile from your library, one or more
+creatures dealing combat damage, two or more Spiders attacking, an instant or sorcery spell dealing
+damage), three filtered heads outside the closed reader (an Aura or Equipment spell, a spell cast
+from exile, a nontoken Vampire), an ability word (Boast, Power-up), a Sliver static the probe split,
+an attack head on a non-creature (Tempered in Solitude), a combat-role clause (Araña), and a
+Background static (Heroes for Hire). The 7 whole are the spells that print nothing else — the
+ledger's own `play-from-exile permission` rows, six of them named STALE and deleted.
+
+### Traps
+
+- **THE COUNT IS OPTIONAL**: `the top card` prints no number, and a rule that required one read
+  none of the singles (the top of the family); absent means one.
+- **A PERMISSION IS THE PLAYER'S, THE ZONE IS THE OWNER'S**: the cast's `from.player !== player`
+  refusal (the zone's player is the owner) had to admit a permitted exile card, and the land's
+  `from` on the move names the exile zone so the funnel sees where it came from.
+- **A BACKGROUNDED GATE WITH AN INNER AMPERSAND** survived this time - but the rule stands: launch
+  a gate with `run_in_background`, never with a trailing `&` in a foreground shell.
+- **THE STATE HASH ENUMERATES ITS FIELDS**: `stateHash` lists what it hashes, so a new list on the
+  state is silent to the replay check until it is added (`playPermissions` is).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6217 files, 30116
+passed / 11 skipped · 500-seed gate, 6 shards, 1016.1 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D417): the `you may cast` permissions (a spell-only permission - Nivix, the
+`without paying its mana cost` forms - Narset, Epic Experiment, Kylox; `cast spells from among
+those exiled cards`), the conditional permission (`during any turn you attacked with three or
+more creatures`), the permission with a consequence (`if you don't, put it into your graveyard`;
+Glimpse the Impossible's end-step return; the tokens per exiled land), the permission over a
+count the vocabulary cannot read (`X cards, where X is their total power`), the face-down piles
+(Hostile Negotiations, Abstract Performance), the permission on ANOTHER player's card (Gonti's
+family - CR 400.7 and the owner's zone), the zone browser's missing cast button (D307's flashback
+gap, this seam's too), the `play-from-exile permission` ledger rows that remain (18 - the other
+wordings), the hand-reveal tail (D416), the verb-price tail (D415), the qualifier's tail (D414),
+the exile-instead tail (D413), connive's tail (D412), the untap-skip tail (D411), the cycling
+GRANTS (3), the `whenever a creature you control explores` heads (5), the reader's edge (`nontoken
+blue creature`, `exile the top three black cards of your graveyard`, `each other player gain 2
+life`, `If exactly one creature is attacking`), the `{X}` alternatives, a chooser verb on BOTH
+costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD Oblivion Ring
+wording, the qualifier before the controller, `defending player controls`, the same-name riders,
+the exile with a permission (Hostage Taker), the flicker within one batch, the other durations
+(`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield` 14), the
+SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the `for each <X>` family (95 whole by the real reader over ~60 nouns), the search forms (92), the
+impulse look-at-top (67), `you may cast` (56), `where X is` (44), the prevent-all shields (42),
+the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️
+THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172 AMOUNT
+forms, the restriction's exotic purposes (14), the twenty-two older fight and bite suites, token
+copies (15), the permanent control family (20) and exchange control (24), the activation
+restrictions (313), the keyword entry replacements (22), copy (~200 — the subsystem that waits
+for Fable), the prompt CONTINUATION seam proper, the two gate items — the tournament floor's
+MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
