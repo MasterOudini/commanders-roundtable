@@ -31,7 +31,7 @@ import {
   exileFromHandCandidates,
   type CostVerbs,
 } from './legal';
-import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
+import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
@@ -2360,6 +2360,22 @@ function snowOfSpend(
   return { ...out };
 }
 
+/**
+ * D355 / D411 - THE PRICE A MANA LINE CHARGES, in the same accept as the mana (a mana ability does not use
+ * the stack, CR 605.1): the painland's damage, the depletion land's untap skip. ONE helper for both the
+ * hand tap (`tapForMana`) and the plan taps of an auto-paid cast (`payEvents`) - the latter charged
+ * nothing until D411, an auto-paid painland dealing no damage.
+ */
+function manaDrawbackEvents(source: Pick<ManaSource, 'drawback'>, card: InstanceId, player: PlayerId): EventBody[] {
+  const d = source.drawback;
+  if (!d) return [];
+  if (d.kind === 'skipUntap') return [{ t: 'UntapSkipSet', card, skip: true }];
+  return [{
+    t: 'DamageDealt',
+    damages: [{ source: card, target: { kind: 'player', id: player }, amount: d.amount, deathtouch: false, lifelinkTo: null, isCommanderDamage: false, viaTrample: 0, applyAs: 'normal', toxic: 0 }],
+  }];
+}
+
 /** Taps, mana added, mana spent, life paid — CR 601.2g/h, each its own event. */
 function payEvents(
   state: GameState,
@@ -2378,12 +2394,17 @@ function payEvents(
   // plan fits, so its mana lands in a fitting bucket and is spent straight back out of it).
   let fitting: readonly RestrictedMana[] = bucketsFitting(state.players[player]?.poolRestricted ?? [], purpose);
   const tapped: InstanceId[] = [];
+  const riders: EventBody[] = [];
 
   for (const tap of plan.taps) {
     const source = sources.find((s) => s.card === tap.source && s.abilityIndex === tap.abilityIndex);
     const output = source?.outputs[tap.outputChoice];
     if (!source || !output) continue;
-    if (source.requiresTap && !tapped.includes(tap.source)) tapped.push(tap.source);
+    if (source.requiresTap && !tapped.includes(tap.source)) {
+      tapped.push(tap.source);
+      // D411 - the line's price is charged HERE too (the D355 gap: an auto-paid painland dealt nothing).
+      riders.push(...manaDrawbackEvents(source, tap.source, player));
+    }
     for (const k of KEYS) produced[k] += output.mana[k];
     // D364 - snow mana is recorded as it is made; the source knows, the pool remembers.
     if (source.snow) for (const k of KEYS) producedSnow[k] += output.mana[k];
@@ -2395,6 +2416,7 @@ function payEvents(
     }
   }
   if (tapped.length > 0) events.push({ t: 'PermanentsTapped', cards: tapped });
+  events.push(...riders);
 
   const concrete = hybridCombinations(setup.problem).find(
     (c) =>
@@ -2493,12 +2515,7 @@ function tapForMana(
   // D355 - THE PRICE THE LINE CHARGES, in the SAME accept as the mana. A mana ability does not
   // use the stack (CR 605.1), so there is no window between the two in which anything could
   // respond - and a player who taps a painland at 1 life has already lost when the mana appears.
-  if (source.drawback) {
-    events.push({
-      t: 'DamageDealt',
-      damages: [{ source: intent.card, target: { kind: 'player', id: intent.player }, amount: source.drawback.amount, deathtouch: false, lifelinkTo: null, isCommanderDamage: false, viaTrample: 0, applyAs: 'normal', toxic: 0 }],
-    });
-  }
+  events.push(...manaDrawbackEvents(source, intent.card, intent.player));
 
   // ⚠️ THE LOG SAID NOTHING ABOUT THIS UNTIL NOW, and it was the loudest silence
   // in the app: tapping a land emitted a tap and a pool change and no narration,

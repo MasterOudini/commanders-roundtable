@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1467);
-    expect.soft(r.spells.assisted).toBe(1879);
-    expect.soft(r.spells.autoAnyFace).toBe(1475);
+    expect.soft(r.spells.auto).toBe(1472);
+    expect.soft(r.spells.assisted).toBe(1874);
+    expect.soft(r.spells.autoAnyFace).toBe(1480);
   });
 
   /**
@@ -449,13 +449,13 @@ const POOL: Record<string, number> = {
   // M6.4hp (D383): the SCOPED BOARD EFFECT reads a sentence about a whole scope, so +17 instants
   // and +17 sorceries flip with no script at all, beside the wave's +25 creatures and +2
   // enchantments.
-  creature: 5377,
-  instant: 1230,
-  sorcery: 926,
+  creature: 5390,
+  instant: 1233,
+  sorcery: 928,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
-  land: 599,
-  artifact: 511,
+  land: 610,
+  artifact: 514,
   enchantment: 520,
 };
 

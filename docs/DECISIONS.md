@@ -32141,3 +32141,132 @@ untap skip (15), the permanent control family (20) and exchange control (24), th
 restrictions (313), the keyword entry replacements (22), copy (~200 — the subsystem that
 waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the tournament
 floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
+## D411 — THE UNTAP SKIP: `doesn't untap during its controller's next untap step` — a flag the effect sets, or a depletion land's rider sets when its mana is made, spent by that untap STEP whether the permanent was tapped or not; the referent reaches the tapped target; the mana line's price is charged under an auto-paid cast too (the D355 gap) (2026-09-12)
+
+**9,195 of 31,692 Commander-legal cards now execute completely, up from 9,163
+(+32: 17 generated rows - Frost Trickster, Chillbringer, Frost Lynx, Watertrap Weaver, Fogwalker, Elvish Hunter, Apes of Rath, Lead Golem and their kin - and 15 cards whole with no script: the ten depletion lands from Thalakos Lowlands to Cloudcrest Lake, Take into Custody, Chandra's Revolution, Chill of the Grave, Crippling Chill, Press for Answers).** `SHIPPED_SCRIPTS` 5,864 → **5,881**; the REFUSED ledger 1,338 →
+**1,336** (four rows named STALE by the guard deleted, two ADDED by reason). Fixtures 6,483 → **6,503** (6,342 by name + 154 tokens: the five
+proof cards — Frost Trickster, Take into Custody, Apes of Rath, Karplusan Forest, Savannah Lions
+— and the 17 rows). `scriptableToday` 1,436 → **1,434**; the select pool 0 → 19 → 0;
+the ladder `[1434, 1529, 2923, 4601, 5954]`. Bot reach 9,090 → **9,122** from 273 commanders. An engine
+seam on Opus 5 by the user's choice — the first DELAYED STATE on a permanent since the linked
+exile (D407), and the price of a mana line charged at BOTH tap sites at last.
+
+### The measurement chose it — one mechanism under 56 whole cards
+
+After D410 the family priced at **56 whole cards over 38 shapes**, the largest single-mechanism
+family left on the board (`price409.cjs`'s successors): ten Tempest depletion lands (`{T}: Add
+{W} or {U}. This land doesn't untap during your next untap step.`), seven enters-tap-freeze
+creatures (`tap target creature an opponent controls. That creature / It doesn't untap …`), the
+two spells (`Tap target creature. It doesn't untap …`), the bare targeted form (Fogwalker,
+Skyline Cascade, Elvish Hunter), the self form on an attack (Apes of Rath, Lead Golem), the
+blocks form, and a tail of compounds. Connive is 30 whole but 14 rowable; the monarch's
+mechanism exists and its conditions are the wall.
+
+### The seam — the flag, the step, the vocabulary, the rider, the two tap sites
+
+- **The flag** (`CardInstance.skipsUntap`, `UntapSkipSet { card, skip }`): set by the effect or
+  the rider, absent for every card never frozen (older logs replay unchanged), cleared by
+  `clearBattlefieldFields` — a new object owes no untap step.
+- **The step** (`loop.ts`, the untap turn-based action): a flagged permanent the active player
+  controls sits out the untap, the flag is SPENT by the step — tapped or not, the effect names
+  the step and not the untap — and the log says `X doesn't untap this turn.`
+- **The vocabulary** (`effectParse.ts`, kind `freeze`): `<target> doesn't untap during its
+  controller's next untap step.` and the self form `~ doesn't untap during (your | its
+  controller's) next untap step.`; `It / That creature doesn't untap …` after `Tap target
+  creature.` is the REFERENT rewrite's (D392) and aims where the tap aimed; the executor
+  (`effects.ts`) flags the aim, or the source for `self`, when it is on the battlefield. The
+  bridge spells a quoted body's leading `it doesn't` as `~`; the classifier's
+  `oneShotFreezeShape` rates the self form under a self head scriptable (D303's rule for "it").
+- **The rider** (`oracleParse.ts` `readManaDrawback`, `ManaProduction.drawback` kind
+  `skipUntap`): the depletion land's second sentence is a price the line charges, beside D355's
+  damage; the accounting claims the line as it claims a painland's.
+- **The two tap sites** (`handlers.ts` `manaDrawbackEvents`): ONE helper charges a mana line's
+  price at the hand tap (`tapForMana`) AND at the plan taps of an auto-paid cast (`payEvents`)
+  — which charged NOTHING until now: an auto-paid painland dealt no damage (the D355 gap,
+  proven closed on Karplusan Forest).
+- `src/engine/untapSkip.test.ts` (4): Frost Trickster's Cyclops tapped and flagged, sitting out
+  p2's untap step, the flag spent by it, untapping the turn after, the replay hash; Take into
+  Custody through the referent, and an untapped frozen creature still spending the skip at the
+  step; Apes of Rath's self form on an attack, the flag gone on leaving; Thalakos Lowlands'
+  colourless ability carrying no rider, the coloured one flagging by hand and under an
+  auto-paid Savannah Lions, and Karplusan Forest's damage under an auto-paid Raging Goblin.
+- **Fuzz**: Thalakos Lowlands is a staple (one a seat — its coloured ability is tapped for every
+  white or blue payment) feeding `untapSkips` (the skips SET) with a floor at gate size —
+  **457 over the gate's 500 seeds** (23 at 60).
+
+### The wave — 19 offered, 17 rows, two refused by reason, four ledger rows drained
+
+The pool is the classifier's OWN offer after the seam — **19** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **17 rows / 19
+abilities**: the enters-tap-freeze creatures (Frost Trickster, Chillbringer, Frost Lynx,
+Watertrap Weaver, Spire Patrol, Niblis of Frost, Stitched Mangler, Kor Hookmaster), the
+bare targeted forms (Fogwalker, Skyline Cascade, Elvish Hunter, Sleeper Dart, House
+Guildmage, Barl's Cage, Kefnet's Monument), the self attackers (Apes of Rath, Lead Golem).
+The line probe ran BEFORE the port (D395's rule); the port **17 of 17 files, 36 tests, tsc
+clean, first run** (the port's new token-pin step ran with nothing to pin). Fifteen cards
+read WHOLE with no script — the ten depletion lands (Thalakos Lowlands, Tranquil Garden, Vec
+Townships, Cinder Marsh, Waterveil Cavern, Mogg Hollows, Lantern-Lit Graveyard, Rootwater
+Depths, Pinecrest Ridge, Cloudcrest Lake) and five spells (Take into Custody, Chandra's
+Revolution, Chill of the Grave, Crippling Chill, Press for Answers). Refused by reason (2,
+ledgered): a combat-role clause the suite has no fixture for (Arbalest Elite), a Dragon
+attack head outside the library (Ojutai, Soul of Winter). Four ledger rows the guard named
+STALE (`untap restriction`) are deleted.
+
+### Traps
+
+- **THE OLD BOUNDARY WAS PINNED THREE TIMES**: `manaDrawback.test.ts` (D355) held Thalakos
+  Lowlands INCOMPLETE and its drawback null, `engineComplete.test.ts` listed it under
+  INCOMPLETE, `tier3.test.ts` expected its note — all three the boundary this seam moved, found
+  by running the neighbouring seams' suites BEFORE the gate (D410's lesson, applied). The
+  accounting's guard now sits on a synthetic rider the engine still refuses.
+- **THE HALVED `\n` IN A TEST STRING**: a `\\n` in a heredoc part became `\n` in the applier,
+  which wrote a REAL newline into a TS string literal — an unterminated string at transform.
+  Build a backslash-n from `String.fromCharCode(92)`; never spell it.
+- **`node -e "require(...)"` RAN A DRIVER AGAIN**: the D408 trap, a second time, during this
+  decision's gate - the next decision's fixtures driver went into WANTED and came back out
+  through its inverse before the close-out. Absolute now: `node --check`, never a require.
+- **A DERIVER DOES NOT KNOW A NEW PORT STEP**: `add-token-pins.cjs` was written in D410's
+  folder and not in the deriver's chain, so the D411 port failed at its first line until the
+  file was copied and the chain widened.
+- **THE OTHER TAP SITE**: a mana line's price lived at the hand tap only; every auto-paid cast
+  that tapped a painland since D355 dealt no damage. A price charged "in the same accept as the
+  mana" must be charged at EVERY site that makes the mana.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6055 files, 29375
+passed / 11 skipped · 500-seed gate, 6 shards, 1147.2 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D411): the blocks form (`Whenever this creature blocks a creature, that
+creature doesn't untap …` — the blocked creature as a referent, 4), the conditional freezes
+(`If you won`, `If that land is an Island`, Spectral Bears), the compound spells (Chandra's
+Revolution's tap-a-land half read; Winterthorn Blessing, Spore Cloud), the activation self
+riders (Reveka, Arbalest Elite), `Enchanted creature doesn't untap during its controller's untap
+step` (the STANDING form — a static, not this flag), the connive action (30 whole, 14 rowable),
+the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), `explores X
+times`, the reader's edge (`nontoken blue creature`, `exile the top three black cards of your
+graveyard`, `each other player gain 2 life`, `If exactly one creature is attacking`), the `{X}`
+alternatives, a chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead`
+wordings, Emerge, the OLD Oblivion Ring wording, `another target`, the qualifier before the
+controller, `defending player controls`, the same-name riders, the exile with a permission, the
+flicker within one batch, the other durations (`for as long as you control` 23, `remains
+exiled` 33, `remains on the battlefield` 14), the SACRIFICED REFERENT, a random discard as a
+cast cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID symbols
+paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27
+/ 18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down
+creature spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a
+SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form
+(17), the MULTIKICKER row (7), the `instead` rewrites (6), `whenever you cast a kicked spell`,
+the REFERENT across the wait, the self-aimed delayed forms, the HOST characteristics under an
+attached static (29), "you control a token", the incarnations' graveyard statics (5),
+`Whenever you attack` and the each-combat head, the `for each <X>` family (645 one-piece over
+324 nouns), the payment heads, the search residue, the scoped grant, the blocker-predicate form
+(8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory
+(16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the twenty-two older fight
+and bite suites, token copies (15), the permanent control family (20) and exchange control
+(24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 — the
+subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

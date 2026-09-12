@@ -204828,6 +204828,172 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FROST_TRICKSTER": {
+    "scryfallId": "0f07d50e-53d7-4a9b-afae-9f896f3acaab",
+    "oracleId": "1663d54f-4f39-4a03-aac2-e2923cbb7de8",
+    "name": "Frost Trickster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frost Trickster",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nWhen this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": "The most important skill in a Mage Tower match is keeping one's cool.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Uriah Voth",
+        "imageId": "0f07d50e-53d7-4a9b-afae-9f896f3acaab"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "STX-43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAKE_INTO_CUSTODY": {
+    "scryfallId": "b412718a-7bc7-4b16-af60-1b955c820b0f",
+    "oracleId": "5e5f92b3-204b-42a3-b86f-8e2a1d263d1d",
+    "name": "Take into Custody",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Take into Custody",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Tap target creature. It doesn't untap during its controller's next untap step.",
+        "flavorText": "\"You can tell me what I want to know, or you can talk to the Chief of Compliance. Why don't you make it easy on yourself?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "b412718a-7bc7-4b16-af60-1b955c820b0f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APES_OF_RATH": {
+    "scryfallId": "25eff287-6b53-4e6d-9da2-d80d05bb8c51",
+    "oracleId": "b52f5850-f1aa-412a-bae9-2ce76c287188",
+    "name": "Apes of Rath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apes of Rath",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Ape",
+        "oracleText": "Whenever this creature attacks, it doesn't untap during its controller's next untap step.",
+        "flavorText": "Monkeys three, monkeys through.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "25eff287-6b53-4e6d-9da2-d80d05bb8c51"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "214",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARPLUSAN_FOREST": {
+    "scryfallId": "0b84d68b-72b5-4fd3-a6f9-80ac26f16583",
+    "oracleId": "bd912666-f37f-4767-af6f-9e6d0fcccacf",
+    "name": "Karplusan Forest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karplusan Forest",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add {R} or {G}. This land deals 1 damage to you.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nicola Leonard",
+        "imageId": "0b84d68b-72b5-4fd3-a6f9-80ac26f16583"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ptc",
+    "collectorNumber": "et356",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVANNAH_LIONS": {
+    "scryfallId": "20a8a8c7-46be-4444-a9d6-c37ae989a7c6",
+    "oracleId": "60ba93eb-39e6-4af2-9c66-cd38f72daff2",
+    "name": "Savannah Lions",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savannah Lions",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "",
+        "flavorText": "The traditional kings of the jungle command a healthy respect in other climates as well. Relying mainly on their stealth and speed, Savannah Lions can take a victim by surprise, even in the endless flat plains of their homeland.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daniel Gelon",
+        "imageId": "20a8a8c7-46be-4444-a9d6-c37ae989a7c6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "cei",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -214073,6 +214239,498 @@
     ],
     "setCode": "tmt",
     "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARL_S_CAGE": {
+    "scryfallId": "51c09306-c314-4a35-a21a-839e476925aa",
+    "oracleId": "eb260cd3-9060-4a5e-bc60-a8ca13d542cc",
+    "name": "Barl's Cage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barl's Cage",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}: Target creature doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tom Wänerstrand",
+        "imageId": "51c09306-c314-4a35-a21a-839e476925aa"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bchr",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILLBRINGER": {
+    "scryfallId": "158547fa-7313-4e77-949f-afc68ebfb022",
+    "oracleId": "604d2a0e-224c-4a7b-aabf-033e7dcee3f2",
+    "name": "Chillbringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chillbringer",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, tap target creature an opponent controls. It doesn't untap during its controller's next untap step.",
+        "flavorText": "If you can see your breath, it's too late to run.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eytan Zana",
+        "imageId": "158547fa-7313-4e77-949f-afc68ebfb022"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_HUNTER": {
+    "scryfallId": "204c8aff-b103-4606-b86b-d794bc5dcde1",
+    "oracleId": "49b351d8-8b63-4f9e-a323-344ed35fdfff",
+    "name": "Elvish Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Hunter",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "{1}{G}, {T}: Target creature doesn't untap during its controller's next untap step.",
+        "flavorText": "The Elves never had a standing army; when battle came, they pressed Hunters, Scouts, and Farmers into a surprisingly effective militia.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Susan Van Camp",
+        "imageId": "204c8aff-b103-4606-b86b-d794bc5dcde1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fem",
+    "collectorNumber": "67c",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOGWALKER": {
+    "scryfallId": "0894d76b-801a-4e3b-8378-bfa81fe24d59",
+    "oracleId": "c597cfae-3f92-4d31-8bc1-5a2da995f1bf",
+    "name": "Fogwalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fogwalker",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Skulk (This creature can't be blocked by creatures with greater power.)\nWhen this creature enters, target creature an opponent controls doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "0894d76b-801a-4e3b-8378-bfa81fe24d59"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Skulk"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROST_LYNX": {
+    "scryfallId": "2cd55b49-bb7a-4e56-a1fc-5b52ce3cb22c",
+    "oracleId": "9400e348-b0c6-4aa3-b92c-1fbc8bc3baf9",
+    "name": "Frost Lynx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frost Lynx",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Elemental Cat",
+        "oracleText": "When this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": "It readily attacks much larger prey, knowing retaliation is impossible.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Izzy",
+        "imageId": "2cd55b49-bb7a-4e56-a1fc-5b52ce3cb22c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "BBD-118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEFNET_S_MONUMENT": {
+    "scryfallId": "9820f6bf-7bd8-4e4d-b9af-f0690c00f606",
+    "oracleId": "b6294891-79e6-4f2a-a82d-6cffce968356",
+    "name": "Kefnet's Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kefnet's Monument",
+        "manaCost": "{3}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "Blue creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, target creature an opponent controls doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "9820f6bf-7bd8-4e4d-b9af-f0690c00f606"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "275",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOR_HOOKMASTER": {
+    "scryfallId": "1c77d014-8ea2-4203-88b4-53be3819bf3c",
+    "oracleId": "e6941577-8262-42ef-bf32-f6505d90b73a",
+    "name": "Kor Hookmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kor Hookmaster",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kor Soldier",
+        "oracleText": "When this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": "\"For us, a rope represents the ties that bind the kor. For you, it's more literal.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "1c77d014-8ea2-4203-88b4-53be3819bf3c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mm3",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEAD_GOLEM": {
+    "scryfallId": "b2ba3857-9bd7-434d-b77f-d697776f33e4",
+    "oracleId": "5810c1e2-5a36-4a87-be4e-890ba1627b46",
+    "name": "Lead Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lead Golem",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever this creature attacks, it doesn't untap during its controller's next untap step.",
+        "flavorText": "Slow and heavy swings the club.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hannibal King",
+        "imageId": "b2ba3857-9bd7-434d-b77f-d697776f33e4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "6ed",
+    "collectorNumber": "296",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIBLIS_OF_FROST": {
+    "scryfallId": "815a56dc-1ea7-44fb-8977-ff87a6b4d45b",
+    "oracleId": "ed2f3339-5c3e-473f-b08e-58288c4ad9c2",
+    "name": "Niblis of Frost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Niblis of Frost",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever you cast an instant or sorcery spell, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "815a56dc-1ea7-44fb-8977-ff87a6b4d45b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Prowess"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYLINE_CASCADE": {
+    "scryfallId": "29b0027d-c232-4cdd-89c4-75947687aa71",
+    "oracleId": "79301ae1-8c9c-4723-be21-dc27e1646f35",
+    "name": "Skyline Cascade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyline Cascade",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, target creature an opponent controls doesn't untap during its controller's next untap step.\n{T}: Add {U}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Philip Straub",
+        "imageId": "29b0027d-c232-4cdd-89c4-75947687aa71"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "bfz",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRE_PATROL": {
+    "scryfallId": "1daaf494-70af-4a8d-836f-f6a9d6c1f080",
+    "oracleId": "afacd2b1-1733-4b28-b834-71a31149fa00",
+    "name": "Spire Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spire Patrol",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flying\nWhen this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": "\"After I examine your cargo and check your papers, you can be on your way.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "1daaf494-70af-4a8d-836f-f6a9d6c1f080"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STITCHED_MANGLER": {
+    "scryfallId": "c03c643c-8e4c-4dc9-8756-c253fa057729",
+    "oracleId": "4c502f1b-7361-48c0-8def-0d3b3e9ff628",
+    "name": "Stitched Mangler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stitched Mangler",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "This creature enters tapped.\nWhen this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "c03c643c-8e4c-4dc9-8756-c253fa057729"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "soi",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WATERTRAP_WEAVER": {
+    "scryfallId": "0d973568-d7b0-443f-a09d-44f6b02da5d4",
+    "oracleId": "ef0ed1b1-d092-46f0-beb2-444e3645d273",
+    "name": "Watertrap Weaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Watertrap Weaver",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "When this creature enters, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": "The river is a powerful friend.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "0d973568-d7b0-443f-a09d-44f6b02da5d4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOUSE_GUILDMAGE": {
+    "scryfallId": "45ee7bc8-d5cf-47b1-93c2-7e1d5f536c85",
+    "oracleId": "257cc8e9-55b4-4510-9d1f-5df8c1ae2061",
+    "name": "House Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "House Guildmage",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{1}{U}, {T}: Target creature doesn't untap during its controller's next untap step.\n{2}{B}, {T}: Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "45ee7bc8-d5cf-47b1-93c2-7e1d5f536c85"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLEEPER_DART": {
+    "scryfallId": "311f827a-1585-483e-b0fd-3dc05969b485",
+    "oracleId": "1f1b6130-3f18-4989-922b-438e41d683da",
+    "name": "Sleeper Dart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sleeper Dart",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, draw a card.\n{T}, Sacrifice this artifact: Target creature doesn't untap during its controller's next untap step.",
+        "flavorText": "\"Sleep now, you big brute.\"\n—Kelsien, the Plague",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "311f827a-1585-483e-b0fd-3dc05969b485"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "240",
     "commanderLegality": "legal",
     "singleImage": true
   },

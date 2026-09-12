@@ -250,6 +250,12 @@ export interface CardInstance {
   /** Players who may see this card even though its zone is hidden. */
   readonly revealedTo: readonly PlayerId[];
   readonly phasedOut: boolean;
+  /**
+   * D411 - "doesn't untap during its controller's next untap step": set by the effect (or a mana
+   * ability's rider), spent by that untap STEP whether or not the permanent was tapped, cleared by
+   * leaving the battlefield. Absent for every card that was never frozen, so older logs replay.
+   */
+  readonly skipsUntap?: true | undefined;
 }
 
 export type DefenderRef =

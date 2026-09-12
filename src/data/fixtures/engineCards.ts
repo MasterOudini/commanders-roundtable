@@ -6081,6 +6081,11 @@ export const WILDGROWTH_WALKER: CardData = F.WILDGROWTH_WALKER as CardData;
 export const ASH_BARRENS: CardData = F.ASH_BARRENS as CardData;
 export const PALE_RECLUSE: CardData = F.PALE_RECLUSE as CardData;
 export const HOMING_SLIVER: CardData = F.HOMING_SLIVER as CardData;
+export const FROST_TRICKSTER: CardData = F.FROST_TRICKSTER as CardData;
+export const TAKE_INTO_CUSTODY: CardData = F.TAKE_INTO_CUSTODY as CardData;
+export const APES_OF_RATH: CardData = F.APES_OF_RATH as CardData;
+export const KARPLUSAN_FOREST: CardData = F.KARPLUSAN_FOREST as CardData;
+export const SAVANNAH_LIONS: CardData = F.SAVANNAH_LIONS as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6347,6 +6352,21 @@ export const SOARING_SANDWING: CardData = F.SOARING_SANDWING as CardData;
 export const STRATOSOARER: CardData = F.STRATOSOARER as CardData;
 export const TWISTED_ABOMINATION: CardData = F.TWISTED_ABOMINATION as CardData;
 export const ZOG_TRICERATON_CASTAWAY: CardData = F.ZOG_TRICERATON_CASTAWAY as CardData;
+export const BARL_S_CAGE: CardData = F.BARL_S_CAGE as CardData;
+export const CHILLBRINGER: CardData = F.CHILLBRINGER as CardData;
+export const ELVISH_HUNTER: CardData = F.ELVISH_HUNTER as CardData;
+export const FOGWALKER: CardData = F.FOGWALKER as CardData;
+export const FROST_LYNX: CardData = F.FROST_LYNX as CardData;
+export const KEFNET_S_MONUMENT: CardData = F.KEFNET_S_MONUMENT as CardData;
+export const KOR_HOOKMASTER: CardData = F.KOR_HOOKMASTER as CardData;
+export const LEAD_GOLEM: CardData = F.LEAD_GOLEM as CardData;
+export const NIBLIS_OF_FROST: CardData = F.NIBLIS_OF_FROST as CardData;
+export const SKYLINE_CASCADE: CardData = F.SKYLINE_CASCADE as CardData;
+export const SPIRE_PATROL: CardData = F.SPIRE_PATROL as CardData;
+export const STITCHED_MANGLER: CardData = F.STITCHED_MANGLER as CardData;
+export const WATERTRAP_WEAVER: CardData = F.WATERTRAP_WEAVER as CardData;
+export const HOUSE_GUILDMAGE: CardData = F.HOUSE_GUILDMAGE as CardData;
+export const SLEEPER_DART: CardData = F.SLEEPER_DART as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12567,6 +12587,11 @@ export const ENGINE_CARDS: CardData[] = [
   ASH_BARRENS,
   PALE_RECLUSE,
   HOMING_SLIVER,
+  FROST_TRICKSTER,
+  TAKE_INTO_CUSTODY,
+  APES_OF_RATH,
+  KARPLUSAN_FOREST,
+  SAVANNAH_LIONS,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12833,6 +12858,21 @@ export const ENGINE_CARDS: CardData[] = [
   STRATOSOARER,
   TWISTED_ABOMINATION,
   ZOG_TRICERATON_CASTAWAY,
+  BARL_S_CAGE,
+  CHILLBRINGER,
+  ELVISH_HUNTER,
+  FOGWALKER,
+  FROST_LYNX,
+  KEFNET_S_MONUMENT,
+  KOR_HOOKMASTER,
+  LEAD_GOLEM,
+  NIBLIS_OF_FROST,
+  SKYLINE_CASCADE,
+  SPIRE_PATROL,
+  STITCHED_MANGLER,
+  WATERTRAP_WEAVER,
+  HOUSE_GUILDMAGE,
+  SLEEPER_DART,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

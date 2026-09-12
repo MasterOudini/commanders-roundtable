@@ -251,6 +251,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D411 - the untap skip is the engine's own: the two the selector offered once the freeze sentences read
+  // that the row maker refused, by reason.
+  ['Arbalest Elite', 'a vocabulary clause the suite has no fixture for (target attacking or blocking creature - a combat-role clause) beside its self untap skip'],
+  ['Ojutai, Soul of Winter', 'a trigger head outside the library (whenever a Dragon you control attacks) beside its untap skip'],
   // D410 - typecycling is the engine's own (CR 702.29b): the seven the selector offered once the typed
   // cycling lines read whose OTHER line the row maker refused, by reason.
   ['Bebop, Warthog Warrior', 'a static outside the row shapes (Rhinos you control have menace - a subtype anthem) beside its typecycling'],
@@ -399,7 +403,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D203 — Chaoslace SETS a color for the turn (no UEOT color carrier);
   // Chronostutter inserts SECOND FROM THE TOP (the move event knows only
   // top and bottom).
-  ["Chandra's Revolution", 'untap restriction'],
   ['Chaoslace', 'UEOT color change'],
   ['Chaotic Transformation', 'up-to-N targeting'],
   ['Chronostutter', 'library position placement'],
@@ -930,7 +933,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Rogue, Warrior and Wizard. No party concept exists anywhere in the
   // engine, and approximating it would miscount the damage on every board.
   ['Synchronized Spellcraft', 'party mechanic'],
-  ['Take into Custody', 'untap restriction'],
   ['Tandem Takedown', 'up-to-N targeting'],
 
   // D257 (M6.4ct) — ONE refusal in twenty-five, the leanest classification
@@ -1309,7 +1311,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Crystal Spray is a text-changing effect (CR 612); Crippling Chill is
   // the untap restriction; Dash Hopes is opponent-chooses on a CAST trigger.
   ['Crashing Footfalls', 'suspend mechanic'],
-  ['Crippling Chill', 'untap restriction'],
   ['Crystal Spray', 'text-changing effect (CR 612)'],
   ['Dark Dabbling', 'regeneration'],
   ['Dash Hopes', 'opponent-chooses'],
@@ -1865,7 +1866,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rebel Salvo', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Visions of Villainy', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['Voyage Home', 'a spell line outside the vocabulary (its reduction is priced)'],
-  ['Chill of the Grave', 'a spell line outside the vocabulary (its reduction is priced)'],
   ['The Circle of Loyalty', 'a permanent line outside the vocabulary (its reduction is priced)'],
 
   // D325 (M6.4fj) - the two cards the mana-ability seam made offerable that the row

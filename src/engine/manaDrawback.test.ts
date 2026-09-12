@@ -104,13 +104,17 @@ describe('a mana ability with a price (D355)', () => {
   });
 
   test('a drawback the engine cannot apply keeps its line unaccounted', () => {
-    // ⚠️ THE BOUNDARY, held by a real card. `Thalakos Lowlands` reads
-    // "{T}: Add {W} or {U}. This land doesn't untap during your next untap step." — a delayed state
-    // this decision does not build. It must stay INCOMPLETE: a vocabulary that quietly widened to
-    // "any second sentence" would claim it and the engine would untap the land anyway.
+    // ⚠️ THE BOUNDARY. D411 built the untap skip, so `Thalakos Lowlands` reads whole now - its coloured
+    // ability carries the `skipUntap` drawback and its colourless one none. The boundary is held one
+    // sentence further out, on the same card with a rider the engine still cannot apply: a vocabulary
+    // that quietly widened to "any second sentence" would claim it and the engine would do nothing.
     const c = engineCompleteness(data('Thalakos Lowlands'));
-    expect(c.complete).toBe(false);
-    expect(c.leftover.some((l) => /doesn't untap/i.test(l))).toBe(true);
-    for (const p of face('Thalakos Lowlands').producesMana) expect(p.drawback ?? null).toBeNull();
+    expect(c.complete).toBe(true);
+    expect(face('Thalakos Lowlands').producesMana.map((p) => p.drawback?.kind ?? null)).toEqual([null, 'skipUntap']);
+    const real = data('Thalakos Lowlands');
+    const rider = { ...real, faces: real.faces.map((f, i) => (i === 0 ? { ...f, oracleText: '{T}: Add {C}.\n{T}: Add {W} or {U}. Sacrifice this land at the beginning of the next end step.' } : f)) };
+    const held = engineCompleteness(rider);
+    expect(held.complete).toBe(false);
+    expect(held.leftover.some((l) => /Sacrifice this land/i.test(l))).toBe(true);
   });
 });

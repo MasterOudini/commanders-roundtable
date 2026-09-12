@@ -296,6 +296,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     faceIndex: 0,
     // D403 - a permanent remembers its kick only from the spell it entered as.
     kicked: undefined,
+    // D411 - a new object owes no untap step.
+    skipsUntap: undefined,
   };
 }
 
@@ -926,6 +928,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D396 - a bite's or a fight's marker: the damage beside it moves the state, this does not.
     case 'Fought':
       return state;
+
+    // D411 - the untap skip: set by an effect, spent by the untap step.
+    case 'UntapSkipSet':
+      return withCard(state, body.card, body.skip ? { skipsUntap: true } : { skipsUntap: undefined });
 
     // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
     case 'Explored':

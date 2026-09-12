@@ -273,10 +273,10 @@ describe('a permanent’s text, which the app does not run', () => {
     // did exactly the first half of it. Silent until D124, and RUN since D355: the price is
     // charged at the tap, so there is nothing left for the player to do by hand.
     expect(what(C.ANCIENT_TOMB)).toEqual([]);
-    // ⚠️ THE DIRECTION THAT STILL MATTERS, on the same shape. Thalakos Lowlands reads
-    // `{T}: Add {W} or {U}. This land doesn't untap during your next untap step.` - a drawback
-    // the engine has no delayed state for, so the note stays and says so.
-    expect(what(C.THALAKOS_LOWLANDS)).toEqual(['Part of its mana ability']);
+    // D411 - and Thalakos Lowlands' `This land doesn't untap during your next untap step.` is RUN
+    // too (the untap skip): its note is gone as well. The direction that still matters is held
+    // by `engine/manaDrawback.test.ts` on a rider the engine does not run.
+    expect(what(C.THALAKOS_LOWLANDS)).toEqual([]);
   });
 
   test('a cost beyond {T}, and a spend restriction, are the same note', () => {

@@ -898,6 +898,11 @@ const RULES: readonly Rule[] = [
   },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D411 - THE UNTAP SKIP: the bare targeted form, and the self form under a trigger's head or an
+  // activation (`~ doesn't untap during your next untap step`); `It / That creature doesn't untap ...`
+  // after a tap is the referent rewrite's (D392).
+  { kind: 'freeze', re: new RegExp(`^${TARGET} doesn't untap during its controller's next untap step\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'freeze', re: new RegExp(`^${SELF} doesn't untap during (?:your|its controller's) next untap step\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
   // creature.") is a different family and stays unread until it is measured and built.
   { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },

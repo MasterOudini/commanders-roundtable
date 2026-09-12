@@ -574,6 +574,8 @@ export type EventBody =
    * narration read it.
    */
   | { readonly t: 'Fought'; readonly subject: InstanceId; readonly other: InstanceId; readonly mutual: boolean }
+  /** D411 - the untap skip set by an effect (`skip`), or spent by the untap step. */
+  | { readonly t: 'UntapSkipSet'; readonly card: InstanceId; readonly skip: boolean }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }
 

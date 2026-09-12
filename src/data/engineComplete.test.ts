@@ -19,9 +19,9 @@ import type { OracleId } from '../engine/types/ids';
 // anything can tap).
 //
 // ⚠️ D355 MOVED ANCIENT TOMB to COMPLETE, and the rule it motivated did not move
-// with it: a second sentence still blocks the line unless the engine RUNS it, and
-// `Thalakos Lowlands` holds that guard now - same shape, a drawback (`doesn't untap
-// during your next untap step`) the engine has no delayed state for.
+// with it: a second sentence still blocks the line unless the engine RUNS it. D411
+// moved `Thalakos Lowlands` too (the untap skip is delayed state the engine has now);
+// the guard is held on a synthetic rider in `engine/manaDrawback.test.ts`.
 
 /** Every word of these runs. A bot may be dealt them. */
 const COMPLETE: readonly [string, CardData][] = [
@@ -262,10 +262,8 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS, 'a PAYABLE activated ability whose effect never happens'],
   ['Kess, Dissident Mage', fx.KESS_DISSIDENT_MAGE, 'a static ability, and there is no layer for it'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
-  // D355 - the shape Ancient Tomb used to hold: a mana line whose second sentence the engine
-  // does not run. It must stay refused, or a widened price vocabulary would claim a land the
-  // engine still untaps.
-  ['Thalakos Lowlands', fx.THALAKOS_LOWLANDS, "the mana is fine; the no-untap drawback on the SAME LINE is not"],
+  // D355 / D411 - the shape Ancient Tomb and then Thalakos Lowlands used to hold (a mana line whose
+  // second sentence the engine does not run) is held by a synthetic rider in `engine/manaDrawback.test.ts`.
   ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
   ['Grist, the Hunger Tide', fx.GRIST_THE_HUNGER_TIDE, 'loyalty abilities'],

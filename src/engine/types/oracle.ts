@@ -192,7 +192,7 @@ export interface ManaProduction {
    * unclaimed by the accounting, and the card stays incomplete - which is the
    * true answer rather than a convenient one.
    */
-  readonly drawback?: { readonly kind: 'damageToYou'; readonly amount: number } | null;
+  readonly drawback?: { readonly kind: 'damageToYou'; readonly amount: number } | { readonly kind: 'skipUntap' } | null;
   /**
    * D397 - the "Spend this mana only ..." sentence beside the mana, READ: what the mana
    * may pay for. Null when the line prints no restriction; a restriction the reader
@@ -692,7 +692,13 @@ export type EffectKind =
    * the scry prompt over the revealed card (`toGraveyard`, D195). `amount` is how many times in a row
    * (`explores, then it explores again`). The subject is the source (`self`) or the target.
    */
-  | 'explore';
+  | 'explore'
+  /**
+   * D411 - "doesn't untap during its controller's next untap step": the aim (or the source) sits out its
+   * controller's next untap step. Reaches a tapped target through the referent rewrite (`Tap target
+   * creature. It doesn't untap ...`) as well as the bare form. No end of its own: the step spends it.
+   */
+  | 'freeze';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.

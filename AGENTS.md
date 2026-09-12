@@ -16018,6 +16018,96 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
       BLOCKS.
 
+- [x] **M6.4ir — THE UNTAP SKIP: `doesn't untap during its controller's next
+      untap step` — a flag the effect sets, or a depletion land's rider sets
+      when its mana is made, spent by that untap STEP whether the permanent
+      was tapped or not; the referent reaches the tapped target; a mana
+      line's price is charged under an auto-paid cast too (the D355 gap)
+      (2026-09-12):** **9,195 of 31,692 Commander-legal cards now execute
+      completely, up from 9,163 (+32: 17 generated rows - Frost Trickster, Chillbringer, Frost Lynx, Watertrap Weaver, Fogwalker, Elvish Hunter, Apes of Rath, Lead Golem and their kin - and 15 cards whole with no script: the ten depletion lands from Thalakos Lowlands to Cloudcrest Lake, Take into Custody, Chandra's Revolution, Chill of the Grave, Crippling Chill, Press for Answers).** `SHIPPED_SCRIPTS`
+      5,864 → **5,881**; ledger 1,338 → **1,336** (four rows named STALE by the guard deleted, two ADDED by reason).
+      Fixtures 6,483 → **6,503** (6,342 by name + 154 tokens).
+      `scriptableToday` 1,436 → **1,434**; the select pool 0 → 19
+      → 0; the ladder `[1434, 1529, 2923, 4601, 5954]`. Bot reach 9,090 → **9,122** from
+      273 commanders. Decisions in **D411**; an engine seam on Opus 5
+      by the user's choice — the first delayed state on a permanent since D407.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** 56 whole cards over 38 shapes under ONE
+      mechanism — ten depletion lands, seven enters-tap-freeze creatures, the
+      spells, the bare targeted form, the self attackers; connive 30 whole but
+      14 rowable, the monarch's conditions still the wall.
+      ⚠️ **THE SEAM:** `CardInstance.skipsUntap` + `UntapSkipSet { card, skip }`
+      (absent unless frozen; cleared by leaving); the untap step skips a
+      flagged permanent and SPENDS the flag tapped or not (`X doesn't untap
+      this turn.`); `effectParse` kind `freeze` (targeted, self; the referent
+      rewrite carries `It / That creature doesn't untap …` after a tap); the
+      executor flags the aim or the source; the bridge's leading `it doesn't`;
+      `primitives` `oneShotFreezeShape`; `readManaDrawback` reads the rider as
+      `drawback: { kind: 'skipUntap' }` and the accounting claims the line;
+      `handlers.ts` `manaDrawbackEvents` charges a mana line's price at BOTH
+      tap sites — the auto-paid cast's plan taps charged nothing before.
+      `src/engine/untapSkip.test.ts` (4).
+      **Fuzz:** Thalakos Lowlands a staple feeding `untapSkips` (a floor at gate
+      size): 23 at 60; 457 over 500 seeds.
+      **Landed:** 17 rows (Frost Trickster, Chillbringer, Frost Lynx, Watertrap
+      Weaver, Spire Patrol, Niblis of Frost, Stitched Mangler, Kor Hookmaster,
+      Fogwalker, Skyline Cascade, Elvish Hunter, Sleeper Dart, House
+      Guildmage, Barl's Cage, Kefnet's Monument, Apes of Rath, Lead Golem) and
+      15 whole with no script (the ten depletion lands, Take into Custody,
+      Chandra's Revolution, Chill of the Grave, Crippling Chill, Press for
+      Answers); refused by reason (2); four stale ledger rows deleted. botPool
+      creature 5,390 / land 610 — auto 1,472 / assisted 1,874 · `oracleParse`
+      `effect:auto` 6,350 · tier3 silentAfter 9,487 · `token` 971 · batch.json
+      19 · select pool 0.
+      ⚠️ **THE OLD BOUNDARY WAS PINNED THREE TIMES** (`manaDrawback`,
+      `engineComplete`, `tier3` tests) - found by running the neighbouring
+      suites BEFORE the gate. ⚠️ THE OTHER TAP SITE: a price charged in the
+      same accept as the mana must be charged at EVERY site that makes it.
+      ⚠️ The halved `\n` in a test string; a deriver does not know a new port
+      step.
+      ⚠️ `node -e "require(...)"` RAN A DRIVER AGAIN (reversed before the
+      close-out) - `node --check`, never a require.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6055 files,
+      29375 passed / 11 skipped · 500-seed gate, 6 shards, 1147.2 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D411): the blocks form (4), the conditional freezes,
+      the compound spells, the activation self riders, the STANDING form
+      (`Enchanted creature doesn't untap during its controller's untap step` -
+      a static), connive (30 whole, 14 rowable), the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), `explores X times`,
+      the reader's edge (`nontoken blue creature`, `exile the top three black
+      cards of your graveyard`, `each other player gain 2 life`, `If exactly
+      one creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, `another target`, the qualifier
+      before the controller, `defending player controls`, the same-name
+      riders, the exile with a permission, the flicker within one batch, the
+      other durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, a random
+      discard as a cast cost, two verbs joined by `or`, a counter cost at cast,
+      the FaceChoice path, HYBRID symbols paid by convoke, a per-creature
+      chooser in the review, `Flying, convoke`, the convoke REFERENTS, Affinity
+      for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+      sentences), the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES, `Noncreature
+      spells` (6), `Colorless spells` (3), `Face-down creature spells` (2),
+      the leading conditions on a grant, the planeswalker `+1:` grant, a
+      SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes, the
+      two-kicker `and/or` form (17), the MULTIKICKER row (7), the `instead`
+      rewrites (6), `whenever you cast a kicked spell`, the REFERENT across
+      the wait, the self-aimed delayed forms, the HOST characteristics under
+      an attached static (29), "you control a token", the incarnations'
+      graveyard statics (5), `Whenever you attack` and the each-combat head,
+      the `for each <X>` family (645 one-piece over 324 nouns), the payment
+      heads, the search residue, the scoped grant, the blocker-predicate form
+      (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms, the restriction's
+      exotic purposes (14), the twenty-two older fight and bite suites, token
+      copies (15), the permanent control family (20) and exchange control
+      (24), the activation restrictions (313), the keyword entry replacements
+      (22), copy (~200 — waits for Fable), the prompt CONTINUATION seam
+      proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
+      THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

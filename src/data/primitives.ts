@@ -676,6 +676,13 @@ export function oneShotExploreShape(line: string, cardName: string): boolean {
   return ONESHOT_EXPLORE.test(text);
 }
 
+/** D411 - the untap skip on the permanent itself under a head about it (`Whenever ~ attacks, it doesn't untap ...`). */
+const ONESHOT_FREEZE = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) doesn't untap during (?:your|its controller's) next untap step\\.$`);
+export function oneShotFreezeShape(line: string, cardName: string): boolean {
+  const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ONESHOT_FREEZE.test(text);
+}
+
 /** Is this printed line an activated one-shot pump a table row can emit (D301)? */
 export function oneShotRowShape(line: string, cardName: string): boolean {
   const colon = line.indexOf(': ');
@@ -950,6 +957,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotCounterShape(text, cardName)) return 'scriptable';
   // D409: a triggered explore under a self head (see `oneShotExploreShape`).
   if (oneShotExploreShape(text, cardName)) return 'scriptable';
+  // D411: the untap skip on the permanent itself under a self head (see `oneShotFreezeShape`).
+  if (oneShotFreezeShape(text, cardName)) return 'scriptable';
   // D304: an enchanted-creature static or combat restriction an Aura row can emit (see `auraLineShape`).
   if (auraLineShape(text)) return 'scriptable';
   // D305: an equipped-creature static or restriction an Equipment row can emit (see `equipLineShape`).

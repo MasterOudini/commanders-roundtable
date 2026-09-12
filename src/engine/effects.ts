@@ -545,6 +545,14 @@ export function effectResult(
         break;
       }
 
+      // D411 - the untap skip: on the aim, or on the source for the self form (a source that has left
+      // the battlefield owes nothing).
+      case 'freeze': {
+        const frozen = effect.self ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
+        if (frozen === null || state.cards[frozen]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'UntapSkipSet', card: frozen, skip: true });
+        break;
+      }
       case 'untap': {
         if (aim?.kind !== 'card') break;
         if (!state.cards[aim.id]?.tapped) break;

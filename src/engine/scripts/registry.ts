@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { APES_OF_RATH_SCRIPT } from './cards/apesOfRath';
+import { FROST_TRICKSTER_SCRIPT } from './cards/frostTrickster';
+import { BARLS_CAGE_SCRIPT } from './cards/barlsCage';
+import { CHILLBRINGER_SCRIPT } from './cards/chillbringer';
+import { ELVISH_HUNTER_SCRIPT } from './cards/elvishHunter';
+import { FOGWALKER_SCRIPT } from './cards/fogwalker';
+import { FROST_LYNX_SCRIPT } from './cards/frostLynx';
+import { KEFNETS_MONUMENT_SCRIPT } from './cards/kefnetsMonument';
+import { KOR_HOOKMASTER_SCRIPT } from './cards/korHookmaster';
+import { LEAD_GOLEM_SCRIPT } from './cards/leadGolem';
+import { NIBLIS_OF_FROST_SCRIPT } from './cards/niblisOfFrost';
+import { SKYLINE_CASCADE_SCRIPT } from './cards/skylineCascade';
+import { SPIRE_PATROL_SCRIPT } from './cards/spirePatrol';
+import { STITCHED_MANGLER_SCRIPT } from './cards/stitchedMangler';
+import { WATERTRAP_WEAVER_SCRIPT } from './cards/watertrapWeaver';
+import { HOUSE_GUILDMAGE_SCRIPT } from './cards/houseGuildmage';
+import { SLEEPER_DART_SCRIPT } from './cards/sleeperDart';
 import { ALABASTER_HOST_INTERCESSOR_SCRIPT } from './cards/alabasterHostIntercessor';
 import { BALAMB_TREXAUR_SCRIPT } from './cards/balambTRexaur';
 import { BATTLE_PLAN_SCRIPT } from './cards/battlePlan';
@@ -5890,6 +5907,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  APES_OF_RATH_SCRIPT,
+  FROST_TRICKSTER_SCRIPT,
+  BARLS_CAGE_SCRIPT,
+  CHILLBRINGER_SCRIPT,
+  ELVISH_HUNTER_SCRIPT,
+  FOGWALKER_SCRIPT,
+  FROST_LYNX_SCRIPT,
+  KEFNETS_MONUMENT_SCRIPT,
+  KOR_HOOKMASTER_SCRIPT,
+  LEAD_GOLEM_SCRIPT,
+  NIBLIS_OF_FROST_SCRIPT,
+  SKYLINE_CASCADE_SCRIPT,
+  SPIRE_PATROL_SCRIPT,
+  STITCHED_MANGLER_SCRIPT,
+  WATERTRAP_WEAVER_SCRIPT,
+  HOUSE_GUILDMAGE_SCRIPT,
+  SLEEPER_DART_SCRIPT,
   ALABASTER_HOST_INTERCESSOR_SCRIPT,
   BALAMB_TREXAUR_SCRIPT,
   BATTLE_PLAN_SCRIPT,

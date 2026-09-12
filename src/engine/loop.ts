@@ -338,11 +338,21 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
 
   switch (state.turn.step) {
     case 'untap': {
+      // D411 - a permanent that "doesn't untap during its controller's next untap step" sits this one out,
+      // and the skip is spent by the STEP - tapped or not, the effect names the step, not the untap.
+      const frozen = state.zones.battlefield.filter((id) => {
+        const card = state.cards[id];
+        return !!card && card.controller === ap && card.skipsUntap === true;
+      });
       const toUntap = state.zones.battlefield.filter((id) => {
         const card = state.cards[id];
-        return !!card && card.controller === ap && card.tapped && !card.phasedOut;
+        return !!card && card.controller === ap && card.tapped && !card.phasedOut && card.skipsUntap !== true;
       });
       if (toUntap.length > 0) events.push({ t: 'PermanentsUntapped', cards: toUntap });
+      for (const id of frozen) {
+        events.push({ t: 'UntapSkipSet', card: id, skip: false });
+        events.push(narrated(`${derive(state, deps.oracle, deps.scripts, id).name} doesn't untap this turn.`, ap));
+      }
       events.push(narrated(n`Turn ${state.turn.turnNumber} — ${who(state, ap)}.`, ap));
       break;
     }

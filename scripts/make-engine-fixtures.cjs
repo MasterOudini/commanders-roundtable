@@ -6744,6 +6744,12 @@ const WANTED = [
   'Ash Barrens',
   'Pale Recluse',
   'Homing Sliver',
+  // D411 - the untap skip: the seam's proof cards (Thalakos Lowlands is the fuzz staple; Karplusan Forest proves the D355 gap).
+  'Frost Trickster',
+  'Take into Custody',
+  'Apes of Rath',
+  'Karplusan Forest',
+  'Savannah Lions',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -7034,6 +7040,23 @@ const WANTED = [
   'Twisted Abomination',
   'Zog, Triceraton Castaway',
   // D410 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D411 - the untap skip: the rows the selector offered once the freeze sentences read, and their kin.
+  "Barl's Cage",
+  'Chillbringer',
+  'Elvish Hunter',
+  'Fogwalker',
+  'Frost Lynx',
+  "Kefnet's Monument",
+  'Kor Hookmaster',
+  'Lead Golem',
+  'Niblis of Frost',
+  'Skyline Cascade',
+  'Spire Patrol',
+  'Stitched Mangler',
+  'Watertrap Weaver',
+  'House Guildmage',
+  'Sleeper Dart',
+  // D411 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

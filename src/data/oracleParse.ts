@@ -993,6 +993,9 @@ function readManaDrawback(line: string, cardName: string): NonNullable<ManaProdu
   // "Grand Coliseum deals 1 damage to you" on older printings), so both are read.
   const short = (cardName.split(',')[0] ?? cardName).trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const self = `(?:This (?:land|artifact|creature|permanent|enchantment)${short === '' ? '' : '|' + short})`;
+  // D411 - the depletion lands' rider (`This land doesn't untap during your next untap step.`): the
+  // untap skip set when the mana is made, spent by the next untap step.
+  if (new RegExp(`^${self} doesn't untap during your next untap step\\.$`, 'i').test(sentences[1] ?? '')) return { kind: 'skipUntap' };
   const m = new RegExp(`^${self} deals (\\d+) damage to you\\.$`, 'i').exec(sentences[1] ?? '');
   if (!m) return null;
   const amount = Number(m[1]);
