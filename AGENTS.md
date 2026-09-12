@@ -15653,6 +15653,93 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
       NEVER BLOCKS.
 
+- [x] **M6.4in — THE LINKED EXILE (CR 610.3): `exile target <X> until this
+      permanent leaves the battlefield` — the exile linked to its source by an
+      ENTRY STAMP (CR 400.7, counted on every entry), ended by the state-based
+      check the moment that permanent is gone or is a new object; five
+      opponent-controls nouns join the vocabulary (2026-09-12):** **9,059 of
+      31,692 Commander-legal cards now execute completely, up from 9,024 (+35:
+      34 generated rows — Banishing Light, Cast Out, Conclave Tribunal, Banisher
+      Priest, Fairgrounds Warden, Stasis Snare, Seal Away, Glass Casket, Prison
+      Realm … — and Brokers Charm whole with no script).** `SHIPPED_SCRIPTS`
+      5,789 → **5,823**; ledger 1,342 → **1,343** (one ADDED by reason).
+      Fixtures 6,394 → **6,428** (6,271 by name + 150 tokens). `scriptableToday`
+      1,440 → **1,441** (the seam offered 35, the wave took 34, the one refused
+      is ledgered); the select pool 0 → 35 → 0; the ladder `[1441, 1533, 2921,
+      4597, 5950]`. Bot reach 8,951 → **8,986** from 269 commanders. Decisions
+      in **D407**; an engine seam on Opus 5 by the user's choice — the first of
+      the DURATIONS proper, the object stamp paid on the way.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the alternative costs price at 111 lines
+      over ~40 forms, most conditioned (~20 cards); the until-leaves family is
+      110 lines / 56 one-piece, ONE mechanism — and its target phrases read
+      only for creatures: the opponent-controls NOUNS were the second wall,
+      already enforced by `targetParse`'s `readController` off any noun.
+      ⚠️ **THE SEAM:** `CardInstance.entries` (the reducer counts every entry;
+      a token is born at 1); `CardMove.until` → `CardInstance.exiledUntil`
+      (`{ source, entry }`, cleared by any other move); `sba.ts`
+      `linkedExileReturns` — a card in exile whose source is gone, or there
+      with a different stamp, returns under its OWNER's control ahead of the
+      triggers (a token in exile has ceased); `EffectSpec.untilLeaves`
+      (REQUIRED) from `Exile <target> until (this <permanent> | ~) leaves the
+      battlefield.`, the executor linking the move to the resolving object's
+      source by its stamp and exiling NOTHING when the source is gone (610.3b,
+      said in the log); the nouns `nonland permanent an opponent controls` /
+      `you don't control`, `artifact or creature`, `creature or planeswalker`,
+      `creature or enchantment`, `artifact, creature, or enchantment an
+      opponent controls`; the vocab generator proving the END last (the row's
+      permanent leaves, the fixture returns). `src/engine/linkedExile.test.ts`
+      (2): the link and its stamp, the return under the owner, the re-entered
+      Light a NEW object with a new link, a source gone before resolution
+      exiling nothing, a token never returning.
+      **Fuzz:** Banishing Light and Fairgrounds Warden staples feeding
+      `linkedExiles` (a floor at gate size) and `linkedReturns` (counted, no
+      floor - a return needs a leave: 6 / 1 at 60); 52 / 4 over
+      500 seeds.
+      **Landed:** 34 rows (25 enchantments and 9 creatures whose enters head
+      exiles a target until the permanent leaves). Refused by reason (1):
+      `whenever a creature with the same name as the exiled card enters`
+      (Circle of Confinement). botPool creature 5,311 / enchantment 517 —
+      auto 1,438 / assisted 1,906 · `oracleParse` `effect:auto` 6,214 · tier3
+      silentAfter 9,347 · `token` 969 · batch.json 35 · select pool 0.
+      ⚠️ **THE SECOND WALL IS THE NOUN LIST:** price a family's target phrases,
+      not its rider alone. ⚠️ A trigger's target prompt is not a cast
+      (`CancelPendingCast` is `noPendingCast`).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5993 files,
+      29125 passed / 11 skipped · 500-seed gate, 6 shards, 1179.3 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D407): the OLD Oblivion Ring wording (a linked-ability
+      referent, CR 607); `another target`; the qualifier before the controller
+      (Silkwrap); `defending player controls`; the same-name riders; the exile
+      with a permission (Hostage Taker); the flicker within one batch (an
+      SBA-timed return); the other durations (`for as long as you control` 23,
+      `remains exiled` 33, `remains on the battlefield` 14); then D406's list
+      unchanged — the SACRIFICED REFERENT, a random discard as a cast cost, two
+      verbs joined by `or`, a counter cost at cast, the FaceChoice path, the
+      alternative costs (111 / 13 over ~40 forms), HYBRID symbols paid by
+      convoke, a per-creature chooser in the review, the bot's convoke as a
+      fallback only, `Flying, convoke`, the convoke REFERENTS, Emerge,
+      Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N
+      label (28 sentences), the script-raised prompt class (84 over ~10
+      shapes), the reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT
+      across the wait, the self-aimed delayed forms, the HOST characteristics
+      under an attached static (29), "you control a token", the incarnations'
+      graveyard statics (5), `Whenever you attack` and the each-combat head,
+      the `for each <X>` family (645 one-piece over 324 nouns), the payment
+      heads, the search residue, the scoped grant, the blocker-predicate form
+      (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms, the restriction's
+      exotic purposes (14), the twenty-two older fight and bite suites, token
+      copies (15), the untap skip (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

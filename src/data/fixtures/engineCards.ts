@@ -6262,6 +6262,40 @@ export const HERALD_OF_ANGUISH: CardData = F.HERALD_OF_ANGUISH as CardData;
 export const LOFTY_DREAMS: CardData = F.LOFTY_DREAMS as CardData;
 export const COBBLED_LANCER: CardData = F.COBBLED_LANCER as CardData;
 export const LESSER_MASTICORE: CardData = F.LESSER_MASTICORE as CardData;
+export const METEOR_GOLEM: CardData = F.METEOR_GOLEM as CardData;
+export const ANNEX_SENTRY: CardData = F.ANNEX_SENTRY as CardData;
+export const BANISHER_PRIEST: CardData = F.BANISHER_PRIEST as CardData;
+export const BANISHING_LIGHT: CardData = F.BANISHING_LIGHT as CardData;
+export const BORROWED_TIME: CardData = F.BORROWED_TIME as CardData;
+export const CAST_OUT: CardData = F.CAST_OUT as CardData;
+export const CITIZEN_S_ARREST: CardData = F.CITIZEN_S_ARREST as CardData;
+export const CONCLAVE_TRIBUNAL: CardData = F.CONCLAVE_TRIBUNAL as CardData;
+export const DUSK_ROSE_RELIQUARY: CardData = F.DUSK_ROSE_RELIQUARY as CardData;
+export const EARTH_KINGDOM_JAILER: CardData = F.EARTH_KINGDOM_JAILER as CardData;
+export const FAIRGROUNDS_WARDEN: CardData = F.FAIRGROUNDS_WARDEN as CardData;
+export const FOOD_COMA: CardData = F.FOOD_COMA as CardData;
+export const GALECASTER_COLOSSUS: CardData = F.GALECASTER_COLOSSUS as CardData;
+export const GLASS_CASKET: CardData = F.GLASS_CASKET as CardData;
+export const HENCHBOTS: CardData = F.HENCHBOTS as CardData;
+export const HIEROMANCER_S_CAGE: CardData = F.HIEROMANCER_S_CAGE as CardData;
+export const ISOLATION_ZONE: CardData = F.ISOLATION_ZONE as CardData;
+export const LIMINAL_HOLD: CardData = F.LIMINAL_HOLD as CardData;
+export const MAKESHIFT_BINDING: CardData = F.MAKESHIFT_BINDING as CardData;
+export const PORTABLE_HOLE: CardData = F.PORTABLE_HOLE as CardData;
+export const PRAYER_OF_BINDING: CardData = F.PRAYER_OF_BINDING as CardData;
+export const SEAL_AWAY: CardData = F.SEAL_AWAY as CardData;
+export const SEAL_FROM_EXISTENCE: CardData = F.SEAL_FROM_EXISTENCE as CardData;
+export const SEAM_RIP: CardData = F.SEAM_RIP as CardData;
+export const STASIS_SNARE: CardData = F.STASIS_SNARE as CardData;
+export const STORMPLAIN_DETAINMENT: CardData = F.STORMPLAIN_DETAINMENT as CardData;
+export const SUPER_VILLAIN_LOCKUP: CardData = F.SUPER_VILLAIN_LOCKUP as CardData;
+export const THOPTER_ARREST: CardData = F.THOPTER_ARREST as CardData;
+export const THUNDERING_BROODWAGON: CardData = F.THUNDERING_BROODWAGON as CardData;
+export const TRAPPED_IN_THE_SCREEN: CardData = F.TRAPPED_IN_THE_SCREEN as CardData;
+export const VAULT_GUARDSMAN: CardData = F.VAULT_GUARDSMAN as CardData;
+export const WEB_UP: CardData = F.WEB_UP as CardData;
+export const WHITE_AURACITE: CardData = F.WHITE_AURACITE as CardData;
+export const PRISON_REALM: CardData = F.PRISON_REALM as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12659,6 +12693,40 @@ export const ENGINE_CARDS: CardData[] = [
   LOFTY_DREAMS,
   COBBLED_LANCER,
   LESSER_MASTICORE,
+  METEOR_GOLEM,
+  ANNEX_SENTRY,
+  BANISHER_PRIEST,
+  BANISHING_LIGHT,
+  BORROWED_TIME,
+  CAST_OUT,
+  CITIZEN_S_ARREST,
+  CONCLAVE_TRIBUNAL,
+  DUSK_ROSE_RELIQUARY,
+  EARTH_KINGDOM_JAILER,
+  FAIRGROUNDS_WARDEN,
+  FOOD_COMA,
+  GALECASTER_COLOSSUS,
+  GLASS_CASKET,
+  HENCHBOTS,
+  HIEROMANCER_S_CAGE,
+  ISOLATION_ZONE,
+  LIMINAL_HOLD,
+  MAKESHIFT_BINDING,
+  PORTABLE_HOLE,
+  PRAYER_OF_BINDING,
+  SEAL_AWAY,
+  SEAL_FROM_EXISTENCE,
+  SEAM_RIP,
+  STASIS_SNARE,
+  STORMPLAIN_DETAINMENT,
+  SUPER_VILLAIN_LOCKUP,
+  THOPTER_ARREST,
+  THUNDERING_BROODWAGON,
+  TRAPPED_IN_THE_SCREEN,
+  VAULT_GUARDSMAN,
+  WEB_UP,
+  WHITE_AURACITE,
+  PRISON_REALM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

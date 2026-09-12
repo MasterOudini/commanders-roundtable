@@ -524,6 +524,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
           // D403 - after the reset too: the kick the entering spell was cast with.
           ...(move.kicked === undefined ? {} : { kicked: move.kicked }),
+          // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that
+          // exiles and cleared by any other move of the card.
+          ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),
+          ...(move.until !== undefined ? { exiledUntil: move.until } : card.exiledUntil !== undefined ? { exiledUntil: undefined } : {}),
           // A reveal is about a card sitting in a hidden zone. Once it moves,
           // the reveal is meaningless and keeping it would leak the new zone.
           revealedTo: [],
@@ -551,6 +555,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         controller: body.controller,
         isToken: true,
         summonedOnTurn: body.turnNumber,
+        entries: 1,
       };
       return {
         ...state,

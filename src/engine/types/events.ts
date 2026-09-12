@@ -56,6 +56,8 @@ export interface CardMove {
   readonly faceDown?: boolean;
   /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
   readonly kicked?: number;
+  /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
+  readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**
    * The face this card is moving AS — CR 712, a modal DFC's back face. Omit for
    * every ordinary card.
@@ -167,6 +169,8 @@ export type SbaAction =
    * with nothing for anyone to decide.
    */
   | { readonly t: 'worldRule'; readonly card: InstanceId }
+  /** D407 - CR 610.3c: a card exiled "until <source> leaves the battlefield" returns, its source gone or a new object. */
+  | { readonly t: 'linkedExileReturns'; readonly card: InstanceId }
   | { readonly t: 'tokenCeasesToExist'; readonly card: InstanceId }
   /** D330 - lethal damage met a regeneration shield: tapped, damage removed, out of combat, not destroyed. */
   | { readonly t: 'regenerated'; readonly card: InstanceId }

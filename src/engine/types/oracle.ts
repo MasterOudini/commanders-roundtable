@@ -887,6 +887,13 @@ export interface EffectSpec {
    */
   readonly ifKicked: boolean;
   /**
+   * D407 - `exile` only: `Exile target creature an opponent controls until this permanent leaves the
+   * battlefield.` (CR 610.3) - the exile is LINKED to the resolving object's source on the battlefield
+   * and ends the moment that permanent leaves (or is a new object). Nothing is exiled when the source
+   * has already left (610.3b). REQUIRED (D355/D356's rule), `false` on every other effect.
+   */
+  readonly untilLeaves: boolean;
+  /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape
    * (Preordain, Consider). It rides the spec because the draw must see the

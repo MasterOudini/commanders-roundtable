@@ -66,6 +66,15 @@ const NOUNS = [
   'attacking or blocking creature',
   'creature an opponent controls',
   "creature you don't control",
+  // D407 - the nouns the linked exile prints (Banishing Light, Vault Guardsman, Ossification, Isolation Zone ...),
+  // admitted because targetParse reads the controller off any noun (readController) and each list per
+  // alternative; the longer alternatives sit above their prefixes.
+  'artifact, creature, or enchantment an opponent controls',
+  'creature or planeswalker an opponent controls',
+  'creature or enchantment an opponent controls',
+  'artifact or creature an opponent controls',
+  'nonland permanent an opponent controls',
+  "nonland permanent you don't control",
   'creature you don’t control',
   // ⚠️ The typed-spell forms sit ABOVE their permanent lookalikes and are
   // admitted ONLY because `targetAllowed` enforces the type against the cast
@@ -216,6 +225,7 @@ const BASE: EffectFields = {
   sacrifice: null,
   delay: null,
   ifKicked: false,
+  untilLeaves: false,
 };
 
 /**
@@ -558,6 +568,8 @@ const RULES: readonly Rule[] = [
   },
   { kind: 'destroy', re: new RegExp(`^destroy ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'exile', re: new RegExp(`^exile ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D407 - THE LINKED EXILE (CR 610.3): the same aim, linked to the source until it leaves the battlefield.
+  { kind: 'exile', re: new RegExp(`^exile ${TARGET} until (?:this (?:creature|enchantment|artifact|permanent|land)|~) leaves the battlefield\\.$`, 'i'), build: () => ({ ...BASE, untilLeaves: true }) },
   // D369 - "Sacrifice this creature." as a body the pay prompt decides (a row's sentence).
   { kind: 'sacrificeSelf', re: /^sacrifice (?:this (?:creature|permanent|artifact|enchantment|land|aura|equipment)|it|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'counter', re: new RegExp(`^counter ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

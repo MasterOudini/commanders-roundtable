@@ -2071,6 +2071,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sazacap's Brew", 'a gift line beside its discard cost (Gift a tapped Fish) outside the row vocabulary'],
   ['Sparkhunter Masticore', 'a vocabulary clause the suite has no fixture for (a battle clause) beside its discard cost'],
 
+  // D407 - the linked exile: the one the selector offered once the until-leaves rider read that the row
+  // maker refused, by reason.
+  ['Circle of Confinement', 'a filtered head outside the closed reader (whenever a creature with the same name as the exiled card enters - a name the filter does not read) beside its linked exile'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

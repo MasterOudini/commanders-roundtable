@@ -288,6 +288,20 @@ export function effectResult(
 
       case 'exile': {
         if (aim?.kind !== 'card') break;
+        // D407 - THE LINKED EXILE (CR 610.3): linked to the source ON THE BATTLEFIELD by its entry stamp;
+        // a source already gone exiles nothing (610.3b), and says so.
+        if (effect.untilLeaves) {
+          const srcInst = source ? state.cards[source] : undefined;
+          if (!source || !srcInst || srcInst.zone.kind !== 'battlefield') {
+            out.push(narrated(`${obj.label} is no longer on the battlefield: nothing is exiled.`, controller, obj.identity));
+            break;
+          }
+          out.push({
+            t: 'CardsMoved',
+            moves: [{ card: aim.id, from: { kind: 'battlefield', player: null }, to: { kind: 'exile', player: aim.owner }, until: { source, entry: srcInst.entries ?? 0 } }],
+          });
+          break;
+        }
         // Exile is not destruction: indestructible does not save it (CR 701.10a).
         out.push(moveTo(aim.id, 'exile', aim.owner));
         break;

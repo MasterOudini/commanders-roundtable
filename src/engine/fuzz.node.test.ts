@@ -185,6 +185,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // card every seat has; the driver names the first candidates the offer lists.
   { names: ['Village Rites', 'Tormenting Voice'], copiesPerSeat: 1,
     counterKeys: ['additionalCostCasts'], rotHistory: 'D406' },
+  // D407 - the linked exile (CR 610.3): a {2}{W} enchantment every seat can cast at an opponent's
+  // nonland permanent, whose exile ENDS when it leaves - Wrath, Swords and the wipes take it off the
+  // battlefield at gate size, so the state-based return is reached too (counted, no floor).
+  // Fairgrounds Warden ({2}{W}, a 1/3 that exiles a creature) dies to the core's Bolts, Wraths and combat, so
+  // the RETURN is reached where the enchantment alone read two exiles and no return over 60 seeds.
+  { names: ['Banishing Light', 'Fairgrounds Warden'], copiesPerSeat: 1,
+    counterKeys: ['linkedExiles', 'linkedReturns'], rotHistory: 'D407' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -951,6 +958,9 @@ interface Run {
   readonly reducedCasts: number;
   /** D406 - casts that paid an additional cost (a chooser verb's picks, a life payment, or the mana alternative). */
   readonly additionalCostCasts: number;
+  /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
+  readonly linkedExiles: number;
+  readonly linkedReturns: number;
   /** D405 - casts paid in part by convoke, by improvise, by delve (the stack object's counts). */
   readonly convokedCasts: number;
   readonly improvisedCasts: number;
@@ -1251,6 +1261,8 @@ function runOne(seed: number): Run {
     kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
     additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
+    linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
+    linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
     improvisedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.improvised ?? 0) > 0).length,
     delvedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.delved ?? 0) > 0).length,
@@ -1412,6 +1424,8 @@ const TOTAL_KEYS = [
   'kickedEntries',
   'reducedCasts',
   'additionalCostCasts',
+  'linkedExiles',
+  'linkedReturns',
   'convokedCasts',
   'improvisedCasts',
   'delvedCasts',
@@ -1683,6 +1697,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.delvedCasts).toBeGreaterThan(0);
         // D406 - Village Rites' sacrifice and Tormenting Voice's discard paid at gate size.
         expect(totals.additionalCostCasts).toBeGreaterThan(0);
+        // D407 - the linked exile made at gate size; the RETURN is counted, no floor: six exiles and one return
+        // over 60 seeds (a Warden must die or a Light be removed), too thin for a rate (D398's rule).
+        expect(totals.linkedExiles).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1762,6 +1779,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.reducedCasts} casts priced down by the board · ` +
           `${totals.convokedCasts} convoked / ${totals.improvisedCasts} improvised / ${totals.delvedCasts} delved casts · ` +
           `${totals.additionalCostCasts} casts paying an additional cost · ` +
+          `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

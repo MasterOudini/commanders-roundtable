@@ -204,6 +204,20 @@ export interface CardInstance {
    * (`undefined` is admitted explicitly: the reset writes it, and the hash drops it.)
    */
   readonly kicked?: number | undefined;
+  /**
+   * D407 - THE ENTRY STAMP (CR 400.7): how many times this card has entered the battlefield, counted
+   * by the reducer on every entry (a token is born at 1). A permanent that leaves and returns is a
+   * NEW object; anything that remembered the old one compares this number. Absent before the first
+   * entry (every pre-D407 log replays unchanged).
+   */
+  readonly entries?: number | undefined;
+  /**
+   * D407 - THE LINKED EXILE (CR 610.3): this card is in exile "until <source> leaves the battlefield"
+   * - the permanent that exiled it and the entry stamp it had then. The state-based check returns
+   * the card to the battlefield under its owner's control the moment that permanent is gone or is
+   * a new object (610.3c; a flickered Oblivion Ring frees what it held). Cleared by any move.
+   */
+  readonly exiledUntil?: { readonly source: InstanceId; readonly entry: number } | undefined;
   /** CR 903.8. Survives zone changes, which is the whole point. */
   readonly commanderCastCount: number;
   /** Tier-3 manual override, applied at layer 7d. */

@@ -7,6 +7,40 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { METEOR_GOLEM_SCRIPT } from './cards/meteorGolem';
+import { ANNEX_SENTRY_SCRIPT } from './cards/annexSentry';
+import { BANISHER_PRIEST_SCRIPT } from './cards/banisherPriest';
+import { BANISHING_LIGHT_SCRIPT } from './cards/banishingLight';
+import { BORROWED_TIME_SCRIPT } from './cards/borrowedTime';
+import { CAST_OUT_SCRIPT } from './cards/castOut';
+import { CITIZENS_ARREST_SCRIPT } from './cards/citizensArrest';
+import { CONCLAVE_TRIBUNAL_SCRIPT } from './cards/conclaveTribunal';
+import { DUSK_ROSE_RELIQUARY_SCRIPT } from './cards/duskRoseReliquary';
+import { EARTH_KINGDOM_JAILER_SCRIPT } from './cards/earthKingdomJailer';
+import { FAIRGROUNDS_WARDEN_SCRIPT } from './cards/fairgroundsWarden';
+import { FOOD_COMA_SCRIPT } from './cards/foodComa';
+import { GALECASTER_COLOSSUS_SCRIPT } from './cards/galecasterColossus';
+import { GLASS_CASKET_SCRIPT } from './cards/glassCasket';
+import { HENCHBOTS_SCRIPT } from './cards/henchbots';
+import { HIEROMANCERS_CAGE_SCRIPT } from './cards/hieromancersCage';
+import { ISOLATION_ZONE_SCRIPT } from './cards/isolationZone';
+import { LIMINAL_HOLD_SCRIPT } from './cards/liminalHold';
+import { MAKESHIFT_BINDING_SCRIPT } from './cards/makeshiftBinding';
+import { PORTABLE_HOLE_SCRIPT } from './cards/portableHole';
+import { PRAYER_OF_BINDING_SCRIPT } from './cards/prayerOfBinding';
+import { SEAL_AWAY_SCRIPT } from './cards/sealAway';
+import { SEAL_FROM_EXISTENCE_SCRIPT } from './cards/sealFromExistence';
+import { SEAM_RIP_SCRIPT } from './cards/seamRip';
+import { STASIS_SNARE_SCRIPT } from './cards/stasisSnare';
+import { STORMPLAIN_DETAINMENT_SCRIPT } from './cards/stormplainDetainment';
+import { SUPER_VILLAIN_LOCKUP_SCRIPT } from './cards/superVillainLockup';
+import { THOPTER_ARREST_SCRIPT } from './cards/thopterArrest';
+import { THUNDERING_BROODWAGON_SCRIPT } from './cards/thunderingBroodwagon';
+import { TRAPPED_IN_THE_SCREEN_SCRIPT } from './cards/trappedInTheScreen';
+import { VAULT_GUARDSMAN_SCRIPT } from './cards/vaultGuardsman';
+import { WEB_UP_SCRIPT } from './cards/webUp';
+import { WHITE_AURACITE_SCRIPT } from './cards/whiteAuracite';
+import { PRISON_REALM_SCRIPT } from './cards/prisonRealm';
 import { COBBLED_LANCER_SCRIPT } from './cards/cobbledLancer';
 import { LESSER_MASTICORE_SCRIPT } from './cards/lesserMasticore';
 import { FREEJAM_REGENT_SCRIPT } from './cards/freejamRegent';
@@ -5815,6 +5849,40 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  METEOR_GOLEM_SCRIPT,
+  ANNEX_SENTRY_SCRIPT,
+  BANISHER_PRIEST_SCRIPT,
+  BANISHING_LIGHT_SCRIPT,
+  BORROWED_TIME_SCRIPT,
+  CAST_OUT_SCRIPT,
+  CITIZENS_ARREST_SCRIPT,
+  CONCLAVE_TRIBUNAL_SCRIPT,
+  DUSK_ROSE_RELIQUARY_SCRIPT,
+  EARTH_KINGDOM_JAILER_SCRIPT,
+  FAIRGROUNDS_WARDEN_SCRIPT,
+  FOOD_COMA_SCRIPT,
+  GALECASTER_COLOSSUS_SCRIPT,
+  GLASS_CASKET_SCRIPT,
+  HENCHBOTS_SCRIPT,
+  HIEROMANCERS_CAGE_SCRIPT,
+  ISOLATION_ZONE_SCRIPT,
+  LIMINAL_HOLD_SCRIPT,
+  MAKESHIFT_BINDING_SCRIPT,
+  PORTABLE_HOLE_SCRIPT,
+  PRAYER_OF_BINDING_SCRIPT,
+  SEAL_AWAY_SCRIPT,
+  SEAL_FROM_EXISTENCE_SCRIPT,
+  SEAM_RIP_SCRIPT,
+  STASIS_SNARE_SCRIPT,
+  STORMPLAIN_DETAINMENT_SCRIPT,
+  SUPER_VILLAIN_LOCKUP_SCRIPT,
+  THOPTER_ARREST_SCRIPT,
+  THUNDERING_BROODWAGON_SCRIPT,
+  TRAPPED_IN_THE_SCREEN_SCRIPT,
+  VAULT_GUARDSMAN_SCRIPT,
+  WEB_UP_SCRIPT,
+  WHITE_AURACITE_SCRIPT,
+  PRISON_REALM_SCRIPT,
   COBBLED_LANCER_SCRIPT,
   LESSER_MASTICORE_SCRIPT,
   FREEJAM_REGENT_SCRIPT,

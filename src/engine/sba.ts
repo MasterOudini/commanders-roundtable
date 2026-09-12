@@ -257,6 +257,30 @@ export function checkStateBasedActions(
       );
     }
   }
+  // D407 - THE LINKED EXILE ENDS (CR 610.3c): a card exiled "until <source> leaves the battlefield"
+  // returns under its OWNER's control the moment that permanent is gone - or is a NEW object by the
+  // entry stamp (CR 400.7: a flickered Oblivion Ring frees what it held). A token in exile has ceased.
+  const returns: { card: InstanceId; from: ZoneRef; to: ZoneRef }[] = [];
+  for (const p of state.seating) {
+    for (const id of state.zones.exile[p] ?? []) {
+      const card = state.cards[id];
+      if (!card?.exiledUntil || card.isToken) continue;
+      const src = state.cards[card.exiledUntil.source];
+      if (src && src.zone.kind === 'battlefield' && (src.entries ?? 0) === card.exiledUntil.entry) continue;
+      actions.push({ t: 'linkedExileReturns', card: id });
+      returns.push({ card: id, from: card.zone, to: { kind: 'battlefield', player: card.owner } });
+    }
+  }
+  if (returns.length > 0) {
+    events.push({ t: 'CardsMoved', moves: returns });
+    for (const move of returns) {
+      const card = state.cards[move.card];
+      if (!card) continue;
+      events.push(
+        narrated(`${derive(state, oracle, scripts, move.card, cache).name} returns to the battlefield.`, card.owner, oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
+      );
+    }
+  }
   if (counterChanges.length > 0) events.push({ t: 'CountersChanged', changes: counterChanges });
   for (const id of detachments) events.push({ t: 'AttachmentChanged', card: id, to: null });
   if (ceased.length > 0) events.push({ t: 'TokensCeased', cards: ceased });
