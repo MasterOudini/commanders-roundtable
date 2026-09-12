@@ -416,7 +416,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D369: the payment prompt - an unless-pays and a you-may-pay sentence read whole
       // (99 faces read auto, 65 more partial, 164 leave none).
       'effect:none': 12737,
-      'effect:partial': 5291,
+      'effect:partial': 5259,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -427,7 +427,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 6303, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
+      'effect:auto': 6335, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -513,12 +513,12 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 43336, // D311: the 529 synthesized Crew abilities
+      lines: 43618, // D311: the 529 synthesized Crew abilities; D410: the typecyclings
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 35866,
+      payable: 36148,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
       targeted: 11944,

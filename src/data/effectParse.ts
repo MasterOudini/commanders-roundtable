@@ -42,7 +42,7 @@ import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
-import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
+import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, cyclingAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -1761,6 +1761,8 @@ export function parseEffects(
     .filter((l) => !(ADDITIONAL_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) && parseAdditionalCost(l, parseManaCost, cardName) !== null))
     // D408 - an alternative cost the engine charges is no clause of the spell either (unread, it stays).
     .filter((l) => !(ALTERNATIVE_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) && parseAlternativeCost(l, parseManaCost, cardName) !== null))
+    // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
+    .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
     .join('\n');
   const clean = scrub(selfRef(priced, cardName))
     .split('\n')

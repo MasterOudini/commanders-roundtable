@@ -312,7 +312,8 @@ export function legalActions(
     if (!inst) continue;
     const face = faceOf(card, inst.faceIndex);
     for (const ability of face.activated) {
-      if (ability.cycling === undefined || !ability.payable) continue;
+      // D410 - a typed cycling whose search did not read is never offered (it would resolve as nothing).
+      if (ability.cycling === undefined || !ability.payable || (ability.cycling.type !== undefined && ability.cycling.effects === undefined)) continue;
       const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, 0);
       out.push({
         t: 'ActivateAbility',
@@ -322,7 +323,8 @@ export function legalActions(
         requiresTap: false,
         costText: ability.costText,
         effectText: ability.effectText,
-        label: face.name,
+        // D410 - a typed cycling says which (two on one card read the same otherwise).
+        label: ability.cycling.type === undefined ? face.name : `${face.name} - ${ability.cycling.type}cycling`,
       });
     }
   }

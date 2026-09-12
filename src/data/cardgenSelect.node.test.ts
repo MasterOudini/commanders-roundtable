@@ -251,6 +251,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D410 - typecycling is the engine's own (CR 702.29b): the seven the selector offered once the typed
+  // cycling lines read whose OTHER line the row maker refused, by reason.
+  ['Bebop, Warthog Warrior', 'a static outside the row shapes (Rhinos you control have menace - a subtype anthem) beside its typecycling'],
+  ['Giant Koi', 'a keyword-worded activation (Waterbend {3}: ~ cannot be blocked this turn) beside its typecycling'],
+  ['Fall to Earth', 'a spell line outside the vocabulary (exile target creature; each player gains 3 life - a per-player gain) beside its typecycling'],
+  ['Step Through', 'a spell line outside the vocabulary (return two target creatures to their owners hands - a counted bounce) beside its typecycling'],
+  ['Sylvan Reclamation', 'a spell line outside the vocabulary (exile up to two target artifacts and/or enchantments - the and/or noun) beside its typecycling'],
+  ['Treacherous Terrain', 'a spell line outside the vocabulary (damage to each opponent equal to the number of lands that player controls - a computed amount) beside its typecycling'],
+  ['World-Weary', 'an attached static whose toughness pump kills the 2/2 Bears (the suite has no fixture for it) beside its typecycling'],
   // D409 - explore is the engine's own (CR 701.42); what this row waits on is the HEAD.
   ['Lurking Chupacabra', 'an explores head (whenever a creature you control explores) outside the head library - the engine explores since D409, the row maker has no head for it'],
   ['Lifeblood', 'per-tap-entry trigger granularity'],
@@ -1332,7 +1341,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // SPELL, which no StaticDef has ever applied from the stack.
   ['Ensnare', 'cast-time alternative cost'],
   ['Exterminatus', 'temporary keyword/ability grant'],
-  ['Fiery Fall', 'cycling mechanic'],
   ['Fire Nation Occupation', 'firebending mechanic'],
   ['Flamewright', 'keyword-predicate sacrifice cost'],
   ['Foil', 'cast-time alternative cost'],
@@ -1391,7 +1399,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mammoth Bellow', 'harmonize mechanic'],
   ['Manamorphose', 'script-raised prompt'],
   ['Massacre', 'cast-time alternative cost'],
-  ['Mental Journey', 'cycling mechanic'],
   ['Metrognome', 'discard-event discriminator'],
   ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
   ['Mindstab', 'suspend mechanic'],
@@ -1496,7 +1503,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Teysa, Orzhov Scion', 'multi-sacrifice cost'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Tidal Bore', 'cast-time alternative cost'],
-  ['Traumatic Visions', 'cycling mechanic'],
   ['Treason of Isengard', 'amass mechanic'],
   ['Twisted Image', 'until-end-of-turn power/toughness switch'],
   ['Twitch', 'script-raised prompt'],

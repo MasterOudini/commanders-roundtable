@@ -520,7 +520,8 @@ export function linesUnaccounted(
     if (face.activated.some((a) => a.equip !== undefined && a.equip.line === line)) continue;
     // D306 - a Cycling line the engine RUNS (the synthesized ability: offered
     // from the hand, the discard charged, the draw resolved natively).
-    if (face.activated.some((a) => a.cycling !== undefined && a.cycling.line === line)) continue;
+    // D410 - and a TYPECYCLING line only when its search READ (every ability the line synthesized, D90).
+    if (face.activated.some((a) => a.cycling !== undefined && a.cycling.line === line) && face.activated.filter((a) => a.cycling !== undefined && a.cycling.line === line).every((a) => a.cycling?.type === undefined || a.cycling.effects !== undefined)) continue;
     // D311 - a Crew line the engine RUNS (the synthesized ability: the tap
     // chooser charged by power, the Vehicle animated natively).
     if (face.activated.some((a) => a.crew !== undefined && a.crew.line === line)) continue;

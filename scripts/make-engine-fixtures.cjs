@@ -6740,6 +6740,10 @@ const WANTED = [
   'Merfolk Branchwalker',
   'Jadelight Ranger',
   'Wildgrowth Walker',
+  // D410 - typecycling (CR 702.29b): the seam's proof cards (Ash Barrens is the fuzz staple).
+  'Ash Barrens',
+  'Pale Recluse',
+  'Homing Sliver',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -7010,6 +7014,26 @@ const WANTED = [
   "Tishana's Wayfinder",
   'Tomb Robber',
   // D409 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D410 - typecycling (CR 702.29b): the rows the selector offered once the typed cycling lines read, and their kin.
+  'Alabaster Host Intercessor',
+  'Balamb T-Rexaur',
+  'Battle Plan',
+  'Canyon Crawler',
+  'Chartooth Cougar',
+  'Cloudbound Moogle',
+  'Eagles of the North',
+  'Generous Ent',
+  'Jennika, Bad Apple Big Sister',
+  'Nurturing Bristleback',
+  'Orchard Strider',
+  'Rampaging Spiketail',
+  'Roxxon Brutes',
+  'Seismic Monstrosaur',
+  'Soaring Sandwing',
+  'Stratosoarer',
+  'Twisted Abomination',
+  'Zog, Triceraton Castaway',
+  // D410 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -7290,6 +7314,8 @@ const WANTED_TOKENS = [
   { name: 'Tyranid Gargoyle', set: 't40k', cn: '9', key: 'TYRANID_GARGOYLE_1_1_U_CREATURE_FLYING_TOKEN' },
   { name: 'Insect Warrior', set: 'ttmt', cn: '4', key: 'INSECT_WARRIOR_1_1_B_CREATURE_FLYING_TOKEN' },
   { name: 'Cat', set: 'plst', cn: 'TAKH-16', key: 'CAT_1_1_W_CREATURE_LIFELINK_TOKEN' },
+  // D410 - the tokens the wave's rows create (the port's token-pin step, missing until D410).
+  { name: 'Dinosaur', set: 'tlci', cn: '10', key: 'DINOSAUR_3_3_G_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

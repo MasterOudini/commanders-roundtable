@@ -1086,8 +1086,11 @@ export function resolveAbility(
     if (ability?.equip && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'AttachmentChanged', card: obj.source, to: target.id });
     }
-    // D306 - CYCLING resolves natively: draw a card (the discard was the cost).
-    if (ability?.cycling !== undefined) events.push(...drawEvents(state, obj.controller, 1));
+    // D306 - CYCLING resolves natively: draw a card (the discard was the cost). D410 - a TYPECYCLING
+    // (CR 702.29b) runs the search the vocabulary read for its type instead (the shuffle is the answer's).
+    if (ability?.cycling !== undefined) {
+      events.push(...(ability.cycling.effects ? effectResult(state, deps, obj, ability.cycling.effects).events : drawEvents(state, obj.controller, 1)));
+    }
     // D311 - CREW resolves natively: the Vehicle is an artifact creature until
     // end of turn (CR 702.122a), carried by the same until-end-of-turn list a
     // pump rides on, cleared by the same cleanup.

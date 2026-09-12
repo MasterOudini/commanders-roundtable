@@ -1302,7 +1302,12 @@ export interface ActivatedAbility {
    * (`legal.ts`), the discard charged as the cost (`handlers.ts`), the draw
    * resolved natively (`resolveAbility`).
    */
-  readonly cycling?: { readonly line: string };
+  readonly cycling?: {
+    readonly line: string;
+    /** D410 - TYPECYCLING (CR 702.29b): the type searched for (`Forest`, `basic land`, `Sliver`), and the search the vocabulary read for it (hung on by `oracleParse`). */
+    readonly type?: string;
+    readonly effects?: readonly EffectSpec[];
+  };
   /**
    * D311 - THE CREW SEAM. The synthesized "Crew N" ability (CR 702.122a): tap
    * any number of untapped creatures you control with total power N or more,

@@ -204715,6 +204715,119 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ASH_BARRENS": {
+    "scryfallId": "2816a820-bde0-404a-ba2c-86fbe461e01b",
+    "oracleId": "58257464-278e-45fa-8e0b-bcd9a7500bc1",
+    "name": "Ash Barrens",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ash Barrens",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\nBasic landcycling {1} ({1}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "Deserts of industrial ash surround the hive cities, covering the surface of the planet with an unstable, corrosive skin.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sergei Leoluch Panin",
+        "imageId": "2816a820-bde0-404a-ba2c-86fbe461e01b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PALE_RECLUSE": {
+    "scryfallId": "13fad19c-fd45-45cf-b58c-82cdcdf49b06",
+    "oracleId": "488ca652-653b-4bb3-891c-874efdd418ff",
+    "name": "Pale Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pale Recluse",
+        "manaCost": "{4}{G}{W}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nForestcycling {2}, plainscycling {2} ({2}, Discard this card: Search your library for a Forest or Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Cyril Van Der Haegen",
+        "imageId": "13fad19c-fd45-45cf-b58c-82cdcdf49b06"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Plainscycling",
+      "Landcycling",
+      "Forestcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOMING_SLIVER": {
+    "scryfallId": "0c876479-5040-4d36-b43a-54d7fc9160c1",
+    "oracleId": "34b4d137-780b-446c-8cdd-fd1673180971",
+    "name": "Homing Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Homing Sliver",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Each Sliver card in each player's hand has slivercycling {3}.\nSlivercycling {3} ({3}, Discard this card: Search your library for a Sliver card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Trevor Hairsine",
+        "imageId": "0c876479-5040-4d36-b43a-54d7fc9160c1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Typecycling",
+      "Cycling",
+      "Slivercycling"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -213263,6 +213376,706 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ALABASTER_HOST_INTERCESSOR": {
+    "scryfallId": "165357cc-ec74-490f-aec3-7048bb43c8f9",
+    "oracleId": "d1d719e9-9c02-40cf-8849-91a5c120a516",
+    "name": "Alabaster Host Intercessor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alabaster Host Intercessor",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Phyrexian Samurai",
+        "oracleText": "When this creature enters, exile target creature an opponent controls until this creature leaves the battlefield.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Konstantin Porubov",
+        "imageId": "165357cc-ec74-490f-aec3-7048bb43c8f9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Plainscycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALAMB_T_REXAUR": {
+    "scryfallId": "e5857b1b-73bc-458e-b26b-7ed8bef785f3",
+    "oracleId": "3f678f76-3863-4ab5-a4fd-9b76a282b1a8",
+    "name": "Balamb T-Rexaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balamb T-Rexaur",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\nWhen this creature enters, you gain 3 life.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "\"Sometimes it's better to run!\"\n—Quistis Trepe",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Fang Xinyu",
+        "imageId": "e5857b1b-73bc-458e-b26b-7ed8bef785f3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Trample",
+      "Forestcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATTLE_PLAN": {
+    "scryfallId": "2bc1e907-0e77-42ee-9eca-eae632020204",
+    "oracleId": "09b4fba6-d943-49e4-9f9e-a74fcbabe83f",
+    "name": "Battle Plan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battle Plan",
+        "manaCost": "{3}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of combat on your turn, target creature you control gets +2/+0 until end of turn.\nBasic landcycling {1}{R} ({1}{R}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "2bc1e907-0e77-42ee-9eca-eae632020204"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANYON_CRAWLER": {
+    "scryfallId": "30a30bfb-f0f3-425b-b37d-20079ee27046",
+    "oracleId": "bac94fc9-808b-4dc9-b405-408dd2aa6194",
+    "name": "Canyon Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Canyon Crawler",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Spider Beast",
+        "oracleText": "Deathtouch\nWhen this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kohei Hayama",
+        "imageId": "30a30bfb-f0f3-425b-b37d-20079ee27046"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Food",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling",
+      "Deathtouch"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHARTOOTH_COUGAR": {
+    "scryfallId": "03a32ab2-cc55-43fb-82d8-c51a3849b344",
+    "oracleId": "717152c3-2082-49aa-9274-a1a6abe54b65",
+    "name": "Chartooth Cougar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chartooth Cougar",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Cat Beast",
+        "oracleText": "{R}: This creature gets +1/+0 until end of turn.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "03a32ab2-cc55-43fb-82d8-c51a3849b344"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mountaincycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "a25",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDBOUND_MOOGLE": {
+    "scryfallId": "7387bca7-f496-45da-a0ac-6be049303a8f",
+    "oracleId": "f718b520-d79d-4b91-9d85-de1f1c90c176",
+    "name": "Cloudbound Moogle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloudbound Moogle",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Moogle",
+        "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on target creature.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Andrea Radeck",
+        "imageId": "7387bca7-f496-45da-a0ac-6be049303a8f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Plainscycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EAGLES_OF_THE_NORTH": {
+    "scryfallId": "2e555abb-5d90-4f86-9488-6ff1fdb0ded2",
+    "oracleId": "e519cebf-0f09-4da9-abef-82928738514d",
+    "name": "Eagles of the North",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eagles of the North",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nWhen this creature enters, creatures you control get +1/+0 and gain first strike until end of turn.\nPlainscycling {1} ({1}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Axel Sauerwald",
+        "imageId": "2e555abb-5d90-4f86-9488-6ff1fdb0ded2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Plainscycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "458",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GENEROUS_ENT": {
+    "scryfallId": "85d22d5d-3875-42ff-b51e-c6e21db201f5",
+    "oracleId": "b6859c7a-4c4d-4652-938f-ecedce29d506",
+    "name": "Generous Ent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Generous Ent",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Reach\nWhen this creature enters, create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nForestcycling {1} ({1}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "85d22d5d-3875-42ff-b51e-c6e21db201f5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Landcycling",
+      "Food",
+      "Forestcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JENNIKA_BAD_APPLE_BIG_SISTER": {
+    "scryfallId": "64c6cf57-bc43-4b36-a01c-f4b2fadc8ce2",
+    "oracleId": "b55da4d3-2cad-4c89-ad3f-7d8397b64d52",
+    "name": "Jennika, Bad Apple Big Sister",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jennika, Bad Apple Big Sister",
+        "manaCost": "{4}{W}",
+        "typeLine": "Legendary Creature — Mutant Ninja Turtle",
+        "oracleText": "When Jennika enters, create a 2/2 red Mutant creature token.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marija Tiurina",
+        "imageId": "64c6cf57-bc43-4b36-a01c-f4b2fadc8ce2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Plainscycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NURTURING_BRISTLEBACK": {
+    "scryfallId": "081d5c9e-71da-4454-ae4e-c76cb7790d20",
+    "oracleId": "d33509d6-9d0c-4248-bb6d-0a9b7712f3a0",
+    "name": "Nurturing Bristleback",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nurturing Bristleback",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "When this creature enters, create a 3/3 green Dinosaur creature token.\nForestcycling {2} ({2}, Discard this card: Search your library for a Forest card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "081d5c9e-71da-4454-ae4e-c76cb7790d20"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Landcycling",
+      "Forestcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCHARD_STRIDER": {
+    "scryfallId": "386da156-59cd-4b96-9276-a7cb2ddd0421",
+    "oracleId": "c6906032-e08b-478f-bc71-cb1184f60bad",
+    "name": "Orchard Strider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orchard Strider",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "When this creature enters, create two Food tokens. (They're artifacts with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nBasic landcycling {1}{G} ({1}{G}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "386da156-59cd-4b96-9276-a7cb2ddd0421"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Food",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPAGING_SPIKETAIL": {
+    "scryfallId": "aad0adcb-80e5-4c6d-bcdd-9e5d18c017b3",
+    "oracleId": "41f6d6d9-3fe5-44b0-904d-1cb90d36f2b6",
+    "name": "Rampaging Spiketail",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampaging Spiketail",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "When this creature enters, target creature you control gets +2/+0 and gains indestructible until end of turn.\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "aad0adcb-80e5-4c6d-bcdd-9e5d18c017b3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROXXON_BRUTES": {
+    "scryfallId": "66550490-74e1-4bf1-8741-1266dfab3a03",
+    "oracleId": "b92c2da9-eaa4-404b-8114-5527eec6390e",
+    "name": "Roxxon Brutes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roxxon Brutes",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Berserker Villain",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever you draw your second card each turn, put a +1/+1 counter on target creature.\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "66550490-74e1-4bf1-8741-1266dfab3a03"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Landcycling",
+      "Menace",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEISMIC_MONSTROSAUR": {
+    "scryfallId": "98aeb9dc-18f9-4120-ac3d-226c62a1dc1d",
+    "oracleId": "3b66d2c2-be7a-4296-9888-f0cfb2975e89",
+    "name": "Seismic Monstrosaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seismic Monstrosaur",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\n{2}{R}, Sacrifice a land: Draw a card.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "98aeb9dc-18f9-4120-ac3d-226c62a1dc1d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mountaincycling",
+      "Landcycling",
+      "Trample",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOARING_SANDWING": {
+    "scryfallId": "e7833724-aec6-41a4-a7ea-2aa722467732",
+    "oracleId": "5d840e49-3ca5-4e4f-9152-a365ad2b1773",
+    "name": "Soaring Sandwing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soaring Sandwing",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Flying\nWhen this creature enters, you gain 3 life.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "e7833724-aec6-41a4-a7ea-2aa722467732"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Plainscycling",
+      "Landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRATOSOARER": {
+    "scryfallId": "4f607889-6f3f-4511-8920-88a39f3b28ca",
+    "oracleId": "36ab41b7-bcfb-4618-bbfb-70d608dba15a",
+    "name": "Stratosoarer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stratosoarer",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, target creature gains flying until end of turn.\nBasic landcycling {1}{U} ({1}{U}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "Wise travelers take advantage of the wind that always blows in its wake.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "4f607889-6f3f-4511-8920-88a39f3b28ca"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWISTED_ABOMINATION": {
+    "scryfallId": "2f395993-41d5-4947-ac76-d88a1ff6450a",
+    "oracleId": "139af10d-a3e5-4ade-b876-87324e6c8017",
+    "name": "Twisted Abomination",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twisted Abomination",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Zombie Mutant",
+        "oracleText": "{B}: Regenerate this creature. (The next time this creature would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "2f395993-41d5-4947-ac76-d88a1ff6450a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Heal",
+      "Landcycling",
+      "Regenerate",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZOG_TRICERATON_CASTAWAY": {
+    "scryfallId": "a83a70ba-448e-45f3-b23b-6f38af54811f",
+    "oracleId": "d944d33d-0a95-4d0d-96ce-49d02500227d",
+    "name": "Zog, Triceraton Castaway",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zog, Triceraton Castaway",
+        "manaCost": "{4}{R}",
+        "typeLine": "Legendary Creature — Dinosaur Soldier",
+        "oracleText": "Reach, trample\nWhen Zog enters, target creature can't block this turn.\nMountaincycling {2} ({2}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "a83a70ba-448e-45f3-b23b-6f38af54811f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mountaincycling",
+      "Reach",
+      "Landcycling",
+      "Trample",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -218334,6 +219147,39 @@
     ],
     "setCode": "plst",
     "collectorNumber": "TAKH-16",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DINOSAUR_3_3_G_CREATURE_TOKEN": {
+    "scryfallId": "2bbb7151-cf71-49bc-8d99-b0230d5465e5",
+    "oracleId": "0af93df2-3306-4a69-b101-ea5414bc2455",
+    "name": "Dinosaur",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Dinosaur",
+        "manaCost": "",
+        "typeLine": "Token Creature — Dinosaur",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "2bbb7151-cf71-49bc-8d99-b0230d5465e5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tlci",
+    "collectorNumber": "10",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

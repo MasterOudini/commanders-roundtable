@@ -723,7 +723,8 @@ export function equipLineRuns(text: string): boolean {
  * database before it was built: 297 blocked cards print a cycling line, 166
  * of them with nothing else unread - the largest keyword yield in the format.
  */
-const CYCLING_MANA_LINE = /^Cycling (?:\{[^}]+\})+$/;
+// D410 - and the typecyclings (CR 702.29b), one or two to a line, each a search the engine runs.
+const CYCLING_MANA_LINE = /^(?:Cycling|[A-Za-z]+(?: land)?cycling) (?:\{[^}]+\})+(?:, [a-z]+(?: land)?cycling (?:\{[^}]+\})+)*$/;
 
 /** Is this printed line a Cycling the engine runs (D306)? */
 export function cyclingLineRuns(text: string): boolean {
@@ -861,7 +862,7 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (/^equip\b/i.test(text)) return equipLineRuns(text) ? 'scriptable' : 'keyword:equip';
   // D306 - a Cycling line with a mana cost is the engine's own (see
   // `cyclingLineRuns`); a landcycling or a non-mana cycling stays `keyword:altCost`.
-  if (/^cycling\b/i.test(text)) return cyclingLineRuns(text) ? 'scriptable' : 'keyword:altCost';
+  if (/^(?:[a-z]+ )?[a-z]*cycling\b/i.test(text)) return cyclingLineRuns(text) ? 'scriptable' : 'keyword:altCost';
   // D403 - a Kicker / Multikicker line with a mana cost is the engine's own (`CastSpell.kicked`,
   // the payment prices it, the stack object and the permanent remember it); the two-kicker
   // `and/or` form stays `keyword:altCost` (a choice the intent does not carry).

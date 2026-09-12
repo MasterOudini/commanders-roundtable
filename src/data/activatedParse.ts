@@ -344,6 +344,30 @@ const EQUIP_EFFECT = 'Attach this Equipment to target creature you control.';
  */
 const CYCLING_RE = /^Cycling ((?:\{[^}]+\})+)$/;
 const CYCLING_EFFECT = 'Draw a card.';
+/**
+ * D410 - TYPECYCLING (CR 702.29b): `Forestcycling {2}`, `Basic landcycling {1}`, `Slivercycling {3}` -
+ * cycling's cost from the hand, the effect a SEARCH for a card of the type instead of the draw (the
+ * vocabulary's search, revealed, to the hand, then shuffle); two printed on one line
+ * (`Forestcycling {2}, plainscycling {2}`) are two abilities. `null` when the line is not cycling at all.
+ */
+const CYCLING_PIECE = /^(?:(Cycling)|([A-Za-z]+(?: land)?)cycling) ((?:\{[^}]+\})+)$/;
+export function cyclingAbilities(printed: string): readonly { readonly cost: string; readonly effect: string; readonly type: string | null }[] | null {
+  const out: { cost: string; effect: string; type: string | null }[] = [];
+  for (const piece of printed.split(', ')) {
+    const m = CYCLING_PIECE.exec(piece);
+    if (!m) return null;
+    const cost = m[3] ?? '';
+    if (m[1] !== undefined) {
+      out.push({ cost, effect: CYCLING_EFFECT, type: null });
+      continue;
+    }
+    const word = m[2] ?? '';
+    // `Basic land` and `Artifact land` search by supertype and type, `Land` by type, the rest by subtype.
+    const label = /^basic land$/i.test(word) ? 'basic land' : /^artifact land$/i.test(word) ? 'artifact land' : /^land$/i.test(word) ? 'land' : word.charAt(0).toUpperCase() + word.slice(1);
+    out.push({ cost, effect: `Search your library for ${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${label} card, reveal it, put it into your hand, then shuffle.`, type: label });
+  }
+  return out.length > 0 ? out : null;
+}
 // D311 - THE CREW SEAM: "Crew N" on its own line (reminder text aside).
 const CREW_RE = /^Crew (\d+)$/;
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
@@ -457,13 +481,18 @@ export function parseActivatedAbilities(
     // itself - the engine charges; synthesized in print order like Equip, from
     // the reminder-stripped text (the reminder "({2}, Discard this card: Draw a
     // card.)" carries a colon too).
+    // D410 - and TYPECYCLING (CR 702.29b): the same cost, a search for the type instead of the draw; two
+    // on one line are two abilities, each claiming the line.
+    const cyclings = CYCLING_RE.test(printed) ? null : cyclingAbilities(printed);
     const cycling = CYCLING_RE.exec(printed);
-    if (cycling) {
-      const cyclingCost = parseCost(cycling[1] ?? '', warn);
+    if (cycling || cyclings) {
+      const pieces = cyclings ?? [{ cost: cycling?.[1] ?? '', effect: CYCLING_EFFECT, type: null }];
+      for (const piece of pieces) {
+      const cyclingCost = parseCost(piece.cost, warn);
       out.push({
         index: out.length,
-        costText: cycling[1] ?? '',
-        effectText: CYCLING_EFFECT,
+        costText: piece.cost,
+        effectText: piece.effect,
         manaCost: cyclingCost,
         requiresTap: false,
         requiresUntap: false,
@@ -480,16 +509,17 @@ export function parseActivatedAbilities(
         returnCost: null,
         returnsSelf: false,
         putCounterCost: null,
-        unpaidCosts: cyclingCost === null ? [cycling[1] ?? ''] : [],
+        unpaidCosts: cyclingCost === null ? [piece.cost] : [],
         payable: cyclingCost !== null,
         isManaAbility: false,
         isLoyalty: false,
         sorceryOnly: false,
         oncePerTurn: false,
         activateOnly: [],
-        targets: [],
-        cycling: { line: printed },
+        targets: piece.type === null ? [] : parseTargetClauses(piece.effect, warn),
+        cycling: piece.type === null ? { line: printed } : { line: printed, type: piece.type },
       });
+      }
       continue;
     }
     // D311 - THE CREW SEAM: "Crew N" is an activated ability with no mana in

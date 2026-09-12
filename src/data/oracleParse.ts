@@ -1067,7 +1067,12 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const activated = parseActivatedAbilities(
     { oracleText: face.oracleText, isPermanent, producesMana, parseCost: parseManaCost, selfName: face.name.split(',')[0] ?? face.name },
     warn,
-  );
+  ).map((a) => {
+    // D410 - a TYPECYCLING's search (CR 702.29b): the vocabulary's read of the sentence the parser wrote.
+    if (a.cycling?.type === undefined) return a;
+    const read = parseEffects(a.effectText, face.name, true);
+    return read.mode === 'auto' && read.effects.length === 1 && read.effects[0]?.kind === 'search' ? { ...a, cycling: { ...a.cycling, effects: read.effects } } : a;
+  });
   const isInstantOrSorcery =
     typeLine.types.includes('Instant') || typeLine.types.includes('Sorcery');
   // D343 - THE MODAL SEAM: a modal instant or sorcery carries its clauses and

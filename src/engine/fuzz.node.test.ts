@@ -202,6 +202,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
     counterKeys: ['explores'], rotHistory: 'D409' },
+  // D410 - typecycling (CR 702.29b): Ash Barrens' basic landcycling {1} searches the library for a basic,
+  // which every seat's core holds; the driver cycles from the hand and answers the search.
+  { names: ['Ash Barrens'], copiesPerSeat: 1,
+    counterKeys: ['typecyclings'], rotHistory: 'D410' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -981,6 +985,8 @@ interface Run {
   readonly alternativeCasts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
+  /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
+  readonly typecyclings: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1020,6 +1026,12 @@ interface Run {
 }
 
 /** D377 - every move in the log the rules gave `reason`, counted per MOVE. */
+/** D410 - does the card's face carry a typed cycling (a search, not a draw)? */
+function typedCycler(game: Game, id: InstanceId): boolean {
+  const c = game.state.cards[id];
+  const p = c ? ORACLE.byPrinting(c.printingId) : undefined;
+  return !!c && !!p && faceOf(p, c.faceIndex).activated.some((a) => a.cycling?.type !== undefined);
+}
 function countMoves(game: Game, reason: 'sacrifice' | 'discard' | 'cycling'): number {
   let n = 0;
   for (const e of game.log) {
@@ -1286,6 +1298,7 @@ function runOne(seed: number): Run {
     additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
     alternativeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true).length,
     explores: game.log.filter((e) => e.body.t === 'Explored').length,
+    typecyclings: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.reason === 'cycling' && typedCycler(game, m.card))).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1451,6 +1464,7 @@ const TOTAL_KEYS = [
   'additionalCostCasts',
   'alternativeCasts',
   'explores',
+  'typecyclings',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1731,6 +1745,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.alternativeCasts).toBeGreaterThan(0);
         // D409 - Merfolk Branchwalker explored at gate size.
         expect(totals.explores).toBeGreaterThan(0);
+        // D410 - Ash Barrens typecycled at gate size.
+        expect(totals.typecyclings).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1813,6 +1829,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
           `${totals.alternativeCasts} casts for an alternative cost · ` +
           `${totals.explores} explores · ` +
+          `${totals.typecyclings} typecyclings · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

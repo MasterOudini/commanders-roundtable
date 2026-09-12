@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ALABASTER_HOST_INTERCESSOR_SCRIPT } from './cards/alabasterHostIntercessor';
+import { BALAMB_TREXAUR_SCRIPT } from './cards/balambTRexaur';
+import { BATTLE_PLAN_SCRIPT } from './cards/battlePlan';
+import { CANYON_CRAWLER_SCRIPT } from './cards/canyonCrawler';
+import { CHARTOOTH_COUGAR_SCRIPT } from './cards/chartoothCougar';
+import { CLOUDBOUND_MOOGLE_SCRIPT } from './cards/cloudboundMoogle';
+import { EAGLES_OF_THE_NORTH_SCRIPT } from './cards/eaglesOfTheNorth';
+import { GENEROUS_ENT_SCRIPT } from './cards/generousEnt';
+import { JENNIKA_BAD_APPLE_BIG_SISTER_SCRIPT } from './cards/jennikaBadAppleBigSister';
+import { NURTURING_BRISTLEBACK_SCRIPT } from './cards/nurturingBristleback';
+import { ORCHARD_STRIDER_SCRIPT } from './cards/orchardStrider';
+import { RAMPAGING_SPIKETAIL_SCRIPT } from './cards/rampagingSpiketail';
+import { ROXXON_BRUTES_SCRIPT } from './cards/roxxonBrutes';
+import { SEISMIC_MONSTROSAUR_SCRIPT } from './cards/seismicMonstrosaur';
+import { SOARING_SANDWING_SCRIPT } from './cards/soaringSandwing';
+import { STRATOSOARER_SCRIPT } from './cards/stratosoarer';
+import { TWISTED_ABOMINATION_SCRIPT } from './cards/twistedAbomination';
+import { ZOG_TRICERATON_CASTAWAY_SCRIPT } from './cards/zogTriceratonCastaway';
 import { JADELIGHT_RANGER_SCRIPT } from './cards/jadelightRanger';
 import { MERFOLK_BRANCHWALKER_SCRIPT } from './cards/merfolkBranchwalker';
 import { BRAZEN_BUCCANEERS_SCRIPT } from './cards/brazenBuccaneers';
@@ -5872,6 +5890,24 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ALABASTER_HOST_INTERCESSOR_SCRIPT,
+  BALAMB_TREXAUR_SCRIPT,
+  BATTLE_PLAN_SCRIPT,
+  CANYON_CRAWLER_SCRIPT,
+  CHARTOOTH_COUGAR_SCRIPT,
+  CLOUDBOUND_MOOGLE_SCRIPT,
+  EAGLES_OF_THE_NORTH_SCRIPT,
+  GENEROUS_ENT_SCRIPT,
+  JENNIKA_BAD_APPLE_BIG_SISTER_SCRIPT,
+  NURTURING_BRISTLEBACK_SCRIPT,
+  ORCHARD_STRIDER_SCRIPT,
+  RAMPAGING_SPIKETAIL_SCRIPT,
+  ROXXON_BRUTES_SCRIPT,
+  SEISMIC_MONSTROSAUR_SCRIPT,
+  SOARING_SANDWING_SCRIPT,
+  STRATOSOARER_SCRIPT,
+  TWISTED_ABOMINATION_SCRIPT,
+  ZOG_TRICERATON_CASTAWAY_SCRIPT,
   JADELIGHT_RANGER_SCRIPT,
   MERFOLK_BRANCHWALKER_SCRIPT,
   BRAZEN_BUCCANEERS_SCRIPT,

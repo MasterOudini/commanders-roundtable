@@ -1,7 +1,7 @@
 // D306 - THE CYCLING SEAM, the parser, accounting and classifier half: "Cycling
 // {N}" is a synthesized activated ability (instant-speed, no target, a mana
 // cost), the accounting and the disclosure no longer hold the line against the
-// card, the classifier files it as scriptable; landcycling stays where it was.
+// card, the classifier files it as scriptable; since D410 a TYPED cycling is synthesized too, with its search.
 
 import { describe, expect, test } from 'vitest';
 import { LONELY_SANDBAR, SPARK_SPRAY, UNEARTH } from './fixtures/engineCards';
@@ -32,9 +32,10 @@ describe('the Cycling seam (D306)', () => {
     expect(sandbar.findIndex((a) => a.cycling !== undefined)).toBe(1);
   });
 
-  test('a landcycling and a non-mana cycling cost are not synthesized', () => {
-    expect(parse('Basic landcycling {2}').some((a) => a.cycling !== undefined)).toBe(false);
-    expect(parse('Forestcycling {1}').some((a) => a.cycling !== undefined)).toBe(false);
+  test('D410 - a landcycling IS synthesized, with its type; a non-mana cycling cost is not', () => {
+    expect(parse('Basic landcycling {2}').find((a) => a.cycling !== undefined)?.cycling?.type).toBe('basic land');
+    expect(parse('Forestcycling {1}').find((a) => a.cycling !== undefined)?.cycling?.type).toBe('Forest');
+    expect(parse('Forestcycling {2}, plainscycling {2}').filter((a) => a.cycling !== undefined).map((a) => a.cycling?.type)).toEqual(['Forest', 'Plains']);
     expect(parse('Cycling—Discard a land card.').some((a) => a.cycling !== undefined)).toBe(false);
   });
 
@@ -46,11 +47,13 @@ describe('the Cycling seam (D306)', () => {
     expect(tier3NotesFor(UNEARTH).map((n) => n.what)).not.toContain('Cycling');
   });
 
-  test('the classifier files a mana Cycling as scriptable and a landcycling as keyword:altCost', () => {
+  test('the classifier files a mana Cycling as scriptable - and, since D410, a typed cycling too', () => {
     expect(cyclingLineRuns('Cycling {2}')).toBe(true);
     expect(cyclingLineRuns('Cycling {1}{W}')).toBe(true);
-    expect(cyclingLineRuns('Basic landcycling {2}')).toBe(false);
+    expect(cyclingLineRuns('Basic landcycling {2}')).toBe(true);
+    expect(cyclingLineRuns('Forestcycling {2}, plainscycling {2}')).toBe(true);
+    expect(cyclingLineRuns('Cycling—Discard a land card.')).toBe(false);
     expect(primitiveFor({ text: 'Cycling {2}', kind: 'sentence', raw: 'Cycling {2}' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Basic landcycling {2}', kind: 'sentence', raw: 'Basic landcycling {2}' }, 'X')).toBe('keyword:other');
+    expect(primitiveFor({ text: 'Basic landcycling {2}', kind: 'sentence', raw: 'Basic landcycling {2}' }, 'X')).toBe('scriptable');
   });
 });

@@ -32011,3 +32011,133 @@ family (20) and exchange control (24), the activation restrictions (313), the ke
 replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION
 seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
 NEVER BLOCKS.
+
+## D410 — TYPECYCLING (CR 702.29b): `Forestcycling {2}`, `Basic landcycling {1}`, `Slivercycling {3}` — cycling's cost from the hand, a SEARCH for a card of the type instead of the draw; two on one line are two abilities; the engine's own, whole cards with no script (2026-09-12)
+
+**9,163 of 31,692 Commander-legal cards now execute completely, up from 9,112
+(+51: 33 cards whole with no script - the 24 pure typecyclers from Elvish Aberration to Shardless Outlander, six spells the clause drop freed (Lorien Revealed, Dismissive Denial, Marvelous Melee, Migratory Route, Borough Backup, Colossal Collision), Sojourner's Companion, Fiery Fall, Mental Journey, Traumatic Visions - and 18 generated rows for the partials whose other line the row maker reads (Chartooth Cougar, Nurturing Bristleback, Generous Ent, Eagles of the North, Battle Plan ...)).** `SHIPPED_SCRIPTS` stays at **5,864** (no rows — the seam is the
+parser's); the REFUSED ledger **1,338** (three rows named STALE by the guard deleted, seven ADDED by reason). Fixtures 6,461 → **6,483** (6,322 by name + 154 tokens: the three
+proof cards — Ash Barrens, Pale Recluse, Homing Sliver — the 18 rows and the Dinosaur token). `scriptableToday` 1,432 →
+**1,436**; the select pool 0 → 31 → 0; the ladder `[1436, 1531, 2925, 4603, 5956]`. Bot reach 9,039 →
+**9,090** from 273 commanders. An engine seam on Opus 5 by the user's choice — the
+D306 cycling seam's second half, four years of Tempest-to-Alara templating in one regex.
+
+### The measurement chose it — a bounded keyword variant on a built seam
+
+After D409 the leftover was priced again by whole-card yield (`price409.cjs` over 22,580
+rows): connive 30 whole but 14 in rowable shapes; the monarch 36 whole with the mechanism
+BUILT and its conditions the wall; `doesn't untap during … next untap step` 56 whole over 38
+shapes (one mechanism — the D411 candidate); landfall 43 over 43 bodies; the `as long as`
+statics 123 whole over 85 conditions and 93 bodies. TYPECYCLING: **24 whole cards** printing
+nothing else unread (Forestcycling 7, Islandcycling 5, Mountaincycling 5, Plainscycling 4,
+Basic landcycling 5, Swampcycling 2, Artifact landcycling 1) and 64 partial cards one line
+closer — on a cycling seam built in D306 and a search vocabulary that already read the
+reminder sentence (`Search your library for a Forest card, reveal it, put it into your hand,
+then shuffle.`) for every type probed. The three GRANT lines (`Each Sliver card in each
+player's hand has slivercycling {3}`, Rhet-Tomb Mystic, Tectonic Reformation) stay unread.
+
+### The seam — the parser, the search, the guard
+
+- **The parser** (`activatedParse.ts`, `cyclingAbilities`): every cycling ability printed on
+  the line, comma-separated — `Cycling {N}` as before (the draw), `<Type>cycling {N}` a
+  synthesized activated ability from the hand whose effect text is the search sentence the
+  vocabulary reads (`Basic land` → `a basic land card` by supertype and type, `Artifact
+  land` → `an artifact land card`, `Land` → `a land card`, the rest by subtype — `Forest`,
+  `Plains`, `Sliver`); `cycling: { line, type }`. `Forestcycling {2}, plainscycling {2}` is two
+  abilities, each claiming the line.
+- **The search** (`oracleParse.ts`): the vocabulary's read of the synthesized sentence hangs on
+  the ability as `cycling.effects` when it reads as ONE search; `resolveAbility` (`loop.ts`)
+  runs those effect specs where the plain cycling draws — the search prompt is raised
+  natively (the shuffle is the answer's, as for any search), the found card goes to the
+  hand.
+- **The guard** (D90): a typed cycling whose sentence the vocabulary did not read carries the
+  type and NO effects — `engineComplete` claims the line only when every typed cycling on it
+  read, `legal.ts` never offers one without effects, and nothing ever resolves it as a draw.
+- **The classifier** (`primitives.ts`): `CYCLING_MANA_LINE` reads the typed forms and the
+  comma pairs; the rule's prefix admits `Forestcycling`, `Basic landcycling`.
+- `src/engine/typecycling.test.ts` (3): the faces (Ash Barrens' `basic land` search read;
+  Pale Recluse's two abilities `Forest {2}` / `Plains {2}`; Homing Sliver's own line read and
+  the grant not — the card not complete); Ash Barrens offered from the hand, discarded as the
+  cost, the search raised with only basic lands among the candidates, the Forest found to the
+  hand, the hand's count net zero, the replay hash; Pale Recluse's plainscycling finding the
+  one Plains.
+- **Fuzz**: Ash Barrens is a staple (one a seat — `{T}: Add {C}` and `Basic landcycling {1}`;
+  every seat's library holds basics to find; the driver cycles from the hand and answers the
+  search) feeding `typecyclings` (cycling discards whose card carries a typed cycling) with a
+  floor at gate size — **63 over the gate's 500 seeds** (13 at 60).
+
+### The wave — 31 offered, 25 after the clause drop, 18 rows, seven refused by reason
+
+The pool is the classifier's OWN offer after the seam: **31** at first - six of them SPELLS whose
+body the vocabulary reads but whose typed cycling line had made the face manual (Lórien
+Revealed, Dismissive Denial, Marvelous Melee, Migratory Route, Borough Backup, Colossal
+Collision) - the D306 clause drop extended to the typed lines took them whole with no script
+and the pool fell to **25**, landed BY NAME with the row maker's refusal histogram as the
+measurement (D352/D364). **18 rows / 18 abilities** (Chartooth Cougar's firebreathing,
+Nurturing Bristleback's Dinosaur, Generous Ent's Food, Eagles of the North's enters pump, Battle
+Plan, Alabaster Host Intercessor, Balamb T-Rexaur, Canyon Crawler, Cloudbound Moogle, Jennika,
+Orchard Strider, Rampaging Spiketail, Roxxon Brutes, Seismic Monstrosaur, Soaring Sandwing,
+Stratosoarer, Twisted Abomination, Zog) - each a card whose OTHER line the row maker reads,
+the typed cycling now the engine's. The line probe ran BEFORE the port (D395's rule); the
+port **18 of 18 files, 38 tests, tsc clean, first run**. Refused by reason (7, ledgered): a
+subtype anthem (Bebop), a keyword-worded activation (Giant Koi's Waterbend), four spell
+lines outside the vocabulary (Fall to Earth, Step Through, Sylvan Reclamation, Treacherous
+Terrain), an attached static that kills the Bears (World-Weary). Three ledger rows the guard
+named STALE (Fiery Fall, Mental Journey, Traumatic Visions - `cycling mechanic`) are deleted.
+
+### Traps
+
+- **A TYPED CYCLING LINE MADE THE SPELL MANUAL**: the D306 clause drop read `Cycling {N}` only, so
+  six spells with a readable body sat in the pool as "a spell with a line outside the
+  vocabulary" naming their OWN body. A synthesized ability's line must be dropped from the
+  spell's clauses wherever its plain form is.
+- **THE PORT HAD NO TOKEN-PIN STEP**: the row maker has written `token-pins-needed-dNNN.json`
+  since D400 and nothing ever applied it - D400's three tokens were the nameless 0/0s of
+  D409's first gate, and this wave's Dinosaur (Nurturing Bristleback) was caught by the
+  widened pin test before the gate. `add-token-pins.cjs` is now a port step.
+- **THE HAND OFFER NAMED ONLY THE CARD**: two typed cyclings on one card read the same in the
+  offer; the label carries the type now (`Pale Recluse - Plainscycling`).
+- **THE SEARCH PROMPT LISTS THE WHOLE LIBRARY**: the candidates are the SET (D61); the type is
+  enforced at the answer - a proof must pick a matching card and may prove the refusal.
+- **THE OLD SEAM'S TEST PINNED THE OLD BOUNDARY**: `cyclingSeam.test.ts` (D306) asserted that a
+  landcycling is NOT synthesized and stays `keyword:altCost` - the opposite by design now - and the
+  gate's unit suite caught it twenty minutes in (the run was stopped, the test rewritten, the gate
+  rerun). Run the neighbouring seam's suite before the gate when a boundary moves.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6037 files, 29302
+passed / 11 skipped · 500-seed gate, 6 shards, 1202.0 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D410): the cycling GRANTS (`each <X> card in your hand has cycling {N}`,
+3), `Artifact landcycling` if the vocabulary refused it, the non-mana cyclings, the
+"whenever you cycle" heads beside a typed cycling; then D409's list unchanged — the
+`whenever a creature you control explores` heads (5), `explores X times`, `it explores`
+under a creature-enters head, the explore of a copy or a crew referent, `that creature
+explores` after a reanimate, the empty-library counter, connive (30 whole, 14 rowable) as
+the next keyword action, the untap skip (56 whole over 38 shapes, one mechanism), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your
+graveyard`, `each other player gain 2 life`, `If exactly one creature is attacking`), the
+`{X}` alternatives, a chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the
+`instead` wordings, Emerge, the OLD Oblivion Ring wording, `another target`, the qualifier
+before the controller, `defending player controls`, the same-name riders, the exile with a
+permission, the flicker within one batch, the other durations (`for as long as you control`
+23, `remains exiled` 33, `remains on the battlefield` 14), the SACRIFICED REFERENT, a random
+discard as a cast cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice
+path, HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying,
+convoke`, the convoke REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17),
+the up-to-N label (28 sentences), the script-raised prompt class (84 over ~10 shapes), the
+reveal-the-top family (27 / 18), the quoted-grant BODIES, `Noncreature spells` (6),
+`Colorless spells` (3), `Face-down creature spells` (2), the leading conditions on a grant,
+the planeswalker `+1:` grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+the two-kicker `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+`whenever you cast a kicked spell`, the REFERENT across the wait, the self-aimed delayed
+forms, the HOST characteristics under an attached static (29), "you control a token", the
+incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head, the
+`for each <X>` family (645 one-piece over 324 nouns), the payment heads, the search residue,
+the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a
+gate decision), the nth-resolution memory (16), the 172 AMOUNT forms, the restriction's
+exotic purposes (14), the twenty-two older fight and bite suites, token copies (15), the
+untap skip (15), the permanent control family (20) and exchange control (24), the activation
+restrictions (313), the keyword entry replacements (22), copy (~200 — the subsystem that
+waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the tournament
+floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
