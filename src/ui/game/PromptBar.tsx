@@ -180,8 +180,9 @@ function describe(
       // bar names the destination because scry and surveil differ ONLY there.
       case 'scryChoice':
         if (awaiting.player !== viewer) {
-          return `${nameOf(seats, awaiting.player)} is ${awaiting.toGraveyard ? 'surveilling' : 'scrying'} ${awaiting.count}.`;
+          return `${nameOf(seats, awaiting.player)} is ${awaiting.explore ? 'exploring' : awaiting.toGraveyard ? 'surveilling' : 'scrying'}${awaiting.explore ? '' : ' ' + awaiting.count}.`;
         }
+        if (awaiting.explore) return `${awaiting.label}: explore - click the revealed card to put it into your graveyard, or keep it on top.`;
         return `${awaiting.label}: click cards to send to the ${awaiting.toGraveyard ? 'graveyard' : 'bottom'}; the rest stay on top in the order shown.`;
       case 'proliferateChoice':
         if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is proliferating.`;

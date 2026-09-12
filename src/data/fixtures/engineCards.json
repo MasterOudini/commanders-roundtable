@@ -204610,6 +204610,111 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MERFOLK_BRANCHWALKER": {
+    "scryfallId": "2c6f0d4a-4827-47b6-8af6-803949c195f8",
+    "oracleId": "24b5dbe3-578a-4897-8215-e723f00a8f1a",
+    "name": "Merfolk Branchwalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merfolk Branchwalker",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "2c6f0d4a-4827-47b6-8af6-803949c195f8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JADELIGHT_RANGER": {
+    "scryfallId": "3304111e-4689-4dc8-b32b-9621087bbf1a",
+    "oracleId": "0b5d174c-7d4d-4c31-a582-8169d3bc932a",
+    "name": "Jadelight Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jadelight Ranger",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Merfolk Scout Ranger",
+        "oracleText": "When this creature enters, it explores, then it explores again. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard. Then repeat this process.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "3304111e-4689-4dc8-b32b-9621087bbf1a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "prix",
+    "collectorNumber": "136p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILDGROWTH_WALKER": {
+    "scryfallId": "52e4c0f8-d5f0-4224-9974-190606911480",
+    "oracleId": "d80562c2-cf90-43a4-9721-28da40fdfeed",
+    "name": "Wildgrowth Walker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wildgrowth Walker",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Whenever a creature you control explores, put a +1/+1 counter on this creature and you gain 3 life.",
+        "flavorText": "\"Hear me, stone, root, branch: be the fist of this land. Turn back those who trample upon your domain.\"\n—Song of the Shaper",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "52e4c0f8-d5f0-4224-9974-190606911480"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -212479,6 +212584,685 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BRAZEN_BUCCANEERS": {
+    "scryfallId": "9ca29a73-9606-4422-9187-67e00dcd52aa",
+    "oracleId": "c8afa4b5-01be-400a-836f-aa27e1ae1346",
+    "name": "Brazen Buccaneers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brazen Buccaneers",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Haste\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "9ca29a73-9606-4422-9187-67e00dcd52aa"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CENOTE_SCOUT": {
+    "scryfallId": "4ce4b7bc-636b-4723-a7c1-2c859f333492",
+    "oracleId": "ec3911c0-686f-4c78-838d-a683eed6c01c",
+    "name": "Cenote Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cenote Scout",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "\"If you're afraid to dive into the unknown, how will you ever find anything new?\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "4ce4b7bc-636b-4723-a7c1-2c859f333492"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRE_FLEET_INTERLOPER": {
+    "scryfallId": "e2e3f7ee-98d0-45bd-97ae-3dc8050085a1",
+    "oracleId": "7ae7cfde-8f2a-4e66-abe2-c15477e9fac3",
+    "name": "Dire Fleet Interloper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dire Fleet Interloper",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Menace\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Severin Brassell",
+        "imageId": "e2e3f7ee-98d0-45bd-97ae-3dc8050085a1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Explore",
+      "Menace"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMISSARY_OF_SUNRISE": {
+    "scryfallId": "0636cd47-d2a3-4320-97bf-40db805fca51",
+    "oracleId": "e2155e61-f389-4b1d-9598-9a79cbccaaa2",
+    "name": "Emissary of Sunrise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emissary of Sunrise",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "First strike\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "0636cd47-d2a3-4320-97bf-40db805fca51"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike",
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMPEROR_S_VANGUARD": {
+    "scryfallId": "c730874b-e275-4325-9fd8-eaf4494571f4",
+    "oracleId": "5007425e-a626-46f7-ab7d-777af97ee724",
+    "name": "Emperor's Vanguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emperor's Vanguard",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Whenever this creature deals combat damage to a player, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "c730874b-e275-4325-9fd8-eaf4494571f4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "pxln",
+    "collectorNumber": "189s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IXALLI_S_DIVINER": {
+    "scryfallId": "43ac3575-2898-4ff0-a040-ed1a4ef0db12",
+    "oracleId": "56c930c4-77e8-4547-8d55-663dc68ccf13",
+    "name": "Ixalli's Diviner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ixalli's Diviner",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "43ac3575-2898-4ff0-a040-ed1a4ef0db12"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "675",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JENNY_GENERATED_ANOMALY": {
+    "scryfallId": "18c430ce-b6c4-4b05-9439-07b4fbfdfe62",
+    "oracleId": "fbddb6a4-f817-4f3d-bf75-63a98e71954b",
+    "name": "Jenny, Generated Anomaly",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jenny, Generated Anomaly",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Time Lord Soldier",
+        "oracleText": "Double strike\nWhenever Jenny deals combat damage to a player, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "\"Time to run again. Love the running.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Mandy Jurgens",
+        "imageId": "18c430ce-b6c4-4b05-9439-07b4fbfdfe62"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Explore",
+      "Double strike"
+    ],
+    "setCode": "who",
+    "collectorNumber": "421",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KINJALLI_S_DAWNRUNNER": {
+    "scryfallId": "fc4c527c-6963-47f4-bcad-841d06bb2211",
+    "oracleId": "b6565da9-773c-49b1-85f5-e34f07ba84cb",
+    "name": "Kinjalli's Dawnrunner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kinjalli's Dawnrunner",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Double strike\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Arash Radkia",
+        "imageId": "fc4c527c-6963-47f4-bcad-841d06bb2211"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Explore",
+      "Double strike"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEGION_VANGUARD": {
+    "scryfallId": "11ea9ea5-acf1-4980-b7e5-083da455adb0",
+    "oracleId": "9f2c8398-1606-400b-a593-2635656e8c4b",
+    "name": "Legion Vanguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Legion Vanguard",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "{1}, Sacrifice another creature: This creature explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "It takes guts to be a trailblazer.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Stanko",
+        "imageId": "11ea9ea5-acf1-4980-b7e5-083da455adb0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINER_S_GUIDEWING": {
+    "scryfallId": "9048cd9d-df3f-4705-a5f4-e5b09760c631",
+    "oracleId": "eb161d0b-e534-463c-b1d1-7210bfba5d28",
+    "name": "Miner's Guidewing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Miner's Guidewing",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying, vigilance\nWhen this creature dies, target creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on that creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Allen Douglas",
+        "imageId": "9048cd9d-df3f-4705-a5f4-e5b09760c631"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying",
+      "Vigilance",
+      "Explore"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATHFINDING_AXEJAW": {
+    "scryfallId": "9f619075-ca5d-4e09-bd84-31e6b61eaa7e",
+    "oracleId": "54452df0-560c-4561-9dd2-3903ae49c91b",
+    "name": "Pathfinding Axejaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pathfinding Axejaw",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "When you don't know what dangers you'll face, bring the biggest danger with you.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "9f619075-ca5d-4e09-bd84-31e6b61eaa7e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "206",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUEEN_S_AGENT": {
+    "scryfallId": "3562f65a-bd69-47e4-9d9d-ab5c2c6ceb35",
+    "oracleId": "59104038-28c0-4ebd-9201-d7ae60d79c1c",
+    "name": "Queen's Agent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Queen's Agent",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Vampire Scout",
+        "oracleText": "Lifelink\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "3562f65a-bd69-47e4-9d9d-ab5c2c6ceb35"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Lifelink",
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVER_HERALD_GUIDE": {
+    "scryfallId": "9ea7e323-f329-4928-b25a-c0b44c5ac058",
+    "oracleId": "b9687fef-4cb2-4bf1-91ad-49dada07f4d6",
+    "name": "River Herald Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "River Herald Guide",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "Vigilance\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Astruga",
+        "imageId": "9ea7e323-f329-4928-b25a-c0b44c5ac058"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Explore"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "209",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVER_HERALD_SCOUT": {
+    "scryfallId": "8ae8ab66-5840-4b2e-bd4e-94ead0c79b61",
+    "oracleId": "021428b1-005c-40ed-9d47-fb5aa970598b",
+    "name": "River Herald Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "River Herald Scout",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "\"Don't worry, little swimmers. I'm here for the ruins, not you.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "8ae8ab66-5840-4b2e-bd4e-94ead0c79b61"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEEKERS_SQUIRE": {
+    "scryfallId": "30573211-ba4d-41c7-a3cd-283aaf04dffb",
+    "oracleId": "a494cbe7-a4a5-4657-9f68-3811fe56a17e",
+    "name": "Seekers' Squire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seekers' Squire",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "Dusk follows the light.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "30573211-ba4d-41c7-a3cd-283aaf04dffb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIREN_LOOKOUT": {
+    "scryfallId": "0000cd57-91fe-411f-b798-646e965eec37",
+    "oracleId": "9f0d82ae-38bf-45d8-8cda-982b6ead1d72",
+    "name": "Siren Lookout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Siren Lookout",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Siren Pirate",
+        "oracleText": "Flying\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "0000cd57-91fe-411f-b798-646e965eec37"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNRISE_SEEKER": {
+    "scryfallId": "0f01d79f-a270-42e6-a102-19a1e8761c76",
+    "oracleId": "db05f30f-2866-48ed-8a7d-264d94c0257a",
+    "name": "Sunrise Seeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunrise Seeker",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Vigilance\nWhen this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "0f01d79f-a270-42e6-a102-19a1e8761c76"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Explore"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "XLN-40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TISHANA_S_WAYFINDER": {
+    "scryfallId": "af52383b-545e-4b64-93f9-317ba6dcf5a8",
+    "oracleId": "86468528-833d-48f9-b299-cdf54dd47d77",
+    "name": "Tishana's Wayfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tishana's Wayfinder",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, it explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": "\"There is always another way.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Shreya Shetty",
+        "imageId": "af52383b-545e-4b64-93f9-317ba6dcf5a8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Explore"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOMB_ROBBER": {
+    "scryfallId": "6645cfbc-a384-4f48-b4de-7ec0e889d387",
+    "oracleId": "cc5ffb09-3d08-4a52-a880-50c94df30c15",
+    "name": "Tomb Robber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tomb Robber",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Menace\n{1}, Discard a card: This creature explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on this creature, then put the card back or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Xi Zhang",
+        "imageId": "6645cfbc-a384-4f48-b4de-7ec0e889d387"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Explore",
+      "Menace"
+    ],
+    "setCode": "prix",
+    "collectorNumber": "87s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -217445,6 +218229,111 @@
     "keywords": [],
     "setCode": "takh",
     "collectorNumber": "21",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "TYRANID_GARGOYLE_1_1_U_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "20171707-0670-42dd-a6c4-f0aa56fc0cd1",
+    "oracleId": "5fe924f8-880c-425c-9dae-d2f5455a5f2c",
+    "name": "Tyranid Gargoyle",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Tyranid Gargoyle",
+        "manaCost": "",
+        "typeLine": "Token Creature — Tyranid Gargoyle",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Astruga",
+        "imageId": "20171707-0670-42dd-a6c4-f0aa56fc0cd1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "t40k",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "INSECT_WARRIOR_1_1_B_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "86e41be4-d555-4e35-b9b0-1e937ac5edce",
+    "oracleId": "80acce85-02a7-4e09-87ea-165551babdeb",
+    "name": "Insect Warrior",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Insect Warrior",
+        "manaCost": "",
+        "typeLine": "Token Creature — Insect Warrior",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "86e41be4-d555-4e35-b9b0-1e937ac5edce"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ttmt",
+    "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CAT_1_1_W_CREATURE_LIFELINK_TOKEN": {
+    "scryfallId": "16fd4a9c-34e3-4432-b208-e14f6d56b4e3",
+    "oracleId": "65742c00-2809-4085-a950-8f93845c03d2",
+    "name": "Cat",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Cat",
+        "manaCost": "",
+        "typeLine": "Token Creature — Cat",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "16fd4a9c-34e3-4432-b208-e14f6d56b4e3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "TAKH-16",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

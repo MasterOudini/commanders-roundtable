@@ -685,7 +685,14 @@ export type EffectKind =
    * searcher through their own projection, SORTED, because the library's real order is the one
    * thing `project.ts` exists to strip and a search is only allowed to show you the SET.
    */
-  | 'search';
+  | 'search'
+  /**
+   * D409 - explore (CR 701.42): reveal the top card of your library; a land goes to your hand, anything
+   * else puts a +1/+1 counter on the exploring permanent and MAY go to your graveyard - the question is
+   * the scry prompt over the revealed card (`toGraveyard`, D195). `amount` is how many times in a row
+   * (`explores, then it explores again`). The subject is the source (`self`) or the target.
+   */
+  | 'explore';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.

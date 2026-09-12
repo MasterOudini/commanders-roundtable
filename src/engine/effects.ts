@@ -21,6 +21,7 @@ import { predicateAdmits } from '../data/replacementParse';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
+import { exploreChain } from './explore';
 import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -989,6 +990,19 @@ export function effectResult(
        * off a scratch state the events so far are folded onto, the way the scry's rider is
        * (D195). Nothing to choose is no prompt (D137's rule).
        */
+      /**
+       * D409 - explore (CR 701.42). The subject is the SOURCE when `self` (a source that has left the
+       * battlefield still explores - no counter, the rest happens, 701.42b) or the aim; the chain runs
+       * against the state the clauses before it left, and stops behind its own question.
+       */
+      case 'explore': {
+        const permanent = effect.self ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
+        if (permanent === null || out.some((e) => e.t === 'AwaitingSet')) break;
+        let scratch = state;
+        for (const body of out) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+        out.push(...exploreChain(scratch, deps, controller, permanent, obj.label, Math.max(1, effect.amount)));
+        break;
+      }
       case 'proliferate': {
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         let scratch = state;

@@ -6736,6 +6736,10 @@ const WANTED = [
   'Mistvein Borderpost',
   'Ramosian Rally',
   'Snuff Out',
+  // D409 - explore (CR 701.42): the seam's proof cards (Merfolk Branchwalker is the fuzz staple).
+  'Merfolk Branchwalker',
+  'Jadelight Ranger',
+  'Wildgrowth Walker',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6985,6 +6989,27 @@ const WANTED = [
   'Force of Virtue',
   'Lashknife',
   // D408 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D409 - explore (CR 701.42): the rows the selector offered once the explore line read, and their kin.
+  'Brazen Buccaneers',
+  'Cenote Scout',
+  'Dire Fleet Interloper',
+  'Emissary of Sunrise',
+  "Emperor's Vanguard",
+  "Ixalli's Diviner",
+  'Jenny, Generated Anomaly',
+  "Kinjalli's Dawnrunner",
+  'Legion Vanguard',
+  "Miner's Guidewing",
+  'Pathfinding Axejaw',
+  "Queen's Agent",
+  'River Herald Guide',
+  'River Herald Scout',
+  "Seekers' Squire",
+  'Siren Lookout',
+  'Sunrise Seeker',
+  "Tishana's Wayfinder",
+  'Tomb Robber',
+  // D409 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -7261,6 +7286,10 @@ const WANTED_TOKENS = [
   // D374 - the filtered-head wave's tokens, checked against TOKEN_TABLE's printingIds first.
   { name: 'Soldier', set: 'ttdm', cn: '5', key: 'SOLDIER_2_2_W_CREATURE_TOKEN' },
   { name: 'Beast', set: 'takh', cn: '21', key: 'BEAST_4_2_G_CREATURE_TOKEN' },
+  // D409 - the three tokens the pin test missed (double-quoted keys in generated rows).
+  { name: 'Tyranid Gargoyle', set: 't40k', cn: '9', key: 'TYRANID_GARGOYLE_1_1_U_CREATURE_FLYING_TOKEN' },
+  { name: 'Insect Warrior', set: 'ttmt', cn: '4', key: 'INSECT_WARRIOR_1_1_B_CREATURE_FLYING_TOKEN' },
+  { name: 'Cat', set: 'plst', cn: 'TAKH-16', key: 'CAT_1_1_W_CREATURE_LIFELINK_TOKEN' },
 ];
 
 function constName(name) {

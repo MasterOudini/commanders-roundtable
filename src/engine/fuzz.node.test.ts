@@ -198,6 +198,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // an available, affordable alternative.
   { names: ['Daze', 'Mistvein Borderpost', 'Snuff Out'], copiesPerSeat: 1,
     counterKeys: ['alternativeCasts'], rotHistory: 'D408' },
+  // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
+  // the driver keeps the revealed card on top (the scry answer it already gives).
+  { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
+    counterKeys: ['explores'], rotHistory: 'D409' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -975,6 +979,8 @@ interface Run {
   readonly additionalCostCasts: number;
   /** D408 - casts that elected an alternative cost (the stack object's `alternativePaid`). */
   readonly alternativeCasts: number;
+  /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
+  readonly explores: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1279,6 +1285,7 @@ function runOne(seed: number): Run {
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
     additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
     alternativeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true).length,
+    explores: game.log.filter((e) => e.body.t === 'Explored').length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1443,6 +1450,7 @@ const TOTAL_KEYS = [
   'reducedCasts',
   'additionalCostCasts',
   'alternativeCasts',
+  'explores',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1721,6 +1729,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.linkedExiles).toBeGreaterThan(0);
         // D408 - Daze cast for its alternative at gate size.
         expect(totals.alternativeCasts).toBeGreaterThan(0);
+        // D409 - Merfolk Branchwalker explored at gate size.
+        expect(totals.explores).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1802,6 +1812,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.additionalCostCasts} casts paying an additional cost · ` +
           `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
           `${totals.alternativeCasts} casts for an alternative cost · ` +
+          `${totals.explores} explores · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

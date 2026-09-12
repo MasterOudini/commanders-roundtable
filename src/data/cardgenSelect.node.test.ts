@@ -251,7 +251,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
-  ['Lurking Chupacabra', 'explore mechanic'],
+  // D409 - explore is the engine's own (CR 701.42); what this row waits on is the HEAD.
+  ['Lurking Chupacabra', 'an explores head (whenever a creature you control explores) outside the head library - the engine explores since D409, the row maker has no head for it'],
   ['Lifeblood', 'per-tap-entry trigger granularity'],
   ['Lifetap', 'per-tap-entry trigger granularity'],
   ['Linden, the Steadfast Queen', 'per-tap-entry trigger granularity'],

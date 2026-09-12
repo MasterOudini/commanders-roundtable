@@ -978,6 +978,8 @@ export type Awaiting =
        * REORDERED (D195).
        */
       readonly thenDraw: number;
+      /** D409 - an explore's question (CR 701.42): the exploring permanent, and how many explores wait behind this one. */
+      readonly explore?: { readonly permanent: InstanceId; readonly remaining: number };
       readonly label: string;
     }
   /**

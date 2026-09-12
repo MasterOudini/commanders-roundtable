@@ -927,6 +927,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Fought':
       return state;
 
+    // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
+    case 'Explored':
+      return state;
+
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 

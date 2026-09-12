@@ -27,7 +27,8 @@ describe('every token a shipped script creates is a pinned fixture (D298)', () =
     files.push(['keywordTriggers.ts', join(__dirname, '..', 'engine', 'keywordTriggers.ts')]);
     for (const [entry, path] of files) {
       const src = readFileSync(path, 'utf8');
-      for (const m of src.matchAll(/tokenRef\('([^']+)'\)/g)) {
+      // D409 - BOTH quotes: the generated rows print double quotes, and three unpinned tokens hid behind that.
+      for (const m of src.matchAll(/tokenRef\(["']([^"']+)["']\)/g)) {
         const key = m[1] ?? '';
         const ref = TOKEN_TABLE[key];
         if (!ref) {

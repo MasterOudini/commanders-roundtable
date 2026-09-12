@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { JADELIGHT_RANGER_SCRIPT } from './cards/jadelightRanger';
+import { MERFOLK_BRANCHWALKER_SCRIPT } from './cards/merfolkBranchwalker';
+import { BRAZEN_BUCCANEERS_SCRIPT } from './cards/brazenBuccaneers';
+import { CENOTE_SCOUT_SCRIPT } from './cards/cenoteScout';
+import { DIRE_FLEET_INTERLOPER_SCRIPT } from './cards/direFleetInterloper';
+import { EMISSARY_OF_SUNRISE_SCRIPT } from './cards/emissaryOfSunrise';
+import { EMPERORS_VANGUARD_SCRIPT } from './cards/emperorsVanguard';
+import { IXALLIS_DIVINER_SCRIPT } from './cards/ixallisDiviner';
+import { JENNY_GENERATED_ANOMALY_SCRIPT } from './cards/jennyGeneratedAnomaly';
+import { KINJALLIS_DAWNRUNNER_SCRIPT } from './cards/kinjallisDawnrunner';
+import { LEGION_VANGUARD_SCRIPT } from './cards/legionVanguard';
+import { MINERS_GUIDEWING_SCRIPT } from './cards/minersGuidewing';
+import { PATHFINDING_AXEJAW_SCRIPT } from './cards/pathfindingAxejaw';
+import { QUEENS_AGENT_SCRIPT } from './cards/queensAgent';
+import { RIVER_HERALD_GUIDE_SCRIPT } from './cards/riverHeraldGuide';
+import { RIVER_HERALD_SCOUT_SCRIPT } from './cards/riverHeraldScout';
+import { SEEKERS_SQUIRE_SCRIPT } from './cards/seekersSquire';
+import { SIREN_LOOKOUT_SCRIPT } from './cards/sirenLookout';
+import { SUNRISE_SEEKER_SCRIPT } from './cards/sunriseSeeker';
+import { TISHANAS_WAYFINDER_SCRIPT } from './cards/tishanasWayfinder';
+import { TOMB_ROBBER_SCRIPT } from './cards/tombRobber';
 import { FORCE_OF_VIRTUE_SCRIPT } from './cards/forceOfVirtue';
 import { LASHKNIFE_SCRIPT } from './cards/lashknife';
 import { METEOR_GOLEM_SCRIPT } from './cards/meteorGolem';
@@ -5851,6 +5872,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JADELIGHT_RANGER_SCRIPT,
+  MERFOLK_BRANCHWALKER_SCRIPT,
+  BRAZEN_BUCCANEERS_SCRIPT,
+  CENOTE_SCOUT_SCRIPT,
+  DIRE_FLEET_INTERLOPER_SCRIPT,
+  EMISSARY_OF_SUNRISE_SCRIPT,
+  EMPERORS_VANGUARD_SCRIPT,
+  IXALLIS_DIVINER_SCRIPT,
+  JENNY_GENERATED_ANOMALY_SCRIPT,
+  KINJALLIS_DAWNRUNNER_SCRIPT,
+  LEGION_VANGUARD_SCRIPT,
+  MINERS_GUIDEWING_SCRIPT,
+  PATHFINDING_AXEJAW_SCRIPT,
+  QUEENS_AGENT_SCRIPT,
+  RIVER_HERALD_GUIDE_SCRIPT,
+  RIVER_HERALD_SCOUT_SCRIPT,
+  SEEKERS_SQUIRE_SCRIPT,
+  SIREN_LOOKOUT_SCRIPT,
+  SUNRISE_SEEKER_SCRIPT,
+  TISHANAS_WAYFINDER_SCRIPT,
+  TOMB_ROBBER_SCRIPT,
   FORCE_OF_VIRTUE_SCRIPT,
   LASHKNIFE_SCRIPT,
   METEOR_GOLEM_SCRIPT,

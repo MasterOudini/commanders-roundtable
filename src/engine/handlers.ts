@@ -47,6 +47,7 @@ import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
 import { askBatch, askCandidates, drawEvents, effectResult } from './effects';
 import { proliferateCandidates } from './proliferate';
+import { exploreChain } from './explore';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
@@ -142,7 +143,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerOrderCards':
       return answerOrderCards(state, intent);
     case 'AnswerScry':
-      return answerScry(state, intent);
+      return answerScry(state, intent, deps);
     case 'AnswerProliferate':
       return answerProliferate(state, intent);
     case 'Concede':
@@ -3544,6 +3545,7 @@ function answerOrderCards(
 function answerScry(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerScry' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'scryChoice' || awaiting.player !== intent.player) {
@@ -3592,12 +3594,24 @@ function answerScry(
     // Clear the reveal, or the player keeps seeing these cards forever —
     // `view.peek` reads `revealedTo`.
     { t: 'CardsRevealed', cards: [...shown], to: [] },
-    narrated(
-      n`${who(state, intent.player)} ${vb(intent.player, awaiting.toGraveyard ? 'surveils' : 'scries', awaiting.toGraveyard ? 'surveil' : 'scry')} ${shown.length}, keeping ${intent.toTop.length} on top.`,
-      intent.player,
-    ),
+    awaiting.explore
+      ? narrated(n`${who(state, intent.player)} ${intent.toBottom.length > 0 ? vb(intent.player, 'puts', 'put') : vb(intent.player, 'keeps', 'keep')} the explored card ${intent.toBottom.length > 0 ? 'into the graveyard' : 'on top'}.`, intent.player)
+      : narrated(
+          n`${who(state, intent.player)} ${vb(intent.player, awaiting.toGraveyard ? 'surveils' : 'scries', awaiting.toGraveyard ? 'surveil' : 'scry')} ${shown.length}, keeping ${intent.toTop.length} on top.`,
+          intent.player,
+        ),
   ];
 
+  // D409 - an explore's question: the permanent has explored once it is answered (CR 701.42c), and the
+  // chain's next explore runs against the state the answer left, stopping behind its own question.
+  if (awaiting.explore) {
+    events.push({ t: 'Explored', permanent: awaiting.explore.permanent, controller: intent.player, card: shown[0] ?? null, land: false });
+    if (awaiting.explore.remaining > 0) {
+      let scratch = state;
+      for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+      events.push(...exploreChain(scratch, deps, intent.player, awaiting.explore.permanent, awaiting.label, awaiting.explore.remaining));
+    }
+  }
   if (awaiting.thenDraw > 0) {
     // Fold the scry through the pure reducer so the draw sees the reordered
     // library; the seq numbers on the scratch are irrelevant — only zones are

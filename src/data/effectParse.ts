@@ -625,6 +625,31 @@ const RULES: readonly Rule[] = [
    * sentence's last (D195's rule). `sentences()` splits ", then proliferate." into a sentence of
    * its own, so "Destroy target creature, then proliferate." is two clauses, both read.
    */
+  /**
+   * D409 - explore (CR 701.42): the subject is the source (`~`, `this creature`; a quoted body's
+   * leading `it` is spelled `~` by the bridge) or a target. An ASK (the graveyard question), so last
+   * in its sentence (D195). `explores X times` and `that creature explores` stay unread.
+   */
+  {
+    kind: 'explore',
+    re: new RegExp(`^${SELF} explores\.$`, 'i'),
+    build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true }),
+  },
+  {
+    kind: 'explore',
+    re: new RegExp(`^${SELF} explores, then (?:it|${SELF}) explores again\.$`, 'i'),
+    build: () => ({ ...BASE, amount: 2, targetIndex: -1, self: true }),
+  },
+  {
+    kind: 'explore',
+    re: new RegExp(`^${TARGET} explores\.$`, 'i'),
+    build: () => ({ ...BASE, amount: 1 }),
+  },
+  {
+    kind: 'explore',
+    re: new RegExp(`^${TARGET} explores, then it explores again\.$`, 'i'),
+    build: () => ({ ...BASE, amount: 2 }),
+  },
   {
     kind: 'proliferate',
     re: /^proliferate[.]$/i,
@@ -1568,7 +1593,7 @@ function clausesOf(text: string): Clause[] {
 const PAY_COST = String.raw`((?:\{[^}]+\})+|\d+ life|(?:\{[^}]+\})+ and \d+ life)`;
 const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|you) pays? ${PAY_COST}\.$`, 'i');
 const MAY_PAY_RE = new RegExp(String.raw`^you may pay ${PAY_COST}\. if you do, (.+)$`, 'i');
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -1616,7 +1641,7 @@ function matchPayment(sentence: string): EffectSpec | null {
  */
 const DELAY_TAIL = /^(.+?) at the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)\.$/i;
 const DELAY_HEAD = /^At the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   return { step: p.includes('upkeep') ? 'upkeep' : 'end', whose: p.startsWith('your') ? 'controller' : 'next' };
@@ -1799,7 +1824,7 @@ export function parseEffects(
    * follow-ups through the answer, so it carries the same constraint.)
    */
   // D390 - a queued sacrifice asks too (the first player with a real choice is prompted).
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate']);
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

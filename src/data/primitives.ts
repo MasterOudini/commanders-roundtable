@@ -664,6 +664,18 @@ export function oneShotCounterShape(line: string, cardName: string): boolean {
   return COUNTER_TRIGGER_SELF.test(text) || COUNTER_TRIGGER_OTHER.test(text);
 }
 
+/**
+ * D409 - EXPLORE (CR 701.42) under a head about this permanent, once or twice: the vocabulary's
+ * `explore` kind, reached through the bridge that spells the trigger's leading "it" as `~`.
+ */
+const ONESHOT_EXPLORE = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) explores(?:, then it explores again)?\.$`);
+
+/** Is this printed line a triggered explore a table row can emit (D409)? */
+export function oneShotExploreShape(line: string, cardName: string): boolean {
+  const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ONESHOT_EXPLORE.test(text);
+}
+
 /** Is this printed line an activated one-shot pump a table row can emit (D301)? */
 export function oneShotRowShape(line: string, cardName: string): boolean {
   const colon = line.indexOf(': ');
@@ -935,6 +947,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotTriggerShape(text, cardName)) return 'scriptable';
   // D303: a counter one-shot on this permanent or each creature (see `oneShotCounterShape`).
   if (oneShotCounterShape(text, cardName)) return 'scriptable';
+  // D409: a triggered explore under a self head (see `oneShotExploreShape`).
+  if (oneShotExploreShape(text, cardName)) return 'scriptable';
   // D304: an enchanted-creature static or combat restriction an Aura row can emit (see `auraLineShape`).
   if (auraLineShape(text)) return 'scriptable';
   // D305: an equipped-creature static or restriction an Equipment row can emit (see `equipLineShape`).

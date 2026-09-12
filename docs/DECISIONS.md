@@ -31861,3 +31861,153 @@ control family (20) and exchange control (24), the activation restrictions (313)
 entry replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt
 CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
 FUZZ DRIVER NEVER BLOCKS.
+
+## D409 — EXPLORE (CR 701.42): `it explores` — reveal the top card of your library; a land goes to hand, anything else puts a +1/+1 counter on the explorer and MAY go to the graveyard (the scry prompt over the revealed card); the permanent has EXPLORED (`Explored`, the bus's event) once the process is complete; the chain waits behind the first question (2026-09-12)
+
+**9,112 of 31,692 Commander-legal cards now execute completely, up from 9,090
+(+22: 21 generated rows - Merfolk Branchwalker, Seekers' Squire, Siren Lookout, Jadelight Ranger, Emperor's Vanguard, Jenny, Generated Anomaly, Legion Vanguard, Tomb Robber, Miner's Guidewing and the other enters explorers - and one card whole with no script, Over the Edge).** `SHIPPED_SCRIPTS` 5,825 → **5,846**; the REFUSED ledger stays at
+**1,334** (nothing new ledgered; one reason rewritten to its real gap). Fixtures 6,436 → **6,461** (6,301 by name + 153 tokens: the three
+proof cards — Merfolk Branchwalker, Jadelight Ranger, Wildgrowth Walker — and the 21 rows).
+`scriptableToday` 1,432 → **1,432** (the seam offered 21, the wave took 21); the
+select pool 0 → 21 → 0; the ladder `[1432, 1527, 2916, 4592, 5945]` unchanged. Bot reach 9,017 → **9,039** from
+271 commanders. An engine seam on Opus 5 by the user's choice — the first keyword ACTION
+with a question of its own since the D399 line (Phase 1 §9's "explore").
+
+### The measurement chose it — the largest bounded keyword action, one mechanism
+
+After D408 the board was measured by WHOLE-CARD yield per family (`price409.cjs` over the
+22,602-card leftover, the D389 rule): the `for each` family prices at 546 whole cards over 324
+nouns (a tail); `deals N damage to each <X>` 123 whole over 122 shapes (a tail); `Prevent all
+…` 47 (a subsystem, Phase 3 §6); Landfall 43 (the bodies vary); the monarch 36 — and the
+MECHANISM has existed since D332: the wall there is the `if you're the monarch` conditions and
+the bodies beside them; `Enchanted creature has "…"` 35 (quoted bodies); EXPLORE **34 whole
+over 19 shapes** — sixteen of them `When this creature enters, it explores.` — one keyword
+action the engine did not have (Lurking Chupacabra and Merfolk Cave-Diver sat in the ledger
+for it); typecycling 20; connive 30 (a second such action, for later).
+
+### The seam — the action, the question, the marker, the chain, the shapes
+
+- **The action** (`src/engine/explore.ts`, `exploreOnce`): reveal the top card to EVERY seat
+  (`CardsRevealed` with the whole seating — a reveal, not a look); a land card moves to the
+  hand and the reveal is cleared; anything else puts a +1/+1 counter on the explorer WHEN it
+  is still on the battlefield (701.42b: a source that has left still explores, with no
+  counter) and raises the question. An empty library reveals nothing and the counter still
+  lands (the release notes' rule). The narration says what was revealed and where it went.
+- **The question** is the scry prompt over the one revealed card — `scryChoice` with
+  `toGraveyard` (D195's surveil), carrying `explore: { permanent, remaining }` — so the bot's
+  answer (`awaiting.ts`, keep on top), the driver's, the client's peek panel and the answer
+  handler all serve it unchanged; the PromptBar says "exploring" and names the choice.
+- **The marker** (`Explored { permanent, controller, card, land }`): a permanent has explored
+  once the process is complete (701.42c) — emitted at once for a land or an empty library, and
+  at the ANSWER for anything else (`answerScry` takes `deps` now). The reducer treats it as a
+  marker; the trigger bus can read it (`event: 'Explored'`) — the `whenever a creature you
+  control explores` heads are reachable, though the row maker's head library does not read
+  them yet.
+- **The chain** (`exploreChain`): "explores, then it explores again" runs the second explore
+  against the state the first left — folded through the pure reducer, the D195 scratch — and
+  stops behind the first question when there is one; `remaining` rides the prompt and the
+  answer handler runs what is left, which may raise its own question in the same accept.
+- **The vocabulary** (`effectParse.ts`, kind `explore`, `amount` = times): `~ explores.`,
+  `~ explores, then it explores again.`, `target creature you control explores(, then it
+  explores again).`; an ASK, so last in its sentence (the three ask sets). The bridge
+  (`scripts/vocabulary.ts`) spells a quoted body's leading `it explores` as `~`; the executor
+  (`effects.ts`) takes the SOURCE for `self` — not the aim, so a source gone before the
+  resolution still explores — and folds the clauses before it into the state the explore reads.
+- **The classifier** (`primitives.ts`, `oneShotExploreShape`): `it explores(, then it
+  explores again)` under a head about the permanent is `scriptable` — "it" names the permanent
+  itself under such a head (D303's rule), which the bridge spells `~`.
+- **The generator** (`gen109-vocab.cjs`): two Coral Eels dealt (outside the deck's Set, the
+  look's precedent) and staged on top in `preFire`, so every explore raises the question; the
+  proof answers each into the graveyard when the question is still up and reads the
+  harness's keep otherwise (a LATE head — combat damage — walks past the question and the
+  harness answers it), then reads the counters off the explorer, once per fire (double strike
+  fires a combat-damage explore twice, CR 702.4b — Jenny, Generated Anomaly).
+- `src/engine/explore.test.ts` (3): a Forest on top to hand with no counter, the reveal
+  cleared, the listener (Wildgrowth Walker's shape on `Explored`) fired; a nonland with the
+  counter BEFORE the question, revealed to both seats, not explored until answered, into the
+  graveyard; kept on top, unrevealed; the replay hash; an empty library's counter; a source
+  moved to the graveyard before its trigger resolves explores with no counter; Jadelight
+  Ranger's chain — the second explore waiting behind the first question, then finding the
+  Forest; the markers `[false, true]`.
+- **Fuzz**: Merfolk Branchwalker is a staple (one a seat — a `{1}{G}` 2/1 every seat can
+  cast) feeding `explores` (the `Explored` markers) with a floor at gate size — **46
+  over the gate's 500 seeds** (6 at 60).
+
+### The wave — 21 offered, 21 rows, first run after two generator fixes
+
+The pool is the classifier's OWN offer after the seam — **21** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **21 rows / 21
+abilities**, every one a vocab row: the enters explorers (Merfolk Branchwalker, Seekers'
+Squire, Siren Lookout, Sunrise Seeker, Tishana's Wayfinder, Queen's Agent, River Herald
+Guide, River Herald Scout, Ixalli's Diviner, Cenote Scout, Brazen Buccaneers, Pathfinding
+Axejaw, Kinjalli's Dawnrunner, Dire Fleet Interloper, Emissary of Sunrise), Jadelight Ranger
+(the chain), the combat-damage explorers (Emperor's Vanguard; Jenny, Generated Anomaly with
+double strike), the activated ones (Legion Vanguard's sacrifice, Tomb Robber's discard) and
+Miner's Guidewing (dies → target creature you control explores). The line probe ran BEFORE
+the port (D395's rule); the port **21 of 21 files, 42 tests, tsc clean** after the late-head
+proof and the double-strike count were fixed at the generator. Over the Edge reads WHOLE with
+no script (its explore mode). Refused by the seam's own edge, not rowed: Path of Discovery
+(`it` is the ENTERING creature under a creature-enters head), Jadelight Spelunker (`X
+times`), Deepfathom Echo (a copy), Subterranean Schooner (the crew referent), Amalia Benavides
+Aguirre (a conditional sweep after the explore), Defossilize (`that creature`), and the five
+`whenever a creature you control explores` heads (a head outside the library — Lurking
+Chupacabra's ledger row now names it).
+
+### Traps
+
+- **A RE-DERIVE OVERWRITES THE DRAFTS**: `derive409.cjs` was re-run after the generator had
+  been patched, and the patch was silently gone — the row maker refused every row with "the
+  suite cannot assert: explore" until the patch was re-applied. Derive ONCE, then patch.
+- **A LATE HEAD WALKS PAST THE QUESTION**: the combat-damage fire advances to the postcombat
+  main and the HARNESS answers the explore's question on the way (keep on top); a proof that
+  waits for the prompt reads nothing. Branch on whether the question is still up.
+- **DOUBLE STRIKE FIRES TWICE** (CR 702.4b): a combat-damage explore on a double striker is
+  two explores and two counters; the generator's `strikes` rule now reaches the vocab proof.
+- **THE CLASSIFIER NEVER READS "it"**: `it explores` under a self head was `unclassified`
+  while `this creature explores` was `scriptable` — the classifier's one-shot shapes name the
+  heads under which "it" is the permanent (D303); a new self-aimed verb needs its own shape.
+- **THE ROW MAKER'S ASK LIST IS CLOSED** (`ASK_KINDS`): a new asking kind is refused as
+  "trigger payload not a pump" until it is listed; the vocab probe must also register the
+  `~`-spelled key the row maker looks up.
+- **THE PIN TEST READ ONE QUOTE**: `tokenPins` matched `tokenRef('…')`, the generated rows print
+  `tokenRef("…")`, and three shipped rows (Gargoyle Flock, Lord Dregg, Regal Caracal) had been
+  creating tokens the fixture oracle never held - a nameless 0/0 the state-based action bins -
+  until this decision's pool rotation dealt one in a seed of the 500 and the union's
+  `tokensNamed === tokensCreated` canary failed the gate's first run. Pinned; the test reads both.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6018 files, 29225
+passed / 11 skipped · 500-seed gate, 6 shards, 1256.8 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D409): the `whenever a creature you control explores` heads (5 — the bus
+reads `Explored`; the row maker's library does not), `explores X times`, `it explores` under a
+creature-enters head (the entering creature, Path of Discovery), the explore of a copy or a
+crew referent, `that creature explores` after a reanimate (Defossilize), the empty-library
+explore's counter (the release notes' rule, no CR line), connive (30 whole) and typecycling
+(20) as the next keyword actions; then D408's list unchanged — the reader's edge (`nontoken
+blue creature`, `exile the top three black cards of your graveyard`, `each other player gain
+2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a chooser verb on
+BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD
+Oblivion Ring wording, `another target`, the qualifier before the controller, `defending
+player controls`, the same-name riders, the exile with a permission, the flicker within one
+batch, the other durations (`for as long as you control` 23, `remains exiled` 33, `remains on
+the battlefield` 14), the SACRIFICED REFERENT, a random discard as a cast cost, two verbs
+joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID symbols paid by convoke, a
+per-creature chooser in the review, `Flying, convoke`, the convoke REFERENTS, Affinity for
+<kind>, the `for each` reductions (97 / 17), the up-to-N label (28 sentences), the
+script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 / 18), the
+quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE
+VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the
+MULTIKICKER row (7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the
+REFERENT across the wait, the self-aimed delayed forms, the HOST characteristics under an
+attached static (29), "you control a token", the incarnations' graveyard statics (5),
+`Whenever you attack` and the each-combat head, the `for each <X>` family (645 one-piece over
+324 nouns), the payment heads, the search residue, the scoped grant, the blocker-predicate
+form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution
+memory (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the untap skip (15), the permanent control
+family (20) and exchange control (24), the activation restrictions (313), the keyword entry
+replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION
+seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+NEVER BLOCKS.
