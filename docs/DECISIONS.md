@@ -31724,3 +31724,140 @@ control family (20) and exchange control (24), the activation restrictions (313)
 entry replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt
 CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
 FUZZ DRIVER NEVER BLOCKS.
+
+## D408 — THE ALTERNATIVE COST AT CAST (CR 118.9): `you may <pay X> rather than pay this spell's mana cost` — read by `parseAlternativeCost` as a mana, life, pitch or verb cost under an optional CONDITION; offered on the CastSpell action, elected in the payment review, charged by `prepareCast` in place of the mana cost; the bot's last fallback and the driver's rule (2026-09-12)
+
+**9,090 of 31,692 Commander-legal cards now execute completely, up from 9,059
+(+31: 2 generated rows - Force of Virtue and Lashknife, the two whose other line the vocabulary reads - and 29 cards the seam completes WITH NO SCRIPT: Force of Will, Daze, Fireblast, Snuff Out, Gush, Thwart, the five Borderposts, Ramosian Rally, Abolish, Snapback, Cave-In, Sunscour, Rouse, Orim's Cure, Dark Triumph, Stalwart Valkyrie, Admiral's Order, Zahid, Djinn of the Lamp, Demon of Death's Gate, Crash, Thunderclap, Pulverize, Delraich, Mogg Alarm, Vine Dryad).** `SHIPPED_SCRIPTS` 5,823 → **5,825**; the REFUSED ledger 1,343 →
+**1,334** (twelve rows named STALE by the guard deleted - their class is built and they run whole - and three ADDED by reason). Fixtures 6,428 → **6,436** (6,279 by name + 150 tokens: the six proof
+cards — Fireblast, Daze, Force of Will, Mistvein Borderpost, Ramosian Rally, Snuff Out — and the two rows).
+`scriptableToday` 1,441 → **1,432**; the select pool 0 → 5 → 0; the ladder
+`[1432, 1527, 2916, 4592, 5945]`. Bot reach 8,986 → **9,017** from 270 commanders. An engine seam on Opus 5 by
+the user's choice — the fifth step of COST MODIFICATION (Phase 3 §1: the kicker D186, the
+convoke family D405, the additional cost D406, now the alternative that REPLACES the mana
+cost).
+
+### The measurement chose it — the third cost seam, on D406's machinery
+
+After D407 the board was measured again (the D389 rule): the durations D407 left are a long
+tail of referents (`the exiled card`, `for as long as you control`, `remains exiled`), the
+`for each` family is 645 one-piece over 324 nouns, the reveal-the-top family 27 / 18. The
+alternative costs — **111 lines over ~40 forms** — are one SENTENCE with five payment pieces
+(`pay {M}`, `pay N life`, `exile a <colour> card from your hand`, and the cost verbs D406
+already charges — sacrifice, discard, tap, exile from your graveyard, return to hand) joined
+by `and`, under an optional leading condition the activation reader (`parseActivationConditions`,
+D389) already reads (`If an opponent controls a Plains`, `If you control a Mountain`, the
+Trap conditions). The probe read the Bringers, the Borderposts, the pitch spells (Force of
+Will, Daze, Snuff Out, Gush, Fireblast), Ramosian Rally and Raid Trap; refused `nontoken blue
+creature`, `exile the top three black cards of your graveyard`, `each other player gain 2
+life` and `If exactly one creature is attacking` — the closed reader's honest edge.
+
+### The seam — the reader, the offer, the charge, the review, the bot, the driver
+
+- **The reader** (`activatedParse.ts`, `parseAlternativeCost`, `AlternativeCost`): an ability
+  word stripped (`Fireblast` is none; `Raid Trap — If …` is one), `^(If <cond>, )?you may
+  <cost> rather than pay (this spell's|its) mana cost\.$`; the condition through the activation
+  reader as `Activate only <cond>.` (a sorcery-speed or once-a-turn reading refused — those are
+  not conditions); the cost split on ` and ` before a payment verb; `pay {M}` → `mana`, `pay N
+  life` → `lifeCost`, `exile (a|an|two|three|N) (<colour>)? card(s) from your hand` →
+  `exileFromHand { count, colors }`, any other piece through the activated reader as a
+  synthetic `<Cost>: Draw a card.` (a mana, tap, self, counter, random or crew cost refused);
+  at most ONE verb piece, and something must be paid. `OracleFace.alternativeCost` is the
+  face's reading unless the face's ADDITIONAL cost has a chooser verb (two pick stages would
+  wedge the client); `engineComplete` claims the line; `effectParse` drops it from the
+  clause list; `primitives` rates the sentence scriptable.
+- **The offer** (`legal.ts`, `alternativeOffer`): the CastSpell action carries
+  `alternativeCostText`, `alternativeAvailable` (the condition holds — `activationConditionsHold`)
+  and `alternativeAffordable` (the mana is solvable, the picks exist), the pick verb and its
+  candidates (`castCostCandidates` for the D406 verbs; `exileFromHandCandidates` for the pitch —
+  the hand minus the spell itself, filtered by colour) and the count. `CostVerbs` is the
+  `Pick<>` both cost readings share.
+- **The charge** (`handlers.ts`, `prepareCast(…, alternative)`): `alternativeCostProblem`
+  refuses an alternative the condition does not allow, a pitch short or stray or of the
+  spell itself; the alternative's mana REPLACES the face's cost (`{0}` for the pitch spells,
+  `{1}` for a Borderpost), the life joins the extras, the verb picks go through D406's
+  `costPicksProblem` against the ALTERNATIVE's verbs, and `additionalCostEvents` exiles the
+  pitched cards (`exiles N card(s) from hand`). The pending cast carries `alternative` and
+  `exileFromHand` across the target and payment stages; the stack object is stamped
+  `alternativePaid` (the counter's key). `CastSpell.alternative` / `exileFromHand` are the
+  intent's new fields; the D405 alternatives (convoke, improvise, delve) and the D406 verbs
+  stay orthogonal.
+- **The review** (`client.ts` `CastPreview.alternativeCost` / `alternative`, `previewCast(…,
+  alternative)`; `PaymentReview.tsx` `data-payment-alternative` — "Pay this instead" / "Mana
+  cost"; `aimCommit.electAlternative` opening the pick stage for a verb; `tableStore` marking
+  a cost pick `alt`): the human elects it in one click and the host charges exactly what the
+  client previewed (D53's symmetry).
+- **The bot** (`policy.ts` `altPicksFor`): the alternative is the LAST fallback — after the
+  plain plan and the D405 alternatives — with its picks off the offer's own candidates (a
+  token before a body for a sacrifice, the first candidates otherwise).
+- **The driver** (`fuzz.node.test.ts`): an available, affordable alternative is ALWAYS elected
+  (the kicker's rule: a fallback is not a canary); the `usable` filter admits it beside the
+  D405 alternatives.
+- `src/engine/alternativeCost.test.ts` (3): the six faces read (Fireblast sac two Mountains,
+  Daze return an Island, Force of Will 1 life + a blue card, the Borderpost `{1}` + return,
+  Ramosian Rally under `board`, Snuff Out 4 life); Fireblast — `needsSacrifice` with one
+  Mountain, the plain cast refused for `{4}{R}{R}`, elected with both Mountains to the
+  graveyard, `alternativePaid`, the Cyclops dead, the replay hash equal; Ramosian Rally with
+  no Plains — `alternativeAvailable` false and the election refused — and tapping the Bears
+  under a Plains; Snuff Out at −4 life; Force of Will on p2's turn — `altPickVerb`
+  `exileFromHand`, the candidates never the spell itself, the self-pitch refused, the blue
+  card exiled, −1 life, the Bears countered.
+- **Fuzz**: Daze is a staple (one a seat — the core deals an Island every seat) feeding
+  `alternativeCasts` (a stack object with `alternativePaid`) with a floor at gate size —
+  **69 over the gate's 500 seeds** (11 at 60).
+
+### The wave — 5 offered, 2 rows, three refused by reason, 29 whole with no script
+
+The pool is the classifier's OWN offer after the seam - **5** in `batch.json` (Downhill Charge, Force of Virtue, Lashknife, Mind Swords, Needlebite Trap; the rest of the family reads WHOLE once the line is claimed, the twelve stale ledger rows among them) - landed BY NAME with the row maker's refusal histogram as the measurement (D352/D364). **2 rows / 2 abilities**: Force of Virtue (the anthem under a pitch the reader takes only on another player's turn) and Lashknife (the Aura's first strike). The line probe ran BEFORE the port (D395's rule); the port **2 of 2 files, 4 tests, tsc clean, first run**. Refused by reason (3, ledgered): a spell line outside the vocabulary beside the alternative - `+X/+0 where X is the number of Mountains you control` (Downhill Charge), `each player exiles two cards from their hand` (Mind Swords), `target player loses 5 life and you gain 5 life` (Needlebite Trap). The seam's own yield is the 29 - the pitch counters and the Borderposts the pool never had to script.
+
+### Traps
+
+- **THE PARSER'S CASE**: the oracle prints `You may pay 4 life rather than …` at the head of a
+  line and `you may` after an ability word — a reader anchored on one case reads half the
+  family. Probe the FAMILY's sentences before the regex is trusted.
+- **A `Pick<>` IS THE SHAPE TWO READINGS SHARE**: the additional cost and the alternative cost
+  carry the same five verb fields and nothing else in common; `CostVerbs` lets D406's
+  `costPicksProblem` charge either without a cast between the types.
+- **ONE PICK STAGE PER CAST**: a face whose additional cost has a chooser verb gets NO
+  alternative reading — the client's cost-pick stage is one, and a second would wedge the
+  staged cast (D405's lesson, again).
+- **THE HEREDOC LIMIT, FIVE TIMES**: every driver past ~100 lines truncated; the bot and the
+  driver each went in as a part file plus a driver under 60 lines. Split FIRST.
+- **A SYNTAX CHECK IS `node --check`, NEVER `node -e "require(...)"`**: a require RUNS the driver -
+  the next decision's applier went into the tree while this gate was open and came back out
+  through its exact inverse before the close-out (the shards had loaded their modules long
+  before, so the verdict stood). Write the inverse beside the driver; check syntax with --check.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5996 files, 29136
+passed / 11 skipped · 500-seed gate, 6 shards, 1169.3 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D408): the reader's edge — `nontoken blue creature` (Misdirection's kin),
+`exile the top three black cards of your graveyard`, `each other player gain 2 life` (the
+Invasion Bringers' cousins), `If exactly one creature is attacking` (the combat Traps), the
+`{X}` alternatives, a chooser verb on BOTH costs of one face, `Affinity` and the cost
+REDUCTIONS (a different mechanism: the mana cost stays and shrinks), the `instead` wordings,
+Emerge; then D407's list unchanged — the OLD Oblivion Ring wording, `another target`, the
+qualifier before the controller (Silkwrap), `defending player controls`, the same-name riders,
+the exile with a permission (Hostage Taker), the flicker within one batch, the other
+durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, a random discard as a cast cost, two verbs joined by `or`, a
+counter cost at cast, the FaceChoice path without the pick stage, HYBRID symbols paid by
+convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke REFERENTS,
+Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 / 18),
+the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down
+creature spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a
+SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form
+(17), the MULTIKICKER row (7), the `instead` rewrites (6), `whenever you cast a kicked
+spell`, the REFERENT across the wait, the self-aimed delayed forms, the HOST characteristics
+under an attached static (29), "you control a token", the incarnations' graveyard statics
+(5), `Whenever you attack` and the each-combat head, the `for each <X>` family (645 one-piece
+over 324 nouns), the payment heads, the search residue, the scoped grant, the
+blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+twenty-two older fight and bite suites, token copies (15), the untap skip (15), the permanent
+control family (20) and exchange control (24), the activation restrictions (313), the keyword
+entry replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt
+CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
+FUZZ DRIVER NEVER BLOCKS.

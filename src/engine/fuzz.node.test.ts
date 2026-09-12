@@ -192,6 +192,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the RETURN is reached where the enchantment alone read two exiles and no return over 60 seeds.
   { names: ['Banishing Light', 'Fairgrounds Warden'], copiesPerSeat: 1,
     counterKeys: ['linkedExiles', 'linkedReturns'], rotHistory: 'D407' },
+  // D408 - the alternative cost (CR 118.9): Daze returns an Island instead of paying {1}{U} and counters a
+  // spell unless its controller pays {1} (a response window, an Island: 1 at 60 alone); Mistvein Borderpost pays
+  // {1} and returns a basic land at sorcery speed; Snuff Out pays 4 life under a Swamp - the driver always elects
+  // an available, affordable alternative.
+  { names: ['Daze', 'Mistvein Borderpost', 'Snuff Out'], copiesPerSeat: 1,
+    counterKeys: ['alternativeCasts'], rotHistory: 'D408' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -803,7 +809,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
     if (!picks.has(a.card)) picks.set(a.card, altPickFor(state, holder, a));
     return picks.get(a.card) ?? null;
   };
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && altFor(a) !== null));
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true))));
   const chosen = p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
@@ -822,6 +828,15 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // for a plan before the cast starts, so nothing here can wedge.
       // D406 - the additional cost's picks: the first candidates the offer lists (an offer whose candidates
       // fall short is not made unless `or pay {M}` stands in, and then no pick is named).
+      // D408 - an available, affordable ALTERNATIVE cost is ALWAYS elected (the kicker's rule), its pick the first
+      // candidates the offer lists; the picks then pay it and no additional-cost verb prints beside one.
+      if (chosen.alternativeAvailable && chosen.alternativeAffordable) {
+        const n = chosen.altPickCount ?? 0;
+        const picked = (chosen.altPickCandidates ?? []).slice(0, n);
+        const verb = chosen.altPickVerb;
+        const altPicks = verb === undefined || n === 0 ? {} : verb === 'sacrifice' ? { sacrifice: picked } : verb === 'discard' ? { discard: picked } : verb === 'tap' ? { tap: picked } : verb === 'exileFromGraveyard' ? { exileFromGraveyard: picked } : verb === 'returnToHand' ? { returnToHand: picked } : { exileFromHand: picked };
+        return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.kicker ? { kicked: 1 } : {}), alternative: true, ...altPicks };
+      }
       return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
@@ -958,6 +973,8 @@ interface Run {
   readonly reducedCasts: number;
   /** D406 - casts that paid an additional cost (a chooser verb's picks, a life payment, or the mana alternative). */
   readonly additionalCostCasts: number;
+  /** D408 - casts that elected an alternative cost (the stack object's `alternativePaid`). */
+  readonly alternativeCasts: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1261,6 +1278,7 @@ function runOne(seed: number): Run {
     kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
     additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
+    alternativeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1424,6 +1442,7 @@ const TOTAL_KEYS = [
   'kickedEntries',
   'reducedCasts',
   'additionalCostCasts',
+  'alternativeCasts',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1700,6 +1719,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D407 - the linked exile made at gate size; the RETURN is counted, no floor: six exiles and one return
         // over 60 seeds (a Warden must die or a Light be removed), too thin for a rate (D398's rule).
         expect(totals.linkedExiles).toBeGreaterThan(0);
+        // D408 - Daze cast for its alternative at gate size.
+        expect(totals.alternativeCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1780,6 +1801,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.convokedCasts} convoked / ${totals.improvisedCasts} improvised / ${totals.delvedCasts} delved casts · ` +
           `${totals.additionalCostCasts} casts paying an additional cost · ` +
           `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
+          `${totals.alternativeCasts} casts for an alternative cost · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

@@ -83,6 +83,14 @@ export type Intent =
       readonly tap?: readonly InstanceId[];
       readonly exileFromGraveyard?: readonly InstanceId[];
       readonly returnToHand?: readonly InstanceId[];
+      /**
+       * D408 - THE ALTERNATIVE COST elected (`You may <cost> rather than pay this spell's mana cost.`):
+       * the mana cost replaced by what the face's `alternativeCost` names - its mana, its life, its
+       * chooser verb's picks on the fields above, or its pitch (`exileFromHand`: so many hand cards of
+       * the printed colour, never the spell itself), under its condition.
+       */
+      readonly alternative?: true;
+      readonly exileFromHand?: readonly InstanceId[];
     }
   /**
    * D309 - THE MORPH SEAM: turning a face-down permanent you control face up

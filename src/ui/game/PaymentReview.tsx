@@ -6,6 +6,7 @@ import { ManaCost } from '../card/ManaCost';
 import { handOffDropOrigin } from './useEngineTable';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, PANEL } from './styles';
 import { NO_ALT, altCount } from '../../engine/altPayment';
+import { electAlternative } from './aimCommit';
 
 // "Here is what I am about to tap. Cast, or let me do it myself."
 //
@@ -23,7 +24,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true) : null),
     [mode],
   );
 
@@ -57,6 +58,9 @@ export function PaymentReview() {
       ...(preview.costPicks.tap ? { tap: preview.costPicks.tap } : {}),
       ...(preview.costPicks.exileFromGraveyard ? { exileFromGraveyard: preview.costPicks.exileFromGraveyard } : {}),
       ...(preview.costPicks.returnToHand ? { returnToHand: preview.costPicks.returnToHand } : {}),
+      // D408 - the alternative cost elected in the review, with its pitch.
+      ...(preview.alternative ? { alternative: true as const } : {}),
+      ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       ...(preview.plan ? { plan: preview.plan } : {}),
       // ⚠️ ALWAYS sent, even when empty, and the difference is load-bearing: an
       // OMITTED `targets` tells the engine "stop and ask me", while an empty
@@ -132,6 +136,27 @@ export function PaymentReview() {
         </div>
       )}
 
+      {preview.alternativeCost && (
+        <div className="mt-2 flex items-center gap-2" data-payment-alternative="">
+          <span className="text-xs text-crt-dim">
+            {preview.alternative ? `Paying: ${preview.alternativeCost.text}` : preview.alternativeCost.available ? `Or: ${preview.alternativeCost.text}` : `Alternative (not now): ${preview.alternativeCost.text}`}
+          </span>
+          {(preview.alternative || preview.alternativeCost.available) && (
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-payment="set-alternative"
+              onClick={() =>
+                preview.alternative
+                  ? setMode({ ...mode, alternative: false, costPicks: {} })
+                  : electAlternative(mode.card, mode.faceIndex, preview.name, mode.targets, { verb: preview.alternativeCost?.pickVerb ?? null, count: preview.alternativeCost?.pickCount ?? 0 })
+              }
+            >
+              {preview.alternative ? 'Mana cost' : 'Pay this instead'}
+            </button>
+          )}
+        </div>
+      )}
       {preview.additionalCost && (
         <p className="mt-2 text-xs text-crt-dim" data-payment-additional="">
           {preview.orPaid ? `Additional cost: pay ${preview.additionalCost.orPay ?? ''} (instead of ${preview.additionalCost.text})` : `Additional cost: ${preview.additionalCost.text}`}

@@ -908,3 +908,92 @@ export function parseAdditionalCost(oracleText: string, parseCost: (raw: string,
   }
   return null;
 }
+
+/**
+ * D408 - THE ALTERNATIVE COST AT CAST (CR 118.9): `You may <cost> rather than pay this spell's mana
+ * cost.` - the mana cost REPLACED by what the sentence names, read by the same cost grammar as the
+ * additional cost (D406): a mana payment (`pay {M}`), a life payment, one chooser verb (a sacrifice, a
+ * discard, a tap, an exile from the graveyard, a return to hand), or the pitch (`exile a blue card
+ * from your hand`), joined by `and`; a leading condition the activation grammar reads (`If you
+ * control a Plains`, `If it's not your turn`, the turn record's questions) gates the election.
+ * Anything else - a life gain for others, a reveal, a permission - leaves the line unread (D90).
+ */
+export interface AlternativeCost {
+  readonly line: string;
+  readonly costText: string;
+  readonly mana: ManaCost | null;
+  readonly lifeCost: number;
+  readonly sacrificeCost: ActivatedAbility['sacrificeCost'];
+  readonly discardCost: ActivatedAbility['discardCost'];
+  readonly tapCost: ActivatedAbility['tapCost'];
+  readonly exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'];
+  readonly returnCost: ActivatedAbility['returnCost'];
+  /** `exile a blue card from your hand`: so many hand cards of one of these colours (any colour when empty). */
+  readonly exileFromHand: { readonly count: number; readonly colors: readonly string[] } | null;
+  /** The conditions the election needs, in the activation grammar's terms (empty: none). */
+  readonly conditions: readonly ActivationCondition[];
+}
+
+export const ALTERNATIVE_COST_LINE = /rather than pay (?:this spell's|its) mana cost\.$/;
+
+export function parseAlternativeCost(oracleText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): AlternativeCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (!ALTERNATIVE_COST_LINE.test(line)) continue;
+    // An ability word (`Raid — `) is print; a condition leads with `If ...,`.
+    const body = line.replace(/^[A-Z][a-z]+ [\u2014-] /, '');
+    const m = /^(?:(If [^,]+), )?(?:you|You) may (.+?) rather than pay (?:this spell's|its) mana cost\.$/.exec(body);
+    if (!m) return null;
+    const conditions: ActivationCondition[] = [];
+    if (m[1] !== undefined) {
+      const read = parseActivationConditions(`Activate only ${m[1].charAt(0).toLowerCase() + m[1].slice(1)}.`, selfName);
+      if (read.unread !== null || read.sorceryOnly || read.oncePerTurn || read.conditions.length === 0) return null;
+      conditions.push(...read.conditions);
+    }
+    const costText = (m[2] ?? '').trim();
+    let mana: ManaCost | null = null;
+    let lifeCost = 0;
+    let exileFromHand: AlternativeCost['exileFromHand'] = null;
+    let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
+    let discardCost: ActivatedAbility['discardCost'] = null;
+    let tapCost: ActivatedAbility['tapCost'] = null;
+    let exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'] = null;
+    let returnCost: ActivatedAbility['returnCost'] = null;
+    let verbs = 0;
+    for (const piece0 of costText.split(/ and (?=pay |exile |sacrifice |discard |tap |return )/)) {
+      const piece = piece0.trim();
+      let mm: RegExpExecArray | null;
+      if ((mm = /^pay ((?:\{[^}]+\})+)$/.exec(piece))) {
+        if (mana !== null) return null;
+        mana = parseCost(mm[1] ?? '');
+        if (mana === null) return null;
+        continue;
+      }
+      if ((mm = /^pay (\d+) life$/.exec(piece))) { lifeCost += Number(mm[1]); continue; }
+      if ((mm = /^exile (a|an|two|three|\d+) (?:(white|blue|black|red|green) )?cards? from your hand$/.exec(piece))) {
+        if (exileFromHand !== null) return null;
+        const n = mm[1] === 'a' || mm[1] === 'an' ? 1 : mm[1] === 'two' ? 2 : mm[1] === 'three' ? 3 : Number(mm[1]);
+        const c = mm[2] ? [{ white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' }[mm[2]] as string] : [];
+        exileFromHand = { count: n, colors: c };
+        verbs++;
+        continue;
+      }
+      const capital = piece.charAt(0).toUpperCase() + piece.slice(1);
+      const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
+      const a = parsed[0];
+      if (!a || parsed.length !== 1 || !a.payable || a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
+      if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCost > 0 || a.discardCost?.atRandom || (a.tapCost && a.tapCost.powerAtLeast !== undefined)) return null;
+      if (a.sacrificeCost) sacrificeCost = a.sacrificeCost;
+      else if (a.discardCost) discardCost = a.discardCost;
+      else if (a.tapCost) tapCost = a.tapCost;
+      else if (a.exileFromGraveyardCost) exileFromGraveyardCost = a.exileFromGraveyardCost;
+      else if (a.returnCost) returnCost = a.returnCost;
+      else return null;
+      verbs++;
+    }
+    // At most one chooser verb (the picks ride one set of fields); something must be paid.
+    if (verbs > 1 || (verbs === 0 && mana === null && lifeCost === 0)) return null;
+    return { line, costText, mana, lifeCost, sacrificeCost, discardCost, tapCost, exileFromGraveyardCost, returnCost, exileFromHand, conditions };
+  }
+  return null;
+}

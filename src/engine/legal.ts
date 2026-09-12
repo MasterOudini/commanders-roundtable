@@ -65,6 +65,17 @@ export type LegalAction =
       readonly exileFromGraveyardCount?: number;
       readonly returnCandidates?: readonly InstanceId[];
       readonly returnCount?: number;
+      /**
+       * D408 - the face prints an alternative cost the engine charges (`CastSpell.alternative`): its
+       * text; whether it can be elected now (its conditions hold, its verb or pitch has candidates);
+       * whether its mana and life are affordable; the one pick it needs, with the candidates.
+       */
+      readonly alternativeCostText?: string;
+      readonly alternativeAvailable?: boolean;
+      readonly alternativeAffordable?: boolean;
+      readonly altPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'exileFromHand';
+      readonly altPickCandidates?: readonly InstanceId[];
+      readonly altPickCount?: number;
     }
   | {
       readonly t: 'TapForMana';
@@ -875,6 +886,7 @@ function castAction(
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
+    ...alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax),
   };
 }
 
@@ -883,12 +895,53 @@ function castAction(
  * and whether they reach the count. The card being cast is never a candidate (a spell in hand cannot
  * pay its own discard). Read by the offer and by the host's validation alike (D139: one list).
  */
+/**
+ * D408 - the alternative cost's offer fields: elected by the player, so it rides beside the mana cost.
+ * The pick verb is read off the candidate fields the shared function returns (one verb at most).
+ */
+function alternativeOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace, tax: number): Record<string, unknown> {
+  const altc = face.alternativeCost;
+  if (!altc) return {};
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const holds = altc.conditions.length === 0 || activationConditionsHold(state, oracle, scripts, caster, id, altc.conditions, ctx.cache);
+  const verb = castCostCandidates(state, deriveOf, caster, id, altc);
+  const pitch = altc.exileFromHand ? exileFromHandCandidates(state, oracle, caster, id, altc.exileFromHand) : null;
+  const available = holds && verb.enough && (pitch === null || pitch.length >= (altc.exileFromHand?.count ?? 0));
+  const problem = buildPaymentProblem(altc.mana, 0, [], tax, altc.lifeCost);
+  const key = Object.keys(verb.fields).find((k) => k.endsWith('Candidates'));
+  const pickVerb = pitch !== null ? 'exileFromHand' : key === 'sacrificeCandidates' ? 'sacrifice' : key === 'discardCandidates' ? 'discard' : key === 'tapCandidates' ? 'tap' : key === 'exileFromGraveyardCandidates' ? 'exileFromGraveyard' : key === 'returnCandidates' ? 'returnToHand' : null;
+  const countKey = key === 'sacrificeCandidates' ? 'sacrificeCount' : key === 'discardCandidates' ? 'discardCount' : key === 'tapCandidates' ? 'tapCount' : key === 'exileFromGraveyardCandidates' ? 'exileFromGraveyardCount' : 'returnCount';
+  return {
+    alternativeCostText: altc.costText,
+    alternativeAvailable: available,
+    alternativeAffordable: available && affordable(ctx.solve, problem, spellPurpose(face, false)),
+    ...(pickVerb !== null ? { altPickVerb: pickVerb, altPickCandidates: pitch ?? (verb.fields[key as string] as readonly InstanceId[]), altPickCount: pitch !== null ? (altc.exileFromHand?.count ?? 0) : (verb.fields[countKey] as number) } : {}),
+  };
+}
+
+/** D408 - the hand cards a pitch may exile: of the printed colour (any card when none is printed), never the spell itself. */
+export function exileFromHandCandidates(state: GameState, oracle: OracleDb, player: PlayerId, selfId: InstanceId, pitch: { readonly count: number; readonly colors: readonly string[] }): readonly InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.hand[player] ?? []) {
+    if (id === selfId) continue;
+    const inst = state.cards[id];
+    const printing = inst ? oracle.byPrinting(inst.printingId) : undefined;
+    if (!inst || !printing) continue;
+    const colors = faceOf(printing, inst.faceIndex).colors as readonly string[];
+    if (pitch.colors.length === 0 || pitch.colors.some((c) => colors.includes(c))) out.push(id);
+  }
+  return out;
+}
+
+/** D406 / D408 - the chooser verbs an additional or an alternative cost may carry (one at most). */
+export type CostVerbs = Pick<NonNullable<OracleFace['additionalCost']>, 'sacrificeCost' | 'discardCost' | 'tapCost' | 'exileFromGraveyardCost' | 'returnCost'>;
+
 export function castCostCandidates(
   state: GameState,
   deriveOf: (id: InstanceId) => PredicateChars,
   player: PlayerId,
   selfId: InstanceId,
-  add: NonNullable<OracleFace['additionalCost']>,
+  add: CostVerbs,
 ): { readonly fields: Record<string, readonly InstanceId[] | number>; readonly enough: boolean } {
   if (add.sacrificeCost) {
     const c = sacrificeCandidatesFor(state, deriveOf, player, selfId, add.sacrificeCost);

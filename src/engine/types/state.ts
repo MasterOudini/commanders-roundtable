@@ -342,6 +342,8 @@ export interface StackObject {
    * the face prints no such cost. The record for the log and the gate.
    */
   readonly additionalPaid?: number;
+  /** D408 - the spell was cast for its ALTERNATIVE cost (the mana cost replaced). */
+  readonly alternativePaid?: true;
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -476,6 +478,9 @@ export interface PendingCast {
   readonly kicked?: number;
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
   readonly orPaid?: true;
+  /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */
+  readonly alternative?: true;
+  readonly exileFromHand?: readonly InstanceId[];
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
   readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */

@@ -204410,6 +204410,206 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FIREBLAST": {
+    "scryfallId": "14d6bfda-c066-4cc0-b317-3d8c7c168546",
+    "oracleId": "9dd7f27a-e862-47d7-9158-034cf4d353b8",
+    "name": "Fireblast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fireblast",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "You may sacrifice two Mountains rather than pay this spell's mana cost.\nFireblast deals 4 damage to any target.",
+        "flavorText": "Embermages aren't well known for their diplomatic skills.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michael Danza",
+        "imageId": "14d6bfda-c066-4cc0-b317-3d8c7c168546"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pd2",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAZE": {
+    "scryfallId": "0a86c10e-95e0-4efd-a6d9-0ecfc0c318c2",
+    "oracleId": "70486bee-6ee7-41ea-b834-8caf4699302b",
+    "name": "Daze",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daze",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "You may return an Island you control to its owner's hand rather than pay this spell's mana cost.\nCounter target spell unless its controller pays {1}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "0a86c10e-95e0-4efd-a6d9-0ecfc0c318c2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wc00",
+    "collectorNumber": "tvdl30sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCE_OF_WILL": {
+    "scryfallId": "026983a4-03ca-4812-b129-5ea523596942",
+    "oracleId": "956381ba-6d37-4a8a-846c-bad79222dbee",
+    "name": "Force of Will",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Force of Will",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "You may pay 1 life and exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target spell.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "026983a4-03ca-4812-b129-5ea523596942"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mp2",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTVEIN_BORDERPOST": {
+    "scryfallId": "5d0588a8-6039-42d6-98ee-8fea16f63e88",
+    "oracleId": "1499af11-274f-4f8d-b0b6-20e1693ebab7",
+    "name": "Mistvein Borderpost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mistvein Borderpost",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Artifact",
+        "oracleText": "You may pay {1} and return a basic land you control to its owner's hand rather than pay this spell's mana cost.\nThis artifact enters tapped.\n{T}: Add {U} or {B}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "5d0588a8-6039-42d6-98ee-8fea16f63e88"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "arc",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_RALLY": {
+    "scryfallId": "444359e1-5d95-453f-beee-119b048dbcfa",
+    "oracleId": "2731c237-eda1-4b74-a294-502d574f4435",
+    "name": "Ramosian Rally",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Rally",
+        "manaCost": "{3}{W}",
+        "typeLine": "Instant",
+        "oracleText": "If you control a Plains, you may tap an untapped creature you control rather than pay this spell's mana cost.\nCreatures you control get +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "444359e1-5d95-453f-beee-119b048dbcfa"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MMQ-38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNUFF_OUT": {
+    "scryfallId": "18a3cca1-e50e-49b6-9e1a-f86640e3b177",
+    "oracleId": "324824cb-f938-401c-b9b5-d8908b431ef0",
+    "name": "Snuff Out",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snuff Out",
+        "manaCost": "{3}{B}",
+        "typeLine": "Instant",
+        "oracleText": "If you control a Swamp, you may pay 4 life rather than pay this spell's mana cost.\nDestroy target nonblack creature. It can't be regenerated.",
+        "flavorText": "Squee watched his Kyren cousins fall with a mixture of sympathy and relief.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "18a3cca1-e50e-49b6-9e1a-f86640e3b177"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -212206,6 +212406,76 @@
     ],
     "setCode": "war",
     "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCE_OF_VIRTUE": {
+    "scryfallId": "9736d6f4-5ff6-4006-b45d-8e630382d160",
+    "oracleId": "4262893c-8cbe-4854-9762-b3b6b75c0e35",
+    "name": "Force of Virtue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Force of Virtue",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "If it's not your turn, you may exile a white card from your hand rather than pay this spell's mana cost.\nFlash\nCreatures you control get +1/+1.",
+        "flavorText": "\"Where divinity leads, victory follows.\"\n—Silverblade motto",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "9736d6f4-5ff6-4006-b45d-8e630382d160"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LASHKNIFE": {
+    "scryfallId": "fd7451cc-4126-4518-a103-2558fa81323f",
+    "oracleId": "98d790c0-985f-44a4-b247-0951beea7637",
+    "name": "Lashknife",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lashknife",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "If you control a Plains, you may tap an untapped creature you control rather than pay this spell's mana cost.\nEnchant creature\nEnchanted creature has first strike.",
+        "flavorText": "Those it won't scare, it scars.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Hannibal King",
+        "imageId": "fd7451cc-4126-4518-a103-2558fa81323f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "9",
     "commanderLegality": "legal",
     "singleImage": true
   },

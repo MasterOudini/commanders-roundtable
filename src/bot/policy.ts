@@ -25,6 +25,23 @@ import type { CostPicks } from '../net/client';
  * when the offer carries a verb its candidates cannot pay (the `or pay {M}` alternative then stands
  * in) or no verb at all.
  */
+/** D408 - the picks an alternative cost takes, off the offer's own `altPickCandidates`; `{}` when it needs none, null when they fall short. */
+function altPicksFor(cast: Extract<LegalAction, { t: 'CastSpell' }>, view: PlayerView): CostPicks | null {
+  if (cast.altPickVerb === undefined) return {};
+  const cands = cast.altPickCandidates ?? [];
+  const n = cast.altPickCount ?? 0;
+  if (cands.length < n) return null;
+  if (cast.altPickVerb === 'sacrifice') {
+    const ranked = [...cands].sort((a, b) => {
+      const ca = view.cards[a], cb = view.cards[b];
+      return (ca && cb ? (ca.isToken === cb.isToken ? 0 : ca.isToken ? -1 : 1) : 0) || ((ca ? creatureValue(ca) : 0) - (cb ? creatureValue(cb) : 0));
+    });
+    return { sacrifice: ranked.slice(0, n) };
+  }
+  const picked = cands.slice(0, n);
+  return cast.altPickVerb === 'discard' ? { discard: picked } : cast.altPickVerb === 'tap' ? { tap: picked } : cast.altPickVerb === 'exileFromGraveyard' ? { exileFromGraveyard: picked } : cast.altPickVerb === 'returnToHand' ? { returnToHand: picked } : { exileFromHand: picked };
+}
+
 function castPicksFor(cast: Extract<LegalAction, { t: 'CastSpell' }>, view: PlayerView): CostPicks | null {
   const first = (ids: readonly string[] | undefined, n: number | undefined): readonly string[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
   if (cast.sacrificeCandidates && cast.sacrificeCount !== undefined) {
@@ -215,7 +232,11 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
     // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
     // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
     const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, 0, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
-    const preview = plain?.plan ? plain : withAlt?.plan ? withAlt : null;
+    // D408 - the ALTERNATIVE cost is the last fallback: its picks off the offer's own candidates (a token before
+    // a body for a sacrifice, the first candidates otherwise), elected only when the mana cost has no plan.
+    const altPicks = cast.alternativeAvailable ? altPicksFor(cast, view) : null;
+    const withAlternative = !plain?.plan && !withAlt?.plan && altPicks !== null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, altPicks, true) : null;
+    const preview = plain?.plan ? plain : withAlt?.plan ? withAlt : withAlternative?.plan ? withAlternative : null;
     if (!preview?.plan) continue;
     return act(
       {
@@ -234,6 +255,8 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.costPicks.tap ? { tap: preview.costPicks.tap } : {}),
         ...(preview.costPicks.exileFromGraveyard ? { exileFromGraveyard: preview.costPicks.exileFromGraveyard } : {}),
         ...(preview.costPicks.returnToHand ? { returnToHand: preview.costPicks.returnToHand } : {}),
+        ...(preview.alternative ? { alternative: true as const } : {}),
+        ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       },
       `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );

@@ -42,7 +42,7 @@ import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
-import { ADDITIONAL_COST_LINE, parseAdditionalCost } from './activatedParse';
+import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -1734,6 +1734,8 @@ export function parseEffects(
     // D406 - an additional cost the engine CHARGES at cast is no clause of the spell either; one the
     // grammar cannot read stays, and keeps the face from resolving without its price (D90).
     .filter((l) => !(ADDITIONAL_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) && parseAdditionalCost(l, parseManaCost, cardName) !== null))
+    // D408 - an alternative cost the engine charges is no clause of the spell either (unread, it stays).
+    .filter((l) => !(ALTERNATIVE_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) && parseAlternativeCost(l, parseManaCost, cardName) !== null))
     .join('\n');
   const clean = scrub(selfRef(priced, cardName))
     .split('\n')

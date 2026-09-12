@@ -110,6 +110,9 @@ export interface CastPreview {
   readonly additionalCost: { readonly text: string; readonly orPay: string | null } | null;
   readonly costPicks: CostPicks;
   readonly orPaid: boolean;
+  /** D408 - the alternative cost the face prints, as the offer carries it, and whether this preview priced it. */
+  readonly alternativeCost: { readonly text: string; readonly available: boolean; readonly pickVerb: string | null; readonly pickCount: number; readonly candidates: readonly InstanceId[] } | null;
+  readonly alternative: boolean;
 }
 
 /** D406 - the picks a cast names for its additional cost's chooser verb (the intent's own fields). */
@@ -119,6 +122,8 @@ export interface CostPicks {
   readonly tap?: readonly InstanceId[];
   readonly exileFromGraveyard?: readonly InstanceId[];
   readonly returnToHand?: readonly InstanceId[];
+  /** D408 - the pitch of an alternative cost (hand cards to exile). */
+  readonly exileFromHand?: readonly InstanceId[];
 }
 export const NO_PICKS: CostPicks = {};
 const picksCount = (p: CostPicks): number => (p.sacrifice?.length ?? 0) + (p.discard?.length ?? 0) + (p.tap?.length ?? 0) + (p.exileFromGraveyard?.length ?? 0) + (p.returnToHand?.length ?? 0);
@@ -461,7 +466,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -482,10 +487,13 @@ export class ClientSession {
     // D406 - the additional cost: the life rides the problem; with no pick named and `or pay {M}` printed,
     // the mana stands in (the host prices the same way, D53).
     const add = face.additionalCost;
-    const orPaid = add !== null && add.orPay !== null && picksCount(costPicks) === 0;
+    // D408 - the alternative cost elected: its mana replaces the mana cost, its life rides the problem, its
+    // picks pay its verb (an additional cost with a verb never prints beside one).
+    const altc = alternative ? face.alternativeCost : null;
+    const orPaid = altc === null && add !== null && add.orPay !== null && picksCount(costPicks) === 0;
     const addMana = orPaid && add?.orPay ? [add.orPay] : [];
-    const addLife = add && !orPaid ? add.lifeCost : 0;
-    const base = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana, ...addMana], action.tax, ward.life + addLife);
+    const addLife = (add && !orPaid ? add.lifeCost : 0) + (altc ? altc.lifeCost : 0);
+    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...addMana], action.tax, ward.life + addLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
@@ -519,6 +527,8 @@ export class ClientSession {
       additionalCost: add ? { text: add.costText, orPay: add.orPay?.raw ?? null } : null,
       costPicks,
       orPaid,
+      alternativeCost: action.alternativeCostText !== undefined ? { text: action.alternativeCostText, available: action.alternativeAvailable === true, pickVerb: action.altPickVerb ?? null, pickCount: action.altPickCount ?? 0, candidates: action.altPickCandidates ?? [] } : null,
+      alternative: altc !== null,
     };
   }
 

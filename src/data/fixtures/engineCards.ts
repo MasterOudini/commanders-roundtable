@@ -6069,6 +6069,12 @@ export const EATEN_ALIVE: CardData = F.EATEN_ALIVE as CardData;
 export const WITHERING_BOON: CardData = F.WITHERING_BOON as CardData;
 export const VILLAGE_RITES: CardData = F.VILLAGE_RITES as CardData;
 export const DEPRIVE: CardData = F.DEPRIVE as CardData;
+export const FIREBLAST: CardData = F.FIREBLAST as CardData;
+export const DAZE: CardData = F.DAZE as CardData;
+export const FORCE_OF_WILL: CardData = F.FORCE_OF_WILL as CardData;
+export const MISTVEIN_BORDERPOST: CardData = F.MISTVEIN_BORDERPOST as CardData;
+export const RAMOSIAN_RALLY: CardData = F.RAMOSIAN_RALLY as CardData;
+export const SNUFF_OUT: CardData = F.SNUFF_OUT as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6296,6 +6302,8 @@ export const VAULT_GUARDSMAN: CardData = F.VAULT_GUARDSMAN as CardData;
 export const WEB_UP: CardData = F.WEB_UP as CardData;
 export const WHITE_AURACITE: CardData = F.WHITE_AURACITE as CardData;
 export const PRISON_REALM: CardData = F.PRISON_REALM as CardData;
+export const FORCE_OF_VIRTUE: CardData = F.FORCE_OF_VIRTUE as CardData;
+export const LASHKNIFE: CardData = F.LASHKNIFE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12500,6 +12508,12 @@ export const ENGINE_CARDS: CardData[] = [
   WITHERING_BOON,
   VILLAGE_RITES,
   DEPRIVE,
+  FIREBLAST,
+  DAZE,
+  FORCE_OF_WILL,
+  MISTVEIN_BORDERPOST,
+  RAMOSIAN_RALLY,
+  SNUFF_OUT,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12727,6 +12741,8 @@ export const ENGINE_CARDS: CardData[] = [
   WEB_UP,
   WHITE_AURACITE,
   PRISON_REALM,
+  FORCE_OF_VIRTUE,
+  LASHKNIFE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

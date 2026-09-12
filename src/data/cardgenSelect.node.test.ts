@@ -1255,7 +1255,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // phase cannot end while the stack is non-empty (CR 500.2), so the resolve
   // simply reads the phase it is in.
   ['Abeyance', 'cast restriction effect'],
-  ['Abolish', 'cast-time alternative cost'],
   ['Absorb Vis', 'cycling mechanic'],
   ['Ancestral Vision', 'suspend mechanic'],
   ['Apex of Power', 'play-from-exile permission'],
@@ -1282,7 +1281,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bonfire of the Damned', 'miracle mechanic'],
   ['Brainspoil', 'transmute mechanic'],
   ['Cat Collector', 'once-per-turn trigger memory'],
-  ['Cave-In', 'cast-time alternative cost'],
   ['Cerulean Wisps', 'UEOT color change'],
   ['Channeled Dragonfire', 'harmonize mechanic'],
   ['Chivalric Alliance', 'discard-cost chooser'],
@@ -1338,7 +1336,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flamewright', 'keyword-predicate sacrifice cost'],
   ['Foil', 'cast-time alternative cost'],
   ['Force of Vigor', 'cast-time alternative cost'],
-  ['Force of Will', 'cast-time alternative cost'],
   ['Fowl Strike', 'hand-activated ability'],
   ['Garbage Fire', 'draft-matters'],
   ['Ghost-Lit Nourisher', 'hand-activated ability'],
@@ -1357,7 +1354,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // negated-type sacrifice predicate; Inaction Injunction DETAINS (Lyev
   // Decree's class). Icy Blast taps X targets (cast-time computed count).
   ['Guerrilla Tactics', 'discard-event discriminator'],
-  ['Gush', 'cast-time alternative cost'],
   ['Hanged Executioner', 'exile-self cost'],
   ['Heroes Remembered', 'suspend mechanic'],
   ["Historian's Boon", 'saga chapter trigger'],
@@ -1456,7 +1452,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rift Bolt', 'suspend mechanic'],
   ["Rishkar's Expertise", 'free-cast permission'],
   ["Roilmage's Trick", 'converge (cast-time mana-color memory)'],
-  ['Rouse', 'cast-time alternative cost'],
   ['Sadistic Slash', 'mayhem mechanic'],
   ["Saruman's Trickery", 'amass mechanic'],
   ['Scrollshift', 'up-to-N targeting'],
@@ -1476,7 +1471,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Silver Scrutiny', 'cast-permission condition'],
   ['Skyscribing', 'hand-activated ability'],
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
-  ['Snapback', 'cast-time alternative cost'],
   ['Soul Spike', 'cast-time alternative cost'],
   ['SP//dr, Piloted by Peni', 'modified predicate'],
   ['Spiritualize', 'temporary game-wide trigger'],
@@ -1495,13 +1489,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Twitch and Tidal Bore let the caster CHOOSE tap or untap at
   // resolution (script-raised prompt); Tidal Bore is refused for its
   // alternative cost first.
-  ['Sunscour', 'cast-time alternative cost'],
   ['Surgical Suite // Hospital Room', 'room mechanic'],
   ['Swarming of Moria', 'amass mechanic'],
   ['Sylvan Bounty', 'cycling mechanic'],
   ['Teysa, Orzhov Scion', 'multi-sacrifice cost'],
   ['Thunderblade Charge', 'free-cast permission'],
-  ['Thwart', 'cast-time alternative cost'],
   ['Tidal Bore', 'cast-time alternative cost'],
   ['Traumatic Visions', 'cycling mechanic'],
   ['Treason of Isengard', 'amass mechanic'],
@@ -1601,7 +1593,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // permanent entered; Lunatic Pandora sacrifices itself BY NAME; Unwind
   // untaps "up to three lands" of the caster's choosing.
   ['Fierce Guardianship', 'cast-time alternative cost'],
-  ['Snuff Out', 'cast-time alternative cost'],
   ['Spinning Darkness', 'cast-time alternative cost'],
   ["Alchemist's Retrieval", 'cast-time alternative cost'],
   ['Swift Reckoning', 'cast-time alternative cost'],
@@ -1702,7 +1693,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flawless Maneuver', 'alternative cost'],
   ['Hardened Academic', 'trigger head outside the library'],
   ['Invasion Tactics', 'trigger head outside the library'],
-  ['Ramosian Rally', 'alternative cost'],
   ['Saradoc, Master of Buckland', 'trigger head outside the library'],
   ['Steeling Stance', 'forecast (hand-activated ability)'],
   ['Swell of Courage', 'reinforce (hand-activated ability)'],
@@ -2074,6 +2064,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D407 - the linked exile: the one the selector offered once the until-leaves rider read that the row
   // maker refused, by reason.
   ['Circle of Confinement', 'a filtered head outside the closed reader (whenever a creature with the same name as the exiled card enters - a name the filter does not read) beside its linked exile'],
+  // D408 - the alternative cost at cast: the three the selector offered once the alternative line read whose
+  // spell body the row maker refused, by reason (the alternative itself reads on every one).
+  ['Downhill Charge', 'a spell line outside the vocabulary (+X/+0 where X is the number of Mountains you control - a computed X) beside its alternative cost'],
+  ['Mind Swords', 'a spell line outside the vocabulary (each player exiles two cards from their hand - a per-player hand exile) beside its alternative cost'],
+  ['Needlebite Trap', 'a spell line outside the vocabulary (target player loses 5 life and you gain 5 life - a drain compound) beside its alternative cost'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
@@ -2112,7 +2107,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // generator gaps, not engine ones - and the rest are the payment shapes D369 named as refused:
   // an X price, a computed price, a sentence or a line after the ask (an effect that ASKS must be
   // LAST, D195), a per-item payment, a typed-spell compound clause.
-  ['Daze', 'a cast-time alternative cost'],
   ['Essence Vortex', 'a computed life payment price'],
   ['Concerted Defense', 'a computed payment price (pays N for each ...)'],
   ['Countervailing Winds', 'a computed payment price (pays N for each ...)'],
@@ -2348,7 +2342,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Kitsune Healer', 'a vocabulary clause the suite has no fixture for: target legendary creature'],
   ['Knight-Captain of Eos', 'a prevention shield with no target (the suite must attack to prove it)'],
   ['Leery Fogbeast', 'a prevention shield with no target (the suite must attack to prove it)'],
-  ["Orim's Cure", 'a spell line outside the vocabulary'],
   ['Pearl Shard', 'alternative activation cost'],
   ['Spore Frog', 'a prevention shield with no target (the suite must attack to prove it)'],
   ['Sunstone', 'a prevention shield with no target (the suite must attack to prove it)'],

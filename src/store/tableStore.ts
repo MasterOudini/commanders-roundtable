@@ -88,6 +88,8 @@ export type TableMode =
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */
       readonly costPicks?: CostPicks;
+      /** D408 - the alternative cost elected (its mana replacing the mana cost; `costPicks` then pay its verb or pitch). */
+      readonly alternative?: boolean;
     }
   /**
    * Choosing attackers, before submitting them as one declaration.
@@ -141,8 +143,8 @@ export type TableMode =
       readonly kind: 'sacrifice';
       readonly card: string;
       readonly abilityIndex: number;
-      /** D406 - the pick pays a CAST's additional cost (the card is the spell): the picks then ride the cast, not an activation. */
-      readonly cast?: { readonly faceIndex?: number; readonly label: string };
+      /** D406 - the pick pays a CAST's additional cost (the card is the spell): the picks then ride the cast, not an activation. D408 - `alt`: the ALTERNATIVE cost's pick, made from the review with the targets already chosen. */
+      readonly cast?: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[] };
       /** D367 - a granted ability's ref, when the activation is one (rides the intent). */
       readonly grantRef?: string;
       /** Shown in the prompt: the ability's own label. */
@@ -162,11 +164,11 @@ export type TableMode =
       readonly kind: 'costPick';
       readonly card: string;
       readonly abilityIndex: number;
-      /** D406 - the picks pay a CAST's additional cost (see `sacrifice`). */
-      readonly cast?: { readonly faceIndex?: number; readonly label: string };
+      /** D406 - the picks pay a CAST's additional cost (see `sacrifice`); D408 - or its alternative cost's. */
+      readonly cast?: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[] };
       readonly grantRef?: string;
       readonly name: string;
-      readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'removeCounter';
+      readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'removeCounter' | 'exileFromHand';
       readonly count: number;
       readonly chosen: readonly string[];
     }

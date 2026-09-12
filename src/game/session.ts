@@ -593,13 +593,15 @@ export function previewCast(
   alt: AltChoice | 'auto' = NO_ALT,
   /** D406 - the picks of the additional cost's chooser verb, priced and sent as named. */
   costPicks: CostPicks = NO_PICKS,
+  /** D408 - the alternative cost elected (its mana replaces the mana cost). */
+  alternative = false,
 ): CastPreview | null {
   // ⚠️ `targets` is FORWARDED, and it did not used to be.
   // `ClientSession.previewCast` has computed a ward surcharge from the chosen
   // targets since M5, and this wrapper silently dropped the third argument — so
   // the one cost in this app that depends on what you are pointing at could
   // never reach the player who has to approve it.
-  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks) ?? null;
+  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative) ?? null;
 }
 
 // ── the assisted-effect offer ────────────────────────────────────────────────

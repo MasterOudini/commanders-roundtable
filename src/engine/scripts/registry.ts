@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FORCE_OF_VIRTUE_SCRIPT } from './cards/forceOfVirtue';
+import { LASHKNIFE_SCRIPT } from './cards/lashknife';
 import { METEOR_GOLEM_SCRIPT } from './cards/meteorGolem';
 import { ANNEX_SENTRY_SCRIPT } from './cards/annexSentry';
 import { BANISHER_PRIEST_SCRIPT } from './cards/banisherPriest';
@@ -5849,6 +5851,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FORCE_OF_VIRTUE_SCRIPT,
+  LASHKNIFE_SCRIPT,
   METEOR_GOLEM_SCRIPT,
   ANNEX_SENTRY_SCRIPT,
   BANISHER_PRIEST_SCRIPT,

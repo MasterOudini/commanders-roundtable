@@ -28,6 +28,8 @@ import {
   removeCounterCandidatesFor,
   returnCandidatesFor,
   castCostCandidates,
+  exileFromHandCandidates,
+  type CostVerbs,
 } from './legal';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
@@ -387,6 +389,8 @@ interface CastSetup {
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
   readonly picks: CastPicks;
   readonly orPaid: boolean;
+  /** D408 - the alternative cost was elected: the picks above pay ITS verb and pitch, its mana replaced the mana cost. */
+  readonly alternative: boolean;
 }
 
 /** D406 - the picks a cast names for its additional cost's chooser verb. */
@@ -396,11 +400,13 @@ interface CastPicks {
   readonly tap: readonly InstanceId[];
   readonly exileFromGraveyard: readonly InstanceId[];
   readonly returnToHand: readonly InstanceId[];
+  /** D408 - the pitch of an alternative cost (hand cards to exile). */
+  readonly exileFromHand: readonly InstanceId[];
 }
-const NO_PICKS: CastPicks = { sacrifice: [], discard: [], tap: [], exileFromGraveyard: [], returnToHand: [] };
-const picksCount = (p: CastPicks): number => p.sacrifice.length + p.discard.length + p.tap.length + p.exileFromGraveyard.length + p.returnToHand.length;
-const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly discard?: readonly InstanceId[]; readonly tap?: readonly InstanceId[]; readonly exileFromGraveyard?: readonly InstanceId[]; readonly returnToHand?: readonly InstanceId[] }): CastPicks => ({
-  sacrifice: p.sacrifice ?? [], discard: p.discard ?? [], tap: p.tap ?? [], exileFromGraveyard: p.exileFromGraveyard ?? [], returnToHand: p.returnToHand ?? [],
+const NO_PICKS: CastPicks = { sacrifice: [], discard: [], tap: [], exileFromGraveyard: [], returnToHand: [], exileFromHand: [] };
+const picksCount = (p: CastPicks): number => p.sacrifice.length + p.discard.length + p.tap.length + p.exileFromGraveyard.length + p.returnToHand.length + p.exileFromHand.length;
+const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly discard?: readonly InstanceId[]; readonly tap?: readonly InstanceId[]; readonly exileFromGraveyard?: readonly InstanceId[]; readonly returnToHand?: readonly InstanceId[]; readonly exileFromHand?: readonly InstanceId[] }): CastPicks => ({
+  sacrifice: p.sacrifice ?? [], discard: p.discard ?? [], tap: p.tap ?? [], exileFromGraveyard: p.exileFromGraveyard ?? [], returnToHand: p.returnToHand ?? [], exileFromHand: p.exileFromHand ?? [],
 });
 
 /**
@@ -411,6 +417,12 @@ const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly disca
 function additionalCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, picks: CastPicks): { orPaid: boolean } | { error: HandleResult } {
   const add = face.additionalCost;
   if (!add) return picksCount(picks) > 0 ? { error: reject('notCastable', `${face.name} has no additional cost the app charges.`) } : { orPaid: false };
+  return costPicksProblem(state, deps, player, cardId, face.name, add, picks);
+}
+
+/** D406 / D408 - one validation for the additional cost's verb and the alternative cost's verb (the shape both print). */
+function costPicksProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, faceName: string, add: CostVerbs & { readonly costText: string; readonly orPay?: ManaCost | null }, picks: CastPicks): { orPaid: boolean } | { error: HandleResult } {
+  const face = { name: faceName };
   const cache = makeDeriveCache(state);
   const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), player, cardId, add);
   const VERBS = [
@@ -502,8 +514,44 @@ function additionalCostEvents(state: GameState, deps: EngineDeps, player: Player
     events.push({ t: 'CardsMoved', moves });
     events.push(narrated(n`${who(state, player)} ${vb(player, 'returns', 'return')} ${moves.length} permanent${moves.length === 1 ? '' : 's'} to hand.`, player, identity));
   }
+  // D408 - the pitch: the named hand cards go to exile in the cost batch.
+  if (picks.exileFromHand.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'exile'; player: PlayerId } }[] = [];
+    for (const chosen of picks.exileFromHand) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'hand' || inst.zone.player !== player) return { error: reject('noSuchCard', 'A card chosen to exile is no longer in your hand.') };
+      moves.push({ card: chosen, from: { kind: 'hand', player }, to: { kind: 'exile', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'exiles', 'exile')} ${moves.length} card${moves.length === 1 ? '' : 's'} from hand.`, player, identity));
+  }
   return { events };
 }
+
+/**
+ * D408 - the ALTERNATIVE COST elected (`CastSpell.alternative`): the face must print one the grammar
+ * read, its conditions must hold now (the activation grammar's checker, D342), and its pitch - so many
+ * hand cards of the printed colour, never the spell itself - is checked here; the chooser verb's picks
+ * go through the same validation as the additional cost's (`costPicksProblem`).
+ */
+function alternativeCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, exileFromHand: readonly InstanceId[]): { alt: NonNullable<ReturnType<typeof faceOf>['alternativeCost']> } | { error: HandleResult } {
+  const alt = face.alternativeCost;
+  if (!alt) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
+  if (alt.conditions.length > 0 && !activationConditionsHold(state, deps.oracle, deps.scripts, player, cardId, alt.conditions, makeDeriveCache(state))) {
+    return { error: reject('notCastable', `${face.name}'s alternative cost (${alt.costText}) cannot be paid now.`) };
+  }
+  if (alt.exileFromHand) {
+    const want = alt.exileFromHand.count;
+    if (exileFromHand.length !== want) return { error: reject('needsDiscard', `${face.name}'s alternative cost exiles ${want} card${want === 1 ? '' : 's'} from your hand - say which.`) };
+    if (new Set(exileFromHand).size !== exileFromHand.length) return { error: reject('noSuchCard', 'You named the same card twice.') };
+    const legal = exileFromHandCandidates(state, deps.oracle, player, cardId, alt.exileFromHand);
+    if (!exileFromHand.every((c) => legal.includes(c))) return { error: reject('illegalDiscard', `Those cards cannot pay ${face.name}'s alternative cost (${alt.costText}).`) };
+  } else if (exileFromHand.length > 0) {
+    return { error: reject('notCastable', `${face.name}'s alternative cost is to ${alt.costText}, not that.`) };
+  }
+  return { alt };
+}
+
 
 /**
  * D405 - CONVOKE / IMPROVISE / DELVE: is what the cast names something this face can tap or exile
@@ -683,6 +731,7 @@ function prepareCast(
   kicked = 0,
   alt: AltChoice = NO_ALT,
   picks: CastPicks = NO_PICKS,
+  alternative = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -726,9 +775,16 @@ function prepareCast(
     (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
     (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
   const ward = wardTaxFor(state, deps, player, targets);
+  // D408 - THE ALTERNATIVE COST elected: the mana cost is REPLACED by what the face's line names (its
+  // mana, its life, its verb's picks, its pitch), under its condition; one alternative at a time (CR
+  // 118.9: not beside a flashback or a face-down cast).
+  const altCost = alternative ? alternativeCostProblem(state, deps, player, cardId, face, picks.exileFromHand) : null;
+  if (altCost && 'error' in altCost) return altCost;
+  if (altCost && (faceDown || flashback)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
+  if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
-  const cost = faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
-  if (cost === null) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
+  const cost = altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  if (cost === null && !altCost) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked);
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
@@ -737,15 +793,20 @@ function prepareCast(
   if (altWhy) return { error: reject('notCastable', altWhy) };
   // D406 - the additional cost's picks are checked against the offer's own lists; the life (or the
   // mana alternative) rides the problem, the picks are paid in the cost batch at completion.
-  const addr = additionalCostProblem(state, deps, player, cardId, face, picks);
+  // With the alternative elected the picks pay ITS verb (an additional cost with a verb never prints beside one).
+  const verbPicks: CastPicks = { ...picks, exileFromHand: [] };
+  const addr = altCost ? { orPaid: false } : additionalCostProblem(state, deps, player, cardId, face, verbPicks);
   if ('error' in addr) return addr;
-  const extras = additionalExtras(face, addr.orPaid);
+  const altr = altCost ? costPicksProblem(state, deps, player, cardId, face.name, altCost.alt, verbPicks) : { orPaid: false };
+  if ('error' in altr) return altr;
+  const extras0 = additionalExtras(face, addr.orPaid);
+  const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
   const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -828,6 +889,7 @@ function castSpell(
     intent.kicked ?? 0,
     { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [] },
     picksOf(intent),
+    intent.alternative === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -911,6 +973,8 @@ function castSpell(
       ...(setup.picks.exileFromGraveyard.length > 0 ? { exileFromGraveyard: setup.picks.exileFromGraveyard } : {}),
       ...(setup.picks.returnToHand.length > 0 ? { returnToHand: setup.picks.returnToHand } : {}),
       ...(setup.orPaid ? { orPaid: true as const } : {}),
+      ...(setup.alternative ? { alternative: true as const } : {}),
+      ...(setup.picks.exileFromHand.length > 0 ? { exileFromHand: setup.picks.exileFromHand } : {}),
     };
     return accept([
       {
@@ -1784,6 +1848,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
+    ...(setup.alternative ? { alternativePaid: true as const } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -2205,6 +2270,7 @@ function finishFromPending(
     alt,
     picks,
     orPaid: pending.orPaid === true,
+    alternative: pending.alternative === true,
     identity,
   };
   const events: EventBody[] = [...(opts.lead ?? [])];
@@ -2244,6 +2310,7 @@ function finishFromPending(
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
+    ...(pending.alternative === true ? { alternativePaid: true as const } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {

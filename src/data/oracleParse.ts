@@ -33,7 +33,7 @@ import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseSpellTargets } from './targetParse';
-import { parseActivatedAbilities, parseAdditionalCost } from './activatedParse';
+import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersTapped, parseChoosesColorOnEntry } from './replacementParse';
@@ -1052,6 +1052,10 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const kicked = parseKicker(face.oracleText, warn);
   const altCosts = parseAltCosts(face.oracleText);
   const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
+  // D408 - an alternative cost never beside an additional cost with a chooser verb (one set of pick fields).
+  const alternativeCost0 = parseAlternativeCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
+  const additionalHasVerb = additionalCost !== null && (additionalCost.sacrificeCost !== null || additionalCost.discardCost !== null || additionalCost.tapCost !== null || additionalCost.exileFromGraveyardCost !== null || additionalCost.returnCost !== null);
+  const alternativeCost = alternativeCost0 !== null && !additionalHasVerb ? alternativeCost0 : null;
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const costReductions = parseCostReductions(face.oracleText);
   const grantedReductions = isPermanent ? parseGrantedReductions(face.oracleText) : [];
@@ -1126,6 +1130,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     improvise: altCosts.improvise,
     delve: altCosts.delve,
     additionalCost,
+    alternativeCost,
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,

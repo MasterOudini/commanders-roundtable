@@ -50,6 +50,8 @@ export interface BotPort {
     alt?: AltChoice | 'auto',
     /** D406 - the picks of the additional cost's chooser verb. */
     costPicks?: CostPicks,
+    /** D408 - the alternative cost elected (its mana replaces the mana cost). */
+    alternative?: boolean,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

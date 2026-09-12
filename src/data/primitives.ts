@@ -32,7 +32,7 @@ import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engin
 import { parseManaCost, parseTypeLine } from './oracleParse';
 import { parseEnchant } from './targetParse';
 import { parseCostReductionLine, parseGrantedReductionLine } from './costParse';
-import { parseAdditionalCost } from './activatedParse';
+import { parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -860,6 +860,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D406 - an additional cost the engine CHARGES at cast (a chooser verb or a life payment the activated
   // cost grammar reads) is the engine's own; one the grammar cannot read stays structural below.
   if (/^As an additional cost to cast this spell, /.test(text) && parseAdditionalCost(text, parseManaCost, cardName) !== null) return 'scriptable';
+  // D408 - an alternative cost the engine CHARGES at cast (the mana replaced by what the grammar reads) is the engine's own.
+  if (/rather than pay (?:this spell's|its) mana cost\.$/.test(text) && parseAlternativeCost(text, parseManaCost, cardName) !== null) return 'scriptable';
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';

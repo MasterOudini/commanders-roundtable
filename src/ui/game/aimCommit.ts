@@ -120,7 +120,7 @@ export function onVeilPick(choice: TargetChoice): void {
     useAim.getState().reset();
     // D406 - a CAST's cost pick: the picks ride on to the targets and the payment review.
     if (mode.cast) {
-      continueCast(mode.card, mode.cast, mode.verb === 'discard' ? { discard: chosen } : mode.verb === 'tap' ? { tap: chosen } : mode.verb === 'returnToHand' ? { returnToHand: chosen } : { exileFromGraveyard: chosen });
+      continueCast(mode.card, mode.cast, mode.verb === 'discard' ? { discard: chosen } : mode.verb === 'tap' ? { tap: chosen } : mode.verb === 'returnToHand' ? { returnToHand: chosen } : mode.verb === 'exileFromHand' ? { exileFromHand: chosen } : { exileFromGraveyard: chosen });
       return;
     }
     table.setMode({ kind: 'idle' });
@@ -385,9 +385,35 @@ export function beginCastPicks(card: string, cast: Extract<LegalAction, { t: 'Ca
   return true;
 }
 
-/** D406 - after the picks: the targets (with the picks riding along), or straight to the payment review. */
-function continueCast(card: string, cast: { readonly faceIndex?: number; readonly label: string }, costPicks: CostPicks): void {
+/**
+ * D408 - the review elects the ALTERNATIVE cost: one that needs no pick flips the review's flag; one that
+ * needs a pick (a verb or the pitch) goes through the pick modes marked `cast.alt`, the veil reading the
+ * offer's `altPickCandidates`, and comes back to the review elected with the picks.
+ */
+export function electAlternative(card: string, faceIndex: number | undefined, label: string, targets: readonly TargetChoice[], pick: { readonly verb: string | null; readonly count: number }): void {
   const table = useTable.getState();
+  const castMark = { ...(faceIndex !== undefined ? { faceIndex } : {}), label, alt: true as const, targets };
+  if (pick.verb === null) {
+    table.setMode({ kind: 'payment', card, ...(faceIndex !== undefined ? { faceIndex } : {}), xValue: 0, targets, alternative: true });
+    return;
+  }
+  if (pick.verb === 'sacrifice') {
+    table.setMode({ kind: 'sacrifice', card, abilityIndex: 0, cast: castMark, name: label, count: pick.count, chosen: [] });
+  } else {
+    const verb = pick.verb === 'discard' || pick.verb === 'tap' || pick.verb === 'exileFromGraveyard' || pick.verb === 'returnToHand' || pick.verb === 'exileFromHand' ? pick.verb : 'discard';
+    table.setMode({ kind: 'costPick', card, abilityIndex: 0, cast: castMark, name: label, verb, count: pick.count, chosen: [] });
+  }
+  beginAimFrom(card);
+}
+
+/** D406 - after the picks: the targets (with the picks riding along), or straight to the payment review. */
+function continueCast(card: string, cast: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[] }, costPicks: CostPicks): void {
+  const table = useTable.getState();
+  // D408 - the alternative cost's pick was made FROM the review (the targets already chosen): back to it, elected.
+  if (cast.alt) {
+    table.setMode({ kind: 'payment', card, ...(cast.faceIndex !== undefined ? { faceIndex: cast.faceIndex } : {}), xValue: 0, targets: cast.targets ?? [], costPicks, alternative: true });
+    return;
+  }
   const specs = session.targetSpecsFor(card);
   const max = specs.reduce((n, s) => n + s.max, 0);
   if (specs.length > 0 && max > 0) {

@@ -6729,6 +6729,13 @@ const WANTED = [
   'Withering Boon',
   'Village Rites',
   'Deprive',
+  // D408 - the alternative cost at cast: the seam's proof cards (Daze is the fuzz staple).
+  'Fireblast',
+  'Daze',
+  'Force of Will',
+  'Mistvein Borderpost',
+  'Ramosian Rally',
+  'Snuff Out',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6974,6 +6981,10 @@ const WANTED = [
   'White Auracite',
   'Prison Realm',
   // D407 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D408 - the alternative cost at cast (CR 118.9): the rows the selector offered once the alternative line read, and their kin.
+  'Force of Virtue',
+  'Lashknife',
+  // D408 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

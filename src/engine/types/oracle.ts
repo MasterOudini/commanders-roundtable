@@ -1389,6 +1389,13 @@ export interface OracleFace {
    */
   readonly additionalCost: import('../../data/activatedParse').AdditionalCost | null;
   /**
+   * D408 - THE ALTERNATIVE COST AT CAST (`You may <cost> rather than pay this spell's mana cost.`):
+   * the mana cost REPLACED by a mana payment, a life payment, one chooser verb or the pitch, under a
+   * condition the activation grammar reads; elected by `CastSpell.alternative`. Null when the face
+   * prints none, one the grammar cannot read, or one beside an additional cost with a chooser verb.
+   */
+  readonly alternativeCost: import('../../data/activatedParse').AlternativeCost | null;
+  /**
    * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" as a mana cost (CR
    * 702.37): cast face down as a 2/2 for {3}, turned face up for this. Null
    * when the card has none or prints a dash cost. Permanents only.
