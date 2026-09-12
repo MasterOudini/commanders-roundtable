@@ -100,6 +100,13 @@ export function GameLayer({
       setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // D415 - the verb price: the prompt's own candidates (a public zone), or the viewer's hand for a
+    // discard (hidden - the host shipped none), minus what is already chosen.
+    if (mode.kind === 'payPick') {
+      const pool = mode.candidates ?? view.zones[zoneId('hand', viewer)] ?? [];
+      setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
+      return;
+    }
     // D390 - the queued sacrifice: the viewer's own permanents the printed noun admits, read off
     // the PRINTED face here (the host reads the DERIVED one and validates every pick), minus what
     // is already chosen. An unfiltered prompt offers the whole board.
@@ -201,6 +208,7 @@ export function GameLayer({
           mode.kind === 'sacrifice' ||
           mode.kind === 'costPick' ||
           mode.kind === 'boardPick' ||
+          mode.kind === 'payPick' ||
           mode.kind === 'proliferate'
         }
         legalTargets={targets}

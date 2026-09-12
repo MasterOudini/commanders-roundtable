@@ -217,7 +217,14 @@ export type Intent =
    * solver the host validates with); omitted, the host suggests one - which is what every
    * driver but a person does.
    */
-  | { readonly t: 'AnswerPayMana'; readonly player: PlayerId; readonly pay: boolean; readonly plan?: PaymentPlan }
+  | {
+      readonly t: 'AnswerPayMana';
+      readonly player: PlayerId;
+      readonly pay: boolean;
+      readonly plan?: PaymentPlan;
+      /** D415 - a VERB price's picks (the cards to sacrifice, discard, tap, exile or return); exactly the printed count when paying. */
+      readonly picks?: readonly InstanceId[];
+    }
   /**
    * CR 614.12. `pay: true` pays the life and the permanent stays untapped;
    * `false` leaves it tapped. Names the SOURCE rather than a stack id, because a

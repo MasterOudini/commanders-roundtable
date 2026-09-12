@@ -31,6 +31,7 @@ import type {
   Keyword,
   LookFilter,
   PaySpec,
+  VerbPrice,
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
@@ -42,7 +43,7 @@ import { scrub } from './targetParse';
 import { parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
-import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, cyclingAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
+import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, cyclingAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs } from './activatedParse';
 
 const NOOP_WARN: Warn = () => undefined;
 
@@ -1612,6 +1613,27 @@ function clausesOf(text: string): Clause[] {
 const PAY_COST = String.raw`((?:\{[^}]+\})+|\d+ life|(?:\{[^}]+\})+ and \d+ life)`;
 const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|you) pays? ${PAY_COST}\.$`, 'i');
 const MAY_PAY_RE = new RegExp(String.raw`^you may pay ${PAY_COST}\. if you do, (.+)$`, 'i');
+/**
+ * D415 - THE VERB PRICE. `You may <verb>. If you do, <body>.` and `<body> unless you <verb>.` are the
+ * same prompt with a chooser-verb price - D406's grammar (one sacrifice, discard, tap, exile from the
+ * graveyard or return to hand; a random discard, two verbs and a comma stay unread) or the object's own
+ * sacrifice (`sacrifice it`). Only the CASTER pays a verb price: another player's hand and board are
+ * not this prompt's to pick from, so `unless that player sacrifices ...` stays unread.
+ */
+const VERB_LEAD = String.raw`(?:sacrifice|discard|exile|return|tap)`;
+const MAY_VERB_RE = new RegExp(String.raw`^(?:then )?you may (${VERB_LEAD} .+?)\. if you do, (.+)$`, 'i');
+const UNLESS_VERB_RE = new RegExp(String.raw`^(.+?) unless you (${VERB_LEAD} [^.]+)\.$`, 'i');
+const SELF_PRICE_RE = /^sacrifice (?:it|~|this (?:creature|permanent|artifact|enchantment|land))$/i;
+
+function readVerbPrice(raw: string): VerbPrice | null {
+  const price = raw.trim();
+  if (SELF_PRICE_RE.test(price)) {
+    return { costText: price, sacrificeSelf: true, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: null, returnCost: null };
+  }
+  const read = readCostVerbs(price, parseManaCost);
+  if (!read || read.lifeCost > 0) return null;
+  return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
+}
 const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
@@ -1636,14 +1658,29 @@ function matchPayment(sentence: string): EffectSpec | null {
     const inner = payBody(u[1] ?? '');
     if (!price || !inner) return null;
     const who = /^its controller$/i.test(u[2] ?? '') ? 'targetController' : /^that player$/i.test(u[2] ?? '') ? 'targetPlayer' : 'controller';
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, who, ifPaid: [], ifNotPaid: [inner] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who, ifPaid: [], ifNotPaid: [inner] } };
   }
   const m = sentence.match(MAY_PAY_RE);
   if (m) {
     const price = readPrice(m[1] ?? '');
     const inner = payBody(m[2] ?? '');
     if (!price || !inner) return null;
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+  }
+  // D415 - the verb prices, after the mana forms (`pay` is not a verb lead, so neither shadows the other).
+  const uv = sentence.match(UNLESS_VERB_RE);
+  if (uv) {
+    const verbs = readVerbPrice(uv[2] ?? '');
+    const inner = payBody(uv[1] ?? '');
+    if (!verbs || !inner) return null;
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [inner] } };
+  }
+  const mv = sentence.match(MAY_VERB_RE);
+  if (mv) {
+    const verbs = readVerbPrice(mv[1] ?? '');
+    const inner = payBody(mv[2] ?? '');
+    if (!verbs || !inner) return null;
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, verbs, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   return null;
 }

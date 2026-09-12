@@ -54,6 +54,7 @@ export function pickTarget(choice: TargetChoice): void {
 export function chosenIdsFor(mode: TableMode): ReadonlySet<string> {
   if (mode.kind === 'targeting') return new Set(mode.chosen.map((c) => c.id));
   if (mode.kind === 'proliferate') return new Set(mode.chosen.map((c) => c.id));
+  if (mode.kind === 'payPick') return new Set(mode.chosen);
   if (mode.kind === 'blockers') {
     const ids = mode.blocks.flatMap((b) => [b.blocker, b.attacker]);
     if (mode.pendingBlocker) ids.push(mode.pendingBlocker);
@@ -155,6 +156,21 @@ export function onVeilPick(choice: TargetChoice): void {
     useAim.getState().reset();
     table.setMode({ kind: 'idle' });
     session.submit({ t: 'AnswerChooseFromZone', player: table.viewer, cards: chosen });
+    return;
+  }
+
+  // D415 - the verb price's answer: N picks, then `AnswerPayMana` with them. TIER 1 like the picks
+  // above - the host re-validates every id against the board as it stands.
+  if (mode.kind === 'payPick') {
+    if (choice.kind !== 'card' || mode.chosen.includes(choice.id)) return;
+    const chosen = [...mode.chosen, choice.id];
+    if (chosen.length < mode.count) {
+      table.setMode({ ...mode, chosen });
+      return;
+    }
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    session.submit({ t: 'AnswerPayMana', player: table.viewer, pay: true, picks: chosen });
     return;
   }
 

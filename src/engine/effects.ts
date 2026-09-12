@@ -29,6 +29,7 @@ import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice 
 import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
+import { castCostCandidates } from './legal';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
@@ -483,8 +484,29 @@ export function effectResult(
         if (!payer) break;
         const seat = state.players[payer];
         const problem = buildPaymentProblem(pay.cost, 0, [], 0, pay.life);
+        // D415 - a VERB price is payable while its candidates suffice (D369's rule: an unpayable price is
+        // not a question), read off the same list the answer is checked against (D139). The public ones
+        // ride the prompt; a discard's do not (a hand is hidden, D137 - the answerer reads its own).
+        let verbCandidates: readonly InstanceId[] | null = null;
+        let shipCandidates = false;
+        if (pay.verbs) {
+          const self = obj.source ?? obj.card;
+          if (pay.verbs.sacrificeSelf) {
+            const inst = self === null ? undefined : state.cards[self];
+            verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? [self] : [];
+            shipCandidates = true;
+          } else {
+            const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), payer, self ?? '', pay.verbs);
+            const listed = Object.values(cand.fields).find((v): v is readonly InstanceId[] => Array.isArray(v)) ?? [];
+            verbCandidates = cand.enough ? listed : [];
+            shipCandidates = pay.verbs.discardCost === null;
+          }
+        }
         const can =
-          !!seat && seat.life >= pay.life && (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null);
+          !!seat &&
+          seat.life >= pay.life &&
+          (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null) &&
+          (verbCandidates === null || verbCandidates.length > 0);
         if (!can) {
           out.push(narrated(`${obj.label} - the price cannot be paid.`, obj.controller, obj.identity));
           out.push(...effectResult(state, deps, obj, pay.ifNotPaid, cache).events);
@@ -507,6 +529,8 @@ export function effectResult(
             ...(obj.targetSlots !== undefined ? { targetSlots: obj.targetSlots } : {}),
             ifPaid: pay.ifPaid,
             ifNotPaid: pay.ifNotPaid,
+            ...(pay.verbs ? { verbs: pay.verbs } : {}),
+            ...(pay.verbs && shipCandidates && verbCandidates ? { candidates: verbCandidates } : {}),
           },
         });
         break;

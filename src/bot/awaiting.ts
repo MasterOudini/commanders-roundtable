@@ -289,6 +289,32 @@ export function answerAwaiting(
       const life = view.seats[me]?.life ?? 0;
       const mv = awaiting.cost?.manaValue ?? 0;
       const benefit = awaiting.ifPaid.length > 0;
+      /**
+       * D415 - A VERB PRICE is priced by what it eats, not counted in mana. A card (a discard, an
+       * exile from the graveyard) or a tap is CHEAP and paid - for a benefit and for a tax alike -
+       * with the worst of the hand (`worstFirst`, the mulligan's order) or the prompt's own
+       * candidates; a permanent (a sacrifice, a return, the object itself) is paid only for a TAX
+       * and only when it eats a land the bot has to spare (six or more candidates, all lands): a
+       * permanent for a permanent is no trade, and the tax's creature is let go otherwise (D126's
+       * tempo reasoning, one zone over). The host re-validates the picks (D139).
+       */
+      if (awaiting.verbs) {
+        const v = awaiting.verbs;
+        const count = v.sacrificeSelf ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
+        const pool: CardView[] =
+          v.discardCost !== null
+            ? myHand(view, me)
+            : (awaiting.candidates ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c);
+        const sorted = v.discardCost !== null ? [...pool].sort(worstFirst) : [...pool].sort(worstFirst).reverse();
+        const picks = sorted.slice(0, count).map((c) => c.instanceId);
+        const cheap = v.discardCost !== null || v.exileFromGraveyardCost !== null || v.tapCost !== null;
+        const spareLand = !cheap && !v.sacrificeSelf && !benefit && pool.length >= 6 && pool.every(isLand);
+        const payVerb = picks.length === count && count > 0 && (cheap || spareLand);
+        return act(
+          { t: 'AnswerPayMana', player: me, pay: payVerb, ...(payVerb ? { picks } : {}) },
+          payVerb ? `${v.costText} for ${awaiting.label}` : `decline to ${v.costText} for ${awaiting.label}`,
+        );
+      }
       const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3);
       return act({ t: 'AnswerPayMana', player: me, pay }, pay ? `pay for ${awaiting.label}` : `decline to pay for ${awaiting.label}`);
     }

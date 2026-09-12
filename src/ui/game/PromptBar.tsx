@@ -104,7 +104,9 @@ function describe(
       // sentence that has to be found by playing.
       case 'payMana':
         return awaiting.player === viewer
-          ? `${awaiting.label}: pay ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${awaiting.life} life` : ''}?`
+          ? awaiting.verbs
+            ? `${awaiting.label}: ${awaiting.verbs.costText}?`
+            : `${awaiting.label}: pay ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${awaiting.life} life` : ''}?`
           : `${nameOf(seats, awaiting.player)} is deciding whether to pay for ${awaiting.label}.`;
       case 'optionalTrigger':
         return awaiting.player === viewer
@@ -349,6 +351,8 @@ export function PromptBar() {
                   ? `Choose what ${mode.name} sacrifices — ${mode.count - mode.chosen.length} more`
                   : mode.kind === 'costPick'
                     ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
+                    : mode.kind === 'payPick'
+                      ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to ${mode.costText}`
                     : mode.kind === 'boardPick'
                       ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to sacrifice`
                       : mode.kind === 'proliferate'
@@ -566,9 +570,40 @@ export function PromptBar() {
             ))}
           </>
         )}
+        {/* D415 - a VERB price: the Pay button SAYS the price and arms the pick (the object's own
+            sacrifice needs no pick and is sent at once); declining stays a button of its own. */}
+        {awaiting?.kind === 'payMana' && mine('payMana') && awaiting.verbs && (
+          <>
+            <button
+              type="button"
+              className={BTN}
+              data-action="pay-verb"
+              onClick={() => {
+                const v = awaiting.verbs;
+                if (!v) return;
+                if (v.sacrificeSelf) {
+                  send({ t: 'AnswerPayMana', player: viewer, pay: true, picks: awaiting.candidates ? [...awaiting.candidates] : [] });
+                  return;
+                }
+                const count = v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 1;
+                setMode({ kind: 'payPick', name: awaiting.label, costText: v.costText, candidates: awaiting.candidates ? [...awaiting.candidates] : null, count, chosen: [] });
+              }}
+            >
+              Pay: {awaiting.verbs.costText}
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST}
+              data-action="decline-pay-verb"
+              onClick={() => send({ t: 'AnswerPayMana', player: viewer, pay: false })}
+            >
+              Don't pay
+            </button>
+          </>
+        )}
         {/* D369 - both buttons SAY THE PRICE, for the enters-choice's reason: the price is the
             whole decision. The plan is the client's own solve; the host re-validates it. */}
-        {awaiting?.kind === 'payMana' && mine('payMana') && (
+        {awaiting?.kind === 'payMana' && mine('payMana') && !awaiting.verbs && (
           <>
             <button
               type="button"

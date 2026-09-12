@@ -3,7 +3,7 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { Game } from './game';
 import { checkInvariants } from './invariants';
-import { legalActions } from './legal';
+import { castCostCandidates, legalActions } from './legal';
 import { project } from './project';
 import { replay, stateHash } from './log';
 import { faceOf } from './oracle';
@@ -224,6 +224,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // attack trigger gives another creature flying (0 at 60 alone - the driver rarely attacks). Never itself.
   { names: ['Selfless Savior', 'Torch Courier', 'Manifold Key', "Kiora's Follower", 'Trained Condor'], copiesPerSeat: 1,
     counterKeys: ['anotherTargets'], rotHistory: 'D414' },
+  // D415 - the verb price at resolution: a discard for a draw, a sacrifice for two counters, and two
+  // enters taxes (a land card discarded, a Forest sacrificed) - the driver pays half the prompts it can.
+  { names: ['Viashino Racketeer', 'Harvester Troll', 'Fallow Wurm', 'Rogue Elephant'], copiesPerSeat: 1,
+    counterKeys: ['verbPricesPaid'], rotHistory: 'D415' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -657,8 +661,23 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       };
     // D369 - a coin flip for the reason above: the paying half is the one that charges a
     // plan, and the prompt is raised only while the host can suggest one, so no plan rides.
-    case 'payMana':
-      return { t: 'AnswerPayMana', player: awaiting.player, pay: p.below(2) === 0 };
+    case 'payMana': {
+      const pay = p.below(2) === 0;
+      // D415 - a VERB price is paid with the first `count` of the candidates the host would accept -
+      // the prompt's own for a public zone, `castCostCandidates` over the hand for a discard (the
+      // same list the answer is checked against, D139) - so the paying half is reached, never refused.
+      const v = awaiting.verbs;
+      if (!pay || !v) return { t: 'AnswerPayMana', player: awaiting.player, pay };
+      const count = v.sacrificeSelf ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
+      let pool: readonly InstanceId[] = awaiting.candidates ?? [];
+      if (!awaiting.candidates && !v.sacrificeSelf) {
+        const cache = makeDeriveCache(state);
+        const cand = castCostCandidates(state, (cid) => derive(state, ORACLE, SCRIPTS, cid, cache), awaiting.player, awaiting.source ?? awaiting.card ?? '', v);
+        pool = Object.values(cand.fields).find((x): x is readonly InstanceId[] => Array.isArray(x)) ?? [];
+      }
+      const picks = pool.slice(0, count);
+      return picks.length === count ? { t: 'AnswerPayMana', player: awaiting.player, pay: true, picks } : { t: 'AnswerPayMana', player: awaiting.player, pay: false };
+    }
     /**
      * ⚠️ A COIN FLIP for the case above's reason, and here the declining half
      * is the one `simplestAnswer` would have left the gate stuck on: paying is
@@ -1015,6 +1034,9 @@ interface Run {
   /** D414 - the `another` staples' abilities that chose their target, and the self-picks among them (a hard zero). */
   readonly anotherTargets: number;
   readonly anotherSelfPicks: number;
+  /** D415 - verb-price prompts raised (the price was payable), and the ones paid with picks. */
+  readonly verbPricesAsked: number;
+  readonly verbPricesPaid: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1358,6 +1380,9 @@ function runOne(seed: number): Run {
         return b.targets.some((t) => t.kind === 'card' && t.id === source);
       }).length,
     exiledInstead: game.log.filter((e) => e.body.t === 'Narrated' && /is exiled instead of dying/.test(e.body.text)).length,
+    // D415 - a verb price asked (the prompt carries `verbs`) and paid (the answer names the verb).
+    verbPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && e.body.awaiting.verbs !== undefined).length,
+    verbPricesPaid: game.log.filter((e) => e.body.t === 'PaymentAnswered' && e.body.paid && e.body.verb !== undefined).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1530,6 +1555,8 @@ const TOTAL_KEYS = [
   'exiledInstead',
   'anotherTargets',
   'anotherSelfPicks',
+  'verbPricesAsked',
+  'verbPricesPaid',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1821,6 +1848,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D414 - an `another` staple chose its target at gate size, and never itself.
         expect(totals.anotherTargets).toBeGreaterThan(0);
         expect(totals.anotherSelfPicks).toBe(0);
+        // D415 - a verb price was asked and paid at gate size.
+        expect(totals.verbPricesAsked).toBeGreaterThan(0);
+        expect(totals.verbPricesPaid).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1908,6 +1938,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.connives} connives · ` +
           `${totals.exileMarks} exile marks / ${totals.exiledInstead} exiled instead · ` +
           `${totals.anotherTargets} another-targets / ${totals.anotherSelfPicks} self-picks · ` +
+          `${totals.verbPricesAsked} verb prices asked / ${totals.verbPricesPaid} paid · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

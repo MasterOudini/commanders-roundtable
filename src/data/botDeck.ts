@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Go-Shintai of Life's Origin (BGRUW), chosen from 282 fully-executable legendary creatures for reaching 9240 cards
+// commander: Go-Shintai of Life's Origin (BGRUW), chosen from 285 fully-executable legendary creatures for reaching 9313 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -28,16 +28,18 @@ export const BOT_DECK = {
   commander: "Go-Shintai of Life's Origin",
   main: [
   "Cobbled Lancer",
+  "Rogue Elephant",
   "Aegis Turtle",
+  "Scythe Tiger",
   "Spark Elemental",
-  "Fleeting Effigy",
-  "Battlefield Raptor",
-  "Diregraf Ghoul",
+  "Glint Hawk",
   "Bayou Groff",
   "Caelorna, Coral Tyrant",
   "Chained Brute",
   "Gifted Aetherborn",
+  "Plant Elemental",
   "+2 Mace",
+  "Abandon Attachments",
   "Abandon the Post",
   "Abrade",
   "Absolute Grace",
@@ -45,10 +47,10 @@ export const BOT_DECK = {
   "Accelerate",
   "Accumulated Knowledge",
   "Adamant Will",
-  "Aegis of the Heavens",
-  "Aerial Boost",
+  "Cosmic Larva",
   "Mardu Outrider",
   "Vampire Nighthawk",
+  "Avatar of Discord",
   "Bloated Contaminator",
   "Force of Savagery",
   "Ball Lightning",
@@ -59,8 +61,6 @@ export const BOT_DECK = {
   "Abzan Ascendancy",
   "Abzan Banner",
   "Accelerated Evolution",
-  "Acidic Soil",
-  "Acrobatic Maneuver",
   "Demon of Catastrophes",
   "Atraxa, Praetors' Voice",
   "Deep-Slumber Titan",
@@ -73,14 +73,14 @@ export const BOT_DECK = {
   "Airborne Aid",
   "Ajani's Influence",
   "Allied Reinforcements",
+  "Endless Wurm",
   "Gigantosaurus",
   "Baneslayer Angel",
   "Lyra Dawnbringer",
   "Doom Whisperer",
   "Fusion Elemental",
+  "Primeval Force",
   "Terrian, World Tyrant",
-  "Elder Gargaroth",
-  "Morkrut Behemoth",
   "Yargle and Multani",
   "Quakestrider Ceratops",
   "Aggressive Mammoth",

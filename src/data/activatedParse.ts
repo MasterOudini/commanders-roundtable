@@ -896,6 +896,39 @@ export interface AdditionalCost {
   readonly orPay: ManaCost | null;
 }
 
+/** D406 / D415 - ONE chooser verb or a life payment, read by the activation grammar: the additional cost's price and the payment prompt's verb price share it. */
+export interface CostVerbPrice {
+  /** The cost text the grammar read (`sacrifice a creature`). */
+  readonly costText: string;
+  readonly lifeCost: number;
+  readonly sacrificeCost: ActivatedAbility['sacrificeCost'];
+  readonly discardCost: ActivatedAbility['discardCost'];
+  readonly tapCost: ActivatedAbility['tapCost'];
+  readonly exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'];
+  readonly returnCost: ActivatedAbility['returnCost'];
+}
+
+/**
+ * D415 - the cost grammar over ONE price: exactly one chooser verb (a sacrifice, a discard, a tap, an exile
+ * from the graveyard, a return to hand) or a life payment; two verbs joined by `or`, a comma or an `and`,
+ * a self cost, a random discard, a tap with a power floor and a counter cost stay unread (D406's refusals).
+ */
+export function readCostVerbs(costText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): CostVerbPrice | null {
+  if (/\b(?:or|and)\b/.test(costText.replace(/\b(?:artifact|creature|land|permanent|enchantment|planeswalker) (?:or|and) /g, 'X ')) || costText.includes(',')) return null;
+  const capital = costText.charAt(0).toUpperCase() + costText.slice(1);
+  const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
+  const a = parsed[0];
+  if (!a || parsed.length !== 1 || !a.payable) return null;
+  if (a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
+  if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCostCommanderColors) return null;
+  if (a.discardCost?.atRandom) return null;
+  const verbs = [a.sacrificeCost, a.discardCost, a.tapCost, a.exileFromGraveyardCost, a.returnCost].filter((x) => x !== null).length;
+  if (verbs + (a.lifeCost > 0 ? 1 : 0) !== 1) return null;
+  // A tap cost with a power floor is crew's shape, not a cast cost.
+  if (a.tapCost && a.tapCost.powerAtLeast !== undefined) return null;
+  return { costText, lifeCost: a.lifeCost, sacrificeCost: a.sacrificeCost, discardCost: a.discardCost, tapCost: a.tapCost, exileFromGraveyardCost: a.exileFromGraveyardCost, returnCost: a.returnCost };
+}
+
 export const ADDITIONAL_COST_LINE = /^As an additional cost to cast this spell, (.+)\.$/;
 
 export function parseAdditionalCost(oracleText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): AdditionalCost | null {
@@ -910,31 +943,9 @@ export function parseAdditionalCost(oracleText: string, parseCost: (raw: string,
     const head = /^pay ((?:\{[^}]+\})+) or (.+)$/.exec(costText);
     if (tail) { costText = (tail[1] ?? '').trim(); orPay = parseCost(tail[2] ?? ''); if (!orPay) return null; }
     else if (head) { costText = (head[2] ?? '').trim(); orPay = parseCost(head[1] ?? ''); if (!orPay) return null; }
-    // Two verbs joined by `or` (`sacrifice a creature or discard a card`) are a choice this reader
-    // does not carry; a comma or an `and` is more than one cost. Both stay unread.
-    if (/\b(?:or|and)\b/.test(costText.replace(/\b(?:artifact|creature|land|permanent|enchantment|planeswalker) (?:or|and) /g, 'X ')) || costText.includes(',')) return null;
-    const capital = costText.charAt(0).toUpperCase() + costText.slice(1);
-    const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
-    const a = parsed[0];
-    if (!a || parsed.length !== 1 || !a.payable) return null;
-    if (a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
-    if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCostCommanderColors) return null;
-    if (a.discardCost?.atRandom) return null;
-    const verbs = [a.sacrificeCost, a.discardCost, a.tapCost, a.exileFromGraveyardCost, a.returnCost].filter((x) => x !== null).length;
-    if (verbs + (a.lifeCost > 0 ? 1 : 0) !== 1) return null;
-    // A tap cost with a power floor is crew's shape, not a cast cost.
-    if (a.tapCost && a.tapCost.powerAtLeast !== undefined) return null;
-    return {
-      line,
-      costText,
-      lifeCost: a.lifeCost,
-      sacrificeCost: a.sacrificeCost,
-      discardCost: a.discardCost,
-      tapCost: a.tapCost,
-      exileFromGraveyardCost: a.exileFromGraveyardCost,
-      returnCost: a.returnCost,
-      orPay,
-    };
+    const verbs = readCostVerbs(costText, parseCost, selfName);
+    if (!verbs) return null;
+    return { line, ...verbs, orPay };
   }
   return null;
 }

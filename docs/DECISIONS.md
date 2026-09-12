@@ -32650,3 +32650,156 @@ family (20) and exchange control (24), the activation restrictions (313), the ke
 replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION
 seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
 NEVER BLOCKS.
+## D415 — THE VERB PRICE AT RESOLUTION: `you may discard a card. If you do, draw a card` / `sacrifice it unless you sacrifice two Mountains` — D369's payment prompt with D406's chooser-verb price (a sacrifice, a discard, a tap, an exile from the graveyard, a return to hand) or the object's own sacrifice, the candidates deciding whether the question is asked, the picks the answer, the host re-validating every one (2026-09-12)
+
+**9,388 of 31,692 Commander-legal cards now execute completely, up from 9,314
+(+74: 66 generated rows — Rescue Leopard, Viashino Racketeer, Keldon Raider, Harvester Troll,
+Rathi Dragon, Fallow Wurm, Rogue Elephant, Living Tsunami, Glint Hawk, Quickling, Aegis
+Sculptor, Temur Sabertooth, Dire Fleet Warmonger and their kin — and 8 spells whole with no
+script: Thrilling Discovery, Abandon Attachments, Tweeze, Pursue the Past, Witherbloom Charm,
+Incinerating Blast, Vengeful Possession, Reactor Raid).** `SHIPPED_SCRIPTS` 5,951 → **6,017**; the
+REFUSED ledger 1,343 → **1,361** (18 added by reason, nothing stale). Fixtures 6,579 → **6,647**
+(6,486 by name + 154 tokens: the 66 rows, Thrilling Discovery, the fodder the suites deal).
+`scriptableToday` 1,442 → **1,461**; the select pool 0 → 84 → 0; the ladder
+`[1461, 1560, 2933, 4599, 5958]`. Bot reach 9,240 → **9,313** from 285 commanders. An engine
+seam on Opus 5 by the user's choice — the largest measured mechanism on the board after D414's
+qualifier, built one hop from two seams already landed.
+
+### The measurement chose it — 98 whole by the real readers, one mechanism
+
+After D414 the qualifier lens was spent (no word flips more than 17 cards when dropped —
+`with <keyword>`), so the board was measured by REWRITING each family's sentence into a form the
+reader knows and counting the flips: `you may <verb>. If you do,` → `you may pay {1}. If you
+do,` flips **51** of 137, ` unless you <verb>` → ` unless you pay {1}` flips **43** of 62,
+`unless … pays {X}` 4 — **98 whole cards, one mechanism**: the D369 prompt with a chooser-verb
+price instead of mana. Beside it: `for each <noun>` 95 (over ~60 nouns), the search forms 88, the
+impulse look-at-top 67, `you may cast` 56, the exile-top-play permission 50, the hand reveal and
+choose 49 (41 spells), `where X is` 44, the prevent-all shields 42. The activation grammar reads
+129 of the printed prices (`discard a card` 37, `sacrifice another creature` 10, `sacrifice an
+artifact` 6, `pay N life` 9 …); the self prices (`sacrifice it` 12, `sacrifice this creature` 4)
+were read by name, and `exile it`, `discard your hand`, a random discard and two verbs stay out.
+
+### The seam — the price, the prompt, the picks, the charge
+
+- **The price** (`activatedParse.ts` `readCostVerbs`, factored out of `parseAdditionalCost`; `oracle.ts`
+  `VerbPrice`, `PaySpec.verbs` — REQUIRED, null on a mana or life price): `effectParse` reads
+  `You may <verb>. If you do, <body>.` (a leading `Then` admitted — Thrilling Discovery's print)
+  and `<body> unless you <verb>.` through the ACTIVATED cost grammar (one sacrifice, discard,
+  tap, exile from the graveyard or return to hand; D406's refusals stand — a random discard, two
+  verbs, a comma), and `sacrifice it | this creature | ~` as the object's own sacrifice. Only the
+  CASTER pays a verb price: another player's hand and board are not this prompt's to pick from.
+- **The prompt** (`effects.ts` `payOptional`): the candidates decide whether the question is asked
+  at all (D369's rule — an unpayable price is not a question), read off `castCostCandidates` —
+  the list the answer is checked against (D139); the `payMana` awaiting carries `verbs` and, for
+  a PUBLIC zone, `candidates`; a discard ships none (a hand is hidden, D137 — the answerer reads
+  its own). Both spread-conditional, so every older prompt is byte-identical.
+- **The answer** (`AnswerPayMana.picks`, `handlers.ts` `verbPriceEvents`): exactly the printed
+  count, distinct, each a candidate against the board as it stands NOW (or the object itself),
+  charged through the cost batch's own shapes (`additionalCostEvents`, D406) so the watchers see
+  an ordinary sacrifice, discard, tap, exile or return; `PaymentAnswered.verb` names the price
+  (absent on a mana price). An unaffordable yes is REFUSED with a message, never downgraded (D136).
+- **The consumers**: the bot pays what is CHEAP (a card, a graveyard exile, a tap — the worst of
+  the hand by `worstFirst`, the prompt's candidates otherwise), pays a permanent only for a tax
+  and only from lands it has to spare, and lets the tax's creature go otherwise (D126's tempo
+  reasoning); the fuzz driver pays half the prompts with the first `count` of the host's own
+  candidates; the harness and the net script decline (unchanged); the UI's `payPick` mode is
+  armed by a Pay button that SAYS the price (the object's own sacrifice sent at once), the veil
+  lists the candidates or the viewer's hand, the picks commit at the count.
+- `src/engine/verbPrice.test.ts` (7): the forms and the refusals; a discard price — no
+  candidates shipped, the pick named and checked, declined for nothing, an empty hand never
+  asked; an unless price — the Forest the candidate, declining sacrifices the creature, a wrong
+  pick refused with the question standing, no Forest sacrificed at once; the self price; Thrilling
+  Discovery — gain 2, the discard-two price paid with two named cards, three drawn, the replay
+  hash.
+- **The generator** (`gen115-vocab.cjs`): the price's fixtures staged in the zone the verb reads
+  from (the hand for a discard, the graveyard for an exile, the battlefield else; a card fixture by
+  noun, a permanent by D347's derivation with the count word stripped), the answer with the
+  picks, the price proven both ways, `putCounters` and `pump` join the branch kinds; the row
+  maker keeps a verb-price payload whole (the D400 guard, one price kind over) and looks a
+  self-rewritten payload up as printed.
+- **Fuzz**: Viashino Racketeer, Harvester Troll, Fallow Wurm and Rogue Elephant are staples (one
+  coloured symbol each, on enters heads — a discard for a draw, a sacrifice for two counters, two
+  taxes) feeding `verbPricesAsked` and `verbPricesPaid` (floors on both) — **94 asked /
+  50 paid over the gate's 500 seeds** (9 / 6 at 60, met first try).
+
+### The wave — 66 rows and 8 whole
+
+The selector offered 84 once the verb prices read; the row maker rowed 66 — the discard-for-a-draw
+enters and tapped heads (Rescue Leopard, Viashino Racketeer, Keldon Raider, Reckless Racer,
+Volatile Wanderglyph, Academy Raider, Quicksmith Genius, Flaring Cinder), the sacrifice-for-counters
+(Harvester Troll, Swarm Culler, Kill-Zone Acrobat), the enters and upkeep taxes (Rathi Dragon, Fallow
+Wurm, Rogue Elephant, Plant Elemental, Living Tsunami, Bog Elemental, Endless Wurm, Glint Hawk,
+Quickling, Faerie Impostor, Cosmic Larva, Mold Demon, Primeval Force, Avatar of Discord), the
+graveyard exiles (Aegis Sculptor, Skywarp Skaab, Master Skald's kin), the self prices (Dreamcatcher,
+Impaler Shrike, Wasp of the Bitter End's kin) … — and refused 18 by reason: seven payment branches
+the suite cannot assert (createToken, cantBeBlocked, massPump, returnFromGraveyard), three heads
+outside the library (Akki Ronin, Restless Vents, Veronica), a filtered head outside the reader
+(Giott), a head no fixture satisfies (Wasp of the Bitter End), an Aura static the probe split
+(Withercrown), a battle (Invasion of Mercadia), a price no fixture names (Sacred Mesa's Pegasus), a
+Desert graveyard head (Yuma), and two the port itself named — Hecatomb, whose enters tax the harness
+declines while its activated line's board is armed, and High-Society Hunter, whose dies fodder
+lands in the opening seven once the price fixture reshuffles the deck (the D398 hazard). The 8
+whole are the spells that print the price after a readable first sentence (Tweeze's damage,
+Vengeful Possession's threaten, Witherbloom Charm's mode).
+
+### Traps
+
+- **A LATE HEAD WALKS PAST THE PAYMENT PROMPT**: the combat-damage heads walked to the postcombat
+  main before stopping at the prompt, and the walk answers it (declines) — the paid branch was
+  unreachable until the walk was removed (the optional-trigger path's rule, D371, one prompt over).
+- **THE SELF REWRITE HID THE VOCABULARY'S KEY**: the row maker spells a self counter ` on ~.`
+  for its own kinds, but `vocab-ok.json` is keyed by the PRINTED sentence — a payOptional whose
+  body puts a counter on this creature read as `not a pump` (a latent gap since D400's mana
+  form) until the printed form was looked up too.
+- **A SPLIT LINE SHARES ITS TAG**: `attacks or blocks` is two abilities with one tag, and the
+  price fixture var was declared twice; the fixtures are deduped by name per suite.
+- **A CAST HEAD'S SPELL IS A PERMANENT**: `castSpiritOrArcane` casts Cloud Spirit and was listed
+  permanentless, so a board delta under that head was one short — latent until a self-sacrifice
+  price asserted one.
+- **THE TWO NAMED BY THE PORT**: an enters tax on a card with an activated line (the harness
+  declines the tax while the activation's board is armed — Hecatomb) and the D398 hazard struck by
+  a reshuffled deck (High-Society Hunter) — both refused by name, the row maker's SKIP table.
+- **A HEREDOC PART FILE HALVES ITS BACKSLASHES, AGAIN**: `\n` in a template string became a real
+  newline in the part file — the currency mark and the char-code composition, every time.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6195 files, 30023
+passed / 11 skipped · 500-seed gate, 6 shards, 949.0 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D415): another player's verb price (`unless that player sacrifices a
+creature`, 9 — the prompt's payer with a pick of THEIR own), the compound prices (`sacrifice an
+artifact or discard a card` 3, `pay N life and exile it`), `discard your hand` (5) and
+`discard a card at random` (3 — ctx.random), `exile it` as a price (8), the `When you do`
+reflexive form (31) and `If you don't` (18), the price with X (`unless its controller pays {X}`
+4, `pay X life, where X is`), the payment branches the suite cannot assert (createToken,
+cantBeBlocked, massPump, returnFromGraveyard — 7 ledgered), the enters tax beside an activated
+line (Hecatomb), the D398 hazard (the dies fodder in the opening seven), the qualifier's tail
+(D414 — the combat-role `another target attacking creature` 7, the fixture set's predicates,
+`each other creature`, `another target player`), the exile-instead tail (D413), connive's tail
+(D412), the untap-skip tail (D411), the cycling GRANTS (3), the `whenever a creature you control
+explores` heads (5), the reader's edge (`nontoken blue creature`, `exile the top three black
+cards of your graveyard`, `each other player gain 2 life`, `If exactly one creature is
+attacking`), the `{X}` alternatives, a chooser verb on BOTH costs, the cost REDUCTIONS and
+Affinity, the `instead` wordings, Emerge, the OLD Oblivion Ring wording, the qualifier before
+the controller, `defending player controls`, the same-name riders, the exile with a permission,
+the flicker within one batch, the other durations (`for as long as you control` 23, `remains
+exiled` 33, `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs joined by `or`,
+a counter cost at cast, the FaceChoice path, HYBRID symbols paid by convoke, a per-creature
+chooser in the review, `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the `for
+each` reductions (97 / 17), the up-to-N label (28 sentences), the script-raised prompt class (84
+over ~10 shapes), the reveal-the-top family (27 / 18), the quoted-grant BODIES, `Noncreature
+spells` (6), `Colorless spells` (3), `Face-down creature spells` (2), the leading conditions on
+a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more`
+taxes, the two-kicker `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+`whenever you cast a kicked spell`, the REFERENT across the wait, the self-aimed delayed forms,
+the HOST characteristics under an attached static (29), "you control a token", the incarnations'
+graveyard statics (5), `Whenever you attack` and the each-combat head, the `for each <X>` family
+(95 whole by the real reader over ~60 nouns), the search forms (88), the impulse look-at-top
+(67), the exile-top-play permission (50), the hand reveal and choose (49), `where X is` (44),
+the prevent-all shields (42), the payment heads, the search residue, the scoped grant, the
+blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+twenty-two older fight and bite suites, token copies (15), the permanent control family (20)
+and exchange control (24), the activation restrictions (313), the keyword entry replacements
+(22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION seam proper,
+the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

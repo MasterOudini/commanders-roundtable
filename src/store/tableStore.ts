@@ -185,6 +185,21 @@ export type TableMode =
       readonly chosen: readonly string[];
     }
   /**
+   * D415 - answering a VERB PRICE (`you may discard a card. If you do, ...`, `... unless you sacrifice
+   * a Forest`): N cards the price names - the prompt's own candidates for a public zone, the viewer's
+   * hand for a discard - then `AnswerPayMana` with the picks. Armed by the prompt bar's Pay button
+   * (declining is the other button, so the prompt never arms it by itself); Escape drops it and the
+   * buttons stand. TIER 1: the host re-validates every pick against the board as it stands.
+   */
+  | {
+      readonly kind: 'payPick';
+      readonly name: string;
+      readonly costText: string;
+      readonly candidates: readonly string[] | null;
+      readonly count: number;
+      readonly chosen: readonly string[];
+    }
+  /**
    * D391 - answering a PROLIFERATE ask (CR 701.27a): any number of permanents with a counter, on
    * either side, and players with poison, toggled on the veil and committed by the prompt bar's
    * button - none is a legal answer (D195's rule for the scry). TIER 1: the host re-validates
@@ -532,7 +547,7 @@ export const useTable = create<TableUi>((set, get) => ({
       set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
       return;
     }
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'proliferate') {
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'proliferate') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

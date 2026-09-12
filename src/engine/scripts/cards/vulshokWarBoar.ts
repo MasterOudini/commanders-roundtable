@@ -1,0 +1,44 @@
+// `Vulshok War Boar` - a etb trigger vocab
+// until end of turn where it pumps (D194's carrier, D301). Generated from one table row.
+
+import { VULSHOK_WAR_BOAR } from '../../../data/fixtures/engineCards';
+import type { CardData } from '../../../data/cardTypes';
+import { vocabularyEffects, vocabularyTargets } from '../vocabulary';
+import type { CardScript } from '../api';
+import type { EventBody } from '../../types/events';
+
+function printed(card: CardData, expected: string): string {
+  const actual = card.faces[0]?.oracleText;
+  if (actual !== expected) {
+    throw new Error(
+      `${card.name} reads "${actual}" and its script was written for "${expected}". ` +
+        'Re-read the card before re-registering it (D90).',
+    );
+  }
+  return expected;
+}
+
+const PRINTED = printed(VULSHOK_WAR_BOAR, "When this creature enters, sacrifice it unless you sacrifice an artifact.");
+
+const VOCAB_L0 = vocabularyEffects("Sacrifice it unless you sacrifice an artifact.", VULSHOK_WAR_BOAR.name);
+const VOCAB_T_L0 = vocabularyTargets("Sacrifice it unless you sacrifice an artifact.");
+
+export const VULSHOK_WAR_BOAR_SCRIPT: CardScript = {
+  oracleId: VULSHOK_WAR_BOAR.oracleId,
+  name: VULSHOK_WAR_BOAR.name,
+  triggers: [
+    {
+      abilityId: 'etb-0',
+      text: PRINTED,
+      event: 'CardsMoved',
+      activeZones: ['battlefield'],
+      optional: false,
+      matches: (_ctx, self, ev) =>
+        ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield'),
+      label: () => "Vulshok War Boar - Sacrifice it unless you sacrifice an artifact.",
+      resolve: (ctx, _self, obj): readonly EventBody[] => {
+        return ctx.vocabulary(obj, VOCAB_L0, VOCAB_T_L0);
+      },
+    },
+  ],
+};

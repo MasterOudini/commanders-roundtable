@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 9314,
-      blocked: 22378,
+      complete: 9388,
+      blocked: 22304,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -329,7 +329,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1442,
+      scriptableToday: 1461,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -340,9 +340,9 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1052,
-      counter: 1241,
-      token: 971,
+      layer6: 1050,
+      counter: 1237,
+      token: 968,
     });
   });
 
@@ -379,7 +379,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1442, 1541, 2913, 4581, 5936]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1461, 1560, 2933, 4599, 5958]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -466,11 +466,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 631, anthem: 125, restriction: 208, conditional: 88, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 629, anthem: 125, restriction: 208, conditional: 88, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(473);
+    expect.soft(temporary).toBe(471);
   });
 
   /**
@@ -503,7 +503,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 362, permanent: 609 });
+    expect.soft(byOwner).toEqual({ spell: 362, permanent: 606 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -518,9 +518,9 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     expect.soft(byKind).toEqual({
       copy: 116,
       predefined: 150,
-      withAbilities: 290,
+      withAbilities: 289,
       variable: 81,
-      plain: 334,
+      plain: 332,
       unclaimed: 0,
     });
   });
@@ -551,8 +551,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1442, 1541]);
-    expect.soft(r.complete).toBe(9314);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1461, 1560]);
+    expect.soft(r.complete).toBe(9388);
   });
 });
 
@@ -593,9 +593,8 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
     expect.soft(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe(
       'effect:counter',
     );
-    expect.soft(of('When this creature enters, you may sacrifice a land. If you do, draw a card.')).toBe(
-      'effect:sacrifice',
-    );
+    // D415 - a VERB PRICE under a head is the payment prompt's own sentence (the engine's own since D415).
+    expect.soft(of('When this creature enters, you may sacrifice a land. If you do, draw a card.')).toBe('scriptable');
   });
 
   /** A "may" over an effect nothing here reads is residue, not a built primitive. */
@@ -696,17 +695,17 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       activatedCost: 2034,
       triggeredShell: 1881,
       damage: 746,
-      exile: 855,
+      exile: 854,
       staticShell: 645,
       attackBlock: 812,
-      lifeGainLoss: 564,
-      drawDiscard: 327,
+      lifeGainLoss: 563,
+      drawDiscard: 326,
       tokensAndCounters: 298,
       copySpell: 224,
       cantBeCountered: 97,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 2968,
+      other: 2966,
     });
   });
 

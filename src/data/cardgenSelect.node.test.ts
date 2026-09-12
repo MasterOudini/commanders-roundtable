@@ -251,6 +251,26 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D415 - the verb price at resolution reads: the 18 the selector offered once `you may <verb>. If you do` and
+  // `unless you <verb>` read that the row maker refused, by reason (seven payment branches the suite cannot assert among them).
+  ['Akki Ronin', 'a trigger head outside the library (whenever a Samurai or Warrior you control attacks alone) beside its verb-price line'],
+  ['Aphemia, the Cacophony', 'a payment branch the suite cannot assert (createToken) beside its verb-price line'],
+  ['Bloodmist Infiltrator', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
+  ['Giott, King of the Dwarves', 'a filtered head outside the closed reader (whenever ~ or another Dwarf you control enters) beside its verb-price line'],
+  ['Gravelgill Scoundrel', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
+  ['Master Skald', 'a payment branch the suite cannot assert (returnFromGraveyard) beside its verb-price line'],
+  ['Pack Guardian', 'a payment branch the suite cannot assert (createToken) beside its verb-price line'],
+  ['Wasp of the Bitter End', 'a filtered head no fixture satisfies (a Bolas planeswalker spell) beside its verb-price line'],
+  ['Withercrown', 'a leftover line not among the printed lines (an Aura static the probe split) beside its verb-price line'],
+  ['Biblioplex Kraken', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
+  ['Hecatomb', 'an enters price the harness declines while the activated line is armed (sacrifice it unless you sacrifice four creatures)'],
+  ['High-Society Hunter', 'the dies fodder lands in the opening seven beside the price fixture (the D398 hazard)'],
+  ['Invasion of Mercadia // Kyren Flamewright', 'multi-face or unusual layout (a battle)'],
+  ['Provisions Merchant', 'a payment branch the suite cannot assert (massPump) beside its verb-price line'],
+  ['Restless Vents', 'a trigger head outside the library (whenever this land attacks - the animated land) beside its verb-price line'],
+  ['Sacred Mesa', 'a verb price the suite has no fixture for (sacrifice a Pegasus)'],
+  ['Veronica, Dissident Scribe', 'a trigger head outside the library (whenever you discard one or more nonland cards for the first time each turn) beside its verb-price line'],
+  ['Yuma, Proud Protector', 'a put-into-graveyard head from anywhere with a filter no zone can answer (a Desert card) beside its verb-price line'],
   // D414 - the another qualifier is enforced: the 23 the selector offered once `another target` read that the row
   // maker refused, by reason (seven combat-role clauses the suite cannot stage among them).
   ['Aerial Guide', 'a combat-role clause the suite has no fixture for (another target attacking creature) beside its attack head'],

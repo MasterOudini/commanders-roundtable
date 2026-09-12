@@ -440,7 +440,14 @@ export type EventBody =
    * any other and declining leaves no event of its own, so without this the log could not
    * say a question had been asked, and the fuzz canary could not tell the answers apart.
    */
-  | { readonly t: 'PaymentAnswered'; readonly player: PlayerId; readonly paid: boolean; readonly label: string }
+  | {
+      readonly t: 'PaymentAnswered';
+      readonly player: PlayerId;
+      readonly paid: boolean;
+      readonly label: string;
+      /** D415 - the verb price answered (its printed text); absent on a mana or life price, so older logs replay byte-identically. */
+      readonly verb?: string;
+    }
   /**
    * A player DREW (CR 121) — the marker beside the `CardsMoved` that did it,
    * with the drawn ids in DRAW ORDER. See D189.

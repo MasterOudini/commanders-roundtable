@@ -205335,6 +205335,41 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "THRILLING_DISCOVERY": {
+    "scryfallId": "1278b2ef-6c11-4892-9388-833f67bcc858",
+    "oracleId": "c5f5a234-c751-4976-a3e1-fbd52b3255c9",
+    "name": "Thrilling Discovery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrilling Discovery",
+        "manaCost": "{R}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "You gain 2 life. Then you may discard two cards. If you do, draw three cards.",
+        "flavorText": "\"This must be the lost city of Zantafar, where my people lived before becoming nomads. Think of the history we'll learn here!\"\n—Quintorius, Lorehold mage-student",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "1278b2ef-6c11-4892-9388-833f67bcc858"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otc",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -217360,6 +217395,2286 @@
     ],
     "setCode": "who",
     "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACADEMY_RAIDER": {
+    "scryfallId": "6652ed29-ee90-4abc-a6cf-6b18a6cbae86",
+    "oracleId": "75131d75-0703-44d0-b503-35190be8e66f",
+    "name": "Academy Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Academy Raider",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.)\nWhenever this creature deals combat damage to a player, you may discard a card. If you do, draw a card.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "6652ed29-ee90-4abc-a6cf-6b18a6cbae86"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Intimidate"
+    ],
+    "setCode": "m14",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AEGIS_SCULPTOR": {
+    "scryfallId": "19c1417a-9719-46f6-8749-d92b93ce0529",
+    "oracleId": "3a75c56a-bdf7-490d-aa41-51d5eb8be46c",
+    "name": "Aegis Sculptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aegis Sculptor",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nAt the beginning of your upkeep, you may exile two cards from your graveyard. If you do, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "19c1417a-9719-46f6-8749-d92b93ce0529"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Ward"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVATAR_OF_DISCORD": {
+    "scryfallId": "06824d21-600b-44cd-8b51-0d8379cb0b47",
+    "oracleId": "3f806353-592e-431c-a7dd-a4c64034f94d",
+    "name": "Avatar of Discord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avatar of Discord",
+        "manaCost": "{B/R}{B/R}{B/R}",
+        "typeLine": "Creature — Avatar",
+        "oracleText": "({B/R} can be paid with either {B} or {R}.)\nFlying\nWhen this creature enters, sacrifice it unless you discard two cards.",
+        "flavorText": "Such is the power of Rakdos that even his shadow takes on a cruel life of its own.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "rk post",
+        "imageId": "06824d21-600b-44cd-8b51-0d8379cb0b47"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENTHIC_CRIMINOLOGISTS": {
+    "scryfallId": "283b6b5a-acdf-4255-a294-0964d9c62686",
+    "oracleId": "5539d78c-1acc-46dd-ba6d-cc0cdad6ff44",
+    "name": "Benthic Criminologists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benthic Criminologists",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Whenever this creature enters or attacks, you may sacrifice an artifact. If you do, draw a card.",
+        "flavorText": "Scientists from the Simic Combine are regularly seconded to various detective agencies in hopes that sharing their expertise will improve the guild's tarnished reputation.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "283b6b5a-acdf-4255-a294-0964d9c62686"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mkm",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIG_WHEEL": {
+    "scryfallId": "e21f21d0-d2a4-4617-bda1-72b683fe3011",
+    "oracleId": "b0941bc2-f482-4821-a96b-720b08c7334a",
+    "name": "Big Wheel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Big Wheel",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Trample\nWhen this Vehicle enters, you may discard a card. If you do, draw a card.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Maxim Ruabtsev",
+        "imageId": "e21f21d0-d2a4-4617-bda1-72b683fe3011"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Crew",
+      "Trample"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "679",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOG_ELEMENTAL": {
+    "scryfallId": "75191915-352e-4de7-b216-63f0ff588ba5",
+    "oracleId": "82344b5b-7cd9-460d-9966-f09432ed8e59",
+    "name": "Bog Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bog Elemental",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Protection from white\nAt the beginning of your upkeep, sacrifice this creature unless you sacrifice a land.",
+        "flavorText": "\"When the bog walks, the wise run.\"\n—Erissa, bog witch",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Glen Angus",
+        "imageId": "75191915-352e-4de7-b216-63f0ff588ba5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAWL_BASH_OGRE": {
+    "scryfallId": "38b9f9d7-a00d-4a90-9d7a-88ece10af328",
+    "oracleId": "0156bfbc-26bc-4699-a7ff-437f7c043716",
+    "name": "Brawl-Bash Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brawl-Bash Ogre",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever this creature attacks, you may sacrifice another creature. If you do, this creature gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Even Amundsen",
+        "imageId": "38b9f9d7-a00d-4a90-9d7a-88ece10af328"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BULL_ELEPHANT": {
+    "scryfallId": "6b161f83-a0d9-4b65-af36-6d71aa76c912",
+    "oracleId": "4ed04ece-64d2-41a4-bf36-b993cbbf2aac",
+    "name": "Bull Elephant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bull Elephant",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "When this creature enters, sacrifice it unless you return two Forests you control to their owner's hand.",
+        "flavorText": "Four gray trees and a long, coiling snake. What am I?\n—Zhalfirin riddle",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve White",
+        "imageId": "6b161f83-a0d9-4b65-af36-6d71aa76c912"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mgb",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CIVIL_SERVANT": {
+    "scryfallId": "1cf5da68-a79b-40a3-93bc-785fb2352b05",
+    "oracleId": "232e16f4-32ae-4f42-a377-6bdebc9a06c7",
+    "name": "Civil Servant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Civil Servant",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Cat Citizen",
+        "oracleText": "Whenever this creature attacks, you may tap another untapped Citizen you control. If you do, this creature gets +1/+0 and gains lifelink until end of turn.",
+        "flavorText": "\"Together we can build a safer, brighter New Capenna!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "1cf5da68-a79b-40a3-93bc-785fb2352b05"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMET_CRAWLER": {
+    "scryfallId": "becca990-ab2e-4aa4-be7d-293ec727cb08",
+    "oracleId": "0c1b6305-8863-43e0-b50d-ae1c5e31be55",
+    "name": "Comet Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Comet Crawler",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Insect Horror",
+        "oracleText": "Lifelink\nWhenever this creature attacks, you may sacrifice another creature or artifact. If you do, this creature gets +2/+0 until end of turn.",
+        "flavorText": "\"Found the stranded crew in an icy labyrinth. Well, what's left of them.\"\n—Decrypted log 2.23",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "becca990-ab2e-4aa4-be7d-293ec727cb08"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COSMIC_LARVA": {
+    "scryfallId": "deaa0b9b-258e-4daf-8fec-ce64864d6bbf",
+    "oracleId": "97428d25-d850-4a98-8852-9440e06a9091",
+    "name": "Cosmic Larva",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cosmic Larva",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nAt the beginning of your upkeep, sacrifice this creature unless you sacrifice two lands.",
+        "flavorText": "For millennia they wandered from plane to plane, devouring all metal. Finally, their wanderings are over.",
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Easley",
+        "imageId": "deaa0b9b-258e-4daf-8fec-ce64864d6bbf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURSED_MONSTROSITY": {
+    "scryfallId": "8de97585-3d24-4e8d-8bf9-edd75ee88443",
+    "oracleId": "16e03598-30bf-4b6c-9b88-36c3c5c010dd",
+    "name": "Cursed Monstrosity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cursed Monstrosity",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Flying\nWhenever this creature becomes the target of a spell or ability, sacrifice it unless you discard a land card.",
+        "flavorText": "\"Run away! It's an . . . um . . . run away!\"\n—Nomad sentry",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Remmer",
+        "imageId": "8de97585-3d24-4e8d-8bf9-edd75ee88443"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRE_FLEET_WARMONGER": {
+    "scryfallId": "1fa781df-859f-4346-9424-b3713b17e1f6",
+    "oracleId": "ee08435b-a2c1-491a-87cb-e60789b09c25",
+    "name": "Dire Fleet Warmonger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dire Fleet Warmonger",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Orc Pirate",
+        "oracleText": "At the beginning of combat on your turn, you may sacrifice another creature. If you do, this creature gets +2/+2 and gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "1fa781df-859f-4346-9424-b3713b17e1f6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISCERNING_PEDDLER": {
+    "scryfallId": "73b359bf-afd8-439d-a4d2-985db1ad368c",
+    "oracleId": "a6584af7-583d-4d89-9b46-d61be8236413",
+    "name": "Discerning Peddler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Discerning Peddler",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"Can I interest you in some herbs from Naktamun? Fresh from the Omenpath! Or a set of Fioran cookware? Finest in the Multiverse!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "73b359bf-afd8-439d-a4d2-985db1ad368c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMCATCHER": {
+    "scryfallId": "b90ab82e-84d7-462a-b3c2-abaccfb46dd3",
+    "oracleId": "61529c3a-9b7e-4e73-9f6e-58c992ef1ffc",
+    "name": "Dreamcatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamcatcher",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, you may sacrifice this creature. If you do, draw a card.",
+        "flavorText": "\"Be careful where your mind wanders. Even in the quietest moments, the kami are listening, and your thoughts give them shape.\"\n—Lady Azami",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "b90ab82e-84d7-462a-b3c2-abaccfb46dd3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECSTATIC_ELECTROMANCER": {
+    "scryfallId": "55a98076-80a8-4aaa-a539-554d338f86ce",
+    "oracleId": "2ad9f28c-94a9-4884-9e3b-42341adfaa5d",
+    "name": "Ecstatic Electromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ecstatic Electromancer",
+        "manaCost": "{1}{U/R}{U/R}",
+        "typeLine": "Creature — Goblin Wizard",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever this creature enters or attacks, you may discard a card. If you do, draw a card.",
+        "flavorText": "Her theories are grounded. Her experiments are not.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "55a98076-80a8-4aaa-a539-554d338f86ce"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENDLESS_WURM": {
+    "scryfallId": "53772435-e20e-4b9e-a2f1-c1c6a4dcac79",
+    "oracleId": "ce4d714c-c22b-47be-a372-a3139c4e5b1c",
+    "name": "Endless Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Endless Wurm",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nAt the beginning of your upkeep, sacrifice this creature unless you sacrifice an enchantment.",
+        "flavorText": "Ages ago, a party of elves took cover to let one pass. They're still waiting.",
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "53772435-e20e-4b9e-a2f1-c1c6a4dcac79"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_IMPOSTOR": {
+    "scryfallId": "7dfddc9d-85f6-4b37-9973-14c69f6818ec",
+    "oracleId": "0d78ba2c-4de0-47d9-b1b9-13dc9de8844b",
+    "name": "Faerie Impostor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Impostor",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flying\nWhen this creature enters, sacrifice it unless you return another creature you control to its owner's hand.",
+        "flavorText": "Many Tin Street shops display a sign on the door: \"No cloaks allowed.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "7dfddc9d-85f6-4b37-9973-14c69f6818ec"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALLOW_WURM": {
+    "scryfallId": "1ba02b6f-6010-47a4-8670-406391a52a68",
+    "oracleId": "7b414f70-a9b1-42c3-9655-6aa520d3b19b",
+    "name": "Fallow Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fallow Wurm",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "When this creature enters, sacrifice it unless you discard a land card.",
+        "flavorText": "The wurm's wake\n—Elvish expression meaning \"ruined crops\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Stephen L. Walsh",
+        "imageId": "1ba02b6f-6010-47a4-8670-406391a52a68"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FISSURE_WIZARD": {
+    "scryfallId": "847b3e34-ed8e-4853-a50a-555953c82ff5",
+    "oracleId": "e3474632-6d81-43a8-9329-4c7e0c631755",
+    "name": "Fissure Wizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fissure Wizard",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Wizard",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "He might call up a burst of lava or a raging hellion from Akoum's volcanic depths. Or he might just fall in.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "847b3e34-ed8e-4853-a50a-555953c82ff5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "549",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLARING_CINDER": {
+    "scryfallId": "0691a1a9-18e7-44b7-9a34-764b1ab45a76",
+    "oracleId": "f70d65bf-5f1c-4aee-9bd1-f5ee6974b058",
+    "name": "Flaring Cinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flaring Cinder",
+        "manaCost": "{1}{U/R}{U/R}",
+        "typeLine": "Creature — Elemental Sorcerer",
+        "oracleText": "When this creature enters and whenever you cast a spell with mana value 4 or greater, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"Am I losing myself or realizing my true nature?\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Kai Carpenter",
+        "imageId": "0691a1a9-18e7-44b7-9a34-764b1ab45a76"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORGOTTEN_HARVEST": {
+    "scryfallId": "9fefbace-03cb-43db-a221-0be2b8784357",
+    "oracleId": "9e5de2ed-e8a1-4d52-832f-c4a1bfdf2ae5",
+    "name": "Forgotten Harvest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forgotten Harvest",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, you may exile a land card from your graveyard. If you do, put a +1/+1 counter on target creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "9fefbace-03cb-43db-a221-0be2b8784357"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FURYBLADE_VAMPIRE": {
+    "scryfallId": "3bf9d356-c47c-4e7c-b248-12929e4db396",
+    "oracleId": "f8dbfc60-33e9-4068-a0dd-0d0ed5b9b42c",
+    "name": "Furyblade Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Furyblade Vampire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Vampire Berserker",
+        "oracleText": "Trample\nAt the beginning of combat on your turn, you may discard a card. If you do, this creature gets +3/+0 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "3bf9d356-c47c-4e7c-b248-12929e4db396"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEOTHERMAL_KAMI": {
+    "scryfallId": "559d7162-39fc-4d99-8c5f-b40a765b883a",
+    "oracleId": "fbf8fdf5-0d7d-41a3-a6b9-27bb7a644c20",
+    "name": "Geothermal Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geothermal Kami",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "When this creature enters, you may return an enchantment you control to its owner's hand. If you do, you gain 3 life.",
+        "flavorText": "A mysterious kami will sometimes appear to overworked monks and offer them a warm, relaxing bath.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rudy Siswanto",
+        "imageId": "559d7162-39fc-4d99-8c5f-b40a765b883a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLINT_HAWK": {
+    "scryfallId": "284c4710-4183-4743-9c8b-515cc98cbbb8",
+    "oracleId": "5d24525f-dbac-434b-bda7-ff8af55245ff",
+    "name": "Glint Hawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glint Hawk",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, sacrifice it unless you return an artifact you control to its owner's hand.",
+        "flavorText": "Its eyes burned nearly blind by the Whitesun, it hunts by metallic gleam.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "284c4710-4183-4743-9c8b-515cc98cbbb8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "som",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARVESTER_TROLL": {
+    "scryfallId": "0bf92744-0acc-4c7e-819c-51b0696facad",
+    "oracleId": "28c44f88-1d47-4894-86ce-4089bd761360",
+    "name": "Harvester Troll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harvester Troll",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Troll",
+        "oracleText": "When this creature enters, you may sacrifice a creature or land. If you do, put two +1/+1 counters on this creature.",
+        "flavorText": "Having no interest in the greater conflict, the trolls continue to prey upon whatever wanders into their domain.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "0bf92744-0acc-4c7e-819c-51b0696facad"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAZORET_S_MONUMENT": {
+    "scryfallId": "37222065-7180-4134-b74c-d5f563c55363",
+    "oracleId": "f02a4cbf-f0bb-4bc7-99c2-6afa1b41ebb8",
+    "name": "Hazoret's Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hazoret's Monument",
+        "manaCost": "{3}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "Red creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, you may discard a card. If you do, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Richard Wright",
+        "imageId": "37222065-7180-4134-b74c-d5f563c55363"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "273",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIDDEN_HORROR": {
+    "scryfallId": "5564d050-048f-41a1-b4bf-8ba4aed105bc",
+    "oracleId": "db7c5a2f-9aea-4b14-86cf-7af79d6484af",
+    "name": "Hidden Horror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hidden Horror",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "When this creature enters, sacrifice it unless you discard a creature card.",
+        "flavorText": "Si la presencia del mal fuera obvia, no sería tan peligrosa.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brom",
+        "imageId": "5564d050-048f-41a1-b4bf-8ba4aed105bc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMMERSTURM_RAIDER": {
+    "scryfallId": "77da4de2-4d34-40e5-8fc0-850aef05356b",
+    "oracleId": "e3179dd6-5558-4385-8883-f78f9d1b1c4f",
+    "name": "Immersturm Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Immersturm Raider",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Demon Berserker",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "The demons took no captives and claimed no spoils; they sought only to destroy.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "77da4de2-4d34-40e5-8fc0-850aef05356b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPALER_SHRIKE": {
+    "scryfallId": "91e1f8b5-4792-457d-b3de-1d4874ddf72e",
+    "oracleId": "db98ee99-d4e5-4623-8446-5cce5d11dca0",
+    "name": "Impaler Shrike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Impaler Shrike",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Phyrexian Bird",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, you may sacrifice it. If you do, draw three cards.",
+        "flavorText": "\"Interrogation is an unnecessary step for acquiring information.\"\n—Politus, Gitaxian morphologist",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "91e1f8b5-4792-457d-b3de-1d4874ddf72e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "nph",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_RAIDER": {
+    "scryfallId": "884c47fa-7060-48da-995c-e4037640a208",
+    "oracleId": "004f82f0-74cc-4bc7-ab22-ab1a5247bc29",
+    "name": "Keldon Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Raider",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "Keldon raiders' spoils are limited to what their colos can carry. No matter the value, the rest goes up in smoke.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "884c47fa-7060-48da-995c-e4037640a208"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KILL_ZONE_ACROBAT": {
+    "scryfallId": "48f97974-bb65-46b0-a710-12fa4b9343ac",
+    "oracleId": "7c3982c5-6af3-4937-8d1f-e006f4e89342",
+    "name": "Kill-Zone Acrobat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kill-Zone Acrobat",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature attacks, you may sacrifice another creature or artifact. If you do, this creature gains flying until end of turn.",
+        "flavorText": "Her circus training proved surprisingly valuable on the battlefield.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Justine Cruz",
+        "imageId": "48f97974-bb65-46b0-a710-12fa4b9343ac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LITHOPHAGE": {
+    "scryfallId": "98ee0f17-de64-4abb-afad-4005275f1a3c",
+    "oracleId": "b4eb3d7e-a234-4ed5-8611-fcb818686fcf",
+    "name": "Lithophage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lithophage",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you sacrifice a Mountain.",
+        "flavorText": "It's viciously territorial, destroying every creature on the mountain it has chosen to consume.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "98ee0f17-de64-4abb-afad-4005275f1a3c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIVING_TSUNAMI": {
+    "scryfallId": "107a4e2b-e463-46f3-a431-66ea954ef487",
+    "oracleId": "7260657a-c1cd-4081-8ab5-46d604dccca8",
+    "name": "Living Tsunami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Living Tsunami",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nAt the beginning of your upkeep, sacrifice this creature unless you return a land you control to its owner's hand.",
+        "flavorText": "At low tide it slumbers. At high tide it devours.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "107a4e2b-e463-46f3-a431-66ea954ef487"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOCH_DRAGON": {
+    "scryfallId": "9a99088e-7162-4e65-867f-bca1c7400ce3",
+    "oracleId": "e40d47cf-6232-41ec-8865-d12a335dfcee",
+    "name": "Loch Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loch Dragon",
+        "manaCost": "{U/R}{U/R}{U/R}{U/R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature enters or attacks, you may discard a card. If you do, draw a card.",
+        "flavorText": "Despite its ferocity, its favor can be won with a gift of something it's never seen before.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "9a99088e-7162-4e65-867f-bca1c7400ce3"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCENARY_KNIGHT": {
+    "scryfallId": "ec9f97a2-b04e-418b-89c7-1c019288f27a",
+    "oracleId": "ed5429bb-233a-4528-bf7d-df5f6b192b1c",
+    "name": "Mercenary Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mercenary Knight",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Mercenary Knight",
+        "oracleText": "When this creature enters, sacrifice it unless you discard a creature card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adrian Smith",
+        "imageId": "ec9f97a2-b04e-418b-89c7-1c019288f27a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLD_DEMON": {
+    "scryfallId": "649a33aa-7eac-4161-ae1a-fcbc758abccf",
+    "oracleId": "7ce9513e-50f3-4d36-889b-b180a8a16252",
+    "name": "Mold Demon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mold Demon",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Fungus Demon",
+        "oracleText": "When this creature enters, sacrifice it unless you sacrifice two Swamps.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Myrfors",
+        "imageId": "649a33aa-7eac-4161-ae1a-fcbc758abccf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "leg",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLANT_ELEMENTAL": {
+    "scryfallId": "892594db-1d66-4c45-bd54-608a9972ca77",
+    "oracleId": "e822bf3d-3a29-4a02-9ae8-e2830ce70f15",
+    "name": "Plant Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plant Elemental",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant Elemental",
+        "oracleText": "When this creature enters, sacrifice it unless you sacrifice a Forest.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ted Naifeh",
+        "imageId": "892594db-1d66-4c45-bd54-608a9972ca77"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLUNDERING_PREDATOR": {
+    "scryfallId": "f48b3f46-0e62-4f44-8064-857cd3040659",
+    "oracleId": "dfd260f2-90e6-464b-91e2-a66bb3877918",
+    "name": "Plundering Predator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plundering Predator",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "You can gather a tidy fortune if you can avoid getting clobbered by falling treasure.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "f48b3f46-0e62-4f44-8064-857cd3040659"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIMEVAL_FORCE": {
+    "scryfallId": "1ce7fc51-0ed8-49d9-bdba-ba5a89e1e852",
+    "oracleId": "f4170db0-3adf-4744-b0ec-e889c713bb93",
+    "name": "Primeval Force",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Primeval Force",
+        "manaCost": "{2}{G}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, sacrifice it unless you sacrifice three Forests.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "1ce7fc51-0ed8-49d9-bdba-ba5a89e1e852"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PUBLIC_THOROUGHFARE": {
+    "scryfallId": "1f8b915f-3e82-4b05-b963-01ebff7a8f7b",
+    "oracleId": "de5b995c-9691-4555-9070-66bcbc29f955",
+    "name": "Public Thoroughfare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Public Thoroughfare",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you tap an untapped artifact or land you control.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Devine",
+        "imageId": "1f8b915f-3e82-4b05-b963-01ebff7a8f7b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mkm",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICKLING": {
+    "scryfallId": "278fbdb9-51e3-4ed6-bcc5-c5b86f06c216",
+    "oracleId": "109899e1-abd7-4582-8b67-b0852755bf75",
+    "name": "Quickling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quickling",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nWhen this creature enters, sacrifice it unless you return another creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "278fbdb9-51e3-4ed6-bcc5-c5b86f06c216"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "m15",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICKSMITH_GENIUS": {
+    "scryfallId": "0bca4bef-9d1a-433f-8f7a-7f6416c546fe",
+    "oracleId": "bca0c136-3845-4cb9-8d80-f504a01ad50a",
+    "name": "Quicksmith Genius",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quicksmith Genius",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Whenever an artifact you control enters, you may discard a card. If you do, draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "0bca4bef-9d1a-433f-8f7a-7f6416c546fe"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAGEFIRE_HELLKITE": {
+    "scryfallId": "238a684c-4b8e-4724-9c33-25a071924d37",
+    "oracleId": "0166996d-941f-49fe-bf4f-64b6fd4b69e9",
+    "name": "Ragefire Hellkite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ragefire Hellkite",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature attacks, you may sacrifice another creature. If you do, this creature gains double strike until end of turn.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Xavier Ribeiro",
+        "imageId": "238a684c-4b8e-4724-9c33-25a071924d37"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "103438",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATHI_DRAGON": {
+    "scryfallId": "03882614-589a-4814-a8f7-f962a70d6bb2",
+    "oracleId": "6a180f07-7afa-4605-9c58-4521a5f3fcc1",
+    "name": "Rathi Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rathi Dragon",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, sacrifice it unless you sacrifice two Mountains.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "03882614-589a-4814-a8f7-f962a70d6bb2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "9ed",
+    "collectorNumber": "210★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RECKLESS_RACER": {
+    "scryfallId": "21c0afd6-1242-42bf-a13f-9f218c9d9dfc",
+    "oracleId": "d9a09e7f-6bef-4e75-b5c7-cea20a69cf02",
+    "name": "Reckless Racer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reckless Racer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Pilot",
+        "oracleText": "First strike\nWhenever this creature becomes tapped, you may discard a card. If you do, draw a card.",
+        "flavorText": "Illegal street races turned out to be perfect practice for avoiding Consulate patrols.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "21c0afd6-1242-42bf-a13f-9f218c9d9dfc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESCUE_LEOPARD": {
+    "scryfallId": "056136a8-84be-477c-b654-63238fb8236e",
+    "oracleId": "d70ad04a-b940-4bb1-bcdc-408166e91723",
+    "name": "Rescue Leopard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rescue Leopard",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever this creature becomes tapped, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"The scouts should have been back hours ago. They might be in trouble. I'm sending Kyra.\"\n—Eshki Dragonclaw",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Hector Ortiz",
+        "imageId": "056136a8-84be-477c-b654-63238fb8236e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROGUE_ELEPHANT": {
+    "scryfallId": "1b622b2f-84ad-4203-97fa-35af09e1c370",
+    "oracleId": "bed7ac55-fe40-46d0-bc22-1c8d11f41459",
+    "name": "Rogue Elephant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rogue Elephant",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "When this creature enters, sacrifice it unless you sacrifice a Forest.",
+        "flavorText": "\"When are trees like grass?\"\n—*The One Thousand Questions*",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve White",
+        "imageId": "1b622b2f-84ad-4203-97fa-35af09e1c370"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROTTING_GIANT": {
+    "scryfallId": "0a2db4b2-6209-4a49-b868-e5d229ffcbc1",
+    "oracleId": "09bf80cc-1112-4f4c-9431-92d741bf2230",
+    "name": "Rotting Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rotting Giant",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Giant",
+        "oracleText": "Whenever this creature attacks or blocks, sacrifice it unless you exile a card from your graveyard.",
+        "flavorText": "Wracked with rot, it wrecks and ruins.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0a2db4b2-6209-4a49-b868-e5d229ffcbc1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCYTHE_TIGER": {
+    "scryfallId": "9d289043-edb5-4a7e-801b-4881709edb32",
+    "oracleId": "4d0fa514-87fc-46ff-bf49-4cd332396978",
+    "name": "Scythe Tiger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scythe Tiger",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nWhen this creature enters, sacrifice it unless you sacrifice a land.",
+        "flavorText": "Instead of adapting to its environment, it adapts its environment to itself.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "9d289043-edb5-4a7e-801b-4881709edb32"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Shroud"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYWARP_SKAAB": {
+    "scryfallId": "73168804-3c22-4fcb-907a-2f08999c0cea",
+    "oracleId": "e11b2b6e-3819-4dcb-b64e-2dfe6a6b049d",
+    "name": "Skywarp Skaab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skywarp Skaab",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Zombie Drake",
+        "oracleText": "Flying\nWhen this creature enters, you may exile two creature cards from your graveyard. If you do, draw a card.",
+        "flavorText": "\"If I wanted all the parts to match, I wouldn't have become a stitcher.\"\n—Barton, stitcher",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "73168804-3c22-4fcb-907a-2f08999c0cea"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_GWEN_FREE_SPIRIT": {
+    "scryfallId": "3a9a0ec2-6f57-4218-a307-6e8d785a1693",
+    "oracleId": "2648559d-1d96-47d2-a769-cfa2cbca2be5",
+    "name": "Spider-Gwen, Free Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Gwen, Free Spirit",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "Reach\nWhenever Spider-Gwen becomes tapped, you may discard a card. If you do, draw a card.",
+        "flavorText": "At the edge of the Spider-Verse, a Gwen Stacy becomes a hero.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "3a9a0ec2-6f57-4218-a307-6e8d785a1693"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "874",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWARM_CULLER": {
+    "scryfallId": "2a8f583c-88b6-4797-b93e-3086845fc326",
+    "oracleId": "a6c28bde-10d9-471b-acd0-32a1c6195805",
+    "name": "Swarm Culler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swarm Culler",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Insect Warrior",
+        "oracleText": "Flying\nWhenever this creature becomes tapped, you may sacrifice another creature or artifact. If you do, draw a card.",
+        "flavorText": "The swarm lacked a natural predator, so the Eumidians became one.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "April Prime",
+        "imageId": "2a8f583c-88b6-4797-b93e-3086845fc326"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMUR_SABERTOOTH": {
+    "scryfallId": "2bf59e8d-0746-440d-878f-d6f6f74610d8",
+    "oracleId": "8bf8e846-9d10-4dbc-a379-df37bb9fb6d4",
+    "name": "Temur Sabertooth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temur Sabertooth",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "{1}{G}: You may return another creature you control to its owner's hand. If you do, this creature gains indestructible until end of turn.",
+        "flavorText": "The Temur see themselves as a pack, their bonds more primal than the Abzan's.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mike Sass",
+        "imageId": "2bf59e8d-0746-440d-878f-d6f6f74610d8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "c17",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THING_FROM_THE_DEEP": {
+    "scryfallId": "97c7a97f-b368-4d13-8d07-3d57a15de518",
+    "oracleId": "9542bd7f-bb99-4b59-a4e3-b88ed9f798bf",
+    "name": "Thing from the Deep",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thing from the Deep",
+        "manaCost": "{6}{U}{U}{U}",
+        "typeLine": "Creature — Leviathan",
+        "oracleText": "Whenever this creature attacks, sacrifice it unless you sacrifice an Island.",
+        "flavorText": "Seafarers fear sailing off the world's edge not so much as down its gullet.",
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "97c7a97f-b368-4d13-8d07-3d57a15de518"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 9,
+    "keywords": [],
+    "setCode": "me4",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDERING_WURM": {
+    "scryfallId": "8b0ba623-d17f-4f0e-b914-da139a3971df",
+    "oracleId": "cdab50a8-1e02-4ba5-8c09-e2837e7652f7",
+    "name": "Thundering Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thundering Wurm",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "When this creature enters, sacrifice it unless you discard a land card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "8b0ba623-d17f-4f0e-b914-da139a3971df"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIASHINO_RACKETEER": {
+    "scryfallId": "bf4c2d22-9c36-42cc-854d-f96410bb5cf1",
+    "oracleId": "18b09c2d-20cb-40e9-8209-8a1ec2edde97",
+    "name": "Viashino Racketeer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viashino Racketeer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard Rogue",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"You may call me a fool, selling this stuff on Orzhov turf. Well, you need to be a little reckless to survive.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "bf4c2d22-9c36-42cc-854d-f96410bb5cf1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOLATILE_WANDERGLYPH": {
+    "scryfallId": "2101921a-d26f-4a00-a0db-1b418f2e6b01",
+    "oracleId": "ebc3ca0f-35eb-4606-90ab-eb64556f81fe",
+    "name": "Volatile Wanderglyph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Volatile Wanderglyph",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever this creature becomes tapped, you may discard a card. If you do, draw a card.",
+        "flavorText": "Touched eons ago by Ojer Axonil's flaming macuahuitl, it still burns with his boundless fury.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "2101921a-d26f-4a00-a0db-1b418f2e6b01"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VULSHOK_WAR_BOAR": {
+    "scryfallId": "bb6b232a-834c-4c9a-bf36-821d125dc318",
+    "oracleId": "4641e86f-5370-4b25-bd76-07bea856c032",
+    "name": "Vulshok War Boar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vulshok War Boar",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Boar Beast",
+        "oracleText": "When this creature enters, sacrifice it unless you sacrifice an artifact.",
+        "flavorText": "It must eat its weight in metal daily, or its furnacelike belly will consume itself for lack of fuel.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "bb6b232a-834c-4c9a-bf36-821d125dc318"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YUYAN_ARCHERS": {
+    "scryfallId": "99244462-a996-4a5b-91fb-947045647d6d",
+    "oracleId": "63e5180f-16d0-4524-94bf-ecbf3c417814",
+    "name": "Yuyan Archers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yuyan Archers",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Archer",
+        "oracleText": "Reach\nWhen this creature enters, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"Their precision is legendary. The Yuyan can pin a fly to a tree from a hundred yards away without killing it.\"\n—Admiral Zhao",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Domco.",
+        "imageId": "99244462-a996-4a5b-91fb-947045647d6d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BITTER_REUNION": {
+    "scryfallId": "345a1c80-41d6-43b1-83ab-1aa56dd06b1b",
+    "oracleId": "173e86f4-17f3-44f5-8073-78e7e2e12c4a",
+    "name": "Bitter Reunion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bitter Reunion",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, you may discard a card. If you do, draw two cards.\n{1}, Sacrifice this enchantment: Creatures you control gain haste until end of turn.",
+        "flavorText": "The peace summit proved the grudge between Urza and Mishra could end only in blood.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "345a1c80-41d6-43b1-83ab-1aa56dd06b1b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXCAVATING_ANURID": {
+    "scryfallId": "00c05693-d4b6-4d1c-9064-1d93bb2be8eb",
+    "oracleId": "0239b661-80be-4b52-b3b7-fca229192b58",
+    "name": "Excavating Anurid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Excavating Anurid",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Frog Beast",
+        "oracleText": "When this creature enters, you may sacrifice a land. If you do, draw a card.\nThreshold — As long as there are seven or more cards in your graveyard, this creature gets +1/+1 and has vigilance.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "00c05693-d4b6-4d1c-9064-1d93bb2be8eb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "568",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICEMAN_AND_FIRESTAR": {
+    "scryfallId": "3dbc2d29-c56f-4c80-b671-24f39c8d80e5",
+    "oracleId": "f01c779a-97be-4727-ab62-33579f52447a",
+    "name": "Iceman and Firestar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iceman and Firestar",
+        "manaCost": "{2}{U/R}{U/R}",
+        "typeLine": "Legendary Creature — Mutant Hero",
+        "oracleText": "Flying\nWhenever you cast a blue spell, tap up to one target creature.\nWhenever you cast a red spell, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"Aren't my friends amazing?\"\n—Spider-Man, Peter Parker",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "3dbc2d29-c56f-4c80-b671-24f39c8d80e5"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "742",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAFF_WEATHERLIGHT_STALWART": {
+    "scryfallId": "11a5871b-377c-4e01-a655-490a0c40679b",
+    "oracleId": "41f3acbf-6092-435f-a5af-4d80dd6e1aef",
+    "name": "Raff, Weatherlight Stalwart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raff, Weatherlight Stalwart",
+        "manaCost": "{W}{U}",
+        "typeLine": "Legendary Creature — Human Wizard",
+        "oracleText": "Whenever you cast an instant or sorcery spell, you may tap two untapped creatures you control. If you do, draw a card.\n{3}{W}{W}: Creatures you control get +1/+1 and gain vigilance until end of turn.",
+        "flavorText": "\"This old ship has seen a lot, but she's not done yet.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Eelis Kyttanen",
+        "imageId": "11a5871b-377c-4e01-a655-490a0c40679b"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mul",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTICORE": {
+    "scryfallId": "1b5a3ad3-c20d-4f01-8c00-e1836046be50",
+    "oracleId": "621476a4-44bf-4f55-adb1-880cdd213f38",
+    "name": "Masticore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Masticore",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Masticore",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you discard a card.\n{2}: This creature deals 1 damage to target creature.\n{2}: Regenerate this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paolo Parente",
+        "imageId": "1b5a3ad3-c20d-4f01-8c00-e1836046be50"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "wc00",
+    "collectorNumber": "jk134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTEN_TAIL_MASTICORE": {
+    "scryfallId": "48311a45-c0e1-4170-8dab-2b3495096c48",
+    "oracleId": "15fb3a7a-a6c3-4bef-9f72-1d04b623063e",
+    "name": "Molten-Tail Masticore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molten-Tail Masticore",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Masticore",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature unless you discard a card.\n{4}, Exile a creature card from your graveyard: This creature deals 4 damage to any target.\n{2}: Regenerate this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Whit Brachna",
+        "imageId": "48311a45-c0e1-4170-8dab-2b3495096c48"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "som",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROKERS_INITIATE": {
+    "scryfallId": "a7867f2d-e89d-429f-9ab8-5337b40b4d8d",
+    "oracleId": "9bdf033e-87d4-4bc4-ba08-4b497cc1b559",
+    "name": "Brokers Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brokers Initiate",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat Citizen",
+        "oracleText": "{4}{G/U}: This creature has base power and toughness 5/5 until end of turn.",
+        "flavorText": "Regarding the relative might of pen and sword, the official position of the Brokers is \"Why choose?\"",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "a7867f2d-e89d-429f-9ab8-5337b40b4d8d"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "5",
     "commanderLegality": "legal",
     "singleImage": true
   },

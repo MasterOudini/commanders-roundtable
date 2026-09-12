@@ -820,10 +820,27 @@ export interface SacrificeSpec {
   readonly what: string;
 }
 
+/**
+ * D415 - THE VERB PRICE: the payment prompt's price when it is a chooser verb (D406's grammar - one
+ * sacrifice, discard, tap, exile from the graveyard or return to hand) or the object's own sacrifice
+ * (`sacrifice it`) instead of mana. `costText` is the printed price, for the prompt and the log.
+ */
+export interface VerbPrice {
+  readonly costText: string;
+  readonly sacrificeSelf: boolean;
+  readonly sacrificeCost: ActivatedAbility['sacrificeCost'];
+  readonly discardCost: ActivatedAbility['discardCost'];
+  readonly tapCost: ActivatedAbility['tapCost'];
+  readonly exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'];
+  readonly returnCost: ActivatedAbility['returnCost'];
+}
+
 export interface PaySpec {
-  /** The mana, printed; `null` when the price is life alone. Never carries X. */
+  /** The mana, printed; `null` when the price is life alone or a verb (D415). Never carries X. */
   readonly cost: ManaCost | null;
   readonly life: number;
+  /** D415 - the chooser-verb price; REQUIRED (D355/D356's rule), null when the price is mana and/or life. */
+  readonly verbs: VerbPrice | null;
   readonly who: 'controller' | 'targetController' | 'targetPlayer';
   readonly ifPaid: readonly EffectSpec[];
   readonly ifNotPaid: readonly EffectSpec[];

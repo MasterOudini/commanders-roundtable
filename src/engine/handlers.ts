@@ -60,6 +60,7 @@ import type {
   ModeDecl,
   SearchQualifier,
   TargetSpec,
+  VerbPrice,
 } from './types/oracle';
 import { predicateAdmits, type PermanentPredicate } from '../data/replacementParse';
 import { candidatesFromState, validateTargets } from './targets';
@@ -2995,8 +2996,17 @@ function answerPayMana(
   if (awaiting?.kind !== 'payMana' || awaiting.player !== intent.player) {
     return reject('notAwaitingThat', 'You are not being asked to pay for anything.');
   }
-  const events: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'PaymentAnswered', player: intent.player, paid: intent.pay, label: awaiting.label }];
-  if (intent.pay) {
+  const events: EventBody[] = [
+    { t: 'AwaitingSet', awaiting: null },
+    { t: 'PaymentAnswered', player: intent.player, paid: intent.pay, label: awaiting.label, ...(awaiting.verbs ? { verb: awaiting.verbs.costText } : {}) },
+  ];
+  if (intent.pay && awaiting.verbs) {
+    // D415 - a VERB price: the picks ARE the payment, checked against the board as it stands now.
+    const charged = verbPriceEvents(state, deps, intent.player, awaiting, awaiting.verbs, intent.picks ?? []);
+    if ('error' in charged) return charged.error;
+    events.push(...charged.events);
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'pays', 'pay')} for ${awaiting.label}: ${awaiting.verbs.costText}.`, intent.player));
+  } else if (intent.pay) {
     const seat = state.players[intent.player];
     if (awaiting.life > 0 && (!seat || seat.life < awaiting.life)) {
       return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
@@ -3038,6 +3048,48 @@ function answerPayMana(
     events.push(...effectResult(scratch, deps, obj, branch).events);
   }
   return accept(events);
+}
+
+/**
+ * D415 - THE VERB PRICE, charged. The picks must be exactly the printed count, distinct, and each a
+ * candidate against the board as it stands NOW (`castCostCandidates` - the list that decided the
+ * question was worth asking, D139), or the object's own sacrifice; the cost batch's own shapes then
+ * move them (`additionalCostEvents`, D406), so the watchers see an ordinary sacrifice, discard, tap,
+ * exile or return. An unaffordable yes is REFUSED with a message, never downgraded to a no (D136).
+ */
+function verbPriceEvents(
+  state: GameState,
+  deps: EngineDeps,
+  player: PlayerId,
+  awaiting: Extract<NonNullable<GameState['priority']['awaiting']>, { kind: 'payMana' }>,
+  verbs: VerbPrice,
+  picks: readonly InstanceId[],
+): { events: EventBody[] } | { error: HandleResult } {
+  if (new Set(picks).size !== picks.length) return { error: reject('noSuchCard', 'You named the same card twice.') };
+  const self = awaiting.source ?? awaiting.card ?? '';
+  if (verbs.sacrificeSelf) {
+    const inst = self === '' ? undefined : state.cards[self];
+    if (!inst || inst.zone.kind !== 'battlefield') return { error: reject('cannotAfford', `${awaiting.label}: there is nothing left to sacrifice.`) };
+    if (picks.length > 0 && (picks.length !== 1 || picks[0] !== self)) return { error: reject('illegalSacrifice', `${awaiting.label}'s price is its own sacrifice.`) };
+    return additionalCostEvents(state, deps, player, awaiting.identity, picksOf({ sacrifice: [self] }));
+  }
+  const cache = makeDeriveCache(state);
+  const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), player, self, verbs);
+  const VERBS = [
+    [verbs.sacrificeCost, 'sacrificeCandidates', 'needsSacrifice', 'illegalSacrifice', 'sacrifice'],
+    [verbs.discardCost, 'discardCandidates', 'needsDiscard', 'illegalDiscard', 'discard'],
+    [verbs.tapCost, 'tapCandidates', 'needsTap', 'illegalTap', 'tap'],
+    [verbs.exileFromGraveyardCost, 'exileFromGraveyardCandidates', 'needsExileFromGraveyard', 'illegalExileFromGraveyard', 'exileFromGraveyard'],
+    [verbs.returnCost, 'returnCandidates', 'needsReturn', 'illegalReturn', 'returnToHand'],
+  ] as const;
+  for (const [cost, key, needs, illegal, field] of VERBS) {
+    if (cost === null) continue;
+    if (picks.length !== cost.count) return { error: reject(needs, `${awaiting.label}: ${verbs.costText} - name ${cost.count}.`) };
+    const legal = (cand.fields[key] ?? []) as readonly InstanceId[];
+    if (!cand.enough || !picks.every((c) => legal.includes(c))) return { error: reject(illegal, `Those cannot pay ${awaiting.label}'s price (${verbs.costText}).`) };
+    return additionalCostEvents(state, deps, player, awaiting.identity, picksOf({ [field]: picks }));
+  }
+  return { error: reject('cannotAfford', `${awaiting.label}: a price the app cannot charge.`) };
 }
 
 function answerEntersChoice(

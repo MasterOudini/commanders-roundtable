@@ -37,6 +37,7 @@ import type {
   TargetSpec,
   EffectSpec,
   DelayWhen,
+  VerbPrice,
 } from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
@@ -828,6 +829,18 @@ export type Awaiting =
       readonly targetSlots?: readonly number[];
       readonly ifPaid: readonly EffectSpec[];
       readonly ifNotPaid: readonly EffectSpec[];
+      /**
+       * D415 - THE VERB PRICE (`you may discard a card. If you do, ...`, `... unless you sacrifice a
+       * Forest`): the chooser verb the answer must name picks for, instead of mana. Absent on a mana
+       * or life price, so every older prompt is byte-identical.
+       */
+      readonly verbs?: VerbPrice;
+      /**
+       * D415 - the candidates for a verb price over a PUBLIC zone (the battlefield, the graveyard),
+       * so a client lists them without deriving the board. A DISCARD ships none - a hand is hidden
+       * (D137) and the answerer reads its own; the host re-validates every pick either way (D139).
+       */
+      readonly candidates?: readonly InstanceId[];
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.
