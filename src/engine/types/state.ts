@@ -315,6 +315,14 @@ export interface StackObject {
    */
   readonly kicked?: number;
   /**
+   * D405 - how many creatures convoked, artifacts improvised and cards were delved to cast this
+   * spell (CR 702.51 / 702.126 / 702.66); absent when none did. The record of the alternative
+   * payment for the log and the gate (the taps and the exiles are events of their own).
+   */
+  readonly convoked?: number;
+  readonly improvised?: number;
+  readonly delved?: number;
+  /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
    * tapped permanent THIS firing answers. Absent on every other object.
@@ -446,6 +454,8 @@ export interface PendingCast {
   readonly faceDown?: true;
   /** D403 - the kicker count the cast was announced with (CR 702.33), carried to the `StackObject`. */
   readonly kicked?: number;
+  /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
+  readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
   readonly faceIndex: number;
   /**

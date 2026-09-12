@@ -1367,6 +1367,14 @@ export interface OracleFace {
   readonly kickerCost: ManaCost | null;
   readonly multikickerCost: ManaCost | null;
   /**
+   * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
+   * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard
+   * (`CastSpell.convoke` / `improvise` / `delve`). Read off the keyword line at ingest.
+   */
+  readonly convoke: boolean;
+  readonly improvise: boolean;
+  readonly delve: boolean;
+  /**
    * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" as a mana cost (CR
    * 702.37): cast face down as a 2/2 for {3}, turned face up for this. Null
    * when the card has none or prints a dash cost. Permanents only.

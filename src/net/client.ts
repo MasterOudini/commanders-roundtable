@@ -19,6 +19,7 @@
 
 import { applyPatch, viewHash } from '../engine/diffView';
 import { buildPaymentProblem, wardTaxFrom } from '../engine/mana';
+import { NO_ALT, altCount, applyAlternativePayment, assignAlternativePayment, chooseAlternatives, type AltChoice, type ConvokeCandidate } from '../engine/altPayment';
 import { faceOf } from '../engine/oracle';
 import { suggestPayment } from '../engine/payment';
 import { OTHER_PURPOSE, spellPurpose } from '../engine/spend';
@@ -92,6 +93,16 @@ export interface CastPreview {
   /** D403 - the kicker cost the face prints (once, or any number of times), and the count this preview priced. */
   readonly kicker: { readonly cost: string; readonly many: boolean } | null;
   readonly kicked: number;
+  /**
+   * D405 - the alternatives the face prints (convoke / improvise / delve) and what this preview
+   * priced: `alt` is what the cast will tap or exile (empty lists when the player asked for none),
+   * `altAvailable` what the chooser would take if asked, `altProblem` the choice the host would
+   * refuse (a name that pays for nothing).
+   */
+  readonly keywords: { readonly convoke: boolean; readonly improvise: boolean; readonly delve: boolean };
+  readonly alt: AltChoice;
+  readonly altAvailable: AltChoice;
+  readonly altProblem: string | null;
 }
 
 export interface ClientOptions {
@@ -432,7 +443,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -450,9 +461,22 @@ export class ClientSession {
     // D403 - the kick the player announced, priced with the ward (the host prices the same count).
     const kickCost = face.multikickerCost ?? face.kickerCost;
     const kickMana = kicked > 0 && kickCost ? Array.from({ length: face.multikickerCost ? kicked : 1 }, () => kickCost) : [];
-    const problem = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana], action.tax, ward.life);
+    const base = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana], action.tax, ward.life);
+    // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
+    // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
+    const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
+    const candidates = this.altCandidates(keywords);
+    const altAvailable = chooseAlternatives(base, candidates.convoke, candidates.improvise, candidates.delve);
+    const chosenAlt = alt === 'auto' ? altAvailable : alt;
+    const byId = new Map(candidates.convoke.map((c) => [c.id, c]));
+    const assigned = assignAlternativePayment(base, chosenAlt.convoke.map((id) => byId.get(id) ?? { id, colors: [] }), chosenAlt.improvise.length, chosenAlt.delve.length);
+    const altProblem = assigned.failed ? `${this.nameOf((assigned.failed.kind === 'convoke' ? chosenAlt.convoke : assigned.failed.kind === 'improvise' ? chosenAlt.improvise : chosenAlt.delve)[assigned.failed.index])} would pay for nothing.` : null;
+    const problem = assigned.failed ? base : applyAlternativePayment(base, assigned.paid);
+    // D405 - a permanent the cast taps for its alternatives is no mana source for the same cast.
+    const tapped = new Set<InstanceId>([...chosenAlt.convoke, ...chosenAlt.improvise]);
+    const solve = tapped.size > 0 ? { ...this.session.solve, sources: this.session.solve.sources.filter((s) => !tapped.has(s.card)) } : this.session.solve;
     // D397 - the SAME purpose the host charges with (D53): the spell this face is cast as.
-    const plan = suggestPayment(this.session.solve, problem, spellPurpose(face, action.faceDown === true));
+    const plan = assigned.failed ? null : suggestPayment(solve, problem, spellPurpose(face, action.faceDown === true));
     return {
       card: cardId,
       name: face.name,
@@ -464,7 +488,40 @@ export class ClientSession {
       lifePaid: plan?.lifePaid ?? 0,
       kicker: kickCost ? { cost: kickCost.raw, many: face.multikickerCost !== null } : null,
       kicked: kickCost ? kicked : 0,
+      keywords,
+      alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
+      altAvailable,
+      altProblem,
     };
+  }
+
+  /**
+   * D405 - what this viewer could tap or exile for a cast, from the VIEW: their untapped creatures
+   * (convoke, with their printed colours), their untapped artifacts (improvise), the cards in their
+   * graveyard (delve). A face-down permanent shows no card and is skipped. In id order, so the
+   * chooser is deterministic.
+   */
+  private altCandidates(keywords: { readonly convoke: boolean; readonly improvise: boolean; readonly delve: boolean }): { convoke: ConvokeCandidate[]; improvise: InstanceId[]; delve: InstanceId[] } {
+    const convoke: ConvokeCandidate[] = [];
+    const improvise: InstanceId[] = [];
+    const delve: InstanceId[] = [];
+    if (keywords.convoke || keywords.improvise) {
+      for (const id of [...(this.view.zones[`bf:${this.you}`] ?? [])].sort()) {
+        const card = this.view.cards[id];
+        if (!card?.card || card.tapped || card.faceDown || card.controller !== this.you) continue;
+        const oracleCard = this.pool.oracle().byPrinting(card.card.scryfallId);
+        if (!oracleCard) continue;
+        const face = faceOf(oracleCard, card.faceIndex);
+        if (keywords.convoke && face.typeLine.types.includes('Creature')) convoke.push({ id, colors: face.colors });
+        if (keywords.improvise && face.typeLine.types.includes('Artifact')) improvise.push(id);
+      }
+    }
+    if (keywords.delve) for (const id of [...(this.view.zones[`gy:${this.you}`] ?? [])].sort()) delve.push(id);
+    return { convoke, improvise, delve };
+  }
+
+  private nameOf(id: InstanceId | undefined): string {
+    return (id !== undefined ? this.view.cards[id]?.card?.name : undefined) ?? 'That card';
   }
 
   /**

@@ -33,6 +33,9 @@ import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
+import { NO_ALT, altCount, applyAlternativePayment, assignAlternativePayment, type AltChoice, type ConvokeCandidate } from './altPayment';
+import type { SolveInput } from './payment';
+import type { PaymentProblem } from './types/mana';
 import { suggestPayment, solveInputFor, validatePlan } from './payment';
 import { OTHER_PURPOSE, abilityPurpose, bucketsFitting, fitPool, restrictedOfSpend, spellPurpose, type SpendPurpose } from './spend';
 import type { RestrictedMana } from './types/mana';
@@ -378,6 +381,105 @@ interface CastSetup {
   readonly faceDown?: boolean;
   /** D403 - the kicker count the cast announced (0 when unkicked), priced into `problem`. */
   readonly kicked: number;
+  /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
+  readonly alt: AltChoice;
+}
+
+/**
+ * D405 - CONVOKE / IMPROVISE / DELVE: is what the cast names something this face can tap or exile
+ * for its cost? A creature the caster controls, untapped; an artifact the caster controls,
+ * untapped; a card in the caster's graveyard; each named once. Null when every choice is fine.
+ */
+function altProblem(state: GameState, deps: EngineDeps, player: PlayerId, face: ReturnType<typeof faceOf>, alt: AltChoice, faceDown: boolean): string | null {
+  if (altCount(alt) === 0) return null;
+  if (faceDown) return 'A face-down spell cannot be paid by convoke, improvise or delve.';
+  if (alt.convoke.length > 0 && !face.convoke) return `${face.name} has no convoke.`;
+  if (alt.improvise.length > 0 && !face.improvise) return `${face.name} has no improvise.`;
+  if (alt.delve.length > 0 && !face.delve) return `${face.name} has no delve.`;
+  const seen = new Set<InstanceId>();
+  const cache = makeDeriveCache(state);
+  const nameOf = (id: InstanceId): string => derive(state, deps.oracle, deps.scripts, id, cache).name;
+  for (const [kind, ids] of [['convoke', alt.convoke], ['improvise', alt.improvise], ['delve', alt.delve]] as const) {
+    for (const id of ids) {
+      const inst = state.cards[id];
+      if (!inst) return 'That card is not in the game.';
+      if (seen.has(id)) return `${nameOf(id)} is named twice.`;
+      seen.add(id);
+      if (kind === 'delve') {
+        if (inst.zone.kind !== 'graveyard' || inst.zone.player !== player) return `${nameOf(id)} is not in your graveyard.`;
+        continue;
+      }
+      if (inst.zone.kind !== 'battlefield' || inst.controller !== player) return `${nameOf(id)} is not a permanent you control.`;
+      if (inst.tapped) return `${nameOf(id)} is already tapped.`;
+      const d = derive(state, deps.oracle, deps.scripts, id, cache);
+      if (kind === 'convoke' && !d.isCreature) return `${d.name} is not a creature.`;
+      if (kind === 'improvise' && !d.typeLine.types.includes('Artifact')) return `${d.name} is not an artifact.`;
+    }
+  }
+  return null;
+}
+
+/**
+ * D405 - the problem with the alternatives taken off it, or the choice that pays for nothing, by
+ * name. The assignment is the shared one (`altPayment.ts`): the client's preview prices the same
+ * symbols (D53). Read by every rebuild of the problem, so X and the targets reprice the same choices.
+ */
+function priceAlternatives(state: GameState, deps: EngineDeps, face: ReturnType<typeof faceOf>, base: PaymentProblem, alt: AltChoice): { problem: PaymentProblem } | { error: HandleResult } {
+  if (altCount(alt) === 0) return { problem: base };
+  const cache = makeDeriveCache(state);
+  const convoke: ConvokeCandidate[] = alt.convoke.map((id) => ({ id, colors: derive(state, deps.oracle, deps.scripts, id, cache).colors }));
+  const assigned = assignAlternativePayment(base, convoke, alt.improvise.length, alt.delve.length);
+  if (assigned.failed) {
+    const list = assigned.failed.kind === 'convoke' ? alt.convoke : assigned.failed.kind === 'improvise' ? alt.improvise : alt.delve;
+    const id = list[assigned.failed.index];
+    const name = id !== undefined ? derive(state, deps.oracle, deps.scripts, id, cache).name : 'That';
+    return { error: reject('notCastable', `${name} would pay for nothing: ${face.name} has no symbol left for it.`) };
+  }
+  return { problem: applyAlternativePayment(base, assigned.paid) };
+}
+
+/** D405 - the taps and the exiles the alternatives pay with, ahead of the mana (CR 601.2h). */
+function altEvents(state: GameState, player: PlayerId, alt: AltChoice): EventBody[] {
+  const out: EventBody[] = [];
+  const tapped = [...alt.convoke, ...alt.improvise];
+  if (tapped.length > 0) out.push({ t: 'PermanentsTapped', cards: tapped });
+  if (alt.delve.length > 0) {
+    out.push({
+      t: 'CardsMoved',
+      moves: alt.delve.map((card) => ({ card, from: { kind: 'graveyard' as const, player }, to: { kind: 'exile' as const, player: state.cards[card]?.owner ?? player } })),
+    });
+  }
+  return out;
+}
+
+/** D405 - a solve input without the permanents the cast taps for its alternatives: a mana creature convoked cannot also be tapped for mana. */
+function solveWithout(solve: SolveInput, alt: AltChoice): SolveInput {
+  if (alt.convoke.length + alt.improvise.length === 0) return solve;
+  const gone = new Set<InstanceId>([...alt.convoke, ...alt.improvise]);
+  return { ...solve, sources: solve.sources.filter((s) => !gone.has(s.card)) };
+}
+
+/** D405 - does the mana plan tap a permanent the cast already taps for convoke or improvise? */
+function planTapsAlt(plan: import('./types/mana').PaymentPlan, alt: AltChoice): boolean {
+  return plan.taps.some((t) => alt.convoke.includes(t.source) || alt.improvise.includes(t.source));
+}
+
+/** D405 - the counts the stack object remembers, only when something was tapped or exiled. */
+function altCounts(alt: AltChoice): { convoked?: number; improvised?: number; delved?: number } {
+  return {
+    ...(alt.convoke.length > 0 ? { convoked: alt.convoke.length } : {}),
+    ...(alt.improvise.length > 0 ? { improvised: alt.improvise.length } : {}),
+    ...(alt.delve.length > 0 ? { delved: alt.delve.length } : {}),
+  };
+}
+
+/** D405 - the narration's tail: ` (convoke 2, delve 3)`, or nothing. */
+function altNote(alt: AltChoice): string {
+  const parts: string[] = [];
+  if (alt.convoke.length > 0) parts.push(`convoke ${alt.convoke.length}`);
+  if (alt.improvise.length > 0) parts.push(`improvise ${alt.improvise.length}`);
+  if (alt.delve.length > 0) parts.push(`delve ${alt.delve.length}`);
+  return parts.length > 0 ? ` (${parts.join(', ')})` : '';
 }
 
 /**
@@ -453,6 +555,7 @@ function prepareCast(
   targets: readonly TargetChoice[] = [],
   faceDown = false,
   kicked = 0,
+  alt: AltChoice = NO_ALT,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -502,9 +605,15 @@ function prepareCast(
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked);
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
-  const problem = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked)], tax, ward.life);
+  // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
+  const altWhy = altProblem(state, deps, player, face, alt, faceDown);
+  if (altWhy) return { error: reject('notCastable', altWhy) };
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked)], tax, ward.life);
+  const priced = priceAlternatives(state, deps, face, base, alt);
+  if ('error' in priced) return priced;
+  const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -585,6 +694,7 @@ function castSpell(
     intent.targets ?? [],
     intent.faceDown === true,
     intent.kicked ?? 0,
+    { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [] },
   );
   if ('error' in setup) return setup.error;
 
@@ -661,6 +771,7 @@ function castSpell(
       isCommanderCast: setup.from.kind === 'command',
       taxApplied: setup.tax,
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
+      ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
     };
     return accept([
       {
@@ -736,7 +847,11 @@ function chooseX(
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
   // D403 - the kick announced with the cast stays in the problem X resizes.
-  const problem = buildPaymentProblem(face.manaCost, intent.x, kickerMana(face, pending.kicked ?? 0), pending.taxApplied);
+  const base = buildPaymentProblem(face.manaCost, intent.x, kickerMana(face, pending.kicked ?? 0), pending.taxApplied);
+  // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
+  const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
+  if ('error' in priced) return priced.error;
+  const problem = priced.problem;
 
   // CR 601.2c follows 601.2b: with X known, ask for the targets it may size.
   // D343 - a modal spell aims the CHOSEN modes' clauses.
@@ -1380,7 +1495,7 @@ function chooseTargets(
   // life `wardTaxFor` can return anything but zero, because until targeting
   // existed nothing ever supplied it a target.
   const ward = wardTaxFor(state, deps, intent.player, intent.targets);
-  const problem = buildPaymentProblem(
+  const base = buildPaymentProblem(
     face.manaCost,
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
@@ -1388,6 +1503,10 @@ function chooseTargets(
     pending.taxApplied,
     ward.life,
   );
+  // D405 - the alternatives the cast named stay in the problem the targets reprice.
+  const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
+  if ('error' in priced) return priced.error;
+  const problem = priced.problem;
 
   return finishFromPending(
     state,
@@ -1460,7 +1579,8 @@ interface CompleteArgs {
 
 function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): HandleResult {
   const { setup } = args;
-  const solve = solveInputFor(state, deps.oracle, deps.scripts, args.player);
+  // D405 - a permanent the cast taps for convoke or improvise is no mana source for the same cast.
+  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, args.player), setup.alt);
   // D397 - the spell this face is cast as, face down a colourless creature (CR 708.2).
   const purpose = spellPurpose(setup.face, setup.faceDown === true);
   const plan = args.plan ?? suggestPayment(solve, setup.problem, purpose);
@@ -1477,6 +1597,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   if (problem === 'invalid') {
     return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
   }
+  if (planTapsAlt(plan, setup.alt)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
 
   const stackId = `s${state.counters.stack + 1}`;
   const events: EventBody[] = [
@@ -1493,6 +1614,8 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
       ],
     },
   ];
+  // D405 - the taps and the exiles of convoke, improvise and delve, then the mana.
+  events.push(...altEvents(state, args.player, setup.alt));
   events.push(...payEvents(state, deps, args.player, plan, setup, purpose));
 
   const card = state.cards[args.card];
@@ -1515,6 +1638,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     castFrom: setup.from,
     ...(setup.faceDown ? { faceDown: true as const } : {}),
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
+    ...altCounts(setup.alt),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -1526,7 +1650,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   }
   events.push(
     narrated(
-      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}.`,
+      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}${altNote(setup.alt)}.`,
       args.player,
       setup.identity,
     ),
@@ -1909,7 +2033,9 @@ function finishFromPending(
   opts: FinishOpts = {},
 ): HandleResult {
   const plan = opts.plan;
-  const solve = solveInputFor(state, deps.oracle, deps.scripts, pending.player);
+  // D405 - a permanent the cast taps for convoke or improvise is no mana source for the same cast.
+  const alt = pending.alt ?? NO_ALT;
+  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, pending.player), alt);
   // D397 - what this pays for: the spell the face is cast as, or the ability of its source.
   const src = pending.kind === 'ability' ? derive(state, deps.oracle, deps.scripts, pending.card) : null;
   const purpose = src ? abilityPurpose(src.typeLine, src.colors) : spellPurpose(face, pending.faceDown === true);
@@ -1920,6 +2046,7 @@ function finishFromPending(
   const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen, purpose);
   if (problem === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (problem === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+  if (planTapsAlt(chosen, alt)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
 
   const setup: CastSetup = {
     problem: pending.problem,
@@ -1927,6 +2054,7 @@ function finishFromPending(
     tax: pending.taxApplied,
     from: pending.from,
     kicked: pending.kicked ?? 0,
+    alt,
     identity,
   };
   const events: EventBody[] = [...(opts.lead ?? [])];
@@ -1940,6 +2068,8 @@ function finishFromPending(
   if (pending.xValue !== null && !opts.xAlreadyLogged) {
     events.push({ t: 'XChosen', x: pending.xValue, problem: pending.problem });
   }
+  // D405 - the taps and the exiles of convoke, improvise and delve, then the mana.
+  events.push(...altEvents(state, pending.player, alt));
   events.push(...payEvents(state, deps, pending.player, chosen, setup, purpose));
 
   const card = state.cards[pending.card];
@@ -1961,6 +2091,7 @@ function finishFromPending(
     isCommanderCast: pending.isCommanderCast,
     castFrom: pending.from,
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
+    ...altCounts(alt),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {
@@ -1968,7 +2099,7 @@ function finishFromPending(
   }
   events.push(
     narrated(
-      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}.`,
+      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}${altNote(alt)}.`,
       pending.player,
       identity,
     ),

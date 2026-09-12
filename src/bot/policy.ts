@@ -16,6 +16,7 @@ import { planTargets } from './targets';
 import { decideRandom } from './random';
 import { creatureValue } from './eval';
 import { act, wait, type BotConfig, type BotDecision, type BotPort, type BotSnapshot } from './types';
+import { altCount } from '../engine/altPayment';
 
 type Cast = Extract<LegalAction, { t: 'CastSpell' }>;
 type Land = Extract<LegalAction, { t: 'PlayLand' }>;
@@ -173,11 +174,26 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
     // an unkicked cast is the fallback. One kick of a multikicker (the count is a price the bot
     // does not weigh yet).
     const kicked = cast.kicker ? port.previewCast(cast.card, 0, targets, 1) : null;
-    const preview = kicked?.plan ? kicked : port.previewCast(cast.card, 0, targets);
+    const plain = kicked?.plan ? kicked : port.previewCast(cast.card, 0, targets);
+    // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
+    // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
+    const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, 0, targets, 0, 'auto') : null;
+    const preview = plain?.plan ? plain : withAlt?.plan ? withAlt : null;
     if (!preview?.plan) continue;
     return act(
-      { t: 'CastSpell', player: me, card: cast.card, faceIndex: cast.faceIndex, plan: preview.plan, targets, ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}) },
-      `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}`,
+      {
+        t: 'CastSpell',
+        player: me,
+        card: cast.card,
+        faceIndex: cast.faceIndex,
+        plan: preview.plan,
+        targets,
+        ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
+        ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
+        ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
+        ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
+      },
+      `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );
   }
 

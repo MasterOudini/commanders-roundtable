@@ -81,6 +81,8 @@ export type TableMode =
       readonly targets: readonly TargetChoice[];
       /** D403 - the kicker count the player announced in the review (0 unkicked). */
       readonly kicked?: number;
+      /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
+      readonly useAlt?: boolean;
     }
   /**
    * Choosing attackers, before submitting them as one declaration.

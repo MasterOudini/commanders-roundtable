@@ -531,6 +531,14 @@ export function linesUnaccounted(
     // the cost is read off the face, the payment adds it, the stack object remembers it.
     if (face.kickerCost !== null && /^Kicker (?:\{[^}]+\})+$/.test(line)) continue;
     if (face.multikickerCost !== null && /^Multikicker (?:\{[^}]+\})+$/.test(line)) continue;
+    // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /
+    // `improvise` / `delve`): the cast names what it taps or exiles, the payment takes it off the cost.
+    if (
+      /^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(line) &&
+      line.split(', ').every((k) => ({ convoke: face.convoke, improvise: face.improvise, delve: face.delve })[k.toLowerCase() as 'convoke' | 'improvise' | 'delve'] === true)
+    ) {
+      continue;
+    }
     // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
     // turned face up for the cost). Asked of the parser that read it.
     if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;

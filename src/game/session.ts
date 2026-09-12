@@ -25,6 +25,7 @@ import { newGameSeed, newRoomCode, type DeckSubmission, type LobbyView } from '.
 import { loopbackPair } from '../net/transport';
 import type { Transport } from '../net/transport';
 import type { CastPreview } from '../net/client';
+import { NO_ALT, type AltChoice } from '../engine/altPayment';
 import type { LegalAction } from '../engine/legal';
 import type { Intent, RejectReason } from '../engine/types/intents';
 import type { Awaiting, TargetChoice } from '../engine/types/state';
@@ -588,13 +589,15 @@ export function previewCast(
   xValue = 0,
   targets: readonly TargetChoice[] = [],
   kicked = 0,
+  /** D405 - what the cast taps or exiles (convoke / improvise / delve), `'auto'` for the chooser's pick. */
+  alt: AltChoice | 'auto' = NO_ALT,
 ): CastPreview | null {
   // ⚠️ `targets` is FORWARDED, and it did not used to be.
   // `ClientSession.previewCast` has computed a ward surcharge from the chosen
   // targets since M5, and this wrapper silently dropped the third argument — so
   // the one cost in this app that depends on what you are pointing at could
   // never reach the player who has to approve it.
-  return active()?.previewCast(cardId, xValue, targets, kicked) ?? null;
+  return active()?.previewCast(cardId, xValue, targets, kicked, alt) ?? null;
 }
 
 // ── the assisted-effect offer ────────────────────────────────────────────────

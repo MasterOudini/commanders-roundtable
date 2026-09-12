@@ -1722,7 +1722,8 @@ export function parseEffects(
   const clean = scrub(selfRef(priced, cardName))
     .split('\n')
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
-    .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.
+    .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };

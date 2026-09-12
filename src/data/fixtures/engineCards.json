@@ -204070,6 +204070,148 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PACK_S_FAVOR": {
+    "scryfallId": "0f88c3aa-63e1-4617-bf1f-48f44988e7d6",
+    "oracleId": "072288da-5ba0-4176-b0e6-b3e43ecab2ec",
+    "name": "Pack's Favor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pack's Favor",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nTarget creature gets +3/+3 until end of turn.",
+        "flavorText": "Selesnya grows its ranks in more ways than one.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "0f88c3aa-63e1-4617-bf1f-48f44988e7d6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOOTING_MANDRILLS": {
+    "scryfallId": "090d678c-f0e4-4757-8900-93dfe67aefe9",
+    "oracleId": "70e35385-6129-4bd1-861c-df04469566b7",
+    "name": "Hooting Mandrills",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hooting Mandrills",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Ape",
+        "oracleText": "Delve (Each card you exile from your graveyard while casting this spell pays for {1}.)\nTrample",
+        "flavorText": "Interlopers in Sultai territory usually end up as crocodile chow or baboon bait.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "090d678c-f0e4-4757-8900-93dfe67aefe9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Delve",
+      "Trample"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASTION_INVENTOR": {
+    "scryfallId": "7b6fa167-9f2f-4889-8715-11ed20c4cc94",
+    "oracleId": "900ae045-0160-4e85-b283-e35399c2acec",
+    "name": "Bastion Inventor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bastion Inventor",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Vedalken Artificer",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nHexproof (This creature can't be the target of spells or abilities your opponents control.)",
+        "flavorText": "\"This armor transcends the limitations of mere flesh and bone.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "7b6fa167-9f2f-4889-8715-11ed20c4cc94"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Improvise",
+      "Hexproof"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AER-30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STOKE_THE_FLAMES": {
+    "scryfallId": "04113b3c-cc8f-4b15-9091-f82ea3df2e7c",
+    "oracleId": "2249001c-08d5-4c0a-86f8-d97519a39f37",
+    "name": "Stoke the Flames",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stoke the Flames",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nStoke the Flames deals 4 damage to any target.",
+        "flavorText": "The Atarka shamans roused the fire into a scorching rebuke of the invaders and a beacon of hope for the survivors.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Liiga Smilshkalne",
+        "imageId": "04113b3c-cc8f-4b15-9091-f82ea3df2e7c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -210184,6 +210326,476 @@
     "keywords": [],
     "setCode": "hop",
     "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FREEJAM_REGENT": {
+    "scryfallId": "7b80ed31-1d70-40ab-9c0d-fc3e6f86a029",
+    "oracleId": "87a72c3d-e787-4dd8-b934-4fff4573af6c",
+    "name": "Freejam Regent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Freejam Regent",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Cat Dragon",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nFlying\n{1}{R}: This creature gets +2/+0 until end of turn.",
+        "flavorText": "The dragons perching in Freejam's towers symbolize the zone's fierce independence.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "7b80ed31-1d70-40ab-9c0d-fc3e6f86a029"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Improvise"
+    ],
+    "setCode": "paer",
+    "collectorNumber": "81s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTERDISCIPLINARY_MASCOT": {
+    "scryfallId": "0eecdd9a-6c3f-43ee-8d9c-e3466bd7bf5e",
+    "oracleId": "74d9331b-832b-420b-9249-f2a58253a361",
+    "name": "Interdisciplinary Mascot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Interdisciplinary Mascot",
+        "manaCost": "{6}{U}{U}",
+        "typeLine": "Creature — Elemental Fractal",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nWard {3}\nWhen this creature enters, look at the top four cards of your library. Put one of them into your hand and the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "0eecdd9a-6c3f-43ee-8d9c-e3466bd7bf5e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Ward",
+      "Convoke"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "326",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAVU_PRIMARCH": {
+    "scryfallId": "475c3439-74a9-4a53-9e8b-c1c84b60ea35",
+    "oracleId": "09537e9f-6c8e-4849-9d35-d4f3950a64d7",
+    "name": "Kavu Primarch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kavu Primarch",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nIf this creature was kicked, it enters with four +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "475c3439-74a9-4a53-9e8b-c1c84b60ea35"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Convoke",
+      "Kicker"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "212",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_RESTORER": {
+    "scryfallId": "1ead2166-a7ca-49cb-bf93-2f59c37b4cb9",
+    "oracleId": "77eb2374-44a0-4383-b229-edc116c7d835",
+    "name": "Loxodon Restorer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Restorer",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Elephant Cleric",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nWhen this creature enters, you gain 4 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "1ead2166-a7ca-49cb-bf93-2f59c37b4cb9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAVERICK_THOPTERIST": {
+    "scryfallId": "1022eb7c-4195-41dc-acdb-ac42ddaec45e",
+    "oracleId": "71ba6f1b-2fa6-4d4c-8778-f0765b1a5d8e",
+    "name": "Maverick Thopterist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maverick Thopterist",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nWhen this creature enters, create two 1/1 colorless Thopter artifact creature tokens with flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "1022eb7c-4195-41dc-acdb-ac42ddaec45e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Improvise"
+    ],
+    "setCode": "ddu",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORDER_OF_SACRED_DUSK": {
+    "scryfallId": "134fe0d8-4326-43f3-ba0c-95589079164e",
+    "oracleId": "0cb41c3f-5e6a-4c63-80b5-c9ab84b4e4bf",
+    "name": "Order of Sacred Dusk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Order of Sacred Dusk",
+        "manaCost": "{6}{W}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nFlying, lifelink, haste\nExalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nOther Vampires you control have exalted.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "134fe0d8-4326-43f3-ba0c-95589079164e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "Exalted",
+      "Haste",
+      "Convoke"
+    ],
+    "setCode": "lcc",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_GREATSWORD": {
+    "scryfallId": "efd6f04e-e83d-4580-ae3f-583ada848868",
+    "oracleId": "8c53a177-c8c8-4b9f-a221-f205da67daa5",
+    "name": "Ramosian Greatsword",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Greatsword",
+        "manaCost": "{4}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nEquipped creature gets +3/+1 and has trample.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "efd6f04e-e83d-4580-ae3f-583ada848868"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Equip",
+      "Convoke"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOT_KIN_ALLY": {
+    "scryfallId": "5840c324-4dd4-41fe-9af2-593314ab685e",
+    "oracleId": "99d0876f-174b-4cfe-aa52-f3d5434f6cba",
+    "name": "Root-Kin Ally",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Root-Kin Ally",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Elemental Warrior",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nTap two untapped creatures you control: This creature gets +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "5840c324-4dd4-41fe-9af2-593314ab685e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIBSIG_MUCKDRAGGERS": {
+    "scryfallId": "f88297c1-c612-47bf-80b7-374099b00e07",
+    "oracleId": "423c1079-bdba-42fc-8732-59cb83ebafc3",
+    "name": "Sibsig Muckdraggers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sibsig Muckdraggers",
+        "manaCost": "{8}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Delve (Each card you exile from your graveyard while casting this spell pays for {1}.)\nWhen this creature enters, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "f88297c1-c612-47bf-80b7-374099b00e07"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Delve"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLY_REQUISITIONER": {
+    "scryfallId": "5f0fd407-8674-49fc-833a-783132cf7264",
+    "oracleId": "15ea4698-86b4-47c5-a9a7-60af16063a61",
+    "name": "Sly Requisitioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sly Requisitioner",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nWhenever a nontoken artifact you control is put into a graveyard from the battlefield, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "5f0fd407-8674-49fc-833a-783132cf7264"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Improvise"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASTRAL_WINGSPAN": {
+    "scryfallId": "be2ef728-a2c7-45ee-8594-372ed135b482",
+    "oracleId": "a054b6ed-f6ca-4436-a433-89771ffdd2d6",
+    "name": "Astral Wingspan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Astral Wingspan",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nEnchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +2/+2 and has flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Joseph Weston",
+        "imageId": "be2ef728-a2c7-45ee-8594-372ed135b482"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant",
+      "Convoke"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERALD_OF_ANGUISH": {
+    "scryfallId": "31a69ebe-4229-4067-8414-381b123fe63c",
+    "oracleId": "97b559fe-b09d-4883-9509-c45ace2d8487",
+    "name": "Herald of Anguish",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herald of Anguish",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nFlying\nAt the beginning of your end step, each opponent discards a card.\n{1}{B}, Sacrifice an artifact: Target creature gets -2/-2 until end of turn.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "31a69ebe-4229-4067-8414-381b123fe63c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Improvise"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOFTY_DREAMS": {
+    "scryfallId": "a2908ed1-517e-4f1a-94e5-b06fb033c1a6",
+    "oracleId": "f75568a0-33ed-45a0-a885-48a19a5bb58b",
+    "name": "Lofty Dreams",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lofty Dreams",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nEnchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature gets +2/+2 and has flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "a2908ed1-517e-4f1a-94e5-b06fb033c1a6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant",
+      "Convoke"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "58",
     "commanderLegality": "legal",
     "singleImage": true
   },

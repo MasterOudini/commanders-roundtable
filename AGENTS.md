@@ -15441,6 +15441,109 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
       BLOCKS.
 
+- [x] **M6.4il — CONVOKE (CR 702.51), IMPROVISE (CR 702.126) and DELVE (CR
+      702.66): the cast names the creatures it taps, the artifacts it taps
+      and the graveyard cards it exiles, each paying one symbol of the cost —
+      validated by name, priced by one shared assignment, tapped and exiled
+      ahead of the mana; the keyword line the engine's own (2026-09-12):**
+      **8,948 of 31,692 Commander-legal cards now execute completely, up from
+      8,878 (+70: 13 generated rows and 57 cards the seam completes with no
+      script — 25 keyword-only permanents and 32 spells whose other line the
+      vocabulary already read).** `SHIPPED_SCRIPTS` 5,774 → **5,787**; ledger
+      1,288 → **1,307** (nineteen ADDED by reason). Fixtures 6,369 → **6,386**
+      (6,229 by name + 150 tokens). `scriptableToday` 1,383 → **1,402** (the
+      seam offered 32, the wave took 13, the nineteen refused are ledgered);
+      the select pool 0 → 32 → 0; the ladder `[1402, 1493, 2879, 4551, 5892]`.
+      Bot reach 8,805 → **8,875** from 269 commanders. Decisions in **D405**;
+      an engine seam on Opus 5 by the user's choice, in the kicker's shape —
+      the third step of the COST MODIFICATION subsystem.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the user's order was measured first —
+      the 28 `up-to-N targeting` ledger entries are 28 different spell
+      sentences (the count IS built since D299; a stale label, no seam), the
+      84 script-raised prompts are 84 one-line spells over ~10 shapes, the
+      reveal-the-top family 92 lines over 79 shapes; the cost families by line
+      put Convoke 101 / 14 one-piece, Improvise 23 / 6, Delve 27 / 5 — ONE
+      mechanism, 151 lines — ahead of the alternative costs (111 / 13 over 82
+      shapes), the additional costs (305 / 20 over 125) and the `for each`
+      reductions (97 / 17 over 68).
+      ⚠️ **THE SEAM:** `parseAltCosts` onto `OracleFace.convoke` /
+      `improvise` / `delve` (a keyword line of its own or `Convoke, delve`),
+      the line CLAIMED, dropped from a spell's clauses beside Kicker, no Tier-3
+      note, the classifier's own; `altPayment.ts` — ONE assignment for the
+      host's charge and the client's preview (D53): a creature pays a coloured
+      symbol of its colour while one is unpaid else generic, an artifact or a
+      card generic, a choice paying for NOTHING refused by name (CR 601.2h);
+      `chooseAlternatives` the chooser the client, the bot and the driver
+      share. The host: `CastSpell.convoke` / `improvise` / `delve` checked by
+      name (`altProblem`), priced with the ward and the kick and REPRICED at
+      the X and targets stages (`PendingCast.alt`), the taps and the exiles
+      AHEAD of the mana, the plan solved WITHOUT the tapped permanents and a
+      plan naming one refused, `StackObject.convoked` / `improvised` /
+      `delved`. The offer flags the keywords; the preview prices what the
+      player named or the chooser's pick from the VIEW (printed colours; a
+      derived difference is refused, never charged differently); the review's
+      one toggle; the bot's fallback when the plain cast has no plan.
+      `src/engine/altPayment.test.ts` (3): the readers, the claim, the
+      assignment, the chooser; Pack's Favor (a tapped creature, a stranger's,
+      a name twice refused; three creatures pay `{2}{G}` whole, the Elves
+      tapped to convoke and not for its mana); Hooting Mandrills (six cards
+      refused, three delved and exiled); Bastion Inventor (the Sol Ring
+      improvised, the pool pays four not five).
+      **Fuzz:** the driver ALWAYS pays with a payable pick (the kicker's
+      rule) and proves a plan for the remainder BEFORE it casts (a cast
+      refused at its pay stage after a targets prompt is a WEDGE - HEAD's
+      seed `leak` already wedged at intent 200 this way); Pack's Favor and
+      Hooting Mandrills staples feeding `convokedCasts` / `delvedCasts`, floors
+      at gate size (35 / 19 over 500 seeds; 5 / 4 at 60);
+      Bastion Inventor's `improvisedCasts` counted, no floor. ⚠️ Two canaries
+      were wrong before this one: the fallback-only driver (eight picks in
+      twenty seeds, none cast) and Scatter the Seeds' `{G}{G}` (the second
+      coloured symbol, D398's wall). The leak game now plays all 300 intents
+      (10,818 events, 41 permanents): its budget moved to 180 s on a COMPLETED
+      run (D370's rule).
+      **Landed:** 13 rows (Freejam Regent, Interdisciplinary Mascot, Kavu
+      Primarch, Loxodon Restorer, Maverick Thopterist, Order of Sacred Dusk,
+      Ramosian Greatsword, Root-Kin Ally, Sibsig Muckdraggers, Sly
+      Requisitioner, Astral Wingspan, Herald of Anguish, Lofty Dreams — each
+      the card's other line). Refused by reason (19): fifteen spells this
+      generator does not row, an intervening if, a board-sized life gain,
+      `whenever you cast a spell with convoke`, a token outside TOKEN_TABLE.
+      The row maker's spell refusal names the real line now. botPool creature
+      5,291 / instant 1,179 / sorcery 883 — auto 1,372 / assisted 1,964 ·
+      `oracleParse` `effect:auto` 5,923 · tier3 silentAfter 9,236 · the
+      `counter` primitive 1,249 · `token` 959 · batch.json 32 · select pool 0.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5955 files,
+      28975 passed / 11 skipped · 500-seed gate, 6 shards, 1205.5 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D405): HYBRID symbols paid by convoke; a per-creature
+      chooser in the review; the bot's convoke as a fallback only; `Flying,
+      convoke` on one line; the convoke REFERENTS (connive, the shared type);
+      `whenever you cast a spell with convoke`; the fifteen spells this
+      generator does not row; Emerge, Affinity for <kind>, the other
+      alternative costs (111 / 13); the additional costs (305 / 20); the `for
+      each` reductions (97 / 17); the up-to-N label (28 sentences, no seam);
+      the script-raised prompt class (84 over ~10 shapes); the reveal-the-top
+      family (92 / 61 over 79); then D404's list unchanged — `Noncreature
+      spells` (6), `Colorless spells` (3), `Face-down creature spells` (2),
+      the leading conditions on a grant, the planeswalker `+1:` grant, a
+      SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes, the
+      two-kicker `and/or` form (17), the MULTIKICKER row (7), the `instead`
+      rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the
+      wait, the self-aimed delayed forms, the HOST characteristics under an
+      attached static (29), "you control a token", the incarnations' graveyard
+      statics (5), `Whenever you attack` and the each-combat head, the `for
+      each <X>` family, the payment heads, the search residue, the scoped
+      grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY
+      ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+      AMOUNT forms, the restriction's exotic purposes (14), the twenty-two
+      older fight and bite suites, token copies (15), the untap skip (15), the
+      durations proper (23 / 33 / 14), the permanent control family (20) and
+      exchange control (24), the object stamp (CR 400.7), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200 —
+      waits for Fable), the prompt CONTINUATION seam proper, the two gate
+      items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+      BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

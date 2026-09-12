@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FREEJAM_REGENT_SCRIPT } from './cards/freejamRegent';
+import { INTERDISCIPLINARY_MASCOT_SCRIPT } from './cards/interdisciplinaryMascot';
+import { KAVU_PRIMARCH_SCRIPT } from './cards/kavuPrimarch';
+import { LOXODON_RESTORER_SCRIPT } from './cards/loxodonRestorer';
+import { MAVERICK_THOPTERIST_SCRIPT } from './cards/maverickThopterist';
+import { ORDER_OF_SACRED_DUSK_SCRIPT } from './cards/orderOfSacredDusk';
+import { RAMOSIAN_GREATSWORD_SCRIPT } from './cards/ramosianGreatsword';
+import { ROOT_KIN_ALLY_SCRIPT } from './cards/rootKinAlly';
+import { SIBSIG_MUCKDRAGGERS_SCRIPT } from './cards/sibsigMuckdraggers';
+import { SLY_REQUISITIONER_SCRIPT } from './cards/slyRequisitioner';
+import { ASTRAL_WINGSPAN_SCRIPT } from './cards/astralWingspan';
+import { HERALD_OF_ANGUISH_SCRIPT } from './cards/heraldOfAnguish';
+import { LOFTY_DREAMS_SCRIPT } from './cards/loftyDreams';
 import { ARCHMAGE_OF_RUNES_SCRIPT } from './cards/archmageOfRunes';
 import { DARU_WARCHIEF_SCRIPT } from './cards/daruWarchief';
 import { DIRECTOR_NICK_FURY_SCRIPT } from './cards/directorNickFury';
@@ -5800,6 +5813,19 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FREEJAM_REGENT_SCRIPT,
+  INTERDISCIPLINARY_MASCOT_SCRIPT,
+  KAVU_PRIMARCH_SCRIPT,
+  LOXODON_RESTORER_SCRIPT,
+  MAVERICK_THOPTERIST_SCRIPT,
+  ORDER_OF_SACRED_DUSK_SCRIPT,
+  RAMOSIAN_GREATSWORD_SCRIPT,
+  ROOT_KIN_ALLY_SCRIPT,
+  SIBSIG_MUCKDRAGGERS_SCRIPT,
+  SLY_REQUISITIONER_SCRIPT,
+  ASTRAL_WINGSPAN_SCRIPT,
+  HERALD_OF_ANGUISH_SCRIPT,
+  LOFTY_DREAMS_SCRIPT,
   ARCHMAGE_OF_RUNES_SCRIPT,
   DARU_WARCHIEF_SCRIPT,
   DIRECTOR_NICK_FURY_SCRIPT,

@@ -6059,6 +6059,10 @@ export const SKITTER_OF_LIZARDS: CardData = F.SKITTER_OF_LIZARDS as CardData;
 export const PEARL_MEDALLION: CardData = F.PEARL_MEDALLION as CardData;
 export const ETHERIUM_SCULPTOR: CardData = F.ETHERIUM_SCULPTOR as CardData;
 export const HELM_OF_AWAKENING: CardData = F.HELM_OF_AWAKENING as CardData;
+export const PACK_S_FAVOR: CardData = F.PACK_S_FAVOR as CardData;
+export const HOOTING_MANDRILLS: CardData = F.HOOTING_MANDRILLS as CardData;
+export const BASTION_INVENTOR: CardData = F.BASTION_INVENTOR as CardData;
+export const STOKE_THE_FLAMES: CardData = F.STOKE_THE_FLAMES as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6237,6 +6241,19 @@ export const RHONAS_S_MONUMENT: CardData = F.RHONAS_S_MONUMENT as CardData;
 export const STARFIELD_MYSTIC: CardData = F.STARFIELD_MYSTIC as CardData;
 export const STORM_SKREELIX: CardData = F.STORM_SKREELIX as CardData;
 export const UNDEAD_WARCHIEF: CardData = F.UNDEAD_WARCHIEF as CardData;
+export const FREEJAM_REGENT: CardData = F.FREEJAM_REGENT as CardData;
+export const INTERDISCIPLINARY_MASCOT: CardData = F.INTERDISCIPLINARY_MASCOT as CardData;
+export const KAVU_PRIMARCH: CardData = F.KAVU_PRIMARCH as CardData;
+export const LOXODON_RESTORER: CardData = F.LOXODON_RESTORER as CardData;
+export const MAVERICK_THOPTERIST: CardData = F.MAVERICK_THOPTERIST as CardData;
+export const ORDER_OF_SACRED_DUSK: CardData = F.ORDER_OF_SACRED_DUSK as CardData;
+export const RAMOSIAN_GREATSWORD: CardData = F.RAMOSIAN_GREATSWORD as CardData;
+export const ROOT_KIN_ALLY: CardData = F.ROOT_KIN_ALLY as CardData;
+export const SIBSIG_MUCKDRAGGERS: CardData = F.SIBSIG_MUCKDRAGGERS as CardData;
+export const SLY_REQUISITIONER: CardData = F.SLY_REQUISITIONER as CardData;
+export const ASTRAL_WINGSPAN: CardData = F.ASTRAL_WINGSPAN as CardData;
+export const HERALD_OF_ANGUISH: CardData = F.HERALD_OF_ANGUISH as CardData;
+export const LOFTY_DREAMS: CardData = F.LOFTY_DREAMS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12431,6 +12448,10 @@ export const ENGINE_CARDS: CardData[] = [
   PEARL_MEDALLION,
   ETHERIUM_SCULPTOR,
   HELM_OF_AWAKENING,
+  PACK_S_FAVOR,
+  HOOTING_MANDRILLS,
+  BASTION_INVENTOR,
+  STOKE_THE_FLAMES,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12609,6 +12630,19 @@ export const ENGINE_CARDS: CardData[] = [
   STARFIELD_MYSTIC,
   STORM_SKREELIX,
   UNDEAD_WARCHIEF,
+  FREEJAM_REGENT,
+  INTERDISCIPLINARY_MASCOT,
+  KAVU_PRIMARCH,
+  LOXODON_RESTORER,
+  MAVERICK_THOPTERIST,
+  ORDER_OF_SACRED_DUSK,
+  RAMOSIAN_GREATSWORD,
+  ROOT_KIN_ALLY,
+  SIBSIG_MUCKDRAGGERS,
+  SLY_REQUISITIONER,
+  ASTRAL_WINGSPAN,
+  HERALD_OF_ANGUISH,
+  LOFTY_DREAMS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

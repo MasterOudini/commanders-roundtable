@@ -23,6 +23,7 @@ import type { TargetSpec } from '../engine/types/oracle';
 import type { StopPolicy } from '../engine/types/state';
 import type { PlayerView } from '../view/types';
 import type { CastPreview, ClientSnapshot } from '../net/client';
+import type { AltChoice } from '../engine/altPayment';
 
 /**
  * Everything a bot may ask about the game.
@@ -45,6 +46,8 @@ export interface BotPort {
     targets?: readonly TargetChoice[],
     /** D403 - the kicker count to price (0 or absent: unkicked). */
     kicked?: number,
+    /** D405 - what the cast taps or exiles (convoke / improvise / delve), `'auto'` for the chooser's pick. */
+    alt?: AltChoice | 'auto',
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

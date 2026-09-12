@@ -61,6 +61,16 @@ export type Intent =
        * cost to the payment and the stack object remembers the count.
        */
       readonly kicked?: number;
+      /**
+       * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
+       * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
+       * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;
+       * the rest generic). A choice that would pay for nothing is refused by name. Absent or
+       * empty: the plain cast.
+       */
+      readonly convoke?: readonly InstanceId[];
+      readonly improvise?: readonly InstanceId[];
+      readonly delve?: readonly InstanceId[];
     }
   /**
    * D309 - THE MORPH SEAM: turning a face-down permanent you control face up

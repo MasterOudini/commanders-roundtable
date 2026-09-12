@@ -5,6 +5,7 @@ import * as session from '../../game/session';
 import { ManaCost } from '../card/ManaCost';
 import { handOffDropOrigin } from './useEngineTable';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, PANEL } from './styles';
+import { NO_ALT, altCount } from '../../engine/altPayment';
 
 // "Here is what I am about to tap. Cast, or let me do it myself."
 //
@@ -22,7 +23,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT) : null),
     [mode],
   );
 
@@ -46,6 +47,10 @@ export function PaymentReview() {
       ...(preview.hasX ? { xValue: mode.xValue } : {}),
       // D403 - the kick the review priced is the kick the host charges (D53).
       ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
+      // D405 - what the review priced is what the host taps and exiles (D53).
+      ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
+      ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
+      ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
       ...(preview.plan ? { plan: preview.plan } : {}),
       // ⚠️ ALWAYS sent, even when empty, and the difference is load-bearing: an
       // OMITTED `targets` tells the engine "stop and ask me", while an empty
@@ -118,6 +123,29 @@ export function PaymentReview() {
           >
             {preview.kicker.many ? 'Change…' : preview.kicked > 0 ? 'Unkick' : 'Kick'}
           </button>
+        </div>
+      )}
+
+      {(preview.keywords.convoke || preview.keywords.improvise || preview.keywords.delve) && (
+        <div className="mt-2 flex items-center gap-2" data-payment-alt="">
+          <span className="text-xs text-crt-dim">
+            {altCount(preview.alt) > 0
+              ? [
+                  preview.alt.convoke.length > 0 ? `convoke ${preview.alt.convoke.length}` : '',
+                  preview.alt.improvise.length > 0 ? `improvise ${preview.alt.improvise.length}` : '',
+                  preview.alt.delve.length > 0 ? `delve ${preview.alt.delve.length}` : '',
+                ]
+                  .filter((s) => s !== '')
+                  .join(', ')
+              : altCount(preview.altAvailable) > 0
+                ? 'Mana only'
+                : 'Nothing to tap or exile'}
+          </span>
+          {altCount(preview.altAvailable) > 0 && (
+            <button type="button" className={BTN_GHOST_SMALL} data-payment="set-alt" onClick={() => setMode({ ...mode, useAlt: !mode.useAlt })}>
+              {mode.useAlt ? 'Mana only' : preview.keywords.delve && !preview.keywords.convoke && !preview.keywords.improvise ? 'Delve' : preview.keywords.improvise && !preview.keywords.convoke ? 'Improvise' : 'Convoke'}
+            </button>
+          )}
         </div>
       )}
 

@@ -43,6 +43,10 @@ export type LegalAction =
       readonly faceDown?: true;
       /** D403 - the face has a kicker the cast may announce (`CastSpell.kicked`), or a multikicker. */
       readonly kicker?: 'once' | 'many';
+      /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
+      readonly convoke?: true;
+      readonly improvise?: true;
+      readonly delve?: true;
     }
   | {
       readonly t: 'TapForMana';
@@ -837,6 +841,10 @@ function castAction(
     label: face.name,
     // D403 - a kick is offered, not priced: the preview prices the count the player announces.
     ...(face.multikickerCost !== null ? { kicker: 'many' as const } : face.kickerCost !== null ? { kicker: 'once' as const } : {}),
+    // D405 - convoke / improvise / delve are offered, not priced: the preview prices what the player names.
+    ...(face.convoke ? { convoke: true as const } : {}),
+    ...(face.improvise ? { improvise: true as const } : {}),
+    ...(face.delve ? { delve: true as const } : {}),
   };
 }
 

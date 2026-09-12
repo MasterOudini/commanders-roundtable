@@ -2008,6 +2008,29 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Gargos, Vicious Watcher', 'a trigger head not in the library (whenever a creature you control becomes the target of a spell) beside its fight'],
   ['Valeria Richards, Precocious', 'a filtered cast head outside the closed reader (your first noncreature spell each turn - a once-per-turn count the filter does not read)'],
 
+  // D405 - convoke / improvise / delve: the nineteen the selector offered once the keyword line was the
+  // engine's that the row maker refused, by reason (fifteen spells for their other line - this generator
+  // rows no spell but a mass pump; the rest by name).
+  ['Appeal to Eirdu', 'a spell line outside the row vocabulary beside its convoke (one or two target creatures each get +2/+1)'],
+  ['Battle at the Bridge', 'a spell line outside the row vocabulary beside its improvise (-X/-X and X life)'],
+  ['Calamity of Cinders', 'a spell line outside the row vocabulary beside its convoke (6 damage to each untapped creature)'],
+  ['Covenant of Blood', 'a spell line outside the row vocabulary beside its convoke (4 damage to any target and 4 life)'],
+  ['Endless Obedience', 'a spell line outside the row vocabulary beside its convoke (a creature card from a graveyard onto the battlefield)'],
+  ['Everything Comes to Dust', 'a spell line outside the row vocabulary beside its convoke (exile all creatures except those sharing a type with a convoker - a convoke referent)'],
+  ['Hour of Reckoning', 'a spell line outside the row vocabulary beside its convoke (destroy all nontoken creatures)'],
+  ['Lethal Scheme', 'a spell line outside the row vocabulary beside its convoke (a destroy, then each convoker connives - a convoke referent)'],
+  ['Logic Knot', 'a spell line outside the row vocabulary beside its delve (counter unless its controller pays {X})'],
+  ['Organic Extinction', 'a spell line outside the row vocabulary beside its improvise (destroy all nonartifact creatures)'],
+  ['Rite of Undoing', 'a spell line outside the row vocabulary beside its delve (two bounces, one of each side)'],
+  ['Temporal Cleansing', 'a spell line outside the row vocabulary beside its convoke (a library placement the owner chooses)'],
+  ['Transcendent Message', 'a spell line outside the row vocabulary beside its convoke (draw X cards)'],
+  ['Universal Surveillance', 'a spell line outside the row vocabulary beside its improvise (draw X cards)'],
+  ['Will of the Naga', 'a spell line outside the row vocabulary beside its delve (tap up to two, then a skip-untap rider)'],
+  ['Bennie Bracks, Zoologist', 'an intervening if outside the closed reader (if you created a token this turn) under an each-end-step head, beside its convoke'],
+  ['Conclave Phalanx', 'a board-sized life gain the suite cannot pin (1 life for each creature you control) under an enters head, beside its convoke'],
+  ['Kasla, the Broken Halo', 'a filtered cast head outside the closed reader (whenever you cast a spell with convoke) beside its convoke'],
+  ['Merrow Skyswimmer', 'a token outside TOKEN_TABLE (a 1/1 white and blue Merfolk) under an enters head, beside its convoke'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

@@ -489,6 +489,23 @@ export function parseKicker(oracleText: string, warn: Warn = NOOP_WARN): { kicke
   return { kicker, multikicker };
 }
 
+/**
+ * D405 - CONVOKE, IMPROVISE and DELVE (CR 702.51 / 702.126 / 702.66): a keyword line of its own
+ * (reminder text aside), or a comma list of the three (`Convoke, delve`). Read once at ingest.
+ */
+export function parseAltCosts(oracleText: string): { convoke: boolean; improvise: boolean; delve: boolean } {
+  const out = { convoke: false, improvise: false, delve: false };
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (!/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(line)) continue;
+    for (const part of line.split(', ')) {
+      const k = part.toLowerCase();
+      if (k === 'convoke' || k === 'improvise' || k === 'delve') out[k] = true;
+    }
+  }
+  return out;
+}
+
 export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -1033,6 +1050,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const wardLife = parseWardLife(face.oracleText, warn);
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
   const kicked = parseKicker(face.oracleText, warn);
+  const altCosts = parseAltCosts(face.oracleText);
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const costReductions = parseCostReductions(face.oracleText);
   const grantedReductions = isPermanent ? parseGrantedReductions(face.oracleText) : [];
@@ -1103,6 +1121,9 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     flashbackCost,
     kickerCost: kicked.kicker,
     multikickerCost: kicked.multikicker,
+    convoke: altCosts.convoke,
+    improvise: altCosts.improvise,
+    delve: altCosts.delve,
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,

@@ -6717,6 +6717,11 @@ const WANTED = [
   'Pearl Medallion',
   'Etherium Sculptor',
   'Helm of Awakening',
+  // D405 - convoke, improvise and delve: the seam's proof cards (Pack's Favor and Hooting Mandrills are the fuzz staples).
+  "Pack's Favor",
+  'Hooting Mandrills',
+  'Bastion Inventor',
+  'Stoke the Flames',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6907,6 +6912,21 @@ const WANTED = [
   'Storm Skreelix',
   'Undead Warchief',
   // D404 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D405 - convoke, improvise and delve (CR 702.51 / 702.126 / 702.66): the rows whose only other line the library holds, beside a keyword cost the engine now charges.
+  'Freejam Regent',
+  'Interdisciplinary Mascot',
+  'Kavu Primarch',
+  'Loxodon Restorer',
+  'Maverick Thopterist',
+  'Order of Sacred Dusk',
+  'Ramosian Greatsword',
+  'Root-Kin Ally',
+  'Sibsig Muckdraggers',
+  'Sly Requisitioner',
+  'Astral Wingspan',
+  'Herald of Anguish',
+  'Lofty Dreams',
+  // D405 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

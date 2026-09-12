@@ -853,6 +853,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // the payment prices it, the stack object and the permanent remember it); the two-kicker
   // `and/or` form stays `keyword:altCost` (a choice the intent does not carry).
   if (/^(?:kicker|multikicker) (?:\{[^}]+\})+$/i.test(text)) return 'scriptable';
+  // D405 - a Convoke / Improvise / Delve line is the engine's own: the cast names what it taps or
+  // exiles (`CastSpell.convoke` / `improvise` / `delve`) and the payment takes it off the cost.
+  if (/^(?:convoke|improvise|delve)(?:, (?:convoke|improvise|delve))*$/i.test(text)) return 'scriptable';
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';

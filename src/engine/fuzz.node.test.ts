@@ -7,6 +7,14 @@ import { legalActions } from './legal';
 import { project } from './project';
 import { replay, stateHash } from './log';
 import { faceOf } from './oracle';
+import { derive } from './derive';
+import { buildPaymentProblem } from './mana';
+import { applyAlternativePayment, assignAlternativePayment, chooseAlternatives, type ConvokeCandidate } from './altPayment';
+import { makeDeriveCache } from './derive';
+import { solveInputFor, suggestPayment } from './payment';
+import { spellPurpose } from './spend';
+import type { InstanceId, PlayerId } from './types/ids';
+import type { LegalAction } from './legal';
 import { nextBelow, seedRng, shuffle, type RngState } from './rng';
 import { createRegistry, SHIPPED_SCRIPTS } from './scripts/registry';
 import {
@@ -163,6 +171,17 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // priced below its printed generic is reached at gate size.
   { names: ['Pearl Medallion'], copiesPerSeat: 1,
     counterKeys: ['reducedCasts'], rotHistory: 'D404' },
+  // D405 - convoke and delve (CR 702.51 / 702.66): a {2}{G} pump every seat can aim at a creature and
+  // pay by tapping its own (the driver ALWAYS pays with a payable pick; the core deals green creatures
+  // every seat - Scatter the Seeds' {G}{G} read ZERO over 60 seeds, the second coloured symbol being the
+  // wall D398 and D403 named, one Forest a seat), and a {5}{G} 4/4 whose
+  // generic the seat's graveyard pays as the game fills it; the driver names the chooser's pick
+  // when the mana falls short, as the bot does. Improvise (Bastion Inventor) is counted, no floor:
+  // the seat's untapped artifacts are few and mostly tapped for mana already.
+  { names: ["Pack's Favor", 'Hooting Mandrills'], copiesPerSeat: 1,
+    counterKeys: ['convokedCasts', 'delvedCasts'], rotHistory: 'D405' },
+  { names: ['Bastion Inventor'], copiesPerSeat: 1,
+    counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
@@ -697,6 +716,48 @@ function answerFor(state: GameState, p: Picker): Intent | null {
   }
 }
 
+/**
+ * D405 - what the driver taps or exiles for a cast the mana cannot pay: the chooser's pick over the
+ * holder's untapped creatures (with their derived colours), untapped artifacts and graveyard cards,
+ * against the offer's own problem (X at 0, the tax the offer priced). Null when the face has none, the
+ * pick is empty, or no mana plan pays the remainder - a cast refused at its pay stage AFTER a targets
+ * prompt would be answered forever (the harness's answer is not a cancel), so it is never started.
+ */
+function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAction, { t: 'CastSpell' }>): { convoke?: readonly InstanceId[]; improvise?: readonly InstanceId[]; delve?: readonly InstanceId[] } | null {
+  if (!(action.convoke || action.improvise || action.delve)) return null;
+  const inst = state.cards[action.card];
+  const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+  if (!inst || !printing) return null;
+  const face = faceOf(printing, action.faceIndex);
+  if (!face.manaCost) return null;
+  const cache = makeDeriveCache(state);
+  const base = buildPaymentProblem(face.manaCost, 0, [], action.tax);
+  const convoke: ConvokeCandidate[] = [];
+  const improvise: InstanceId[] = [];
+  for (const id of [...state.zones.battlefield].sort()) {
+    const c = state.cards[id];
+    if (!c || c.controller !== holder || c.tapped || c.faceDown) continue;
+    const d = derive(state, ORACLE, SCRIPTS, id, cache);
+    if (action.convoke && d.isCreature) convoke.push({ id, colors: d.colors });
+    if (action.improvise && d.typeLine.types.includes('Artifact')) improvise.push(id);
+  }
+  const delve = action.delve ? [...(state.zones.graveyard[holder] ?? [])].sort() : [];
+  const pick = chooseAlternatives(base, convoke, improvise, delve);
+  if (pick.convoke.length + pick.improvise.length + pick.delve.length === 0) return null;
+  const byId = new Map(convoke.map((c) => [c.id, c]));
+  const assigned = assignAlternativePayment(base, pick.convoke.map((id) => byId.get(id) ?? { id, colors: [] }), pick.improvise.length, pick.delve.length);
+  if (assigned.failed) return null;
+  const solve = solveInputFor(state, ORACLE, SCRIPTS, holder, cache);
+  const gone = new Set<InstanceId>([...pick.convoke, ...pick.improvise]);
+  const plan = suggestPayment({ ...solve, sources: solve.sources.filter((s) => !gone.has(s.card)) }, applyAlternativePayment(base, assigned.paid), spellPurpose(face, false));
+  if (!plan) return null;
+  return {
+    ...(pick.convoke.length > 0 ? { convoke: pick.convoke } : {}),
+    ...(pick.improvise.length > 0 ? { improvise: pick.improvise } : {}),
+    ...(pick.delve.length > 0 ? { delve: pick.delve } : {}),
+  };
+}
+
 function nextIntent(state: GameState, p: Picker): Intent | null {
   if (state.gamePhase === 'finished') return null;
   if (state.priority.awaiting) return answerFor(state, p);
@@ -704,7 +765,14 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const holder = state.priority.player;
   if (!holder) return null;
   const actions = legalActions(state, ORACLE, SCRIPTS, holder);
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable);
+  // D405 - a cast the mana cannot pay stays usable when the face has convoke / improvise / delve: the
+  // driver names the chooser's pick and the host refuses what still falls short (a rejection, not a wedge).
+  const picks = new Map<string, ReturnType<typeof altPickFor>>();
+  const altFor = (a: Extract<LegalAction, { t: 'CastSpell' }>): ReturnType<typeof altPickFor> => {
+    if (!picks.has(a.card)) picks.set(a.card, altPickFor(state, holder, a));
+    return picks.get(a.card) ?? null;
+  };
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && altFor(a) !== null));
   const chosen = p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
@@ -718,7 +786,10 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // D403 - a kicker is ALWAYS tried kicked (a cast the pool cannot pay is rejected, not a wedge, and
       // the driver's next pick may cast it plain): half the time read ZERO over 60 seeds - a second
       // coloured source beside the first is rare in a core that deals one basic of each colour.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}) };
+      // D405 - convoke / improvise / delve are ALWAYS paid with when a payable pick exists (the kicker's
+      // rule): the mana falling short reached a pick eight times in twenty seeds, and the pick is checked
+      // for a plan before the cast starts, so nothing here can wedge.
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -852,6 +923,10 @@ interface Run {
   readonly kickedEntries: number;
   /** D404 - non-commander casts priced below their printed generic by a board-granted reduction. */
   readonly reducedCasts: number;
+  /** D405 - casts paid in part by convoke, by improvise, by delve (the stack object's counts). */
+  readonly convokedCasts: number;
+  readonly improvisedCasts: number;
+  readonly delvedCasts: number;
   readonly animations: number;
   readonly fights: number;
   readonly bites: number;
@@ -1147,6 +1222,9 @@ function runOne(seed: number): Run {
     kickedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0).length,
     kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
+    convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
+    improvisedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.improvised ?? 0) > 0).length,
+    delvedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.delved ?? 0) > 0).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
     bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
@@ -1304,6 +1382,9 @@ const TOTAL_KEYS = [
   'kickedCasts',
   'kickedEntries',
   'reducedCasts',
+  'convokedCasts',
+  'improvisedCasts',
+  'delvedCasts',
   'animations',
   'fights',
   'bites',
@@ -1567,6 +1648,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.kickedEntries).toBeGreaterThan(0);
         // D404 - one Pearl Medallion a seat: a white spell priced down at gate size.
         expect(totals.reducedCasts).toBeGreaterThan(0);
+        // D405 - Pack's Favor convoked and Hooting Mandrills delved at gate size (improvise counted only).
+        expect(totals.convokedCasts).toBeGreaterThan(0);
+        expect(totals.delvedCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1644,6 +1728,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.delayedArmed} delayed triggers armed / ${totals.delayedFired} fired · ` +
           `${totals.kickedCasts} kicked casts / ${totals.kickedEntries} kicked entries · ` +
           `${totals.reducedCasts} casts priced down by the board · ` +
+          `${totals.convokedCasts} convoked / ${totals.improvisedCasts} improvised / ${totals.delvedCasts} delved casts · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
@@ -1756,7 +1841,10 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
         }
       }
     }
-  }, 60_000);
+    // D405 - the budget moves on a COMPLETED run (D370's rule): the driver's convoke / improvise / delve fallback
+    // changed seed 'leak''s shape from a game wedged at intent 200 (5,779 events, 18 permanents) into one that
+    // plays all 300 (10,818 events, 41 permanents) - 47 s alone on the idle machine, past 60 s in six shards.
+  }, 180_000);
 
   // D387 - an explicit budget, the projection-leak test's (D269), because this one plays a 200-intent
   // game and then REPLAYS the whole log five times over the shipped registry, and it runs in EVERY
