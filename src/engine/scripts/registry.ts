@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ARCHMAGE_OF_RUNES_SCRIPT } from './cards/archmageOfRunes';
+import { DARU_WARCHIEF_SCRIPT } from './cards/daruWarchief';
+import { DIRECTOR_NICK_FURY_SCRIPT } from './cards/directorNickFury';
+import { GOBLIN_WARCHIEF_SCRIPT } from './cards/goblinWarchief';
+import { HEARTLESS_SUMMONING_SCRIPT } from './cards/heartlessSummoning';
+import { HERALD_OF_THE_PANTHEON_SCRIPT } from './cards/heraldOfThePantheon';
+import { HONEST_RUTSTEIN_SCRIPT } from './cards/honestRutstein';
+import { JACES_SANCTUM_SCRIPT } from './cards/jacesSanctum';
+import { LONG_FORGOTTEN_GOHEI_SCRIPT } from './cards/longForgottenGohei';
+import { MOON_BOY_DINO_RIDER_SCRIPT } from './cards/moonBoyDinoRider';
+import { NIGHTSCAPE_FAMILIAR_SCRIPT } from './cards/nightscapeFamiliar';
+import { OATH_OF_AJANI_SCRIPT } from './cards/oathOfAjani';
+import { OKETRAS_MONUMENT_SCRIPT } from './cards/oketrasMonument';
+import { RHONASS_MONUMENT_SCRIPT } from './cards/rhonassMonument';
+import { STARFIELD_MYSTIC_SCRIPT } from './cards/starfieldMystic';
+import { STORM_SKREELIX_SCRIPT } from './cards/stormSkreelix';
+import { UNDEAD_WARCHIEF_SCRIPT } from './cards/undeadWarchief';
 import { GOBLIN_BUSHWHACKER_SCRIPT } from './cards/goblinBushwhacker';
 import { ACADEMY_DRAKE_SCRIPT } from './cards/academyDrake';
 import { ARDENT_SOLDIER_SCRIPT } from './cards/ardentSoldier';
@@ -5783,6 +5800,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARCHMAGE_OF_RUNES_SCRIPT,
+  DARU_WARCHIEF_SCRIPT,
+  DIRECTOR_NICK_FURY_SCRIPT,
+  GOBLIN_WARCHIEF_SCRIPT,
+  HEARTLESS_SUMMONING_SCRIPT,
+  HERALD_OF_THE_PANTHEON_SCRIPT,
+  HONEST_RUTSTEIN_SCRIPT,
+  JACES_SANCTUM_SCRIPT,
+  LONG_FORGOTTEN_GOHEI_SCRIPT,
+  MOON_BOY_DINO_RIDER_SCRIPT,
+  NIGHTSCAPE_FAMILIAR_SCRIPT,
+  OATH_OF_AJANI_SCRIPT,
+  OKETRAS_MONUMENT_SCRIPT,
+  RHONASS_MONUMENT_SCRIPT,
+  STARFIELD_MYSTIC_SCRIPT,
+  STORM_SKREELIX_SCRIPT,
+  UNDEAD_WARCHIEF_SCRIPT,
   GOBLIN_BUSHWHACKER_SCRIPT,
   ACADEMY_DRAKE_SCRIPT,
   ARDENT_SOLDIER_SCRIPT,

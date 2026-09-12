@@ -203979,6 +203979,97 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PEARL_MEDALLION": {
+    "scryfallId": "1225264f-b298-4b56-b208-c5da87bd6867",
+    "oracleId": "19015380-1332-4960-8cc6-0732009525a2",
+    "name": "Pearl Medallion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pearl Medallion",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "White spells you cast cost {1} less to cast.",
+        "flavorText": "It is a helping hand reaching out to the downtrodden, the acrid-sweet tang of burning incense during prayer, and the harmony of voices uplifted in unison. It is faith.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "1225264f-b298-4b56-b208-c5da87bd6867"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "294",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHERIUM_SCULPTOR": {
+    "scryfallId": "0d050f2d-bd65-4ab9-9ea6-9deba91b2792",
+    "oracleId": "96b87445-6362-4a17-91b2-cbf203fd03fd",
+    "name": "Etherium Sculptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Etherium Sculptor",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Vedalken Artificer",
+        "oracleText": "Artifact spells you cast cost {1} less to cast.",
+        "flavorText": "The greatest masters of the craft abandon tools altogether, shaping metal with hand and mind alone.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "0d050f2d-bd65-4ab9-9ea6-9deba91b2792"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELM_OF_AWAKENING": {
+    "scryfallId": "0349c577-22f1-4953-9b01-5cf342c8b356",
+    "oracleId": "f2fcef65-4873-4b1f-a257-b8648097c990",
+    "name": "Helm of Awakening",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Helm of Awakening",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Spells cost {1} less to cast.",
+        "flavorText": "\"This little prize will cover your head, your spells, your bets, and your behind!\"\n—Pashad ibn Asim, Suq'Ata trader",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Rex",
+        "imageId": "0349c577-22f1-4953-9b01-5cf342c8b356"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "VIS-145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -209528,6 +209619,571 @@
     ],
     "setCode": "dmu",
     "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCHMAGE_OF_RUNES": {
+    "scryfallId": "0073371f-a31c-4b1f-9926-53efa0aadda4",
+    "oracleId": "28045b32-4c1a-40e5-a15d-524d0f8fe6ec",
+    "name": "Archmage of Runes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Archmage of Runes",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Giant Wizard",
+        "oracleText": "Instant and sorcery spells you cast cost {1} less to cast.\nWhenever you cast an instant or sorcery spell, draw a card.",
+        "flavorText": "He's so intent on his study that others think him frozen in place.",
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kai Carpenter",
+        "imageId": "0073371f-a31c-4b1f-9926-53efa0aadda4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pfdn",
+    "collectorNumber": "30s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARU_WARCHIEF": {
+    "scryfallId": "2630d3b5-8f3a-4aad-a45e-22a7979429f3",
+    "oracleId": "3fce53fb-6914-4f43-b46b-18ca32ab21b2",
+    "name": "Daru Warchief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daru Warchief",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Soldier spells you cast cost {1} less to cast.\nSoldier creatures you control get +1/+2.",
+        "flavorText": "His victories speak for him.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tim Hildebrandt",
+        "imageId": "2630d3b5-8f3a-4aad-a45e-22a7979429f3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "scg",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRECTOR_NICK_FURY": {
+    "scryfallId": "7b7e00b4-d2f5-4c89-8a1b-e22b7bba111b",
+    "oracleId": "04b907bf-c80c-4e92-9fea-26dc3d1aaf2a",
+    "name": "Director Nick Fury",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Director Nick Fury",
+        "manaCost": "{U}{R}{W}",
+        "typeLine": "Legendary Creature — Human Spy Hero",
+        "oracleText": "Hero spells you cast cost {1} less to cast.\nWhenever you attack, look at the top four cards of your library. You may reveal a Hero card from among them and put that card into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": "\"All the heroes are out there fighting their own battles. Someone has to connect the dots.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "7b7e00b4-d2f5-4c89-8a1b-e22b7bba111b"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "399",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_WARCHIEF": {
+    "scryfallId": "00e4415d-1c71-41bc-84f2-2eee6367c49b",
+    "oracleId": "39882df0-c20f-469d-94ba-1617224e71a1",
+    "name": "Goblin Warchief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Warchief",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Goblin spells you cast cost {1} less to cast.\nGoblins you control have haste.",
+        "flavorText": "They poured from the Skirk Ridge like lava, burning and devouring everything in their path.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Hildebrandt & Tim Hildebrandt",
+        "imageId": "00e4415d-1c71-41bc-84f2-2eee6367c49b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wc03",
+    "collectorNumber": "we97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEARTLESS_SUMMONING": {
+    "scryfallId": "14f8f638-b7fc-4e38-8623-ce7d2ebc82e6",
+    "oracleId": "fa1be67e-a07e-42ce-88be-446acd643dc6",
+    "name": "Heartless Summoning",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heartless Summoning",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creature spells you cast cost {2} less to cast.\nCreatures you control get -1/-1.",
+        "flavorText": "\"They won't be winning any beauty pageants, but they'll do the trick.\"\n—Enslow, ghoulcaller of Nephalia",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "14f8f638-b7fc-4e38-8623-ce7d2ebc82e6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERALD_OF_THE_PANTHEON": {
+    "scryfallId": "8c344783-63ca-42d0-9cba-aaaa1bc3b622",
+    "oracleId": "9ef24a79-fade-4c38-b63c-22983206b4ad",
+    "name": "Herald of the Pantheon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herald of the Pantheon",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Centaur Shaman",
+        "oracleText": "Enchantment spells you cast cost {1} less to cast.\nWhenever you cast an enchantment spell, you gain 1 life.",
+        "flavorText": "The distinction of bearing the gods' banner is nothing compared to the glory of being closer to Nyx.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "8c344783-63ca-42d0-9cba-aaaa1bc3b622"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "c18",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONEST_RUTSTEIN": {
+    "scryfallId": "259ddf66-76af-4857-83c3-c812327a6e23",
+    "oracleId": "439bf6d1-bd65-474b-a70c-7fdd446de4bb",
+    "name": "Honest Rutstein",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honest Rutstein",
+        "manaCost": "{1}{B}{G}",
+        "typeLine": "Legendary Creature — Human Warlock",
+        "oracleText": "When Honest Rutstein enters, return target creature card from your graveyard to your hand.\nCreature spells you cast cost {1} less to cast.",
+        "flavorText": "\"No questions. No refunds.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "259ddf66-76af-4857-83c3-c812327a6e23"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JACE_S_SANCTUM": {
+    "scryfallId": "6c3fe038-a982-4cbf-a158-c45fdc3d727e",
+    "oracleId": "22d7048e-d538-4fd3-9fb3-2e99e74875fe",
+    "name": "Jace's Sanctum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jace's Sanctum",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Instant and sorcery spells you cast cost {1} less to cast.\nWhenever you cast an instant or sorcery spell, scry 1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "6c3fe038-a982-4cbf-a158-c45fdc3d727e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "ori",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LONG_FORGOTTEN_GOHEI": {
+    "scryfallId": "67ced123-3eb4-405e-b26d-30644f35a5b0",
+    "oracleId": "897910d5-13a4-4e1d-8f83-235b773b8322",
+    "name": "Long-Forgotten Gohei",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Long-Forgotten Gohei",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Arcane spells you cast cost {1} less to cast.\nSpirit creatures you control get +1/+1.",
+        "flavorText": "Long ago, the priests would wave the gohei to call down the gods. Now it lies forgotten, but the spirits still feel its pull.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alan Pollack",
+        "imageId": "67ced123-3eb4-405e-b26d-30644f35a5b0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOON_BOY_DINO_RIDER": {
+    "scryfallId": "c3ee8468-3780-4887-8586-eaf418a95a21",
+    "oracleId": "bb7638ce-3802-4198-89d2-6f5b647bd8fb",
+    "name": "Moon-Boy, Dino Rider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moon-Boy, Dino Rider",
+        "manaCost": "{1}{G}",
+        "typeLine": "Legendary Creature — Ape Human",
+        "oracleText": "Dinosaur spells you cast cost {1} less to cast.\nWhenever Moon-Boy attacks while you control a Dinosaur, Moon-Boy gets +1/+1 until end of turn.",
+        "flavorText": "\"To have such a brother is to be filled with pride!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wero Gallo",
+        "imageId": "c3ee8468-3780-4887-8586-eaf418a95a21"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "563",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSCAPE_FAMILIAR": {
+    "scryfallId": "17558592-2e66-48d3-b38a-3738e5a2a01f",
+    "oracleId": "57296ea3-3c0d-49b7-bc08-0d0d8414e9ad",
+    "name": "Nightscape Familiar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightscape Familiar",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Blue spells and red spells you cast cost {1} less to cast.\n{1}{B}: Regenerate this creature.",
+        "flavorText": "Nightscape masters prize one trait above all others: undying loyalty.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Graham Yarrington",
+        "imageId": "17558592-2e66-48d3-b38a-3738e5a2a01f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1546★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OATH_OF_AJANI": {
+    "scryfallId": "2e29077a-5e72-4104-bc9e-25a59a470b24",
+    "oracleId": "1ec39c8f-eb1e-4881-a749-0c188788b612",
+    "name": "Oath of Ajani",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oath of Ajani",
+        "manaCost": "{G}{W}",
+        "typeLine": "Legendary Enchantment",
+        "oracleText": "When Oath of Ajani enters, put a +1/+1 counter on each creature you control.\nPlaneswalker spells you cast cost {1} less to cast.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Wesley Burt",
+        "imageId": "2e29077a-5e72-4104-bc9e-25a59a470b24"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OKETRA_S_MONUMENT": {
+    "scryfallId": "01bdc760-a5c9-45a9-9d83-dd3780f8ed6f",
+    "oracleId": "0370afa0-07d3-4787-8a5b-10272cb3a486",
+    "name": "Oketra's Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oketra's Monument",
+        "manaCost": "{3}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "White creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, create a 1/1 white Warrior creature token with vigilance.",
+        "flavorText": "\"The worthy shall respect the worthy. In the afterlife, all will stand united.\"\n—Monument inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christine Choi",
+        "imageId": "01bdc760-a5c9-45a9-9d83-dd3780f8ed6f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "AKH-233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RHONAS_S_MONUMENT": {
+    "scryfallId": "53d2260a-e001-4d03-a108-759591e4d233",
+    "oracleId": "b9a7c722-6b24-4383-ac6e-2a30f7834269",
+    "name": "Rhonas's Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rhonas's Monument",
+        "manaCost": "{3}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "Green creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, target creature you control gets +2/+2 and gains trample until end of turn.",
+        "flavorText": "\"The worthy shall hone a strong body to endure the boundless energies of the afterlife.\"\n—Monument inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "53d2260a-e001-4d03-a108-759591e4d233"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARFIELD_MYSTIC": {
+    "scryfallId": "111bc4a3-5318-4c85-b5d4-d85242bff05f",
+    "oracleId": "2975590d-6a5b-41e5-8a3b-e9325e71226a",
+    "name": "Starfield Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starfield Mystic",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Enchantment spells you cast cost {1} less to cast.\nWhenever an enchantment you control is put into a graveyard from the battlefield, put a +1/+1 counter on this creature.",
+        "flavorText": "\"The realm of the gods opens before me!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "111bc4a3-5318-4c85-b5d4-d85242bff05f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dsc",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORM_SKREELIX": {
+    "scryfallId": "6c49618f-2e9e-4674-9953-153ccc76cce2",
+    "oracleId": "0ccd1084-64bb-41ee-81c0-666af434b8df",
+    "name": "Storm Skreelix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Storm Skreelix",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Creature — Drake Horror",
+        "oracleText": "Flying\nInstant and sorcery spells you cast cost {1} less to cast.\nWhenever you cast an instant or sorcery spell, this creature gets +2/+0 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "6c49618f-2e9e-4674-9953-153ccc76cce2"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDEAD_WARCHIEF": {
+    "scryfallId": "01482b0c-d05b-4356-9144-e044159f4dcb",
+    "oracleId": "e6af56bf-bd78-4801-8f6e-033cdd68de3d",
+    "name": "Undead Warchief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undead Warchief",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Zombie spells you cast cost {1} less to cast.\nZombie creatures you control get +2/+1.",
+        "flavorText": "It has the strength of seven men. In fact, it used to be seven men.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "01482b0c-d05b-4356-9144-e044159f4dcb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "44",
     "commanderLegality": "legal",
     "singleImage": true
   },

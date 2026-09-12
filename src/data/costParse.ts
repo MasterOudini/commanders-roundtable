@@ -79,6 +79,63 @@ export function parseCostReductionLine(raw: string): CostReduction | null {
   return null;
 }
 
+/**
+ * D404 - THE BOARD-GRANTED REDUCTION: a permanent's line that makes the SPELLS its controller casts
+ * (or anyone's, `Spells cost {N} less to cast.` - Helm of Awakening) cheaper by a generic amount
+ * while it is on the battlefield. `spells` names the alternatives a cast face must satisfy (an
+ * `and` list is EITHER: `Instant and sorcery spells`, `Merfolk spells and Wizard spells`); null
+ * is every spell. A coloured reduction (`cost {W} less`) does not parse: the payment problem
+ * folds a generic number and nothing else (D312).
+ */
+export interface GrantedReduction {
+  readonly line: string;
+  readonly amount: number;
+  readonly who: 'you' | 'any';
+  readonly spells: readonly PermanentPredicate[] | null;
+}
+
+export function parseGrantedReductionLine(raw: string): GrantedReduction | null {
+  const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const m = /^(?:(.+?) spells you cast|Spells you cast|Spells) cost \{(\d+)\} less to cast\.$/.exec(line);
+  if (!m) return null;
+  const amount = Number(m[2]);
+  if (!Number.isInteger(amount) || amount <= 0) return null;
+  const who: 'you' | 'any' = line.startsWith('Spells cost') ? 'any' : 'you';
+  const phrase = (m[1] ?? '').trim();
+  if (phrase === '') return { line, amount, who, spells: null };
+  const spells: PermanentPredicate[] = [];
+  for (const part0 of phrase.split(/,\s*|\s+and\s+/)) {
+    const part = part0.replace(/\s+spells?$/i, '').trim();
+    if (part === '') continue;
+    // D404 - the subject is capitalised at the line start and `predicateOf` places an unknown
+    // capitalised word as a SUBTYPE: the words this family carries that are not one are refused by
+    // name (a negation, colourlessness and face-downness are not predicates `predicateAdmits`
+    // tests), and `Historic` is the three predicates CR 205.4d names.
+    if (part.split(/\s+/).some((w) => /^(?:Non\w*|Colou?rless|Face-down)$/i.test(w))) return null;
+    if (part === 'Historic') {
+      spells.push(
+        { supertypes: [], types: ['Artifact'], subtypes: [], colors: [] },
+        { supertypes: ['Legendary'], types: [], subtypes: [], colors: [] },
+        { supertypes: [], types: [], subtypes: ['Saga'], colors: [] },
+      );
+      continue;
+    }
+    const ps = predicatesOf(part);
+    if (!ps) return null;
+    spells.push(...ps);
+  }
+  return spells.length > 0 ? { line, amount, who, spells } : null;
+}
+
+export function parseGrantedReductions(oracleText: string): readonly GrantedReduction[] {
+  const out: GrantedReduction[] = [];
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const r = parseGrantedReductionLine(raw);
+    if (r) out.push(r);
+  }
+  return out;
+}
+
 /** Every reduction line of a face's text, in print order. */
 export function parseCostReductions(oracleText: string): readonly CostReduction[] {
   const out: CostReduction[] = [];

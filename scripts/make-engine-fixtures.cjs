@@ -6713,6 +6713,10 @@ const WANTED = [
   'Into the Roil',
   'Goblin Bushwhacker',
   'Skitter of Lizards',
+  // D404 - the board-granted cost reduction: the seam's proof cards (Pearl Medallion is the fuzz staple).
+  'Pearl Medallion',
+  'Etherium Sculptor',
+  'Helm of Awakening',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6884,6 +6888,25 @@ const WANTED = [
   'Urborg Skeleton',
   'Viashino Branchrider',
   // D403 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D404 - the board-granted cost reduction (CR 601.2f): the rows whose only other line the library holds, beside a spells-cost-less line the engine now prices.
+  'Archmage of Runes',
+  'Daru Warchief',
+  'Director Nick Fury',
+  'Goblin Warchief',
+  'Heartless Summoning',
+  'Herald of the Pantheon',
+  'Honest Rutstein',
+  "Jace's Sanctum",
+  'Long-Forgotten Gohei',
+  'Moon-Boy, Dino Rider',
+  'Nightscape Familiar',
+  'Oath of Ajani',
+  "Oketra's Monument",
+  "Rhonas's Monument",
+  'Starfield Mystic',
+  'Storm Skreelix',
+  'Undead Warchief',
+  // D404 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

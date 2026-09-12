@@ -1382,6 +1382,8 @@ export interface OracleFace {
    * control a ..."). Empty when there are none the engine can price.
    */
   readonly costReductions: readonly import('../../data/costParse').CostReduction[];
+  /** D404 - the reductions this PERMANENT grants to the spells its controller (or anyone) casts. */
+  readonly grantedReductions: readonly import('../../data/costParse').GrantedReduction[];
   /**
    * `ward—Pay 3 life`, as a life tax. 0 when there is none.
    *

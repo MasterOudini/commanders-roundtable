@@ -15,6 +15,7 @@ import type { ScriptRegistry } from './scripts/registry';
 import type { PermanentPredicate } from '../data/replacementParse';
 import { derive, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
+import { predicateAdmits } from '../data/replacementParse';
 
 function matches(any: readonly PermanentPredicate[], chars: ReturnType<typeof derive>): boolean {
   return any.some(
@@ -35,7 +36,24 @@ export function castReduction(
   face: OracleFace,
   cache?: DeriveCache,
 ): number {
-  if (face.costReductions.length === 0) return 0;
+  // D404 - THE BOARD'S GRANTS (a Medallion, Etherium Sculptor, Helm of Awakening): every permanent
+  // on the battlefield whose face reduces the spells its controller casts - or anyone's - by a
+  // generic amount, when THIS cast face satisfies its predicate. Read off the printed face of each
+  // permanent (a grant is a static of its own card, never a characteristic the layers change).
+  let granted = 0;
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.phasedOut || inst.faceDown) continue;
+    const card = oracle.byPrinting(inst.printingId);
+    if (!card) continue;
+    const f = faceOf(card, inst.faceIndex);
+    for (const g of f.grantedReductions) {
+      if (g.who === 'you' && inst.controller !== player) continue;
+      if (g.spells !== null && !predicateAdmits(face, g.spells)) continue;
+      granted += g.amount;
+    }
+  }
+  if (face.costReductions.length === 0) return granted;
   let mine: InstanceId[] | null = null;
   const controlled = (): InstanceId[] => {
     if (mine === null) {
@@ -65,5 +83,5 @@ export function castReduction(
       total += r.amount * n;
     }
   }
-  return total;
+  return total + granted;
 }

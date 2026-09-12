@@ -158,6 +158,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // sources at once are rare in a core with one basic of each colour, so it stays a plain deal.
   { names: ['Ardent Soldier'], copiesPerSeat: 2,
     counterKeys: ['kickedCasts', 'kickedEntries'], rotHistory: 'D403' },
+  // D404 - the board-granted cost reduction: a {2} artifact making the seat's white spells cheaper,
+  // and the core deals white spells every seat (Swords, Pacifism, Wrath, the Angel), so a cast
+  // priced below its printed generic is reached at gate size.
+  { names: ['Pearl Medallion'], copiesPerSeat: 1,
+    counterKeys: ['reducedCasts'], rotHistory: 'D404' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
   // set at layer 7b (and ended at cleanup) is exercised at gate size.
   { names: ['Guardian Idol'], copiesPerSeat: 1,
@@ -845,6 +850,8 @@ interface Run {
   /** D403 - spells cast kicked, and permanents that entered kicked (the move carries the count). */
   readonly kickedCasts: number;
   readonly kickedEntries: number;
+  /** D404 - non-commander casts priced below their printed generic by a board-granted reduction. */
+  readonly reducedCasts: number;
   readonly animations: number;
   readonly fights: number;
   readonly bites: number;
@@ -1139,6 +1146,7 @@ function runOne(seed: number): Run {
     delayedFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined).length,
     kickedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0).length,
     kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
+    reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
     animations: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.basePt !== undefined).length,
     fights: game.log.filter((e) => e.body.t === 'Fought' && e.body.mutual).length,
     bites: game.log.filter((e) => e.body.t === 'Fought' && !e.body.mutual).length,
@@ -1295,6 +1303,7 @@ const TOTAL_KEYS = [
   'delayedFired',
   'kickedCasts',
   'kickedEntries',
+  'reducedCasts',
   'animations',
   'fights',
   'bites',
@@ -1556,6 +1565,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D403 - one Ardent Soldier a seat, the kick always tried: a kicked cast and a kicked entry at gate size.
         expect(totals.kickedCasts).toBeGreaterThan(0);
         expect(totals.kickedEntries).toBeGreaterThan(0);
+        // D404 - one Pearl Medallion a seat: a white spell priced down at gate size.
+        expect(totals.reducedCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1632,6 +1643,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.cantBeBlockedSet} can't-be-blocked evasions set · ` +
           `${totals.delayedArmed} delayed triggers armed / ${totals.delayedFired} fired · ` +
           `${totals.kickedCasts} kicked casts / ${totals.kickedEntries} kicked entries · ` +
+          `${totals.reducedCasts} casts priced down by the board · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

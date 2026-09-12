@@ -31,7 +31,7 @@ import type {
 import { NO_PROTECTION } from '../engine/types/oracle';
 import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
-import { parseCostReductions } from './costParse';
+import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities } from './activatedParse';
 import { parseEffects } from './effectParse';
@@ -1035,6 +1035,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const kicked = parseKicker(face.oracleText, warn);
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const costReductions = parseCostReductions(face.oracleText);
+  const grantedReductions = isPermanent ? parseGrantedReductions(face.oracleText) : [];
   const toxicAmount = keywords.includes('toxic') ? parseToxic(face.oracleText) : 0;
   const producesMana = parseManaProduction(face, typeLine, warn);
   // ⚠️ Abilities are parsed BEFORE spell targets and are handed `producesMana`,
@@ -1106,6 +1107,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,
     costReductions,
+    grantedReductions,
     wardLife,
     toxicAmount,
     targets,

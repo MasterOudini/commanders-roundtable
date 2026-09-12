@@ -31,7 +31,7 @@ import { parseEffects, selfRef } from './effectParse';
 import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engineComplete';
 import { parseTypeLine } from './oracleParse';
 import { parseEnchant } from './targetParse';
-import { parseCostReductionLine } from './costParse';
+import { parseCostReductionLine, parseGrantedReductionLine } from './costParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -862,6 +862,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // rest of the family (a colour, a memory, a target) keeps its bucket.
   if (/^affinity for\b/i.test(text)) return costReductionLineRuns(text) ? 'scriptable' : 'keyword:altCost';
   if (/^this spell costs \{\d+\} less to cast\b/i.test(text) && costReductionLineRuns(text)) return 'scriptable';
+  // D404 - a board-granted reduction the engine PRICES for every matching cast (`castReduction`'s
+  // second pass) is the engine's own; a coloured reduction stays where it was.
+  if (/ cost \{\d+\} less to cast\.$/i.test(text) && parseGrantedReductionLine(text) !== null) return 'scriptable';
   // D309 - a Morph / Megamorph line with a mana cost is the engine's own (see
   // `morphLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^(?:morph|megamorph)\b/i.test(text)) return morphLineRuns(text) ? 'scriptable' : 'keyword:altCost';

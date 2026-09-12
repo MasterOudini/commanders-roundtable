@@ -15353,6 +15353,94 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ
       DRIVER NEVER BLOCKS.
 
+- [x] **M6.4ik — THE BOARD-GRANTED COST REDUCTION (CR 601.2f): `<subject>
+      spells you cast cost {N} less to cast` read onto the face and priced by
+      the engine for every matching cast from a permanent on the battlefield —
+      the Medallions, the Familiars, the Bannerets, the Warchiefs (2026-09-12):**
+      **8,878 of 31,692 Commander-legal cards now execute completely, up from
+      8,826 (+52: 17 generated rows and 35 cards the seam completes with no
+      script).** `SHIPPED_SCRIPTS` 5,757 → **5,774**; ledger 1,286 → **1,288**
+      (two ADDED by reason). Fixtures 6,349 → **6,369** (6,212 by name + 150
+      tokens). `scriptableToday` 1,382 → **1,383** (the seam offered 20, the
+      wave took 17, two refused are ledgered, one left the pool when the reader
+      narrowed); the select pool 0 → 20 → 0; the ladder `[1383, 1474, 2856,
+      4518, 5854]`. Bot reach 8,753 → **8,805** from 269 commanders. Decisions
+      in **D404**; an engine seam on Opus 5 by the user's choice — the second
+      step of the COST MODIFICATION subsystem, one hop from D312.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the cost families by line — the granted
+      reduction 137 cards (46 one-piece), `for each` 96 lines (18), the
+      additional sacrifice cost 122 (3), `can't be countered` 68 (0), Convoke
+      98 (14); the family's 59 subject phrases measured over the database.
+      ⚠️ **THE SEAM:** `parseGrantedReductionLine` onto
+      `OracleFace.grantedReductions` (`who: you | any`, `spells` a predicate
+      list or null for every spell; a generic amount only; `Historic` the three
+      predicates CR 205.4d names; `Noncreature` / `Colorless` / `Face-down`
+      REFUSED by name); `castReduction` runs a second pass over the face-up,
+      phased-in battlefield, a `you` grant under the caster's controller only,
+      the predicate tested against the cast face with `predicateAdmits`, the
+      amounts added to the card's own reductions (D53: one function for the
+      preview and the charge); the line CLAIMED in `engineComplete`; the
+      classifier: a granted line the reader admits is the engine's own.
+      `src/engine/grantedReduction.test.ts` (3): the forms and the refusals;
+      Pearl Medallion (the offer's tax −1, Blessed Wine for `{W}`, the Bears
+      and Swords untouched, the opponent's spell untouched, the replay hash);
+      Etherium Sculptor's free Sol Ring; Helm of Awakening reducing the
+      opponent's Bears.
+      **Fuzz:** Pearl Medallion a staple (one a seat) feeding `reducedCasts`
+      (a non-commander `SpellCast` priced below its printed generic), a floor
+      at gate size (103 over 500 seeds; 14 at 60, measured first).
+      **Landed:** 17 rows — six cast heads (a draw, a scry, a pump, a life
+      gain, a token, a targeted pump), three tribal anthems and a haste grant,
+      a −1/−1 anthem, two enters heads, a counter, an attack pump, a
+      regenerate, a look. Refused by reason (2): a becomes-the-target head, a
+      first-spell-each-turn cast head. PULLED after the port: Longshot, Rebel
+      Bowman (its `Noncreature` line a misread). botPool creature 5,257 /
+      artifact 499 / enchantment 494 · tier3 silentAfter 9,171 · the `counter`
+      primitive 1,240 · `token` 954 · batch.json 20 · select pool 0.
+      ⚠️ **A CAPITALISED WORD AT THE LINE START IS NOT A SUBTYPE:**
+      `predicateOf` places an unknown capitalised word as a subtype, right
+      mid-sentence and wrong for a line's first word — `Colorless`, `Face-down`
+      and `Noncreature` read as subtypes no face carries and four cards were
+      complete for a beat; the true-leftover DIFF (D389's rule) exposed it
+      three names into a list of 38.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5941 files,
+      28913 passed / 11 skipped · 500-seed gate, 6 shards, 1167.3 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D404): `Noncreature spells` (6 — a NEGATED predicate);
+      `Colorless spells` (3); `Face-down creature spells` (2); the leading
+      conditions on a grant; the planeswalker `+1:` grant; a SUBTYPE VOCABULARY
+      at parse time; the `for each` cost family (96 / 18); the additional
+      sacrifice cost (122); `can't be countered` (68); Convoke (98); the `costs
+      {N} more` taxes; then D403's list unchanged — the two-kicker `and/or`
+      form (17), the MULTIKICKER row (7) and the bot's multikicker count, the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the nine
+      spells with a kicked clause this generator does not row, the two counted
+      clauses without a fixture set, the own-entry static, the REFERENT across
+      the wait, the self-aimed delayed forms, a delayed payload under a head
+      fired past turn 3, the "up-to-N under-answer" ledger class to relabel,
+      the "script-raised prompt" class, the HOST characteristics under an
+      attached static (29), "you control a token", the incarnations' graveyard
+      statics (5), the search payloads on an activated line and under a head,
+      the entry-turn fire with a PROMPT, `Whenever you attack` and the
+      each-combat head, `attacked with N or more` at N ≥ 2, the `for each <X>`
+      family, the payment heads, the search residue, the scoped grant, the
+      blocker-predicate form (8 + 1), the can't-block stand-in's overstatement,
+      `can't attack` (3) and `can't attack or block` (2 + 1), ⚠️⚠️ THE FUZZ
+      DRIVER RARELY ATTACKS (a gate decision), `selfEntered` under a head, the
+      payload-level "If …" sentences, the nth-resolution memory (16), the 172
+      AMOUNT forms, the restriction's exotic purposes (14), the chooser price
+      beside a restriction, the "any combination" amounts, the pool UI tagging
+      a bucket, the two-name search, Plaza of Heroes' exile-self cost, the
+      twenty-two older fight and bite suites, "fights another target
+      creature", token copies (15), the untap skip (15), the permanent
+      animation (1), the scoped can't-block forms and "must be blocked", the
+      durations proper (23 / 33 / 14), the permanent control family (20) and
+      exchange control (24), the object stamp (CR 400.7), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200 —
+      waits for Fable), the prompt CONTINUATION seam proper, the two gate
+      items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+      BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

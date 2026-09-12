@@ -537,6 +537,9 @@ export function linesUnaccounted(
     // D312 - a cost-reduction line the engine PRICES at cast time (affinity,
     // "costs {N} less ..."). Asked of the parser that read it.
     if (face.costReductions.some((r) => r.line === line)) continue;
+    // D404 - a board-granted reduction line the engine PRICES for every matching cast while the
+    // permanent is on the battlefield (`castReduction`'s second pass).
+    if (face.grantedReductions.some((r) => r.line === line)) continue;
     if (isKeywordLine(line, face)) continue;
     // ⚠️ `mana` outranks `activated`, because a mana ability never reaches the
     // stack (CR 605) and is never offered by `ActivateAbility` — so the note that

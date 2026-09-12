@@ -2003,6 +2003,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Roost of Drakes', 'a filtered cast head (whenever you cast a kicked spell) outside the closed reader - kicked is not an adjective the filter reads'],
   ['Tourach, Dread Cantor', 'a trigger payload the vocabulary refuses (target opponent discards two cards at random - randomness a def cannot thread) under a kicked enters head'],
 
+  // D404 - the board-granted cost reduction: the two the selector offered once the engine priced a
+  // `spells you cast cost {N} less` line that the row maker refused, by reason.
+  ['Gargos, Vicious Watcher', 'a trigger head not in the library (whenever a creature you control becomes the target of a spell) beside its fight'],
+  ['Valeria Richards, Precocious', 'a filtered cast head outside the closed reader (your first noncreature spell each turn - a once-per-turn count the filter does not read)'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.
