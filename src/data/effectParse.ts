@@ -165,7 +165,8 @@ const ADJECTIVE =
 // noun in the plural print uses. The target parser reads the same count into
 // the spec (0..N / N..N); the consumer runs the clause once per pick. "X" stays
 // out: the count is not known at parse time and the spec is left unconfident.
-const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)|two|three|any number of) )?';
+// D414 - `another` and `up to one other` are count words the target parser reads (the spec carries `another`).
+const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)(?: other)?|two|three|any number of|another) )?';
 const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 /**

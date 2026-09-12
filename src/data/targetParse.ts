@@ -154,7 +154,8 @@ export function splitAbilityLines(text: string, isPermanentSpell = false): Abili
  * spell` contains a false positive and a real clause in the same breath.
  */
 const FP_AFTER = /^(?:s?\s+(?:of|for)\b|s\s+(?:a|an|only|the|this|it|they|any|exactly|another)\b)/i;
-const FP_BEFORE = /\b(?:the|a|an|another|new|same|each|any|no|its|their)\s+$/i;
+// D414 - `another` left this list: `another target X` is a real clause (the source refused by the spec's `another`).
+const FP_BEFORE = /\b(?:the|a|an|new|same|each|any|no|its|their)\s+$/i;
 const FP_CANT_BE = /\bcan(?:'|’)?t\s+be\s+(?:the\s+)?$/i;
 
 // ── counts ───────────────────────────────────────────────────────────────────
@@ -187,6 +188,8 @@ interface CountResult {
   readonly confident: boolean;
   readonly unenforced: readonly string[];
   readonly warn: string | null;
+  /** D414 - `another target X` / `up to one other target X`: the source itself is refused (`TargetSpec.another`). */
+  readonly another?: true;
 }
 
 const COUNT_WINDOW = 32;
@@ -220,7 +223,8 @@ function readCount(before: string, at: number): CountResult {
       // `up to X target creatures` — a real count we cannot know yet.
       return { min: 0, max: 99, start, confident: false, unenforced: [], warn: 'target:unparsedCount' };
     }
-    return { min: 0, max: n, start, confident: true, unenforced: [], warn: null };
+    // D414 - `other` on a permanent's ability means not this permanent: enforced by `TargetSpec.another` now.
+    return { min: 0, max: n, start, confident: true, unenforced: [], warn: null, ...(/\bother\s+$/i.test(upTo[0] ?? '') ? { another: true as const } : {}) };
   }
 
   const anyNumber = window.match(/\bany\s+number\s+of\s+$/i);
@@ -267,15 +271,16 @@ function readCount(before: string, at: number): CountResult {
       };
     }
     if (/^another$/i.test(raw)) {
-      // The engine cannot exclude the source from the candidate list, so the
-      // count is right and the "another" is not enforced.
+      // D414 - ENFORCED: the spec carries `another`, and the aim layer refuses the resolving object's own
+      // source (`TargetingSource.sourceId`). Read since D288 as unenforced; 184 whole cards waited on the word.
       return {
         min: 1,
         max: 1,
         start: at - (plain[0]?.length ?? 0),
         confident: true,
-        unenforced: ['another'],
+        unenforced: [],
         warn: null,
+        another: true,
       };
     }
   }
@@ -1027,6 +1032,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         text: text.slice(count.start, list.ctl.end).trim(),
         confident: count.confident,
         unenforced: list.unenforced,
+        ...(count.another ? { another: true as const } : {}),
       };
     };
 
@@ -1130,6 +1136,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       text: text.slice(count.start, ctl.end).trim(),
       confident: count.confident,
       unenforced,
+      ...(count.another ? { another: true as const } : {}),
     });
     if (!count.confident) warn('target:unparsedCount');
   }

@@ -32502,3 +32502,151 @@ and bite suites, token copies (15), the permanent control family (20) and exchan
 (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 — the
 subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D414 — THE `ANOTHER` QUALIFIER (CR 115.10 by way of the target parser): `another target creature` / `up to N other target creatures` — the count reader's flag on the spec, the targeting source on the prompt, and `specAdmits` refusing the source itself on the host and the client alike; a dead D288 branch woken, the vocabulary's count list widened, and the largest single seam of the session by whole-card yield (2026-09-12)
+
+**9,314 of 31,692 Commander-legal cards now execute completely, up from 9,241
+(+73: 58 generated rows — Ulvenwald Tracker, Kiora's Follower, Trained Condor, Hardened Escort,
+Myr Retriever, Junk Diver, Selfless Savior, Manifold Key, Unbender Tine, Corpse Hauler, Drooling
+Groodion, Legion Guildmage, Samut, Voice of Dissent and their kin — and 15 cards whole with no
+script: Rites of Reaping, Leeching Bite, Pit Fight, Dissension in the Ranks, Rally Maneuver,
+Consume Strength, Venom Blast, Fall of the Hammer, Steal Strength, Deadshot, Blood Feud, Urborg
+Repossession, Schismotivate, Cosmic Hunger, Clash of Titans).** `SHIPPED_SCRIPTS` 5,894 →
+**5,951** (58 rows in, one hand spell def OUT — Mabel's Mettle's `Up to one other target creature`
+reads whole now, D187's suppression predicate went red in the gate and D295's tool retired it); the
+REFUSED ledger 1,332 → **1,343** (twelve rows `spell target parse (second clause)`
+named STALE by the guard deleted — the second clause was the qualifier — and 23 added by reason).
+Fixtures 6,521 → **6,579** (6,418 by name + 154 tokens: the 58 rows, Trained Condor and Hardened
+Escort among them). `scriptableToday` 1,430 → **1,442**; the select pool 0 → 81 → 0; the ladder
+`[1442, 1541, 2913, 4581, 5936]`. Bot reach 9,167 → **9,240** from 282 commanders. An engine
+seam on Opus 5 by the user's choice — a parser flag, a prompt field and one refusal; and the
+targeting pins (D79) moved with the parser: `targeted` 11,944 → **12,363**, `another target X` a
+clause now.
+
+### The measurement chose it — 184 whole over 165 shapes, the largest seam of the session
+
+After D413 the qualifier priced at **366 lines, 184 whole cards over 165 shapes**: `<head>,
+another target creature you control gains flying until end of turn` (3, Trained Condor's),
+`<head>, return another target artifact card from your graveyard to your hand` (3, Myr
+Retriever's), `Target creature you control fights another target creature` (Ulvenwald Tracker's
+and the fight spells'), `{T}: Untap another target permanent` (Kiora's Follower's), `sacrifice
+this creature: another target creature gains indestructible` (Selfless Savior's) — one qualifier
+under every head and cost the row maker already reads. The `for each` family (547 whole over 324
+nouns), `deals N damage to each` (121), `as long as` (123 over 85 conditions), landfall (44) and
+preventAll (47) stay tails; the monarch's conditions stay the wall.
+
+### The seam — the flag, the source, the refusal, the vocabulary
+
+- **The flag** (`targetParse.ts`, `CountResult.another?: true`): the `another` branch — D288's,
+  DEAD until now: `FP_BEFORE` listed `another` among the false-positive leads (`the`, `a`, `each`
+  …), so `another target creature` read as NO clause for a hundred decisions — and `up to N
+  other target …` set it; `TargetSpec.another?: true` on the spec, spread-conditional at both
+  assembly sites so every older spec is byte-identical.
+- **The source** (`targets.ts`, `TargetingSource.sourceId?: InstanceId | null`): `loop.ts`'s
+  `targetingSourceFor` sets it from the pending object's source, `src/net/client.ts`'s
+  `legalTargetsFor` literal mirrors it (D53 — the client previews what the host charges), and
+  `specAdmits` refuses the candidate whose id is the source when the spec carries `another`.
+  The declaration-wide distinctness check (D288) keeps `target creature` and `another target
+  creature` apart; the flag keeps the source out.
+- **The vocabulary** (`effectParse.ts`, `COUNTED`): `another` and `up to N other` join the count
+  words the effect reader admits, so the sentence reads `auto` where it read `partial` — the
+  target parser's count list and the effect parser's are two lists, and both had to move.
+- `src/engine/another.test.ts` (2): the parser's flag on `another target creature`, on `up to
+  one other target creature`, absent on the plain form, the Condor's line `scriptable`; Trained
+  Condor attacking — the prompt's legal list is the Bears alone, the Condor refused as
+  `illegalTarget`, the flying landing on the Bears, the replay hash.
+- **The predicate did its job, once** (D187, D295): Mabel's Mettle's hand def went red on the
+  suppression predicate in the gate's first run — the vocabulary reads the card now — and was
+  retired with D295's tool (module, suite, two registry lines); the fixture stays.
+- **The D299 pin moved** (`countedTargets.test.ts`): `X target` and `one or two target` stay
+  refused; `up to two other target creatures` reads with the flag — moved BEFORE the gate, the
+  D411 rule.
+- **The generator** (`gen114-vocab.cjs`, `fixturesOf`): a per-side `taken` set, so two clauses of
+  one ability never share a fixture — Drooling Groodion's suite had picked the Cyclops for both
+  `target creature` and `another target creature` and the engine refused the second pick.
+- **Fuzz**: Selfless Savior and Torch Courier (a sacrifice for another creature — no mana, the
+  driver takes them), Manifold Key (`{1}, {T}: Untap another target artifact` — colourless),
+  Kiora's Follower (`{G}{U}` — 1 at 60 alone, the two-symbol staple trap) and Trained Condor (the
+  attack trigger — 0 at 60 alone: the driver rarely attacks) are staples feeding `anotherTargets` (a floor at gate size) and `anotherSelfPicks` (a hard ZERO —
+  the source never picked) — **210 targets / 0 self-picks over the
+  gate's 500 seeds** (11 / 0 at 60).
+
+### The wave — 58 rows and 15 whole
+
+The selector offered 81 once the qualifier read; the row maker rowed 58 (the `another target`
+line under an enters, attacks, dies or sacrifice head, or as an activation — Ulvenwald Tracker,
+Kiora's Follower, Trained Condor, Hardened Escort, Myr Retriever, Junk Diver, Workshop Assistant,
+Selfless Savior, Torch Courier, Manifold Key, Unbender Tine, Sonic Screwdriver, Corpse Hauler,
+Drooling Groodion, Legion Guildmage, Samut, Voice of Dissent, Captain America, Steve Rogers,
+Marshal of Zhalfir, Oliphaunt, Toxic Scorpion, Werefox Bodyguard, Void Grafter, Wose Pathfinder
+…) and refused 23 by reason — seven combat-role clauses the suite cannot stage (`another target
+attacking creature`: Aerial Guide, Appa, Bazaar Krovod, Clammy Prowler, Pegasus Courser, Phase
+Dolphin, Phyrexian Pegasus), the clauses without a fixture (a counted `up to two other`, a
+legendary, a toxic, a snow permanent), the payment branches (Carrion Thrash, Gravity Negator),
+the heads outside the closed reader (Efreet Weaponmaster, Dour Port-Mage, Matterbending Mage,
+Defiant Greatmaw, Restless Ridgeline, Vizier of Tumbling Sands), an Equipment static the probe
+split (Iconic Shield), an up-to-one bounce (Nobody), a cost the engine does not charge (Forensic
+Researcher) and a keyword-worded activation (North Pole Patrol). The 15 whole are the fight and
+pump spells whose SECOND clause was the qualifier — twelve of them ledgered as `spell target
+parse (second clause)` since D299, named STALE by the guard and deleted.
+
+### Traps
+
+- **A FALSE-POSITIVE GUARD HID A DEAD BRANCH**: `FP_BEFORE` listed `another` since D288, so the
+  count reader's `another` branch never ran and `another target creature` read as no clause at
+  all — the tell was `vocabularyTargets` returning nothing for a sentence the reader had a
+  branch for. A lead word in the false-positive list is a word the reader can never see.
+- **THE VOCABULARY'S COUNT LIST IS A SECOND LIST**: `vocabularyEffects` refused `Another target
+  creature …` after the target parser read it — `effectParse`'s `COUNTED` had `up to N`, `two`,
+  `any number of` and not `another`; the two lists move together.
+- **TWO CLAUSES OF ONE ABILITY MUST NOT SHARE A FIXTURE**: Drooling Groodion's generated suite
+  picked the Cyclops for `target creature` and again for `another target creature`; the engine
+  refused the second pick (`can't target the same thing twice`). `fixturesOf` takes a fixture
+  once per side.
+- **A LEDGER REASON WITH AN APOSTROPHE**: the emitter wrote `'Appa, Aang's Companion'` — a
+  builder quotes by content (`lit()`: double quotes when the string carries an apostrophe).
+- **A PIN THE REPIN DID NOT LIST**: the D79 `targeted` pin (11,944 → 12,363) moved with the parser
+  and the first repin missed it; the nine pinned suites are run whole, never the ones a repin
+  names.
+- **AN ATTACK-TRIGGER STAPLE IS THIN FUEL, A TWO-SYMBOL ACTIVATOR TOO**: Trained Condor read 0
+  at 60 (the driver rarely attacks — the standing gate reportable), Kiora's Follower (`{G}{U}`)
+  took it to 1; two free sacrifice activators and a colourless Key took it to 11.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6128 files, 29668
+passed / 11 skipped · 500-seed gate, 6 shards, 935.4 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D414): the flag's OVER-RESTRICTION on a second pick — `Target creature you
+control fights another target creature` reads `another` as other than the FIRST target (the
+distinctness check's job) and the flag refuses the source too, so Ulvenwald Tracker is never the
+fight's second creature (legal by CR 115.10, rare); the combat-role qualifier (`another target attacking creature`, 7
+— a fixture the suite cannot stage), the `another` under a predicate the fixture set lacks
+(legendary, toxic, snow), the counted `up to two other` beside a head, `each other creature`
+(the board form — a scope, not a target), `another target creature or planeswalker`, the
+qualifier on a player (`another target player`), the exile-instead tail (D413), connive's tail
+(D412), the untap-skip tail (D411), the cycling GRANTS (3), the `whenever a creature you control
+explores` heads (5), the reader's edge (`nontoken blue creature`, `exile the top three black
+cards of your graveyard`, `each other player gain 2 life`, `If exactly one creature is
+attacking`), the `{X}` alternatives, a chooser verb on BOTH costs, the cost REDUCTIONS and
+Affinity, the `instead` wordings, Emerge, the OLD Oblivion Ring wording, the qualifier before
+the controller, `defending player controls`, the same-name riders, the exile with a permission,
+the flicker within one batch, the other durations (`for as long as you control` 23, `remains
+exiled` 33, `remains on the battlefield` 14), the SACRIFICED REFERENT, a random discard as a
+cast cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID symbols
+paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27
+/ 18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down
+creature spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a
+SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form
+(17), the MULTIKICKER row (7), the `instead` rewrites (6), `whenever you cast a kicked spell`,
+the REFERENT across the wait, the self-aimed delayed forms, the HOST characteristics under an
+attached static (29), "you control a token", the incarnations' graveyard statics (5),
+`Whenever you attack` and the each-combat head, the `for each <X>` family (547 whole over 324
+nouns), the payment heads, the search residue, the scoped grant, the blocker-predicate form
+(8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision — an attack-trigger staple read 0
+at 60), the nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic purposes
+(14), the twenty-two older fight and bite suites, token copies (15), the permanent control
+family (20) and exchange control (24), the activation restrictions (313), the keyword entry
+replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION
+seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+NEVER BLOCKS.

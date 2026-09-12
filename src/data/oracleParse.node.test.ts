@@ -415,8 +415,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // magnitude larger than `botPool`'s distinct-name figures.
       // D369: the payment prompt - an unless-pays and a you-may-pay sentence read whole
       // (99 faces read auto, 65 more partial, 164 leave none).
-      'effect:none': 12721,
-      'effect:partial': 5176,
+      'effect:none': 12704,
+      'effect:partial': 5164,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67
@@ -427,7 +427,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // supertypes, tapped, token) are admitted by the target macro, so 152
       // more faces read whole - Doom Blade, Negate, Go for the Throat, Utter
       // End and kin.
-      'effect:auto': 6434, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
+      'effect:auto': 6463, // D383: the scoped board effect - a sentence about a whole scope; D369: the payment prompt; D359: the optional search, the qualified card and the tutor's top; D343: a modal face reads mode by mode; D312: a priced reduction line is no clause either; D307: a spell's flashback line is no clause either; D306: a spell's cycling line is no clause; D301: the mass pump; D299: the counted-targets seam; D298: the graveyard-return slot; D297: subtype nouns and lists; D295: four sentences
       // ⚠️ 13,581 → 10,372 in M6.4b (D159): `Sacrifice this <type>` and War
       // Room's commanders'-colors life phrase became CHARGEABLE cost parts, so
       // 3,209 printings' ability lines stopped warning `nonManaCost`. The
@@ -450,7 +450,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D293: a qualifier after a noun LIST binds one alternative in print, so
       // such a clause is free aim now instead of a narrowed read of its first
       // noun (+35); the six new lists take the other direction.
-      'target:unparsedClause': 1195,
+      'target:unparsedClause': 1235,
       'typeLine:unknownType': 729,
       // D356 - the seam's own mirror: a protection naming a card type, a subtype or a colour
       // category is enforced now, so 244 lines that were recorded and unenforced are neither.
@@ -491,10 +491,10 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the targeting coverage matches the numbers pinned in D79', () => {
     expect(report.targets).toEqual({
-      facesWithSpecs: 17522,
-      specs: 18608,
-      confident: 17526,
-      free: 1082,
+      facesWithSpecs: 17524,
+      specs: 18724,
+      confident: 17631,
+      free: 1093,
       enchant: 3536,
       // D288 admits "other" into the up-to window without recording it as
       // unenforced — the declaration-wide distinctness check enforces it —
@@ -503,7 +503,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // they leave the unenforced record on 144 specs.
       // D294: the enforced adjectives leave the unenforced record - 964 specs
       // were held here by a word the engine could already check.
-      withUnenforced: 280, // D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped; D304: an Enchant line's unread tail too
+      withUnenforced: 281, // D414: `another` enforced; D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped; D304: an Enchant line's unread tail too
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens
@@ -521,7 +521,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       payable: 36148,
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
-      targeted: 11944,
+      targeted: 12363,
     });
   });
 

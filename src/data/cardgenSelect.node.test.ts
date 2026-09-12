@@ -251,6 +251,31 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D414 - the another qualifier is enforced: the 23 the selector offered once `another target` read that the row
+  // maker refused, by reason (seven combat-role clauses the suite cannot stage among them).
+  ['Aerial Guide', 'a combat-role clause the suite has no fixture for (another target attacking creature) beside its attack head'],
+  ["Appa, Aang's Companion", 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Bazaar Krovod', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Clammy Prowler', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Pegasus Courser', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Phase Dolphin', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Phyrexian Pegasus', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
+  ['Angelic Quartermaster', 'a counted clause the suite has no fixture for (up to two other target creatures) beside its enters head'],
+  ["Bessie, the Doctor's Roadster", 'a clause the suite has no fixture for (another target legendary creature) beside its attack head'],
+  ['Flensing Raptor', 'a clause the suite has no fixture for (another target creature you control with toxic) beside its enters head'],
+  ['Rime Tender', 'a clause the suite has no fixture for (another target snow permanent) beside its activation'],
+  ['Carrion Thrash', 'a payment branch the suite cannot assert (returnFromGraveyard) beside its another-target line'],
+  ['Gravity Negator', 'a payment branch the suite cannot assert (pump) beside its another-target line'],
+  ['Efreet Weaponmaster', 'a filtered head outside the closed reader (an adjective outside the list: this) beside its another-target line'],
+  ['Dour Port-Mage', 'a filtered head outside the closed reader (whenever one or more creatures you control leave without dying) beside its untap line'],
+  ['Matterbending Mage', 'a filtered head outside the closed reader (whenever you cast a spell) beside its another-target line'],
+  ['Iconic Shield', 'a leftover line not among the printed lines (an Equipment static the probe split) beside its another-target line'],
+  ['Nobody', "a trigger payload outside the row kinds (return up to one other target artifact you control to its owner's hand - an up-to-one bounce)"],
+  ['Defiant Greatmaw', 'a trigger head outside the library (whenever you put one or more -1/-1 counters on this creature) beside its another-target line'],
+  ['Restless Ridgeline', 'a trigger head outside the library (whenever this land attacks - the animated land) beside its another-target line'],
+  ['Vizier of Tumbling Sands', 'a trigger head outside the library (when you cycle this card) beside its another-target line'],
+  ['Forensic Researcher', 'a cost the engine does not charge (collect evidence 3) beside its another-target line'],
+  ['North Pole Patrol', 'a keyword-worded activation (Waterbend {3}, {T}: tap target creature) beside its another-target line'],
   // D412 - connive is the engine's own (CR 701.50): the one the selector offered once the connive sentences read
   // that the row maker refused, by reason.
   ['Ledger Shredder', 'a filtered head outside the closed reader (whenever a player casts their second spell each turn - an any-player second-spell head) beside its connive'],
@@ -306,7 +331,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // text is one admitted destroy — a vocabulary card, no script anywhere.
   // Aftershock and Atraxa's Fall stay: their lists were never the (only)
   // blocker.
-  ['Fall of the Hammer', 'spell target parse (second clause)'],
   // Batch M6.4ak (D196) — eight refusals, THREE new classes. About Face
   // needs an until-end-of-turn power/toughness SWITCH, which the carrier
   // does not hold (it carries deltas and keywords — a switch is neither);
@@ -372,7 +396,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Blatant Thievery', 'cast-time computed target count'],
   ['Blazing Hope', 'computed target threshold'],
   ['Bleeding Edge', 'amass mechanic'],
-  ['Blood Feud', 'spell target parse (second clause)'],
   ['Blot Out', 'opponent-chooses'],
   // D201 — Bontu's wrath rider needs a skip-untap carrier the state does
   // not hold; Boon of Erebos REGENERATES (the engine has no regeneration —
@@ -410,7 +433,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Chaotic Transformation', 'up-to-N targeting'],
   ['Chronostutter', 'library position placement'],
   ['Claim the Precious', 'the Ring mechanic'],
-  ['Clash of Titans', 'spell target parse (second clause)'],
   // D204 — Coalition Victory WINS the game (no win event; a win is not
   // "every opponent loses" until the reasons enum says so); Contaminated
   // Drink pays in RAD counters (no rad concept anywhere); Contest of Claws
@@ -424,7 +446,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Commune with Lava', 'play-from-exile permission'],
   ['Commune with the Gods', 'script-raised prompt'],
   ['Conduct Electricity', 'up-to-N targeting'],
-  ['Consume Strength', 'spell target parse (second clause)'],
   ['Contaminated Drink', 'rad counters'],
   ['Contest of Claws', 'discover mechanic'],
   // D205 — Cosmic Hunger probed: 'another target creature, planeswalker,
@@ -434,7 +455,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // would destroy a 10/10; Crash Landing needs the keyword LOSS direction
   // the carrier does not hold; Cracked Earth Technique animates a land
   // with counters and a delayed return.
-  ['Cosmic Hunger', 'spell target parse (second clause)'],
   ['Counterintelligence', 'spell target parse (counted list)'],
   ['Counterlash', 'play-from-exile permission'],
   ['Counterpoint', 'play-from-exile permission'],
@@ -455,7 +475,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dawnglow Infusion', 'mana-spent memory'],
   ["Day's Undoing", 'end the turn'],
   ['Dead Reckoning', 'script-raised prompt'],
-  ['Deadshot', 'spell target parse (second clause)'],
   ['Death or Glory', 'opponent-chooses'],
   ['Deathlace', 'color change (indefinite)'],
   // D207 — Deny the Witch counters ACTIVATED AND TRIGGERED ABILITIES on
@@ -665,7 +684,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lash Out', 'clash mechanic'],
   ['Lava Storm', 'script-raised prompt'],
   ['Lay Down Arms', 'computed target threshold'],
-  ['Leeching Bite', 'spell target parse (second clause)'],
   ['Lethal Exploit', 'modified predicate'],
   ['Lifelace', 'color change (indefinite)'],
   ['Light of Judgment', 'up-to-N targeting'],
@@ -774,7 +792,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pieces of the Puzzle', 'script-raised prompt'],
   ['Pinion Feast', 'bolster tie choice'],
   ['Piracy', 'tap-permission grant'],
-  ['Pit Fight', 'spell target parse (second clause)'],
   // D234 (M6.4bw)
   ['Polymorph', 'ctx.random'],
   ["Polymorphist's Jest", 'until-end-of-turn base P/T set'],
@@ -827,7 +844,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Riding the Dilu Horse', 'indefinite continuous effect'],
   ['Rise from the Grave', 'indefinite continuous effect'],
   // D241 (M6.4cd)
-  ['Rites of Reaping', 'spell target parse (second clause)'],
   ['Roiling Waters', 'up-to-N targeting'],
   ['Rolling Spoil', 'mana-spent memory'],
   ['Rookie Mistake', 'spell target parse (second clause)'],
@@ -839,7 +855,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sanity Gnawers', 'ctx.random'],
   ['Scarblade Elite', 'exile-from-graveyard cost'],
   // D244 (M6.4cg)
-  ['Schismotivate', 'spell target parse (second clause)'],
   ['Scout the Borders', 'script-raised prompt'],
   ["Sea God's Revenge", 'plural-controller target qualifier unenforced'],
   ["Sea God's Scorn", 'list with and/or'],
@@ -885,7 +900,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spring Cleaning', 'clash mechanic'],
   // D252 (M6.4co)
   ['Square Up', 'until-end-of-turn base P/T set'],
-  ['Steal Strength', 'spell target parse (second clause)'],
   // D253 (M6.4cp) — Step Right Up opens an ATTRACTION DECK, a zone this
   // engine has no concept of; Steward of Solidarity's EXERT is an
   // activation cost carrying a delayed untap restriction, and neither
@@ -1575,7 +1589,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pitfall Trap', 'cast-time alternative cost'],
   ['Slingbow Trap', 'cast-time alternative cost'],
   ['Enduring Victory', 'bolster tie choice'],
-  ['Dissension in the Ranks', 'spell target parse (second clause)'],
   ['Sandstone Deadfall', 'multi-sacrifice cost'],
   // ⚠️ `Lieutenant Kirtar` sacrifices ITSELF BY NAME ("Sacrifice Lieutenant
   // Kirtar:"); the cost reader prices "Sacrifice this creature" and not the

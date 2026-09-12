@@ -218,6 +218,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // every creature it damages; the mark redirects the death this turn.
   { names: ['Lava Coil', 'Anger of the Gods'], copiesPerSeat: 1,
     counterKeys: ['exileMarks'], rotHistory: 'D413' },
+  // D414 - the `another` qualifier (CR 115.10 by way of `specAdmits`): Selfless Savior and Torch Courier
+  // sacrifice themselves for another creature (no mana - the driver takes them), Manifold Key untaps another
+  // artifact (colourless), Kiora's Follower another permanent ({G}{U} - 1 at 60 alone), and Trained Condor's
+  // attack trigger gives another creature flying (0 at 60 alone - the driver rarely attacks). Never itself.
+  { names: ['Selfless Savior', 'Torch Courier', 'Manifold Key', "Kiora's Follower", 'Trained Condor'], copiesPerSeat: 1,
+    counterKeys: ['anotherTargets'], rotHistory: 'D414' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1006,6 +1012,9 @@ interface Run {
   /** D413 - exile-instead marks set, and the deaths the funnel redirected to exile. */
   readonly exileMarks: number;
   readonly exiledInstead: number;
+  /** D414 - the `another` staples' abilities that chose their target, and the self-picks among them (a hard zero). */
+  readonly anotherTargets: number;
+  readonly anotherSelfPicks: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1116,6 +1125,20 @@ function runOne(seed: number): Run {
     if (e.rngAfter === undefined) continue;
     if (e.rngBefore === undefined) throw new Error(`seed ${seed}: rngAfter with no rngBefore at ${e.seq}`);
   }
+
+  // D414 - the `another` staples' pushes, keyed by the SOURCE's name: Kiora's Follower's activation carries
+  // its target on the object; Trained Condor's trigger takes it through StackTargetsSet (D147), so the
+  // triggered ones are mapped by stack id to the Condor that pushed them.
+  const ANOTHER_STAPLES = new Set(['Selfless Savior', 'Torch Courier', 'Manifold Key', "Kiora's Follower", 'Trained Condor']);
+  const nameOf = (id: InstanceId | null): string => {
+    const inst = id === null ? undefined : game.state.cards[id];
+    return inst === undefined ? '' : (ORACLE.byPrinting(inst.printingId)?.name ?? '');
+  };
+  const anotherPushes = game.log.flatMap((e) =>
+    e.body.t === 'AbilityPutOnStack' && ANOTHER_STAPLES.has(nameOf(e.body.obj.source)) ? [e.body.obj] : [],
+  );
+  const anotherTriggers = new Map<string, InstanceId | null>();
+  for (const o of anotherPushes) if (o.kind === 'triggered') anotherTriggers.set(o.id, o.source);
 
   return {
     seed,
@@ -1321,6 +1344,19 @@ function runOne(seed: number): Run {
     untapSkips: game.log.filter((e) => e.body.t === 'UntapSkipSet' && e.body.skip).length,
     connives: game.log.filter((e) => e.body.t === 'Connived').length,
     exileMarks: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.exileIfDies === true).length,
+    // D414 - a staple's ability chose its target (the `another` spec admitted the pick), and how many of
+    // those picks were the source itself - `specAdmits` refuses it, so the second is a hard zero.
+    anotherTargets:
+      anotherPushes.filter((o) => o.kind === 'activated' && o.targets.length > 0).length +
+      game.log.filter((e) => e.body.t === 'StackTargetsSet' && anotherTriggers.has(e.body.stackId)).length,
+    anotherSelfPicks:
+      anotherPushes.filter((o) => o.kind === 'activated' && o.targets.some((t) => t.kind === 'card' && t.id === o.source)).length +
+      game.log.filter((e) => {
+        const b = e.body;
+        if (b.t !== 'StackTargetsSet' || !anotherTriggers.has(b.stackId)) return false;
+        const source = anotherTriggers.get(b.stackId);
+        return b.targets.some((t) => t.kind === 'card' && t.id === source);
+      }).length,
     exiledInstead: game.log.filter((e) => e.body.t === 'Narrated' && /is exiled instead of dying/.test(e.body.text)).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
@@ -1492,6 +1528,8 @@ const TOTAL_KEYS = [
   'connives',
   'exileMarks',
   'exiledInstead',
+  'anotherTargets',
+  'anotherSelfPicks',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1780,6 +1818,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.connives).toBeGreaterThan(0);
         // D413 - Lava Coil marked a creature at gate size (the redirect is counted, no floor: it needs a death).
         expect(totals.exileMarks).toBeGreaterThan(0);
+        // D414 - an `another` staple chose its target at gate size, and never itself.
+        expect(totals.anotherTargets).toBeGreaterThan(0);
+        expect(totals.anotherSelfPicks).toBe(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1866,6 +1907,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.untapSkips} untap skips · ` +
           `${totals.connives} connives · ` +
           `${totals.exileMarks} exile marks / ${totals.exiledInstead} exiled instead · ` +
+          `${totals.anotherTargets} another-targets / ${totals.anotherSelfPicks} self-picks · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

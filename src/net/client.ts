@@ -639,6 +639,8 @@ export class ClientSession {
       typeLine: face?.typeLine,
       power: onBattlefield ? (cv?.power ?? null) : null,
       toughness: onBattlefield ? (cv?.toughness ?? null) : null,
+      // D414 - `another target X` refuses the source itself; the client says which it is.
+      sourceId: sourceCard,
     };
     const candidates = this.candidatesFromView();
     const seen = new Set<string>();

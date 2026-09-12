@@ -16281,6 +16281,95 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
       BLOCKS.
 
+- [x] **M6.4iu — THE `ANOTHER` QUALIFIER (CR 115.10 by way of the target
+      parser): `another target creature` / `up to N other target creatures`
+      — the count reader's flag on the spec, the targeting source on the
+      prompt, `specAdmits` refusing the source itself on the host and the
+      client alike; a dead D288 branch woken, the vocabulary's count list
+      widened (2026-09-12):** **9,314 of 31,692 Commander-legal cards now
+      execute completely, up from 9,241 (+73: 58 generated rows - Ulvenwald Tracker, Kiora's Follower, Trained Condor, Hardened Escort, Myr Retriever, Junk Diver, Selfless Savior, Manifold Key and their kin - and 15 whole with no script: Rites of Reaping, Leeching Bite, Pit Fight, Fall of the Hammer, Clash of Titans and their kin).**
+      `SHIPPED_SCRIPTS` 5,894 → **5,951** (58 rows in, Mabel's Mettle's hand def OUT — D187's predicate, D295's tool); ledger 1,332 → **1,343**
+      (twelve `spell target parse (second clause)` rows named STALE by the guard deleted, 23 added by reason). Fixtures 6,521 → **6,579** (6,418 by name + 154
+      tokens). `scriptableToday` 1,430 → **1,442**; the select pool 0 →
+      81 → 0; the ladder `[1442, 1541, 2913, 4581, 5936]`. Bot reach 9,167 → **9,240** from
+      282 commanders. Decisions in **D414**; an engine seam on Opus 5
+      by the user's choice — a parser flag, a prompt field and one refusal;
+      the D79 targeting pins moved with the parser (`targeted` 11,944 → 12,363).
+      ⚠️ **THE MEASUREMENT CHOSE IT:** 366 lines, 184 whole cards over 165
+      shapes — the largest single seam of the session; the `for each` (547),
+      `deals N damage to each` (121), `as long as` (123), landfall (44) and
+      preventAll (47) families stay tails.
+      ⚠️ **THE SEAM:** `targetParse` `CountResult.another` (the `another`
+      branch — DEAD since D288, `FP_BEFORE` listed the word — and `up to N
+      other`) → `TargetSpec.another` (spread-conditional at both assembly
+      sites); `targets.ts` `TargetingSource.sourceId` set by `loop.ts`
+      `targetingSourceFor` and mirrored by the client's `legalTargetsFor`;
+      `specAdmits` refuses the source when the spec carries the flag;
+      `effectParse` `COUNTED` admits `another` / `up to N other`; the D299
+      pin moved before the gate; the generator's `fixturesOf` takes a
+      fixture once per side. `src/engine/another.test.ts` (2).
+      **Fuzz:** Selfless Savior, Torch Courier, Manifold Key, Kiora's
+      Follower + Trained Condor staples feeding
+      `anotherTargets` (a floor) and `anotherSelfPicks` (a hard zero):
+      0 / 1 / 11 at 60 as the staples grew; 210 /
+      0 over 500 seeds.
+      **Landed:** 58 rows + 15 whole. botPool instant 1,258 /
+      sorcery 951 — auto 1,521 / assisted 1,840 · `oracleParse`
+      `effect:auto` 6,463 · tier3 silentAfter 9,606 · `token` 971 · batch.json
+      0 · select pool 0.
+      ⚠️ A FALSE-POSITIVE GUARD HID A DEAD BRANCH (`FP_BEFORE` listed
+      `another`). ⚠️ THE VOCABULARY'S COUNT LIST IS A SECOND LIST. ⚠️ TWO
+      CLAUSES OF ONE ABILITY MUST NOT SHARE A FIXTURE. ⚠️ A ledger reason
+      with an apostrophe is emitted double-quoted. ⚠️ A PIN THE REPIN DID
+      NOT LIST - run the nine suites whole. ⚠️ An attack-trigger staple is
+      thin fuel (0 at 60 - the driver rarely attacks), a two-symbol
+      activator too (1); free sacrifice activators are the fuel.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6128 files,
+      29668 passed / 11 skipped · 500-seed gate, 6 shards, 935.4 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D414): the flag's over-restriction on a second
+      pick (Ulvenwald Tracker never the fight's second creature), the combat-role qualifier (`another target
+      attacking creature`, 7), the `another` under a predicate the fixture
+      set lacks (legendary, toxic, snow), the counted `up to two other`
+      beside a head, `each other creature` (a scope, not a target),
+      `another target creature or planeswalker`, `another target player`;
+      then D413's list unchanged — the exile-instead tail, connive's tail,
+      the untap-skip tail, the cycling GRANTS (3), the `whenever a creature
+      you control explores` heads (5), the reader's edge (`nontoken blue
+      creature`, `exile the top three black cards of your graveyard`, `each
+      other player gain 2 life`, `If exactly one creature is attacking`),
+      the `{X}` alternatives, a chooser verb on BOTH costs, the cost
+      REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD
+      Oblivion Ring wording, the qualifier before the controller,
+      `defending player controls`, the same-name riders, the exile with a
+      permission, the flicker within one batch, the other durations (`for
+      as long as you control` 23, `remains exiled` 33, `remains on the
+      battlefield` 14), the SACRIFICED REFERENT, a random discard as a cast
+      cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice
+      path, HYBRID symbols paid by convoke, a per-creature chooser in the
+      review, `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>,
+      the `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the reveal-the-top
+      family (27 / 18), the quoted-grant BODIES, `Noncreature spells` (6),
+      `Colorless spells` (3), `Face-down creature spells` (2), the leading
+      conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE
+      VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker
+      `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+      `whenever you cast a kicked spell`, the REFERENT across the wait, the
+      self-aimed delayed forms, the HOST characteristics under an attached
+      static (29), "you control a token", the incarnations' graveyard statics
+      (5), `Whenever you attack` and the each-combat head, the `for each <X>`
+      family (547 whole over 324 nouns), the payment heads, the search
+      residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE
+      FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory
+      (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+      twenty-two older fight and bite suites, token copies (15), the permanent
+      control family (20) and exchange control (24), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200 —
+      waits for Fable), the prompt CONTINUATION seam proper, the two gate
+      items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+      BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

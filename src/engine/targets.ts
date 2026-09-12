@@ -105,6 +105,8 @@ export interface TargetingSource {
   /** D341 - the source's own power and toughness, for "with lesser power" (Mentor); absent where no permanent is the source. */
   readonly power?: number | null;
   readonly toughness?: number | null;
+  /** D414 - the permanent (or card) doing the targeting, refused by a spec that says `another`; absent for a source the state does not hold. */
+  readonly sourceId?: InstanceId | null;
 }
 
 /**
@@ -195,6 +197,9 @@ export function specAdmits(spec: TargetSpec, src: TargetingSource, c: TargetCand
   if (!spec.kinds.some((k) => c.kinds.includes(k))) return false;
   if (spec.controller === 'you' && c.controller !== src.controller) return false;
   if (spec.controller === 'opponent' && c.controller === src.controller) return false;
+  // D414 - `another target X`: never the resolving object's own source (a permanent's ability aimed at
+  // itself; a spell is no battlefield candidate, so its own id never comes up).
+  if (spec.another === true && c.choice.kind === 'card' && src.sourceId !== undefined && src.sourceId !== null && c.choice.id === src.sourceId) return false;
 
   // ⚠️ The keyword qualifier (D289): "with flying" admits only a candidate whose
   // DERIVED keywords include it, "without flying" only one whose do not. A

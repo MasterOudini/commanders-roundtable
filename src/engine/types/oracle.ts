@@ -451,6 +451,12 @@ export interface TargetSpec {
    * means the KIND is enforced and the RESTRICTION is not.
    */
   readonly unenforced: readonly string[];
+  /**
+   * D414 - `another target creature` / `up to one other target creature`: the resolving object's own
+   * SOURCE is refused (`TargetingSource.sourceId`, `specAdmits`). Optional so every spec that never
+   * said it keeps its exact shape.
+   */
+  readonly another?: true;
 }
 
 /** The fallback. `min: 0` is load-bearing: a free spec never blocks a cast. */

@@ -1158,7 +1158,7 @@ export function targetingSourceFor(
   // D356 - the source's TYPE LINE rides with its colours, because `protection from artifacts`
   // is a question about the source and the aim layer is where it is asked.
   const srcFace = faceOf(printing, card.faceIndex);
-  return { controller, colors: srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null };
+  return { controller, colors: srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source };
 }
 
 function targetsStillLegal(

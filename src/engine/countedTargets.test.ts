@@ -39,10 +39,13 @@ describe('counted target sentences parse with their count (D299)', () => {
     expect(parseTargetClauses('Exile any number of target creatures.')[0]?.min).toBe(0);
   });
 
-  test('"X target", "one or two target" and "up to two other target" stay refused', () => {
+  test('"X target" and "one or two target" stay refused; "up to two other target" reads since D414', () => {
     expect(parseEffects('Destroy X target artifacts.', 'X', true).mode).not.toBe('auto');
     expect(parseEffects('Tap one or two target creatures.', 'X', true).mode).not.toBe('auto');
-    expect(parseEffects('Tap up to two other target creatures.', 'X', true).mode).not.toBe('auto');
+    // D414 - `other` is a count word the target parser reads (the spec carries `another`; the
+    // declaration-wide distinctness check keeps the picks apart, D288).
+    expect(parseEffects('Tap up to two other target creatures.', 'X', true).mode).toBe('auto');
+    expect(parseTargetClauses('Tap up to two other target creatures.')[0]?.another).toBe(true);
   });
 });
 

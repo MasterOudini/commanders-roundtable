@@ -205267,6 +205267,74 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TRAINED_CONDOR": {
+    "scryfallId": "6e1eaa5a-3f9d-4166-b418-fd82fff86c73",
+    "oracleId": "99742ec7-7b67-4301-9307-3c2068046e33",
+    "name": "Trained Condor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trained Condor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever this creature attacks, another target creature you control gains flying until end of turn.",
+        "flavorText": "\"They're smart enough to understand that war means lots of carrion.\"\n—Griv, condor rider",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "6e1eaa5a-3f9d-4166-b418-fd82fff86c73"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "m14",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARDENED_ESCORT": {
+    "scryfallId": "12054e10-46d6-4581-a7e5-ff277cb0e229",
+    "oracleId": "2c6ef9e8-6b60-436c-8391-ae0baabb3a1b",
+    "name": "Hardened Escort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hardened Escort",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature attacks, another target creature you control gets +1/+0 and gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "\"It's not magic. I read the writing on the House's walls. I listen to its sighs. I smell the changes in its air. It tells me where danger lies.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Stanko",
+        "imageId": "12054e10-46d6-4581-a7e5-ff277cb0e229"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dsk",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -215366,6 +215434,1932 @@
     ],
     "setCode": "om1",
     "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULVENWALD_TRACKER": {
+    "scryfallId": "1bf611cc-6a54-40bb-8fc3-b66d942254db",
+    "oracleId": "63a37c08-7e38-4fe2-9a71-cc4604c4f831",
+    "name": "Ulvenwald Tracker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ulvenwald Tracker",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{1}{G}, {T}: Target creature you control fights another target creature.",
+        "flavorText": "\"Okay, listen, it's 'GRAAAAAR!' not 'rawr.' 'Rawr' isn't going to scare anyone. Now, let's try again....\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Aya Kakeda",
+        "imageId": "1bf611cc-6a54-40bb-8fc3-b66d942254db"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Fight"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1283",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AEGIS_AUTOMATON": {
+    "scryfallId": "e5f9fa2d-4bf4-4fcb-9b76-fd4a9ff5a58c",
+    "oracleId": "727f4734-53cc-4279-ba51-dfa26c4ceb1d",
+    "name": "Aegis Automaton",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aegis Automaton",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{4}{W}: Return another target creature you control to its owner's hand.",
+        "flavorText": "The streets of Ghirapur have become dangerous. It's good to have a dependable companion.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kieran Yanner",
+        "imageId": "e5f9fa2d-4bf4-4fcb-9b76-fd4a9ff5a58c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOMING_STINGER": {
+    "scryfallId": "2ee859bd-d99c-4b1d-9372-7ff4fc1e8c6a",
+    "oracleId": "ab282bb1-900e-40b8-9821-8e2de88927bc",
+    "name": "Blooming Stinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blooming Stinger",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant Scorpion",
+        "oracleText": "Deathtouch\nWhen this creature enters, another target creature you control gains deathtouch until end of turn.",
+        "flavorText": "Death never smelled so sweet.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "2ee859bd-d99c-4b1d-9372-7ff4fc1e8c6a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BONEBIND_ORATOR": {
+    "scryfallId": "faf226fa-ca09-4468-8804-87b2a7de2c66",
+    "oracleId": "c79cf0e5-52dd-4af3-ab06-6cdaab526c23",
+    "name": "Bonebind Orator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bonebind Orator",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Squirrel Warlock Bard",
+        "oracleText": "{3}{B}, Exile this card from your graveyard: Return another target creature card from your graveyard to your hand.",
+        "flavorText": "A great actor can breathe new life into old material.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "faf226fa-ca09-4468-8804-87b2a7de2c66"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "blb",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BREACHING_HIPPOCAMP": {
+    "scryfallId": "8841c01e-015e-4541-942a-f8859dd03fea",
+    "oracleId": "5ba04e0d-a3eb-448d-8a97-08c155ef9694",
+    "name": "Breaching Hippocamp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Breaching Hippocamp",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Horse Fish",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, untap another target creature you control.",
+        "flavorText": "Don't try to ride this steed unless you've got gills too.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "8841c01e-015e-4541-942a-f8859dd03fea"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTAIN_AMERICA_STEVE_ROGERS": {
+    "scryfallId": "cdbfb76f-0ec1-445f-8341-0a64f495c79f",
+    "oracleId": "d2084a6b-3248-4ed4-8fb5-d9c439d1ee72",
+    "name": "Captain America, Steve Rogers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Captain America, Steve Rogers",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Legendary Creature — Human Soldier Hero",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhenever Captain America attacks, put a +1/+1 counter on another target creature you control. That creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alexander Lozano",
+        "imageId": "cdbfb76f-0ec1-445f-8341-0a64f495c79f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "835",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORPSE_HAULER": {
+    "scryfallId": "11f7bdf8-505e-4ed2-8a3b-aba263afd196",
+    "oracleId": "c2ba1c3b-08c7-4835-81f4-2f98843fb7b8",
+    "name": "Corpse Hauler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corpse Hauler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{2}{B}, Sacrifice this creature: Return another target creature card from your graveyard to your hand.",
+        "flavorText": "\"He expects a reward, but the only piece of silver he'll get from me is my blade in his gut.\"\n—Shelac, necromancer",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "11f7bdf8-505e-4ed2-8a3b-aba263afd196"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUNNING_GEYSERMAGE": {
+    "scryfallId": "2217f0a9-5af5-45cc-8cf7-8878d4f66dd8",
+    "oracleId": "746768bc-9abc-495f-ad00-4b58497dce0d",
+    "name": "Cunning Geysermage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cunning Geysermage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Kicker {2}{U} (You may pay an additional {2}{U} as you cast this spell.)\nWhen this creature enters, if it was kicked, return up to one other target creature to its owner's hand.",
+        "flavorText": "\"Come on, Skitch, we'll lose them in the geyserfield.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "2217f0a9-5af5-45cc-8cf7-8878d4f66dd8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DESERTER_S_DISCIPLE": {
+    "scryfallId": "14f2ed5a-042b-4cce-82ad-cfb4bd511d98",
+    "oracleId": "73ca3132-d849-4cf9-beba-75ba09789332",
+    "name": "Deserter's Disciple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deserter's Disciple",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Rebel Ally",
+        "oracleText": "{T}: Another target creature you control with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"Follow me! I can get you outta here!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "HAIKEI",
+        "imageId": "14f2ed5a-042b-4cce-82ad-cfb4bd511d98"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPTOR_OF_CURRENTS": {
+    "scryfallId": "29c2c66e-a3d3-4993-82cc-adf8f6877204",
+    "oracleId": "e76ae81f-729c-4def-ae83-6870a696cbe8",
+    "name": "Disruptor of Currents",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disruptor of Currents",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Flash\nConvoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nWhen this creature enters, return up to one other target nonland permanent to its owner's hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julie Benbassat",
+        "imageId": "29c2c66e-a3d3-4993-82cc-adf8f6877204"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash",
+      "Convoke"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "303",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROOLING_GROODION": {
+    "scryfallId": "1653a373-b266-4efa-9a82-98b3bbad27a4",
+    "oracleId": "b027a80b-30cf-4e7b-8902-efd584e0edf7",
+    "name": "Drooling Groodion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drooling Groodion",
+        "manaCost": "{3}{B}{B}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "{2}{B}{G}, Sacrifice a creature: Target creature gets +2/+2 until end of turn. Another target creature gets -2/-2 until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "1653a373-b266-4efa-9a82-98b3bbad27a4"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "td2",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUTIFUL_ATTENDANT": {
+    "scryfallId": "4ee71b19-eb1d-4f5a-a1b7-1799f2f50da0",
+    "oracleId": "e9195f10-8cc2-482a-9e28-0be9a37099b4",
+    "name": "Dutiful Attendant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dutiful Attendant",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature dies, return another target creature card from your graveyard to your hand.",
+        "flavorText": "The dragon who eats the last head in the basket is entitled to the servant's.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "4ee71b19-eb1d-4f5a-a1b7-1799f2f50da0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EEL_HOUNDS": {
+    "scryfallId": "05a50445-6d0f-423d-b27b-b2b0611f85d5",
+    "oracleId": "25432a3a-bcfd-4c43-b662-07676e9b3fdd",
+    "name": "Eel-Hounds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eel-Hounds",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Fish Dog",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player it's attacking.)\nWhenever this creature attacks, another target creature you control gets +2/+2 and gains trample until end of turn.",
+        "flavorText": "\"Nothing runs faster over land or swims quicker than a giant eel-hound.\"\n—Master Piandao",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Miho Midorikawa",
+        "imageId": "05a50445-6d0f-423d-b27b-b2b0611f85d5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "tle",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXOSUIT_SAVIOR": {
+    "scryfallId": "826c0455-a6ce-43ad-bd5c-0a5df169da90",
+    "oracleId": "8b13ec4d-812a-48b0-8a64-6847a694a03a",
+    "name": "Exosuit Savior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exosuit Savior",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flying\nWhen this creature enters, return up to one other target permanent you control to its owner's hand.",
+        "flavorText": "\"An Astelli once saved me just like this. I aspire to live up to their example every day.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Benjamin Ee",
+        "imageId": "826c0455-a6ce-43ad-bd5c-0a5df169da90"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLESH_BURROWER": {
+    "scryfallId": "60499c90-a512-4abb-98eb-0735a7138421",
+    "oracleId": "04c4250e-014a-4067-80e8-4134069354f7",
+    "name": "Flesh Burrower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flesh Burrower",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Deathtouch\nWhenever this creature attacks, another target creature you control gains deathtouch until end of turn.",
+        "flavorText": "Symptoms of a burrower bite include fevers, chills, gangrene, subcutaneous writhing, a growing urge to eat the flesh of the living, and if you're lucky, death.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "60499c90-a512-4abb-98eb-0735a7138421"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLOCK_IMPOSTOR": {
+    "scryfallId": "d32d0336-5140-41f9-bc67-f3d743b9231d",
+    "oracleId": "6522070b-7002-44fd-8deb-832fe67ef9a9",
+    "name": "Flock Impostor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flock Impostor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nFlash\nFlying\nWhen this creature enters, return up to one other target creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "d32d0336-5140-41f9-bc67-f3d743b9231d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Changeling",
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOGGY_NELSON_ON_RETAINER": {
+    "scryfallId": "75e5a931-ad2d-4976-9c4e-b00325eb0fe1",
+    "oracleId": "734fc893-b736-448a-b851-826976031754",
+    "name": "Foggy Nelson, On Retainer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foggy Nelson, On Retainer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Human Advisor",
+        "oracleText": "Flash\nWhen Foggy Nelson enters, put a +1/+1 counter on another target creature you control. It gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+        "flavorText": "\"Matt! I think I found our exculpatory . . . Matt? Where does he get off to?\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "75e5a931-ad2d-4976-9c4e-b00325eb0fe1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "594",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOOT_ELITE": {
+    "scryfallId": "24bd571e-652a-4e7c-afc6-a45f0ccf62f6",
+    "oracleId": "b6244b6c-664d-417a-bd58-ace5c7a995a2",
+    "name": "Foot Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foot Elite",
+        "manaCost": "{2}{W/B}",
+        "typeLine": "Creature — Human Ninja",
+        "oracleText": "Whenever this creature attacks, another target creature you control gets +1/+0 and gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "The Foot Elite are the personal students of the Shredder, a reserve guard without equal.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "24bd571e-652a-4e7c-afc6-a45f0ccf62f6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_SMUGGLER": {
+    "scryfallId": "5837ccf1-9bac-4afb-bcc9-82c5f3c0e8e2",
+    "oracleId": "eae15f7d-1f6e-4dfc-afea-7698b93cd145",
+    "name": "Goblin Smuggler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Smuggler",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\n{T}: Another target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"No one here but us empty barrels!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "5837ccf1-9bac-4afb-bcc9-82c5f3c0e8e2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "540",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUARDIAN_SHIELD_BEARER": {
+    "scryfallId": "59d6e5dd-1243-4135-b6a7-adb9e3a847c9",
+    "oracleId": "2bd8a6a4-d0ac-4da3-be1d-5f404ae4b614",
+    "name": "Guardian Shield-Bearer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guardian Shield-Bearer",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Megamorph {3}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on another target creature you control.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lindsey Look",
+        "imageId": "59d6e5dd-1243-4135-b6a7-adb9e3a847c9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Megamorph"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARADRIM_SPEARMASTER": {
+    "scryfallId": "6050cf98-cdce-4825-9ab8-2294a2b63faf",
+    "oracleId": "4da49285-e577-487f-9997-ba49f2b5753e",
+    "name": "Haradrim Spearmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haradrim Spearmaster",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Reach\nAt the beginning of combat on your turn, another target creature you control gets +1/+0 until end of turn.",
+        "flavorText": "\"In the South the Haradrim are moving, and fear has fallen on all our coastlands.\"\n—Hirgon, errand-rider of Gondor",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Maxim Kostin",
+        "imageId": "6050cf98-cdce-4825-9ab8-2294a2b63faf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEAVENLY_QILIN": {
+    "scryfallId": "1f53c4a9-3084-470a-b1f2-0940dae46ba9",
+    "oracleId": "cbe1c80a-db82-460a-b6e9-d0e429628aa1",
+    "name": "Heavenly Qilin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heavenly Qilin",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kirin",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhenever this creature attacks, another target creature you control gains flying until end of turn.",
+        "flavorText": "It strides through the universe as though stepping on the stars, crossing freely between the celestial and earthly worlds.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Xin-Yu Liu",
+        "imageId": "1f53c4a9-3084-470a-b1f2-0940dae46ba9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "70827",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERALD_OF_THE_SUN": {
+    "scryfallId": "9c62f724-7fb4-4498-b5c1-cf65d86d8e95",
+    "oracleId": "8331fcd2-b91d-45eb-8361-74aa73e4ff69",
+    "name": "Herald of the Sun",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herald of the Sun",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\n{3}{W}: Put a +1/+1 counter on another target creature with flying.",
+        "flavorText": "\"Fear neither clouds nor darkness. The light shall overcome them all.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Micah Epstein",
+        "imageId": "9c62f724-7fb4-4498-b5c1-cf65d86d8e95"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOTFOOT_GNOME": {
+    "scryfallId": "87468b6b-6f78-42e4-ab0d-6730aeecdc3f",
+    "oracleId": "3efb64a4-04f6-4b78-be1c-5b6320c02a71",
+    "name": "Hotfoot Gnome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hotfoot Gnome",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "Haste\n{T}: Another target creature gains haste until end of turn.",
+        "flavorText": "As the surface-dwellers became bolder in their intrusions, Oltec artificers began to repurpose courier gnomes for intelligence gathering and distraction.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "87468b6b-6f78-42e4-ab0d-6730aeecdc3f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPERIAL_AEROSAUR": {
+    "scryfallId": "7d08f90b-9b98-4237-9826-578fb812d412",
+    "oracleId": "6889a555-6fde-4728-9cf2-715f0730efb7",
+    "name": "Imperial Aerosaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imperial Aerosaur",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Flying\nWhen this creature enters, another target creature you control gets +1/+1 and gains flying until end of turn.",
+        "flavorText": "Its assistance is unnervingly similar to its hunting technique.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "7d08f90b-9b98-4237-9826-578fb812d412"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUNK_DIVER": {
+    "scryfallId": "119a814f-0325-4b69-a0b6-4c623b981f4a",
+    "oracleId": "08c595da-9305-42a9-b72f-5ccc546edc01",
+    "name": "Junk Diver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Junk Diver",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Bird",
+        "oracleText": "Flying\nWhen this creature dies, return another target artifact card from your graveyard to your hand.",
+        "flavorText": "Garbage in, treasure out.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Peterson",
+        "imageId": "119a814f-0325-4b69-a0b6-4c623b981f4a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "cm2",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEEN_EYED_RAVEN": {
+    "scryfallId": "fda99319-9312-42c4-adc0-77b49768d014",
+    "oracleId": "e42450c7-a9de-412f-b439-76f2f9b6031b",
+    "name": "Keen-Eyed Raven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keen-Eyed Raven",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, put a +1/+1 counter on another target creature you control.",
+        "flavorText": "\"What do you see, Sýnin?\"\n—Eivor",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "fda99319-9312-42c4-adc0-77b49768d014"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIORA_S_FOLLOWER": {
+    "scryfallId": "097a8598-f209-417e-a200-b1f3db475845",
+    "oracleId": "22c044ad-77d7-4c93-953d-e2daa9686ff7",
+    "name": "Kiora's Follower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kiora's Follower",
+        "manaCost": "{G}{U}",
+        "typeLine": "Creature — Merfolk",
+        "oracleText": "{T}: Untap another target permanent.",
+        "flavorText": "\"She may call herself Kiora but I believe she is Thassa, the embodiment of the sea and empress of the depths.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "097a8598-f209-417e-a200-b1f3db475845"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DDO-52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIVING_LIGHTNING_CHARGED_UP": {
+    "scryfallId": "95b3f213-434a-45e7-bc09-7ada7728c802",
+    "oracleId": "b9397684-f226-4f77-a57a-88f97fbd96a5",
+    "name": "Living Lightning, Charged Up",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Living Lightning, Charged Up",
+        "manaCost": "{4}{R}",
+        "typeLine": "Legendary Creature — Elemental Hero",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nHaste (This creature can attack and {T} as soon as he comes under your control.)\nAt the beginning of combat on your turn, another target creature you control gets +1/+0 and gains haste until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Junggeun Yoon",
+        "imageId": "95b3f213-434a-45e7-bc09-7ada7728c802"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "764",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOXODON_BATTLE_PRIEST": {
+    "scryfallId": "a527cdb0-f54a-4b53-83a0-6b3e8cafa45e",
+    "oracleId": "8cf4ddb0-2a83-4d8f-b636-7ba3c81ea4ca",
+    "name": "Loxodon Battle Priest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loxodon Battle Priest",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Elephant Cleric",
+        "oracleText": "At the beginning of combat on your turn, put a +1/+1 counter on another target creature you control.",
+        "flavorText": "\"I grant you the strength of Qatros's walls and the tenacity of Arashin's oasis.\"",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "a527cdb0-f54a-4b53-83a0-6b3e8cafa45e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISCHIEVOUS_PUP": {
+    "scryfallId": "7214d984-6400-44d7-bde6-57d96b606e78",
+    "oracleId": "e75b187d-0e3b-4d94-a940-8b7e4e7ed1ca",
+    "name": "Mischievous Pup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mischievous Pup",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, return up to one other target permanent you control to its owner's hand.",
+        "flavorText": "As far as the dog was concerned, anything that fit in its mouth was a toy.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Devin Platts",
+        "imageId": "7214d984-6400-44d7-bde6-57d96b606e78"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_RETRIEVER": {
+    "scryfallId": "33940107-e210-4334-a409-48ab591af2ec",
+    "oracleId": "d07d3be3-f69d-4484-8467-cffd43871788",
+    "name": "Myr Retriever",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Retriever",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "When this creature dies, return another target artifact card from your graveyard to your hand.",
+        "flavorText": "Mephidross gives up treasure easily . . . as long as you take its place.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Trevor Hairsine",
+        "imageId": "33940107-e210-4334-a409-48ab591af2ec"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CM2-203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OLIPHAUNT": {
+    "scryfallId": "1631244b-4b8e-409b-a34d-9b7d932bb5bd",
+    "oracleId": "186b2256-4af3-48cb-96b0-b0e80a7ee6dc",
+    "name": "Oliphaunt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oliphaunt",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "Trample\nWhenever this creature attacks, another target creature you control gets +2/+0 and gains trample until end of turn.\nMountaincycling {1} ({1}, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Di Giovanni",
+        "imageId": "1631244b-4b8e-409b-a34d-9b7d932bb5bd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mountaincycling",
+      "Landcycling",
+      "Trample",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "590",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATRIOT_SHIELD_WIELDER": {
+    "scryfallId": "1467d7c9-00d8-43f1-b4e7-a279d2b10503",
+    "oracleId": "1df7a09f-fbc8-4c2a-a903-bab9e680eda7",
+    "name": "Patriot, Shield Wielder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patriot, Shield Wielder",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "{2}, {T}: Another target creature you control gets +2/+0 and gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)",
+        "flavorText": "\"They say true heroes always put their teammates before themselves. I often find it's the other way around.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Vlad Petruchik",
+        "imageId": "1467d7c9-00d8-43f1-b4e7-a279d2b10503"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIMEKIN_RECLUSE": {
+    "scryfallId": "ba6b5368-3262-4002-bf1e-fce62f7f7901",
+    "oracleId": "ad99e430-e13f-4819-a2ee-bf3332ef517d",
+    "name": "Rimekin Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rimekin Recluse",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Elemental Wizard",
+        "oracleText": "When this creature enters, return up to one other target creature to its owner's hand.",
+        "flavorText": "Rimekin were once flamekin who turned their heat inward following the horrors of the Invasion. They burn cold, choosing isolation as the path to preserve their flames.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Aurore Folny",
+        "imageId": "ba6b5368-3262-4002-bf1e-fce62f7f7901"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCOURGE_OF_THE_UNDERCITY": {
+    "scryfallId": "4d321cb1-9079-4aa3-b86e-6483552f04ee",
+    "oracleId": "541ba65b-9b4e-45bb-9055-4f7560563425",
+    "name": "Scourge of the Undercity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scourge of the Undercity",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Gorgon Vampire",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature enters, another target creature you control gains lifelink until end of turn.",
+        "flavorText": "Her hunger for blood is matched only by her hunger for vengeance.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Olivier Bernard",
+        "imageId": "4d321cb1-9079-4aa3-b86e-6483552f04ee"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELFLESS_SAVIOR": {
+    "scryfallId": "276b4316-e5f2-40a4-8d7a-a7d7059ebfad",
+    "oracleId": "49dc3434-2501-4788-84f2-93e55730f67c",
+    "name": "Selfless Savior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selfless Savior",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Sacrifice this creature: Another target creature you control gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "\"I never had the chance to say 'thank you.' Or 'goodbye.'\"\n—Sarvag, eulogy for a friend",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "276b4316-e5f2-40a4-8d7a-a7d7059ebfad"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "732",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARLING_AERIAL_ALLY": {
+    "scryfallId": "48255f10-ea0e-42a3-bbfb-efa773f0cb08",
+    "oracleId": "13fd7ca6-c278-409f-a9c4-57f16051ffce",
+    "name": "Starling, Aerial Ally",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starling, Aerial Ally",
+        "manaCost": "{4}{W}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "Flying\nWhen Starling enters, another target creature you control gains flying until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "48255f10-ea0e-42a3-bbfb-efa773f0cb08"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STERLING_SUPPLIER": {
+    "scryfallId": "b6000be7-67db-440e-87ba-276df20b803e",
+    "oracleId": "ab23cca2-b59e-4d34-80de-98bd08985275",
+    "name": "Sterling Supplier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sterling Supplier",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on another target creature you control.",
+        "flavorText": "The Sterling Company can always rely on him to bring the thunder.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "b6000be7-67db-440e-87ba-276df20b803e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STICKYTONGUE_SENTINEL": {
+    "scryfallId": "b5fa9651-b217-4f93-9c46-9bdb11feedcb",
+    "oracleId": "899f0931-4e9b-4fa8-9f6d-d13a7de05334",
+    "name": "Stickytongue Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stickytongue Sentinel",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Frog Warrior",
+        "oracleText": "Reach\nWhen this creature enters, return up to one other target permanent you control to its owner's hand.",
+        "flavorText": "Victory doesn't have to be close for him to taste it.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lorenzo Mastroianni",
+        "imageId": "b5fa9651-b217-4f93-9c46-9bdb11feedcb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TENTH_DISTRICT_VETERAN": {
+    "scryfallId": "ef573e92-3106-4b42-90e8-0e165de0659f",
+    "oracleId": "c25e4b69-4ea3-43ce-ba6f-b918ebfc4980",
+    "name": "Tenth District Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tenth District Veteran",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Vigilance\nWhenever this creature attacks, untap another target creature you control.",
+        "flavorText": "\"I keep reminding myself we do this because others can't, because we love this city. If we don't save it, no one will.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "ef573e92-3106-4b42-90e8-0e165de0659f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORCH_COURIER": {
+    "scryfallId": "020e13af-53eb-4285-b6b4-d388689e4484",
+    "oracleId": "34e2d6eb-aad4-4776-872e-cebab3938aa0",
+    "name": "Torch Courier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Torch Courier",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Haste\nSacrifice this creature: Another target creature gains haste until end of turn.",
+        "flavorText": "\"Light a torch and deliver this letter\" were his instructions, which he unfortunately reversed.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "020e13af-53eb-4285-b6b4-d388689e4484"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GRN-119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOXIC_SCORPION": {
+    "scryfallId": "4cfca481-cf2d-435d-b4b6-07b1fe2a8e5d",
+    "oracleId": "612ea70d-f4f2-4909-a025-218161ae1059",
+    "name": "Toxic Scorpion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Toxic Scorpion",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Scorpion",
+        "oracleText": "Deathtouch\nWhen this creature enters, another target creature you control gains deathtouch until end of turn.",
+        "flavorText": "\"You want that venom? Collect it yourself! I'm not losing another pair of dragonhide gloves.\"\n—Old Rutstein",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "4cfca481-cf2d-435d-b4b6-07b1fe2a8e5d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRAILBLAZING_HISTORIAN": {
+    "scryfallId": "a53088da-25b5-4c7e-9a11-456fbc814dfc",
+    "oracleId": "399770b9-eab7-4512-aa1d-65c5bd81094f",
+    "name": "Trailblazing Historian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trailblazing Historian",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Haste\n{T}: Another target creature gains haste until end of turn.",
+        "flavorText": "Spells once used to traverse Lorehold excavation sites were swiftly repurposed to keep the students one step ahead of the Invasion Tree's grasp.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "a53088da-25b5-4c7e-9a11-456fbc814dfc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRICERATON_REGENTA": {
+    "scryfallId": "60e9e931-6e64-439f-9513-c64cf17047f5",
+    "oracleId": "2650d2d5-576e-4b9a-95ac-0f5307f1580f",
+    "name": "Triceraton Regenta",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Triceraton Regenta",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dinosaur Noble",
+        "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nWhenever this creature attacks, untap up to one other target creature.",
+        "flavorText": "\"I am meant to be the Triceraton Regenta, so I must fulfill my destiny and avenge my mother's death!\"\n—Seri",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Leanna Crossan",
+        "imageId": "60e9e931-6e64-439f-9513-c64cf17047f5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNBENDER_TINE": {
+    "scryfallId": "2b322b16-d288-4643-80b2-e1077e6d4869",
+    "oracleId": "cdc0a1a5-d9e4-4923-b472-2fa78212167f",
+    "name": "Unbender Tine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unbender Tine",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Untap another target permanent.",
+        "flavorText": "Creations made in madness may contain great power. The path to that power is as labyrinthine as the creator's mind.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "2b322b16-d288-4643-80b2-e1077e6d4869"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "arc",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOID_GRAFTER": {
+    "scryfallId": "6c2e37e2-a4bd-4f90-9191-3125784a3369",
+    "oracleId": "01d202b9-1ac6-484c-a208-a8bc69bccdb2",
+    "name": "Void Grafter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Void Grafter",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nFlash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, another target creature you control gains hexproof until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alejandro Mirabal",
+        "imageId": "6c2e37e2-a4bd-4f90-9191-3125784a3369"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Devoid",
+      "Flash"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WORKSHOP_ASSISTANT": {
+    "scryfallId": "509a1a3a-d9a6-4903-95f6-dae6b330f4ea",
+    "oracleId": "319ee221-bace-41e9-b386-6b528bd780c1",
+    "name": "Workshop Assistant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Workshop Assistant",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature dies, return another target artifact card from your graveyard to your hand.",
+        "flavorText": "Sometimes the smallest things make the biggest difference.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Victor Adame Minguez",
+        "imageId": "509a1a3a-d9a6-4903-95f6-dae6b330f4ea"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOSE_PATHFINDER": {
+    "scryfallId": "6589b339-9067-4e9b-bfdb-c49f8b3ef2d4",
+    "oracleId": "eb2ff7f2-b7fd-4984-a4e8-cf57b619c1a5",
+    "name": "Wose Pathfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wose Pathfinder",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{T}: Add one mana of any color.\n{6}{G}, {T}: Another target creature gets +3/+3 and gains trample until end of turn.",
+        "flavorText": "\"Road is forgotten, but not by Wild Folk. Over hill and behind hill it lies still under grass and tree. Wild Folk will show you that road.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Iga Oliwiak",
+        "imageId": "6589b339-9067-4e9b-bfdb-c49f8b3ef2d4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BESPOKE_B": {
+    "scryfallId": "6c517308-831b-4e41-a82c-02ddf6383a0c",
+    "oracleId": "679480aa-f9ad-4a6c-bd79-db9f9f75433d",
+    "name": "Bespoke Bō",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bespoke Bō",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, return up to one other target nonland permanent to its owner's hand.\nEquipped creature gets +2/+1 and has vigilance.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "6c517308-831b-4e41-a82c-02ddf6383a0c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEGION_GUILDMAGE": {
+    "scryfallId": "b03423b2-faca-4b2e-8328-8b9b7fdb7ce3",
+    "oracleId": "bb33abbe-b43c-4a74-b2db-cce949f0edf2",
+    "name": "Legion Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Legion Guildmage",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{5}{R}, {T}: This creature deals 3 damage to each opponent.\n{2}{W}, {T}: Tap another target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "b03423b2-faca-4b2e-8328-8b9b7fdb7ce3"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANIFOLD_KEY": {
+    "scryfallId": "0f5a15cd-a359-48c9-9280-ce139f1fb061",
+    "oracleId": "370c37f7-2484-40e8-8fd9-c10cf6f5d5f2",
+    "name": "Manifold Key",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manifold Key",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}: Untap another target artifact.\n{3}, {T}: Target creature can't be blocked this turn.",
+        "flavorText": "\"Finally! It was worth the price to never have to fiddle with lockpicks ever again.\"\n—Davvry Mineshadow, thief",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gabor Szikszai",
+        "imageId": "0f5a15cd-a359-48c9-9280-ce139f1fb061"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "319",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARSHAL_OF_ZHALFIR": {
+    "scryfallId": "c2418f5c-a85f-4249-8a53-c94b011b9714",
+    "oracleId": "9ad01fb2-2ba7-447a-a5ef-e57d46421635",
+    "name": "Marshal of Zhalfir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marshal of Zhalfir",
+        "manaCost": "{W}{U}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Other Knights you control get +1/+1.\n{W}{U}, {T}: Tap another target creature.",
+        "flavorText": "\"How kind of our foes to move in such perfect, predictable unison. Split into squadrons and execute the Lion's Claw!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Darren Tan",
+        "imageId": "c2418f5c-a85f-4249-8a53-c94b011b9714"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mom",
+    "collectorNumber": "246",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAMUT_VOICE_OF_DISSENT": {
+    "scryfallId": "14cbb69e-92da-4370-8cd9-b8278e7ee1f1",
+    "oracleId": "b1eee275-5106-4c8d-a497-d7945ad81d74",
+    "name": "Samut, Voice of Dissent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Samut, Voice of Dissent",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "Flash\nDouble strike, vigilance, haste\nOther creatures you control have haste.\n{W}, {T}: Untap another target creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "14cbb69e-92da-4370-8cd9-b8278e7ee1f1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Haste",
+      "Double strike",
+      "Flash"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "258",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEREFOX_BODYGUARD": {
+    "scryfallId": "3c9fb10f-2be6-4412-876a-e62e673bf59b",
+    "oracleId": "d5ee2ced-29f4-430f-962e-2f930b92624c",
+    "name": "Werefox Bodyguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Werefox Bodyguard",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Elf Fox Knight",
+        "oracleText": "Flash\nWhen this creature enters, exile up to one other target non-Fox creature until this creature leaves the battlefield.\n{1}{W}, Sacrifice this creature: You gain 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "3c9fb10f-2be6-4412-876a-e62e673bf59b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "pwoe",
+    "collectorNumber": "39p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SONIC_SCREWDRIVER": {
+    "scryfallId": "2a55d514-b670-4fe2-825b-9ba955977cac",
+    "oracleId": "cd68cc31-12fd-48ff-b37b-bccfe4172974",
+    "name": "Sonic Screwdriver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sonic Screwdriver",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add one mana of any color.\n{1}, {T}: Untap another target artifact.\n{2}, {T}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{3}, {T}: Target creature can't be blocked this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pauline Voss",
+        "imageId": "2a55d514-b670-4fe2-825b-9ba955977cac"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "who",
+    "collectorNumber": "186",
     "commanderLegality": "legal",
     "singleImage": true
   },

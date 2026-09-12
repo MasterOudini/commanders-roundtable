@@ -7,6 +7,64 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ULVENWALD_TRACKER_SCRIPT } from './cards/ulvenwaldTracker';
+import { HARDENED_ESCORT_SCRIPT } from './cards/hardenedEscort';
+import { TRAINED_CONDOR_SCRIPT } from './cards/trainedCondor';
+import { AEGIS_AUTOMATON_SCRIPT } from './cards/aegisAutomaton';
+import { BLOOMING_STINGER_SCRIPT } from './cards/bloomingStinger';
+import { BONEBIND_ORATOR_SCRIPT } from './cards/bonebindOrator';
+import { BREACHING_HIPPOCAMP_SCRIPT } from './cards/breachingHippocamp';
+import { CAPTAIN_AMERICA_STEVE_ROGERS_SCRIPT } from './cards/captainAmericaSteveRogers';
+import { CORPSE_HAULER_SCRIPT } from './cards/corpseHauler';
+import { CUNNING_GEYSERMAGE_SCRIPT } from './cards/cunningGeysermage';
+import { DESERTERS_DISCIPLE_SCRIPT } from './cards/desertersDisciple';
+import { DISRUPTOR_OF_CURRENTS_SCRIPT } from './cards/disruptorOfCurrents';
+import { DROOLING_GROODION_SCRIPT } from './cards/droolingGroodion';
+import { DUTIFUL_ATTENDANT_SCRIPT } from './cards/dutifulAttendant';
+import { EEL_HOUNDS_SCRIPT } from './cards/eelHounds';
+import { EXOSUIT_SAVIOR_SCRIPT } from './cards/exosuitSavior';
+import { FLESH_BURROWER_SCRIPT } from './cards/fleshBurrower';
+import { FLOCK_IMPOSTOR_SCRIPT } from './cards/flockImpostor';
+import { FOGGY_NELSON_ON_RETAINER_SCRIPT } from './cards/foggyNelsonOnRetainer';
+import { FOOT_ELITE_SCRIPT } from './cards/footElite';
+import { GOBLIN_SMUGGLER_SCRIPT } from './cards/goblinSmuggler';
+import { GUARDIAN_SHIELD_BEARER_SCRIPT } from './cards/guardianShieldBearer';
+import { HARADRIM_SPEARMASTER_SCRIPT } from './cards/haradrimSpearmaster';
+import { HEAVENLY_QILIN_SCRIPT } from './cards/heavenlyQilin';
+import { HERALD_OF_THE_SUN_SCRIPT } from './cards/heraldOfTheSun';
+import { HOTFOOT_GNOME_SCRIPT } from './cards/hotfootGnome';
+import { IMPERIAL_AEROSAUR_SCRIPT } from './cards/imperialAerosaur';
+import { JUNK_DIVER_SCRIPT } from './cards/junkDiver';
+import { KEEN_EYED_RAVEN_SCRIPT } from './cards/keenEyedRaven';
+import { KIORAS_FOLLOWER_SCRIPT } from './cards/kiorasFollower';
+import { LIVING_LIGHTNING_CHARGED_UP_SCRIPT } from './cards/livingLightningChargedUp';
+import { LOXODON_BATTLE_PRIEST_SCRIPT } from './cards/loxodonBattlePriest';
+import { MISCHIEVOUS_PUP_SCRIPT } from './cards/mischievousPup';
+import { MYR_RETRIEVER_SCRIPT } from './cards/myrRetriever';
+import { OLIPHAUNT_SCRIPT } from './cards/oliphaunt';
+import { PATRIOT_SHIELD_WIELDER_SCRIPT } from './cards/patriotShieldWielder';
+import { RIMEKIN_RECLUSE_SCRIPT } from './cards/rimekinRecluse';
+import { SCOURGE_OF_THE_UNDERCITY_SCRIPT } from './cards/scourgeOfTheUndercity';
+import { SELFLESS_SAVIOR_SCRIPT } from './cards/selflessSavior';
+import { STARLING_AERIAL_ALLY_SCRIPT } from './cards/starlingAerialAlly';
+import { STERLING_SUPPLIER_SCRIPT } from './cards/sterlingSupplier';
+import { STICKYTONGUE_SENTINEL_SCRIPT } from './cards/stickytongueSentinel';
+import { TENTH_DISTRICT_VETERAN_SCRIPT } from './cards/tenthDistrictVeteran';
+import { TORCH_COURIER_SCRIPT } from './cards/torchCourier';
+import { TOXIC_SCORPION_SCRIPT } from './cards/toxicScorpion';
+import { TRAILBLAZING_HISTORIAN_SCRIPT } from './cards/trailblazingHistorian';
+import { TRICERATON_REGENTA_SCRIPT } from './cards/triceratonRegenta';
+import { UNBENDER_TINE_SCRIPT } from './cards/unbenderTine';
+import { VOID_GRAFTER_SCRIPT } from './cards/voidGrafter';
+import { WORKSHOP_ASSISTANT_SCRIPT } from './cards/workshopAssistant';
+import { WOSE_PATHFINDER_SCRIPT } from './cards/wosePathfinder';
+import { BESPOKE_B_SCRIPT } from './cards/bespokeB';
+import { LEGION_GUILDMAGE_SCRIPT } from './cards/legionGuildmage';
+import { MANIFOLD_KEY_SCRIPT } from './cards/manifoldKey';
+import { MARSHAL_OF_ZHALFIR_SCRIPT } from './cards/marshalOfZhalfir';
+import { SAMUT_VOICE_OF_DISSENT_SCRIPT } from './cards/samutVoiceOfDissent';
+import { WEREFOX_BODYGUARD_SCRIPT } from './cards/werefoxBodyguard';
+import { SONIC_SCREWDRIVER_SCRIPT } from './cards/sonicScrewdriver';
 import { DOC_OCKS_HENCHMEN_SCRIPT } from './cards/docOcksHenchmen';
 import { MOB_LOOKOUT_SCRIPT } from './cards/mobLookout';
 import { RAFFINES_INFORMANT_SCRIPT } from './cards/raffinesInformant';
@@ -3887,7 +3945,6 @@ import { EATEN_BY_SPIDERS_SCRIPT } from './cards/eatenBySpiders';
 import { FORCED_LANDING_SCRIPT } from './cards/forcedLanding';
 import { BIONIC_BLOW_SCRIPT } from './cards/bionicBlow';
 import { DONATELLOS_SCIENCE_LESSON_SCRIPT } from './cards/donatellosScienceLesson';
-import { MABELS_METTLE_SCRIPT } from './cards/mabelsMettle';
 import { PRIMAL_MIGHT_SCRIPT } from './cards/primalMight';
 import { RELIC_CRUSH_SCRIPT } from './cards/relicCrush';
 import { ANCESTORS_PROPHET_SCRIPT } from './cards/ancestorsProphet';
@@ -5920,6 +5977,64 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ULVENWALD_TRACKER_SCRIPT,
+  HARDENED_ESCORT_SCRIPT,
+  TRAINED_CONDOR_SCRIPT,
+  AEGIS_AUTOMATON_SCRIPT,
+  BLOOMING_STINGER_SCRIPT,
+  BONEBIND_ORATOR_SCRIPT,
+  BREACHING_HIPPOCAMP_SCRIPT,
+  CAPTAIN_AMERICA_STEVE_ROGERS_SCRIPT,
+  CORPSE_HAULER_SCRIPT,
+  CUNNING_GEYSERMAGE_SCRIPT,
+  DESERTERS_DISCIPLE_SCRIPT,
+  DISRUPTOR_OF_CURRENTS_SCRIPT,
+  DROOLING_GROODION_SCRIPT,
+  DUTIFUL_ATTENDANT_SCRIPT,
+  EEL_HOUNDS_SCRIPT,
+  EXOSUIT_SAVIOR_SCRIPT,
+  FLESH_BURROWER_SCRIPT,
+  FLOCK_IMPOSTOR_SCRIPT,
+  FOGGY_NELSON_ON_RETAINER_SCRIPT,
+  FOOT_ELITE_SCRIPT,
+  GOBLIN_SMUGGLER_SCRIPT,
+  GUARDIAN_SHIELD_BEARER_SCRIPT,
+  HARADRIM_SPEARMASTER_SCRIPT,
+  HEAVENLY_QILIN_SCRIPT,
+  HERALD_OF_THE_SUN_SCRIPT,
+  HOTFOOT_GNOME_SCRIPT,
+  IMPERIAL_AEROSAUR_SCRIPT,
+  JUNK_DIVER_SCRIPT,
+  KEEN_EYED_RAVEN_SCRIPT,
+  KIORAS_FOLLOWER_SCRIPT,
+  LIVING_LIGHTNING_CHARGED_UP_SCRIPT,
+  LOXODON_BATTLE_PRIEST_SCRIPT,
+  MISCHIEVOUS_PUP_SCRIPT,
+  MYR_RETRIEVER_SCRIPT,
+  OLIPHAUNT_SCRIPT,
+  PATRIOT_SHIELD_WIELDER_SCRIPT,
+  RIMEKIN_RECLUSE_SCRIPT,
+  SCOURGE_OF_THE_UNDERCITY_SCRIPT,
+  SELFLESS_SAVIOR_SCRIPT,
+  STARLING_AERIAL_ALLY_SCRIPT,
+  STERLING_SUPPLIER_SCRIPT,
+  STICKYTONGUE_SENTINEL_SCRIPT,
+  TENTH_DISTRICT_VETERAN_SCRIPT,
+  TORCH_COURIER_SCRIPT,
+  TOXIC_SCORPION_SCRIPT,
+  TRAILBLAZING_HISTORIAN_SCRIPT,
+  TRICERATON_REGENTA_SCRIPT,
+  UNBENDER_TINE_SCRIPT,
+  VOID_GRAFTER_SCRIPT,
+  WORKSHOP_ASSISTANT_SCRIPT,
+  WOSE_PATHFINDER_SCRIPT,
+  BESPOKE_B_SCRIPT,
+  LEGION_GUILDMAGE_SCRIPT,
+  MANIFOLD_KEY_SCRIPT,
+  MARSHAL_OF_ZHALFIR_SCRIPT,
+  SAMUT_VOICE_OF_DISSENT_SCRIPT,
+  WEREFOX_BODYGUARD_SCRIPT,
+  SONIC_SCREWDRIVER_SCRIPT,
   DOC_OCKS_HENCHMEN_SCRIPT,
   MOB_LOOKOUT_SCRIPT,
   RAFFINES_INFORMANT_SCRIPT,
@@ -9800,7 +9915,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   FORCED_LANDING_SCRIPT,
   BIONIC_BLOW_SCRIPT,
   DONATELLOS_SCIENCE_LESSON_SCRIPT,
-  MABELS_METTLE_SCRIPT,
   PRIMAL_MIGHT_SCRIPT,
   RELIC_CRUSH_SCRIPT,
   ANCESTORS_PROPHET_SCRIPT,
