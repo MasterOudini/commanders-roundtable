@@ -16108,6 +16108,95 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
       THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4is — CONNIVE (CR 701.50): `it connives` — draw a card, then
+      discard a card; a nonland card discarded this way puts a +1/+1 counter
+      on the conniving permanent; the discard is the hand prompt carrying the
+      connive, and the permanent has CONNIVED (`Connived`) once the process is
+      complete (2026-09-12):** **9,208 of 31,692 Commander-legal cards
+      now execute completely, up from 9,195 (+13: 13 generated rows - Raffine's Informant, Psionic Snoop, Echo Inspector, Revel Ruiner, Red Room Recruit, Prowler, Doc Ock's Henchmen, Atlantean Skirmisher, A.I.M. Scientists, Pharaoh Rama-Tut, Hypnotic Grifter, Mob Lookout, Scorpion).**
+      `SHIPPED_SCRIPTS` 5,881 → **5,894**; ledger 1,336 → **1,337**
+      (one ADDED by reason). Fixtures 6,503 → **6,516** (6,355 by name + 154
+      tokens). `scriptableToday` 1,434 → **1,435**; the select pool 0 →
+      14 → 0; the ladder `[1435, 1530, 2924, 4603, 5956]`. Bot reach 9,122 → **9,135** from
+      276 commanders. Decisions in **D412**; an engine seam on Opus 5
+      by the user's choice — the second keyword action with a question of its
+      own, built in D409's shape.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** connive 31 whole over 25 shapes, 14 in
+      rowable shapes; the `exile it instead` riders (18 whole over 10 shapes)
+      are the next bounded seam; the `for each`, `deals N damage to each`,
+      monarch and `as long as` families stay tails.
+      ⚠️ **THE SEAM:** `src/engine/connive.ts` (`conniveOnce`: the draw, then
+      the hand prompt `chooseFromZone` carrying `connive: { permanent,
+      remaining }`, or connived with nothing; `conniveAfterDiscard`: the
+      counter for a nonland card when the permanent is still on the
+      battlefield, the marker `Connived { permanent, controller, card,
+      nonland }`, the chain's remainder); `answerChooseFromZone` runs it;
+      `effectParse` kind `connive` (`~ connives.`, `~ connives, then it
+      connives again.`, `target creature you control connives.`; an ASK); the
+      executor takes the SOURCE for `self`; the bridge's leading `it
+      connives`; `primitives` `oneShotConniveShape`; the row maker's
+      `ASK_KINDS` and the probe's `~`-spelled key; the generator answers the
+      discard when still up and reads the counter off the marker's verdict.
+      `src/engine/connive.test.ts` (2).
+      **Fuzz:** Raffine's Informant a staple feeding `connives` (a floor at
+      gate size): 10 at 60 (ZERO before the row was ported - a staple with no
+      script is a vanilla body); 56 over 500 seeds.
+      **Landed:** 13 rows (Raffine's Informant, Psionic Snoop, Echo Inspector,
+      Revel Ruiner, Red Room Recruit, Prowler, Doc Ock's Henchmen, Atlantean
+      Skirmisher, A.I.M. Scientists, Pharaoh Rama-Tut, Hypnotic Grifter, Mob
+      Lookout, Scorpion); refused by reason (1: Ledger Shredder's any-player
+      second-spell head). botPool creature 5,403 — auto 1,472 / assisted 1,874 ·
+      `oracleParse` `effect:auto` 6,350 · tier3 silentAfter 9,500 · `token`
+      971 · batch.json 14 · select pool 0.
+      ⚠️ **A STAPLE WITH NO SCRIPT IS A VANILLA BODY:** port the row before
+      measuring a staple whose mechanism lives in it. ⚠️ The proof stages its
+      own hand (`findAnywhere` finds the library first; the padded library is
+      basics).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6069 files,
+      29431 passed / 11 skipped · 500-seed gate, 6 shards, 1064.3 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D412): `connives X`, the reflexive `When it connives
+      this way`, the `whenever a creature you control connives` heads (the bus
+      reads `Connived`), the convoked referent, `Each of X target creatures`,
+      the connive replacement, the any-player second-spell head, `you may have
+      it connive`; then D411's list unchanged — the blocks form (4), the
+      conditional freezes, the compound spells, the activation self riders,
+      the STANDING form, the cycling GRANTS (3), the `whenever a creature you
+      control explores` heads (5), `explores X times`, the reader's edge
+      (`nontoken blue creature`, `exile the top three black cards of your
+      graveyard`, `each other player gain 2 life`, `If exactly one creature is
+      attacking`), the `{X}` alternatives, a chooser verb on BOTH costs, the
+      cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD
+      Oblivion Ring wording, `another target`, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the exile
+      with a permission, the flicker within one batch, the other durations
+      (`for as long as you control` 23, `remains exiled` 33, `remains on the
+      battlefield` 14), the SACRIFICED REFERENT, a random discard as a cast
+      cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice
+      path, HYBRID symbols paid by convoke, a per-creature chooser in the
+      review, `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>,
+      the `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the reveal-the-top
+      family (27 / 18), the quoted-grant BODIES, `Noncreature spells` (6),
+      `Colorless spells` (3), `Face-down creature spells` (2), the leading
+      conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE
+      VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker
+      `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+      `whenever you cast a kicked spell`, the REFERENT across the wait, the
+      self-aimed delayed forms, the HOST characteristics under an attached
+      static (29), "you control a token", the incarnations' graveyard statics
+      (5), `Whenever you attack` and the each-combat head, the `for each <X>`
+      family (645 one-piece over 324 nouns), the payment heads, the search
+      residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE
+      FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory
+      (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+      twenty-two older fight and bite suites, token copies (15), the permanent
+      control family (20) and exchange control (24), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200 —
+      waits for Fable), the prompt CONTINUATION seam proper, the two gate
+      items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+      BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

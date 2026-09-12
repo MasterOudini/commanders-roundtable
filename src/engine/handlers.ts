@@ -48,6 +48,7 @@ import { n, narrated, their, vb, who } from './narrate';
 import { askBatch, askCandidates, drawEvents, effectResult } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
+import { conniveAfterDiscard } from './connive';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
 import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
@@ -3466,14 +3467,22 @@ function answerChooseFromZone(
     to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
     reason: 'discard' as const,
   }));
-  return accept([
+  const events: EventBody[] = [
     { t: 'AwaitingSet', awaiting: null },
     { t: 'CardsMoved', moves },
     narrated(
       n`${who(state, intent.player)} ${vb(intent.player, 'discards', 'discard')} ${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}.`,
       intent.player,
     ),
-  ]);
+  ];
+  // D412 - a connive's discard: the counter for a nonland card, the marker (CR 701.50c), and the chain's
+  // remainder, run against the state the answer left.
+  if (awaiting.connive) {
+    let scratch = state;
+    for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+    events.push(...conniveAfterDiscard(scratch, deps, intent.player, awaiting.connive.permanent, intent.cards, awaiting.label, awaiting.connive.remaining));
+  }
+  return accept(events);
 }
 
 /**

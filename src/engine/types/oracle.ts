@@ -698,7 +698,13 @@ export type EffectKind =
    * controller's next untap step. Reaches a tapped target through the referent rewrite (`Tap target
    * creature. It doesn't untap ...`) as well as the bare form. No end of its own: the step spends it.
    */
-  | 'freeze';
+  | 'freeze'
+  /**
+   * D412 - connive (CR 701.50): draw a card, then discard a card; a nonland card discarded this way puts
+   * a +1/+1 counter on the conniving permanent. The discard is the hand prompt (`chooseFromZone`) carrying
+   * `connive`. `amount` is how many times in a row. The subject is the source (`self`) or the target.
+   */
+  | 'connive';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.

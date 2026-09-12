@@ -378,6 +378,8 @@ export type EventBody =
   | { readonly t: 'Proliferated'; readonly player: PlayerId; readonly permanents: readonly InstanceId[]; readonly players: readonly PlayerId[] }
   /** D409 - a permanent has explored (CR 701.42c): the card revealed (null from an empty library), and whether it was a land. */
   | { readonly t: 'Explored'; readonly permanent: InstanceId; readonly controller: PlayerId; readonly card: InstanceId | null; readonly land: boolean }
+  /** D412 - a permanent has connived (CR 701.50c): the card discarded (null when there was none), and whether it was nonland. */
+  | { readonly t: 'Connived'; readonly permanent: InstanceId; readonly controller: PlayerId; readonly card: InstanceId | null; readonly nonland: boolean }
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
   | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
   /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */

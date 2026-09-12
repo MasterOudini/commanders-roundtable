@@ -6086,6 +6086,9 @@ export const TAKE_INTO_CUSTODY: CardData = F.TAKE_INTO_CUSTODY as CardData;
 export const APES_OF_RATH: CardData = F.APES_OF_RATH as CardData;
 export const KARPLUSAN_FOREST: CardData = F.KARPLUSAN_FOREST as CardData;
 export const SAVANNAH_LIONS: CardData = F.SAVANNAH_LIONS as CardData;
+export const RAFFINE_S_INFORMANT: CardData = F.RAFFINE_S_INFORMANT as CardData;
+export const MOB_LOOKOUT: CardData = F.MOB_LOOKOUT as CardData;
+export const DOC_OCK_S_HENCHMEN: CardData = F.DOC_OCK_S_HENCHMEN as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6367,6 +6370,16 @@ export const STITCHED_MANGLER: CardData = F.STITCHED_MANGLER as CardData;
 export const WATERTRAP_WEAVER: CardData = F.WATERTRAP_WEAVER as CardData;
 export const HOUSE_GUILDMAGE: CardData = F.HOUSE_GUILDMAGE as CardData;
 export const SLEEPER_DART: CardData = F.SLEEPER_DART as CardData;
+export const A_I_M_SCIENTISTS: CardData = F.A_I_M_SCIENTISTS as CardData;
+export const ATLANTEAN_SKIRMISHER: CardData = F.ATLANTEAN_SKIRMISHER as CardData;
+export const ECHO_INSPECTOR: CardData = F.ECHO_INSPECTOR as CardData;
+export const HYPNOTIC_GRIFTER: CardData = F.HYPNOTIC_GRIFTER as CardData;
+export const PHARAOH_RAMA_TUT: CardData = F.PHARAOH_RAMA_TUT as CardData;
+export const PROWLER_CLAWED_THIEF: CardData = F.PROWLER_CLAWED_THIEF as CardData;
+export const PSIONIC_SNOOP: CardData = F.PSIONIC_SNOOP as CardData;
+export const RED_ROOM_RECRUIT: CardData = F.RED_ROOM_RECRUIT as CardData;
+export const REVEL_RUINER: CardData = F.REVEL_RUINER as CardData;
+export const SCORPION_SEETHING_STRIKER: CardData = F.SCORPION_SEETHING_STRIKER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12592,6 +12605,9 @@ export const ENGINE_CARDS: CardData[] = [
   APES_OF_RATH,
   KARPLUSAN_FOREST,
   SAVANNAH_LIONS,
+  RAFFINE_S_INFORMANT,
+  MOB_LOOKOUT,
+  DOC_OCK_S_HENCHMEN,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12873,6 +12889,16 @@ export const ENGINE_CARDS: CardData[] = [
   WATERTRAP_WEAVER,
   HOUSE_GUILDMAGE,
   SLEEPER_DART,
+  A_I_M_SCIENTISTS,
+  ATLANTEAN_SKIRMISHER,
+  ECHO_INSPECTOR,
+  HYPNOTIC_GRIFTER,
+  PHARAOH_RAMA_TUT,
+  PROWLER_CLAWED_THIEF,
+  PSIONIC_SNOOP,
+  RED_ROOM_RECRUIT,
+  REVEL_RUINER,
+  SCORPION_SEETHING_STRIKER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

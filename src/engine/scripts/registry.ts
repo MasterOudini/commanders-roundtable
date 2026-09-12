@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DOC_OCKS_HENCHMEN_SCRIPT } from './cards/docOcksHenchmen';
+import { MOB_LOOKOUT_SCRIPT } from './cards/mobLookout';
+import { RAFFINES_INFORMANT_SCRIPT } from './cards/raffinesInformant';
+import { A_IMSCIENTISTS_SCRIPT } from './cards/aIMScientists';
+import { ATLANTEAN_SKIRMISHER_SCRIPT } from './cards/atlanteanSkirmisher';
+import { ECHO_INSPECTOR_SCRIPT } from './cards/echoInspector';
+import { HYPNOTIC_GRIFTER_SCRIPT } from './cards/hypnoticGrifter';
+import { PHARAOH_RAMA_TUT_SCRIPT } from './cards/pharaohRamaTut';
+import { PROWLER_CLAWED_THIEF_SCRIPT } from './cards/prowlerClawedThief';
+import { PSIONIC_SNOOP_SCRIPT } from './cards/psionicSnoop';
+import { RED_ROOM_RECRUIT_SCRIPT } from './cards/redRoomRecruit';
+import { REVEL_RUINER_SCRIPT } from './cards/revelRuiner';
+import { SCORPION_SEETHING_STRIKER_SCRIPT } from './cards/scorpionSeethingStriker';
 import { APES_OF_RATH_SCRIPT } from './cards/apesOfRath';
 import { FROST_TRICKSTER_SCRIPT } from './cards/frostTrickster';
 import { BARLS_CAGE_SCRIPT } from './cards/barlsCage';
@@ -5907,6 +5920,19 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DOC_OCKS_HENCHMEN_SCRIPT,
+  MOB_LOOKOUT_SCRIPT,
+  RAFFINES_INFORMANT_SCRIPT,
+  A_IMSCIENTISTS_SCRIPT,
+  ATLANTEAN_SKIRMISHER_SCRIPT,
+  ECHO_INSPECTOR_SCRIPT,
+  HYPNOTIC_GRIFTER_SCRIPT,
+  PHARAOH_RAMA_TUT_SCRIPT,
+  PROWLER_CLAWED_THIEF_SCRIPT,
+  PSIONIC_SNOOP_SCRIPT,
+  RED_ROOM_RECRUIT_SCRIPT,
+  REVEL_RUINER_SCRIPT,
+  SCORPION_SEETHING_STRIKER_SCRIPT,
   APES_OF_RATH_SCRIPT,
   FROST_TRICKSTER_SCRIPT,
   BARLS_CAGE_SCRIPT,

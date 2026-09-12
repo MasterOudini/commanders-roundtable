@@ -937,6 +937,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Explored':
       return state;
 
+    // D412 - a connive's marker (CR 701.50c): the draw, the discard and the counter beside it moved the state.
+    case 'Connived':
+      return state;
+
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 

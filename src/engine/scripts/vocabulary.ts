@@ -71,7 +71,7 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
 function recipientAsSelf(payload: string): string {
   return payload
     .replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~')
-    .replace(/^it (deals|gets|gains|explores|doesn't)\b/i, '~ $1')
+    .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
     .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
     .replace(/\bon it\.$/i, 'on ~.');
 }

@@ -204994,6 +204994,114 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RAFFINE_S_INFORMANT": {
+    "scryfallId": "4e64ff87-2099-4360-94f6-164277b7b514",
+    "oracleId": "838c4831-7d5c-4025-92b3-46eee59d6b34",
+    "name": "Raffine's Informant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raffine's Informant",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"I've analyzed the vault schematic. Do you want the fast way, the easy way, or the secret way in?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Stanko",
+        "imageId": "4e64ff87-2099-4360-94f6-164277b7b514"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOB_LOOKOUT": {
+    "scryfallId": "3a9d6068-dd7b-4cbe-a9d6-5f716d8d1917",
+    "oracleId": "47654b36-b215-4333-aa70-d88d627447e3",
+    "name": "Mob Lookout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mob Lookout",
+        "manaCost": "{1}{U/B}",
+        "typeLine": "Creature — Human Rogue Villain",
+        "oracleText": "When this creature enters, target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)",
+        "flavorText": "\"Hurry up before the bug gets here!\"\n—Hammerhead",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "3a9d6068-dd7b-4cbe-a9d6-5f716d8d1917"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "821",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOC_OCK_S_HENCHMEN": {
+    "scryfallId": "455e9558-494e-43b2-b661-8e996d767f49",
+    "oracleId": "ae91c16c-5267-4957-b36c-5aa787fa6b5e",
+    "name": "Doc Ock's Henchmen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doc Ock's Henchmen",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Villain",
+        "oracleText": "Flash\nWhenever this creature attacks, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"Don't be a hero, Gary! We don't get paid enough for a scrap with Spider-Man!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "455e9558-494e-43b2-b661-8e996d767f49"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash",
+      "Connive"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "784",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -214731,6 +214839,368 @@
     "keywords": [],
     "setCode": "iko",
     "collectorNumber": "240",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "A_I_M_SCIENTISTS": {
+    "scryfallId": "ab96b656-100e-491a-a8c9-94dbb9482c4d",
+    "oracleId": "fa732888-5b7d-4087-a6e5-1db1c98fbd4c",
+    "name": "A.I.M. Scientists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "A.I.M. Scientists",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Scientist Villain",
+        "oracleText": "When this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "Science demands sacrifice.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "ab96b656-100e-491a-a8c9-94dbb9482c4d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling",
+      "Connive"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATLANTEAN_SKIRMISHER": {
+    "scryfallId": "c95ad4af-bb71-4ca2-bcc0-2c27c3b9ecc3",
+    "oracleId": "8f1c21d6-bf85-4e31-a978-6423c40650d2",
+    "name": "Atlantean Skirmisher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Atlantean Skirmisher",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "Whenever this creature attacks, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"Take away your air, and you're nothing but food for the crabs.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jeff Carpenter",
+        "imageId": "c95ad4af-bb71-4ca2-bcc0-2c27c3b9ecc3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "616",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ECHO_INSPECTOR": {
+    "scryfallId": "d7e530ea-ba51-4f7a-bf56-b657a48e86ae",
+    "oracleId": "d7ae0009-3747-4f3a-a613-3e640b0219a0",
+    "name": "Echo Inspector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Echo Inspector",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird Rogue",
+        "oracleText": "Flying\nWhen this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "The rendezvous took place hours ago, but the Obscura agent read the residue with ease.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "d7e530ea-ba51-4f7a-bf56-b657a48e86ae"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Connive"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HYPNOTIC_GRIFTER": {
+    "scryfallId": "69af30b3-d4b0-453a-891f-4506e06b5e14",
+    "oracleId": "5df80355-b12a-4989-94e5-1e0fa27350e8",
+    "name": "Hypnotic Grifter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hypnotic Grifter",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{3}: This creature connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"All is calm. All is well. You know me to be a trusted member of your family, and I would like to discuss the contents of our safe.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "69af30b3-d4b0-453a-891f-4506e06b5e14"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHARAOH_RAMA_TUT": {
+    "scryfallId": "96b699c8-f014-4eb7-9345-ed158beb91f6",
+    "oracleId": "2c02c8e3-943a-4c20-9dad-1408793a825e",
+    "name": "Pharaoh Rama-Tut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pharaoh Rama-Tut",
+        "manaCost": "{4}{U}",
+        "typeLine": "Legendary Creature — Human Noble Villain",
+        "oracleText": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nWhenever you cast a noncreature spell, Pharaoh Rama-Tut connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anastasia Balakchina",
+        "imageId": "96b699c8-f014-4eb7-9345-ed158beb91f6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Ward",
+      "Connive"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "634",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROWLER_CLAWED_THIEF": {
+    "scryfallId": "08d18fce-e250-4bcb-9acf-08a8a6e4f1e2",
+    "oracleId": "76742bfc-ae99-4b06-b29d-e0e41d92ae14",
+    "name": "Prowler, Clawed Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prowler, Clawed Thief",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Legendary Creature — Human Rogue Villain",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever another Villain you control enters, Prowler connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"It's nothing personal, kid. It's just money.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Anthony Devine",
+        "imageId": "08d18fce-e250-4bcb-9acf-08a8a6e4f1e2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace",
+      "Connive"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PSIONIC_SNOOP": {
+    "scryfallId": "b1e04834-7335-4b25-bedf-b7739c5c3aad",
+    "oracleId": "a4e8d2ad-cce2-45de-b9a2-7ba3b1546efb",
+    "name": "Psionic Snoop",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Psionic Snoop",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Flash\nWhen this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "She knows your next move before you do.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Marcela Medeiros",
+        "imageId": "b1e04834-7335-4b25-bedf-b7739c5c3aad"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash",
+      "Connive"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RED_ROOM_RECRUIT": {
+    "scryfallId": "f52a5ba3-a618-4f52-9d33-ba85345eb627",
+    "oracleId": "4e60c38c-cbf5-4ff7-8fff-634f7e3086cc",
+    "name": "Red Room Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Red Room Recruit",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Spy Villain",
+        "oracleText": "When this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": "\"The Red Room doesn't grade on a curve. Only the deadliest make it out.\"\n—Black Widow, Natasha Romanoff",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "f52a5ba3-a618-4f52-9d33-ba85345eb627"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REVEL_RUINER": {
+    "scryfallId": "e3fbe7f0-8a91-4832-8953-54ab3669372c",
+    "oracleId": "adfb28ca-2ba6-4104-b731-f8fd9367f7ec",
+    "name": "Revel Ruiner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Revel Ruiner",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Octopus Rogue",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, it connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Christina Davis",
+        "imageId": "e3fbe7f0-8a91-4832-8953-54ab3669372c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace",
+      "Connive"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORPION_SEETHING_STRIKER": {
+    "scryfallId": "0ac4c44a-d74b-47f3-91d9-bffc3cc4eaae",
+    "oracleId": "c357230a-afde-4c2a-b390-9f6928599236",
+    "name": "Scorpion, Seething Striker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scorpion, Seething Striker",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Scorpion Human Villain",
+        "oracleText": "Deathtouch\nAt the beginning of your end step, if a creature died this turn, target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "0ac4c44a-d74b-47f3-91d9-bffc3cc4eaae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Connive",
+      "Deathtouch"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "68",
     "commanderLegality": "legal",
     "singleImage": true
   },

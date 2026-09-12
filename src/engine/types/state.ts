@@ -936,6 +936,8 @@ export type Awaiting =
       readonly filter?: LookFilter | null;
       /** `Mind Rot` — what is making them do it, for the prompt bar. */
       readonly label: string;
+      /** D412 - a connive's discard (CR 701.50): the conniving permanent, and how many connives wait behind this one. */
+      readonly connive?: { readonly permanent: InstanceId; readonly remaining: number };
     }
   /**
    * "…in any order" — the player puts a known set of cards into a sequence.

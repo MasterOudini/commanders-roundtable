@@ -22,6 +22,7 @@ import { faceOf } from './oracle';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
+import { conniveChain } from './connive';
 import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -547,6 +548,17 @@ export function effectResult(
 
       // D411 - the untap skip: on the aim, or on the source for the self form (a source that has left
       // the battlefield owes nothing).
+      // D412 - connive (CR 701.50). The subject is the SOURCE when `self` (a source that has left the
+      // battlefield still draws and discards - no counter) or the aim; the chain runs against the state
+      // the clauses before it left, and stops behind its own question.
+      case 'connive': {
+        const permanent = effect.self ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
+        if (permanent === null || out.some((e) => e.t === 'AwaitingSet')) break;
+        let scratch = state;
+        for (const body of out) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+        out.push(...conniveChain(scratch, deps, controller, permanent, obj.label, Math.max(1, effect.amount)));
+        break;
+      }
       case 'freeze': {
         const frozen = effect.self ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
         if (frozen === null || state.cards[frozen]?.zone.kind !== 'battlefield') break;

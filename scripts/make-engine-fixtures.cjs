@@ -6750,6 +6750,10 @@ const WANTED = [
   'Apes of Rath',
   'Karplusan Forest',
   'Savannah Lions',
+  // D412 - connive (CR 701.50): the seam's proof cards (Raffine's Informant is the fuzz staple).
+  "Raffine's Informant",
+  'Mob Lookout',
+  "Doc Ock's Henchmen",
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -7057,6 +7061,18 @@ const WANTED = [
   'House Guildmage',
   'Sleeper Dart',
   // D411 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D412 - connive (CR 701.50): the rows the selector offered once the connive sentences read, and their kin.
+  'A.I.M. Scientists',
+  'Atlantean Skirmisher',
+  'Echo Inspector',
+  'Hypnotic Grifter',
+  'Pharaoh Rama-Tut',
+  'Prowler, Clawed Thief',
+  'Psionic Snoop',
+  'Red Room Recruit',
+  'Revel Ruiner',
+  'Scorpion, Seething Striker',
+  // D412 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

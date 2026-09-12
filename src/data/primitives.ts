@@ -683,6 +683,13 @@ export function oneShotFreezeShape(line: string, cardName: string): boolean {
   return ONESHOT_FREEZE.test(text);
 }
 
+/** D412 - connive on the permanent itself under a head about it (`When ~ enters, it connives.`). */
+const ONESHOT_CONNIVE = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) connives(?:, then it connives again)?\\.$`);
+export function oneShotConniveShape(line: string, cardName: string): boolean {
+  const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ONESHOT_CONNIVE.test(text);
+}
+
 /** Is this printed line an activated one-shot pump a table row can emit (D301)? */
 export function oneShotRowShape(line: string, cardName: string): boolean {
   const colon = line.indexOf(': ');
@@ -959,6 +966,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (oneShotExploreShape(text, cardName)) return 'scriptable';
   // D411: the untap skip on the permanent itself under a self head (see `oneShotFreezeShape`).
   if (oneShotFreezeShape(text, cardName)) return 'scriptable';
+  // D412: connive on the permanent itself under a self head (see `oneShotConniveShape`).
+  if (oneShotConniveShape(text, cardName)) return 'scriptable';
   // D304: an enchanted-creature static or combat restriction an Aura row can emit (see `auraLineShape`).
   if (auraLineShape(text)) return 'scriptable';
   // D305: an equipped-creature static or restriction an Equipment row can emit (see `equipLineShape`).

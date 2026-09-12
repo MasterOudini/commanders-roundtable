@@ -251,6 +251,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D412 - connive is the engine's own (CR 701.50): the one the selector offered once the connive sentences read
+  // that the row maker refused, by reason.
+  ['Ledger Shredder', 'a filtered head outside the closed reader (whenever a player casts their second spell each turn - an any-player second-spell head) beside its connive'],
   // D411 - the untap skip is the engine's own: the two the selector offered once the freeze sentences read
   // that the row maker refused, by reason.
   ['Arbalest Elite', 'a vocabulary clause the suite has no fixture for (target attacking or blocking creature - a combat-role clause) beside its self untap skip'],
