@@ -951,6 +951,18 @@ export type Awaiting =
       readonly label: string;
       /** D412 - a connive's discard (CR 701.50): the conniving permanent, and how many connives wait behind this one. */
       readonly connive?: { readonly permanent: InstanceId; readonly remaining: number };
+      /**
+       * D416 - THE HAND REVEAL'S PICK: the hand is ANOTHER player's (`owner`), revealed to every seat the
+       * moment the effect resolved, and the chooser (`player`) names one card the noun admits (`filter`,
+       * and `qualifier` for a mana-value bound), which the owner discards or which is exiled (`then`).
+       * Still no ids: the chooser's client lists the revealed hand off `view.peek` (D141's rule).
+       * Absent on every older prompt.
+       */
+      readonly owner?: PlayerId;
+      readonly none?: readonly string[];
+      readonly qualifier?: SearchQualifier | null;
+      readonly then?: 'discard' | 'exile';
+      readonly loseLife?: number;
     }
   /**
    * "…in any order" — the player puts a known set of cards into a sequence.

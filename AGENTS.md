@@ -16459,6 +16459,95 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       prompt CONTINUATION seam proper, the two gate items — the tournament
       floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4iw — THE HAND REVEAL AND CHOOSE (Thoughtseize's family, CR
+      701.15a): the hand revealed to every seat, the CASTER choosing one card
+      the noun admits from the owner's revealed hand (the hand prompt with an
+      OWNER), the owner discarding it or the card exiled, the trailing life
+      loss riding the prompt; a negated noun the permanent predicate could
+      not express (2026-09-12):** **9,413 of 31,692 Commander-legal cards now
+      execute completely, up from 9,388 (+25: 22 spells whole with no script - Thoughtseize, Duress, Inquisition of Kozilek, Castigate, Coercion, Distress, Unmask, Appetite for Brains and their kin - and 3 rows: Lifebane Zombie, Nimble Larcenist, Sin Collector).**
+      `SHIPPED_SCRIPTS` 6,017 → **6,020**; ledger 1,361 → **1,365**
+      (four reveals followed by a second sentence, by reason; nothing stale). Fixtures 6,647 → **6,654** (6,493 by name + 154
+      tokens). `scriptableToday` 1,461 → **1,465**; the select pool 0 →
+      7 → 0; the ladder `[1465, 1564, 2937, 4603, 5963]`. Bot reach 9,313 → **9,337** from
+      285 commanders. Decisions in **D416**; an engine seam on Opus 5
+      by the user's choice — the D137 pin ("the one where the caster picks")
+      moved by the seam it described.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the rewrite method (D415's) flipped
+      49 one-piece cards, 41 of them spells, for one new prompt; `for each`
+      95 (a noun list), the search forms 92, the impulse 67, the permissions
+      56 + 50, `where X is` 44 and the prevent-all shields 42 stay.
+      ⚠️ **THE SEAM:** `effectParse` kind `revealHandChoose` +
+      `EffectSpec.handChoice` (three sentences, the window FOUR for
+      Thoughtseize's life riding the spec; the negations peeled into `none`,
+      the Oxford list as alternatives, the mana-value bound through
+      `SearchQualifier`, the fate); `effects.ts` reveals to EVERY seat and
+      asks only with a candidate (`src/engine/handChoice.ts`, one reader for
+      the host, the bot, the fuzz, the harness, the net script); the
+      `chooseFromZone` prompt with `owner`/`none`/`qualifier`/`then`/`loseLife`;
+      `project.ts` lists the owner's revealed hand as the chooser's peek; the
+      answer's owner branch (a self-aimed reveal too) discards as the OWNER or
+      exiles, then the life. `src/engine/handReveal.test.ts` (6).
+      **Fuzz:** Duress, Thoughtseize, Coercion staples feeding `handReveals` /
+      `handChoicesAsked` (floors): 18 / 15 at 60; 149 /
+      110 over 500 seeds.
+      **Landed:** 3 rows + 22 whole. botPool instant 1,261 /
+      sorcery 977 — auto 1,550 / assisted 1,854 · `oracleParse`
+      `effect:auto` 6,592 · tier3 silentAfter 9,704 · `token` 968 · batch.json
+      0 · select pool 0.
+      ⚠️ THE OXFORD LIST IS ALTERNATIVES. ⚠️ A SELF-AIMED REVEAL HAS THE
+      CHOOSER FOR AN OWNER. ⚠️ THE FIRE'S SETTLE ANSWERS THE PROMPT (D371's
+      rule, one prompt over). ⚠️ An apostrophe in a single-quoted message.
+      ⚠️ A fuzz staple must be a fixture.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6199 files,
+      30043 passed / 11 skipped · 500-seed gate, 6 shards, 903.2 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D416): the reveal followed by a second sentence (4 -
+      the prompt CONTINUATION seam), the two-zone pick (4), `you may cast that
+      card` after the exile, the conditional tail (Soul Search), the revealed
+      hand staying revealed until the cards move; then D415's list unchanged
+      — the verb-price tail (another player's verb price 9, the compound
+      prices, `discard your hand` 5, a random discard 3, `exile it` as a price
+      8, the `When you do` reflexive form 31 and `If you don't` 18, the price
+      with X 4, the payment branches the suite cannot assert), the
+      qualifier's tail, the exile-instead tail, connive's tail, the
+      untap-skip tail, the cycling GRANTS (3), the `whenever a creature you
+      control explores` heads (5), the reader's edge (`nontoken blue
+      creature`, `exile the top three black cards of your graveyard`, `each
+      other player gain 2 life`, `If exactly one creature is attacking`), the
+      `{X}` alternatives, a chooser verb on BOTH costs, the cost REDUCTIONS
+      and Affinity, the `instead` wordings, Emerge, the OLD Oblivion Ring
+      wording, the qualifier before the controller, `defending player
+      controls`, the same-name riders, the exile with a permission, the
+      flicker within one batch, the other durations (`for as long as you
+      control` 23, `remains exiled` 33, `remains on the battlefield` 14), the
+      SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast,
+      the FaceChoice path, HYBRID symbols paid by convoke, a per-creature
+      chooser in the review, `Flying, convoke`, the convoke REFERENTS,
+      Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N
+      label (28 sentences), the script-raised prompt class (84 over ~10
+      shapes), the reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT
+      across the wait, the self-aimed delayed forms, the HOST characteristics
+      under an attached static (29), "you control a token", the incarnations'
+      graveyard statics (5), `Whenever you attack` and the each-combat head,
+      the `for each <X>` family (95 whole by the real reader over ~60 nouns),
+      the search forms (92), the impulse look-at-top (67), the exile-top-play
+      permission (50), `where X is` (44), the prevent-all shields (42), the
+      payment heads, the search residue, the scoped grant, the
+      blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a
+      gate decision), the nth-resolution memory (16), the 172 AMOUNT forms,
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

@@ -32,6 +32,7 @@ import {
   type CostVerbs,
 } from './legal';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
+import { handChoiceAdmits } from './handChoice';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
@@ -3501,6 +3502,33 @@ function answerChooseFromZone(
     return advanceAsks(state, deps, intent.player, intent.cards);
   }
 
+  // D416 - THE HAND REVEAL'S PICK: one card of the OWNER's revealed hand the noun admits (re-asked of the
+  // card as printed), which the owner discards (CR 701.8 - the owner's own discard, so the discard
+  // watchers see it as one) or which is exiled; then the chooser's life loss, when the card printed one.
+  if (awaiting.owner !== undefined) {
+    const owner = awaiting.owner;
+    const theirs = state.zones.hand[owner] ?? [];
+    const bound = { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null };
+    for (const card of intent.cards) {
+      if (!theirs.includes(card)) return reject('wrongZone', 'That card is not in their hand.');
+      if (!handChoiceAdmits(state, deps.oracle, card, bound)) return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'one the card lets you choose'}.`);
+    }
+    const exile = awaiting.then === 'exile';
+    const moves = intent.cards.map((card) => ({
+      card,
+      from: { kind: 'hand' as const, player: owner },
+      to: exile ? { kind: 'exile' as const, player: state.cards[card]?.owner ?? owner } : { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? owner },
+      ...(exile ? {} : { reason: 'discard' as const }),
+    }));
+    const named = intent.cards.map((card) => { const inst = state.cards[card]; const p = inst ? deps.oracle.byPrinting(inst.printingId) : undefined; return p ? faceOf(p, inst?.faceIndex ?? 0).name : 'a card'; }).join(', ');
+    const events: EventBody[] = [
+      { t: 'AwaitingSet', awaiting: null },
+      { t: 'CardsMoved', moves },
+      narrated(n`${who(state, intent.player)} ${vb(intent.player, 'chooses', 'choose')} ${named}; ${who(state, owner)} ${exile ? vb(owner, 'exiles', 'exile') : vb(owner, 'discards', 'discard')} it.`, intent.player),
+    ];
+    if (awaiting.loseLife !== undefined && awaiting.loseLife > 0) { const p = state.players[intent.player]; if (p) events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.loseLife, to: p.life - awaiting.loseLife }); }
+    return accept(events);
+  }
   const hand = state.zones.hand[intent.player] ?? [];
   for (const card of intent.cards) {
     if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');

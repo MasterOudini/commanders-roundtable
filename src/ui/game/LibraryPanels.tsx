@@ -179,8 +179,9 @@ export function PeekPanel() {
    * clicking a card adds it to the answer instead.
    */
   const prompt =
-    awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'library'
-      ? ({ kind: 'pick', count: awaiting.count, min: awaiting.min ?? awaiting.count, filter: awaiting.filter ?? null, label: awaiting.label } as const)
+    // D416 - the hand reveal's pick is answered on this panel too: the owner's revealed hand is the peek.
+    awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && (awaiting.zone === 'library' || awaiting.owner !== undefined)
+      ? ({ kind: 'pick', count: awaiting.count, min: awaiting.min ?? awaiting.count, filter: awaiting.filter ?? null, none: awaiting.none ?? [], label: awaiting.label } as const)
       : awaiting?.kind === 'orderCards' && awaiting.player === viewer
         ? ({ kind: 'order', count: awaiting.count, label: awaiting.label, to: awaiting.destination } as const)
         : awaiting?.kind === 'scryChoice' && awaiting.player === viewer
@@ -235,12 +236,15 @@ export function PeekPanel() {
      * OPTIONAL pick ("you may") never auto-sends - keeping none is a real answer, so the pick
      * list is the KEEP set and the button below commits it (the scry's rule, D195).
      */
-    if (prompt.kind === 'pick' && prompt.filter && !st.pickOrder.includes(id)) {
+    if (prompt.kind === 'pick' && (prompt.filter || prompt.none.length > 0) && !st.pickOrder.includes(id)) {
       const c = view.cards[id];
       const face = c?.card?.faces[c.faceIndex] ?? c?.card?.faces[0];
-      const ok = face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, prompt.filter.predicates) : false;
+      const types = face ? parseTypeLine(face.typeLine) : null;
+      // D416 - the hand reveal's negations (`nonland`) refuse here too, before the host would.
+      const ok = face && types ? !prompt.none.some((t) => types.types.includes(t)) && (!prompt.filter || predicateAdmits({ typeLine: types, colors: face.colors }, prompt.filter.predicates)) : false;
       if (!ok) {
-        st.setMessage(`${face?.name ?? 'That card'} is not ${prompt.filter.what}.`);
+        const noun = prompt.none.map((t) => 'non' + t.toLowerCase()).join(', ') + (prompt.filter ? ' ' + prompt.filter.what : prompt.none.length > 0 ? ' card' : 'a card');
+        st.setMessage(`${face?.name ?? 'That card'} is not ${noun}.`);
         return;
       }
     }

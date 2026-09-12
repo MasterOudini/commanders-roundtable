@@ -226,6 +226,7 @@ const BASE: EffectFields = {
   cantBeBlocked: false,
   exileScope: null,
   sacrifice: null,
+  handChoice: null,
   delay: null,
   ifKicked: false,
   untilLeaves: false,
@@ -1426,6 +1427,46 @@ const RULES: readonly Rule[] = [
       return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take: 1, rest, filter, optional: true } };
     },
   },
+  /**
+   * D416 - THE HAND REVEAL AND CHOOSE (Thoughtseize's family): `Target opponent reveals their hand. You
+   * choose a nonland card from it. That player discards that card.` - three sentences, one effect. The
+   * hand is revealed to everyone (CR 701.15a), the CASTER chooses among what the noun admits (the look's
+   * own reader, D389; `a card` unfiltered; a mana-value bound beside the noun or after `from it`), and the
+   * card is discarded (the owner's discard, CR 701.8) or exiled. `from that player's graveyard or hand`
+   * (two zones), a second pick and `then you may cast it` stay out.
+   */
+  {
+    kind: 'revealHandChoose',
+    re: new RegExp(
+      `^target (?:opponent|player) reveals their hand\\. you choose (?:${LOOK_NOUN}|a card)(?: with mana value (?<mvn1>\\d+) or (?<mvop1>less|greater))? from it(?: with mana value (?<mvn2>\\d+) or (?<mvop2>less|greater))?(?<tail>\\. that player discards that card|\\. exile that card| and exiles? that card)\\.(?: you lose (?<life>\\d+) life\\.)?$`,
+      'i',
+    ),
+    build: (m) => {
+      const g = m.groups ?? {};
+      // The negations first (`noncreature, nonland`): types the card must lack; the rest is the look's noun.
+      const NON: Readonly<Record<string, string>> = { nonland: 'Land', noncreature: 'Creature', nonartifact: 'Artifact', nonenchantment: 'Enchantment', noninstant: 'Instant', nonsorcery: 'Sorcery', nonplaneswalker: 'Planeswalker' };
+      let noun = (g['noun'] ?? '').trim();
+      const none: string[] = [];
+      for (;;) {
+        const lead = noun.match(/^(non[a-z]+),?\s*/i);
+        const type = lead ? NON[(lead[1] ?? '').toLowerCase()] : undefined;
+        if (!lead || type === undefined) break;
+        none.push(type);
+        noun = noun.slice(lead[0].length);
+      }
+      if (/\bnon[a-z]+/i.test(noun)) return null;
+      // An Oxford list (`artifact, instant, or sorcery`) is alternatives: every comma reads as `or`.
+      const rest = noun.replace(/,\s*(?:or\s+)?/g, ' or ').replace(/\s+/g, ' ').trim();
+      const filter = rest !== '' ? lookFilter({ noun: rest }) : null;
+      if (rest !== '' && !filter) return null;
+      const what = g['noun'] ? g['noun'] + ' card' : 'card';
+      const n = g['mvn1'] ?? g['mvn2'];
+      const op = (g['mvop1'] ?? g['mvop2'] ?? '').toLowerCase();
+      const qualifier = n ? { manaValue: { op: op === 'less' ? ('lte' as const) : ('gte' as const), n: Number(n) }, name: null } : null;
+      const then = /discards/i.test(g['tail'] ?? '') ? ('discard' as const) : ('exile' as const);
+      return { ...BASE, handChoice: { none, filter, what, qualifier, then, loseLife: g['life'] ? Number(g['life']) : 0 } };
+    },
+  },
   /** D389 - the plain "in a random order" (`Drawn from Dreams`), read for the same reason. */
   {
     kind: 'lookAtTop',
@@ -1498,7 +1539,8 @@ function sentences(text: string): string[] {
  * raising the bound needed no other change - which is the whole point of the
  * rewrite. It is a bound on the window, not a list of what may be joined.
  */
-const MAX_SPAN = 3;
+// D416 - FOUR: Thoughtseize's `You lose 2 life.` is the hand reveal's fourth sentence, carried inside the spec.
+const MAX_SPAN = 4;
 
 /** D299: the counts a clause may be declared with NO target for. */
 const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three)|any number of) target\b/i;
@@ -1634,7 +1676,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -1697,7 +1739,7 @@ function matchPayment(sentence: string): EffectSpec | null {
  */
 const DELAY_TAIL = /^(.+?) at the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)\.$/i;
 const DELAY_HEAD = /^At the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   return { step: p.includes('upkeep') ? 'upkeep' : 'end', whose: p.startsWith('your') ? 'controller' : 'next' };
@@ -1884,7 +1926,8 @@ export function parseEffects(
    * follow-ups through the answer, so it carries the same constraint.)
    */
   // D390 - a queued sacrifice asks too (the first player with a real choice is prompted).
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive']);
+  // D416 - the hand reveal asks too (the caster picks from the revealed hand; a trailing life loss rides the spec).
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

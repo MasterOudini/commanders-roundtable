@@ -123,8 +123,9 @@ export function simplestIntent(
         if (awaiting.player !== snapshot.you) return null;
         const v = session.currentView();
         // Two zones (D141): a library offers only what was just revealed.
+        // D416 - the hand reveal's pick: the owner's revealed hand is the peek.
         const hand =
-          awaiting.zone === 'library'
+          awaiting.zone === 'library' || awaiting.owner !== undefined
             ? (v.peek ?? [])
             : awaiting.zone === 'battlefield'
               ? (v.zones[`bf:${awaiting.player}`] ?? [])
@@ -132,11 +133,15 @@ export function simplestIntent(
         // D389 - a filtered look admits only what its noun names; the driver reads the face it
         // holds through the one reader, and an empty answer is legal when the pick is optional.
         // D390 - a queued sacrifice carries the printed noun too; a discard never does.
-        const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
-        const eligible = filter
+        const filter = awaiting.zone === 'hand' && awaiting.owner === undefined ? null : (awaiting.filter ?? null);
+        const none = awaiting.none ?? [];
+        const eligible = filter || none.length > 0
           ? hand.filter((id) => {
               const face = v.cards[id]?.card?.faces[0];
-              return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
+              if (!face) return false;
+              const types = parseTypeLine(face.typeLine);
+              if (none.some((t) => types.types.includes(t))) return false;
+              return !filter || predicateAdmits({ typeLine: types, colors: face.colors }, filter.predicates);
             })
           : hand;
         // Fewer than asked is a rejection rather than a wedge, and the engine

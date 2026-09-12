@@ -90,10 +90,13 @@ describe('discard as an effect (CR 701.8)', () => {
    * a different chooser, a different prompt, and a hand that has to be made
    * public first.
    */
-  test('the caster-picks wording is refused', () => {
+  test('the caster-picks wording reads since D416 - the hand reveal and choose (its own prompt, with an owner)', () => {
     const face = ORACLE.byName('Duress')?.faces[0];
     expect(face?.oracleText).toContain('You choose a noncreature, nonland card from it');
-    expect(face?.effectMode).not.toBe('auto');
+    // D416 - the chooser is the caster, the prompt carries the hand's OWNER, and the hand is revealed first.
+    expect(face?.effectMode).toBe('auto');
+    expect(face?.effects[0]?.kind).toBe('revealHandChoose');
+    expect(face?.effects[0]?.handChoice?.none).toEqual(['Creature', 'Land']);
   });
 });
 

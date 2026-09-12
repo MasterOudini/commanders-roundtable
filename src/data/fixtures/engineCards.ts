@@ -6097,6 +6097,10 @@ export const SCORCHING_DRAGONFIRE: CardData = F.SCORCHING_DRAGONFIRE as CardData
 export const TRAINED_CONDOR: CardData = F.TRAINED_CONDOR as CardData;
 export const HARDENED_ESCORT: CardData = F.HARDENED_ESCORT as CardData;
 export const THRILLING_DISCOVERY: CardData = F.THRILLING_DISCOVERY as CardData;
+export const THOUGHTSEIZE: CardData = F.THOUGHTSEIZE as CardData;
+export const CASTIGATE: CardData = F.CASTIGATE as CardData;
+export const APPETITE_FOR_BRAINS: CardData = F.APPETITE_FOR_BRAINS as CardData;
+export const COERCION: CardData = F.COERCION as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6511,6 +6515,9 @@ export const RAFF_WEATHERLIGHT_STALWART: CardData = F.RAFF_WEATHERLIGHT_STALWART
 export const MASTICORE: CardData = F.MASTICORE as CardData;
 export const MOLTEN_TAIL_MASTICORE: CardData = F.MOLTEN_TAIL_MASTICORE as CardData;
 export const BROKERS_INITIATE: CardData = F.BROKERS_INITIATE as CardData;
+export const LIFEBANE_ZOMBIE: CardData = F.LIFEBANE_ZOMBIE as CardData;
+export const NIMBLE_LARCENIST: CardData = F.NIMBLE_LARCENIST as CardData;
+export const SIN_COLLECTOR: CardData = F.SIN_COLLECTOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12747,6 +12754,10 @@ export const ENGINE_CARDS: CardData[] = [
   TRAINED_CONDOR,
   HARDENED_ESCORT,
   THRILLING_DISCOVERY,
+  THOUGHTSEIZE,
+  CASTIGATE,
+  APPETITE_FOR_BRAINS,
+  COERCION,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -13161,6 +13172,9 @@ export const ENGINE_CARDS: CardData[] = [
   MASTICORE,
   MOLTEN_TAIL_MASTICORE,
   BROKERS_INITIATE,
+  LIFEBANE_ZOMBIE,
+  NIMBLE_LARCENIST,
+  SIN_COLLECTOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

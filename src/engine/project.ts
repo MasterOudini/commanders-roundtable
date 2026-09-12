@@ -253,6 +253,12 @@ export class Projector {
     }
     // D21: hand back the same array when nothing moved, or every commit re-renders
     // the peek panel and the card map it reads.
+    // D416 - the hand reveal's pick: what the rules are showing this viewer is ANOTHER player's revealed
+    // hand, listed here so the panel that answers a look answers the pick too (no ids on the prompt).
+    if (search?.kind === 'chooseFromZone' && search.owner !== undefined && search.player === viewer) {
+      peeked.length = 0;
+      for (const id of state.zones.hand[search.owner] ?? []) if (state.cards[id]?.revealedTo.includes(viewer)) peeked.push(id);
+    }
     const peek = this.lastPeek && sameIds(this.lastPeek, peeked) ? this.lastPeek : peeked;
     this.lastPeek = peek;
 

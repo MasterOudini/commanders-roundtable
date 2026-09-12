@@ -30,6 +30,7 @@ import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates } from './legal';
+import { handChoiceCandidates } from './handChoice';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
@@ -531,6 +532,47 @@ export function effectResult(
             ifNotPaid: pay.ifNotPaid,
             ...(pay.verbs ? { verbs: pay.verbs } : {}),
             ...(pay.verbs && shipCandidates && verbCandidates ? { candidates: verbCandidates } : {}),
+          },
+        });
+        break;
+      }
+
+      /**
+       * D416 - THE HAND REVEAL AND CHOOSE (CR 701.15a): the target player's hand is revealed to every seat,
+       * and the CONTROLLER chooses one card the noun admits - the hand prompt with an OWNER (the chooser's
+       * client lists the revealed hand off `view.peek`; the host re-asks the noun of the pick). With no card
+       * the noun admits, the reveal stands and nothing else happens - the log says so. The trailing life
+       * loss (Thoughtseize) rides the prompt and arrives with the answer, so the ask stays last (D195).
+       */
+      case 'revealHandChoose': {
+        const hc = effect.handChoice;
+        if (!hc || aim?.kind !== 'player') break;
+        const owner = aim.id;
+        const hand = [...(state.zones.hand[owner] ?? [])];
+        if (hand.length > 0) out.push({ t: 'CardsRevealed', cards: hand, to: [...state.seating] });
+        out.push(narrated(n`${who(state, owner)} ${vb(owner, 'reveals', 'reveal')} ${hand.length === 0 ? 'an empty hand' : `${hand.length} card${hand.length === 1 ? '' : 's'}`}.`, owner, obj.identity));
+        const legal = handChoiceCandidates(state, deps.oracle, owner, hc);
+        if (legal.length === 0) {
+          out.push(narrated(`${obj.label} - no ${hc.what} to choose.`, obj.controller, obj.identity));
+          if (hc.loseLife > 0) { const p = state.players[controller]; if (p) out.push({ t: 'LifeChanged', player: controller, delta: -hc.loseLife, to: p.life - hc.loseLife }); }
+          break;
+        }
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: controller,
+            zone: 'hand',
+            owner,
+            rest: null,
+            count: 1,
+            filter: hc.filter,
+            qualifier: hc.qualifier,
+            none: hc.none,
+            then: hc.then,
+            label: obj.label,
+            ...(hc.loseLife > 0 ? { loseLife: hc.loseLife } : {}),
           },
         });
         break;

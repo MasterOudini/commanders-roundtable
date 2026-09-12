@@ -251,6 +251,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D416 - the hand reveal and choose reads: the 4 the selector offered once the reveal-and-choose sentences read
+  // that the row maker refused, by reason (all four print a sentence after the ask).
+  ['Brainbite', 'a hand reveal followed by a second sentence (draw a card) - the ask must be last (the prompt CONTINUATION seam)'],
+  ['Render Speechless', 'a hand reveal followed by a second sentence (two counters on up to one target creature) - the ask must be last (the prompt CONTINUATION seam)'],
+  ['The Torment of Gollum', 'a hand reveal followed by a second sentence (amass Orcs 2) - the ask must be last (the prompt CONTINUATION seam)'],
+  ['Toll of the Invasion', 'a hand reveal followed by a second sentence (amass Zombies 1) - the ask must be last (the prompt CONTINUATION seam)'],
   // D415 - the verb price at resolution reads: the 18 the selector offered once `you may <verb>. If you do` and
   // `unless you <verb>` read that the row maker refused, by reason (seven payment branches the suite cannot assert among them).
   ['Akki Ronin', 'a trigger head outside the library (whenever a Samurai or Warrior you control attacks alone) beside its verb-price line'],

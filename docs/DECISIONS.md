@@ -32803,3 +32803,141 @@ twenty-two older fight and bite suites, token copies (15), the permanent control
 and exchange control (24), the activation restrictions (313), the keyword entry replacements
 (22), copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION seam proper,
 the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D416 — THE HAND REVEAL AND CHOOSE (Thoughtseize's family, CR 701.15a): `Target opponent reveals their hand. You choose a nonland card from it. That player discards that card.` — the hand revealed to every seat, the CASTER choosing one card the noun admits from the owner's revealed hand (the hand prompt with an OWNER), the owner discarding it or the card exiled, the trailing life loss riding the prompt; a negated noun the permanent predicate could not express (2026-09-12)
+
+**9,413 of 31,692 Commander-legal cards now execute completely, up from 9,388
+(+25: 22 spells whole with no script — Thoughtseize, Duress, Inquisition of Kozilek, Castigate,
+Coercion, Distress, Unmask, Appetite for Brains, Despise, Divest, Pilfer, Ostracize, Transgress the
+Mind, Psychic Spear, Shattered Dreams, Night Terrors, Dark Inquiry, Cerebral Confiscation,
+Splitting Headache, Intimidation Tactics, Poison the Waters, Pelakka Predation — and 3 generated
+rows: Lifebane Zombie, Nimble Larcenist, Sin Collector).** `SHIPPED_SCRIPTS` 6,017 → **6,020**; the
+REFUSED ledger 1,361 → **1,365** (four spells whose reveal is followed by a second sentence, by
+reason; nothing stale). Fixtures 6,647 → **6,654** (6,493 by name + 154 tokens: the three rows and
+the four proof spells). `scriptableToday` 1,461 → **1,465**; the select pool 0 → 7 → 0; the ladder
+`[1465, 1564, 2937, 4603, 5963]`. Bot reach 9,313 → **9,337** from 285 commanders. An engine seam on
+Opus 5 by the user's choice — the D137 boundary pin ("the one where the caster picks") moved by
+the seam that pin described.
+
+### The measurement chose it — 49 whole by the real readers, 41 of them spells
+
+After D415 the board was measured by the rewrite method again (`zz-mech-probe416`): the hand
+reveal flipped **49** one-piece cards (41 spells) when its sentences were replaced by a plain
+discard — one mechanism, a new prompt; beside it `for each <noun>` 95 (a noun list), the search
+forms 92, the impulse look-at-top 67 (82 shapes — a widening of D389's look, two prompts among
+them), `you may cast` 56 and the exile-top-play permission 50 (a permission zone), `where X is`
+44, the prevent-all shields 42. The family's shapes: `a nonland card` (Thoughtseize's, the most),
+`a noncreature, nonland card` (Duress), `a card` (Coercion), `a card … with mana value 4 or
+greater and exile that card` (Appetite for Brains), `a nonland card … with mana value 3 or less`
+(Inquisition), `a creature card … Exile that card`, `an artifact, instant, or sorcery card … and
+exile that card` (Nimble Larcenist); the two-zone form (`from that player's graveyard or hand`)
+and the reveal followed by a second sentence stay out.
+
+### The seam — the reveal, the prompt with an owner, the negated noun, the pick
+
+- **The vocabulary** (`effectParse.ts`, kind `revealHandChoose`, `EffectSpec.handChoice` —
+  REQUIRED, null elsewhere): three sentences, one effect (the window is FOUR now — Thoughtseize's
+  `You lose 2 life.` rides the spec as `loseLife`, the scry-then-draw pattern, so the ask stays
+  LAST, D195); the noun through the look's reader (D389) after its NEGATIONS are peeled into
+  `none` (`nonland`, `noncreature` — types the card must lack; a negation `PermanentPredicate`
+  cannot express, D404's note), an Oxford list read as alternatives (`artifact, instant, or
+  sorcery`), a mana-value bound through the search's own `SearchQualifier`, and the fate (`then`:
+  discard or exile). `revealHandChoose` joins the three ask lists.
+- **The executor** (`effects.ts`): the target player's hand is revealed to EVERY seat
+  (`CardsRevealed` to the whole seating — CR 701.15a; a look reveals to its controller alone), the
+  candidates read by one shared reader (`src/engine/handChoice.ts` — the card as printed: the
+  negations, the predicates, the bound), and with none the reveal stands, the life is still lost
+  and the log says so; else the `chooseFromZone` prompt with `owner`, `none`, `filter`,
+  `qualifier`, `then` and `loseLife` — no ids, D137's rule: the chooser's client lists the
+  revealed hand off `view.peek`.
+- **The projection** (`project.ts`): the chooser's `peek` is the owner's revealed hand while the
+  prompt is up, so the panel that answers a look answers the pick (the owner's hand chip stays a
+  count for everyone else).
+- **The answer** (`handlers.ts` `answerChooseFromZone`, the owner branch — taken for a self-aimed
+  reveal too): the pick must be in the owner's hand and admitted by the reader NOW; the owner
+  discards it (`reason: 'discard'` — the owner's own discard, CR 701.8, so the discard watchers
+  see it) or it is exiled; then the chooser's life loss.
+- **The consumers**: the bot takes the BEST card the noun admits (most expensive first, the
+  mulligan's order unreversed — the pick is what the opponent loses); the fuzz driver, the
+  harness and the net script answer through the shared reader; the UI's peek panel takes the
+  pick with the negations refused client-side, the prompt bar names whose hand.
+- `src/engine/handReveal.test.ts` (6): the forms, the negations, the bound, the fate, the life
+  and the two-zone refusal; Thoughtseize — the hand revealed to both seats, the chooser's peek
+  with the faces, a land refused, the owner refused as chooser, the discard, the life; a hand of
+  lands revealed with nothing asked and the life still lost, the replay hash; Castigate's exile;
+  Appetite for Brains admitting nothing; Thoughtseize aimed at oneself.
+- **The D137 pin moved** (`discard.test.ts`): "the caster-picks wording is refused" — Duress reads
+  `auto` with the owner prompt now, exactly what that pin said was missing.
+- **The generator** (`gen116-vocab.cjs`): a fixture the noun admits in p2's HAND before the
+  baseline (Sol Ring for `noncreature, nonland`, Blaze for an instant or sorcery, the Cyclops for a
+  mana-value floor), the fire stopping AT the prompt (the D371 rule, one prompt over), the caster's
+  answer, the fixture read in p2's graveyard or in exile.
+- **Fuzz**: Duress, Thoughtseize and Coercion are staples (one black symbol each) feeding
+  `handReveals` (a reveal to every seat) and `handChoicesAsked` (the prompt with an owner), floors
+  on both — **149 reveals / 110 picks asked over the gate's 500 seeds**
+  (18 / 15 at 60).
+
+### The wave — 3 rows and 22 whole
+
+The selector offered 7 once the reveal read: three enters heads rowed (Lifebane Zombie — a green
+or white creature card, exiled; Nimble Larcenist — an artifact, instant, or sorcery card, exiled;
+Sin Collector — an instant or sorcery card, exiled) and four spells refused by reason — every one
+prints a sentence AFTER the reveal (Brainbite's draw, Render Speechless's counters, The Torment of
+Gollum's and Toll of the Invasion's amass), which the ask-last rule refuses until the prompt
+CONTINUATION seam exists. The 22 whole are the discard and exile spells whose reveal is their
+last sentence, Thoughtseize's life loss included.
+
+### Traps
+
+- **THE OXFORD LIST IS ALTERNATIVES**: `an artifact, instant, or sorcery card` split on commas and
+  spaces gave the look's reader `artifact instant` — one card that is both — and Nimble Larcenist
+  asked nothing; the noun keeps its punctuation past the negations and every comma reads as `or`.
+- **A SELF-AIMED REVEAL HAS THE CHOOSER FOR AN OWNER**: `Target player` can be the caster; the
+  owner branch first required the owner to differ, and a self-aimed Thoughtseize fell to the
+  plain discard path — no noun, no life. The branch takes every prompt with an owner.
+- **THE FIRE'S SETTLE ANSWERS THE PROMPT** (D371's rule, one prompt over): the generated fire
+  ended in `settle(g)` and the harness picked before the test could; the reveal's fire stops at
+  its prompt.
+- **AN APOSTROPHE IN A SINGLE-QUOTED MESSAGE**: `'the hand is the opponent's'` through the
+  generator's template broke every suite; the message is double-quoted.
+- **A FUZZ STAPLE MUST BE A FIXTURE**: Coercion was named a staple before it was pinned; the
+  fixture list is the oracle the L1 theorem resolves names in.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6199 files, 30043
+passed / 11 skipped · 500-seed gate, 6 shards, 903.2 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D416): the reveal followed by a second sentence (Brainbite, Render Speechless,
+the amass pair — the prompt CONTINUATION seam), the two-zone pick (`from that player's graveyard
+or hand`, 4), `you may cast that card` after the exile (Psychic Intrusion, Covetous Urge), the
+conditional tail (Soul Search), the revealed hand STAYING revealed until the cards move (an
+information leak the rules do not make - CR 701.15b lets a player forget), the verb-price tail
+(D415 — another player's verb price 9, the compound prices, `discard your hand` 5, a random
+discard 3, `exile it` as a price 8, the `When you do` reflexive form 31 and `If you don't` 18, the
+price with X 4, the payment branches the suite cannot assert), the qualifier's tail (D414), the
+exile-instead tail (D413), connive's tail (D412), the untap-skip tail (D411), the cycling GRANTS
+(3), the `whenever a creature you control explores` heads (5), the reader's edge (`nontoken blue
+creature`, `exile the top three black cards of your graveyard`, `each other player gain 2 life`,
+`If exactly one creature is attacking`), the `{X}` alternatives, a chooser verb on BOTH costs, the
+cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD Oblivion Ring wording, the
+qualifier before the controller, `defending player controls`, the same-name riders, the exile
+with a permission, the flicker within one batch, the other durations (`for as long as you
+control` 23, `remains exiled` 33, `remains on the battlefield` 14), the SACRIFICED REFERENT, two
+verbs joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID symbols paid by
+convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke REFERENTS, Affinity
+for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28 sentences), the
+script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 / 18), the
+quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature spells`
+(2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY at
+parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the
+wait, the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you
+control a token", the incarnations' graveyard statics (5), `Whenever you attack` and the
+each-combat head, the `for each <X>` family (95 whole by the real reader over ~60 nouns), the
+search forms (92), the impulse look-at-top (67), the exile-top-play permission (50), `where X
+is` (44), the prevent-all shields (42), the payment heads, the search residue, the scoped grant,
+the blocker-predicate form (8 + 1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+nth-resolution memory (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+twenty-two older fight and bite suites, token copies (15), the permanent control family (20) and
+exchange control (24), the activation restrictions (313), the keyword entry replacements (22),
+copy (~200 — the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two
+gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

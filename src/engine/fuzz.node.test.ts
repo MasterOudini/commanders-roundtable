@@ -34,6 +34,7 @@ import {
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { predicateAdmits } from '../data/replacementParse';
+import { handChoiceCandidates } from './handChoice';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -228,6 +229,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // enters taxes (a land card discarded, a Forest sacrificed) - the driver pays half the prompts it can.
   { names: ['Viashino Racketeer', 'Harvester Troll', 'Fallow Wurm', 'Rogue Elephant'], copiesPerSeat: 1,
     counterKeys: ['verbPricesPaid'], rotHistory: 'D415' },
+  // D416 - the hand reveal and choose (CR 701.15a): Duress, Thoughtseize and Coercion reveal a player's hand
+  // to every seat and the caster picks from it (a targeted sorcery is thin fuel, D413 - three of them).
+  { names: ['Duress', 'Thoughtseize', 'Coercion'], copiesPerSeat: 1,
+    counterKeys: ['handChoicesAsked'], rotHistory: 'D416' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -737,8 +742,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // (asked of the oracle face, D357), between the prompt's `min` and its count. A hand
       // discard is unchanged. An answer the handler would reject leaves the prompt up and spends
       // the rest of the seed on rejections, so the pool has to be the legal one.
+      // D416 - the hand reveal's pick: the owner's hand through the one reader the host asks.
       const pool =
-        awaiting.zone === 'library'
+        awaiting.owner !== undefined
+          ? [...handChoiceCandidates(state, ORACLE, awaiting.owner, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })]
+          : awaiting.zone === 'library'
           ? (state.zones.library[awaiting.player] ?? []).filter((id) => {
               const inst = state.cards[id];
               if (!inst || !inst.revealedTo.includes(awaiting.player)) return false;
@@ -1037,6 +1045,9 @@ interface Run {
   /** D415 - verb-price prompts raised (the price was payable), and the ones paid with picks. */
   readonly verbPricesAsked: number;
   readonly verbPricesPaid: number;
+  /** D416 - hands revealed to every seat, and the picks the caster was asked for. */
+  readonly handReveals: number;
+  readonly handChoicesAsked: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1383,6 +1394,9 @@ function runOne(seed: number): Run {
     // D415 - a verb price asked (the prompt carries `verbs`) and paid (the answer names the verb).
     verbPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && e.body.awaiting.verbs !== undefined).length,
     verbPricesPaid: game.log.filter((e) => e.body.t === 'PaymentAnswered' && e.body.paid && e.body.verb !== undefined).length,
+    // D416 - a hand revealed to EVERY seat (a look reveals to its controller alone), and the pick with an owner.
+    handReveals: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.cards.length > 0 && e.body.to.length === game.state.seating.length).length,
+    handChoicesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.owner !== undefined).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1557,6 +1571,8 @@ const TOTAL_KEYS = [
   'anotherSelfPicks',
   'verbPricesAsked',
   'verbPricesPaid',
+  'handReveals',
+  'handChoicesAsked',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1851,6 +1867,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D415 - a verb price was asked and paid at gate size.
         expect(totals.verbPricesAsked).toBeGreaterThan(0);
         expect(totals.verbPricesPaid).toBeGreaterThan(0);
+        // D416 - a hand was revealed and a pick asked at gate size.
+        expect(totals.handReveals).toBeGreaterThan(0);
+        expect(totals.handChoicesAsked).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1939,6 +1958,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.exileMarks} exile marks / ${totals.exiledInstead} exiled instead · ` +
           `${totals.anotherTargets} another-targets / ${totals.anotherSelfPicks} self-picks · ` +
           `${totals.verbPricesAsked} verb prices asked / ${totals.verbPricesPaid} paid · ` +
+          `${totals.handReveals} hands revealed / ${totals.handChoicesAsked} picks asked · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

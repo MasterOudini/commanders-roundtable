@@ -6765,6 +6765,11 @@ const WANTED = [
   'Hardened Escort',
   // D415 - the verb price at resolution: the seam's proof spell (the discard-two price).
   'Thrilling Discovery',
+  // D416 - the hand reveal and choose: the seam's proof spells (Duress is pinned above).
+  'Thoughtseize',
+  'Castigate',
+  'Appetite for Brains',
+  'Coercion',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -7211,6 +7216,11 @@ const WANTED = [
   'Molten-Tail Masticore',
   // D415 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Brokers Initiate',
+  // D416 - the hand reveal and choose: the rows the selector offered once the reveal-and-choose sentences read, and their kin.
+  'Lifebane Zombie',
+  'Nimble Larcenist',
+  'Sin Collector',
+  // D416 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

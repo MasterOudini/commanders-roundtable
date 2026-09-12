@@ -21,6 +21,7 @@ import type { GameOptions, GameState, Step, TargetChoice } from '../types/state'
 import type { OracleDb } from '../types/oracle';
 import { candidatesFromState, minimumLegalTargets, type TargetingSource } from '../targets';
 import { faceOf } from '../oracle';
+import { handChoiceCandidates } from '../handChoice';
 
 export const ORACLE: OracleDb = ingestOracle(ENGINE_CARDS).db;
 
@@ -579,6 +580,11 @@ export function simplestAnswer(
       // library offers only the cards the effect just REVEALED, and answering
       // with any other library card is rejected — rightly, since a client could
       // not have seen it.
+      // D416 - the hand reveal's pick: the first card of the owner's hand the noun admits.
+      if (awaiting.owner !== undefined) {
+        const legal = handChoiceCandidates(state, ORACLE, awaiting.owner, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null });
+        return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: legal.slice(0, awaiting.count) };
+      }
       const pool =
         awaiting.zone === 'library'
           ? (state.zones.library[awaiting.player] ?? []).filter((id) =>

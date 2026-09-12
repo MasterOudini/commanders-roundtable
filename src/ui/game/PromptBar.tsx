@@ -154,6 +154,13 @@ function describe(
         }
         return `${awaiting.label}: find ${many} ${awaiting.what}, or take nothing.`;
       case 'chooseFromZone':
+        // D416 - the hand reveal: the chooser picks from ANOTHER player's revealed hand on the peek panel.
+        if (awaiting.owner !== undefined) {
+          const noun = (awaiting.none ?? []).map((t) => 'non' + t.toLowerCase()).join(', ') + (awaiting.filter ? ' ' + awaiting.filter.what : (awaiting.none ?? []).length > 0 ? ' card' : 'a card');
+          return awaiting.player === viewer
+            ? `${awaiting.label}: choose ${noun} from ${nameOf(seats, awaiting.owner)}'s revealed hand.`
+            : `${nameOf(seats, awaiting.player)} is choosing ${noun} from ${nameOf(seats, awaiting.owner)}'s revealed hand.`;
+        }
         if (awaiting.player !== viewer) {
           return awaiting.zone === 'library'
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`

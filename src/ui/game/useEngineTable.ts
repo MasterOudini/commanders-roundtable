@@ -254,7 +254,8 @@ export function useEngineTable() {
        */
       // D389 - the HAND prompt only: a library look is answered on the peek panel, and a click
       // on a hand card while one is up used to submit that card against the library.
-      if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'hand') {
+      // D416 - a hand pick with an OWNER is answered on the peek panel, never off the viewer's own hand.
+      if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'hand' && awaiting.owner === undefined) {
         const hand = zoneCards(view, zoneId('hand', viewer));
         if (!hand.includes(id)) return;
         const st = useTable.getState();

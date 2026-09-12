@@ -205370,6 +205370,140 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "THOUGHTSEIZE": {
+    "scryfallId": "1d1aebf2-dd21-48b4-868f-f8fb164dcaae",
+    "oracleId": "edd8d1e8-be43-4c38-bb3a-83081fbaf0b5",
+    "name": "Thoughtseize",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thoughtseize",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player reveals their hand. You choose a nonland card from it. That player discards that card. You lose 2 life.",
+        "flavorText": "\"He Thought Twice, but That Thought Also Escaped,\" Witness Reports",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "William Tempest",
+        "imageId": "1d1aebf2-dd21-48b4-868f-f8fb164dcaae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "otp",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CASTIGATE": {
+    "scryfallId": "112c47e4-5ff8-4ea0-ac14-956e4b94119a",
+    "oracleId": "28a972a6-cf67-4ee3-aa91-f7b2549f6c48",
+    "name": "Castigate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Castigate",
+        "manaCost": "{W}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target opponent reveals their hand. You choose a nonland card from it and exile that card.",
+        "flavorText": "\"We have no need for military might. We wield two of the sharpest swords ever forged: Faith in our left hand, Wealth in our right.\"\n—Vuliev of the Ghost Council",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "112c47e4-5ff8-4ea0-ac14-956e4b94119a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gpt",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APPETITE_FOR_BRAINS": {
+    "scryfallId": "062ee892-cce7-42bd-97c7-032cec61faca",
+    "oracleId": "4ffc16e0-1778-4aba-ade3-58146c800f5f",
+    "name": "Appetite for Brains",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Appetite for Brains",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target opponent reveals their hand. You choose a card from it with mana value 4 or greater and exile that card.",
+        "flavorText": "Just as with a peach, the first bite is always the juiciest.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "062ee892-cce7-42bd-97c7-032cec61faca"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COERCION": {
+    "scryfallId": "2df7b947-bdb2-4204-8eb0-92fe66411613",
+    "oracleId": "68413337-ddb9-46f8-8c8e-f3d2d672c652",
+    "name": "Coercion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coercion",
+        "manaCost": "{2}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target opponent reveals their hand. You choose a card from it. That player discards that card.",
+        "flavorText": "\"There's very little that escapes me, Greven. And you will escape very little if you fail.\"\n—Volrath",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "2df7b947-bdb2-4204-8eb0-92fe66411613"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",
@@ -219675,6 +219809,115 @@
     "keywords": [],
     "setCode": "snc",
     "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIFEBANE_ZOMBIE": {
+    "scryfallId": "98370735-5303-40d4-9e80-cdb40dee18e2",
+    "oracleId": "5b31ac7b-7901-484c-b59f-556284fd562c",
+    "name": "Lifebane Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lifebane Zombie",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.)\nWhen this creature enters, target opponent reveals their hand. You choose a green or white creature card from it and exile that card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Min Yum",
+        "imageId": "98370735-5303-40d4-9e80-cdb40dee18e2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Intimidate"
+    ],
+    "setCode": "m14",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMBLE_LARCENIST": {
+    "scryfallId": "0150d4c7-2c90-4a71-b2d3-3d9a0079fea1",
+    "oracleId": "abd839ab-8b08-4bc0-900a-3a161c62b06c",
+    "name": "Nimble Larcenist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimble Larcenist",
+        "manaCost": "{W}{U}{B}",
+        "typeLine": "Creature — Bird Rogue",
+        "oracleText": "Flying\nWhen this creature enters, target opponent reveals their hand. You choose an artifact, instant, or sorcery card from it and exile that card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U",
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "0150d4c7-2c90-4a71-b2d3-3d9a0079fea1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIN_COLLECTOR": {
+    "scryfallId": "305a3feb-df49-486c-a3b4-ff2721d60019",
+    "oracleId": "6bef2904-1ebe-4e7e-879a-79f4968174fb",
+    "name": "Sin Collector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sin Collector",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature enters, target opponent reveals their hand. You choose an instant or sorcery card from it and exile that card.",
+        "flavorText": "\"That must weigh heavily on your soul. Let me purge it for you.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "305a3feb-df49-486c-a3b4-ff2721d60019"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "103",
     "commanderLegality": "legal",
     "singleImage": true
   },

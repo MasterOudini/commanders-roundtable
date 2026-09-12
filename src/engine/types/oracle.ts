@@ -718,7 +718,9 @@ export type EffectKind =
    * 'opponents' - a creature that enters later this turn is not marked, reportable). Read by the
    * replacement funnel on the move to a graveyard.
    */
-  | 'exileIfDies';
+  | 'exileIfDies'
+  /** D416 - `Target opponent reveals their hand. You choose a <noun> card from it. That player discards that card.` */
+  | 'revealHandChoose';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.
@@ -756,6 +758,25 @@ export type CounterKind = '+1/+1' | '-1/-1';
  * The qualifier is a CONJUNCT: it narrows every predicate in the list at once, because
  * `a Rebel permanent card with mana value 2 or less` is one noun with one bound on it.
  */
+/**
+ * D416 - THE HAND REVEAL AND CHOOSE (Thoughtseize's family): the target player's hand is revealed to
+ * every seat (CR 701.15a) and the CASTER chooses one card the noun admits (the look's reader, D389;
+ * `a card` unfiltered; a mana-value bound through the search's own qualifier), which that player then
+ * discards, or which is exiled.
+ */
+export interface HandChoice {
+  /** The types the card must NOT have (`nonland`, `noncreature`) - a negation `PermanentPredicate` cannot express. */
+  readonly none: readonly string[];
+  /** What the card must be, past the negations; null for `a card` or a noun made of negations alone. */
+  readonly filter: LookFilter | null;
+  /** The printed noun, for the prompt and the log (`nonland card`). */
+  readonly what: string;
+  readonly qualifier: SearchQualifier | null;
+  readonly then: 'discard' | 'exile';
+  /** Thoughtseize's `You lose 2 life.` - the caster's life loss AFTER the pick, carried here so the ask stays last (D195). */
+  readonly loseLife: number;
+}
+
 export interface SearchQualifier {
   /** `with mana value 3 or less` / `or greater` / `with mana value 3`. */
   readonly manaValue: { readonly op: 'lte' | 'gte' | 'eq'; readonly n: number } | null;
@@ -923,6 +944,8 @@ export interface EffectSpec {
   readonly exileScope: 'target' | 'damaged' | 'all' | 'opponents' | null;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
+  /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
+  readonly handChoice: HandChoice | null;
   /**
    * D402 - THE DELAYED TRIGGER (CR 603.7): this effect happens at the beginning of a LATER step
    * (`Draw a card at the beginning of the next turn's upkeep.`) rather than on resolution. The

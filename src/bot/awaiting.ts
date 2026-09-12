@@ -348,6 +348,26 @@ export function answerAwaiting(
       // the unchosen go to the graveyard or the bottom. Same prompt, opposite
       // sort — reusing one order would make the bot throw away what it looked
       // for.
+      // D416 - the hand reveal's pick: the OWNER's revealed hand (the peek), the noun's negations and
+      // bound asked of the card, and the BEST of what is left taken - most expensive first, the
+      // mulligan's order unreversed: the pick is what the opponent loses.
+      if (awaiting.owner !== undefined) {
+        const none = awaiting.none ?? [];
+        const mv = awaiting.qualifier?.manaValue ?? null;
+        const shown = (view.peek ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c);
+        const legal = shown.filter((c) => {
+          const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
+          if (!face) return false;
+          const types = parseTypeLine(face.typeLine);
+          if (none.some((t) => types.types.includes(t))) return false;
+          const value = c.card?.cmc ?? 0;
+          if (mv && ((mv.op === 'lte' && !(value <= mv.n)) || (mv.op === 'gte' && !(value >= mv.n)) || (mv.op === 'eq' && value !== mv.n))) return false;
+          return !awaiting.filter || admitsCard(awaiting.filter, c);
+        });
+        const best = [...legal].sort(worstFirst).slice(0, awaiting.count).map((c) => c.instanceId);
+        if (best.length < awaiting.count) return fault('noIntentForAwaiting', `asked for ${awaiting.count} cards of a revealed hand, ${legal.length} admitted`);
+        return act({ t: 'AnswerChooseFromZone', player: me, cards: best }, `take ${best.length} from the revealed hand for ${awaiting.label}`);
+      }
       const pool =
         awaiting.zone === 'library'
           ? (view.peek ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c)

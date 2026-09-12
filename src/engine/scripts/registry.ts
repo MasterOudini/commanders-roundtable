@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { LIFEBANE_ZOMBIE_SCRIPT } from './cards/lifebaneZombie';
+import { NIMBLE_LARCENIST_SCRIPT } from './cards/nimbleLarcenist';
+import { SIN_COLLECTOR_SCRIPT } from './cards/sinCollector';
 import { ACADEMY_RAIDER_SCRIPT } from './cards/academyRaider';
 import { AEGIS_SCULPTOR_SCRIPT } from './cards/aegisSculptor';
 import { AVATAR_OF_DISCORD_SCRIPT } from './cards/avatarOfDiscord';
@@ -6043,6 +6046,9 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LIFEBANE_ZOMBIE_SCRIPT,
+  NIMBLE_LARCENIST_SCRIPT,
+  SIN_COLLECTOR_SCRIPT,
   ACADEMY_RAIDER_SCRIPT,
   AEGIS_SCULPTOR_SCRIPT,
   AVATAR_OF_DISCORD_SCRIPT,
