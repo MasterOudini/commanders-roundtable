@@ -3,6 +3,8 @@ import { useAim } from '../../store/aimStore';
 import { cardSlot, resolveKey } from '../anim/rectRegistry';
 import { useTable, type TableMode } from '../../store/tableStore';
 import type { TargetChoice } from '../../engine/types/state';
+import type { CostPicks } from '../../net/client';
+import type { LegalAction } from '../../engine/legal';
 
 // Adding a target, and finishing an aim. ONE implementation, because three
 // things do it — clicking a legal target on the veil, releasing a drag on one,
@@ -87,6 +89,11 @@ export function onVeilPick(choice: TargetChoice): void {
       return;
     }
     useAim.getState().reset();
+    // D406 - a CAST's sacrifice: the picks ride on to the targets and the payment review.
+    if (mode.cast) {
+      continueCast(mode.card, mode.cast, { sacrifice: chosen });
+      return;
+    }
     table.setMode({ kind: 'idle' });
     session.submit({
       t: 'ActivateAbility',
@@ -111,6 +118,11 @@ export function onVeilPick(choice: TargetChoice): void {
       return;
     }
     useAim.getState().reset();
+    // D406 - a CAST's cost pick: the picks ride on to the targets and the payment review.
+    if (mode.cast) {
+      continueCast(mode.card, mode.cast, mode.verb === 'discard' ? { discard: chosen } : mode.verb === 'tap' ? { tap: chosen } : mode.verb === 'returnToHand' ? { returnToHand: chosen } : { exileFromGraveyard: chosen });
+      return;
+    }
     table.setMode({ kind: 'idle' });
     session.submit({
       t: 'ActivateAbility',
@@ -343,5 +355,46 @@ export function commitTargets(): void {
   // ⚠️ The targets travel WITH the payment mode, because `previewCast` prices the
   // ward surcharge from them. Dropping them here is what used to make ward
   // unreachable from the UI entirely.
-  table.setMode({ kind: 'payment', card: mode.source.card, xValue: 0, targets: [...mode.chosen] });
+  // D406 - the additional cost's picks, chosen before the targets, reach the review with them.
+  table.setMode({ kind: 'payment', card: mode.source.card, xValue: 0, targets: [...mode.chosen], ...(mode.costPicks ? { costPicks: mode.costPicks } : {}) });
+}
+
+/**
+ * D406 - a cast whose face prints an additional cost with a CHOOSER verb starts by naming the picks:
+ * the same `sacrifice` / `costPick` modes an activation uses, marked `cast`, with the candidates read
+ * off the CastSpell action (`GameLayer`). Returns false when the cast has no such pick to make (no
+ * verb, or the `or pay {M}` alternative stands in because the candidates fall short).
+ */
+export function beginCastPicks(card: string, cast: Extract<LegalAction, { t: 'CastSpell' }>, faceIndex?: number): boolean {
+  const table = useTable.getState();
+  const castMark = { ...(faceIndex !== undefined ? { faceIndex } : {}), label: cast.label };
+  if (cast.sacrificeCandidates && cast.sacrificeCount !== undefined && cast.sacrificeCandidates.length >= cast.sacrificeCount) {
+    table.setMode({ kind: 'sacrifice', card, abilityIndex: 0, cast: castMark, name: cast.label, count: cast.sacrificeCount, chosen: [] });
+    beginAimFrom(card);
+    return true;
+  }
+  const verb: { verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand'; count: number; have: number } | null =
+    cast.discardCandidates && cast.discardCount !== undefined ? { verb: 'discard', count: cast.discardCount, have: cast.discardCandidates.length }
+    : cast.tapCandidates && cast.tapCount !== undefined ? { verb: 'tap', count: cast.tapCount, have: cast.tapCandidates.length }
+    : cast.exileFromGraveyardCandidates && cast.exileFromGraveyardCount !== undefined ? { verb: 'exileFromGraveyard', count: cast.exileFromGraveyardCount, have: cast.exileFromGraveyardCandidates.length }
+    : cast.returnCandidates && cast.returnCount !== undefined ? { verb: 'returnToHand', count: cast.returnCount, have: cast.returnCandidates.length }
+    : null;
+  if (!verb || verb.have < verb.count) return false;
+  table.setMode({ kind: 'costPick', card, abilityIndex: 0, cast: castMark, name: cast.label, verb: verb.verb, count: verb.count, chosen: [] });
+  beginAimFrom(card);
+  return true;
+}
+
+/** D406 - after the picks: the targets (with the picks riding along), or straight to the payment review. */
+function continueCast(card: string, cast: { readonly faceIndex?: number; readonly label: string }, costPicks: CostPicks): void {
+  const table = useTable.getState();
+  const specs = session.targetSpecsFor(card);
+  const max = specs.reduce((n, s) => n + s.max, 0);
+  if (specs.length > 0 && max > 0) {
+    const min = specs.reduce((n, s) => n + s.min, 0);
+    table.setMode({ kind: 'targeting', source: { kind: 'spell', card }, name: cast.label, chosen: [], specs, min, max, next: 'payment', costPicks });
+    beginAimFrom(card);
+    return;
+  }
+  table.setMode({ kind: 'payment', card, ...(cast.faceIndex !== undefined ? { faceIndex: cast.faceIndex } : {}), xValue: 0, targets: [], costPicks });
 }

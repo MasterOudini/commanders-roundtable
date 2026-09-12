@@ -23,7 +23,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}) : null),
     [mode],
   );
 
@@ -51,6 +51,12 @@ export function PaymentReview() {
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
       ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
+      // D406 - the additional cost's picks the review priced are the ones the host charges (D53).
+      ...(preview.costPicks.sacrifice ? { sacrifice: preview.costPicks.sacrifice } : {}),
+      ...(preview.costPicks.discard ? { discard: preview.costPicks.discard } : {}),
+      ...(preview.costPicks.tap ? { tap: preview.costPicks.tap } : {}),
+      ...(preview.costPicks.exileFromGraveyard ? { exileFromGraveyard: preview.costPicks.exileFromGraveyard } : {}),
+      ...(preview.costPicks.returnToHand ? { returnToHand: preview.costPicks.returnToHand } : {}),
       ...(preview.plan ? { plan: preview.plan } : {}),
       // ⚠️ ALWAYS sent, even when empty, and the difference is load-bearing: an
       // OMITTED `targets` tells the engine "stop and ask me", while an empty
@@ -126,6 +132,11 @@ export function PaymentReview() {
         </div>
       )}
 
+      {preview.additionalCost && (
+        <p className="mt-2 text-xs text-crt-dim" data-payment-additional="">
+          {preview.orPaid ? `Additional cost: pay ${preview.additionalCost.orPay ?? ''} (instead of ${preview.additionalCost.text})` : `Additional cost: ${preview.additionalCost.text}`}
+        </p>
+      )}
       {(preview.keywords.convoke || preview.keywords.improvise || preview.keywords.delve) && (
         <div className="mt-2 flex items-center gap-2" data-payment-alt="">
           <span className="text-xs text-crt-dim">

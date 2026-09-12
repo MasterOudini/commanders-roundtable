@@ -31429,3 +31429,162 @@ control (24), the object stamp (CR 400.7), the activation restrictions (313), th
 entry replacements (22), copy (~200 — the subsystem that waits for Fable), the prompt
 CONTINUATION seam proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE
 FUZZ DRIVER NEVER BLOCKS.
+
+## D406 — THE ADDITIONAL COST AT CAST: `As an additional cost to cast this spell, <cost>.` read through the activated cost grammar onto the face, the picks named by the cast and checked against the offer's own lists, paid in the cost batch ahead of the mana, `or pay {M}` the verb's alternative; the line the engine's own, so Altar's Reap and its kin read whole (2026-09-12)
+
+**9,024 of 31,692 Commander-legal cards now execute completely, up from 8,948
+(+76: 2 generated rows and 74 cards the seam completes with no script — Altar's Reap,
+Village Rites, Bone Splinters, Diabolic Intent, Natural Order, Crop Rotation, Harrow, Deprive,
+Tormenting Voice, Thrill of Possibility, Cathartic Reunion, Lightning Axe, Eaten Alive, the
+Skaabs, Demon of Catastrophes, Withering Boon …).** `SHIPPED_SCRIPTS` 5,787 → **5,789**; the
+REFUSED ledger 1,307 → **1,342** (thirty-five ADDED by reason). Fixtures 6,386 → **6,394**
+(6,237 by name + 150 tokens: the six proof cards — Altar's Reap, Tormenting Voice, Eaten
+Alive, Withering Boon, Village Rites, Deprive — and the 2 rowed cards). `scriptableToday`
+1,402 → **1,440** (the seam offered 37, the wave took 2, the thirty-five refused are
+ledgered); the select pool 0 → 37 → 0; the ladder `[1440, 1531, 2918, 4594, 5946]`. Bot reach
+8,875 → **8,951** from 269 commanders. An engine seam on Opus 5 by the user's choice, in the
+D405 shape — the fourth step of the COST MODIFICATION subsystem (Phase 3 §1).
+
+### The measurement chose it — the largest cost family by line, and what would land
+
+After D405 the board was measured again (the D389 rule): the reveal-the-top family prices at
+27 lines / 18 one-piece over eight forms; the quoted-grant scopes (`Commander creatures you
+own have "…"` 28, `Enchanted creature has "…"` 54, `All Slivers have "…"` 15 …) are mostly
+BODIES the vocabulary cannot read (`TRIG:manual`, `ACT:cost-unread`), so a scope alone lands
+nothing; the `for each <X>` family is 645 one-piece lines over 324 nouns and 526 shapes. The
+additional costs: **305 lines, 20 one-piece — and, with the cost line dropped from the
+clauses (D403's rule for a cost that is no clause), 242 spells of which ~55 read whole**
+(`zz-probe-addcost406`: `sacrifice a creature` 18 auto / 33 other, `discard a card` 6 / 8,
+`sacrifice an artifact or creature` 5 / 8, `sacrifice a land` 5 / 1, `sacrifice an artifact`
+4 / 3, the `or pay {M}` forms 7, a life payment 1, a return 2, a tap 2 …) plus 58
+permanents printing the line. The cost verbs, the candidate lists and the pick UI all existed
+for ACTIVATED abilities (D168, D286, D329, D352): the seam is the same grammar, at cast.
+
+### The seam — the grammar, the face, the host, the offer, the preview, the picks, the bot, the driver
+
+- **One grammar** (`parseAdditionalCost`, `activatedParse.ts`): the line's cost, capitalised,
+  runs through `parseActivatedAbilities` as a synthetic `<Cost>: Draw a card.`; what the cast
+  charges is what that grammar reads as PAYABLE with no mana and no tap of the source — one
+  chooser verb (a sacrifice, a discard, a tap of untapped permanents, an exile from the
+  graveyard, a return to hand) or a life payment; `<verb> or pay {M}` / `pay {M} or <verb>`
+  carries the mana as the verb's alternative (`orPay`). A random discard, two verbs joined by
+  `or`, a counter cost, a self cost, `and`, and any phrase the grammar cannot place leave the
+  line UNREAD (D90) — and the classifier keeps such a line structural.
+- **The face** (`OracleFace.additionalCost`): read once at ingest for spells and permanents
+  alike; the line CLAIMED in the coverage (`engineComplete.ts`) and dropped from a spell's
+  clauses on the PRINTED line before the scrub (`effectParse.ts`) — only when the grammar
+  reads it, so a face never resolves without its price; the classifier reads a chargeable
+  line as the engine's own (`primitives.ts`).
+- **The offer** (`legal.ts`): `castCostCandidates` — the SAME candidate functions the
+  activated offer uses (`sacrificeCandidatesFor` and its siblings; the card being cast is
+  never a candidate for its own discard) — on the `CastSpell` action as `sacrificeCandidates`
+  / `sacrificeCount` and their siblings, with `additionalCostText` and `orPay`; a verb whose
+  candidates fall short is NOT OFFERED ("a cost you cannot pay is not offered") unless the
+  mana alternative stands in, and then the affordability prices that mana; a life cost is
+  priced into the affordability.
+- **The host** (`handlers.ts`): `CastSpell.sacrifice` / `discard` / `tap` /
+  `exileFromGraveyard` / `returnToHand` name the picks — the activated intent's own fields;
+  `additionalCostProblem` checks them (exactly the count, distinct, from the offer's list;
+  none named with `or pay {M}` printed takes the mana — `orPaid`; a face with no such cost
+  takes no picks); `additionalExtras` prices the life or the alternative mana at the cast
+  and REPRICES it at the X and targets stages (`PendingCast.orPaid`, the picks on the
+  pending's existing fields); `additionalCostEvents` pays the picks in the cost batch FIRST
+  — the activated cost batch's own shapes (`CardsMoved` with `reason: 'sacrifice'` /
+  `'discard'`, `PermanentsTapped`, the exile, the return) so the watchers see them as any
+  sacrifice or discard — then D405's taps and exiles, then the mana; a tapped pick is no
+  mana source for the same cast (`solveWithout`) and a plan naming one is refused; the
+  stack object remembers `additionalPaid`.
+- **The preview, the picks, the review** (`net/client.ts`, `tableStore.ts`, `aimCommit.ts`,
+  `GameLayer.tsx`, `useEngineTable.ts`, `PaymentReview.tsx`): `previewCast(…, costPicks)`
+  prices the life or, with no pick named, the alternative mana, and keeps tapped picks out
+  of the plan (D53); a cast whose face prints a chooser verb starts in the SAME `sacrifice`
+  / `costPick` modes an activation uses, marked `cast` (`beginCastPicks`), the veil reading
+  the candidates off the CastSpell action, the picks riding the targeting mode into the
+  payment review (`costPicks`), which shows `Additional cost: sacrifice a creature` (or the
+  mana taken instead) and sends what it priced.
+- **The bot** (`bot/policy.ts`): the picks off the offer's own lists — a token before a body,
+  the least valuable creature for a sacrifice, the first candidates otherwise; with `or pay
+  {M}` printed the mana is preferred while a plan exists. **The driver** names the first
+  candidates the offer lists.
+- `src/engine/additionalCost.test.ts` (3): the grammar (the five verbs, the life, both
+  `or pay` orders; the refusals), the face, the claim (Altar's Reap complete with no script),
+  the classifier; Altar's Reap — the offer lists two candidates, no pick refused
+  (`needsSacrifice`), a stranger's creature refused (`illegalSacrifice`), the Bears
+  sacrificed in the cost batch with `reason: 'sacrifice'` before the spell is on the stack,
+  two cards drawn, the replay hash equal, and with no creature left the spell is not offered
+  at all; Tormenting Voice — the spell cannot pay its own discard, the named card goes; Eaten
+  Alive — `{B}` alone refused, `{B}` + `{3}{B}` takes the mana alternative with no pick;
+  Withering Boon — three life paid with the mana, the creature spell countered.
+- **Fuzz**: Village Rites (`{B}`, sacrifice a creature) and Tormenting Voice (`{1}{R}`,
+  discard a card) are staples feeding `additionalCostCasts` (a `SpellCast` whose object
+  carries `additionalPaid`), a floor at gate size — **95 over the gate's 500 seeds**
+  (9 at 60, measured BEFORE the gate, D398's rule).
+
+### The wave — 37 offered, 2 rows, thirty-five refused by reason
+
+The pool is the classifier's OWN offer after the seam — **37** in `batch.json` — landed BY
+NAME with the row maker's refusal histogram as the measurement (D352/D364). **2 rows / 2
+abilities**: Cobbled Lancer and Lesser Masticore — each the card's OTHER line beside its
+cost. The line probe ran BEFORE the port (D395's rule); the port **2 of 2, 4 tests**, with
+`tsc -b` red on a type the narrower `tsc -p` had passed (`OracleFace` unimported in
+`legal.ts`) — fixed, the build's check is the one that counts. Refused by reason (35,
+ledgered): thirty-four SPELLS for their other line (this generator rows no spell but a mass
+pump — and most read the SACRIFICED permanent's power, toughness or mana value: Fling, Thud,
+Life's Legacy, Momentous Fall, Burnt Offering, Metamorphosis, Sacrifice, Severed Strands,
+Tormented Thoughts …; two mana spells — Culling the Weak, Infernal Plunge; two-kind targets —
+Fumarole; a control change — Ritual of the Machine; New Blood's text change; Ultimate
+Nullification; Renewal; Sazacap's Brew's gift), a battle clause (Sparkhunter Masticore). The
+row maker's spell refusal names the real line (the cost line is no line of the spell).
+
+### Traps
+
+- **THE BUILD'S TYPECHECK IS THE ONE THAT COUNTS**: `tsc --noEmit -p tsconfig.json` passed
+  a `legal.ts` that `tsc -b` (the port's and the build's check) refused for an unimported
+  type; the D405 loop had used the narrower check throughout — check with `tsc -b`.
+- **A HEREDOC HALVES AN ESCAPED QUOTE TOO** (invariant 14): `\'s` in a ledger reason arrived
+  as a bare quote inside a single-quoted TS string and broke the file's transform; a reason
+  with an apostrophe is emitted as a DOUBLE-QUOTED string by a small builder.
+- **A HEREDOC PATCH DRIVER PAST ~100 LINES TRUNCATES** (D405's neighbour, twice more): the
+  host patch and the UI patch each split into a driver and PART FILES of lines.
+- **A LIVE `turnNumber` IN A WALK PREDICATE NEVER MATCHES**: `s.turn.turnNumber ===
+  g.state.turn.turnNumber + 1` moves with the walk and runs the game to its end (decking);
+  capture the turn first.
+- **A RESPONSE NEEDS THE HOLDS**: without `holdEverywhere` the answerer's priority is
+  auto-passed and the spell on the stack resolves before the response can be cast.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5958 files, 28986
+passed / 11 skipped · 500-seed gate, 6 shards, 1062.7 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D406): the SACRIFICED REFERENT (`damage equal to the sacrificed
+creature's power`, `X the sacrificed creature's mana value` — twenty-odd of the thirty-four
+refused spells; a cast-time referent the vocabulary would carry as the cost's pick); a random
+discard as a cast cost (3 — the seeded rng at cast); two verbs joined by `or` (Bone Shards);
+a counter cost at cast (Lethal Sting, Scarscale Ritual); `discard a card or pay N life`; the
+FaceChoice path (a split or adventure face with a chooser cost goes to the review without the
+pick stage — the host refuses `needsSacrifice`, fails safe); the review's picks are chosen
+BEFORE the targets (a spell whose targets should inform the sacrifice); the bot's sacrifice
+ranking (a token, then the least valuable — no reading of the spell's payoff); the mana
+spells with a cost (Culling the Weak, Infernal Plunge — `Add {B}{B}{B}{B}` is no spell the
+vocabulary resolves); then D405's list unchanged — HYBRID symbols paid by convoke, a
+per-creature chooser in the review, the bot's convoke as a fallback only, `Flying, convoke`,
+the convoke REFERENTS, `whenever you cast a spell with convoke`, the fifteen convoke spells
+this generator does not row, Emerge, Affinity for <kind>, the other alternative costs (111 /
+13), the `for each` reductions (97 / 17), the up-to-N label (28 sentences), the
+script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 / 18 over
+eight forms), the quoted-grant BODIES (the vocabulary, not the scope), `Noncreature spells`
+(6), `Colorless spells` (3), `Face-down creature spells` (2), the leading conditions on a
+grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY at parse time, the `costs {N}
+more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row (7), the `instead`
+rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait, the
+self-aimed delayed forms, the HOST characteristics under an attached static (29), "you
+control a token", the incarnations' graveyard statics (5), `Whenever you attack` and the
+each-combat head, the `for each <X>` family (645 one-piece over 324 nouns), the payment
+heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE
+FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172 AMOUNT
+forms, the restriction's exotic purposes (14), the twenty-two older fight and bite suites,
+token copies (15), the untap skip (15), the durations proper (23 / 33 / 14), the permanent
+control family (20) and exchange control (24), the object stamp (CR 400.7), the activation
+restrictions (313), the keyword entry replacements (22), copy (~200 — the subsystem that
+waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the tournament
+floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

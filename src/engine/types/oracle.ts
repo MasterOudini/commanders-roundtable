@@ -1375,6 +1375,13 @@ export interface OracleFace {
   readonly improvise: boolean;
   readonly delve: boolean;
   /**
+   * D406 - THE ADDITIONAL COST AT CAST (`As an additional cost to cast this spell, <cost>.`): a
+   * chooser verb (a sacrifice, a discard, a tap, an exile from the graveyard, a return to hand) or a
+   * life payment the cast charges ahead of the mana, with `or pay {M}` as the verb's alternative.
+   * Null when the face prints none, or one the cost grammar cannot read (`parseAdditionalCost`).
+   */
+  readonly additionalCost: import('../../data/activatedParse').AdditionalCost | null;
+  /**
    * D309 - THE MORPH SEAM. "Morph {N}" / "Megamorph {N}" as a mana cost (CR
    * 702.37): cast face down as a 2/2 for {3}, turned face up for this. Null
    * when the card has none or prints a dash cost. Permanents only.

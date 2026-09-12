@@ -71,6 +71,18 @@ export type Intent =
       readonly convoke?: readonly InstanceId[];
       readonly improvise?: readonly InstanceId[];
       readonly delve?: readonly InstanceId[];
+      /**
+       * D406 - THE ADDITIONAL COST (`As an additional cost to cast this spell, <cost>.`): the picks
+       * that pay its chooser verb - exactly the cost's count, re-validated by the host against the
+       * same candidate lists the offer carries (`sacrificeCandidatesFor` and its siblings), charged in
+       * the cost batch ahead of the mana. Absent when the cost prints `or pay {M}`: the mana is paid
+       * instead. A life payment needs no pick (it rides the payment problem).
+       */
+      readonly sacrifice?: readonly InstanceId[];
+      readonly discard?: readonly InstanceId[];
+      readonly tap?: readonly InstanceId[];
+      readonly exileFromGraveyard?: readonly InstanceId[];
+      readonly returnToHand?: readonly InstanceId[];
     }
   /**
    * D309 - THE MORPH SEAM: turning a face-down permanent you control face up

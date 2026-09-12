@@ -6063,6 +6063,12 @@ export const PACK_S_FAVOR: CardData = F.PACK_S_FAVOR as CardData;
 export const HOOTING_MANDRILLS: CardData = F.HOOTING_MANDRILLS as CardData;
 export const BASTION_INVENTOR: CardData = F.BASTION_INVENTOR as CardData;
 export const STOKE_THE_FLAMES: CardData = F.STOKE_THE_FLAMES as CardData;
+export const ALTAR_S_REAP: CardData = F.ALTAR_S_REAP as CardData;
+export const TORMENTING_VOICE: CardData = F.TORMENTING_VOICE as CardData;
+export const EATEN_ALIVE: CardData = F.EATEN_ALIVE as CardData;
+export const WITHERING_BOON: CardData = F.WITHERING_BOON as CardData;
+export const VILLAGE_RITES: CardData = F.VILLAGE_RITES as CardData;
+export const DEPRIVE: CardData = F.DEPRIVE as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -6254,6 +6260,8 @@ export const SLY_REQUISITIONER: CardData = F.SLY_REQUISITIONER as CardData;
 export const ASTRAL_WINGSPAN: CardData = F.ASTRAL_WINGSPAN as CardData;
 export const HERALD_OF_ANGUISH: CardData = F.HERALD_OF_ANGUISH as CardData;
 export const LOFTY_DREAMS: CardData = F.LOFTY_DREAMS as CardData;
+export const COBBLED_LANCER: CardData = F.COBBLED_LANCER as CardData;
+export const LESSER_MASTICORE: CardData = F.LESSER_MASTICORE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -12452,6 +12460,12 @@ export const ENGINE_CARDS: CardData[] = [
   HOOTING_MANDRILLS,
   BASTION_INVENTOR,
   STOKE_THE_FLAMES,
+  ALTAR_S_REAP,
+  TORMENTING_VOICE,
+  EATEN_ALIVE,
+  WITHERING_BOON,
+  VILLAGE_RITES,
+  DEPRIVE,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,
@@ -12643,6 +12657,8 @@ export const ENGINE_CARDS: CardData[] = [
   ASTRAL_WINGSPAN,
   HERALD_OF_ANGUISH,
   LOFTY_DREAMS,
+  COBBLED_LANCER,
+  LESSER_MASTICORE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

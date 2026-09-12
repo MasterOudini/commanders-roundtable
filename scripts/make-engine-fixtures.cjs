@@ -6722,6 +6722,13 @@ const WANTED = [
   'Hooting Mandrills',
   'Bastion Inventor',
   'Stoke the Flames',
+  // D406 - the additional cost at cast: the seam's proof cards (Village Rites and Tormenting Voice are the fuzz staples).
+  "Altar's Reap",
+  'Tormenting Voice',
+  'Eaten Alive',
+  'Withering Boon',
+  'Village Rites',
+  'Deprive',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',
@@ -6927,6 +6934,10 @@ const WANTED = [
   'Herald of Anguish',
   'Lofty Dreams',
   // D405 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D406 - the additional cost at cast (CR 601.2b): the rows whose only other line the library holds, beside a cost line the engine now charges.
+  'Cobbled Lancer',
+  'Lesser Masticore',
+  // D406 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

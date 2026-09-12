@@ -29,9 +29,10 @@
 import type { CardData } from './cardTypes';
 import { parseEffects, selfRef } from './effectParse';
 import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engineComplete';
-import { parseTypeLine } from './oracleParse';
+import { parseManaCost, parseTypeLine } from './oracleParse';
 import { parseEnchant } from './targetParse';
 import { parseCostReductionLine, parseGrantedReductionLine } from './costParse';
+import { parseAdditionalCost } from './activatedParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -856,6 +857,9 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D405 - a Convoke / Improvise / Delve line is the engine's own: the cast names what it taps or
   // exiles (`CastSpell.convoke` / `improvise` / `delve`) and the payment takes it off the cost.
   if (/^(?:convoke|improvise|delve)(?:, (?:convoke|improvise|delve))*$/i.test(text)) return 'scriptable';
+  // D406 - an additional cost the engine CHARGES at cast (a chooser verb or a life payment the activated
+  // cost grammar reads) is the engine's own; one the grammar cannot read stays structural below.
+  if (/^As an additional cost to cast this spell, /.test(text) && parseAdditionalCost(text, parseManaCost, cardName) !== null) return 'scriptable';
   // D307 - a Flashback line with a mana cost is the engine's own (see
   // `flashbackLineRuns`); a dash cost stays `keyword:altCost`.
   if (/^flashback\b/i.test(text)) return flashbackLineRuns(text) ? 'scriptable' : 'keyword:altCost';

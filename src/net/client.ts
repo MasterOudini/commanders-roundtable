@@ -103,7 +103,25 @@ export interface CastPreview {
   readonly alt: AltChoice;
   readonly altAvailable: AltChoice;
   readonly altProblem: string | null;
+  /**
+   * D406 - the additional cost the face prints (`sacrifice a creature`), the picks this preview priced
+   * (`costPicks`), and whether the `or pay {M}` alternative stands in for missing picks (`orPaid`).
+   */
+  readonly additionalCost: { readonly text: string; readonly orPay: string | null } | null;
+  readonly costPicks: CostPicks;
+  readonly orPaid: boolean;
 }
+
+/** D406 - the picks a cast names for its additional cost's chooser verb (the intent's own fields). */
+export interface CostPicks {
+  readonly sacrifice?: readonly InstanceId[];
+  readonly discard?: readonly InstanceId[];
+  readonly tap?: readonly InstanceId[];
+  readonly exileFromGraveyard?: readonly InstanceId[];
+  readonly returnToHand?: readonly InstanceId[];
+}
+export const NO_PICKS: CostPicks = {};
+const picksCount = (p: CostPicks): number => (p.sacrifice?.length ?? 0) + (p.discard?.length ?? 0) + (p.tap?.length ?? 0) + (p.exileFromGraveyard?.length ?? 0) + (p.returnToHand?.length ?? 0);
 
 export interface ClientOptions {
   readonly playerName: string;
@@ -443,7 +461,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -461,7 +479,13 @@ export class ClientSession {
     // D403 - the kick the player announced, priced with the ward (the host prices the same count).
     const kickCost = face.multikickerCost ?? face.kickerCost;
     const kickMana = kicked > 0 && kickCost ? Array.from({ length: face.multikickerCost ? kicked : 1 }, () => kickCost) : [];
-    const base = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana], action.tax, ward.life);
+    // D406 - the additional cost: the life rides the problem; with no pick named and `or pay {M}` printed,
+    // the mana stands in (the host prices the same way, D53).
+    const add = face.additionalCost;
+    const orPaid = add !== null && add.orPay !== null && picksCount(costPicks) === 0;
+    const addMana = orPaid && add?.orPay ? [add.orPay] : [];
+    const addLife = add && !orPaid ? add.lifeCost : 0;
+    const base = buildPaymentProblem(face.manaCost, xValue, [...ward.mana, ...kickMana, ...addMana], action.tax, ward.life + addLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
@@ -473,7 +497,7 @@ export class ClientSession {
     const altProblem = assigned.failed ? `${this.nameOf((assigned.failed.kind === 'convoke' ? chosenAlt.convoke : assigned.failed.kind === 'improvise' ? chosenAlt.improvise : chosenAlt.delve)[assigned.failed.index])} would pay for nothing.` : null;
     const problem = assigned.failed ? base : applyAlternativePayment(base, assigned.paid);
     // D405 - a permanent the cast taps for its alternatives is no mana source for the same cast.
-    const tapped = new Set<InstanceId>([...chosenAlt.convoke, ...chosenAlt.improvise]);
+    const tapped = new Set<InstanceId>([...chosenAlt.convoke, ...chosenAlt.improvise, ...(costPicks.tap ?? [])]);
     const solve = tapped.size > 0 ? { ...this.session.solve, sources: this.session.solve.sources.filter((s) => !tapped.has(s.card)) } : this.session.solve;
     // D397 - the SAME purpose the host charges with (D53): the spell this face is cast as.
     const plan = assigned.failed ? null : suggestPayment(solve, problem, spellPurpose(face, action.faceDown === true));
@@ -492,6 +516,9 @@ export class ClientSession {
       alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
       altAvailable,
       altProblem,
+      additionalCost: add ? { text: add.costText, orPay: add.orPay?.raw ?? null } : null,
+      costPicks,
+      orPaid,
     };
   }
 

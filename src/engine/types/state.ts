@@ -323,6 +323,12 @@ export interface StackObject {
   readonly improvised?: number;
   readonly delved?: number;
   /**
+   * D406 - how many things the spell's ADDITIONAL COST took as it was cast (the picks of its chooser
+   * verb, a life payment counted as one, the `or pay {M}` alternative counted as one); absent when
+   * the face prints no such cost. The record for the log and the gate.
+   */
+  readonly additionalPaid?: number;
+  /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
    * tapped permanent THIS firing answers. Absent on every other object.
@@ -454,6 +460,8 @@ export interface PendingCast {
   readonly faceDown?: true;
   /** D403 - the kicker count the cast was announced with (CR 702.33), carried to the `StackObject`. */
   readonly kicked?: number;
+  /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
+  readonly orPaid?: true;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
   readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */

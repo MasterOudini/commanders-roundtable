@@ -839,3 +839,72 @@ export function parseActivatedAbilities(
 
   return out;
 }
+
+/**
+ * D406 - THE ADDITIONAL COST AT CAST (CR 601.2b, 602.2b's cousin): `As an additional cost to cast
+ * this spell, <cost>.` is the SAME cost grammar an activated line prints left of its colon -
+ * `Sacrifice a creature`, `Discard a card`, `Pay 3 life`, `Tap two untapped creatures you control`,
+ * `Exile a creature card from your graveyard`, `Return a land you control to its owner's hand` - so
+ * it is read by the same parser, through a synthetic line whose effect is a dummy. What the cast
+ * charges is what that grammar reads as PAYABLE with no mana and no tap of the source (a spell is not
+ * on the battlefield): a chooser verb or a life payment. `<cost> or pay {M}` (Eaten Alive) is the
+ * verb with the mana as its alternative; a random discard, a counter cost, a self cost and any
+ * phrase the grammar cannot place leave the line unread (D90).
+ */
+export interface AdditionalCost {
+  /** The printed line, reminder text stripped, for the accounting's claim. */
+  readonly line: string;
+  /** The cost text the grammar read (`sacrifice a creature`). */
+  readonly costText: string;
+  readonly lifeCost: number;
+  readonly sacrificeCost: ActivatedAbility['sacrificeCost'];
+  readonly discardCost: ActivatedAbility['discardCost'];
+  readonly tapCost: ActivatedAbility['tapCost'];
+  readonly exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'];
+  readonly returnCost: ActivatedAbility['returnCost'];
+  /** `... or pay {M}`: the mana the caster may pay INSTEAD of the verb. */
+  readonly orPay: ManaCost | null;
+}
+
+export const ADDITIONAL_COST_LINE = /^As an additional cost to cast this spell, (.+)\.$/;
+
+export function parseAdditionalCost(oracleText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): AdditionalCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = ADDITIONAL_COST_LINE.exec(line);
+    if (!m) continue;
+    let costText = (m[1] ?? '').trim();
+    let orPay: ManaCost | null = null;
+    // `<verb> or pay {M}` / `pay {M} or <verb>`: the verb, with the mana as its alternative.
+    const tail = /^(.+?) or pay ((?:\{[^}]+\})+)$/.exec(costText);
+    const head = /^pay ((?:\{[^}]+\})+) or (.+)$/.exec(costText);
+    if (tail) { costText = (tail[1] ?? '').trim(); orPay = parseCost(tail[2] ?? ''); if (!orPay) return null; }
+    else if (head) { costText = (head[2] ?? '').trim(); orPay = parseCost(head[1] ?? ''); if (!orPay) return null; }
+    // Two verbs joined by `or` (`sacrifice a creature or discard a card`) are a choice this reader
+    // does not carry; a comma or an `and` is more than one cost. Both stay unread.
+    if (/\b(?:or|and)\b/.test(costText.replace(/\b(?:artifact|creature|land|permanent|enchantment|planeswalker) (?:or|and) /g, 'X ')) || costText.includes(',')) return null;
+    const capital = costText.charAt(0).toUpperCase() + costText.slice(1);
+    const parsed = parseActivatedAbilities({ oracleText: `${capital}: Draw a card.`, isPermanent: true, producesMana: [], parseCost, ...(selfName ? { selfName } : {}) });
+    const a = parsed[0];
+    if (!a || parsed.length !== 1 || !a.payable) return null;
+    if (a.manaCost !== null || a.requiresTap || a.requiresUntap || a.sacrificesSelf || a.returnsSelf || a.exileSelfFromGraveyard || a.isLoyalty) return null;
+    if (a.putCounterCost !== null || a.removeCounterCost !== null || a.lifeCostCommanderColors) return null;
+    if (a.discardCost?.atRandom) return null;
+    const verbs = [a.sacrificeCost, a.discardCost, a.tapCost, a.exileFromGraveyardCost, a.returnCost].filter((x) => x !== null).length;
+    if (verbs + (a.lifeCost > 0 ? 1 : 0) !== 1) return null;
+    // A tap cost with a power floor is crew's shape, not a cast cost.
+    if (a.tapCost && a.tapCost.powerAtLeast !== undefined) return null;
+    return {
+      line,
+      costText,
+      lifeCost: a.lifeCost,
+      sacrificeCost: a.sacrificeCost,
+      discardCost: a.discardCost,
+      tapCost: a.tapCost,
+      exileFromGraveyardCost: a.exileFromGraveyardCost,
+      returnCost: a.returnCost,
+      orPay,
+    };
+  }
+  return null;
+}

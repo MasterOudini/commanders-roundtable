@@ -6,6 +6,7 @@ import type { CardData } from '../data/cardTypes';
 // sees a `GameState`; it reads a `PlayerView` like every other client.
 import type { Awaiting, DefenderRef, StopPolicy, TargetChoice } from '../engine/types/state';
 import type { TargetSpec } from '../engine/types/oracle';
+import type { CostPicks } from '../net/client';
 
 /**
  * What is being aimed. An ability adds which of its owner's abilities it is;
@@ -54,6 +55,8 @@ export type TableMode =
        * not local, so Escape re-arms rather than escaping.
        */
       readonly next: 'payment' | 'submit' | 'answer';
+      /** D406 - the additional cost's picks, chosen before the targets, carried into the payment review. */
+      readonly costPicks?: CostPicks;
     }
   /**
    * Reviewing what auto-tap proposes before paying.
@@ -83,6 +86,8 @@ export type TableMode =
       readonly kicked?: number;
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
+      /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */
+      readonly costPicks?: CostPicks;
     }
   /**
    * Choosing attackers, before submitting them as one declaration.
@@ -136,6 +141,8 @@ export type TableMode =
       readonly kind: 'sacrifice';
       readonly card: string;
       readonly abilityIndex: number;
+      /** D406 - the pick pays a CAST's additional cost (the card is the spell): the picks then ride the cast, not an activation. */
+      readonly cast?: { readonly faceIndex?: number; readonly label: string };
       /** D367 - a granted ability's ref, when the activation is one (rides the intent). */
       readonly grantRef?: string;
       /** Shown in the prompt: the ability's own label. */
@@ -155,6 +162,8 @@ export type TableMode =
       readonly kind: 'costPick';
       readonly card: string;
       readonly abilityIndex: number;
+      /** D406 - the picks pay a CAST's additional cost (see `sacrifice`). */
+      readonly cast?: { readonly faceIndex?: number; readonly label: string };
       readonly grantRef?: string;
       readonly name: string;
       readonly verb: 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'removeCounter';

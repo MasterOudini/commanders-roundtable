@@ -19,7 +19,7 @@ import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
 import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
-import type { ActivatedAbility, OracleCard, OracleDb } from './types/oracle';
+import type { ActivatedAbility, OracleCard, OracleDb, OracleFace } from './types/oracle';
 import type { GameState } from './types/state';
 
 export type LegalAction =
@@ -47,6 +47,24 @@ export type LegalAction =
       readonly convoke?: true;
       readonly improvise?: true;
       readonly delve?: true;
+      /**
+       * D406 - the face prints an additional cost the engine charges: its text, the mana it may be paid
+       * with INSTEAD (`or pay {M}`), and the candidates of its chooser verb with the count - the same
+       * lists the activated offer carries, re-validated by the host. A verb whose candidates fall short
+       * of the count is not offered unless the mana alternative stands in.
+       */
+      readonly additionalCostText?: string;
+      readonly orPay?: string;
+      readonly sacrificeCandidates?: readonly InstanceId[];
+      readonly sacrificeCount?: number;
+      readonly discardCandidates?: readonly InstanceId[];
+      readonly discardCount?: number;
+      readonly tapCandidates?: readonly InstanceId[];
+      readonly tapCount?: number;
+      readonly exileFromGraveyardCandidates?: readonly InstanceId[];
+      readonly exileFromGraveyardCount?: number;
+      readonly returnCandidates?: readonly InstanceId[];
+      readonly returnCount?: number;
     }
   | {
       readonly t: 'TapForMana';
@@ -826,9 +844,18 @@ function castAction(
   // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
   const cost = from.kind === 'graveyard' ? face.flashbackCost : face.manaCost;
   if (cost === null) return null;
+  // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
+  // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless
+  // the printed `or pay {M}` stands in - then the mana is priced into the affordability instead.
+  const add = face.additionalCost;
+  const caster = from.player ?? inst.controller;
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const chooser = add ? castCostCandidates(state, deriveOf, caster, id, add) : null;
+  const orPaid = chooser !== null && !chooser.enough;
+  if (chooser !== null && !chooser.enough && add?.orPay === null) return null;
   // X is priced at 0 for the affordability flag: a card with X is castable for
   // X=0, and greying it out because X=5 is unaffordable would be a lie.
-  const problem = buildPaymentProblem(cost, 0, [], tax);
+  const problem = buildPaymentProblem(cost, 0, orPaid && add?.orPay ? [add.orPay] : [], tax, add && !orPaid ? add.lifeCost : 0);
   return {
     t: 'CastSpell',
     card: id,
@@ -845,7 +872,46 @@ function castAction(
     ...(face.convoke ? { convoke: true as const } : {}),
     ...(face.improvise ? { improvise: true as const } : {}),
     ...(face.delve ? { delve: true as const } : {}),
+    ...(add ? { additionalCostText: add.costText } : {}),
+    ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
+    ...(chooser?.fields ?? {}),
   };
+}
+
+/**
+ * D406 - the candidates of a cast's additional cost, by its chooser verb, as the legal action's fields
+ * and whether they reach the count. The card being cast is never a candidate (a spell in hand cannot
+ * pay its own discard). Read by the offer and by the host's validation alike (D139: one list).
+ */
+export function castCostCandidates(
+  state: GameState,
+  deriveOf: (id: InstanceId) => PredicateChars,
+  player: PlayerId,
+  selfId: InstanceId,
+  add: NonNullable<OracleFace['additionalCost']>,
+): { readonly fields: Record<string, readonly InstanceId[] | number>; readonly enough: boolean } {
+  if (add.sacrificeCost) {
+    const c = sacrificeCandidatesFor(state, deriveOf, player, selfId, add.sacrificeCost);
+    return { fields: { sacrificeCandidates: c, sacrificeCount: add.sacrificeCost.count }, enough: c.length >= add.sacrificeCost.count };
+  }
+  if (add.discardCost) {
+    const c = discardCandidatesFor(state, deriveOf, player, add.discardCost).filter((cid) => cid !== selfId);
+    return { fields: { discardCandidates: c, discardCount: add.discardCost.count }, enough: c.length >= add.discardCost.count };
+  }
+  if (add.tapCost) {
+    const c = tapCandidatesFor(state, deriveOf, player, selfId, add.tapCost);
+    return { fields: { tapCandidates: c, tapCount: add.tapCost.count }, enough: c.length >= add.tapCost.count };
+  }
+  if (add.exileFromGraveyardCost) {
+    const c = exileFromGraveyardCandidatesFor(state, deriveOf, player, selfId, add.exileFromGraveyardCost).filter((cid) => cid !== selfId);
+    return { fields: { exileFromGraveyardCandidates: c, exileFromGraveyardCount: add.exileFromGraveyardCost.count }, enough: c.length >= add.exileFromGraveyardCost.count };
+  }
+  if (add.returnCost) {
+    const c = returnCandidatesFor(state, deriveOf, player, selfId, add.returnCost);
+    return { fields: { returnCandidates: c, returnCount: add.returnCost.count }, enough: c.length >= add.returnCost.count };
+  }
+  // A life payment alone: nothing to pick, always enough to offer (the payment refuses a life total it cannot take).
+  return { fields: {}, enough: true };
 }
 
 /** CR 307.1 — your turn, a main phase, an empty stack, and you hold priority. */

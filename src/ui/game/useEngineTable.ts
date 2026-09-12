@@ -3,7 +3,7 @@ import * as session from '../../game/session';
 import { useGame } from '../../store/gameStore';
 import { useTable, type TableMode, type TargetSource } from '../../store/tableStore';
 import { useAim } from '../../store/aimStore';
-import { beginAimFrom, onVeilPick } from './aimCommit';
+import { beginAimFrom, beginCastPicks, onVeilPick } from './aimCommit';
 import { canTapOnly, manaOptionsFor } from './manaOptions';
 import { abilityOptionsFor } from './abilityOptions';
 import { faceOptionsFor } from './faceOptions';
@@ -302,6 +302,8 @@ export function useEngineTable() {
         // pointing at, so opening payment before the targets are known showed a
         // cost that could still change. It is also what makes Escape purely
         // local: nothing has been sent, so there is no half-cast to unwind.
+        // D406 - an additional cost with a chooser verb is named first; the picks ride into the targets and the review.
+        if (beginCastPicks(id, cast)) return;
         if (beginAim({ kind: 'spell', card: id }, cast.label, 'payment')) return;
         setMode({ kind: 'payment', card: id, xValue: 0, targets: [] });
         return;
@@ -532,6 +534,7 @@ export function useEngineTable() {
       if (cast) {
         // Parked over the battlefield while you approve the payment — the card is
         // on the table, waiting, which is what the gesture said it should be.
+        if (cast.t === 'CastSpell' && beginCastPicks(id, cast)) return;
         if (cast.t === 'CastSpell' && beginAim({ kind: 'spell', card: id }, cast.label, 'payment')) return;
         setMode({ kind: 'payment', card: id, xValue: 0, targets: [] });
         return;

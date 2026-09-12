@@ -33,7 +33,7 @@ import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseSpellTargets } from './targetParse';
-import { parseActivatedAbilities } from './activatedParse';
+import { parseActivatedAbilities, parseAdditionalCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersTapped, parseChoosesColorOnEntry } from './replacementParse';
@@ -1051,6 +1051,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
   const kicked = parseKicker(face.oracleText, warn);
   const altCosts = parseAltCosts(face.oracleText);
+  const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
   const morph = isPermanent ? parseMorph(face.oracleText, warn) : null;
   const costReductions = parseCostReductions(face.oracleText);
   const grantedReductions = isPermanent ? parseGrantedReductions(face.oracleText) : [];
@@ -1124,6 +1125,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,
+    additionalCost,
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,

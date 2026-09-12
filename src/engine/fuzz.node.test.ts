@@ -180,6 +180,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the seat's untapped artifacts are few and mostly tapped for mana already.
   { names: ["Pack's Favor", 'Hooting Mandrills'], copiesPerSeat: 1,
     counterKeys: ['convokedCasts', 'delvedCasts'], rotHistory: 'D405' },
+  // D406 - the additional cost at cast: a {B} sorcery that sacrifices a creature and draws two, and a
+  // {1}{R} sorcery that discards a card and draws two - one coloured source each, a creature or a hand
+  // card every seat has; the driver names the first candidates the offer lists.
+  { names: ['Village Rites', 'Tormenting Voice'], copiesPerSeat: 1,
+    counterKeys: ['additionalCostCasts'], rotHistory: 'D406' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -731,7 +736,10 @@ function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAct
   const face = faceOf(printing, action.faceIndex);
   if (!face.manaCost) return null;
   const cache = makeDeriveCache(state);
-  const base = buildPaymentProblem(face.manaCost, 0, [], action.tax);
+  // D406 - the additional cost the same cast pays: its life, or its mana alternative when the picks fall short.
+  const add = face.additionalCost;
+  const picksShort = add !== null && Object.keys(castPicksOf(action)).length === 0 && (add.sacrificeCost || add.discardCost || add.tapCost || add.exileFromGraveyardCost || add.returnCost) !== null;
+  const base = buildPaymentProblem(face.manaCost, 0, add && picksShort && add.orPay ? [add.orPay] : [], action.tax, add && !picksShort ? add.lifeCost : 0);
   const convoke: ConvokeCandidate[] = [];
   const improvise: InstanceId[] = [];
   for (const id of [...state.zones.battlefield].sort()) {
@@ -756,6 +764,22 @@ function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAct
     ...(pick.improvise.length > 0 ? { improvise: pick.improvise } : {}),
     ...(pick.delve.length > 0 ? { delve: pick.delve } : {}),
   };
+}
+
+/** D406 - the picks a cast's additional cost takes: the first candidates the offer lists, exactly the count. */
+function castPicksOf(action: Extract<LegalAction, { t: 'CastSpell' }>): { sacrifice?: readonly InstanceId[]; discard?: readonly InstanceId[]; tap?: readonly InstanceId[]; exileFromGraveyard?: readonly InstanceId[]; returnToHand?: readonly InstanceId[] } {
+  const first = (ids: readonly InstanceId[] | undefined, n: number | undefined): readonly InstanceId[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
+  const sacrifice = first(action.sacrificeCandidates, action.sacrificeCount);
+  if (sacrifice) return { sacrifice };
+  const discard = first(action.discardCandidates, action.discardCount);
+  if (discard) return { discard };
+  const tap = first(action.tapCandidates, action.tapCount);
+  if (tap) return { tap };
+  const exileFromGraveyard = first(action.exileFromGraveyardCandidates, action.exileFromGraveyardCount);
+  if (exileFromGraveyard) return { exileFromGraveyard };
+  const returnToHand = first(action.returnCandidates, action.returnCount);
+  if (returnToHand) return { returnToHand };
+  return {};
 }
 
 function nextIntent(state: GameState, p: Picker): Intent | null {
@@ -789,7 +813,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // D405 - convoke / improvise / delve are ALWAYS paid with when a payable pick exists (the kicker's
       // rule): the mana falling short reached a pick eight times in twenty seeds, and the pick is checked
       // for a plan before the cast starts, so nothing here can wedge.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}) };
+      // D406 - the additional cost's picks: the first candidates the offer lists (an offer whose candidates
+      // fall short is not made unless `or pay {M}` stands in, and then no pick is named).
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -923,6 +949,8 @@ interface Run {
   readonly kickedEntries: number;
   /** D404 - non-commander casts priced below their printed generic by a board-granted reduction. */
   readonly reducedCasts: number;
+  /** D406 - casts that paid an additional cost (a chooser verb's picks, a life payment, or the mana alternative). */
+  readonly additionalCostCasts: number;
   /** D405 - casts paid in part by convoke, by improvise, by delve (the stack object's counts). */
   readonly convokedCasts: number;
   readonly improvisedCasts: number;
@@ -1222,6 +1250,7 @@ function runOne(seed: number): Run {
     kickedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0).length,
     kickedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.to.kind === 'battlefield' && (m.kicked ?? 0) > 0)).length,
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
+    additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
     improvisedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.improvised ?? 0) > 0).length,
     delvedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.delved ?? 0) > 0).length,
@@ -1382,6 +1411,7 @@ const TOTAL_KEYS = [
   'kickedCasts',
   'kickedEntries',
   'reducedCasts',
+  'additionalCostCasts',
   'convokedCasts',
   'improvisedCasts',
   'delvedCasts',
@@ -1651,6 +1681,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D405 - Pack's Favor convoked and Hooting Mandrills delved at gate size (improvise counted only).
         expect(totals.convokedCasts).toBeGreaterThan(0);
         expect(totals.delvedCasts).toBeGreaterThan(0);
+        // D406 - Village Rites' sacrifice and Tormenting Voice's discard paid at gate size.
+        expect(totals.additionalCostCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1729,6 +1761,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.kickedCasts} kicked casts / ${totals.kickedEntries} kicked entries · ` +
           `${totals.reducedCasts} casts priced down by the board · ` +
           `${totals.convokedCasts} convoked / ${totals.improvisedCasts} improvised / ${totals.delvedCasts} delved casts · ` +
+          `${totals.additionalCostCasts} casts paying an additional cost · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

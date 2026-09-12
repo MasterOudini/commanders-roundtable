@@ -539,6 +539,9 @@ export function linesUnaccounted(
     ) {
       continue;
     }
+    // D406 - an additional cost the engine CHARGES at cast (a chooser verb or a life payment, read by
+    // the activated cost grammar): the cast names the picks, the cost batch pays them ahead of the mana.
+    if (face.additionalCost !== null && face.additionalCost.line === line) continue;
     // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
     // turned face up for the cost). Asked of the parser that read it.
     if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;

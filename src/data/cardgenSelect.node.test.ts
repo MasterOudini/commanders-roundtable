@@ -2031,6 +2031,46 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Kasla, the Broken Halo', 'a filtered cast head outside the closed reader (whenever you cast a spell with convoke) beside its convoke'],
   ['Merrow Skyswimmer', 'a token outside TOKEN_TABLE (a 1/1 white and blue Merfolk) under an enters head, beside its convoke'],
 
+  // D406 - the additional cost at cast: the thirty-five the selector offered once the cost line was the
+  // engine's that the row maker refused, by reason (thirty-four spells for their other line - this
+  // generator rows no spell but a mass pump, and most read the SACRIFICED permanent's power, toughness or
+  // mana value, a referent the vocabulary does not carry; one creature for a battle clause).
+  ['Burnt Offering', "a spell line outside the row vocabulary beside its sacrifice cost (X mana of {B} and/or {R}, X the sacrificed creature's mana value)"],
+  ['Call for Blood', "a spell line outside the row vocabulary beside its sacrifice cost (-X/-X, X the sacrificed creature's power)"],
+  ['Corpse Explosion', "a spell line outside the row vocabulary beside its exile-from-graveyard cost (damage equal to the exiled card's power to each creature)"],
+  ['Corpse Lunge', "a spell line outside the row vocabulary beside its exile-from-graveyard cost (damage equal to the exiled card's power)"],
+  ['Culling the Weak', 'a spell line outside the row vocabulary beside its sacrifice cost (Add {B}{B}{B}{B} - a mana spell)'],
+  ['Embrace Oblivion', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy target creature or Spacecraft)'],
+  ['Endemic Plague', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy all creatures sharing a type with the sacrificed one)'],
+  ['Final Strike', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power to an opponent)"],
+  ['Fling', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power)"],
+  ['Fodder Launch', 'a spell line outside the row vocabulary beside its sacrifice cost (-5/-5 and 5 damage to its controller)'],
+  ['Foundry Helix', 'a spell line outside the row vocabulary beside its sacrifice cost (4 damage, life if the sacrificed permanent was an artifact)'],
+  ['Fumarole', 'a spell line outside the row vocabulary beside its life cost (destroy target creature AND target land - two targets of two kinds)'],
+  ['Grab the Prize', 'a spell line outside the row vocabulary beside its discard cost (draw two, a Treasure if the discarded card was not a land - a discard referent)'],
+  ['Hellish Sideswipe', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy target creature or Vehicle, then a sacrificed-permanent referent)'],
+  ['Honor the God-Pharaoh', 'a spell line outside the row vocabulary beside its discard cost (draw two, amass Zombies 1)'],
+  ['Ichor Explosion', "a spell line outside the row vocabulary beside its sacrifice cost (all creatures get -X/-X, X the sacrificed creature's power)"],
+  ['Infernal Plunge', 'a spell line outside the row vocabulary beside its sacrifice cost (Add {R}{R}{R} - a mana spell)'],
+  ["Life's Legacy", "a spell line outside the row vocabulary beside its sacrifice cost (draw cards equal to the sacrificed creature's power)"],
+  ['Metamorphosis', "a spell line outside the row vocabulary beside its sacrifice cost (X mana of one colour, X one plus the sacrificed creature's mana value)"],
+  ['Mind Extraction', 'a spell line outside the row vocabulary beside its sacrifice cost (a reveal and a discard of a colour the sacrificed creature shared)'],
+  ['Momentous Fall', "a spell line outside the row vocabulary beside its sacrifice cost (draw and gain life by the sacrificed creature's power and toughness)"],
+  ['Morbid Curiosity', "a spell line outside the row vocabulary beside its sacrifice cost (draw cards equal to the sacrificed permanent's mana value)"],
+  ['New Blood', 'a spell line outside the row vocabulary beside its tap cost (gain control of target creature and change its text)'],
+  ['Pyrrhic Blast', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power, then a draw)"],
+  ["Reckoner's Bargain", "a spell line outside the row vocabulary beside its sacrifice cost (life equal to the sacrificed permanent's mana value, then a draw)"],
+  ['Rite of Consumption', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power, that much life)"],
+  ['Ritual of the Machine', 'a spell line outside the row vocabulary beside its sacrifice cost (gain control of target nonartifact, nonblack creature - a permanent control change)'],
+  ['Sacrifice', "a spell line outside the row vocabulary beside its sacrifice cost (Add {B} equal to the sacrificed creature's mana value - a mana spell)"],
+  ['Severed Strands', "a spell line outside the row vocabulary beside its sacrifice cost (life equal to the sacrificed creature's toughness, then a destroy)"],
+  ['Thud', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power)"],
+  ['Tormented Thoughts', "a spell line outside the row vocabulary beside its sacrifice cost (a discard equal to the sacrificed creature's power)"],
+  ['Ultimate Nullification', 'a spell line outside the row vocabulary beside its sacrifice cost (exile all creatures and graveyards, then a library placement)'],
+  ['Renewal', 'a spell line outside the row vocabulary beside its sacrifice cost (a search onto the battlefield, then a draw)'],
+  ["Sazacap's Brew", 'a gift line beside its discard cost (Gift a tapped Fish) outside the row vocabulary'],
+  ['Sparkhunter Masticore', 'a vocabulary clause the suite has no fixture for (a battle clause) beside its discard cost'],
+
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a
   // lowercase word it cannot place refuses the whole cost. The row maker mirrors it now.

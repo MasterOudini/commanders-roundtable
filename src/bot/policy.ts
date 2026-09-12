@@ -16,7 +16,35 @@ import { planTargets } from './targets';
 import { decideRandom } from './random';
 import { creatureValue } from './eval';
 import { act, wait, type BotConfig, type BotDecision, type BotPort, type BotSnapshot } from './types';
-import { altCount } from '../engine/altPayment';
+import { NO_ALT, altCount } from '../engine/altPayment';
+import type { CostPicks } from '../net/client';
+
+/**
+ * D406 - the picks a cast's additional cost takes, off the offer's own candidate lists: the least
+ * valuable creature for a sacrifice (a token before a body), the first candidates for the rest. Null
+ * when the offer carries a verb its candidates cannot pay (the `or pay {M}` alternative then stands
+ * in) or no verb at all.
+ */
+function castPicksFor(cast: Extract<LegalAction, { t: 'CastSpell' }>, view: PlayerView): CostPicks | null {
+  const first = (ids: readonly string[] | undefined, n: number | undefined): readonly string[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
+  if (cast.sacrificeCandidates && cast.sacrificeCount !== undefined) {
+    if (cast.sacrificeCandidates.length < cast.sacrificeCount) return null;
+    const ranked = [...cast.sacrificeCandidates].sort((a, b) => {
+      const ca = view.cards[a], cb = view.cards[b];
+      return (ca && cb ? (ca.isToken === cb.isToken ? 0 : ca.isToken ? -1 : 1) : 0) || ((ca ? creatureValue(ca) : 0) - (cb ? creatureValue(cb) : 0));
+    });
+    return { sacrifice: ranked.slice(0, cast.sacrificeCount) };
+  }
+  const discard = first(cast.discardCandidates, cast.discardCount);
+  if (discard) return { discard };
+  const tap = first(cast.tapCandidates, cast.tapCount);
+  if (tap) return { tap };
+  const exileFromGraveyard = first(cast.exileFromGraveyardCandidates, cast.exileFromGraveyardCount);
+  if (exileFromGraveyard) return { exileFromGraveyard };
+  const returnToHand = first(cast.returnCandidates, cast.returnCount);
+  if (returnToHand) return { returnToHand };
+  return null;
+}
 
 type Cast = Extract<LegalAction, { t: 'CastSpell' }>;
 type Land = Extract<LegalAction, { t: 'PlayLand' }>;
@@ -173,11 +201,20 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
     // D403 - a kicker is paid when the kicked cast has a plan: the kick is what the card is for, and
     // an unkicked cast is the fallback. One kick of a multikicker (the count is a price the bot
     // does not weigh yet).
-    const kicked = cast.kicker ? port.previewCast(cast.card, 0, targets, 1) : null;
-    const plain = kicked?.plan ? kicked : port.previewCast(cast.card, 0, targets);
+    // D406 - an additional cost with a chooser verb: the picks come off the offer's own lists (the least
+    // valuable creature for a sacrifice, the first candidates otherwise); with `or pay {M}` printed the
+    // mana is preferred while a plan exists, the picks are the fallback.
+    const picks = castPicksFor(cast, view);
+    const withMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, 0, targets, cast.kicker ? 1 : 0, NO_ALT, {}) : null;
+    const withPicks = picks !== null ? port.previewCast(cast.card, 0, targets, cast.kicker ? 1 : 0, NO_ALT, picks) : null;
+    const kickedTry = withMana?.plan ? withMana : withPicks?.plan ? withPicks : null;
+    const kicked = cast.kicker ? kickedTry : null;
+    const plainMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, {}) : null;
+    const plainPicks = picks !== null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, picks) : null;
+    const plain = kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
     // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
     // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
-    const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, 0, targets, 0, 'auto') : null;
+    const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, 0, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
     const preview = plain?.plan ? plain : withAlt?.plan ? withAlt : null;
     if (!preview?.plan) continue;
     return act(
@@ -192,6 +229,11 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
         ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
         ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
+        ...(preview.costPicks.sacrifice ? { sacrifice: preview.costPicks.sacrifice } : {}),
+        ...(preview.costPicks.discard ? { discard: preview.costPicks.discard } : {}),
+        ...(preview.costPicks.tap ? { tap: preview.costPicks.tap } : {}),
+        ...(preview.costPicks.exileFromGraveyard ? { exileFromGraveyard: preview.costPicks.exileFromGraveyard } : {}),
+        ...(preview.costPicks.returnToHand ? { returnToHand: preview.costPicks.returnToHand } : {}),
       },
       `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );

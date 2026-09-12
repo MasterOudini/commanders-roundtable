@@ -27,6 +27,7 @@ import {
   tapCandidatesFor,
   removeCounterCandidatesFor,
   returnCandidatesFor,
+  castCostCandidates,
 } from './legal';
 import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom } from './mana';
 import { hybridCombinations, spendFromPool } from './mana';
@@ -383,6 +384,125 @@ interface CastSetup {
   readonly kicked: number;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
+  /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
+  readonly picks: CastPicks;
+  readonly orPaid: boolean;
+}
+
+/** D406 - the picks a cast names for its additional cost's chooser verb. */
+interface CastPicks {
+  readonly sacrifice: readonly InstanceId[];
+  readonly discard: readonly InstanceId[];
+  readonly tap: readonly InstanceId[];
+  readonly exileFromGraveyard: readonly InstanceId[];
+  readonly returnToHand: readonly InstanceId[];
+}
+const NO_PICKS: CastPicks = { sacrifice: [], discard: [], tap: [], exileFromGraveyard: [], returnToHand: [] };
+const picksCount = (p: CastPicks): number => p.sacrifice.length + p.discard.length + p.tap.length + p.exileFromGraveyard.length + p.returnToHand.length;
+const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly discard?: readonly InstanceId[]; readonly tap?: readonly InstanceId[]; readonly exileFromGraveyard?: readonly InstanceId[]; readonly returnToHand?: readonly InstanceId[] }): CastPicks => ({
+  sacrifice: p.sacrifice ?? [], discard: p.discard ?? [], tap: p.tap ?? [], exileFromGraveyard: p.exileFromGraveyard ?? [], returnToHand: p.returnToHand ?? [],
+});
+
+/**
+ * D406 - is what the cast names the ADDITIONAL COST's price? Exactly the count, distinct, from the
+ * offer's own candidates (`castCostCandidates`, D139: one list); no picks with `or pay {M}` printed
+ * takes the mana instead (`orPaid`); a face with no such cost takes no picks at all.
+ */
+function additionalCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, picks: CastPicks): { orPaid: boolean } | { error: HandleResult } {
+  const add = face.additionalCost;
+  if (!add) return picksCount(picks) > 0 ? { error: reject('notCastable', `${face.name} has no additional cost the app charges.`) } : { orPaid: false };
+  const cache = makeDeriveCache(state);
+  const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), player, cardId, add);
+  const VERBS = [
+    [add.sacrificeCost, picks.sacrifice, 'sacrificeCandidates', 'needsSacrifice', 'illegalSacrifice', 'sacrifices', 'permanent'],
+    [add.discardCost, picks.discard, 'discardCandidates', 'needsDiscard', 'illegalDiscard', 'discards', 'card'],
+    [add.tapCost, picks.tap, 'tapCandidates', 'needsTap', 'illegalTap', 'taps', 'untapped permanent'],
+    [add.exileFromGraveyardCost, picks.exileFromGraveyard, 'exileFromGraveyardCandidates', 'needsExileFromGraveyard', 'illegalExileFromGraveyard', 'exiles', 'card from your graveyard'],
+    [add.returnCost, picks.returnToHand, 'returnCandidates', 'needsReturn', 'illegalReturn', 'returns', 'permanent'],
+  ] as const;
+  let orPaid = false;
+  for (const [cost, got, key, needs, illegal, verb, noun] of VERBS) {
+    if (cost === null) {
+      if (got.length > 0) return { error: reject('notCastable', `${face.name}'s additional cost is to ${add.costText}, not that.`) };
+      continue;
+    }
+    if (got.length === 0 && add.orPay) { orPaid = true; continue; }
+    if (got.length !== cost.count) return { error: reject(needs, `${face.name}'s additional cost ${verb} ${cost.count} ${noun}${cost.count === 1 ? '' : 's'} - say which.`) };
+    if (new Set(got).size !== got.length) return { error: reject('noSuchCard', 'You named the same card twice.') };
+    const legal = (cand.fields[key] ?? []) as readonly InstanceId[];
+    if (!got.every((c) => legal.includes(c))) return { error: reject(illegal, `Those cannot pay ${face.name}'s additional cost (${add.costText}).`) };
+  }
+  return { orPaid };
+}
+
+/** D406 - what the additional cost adds to the payment problem: the `or pay {M}` mana when taken, the life otherwise. */
+function additionalExtras(face: ReturnType<typeof faceOf>, orPaid: boolean): { readonly mana: ManaCost[]; readonly life: number } {
+  const add = face.additionalCost;
+  if (!add) return { mana: [], life: 0 };
+  return { mana: orPaid && add.orPay ? [add.orPay] : [], life: orPaid ? 0 : add.lifeCost };
+}
+
+/**
+ * D406 - the additional cost's picks paid in the cost batch, through the ordinary moves so the watchers
+ * see them as any sacrifice, discard, tap, exile or return (the activated cost batch's shapes, D168 /
+ * D286 / D329 / D352); the life rides the payment plan. Re-checked here because the X and targets
+ * stages may have sat between the choice and the charge.
+ */
+function additionalCostEvents(state: GameState, deps: EngineDeps, player: PlayerId, identity: readonly import('../data/cardTypes').ColorLetter[], picks: CastPicks): { events: EventBody[] } | { error: HandleResult } {
+  const events: EventBody[] = [];
+  if (picks.sacrifice.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'sacrifice' }[] = [];
+    let chosen = state.cards[picks.sacrifice[0] as InstanceId];
+    for (const id of picks.sacrifice) {
+      const inst = state.cards[id];
+      if (!inst || inst.zone.kind !== 'battlefield') return { error: reject('noSuchCard', 'A permanent chosen for the sacrifice is not on the battlefield.') };
+      chosen = inst;
+      moves.push({ card: id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'graveyard', player: inst.owner }, reason: 'sacrifice' });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    const chosenPrinting = chosen ? deps.oracle.byPrinting(chosen.printingId) : null;
+    const chosenName = moves.length > 1 ? `${moves.length} permanents` : chosenPrinting && chosen ? faceOf(chosenPrinting, chosen.faceIndex).name : 'a permanent';
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'sacrifices', 'sacrifice')} ${chosenName}.`, player, identity));
+  }
+  if (picks.discard.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'hand'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'discard' }[] = [];
+    for (const chosen of picks.discard) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'hand' || inst.zone.player !== player) return { error: reject('noSuchCard', 'A card chosen for the discard is no longer in your hand.') };
+      moves.push({ card: chosen, from: { kind: 'hand', player }, to: { kind: 'graveyard', player: inst.owner }, reason: 'discard' });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'discards', 'discard')} ${moves.length} card${moves.length === 1 ? '' : 's'}.`, player, identity));
+  }
+  if (picks.tap.length > 0) {
+    for (const chosen of picks.tap) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'battlefield' || inst.tapped || inst.controller !== player) return { error: reject('noSuchCard', 'A permanent chosen to tap is no longer untapped under your control.') };
+    }
+    events.push({ t: 'PermanentsTapped', cards: [...picks.tap] });
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'taps', 'tap')} ${picks.tap.length} permanent${picks.tap.length === 1 ? '' : 's'}.`, player, identity));
+  }
+  if (picks.exileFromGraveyard.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'graveyard'; player: PlayerId }; to: { kind: 'exile'; player: PlayerId } }[] = [];
+    for (const chosen of picks.exileFromGraveyard) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'graveyard' || inst.zone.player !== player) return { error: reject('noSuchCard', 'A card chosen for the exile is no longer in your graveyard.') };
+      moves.push({ card: chosen, from: { kind: 'graveyard', player }, to: { kind: 'exile', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'exiles', 'exile')} ${moves.length} card${moves.length === 1 ? '' : 's'} from the graveyard.`, player, identity));
+  }
+  if (picks.returnToHand.length > 0) {
+    const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'hand'; player: PlayerId } }[] = [];
+    for (const chosen of picks.returnToHand) {
+      const inst = state.cards[chosen];
+      if (!inst || inst.zone.kind !== 'battlefield' || inst.controller !== player) return { error: reject('noSuchCard', 'A permanent chosen to return is no longer on the battlefield under your control.') };
+      moves.push({ card: chosen, from: { kind: 'battlefield', player }, to: { kind: 'hand', player: inst.owner } });
+    }
+    events.push({ t: 'CardsMoved', moves });
+    events.push(narrated(n`${who(state, player)} ${vb(player, 'returns', 'return')} ${moves.length} permanent${moves.length === 1 ? '' : 's'} to hand.`, player, identity));
+  }
+  return { events };
 }
 
 /**
@@ -453,15 +573,21 @@ function altEvents(state: GameState, player: PlayerId, alt: AltChoice): EventBod
 }
 
 /** D405 - a solve input without the permanents the cast taps for its alternatives: a mana creature convoked cannot also be tapped for mana. */
-function solveWithout(solve: SolveInput, alt: AltChoice): SolveInput {
-  if (alt.convoke.length + alt.improvise.length === 0) return solve;
-  const gone = new Set<InstanceId>([...alt.convoke, ...alt.improvise]);
+function solveWithout(solve: SolveInput, alt: AltChoice, tapped: readonly InstanceId[] = []): SolveInput {
+  if (alt.convoke.length + alt.improvise.length + tapped.length === 0) return solve;
+  const gone = new Set<InstanceId>([...alt.convoke, ...alt.improvise, ...tapped]);
   return { ...solve, sources: solve.sources.filter((s) => !gone.has(s.card)) };
 }
 
 /** D405 - does the mana plan tap a permanent the cast already taps for convoke or improvise? */
-function planTapsAlt(plan: import('./types/mana').PaymentPlan, alt: AltChoice): boolean {
-  return plan.taps.some((t) => alt.convoke.includes(t.source) || alt.improvise.includes(t.source));
+function planTapsAlt(plan: import('./types/mana').PaymentPlan, alt: AltChoice, tapped: readonly InstanceId[] = []): boolean {
+  return plan.taps.some((t) => alt.convoke.includes(t.source) || alt.improvise.includes(t.source) || tapped.includes(t.source));
+}
+
+/** D406 - the count the stack object remembers: the picks, a life payment as one, the mana alternative as one. */
+function additionalPaidOf(face: ReturnType<typeof faceOf>, picks: CastPicks, orPaid: boolean): { additionalPaid?: number } {
+  if (!face.additionalCost) return {};
+  return { additionalPaid: picksCount(picks) + (orPaid ? 1 : 0) + (!orPaid && face.additionalCost.lifeCost > 0 ? 1 : 0) };
 }
 
 /** D405 - the counts the stack object remembers, only when something was tapped or exiled. */
@@ -556,6 +682,7 @@ function prepareCast(
   faceDown = false,
   kicked = 0,
   alt: AltChoice = NO_ALT,
+  picks: CastPicks = NO_PICKS,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -608,12 +735,17 @@ function prepareCast(
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked)], tax, ward.life);
+  // D406 - the additional cost's picks are checked against the offer's own lists; the life (or the
+  // mana alternative) rides the problem, the picks are paid in the cost batch at completion.
+  const addr = additionalCostProblem(state, deps, player, cardId, face, picks);
+  if ('error' in addr) return addr;
+  const extras = additionalExtras(face, addr.orPaid);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -695,6 +827,7 @@ function castSpell(
     intent.faceDown === true,
     intent.kicked ?? 0,
     { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [] },
+    picksOf(intent),
   );
   if ('error' in setup) return setup.error;
 
@@ -772,6 +905,12 @@ function castSpell(
       taxApplied: setup.tax,
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
       ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
+      ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
+      ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
+      ...(setup.picks.tap.length > 0 ? { tap: setup.picks.tap } : {}),
+      ...(setup.picks.exileFromGraveyard.length > 0 ? { exileFromGraveyard: setup.picks.exileFromGraveyard } : {}),
+      ...(setup.picks.returnToHand.length > 0 ? { returnToHand: setup.picks.returnToHand } : {}),
+      ...(setup.orPaid ? { orPaid: true as const } : {}),
     };
     return accept([
       {
@@ -847,7 +986,8 @@ function chooseX(
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
   // D403 - the kick announced with the cast stays in the problem X resizes.
-  const base = buildPaymentProblem(face.manaCost, intent.x, kickerMana(face, pending.kicked ?? 0), pending.taxApplied);
+  const xExtras = additionalExtras(face, pending.orPaid === true);
+  const base = buildPaymentProblem(face.manaCost, intent.x, [...kickerMana(face, pending.kicked ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life);
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -1499,9 +1639,9 @@ function chooseTargets(
     face.manaCost,
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0)],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0), ...additionalExtras(face, pending.orPaid === true).mana],
     pending.taxApplied,
-    ward.life,
+    ward.life + additionalExtras(face, pending.orPaid === true).life,
   );
   // D405 - the alternatives the cast named stay in the problem the targets reprice.
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
@@ -1580,7 +1720,7 @@ interface CompleteArgs {
 function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): HandleResult {
   const { setup } = args;
   // D405 - a permanent the cast taps for convoke or improvise is no mana source for the same cast.
-  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, args.player), setup.alt);
+  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, args.player), setup.alt, setup.picks.tap);
   // D397 - the spell this face is cast as, face down a colourless creature (CR 708.2).
   const purpose = spellPurpose(setup.face, setup.faceDown === true);
   const plan = args.plan ?? suggestPayment(solve, setup.problem, purpose);
@@ -1597,7 +1737,10 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   if (problem === 'invalid') {
     return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
   }
-  if (planTapsAlt(plan, setup.alt)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
+  if (planTapsAlt(plan, setup.alt, setup.picks.tap)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
+  // D406 - the additional cost's picks, paid first (a sacrifice, a discard, a tap, an exile, a return).
+  const paid = additionalCostEvents(state, deps, args.player, setup.identity, setup.picks);
+  if ('error' in paid) return paid.error;
 
   const stackId = `s${state.counters.stack + 1}`;
   const events: EventBody[] = [
@@ -1615,6 +1758,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     },
   ];
   // D405 - the taps and the exiles of convoke, improvise and delve, then the mana.
+  events.push(...paid.events);
   events.push(...altEvents(state, args.player, setup.alt));
   events.push(...payEvents(state, deps, args.player, plan, setup, purpose));
 
@@ -1639,6 +1783,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.faceDown ? { faceDown: true as const } : {}),
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     ...altCounts(setup.alt),
+    ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -2035,7 +2180,8 @@ function finishFromPending(
   const plan = opts.plan;
   // D405 - a permanent the cast taps for convoke or improvise is no mana source for the same cast.
   const alt = pending.alt ?? NO_ALT;
-  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, pending.player), alt);
+  const picks = pending.kind === 'spell' ? picksOf(pending) : NO_PICKS;
+  const solve = solveWithout(solveInputFor(state, deps.oracle, deps.scripts, pending.player), alt, picks.tap);
   // D397 - what this pays for: the spell the face is cast as, or the ability of its source.
   const src = pending.kind === 'ability' ? derive(state, deps.oracle, deps.scripts, pending.card) : null;
   const purpose = src ? abilityPurpose(src.typeLine, src.colors) : spellPurpose(face, pending.faceDown === true);
@@ -2046,7 +2192,9 @@ function finishFromPending(
   const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen, purpose);
   if (problem === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (problem === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
-  if (planTapsAlt(chosen, alt)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
+  if (planTapsAlt(chosen, alt, picks.tap)) return reject('invalidPaymentPlan', 'That payment taps a permanent the cast already taps.');
+  const paid = additionalCostEvents(state, deps, pending.player, identity, picks);
+  if ('error' in paid) return paid.error;
 
   const setup: CastSetup = {
     problem: pending.problem,
@@ -2055,6 +2203,8 @@ function finishFromPending(
     from: pending.from,
     kicked: pending.kicked ?? 0,
     alt,
+    picks,
+    orPaid: pending.orPaid === true,
     identity,
   };
   const events: EventBody[] = [...(opts.lead ?? [])];
@@ -2068,7 +2218,8 @@ function finishFromPending(
   if (pending.xValue !== null && !opts.xAlreadyLogged) {
     events.push({ t: 'XChosen', x: pending.xValue, problem: pending.problem });
   }
-  // D405 - the taps and the exiles of convoke, improvise and delve, then the mana.
+  // D406 - the additional cost's picks first, then D405's taps and exiles, then the mana.
+  events.push(...paid.events);
   events.push(...altEvents(state, pending.player, alt));
   events.push(...payEvents(state, deps, pending.player, chosen, setup, purpose));
 
@@ -2092,6 +2243,7 @@ function finishFromPending(
     castFrom: pending.from,
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
     ...altCounts(alt),
+    ...additionalPaidOf(face, picks, pending.orPaid === true),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {

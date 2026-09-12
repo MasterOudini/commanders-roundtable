@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { COBBLED_LANCER_SCRIPT } from './cards/cobbledLancer';
+import { LESSER_MASTICORE_SCRIPT } from './cards/lesserMasticore';
 import { FREEJAM_REGENT_SCRIPT } from './cards/freejamRegent';
 import { INTERDISCIPLINARY_MASCOT_SCRIPT } from './cards/interdisciplinaryMascot';
 import { KAVU_PRIMARCH_SCRIPT } from './cards/kavuPrimarch';
@@ -5813,6 +5815,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  COBBLED_LANCER_SCRIPT,
+  LESSER_MASTICORE_SCRIPT,
   FREEJAM_REGENT_SCRIPT,
   INTERDISCIPLINARY_MASCOT_SCRIPT,
   KAVU_PRIMARCH_SCRIPT,

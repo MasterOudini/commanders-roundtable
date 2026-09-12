@@ -15544,6 +15544,115 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
       BLOCKS.
 
+- [x] **M6.4im — THE ADDITIONAL COST AT CAST: `As an additional cost to cast
+      this spell, <cost>.` read through the activated cost grammar onto the
+      face, the picks named by the cast and checked against the offer's own
+      lists, paid in the cost batch ahead of the mana, `or pay {M}` the verb's
+      alternative (2026-09-12):** **9,024 of 31,692 Commander-legal cards now
+      execute completely, up from 8,948 (+76: 2 generated rows and 74 cards
+      the seam completes with no script — Altar's Reap, Village Rites, Bone
+      Splinters, Natural Order, Crop Rotation, Deprive, Tormenting Voice,
+      Cathartic Reunion, Eaten Alive, the Skaabs …).** `SHIPPED_SCRIPTS` 5,787
+      → **5,789**; ledger 1,307 → **1,342** (thirty-five ADDED by reason).
+      Fixtures 6,386 → **6,394** (6,237 by name + 150 tokens). `scriptableToday`
+      1,402 → **1,440** (the seam offered 37, the wave took 2, the thirty-five
+      refused are ledgered); the select pool 0 → 37 → 0; the ladder `[1440,
+      1531, 2918, 4594, 5946]`. Bot reach 8,875 → **8,951** from 269
+      commanders. Decisions in **D406**; an engine seam on Opus 5 by the
+      user's choice, in the D405 shape — the fourth step of the COST
+      MODIFICATION subsystem.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the reveal-the-top family prices at 27
+      lines / 18 one-piece; the quoted-grant scopes are mostly BODIES the
+      vocabulary cannot read; the `for each` family is 645 one-piece lines
+      over 324 nouns; the additional costs are 305 lines and, with the cost
+      line dropped from the clauses, ~55 spells read whole (`sacrifice a
+      creature` 18, `discard a card` 6, `sacrifice an artifact or creature` 5,
+      `sacrifice a land` 5, the `or pay {M}` forms 7 …) — and the cost verbs,
+      the candidate lists and the pick UI all existed for activated abilities.
+      ⚠️ **THE SEAM:** `parseAdditionalCost` runs the line's cost through
+      `parseActivatedAbilities` as a synthetic `<Cost>: Draw a card.` — one
+      chooser verb (a sacrifice, a discard, a tap, an exile from the
+      graveyard, a return) or a life payment, `or pay {M}` the alternative; a
+      random discard, two verbs, a counter cost, a self cost and an unread
+      phrase leave the line UNREAD (D90). `OracleFace.additionalCost`; the
+      line CLAIMED and dropped from a spell's clauses on the PRINTED line only
+      when read; the classifier's own. `legal.ts`: `castCostCandidates` — the
+      activated offer's own functions — on the CastSpell action
+      (`sacrificeCandidates` / `sacrificeCount` and siblings,
+      `additionalCostText`, `orPay`); a verb its candidates cannot pay is not
+      offered unless the mana stands in. `handlers.ts`: `CastSpell.sacrifice`
+      / `discard` / `tap` / `exileFromGraveyard` / `returnToHand` checked by
+      `additionalCostProblem` (exactly the count, distinct, from the offer's
+      list; none with `or pay` printed takes the mana — `orPaid`);
+      `additionalExtras` priced at the cast and REPRICED at the X and targets
+      stages (`PendingCast.orPaid`); `additionalCostEvents` pays the picks
+      FIRST in the cost batch with the activated batch's own event shapes
+      (`reason: 'sacrifice'` / `'discard'`), then D405's taps and exiles, then
+      the mana; a tapped pick is no mana source; `StackObject.additionalPaid`.
+      The client's `previewCast(…, costPicks)`; the UI's `sacrifice` /
+      `costPick` modes marked `cast` (`beginCastPicks`), the veil reading the
+      CastSpell action's candidates, the picks riding the targeting mode into
+      the review, which shows the cost and sends the picks; the bot's picks
+      (a token before a body, the least valuable creature; the mana alternative
+      preferred while a plan exists); the driver's first candidates.
+      `src/engine/additionalCost.test.ts` (3): the grammar and the refusals,
+      the claim; Altar's Reap (no pick / a stranger's creature refused, the
+      Bears sacrificed in the cost batch before the stack, two drawn, no
+      creature left means no offer); Tormenting Voice (never its own discard);
+      Eaten Alive (the mana alternative); Withering Boon (the life).
+      **Fuzz:** Village Rites and Tormenting Voice staples feeding
+      `additionalCostCasts`, a floor at gate size (95 over 500 seeds;
+      9 at 60, measured first).
+      **Landed:** 2 rows (Cobbled Lancer, Lesser Masticore). Refused by reason
+      (35): thirty-four spells this generator does not row — most reading the
+      SACRIFICED permanent's power, toughness or mana value (Fling, Thud,
+      Life's Legacy, Momentous Fall …), two mana spells, a two-kind target, a
+      control change, a text change, a gift; a battle clause. The row maker's
+      spell refusal names the real line. botPool creature 5,303 / instant
+      1,209 / sorcery 917 — auto 1,436 / assisted 1,900 · `oracleParse`
+      `effect:auto` 6,200 · tier3 silentAfter 9,312 · the `counter` primitive
+      1,253 · `token` 970 · batch.json 37 · select pool 0.
+      ⚠️ **THE BUILD'S TYPECHECK IS THE ONE THAT COUNTS:** `tsc --noEmit -p`
+      passed what `tsc -b` refused (an unimported type in `legal.ts`) — check
+      with `tsc -b`. ⚠️ A heredoc halves an ESCAPED QUOTE too (a ledger reason
+      with an apostrophe is emitted double-quoted by a builder).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 5958 files,
+      28986 passed / 11 skipped · 500-seed gate, 6 shards, 1062.7 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D406): the SACRIFICED REFERENT (twenty-odd spells —
+      `damage equal to the sacrificed creature's power`, `X the sacrificed
+      creature's mana value`); a random discard as a cast cost (3); two verbs
+      joined by `or`; a counter cost at cast; `discard a card or pay N life`;
+      the FaceChoice path without the pick stage (fails safe); picks chosen
+      before the targets; the bot's sacrifice ranking; the mana spells with a
+      cost; then D405's list unchanged — HYBRID symbols paid by convoke, a
+      per-creature chooser in the review, the bot's convoke as a fallback
+      only, `Flying, convoke`, the convoke REFERENTS, `whenever you cast a
+      spell with convoke`, the fifteen convoke spells this generator does not
+      row, Emerge, Affinity for <kind>, the other alternative costs (111 / 13),
+      the `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the reveal-the-top
+      family (27 / 18 over eight forms), the quoted-grant BODIES, `Noncreature
+      spells` (6), `Colorless spells` (3), `Face-down creature spells` (2), the
+      leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE
+      VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker
+      `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+      `whenever you cast a kicked spell`, the REFERENT across the wait, the
+      self-aimed delayed forms, the HOST characteristics under an attached
+      static (29), "you control a token", the incarnations' graveyard statics
+      (5), `Whenever you attack` and the each-combat head, the `for each <X>`
+      family (645 one-piece over 324 nouns), the payment heads, the search
+      residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE
+      FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory
+      (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+      twenty-two older fight and bite suites, token copies (15), the untap skip
+      (15), the durations proper (23 / 33 / 14), the permanent control family
+      (20) and exchange control (24), the object stamp (CR 400.7), the
+      activation restrictions (313), the keyword entry replacements (22), copy
+      (~200 — waits for Fable), the prompt CONTINUATION seam proper, the two
+      gate items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER
+      NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

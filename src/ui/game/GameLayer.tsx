@@ -65,10 +65,13 @@ export function GameLayer({
     // clickable, and the veil can never offer what the engine would refuse.
     // An ability that left `legal` entirely offers nothing; Escape backs out.
     if (mode.kind === 'sacrifice') {
-      const live = legal.find(
-        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
-      );
-      const candidates = live?.t === 'ActivateAbility' ? (live.sacrificeCandidates ?? []) : [];
+      // D406 - a CAST's sacrifice reads its candidates off the CastSpell action the same way.
+      const live = mode.cast
+        ? legal.find((a) => a.t === 'CastSpell' && a.card === mode.card)
+        : legal.find(
+            (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
+          );
+      const candidates = live?.t === 'ActivateAbility' || live?.t === 'CastSpell' ? (live.sacrificeCandidates ?? []) : [];
       setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
       return;
     }
@@ -76,11 +79,13 @@ export function GameLayer({
     // too, minus what is already chosen, so a card that left the hand or a
     // permanent that got tapped mid-pick stops being clickable.
     if (mode.kind === 'costPick') {
-      const live = legal.find(
-        (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
-      );
+      const live = mode.cast
+        ? legal.find((a) => a.t === 'CastSpell' && a.card === mode.card)
+        : legal.find(
+            (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
+          );
       const pool =
-        live?.t === 'ActivateAbility'
+        live?.t === 'ActivateAbility' || live?.t === 'CastSpell'
           ? ((mode.verb === 'discard'
               ? live.discardCandidates
               : mode.verb === 'tap'
