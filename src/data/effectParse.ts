@@ -222,6 +222,7 @@ const BASE: EffectFields = {
   thenDraw: 0,
   pay: null,
   cantBeBlocked: false,
+  exileScope: null,
   sacrifice: null,
   delay: null,
   ifKicked: false,
@@ -908,6 +909,13 @@ const RULES: readonly Rule[] = [
   { kind: 'connive', re: new RegExp(`^${SELF} connives\\.$`, 'i'), build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true }) },
   { kind: 'connive', re: new RegExp(`^${SELF} connives, then (?:it|${SELF}) connives again\\.$`, 'i'), build: () => ({ ...BASE, amount: 2, targetIndex: -1, self: true }) },
   { kind: 'connive', re: new RegExp(`^${TARGET} connives\\.$`, 'i'), build: () => ({ ...BASE, amount: 1 }) },
+  // D413 - THE EXILE-INSTEAD RIDER (CR 614.1). The targeted form reaches the previous clause's target
+  // through the referent rewrite (`If that creature would die ...` - the lead admits `if`); the
+  // dealt-damage form marks what this resolution damaged; the bare forms mark the board.
+  { kind: 'exileIfDies', re: new RegExp(`^if ${TARGET}(?: or planeswalker)? would die this turn, exile (?:it|${TARGET}) instead\\.$`, 'i'), build: () => ({ ...BASE, exileScope: 'target' }) },
+  { kind: 'exileIfDies', re: /^if a (?:creature|permanent) dealt damage this way would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'damaged' }) },
+  { kind: 'exileIfDies', re: /^if a creature would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'all' }) },
+  { kind: 'exileIfDies', re: /^if a creature an opponent controls would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'opponents' }) },
   // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
   // creature.") is a different family and stays unread until it is measured and built.
   { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
@@ -1544,7 +1552,7 @@ interface Clause {
 // creatures"): the clause inherits the counted phrase and runs once per pick, as the clause it
 // refers to does.
 const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker)|those (?:creatures|permanents))';
-const REFERENT_LEAD = new RegExp(`^(?:then )?${REFERENT}(?![a-z'])`, 'i');
+const REFERENT_LEAD = new RegExp(`^(?:then )?(?:if )?${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_ANY = new RegExp(`(?<![a-z])${REFERENT}(?![a-z'])`, 'gi');
 const PHRASE_TARGET = new RegExp(TARGET, 'i');
@@ -1779,6 +1787,8 @@ export function parseEffects(
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
     // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.
     .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(l.trim()))
+    // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.
+    .filter((l) => !/^Devoid$/i.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };

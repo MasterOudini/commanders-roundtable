@@ -214,6 +214,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // driver answers the discard as it answers any hand prompt.
   { names: ["Raffine's Informant"], copiesPerSeat: 1,
     counterKeys: ['connives'], rotHistory: 'D412' },
+  // D413 - the exile-instead rider (CR 614.1): Lava Coil marks its target (3 at 60 alone); Anger of the Gods marks
+  // every creature it damages; the mark redirects the death this turn.
+  { names: ['Lava Coil', 'Anger of the Gods'], copiesPerSeat: 1,
+    counterKeys: ['exileMarks'], rotHistory: 'D413' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -999,6 +1003,9 @@ interface Run {
   readonly untapSkips: number;
   /** D412 - permanents that connived (the `Connived` marker, CR 701.50c). */
   readonly connives: number;
+  /** D413 - exile-instead marks set, and the deaths the funnel redirected to exile. */
+  readonly exileMarks: number;
+  readonly exiledInstead: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1313,6 +1320,8 @@ function runOne(seed: number): Run {
     typecyclings: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.reason === 'cycling' && typedCycler(game, m.card))).length,
     untapSkips: game.log.filter((e) => e.body.t === 'UntapSkipSet' && e.body.skip).length,
     connives: game.log.filter((e) => e.body.t === 'Connived').length,
+    exileMarks: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.exileIfDies === true).length,
+    exiledInstead: game.log.filter((e) => e.body.t === 'Narrated' && /is exiled instead of dying/.test(e.body.text)).length,
     linkedExiles: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.until !== undefined)).length,
     linkedReturns: game.log.filter((e) => e.body.t === 'StateBasedActionsApplied' && e.body.actions.some((a) => a.t === 'linkedExileReturns')).length,
     convokedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.convoked ?? 0) > 0).length,
@@ -1481,6 +1490,8 @@ const TOTAL_KEYS = [
   'typecyclings',
   'untapSkips',
   'connives',
+  'exileMarks',
+  'exiledInstead',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1767,6 +1778,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.untapSkips).toBeGreaterThan(0);
         // D412 - Raffine's Informant connived at gate size.
         expect(totals.connives).toBeGreaterThan(0);
+        // D413 - Lava Coil marked a creature at gate size (the redirect is counted, no floor: it needs a death).
+        expect(totals.exileMarks).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1852,6 +1865,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +
           `${totals.connives} connives · ` +
+          `${totals.exileMarks} exile marks / ${totals.exiledInstead} exiled instead · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

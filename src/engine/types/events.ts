@@ -539,6 +539,8 @@ export type EventBody =
       readonly card: InstanceId;
       readonly power: number;
       readonly toughness: number;
+      /** D413 - the exile-instead-of-dying mark rides the same event (power 0 / toughness 0). */
+      readonly exileIfDies?: true;
       /**
        * Tier-2 keywords GAINED until end of turn (D194). Optional so every
        * pre-D194 event replays byte-identically; a keywords-only grant

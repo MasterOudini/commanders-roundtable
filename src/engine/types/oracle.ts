@@ -704,7 +704,15 @@ export type EffectKind =
    * a +1/+1 counter on the conniving permanent. The discard is the hand prompt (`chooseFromZone`) carrying
    * `connive`. `amount` is how many times in a row. The subject is the source (`self`) or the target.
    */
-  | 'connive';
+  | 'connive'
+  /**
+   * D413 - "if <it> would die this turn, exile it instead" (CR 614.1): a mark on the creature(s) the
+   * sentence names - the previous clause's target (the referent), every creature or permanent the
+   * resolution DEALT DAMAGE to (`exileScope` 'damaged'), or every creature on the battlefield ('all',
+   * 'opponents' - a creature that enters later this turn is not marked, reportable). Read by the
+   * replacement funnel on the move to a graveyard.
+   */
+  | 'exileIfDies';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at two.
@@ -888,6 +896,8 @@ export interface EffectSpec {
    * entry as the pump. REQUIRED (D355/D356's rule), `false` on every other kind.
    */
   readonly cantBeBlocked: boolean;
+  /** D413 - `exileIfDies` only: whom the sentence names. REQUIRED (D355/D356's rule), null elsewhere. */
+  readonly exileScope: 'target' | 'damaged' | 'all' | 'opponents' | null;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
   /**

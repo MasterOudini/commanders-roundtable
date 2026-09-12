@@ -551,6 +551,27 @@ export function effectResult(
       // D412 - connive (CR 701.50). The subject is the SOURCE when `self` (a source that has left the
       // battlefield still draws and discards - no counter) or the aim; the chain runs against the state
       // the clauses before it left, and stops behind its own question.
+      // D413 - the exile-instead-of-dying mark (CR 614.1): on the aim, on what this resolution damaged, or
+      // on the board's creatures; a mark rides the until-end-of-turn entry the pumps ride, cleared at cleanup.
+      case 'exileIfDies': {
+        const marked: InstanceId[] = [];
+        if (effect.exileScope === 'target') {
+          if (aim?.kind === 'card') marked.push(aim.id);
+        } else if (effect.exileScope === 'damaged') {
+          for (const e of out) if (e.t === 'DamageDealt') for (const d of e.damages) if (d.target.kind === 'card' && !marked.includes(d.target.id)) marked.push(d.target.id);
+        } else {
+          for (const id of state.zones.battlefield) {
+            const c = state.cards[id];
+            if (!c || (effect.exileScope === 'opponents' && c.controller === controller)) continue;
+            if (derive(state, deps.oracle, deps.scripts, id, cache).typeLine.types.includes('Creature')) marked.push(id);
+          }
+        }
+        for (const id of marked) {
+          if (state.cards[id]?.zone.kind !== 'battlefield') continue;
+          out.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: 0, toughness: 0, exileIfDies: true });
+        }
+        break;
+      }
       case 'connive': {
         const permanent = effect.self ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
         if (permanent === null || out.some((e) => e.t === 'AwaitingSet')) break;

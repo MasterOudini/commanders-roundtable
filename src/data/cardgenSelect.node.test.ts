@@ -1837,15 +1837,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D310 (M6.4eu) — the changeling / devoid pool: the carriers whose other
   // lines the vocabulary does not read yet - their changeling or devoid runs.
   ['Blades of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
-  ['Complete Disregard', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Cryptic Cruiser', 'a creature line outside the vocabulary (its devoid runs)'],
   ['Ego Erasure', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Flayer Drone', 'a creature line outside the vocabulary (its devoid runs)'],
   ['Gladewalker Ritualist', 'a creature line outside the vocabulary (its changeling runs)'],
   ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
-  ['Oblivion Strike', 'a spell line outside the vocabulary (its devoid runs)'],
-  ['Reality Hemorrhage', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Shields of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Unnatural Endurance', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Witness the End', 'a spell line outside the vocabulary (its devoid runs)'],
@@ -1906,7 +1903,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
   ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
-  ['Turn Against', 'a keyword line (Devoid) beside a spell text the vocabulary reads - the spell-side keyword claim'],
   ["Kari Zev's Expertise", 'a noun the target parser cannot place (creature or Vehicle) and a free cast from the hand'],
   ['Sarkhan Vol', 'planeswalker loyalty abilities'],
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
@@ -1951,7 +1947,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Escape Tunnel', 'a search payload that puts the found land onto the battlefield tapped - the row maker reads only a search to hand'],
   ['Guild Thief', 'an ability-word activated line (Cunning Action) - the row maker refuses ability words on an activated line'],
   ['Key to the City', 'a filtered head (whenever this artifact becomes untapped) outside the closed reader - untapped is not a head the library holds'],
-  ['Slip Through Space', 'a spell whose other line is Devoid (a colour-changing static) outside the vocabulary'],
   ['Ghostly Pilferer', 'a trigger payload that is a may-pay-then-draw (pay {2}, if you do, draw a card) - the vocabulary reads neither the optional cost nor the conditional'],
 
   // D400 - the intervening if under the refire heads: the five the selector offered after the

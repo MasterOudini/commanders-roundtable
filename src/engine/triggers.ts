@@ -66,6 +66,9 @@ export function applyReplacements(
     // whose tapped state and counters are already settled — and so a card that
     // both enters tapped AND names a colour raises one prompt, not two at once.
     events = withChosenColor(state, oracle, events);
+    // D413 - a marked creature that would die goes to exile instead (CR 614.1); after the commander rule,
+    // which already sent a commander home, and reading its output like the rest.
+    events = withExileInsteadOfDying(state, oracle, scripts, events);
   }
 
   // Built-in: the other half of CR 306.5b. A permanent already on the
@@ -449,6 +452,29 @@ function affectedPlayer(state: GameState, ev: EventBody): PlayerId {
     default:
       return state.turn.activePlayer;
   }
+}
+
+/**
+ * D413 - "if that creature would die this turn, exile it instead": a move from the battlefield to a
+ * graveyard of a card carrying the mark (`untilEndOfTurn[].exileIfDies`) goes to exile - its owner's,
+ * as every graveyard move here is the owner's - and the log says so. Nothing else moves.
+ */
+function withExileInsteadOfDying(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, events: readonly EventBody[]): EventBody[] {
+  const marked = new Set(state.untilEndOfTurn.filter((e) => e.exileIfDies === true).map((e) => e.card));
+  if (marked.size === 0) return [...events];
+  const out: EventBody[] = [];
+  for (const ev of events) {
+    if (ev.t !== 'CardsMoved') { out.push(ev); continue; }
+    const redirected: InstanceId[] = [];
+    const moves = ev.moves.map((m) => {
+      if (m.from.kind !== 'battlefield' || m.to.kind !== 'graveyard' || !marked.has(m.card)) return m;
+      redirected.push(m.card);
+      return { ...m, to: { kind: 'exile' as const, player: m.to.player } };
+    });
+    out.push(redirected.length === 0 ? ev : { ...ev, moves });
+    for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} is exiled instead of dying.`, null));
+  }
+  return out;
 }
 
 function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]): EventBody[] {

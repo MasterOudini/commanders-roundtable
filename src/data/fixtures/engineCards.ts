@@ -6089,6 +6089,11 @@ export const SAVANNAH_LIONS: CardData = F.SAVANNAH_LIONS as CardData;
 export const RAFFINE_S_INFORMANT: CardData = F.RAFFINE_S_INFORMANT as CardData;
 export const MOB_LOOKOUT: CardData = F.MOB_LOOKOUT as CardData;
 export const DOC_OCK_S_HENCHMEN: CardData = F.DOC_OCK_S_HENCHMEN as CardData;
+export const LAVA_COIL: CardData = F.LAVA_COIL as CardData;
+export const MALICIOUS_MALFUNCTION: CardData = F.MALICIOUS_MALFUNCTION as CardData;
+export const MALICIOUS_ECLIPSE: CardData = F.MALICIOUS_ECLIPSE as CardData;
+export const ANGER_OF_THE_GODS: CardData = F.ANGER_OF_THE_GODS as CardData;
+export const SCORCHING_DRAGONFIRE: CardData = F.SCORCHING_DRAGONFIRE as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
 export const AGENT_OF_HORIZONS: CardData = F.AGENT_OF_HORIZONS as CardData;
@@ -12608,6 +12613,11 @@ export const ENGINE_CARDS: CardData[] = [
   RAFFINE_S_INFORMANT,
   MOB_LOOKOUT,
   DOC_OCK_S_HENCHMEN,
+  LAVA_COIL,
+  MALICIOUS_MALFUNCTION,
+  MALICIOUS_ECLIPSE,
+  ANGER_OF_THE_GODS,
+  SCORCHING_DRAGONFIRE,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,
   AGENT_OF_HORIZONS,

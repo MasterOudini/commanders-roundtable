@@ -1199,6 +1199,12 @@ export interface GameState {
      */
     readonly cantBeBlocked?: true;
     /**
+     * D413 - "if that creature would die this turn, exile it instead" (CR 614.1): a mark the replacement
+     * funnel reads on a move from the battlefield to a graveyard, redirecting it to exile; cleared with the
+     * rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.
+     */
+    readonly exileIfDies?: true;
+    /**
      * D395 - the ANIMATE family ("This land becomes a 3/3 green Ape creature with trample until end
      * of turn."): the base P/T set at layer 7b (CR 613.4b), the subtypes gained at layer 4 beside
      * `types`, and the colours set at layer 5 - each optional so every earlier entry and its

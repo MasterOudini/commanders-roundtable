@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1472);
-    expect.soft(r.spells.assisted).toBe(1874);
-    expect.soft(r.spells.autoAnyFace).toBe(1480);
+    expect.soft(r.spells.auto).toBe(1505);
+    expect.soft(r.spells.assisted).toBe(1848);
+    expect.soft(r.spells.autoAnyFace).toBe(1513);
   });
 
   /**
@@ -450,8 +450,8 @@ const POOL: Record<string, number> = {
   // and +17 sorceries flip with no script at all, beside the wave's +25 creatures and +2
   // enchantments.
   creature: 5403,
-  instant: 1233,
-  sorcery: 928,
+  instant: 1248,
+  sorcery: 946,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 610,

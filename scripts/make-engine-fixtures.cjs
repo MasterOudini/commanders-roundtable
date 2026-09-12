@@ -6754,6 +6754,12 @@ const WANTED = [
   "Raffine's Informant",
   'Mob Lookout',
   "Doc Ock's Henchmen",
+  // D413 - the exile-instead rider (CR 614.1): the seam's proof cards (Lava Coil is the fuzz staple).
+  'Lava Coil',
+  'Malicious Malfunction',
+  'Malicious Eclipse',
+  'Anger of the Gods',
+  'Scorching Dragonfire',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
   'Access Tunnel',

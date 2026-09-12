@@ -16197,6 +16197,90 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
       BLOCKS.
 
+- [x] **M6.4it — THE EXILE-INSTEAD RIDER (CR 614.1): `if that creature would
+      die this turn, exile it instead` — a mark on the creature the sentence
+      names (the target through the referent, what the resolution damaged, or
+      the board) riding the until-end-of-turn entry, read by the replacement
+      funnel on the move to a graveyard; a Devoid line leaves a spell's
+      clauses (2026-09-12):** **9,241 of 31,692 Commander-legal cards now
+      execute completely, up from 9,208 (+33: 33 cards whole with no script - Lava Coil, Scorching Dragonfire, Anger of the Gods, Malicious Malfunction, Flaying Tendrils, Bleed Dry, Magma Spray, Pillar of Flame and their kin, and the five Devoid spells the ledger held - and no row).**
+      `SHIPPED_SCRIPTS` **5,894** (no rows); ledger 1,337 → **1,332**
+      (five rows named STALE by the guard deleted, nothing added). Fixtures 6,516 → **6,521** (6,360 by name + 154
+      tokens). `scriptableToday` 1,435 → **1,430**; the select pool 0 →
+      3 → 0; the ladder `[1430, 1525, 2919, 4598, 5951]`. Bot reach 9,135 → **9,167** from
+      276 commanders. Decisions in **D413**; an engine seam on Opus 5
+      by the user's choice — the first rider on the replacement funnel since
+      D407, every card of it whole with no script.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** 54 cards carry the rider, 42 whole over
+      10 shapes and ONE mechanism; the `for each`, `deals N damage to each`,
+      monarch and `as long as` families stay tails.
+      ⚠️ **THE SEAM:** `untilEndOfTurn[].exileIfDies` riding
+      `PtModifiedUntilEndOfTurn` (spread-conditional, cleared at cleanup);
+      `triggers.ts` `withExileInsteadOfDying` - a marked card's move from the
+      battlefield to a graveyard goes to exile, `X is exiled instead of dying.`;
+      `effectParse` kind `exileIfDies` + `exileScope` (`target` through the
+      referent rewrite whose lead admits `if` and whose substitution reaches
+      the object `it`; `damaged` off the resolution's own `DamageDealt`;
+      `all` / `opponents` off the board); the Devoid line dropped from a
+      spell's clauses (D310's keyword, honoured; five ledger rows drained).
+      `src/engine/exileInstead.test.ts` (3).
+      **Fuzz:** Lava Coil + Anger of the Gods staples feeding `exileMarks` (a
+      floor) and `exiledInstead` (counted): 10 / 2 at 60; 44 /
+      33 over 500 seeds.
+      **Landed:** 33 whole with no script (Lava Coil, Scorching Dragonfire,
+      Anger of the Gods, Malicious Malfunction, Flaying Tendrils, Bleed Dry …
+      and the five Devoid spells the ledger held). botPool instant 1,248 /
+      sorcery 946 — auto 1,505 / assisted 1,848 · `oracleParse`
+      `effect:auto` 6,434 · tier3 silentAfter 9,533 · `token` 971 · batch.json
+      3 · select pool 0.
+      ⚠️ A REGEX LITERAL TAKES ONE MARK, A TEMPLATE TWO. ⚠️ THE REFERENT
+      REWRITE SUBSTITUTES EVERY REFERENT (the object `it` too). ⚠️ A DEVOID
+      SPELL WAS MANUAL FOR ITS KEYWORD - a keyword the engine honours must
+      leave a spell's clauses. ⚠️ A one-card staple on a targeted sorcery is
+      thin fuel (3 at 60).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6070 files,
+      29434 passed / 11 skipped · 500-seed gate, 6 shards, 1067.4 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D413): the board forms mark the creatures on the
+      battlefield at resolution (a later entrant dies to the graveyard), the
+      compound riders (Disintegrate, Underworld Fires, Chandra), the amount
+      forms beside the rider, Serpentine Spike; then D412's list unchanged —
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's edge
+      (`nontoken blue creature`, `exile the top three black cards of your
+      graveyard`, `each other player gain 2 life`, `If exactly one creature is
+      attacking`), the `{X}` alternatives, a chooser verb on BOTH costs, the
+      cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the OLD
+      Oblivion Ring wording, `another target`, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the exile
+      with a permission, the flicker within one batch, the other durations
+      (`for as long as you control` 23, `remains exiled` 33, `remains on the
+      battlefield` 14), the SACRIFICED REFERENT, a random discard as a cast
+      cost, two verbs joined by `or`, a counter cost at cast, the FaceChoice
+      path, HYBRID symbols paid by convoke, a per-creature chooser in the
+      review, `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>,
+      the `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the reveal-the-top
+      family (27 / 18), the quoted-grant BODIES, `Noncreature spells` (6),
+      `Colorless spells` (3), `Face-down creature spells` (2), the leading
+      conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE
+      VOCABULARY at parse time, the `costs {N} more` taxes, the two-kicker
+      `and/or` form (17), the MULTIKICKER row (7), the `instead` rewrites (6),
+      `whenever you cast a kicked spell`, the REFERENT across the wait, the
+      self-aimed delayed forms, the HOST characteristics under an attached
+      static (29), "you control a token", the incarnations' graveyard statics
+      (5), `Whenever you attack` and the each-combat head, the `for each <X>`
+      family (645 one-piece over 324 nouns), the payment heads, the search
+      residue, the scoped grant, the blocker-predicate form (8 + 1), ⚠️⚠️ THE
+      FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory
+      (16), the 172 AMOUNT forms, the restriction's exotic purposes (14), the
+      twenty-two older fight and bite suites, token copies (15), the permanent
+      control family (20) and exchange control (24), the activation
+      restrictions (313), the keyword entry replacements (22), copy (~200 —
+      waits for Fable), the prompt CONTINUATION seam proper, the two gate
+      items — the tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER
+      BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

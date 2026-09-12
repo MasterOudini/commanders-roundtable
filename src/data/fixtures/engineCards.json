@@ -205102,6 +205102,171 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "LAVA_COIL": {
+    "scryfallId": "05cc7056-84c8-436d-b60f-6d8921dcbfeb",
+    "oracleId": "fa71db44-5181-4c51-8b24-7fbedf36e3ca",
+    "name": "Lava Coil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lava Coil",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Lava Coil deals 4 damage to target creature. If that creature would die this turn, exile it instead.",
+        "flavorText": "\"Commander, we caught the Dimir spy and took her ashes into custody.\"\n—Kramm, Wojek security officer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wesley Burt",
+        "imageId": "05cc7056-84c8-436d-b60f-6d8921dcbfeb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "GRN-108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALICIOUS_MALFUNCTION": {
+    "scryfallId": "56e7415f-f014-4ece-81db-d8271444d9e9",
+    "oracleId": "c7ecaa1a-fbf7-436b-a1c9-d7810b0dc5dc",
+    "name": "Malicious Malfunction",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malicious Malfunction",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "All creatures get -2/-2 until end of turn. If a creature would die this turn, exile it instead.",
+        "flavorText": "\"That? A minor test, nothing more. Incompleat flesh is weak.\"\n—Jin-Gitaxias",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "56e7415f-f014-4ece-81db-d8271444d9e9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALICIOUS_ECLIPSE": {
+    "scryfallId": "2796fffa-8cbf-4ec9-91a8-7b6f39fd50ec",
+    "oracleId": "5beb8d6e-d3c1-46a5-8516-d6bf66413cff",
+    "name": "Malicious Eclipse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malicious Eclipse",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "All creatures get -2/-2 until end of turn. If a creature an opponent controls would die this turn, exile it instead.",
+        "flavorText": "Aclazotz laughed as the dark shards closed around Chimil, plunging the Core into unnatural darkness. At long last, his bloody reign would begin.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Campbell White",
+        "imageId": "2796fffa-8cbf-4ec9-91a8-7b6f39fd50ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGER_OF_THE_GODS": {
+    "scryfallId": "0dba296b-6d21-4a2f-9882-747a81c80a01",
+    "oracleId": "3a7fe095-8278-4b1d-bec4-19b35bdcdd1b",
+    "name": "Anger of the Gods",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Anger of the Gods",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Anger of the Gods deals 3 damage to each creature. If a creature dealt damage this way would die this turn, exile it instead.",
+        "flavorText": "There was no reason to pray. This was already an act of the gods.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "0dba296b-6d21-4a2f-9882-747a81c80a01"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "IMA-116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORCHING_DRAGONFIRE": {
+    "scryfallId": "3b74a806-ed74-458e-8903-d3d084e9f507",
+    "oracleId": "d14f313c-fea6-49c4-8197-5b74ee584a6b",
+    "name": "Scorching Dragonfire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scorching Dragonfire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Scorching Dragonfire deals 3 damage to target creature or planeswalker. If that creature or planeswalker would die this turn, exile it instead.",
+        "flavorText": "As the blaze raced toward her, Syr Ameril closed her eyes and pictured Castle Ardenvale so her last thoughts would be of home.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eric Velhagen",
+        "imageId": "3b74a806-ed74-458e-8903-d3d084e9f507"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ROGUE_S_PASSAGE": {
     "scryfallId": "0749a9f8-934e-4376-8ace-69cae4cb619a",
     "oracleId": "f29dc596-2121-4421-8463-15f6c2e8b9b3",

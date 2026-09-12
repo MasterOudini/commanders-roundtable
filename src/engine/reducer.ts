@@ -1187,6 +1187,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),
             // D399 - the can't-be-blocked evasion rides the same entry, spread-conditional too.
             ...(body.cantBeBlocked !== undefined ? { cantBeBlocked: body.cantBeBlocked } : {}),
+            // D413 - the exile-instead-of-dying mark rides the same entry, spread-conditional too.
+            ...(body.exileIfDies !== undefined ? { exileIfDies: body.exileIfDies } : {}),
             // D395 - the animate family's three fields, spread-conditional too.
             ...(body.basePt !== undefined ? { basePt: body.basePt } : {}),
             ...(body.subtypes !== undefined ? { subtypes: body.subtypes } : {}),
