@@ -251,6 +251,36 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D420 - the ability word reads: the 27 the selector offered once the classifier read past a true ability word
+  // (Landfall, Magecraft, Constellation, Heroic, Inspired, Eerie, Valiant, Battalion, Domain, Undergrowth) that the row
+  // maker refused, by reason (the Eerie and Valiant heads outside the library among them).
+  ['Aerie Worshippers', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
+  ['Akroan Line Breaker', 'a heroic self pump beside the Giant Growth the test casts'],
+  ['Briar Hydra', 'a counted payload under a combat-damage head (the arm sizes the board) beside its Landfall line'],
+  ['Cult Healer', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Dashing Bloodsucker', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Emberheart Challenger', 'a trigger head outside the library (Valiant - becomes the target of a spell or ability you control for the first time each turn)'],
+  ['Entity Tracker', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Erratic Apparition', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Forlorn Pseudamma', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
+  ['General Thunderbolt Ross', 'a scope read off the live combat (attacking creatures get +1/+0 - the suite must attack) under its Battalion head'],
+  ['God-Favored General', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
+  ['Gremlin Tamer', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Kazandu Mammoth // Kazandu Valley', 'a modal double-faced layout beside its Landfall line'],
+  ['Kraul Foragers', 'a board-sized life gain the suite cannot pin (for each creature card in your graveyard) under its Undergrowth head'],
+  ['Mouse Trapper', 'a trigger head outside the library (Valiant - becomes the target of a spell or ability you control for the first time each turn)'],
+  ['Optimistic Scavenger', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Pheres-Band Raiders', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
+  ['Poised Practitioner', 'a trigger payload outside both readers (a counter on this creature, then scry 1) under its Flurry head'],
+  ['Radha, Coalition Warlord', 'a counted payload under a becomes-tapped head (the arm sizes the board) under its Domain head'],
+  ['Skullsnap Nuisance', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
+  ['Strength from the Fallen', 'a counted payload under a constellation head (the arm sizes the board)'],
+  ['Whiskerquill Scribe', 'a trigger head outside the library (Valiant - becomes the target of a spell or ability you control for the first time each turn)'],
+  ["Archon of Sun's Grace", 'a line that is neither an activated ability nor a library trigger (Pegasus creatures you control have lifelink) beside its Constellation line'],
+  ['Gladiolus Amicitia', 'a trigger payload outside both readers (a search onto the battlefield tapped) under its Landfall head'],
+  ['Molderhulk', 'a line that is neither an activated ability nor a library trigger (Undergrowth - a cost reduction per creature card in your graveyard)'],
+  ['Omnath, Locus of Rage', 'a token outside TOKEN_TABLE (a 5/5 red and green Elemental) under its Landfall head'],
+  ['Tireless Tracker', 'a sacrifice head no fixture the suite can sacrifice satisfies (a Clue) beside its Landfall line'],
   // D419 - the board condition reads: the 9 the selector offered once `if you control <noun>` read under the enters and
   // refire heads that the row maker refused, by reason (a `no <noun>` condition the armed board meets from the start,
   // and the Descend ability word).

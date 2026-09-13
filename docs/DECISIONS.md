@@ -33382,3 +33382,135 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D420 — THE ABILITY WORD PEEL: `Landfall — Whenever a land you control enters, …` — the classifier reads past a TRUE ability word (CR 207.2c: no rules meaning of its own) the way the row maker has since D371, over the same list, mirrored by hand; Magecraft's `cast or copy` on the instant-or-sorcery head; no engine change (2026-09-13)
+
+**9,533 of 31,692 Commander-legal cards now execute completely, up from 9,496
+(+37: 37 generated rows — Murasa Ranger, Quandrix Apprentice, Leonin Lightscribe, Archmage Emeritus,
+Pious Wayfarer, Doomwake Giant, Daxos's Torment, Hero of Iroas, Wavecrash Triton, Firefist Striker,
+Nav Squad Commandos, Trapjaw Tyrant, Urban Daggertooth, Thraben Doomsayer, Munda's Vanguard, the
+Pledgemages and their kin).** `SHIPPED_SCRIPTS` 6,061 → **6,098**; the REFUSED ledger 1,427 → **1,454**
+(27 added by reason; nothing stale). Fixtures 6,726 → **6,763** (6,602 by name + 154 tokens: the 37
+rows). `scriptableToday` 1,527 → **1,554**; the select pool 0 → 64 → 0; the ladder `[1554, 1653,
+3013, 4664, 6001]`. Bot reach 9,420 → **9,457** from 291 commanders. A classifier decision on Opus 5.
+
+### The measurement chose it — 98 lines and 57 whole cards behind one prefix
+
+After D419 the one-piece leftover was a long tail (the largest single body family under 120, the
+largest head family 23), so the measurement went to the SEAMS BETWEEN THE READERS: the classifier
+(`primitives.ts`) and the row maker (`make-rows`) read the same lines with two hand-mirrored
+grammars, and where the row maker reads a line the classifier refuses, the pool never sees the
+card. The first such seam measured: the ability word. `Landfall — Whenever a land you control
+enters, ...` is refused by the classifier and read by the row maker (which strips
+`TRUE_ABILITY_WORD` before its heads since D371): **98 lines and 57 whole cards** flipped when
+the prefix was stripped before classification — Landfall 23, Magecraft 14, Constellation 14,
+Eerie 9, Heroic 7, Inspired 4, Paradox 4, Battalion 4, Valiant 3, Undergrowth 3, Flurry 3, Max
+speed 3, Domain 2, Enrage 2. Beside it: the self-subject bodies (`this creature deals N damage`,
+27 flips), the trigger heads over every leftover line (234 flips over sixty heads — Landfall's
+plain wording 23, Magecraft 14, the enchantment-enters wordings 22), the `you may pay` wrapper (15
+flips of 242 seen), and the ledger's own classes (script-raised prompt 80, a spell line outside
+the vocabulary 63 + 56, a trigger head outside the library 52 + 37 + 20).
+
+### The seam — one peel in the classifier, one wording in the head library
+
+- **The classifier** (`primitives.ts` `TRUE_ABILITY_WORD`): the row maker's list — Threshold,
+  Hellbent, Metalcraft, Delirium, Ferocious, Formidable, Domain, Morbid, Fateful hour, Chroma,
+  Radiance, Landfall, Constellation, Inspired, Heroic, Battalion, Raid, Revolt, Spell mastery,
+  Adamant, Alliance, Coven, Pack tactics, Enrage, Converge, Magecraft, Addendum, Corrupted,
+  Celebration, Valiant, Paradox, Survival, Flurry, Eerie, Undergrowth, Kinship, Lieutenant,
+  Parley, Sweep, Grandeur, Strive, Cohort, Eminence, Fathomless descent, Max speed, Council's
+  dilemma, Will of the council, Tempting offer, Join forces, Disappear, Skyswarm, Infusion,
+  Descend N — mirrored by hand. `primitiveFor` strips it from a PERMANENT's line and asks about
+  the rest; only a `scriptable` answer counts (D398's rule), and a spell face's word stays the
+  ingest's business. The condition peels (D398, D419) already stripped it under their heads; this
+  is the same peel for every line.
+- **The head library** (`make-rows120.cjs`): Magecraft's `Whenever you cast or copy an instant or
+  sorcery spell` joins the `castInstantSorcery` head. The engine has NO spell copy (no
+  `SpellCopied` event exists), so the copy half of the head is unreachable and the cast half is
+  the whole of what can fire — honest today, and a reportable: when the copy seam lands, this head
+  must match the copy event too.
+- **The engine**: nothing. **No new canary** (D400's rule): the rows are dealt by the L1 theorem,
+  their heads and payloads are the library's.
+
+### The wave — 37 rows
+
+The selector offered 64 once the word read: 37 rowed (Landfall's counters, tokens and pumps —
+Murasa Ranger, Surrakar Marauder, Evolution Sage, Seer's Sundial; Magecraft's counters and pumps
+— Quandrix Apprentice, Leonin Lightscribe, Archmage Emeritus, the four Pledgemages, Clever
+Lumimancer, Silverquill Apprentice, Eager First-Year; Constellation — Pious Wayfarer, Doomwake
+Giant, Daxos's Torment, Harvestguard Alseids, Nexus Wardens, Whitewater Naiads, Eutropia; Heroic —
+Hero of Iroas, Wavecrash Triton, Akroan Conscriptor, Arena Athlete, Favored of Iroas, Setessan
+Skirmisher, Triton Waverider; Battalion — Firefist Striker, Nav Squad Commandos; Enrage — Trapjaw
+Tyrant, Urban Daggertooth; Fateful hour — Thraben Doomsayer; Cohort — Munda's Vanguard; Flurry —
+Equilibrium Adept) and 27 refused by reason — the Eerie head (`... and whenever you fully unlock a
+Room`, 8) and the Valiant head (`for the first time each turn`, 3) outside the library, four
+Inspired payments whose branch makes a token, three counted payloads under heads whose arms size
+the board, a heroic self pump beside the Giant Growth the test casts, a Battalion scope read off
+the live combat, a board-sized life gain, a modal double-faced Landfall card, a token outside
+`TOKEN_TABLE` (Omnath's 5/5 Elemental), a Clue the suite cannot sacrifice, a Pegasus static and an
+Undergrowth cost reduction.
+
+### Traps
+
+- **THE TWO READERS ARE MIRRORED BY HAND, AND THE CLASSIFIER WAS THE NARROWER**: the row maker had
+  stripped the ability word since D371; the classifier stripped it only under the condition
+  peels, so 57 whole cards the generator could row never reached the pool. Measure the seams
+  BETWEEN the readers, not only the readers.
+- **THE COPY HALF OF MAGECRAFT IS UNREACHABLE TODAY** — the engine has no spell copy; the head
+  claims the line on the cast half alone, which is everything that can happen until the copy
+  seam lands (a reportable, not a hole).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6279 files, 30371
+passed / 11 skipped · 500-seed gate, 6 shards, 1021.3 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D420): the Eerie head (`... and whenever you fully unlock a Room`, 8) and the
+Valiant head (`for the first time each turn` — once-per-turn memory, 3), the Inspired payments
+whose branch makes a token (4), the copy half of Magecraft (the engine has no spell copy — when
+it does, the `castInstantSorcery` head must match it), the self-subject bodies the classifier
+refuses (`this creature deals N damage`, 27), the trigger heads over every leftover line (234 —
+the enchantment-enters wordings 22, the second-spell and first-spell heads, `attacks alone`,
+`becomes untapped`, `is dealt damage`), the `you may pay` wrapper's refused bodies; the board
+condition's tail (D419 — a creature with power N or greater 6, an opponent controls more lands
+than you 5, no untapped / tapped lands, exactly N, lands with different names, a creature with a
++1/+1 counter, a permanent with mana value N or greater, the Descend ability word, the seven
+`no <noun>` rows the armed board meets from the start); the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

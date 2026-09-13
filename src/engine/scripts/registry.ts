@@ -7,6 +7,43 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AKROAN_CONSCRIPTOR_SCRIPT } from './cards/akroanConscriptor';
+import { ARCHMAGE_EMERITUS_SCRIPT } from './cards/archmageEmeritus';
+import { ARENA_ATHLETE_SCRIPT } from './cards/arenaAthlete';
+import { CAPTIVATING_UNICORN_SCRIPT } from './cards/captivatingUnicorn';
+import { CLEON_MERRY_CHAMPION_SCRIPT } from './cards/cleonMerryChampion';
+import { CLEVER_LUMIMANCER_SCRIPT } from './cards/cleverLumimancer';
+import { DAXOSS_TORMENT_SCRIPT } from './cards/daxossTorment';
+import { DOOMWAKE_GIANT_SCRIPT } from './cards/doomwakeGiant';
+import { EAGER_FIRST_YEAR_SCRIPT } from './cards/eagerFirstYear';
+import { EUTROPIA_THE_TWICE_FAVORED_SCRIPT } from './cards/eutropiaTheTwiceFavored';
+import { EVOLUTION_SAGE_SCRIPT } from './cards/evolutionSage';
+import { FAVORED_OF_IROAS_SCRIPT } from './cards/favoredOfIroas';
+import { FIREFIST_STRIKER_SCRIPT } from './cards/firefistStriker';
+import { HARVESTGUARD_ALSEIDS_SCRIPT } from './cards/harvestguardAlseids';
+import { HERO_OF_IROAS_SCRIPT } from './cards/heroOfIroas';
+import { KAROK_WRANGLER_SCRIPT } from './cards/karokWrangler';
+import { LEONIN_LIGHTSCRIBE_SCRIPT } from './cards/leoninLightscribe';
+import { LOREHOLD_PLEDGEMAGE_SCRIPT } from './cards/loreholdPledgemage';
+import { MUNDAS_VANGUARD_SCRIPT } from './cards/mundasVanguard';
+import { MURASA_RANGER_SCRIPT } from './cards/murasaRanger';
+import { NAV_SQUAD_COMMANDOS_SCRIPT } from './cards/navSquadCommandos';
+import { NEXUS_WARDENS_SCRIPT } from './cards/nexusWardens';
+import { PIOUS_WAYFARER_SCRIPT } from './cards/piousWayfarer';
+import { QUANDRIX_APPRENTICE_SCRIPT } from './cards/quandrixApprentice';
+import { QUANDRIX_PLEDGEMAGE_SCRIPT } from './cards/quandrixPledgemage';
+import { SEERS_SUNDIAL_SCRIPT } from './cards/seersSundial';
+import { SETESSAN_SKIRMISHER_SCRIPT } from './cards/setessanSkirmisher';
+import { SILVERQUILL_APPRENTICE_SCRIPT } from './cards/silverquillApprentice';
+import { SURRAKAR_MARAUDER_SCRIPT } from './cards/surrakarMarauder';
+import { TRAPJAW_TYRANT_SCRIPT } from './cards/trapjawTyrant';
+import { TRITON_WAVERIDER_SCRIPT } from './cards/tritonWaverider';
+import { URBAN_DAGGERTOOTH_SCRIPT } from './cards/urbanDaggertooth';
+import { WAVECRASH_TRITON_SCRIPT } from './cards/wavecrashTriton';
+import { WHITEWATER_NAIADS_SCRIPT } from './cards/whitewaterNaiads';
+import { WITHERBLOOM_PLEDGEMAGE_SCRIPT } from './cards/witherbloomPledgemage';
+import { EQUILIBRIUM_ADEPT_SCRIPT } from './cards/equilibriumAdept';
+import { THRABEN_DOOMSAYER_SCRIPT } from './cards/thrabenDoomsayer';
 import { ACCLAIMED_CONTENDER_SCRIPT } from './cards/acclaimedContender';
 import { APOTHECARY_GEIST_SCRIPT } from './cards/apothecaryGeist';
 import { BLADE_TRIBE_BERSERKERS_SCRIPT } from './cards/bladeTribeBerserkers';
@@ -6087,6 +6124,43 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AKROAN_CONSCRIPTOR_SCRIPT,
+  ARCHMAGE_EMERITUS_SCRIPT,
+  ARENA_ATHLETE_SCRIPT,
+  CAPTIVATING_UNICORN_SCRIPT,
+  CLEON_MERRY_CHAMPION_SCRIPT,
+  CLEVER_LUMIMANCER_SCRIPT,
+  DAXOSS_TORMENT_SCRIPT,
+  DOOMWAKE_GIANT_SCRIPT,
+  EAGER_FIRST_YEAR_SCRIPT,
+  EUTROPIA_THE_TWICE_FAVORED_SCRIPT,
+  EVOLUTION_SAGE_SCRIPT,
+  FAVORED_OF_IROAS_SCRIPT,
+  FIREFIST_STRIKER_SCRIPT,
+  HARVESTGUARD_ALSEIDS_SCRIPT,
+  HERO_OF_IROAS_SCRIPT,
+  KAROK_WRANGLER_SCRIPT,
+  LEONIN_LIGHTSCRIBE_SCRIPT,
+  LOREHOLD_PLEDGEMAGE_SCRIPT,
+  MUNDAS_VANGUARD_SCRIPT,
+  MURASA_RANGER_SCRIPT,
+  NAV_SQUAD_COMMANDOS_SCRIPT,
+  NEXUS_WARDENS_SCRIPT,
+  PIOUS_WAYFARER_SCRIPT,
+  QUANDRIX_APPRENTICE_SCRIPT,
+  QUANDRIX_PLEDGEMAGE_SCRIPT,
+  SEERS_SUNDIAL_SCRIPT,
+  SETESSAN_SKIRMISHER_SCRIPT,
+  SILVERQUILL_APPRENTICE_SCRIPT,
+  SURRAKAR_MARAUDER_SCRIPT,
+  TRAPJAW_TYRANT_SCRIPT,
+  TRITON_WAVERIDER_SCRIPT,
+  URBAN_DAGGERTOOTH_SCRIPT,
+  WAVECRASH_TRITON_SCRIPT,
+  WHITEWATER_NAIADS_SCRIPT,
+  WITHERBLOOM_PLEDGEMAGE_SCRIPT,
+  EQUILIBRIUM_ADEPT_SCRIPT,
+  THRABEN_DOOMSAYER_SCRIPT,
   ACCLAIMED_CONTENDER_SCRIPT,
   APOTHECARY_GEIST_SCRIPT,
   BLADE_TRIBE_BERSERKERS_SCRIPT,

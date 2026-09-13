@@ -140,6 +140,8 @@ function withoutMay(text: string): string {
 const TURN_COND =
   "(?:you attacked this turn|you attacked with (?:two|three|four|five|\\d+) or more creatures this turn|(?:a|another) creature died this turn|(?:two|three|four|five|\\d+) or more creatures died this turn|a permanent (?:left the battlefield under your control|you controlled left the battlefield) this turn|a nonland permanent left the battlefield this turn|you gained life this turn|you gained (?:two|three|four|five|\\d+) or more life this turn|you lost life this turn|an opponent lost life this turn|an opponent was dealt damage this turn|you've cast (?:another|a noncreature|a creature|an instant or sorcery) spell this turn|you've cast (?:two|three|four|\\d+) or more spells this turn|you've drawn (?:two|three|four|\\d+) or more cards this turn|you descended this turn|(?:this (?:land|creature|permanent)|it) entered this turn|a (?:land|creature|artifact) entered the battlefield under your control this turn|(?:two|three|four|\\d+) or more nonland permanents entered the battlefield under your control this turn|you've discarded a card this turn|a card left your graveyard this turn|you created a token this turn)";
 /** A TRUE ability word before an enters head has no rules meaning of its own (CR 207.2c); read past it once its condition is stood out. */
+// D420 - the row maker's own list (`make-rows` TRUE_ABILITY_WORD), mirrored by hand: the words the classifier reads past.
+const TRUE_ABILITY_WORD = /^(?:Threshold|Hellbent|Metalcraft|Delirium|Ferocious|Formidable|Domain|Morbid|Fateful hour|Chroma|Radiance|Landfall|Constellation|Inspired|Heroic|Battalion|Raid|Revolt|Spell mastery|Adamant|Alliance|Coven|Pack tactics|Enrage|Converge|Magecraft|Addendum|Corrupted|Celebration|Valiant|Paradox|Survival|Flurry|Eerie|Undergrowth|Kinship|Lieutenant|Parley|Sweep|Grandeur|Strive|Cohort|Eminence|Fathomless descent|Max speed|Council's dilemma|Will of the council|Tempting offer|Join forces|Disappear|Skyswarm|Infusion|Descend \d+) — /;
 const ABILITY_WORD_PREFIX = /^[A-Z][a-z]+(?: \d+)? — /;
 // D403 - the kicked conditions the row maker reads (`gen-cond`'s `kicked` kind): the cast announced
 // a kick, which the permanent remembers. The `with its {M} kicker` form names ONE of two kickers
@@ -887,6 +889,15 @@ export function preventionLineShape(text: string): boolean {
 
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
+
+  // D420 - A TRUE ABILITY WORD has no rules meaning of its own (CR 207.2c): `Landfall — Whenever a land
+  // you control enters, ...` is the line without the word, and the row maker has read past it since D371
+  // (`TRUE_ABILITY_WORD`, the same list, mirrored by hand). Only a `scriptable` answer counts (D398's
+  // rule); a permanent's line only - a spell face's word is the ingest's business.
+  if (!spellFace && TRUE_ABILITY_WORD.test(text)) {
+    const bare = text.replace(TRUE_ABILITY_WORD, '');
+    if (primitiveFor({ ...line, text: bare }, cardName, spellFace) === 'scriptable') return 'scriptable';
+  }
 
   // D304 - an Enchant line whose spec the engine enforces is the engine's own
   // (see `enchantSpecRuns`); the rest stay `keyword:aura` (a player, a clause
