@@ -137,3 +137,50 @@ describe('D425 - the you scope and the opponent-or-planeswalker noun', () => {
     expect(parse('Destroy you.').mode).toBe('manual');
   });
 });
+
+/**
+ * D426 - THE CONJUNCTION: one printed sentence that is two clauses the vocabulary reads whole on their own,
+ * joined by ` and ` (or `, then `). Tried only after no rule read the whole sentence; both halves must read as
+ * one clause each; the targets are numbered in printed order across the halves.
+ */
+describe('D426 - the conjunction', () => {
+  test('a drain is a life loss and a life gain', () => {
+    const r = parse('Target opponent loses 2 life and you gain 2 life.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.amount, e.targetIndex])).toEqual([['loseLife', 2, 0], ['gainLife', 2, -1]]);
+  });
+
+  test('a gain and a draw; a counter and a draw', () => {
+    expect(parse('You gain 2 life and draw a card.').effects.map((e) => e.kind)).toEqual(['gainLife', 'draw']);
+    const r = parse('Put a +1/+1 counter on target creature and draw a card.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.targetIndex])).toEqual([['putCounters', 0], ['draw', -1]]);
+  });
+
+  test('a loot: the draw, then the discard that asks LAST', () => {
+    const r = parse('Draw a card, then discard a card.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => e.kind)).toEqual(['draw', 'discard']);
+  });
+
+  test('the right half may be a referent of the left (a tap and its freeze)', () => {
+    const r = parse("Tap target creature and it doesn't untap during its controller's next untap step.");
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.targetIndex])).toEqual([['tap', 0], ['freeze', 0]]);
+  });
+
+  test('two targets across the halves are numbered in printed order', () => {
+    const r = parse('Destroy target permanent and return target nonlegendary creature card from your graveyard to the battlefield.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.targetIndex])).toEqual([['destroy', 0], ['reanimate', 1]]);
+  });
+
+  test('a half that is a noun leaves the sentence unread', () => {
+    expect(parse('Destroy target creature and target land.').mode).toBe('manual');
+    expect(parse('Exile target artifact and target creature.').mode).toBe('manual');
+  });
+
+  test('an asking left half still lands assisted (D195)', () => {
+    expect(parse('Sacrifice a creature and draw a card.').mode).not.toBe('auto');
+  });
+});

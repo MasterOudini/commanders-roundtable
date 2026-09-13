@@ -1263,6 +1263,19 @@ const RULES: readonly Rule[] = [
    * be the sentence's last. This is the sentence the comment above refused since D137, and the
    * field it would not invent is the scope D383 gave every board effect.
    */
+  /**
+   * D426 - the caster's OWN discard: `Discard a card.` / `You discard two cards.` - the each-player queue below over
+   * the `you` scope (D425), one player, the ask last as ever. The loot's second half (`Draw a card, then discard a
+   * card.` - the conjunction reads it as two clauses), Careful Study's, the wheel's tail.
+   */
+  {
+    kind: 'discard',
+    re: new RegExp(`^(?:you )?discards? (${COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null || n <= 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'you' }] };
+    },
+  },
   {
     kind: 'discard',
     re: new RegExp(`^each (player|opponent) discards (${COUNT}) cards?\\.$`, 'i'),
@@ -1682,6 +1695,38 @@ function kickedInsteadRewrite(sentence: string, previous: Clause | undefined): E
   if (!ref || ref.targetIndex === -1 || ref.pay || ref.per) return null;
   return { ...ref, text: sentence, ifKicked: true, kickedInstead: true };
 }
+/**
+ * D426 - THE CONJUNCTION. `Target opponent loses 2 life and you gain 2 life.`, `You gain 2 life and draw a
+ * card.`, `Put a +1/+1 counter on target creature and draw a card.`, `Draw a card, then discard a card.` - one
+ * printed sentence that is TWO clauses the vocabulary reads whole on their own (a rule each, or the right half a
+ * referent of the left - `Tap target creature and it doesn't untap ...`). Measured before it was built: 235
+ * sentences over the leftover split so, 188 cards with nothing else unread. The split is tried only after no
+ * rule read the whole sentence (a pump's `gets +2/+2 and gains flying` is one rule and never reaches here), at
+ * each ` and ` / `, then ` from the left, and BOTH halves must read as one clause each - a half that is a noun
+ * (`target creature and target land` - `Target land.` reads as nothing) leaves the sentence unread, as before.
+ * Each half keeps its own text (the narration says what it did) and takes its targets in printed order
+ * (`parseEffects` numbers them clause by clause). An asking left half still lands `assisted` by D195's rule.
+ */
+function conjunctionSplit(sentence: string, previous: Clause | undefined): Clause[] | null {
+  const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
+  for (const sep of [' and ', ', then ']) {
+    const parts = sentence.split(sep);
+    for (let k = 1; k < parts.length; k++) {
+      const leftText = parts.slice(0, k).join(sep) + '.';
+      const rightText = cap(parts.slice(k).join(sep));
+      if (!/[.]$/.test(rightText) || /^(?:you may|if |when |whenever |unless )/i.test(rightText)) continue;
+      const left = matchSentence(leftText);
+      if (!left || left.pay || left.delay) continue;
+      const leftClause: Clause = { text: leftText, spec: left, phrase: phraseOf(leftText) };
+      const right = matchSentence(rightText) ?? referentRewrite(rightText, leftClause) ?? (previous ? referentRewrite(rightText, previous) : null);
+      if (!right || right.pay || right.delay) continue;
+      const rightIsReferent = right.referent === true;
+      return [leftClause, { text: rightText, spec: right, phrase: rightIsReferent ? leftClause.phrase : phraseOf(rightText) }];
+    }
+  }
+  return null;
+}
+
 function clausesOf(text: string): Clause[] {
   const raw = sentences(text);
   const out: Clause[] = [];
@@ -1704,6 +1749,13 @@ function clausesOf(text: string): Clause[] {
     // D423 - a kicked `instead` clause is read against the clause before it too.
     const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
     if (insteadK) spec = insteadK;
+    // D426 - a sentence no rule reads whole may be TWO clauses joined by `and` (or `, then`).
+    const joined2 = spec === null ? conjunctionSplit(raw[i] ?? '', previous) : null;
+    if (joined2) {
+      out.push(...joined2);
+      i += 1;
+      continue;
+    }
     const clauseText = raw.slice(i, i + span).join(' ');
     out.push({ text: clauseText, spec, phrase: referred || insteadK ? (previous?.phrase ?? null) : phraseOf(clauseText) });
     i += span;

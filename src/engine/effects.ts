@@ -124,6 +124,20 @@ export function effectResult(
   let rng: RngState | undefined;
   const controller = obj.controller;
   const source = obj.card ?? obj.source;
+  // D426 - THE LIFE LEDGER: `state` is the snapshot before this batch (D295), so a second life event for the same
+  // player in one resolution would carry a `to` computed from before the first. The ledger keeps the running total
+  // - the damage this batch dealt to players included - so the log's `to` is right; the reducer applies the delta.
+  const lifeLedger = new Map<PlayerId, number>();
+  const lifeOf = (id: PlayerId): number => lifeLedger.get(id) ?? state.players[id]?.life ?? 0;
+  const lifeChanged = (player: PlayerId, delta: number): EventBody => {
+    const to = lifeOf(player) + delta;
+    lifeLedger.set(player, to);
+    return { t: 'LifeChanged', player, delta, to };
+  };
+  const dealt = (damages: readonly ResolvedDamage[]): EventBody => {
+    for (const d of damages) if (d.target.kind === 'player' && d.applyAs !== 'poison') lifeLedger.set(d.target.id, lifeOf(d.target.id) - d.amount);
+    return { t: 'DamageDealt', damages };
+  };
   // One allocator for every instance this resolution creates. See `createToken`.
   let nextInstance = state.counters.instance;
   // D382 - one resolving object may put up more than one shield; the id must be
@@ -247,10 +261,7 @@ export function effectResult(
         // D382 - CR 615.9. The clause rides the same effects, exactly as
         // `noRegenerate` does for the destroy above.
         const unpreventable = effects.some((e) => e.cantBePrevented === true);
-        out.push({
-          t: 'DamageDealt',
-          damages: [damageTo(state, deps, source, aim, effect.amount, cache, unpreventable)],
-        });
+        out.push(dealt([damageTo(state, deps, source, aim, effect.amount, cache, unpreventable)]));
         break;
       }
 
@@ -435,7 +446,7 @@ export function effectResult(
           }),
           ...m.players.map((p) => damageTo(state, deps, source, { kind: 'player', id: p }, effect.amount, cache)),
         ];
-        if (damages.length > 0) out.push({ t: 'DamageDealt', damages });
+        if (damages.length > 0) out.push(dealt(damages));
         break;
       }
 
@@ -494,7 +505,7 @@ export function effectResult(
                 }).length;
         const gained = effect.amount * n;
         const me = state.players[controller];
-        if (gained > 0 && me) out.push({ t: 'LifeChanged', player: controller, delta: gained, to: me.life + gained });
+        if (gained > 0 && me) out.push(lifeChanged(controller, gained));
         break;
       }
 
@@ -606,7 +617,7 @@ export function effectResult(
         if (legal.length === 0 || out.some((e) => e.t === 'AwaitingSet')) {
           if (legal.length === 0) {
             out.push(narrated(`${obj.label} - no ${hc.what} to choose.`, obj.controller, obj.identity));
-            if (hc.loseLife > 0) { const p = state.players[controller]; if (p) out.push({ t: 'LifeChanged', player: controller, delta: -hc.loseLife, to: p.life - hc.loseLife }); }
+            if (hc.loseLife > 0) { const p = state.players[controller]; if (p) out.push(lifeChanged(controller, -hc.loseLife)); }
           }
           if (hand.length > 0) out.push({ t: 'RevealCleared', cards: hand });
           break;
@@ -779,7 +790,7 @@ export function effectResult(
         if ((da.power ?? 0) > 0) damages.push(damageTo(state, deps, aim.id, otherAim, da.power ?? 0, cache));
         if (effect.kind === 'fight' && (db.power ?? 0) > 0) damages.push(damageTo(state, deps, otherAim.id, aim, db.power ?? 0, cache));
         out.push({ t: 'Fought', subject: aim.id, other: otherAim.id, mutual: effect.kind === 'fight' });
-        if (damages.length > 0) out.push({ t: 'DamageDealt', damages });
+        if (damages.length > 0) out.push(dealt(damages));
         out.push(narrated(effect.kind === 'fight' ? `${da.name} fights ${db.name}.` : `${da.name} deals ${da.power ?? 0} damage to ${db.name}.`, obj.controller));
         break;
       }
@@ -835,7 +846,7 @@ export function effectResult(
       case 'gainLife': {
         const p = state.players[controller];
         if (!p) break;
-        out.push({ t: 'LifeChanged', player: controller, delta: effect.amount, to: p.life + effect.amount });
+        out.push(lifeChanged(controller, effect.amount));
         break;
       }
 
@@ -845,7 +856,7 @@ export function effectResult(
         if (!who) break;
         const p = state.players[who];
         if (!p) break;
-        out.push({ t: 'LifeChanged', player: who, delta: -effect.amount, to: p.life - effect.amount });
+        out.push(lifeChanged(who, -effect.amount));
         break;
       }
 
@@ -873,7 +884,7 @@ export function effectResult(
         }
         const p = state.players[who];
         if (!p) break;
-        out.push({ t: 'LifeChanged', player: who, delta: -effect.amount, to: p.life - effect.amount });
+        out.push(lifeChanged(who, -effect.amount));
         break;
       }
 

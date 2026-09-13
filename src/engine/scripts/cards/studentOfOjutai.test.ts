@@ -22,13 +22,16 @@ function studied(): Game {
   settle(g);
   holdEverywhere(g);
   advanceUntil(g, (s) => s.turn.activePlayer === 'p1' && s.turn.phase === 'precombatMain', 60_000);
-  // The NONCREATURE cast pays 2: 40 -> 42.
+  // The NONCREATURE cast pays 2: 40 -> 42 -> 40. D426 - Succumb to Temptation (`You draw two cards and you lose 2
+  // life.`) ran as NOTHING here until the conjunction read it (the suite registers Student alone, and the vocabulary
+  // could not read the sentence); it runs whole now, so Student's +2 and Succumb's own -2 meet at 40 and the two
+  // life says Succumb resolved (Student's +2 alone would read 42).
   const instant = put(g, 'p1', 'Succumb to Temptation', 'hand');
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 3 }));
   must(g.submit({ t: 'CastSpell', player: 'p1', card: instant }));
   settle(g);
-  if ((g.state.players['p1']?.life ?? 0) !== 42) {
-    throw new Error(`the noncreature cast must pay 2 — life ${g.state.players['p1']?.life}`);
+  if ((g.state.players['p1']?.life ?? 0) !== 40) {
+    throw new Error(`the noncreature cast must pay 2 and Succumb must lose 2 — life ${g.state.players['p1']?.life}`);
   }
   // The CREATURE cast pays nothing.
   const creature = put(g, 'p1', 'Striped Bears', 'hand');
@@ -41,7 +44,7 @@ function studied(): Game {
 describe('Student of Ojutai', () => {
   test('noncreature casts pay; creature casts do not', () => {
     const g = studied();
-    expect(g.state.players['p1']?.life).toBe(42);
+    expect(g.state.players['p1']?.life).toBe(40);
   });
 
   test('replays to the same hash', () => {

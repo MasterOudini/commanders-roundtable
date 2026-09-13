@@ -730,7 +730,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
           : body.delta > 0
             ? { ...m, gainedLife: { ...m.gainedLife, [body.player]: true }, lifeGained: { ...m.lifeGained, [body.player]: (m.lifeGained[body.player] ?? 0) + body.delta } }
             : m;
-      return withPlayer({ ...state, turn: { ...state.turn, memory } }, body.player, { life: body.to });
+      // D426 - the DELTA, not the absolute: an emitter computes `to` from the snapshot before its batch (D295), so a
+      // second life event for the same player in one resolution (a self-aimed Lightning Helix: 3 damage, then 3 life)
+      // would overwrite the first. Every emitter's `to` is life +- delta, so a lone event lands where it always did.
+      const cur = state.players[body.player];
+      return withPlayer({ ...state, turn: { ...state.turn, memory } }, body.player, { life: cur ? cur.life + body.delta : body.to });
     }
 
     case 'PoisonChanged':

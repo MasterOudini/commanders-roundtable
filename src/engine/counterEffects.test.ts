@@ -93,19 +93,21 @@ describe('counter effects — the spell path', () => {
   });
 
   /**
-   * ⚠️ THE ANCHOR, DOING REAL WORK. `Burst of Strength` is "Put a +1/+1 counter
-   * on target creature AND UNTAP IT." — ONE sentence, so the `assisted` rule
-   * never sees a second clause to refuse. Only the `$` at the end of the pattern
-   * stops the parser executing two thirds of the card and calling it done, and
-   * that is the D90 failure this vocabulary is closed against.
+   * ⚠️ THE ANCHOR, DOING REAL WORK - REVERSED BY D426 (D117: a test describing the old meaning is
+   * rewritten, not adapted). `Burst of Strength` is "Put a +1/+1 counter on target creature AND UNTAP
+   * IT." - ONE sentence that is TWO clauses. From M6.3c to D425 the `$` at the end of the counter rule
+   * kept the parser from executing two thirds of the card and calling it done (D90); the CONJUNCTION reads
+   * the sentence as the counter on the target and the untap of the same target (a referent of the left
+   * half), so the card runs WHOLE - and a half that reads as nothing (`Target land.`) still refuses the
+   * sentence, which is the same property one split over.
    */
-  test('Burst of Strength is NOT understood — one sentence, two effects', () => {
+  test('Burst of Strength is understood as two clauses on one target (D426)', () => {
     const card = ORACLE.byName('Burst of Strength');
     if (!card) throw new Error('no Burst of Strength fixture');
     const face = card.faces[0];
     expect(face?.oracleText).toBe('Put a +1/+1 counter on target creature and untap it.');
-    expect(face?.effectMode).toBe('manual');
-    expect(face?.effects).toEqual([]);
+    expect(face?.effectMode).toBe('auto');
+    expect(face?.effects.map((e) => [e.kind, e.targetIndex])).toEqual([['putCounters', 0], ['untap', 0]]);
   });
 
   test('Battlegrowth and Scar are understood COMPLETELY', () => {

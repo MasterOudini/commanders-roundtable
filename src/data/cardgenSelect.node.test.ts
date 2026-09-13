@@ -251,6 +251,63 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D426 - the conjunction: the 53 the selector offered once `X and Y.` read as two clauses that the row maker
+  // refused by reason (a filtered head's adjective 11, a payload outside both readers 11, a head outside the library 9,
+  // a queued discard the scaffold hand may not hold 4, a static line 4), the generator's two (a hand-size condition
+  // beside a hand fixture, a tap cost beside a vocabulary self bounce); eight stale spell rows the guard named deleted.
+  ['Wildgrowth Walker', 'trigger head not in the library: Whenever a creature you control explores, put a +1/+1 counter on this '],
+  ['Al Bhed Salvagers', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or artifact you c'],
+  ['Arbaaz Mir', 'a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ or another nontoken historic permanent you contro'],
+  ['Archivist of Oghma', 'trigger head not in the library: Whenever an opponent searches their library, you gain 1 life and draw '],
+  ['Arnyn, Deathbloom Botanist', 'a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control with power or toughness 1 or'],
+  ['Attunement', 'a queued discard the scaffold hand may not hold: Discard four cards.'],
+  ['Axelrod Gunnarson', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creature dealt damage by ~ this turn dies, you ga'],
+  ['Battlewise Hoplite', 'trigger payload not a pump: Put a +1/+1 counter on this creature, then scry 1.'],
+  ['Bazaar of Baghdad', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
+  ['Bazaar Trademage', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
+  ['Black Widow, Agile Avenger', 'trigger head not in the library: Whenever an opponent draws their second card each turn, put a +1/+1 co'],
+  ['Blood Artist', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature dies, target play'],
+  ['Bold Biochemist', 'a line that is neither an activated ability nor a library trigger: Power-up — {5}{U}: Put a +1/+1 counter on this creature and draw two c'],
+  ['Burning Prophet', 'trigger payload not a pump: ~ gets +1/+0 until end of turn, then scry 1.'],
+  ['Compassionate Healer', 'trigger payload not a pump: You gain 1 life and scry 1.'],
+  ['Cyclopean Snare', 'a tap cost beside a vocabulary self bounce (the suite reads the tap after the return)'],
+  ['Duskwielder', 'ability-word activated line: Boast — {1}: Target opponent loses 1 lif'],
+  ['Falkenrath Noble', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature dies, target play'],
+  ['Geyser Leaper', 'a line that is neither an activated ability nor a library trigger: Waterbend {4}: Draw a card, then discard a card.'],
+  ['Hard Cover', 'a leftover line not among the printed lines: Enchanted creature gets +0/+2 and has'],
+  ['Holy Cow', 'trigger payload not a pump: You gain 2 life and scry 1.'],
+  ['Invasion of Dominaria // Serra Faithkeeper', 'multi-face or unusual layout'],
+  ['Kraven the Hunter', 'a filtered head outside the closed reader (a qualifier outside the keyword list: the greatest power among creatures that player controls): Whenever a creature an opponent controls with the greatest p'],
+  ['Lotho, Corrupt Shirriff', 'a filtered head outside the closed reader (an adjective outside the list: their): Whenever a player casts their second spell each turn, you lo'],
+  ['Magus of the Bazaar', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
+  ['Pet Avengers', 'a line that is neither an activated ability nor a library trigger: Power-up — {6}{G}: Put a +1/+1 counter on this creature and create a 3'],
+  ['Ragnarok, Divine Deliverance', 'multi-face or unusual layout'],
+  ['Samite Herbalist', 'trigger payload not a pump: You gain 1 life and scry 1.'],
+  ['Serum Visionary', 'trigger payload not a pump: Draw a card, then scry 2.'],
+  ['Sphinx of Magosi', 'effect not a row kind: Draw a card, then put a +1/+1 counter on ~.'],
+  ['Tenth District Legionnaire', 'trigger payload not a pump: Put a +1/+1 counter on this creature, then scry 1.'],
+  ['Thrasher Brute', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Warrior your team controls'],
+  ['Trelasarra, Moon Dancer', 'trigger payload not a pump: Put a +1/+1 counter on ~ and scry 1.'],
+  ['Ultron Drone', 'a line that is neither an activated ability nor a library trigger: Power-up — {6}: Put two +1/+1 counters on this creature and create a 2'],
+  ['Valgavoth, Harrower of Souls', 'trigger head not in the library: Whenever an opponent loses life for the first time during each of thei'],
+  ['Vengeful Bloodwitch', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature you control dies,'],
+  ['Wakandan Tusker', 'trigger payload not a pump: You gain 1 life and scry 1.'],
+  ['Whispering Snitch', 'trigger head not in the library: Whenever you surveil for the first time each turn, this creature deals'],
+  ['Boomer Scrapper', 'a leaves head whose subject is a token the arm cannot make: a token you control'],
+  ['Carrot Cake', 'trigger head not in the library: When this artifact enters and when you sacrifice it, create a 1/1 whit'],
+  ['Disinformation Campaign', "trigger head not in the library: Whenever you surveil, return this enchantment to its owner's hand."],
+  ["Dovin's Acuity", 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast an instant spell during your main phase, y'],
+  ['Entropic Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
+  ['Fleshtaker', 'trigger payload not a pump: You gain 1 life and scry 1.'],
+  ['HYDRA Infiltration', 'an attack head on a card with no creature body: aCreatureAttacksAlone'],
+  ['Market Gnome', "trigger head not in the library: When this creature is exiled from the battlefield while you're activat"],
+  ['Nihilistic Glee', 'a hand-size condition beside a hand fixture (the generator cannot stage both)'],
+  ['Ravenous Squirrel', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever you sacrifice an artifact or creature, put a +1/+1 '],
+  ['Serum Sovereign', 'effect not a row kind: Draw a card, then scry 2.'],
+  ['Slimefoot, the Stowaway', 'a filtered head no fixture satisfies: a Saproling you control'],
+  ['Snow Day', "a spell with a line outside the vocabulary: Tap up to two target creatures. Those creatures don't untap "],
+  ['Syr Vondam, Sunstar Exemplar', 'trigger head not in the library: Whenever another creature you control dies or is put into exile, put a'],
+  ['Trial of Knowledge', 'a filtered head no fixture satisfies: a Cartouche you control'],
   // D425 - the sacrificed self, the you scope and the opponent-or-planeswalker noun: the 21 the selector offered once
   // those read that the row maker refused by reason (a combat-role clause the suite has no fixture for 6, a payment
   // branch the suite cannot assert - damageEach under unless-you-pay 3, a filtered head's adjective 2), and the six its
@@ -469,7 +526,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // spell; the conditional uncounterables - Spell mastery, an X of 5 or more - stay properties the face does not carry).
   ['Commence the Endgame', 'a spell line outside the vocabulary (draw two, then amass Zombies X - the amass mechanic) beside its uncounterable line'],
   ['Fry', 'a spell line outside the vocabulary (5 damage to target creature or planeswalker that is white or blue - a colour qualifier on the target) beside its uncounterable line'],
-  ['Inevitable Defeat', "a spell line outside the vocabulary (exile target nonland permanent, its controller loses 3 life and you gain 3 life - the target's controller as a referent) beside its uncounterable line"],
   ['Martyr of Frost', 'an activated cost outside the reader (Reveal X blue cards from your hand)'],
   ['Obliterate', 'a spell line outside the vocabulary (destroy all artifacts, creatures, and lands - a three-type sweep that cannot be regenerated) beside its uncounterable line'],
   ['Raze to the Ground', 'a spell line outside the vocabulary (destroy target artifact, then draw if its mana value was 1 or less - a conditional draw on the destroyed card) beside its uncounterable line'],
@@ -1699,7 +1755,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // phase cannot end while the stack is non-empty (CR 500.2), so the resolve
   // simply reads the phase it is in.
   ['Abeyance', 'cast restriction effect'],
-  ['Absorb Vis', 'cycling mechanic'],
   ['Ancestral Vision', 'suspend mechanic'],
   ['Apex of Power', 'play-from-exile permission'],
   ['Aphotic Wisps', 'UEOT color change'],
@@ -1909,7 +1964,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Silver Scrutiny', 'cast-permission condition'],
   ['Skyscribing', 'hand-activated ability'],
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
-  ['Soul Spike', 'cast-time alternative cost'],
   ['SP//dr, Piloted by Peni', 'modified predicate'],
   ['Spiritualize', 'temporary game-wide trigger'],
   ["Sram's Expertise", 'free-cast permission'],
@@ -1956,7 +2010,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zhalfirin Shapecraft', 'until-end-of-turn base P/T set'],
   ['Baleful Mastery', 'cast-time alternative cost'],
   ['Code of Constraint', 'untap restriction'],
-  ['Dissection Practice', 'up-to-N targeting'],
   ['Escape Detection', 'freerunning mechanic'],
 
   // D290 (M6.4ea) — the 22 cards D289's keyword seam made offerable: 18
@@ -2226,12 +2279,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rite of Harmony', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Rockalanche', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ruthless Negotiation', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Sacred Fire', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Saving Grasp', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Seize the Day', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Sever the Bloodline', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Shattered Perception', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Smiting Helix', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Snort', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Solstice Revelations', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Tracker\'s Instincts', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -2427,7 +2478,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Appeal to Eirdu', 'a spell line outside the row vocabulary beside its convoke (one or two target creatures each get +2/+1)'],
   ['Battle at the Bridge', 'a spell line outside the row vocabulary beside its improvise (-X/-X and X life)'],
   ['Calamity of Cinders', 'a spell line outside the row vocabulary beside its convoke (6 damage to each untapped creature)'],
-  ['Covenant of Blood', 'a spell line outside the row vocabulary beside its convoke (4 damage to any target and 4 life)'],
   ['Endless Obedience', 'a spell line outside the row vocabulary beside its convoke (a creature card from a graveyard onto the battlefield)'],
   ['Everything Comes to Dust', 'a spell line outside the row vocabulary beside its convoke (exile all creatures except those sharing a type with a convoker - a convoke referent)'],
   ['Hour of Reckoning', 'a spell line outside the row vocabulary beside its convoke (destroy all nontoken creatures)'],
@@ -2489,7 +2539,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D408 - the alternative cost at cast: the three the selector offered once the alternative line read whose
   // spell body the row maker refused, by reason (the alternative itself reads on every one).
   ['Mind Swords', 'a spell line outside the vocabulary (each player exiles two cards from their hand - a per-player hand exile) beside its alternative cost'],
-  ['Needlebite Trap', 'a spell line outside the vocabulary (target player loses 5 life and you gain 5 life - a drain compound) beside its alternative cost'],
 
   // D347 (M6.4gf) - the four sacrifice costs the derived fixture offered and the ENGINE refuses:
   // `predicatesOf` places a colour, a supertype, a card type or a capitalised subtype, and a

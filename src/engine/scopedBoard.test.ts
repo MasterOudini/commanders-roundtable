@@ -22,6 +22,7 @@ const P1 = [
   'Fuel the Flames', 'Rolling Temblor', 'Claws of Wirewood', 'Hush', 'Rebuild',
   'Suffocating Fumes', 'Pursue Glory', 'Folk Medicine', 'Grasp of Phantoms',
   'Ashes to Ashes',
+  'Lightning Helix', "Ambition's Cost", 'Certain Death',
 ];
 
 function settle(g: Game): void {
@@ -140,6 +141,55 @@ describe('D383 - one scope reader, several verbs', () => {
     expect(g.state.cards[b]?.zone.kind).toBe('exile');
     expect(g.state.players.p1?.life).toBe(life1 - 5);
     expect(g.state.players.p2?.life).toBe(life2);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  // D426 - THE CONJUNCTION: one printed sentence that is two clauses the vocabulary reads whole on their own.
+  test('Lightning Helix: three damage kills the Cyclops and three life to the caster, one sentence', () => {
+    const g = armed();
+    const cy = put(g, 'p2', 'Cyclops of One-Eyed Pass');
+    settle(g);
+    const life1 = g.state.players.p1?.life ?? 0;
+    cast(g, 'Lightning Helix', ['R', 'W'], [{ kind: 'card', id: cy }]);
+    // The Cyclops is a 5/2: lethal.
+    expect(g.state.cards[cy]?.zone.kind).toBe('graveyard');
+    expect(g.state.players.p1?.life).toBe(life1 + 3);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  // D426 - THE STALE LIFE: a self-aimed Helix is 3 damage and then 3 life in ONE batch; `state` is the snapshot
+  // before the batch (D295), so the gain's `to` used to say 43 and the reducer wrote it - the damage was lost. The
+  // reducer applies the delta now and the executor's ledger writes the true `to`.
+  test('Lightning Helix at yourself: the damage and the gain both land, and the log agrees', () => {
+    const g = armed();
+    const life1 = g.state.players.p1?.life ?? 0;
+    const n0 = g.log.length;
+    cast(g, 'Lightning Helix', ['R', 'W'], [{ kind: 'player', id: 'p1' }]);
+    expect(g.state.players.p1?.life).toBe(life1);
+    const lifeEvents = g.log.slice(n0).map((e) => e.body).filter((b): b is Extract<typeof b, { t: 'LifeChanged' }> => b.t === 'LifeChanged');
+    expect(lifeEvents.map((b) => [b.delta, b.to])).toEqual([[3, life1]]);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test("Ambition's Cost: three cards and three life, one sentence", () => {
+    const g = armed();
+    const life1 = g.state.players.p1?.life ?? 0;
+    const hand1 = (g.state.zones.hand.p1 ?? []).length;
+    cast(g, "Ambition's Cost", ['B', 'C', 'C', 'C']);
+    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand1 + 3);
+    expect(g.state.players.p1?.life).toBe(life1 - 3);
+  });
+
+  test('Certain Death: the destroy, then its controller loses 2 and the caster gains 2', () => {
+    const g = armed();
+    const bears = put(g, 'p2', 'Grizzly Bears');
+    settle(g);
+    const life1 = g.state.players.p1?.life ?? 0;
+    const life2 = g.state.players.p2?.life ?? 0;
+    cast(g, 'Certain Death', ['B', 'C', 'C', 'C', 'C', 'C'], [{ kind: 'card', id: bears }]);
+    expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
+    expect(g.state.players.p2?.life).toBe(life2 - 2);
+    expect(g.state.players.p1?.life).toBe(life1 + 2);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
