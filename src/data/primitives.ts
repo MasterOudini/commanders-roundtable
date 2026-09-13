@@ -887,6 +887,28 @@ export function preventionLineShape(text: string): boolean {
   return PREVENTION_LINE.test(text.replace(/\\s*\\([^)]*\\)\\s*$/, ''));
 }
 
+/**
+ * D421 - THE SELF SUBJECT. A trigger's payload names its source as `this creature` (`this permanent`,
+ * `this artifact`, `this enchantment`, `this land`) and, under a head whose subject IS the source, as
+ * `it`; the engine's vocabulary reads both as `~` (`recipientAsSelf`, `scripts/vocabulary.ts`) and the
+ * row maker rewrites them before its own kinds (D371, `SELF_HEADS`) - the classifier read the raw body
+ * and refused `this creature deals 2 damage to any target` under every head. Mirrored by hand: the
+ * `this <type>` forms always (they name the source wherever they stand); the `it` forms only under a
+ * head whose subject is the source (the permanent's own enters / attacks / dies / ... heads, the step
+ * heads, heroic) - under `whenever another creature enters` an `it` is THAT creature (D392's referent),
+ * which the classifier must not read as self.
+ */
+const SELF_SUBJECT_HEAD = /^(?:[A-Z][a-z]+(?: \d+)? — )?(?:(?:When|Whenever) (?:this creature|this permanent|this artifact|this enchantment|this land|this Vehicle|this Aura|this Equipment)\b|At the beginning of|At end of|Whenever you cast a spell that targets this creature)/;
+function selfSubject(effect: string, line: string): string {
+  let out = effect.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
+  if (SELF_SUBJECT_HEAD.test(line)) {
+    out = out
+      .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
+      .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
+      .replace(/\bon it\.$/i, 'on ~.');
+  }
+  return out;
+}
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
@@ -950,7 +972,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // one. See `KEYWORD_LINES`.
   for (const [primitive, re] of KEYWORD_LINES) if (re.test(text)) return primitive;
 
-  const effect = effectOf(text);
+  // D421 - the self subject read as the vocabulary reads it (a permanent's line only).
+  const effect = spellFace ? effectOf(text) : selfSubject(effectOf(text), text);
   // The whole point: is a script all this needs?
   if (expressible(effect, cardName)) return 'scriptable';
 

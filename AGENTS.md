@@ -16925,6 +16925,108 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4jb — THE SELF SUBJECT: `you may pay {1}. If you do, this creature
+      deals 1 damage to any target` — the classifier reads a trigger
+      payload's self subject (`this creature` and its kin wherever it
+      stands; `it` under a head whose subject is the source) as `~`, the
+      way the engine's vocabulary (`recipientAsSelf`) and the row maker
+      have; the vocab probe reads the same way; no engine change
+      (2026-09-13):** **9,568 of 31,692 Commander-legal cards now execute
+      completely, up from 9,533 (+35: 35 generated rows - Impact Tremors, Warleader's Call, Murderous Redcap, Lightning Rift, Searing Meditation, Embersmith, Cabal Paladin, Magma Giant, Thunder Dragon, Voldaren Epicure and their kin).**
+      `SHIPPED_SCRIPTS` 6,098 → **6,133**; ledger 1,454 → **1,521**
+      (67 added by reason, nothing stale). Fixtures 6,763 → **6,798** (6,637 by name + 154
+      tokens). `scriptableToday` 1,554 → **1,620**; the select pool 0 →
+      102 → 0; the ladder `[1620, 1719, 3080, 4732, 6068]`. Bot reach 9,457 → **9,492** from
+      291 commanders. Decisions in **D421**; a classifier decision on Opus 5.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the second seam between the readers -
+      195 lines and 76 whole cards the vocabulary reads that the classifier
+      refused (`~ deals N damage` to any target 27 / each opponent 27 /
+      target 26, `return ~` 12, a counter on `~` 11), measured HEAD-AWARE:
+      the unguarded rewrite counted 143 cards of which half were referents.
+      ⚠️ **THE SEAM:** `primitives.ts` `selfSubject` / `SELF_SUBJECT_HEAD`
+      (the `this <type>` forms always, the `it` forms only under a head
+      naming the source; a spell face untouched); the vocab probe parses
+      each printed payload with the same rewrite, a leading `It` stored
+      under the `~` key alone; three rows the port named refused by name
+      (Fireblade Charger and Goblin Fireleaper - damage from a source that
+      has DIED deals 0, an engine gap; Furnace Celebration - a payment
+      under a sacrifice head whose fire funds the price). No engine change;
+      no new canary (D400's rule).
+      **Landed:** 35 rows. botPool creature 5,641 / enchantment 534 · tier3
+      silentAfter 9,859 · `token` 945 · batch.json 0 · select pool 0.
+      ⚠️ THE REWRITE IS HEAD-AWARE OR IT IS WRONG (a referent `it` is not
+      self). ⚠️ A LEADING `It` IS STORED UNDER THE `~` KEY ALONE. ⚠️ DAMAGE
+      FROM A SOURCE THAT HAS DIED deals 0 (last known information - an
+      engine gap). ⚠️ A BACKSPACE IN A PART FILE - a heredoc turned a
+      backslash-b in a JS string into a backspace character.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6314 files,
+      30522 passed / 11 skipped · 500-seed gate, 6 shards, 1046.2 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D421): DAMAGE FROM A SOURCE THAT HAS DIED (last
+      known information - the executor deals 0 from the graveyard: the
+      `when this creature dies, it deals damage` family), the counted self
+      pumps under the attack heads (14), the twenty-two trigger heads
+      outside the library (dice, mutate, expend, a loyalty ability, a scry,
+      `becomes the target of a spell or ability you control`, `attacks a
+      battle`, `becomes blocked`, `blocks`), the filtered heads the reader
+      refuses, a payment under a sacrifice head whose fire funds the price;
+      the ability word's tail (D420 - the Eerie head, the Valiant head, the
+      Inspired payments whose branch makes a token, the copy half of
+      Magecraft, the enchantment-enters wordings 22); the board condition's
+      tail (D419 - a creature with power
+      N or greater, an opponent controls more lands than you, no untapped /
+      tapped lands, exactly N, different names, a counter, a mana value,
+      Descend, the seven `no <noun>` rows); then D418's list unchanged — the
+      counted suite for the refinements, the party, the hand, the kicks,
+      the deaths, the domain and the attack heads (44 ledger rows), the
+      counted ENTRY (14), the counted STATIC (11), the counted PRICE (7),
+      the counted queue and reductions, `for each mana from a Treasure`,
+      `put into your graveyard from the battlefield this turn`; the
+      permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (110 over ninety shapes), the
+      `where X is` values (328 over forty forms), the top-of-library family
+      (23), `you may cast` (57 statics), the prevent-all shields (66), the
+      payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

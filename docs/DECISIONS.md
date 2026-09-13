@@ -33514,3 +33514,145 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D421 — THE SELF SUBJECT: `Whenever you cast an artifact spell, you may pay {1}. If you do, this creature deals 1 damage to any target.` — the classifier reads a trigger payload's self subject (`this creature`, `this permanent`, `this artifact`, `this enchantment`, `this land` wherever it stands; `it` under a head whose subject is the source) as `~`, the way the engine's vocabulary (`recipientAsSelf`) and the row maker have; the vocab probe reads the same way; no engine change (2026-09-13)
+
+**9,568 of 31,692 Commander-legal cards now execute completely, up from 9,533
+(+35: 35 generated rows — Impact Tremors, Warleader's Call, Murderous Redcap, Lightning Rift, Searing
+Meditation, Embersmith, Cabal Paladin, Magma Giant, Thunder Dragon, Earthshaker, Voldaren Epicure,
+Molten Nursery, Pyroconvergence, Havoc Jester, Careless Celebrant, Iroas's Blessing, Plague Spitter and
+their kin).** `SHIPPED_SCRIPTS` 6,098 → **6,133**; the REFUSED ledger 1,454 → **1,521** (67 added by
+reason; nothing stale). Fixtures 6,763 → **6,798** (6,637 by name + 154 tokens: the 35 rows). `scriptableToday`
+1,554 → **1,620**; the select pool 0 → 102 → 0; the ladder `[1620, 1719, 3080, 4732, 6068]`. Bot reach
+9,457 → **9,492** from 291 commanders. A classifier decision on Opus 5 — the second seam between the
+readers.
+
+### The measurement chose it — 195 lines and 76 whole cards behind the self subject
+
+The second seam between the readers (D420's method): the engine's vocabulary rewrites a payload's self
+subject to `~` before it reads (`recipientAsSelf` in `scripts/vocabulary.ts` — `this creature` /
+`this permanent` / `this artifact` / `this enchantment` / `this land` anywhere, a leading `it deals` /
+`it gets` / `it gains` / `it explores` / `it doesn't` / `it connives`, `return / regenerate / untap /
+tap it`, `on it.`), the row maker rewrites `It` and `This creature` under its SELF_HEADS (D371), and
+the classifier read the raw body: `this creature deals 2 damage to any target` was refused under every
+head. Measured with the engine's own rewrite over every leftover line, HEAD-AWARE (the `it` forms only
+under a head whose subject is the source — under `whenever another creature enters` an `it` is THAT
+creature, D392's referent, and the unguarded rewrite counted 352 lines / 143 cards of which half were
+referents): **195 lines and 76 whole cards** — `~ deals N damage to any target` 27, `to each opponent`
+27, `to target <X>` 26, `return ~ to its owner's hand` 12, `put a +1/+1 counter on ~` 11, `~ gets +N/+N`
+7, a payment whose body is self damage 5 + 6, `~ deals N damage to each creature and each player` 6,
+`damage equal to its power` 6.
+
+### The seam — one rewrite in the classifier, the same in the vocab probe
+
+- **The classifier** (`primitives.ts` `selfSubject`, `SELF_SUBJECT_HEAD`): `primitiveFor` reads a
+  permanent's trigger or activated payload with the `this <type>` forms as `~` always, and the `it`
+  forms only when the line's head names the source (`When / Whenever this creature|permanent|
+  artifact|enchantment|land|Vehicle|Aura|Equipment ...`, the step heads, heroic); a spell face is
+  untouched. Mirrored by hand from `recipientAsSelf`; stricter than the row maker's SELF_HEADS on
+  purpose (a line the classifier admits, the row maker admits).
+- **The vocab probe** (`zz-vocab-d421`): reads each printed payload with the `this <type>` rewrite
+  (the engine's own at runtime) and keys it by the PRINTED payload the module passes to
+  `vocabularyEffects`; a leading `It` is parsed as `~` and stored under the `~` key ALONE (only a
+  SELF_HEADS row looks it up — a leading `it` under another head is a referent the printed key must
+  not answer); a leading `This creature` under both keys. Three of the first port's suites named the
+  rows the tree could not carry: Fireblade Charger and Goblin Fireleaper (`When this creature dies,
+  it deals damage equal to its power to any target` — damage from a source that has DIED: the
+  executor deals 0 from the graveyard, last known information is a reportable engine gap) and Furnace
+  Celebration (a payment under a `whenever you sacrifice another permanent` head whose fire funds
+  the price the suite reads off its lands) — refused by name (the SKIP table), retired, ledgered.
+- **The engine**: nothing. **No new canary** (D400's rule).
+
+### The wave — 35 rows
+
+The selector offered 102 once the self subject read: 35 rowed (the pingers — Impact Tremors,
+Warleader's Call, Molten Nursery, Pyroconvergence, Cabal Paladin, Voldaren Epicure, Havoc Jester,
+Careless Celebrant, Ghitu Journeymage, Torch Slinger, Vigilante Justice, Enraged Flamecaster, Boggart
+Cursecrafter, Bonethorn Valesk, Drannith Stinger, Fuming Effigy; the sweeps — Magma Giant, Thunder
+Dragon, Earthshaker, Rumbling Slum, Plague Spitter; the priced pings — Lightning Rift, Searing
+Meditation, Embersmith, Lightning Cloud; the dies pings — Murderous Redcap, Mongoose Lizard, Hedron
+Detonator, Goblin Boom Keg; the bounces and counters — Scurrilous Sentry, Lotleth Giant, Iroas's
+Blessing, Biotech Specialist, Pyromancer's Assault, Voldaren Ambusher) and 67 refused by reason —
+fourteen counted self pumps under attack heads (`for each other attacking Ally`), twenty-two trigger
+heads outside the library (dice, mutate, expend, a loyalty ability, a scry, `becomes the target of a
+spell or ability you control`, `attacks a battle`, `becomes blocked`, `blocks`, `deals combat damage`),
+eight filtered heads the reader refuses (`your first spell during each opponent's turn`, `a
+noncreature or Dragon spell`, `their second spell`), two self payloads on creatures the test damage
+kills, the party and the Wizards nouns, a Cartouche, a Regenerate, and the three the port named.
+
+### Traps
+
+- **THE REWRITE IS HEAD-AWARE OR IT IS WRONG**: `recipientAsSelf` rewrites a leading `it` unconditionally
+  because the engine only sees payloads whose row was built under a self head; the classifier sees
+  every line, and the unguarded probe counted 143 whole cards of which half (`Whenever a creature
+  you control enters, it gets +2/+0` — In the Web of War) were referents that would have been
+  scripted as self pumps.
+- **A LEADING `It` IS STORED UNDER THE `~` KEY ALONE**: the vocab-ok table is keyed by the printed
+  payload, and a printed `It gets ...` that answered would let the row maker build a self pump under
+  `whenever another creature attacks` (Glory Bearers).
+- **DAMAGE FROM A SOURCE THAT HAS DIED**: `When this creature dies, it deals damage equal to its power`
+  deals 0 — the executor reads the source off the board it left (last known information, CR 113.7a)
+  — an engine gap the port found and the ledger names (Fireblade Charger, Goblin Fireleaper).
+- **A BACKSPACE IN A PART FILE**: a heredoc turned a backslash-b inside a JS string into a literal
+  backspace character in the written probe — invisible in a grep, fatal in a regex; composed by char
+  code.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6314 files, 30522
+passed / 11 skipped · 500-seed gate, 6 shards, 1046.2 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D421): DAMAGE FROM A SOURCE THAT HAS DIED (last known information — the
+executor deals 0 from the graveyard: Fireblade Charger, Goblin Fireleaper, the `when this creature
+dies, it deals damage` family), the counted self pumps under the attack heads (14 — `for each other
+attacking Ally`, the counted suite's attack refusal), the twenty-two trigger heads outside the library
+(dice, mutate, expend, a loyalty ability, a scry, `becomes the target of a spell or ability you
+control`, `attacks a battle`, `becomes blocked`, `blocks`, `deals combat damage`), the filtered heads
+the reader refuses (`your first spell during each opponent's turn`, `a noncreature or Dragon spell`,
+`their second spell`), a payment under a sacrifice head whose fire funds the price (Furnace
+Celebration), the self payloads on creatures the test damage kills; the ability word's tail (D420 —
+the Eerie head, the Valiant head, the Inspired payments whose branch makes a token, the copy half of
+Magecraft, the enchantment-enters wordings 22, the second-spell and first-spell heads, `attacks
+alone`, `becomes untapped`, `is dealt damage`, the `you may pay` wrapper's refused bodies); the board
+condition's tail (D419 — a creature with power N or greater 6, an opponent controls more lands
+than you 5, no untapped / tapped lands, exactly N, lands with different names, a creature with a
++1/+1 counter, a permanent with mana value N or greater, the Descend ability word, the seven
+`no <noun>` rows the armed board meets from the start); the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

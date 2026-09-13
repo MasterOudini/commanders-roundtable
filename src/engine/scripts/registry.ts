@@ -7,6 +7,41 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BOGGART_CURSECRAFTER_SCRIPT } from './cards/boggartCursecrafter';
+import { BONETHORN_VALESK_SCRIPT } from './cards/bonethornValesk';
+import { CABAL_PALADIN_SCRIPT } from './cards/cabalPaladin';
+import { CARELESS_CELEBRANT_SCRIPT } from './cards/carelessCelebrant';
+import { DRANNITH_STINGER_SCRIPT } from './cards/drannithStinger';
+import { EARTHSHAKER_SCRIPT } from './cards/earthshaker';
+import { EMBERSMITH_SCRIPT } from './cards/embersmith';
+import { ENRAGED_FLAMECASTER_SCRIPT } from './cards/enragedFlamecaster';
+import { FUMING_EFFIGY_SCRIPT } from './cards/fumingEffigy';
+import { GHITU_JOURNEYMAGE_SCRIPT } from './cards/ghituJourneymage';
+import { HAVOC_JESTER_SCRIPT } from './cards/havocJester';
+import { IMPACT_TREMORS_SCRIPT } from './cards/impactTremors';
+import { LIGHTNING_CLOUD_SCRIPT } from './cards/lightningCloud';
+import { LIGHTNING_RIFT_SCRIPT } from './cards/lightningRift';
+import { LOTLETH_GIANT_SCRIPT } from './cards/lotlethGiant';
+import { MAGMA_GIANT_SCRIPT } from './cards/magmaGiant';
+import { MOLTEN_NURSERY_SCRIPT } from './cards/moltenNursery';
+import { MONGOOSE_LIZARD_SCRIPT } from './cards/mongooseLizard';
+import { MURDEROUS_REDCAP_SCRIPT } from './cards/murderousRedcap';
+import { PYROCONVERGENCE_SCRIPT } from './cards/pyroconvergence';
+import { PYROMANCERS_ASSAULT_SCRIPT } from './cards/pyromancersAssault';
+import { RUMBLING_SLUM_SCRIPT } from './cards/rumblingSlum';
+import { SCURRILOUS_SENTRY_SCRIPT } from './cards/scurrilousSentry';
+import { SEARING_MEDITATION_SCRIPT } from './cards/searingMeditation';
+import { THUNDER_DRAGON_SCRIPT } from './cards/thunderDragon';
+import { TORCH_SLINGER_SCRIPT } from './cards/torchSlinger';
+import { VIGILANTE_JUSTICE_SCRIPT } from './cards/vigilanteJustice';
+import { VOLDAREN_AMBUSHER_SCRIPT } from './cards/voldarenAmbusher';
+import { VOLDAREN_EPICURE_SCRIPT } from './cards/voldarenEpicure';
+import { BIOTECH_SPECIALIST_SCRIPT } from './cards/biotechSpecialist';
+import { GOBLIN_BOOM_KEG_SCRIPT } from './cards/goblinBoomKeg';
+import { HEDRON_DETONATOR_SCRIPT } from './cards/hedronDetonator';
+import { IROASS_BLESSING_SCRIPT } from './cards/iroassBlessing';
+import { PLAGUE_SPITTER_SCRIPT } from './cards/plagueSpitter';
+import { WARLEADERS_CALL_SCRIPT } from './cards/warleadersCall';
 import { AKROAN_CONSCRIPTOR_SCRIPT } from './cards/akroanConscriptor';
 import { ARCHMAGE_EMERITUS_SCRIPT } from './cards/archmageEmeritus';
 import { ARENA_ATHLETE_SCRIPT } from './cards/arenaAthlete';
@@ -6124,6 +6159,41 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BOGGART_CURSECRAFTER_SCRIPT,
+  BONETHORN_VALESK_SCRIPT,
+  CABAL_PALADIN_SCRIPT,
+  CARELESS_CELEBRANT_SCRIPT,
+  DRANNITH_STINGER_SCRIPT,
+  EARTHSHAKER_SCRIPT,
+  EMBERSMITH_SCRIPT,
+  ENRAGED_FLAMECASTER_SCRIPT,
+  FUMING_EFFIGY_SCRIPT,
+  GHITU_JOURNEYMAGE_SCRIPT,
+  HAVOC_JESTER_SCRIPT,
+  IMPACT_TREMORS_SCRIPT,
+  LIGHTNING_CLOUD_SCRIPT,
+  LIGHTNING_RIFT_SCRIPT,
+  LOTLETH_GIANT_SCRIPT,
+  MAGMA_GIANT_SCRIPT,
+  MOLTEN_NURSERY_SCRIPT,
+  MONGOOSE_LIZARD_SCRIPT,
+  MURDEROUS_REDCAP_SCRIPT,
+  PYROCONVERGENCE_SCRIPT,
+  PYROMANCERS_ASSAULT_SCRIPT,
+  RUMBLING_SLUM_SCRIPT,
+  SCURRILOUS_SENTRY_SCRIPT,
+  SEARING_MEDITATION_SCRIPT,
+  THUNDER_DRAGON_SCRIPT,
+  TORCH_SLINGER_SCRIPT,
+  VIGILANTE_JUSTICE_SCRIPT,
+  VOLDAREN_AMBUSHER_SCRIPT,
+  VOLDAREN_EPICURE_SCRIPT,
+  BIOTECH_SPECIALIST_SCRIPT,
+  GOBLIN_BOOM_KEG_SCRIPT,
+  HEDRON_DETONATOR_SCRIPT,
+  IROASS_BLESSING_SCRIPT,
+  PLAGUE_SPITTER_SCRIPT,
+  WARLEADERS_CALL_SCRIPT,
   AKROAN_CONSCRIPTOR_SCRIPT,
   ARCHMAGE_EMERITUS_SCRIPT,
   ARENA_ATHLETE_SCRIPT,
