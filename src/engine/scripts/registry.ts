@@ -7,6 +7,69 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AEOLIPILE_SCRIPT } from './cards/aeolipile';
+import { BARBARIAN_LUNATIC_SCRIPT } from './cards/barbarianLunatic';
+import { BARBARIAN_RING_SCRIPT } from './cards/barbarianRing';
+import { BEAR_TRAP_SCRIPT } from './cards/bearTrap';
+import { BLIGHTED_GORGE_SCRIPT } from './cards/blightedGorge';
+import { BLOODFIRE_COLOSSUS_SCRIPT } from './cards/bloodfireColossus';
+import { BLOODFIRE_DWARF_SCRIPT } from './cards/bloodfireDwarf';
+import { BLOODFIRE_KAVU_SCRIPT } from './cards/bloodfireKavu';
+import { BLOODPYRE_ELEMENTAL_SCRIPT } from './cards/bloodpyreElemental';
+import { CALLOUS_INSPECTOR_SCRIPT } from './cards/callousInspector';
+import { CINDER_HELLION_SCRIPT } from './cards/cinderHellion';
+import { CRACKLING_TRITON_SCRIPT } from './cards/cracklingTriton';
+import { EMBER_HAULER_SCRIPT } from './cards/emberHauler';
+import { EMBERWILDE_AUGUR_SCRIPT } from './cards/emberwildeAugur';
+import { EXPLOSIVE_APPARATUS_SCRIPT } from './cards/explosiveApparatus';
+import { FANATICAL_FIREBRAND_SCRIPT } from './cards/fanaticalFirebrand';
+import { FIRE_BOWMAN_SCRIPT } from './cards/fireBowman';
+import { FLAMECAST_WHEEL_SCRIPT } from './cards/flamecastWheel';
+import { FLEDGLING_DJINN_SCRIPT } from './cards/fledglingDjinn';
+import { FONT_OF_IRE_SCRIPT } from './cards/fontOfIre';
+import { FRILLED_DEATHSPITTER_SCRIPT } from './cards/frilledDeathspitter';
+import { FROSTLING_SCRIPT } from './cards/frostling';
+import { GOBLIN_FIRESTARTER_SCRIPT } from './cards/goblinFirestarter';
+import { JUZ_MDJINN_SCRIPT } from './cards/juzMDjinn';
+import { LAVA_HOUNDS_SCRIPT } from './cards/lavaHounds';
+import { LIGHTNING_CORE_EXCAVATOR_SCRIPT } from './cards/lightningCoreExcavator';
+import { MANTICORE_OF_THE_GAUNTLET_SCRIPT } from './cards/manticoreOfTheGauntlet';
+import { MOGG_FANATIC_SCRIPT } from './cards/moggFanatic';
+import { MOONGLOVE_EXTRACT_SCRIPT } from './cards/moongloveExtract';
+import { MOUTH_OF_RONOM_SCRIPT } from './cards/mouthOfRonom';
+import { NETTLETOOTH_DJINN_SCRIPT } from './cards/nettletoothDjinn';
+import { RAVENOUS_GIANT_SCRIPT } from './cards/ravenousGiant';
+import { RAZORTIP_WHIP_SCRIPT } from './cards/razortipWhip';
+import { SARPADIAN_SIMULACRUM_SCRIPT } from './cards/sarpadianSimulacrum';
+import { SCALDING_CAULDRON_SCRIPT } from './cards/scaldingCauldron';
+import { SCALDKIN_SCRIPT } from './cards/scaldkin';
+import { SEAL_OF_FIRE_SCRIPT } from './cards/sealOfFire';
+import { SELL_SWORD_BRUTE_SCRIPT } from './cards/sellSwordBrute';
+import { SERENDIB_EFREET_SCRIPT } from './cards/serendibEfreet';
+import { SHOCK_TROOPS_SCRIPT } from './cards/shockTroops';
+import { SILENT_DART_SCRIPT } from './cards/silentDart';
+import { SMOLDERING_EFREET_SCRIPT } from './cards/smolderingEfreet';
+import { SORCERER_OF_THE_FANG_SCRIPT } from './cards/sorcererOfTheFang';
+import { SPRINGJAW_TRAP_SCRIPT } from './cards/springjawTrap';
+import { SUN_CROWNED_HUNTERS_SCRIPT } from './cards/sunCrownedHunters';
+import { SUNSET_STRIKEMASTER_SCRIPT } from './cards/sunsetStrikemaster';
+import { VIAL_OF_DRAGONFIRE_SCRIPT } from './cards/vialOfDragonfire';
+import { VIRIDIAN_SCOUT_SCRIPT } from './cards/viridianScout';
+import { VULSHOK_REPLICA_SCRIPT } from './cards/vulshokReplica';
+import { ZADAS_COMMANDO_SCRIPT } from './cards/zadasCommando';
+import { ZEALOT_OF_THE_GOD_PHARAOH_SCRIPT } from './cards/zealotOfTheGodPharaoh';
+import { CULT_GUILDMAGE_SCRIPT } from './cards/cultGuildmage';
+import { DISMISSIVE_PYROMANCER_SCRIPT } from './cards/dismissivePyromancer';
+import { FESTERING_EVIL_SCRIPT } from './cards/festeringEvil';
+import { FIREFORGERS_PUZZLEKNOT_SCRIPT } from './cards/fireforgersPuzzleknot';
+import { GOBLIN_LEGIONNAIRE_SCRIPT } from './cards/goblinLegionnaire';
+import { IMPLEMENT_OF_COMBUSTION_SCRIPT } from './cards/implementOfCombustion';
+import { PYRITE_SPELLBOMB_SCRIPT } from './cards/pyriteSpellbomb';
+import { PYROMANIA_SCRIPT } from './cards/pyromania';
+import { SHARD_PHOENIX_SCRIPT } from './cards/shardPhoenix';
+import { SMOLDERING_TAR_SCRIPT } from './cards/smolderingTar';
+import { SYNDICATE_GUILDMAGE_SCRIPT } from './cards/syndicateGuildmage';
+import { UNYARO_BEES_SCRIPT } from './cards/unyaroBees';
 import { AGILITY_SCRIPT } from './cards/agility';
 import { APHETTO_RUNECASTER_SCRIPT } from './cards/aphettoRunecaster';
 import { APOTHECARY_INITIATE_SCRIPT } from './cards/apothecaryInitiate';
@@ -5391,7 +5454,6 @@ import { KEEN_GLIDEMASTER_SCRIPT } from './cards/keenGlidemaster';
 import { KIKUS_SHADOW_SCRIPT } from './cards/kikusShadow';
 import { KINDLE_SCRIPT } from './cards/kindle';
 import { KISHLA_VILLAGE_SCRIPT } from './cards/kishlaVillage';
-import { KISS_OF_DEATH_SCRIPT } from './cards/kissOfDeath';
 import { KISS_OF_THE_AMESHA_SCRIPT } from './cards/kissOfTheAmesha';
 import { LANGUISH_SCRIPT } from './cards/languish';
 import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
@@ -5665,7 +5727,6 @@ import { BRONZE_WALRUS_SCRIPT } from './cards/bronzeWalrus';
 import { BURDEN_OF_GREED_SCRIPT } from './cards/burdenOfGreed';
 import { BURN_THE_IMPURE_SCRIPT } from './cards/burnTheImpure';
 import { BURNING_CLOAK_SCRIPT } from './cards/burningCloak';
-import { BURNING_FIELDS_SCRIPT } from './cards/burningFields';
 import { CALAMITOUS_CAVE_IN_SCRIPT } from './cards/calamitousCaveIn';
 import { CALLER_OF_GALES_SCRIPT } from './cards/callerOfGales';
 import { CALMING_VERSE_SCRIPT } from './cards/calmingVerse';
@@ -6307,6 +6368,69 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AEOLIPILE_SCRIPT,
+  BARBARIAN_LUNATIC_SCRIPT,
+  BARBARIAN_RING_SCRIPT,
+  BEAR_TRAP_SCRIPT,
+  BLIGHTED_GORGE_SCRIPT,
+  BLOODFIRE_COLOSSUS_SCRIPT,
+  BLOODFIRE_DWARF_SCRIPT,
+  BLOODFIRE_KAVU_SCRIPT,
+  BLOODPYRE_ELEMENTAL_SCRIPT,
+  CALLOUS_INSPECTOR_SCRIPT,
+  CINDER_HELLION_SCRIPT,
+  CRACKLING_TRITON_SCRIPT,
+  EMBER_HAULER_SCRIPT,
+  EMBERWILDE_AUGUR_SCRIPT,
+  EXPLOSIVE_APPARATUS_SCRIPT,
+  FANATICAL_FIREBRAND_SCRIPT,
+  FIRE_BOWMAN_SCRIPT,
+  FLAMECAST_WHEEL_SCRIPT,
+  FLEDGLING_DJINN_SCRIPT,
+  FONT_OF_IRE_SCRIPT,
+  FRILLED_DEATHSPITTER_SCRIPT,
+  FROSTLING_SCRIPT,
+  GOBLIN_FIRESTARTER_SCRIPT,
+  JUZ_MDJINN_SCRIPT,
+  LAVA_HOUNDS_SCRIPT,
+  LIGHTNING_CORE_EXCAVATOR_SCRIPT,
+  MANTICORE_OF_THE_GAUNTLET_SCRIPT,
+  MOGG_FANATIC_SCRIPT,
+  MOONGLOVE_EXTRACT_SCRIPT,
+  MOUTH_OF_RONOM_SCRIPT,
+  NETTLETOOTH_DJINN_SCRIPT,
+  RAVENOUS_GIANT_SCRIPT,
+  RAZORTIP_WHIP_SCRIPT,
+  SARPADIAN_SIMULACRUM_SCRIPT,
+  SCALDING_CAULDRON_SCRIPT,
+  SCALDKIN_SCRIPT,
+  SEAL_OF_FIRE_SCRIPT,
+  SELL_SWORD_BRUTE_SCRIPT,
+  SERENDIB_EFREET_SCRIPT,
+  SHOCK_TROOPS_SCRIPT,
+  SILENT_DART_SCRIPT,
+  SMOLDERING_EFREET_SCRIPT,
+  SORCERER_OF_THE_FANG_SCRIPT,
+  SPRINGJAW_TRAP_SCRIPT,
+  SUN_CROWNED_HUNTERS_SCRIPT,
+  SUNSET_STRIKEMASTER_SCRIPT,
+  VIAL_OF_DRAGONFIRE_SCRIPT,
+  VIRIDIAN_SCOUT_SCRIPT,
+  VULSHOK_REPLICA_SCRIPT,
+  ZADAS_COMMANDO_SCRIPT,
+  ZEALOT_OF_THE_GOD_PHARAOH_SCRIPT,
+  CULT_GUILDMAGE_SCRIPT,
+  DISMISSIVE_PYROMANCER_SCRIPT,
+  FESTERING_EVIL_SCRIPT,
+  FIREFORGERS_PUZZLEKNOT_SCRIPT,
+  GOBLIN_LEGIONNAIRE_SCRIPT,
+  IMPLEMENT_OF_COMBUSTION_SCRIPT,
+  PYRITE_SPELLBOMB_SCRIPT,
+  PYROMANIA_SCRIPT,
+  SHARD_PHOENIX_SCRIPT,
+  SMOLDERING_TAR_SCRIPT,
+  SYNDICATE_GUILDMAGE_SCRIPT,
+  UNYARO_BEES_SCRIPT,
   AGILITY_SCRIPT,
   APHETTO_RUNECASTER_SCRIPT,
   APOTHECARY_INITIATE_SCRIPT,
@@ -11690,7 +11814,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   KIKUS_SHADOW_SCRIPT,
   KINDLE_SCRIPT,
   KISHLA_VILLAGE_SCRIPT,
-  KISS_OF_DEATH_SCRIPT,
   KISS_OF_THE_AMESHA_SCRIPT,
   LANGUISH_SCRIPT,
   LAQUATUSS_CREATIVITY_SCRIPT,
@@ -11964,7 +12087,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   BURDEN_OF_GREED_SCRIPT,
   BURN_THE_IMPURE_SCRIPT,
   BURNING_CLOAK_SCRIPT,
-  BURNING_FIELDS_SCRIPT,
   CALAMITOUS_CAVE_IN_SCRIPT,
   CALLER_OF_GALES_SCRIPT,
   CALMING_VERSE_SCRIPT,

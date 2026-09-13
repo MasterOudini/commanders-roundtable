@@ -230398,6 +230398,2068 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "AEOLIPILE": {
+    "scryfallId": "533dc518-125b-4286-b0d3-32cb67c4c13b",
+    "oracleId": "0897adea-2759-40e8-a05a-c722473e1cf3",
+    "name": "Aeolipile",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aeolipile",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}, Sacrifice this artifact: It deals 2 damage to any target.",
+        "flavorText": "\"Although fragile, the aeolipile could be quite destructive.\"\n—*Sarpadian Empires, vol. I*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Heather Hudson",
+        "imageId": "533dc518-125b-4286-b0d3-32cb67c4c13b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "me2",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARBARIAN_LUNATIC": {
+    "scryfallId": "6c899f9b-ebce-4424-9cd9-861a50a5f7d2",
+    "oracleId": "12b5fbe5-a426-4b7e-bef0-abea71170e49",
+    "name": "Barbarian Lunatic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barbarian Lunatic",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Barbarian",
+        "oracleText": "{2}{R}, Sacrifice this creature: It deals 2 damage to target creature.",
+        "flavorText": "\"I once saw a single barbarian charge a band of twenty nomads. I've seen some crazy ones, too.\"\n—Nomad sentry",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "6c899f9b-ebce-4424-9cd9-861a50a5f7d2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARBARIAN_RING": {
+    "scryfallId": "1809361e-ae1a-4c47-8464-e6496e94d962",
+    "oracleId": "eeb9377b-72c1-4214-9a66-0f55577c17d1",
+    "name": "Barbarian Ring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barbarian Ring",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {R}. This land deals 1 damage to you.\nThreshold — {R}, {T}, Sacrifice this land: It deals 2 damage to any target. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "1809361e-ae1a-4c47-8464-e6496e94d962"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "313",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEAR_TRAP": {
+    "scryfallId": "e27c27d6-dc3a-4420-bb35-d97dc216e002",
+    "oracleId": "f7afb2c3-50ee-40f5-8b14-32f80c2bacd0",
+    "name": "Bear Trap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bear Trap",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash\n{3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature.",
+        "flavorText": "Every time its teeth tasted blood, its hunger grew, until one day it was no longer a trap but a hunter.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michele Giorgi",
+        "imageId": "e27c27d6-dc3a-4420-bb35-d97dc216e002"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHTED_GORGE": {
+    "scryfallId": "88cbfe5d-79b7-45db-b3cd-4ae7a9964a37",
+    "oracleId": "c2cb0afd-781f-4cfa-b680-ed1edfa81868",
+    "name": "Blighted Gorge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blighted Gorge",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}{R}, {T}, Sacrifice this land: It deals 2 damage to any target.",
+        "flavorText": "The land is dying, but it will not go peacefully.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jung Park",
+        "imageId": "88cbfe5d-79b7-45db-b3cd-4ae7a9964a37"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "bfz",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODFIRE_COLOSSUS": {
+    "scryfallId": "088f00a5-95b5-4892-9572-9e022b0eb01f",
+    "oracleId": "cc59e28a-eda3-468c-a31b-73e4b615f953",
+    "name": "Bloodfire Colossus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodfire Colossus",
+        "manaCost": "{6}{R}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "{R}, Sacrifice this creature: It deals 6 damage to each creature and each player.",
+        "flavorText": "It took all its strength to contain the fire within.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "088f00a5-95b5-4892-9572-9e022b0eb01f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 8,
+    "keywords": [],
+    "setCode": "ddi",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODFIRE_DWARF": {
+    "scryfallId": "86b5c38e-7d74-4862-8187-f5db4a3d1e0f",
+    "oracleId": "ff42551a-a08e-4d0c-a5b1-d1c1bbff4915",
+    "name": "Bloodfire Dwarf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodfire Dwarf",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Dwarf",
+        "oracleText": "{R}, Sacrifice this creature: It deals 1 damage to each creature without flying.",
+        "flavorText": "For them, the only honorable death is one that leaves a crater.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "86b5c38e-7d74-4862-8187-f5db4a3d1e0f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODFIRE_KAVU": {
+    "scryfallId": "1442b1f3-8c2c-4553-906f-c864fcdc6ae5",
+    "oracleId": "a12880c4-1987-42af-8595-0b88981e1091",
+    "name": "Bloodfire Kavu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodfire Kavu",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "{R}, Sacrifice this creature: It deals 2 damage to each creature.",
+        "flavorText": "Heart of fire, blood of lava, teeth of stone.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "1442b1f3-8c2c-4553-906f-c864fcdc6ae5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "apc",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODPYRE_ELEMENTAL": {
+    "scryfallId": "89e39677-5e04-45af-8f4c-1d4b6e737213",
+    "oracleId": "7c683855-f32e-42f9-8681-c3335d5eaf79",
+    "name": "Bloodpyre Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodpyre Elemental",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Sacrifice this creature: It deals 4 damage to target creature. Activate only as a sorcery.",
+        "flavorText": "Elementals born of Jund are as cruel and unstable as the plane itself.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "89e39677-5e04-45af-8f4c-1d4b6e737213"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALLOUS_INSPECTOR": {
+    "scryfallId": "f22610e9-6b14-4914-bb67-bd6723bec9aa",
+    "oracleId": "5d950fd4-8956-4b1a-ab0f-ab31bcffce4e",
+    "name": "Callous Inspector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Callous Inspector",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature dies, it deals 1 damage to you. Create a Clue token. (It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": "Protection fees can burn a hole in your pocket, but they're better than the alternative.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Enishi",
+        "imageId": "f22610e9-6b14-4914-bb67-bd6723bec9aa"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CINDER_HELLION": {
+    "scryfallId": "5a069118-42e4-40e3-a2ba-593ac89b9064",
+    "oracleId": "9e1ad977-2814-4336-93ec-57b7736a629f",
+    "name": "Cinder Hellion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cinder Hellion",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Hellion",
+        "oracleText": "Trample\nWhen this creature enters, it deals 2 damage to target opponent or planeswalker.",
+        "flavorText": "Chandra used jets of flame to lure hellions into the path of oncoming Eldrazi.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "5a069118-42e4-40e3-a2ba-593ac89b9064"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRACKLING_TRITON": {
+    "scryfallId": "8d6bb19c-3610-4609-b23c-21d4d80e4582",
+    "oracleId": "8a327626-ce42-4ef8-8869-3468960c671e",
+    "name": "Crackling Triton",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crackling Triton",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{2}{R}, Sacrifice this creature: It deals 2 damage to any target.",
+        "flavorText": "He calls upon both the currents in the sea and the current in the clouds.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "8d6bb19c-3610-4609-b23c-21d4d80e4582"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBER_HAULER": {
+    "scryfallId": "159d476e-2f20-4f9b-adfd-9c541dc3e199",
+    "oracleId": "7d313958-49ca-4592-97c7-20f12c8468a8",
+    "name": "Ember Hauler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ember Hauler",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "{1}, Sacrifice this creature: It deals 2 damage to any target.",
+        "flavorText": "Not every job in the goblin army is glamorous. Actually, *no* job in the goblin army is glamorous.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "159d476e-2f20-4f9b-adfd-9c541dc3e199"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBERWILDE_AUGUR": {
+    "scryfallId": "6967d7db-508e-4644-94cd-5d1b2946724f",
+    "oracleId": "39bf60b2-eeee-48f3-b7b0-6cc2e038afb1",
+    "name": "Emberwilde Augur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emberwilde Augur",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "Sacrifice this creature: It deals 3 damage to target player or planeswalker. Activate only during your upkeep.",
+        "flavorText": "Legends say a djinn gave the goblins a gift they could never hope to master.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "6967d7db-508e-4644-94cd-5d1b2946724f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dd1",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPLOSIVE_APPARATUS": {
+    "scryfallId": "608f431b-a05c-4610-94f7-928d87b2c056",
+    "oracleId": "ab8301da-f9f7-4d90-afae-bd7e60834c22",
+    "name": "Explosive Apparatus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Explosive Apparatus",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}, Sacrifice this artifact: It deals 2 damage to any target.",
+        "flavorText": "\"Souls are volatile things. When compressed and loaded into a handheld device, their destructive potential is quite impressive.\"\n—Dierk, geistmage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lindsey Look",
+        "imageId": "608f431b-a05c-4610-94f7-928d87b2c056"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FANATICAL_FIREBRAND": {
+    "scryfallId": "05469d01-0d2b-47b9-8a69-16cf0c3d43f8",
+    "oracleId": "d36e11f1-6ab3-4273-8114-a8fbbe21c1c3",
+    "name": "Fanatical Firebrand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fanatical Firebrand",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin Pirate",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\n{T}, Sacrifice this creature: It deals 1 damage to any target.",
+        "flavorText": "\"The Brazen Coalition is a firecannon pointed at our enemies. Goblins like him are the spark to its powder.\"\n—Admiral Beckett Brass",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "05469d01-0d2b-47b9-8a69-16cf0c3d43f8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "315",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_BOWMAN": {
+    "scryfallId": "18acc721-e9ae-4ba4-b435-754e41fb541e",
+    "oracleId": "3f23d7d3-28c6-4388-afb5-8f101b973083",
+    "name": "Fire Bowman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Bowman",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Soldier Archer",
+        "oracleText": "Sacrifice this creature: It deals 1 damage to any target. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Cai Tingting",
+        "imageId": "18acc721-e9ae-4ba4-b435-754e41fb541e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMECAST_WHEEL": {
+    "scryfallId": "5cfa31c9-5a11-4366-9063-056a659f3d0d",
+    "oracleId": "58f70225-17b5-4aa6-a62a-89c57e31ecc1",
+    "name": "Flamecast Wheel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flamecast Wheel",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{5}, {T}, Sacrifice this artifact: It deals 3 damage to target creature.",
+        "flavorText": "Beware the gifts of an ill-tempered forge god.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jasper Sandner",
+        "imageId": "5cfa31c9-5a11-4366-9063-056a659f3d0d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEDGLING_DJINN": {
+    "scryfallId": "0863567a-13d6-4876-99eb-c592c3ea49a3",
+    "oracleId": "2c73ef77-ae58-401f-8747-538c4cd075d0",
+    "name": "Fledgling Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fledgling Djinn",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying\nAt the beginning of your upkeep, this creature deals 1 damage to you.",
+        "flavorText": "\"The young can be quite dangerous. Trust me, I should know.\"\n—Ertai, wizard adept",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas Gianni",
+        "imageId": "0863567a-13d6-4876-99eb-c592c3ea49a3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vma",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FONT_OF_IRE": {
+    "scryfallId": "41509414-9faf-472d-8d38-391d9594cd56",
+    "oracleId": "88d4c611-3211-41b2-8453-6210f8394a0c",
+    "name": "Font of Ire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Font of Ire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "{3}{R}, Sacrifice this enchantment: It deals 5 damage to target player or planeswalker.",
+        "flavorText": "Drink deep, and find your vengeance fulfilled.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "41509414-9faf-472d-8d38-391d9594cd56"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jou",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRILLED_DEATHSPITTER": {
+    "scryfallId": "d20a38fa-bf26-403e-98bb-4e078084b154",
+    "oracleId": "a65c1fcc-61d1-43d9-a62c-65f156f98bce",
+    "name": "Frilled Deathspitter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frilled Deathspitter",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Enrage — Whenever this creature is dealt damage, it deals 2 damage to target opponent or planeswalker.",
+        "flavorText": "Nothing says trouble like a reedy hiss with a hint of liquid gurgle.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "d20a38fa-bf26-403e-98bb-4e078084b154"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enrage"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "RIX-104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROSTLING": {
+    "scryfallId": "230f40c3-342c-4775-bde1-5ca025cb02dd",
+    "oracleId": "6f6ac768-4c97-44db-933a-f2d442e7f665",
+    "name": "Frostling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frostling",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Sacrifice this creature: It deals 1 damage to target creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "230f40c3-342c-4775-bde1-5ca025cb02dd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "C6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_FIRESTARTER": {
+    "scryfallId": "1191d905-4d5e-40c6-aba2-42edcf9bd86e",
+    "oracleId": "18279733-5568-427c-b0a2-044bca28f688",
+    "name": "Goblin Firestarter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Firestarter",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Sacrifice this creature: It deals 1 damage to any target. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Keith Parkinson",
+        "imageId": "1191d905-4d5e-40c6-aba2-42edcf9bd86e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "me4",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUZ_M_DJINN": {
+    "scryfallId": "31bf3f14-b5df-498b-a1bb-965885c82401",
+    "oracleId": "4e81596c-9225-43d1-bd35-798212144f2c",
+    "name": "Juzám Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Juzám Djinn",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "At the beginning of your upkeep, this creature deals 1 damage to you.",
+        "flavorText": "\"Expect my visit when the darkness comes. The night I think is best for hiding all.\" —Ouallada",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "31bf3f14-b5df-498b-a1bb-965885c82401"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "arn",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVA_HOUNDS": {
+    "scryfallId": "2010739e-005c-4a26-b744-03b9072792a4",
+    "oracleId": "86c0dc85-d146-4dfa-819e-f78835bfffff",
+    "name": "Lava Hounds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lava Hounds",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Haste\nWhen this creature enters, it deals 4 damage to you.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve White",
+        "imageId": "2010739e-005c-4a26-b744-03b9072792a4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "8ed",
+    "collectorNumber": "198★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_CORE_EXCAVATOR": {
+    "scryfallId": "b1b959af-bb23-42e7-8848-7405ed597c8d",
+    "oracleId": "cdaf3711-5bec-41bf-b333-c5f34ccb12ef",
+    "name": "Lightning-Core Excavator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning-Core Excavator",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "{5}, {T}, Sacrifice this creature: It deals 3 damage to any target.",
+        "flavorText": "\"That's the third time this month it's exploded on site. Maybe we should switch to something a little less defective.\"\n—Kerrin, archaeologist",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cristi Balanescu",
+        "imageId": "b1b959af-bb23-42e7-8848-7405ed597c8d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANTICORE_OF_THE_GAUNTLET": {
+    "scryfallId": "82b6ece3-1574-4634-b940-829e54c4f78d",
+    "oracleId": "3ec1b67a-5ff8-4ce7-8388-d11a23f76f0e",
+    "name": "Manticore of the Gauntlet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manticore of the Gauntlet",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Manticore",
+        "oracleText": "When this creature enters, put a -1/-1 counter on target creature you control. This creature deals 3 damage to target opponent or planeswalker.",
+        "flavorText": "In the training ground known as the Gauntlet, initiates are pushed to practice more destructive techniques.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Paick",
+        "imageId": "82b6ece3-1574-4634-b940-829e54c4f78d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGG_FANATIC": {
+    "scryfallId": "08f72d5a-6f34-488b-85e8-fd63046f3f07",
+    "oracleId": "7efd5d62-6da2-428a-98e3-5b842f668656",
+    "name": "Mogg Fanatic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogg Fanatic",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Sacrifice this creature: It deals 1 damage to any target.",
+        "flavorText": "\"I got it! I got it! I—\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brom",
+        "imageId": "08f72d5a-6f34-488b-85e8-fd63046f3f07"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOONGLOVE_EXTRACT": {
+    "scryfallId": "11213ee6-37b5-4fb8-810f-b8f34c440ae3",
+    "oracleId": "ac2711b7-318d-478a-b69c-d44baff46f2d",
+    "name": "Moonglove Extract",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moonglove Extract",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Sacrifice this artifact: It deals 2 damage to any target.",
+        "flavorText": "Diluted, moonglove can etch living tissue. Concentrated, a drop will kill a giant.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Terese Nielsen",
+        "imageId": "11213ee6-37b5-4fb8-810f-b8f34c440ae3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ddf",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOUTH_OF_RONOM": {
+    "scryfallId": "2d8f7396-23d3-48e2-8686-2b59ccbfc7e5",
+    "oracleId": "7c05d239-39fc-4d34-a853-e3d591f4a235",
+    "name": "Mouth of Ronom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mouth of Ronom",
+        "manaCost": "",
+        "typeLine": "Snow Land",
+        "oracleText": "{T}: Add {C}.\n{4}{S}, {T}, Sacrifice this land: It deals 4 damage to target creature. ({S} can be paid with one mana from a snow source.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daren Bader",
+        "imageId": "2d8f7396-23d3-48e2-8686-2b59ccbfc7e5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "csp",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NETTLETOOTH_DJINN": {
+    "scryfallId": "7b5aa60d-91aa-4eee-9d13-55a357c8eced",
+    "oracleId": "f1d300b6-f9cf-40a9-8520-d78cd7d813cf",
+    "name": "Nettletooth Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nettletooth Djinn",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "At the beginning of your upkeep, this creature deals 1 damage to you.",
+        "flavorText": "\"The few of us who survived were denied entry to our camp for two days—so like the pox were the marks we bore.\"\n—*Travelogue of Najat*",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Janine Johnston",
+        "imageId": "7b5aa60d-91aa-4eee-9d13-55a357c8eced"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVENOUS_GIANT": {
+    "scryfallId": "050b70c4-9086-4db4-8e65-f9bb5f67cf1b",
+    "oracleId": "46c7a552-4a98-4e1a-8651-8fb0e7153aec",
+    "name": "Ravenous Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ravenous Giant",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "At the beginning of your upkeep, this creature deals 1 damage to you.",
+        "flavorText": "The might of an army with the restraint of a child.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "050b70c4-9086-4db4-8e65-f9bb5f67cf1b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "630",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAZORTIP_WHIP": {
+    "scryfallId": "24619d3f-1051-4d8e-9c8d-70a12621b282",
+    "oracleId": "44cf7fd5-721f-41f4-ae78-cf93afeff5f1",
+    "name": "Razortip Whip",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Razortip Whip",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}: This artifact deals 1 damage to target opponent or planeswalker.",
+        "flavorText": "\"It no longer surprises me what shows up in our raid of a Rakdos revue.\"\n—Janik Bara, Wojek captain",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Paick",
+        "imageId": "24619d3f-1051-4d8e-9c8d-70a12621b282"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARPADIAN_SIMULACRUM": {
+    "scryfallId": "099c65d5-9dd3-41d3-9102-3f6cb30c7b8e",
+    "oracleId": "b563a578-86ce-41a5-a83e-c70c6a4960e2",
+    "name": "Sarpadian Simulacrum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sarpadian Simulacrum",
+        "manaCost": "{R}",
+        "typeLine": "Artifact Creature — Goblin",
+        "oracleText": "Haste\n{3}{R}, Sacrifice this creature: It deals 4 damage to target creature.",
+        "flavorText": "Built to be super soldiers, the goblins preferred just being super destructive.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Forrest Schehl",
+        "imageId": "099c65d5-9dd3-41d3-9102-3f6cb30c7b8e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALDING_CAULDRON": {
+    "scryfallId": "710d2782-2b23-441f-9890-6fa9c923b701",
+    "oracleId": "dceb96a4-d3c5-43a2-93f6-50316e1e7a1b",
+    "name": "Scalding Cauldron",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scalding Cauldron",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature.",
+        "flavorText": "\"It's a witch's trick, this cauldron full of pain. I wouldn't dump it on any but the wicked.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Craig J Spearing",
+        "imageId": "710d2782-2b23-441f-9890-6fa9c923b701"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALDKIN": {
+    "scryfallId": "8110eb0a-63dc-43df-b55a-9241f45b1cc6",
+    "oracleId": "3fb2dbb3-e064-44bf-a8b6-10d58b1174d5",
+    "name": "Scaldkin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scaldkin",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\n{2}{R}, Sacrifice this creature: It deals 2 damage to any target.",
+        "flavorText": "The Temur believe that scaldkin are born when eruptions melt the frozen whispers of sleeping ancestors.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Cliff Childs",
+        "imageId": "8110eb0a-63dc-43df-b55a-9241f45b1cc6"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEAL_OF_FIRE": {
+    "scryfallId": "210f4f5a-4a36-4f2f-8821-d04f3f52c8db",
+    "oracleId": "348a345e-4639-41ca-b015-a5d43459eb64",
+    "name": "Seal of Fire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seal of Fire",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Sacrifice this enchantment: It deals 2 damage to any target.",
+        "flavorText": "After the fourth time Chandra left a place engulfed in flames, she decided to just go ahead and make it her thing.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "210f4f5a-4a36-4f2f-8821-d04f3f52c8db"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "jvc",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELL_SWORD_BRUTE": {
+    "scryfallId": "db513835-af5a-4ff3-8cf8-31936732a4db",
+    "oracleId": "7549656b-359f-467e-90ab-6b21d93c26b9",
+    "name": "Sell-Sword Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sell-Sword Brute",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "When this creature dies, it deals 2 damage to you.",
+        "flavorText": "\"Killing is easy. Just wrap your hand around the haft, and wrap your enemy around the blade.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "db513835-af5a-4ff3-8cf8-31936732a4db"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERENDIB_EFREET": {
+    "scryfallId": "019fb309-2cd1-4367-8a42-0295e9bbf552",
+    "oracleId": "dd520d83-297a-487f-b8f3-4997bbc056e0",
+    "name": "Serendib Efreet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serendib Efreet",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Efreet",
+        "oracleText": "Flying\nAt the beginning of your upkeep, this creature deals 1 damage to you.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Anson Maddocks",
+        "imageId": "019fb309-2cd1-4367-8a42-0295e9bbf552"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sum",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHOCK_TROOPS": {
+    "scryfallId": "49fe44af-5d8f-44ee-b767-2267917cf4bf",
+    "oracleId": "fdf2a8da-2933-44c5-b483-f035144da752",
+    "name": "Shock Troops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shock Troops",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Sacrifice this creature: It deals 2 damage to any target.",
+        "flavorText": "War is a conflict that determines not who is right—but who is left.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "49fe44af-5d8f-44ee-b767-2267917cf4bf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILENT_DART": {
+    "scryfallId": "3af00fdd-6869-4080-8a75-66c8fceeb7de",
+    "oracleId": "912bc348-9ba3-4001-90a8-104d2bb17527",
+    "name": "Silent Dart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silent Dart",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{4}, {T}, Sacrifice this artifact: It deals 3 damage to target creature.",
+        "flavorText": "\"These terms are acceptable to House Dimir. Shall we shake on it?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yeong-Hao Han",
+        "imageId": "3af00fdd-6869-4080-8a75-66c8fceeb7de"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMOLDERING_EFREET": {
+    "scryfallId": "af33b204-6b50-4404-b986-9f6b970a7f06",
+    "oracleId": "789b6a61-656e-40c0-be78-9c89c4ecfb0b",
+    "name": "Smoldering Efreet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smoldering Efreet",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Efreet Monk",
+        "oracleText": "When this creature dies, it deals 2 damage to you.",
+        "flavorText": "The efreet are drawn to the Kaisham Wanderers, a loosely organized Jeskai school where trickery is employed to challenge the status quo and upend the belief systems of others.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "af33b204-6b50-4404-b986-9f6b970a7f06"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "frf",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORCERER_OF_THE_FANG": {
+    "scryfallId": "2fe9e325-fbe4-4f43-8d68-8525c4d5ce8b",
+    "oracleId": "c1d5a631-a963-43a4-a5c0-1ba23bd88d0f",
+    "name": "Sorcerer of the Fang",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sorcerer of the Fang",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Wizard Sorcerer",
+        "oracleText": "{5}{B}, {T}: This creature deals 2 damage to target opponent or planeswalker.",
+        "flavorText": "\"The Great Serpent slumbers now, but all warmbloods will grovel in the dirt at its awakening!\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "2fe9e325-fbe4-4f43-8d68-8525c4d5ce8b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRINGJAW_TRAP": {
+    "scryfallId": "3741de51-ea92-493a-8058-e0f2000e7701",
+    "oracleId": "3a635b73-692f-4345-9628-cb4f9f0cddad",
+    "name": "Springjaw Trap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Springjaw Trap",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash\n{4}, {T}, Sacrifice this artifact: It deals 3 damage to any target.",
+        "flavorText": "\"Stop trying to pierce the hide. Hit where it's softest: ankle, sole, hamstring.\"\n—Master Hunter Chevill",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zoltan Boros",
+        "imageId": "3741de51-ea92-493a-8058-e0f2000e7701"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_CROWNED_HUNTERS": {
+    "scryfallId": "3cab793e-0e17-4940-9cab-a30d62df5c20",
+    "oracleId": "9e6e6458-9e0e-404c-af07-225c4665eaec",
+    "name": "Sun-Crowned Hunters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun-Crowned Hunters",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Enrage — Whenever this creature is dealt damage, it deals 3 damage to target opponent or planeswalker.",
+        "flavorText": "One alone is dangerous, and they are never alone.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "3cab793e-0e17-4940-9cab-a30d62df5c20"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Enrage"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSET_STRIKEMASTER": {
+    "scryfallId": "f8f1a2f2-526d-4b2c-985b-0acfdc21a2ee",
+    "oracleId": "d81ade13-e7c7-4fe3-bb0c-5007ed9f1198",
+    "name": "Sunset Strikemaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunset Strikemaster",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "{T}: Add {R}.\n{2}{R}, {T}, Sacrifice this creature: It deals 6 damage to target creature with flying.",
+        "flavorText": "\"Help the villagers to safety! I will hold the gate!\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "f8f1a2f2-526d-4b2c-985b-0acfdc21a2ee"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIAL_OF_DRAGONFIRE": {
+    "scryfallId": "57db6ba8-f6c1-41be-8bee-93e573d052d7",
+    "oracleId": "17be934e-1e33-4b95-a984-242fa018e280",
+    "name": "Vial of Dragonfire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vial of Dragonfire",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: It deals 2 damage to target creature.",
+        "flavorText": "\"The artificer assured me that the vial is strong enough to contain the dragon's breath. I just need to make sure to throw it far enough.\"\n—Kunh Mei, last words",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "57db6ba8-f6c1-41be-8bee-93e573d052d7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIRIDIAN_SCOUT": {
+    "scryfallId": "3260a427-b67f-4908-8c56-5c0fab009598",
+    "oracleId": "c5b4bc25-0f32-4e1d-b6fe-f122140f2207",
+    "name": "Viridian Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viridian Scout",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Warrior Scout",
+        "oracleText": "{2}{G}, Sacrifice this creature: It deals 2 damage to target creature with flying.",
+        "flavorText": "They know a hoverguard's only blind spot is directly above it.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "3260a427-b67f-4908-8c56-5c0fab009598"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VULSHOK_REPLICA": {
+    "scryfallId": "32885a6c-b293-405f-9f2e-9e0dd7d1cb8c",
+    "oracleId": "da8e2236-88ae-4f30-884b-b961231fba8f",
+    "name": "Vulshok Replica",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vulshok Replica",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Berserker",
+        "oracleText": "{1}{R}, Sacrifice this creature: It deals 3 damage to target player or planeswalker.",
+        "flavorText": "All the fury of the Vulshok with only a trace of their recklessness.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "32885a6c-b293-405f-9f2e-9e0dd7d1cb8c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "221",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZADA_S_COMMANDO": {
+    "scryfallId": "a3dd3478-16d3-4753-ba3d-958d2ccb9b43",
+    "oracleId": "d57d1988-5962-4df9-8342-cf04233fd6c7",
+    "name": "Zada's Commando",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zada's Commando",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Archer Ally",
+        "oracleText": "First strike\nCohort — {T}, Tap an untapped Ally you control: This creature deals 1 damage to target opponent or planeswalker.",
+        "flavorText": "\"There's a word for someone who brings too much gear to battle: 'survivor.'\"\n—Zada of Slab Haven",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "a3dd3478-16d3-4753-ba3d-958d2ccb9b43"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "First strike",
+      "Cohort"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "OGW-120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZEALOT_OF_THE_GOD_PHARAOH": {
+    "scryfallId": "180d1cd4-7d0d-4279-bc2a-59bb21b06904",
+    "oracleId": "2911d52f-7faf-455a-acdf-77269c9ee8ce",
+    "name": "Zealot of the God-Pharaoh",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zealot of the God-Pharaoh",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Minotaur Archer",
+        "oracleText": "{4}{R}: This creature deals 2 damage to target opponent or planeswalker.",
+        "flavorText": "The God-Pharaoh's most devoted took it upon themselves to follow his example.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "180d1cd4-7d0d-4279-bc2a-59bb21b06904"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CULT_GUILDMAGE": {
+    "scryfallId": "0536c2fa-7402-49a1-9016-dcf5633ca9ef",
+    "oracleId": "c65f8949-5e37-4929-994a-ec037814bf63",
+    "name": "Cult Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cult Guildmage",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{3}{B}, {T}: Target player discards a card. Activate only as a sorcery.\n{R}, {T}: This creature deals 1 damage to target opponent or planeswalker.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "0536c2fa-7402-49a1-9016-dcf5633ca9ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISMISSIVE_PYROMANCER": {
+    "scryfallId": "172b35c3-af41-4619-9a99-b68b4913e478",
+    "oracleId": "f040310d-d6ac-4d77-9f76-ca325eddf306",
+    "name": "Dismissive Pyromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dismissive Pyromancer",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{R}, {T}, Discard a card: Draw a card.\n{2}{R}, {T}, Sacrifice this creature: It deals 4 damage to target creature.",
+        "flavorText": "\"Burn. Burn. Keep. Burn.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "172b35c3-af41-4619-9a99-b68b4913e478"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pm19",
+    "collectorNumber": "136s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FESTERING_EVIL": {
+    "scryfallId": "2d688bda-fee2-496d-9793-794c2568b54e",
+    "oracleId": "0581b047-ffa1-42cc-a175-b7bf928e279e",
+    "name": "Festering Evil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Festering Evil",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, this enchantment deals 1 damage to each creature and each player.\n{B}{B}, Sacrifice this enchantment: It deals 3 damage to each creature and each player.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Matson",
+        "imageId": "2d688bda-fee2-496d-9793-794c2568b54e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREFORGER_S_PUZZLEKNOT": {
+    "scryfallId": "7a1c11ca-c81b-451e-a767-68865827e06d",
+    "oracleId": "0de18ba2-84a7-4e07-84b2-771761d77aaf",
+    "name": "Fireforger's Puzzleknot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fireforger's Puzzleknot",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, it deals 1 damage to any target.\n{2}{R}, Sacrifice this artifact: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zezhou Chen",
+        "imageId": "7a1c11ca-c81b-451e-a767-68865827e06d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_LEGIONNAIRE": {
+    "scryfallId": "88989f2f-3019-41ec-9dac-3b389f0ce1e4",
+    "oracleId": "582fdfbe-c5fe-45d0-b3ff-e66db5183725",
+    "name": "Goblin Legionnaire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Legionnaire",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Goblin Soldier",
+        "oracleText": "{R}, Sacrifice this creature: It deals 2 damage to any target.\n{W}, Sacrifice this creature: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Mark Romanoski",
+        "imageId": "88989f2f-3019-41ec-9dac-3b389f0ce1e4"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "35146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMPLEMENT_OF_COMBUSTION": {
+    "scryfallId": "0518e0ea-3c22-4a37-b7ee-b6174af6ea95",
+    "oracleId": "f4bd26d5-4448-451f-9909-b6dea1551af7",
+    "name": "Implement of Combustion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Implement of Combustion",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{R}, Sacrifice this artifact: It deals 1 damage to target player or planeswalker.\nWhen this artifact is put into a graveyard from the battlefield, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Enora Mercier",
+        "imageId": "0518e0ea-3c22-4a37-b7ee-b6174af6ea95"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "744",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYRITE_SPELLBOMB": {
+    "scryfallId": "088c801d-381f-403b-aeb7-fbbfafee99bf",
+    "oracleId": "2c10cae2-951a-4f4f-94e4-8713b58d07dd",
+    "name": "Pyrite Spellbomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pyrite Spellbomb",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{R}, Sacrifice this artifact: It deals 2 damage to any target.\n{1}, Sacrifice this artifact: Draw a card.",
+        "flavorText": "\"Melt that which was never frozen.\"\n—Spellbomb inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jim Nelson",
+        "imageId": "088c801d-381f-403b-aeb7-fbbfafee99bf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "2xm",
+    "collectorNumber": "283",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYROMANIA": {
+    "scryfallId": "6a5af4e9-a2b6-43c7-8ff4-e761fbf693a7",
+    "oracleId": "2c89cf19-8dc6-422e-bbf8-4dd5a399c630",
+    "name": "Pyromania",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pyromania",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "{1}{R}, Discard a card at random: This enchantment deals 1 damage to any target.\n{1}{R}, Sacrifice this enchantment: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "6a5af4e9-a2b6-43c7-8ff4-e761fbf693a7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tor",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHARD_PHOENIX": {
+    "scryfallId": "3f1b4646-7016-4b56-8b9a-fabf8624ec1a",
+    "oracleId": "3b629793-0efb-4d60-9d82-38b7b400abfd",
+    "name": "Shard Phoenix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shard Phoenix",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Phoenix",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nSacrifice this creature: It deals 2 damage to each creature without flying.\n{R}{R}{R}: Return this card from your graveyard to your hand. Activate only during your upkeep.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "3f1b4646-7016-4b56-8b9a-fabf8624ec1a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pjas",
+    "collectorNumber": "2U06",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMOLDERING_TAR": {
+    "scryfallId": "fcdc55c0-c8ac-49d5-969b-9bf0ee8e696c",
+    "oracleId": "f268699f-c0a2-43f7-b933-7665599ab5ff",
+    "name": "Smoldering Tar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smoldering Tar",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, target player loses 1 life.\nSacrifice this enchantment: It deals 4 damage to target creature. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "David Day",
+        "imageId": "fcdc55c0-c8ac-49d5-969b-9bf0ee8e696c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "275",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNDICATE_GUILDMAGE": {
+    "scryfallId": "e82d3c8d-849a-445b-bc7c-365514d1511f",
+    "oracleId": "ec484fd1-aa9a-4056-becf-1d8c710272fd",
+    "name": "Syndicate Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syndicate Guildmage",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{1}{W}, {T}: Tap target creature with power 4 or greater.\n{4}{B}, {T}: This creature deals 2 damage to target opponent or planeswalker.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "e82d3c8d-849a-445b-bc7c-365514d1511f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNYARO_BEES": {
+    "scryfallId": "76356bc9-2285-44a7-815e-a27ad4e07afc",
+    "oracleId": "7baff5c8-5919-4cbf-961e-962e740ebd8f",
+    "name": "Unyaro Bees",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unyaro Bees",
+        "manaCost": "{G}{G}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Flying\n{G}: This creature gets +1/+1 until end of turn.\n{3}{G}, Sacrifice this creature: It deals 2 damage to any target.",
+        "flavorText": "With no jungle left to contain it, the \"plague of daggers\" spread across Dominaria.",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tom Wänerstrand",
+        "imageId": "76356bc9-2285-44a7-815e-a27ad4e07afc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

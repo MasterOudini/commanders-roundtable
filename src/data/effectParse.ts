@@ -89,6 +89,9 @@ const NOUNS = [
   'artifact, creature, or enchantment',
   'artifact or enchantment',
   'creature or planeswalker',
+  // D425 - `target opponent or planeswalker` (Inferno Jet, Burning Sun's Avatar, Zealot of the God-Pharaoh): the
+  // target parser has read it since D293 (kinds player + planeswalker, controller opponent); above `opponent`.
+  'opponent or planeswalker',
   'player or planeswalker',
   'creature or enchantment',
   'artifact or creature',
@@ -283,11 +286,15 @@ const KW = [...GRANTABLE.keys()].sort((a, b) => b.length - a.length).join('|');
  * answer (the closed map IS the safety property here, exactly as it is for the
  * pump's grant).
  */
-const SCOPE = `(each creature(?: (?:with|without) (?:${KW}))?|each opponent|each player|all creatures|all artifacts|all enchantments|all lands|creatures your opponents control|creatures you control|attacking creatures)`;
+// D425 - `you`: the controller alone (`~ deals 1 damage to you.` - Serendib Efreet, City of Brass, the pain family; 61
+// cards carry it, 17 with nothing else unread). A player scope the executor reads as the resolving object's
+// controller; a verb that refuses player scopes (destroy, exile, bounce) refuses it as it refuses `each player`.
+const SCOPE = `(each creature(?: (?:with|without) (?:${KW}))?|each opponent|each player|you|all creatures|all artifacts|all enchantments|all lands|creatures your opponents control|creatures you control|attacking creatures)`;
 function readScope(raw: string | undefined): BoardScope | null {
   if (raw === undefined) return null;
   const s = raw.toLowerCase();
   if (s === 'each opponent') return { kind: 'player', controller: 'opponents' };
+  if (s === 'you') return { kind: 'player', controller: 'you' };
   if (s === 'each player') return { kind: 'player', controller: 'any' };
   if (s === 'creatures you control') return { kind: 'creature', controller: 'you' };
   if (s === 'creatures your opponents control') return { kind: 'creature', controller: 'opponents' };

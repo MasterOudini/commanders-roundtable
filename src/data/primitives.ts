@@ -908,8 +908,14 @@ export function preventionLineShape(text: string): boolean {
 // D424 - `~` beside the `this <type>` forms: a NAMED head (`When Ryusei dies, it deals 5 damage ...`) is the
 // same subject once `selfRef` has spelled the name, and the row maker's `SELF_HEADS` read it so.
 const SELF_SUBJECT_HEAD = /^(?:[A-Z][a-z]+(?: \d+)? — )?(?:(?:When|Whenever) (?:this creature|this permanent|this artifact|this enchantment|this land|this Vehicle|this Aura|this Equipment|~)\b|At the beginning of|At end of|Whenever you cast a spell that targets this creature)/;
+// D425 - THE SACRIFICED SELF: under an activated cost that sacrifices the permanent itself (`Sacrifice this
+// creature: It deals 1 damage to any target.` - Mogg Fanatic, Fanatical Firebrand, Seal of Fire, 49 lines) the
+// effect's `It` is the object the cost put in the graveyard (CR 608.2h: last known information; the damage is a
+// printed number and the record derives the card where it lies). The row maker rewrites it the same way.
+const SELF_SACRIFICE_COST = /^[^:]*\bSacrifice (?:this creature|this permanent|this artifact|this enchantment|this land|~)\b[^:]*: /;
 function selfSubject(effect: string, line: string): string {
   let out = effect.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
+  if (SELF_SACRIFICE_COST.test(line)) out = out.replace(/^it deals\b/i, '~ deals');
   if (SELF_SUBJECT_HEAD.test(line)) {
     out = out
       .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')

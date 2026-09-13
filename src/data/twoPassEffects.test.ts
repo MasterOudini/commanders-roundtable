@@ -110,3 +110,30 @@ describe('pass two joins only what a rule asks for', () => {
     expect(parse('').mode).toBe('manual');
   });
 });
+
+/**
+ * D425 - the `you` scope and the `opponent or planeswalker` noun: two wordings the executor already had
+ * the machinery for (a player scope; the target parser's player + planeswalker kinds) that the sentence
+ * reader refused - the pain family (`~ deals 1 damage to you.`) and Inferno Jet's aim.
+ */
+describe('D425 - the you scope and the opponent-or-planeswalker noun', () => {
+  test('damage to you is a player scope on the controller alone', () => {
+    const r = parse('~ deals 2 damage to you.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.amount, e.scopes])).toEqual([['damageEach', 2, [{ kind: 'player', controller: 'you' }]]]);
+  });
+
+  test('a compound with a target and a you rider stays unread (Char)', () => {
+    expect(parse('~ deals 4 damage to any target and 2 damage to you.').mode).toBe('manual');
+  });
+
+  test('target opponent or planeswalker reads as a damage aim', () => {
+    const r = parse('~ deals 6 damage to target opponent or planeswalker.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.amount, e.targetIndex])).toEqual([['damage', 6, 0]]);
+  });
+
+  test('destroy refuses the you scope, as it refuses each player', () => {
+    expect(parse('Destroy you.').mode).toBe('manual');
+  });
+});

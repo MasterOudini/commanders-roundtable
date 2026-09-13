@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 9753,
-      blocked: 21939,
+      complete: 9820,
+      blocked: 21872,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -329,7 +329,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1766,
+      scriptableToday: 1784,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -343,8 +343,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 1028,
-      counter: 1127,
-      token: 940,
+      counter: 1126,
+      token: 939,
     });
   });
 
@@ -381,7 +381,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1766, 1769, 3160, 4779, 6130]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1784, 1787, 3180, 4799, 6149]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -505,7 +505,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 354, permanent: 586 });
+    expect.soft(byOwner).toEqual({ spell: 354, permanent: 585 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -519,7 +519,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
       copy: 116,
-      predefined: 147,
+      predefined: 146,
       withAbilities: 284,
       variable: 77,
       plain: 316,
@@ -553,8 +553,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1766, 1769]);
-    expect.soft(r.complete).toBe(9753);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1784, 1787]);
+    expect.soft(r.complete).toBe(9820);
   });
 });
 
@@ -696,16 +696,16 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 1968,
+      activatedCost: 1962,
       triggeredShell: 1815,
-      damage: 633,
+      damage: 607,
       exile: 821,
       staticShell: 622,
       attackBlock: 771,
       lifeGainLoss: 458,
       drawDiscard: 304,
       tokensAndCounters: 298,
-      copySpell: 215,
+      copySpell: 214,
       cantBeCountered: 57,
       gainControl: 66,
       wardHexproofGrant: 46,

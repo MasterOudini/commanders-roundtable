@@ -21,6 +21,7 @@ const P1 = [
   'Grizzly Bears', 'Aven Skirmisher', 'Darksteel Myr', 'Sol Ring', 'Fog',
   'Fuel the Flames', 'Rolling Temblor', 'Claws of Wirewood', 'Hush', 'Rebuild',
   'Suffocating Fumes', 'Pursue Glory', 'Folk Medicine', 'Grasp of Phantoms',
+  'Ashes to Ashes',
 ];
 
 function settle(g: Game): void {
@@ -123,6 +124,23 @@ describe('D383 - one scope reader, several verbs', () => {
     const life0 = g.state.players.p1?.life ?? 0;
     cast(g, 'Folk Medicine', ['G', 'C', 'C']);
     expect(g.state.players.p1?.life).toBe(life0 + 2);
+  });
+
+  // D425 - the `you` scope: `~ deals 5 damage to you.` reaches the resolving object's controller and nobody else
+  // (the pain family - Serendib Efreet, City of Brass, Ashes to Ashes' second sentence).
+  test('damage to YOU reaches the caster alone, and the game replays', () => {
+    const g = armed();
+    const a = put(g, 'p2', 'Grizzly Bears');
+    const b = put(g, 'p2', 'Cyclops of One-Eyed Pass');
+    settle(g);
+    const life1 = g.state.players.p1?.life ?? 0;
+    const life2 = g.state.players.p2?.life ?? 0;
+    cast(g, 'Ashes to Ashes', ['B', 'B', 'C'], [{ kind: 'card', id: a }, { kind: 'card', id: b }]);
+    expect(g.state.cards[a]?.zone.kind).toBe('exile');
+    expect(g.state.cards[b]?.zone.kind).toBe('exile');
+    expect(g.state.players.p1?.life).toBe(life1 - 5);
+    expect(g.state.players.p2?.life).toBe(life2);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
   test('put target creature on top of its owner library, and the game replays', () => {

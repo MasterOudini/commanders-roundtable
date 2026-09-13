@@ -1426,6 +1426,8 @@ function scopeMembers(
     if (scope.kind === 'player') {
       for (const p of state.seating) {
         if (scope.controller === 'opponents' && p === controller) continue;
+        // D425 - `you`: the controller alone (the pain family's `deals N damage to you`).
+        if (scope.controller === 'you' && p !== controller) continue;
         if (!players.includes(p)) players.push(p);
       }
       continue;

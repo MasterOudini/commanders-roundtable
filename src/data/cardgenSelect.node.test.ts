@@ -251,6 +251,31 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D425 - the sacrificed self, the you scope and the opponent-or-planeswalker noun: the 21 the selector offered once
+  // those read that the row maker refused by reason (a combat-role clause the suite has no fixture for 6, a payment
+  // branch the suite cannot assert - damageEach under unless-you-pay 3, a filtered head's adjective 2), and the six its
+  // port named (damage equal to its power from a sacrificed source - the dead-source gap, D421, one shape over).
+  ['City of Brass', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this land becomes tapped, it deals 1 damage to you.'],
+  ['Aerie Ouphes', 'a self-sacrifice on a creature that returns (persist / undying)'],
+  ['Dive Bomber', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Divebomber Griffin', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Duergar Assailant', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Expendable Troops', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Fire Shrine Keeper', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
+  ['Flame Elemental', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
+  ['Force of Nature', 'a payment branch the suite cannot assert: damageEach'],
+  ['Ghitu Fire-Eater', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
+  ['Hasran Ogress', 'a payment branch the suite cannot assert: damageEach'],
+  ['Heartfire Immolator', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
+  ['Soldier Replica', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['War-Torch Goblin', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
+  ['Cinder Shade', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
+  ['Minion of Tevesh Szat', 'a payment branch the suite cannot assert: damageEach'],
+  ['Minotaur Illusionist', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
+  ['Mouser Foundry', 'a filtered head outside the closed reader (an adjective outside the list: this): When this artifact enters or leaves the battlefield, create '],
+  ['Ominous Parcel', 'effect not a row kind: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.'],
+  ['Scrap Compactor', 'a vocabulary clause the suite has no fixture for: a clause whose alternatives differ'],
+  ['Skarrgan Skybreaker', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   // D424 - the classifier reads as the row maker reads: the 184 the selector offered once the optional trigger, the
   // row kinds the vocabulary lacks, the attached keywords, the named self head and the activation restriction read,
   // that the row maker refused by reason (a head outside its library 54, a filtered head's adjective 32, a payload
@@ -758,7 +783,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Aether Burst is its cast-time-computed sibling.
   ['Allure of the Unknown', 'opponent-chooses'],
   ['Aetherspouts', 'script-raised prompt'],
-  ['Aftershock', 'unread effect sentence'],
   ["Aminatou's Augury", 'play-from-exile permission'],
   ['Amass the Components', 'script-raised prompt'],
   ['Aether Burst', 'cast-time computed target count'],
@@ -2152,7 +2176,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Frostveil Ambush', 'a spell line outside the vocabulary (its cycling runs)'],
 
-  ['Inferno Jet', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Scarab Feast', 'a spell line outside the vocabulary (its cycling runs)'],
