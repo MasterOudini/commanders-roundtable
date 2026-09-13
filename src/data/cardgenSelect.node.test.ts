@@ -251,6 +251,18 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D419 - the board condition reads: the 9 the selector offered once `if you control <noun>` read under the enters and
+  // refire heads that the row maker refused, by reason (a `no <noun>` condition the armed board meets from the start,
+  // and the Descend ability word).
+  ['Coati Scavenger', 'an ability-word line the row maker does not split (Descend 4) beside its board-condition line'],
+  ['Malamet Veteran', 'an ability-word line the row maker does not split (Descend 4) beside its board-condition line'],
+  ['Glimmervoid', 'a board condition the armed board already meets (you control no artifacts: the fire cannot break it, not this wave)'],
+  ['Keldon Berserker', 'a board condition the armed board already meets (you control no untapped lands: not this wave)'],
+  ["Martyr's Soul", 'a board condition the armed board already meets (you control no tapped lands: not this wave)'],
+  ['Stenchskipper', 'a board condition the armed board already meets (you control no Goblins: not this wave)'],
+  ['Thran Quarry', 'a board condition the armed board already meets (you control no creatures: not this wave)'],
+  ['Well of Discovery', 'a board condition the armed board already meets (you control no untapped lands: not this wave)'],
+  ['Well of Life', 'a board condition the armed board already meets (you control no untapped lands: not this wave)'],
   // D418 - the count expression reads: the 44 the selector offered once `for each <noun>` / `where X is the number of` read
   // that the row maker refused, by reason (the counted suite stages a witness for a plain permanent or graveyard noun
   // only: the refinements, the party, the hand, the kicks, the deaths, the domain and the attack heads wait).

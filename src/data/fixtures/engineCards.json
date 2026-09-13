@@ -221319,6 +221319,1044 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ACCLAIMED_CONTENDER": {
+    "scryfallId": "0dbf3260-b956-40da-abc7-764781c9f26f",
+    "oracleId": "35df179a-c0e6-4ac1-a861-e6e9b4d1614d",
+    "name": "Acclaimed Contender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Acclaimed Contender",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, if you control another Knight, look at the top five cards of your library. You may reveal a Knight, Aura, Equipment, or legendary artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "0dbf3260-b956-40da-abc7-764781c9f26f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "334",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APOTHECARY_GEIST": {
+    "scryfallId": "37e2358c-211e-4d79-8120-88bb9e656cba",
+    "oracleId": "3420da71-0af4-46b4-a994-91a82332d0fb",
+    "name": "Apothecary Geist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apothecary Geist",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, if you control another Spirit, you gain 3 life.",
+        "flavorText": "For some customers, the old apothecary shop still opens its doors.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "37e2358c-211e-4d79-8120-88bb9e656cba"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADE_TRIBE_BERSERKERS": {
+    "scryfallId": "acd124bb-1ed1-469c-8527-d7261ea720b9",
+    "oracleId": "655847c6-7c5e-4659-870e-825d0cf5e90c",
+    "name": "Blade-Tribe Berserkers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blade-Tribe Berserkers",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Metalcraft — When this creature enters, if you control three or more artifacts, this creature gets +3/+3 and gains haste until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "acd124bb-1ed1-469c-8527-d7261ea720b9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROTHERHOOD_SPY": {
+    "scryfallId": "0157325c-b064-4c0a-9b5d-ecdf0ed15d9c",
+    "oracleId": "26d800b2-b312-4400-8357-615301971086",
+    "name": "Brotherhood Spy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brotherhood Spy",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "At the beginning of combat on your turn, if you control a legendary Assassin, this creature gets +1/+0 until end of turn and can't be blocked this turn.",
+        "flavorText": "\"We need to stop Starrick and return London to the people who built it in the first place.\"\n—Jayadeep Mir",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jurijus Chitrovas",
+        "imageId": "0157325c-b064-4c0a-9b5d-ecdf0ed15d9c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "282",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYPT_FEASTER": {
+    "scryfallId": "3b072811-998a-4a71-b59c-6afecc0dc4b6",
+    "oracleId": "4c22257e-8a00-40b7-a29b-55fcec7ddbd4",
+    "name": "Crypt Feaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crypt Feaster",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nThreshold — Whenever this creature attacks, if there are seven or more cards in your graveyard, this creature gets +2/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Di Giovanni",
+        "imageId": "3b072811-998a-4a71-b59c-6afecc0dc4b6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Threshold",
+      "Menace"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DONATELLO_TURTLE_TECHIE": {
+    "scryfallId": "683cfef0-f164-4db8-b83f-79eb804e50ae",
+    "oracleId": "f84850bc-6348-449e-bd82-bb39e2119bec",
+    "name": "Donatello, Turtle Techie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Donatello, Turtle Techie",
+        "manaCost": "{3}{U}",
+        "typeLine": "Legendary Creature — Mutant Ninja Turtle",
+        "oracleText": "When Donatello enters, if you control an artifact, draw a card.",
+        "flavorText": "\"My son, for someone so intelligent, the obvious often eludes you.\"\n—Splinter",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Valle",
+        "imageId": "683cfef0-f164-4db8-b83f-79eb804e50ae"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUNDOOLIN_WEAVER": {
+    "scryfallId": "2260912b-4dfb-49dd-bf95-060d44333645",
+    "oracleId": "28564d10-bfc5-4beb-b0e2-b9aa5c03f740",
+    "name": "Dundoolin Weaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dundoolin Weaver",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Kithkin Druid",
+        "oracleText": "When this creature enters, if you control three or more creatures, return target permanent card from your graveyard to your hand.",
+        "flavorText": "Stitching a mind back into the thoughtweft takes time, artistry, and the faith of an entire clachan.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Olivier Bernard",
+        "imageId": "2260912b-4dfb-49dd-bf95-060d44333645"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWYNEN_S_ELITE": {
+    "scryfallId": "2e70732f-68c1-4341-879e-5c9c68ea8503",
+    "oracleId": "3d4a7dd3-9258-4bd1-adc4-08f0205e196a",
+    "name": "Dwynen's Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwynen's Elite",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "When this creature enters, if you control another Elf, create a 1/1 green Elf Warrior creature token.",
+        "flavorText": "\"Come, my beautiful brothers and sisters. Let us hunt.\"\n—Dwynen, Gilt-Leaf daen",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "2e70732f-68c1-4341-879e-5c9c68ea8503"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "654",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLIGHT_DECK_COORDINATOR": {
+    "scryfallId": "88cc6328-a035-4f74-b786-390e5c7c324c",
+    "oracleId": "57927909-11a9-44ef-989d-1dcca1f6e23f",
+    "name": "Flight-Deck Coordinator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flight-Deck Coordinator",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "At the beginning of your end step, if you control two or more tapped creatures, you gain 2 life.",
+        "flavorText": "The hidden might of the Sunstar Free Company is its technical staff.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "88cc6328-a035-4f74-b786-390e5c7c324c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRONTLINE_WAR_RAGER": {
+    "scryfallId": "fa232943-818b-4944-be60-2d80c806bf62",
+    "oracleId": "610d006a-3ceb-4136-b92b-a500c74d06b0",
+    "name": "Frontline War-Rager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frontline War-Rager",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Kavu Soldier",
+        "oracleText": "At the beginning of your end step, if you control two or more tapped creatures, put a +1/+1 counter on this creature.",
+        "flavorText": "The Kav have more than ideology or profit on the line. They fight for a home.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "fa232943-818b-4944-be60-2d80c806bf62"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GAEA_S_COURSER": {
+    "scryfallId": "1a0b94e5-d270-4820-83b9-1d346d378ff8",
+    "oracleId": "5d13aa6a-5a04-45e0-bb33-daa707ffaf9f",
+    "name": "Gaea's Courser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gaea's Courser",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Centaur Soldier",
+        "oracleText": "Whenever this creature attacks, if there are three or more creature cards in your graveyard, draw a card.",
+        "flavorText": "\"Even the leaves oppose your being here. What hope have you against nature's might?\"",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "1a0b94e5-d270-4820-83b9-1d346d378ff8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KYOSHI_WARRIOR_EXEMPLARS": {
+    "scryfallId": "052c27d2-1aa4-44be-b0eb-39f413a7205d",
+    "oracleId": "4bb0596f-df1d-4977-bb8b-4d2e6648dcb3",
+    "name": "Kyoshi Warrior Exemplars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kyoshi Warrior Exemplars",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior Ally",
+        "oracleText": "Whenever this creature attacks, if you control eight or more lands, creatures you control get +2/+2 until end of turn.",
+        "flavorText": "Like the Avatar that is their namesake, the Kyoshi Warriors fight with dedication, strategy, and ferocity.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Enishi",
+        "imageId": "052c27d2-1aa4-44be-b0eb-39f413a7205d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAGONNA_BAND_ELDER": {
+    "scryfallId": "68b9df54-e78e-4a86-a8b1-b735ec08a812",
+    "oracleId": "60e3ccf2-63f5-4435-a752-1d82fefb55d7",
+    "name": "Lagonna-Band Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lagonna-Band Elder",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Centaur Advisor",
+        "oracleText": "When this creature enters, if you control an enchantment, you gain 3 life.",
+        "flavorText": "\"The best lessons are not the ones I teach. They are the ones the pupils realize for themselves.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Min Yum",
+        "imageId": "68b9df54-e78e-4a86-a8b1-b735ec08a812"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUMENGRID_DRAKE": {
+    "scryfallId": "f44e9820-2209-40a2-bc4f-46b440c05e9d",
+    "oracleId": "0700d889-d235-49fe-8b92-698d486b2539",
+    "name": "Lumengrid Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lumengrid Drake",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nMetalcraft — When this creature enters, if you control three or more artifacts, return target creature to its owner's hand.",
+        "flavorText": "Properly outfitted, drakes made perfect sentries for vedalken strongholds.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "f44e9820-2209-40a2-bc4f-46b440c05e9d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Metalcraft"
+    ],
+    "setCode": "som",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESISTANCE_SQUAD": {
+    "scryfallId": "093ae747-350f-4253-b903-8c6892d78c83",
+    "oracleId": "a16eeef9-e03c-4ebb-b986-325252a9491f",
+    "name": "Resistance Squad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resistance Squad",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, if you control another Human, draw a card.",
+        "flavorText": "\"It's not that I didn't expect some defiance, but I did hope it wouldn't be so heavily armed.\"\n—Olivia Voldaren",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "093ae747-350f-4253-b903-8c6892d78c83"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "vow",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RHOX_MEDITANT": {
+    "scryfallId": "45e523c5-b134-4dab-8f10-a9d4a710725c",
+    "oracleId": "832c6834-2cc7-41d5-b881-37c24c13ab8a",
+    "name": "Rhox Meditant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rhox Meditant",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Rhino Monk",
+        "oracleText": "When this creature enters, if you control a green permanent, draw a card.",
+        "flavorText": "The weight of her conviction balances on the harmony of her soul.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "45e523c5-b134-4dab-8f10-a9d4a710725c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CON-16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARULI_GATEKEEPERS": {
+    "scryfallId": "471a5b1d-e2e5-4d90-b72a-ffae81ad6602",
+    "oracleId": "509ea58a-da0a-4e9a-aafc-15f4f65a7467",
+    "name": "Saruli Gatekeepers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saruli Gatekeepers",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "When this creature enters, if you control two or more Gates, you gain 7 life.",
+        "flavorText": "In Ravnica's wilder districts, nature still stirs, and its protectors still mind their posts.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "471a5b1d-e2e5-4d90-b72a-ffae81ad6602"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCHOLAR_OF_STARS": {
+    "scryfallId": "5fc4498e-24e6-40e9-8cd5-f42220366664",
+    "oracleId": "0753aee4-33db-48c5-9854-16a9d91535b2",
+    "name": "Scholar of Stars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scholar of Stars",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, if you control an artifact, draw a card.",
+        "flavorText": "\"The path of the stars is as reliable as the instruments that measure them.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tommy Arnold",
+        "imageId": "5fc4498e-24e6-40e9-8cd5-f42220366664"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCUTTLING_BUTLER": {
+    "scryfallId": "0edbece0-8444-4634-a47b-7c88d1b8325e",
+    "oracleId": "2b51d6e5-a4cd-4f2f-9762-6ad2cfd8b084",
+    "name": "Scuttling Butler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scuttling Butler",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "At the beginning of combat on your turn, if you control two or more multicolored permanents, this creature gains double strike until end of turn.",
+        "flavorText": "Porter, cleaner, and bouncer all in one.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gaboleps",
+        "imageId": "0edbece0-8444-4634-a47b-7c88d1b8325e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEDRAXIS_ALCHEMIST": {
+    "scryfallId": "7fbbc5d7-86d0-4e09-b37c-e40eb88f3f33",
+    "oracleId": "56f3f1b4-c36a-41f3-95a1-45e9d7e74cf9",
+    "name": "Sedraxis Alchemist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sedraxis Alchemist",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Wizard",
+        "oracleText": "When this creature enters, if you control a blue permanent, return target nonland permanent to its owner's hand.",
+        "flavorText": "The problem with a liquid that can dissolve anything is finding something to carry it in.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "7fbbc5d7-86d0-4e09-b37c-e40eb88f3f33"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SETTLEMENT_BLACKSMITH": {
+    "scryfallId": "301310b3-c031-4fd3-a47e-9645b6177329",
+    "oracleId": "f98d0f8a-c8b5-4fb8-b598-e70ffab3c0ff",
+    "name": "Settlement Blacksmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Settlement Blacksmith",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, if you control an Equipment, draw a card.",
+        "flavorText": "\"Weapons, armor, shields, or tools—whatever the Raven Clan needs, my forge will provide.\"\n—Gunnar of Ravensthorpe",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daniel Correia",
+        "imageId": "301310b3-c031-4fd3-a47e-9645b6177329"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMELT_WARD_GATEKEEPERS": {
+    "scryfallId": "8237b11f-36d2-4624-a0ef-520663385891",
+    "oracleId": "7c6d213b-448a-4231-9f6f-65c8ad49a5f1",
+    "name": "Smelt-Ward Gatekeepers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smelt-Ward Gatekeepers",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, if you control two or more Gates, gain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "8237b11f-36d2-4624-a0ef-520663385891"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSPIRE_GATEKEEPERS": {
+    "scryfallId": "0a3bc6b9-475b-4257-a3bc-1a0b70d45f79",
+    "oracleId": "df2cc4ba-70b8-4875-8f84-9c268ab8d5f6",
+    "name": "Sunspire Gatekeepers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunspire Gatekeepers",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, if you control two or more Gates, create a 2/2 white Knight creature token with vigilance.",
+        "flavorText": "\"You will pass with respect, or you will not pass at all.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chippy",
+        "imageId": "0a3bc6b9-475b-4257-a3bc-1a0b70d45f79"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPPLY_CARAVAN": {
+    "scryfallId": "71899431-c397-4031-b01a-d8bd960bbe2d",
+    "oracleId": "1abcfe8d-4beb-4910-b353-1227e1256329",
+    "name": "Supply Caravan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Supply Caravan",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Camel",
+        "oracleText": "When this creature enters, if you control a tapped creature, create a 1/1 white Warrior creature token with vigilance.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "71899431-c397-4031-b01a-d8bd960bbe2d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "akr",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIDECALLER_MENTOR": {
+    "scryfallId": "fa10ffac-7cc2-41ef-b8a0-9431923c0542",
+    "oracleId": "e75e40a5-a9ae-4789-96c1-0e19d1ce59c5",
+    "name": "Tidecaller Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tidecaller Mentor",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Creature — Rat Wizard",
+        "oracleText": "Menace\nThreshold — When this creature enters, if there are seven or more cards in your graveyard, return up to one target nonland permanent to its owner's hand.",
+        "flavorText": "\"The same tides that bring us knowledge can sweep us away.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "fa10ffac-7cc2-41ef-b8a0-9431923c0542"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Threshold",
+      "Menace"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TILONALLI_S_KNIGHT": {
+    "scryfallId": "b25c2f33-1707-4ff3-a22e-58f51936b733",
+    "oracleId": "ae5fe3bd-b6cf-47be-bfb0-05204387bb83",
+    "name": "Tilonalli's Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tilonalli's Knight",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Whenever this creature attacks, if you control a Dinosaur, this creature gets +1/+1 until end of turn.",
+        "flavorText": "The people of the Sun Empire worship the sun in three aspects. Tilonalli is the Burning Sun, associated with ferocity, fire, and passion.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "b25c2f33-1707-4ff3-a22e-58f51936b733"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UBUL_SAR_GATEKEEPERS": {
+    "scryfallId": "4a1d2faf-e88c-43bf-a710-438e7a731091",
+    "oracleId": "f4e15575-2277-4cb1-a343-e9407c050eb1",
+    "name": "Ubul Sar Gatekeepers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ubul Sar Gatekeepers",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Soldier",
+        "oracleText": "When this creature enters, if you control two or more Gates, target creature an opponent controls gets -2/-2 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "4a1d2faf-e88c-43bf-a710-438e7a731091"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEBWEAVER_CHANGELING": {
+    "scryfallId": "39614e65-47a1-4d6e-aa9c-7c2ae32dd2ae",
+    "oracleId": "c8cf9387-54df-45b1-ad8d-9de57ed8916b",
+    "name": "Webweaver Changeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Webweaver Changeling",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nReach\nWhen this creature enters, if there are three or more creature cards in your graveyard, you gain 5 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "39614e65-47a1-4d6e-aa9c-7c2ae32dd2ae"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Changeling"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "666",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSTAR_CHAPLAIN": {
+    "scryfallId": "83719626-3ff8-4566-9911-88212e753c69",
+    "oracleId": "de6b26e4-8700-490f-9df2-dac430463274",
+    "name": "Sunstar Chaplain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunstar Chaplain",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "At the beginning of your end step, if you control two or more tapped creatures, put a +1/+1 counter on target creature you control.\n{2}, Remove a +1/+1 counter from a creature you control: Tap target artifact or creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "83719626-3ff8-4566-9911-88212e753c69"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_STROMGALD": {
+    "scryfallId": "4a7506f8-cf09-46ca-ad80-3c398c487ae2",
+    "oracleId": "099fd4b3-92fd-4b5f-bb4f-eefa6f09700c",
+    "name": "Agent of Stromgald",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of Stromgald",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "{R}: Add {B}.",
+        "flavorText": "\"The Order of Stromgald spreads its poisonous lies from within Varchild's troops, and still she sees only visions of conquest.\"\n—Lovisa Coldeyes, Balduvian Chieftain",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alan Rabinowitz",
+        "imageId": "4a7506f8-cf09-46ca-ad80-3c398c487ae2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "all",
+    "collectorNumber": "64a",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACK_WIDOW_NATASHA_ROMANOFF": {
+    "scryfallId": "2f3e2f33-9c31-4107-b9b4-a7e1d2d43bab",
+    "oracleId": "f3882587-7aff-451f-a990-e25039e5ef85",
+    "name": "Black Widow, Natasha Romanoff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Black Widow, Natasha Romanoff",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Human Assassin Hero",
+        "oracleText": "",
+        "flavorText": "\"They tell me now that I'm an Avenger I can't kill anyone. You want to put that to the test?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Julia Vasilyeva",
+        "imageId": "2f3e2f33-9c31-4107-b9b4-a7e1d2d43bab"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "846",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

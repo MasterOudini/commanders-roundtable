@@ -7,6 +7,35 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ACCLAIMED_CONTENDER_SCRIPT } from './cards/acclaimedContender';
+import { APOTHECARY_GEIST_SCRIPT } from './cards/apothecaryGeist';
+import { BLADE_TRIBE_BERSERKERS_SCRIPT } from './cards/bladeTribeBerserkers';
+import { BROTHERHOOD_SPY_SCRIPT } from './cards/brotherhoodSpy';
+import { CRYPT_FEASTER_SCRIPT } from './cards/cryptFeaster';
+import { DONATELLO_TURTLE_TECHIE_SCRIPT } from './cards/donatelloTurtleTechie';
+import { DUNDOOLIN_WEAVER_SCRIPT } from './cards/dundoolinWeaver';
+import { DWYNENS_ELITE_SCRIPT } from './cards/dwynensElite';
+import { FLIGHT_DECK_COORDINATOR_SCRIPT } from './cards/flightDeckCoordinator';
+import { FRONTLINE_WAR_RAGER_SCRIPT } from './cards/frontlineWarRager';
+import { GAEAS_COURSER_SCRIPT } from './cards/gaeasCourser';
+import { KYOSHI_WARRIOR_EXEMPLARS_SCRIPT } from './cards/kyoshiWarriorExemplars';
+import { LAGONNA_BAND_ELDER_SCRIPT } from './cards/lagonnaBandElder';
+import { LUMENGRID_DRAKE_SCRIPT } from './cards/lumengridDrake';
+import { RESISTANCE_SQUAD_SCRIPT } from './cards/resistanceSquad';
+import { RHOX_MEDITANT_SCRIPT } from './cards/rhoxMeditant';
+import { SARULI_GATEKEEPERS_SCRIPT } from './cards/saruliGatekeepers';
+import { SCHOLAR_OF_STARS_SCRIPT } from './cards/scholarOfStars';
+import { SCUTTLING_BUTLER_SCRIPT } from './cards/scuttlingButler';
+import { SEDRAXIS_ALCHEMIST_SCRIPT } from './cards/sedraxisAlchemist';
+import { SETTLEMENT_BLACKSMITH_SCRIPT } from './cards/settlementBlacksmith';
+import { SMELT_WARD_GATEKEEPERS_SCRIPT } from './cards/smeltWardGatekeepers';
+import { SUNSPIRE_GATEKEEPERS_SCRIPT } from './cards/sunspireGatekeepers';
+import { SUPPLY_CARAVAN_SCRIPT } from './cards/supplyCaravan';
+import { TIDECALLER_MENTOR_SCRIPT } from './cards/tidecallerMentor';
+import { TILONALLIS_KNIGHT_SCRIPT } from './cards/tilonallisKnight';
+import { UBUL_SAR_GATEKEEPERS_SCRIPT } from './cards/ubulSarGatekeepers';
+import { WEBWEAVER_CHANGELING_SCRIPT } from './cards/webweaverChangeling';
+import { SUNSTAR_CHAPLAIN_SCRIPT } from './cards/sunstarChaplain';
 import { KRENKO_MOB_BOSS_SCRIPT } from './cards/krenkoMobBoss';
 import { BISHOP_OF_THE_BLOODSTAINED_SCRIPT } from './cards/bishopOfTheBloodstained';
 import { EARTHSHAKER_DREADMAW_SCRIPT } from './cards/earthshakerDreadmaw';
@@ -6058,6 +6087,35 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ACCLAIMED_CONTENDER_SCRIPT,
+  APOTHECARY_GEIST_SCRIPT,
+  BLADE_TRIBE_BERSERKERS_SCRIPT,
+  BROTHERHOOD_SPY_SCRIPT,
+  CRYPT_FEASTER_SCRIPT,
+  DONATELLO_TURTLE_TECHIE_SCRIPT,
+  DUNDOOLIN_WEAVER_SCRIPT,
+  DWYNENS_ELITE_SCRIPT,
+  FLIGHT_DECK_COORDINATOR_SCRIPT,
+  FRONTLINE_WAR_RAGER_SCRIPT,
+  GAEAS_COURSER_SCRIPT,
+  KYOSHI_WARRIOR_EXEMPLARS_SCRIPT,
+  LAGONNA_BAND_ELDER_SCRIPT,
+  LUMENGRID_DRAKE_SCRIPT,
+  RESISTANCE_SQUAD_SCRIPT,
+  RHOX_MEDITANT_SCRIPT,
+  SARULI_GATEKEEPERS_SCRIPT,
+  SCHOLAR_OF_STARS_SCRIPT,
+  SCUTTLING_BUTLER_SCRIPT,
+  SEDRAXIS_ALCHEMIST_SCRIPT,
+  SETTLEMENT_BLACKSMITH_SCRIPT,
+  SMELT_WARD_GATEKEEPERS_SCRIPT,
+  SUNSPIRE_GATEKEEPERS_SCRIPT,
+  SUPPLY_CARAVAN_SCRIPT,
+  TIDECALLER_MENTOR_SCRIPT,
+  TILONALLIS_KNIGHT_SCRIPT,
+  UBUL_SAR_GATEKEEPERS_SCRIPT,
+  WEBWEAVER_CHANGELING_SCRIPT,
+  SUNSTAR_CHAPLAIN_SCRIPT,
   KRENKO_MOB_BOSS_SCRIPT,
   BISHOP_OF_THE_BLOODSTAINED_SCRIPT,
   EARTHSHAKER_DREADMAW_SCRIPT,

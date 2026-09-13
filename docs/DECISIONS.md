@@ -33257,3 +33257,128 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D419 — THE BOARD CONDITION UNDER THE ENTERS AND REFIRE HEADS: `When ~ enters, if you control another Knight, draw a card.` — the classifier sees past a board condition (what you control — a count, one, another, none — of a noun the condition reader admits; what an opponent controls; the graveyard's count; the hand's size) under the enters head, the refire heads and the enters-with line, the way it has seen past a turn condition since D398; no engine change (2026-09-13)
+
+**9,496 of 31,692 Commander-legal cards now execute completely, up from 9,467
+(+29: 29 generated rows — Acclaimed Contender, Apothecary Geist, Brotherhood Spy, Dundoolin Weaver,
+Dwynen's Elite, Flight-Deck Coordinator, Frontline War-Rager, Gaea's Courser, Lagonna-Band Elder,
+Resistance Squad, Rhox Meditant, Saruli Gatekeepers, Scholar of Stars, Scuttling Butler, Sedraxis
+Alchemist, Settlement Blacksmith, Sunspire Gatekeepers, Supply Caravan, Tilonalli's Knight, Wildwood
+Tracker and their kin).** `SHIPPED_SCRIPTS` 6,032 → **6,061**; the REFUSED ledger 1,418 → **1,427** (9
+added by reason; nothing stale). Fixtures 6,695 → **6,726** (6,565 by name + 154 tokens: the 29 rows
+and the two fixtures the sweep derived). `scriptableToday` 1,518 → **1,527**; the select pool 0 → 38 →
+0; the ladder `[1527, 1626, 2994, 4655, 5998]`. Bot reach 9,391 → **9,420** from 289 commanders. A
+classifier decision on Opus 5 — the generator's reader, stages and helpers were D398's and D401's.
+
+### The measurement chose it — 76 whole by the real readers, over a long tail of conditions
+
+After D418 the board's largest single family among the one-piece leftover by the rewrite method was
+the `if you control <X>` condition: **76** cards flipped when the intervening or leading if was
+dropped (419 lines carry one), under twelve payload shapes (`draw a card` 12, a +1/+1 counter on
+this creature 5, a bounce of itself 3, a self pump 3, double strike 2, a land's own sacrifice 2,
+3 life 2) over fifty conditions (a creature with power N or greater 5, an opponent controls more
+lands than you 4, N or more Gates 4, N or more lands 3, N or more creature cards in your graveyard 3,
+no untapped lands 3, an artifact or enchantment 2, N or more tapped creatures 2, and one each of
+another Human / Knight / Elf / Spirit / non-Human creature / nontoken Pirate, no Snakes, no other
+creatures, a green permanent, an Equipment, an Ajani planeswalker, exactly two creatures…). The
+search family measured 110 flips over ninety shapes (a `permanent card` predicate 16, the two-land
+searches 6, the `if an opponent controls more lands` condition 5, the tutor's `the card on top` 2),
+`you may cast` 57 over as many statics, `where X is` 328 over forty value forms (`the number of
+<noun>` 156 whose verbs the count expression does not carry — `it deals X damage` 9, `it gets +X/+N`
+8, `Add X mana` 6 — then a referent's mana value 17, its power 9 + 7 + 7, the sacrificed creature's
+power 7, the life gained this turn 7, the greatest power 7, your life total 3, devotion 3 + 2 + 2),
+the `for each` residue 65 (the counted entry 14, the counted static 11, `it gets` 11, the counted
+price 7, the kicks 6), the prevent-all shields 66 over sixty shapes, the top-of-library family 23.
+
+### The seam — one alternation, three heads, nothing in the engine
+
+- **The classifier** (`primitives.ts` `BOARD_COND`, `ETB_IF_BOARD`, `STEP_IF_BOARD`,
+  `ENTERS_WITH_IF_BOARD`): `withoutTurnCondition` stands a BOARD condition out of an enters head's
+  intervening if, a refire head's (the end step, each end step, the beginning of combat on your turn,
+  this creature attacking) and an enters-with line's trailing if, and the bare line is classified —
+  D398's rule, one alternation over. The alternation MIRRORS the generator's reader
+  (`gen-cond.cjs` `parseCond` / `readPred`): `you control (N or more | a | another | no [other])
+  <noun>`, `an opponent controls (a | no) <noun>`, `N or more [typed] cards in your graveyard`, the
+  hand's size — the noun with `readPred`'s prefixes (untapped / tapped, multicolored, nonland, a
+  supertype, a colour) and its heads (`artifact creature`, the six card types, `permanent`, a
+  CAPITALISED subtype). Case-sensitive on purpose: a subtype is a capitalised word, and a lower-case
+  word the reader does not list is a noun it does not know.
+- **The generator** (`make-rows119.cjs`, `gen119-cond.cjs`, `gen-oneshot119.cjs`): the row maker's
+  intervening-if path has read ANY `parseCond` kind since D398 and staged it since D401
+  (`stageControl` — the fixtures the noun names, put before the baseline for the met stage; the
+  broken stage first); the enters and refire arms play both stages. The one fix: under a refire
+  head the fire is turn 7, so the pump-ends-at-cleanup walk goes to turn 8 (`endTurnIf`) — five
+  suites read a live pump at turn 7 at the first port.
+- **The engine**: nothing. The condition is compiled into the script's own helper (`ifCondNOf`,
+  D398), read off the printed faces, and checked at the fire and at resolution (CR 603.4).
+- **No new canary** (D400's and D401's rule): the rows are dealt by the L1 theorem and their
+  helpers are D398's.
+
+### The wave — 29 rows
+
+The selector offered 38 once the condition read: 29 rowed (the enters heads with a draw, a counter, a
+pump, a bounce, a gain; the Gatekeepers' Gate counts; Brotherhood Spy's and Tilonalli's Knight's
+combat-step pumps; Scuttling Butler's double strike under the beginning of combat) and 9 refused by
+reason — seven `no <noun>` conditions the armed board already meets from the start (the fire cannot
+break them: Glimmervoid, Thran Quarry, Keldon Berserker, Martyr's Soul, Stenchskipper, the two
+Wells) and the two Descend ability-word lines (Coati Scavenger, Malamet Veteran).
+
+### Traps
+
+- **A REFIRE IF FIRES ON TURN 7**: the pump-ends-at-cleanup test walked to turn 4 and read the pump
+  D400's arm had cast on turn 7 — the walk must pass THAT cleanup (turn 8).
+- **THE CLASSIFIER MIRRORS THE READER BY HAND**: a shape the alternation admits that `parseCond`
+  refuses lands in the ledger by reason (none this wave); a shape it refuses that the reader would
+  read is a card the pool never sees — the two are kept side by side, never widened by shape.
+- **THE HEREDOC HALVES `\n` INSIDE A JS STRING TOO**: an applier whose anchor spells a
+  template's `\n` must compose it (`BS + 'n'`), or the anchor matches nothing.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6242 files, 30209
+passed / 11 skipped · 500-seed gate, 6 shards, 1063.2 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D419): the board conditions the reader refuses (a creature with power N or
+greater 6, an opponent controls more lands than you 5, no untapped / tapped lands, exactly N,
+lands with different names, a creature with a +1/+1 counter, a permanent with mana value N or
+greater, the Descend ability word) and the seven `no <noun>` rows the armed board meets from the
+start; the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

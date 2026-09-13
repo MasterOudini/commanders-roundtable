@@ -154,6 +154,23 @@ const BLOODTHIRST_LINE = /^Bloodthirst (\d+)$/;
 // turns (the end step, each end step, the beginning of combat on your turn, this creature
 // attacking): the condition is stood out and the bare line asked, as under an enters head.
 const STEP_IF = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?(?:At the beginning of your end step|At the beginning of (?:the|each) end step|At the beginning of combat on your turn|Whenever (?:this creature|~) attacks)), if ${TURN_COND}, `, 'i');
+// D419 - THE BOARD CONDITIONS THE ROW MAKER READS (gen-cond's `control`, `gyCount`, `gyTyped` and `hand`
+// kinds): what you control - a count, one, another, none - of a noun the same reader admits, what an
+// opponent controls, the graveyard's count and the hand's size. CASE-SENSITIVE on purpose: a subtype is
+// a capitalised word, and a lower-case word the reader does not list is a noun it does not know. Mirrors
+// `gen-cond.cjs` (`readPred` / `parseCond`) and is never widened by shape; the generator compiles the
+// condition into the script's own helper (D398), so nothing here runs in the engine.
+const BOARD_NUM = '(?:one|two|three|four|five|six|seven|eight|nine|ten|thirteen|twenty|\\d+)';
+const BOARD_NOUN =
+  '(?:(?:untapped|tapped) )?(?:multicolored )?(?:nonland )?(?:(?:basic|legendary|snow) )?(?:(?:white|blue|black|red|green) )?(?:artifact creatures?|(?:artifact|creature|land|enchantment|planeswalker|permanent)s?|[A-Z][a-z]+)';
+const BOARD_COND =
+  `(?:you control (?:${BOARD_NUM} or more |an? |another |other |no (?:other )?)${BOARD_NOUN}` +
+  `|an opponent controls (?:an? |no )${BOARD_NOUN}` +
+  `|(?:there are )?${BOARD_NUM} or more (?:(?:permanent|creature|land|artifact|instant and/or sorcery|instant or sorcery) )?cards (?:are )?in your graveyard` +
+  `|you have no cards in hand|you have ${BOARD_NUM} or (?:more|fewer|less) cards in hand|you have more cards in hand than each opponent)`;
+const ETB_IF_BOARD = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${BOARD_COND}, `);
+const STEP_IF_BOARD = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?(?:At the beginning of your end step|At the beginning of (?:the|each) end step|At the beginning of combat on your turn|Whenever (?:this creature|~) attacks)), if ${BOARD_COND}, `);
+const ENTERS_WITH_IF_BOARD = new RegExp(`^((?:This creature|~|[A-Z][^,]*?) enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it) if ${BOARD_COND}\\.$`);
 const COUNT_WORD: Readonly<Record<number, string>> = { 1: 'a', 2: 'two', 3: 'three', 4: 'four', 5: 'five' };
 export function withoutTurnCondition(text: string): string {
   const bt = BLOODTHIRST_LINE.exec(text);
@@ -169,6 +186,13 @@ export function withoutTurnCondition(text: string): string {
   if (lk) return 'This creature ' + lk[2] + '.';
   const ew = ENTERS_WITH_IF.exec(text);
   if (ew) return (ew[1] + '.').replace(ABILITY_WORD_PREFIX, '');
+  // D419 - the board conditions, under the same three heads.
+  const eb = ETB_IF_BOARD.exec(text);
+  if (eb) return (eb[1] + ', ' + text.slice(eb[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  const sb = STEP_IF_BOARD.exec(text);
+  if (sb) return (sb[1] + ', ' + text.slice(sb[0].length)).replace(ABILITY_WORD_PREFIX, '');
+  const wb = ENTERS_WITH_IF_BOARD.exec(text);
+  if (wb) return (wb[1] + '.').replace(ABILITY_WORD_PREFIX, '');
   return text;
 }
 
