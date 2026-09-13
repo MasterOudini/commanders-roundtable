@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 9605,
-      blocked: 22087,
+      complete: 9753,
+      blocked: 21939,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -329,20 +329,22 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1630,
+      scriptableToday: 1766,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
       // of which 169 genuinely needed nothing but the yes/no. It led D127's table
       // at 2,012 and is in fact the second SMALLEST row. See D153 and
       // `primitiveFor`.
-      optional: 77,
+      // D424 - the optional trigger is the row maker's (`rowMakerReads`): a `you may` over a payload the vocabulary
+      // reads under a trigger head is `scriptable` now, and the bucket holds what waits on the yes/no AND a head - nothing.
+      optional: 0,
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 1034,
-      counter: 1214,
-      token: 944,
+      layer6: 1028,
+      counter: 1127,
+      token: 940,
     });
   });
 
@@ -379,7 +381,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1630, 1729, 3091, 4745, 6080]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1766, 1769, 3160, 4779, 6130]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -466,11 +468,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 616, anthem: 122, restriction: 208, conditional: 88, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 610, anthem: 122, restriction: 208, conditional: 88, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(459);
+    expect.soft(temporary).toBe(458);
   });
 
   /**
@@ -503,7 +505,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 354, permanent: 590 });
+    expect.soft(byOwner).toEqual({ spell: 354, permanent: 586 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -517,10 +519,10 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
       copy: 116,
-      predefined: 148,
-      withAbilities: 285,
-      variable: 78,
-      plain: 317,
+      predefined: 147,
+      withAbilities: 284,
+      variable: 77,
+      plain: 316,
       unclaimed: 0,
     });
   });
@@ -551,8 +553,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1630, 1729]);
-    expect.soft(r.complete).toBe(9605);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1766, 1769]);
+    expect.soft(r.complete).toBe(9753);
   });
 });
 
@@ -573,7 +575,9 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
   const of = (text: string): Primitive => primitiveFor({ text, kind: 'sentence', raw: text }, 'Test Card');
 
   test('the yes/no is all that is missing', () => {
-    expect.soft(of('When this creature dies, you may draw a card.')).toBe('optional');
+    // D424 - the row maker has emitted this as an OPTIONAL trigger since D313 (`optional: true`); the classifier
+    // reads it as the row maker reads it (`rowMakerReads`), so the yes/no is not missing at all.
+    expect.soft(of('When this creature dies, you may draw a card.')).toBe('scriptable');
   });
 
   test('and when it is not, the line says what it is really waiting on', () => {
@@ -587,12 +591,12 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
     // ⚠️ AND THE `you may` IS STILL A PRIMITIVE ON ITS OWN. A `may` over a payload the
     // vocabulary does not read is still waiting on the yes/no and nothing else, which is what
     // this row exists to say - the search stopped being an example of it, not the rule.
+    // D424 - and the same under a payload the vocabulary reads whole (the graveyard return, D3xx): the row.
     expect.soft(
       of('When this creature dies, you may return target creature card from your graveyard to your hand.'),
-    ).toBe('optional');
-    expect.soft(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe(
-      'effect:counter',
-    );
+    ).toBe('scriptable');
+    // D424 - a counter on this permanent is a row kind (`selfCounter`, D303) under any head, optional or not.
+    expect.soft(of('At the beginning of your upkeep, you may put a quest counter on this enchantment.')).toBe('scriptable');
     // D415 - a VERB PRICE under a head is the payment prompt's own sentence (the engine's own since D415).
     expect.soft(of('When this creature enters, you may sacrifice a land. If you do, draw a card.')).toBe('scriptable');
   });
@@ -692,20 +696,20 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 2000,
-      triggeredShell: 1853,
-      damage: 634,
-      exile: 822,
-      staticShell: 625,
+      activatedCost: 1968,
+      triggeredShell: 1815,
+      damage: 633,
+      exile: 821,
+      staticShell: 622,
       attackBlock: 771,
-      lifeGainLoss: 533,
-      drawDiscard: 308,
+      lifeGainLoss: 458,
+      drawDiscard: 304,
       tokensAndCounters: 298,
-      copySpell: 217,
+      copySpell: 215,
       cantBeCountered: 57,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 2961,
+      other: 2934,
     });
   });
 

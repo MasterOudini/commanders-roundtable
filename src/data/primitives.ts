@@ -644,7 +644,9 @@ export function entersWithRowShape(text: string): boolean {
  * cost no table row can pay (a random discard, a graveyard activation, a
  * counter removed) is offered and refused by name into the ledger.
  */
-const ONESHOT_KW = '(?:flying|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|hexproof|indestructible|reach|defender|shroud)';
+// D424 - the row maker's own list (`KW`, every Tier-2 keyword the engine enforces with no number) - the
+// classifier read fourteen of them and refused a granted fear, infect, wither, flanking or intimidate.
+const ONESHOT_KW = STATIC_KW;
 const ONESHOT_PT = '[+-]\\d+/[+-]\\d+';
 const ONESHOT_SELF = new RegExp(`^~ (?:gets ${ONESHOT_PT}|gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|gets ${ONESHOT_PT} and gains ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
 const ONESHOT_MASS = new RegExp(`^(?:All creatures|Creatures you control|Other creatures you control) (?:get ${ONESHOT_PT}|gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|get ${ONESHOT_PT} and gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
@@ -736,7 +738,10 @@ export function oneShotRowShape(line: string, cardName: string): boolean {
  * whose every other blocker line is one of these shapes, 134 with the
  * restrictions.
  */
-const AURA_KWS = `${ONESHOT_KW}(?:(?:, | and |, and )${ONESHOT_KW})*`;
+// D424 - the attached static's grant list is the anthem's (`STATIC_KWS`: the keywords, a landwalk, a
+// protection quality) - the row maker's `grantBody` reads one list for both, and the classifier read a
+// narrower one here and refused `Enchanted creature has infect` / `has mountainwalk` / `has protection from red`.
+const AURA_KWS = STATIC_KWS;
 const AURA_LINE = new RegExp(`^Enchanted creature (?:gets ${ONESHOT_PT}(?: and has ${AURA_KWS})?|has ${AURA_KWS}|can't (?:attack or block|attack|block))\\.$`);
 
 /** Is this printed line an enchanted-creature static or restriction an Aura row can emit (D304)? */
@@ -900,7 +905,9 @@ export function preventionLineShape(text: string): boolean {
  * heads, heroic) - under `whenever another creature enters` an `it` is THAT creature (D392's referent),
  * which the classifier must not read as self.
  */
-const SELF_SUBJECT_HEAD = /^(?:[A-Z][a-z]+(?: \d+)? — )?(?:(?:When|Whenever) (?:this creature|this permanent|this artifact|this enchantment|this land|this Vehicle|this Aura|this Equipment)\b|At the beginning of|At end of|Whenever you cast a spell that targets this creature)/;
+// D424 - `~` beside the `this <type>` forms: a NAMED head (`When Ryusei dies, it deals 5 damage ...`) is the
+// same subject once `selfRef` has spelled the name, and the row maker's `SELF_HEADS` read it so.
+const SELF_SUBJECT_HEAD = /^(?:[A-Z][a-z]+(?: \d+)? — )?(?:(?:When|Whenever) (?:this creature|this permanent|this artifact|this enchantment|this land|this Vehicle|this Aura|this Equipment|~)\b|At the beginning of|At end of|Whenever you cast a spell that targets this creature)/;
 function selfSubject(effect: string, line: string): string {
   let out = effect.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
   if (SELF_SUBJECT_HEAD.test(line)) {
@@ -911,6 +918,82 @@ function selfSubject(effect: string, line: string): string {
   }
   return out;
 }
+/**
+ * D424 - THE CLASSIFIER READS AS THE ROW MAKER READS. Measured by running the row maker over every
+ * one-piece leftover permanent (8,590): it rowed 140 the classifier had never offered - 91 refused here,
+ * 49 in the ledger under a reason the row maker has outgrown. Three mirrors, each a hand copy of the row
+ * maker's own reader (D371/D313), asked of a trigger's payload or an activated ability's effect:
+ *
+ * (1) THE OPTIONAL TRIGGER (CR 603.5): `you may <payload>` on a trigger is the same payload on an
+ *     optional def (`optional: true`, D313) - the classifier filed it under `optional` and no such card
+ *     was ever offered. The LEADING `you may` of a trigger's payload only; `you may pay` and the verb
+ *     prices are the vocabulary's own sentence and stay whole.
+ * (2) THE ROW KINDS the vocabulary does not read (`ROW_PAYLOADS`, a mirror of `parseEffect` in the
+ *     row maker): the drain, the opponents' life loss, a counter on this permanent or on each creature,
+ *     the loot, the draw-and-lose, the monarch, the self bounce / sacrifice / untap, the graveyard
+ *     returns, the regenerations, the mills, the artifact tokens. Under ANY trigger head or activated
+ *     cost - a head outside the row library is refused by the row maker BY NAME, as it always has been.
+ * (3) THE ACTIVATION RESTRICTION the engine enforces (`Activate only as a sorcery.`, `... during your
+ *     turn.`, `... if you have no cards in hand.` - the closed set the row maker's own limit reader takes)
+ *     is no part of the effect: stood out before the effect is asked about.
+ */
+const ROW_N = '(?:a|an|one|two|three|four|five)';
+const ROW_COUNTER = '(?:\\+1/\\+1|-1/-1|[a-z]+)';
+const ROW_PAYLOADS: readonly RegExp[] = [
+  /^Each opponent loses \d+ life and you gain \d+ life\.$/,
+  /^Each opponent loses \d+ life\.$/,
+  new RegExp(`^Put ${ROW_N} ${ROW_COUNTER} counters? on ~\\.$`),
+  new RegExp(`^Put ${ROW_N} ${ROW_COUNTER} counters? on each (?:creature you control|other creature you control|creature)\\.$`),
+  /^Draw a card, then discard a card\.$/,
+  /^You draw a card and you lose \d+ life\.$/,
+  /^You lose \d+ life\.$/,
+  /^You become the monarch\.$/,
+  /^Sacrifice ~\.$/,
+  /^Return ~ to its owner's hand\.$/,
+  /^Untap ~\.$/,
+  /^Return (?:this card|~) from your graveyard to (?:the battlefield(?: tapped)?|your hand)\.$/,
+  /^Regenerate (?:~|target creature|enchanted creature)\.$/,
+  /^Mill (?:a card|two cards|three cards|four cards|five cards)\.$/,
+  /^Scry \d+\.$/,
+  /^Surveil \d+\.$/,
+  /^Investigate\.$/,
+  /^Create (?:a|two|three) (?:Food|Treasure|Blood|Gold|Map|Clue) tokens?\.$/,
+];
+const ROW_LIMIT = [
+  'as a sorcery', 'as an instant', 'once each turn', 'during your turn(?:, before attackers are declared)?', 'during your upkeep',
+  'if you have no cards in hand', `if you have ${COND_NUM} or fewer cards? in hand`,
+  `if there are ${COND_NUM} or more (?:creature )?cards in your graveyard`,
+  `if you control ${COND_NUM}(?: or more)? ${COND_PRED}`,
+  TURN_COND,
+].join('|');
+const ROW_LIMIT_CLAUSE = new RegExp(`^(?:${ROW_LIMIT})$`);
+const ROW_VERB_PRICE = /^you may (?:sacrifice|discard|exile|return|tap) [^.]*\. If you do, /i;
+function rowMakerReads(text: string, cardName: string): boolean {
+  const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  const trigger = TRIGGER_HEAD.test(line);
+  const colon = line.indexOf(': ');
+  let payload = trigger ? line.replace(TRIGGER_HEAD, '') : colon > 0 && ONESHOT_COST.test(line) ? line.slice(colon + 2) : '';
+  if (payload === '') return false;
+  let widened = false;
+  // (3) the restriction, every clause in the closed set, or the line stays where it was.
+  const limit = /^(.*?)\s+Activate (?:this ability )?only (.+?)\.$/.exec(payload);
+  if (limit && !trigger) {
+    if (!(limit[2] ?? '').split(/\s+and\s+only\s+/).every((c) => ROW_LIMIT_CLAUSE.test(c.trim()))) return false;
+    payload = limit[1] ?? '';
+    widened = true;
+  }
+  // (1) the optional trigger.
+  if (trigger && /^you may (?!pay )/i.test(payload) && !ROW_VERB_PRICE.test(payload)) {
+    payload = payload.slice(8);
+    widened = true;
+  }
+  payload = payload.charAt(0).toUpperCase() + payload.slice(1);
+  const effect = selfSubject(payload, line);
+  // (2) the row kinds; then the vocabulary over what (1) and (3) uncovered.
+  if (ROW_PAYLOADS.some((re) => re.test(effect))) return true;
+  return widened && expressible(effect, cardName);
+}
+
 export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace = false): Primitive {
   const text = line.text;
 
@@ -1004,6 +1087,10 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // second SMALLEST row. It was built first and that did no harm — the flag
   // already existed and the work was one prompt — but the number that justified
   // going first was an artefact of this check's position.
+  // D424 - the row maker's readers the classifier lacked (see `rowMakerReads`): asked of a permanent's line
+  // before the `optional` bucket below can file the trigger the row maker has emitted since D313.
+  if (!spellFace && rowMakerReads(text, cardName)) return 'scriptable';
+
   if (MAY.test(text)) {
     const rest = withoutMay(text);
     if (rest !== '' && expressible(effectOf(rest), cardName)) return 'optional';

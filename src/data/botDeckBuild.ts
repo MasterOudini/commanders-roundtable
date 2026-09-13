@@ -143,7 +143,12 @@ export function buildBotDeck(pool: readonly CardData[]): BotDeckSpec | null {
   // use on the finished deck. A generator with its own idea of what may command
   // would build decks the validator then rejects, and the disagreement would
   // read as a validator bug.
-  const candidates = cards.filter((c) => commanderEligibility(c) === 'yes');
+  // D424 - AT MOST TWO COLOURS. Widest reach alone picked a five-colour commander the moment the pool held one
+  // (Go-Shintai of Life's Origin, D42x), and the deck it built - cheap spells of every colour over basics split
+  // five ways - cast almost nothing: four bots over seventeen turns cast one to nine spells between them, and the
+  // battery's fixed seed drew a game with none. A two-colour identity still reaches thousands of cards; what it
+  // buys is a mana base that casts what the curve took. Reach still decides among the two-colour commanders.
+  const candidates = cards.filter((c) => commanderEligibility(c) === 'yes' && c.colorIdentity.length <= 2);
   if (candidates.length === 0) return null;
 
   // Widest deck first: a commander is worth most when it opens the most cards.

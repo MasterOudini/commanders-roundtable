@@ -17264,6 +17264,147 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4je — THE CLASSIFIER READS AS THE ROW MAKER READS: the
+      optional trigger, the row kinds the vocabulary does not read, the
+      attached static's keyword list, the named self head and the
+      activation restriction — mirrored by hand in `primitives.ts`
+      (`rowMakerReads`, `ROW_PAYLOADS`, `ONESHOT_KW = STATIC_KW`,
+      `AURA_KWS = STATIC_KWS`, `~` in `SELF_SUBJECT_HEAD`); 49 stale
+      ledger rows drained; the generator's hand baseline measured after
+      the fire's own put (2026-09-13):** **9,753 of 31,692 Commander-legal
+      cards now execute completely, up from 9,605 (+148: 148 rows - Bontu's Monument, Celestial Ancient, Verduran Enchantress, Grim Haruspex, Harvester of Souls, Garruk's Packleader, Corpse Traders, Eternal Dragon, Phyresis, the lucky charms, the Talismans, the Bringers, Path of Discovery, Seraph of the Masses and their kin).**
+      `SHIPPED_SCRIPTS` 6,133 → **6,281**; ledger 1,529 → **1,664** by the
+      tally (49 drained, 184 added by reason). Fixtures 6,807 → **6,963** (6,800 by name + 156
+      tokens). `scriptableToday` 1,630 → 1,914 → **1,766** once the 148 landed; the select pool 0 →
+      332 → 0; the ladder `[1766, 1769, 3160, 4779, 6130]`. The bot deck is Emmara, Soul of the Accord's (GW,
+      4,098 from 274 two-colour commanders - the five-colour pick cast
+      nothing: `buildBotDeck` takes at most two colours now). Decisions in **D424**; a mechanical wave on Opus 5
+      by the model rule.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the trigger bodies by shape were a
+      long tail (forty shapes under sixty), so the ROW MAKER itself was run
+      over every one-piece leftover permanent (8,590): it rowed 140 the
+      classifier had never offered - 91 refused by the classifier
+      (`optional` 28, `unclassified` 31, `layer6` 7), 49 in the ledger
+      under a reason the row maker had outgrown. Its refusal histogram
+      over the other 8,450 (`trigger payload not a pump` 2,823, a static
+      line 1,559, `effect not a row kind` 1,446, a head outside the
+      library 699) is the map for the decisions after this one.
+      ⚠️ **THE MIRRORS:** `rowMakerReads` - an `Activate only ...` sentence
+      in the row maker's closed limit set stood out, a trigger payload's
+      LEADING `you may` stood out (never `you may pay`, never a verb price),
+      the payload as the self subject reads it asked of `ROW_PAYLOADS` (the
+      drain, the opponents' life loss, a counter on this permanent or each
+      creature, the loot, the draw-and-lose, the monarch, the self bounce /
+      sacrifice / untap, the graveyard returns, the regenerations, the
+      mills, the artifact tokens) and, once uncovered, of the vocabulary;
+      under ANY trigger head (a head outside the library is refused by the
+      row maker BY NAME - 54 ledgered). `ONESHOT_KW = STATIC_KW`, `AURA_KWS
+      = STATIC_KWS` (infect, mountainwalk, protection from black are rows),
+      `~` in `SELF_SUBJECT_HEAD` (`When Ryusei dies, it deals ...`).
+      **The generator:** the harness put takes a fixture from the HAND when
+      the opening seven dealt it, so six draw suites under filtered heads
+      read `hand0` for `hand0 + 1`; the arm re-measures the hand after a
+      fire whose first statement puts (`remeasureHand`), and the four
+      put-based heads leave `castsFromHand`'s per-head guess. The attached
+      static's suite asserts the landwalk and the protection it grants.
+      **Landed:** 148 rows; 8 unported by their suites (Blasting Station,
+      Curator of Mysteries, Eyes of the Wisent, Gravity Negator, and four
+      `protection from multicolored / creatures` Auras the derive does not
+      read); 184 ledgered by reason. botPool creature 5,746 / enchantment
+      559 / artifact 537 / land 616 · tier3 silentAfter 10,044 · batch.json
+      0 · select pool 0.
+      ⚠️ THE CLASSIFIER IS A HAND MIRROR, AND IT DRIFTS - the wide run finds
+      it. ⚠️ A STALE LEDGER ROW IS INVISIBLE TO THE GUARD until a seam
+      completes the card. ⚠️ A REGEX IN A HEREDOC HALVES ITS BACKSLASHES.
+      ⚠️ THE HARNESS PUT MAY TAKE FROM THE HAND. ⚠️ A GRANT LIST THE DERIVE
+      DOES NOT READ (protection from multicolored / creatures). ⚠️ A
+      FIVE-COLOUR BOT DECK CASTS NOTHING (the battery's fixed seed found it).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6,464 files,
+      31,178 passed / 11 skipped · 500-seed gate, 6 shards, 969.2 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D424): the wide run's refusal histogram over the
+      one-piece leftover permanents (`trigger payload not a pump` 2,823, a
+      static line 1,559, `effect not a row kind` 1,446, a head outside the
+      library 699, a filtered head's adjective 234, a cost 197, a
+      condition 178, an intervening if 162), the two-piece leftover the
+      wide run never saw, the trigger bodies by shape (the pay wrapper's
+      inner clauses 57 + 41, `that player` as the triggering player 32,
+      `it gets +N/+N` as the triggering object 34, the typed cast heads
+      106), the protection qualities the derive does not read (from
+      multicolored / creatures), the up-to-N `each` subject (12), the cost
+      reductions with a count or a condition (144 lines, 16 sole), the
+      eight this port named; the kicked instead's residue (D423 - an
+      instead clause with a TARGET of its own, `that player`, the scoped
+      `those creatures`, the qualified sweeps, the kicked searches,
+      Prohibit, Urza's Rage, Rite of Replication's copy token, the plain
+      kicked clauses beside an unread first line; damage from a source that
+      has died; the driver's coin-flip kick reported, not floored);
+      the counterspell tail (D422 - the CONDITIONAL uncounterables the face
+      does not carry (Banefire's `if X is 5 or more`, Spell mastery's
+      graveyard count, `can't be countered by spells or abilities`), the
+      counter-unless-pays with a COUNTED price (D418's), the spell's X in a
+      pump, `This spell costs {M} less` (29), `As an additional cost` (20),
+      `Destroy target <X>` (19), the quoted-ability grants behind `Until
+      end of turn` (50)); the self subject's tail (D421 - damage from a source that has died, the
+      counted self pumps under the attack heads, the twenty-two trigger
+      heads outside the library, the filtered heads, a payment under a
+      sacrifice head); the ability word's tail (D420 - the Eerie head, the Valiant head, the
+      Inspired payments whose branch makes a token, the copy half of
+      Magecraft, the enchantment-enters wordings 22); the board condition's
+      tail (D419 - a creature with power
+      N or greater, an opponent controls more lands than you, no untapped /
+      tapped lands, exactly N, different names, a counter, a mana value,
+      Descend, the seven `no <noun>` rows); then D418's list unchanged — the
+      counted suite for the refinements, the party, the hand, the kicks,
+      the deaths, the domain and the attack heads (44 ledger rows), the
+      counted ENTRY (14), the counted STATIC (11), the counted PRICE (7),
+      the counted queue and reductions, `for each mana from a Treasure`,
+      `put into your graveyard from the battlefield this turn`; the
+      permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (110 over ninety shapes), the
+      `where X is` values (328 over forty forms), the top-of-library family
+      (23), `you may cast` (57 statics), the prevent-all shields (66), the
+      payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
