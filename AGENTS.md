@@ -16637,6 +16637,112 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       proper, the two gate items — the tournament floor's MECHANISM and ⚠️⚠️
       THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4iy — THE COUNT EXPRESSION: `<effect> for each <noun>.` and
+      `<effect with X>, where X is the number of <nouns>.` — a count read
+      ONCE as the effect resolves, off the live board (the permanents a
+      controller word and a predicate admit, the hand, a graveyard, the
+      kicks, the deaths this turn, the party, the players, the basic land
+      types), multiplying the clause's amount; the generator's counted suite
+      sizing its own board with a witness (2026-09-13):** **9,467 of 31,692
+      Commander-legal cards now execute completely, up from 9,437 (+30: 17 generated rows - Krenko, Mob Boss, Wellwisher, Timberwatch Elf, Elder of Laurels, Filigree Angel, Hellkite Igniter, Elvish Eulogist and their kin - and 13 spells whole with no script: Deploy to the Front, Downhill Charge, Aerial Assault, Spontaneous Generation, Elvish Promenade, Elven Ambush, Howl of the Night Pack, Spider Spawning, Respite, Riot Control, Blunt the Assault, Frontline Rush, Gather the White Lotus).**
+      `SHIPPED_SCRIPTS` 6,037 → **6,032** (17 in, 22 spell defs retired by D187's rule); ledger 1,375 → **1,418**
+      (44 added by reason, Downhill Charge's stale row deleted). Fixtures 6,674 → **6,695** (6,534 by name + 154
+      tokens). `scriptableToday` 1,475 → **1,518**; the select pool 0 →
+      61 → 0; the ladder `[1518, 1617, 2989, 4654, 6000]`. Bot reach 9,361 → **9,391** from
+      288 commanders. Decisions in **D418**; an engine seam on Opus 5
+      by the user's choice — the first of the 172 AMOUNT forms.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** 95 whole by the rewrite method over
+      ~60 nouns, `where X is` 44 the same count spelled with an X; the
+      search forms 92, the impulse 67, `you may cast` 56 and the prevent-all
+      shields 42 stay; the counted entry (14), static (11) and price (7) are
+      this seam's kin and wait.
+      ⚠️ **THE SEAM:** `CountExpr` on `EffectSpec.per` (required, null
+      elsewhere); `readCountNoun` through `predicatesOf` with a controller
+      word required, `matchCounted` asking the base of the rules as one
+      (`X cards` → `a card`, `+X/+0` → `+1/+0`; an X/X token or a bare X
+      refused; a gain, a loss, a draw, a token, a counter, a pump, a damage);
+      `src/engine/count.ts` `countOf` read once at resolution through
+      `derive` (other, attacking, untapped, a keyword, a power floor, a
+      +1/+1 counter, a name; the hand; a graveyard by printed face; the
+      kicks off the stack object or the permanent; the deaths off the turn
+      memory; a four-role party matching; the basic land types); the
+      executor rescaling the amount or the pump halves after the delayed and
+      kicked clauses, narrating `counts N for` / `counts nothing`.
+      `src/engine/countExpr.test.ts` (11). The counted SUITE sizes its own
+      board (a witness per plain noun, self when admitted and present, the
+      clause fixtures, the `no` Cyclops for an any count); the refinements,
+      the party, the hand, the kicks, the deaths, the domain, the attack
+      heads and a token-making sibling refused by name. The hand reveal is
+      CLEARED after its answer (the leak gate met a revealed hand; the
+      narration names the cards).
+      **Fuzz:** Wellwisher + Timberwatch Elf staples (two a seat, a {T}
+      each counting the Elves) beside Spontaneous Generation, feeding
+      `countsResolved` (floor) / `countsEmpty`: 27 / 0 at 60; 484 /
+      1 over 500 seeds.
+      **Landed:** 17 rows + 13 whole; 22 spell defs retired (Bountiful
+      Harvest, Gerrard's Wisdom, Landbind Ritual, Might of the Masses and
+      their kin - the vocabulary reads them whole); Krenko SHIPPED, so Myr
+      Mindservant holds the payable-and-silent post in three pins. botPool instant 1,268 /
+      sorcery 990 — auto 1,598 / assisted 1,868 · `oracleParse`
+      `effect:auto` 6,723 · tier3 silentAfter 9,758 · `token` 954 · batch.json
+      0 · select pool 0.
+      ⚠️ A REGEX LITERAL TAKES ONE MARKER, A TEMPLATE STRING TWO. ⚠️ THE
+      PROBE CARD MUST NOT BE NAMED X. ⚠️ A COUNTED SUITE COUNTS WHAT ITS ARM
+      PUT - a sibling's token joined the count. ⚠️ A REVEALED HAND IS
+      CLEARED AFTER ITS ANSWER. ⚠️ THE DOUBLING GUARD - the driver takes no
+      activation from a player with forty or more permanents (Krenko's
+      Goblins spun a shard past its ceiling).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6213 files,
+      30086 passed / 11 skipped · 500-seed gate, 6 shards, 1062.9 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D418): the counted suite for the refinements, the
+      party, the hand, the kicks, the deaths, the domain and the attack heads
+      (44 ledger rows), the counted ENTRY (14), the counted STATIC (11), the
+      counted PRICE (7), the counted queue and reductions, `for each mana
+      from a Treasure`, `put into your graveyard from the battlefield this
+      turn`; then D417's list unchanged — the permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (92), the impulse look-at-top (67),
+      `you may cast` (56), the prevent-all shields (42), the payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

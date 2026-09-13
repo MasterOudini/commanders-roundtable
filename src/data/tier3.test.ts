@@ -132,7 +132,9 @@ describe('a permanent’s text, which the app does not run', () => {
     expect(what(C.TALRAND_SKY_SUMMONER)).toEqual([]);
     expect(what(C.KESS_DISSIDENT_MAGE)).toEqual(['Its ability text']);
     expect(what(C.YEVA_NATURE_S_HERALD)).toEqual(['Its ability text']);
-    expect(what(C.KRENKO_MOB_BOSS)).toEqual(['Its “{T}” ability']);
+    // D418 - Krenko SHIPPED too (the count expression); Myr Mindservant is the charged-and-silent {T} now.
+    expect(what(C.KRENKO_MOB_BOSS)).toEqual([]);
+    expect(what(C.MYR_MINDSERVANT)).toEqual(['Its “{2}, {T}” ability']);
   });
 
   test('an enters-the-battlefield trigger is said — until a script SHIPS for it', () => {
@@ -221,8 +223,8 @@ describe('a permanent’s text, which the app does not run', () => {
   });
 
   test('a payable ability says the cost is charged and the effect is not', () => {
-    const note = tier3NotesFor(C.KRENKO_MOB_BOSS)[0];
-    expect(note?.what).toBe('Its “{T}” ability');
+    const note = tier3NotesFor(C.MYR_MINDSERVANT)[0];
+    expect(note?.what).toBe('Its “{2}, {T}” ability');
     // ⚠️ BOTH HALVES, because either alone misleads: "not automatic" would not
     // warn that tapping him is still charged, and "the app charges it" would not
     // say that nothing follows.

@@ -32,6 +32,7 @@ import type {
   LookFilter,
   PaySpec,
   VerbPrice,
+  CountExpr,
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
@@ -228,6 +229,7 @@ const BASE: EffectFields = {
   sacrifice: null,
   handChoice: null,
   exilePlay: null,
+  per: null,
   delay: null,
   ifKicked: false,
   untilLeaves: false,
@@ -1798,6 +1800,115 @@ function matchKicked(sentence: string): EffectSpec | null {
   return { ...inner, text: sentence, ifKicked: true };
 }
 
+/**
+ * D418 - THE COUNT NOUN: `creature you control`, `other attacking Goblin`, `artifact you control with a
+ * +1/+1 counter on it`, `card in your hand`, `creature card in your graveyard`, `time it was kicked`,
+ * `creature that died this turn`, `creature in your party`, `opponent`, `basic land type among lands you
+ * control`. A permanent noun goes through `predicatesOf` (the sacrifice and tap costs' reader); a
+ * controller is required unless the noun is attacking or `on the battlefield`; `and` between two types
+ * (both, or either - print is ambiguous), `tapped`, `they control` (a referent) and a keyword the
+ * grantable list lacks refuse the noun, and with it the sentence (D90).
+ */
+const COUNT_KW = String.raw`(?:flying|vigilance|trample|haste|lifelink|deathtouch|first strike|double strike|reach|menace|defender|hexproof|indestructible|flash)`;
+const COUNT_PERM = new RegExp(
+  String.raw`^(?<other>other )?(?<qual>attacking |untapped |tapped )?(?<noun>[a-zA-Z][a-zA-Z/' -]*?)(?: (?<ctl>you control|your opponents control|on the battlefield|target opponent controls|they control))?(?: with (?<kw>${COUNT_KW}))?(?: with power (?<pw>\d+) or greater)?(?<pc> with a \+1/\+1 counter on it)?(?: named (?<named>[^,.]+))?$`,
+  'i',
+);
+function readCountNoun(raw: string): CountExpr | null {
+  const noun = raw.trim();
+  const low = noun.toLowerCase();
+  if (/^time (?:it|this spell|this creature|this permanent|~) was kicked$/.test(low)) return { kind: 'kicked' };
+  if (low === 'card in your hand') return { kind: 'cardsInHand', who: 'you' };
+  if (low === 'creature that died this turn') return { kind: 'diedThisTurn' };
+  if (low === 'creature in your party') return { kind: 'party' };
+  if (low === 'opponent') return { kind: 'players', who: 'opponents' };
+  if (low === 'player') return { kind: 'players', who: 'any' };
+  if (low === 'basic land type among lands you control') return { kind: 'basicLandTypes' };
+  const gy = /^(?:(?<pred>.+?) )?card(?: named (?<gname>[^,.]+?))? in your graveyard$/i.exec(noun);
+  if (gy) {
+    const pred = gy.groups?.['pred'];
+    if (pred && /\band\b/.test(pred.replace(/and\/or/g, ''))) return null;
+    const predicates = pred ? predicatesOf(pred) : null;
+    if (pred && (!predicates || predicates.length === 0)) return null;
+    return { kind: 'cardsInGraveyard', predicates, named: gy.groups?.['gname']?.trim() ?? null };
+  }
+  const m = COUNT_PERM.exec(noun);
+  const g = m?.groups;
+  if (!g) return null;
+  const nounText = (g['noun'] ?? '').trim();
+  if (nounText === '' || /\band\b/.test(nounText.replace(/and\/or/g, ''))) return null;
+  const predicates = predicatesOf(nounText);
+  if (!predicates || predicates.length === 0) return null;
+  const qual = (g['qual'] ?? '').trim().toLowerCase();
+  if (qual === 'tapped') return null;
+  const ctl = (g['ctl'] ?? '').toLowerCase();
+  const controller =
+    ctl === 'you control' ? 'you' : ctl === 'your opponents control' ? 'opponents' : ctl === 'on the battlefield' ? 'any' : ctl === '' && qual === 'attacking' ? 'any' : null;
+  if (controller === null) return null;
+  const kw = g['kw'] !== undefined ? (GRANTABLE.get(g['kw'].toLowerCase()) ?? null) : null;
+  if (g['kw'] !== undefined && kw === null) return null;
+  return {
+    kind: 'permanents',
+    controller,
+    predicates,
+    other: g['other'] !== undefined,
+    attacking: qual === 'attacking',
+    untapped: qual === 'untapped',
+    keyword: kw,
+    powerAtLeast: g['pw'] !== undefined ? Number(g['pw']) : null,
+    withPlusCounter: g['pc'] !== undefined,
+    named: g['named'] !== undefined ? g['named'].trim() : null,
+  };
+}
+/** `creatures you control` -> `creature you control`: the head word (the last before a qualifier or the end) loses its plural. */
+function singularCountNoun(plural: string): string {
+  const words = plural.trim().split(/\s+/);
+  const STOP = new Set(['you', 'your', 'on', 'in', 'that', 'with', 'named', 'target', 'among', 'they']);
+  let head = words.length - 1;
+  for (let i = 0; i < words.length; i++) if (STOP.has((words[i] ?? '').toLowerCase())) { head = i - 1; break; }
+  if (head < 0) return plural.trim();
+  const w = words[head] ?? '';
+  words[head] = /ies$/.test(w) ? w.replace(/ies$/, 'y') : /ves$/.test(w) ? w.replace(/ves$/, 'f') : /s$/.test(w) && !/ss$/.test(w) ? w.replace(/s$/, '') : w;
+  return words.join(' ');
+}
+/**
+ * D418 - THE COUNTED SENTENCE: `<sentence> for each <noun>.` and `<sentence with X>, where X is the number
+ * of <nouns>.` The base sentence (X read as one) is asked of the rules on its own, and the count rides
+ * the spec as `per`; the executor multiplies the amount (a pump's halves) by the count read at
+ * resolution. Only the amount-bearing kinds are counted - a gain, a loss, a draw, a token, a counter, a
+ * pump, a damage; an `X/X` token or a bare X left in the sentence refuses it.
+ */
+const MULTIPLIABLE: ReadonlySet<EffectKind> = new Set(['gainLife', 'loseLife', 'draw', 'createToken', 'putCounters', 'pump', 'damage']);
+function matchCounted(sentence: string): EffectSpec | null {
+  const fe = /^(.+?) for each ([^.]+)\.$/i.exec(sentence);
+  if (fe) {
+    const per = readCountNoun(fe[2] ?? '');
+    const inner = per ? matchRule((fe[1] ?? '') + '.') : null;
+    if (!per || !inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+    return { ...inner, text: sentence, per };
+  }
+  const wx = /^(.+?), where X is the number of ([^.]+)\.$/i.exec(sentence);
+  if (wx) {
+    const per = readCountNoun(singularCountNoun(wx[2] ?? ''));
+    if (!per) return null;
+    let base = wx[1] ?? '';
+    if (/\bX\/X\b/.test(base)) return null;
+    base = base
+      .replace(/\bX cards\b/gi, 'a card')
+      .replace(/\bX life\b/gi, '1 life')
+      .replace(/\bX damage\b/gi, '1 damage')
+      .replace(/\bX \+1\/\+1 counters\b/gi, 'a +1/+1 counter')
+      .replace(/\bX -1\/-1 counters\b/gi, 'a -1/-1 counter')
+      .replace(/([+-])X\b/g, '$11')
+      .replace(/\b(create|creates) X ([^.]*?tokens?)\b/i, (_m, verb: string, rest: string) => verb + ' a ' + rest.replace(/tokens\b/, 'token'));
+    if (/\bX\b/.test(base)) return null;
+    const inner = matchRule(base + '.');
+    if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+    return { ...inner, text: sentence, per };
+  }
+  return null;
+}
+
 function matchSentence(sentence: string): EffectSpec | null {
   const paid = matchPayment(sentence);
   if (paid) return paid;
@@ -1807,7 +1918,8 @@ function matchSentence(sentence: string): EffectSpec | null {
   // D402 - a delayed sentence before the rules: the rules would read `Draw a card at the`... as nothing.
   const delayed = matchDelayed(sentence);
   if (delayed) return delayed;
-  return matchRule(sentence);
+  // D418 - a counted sentence after the plain rules: `for each <noun>` and `where X is the number of`.
+  return matchRule(sentence) ?? matchCounted(sentence);
 }
 
 function matchRule(sentence: string): EffectSpec | null {

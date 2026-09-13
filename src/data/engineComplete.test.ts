@@ -88,9 +88,9 @@ const COMPLETE: readonly [string, CardData][] = [
   ['Baleful Strix', fx.BALEFUL_STRIX],
   // ⚠️ M6.4b (D159): the four the ActivatedDef seam unblocked — accepted
   // because a SHIPPED activated def claims each `cost: effect` line, matched
-  // by KIND (an activated line is claimable only by an activated def). Krenko
-  // in INCOMPLETE below still refuses — payable, undef'd — which is exactly
-  // the teeth this list needs.
+  // by KIND (an activated line is claimable only by an activated def). Myr
+  // Mindservant in INCOMPLETE below still refuses — payable, undef'd — which is
+  // exactly the teeth this list needs (Krenko held the post until D418).
   ['Arcane Encyclopedia', fx.ARCANE_ENCYCLOPEDIA],
   ['Deserted Temple', fx.DESERTED_TEMPLE],
   ['Hedron Archive', fx.HEDRON_ARCHIVE],
@@ -98,6 +98,8 @@ const COMPLETE: readonly [string, CardData][] = [
   // M6.4c (D160): batch 3's nineteen, accepted by their shipped defs — the
   // sentence half AND the activated half of the claims map both at work.
   ['Talrand, Sky Summoner', fx.TALRAND_SKY_SUMMONER],
+  // D418 (the count expression): Krenko's {T} counts the Goblins he controls - accepted by his generated def.
+  ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS],
   ['Yotian Dissident', fx.YOTIAN_DISSIDENT],
   ['A.I.M. Labs', fx.A_I_M_LABS],
   ['Abzan Banner', fx.ABZAN_BANNER],
@@ -259,7 +261,9 @@ const COMPLETE: readonly [string, CardData][] = [
  * bot cannot actually play.
  */
 const INCOMPLETE: readonly [string, CardData, string][] = [
-  ['Krenko, Mob Boss', fx.KRENKO_MOB_BOSS, 'a PAYABLE activated ability whose effect never happens'],
+  // D418 - Krenko held this post from D122 until his script SHIPPED (the count expression); Myr Mindservant
+  // holds it now - a {2}, {T} the engine charges and does not run.
+  ['Myr Mindservant', fx.MYR_MINDSERVANT, 'a PAYABLE activated ability whose effect never happens'],
   ['Kess, Dissident Mage', fx.KESS_DISSIDENT_MAGE, 'a static ability, and there is no layer for it'],
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
   // D355 / D411 - the shape Ancient Tomb and then Thalakos Lowlands used to hold (a mana line whose

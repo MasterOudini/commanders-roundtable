@@ -251,6 +251,53 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D418 - the count expression reads: the 44 the selector offered once `for each <noun>` / `where X is the number of` read
+  // that the row maker refused, by reason (the counted suite stages a witness for a plain permanent or graveyard noun
+  // only: the refinements, the party, the hand, the kicks, the deaths, the domain and the attack heads wait).
+  ['Lightkeeper of Emeria', 'a counted suite that kicks (for each time it was kicked) beside its counted line'],
+  ['Alert Heedbonder', 'a counted noun with a keyword refinement (creature you control with vigilance) the suite cannot stage'],
+  ['Ancestor Dragon', 'a trigger head outside the library (whenever one or more creatures you control attack) beside its counted line'],
+  ['Archway Angel', 'a counted noun with no witness fixture (Gate) beside its counted line'],
+  ['Armorcraft Judge', 'a counted noun with a counter refinement (creature you control with a +1/+1 counter on it) the suite cannot stage'],
+  ['Atlas, Sizable Stooge', 'a counted payload under an attacks-or-blocks head (the arm sizes the board) beside its counted line'],
+  ['Aven Gagglemaster', 'a counted noun with a keyword refinement (creature you control with flying) the suite cannot stage'],
+  ['Cleric of the Forward Order', 'a counted noun with a name refinement (creature you control named ~) the suite cannot stage'],
+  ["Drana's Silencer", 'a counted party noun (creatures in your party) the suite cannot stage'],
+  ['Escaped Experiment', 'a counted payload under an attacks head (the arm sizes the board) beside its counted line'],
+  ['Glimmerpost', 'a counted noun with no witness fixture (Locus) beside its counted line'],
+  ['Harpoon Sniper', 'a vocabulary clause the suite has no fixture for (a combat-role clause) beside its counted line'],
+  ['Honden of Cleansing Fire', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
+  ["Honden of Life's Web", 'a counted noun with no witness fixture (Shrine) beside its counted line'],
+  ['Honden of Seeing Winds', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
+  ['Intelligence Bobblehead', 'a counted noun with no witness fixture (Bobblehead) beside its counted line'],
+  ['Kabira Outrider', 'a counted party noun (creatures in your party) the suite cannot stage'],
+  ['Khabál Ghoul', 'a counted deaths noun (creature that died this turn) the suite cannot stage'],
+  ['Kitsune Loreweaver', 'a counted hand noun (cards in your hand) the suite cannot stage'],
+  ['Lys Alana Scarblade', 'an activated cost outside the reader (Discard an Elf card) beside its counted line'],
+  ['Mahadi, Emporium Master', 'a counted deaths noun (creature that died this turn) the suite cannot stage'],
+  ['Marshal of the Lost', 'a counted payload under a you-attack head (the arm sizes the board) beside its counted line'],
+  ['Oboro Envoy', 'a counted hand noun beside a discard cost (the hand the count reads is the hand the cost emptied)'],
+  ["Orim's Prayer", 'a trigger head outside the library (whenever one or more creatures attack you) beside its counted line'],
+  ['Power Armor', 'a counted basic-land-types noun (Domain) the suite cannot stage'],
+  ['Pygmy Kavu', 'a counted noun with a colour and an opponents controller (black creature your opponents control) the suite cannot stage'],
+  ['Regal Force', 'a counted noun with a colour (green creature you control) the suite cannot stage'],
+  ['Riptide Director', 'a counted noun with no witness fixture (Wizard) beside its counted line'],
+  ['Sanctum of Shattered Heights', 'an activated cost outside the reader (Discard a land card or Shrine card) beside its counted line'],
+  ['Shepherd of Heroes', 'a counted party noun (creatures in your party) the suite cannot stage'],
+  ['Slate of Ancestry', 'an activated cost outside the reader (Discard your hand) beside its counted line'],
+  ['Sokenzan Spellblade', 'a counted hand noun (cards in your hand) the suite cannot stage'],
+  ['Sophic Centaur', 'a counted hand noun beside a discard cost (the hand the count reads is the hand the cost emptied)'],
+  ['Undead Servant', 'a counted graveyard name (card named ~ in your graveyard) the suite does not stage'],
+  ['Viridian Lorebearers', 'a counted noun with an opponents controller (artifacts your opponents control) the suite cannot stage'],
+  ['Wandering Goblins', 'a counted basic-land-types noun (Domain) the suite cannot stage'],
+  ['Wolfbriar Elemental', 'a counted suite that kicks (for each time it was kicked) beside its counted line'],
+  ['Brawn, Amadeus Cho', 'a line that is neither an activated ability nor a library trigger (Power-up, an ability word) beside its counted line'],
+  ['Demonic Lore', 'a counted hand noun (cards in your hand) the suite cannot stage'],
+  ['Dwynen, Gilt-Leaf Daen', 'a counted payload under an attacks head (attacking Elf you control) beside its anthem'],
+  ['Horn of Gondor', 'a counted payload beside another ability that puts a permanent (the enters token joins the count)'],
+  ['Marrow-Gnawer', 'a line that is neither an activated ability nor a library trigger (All Rats have fear) beside its counted line'],
+  ['The Spirit Oasis', 'a counted noun with no witness fixture (Shrine) beside its Shrine-enters trigger'],
+  ['Wingmate Roc', 'a counted payload under an attacks head (attacking creature) beside its raid trigger'],
   // D417 - the play permission reads: the 16 the selector offered once `exile the top card ... you may play it` read
   // that the row maker refused, by reason (seven trigger heads outside the library among them).
   ['Armory Paladin', 'a filtered head outside the closed reader (whenever you cast an Aura or Equipment spell) beside its permission line'],
@@ -2122,7 +2169,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Circle of Confinement', 'a filtered head outside the closed reader (whenever a creature with the same name as the exiled card enters - a name the filter does not read) beside its linked exile'],
   // D408 - the alternative cost at cast: the three the selector offered once the alternative line read whose
   // spell body the row maker refused, by reason (the alternative itself reads on every one).
-  ['Downhill Charge', 'a spell line outside the vocabulary (+X/+0 where X is the number of Mountains you control - a computed X) beside its alternative cost'],
   ['Mind Swords', 'a spell line outside the vocabulary (each player exiles two cards from their hand - a per-player hand exile) beside its alternative cost'],
   ['Needlebite Trap', 'a spell line outside the vocabulary (target player loses 5 life and you gain 5 life - a drain compound) beside its alternative cost'],
 

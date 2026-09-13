@@ -205570,6 +205570,174 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SPONTANEOUS_GENERATION": {
+    "scryfallId": "ce5765cb-00cd-4920-9fe8-68791048ec4a",
+    "oracleId": "d5b021e3-a0c1-471b-9088-a76816806354",
+    "name": "Spontaneous Generation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spontaneous Generation",
+        "manaCost": "{3}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a 1/1 green Saproling creature token for each card in your hand.",
+        "flavorText": "Saprolings always thrive on the ruins of others, and Mercadia ruins more than most.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "ce5765cb-00cd-4920-9fe8-68791048ec4a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "274",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEPLOY_TO_THE_FRONT": {
+    "scryfallId": "10744088-b028-43aa-8a77-cd2a430fbfb6",
+    "oracleId": "135cb4af-f4b6-455b-8fea-84fcef78ee03",
+    "name": "Deploy to the Front",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deploy to the Front",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create X 1/1 white Soldier creature tokens, where X is the number of creatures on the battlefield.",
+        "flavorText": "\"We will descend upon you like a plague of locusts to purge you from our lands!\"\n—Hirov, commander of the Thousand Swords",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "10744088-b028-43aa-8a77-cd2a430fbfb6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "c14",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOWNHILL_CHARGE": {
+    "scryfallId": "2ebfc91c-d764-4e63-a428-82704f8bf1fd",
+    "oracleId": "8018419c-ea19-499b-a33a-7c20b35bce7b",
+    "name": "Downhill Charge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Downhill Charge",
+        "manaCost": "{2}{R}",
+        "typeLine": "Instant",
+        "oracleText": "You may sacrifice a Mountain rather than pay this spell's mana cost.\nTarget creature gets +X/+0 until end of turn, where X is the number of Mountains you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Hildebrandt & Tim Hildebrandt",
+        "imageId": "2ebfc91c-d764-4e63-a428-82704f8bf1fd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERIAL_ASSAULT": {
+    "scryfallId": "58e84a4a-034f-4f55-a827-e62f2b61f091",
+    "oracleId": "a4eb06ca-16d8-41c2-8fc6-22e73872b5b0",
+    "name": "Aerial Assault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aerial Assault",
+        "manaCost": "{2}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target tapped creature. You gain 1 life for each creature you control with flying.",
+        "flavorText": "\"Oh, you must be mistaken. Hawks are solitary hunters, you see.\"\n—Bunder Diedreck, ornithologist",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "58e84a4a-034f-4f55-a827-e62f2b61f091"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTKEEPER_OF_EMERIA": {
+    "scryfallId": "00d998ca-7e81-4302-b2c1-acd90ea2b44d",
+    "oracleId": "7f31aa43-cf75-4488-b47f-e16e923a2d01",
+    "name": "Lightkeeper of Emeria",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightkeeper of Emeria",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Multikicker {W} (You may pay an additional {W} any number of times as you cast this spell.)\nFlying\nWhen this creature enters, you gain 2 life for each time it was kicked.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "00d998ca-7e81-4302-b2c1-acd90ea2b44d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Multikicker"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ACT_ON_IMPULSE": {
     "scryfallId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29",
     "oracleId": "19ad338a-c89f-406d-ad1a-222c22044e1b",
@@ -220599,6 +220767,555 @@
     "keywords": [],
     "setCode": "msc",
     "collectorNumber": "557",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BISHOP_OF_THE_BLOODSTAINED": {
+    "scryfallId": "0cbb3417-7595-4b36-9df3-8095701970e3",
+    "oracleId": "e9398f3b-c457-4fff-9b09-377c612b6a48",
+    "name": "Bishop of the Bloodstained",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bishop of the Bloodstained",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "When this creature enters, target opponent loses 1 life for each Vampire you control.",
+        "flavorText": "\"They shall give us all they have as penance for their resistance. Their ships. Their goods. Their rebellious blood.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "0cbb3417-7595-4b36-9df3-8095701970e3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "XLN-91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EARTHSHAKER_DREADMAW": {
+    "scryfallId": "158ad2e4-5e81-439b-9629-a9d217c45d83",
+    "oracleId": "454cbc6a-b7f0-445e-842c-5db267917a18",
+    "name": "Earthshaker Dreadmaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Earthshaker Dreadmaw",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\nWhen this creature enters, draw a card for each other Dinosaur you control.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "158ad2e4-5e81-439b-9629-a9d217c45d83"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "325",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELDER_OF_LAURELS": {
+    "scryfallId": "32b82ef0-c974-4357-b21a-4c2a28ec7279",
+    "oracleId": "0431b67e-ce09-4009-ba5b-9fd41e6f1df4",
+    "name": "Elder of Laurels",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elder of Laurels",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "{3}{G}: Target creature gets +X/+X until end of turn, where X is the number of creatures you control.",
+        "flavorText": "Hopes and prayers can carry the same force as swords and torches.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "32b82ef0-c974-4357-b21a-4c2a28ec7279"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_EULOGIST": {
+    "scryfallId": "207de426-ed83-44d5-a74b-ef2f33958b7f",
+    "oracleId": "21017dc0-9b79-48b8-8eae-561abfad31d5",
+    "name": "Elvish Eulogist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Eulogist",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "Sacrifice this creature: You gain 1 life for each Elf card in your graveyard.",
+        "flavorText": "\"No matter how adept our artistic skill, our effigies can never hope to capture the vibrant beauty of a living elf. Perhaps that is truly why we mourn.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ben Thompson",
+        "imageId": "207de426-ed83-44d5-a74b-ef2f33958b7f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dpa",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FILIGREE_ANGEL": {
+    "scryfallId": "0cf73d4a-cf9b-4ce6-90a4-ac2824d36be6",
+    "oracleId": "4a261c42-825d-4965-8ea7-80d50c43474e",
+    "name": "Filigree Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Filigree Angel",
+        "manaCost": "{5}{W}{W}{U}",
+        "typeLine": "Artifact Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, you gain 3 life for each artifact you control.",
+        "flavorText": "\"I craved enlightenment, and Crucius's etherium opened my eyes. I would share my sight with you, but first you must believe.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Richard Whitters",
+        "imageId": "0cf73d4a-cf9b-4ce6-90a4-ac2824d36be6"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ARB-6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNARLROOT_PALLBEARER": {
+    "scryfallId": "b7382154-ac8f-40ca-94e4-2f0533c0cf20",
+    "oracleId": "18da85d4-2a51-45c0-a18c-bce9bc39fa64",
+    "name": "Gnarlroot Pallbearer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnarlroot Pallbearer",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Treefolk Druid",
+        "oracleText": "Trample\nWhen this creature enters, target creature gets +X/+X until end of turn, where X is the number of creature cards in your graveyard.",
+        "flavorText": "The flames of war consumed most of Argoth's treefolk. Vengeance consumed the rest.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nino Is",
+        "imageId": "b7382154-ac8f-40ca-94e4-2f0533c0cf20"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLDNIGHT_REDEEMER": {
+    "scryfallId": "9396d218-35e4-4457-9f3a-18bae368b526",
+    "oracleId": "6fe35d1f-20b6-4fa8-a318-79e2d415701a",
+    "name": "Goldnight Redeemer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goldnight Redeemer",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, you gain 2 life for each other creature you control.",
+        "flavorText": "The Host sings of Avacyn's return without a single verse about its own suffering.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "9396d218-35e4-4457-9f3a-18bae368b526"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ddq",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALLOWED_SPIRITKEEPER": {
+    "scryfallId": "94ebd5bd-99b3-4371-9ca2-e0504db1458e",
+    "oracleId": "5852ed2f-4332-4c30-b145-373deea471d9",
+    "name": "Hallowed Spiritkeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hallowed Spiritkeeper",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Avatar",
+        "oracleText": "Vigilance\nWhen this creature dies, create X 1/1 white Spirit creature tokens with flying, where X is the number of creature cards in your graveyard.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "94ebd5bd-99b3-4371-9ca2-e0504db1458e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELLKITE_IGNITER": {
+    "scryfallId": "01d74967-10b2-424b-a0d6-8b35bf99a2a0",
+    "oracleId": "12aba1d4-477f-4d36-96bb-c3c7bbd51b75",
+    "name": "Hellkite Igniter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hellkite Igniter",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\n{1}{R}: This creature gets +X/+0 until end of turn, where X is the number of artifacts you control.",
+        "flavorText": "Its flight sets the sky itself on fire.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "01d74967-10b2-424b-a0d6-8b35bf99a2a0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "c18",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMMACULATE_MAGISTRATE": {
+    "scryfallId": "007d0556-ccc4-47c5-b2ab-54b9681b74ee",
+    "oracleId": "e6e38bd4-e6dc-400b-8e08-956726842dc4",
+    "name": "Immaculate Magistrate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Immaculate Magistrate",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{T}: Put a +1/+1 counter on target creature for each Elf you control.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "007d0556-ccc4-47c5-b2ab-54b9681b74ee"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEA_GATE_LOREMASTER": {
+    "scryfallId": "5cd723c8-4b3d-4fbb-a825-79934279382d",
+    "oracleId": "6eed122b-9760-47fd-8ba2-adeda8054e0d",
+    "name": "Sea Gate Loremaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sea Gate Loremaster",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Merfolk Wizard Ally",
+        "oracleText": "{T}: Draw a card for each Ally you control.",
+        "flavorText": "\"He's a living library. He remembers everything our band of explorers has seen, and we can use that to our advantage.\"\n—Zahr Gada, Halimar expedition leader",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "5cd723c8-4b3d-4fbb-a825-79934279382d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPEAKEASY_SERVER": {
+    "scryfallId": "ad87315c-641a-4b94-b990-57567cb4c4be",
+    "oracleId": "4e08e07f-ca30-4e34-b207-d8fe62c03777",
+    "name": "Speakeasy Server",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Speakeasy Server",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Bird Citizen",
+        "oracleText": "Flying\nWhen this creature enters, you gain 1 life for each other creature you control.",
+        "flavorText": "\"Whatever ails you, friends, this will cure it for tonight! And leave you with a little inspiration for tomorrow.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "ad87315c-641a-4b94-b990-57567cb4c4be"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "255",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIMBERWATCH_ELF": {
+    "scryfallId": "045ae4ec-07f2-4098-a2d9-4bfcbd0273b2",
+    "oracleId": "50cee3ac-cba0-4abb-babf-de1928b1590e",
+    "name": "Timberwatch Elf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Timberwatch Elf",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "{T}: Target creature gets +X/+X until end of turn, where X is the number of Elves on the battlefield.",
+        "flavorText": "Even through the Mirari's voice, the elves still hear the call of their kinship.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "045ae4ec-07f2-4098-a2d9-4bfcbd0273b2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WELLWISHER": {
+    "scryfallId": "19dbbecb-b4d0-49d2-b36e-58279e051c5c",
+    "oracleId": "c3b1b7bd-cff8-4275-b6d3-868f4e4b2cc0",
+    "name": "Wellwisher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wellwisher",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "{T}: You gain 1 life for each Elf on the battlefield.",
+        "flavorText": "\"Close your ears to the voice of greed, and you can turn a gift for one into a gift for many.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "19dbbecb-b4d0-49d2-b36e-58279e051c5c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CREEPING_TRAILBLAZER": {
+    "scryfallId": "f0b96e41-caae-4e22-82f9-df5a054ea3b7",
+    "oracleId": "94431642-cfcf-48f4-9e0b-fcddc5b051ef",
+    "name": "Creeping Trailblazer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Creeping Trailblazer",
+        "manaCost": "{R}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Other Elementals you control get +1/+0.\n{2}{R}{G}: This creature gets +1/+1 until end of turn for each Elemental you control.",
+        "flavorText": "The destruction of a wildfire with the tenacity of a jungle vine.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "f0b96e41-caae-4e22-82f9-df5a054ea3b7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLUMBERING_KEEPGUARD": {
+    "scryfallId": "d7f41ae2-ebc6-439f-95af-c34818a3f4e6",
+    "oracleId": "89078485-c438-4035-95dc-dbe37fb13e50",
+    "name": "Slumbering Keepguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slumbering Keepguard",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Whenever an enchantment you control enters, scry 1.\n{2}{W}: This creature gets +1/+1 until end of turn for each enchantment you control.",
+        "flavorText": "Dreams of a realm united gave him strength even in sleep.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "d7f41ae2-ebc6-439f-95af-c34818a3f4e6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "29",
     "commanderLegality": "legal",
     "singleImage": true
   },

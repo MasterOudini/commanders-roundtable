@@ -23,6 +23,7 @@ import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveChain } from './connive';
+import { countOf } from './count';
 import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
@@ -41,6 +42,11 @@ type Aim =
   | { readonly kind: 'player'; readonly id: PlayerId }
   | { readonly kind: 'stack'; readonly id: string };
 
+/** D418 - the clause with its amount (a pump's halves) multiplied by the count read at resolution. */
+function scaledBy(effect: EffectSpec, count: number): EffectSpec {
+  if (effect.kind === 'pump') return { ...effect, power: effect.power * count, toughness: effect.toughness * count };
+  return { ...effect, amount: effect.amount * count };
+}
 function aimOf(state: GameState, choice: TargetChoice | undefined): Aim | null {
   if (!choice) return null;
   if (choice.kind === 'player') {
@@ -158,7 +164,10 @@ export function effectResult(
     for (const aim of aims) steps.push({ effect, aim, missing: false });
   }
 
-  for (const { effect, aim, missing } of steps) {
+  for (const step of steps) {
+    const { aim, missing } = step;
+    // D418 - `let`: a counted clause is rescaled below before its kind is switched on.
+    let effect = step.effect;
     /**
      * ⚠️ **A SKIPPED CLAUSE SAYS SO.** CR 608.2b is right that the spell still
      * resolves when only SOME of its targets are gone — only an all-illegal
@@ -190,6 +199,21 @@ export function effectResult(
     if (effect.ifKicked && !((obj.kicked ?? 0) > 0)) {
       out.push(narrated(`${obj.label} was not kicked — “${effect.text}” does nothing.`, obj.controller, obj.identity));
       continue;
+    }
+    // D418 - THE COUNT EXPRESSION (CR 608.2h): `for each <noun>` / `where X is the number of <nouns>`
+    // is read once, now, off the resolving board, and the clause's amount is multiplied by it. A
+    // count of zero is a clause that does nothing, and the narration says so (D90's other direction
+    // is silence) - the delayed and kicked clauses above are answered first because they carry the
+    // same spec and would otherwise be scaled on a board the effect never resolves on.
+    if (effect.per) {
+      // A permanent's trigger reads the kicks its spell announced off the permanent (CR 702.33c).
+      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache);
+      if (count === 0) {
+        out.push(narrated(`${obj.label} counts nothing — “${effect.text}” does nothing.`, obj.controller, obj.identity));
+        continue;
+      }
+      out.push(narrated(`${obj.label} counts ${count} for “${effect.text}”.`, obj.controller, obj.identity));
+      effect = scaledBy(effect, count);
     }
     // D402 - a DELAYED effect is armed now and runs when its step begins (CR 603.7): the entry
     // carries the same spec with the delay cleared, the resolving object's id and this clause's
@@ -550,14 +574,20 @@ export function effectResult(
         const owner = aim.id;
         const hand = [...(state.zones.hand[owner] ?? [])];
         if (hand.length > 0) out.push({ t: 'CardsRevealed', cards: hand, to: [...state.seating] });
-        out.push(narrated(n`${who(state, owner)} ${vb(owner, 'reveals', 'reveal')} ${hand.length === 0 ? 'an empty hand' : `${hand.length} card${hand.length === 1 ? '' : 's'}`}.`, owner, obj.identity));
+        // D418 - the narration NAMES the hand: the reveal is cleared the moment it is answered (or cannot be
+        // asked), the way a library reveal is, so no hand stays visible to the table past the moment it was
+        // shown - the fuzz gate's leak invariant - and the names are what the table keeps.
+        const revealedNames = hand.map((id) => { const inst = state.cards[id]; const p = inst ? deps.oracle.byPrinting(inst.printingId) : undefined; return p ? faceOf(p, inst?.faceIndex ?? 0).name : 'a card'; }).join(', ');
+        out.push(narrated(n`${who(state, owner)} ${vb(owner, 'reveals', 'reveal')} ${hand.length === 0 ? 'an empty hand' : `${hand.length} card${hand.length === 1 ? '' : 's'}: ${revealedNames}`}.`, owner, obj.identity));
         const legal = handChoiceCandidates(state, deps.oracle, owner, hc);
-        if (legal.length === 0) {
-          out.push(narrated(`${obj.label} - no ${hc.what} to choose.`, obj.controller, obj.identity));
-          if (hc.loseLife > 0) { const p = state.players[controller]; if (p) out.push({ t: 'LifeChanged', player: controller, delta: -hc.loseLife, to: p.life - hc.loseLife }); }
+        if (legal.length === 0 || out.some((e) => e.t === 'AwaitingSet')) {
+          if (legal.length === 0) {
+            out.push(narrated(`${obj.label} - no ${hc.what} to choose.`, obj.controller, obj.identity));
+            if (hc.loseLife > 0) { const p = state.players[controller]; if (p) out.push({ t: 'LifeChanged', player: controller, delta: -hc.loseLife, to: p.life - hc.loseLife }); }
+          }
+          if (hand.length > 0) out.push({ t: 'RevealCleared', cards: hand });
           break;
         }
-        if (out.some((e) => e.t === 'AwaitingSet')) break;
         out.push({
           t: 'AwaitingSet',
           awaiting: {

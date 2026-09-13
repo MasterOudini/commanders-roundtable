@@ -3530,6 +3530,10 @@ function answerChooseFromZone(
       { t: 'CardsMoved', moves },
       narrated(n`${who(state, intent.player)} ${vb(intent.player, 'chooses', 'choose')} ${named}; ${who(state, owner)} ${exile ? vb(owner, 'exiles', 'exile') : vb(owner, 'discards', 'discard')} it.`, intent.player),
     ];
+    // D418 - the reveal is cleared over what STAYS in the hand (the library rule, D357): the table keeps the names
+    // the narration gave it, not a standing window into the hand.
+    const stays = theirs.filter((c) => !intent.cards.includes(c));
+    if (stays.length > 0) events.push({ t: 'RevealCleared', cards: stays });
     if (awaiting.loseLife !== undefined && awaiting.loseLife > 0) { const p = state.players[intent.player]; if (p) events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.loseLife, to: p.life - awaiting.loseLife }); }
     return accept(events);
   }

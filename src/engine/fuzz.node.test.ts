@@ -237,6 +237,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // play them until the end of their next turn; the driver casts and plays from exile through the legal list.
   { names: ['Reckless Impulse', "Wrenn's Resolve", 'Act on Impulse'], copiesPerSeat: 2,
     counterKeys: ['playedFromExile'], rotHistory: 'D417' },
+  // D418 - the count expression: Wellwisher and Timberwatch Elf count the Elves on the battlefield (themselves
+  // at least) off a {T}; Spontaneous Generation counts the hand. The driver activates and casts them freely.
+  { names: ['Wellwisher', 'Timberwatch Elf', 'Spontaneous Generation'], copiesPerSeat: 2,
+    counterKeys: ['countsResolved'], rotHistory: 'D418' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -866,7 +870,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
     if (!picks.has(a.card)) picks.set(a.card, altPickFor(state, holder, a));
     return picks.get(a.card) ?? null;
   };
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true))));
+  // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
+  const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'));
   const chosen = p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
@@ -1055,6 +1061,9 @@ interface Run {
   /** D417 - play permissions granted, and the casts and land plays taken out of exile under one. */
   readonly permissionsGranted: number;
   readonly playedFromExile: number;
+  /** D418 - counted clauses resolved at a count of one or more, and at a count of zero (`counts nothing`). */
+  readonly countsResolved: number;
+  readonly countsEmpty: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1407,6 +1416,9 @@ function runOne(seed: number): Run {
     // D417 - a permission granted; a spell cast from exile (its object says so) or a land played out of exile
     // (the move from exile to the battlefield beside a LandPlayed) under one.
     permissionsGranted: game.log.filter((e) => e.body.t === 'PlayPermissionGranted').length,
+    // D418 - the executor narrates every counted clause: `counts N for` when it ran N times, `counts nothing` when not.
+    countsResolved: game.log.filter((e) => e.body.t === 'Narrated' && / counts \d+ for /.test(e.body.text)).length,
+    countsEmpty: game.log.filter((e) => e.body.t === 'Narrated' && / counts nothing /.test(e.body.text)).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1592,6 +1604,8 @@ const TOTAL_KEYS = [
   'handChoicesAsked',
   'permissionsGranted',
   'playedFromExile',
+  'countsResolved',
+  'countsEmpty',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1892,6 +1906,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D417 - a permission was granted and taken (a cast or a land play out of exile) at gate size.
         expect(totals.permissionsGranted).toBeGreaterThan(0);
         expect(totals.playedFromExile).toBeGreaterThan(0);
+        // D418 - a counted clause resolved at a count of one or more at gate size.
+        expect(totals.countsResolved).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1982,6 +1998,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.verbPricesAsked} verb prices asked / ${totals.verbPricesPaid} paid · ` +
           `${totals.handReveals} hands revealed / ${totals.handChoicesAsked} picks asked · ` +
           `${totals.permissionsGranted} permissions / ${totals.playedFromExile} played from exile · ` +
+          `${totals.countsResolved} counts resolved / ${totals.countsEmpty} empty · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

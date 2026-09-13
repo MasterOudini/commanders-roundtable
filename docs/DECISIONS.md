@@ -33074,3 +33074,186 @@ copies (15), the permanent control family (20) and exchange control (24), the ac
 restrictions (313), the keyword entry replacements (22), copy (~200 — the subsystem that waits
 for Fable), the prompt CONTINUATION seam proper, the two gate items — the tournament floor's
 MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D418 — THE COUNT EXPRESSION: `<effect> for each <noun>.` and `<effect with X>, where X is the number of <nouns>.` — a count read ONCE as the effect resolves, off the live board (the permanents a controller word and a predicate admit, the hand, a graveyard, the kicks, the deaths this turn, the party, the players, the basic land types), multiplying the clause's amount; the generator's counted suite sizing its own board with a witness (2026-09-13)
+
+**9,467 of 31,692 Commander-legal cards now execute completely, up from 9,437
+(+30: 17 generated rows — Krenko, Mob Boss, Wellwisher, Timberwatch Elf, Elder of Laurels, Filigree
+Angel, Hellkite Igniter, Immaculate Magistrate, Elvish Eulogist, Bishop of the Bloodstained,
+Earthshaker Dreadmaw, Sea Gate Loremaster, Speakeasy Server, Gnarlroot Pallbearer, Goldnight
+Redeemer, Hallowed Spiritkeeper, Creeping Trailblazer, Slumbering Keepguard — and 13 spells whole
+with no script: Deploy to the Front, Downhill Charge, Aerial Assault, Spontaneous Generation, Elvish
+Promenade, Elven Ambush, Howl of the Night Pack, Spider Spawning, Respite, Riot Control, Blunt the
+Assault, Frontline Rush, Gather the White Lotus).** `SHIPPED_SCRIPTS` 6,037 → **6,032** (17 generated rows in, 22 spell defs RETIRED by D187's rule - the vocabulary reads their whole text now); the REFUSED
+ledger 1,375 → **1,418** (44 added by reason; Downhill Charge's `computed X` row named STALE by the
+guard and deleted). Fixtures 6,674 → **6,695** (6,534 by name + 154 tokens: the 17 rows, the four
+proof spells and the kicked carrier). `scriptableToday` 1,475 → **1,518**; the select pool 0 → 61 → 0;
+the ladder `[1518, 1617, 2989, 4654, 6000]`. Bot reach 9,361 → **9,391** from 288 commanders. An
+engine seam on Opus 5 by the user's choice — the first of the "172 AMOUNT forms".
+
+### The measurement chose it — 95 whole by the real readers, over ~60 nouns
+
+After D417 the board's largest single mechanism by the rewrite method was the counted sentence:
+**95** one-piece cards flipped when the `for each <noun>` clause was dropped (the verb forms: `you
+gain N life` 14 + 4, `it gets +N/+N until end of turn` 11, `draw a card` 6, the tokens 6, the
+counters 4; the nouns: `time it was kicked` 8, `card in your hand` 6, `creature that died this turn`
+4, `creature in your party` 4, `other creature you control` 4, `attacking creature` 3, and a long
+tail of subtypes — Elf, Goblin, Shrine, Gate, Locus, Bobblehead), and the `where X is the number of`
+family (44) is the same count spelled with an X. What is NOT this decision: the counted ENTRY
+(`enters with a +1/+1 counter on it for each` 12 + 2 — a replacement's count), the counted STATIC
+(`Enchanted creature gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c
+count), the counted PRICE (`unless its controller pays {1} for each` 5 + 2), the counted queue
+(Thoughts of Ruin) and the counted reductions (Font of Magic, Locket of Yesterdays) — they were
+in the 95 and stay reportable by name.
+
+### The seam — the expression, the reader, the count, the multiplier
+
+- **The expression** (`oracle.ts` `CountExpr`): `permanents { controller: you | opponents | any,
+  predicates, other, attacking, untapped, keyword, powerAtLeast, withPlusCounter, named }`,
+  `cardsInHand`, `cardsInGraveyard { predicates | null, named }`, `kicked`, `diedThisTurn`, `party`,
+  `players { opponents | any }`, `basicLandTypes` — on `EffectSpec.per` (REQUIRED, null elsewhere).
+- **The reader** (`effectParse.ts` `readCountNoun`, `singularCountNoun`, `matchCounted`): the noun
+  goes through `predicatesOf` (the sacrifice and tap costs' reader) with a controller word required
+  unless it is attacking or `on the battlefield`; `tapped`, `they control`, `and` between two types
+  and a keyword outside the grantable list refuse it. The base sentence is asked of the rules AS ONE
+  (`X cards` → `a card`, `X life` → `1 life`, `+X/+0` → `+1/+0`, `create X ... tokens` → `create a
+  ... token`; an `X/X` token or a bare X left over refuses), and only the amount-bearing kinds ride
+  it (`gainLife`, `loseLife`, `draw`, `createToken`, `putCounters`, `pump`, `damage`);
+  `matchSentence` tries the rules first and the counted form after them, so `gainLifePer` (D201's
+  three nouns) keeps its rule.
+- **The count** (`src/engine/count.ts` `countOf`): read once at resolution (CR 608.2h) through the
+  same `derive` the board uses (a Levitation-granted flier counts, a face-down 2/2 counts as what it
+  is), `other` excluding the source, attacking off `state.combat`, untapped and the +1/+1 counter off
+  the instance, the name off the derived face, the graveyard through the printed face, the deaths off
+  `turn.memory.died` (ids — the creature question is asked here), the kicks off the stack object or
+  the permanent (a trigger reads the kicks its spell announced), the party as the largest set of
+  distinct roles (four roles — an exact search), the basic land types counted once each.
+- **The multiplier** (`effects.ts`): after the delayed and kicked clauses (they carry the same spec
+  and would otherwise be scaled on a board the effect never resolves on), a counted clause is
+  rescaled — the amount, or a pump's two halves — and narrated `counts N for "..."`; a count of zero
+  is a clause that does nothing, and the narration says `counts nothing` (D90's other direction is
+  silence).
+- `src/engine/countExpr.test.ts` (11): the parser's forms and nouns and nine refusals; `countOf`
+  over a board (the controller words, `other`, flying, the power floor, the counter, the name,
+  untapped, the players; the hand, the graveyard with a predicate and a name, a death this turn,
+  the kicks; a party of two Rogues is one and of four roles is four; Mountain + Forest + Commercial
+  District is two basic land types); Spontaneous Generation (a Saproling per card in hand, counted as
+  the spell resolves), Deploy to the Front (three Soldiers for three creatures under anyone, the
+  tokens counted after), Downhill Charge (+3/+0 for three Mountains, gone at cleanup), Aerial Assault
+  (the destroy aims, the life counts the fliers; with none the clause says it counts nothing and no
+  life moves), Lightkeeper of Emeria kicked twice on a test-only trigger (4 life; unkicked, nothing)
+  — the replay hash on each.
+- **The generator** (`gen118-vocab.cjs`, `make-rows118.cjs`): THE COUNTED SUITE SIZES ITS OWN BOARD.
+  A witness the noun admits is put on p1's side before the baseline (Hill Giant for a creature or a
+  permanent, Braidwood Cup for an artifact, Captive Flame for an enchantment, Bayou / Badlands /
+  Tundra for a land or a basic type, the subtype fixtures for an Elf, a Goblin, a Zombie, a Dinosaur;
+  a graveyard noun's witness in the graveyard), and the expected count is what the arm can see from
+  the row: the witness, the row's own card when the noun admits it and it is still there as the
+  payload resolves (a dies head and a self-sacrifice cost put it in the graveyard instead), the
+  clause fixtures the noun admits, and the `no` Cyclops for an any-controller count. The asserts read
+  the payloads SCALED by that count (`countedEffects`). Refused by name (D128: an assert at a count
+  the scaffold does not size proves nothing): the refinements (a keyword, a power floor, a counter,
+  a name, a colour, an opponents controller), the party, the hand, the kicks, the deaths, the domain,
+  the attack heads, a cost piece that leaves a fixture behind (a tapper, a donor, a discard), and a
+  sibling ability that puts a permanent (Horn of Gondor's enters token joined its own count — the
+  suite failed at the port and the row was retired).
+- **The hand reveal is cleared** (D416's tail, met by this decision's fuzz canary): the leak gate's
+  fixed seed now reveals a hand, and a revealed card that STAYS in the hand was visible to the table
+  for the rest of the game. The reveal is cleared the moment it is answered (over what stays in the
+  hand — the library rule, D357) or cannot be asked, and the narration names the revealed cards, so
+  the table keeps the names and not a standing window.
+- **Fuzz**: Wellwisher and Timberwatch Elf are staples (two a seat — a {T} each counting the Elves on
+  the battlefield, themselves at least) beside Spontaneous Generation, feeding `countsResolved`
+  (the `counts N for` narration, a floor) and `countsEmpty` (`counts nothing`) — **484
+  resolved / 1 empty over the gate's 500 seeds** (27 / 0 at 60).
+
+### The wave — 17 rows and 13 whole
+
+The selector offered 61 once the count read, every one a counted permanent: 17 rowed (the
+activations — Krenko, Wellwisher, Timberwatch Elf, Elder of Laurels, Hellkite Igniter, Immaculate
+Magistrate, Elvish Eulogist's self-sacrifice; the enters heads — Filigree Angel, Bishop of the
+Bloodstained, Earthshaker Dreadmaw's `other Dinosaur`, Sea Gate Loremaster, Gnarlroot Pallbearer,
+Goldnight Redeemer, Speakeasy Server; the dies and step heads — Hallowed Spiritkeeper, Creeping
+Trailblazer beside its anthem, Slumbering Keepguard beside its scry) and 44 refused by reason —
+eight nouns with no witness fixture (Shrine, Gate, Locus, Bobblehead, Wizard), six refinements (with
+flying, with vigilance, with a +1/+1 counter, with power 4 or greater, named, an opponents
+controller), the party (3), the hand (3 + 2 beside a discard cost), the kicks (2), the deaths (2),
+the domain (2), the attack heads (6), a colour (Regal Force), a graveyard name (Undead Servant),
+three activated costs outside the reader, two trigger heads outside the library, two ability-word
+lines, a combat-role clause, and Horn of Gondor's token sibling. The 13 whole are the spells that
+print nothing else.
+
+### Twenty-two scripts retired — D187's predicate
+
+A spell def is shipped only where the vocabulary does not read the card whole, and each carries a
+test that says so. The count expression reads the whole text of Airborne Aid, Bountiful Harvest,
+Collective Unconscious, Defile, Feeding Frenzy, Festive Funeral, Flow of Ideas, Gerrard's Wisdom,
+Ghoul's Feast, Grim Flowering, Hunger of the Nim, Inner Calm, Outer Strength, Irradiate, Joyous
+Respite, Keep Watch, Landbind Ritual, Mass Appeal, Might of the Masses, Nightmarish End, Tidy
+Conclusion, Warped Physique and Wirewood Pride — the first gate run went red on exactly those
+twenty-two suppression tests (and on the three pins that held Krenko, Mob Boss as THE payable
+ability whose effect never happens: Krenko SHIPPED, and Myr Mindservant holds the post) — so the
+defs would now duplicate the vocabulary and are retired (`d418/retire-22-418.cjs`: module, suite
+and both registry lines each); the cards stay complete, run from the oracle.
+
+### Traps
+
+- **A REGEX LITERAL AND A `String.raw` TAKE ONE MARKER, A TEMPLATE STRING TWO**: 35 doubled
+  backslashes had to be halved out of the first part file (`fix-marks-418.cjs`) — the parser probe
+  read every `where X is` form as manual until they were.
+- **THE PROBE CARD MUST NOT BE NAMED X**: `selfRef` replaces the card's own name with `~` before any
+  rule sees the sentence; a probe named `X` lost every X in its text.
+- **A COUNTED SUITE COUNTS WHAT ITS ARM PUT**: a sibling ability that puts a permanent (Horn of
+  Gondor's enters token) joins the count the arm did not size — refused by name after the port
+  failed on it; Elvish Eulogist's self-sacrifice put the row's own card in the graveyard it counts.
+- **THE DOUBLING GUARD**: Krenko, Mob Boss landed and seed 150 doubled its Goblins every untap — 255
+  tokens by intent 95, 90 s of wall, the invariant walk over every instance going quadratic from
+  there, and a synchronous seed loop no vitest timeout can interrupt (the first gate run's shard 0
+  spun past its ceiling). The fuzz driver takes no ACTIVATION from a player who already controls
+  forty or more permanents: a doubling ability crosses forty in six fuzzed activations, and nothing
+  else in a 200-intent game comes near it.
+- **A REVEALED HAND IS CLEARED AFTER ITS ANSWER**: the fuzz leak gate's fixed seed changes shape
+  with every staple, and this wave's shape revealed a hand — a standing `revealedTo` on a card that
+  stays in the hand is a leak the D416 gate never met.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6213 files, 30086
+passed / 11 skipped · 500-seed gate, 6 shards, 1062.9 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D418): the counted suite for the refinements (a keyword, a power floor, a
+counter, a name, an opponents controller, a colour), the party, the hand, the kicks, the deaths,
+the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (92), the impulse look-at-top (67), `you may cast` (56), the prevent-all shields
+(42), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

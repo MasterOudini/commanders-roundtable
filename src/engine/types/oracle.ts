@@ -493,6 +493,34 @@ export function isFreeAim(spec: TargetSpec): boolean {
  * filter, a permanent type, or a group of players. Anything a printed sentence
  * names outside this leaves the whole sentence unread (D90).
  */
+/**
+ * D418 - THE COUNT EXPRESSION: what `for each <noun>` and `where X is the number of <noun>` count at
+ * resolution - permanents the noun admits (a controller, the qualifiers `other` / `attacking` / `untapped`,
+ * a keyword, a power floor, a +1/+1 counter, a name), cards in a hand or a graveyard, the object's own
+ * kicker count (D403), the creatures that died this turn (the turn record, D348), the party, the players,
+ * the basic land types among your lands. A CLOSED union: a noun outside it refuses the sentence.
+ */
+export type CountExpr =
+  | {
+      readonly kind: 'permanents';
+      readonly controller: 'you' | 'opponents' | 'any';
+      readonly predicates: readonly PermanentPredicate[];
+      readonly other: boolean;
+      readonly attacking: boolean;
+      readonly untapped: boolean;
+      readonly keyword: Keyword | null;
+      readonly powerAtLeast: number | null;
+      readonly withPlusCounter: boolean;
+      readonly named: string | null;
+    }
+  | { readonly kind: 'cardsInHand'; readonly who: 'you' }
+  | { readonly kind: 'cardsInGraveyard'; readonly predicates: readonly PermanentPredicate[] | null; readonly named: string | null }
+  | { readonly kind: 'kicked' }
+  | { readonly kind: 'diedThisTurn' }
+  | { readonly kind: 'party' }
+  | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }
+  | { readonly kind: 'basicLandTypes' };
+
 export interface BoardScope {
   readonly kind: 'creature' | 'permanent' | 'player';
   /** Whose. `any` is every player's, which is what "each creature" means. */
@@ -950,6 +978,8 @@ export interface EffectSpec {
   readonly handChoice: HandChoice | null;
   /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly exilePlay: { readonly count: number; readonly until: 'thisTurn' | 'yourNextTurn' | 'yourNextEndStep' } | null;
+  /** D418 - a counted effect: the amount (a pump's halves) is multiplied by this count at resolution. REQUIRED (D355/D356's rule), null elsewhere. */
+  readonly per: CountExpr | null;
   /**
    * D402 - THE DELAYED TRIGGER (CR 603.7): this effect happens at the beginning of a LATER step
    * (`Draw a card at the beginning of the next turn's upkeep.`) rather than on resolution. The

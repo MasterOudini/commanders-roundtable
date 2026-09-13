@@ -6773,6 +6773,12 @@ const WANTED = [
   // D417 - the play permission: the seam's proof spells (Reckless Impulse is the fuzz staple).
   'Reckless Impulse',
   "Wrenn's Resolve",
+  // D418 - the count expression: the seam's proof spells and the kicked carrier.
+  'Spontaneous Generation',
+  'Deploy to the Front',
+  'Downhill Charge',
+  'Aerial Assault',
+  'Lightkeeper of Emeria',
   'Act on Impulse',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
@@ -7244,6 +7250,23 @@ const WANTED = [
   'Warehouse Thief',
   'Wiccan, Young Avenger',
   // D417 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D418 - the count expression: the rows the selector offered once for-each and where-X-is read, and their kin.
+  'Bishop of the Bloodstained',
+  'Earthshaker Dreadmaw',
+  'Elder of Laurels',
+  'Elvish Eulogist',
+  'Filigree Angel',
+  'Gnarlroot Pallbearer',
+  'Goldnight Redeemer',
+  'Hallowed Spiritkeeper',
+  'Hellkite Igniter',
+  'Immaculate Magistrate',
+  'Sea Gate Loremaster',
+  'Speakeasy Server',
+  'Timberwatch Elf',
+  'Wellwisher',
+  'Creeping Trailblazer',
+  'Slumbering Keepguard',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
