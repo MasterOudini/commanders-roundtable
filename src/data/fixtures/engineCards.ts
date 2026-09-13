@@ -6108,6 +6108,11 @@ export const DEPLOY_TO_THE_FRONT: CardData = F.DEPLOY_TO_THE_FRONT as CardData;
 export const DOWNHILL_CHARGE: CardData = F.DOWNHILL_CHARGE as CardData;
 export const AERIAL_ASSAULT: CardData = F.AERIAL_ASSAULT as CardData;
 export const LIGHTKEEPER_OF_EMERIA: CardData = F.LIGHTKEEPER_OF_EMERIA as CardData;
+export const ABRUPT_DECAY: CardData = F.ABRUPT_DECAY as CardData;
+export const REMAND: CardData = F.REMAND as CardData;
+export const DISSIPATE: CardData = F.DISSIPATE as CardData;
+export const MEMORY_LAPSE: CardData = F.MEMORY_LAPSE as CardData;
+export const SYNCOPATE: CardData = F.SYNCOPATE as CardData;
 export const ACT_ON_IMPULSE: CardData = F.ACT_ON_IMPULSE as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
@@ -12909,6 +12914,11 @@ export const ENGINE_CARDS: CardData[] = [
   DOWNHILL_CHARGE,
   AERIAL_ASSAULT,
   LIGHTKEEPER_OF_EMERIA,
+  ABRUPT_DECAY,
+  REMAND,
+  DISSIPATE,
+  MEMORY_LAPSE,
+  SYNCOPATE,
   ACT_ON_IMPULSE,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,

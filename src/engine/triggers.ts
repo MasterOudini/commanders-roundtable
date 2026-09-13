@@ -262,7 +262,7 @@ function runFanOut(
  * and a line says so. Runs on the state BEFORE the batch, where the spell is
  * still on the stack to be looked up.
  */
-function withoutCountersOfTheUncounterable(state: GameState, scripts: ScriptRegistry, bodies: readonly EventBody[]): readonly EventBody[] {
+function withoutCountersOfTheUncounterable(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, bodies: readonly EventBody[]): readonly EventBody[] {
   if (!bodies.some((b) => b.t === 'SpellCountered')) return bodies;
   const out = [...bodies];
   for (let i = 0; i < out.length; i++) {
@@ -271,7 +271,11 @@ function withoutCountersOfTheUncounterable(state: GameState, scripts: ScriptRegi
     const victim = state.stack.find((s) => s.id === ev.stackId);
     if (!victim || victim.card === null) continue;
     const card = state.cards[victim.card];
-    if (!card || scripts.get(card.oracleId)?.cantBeCountered === undefined) continue;
+    // D422 - a SPELL face carries the line itself (`OracleFace.cantBeCountered`); a permanent's is its script's.
+    if (!card) continue;
+    const printing = oracle.byPrinting(card.printingId);
+    const faceSays = printing !== undefined && faceOf(printing, card.faceIndex).cantBeCountered;
+    if (scripts.get(card.oracleId)?.cantBeCountered === undefined && !faceSays) continue;
     out[i] = narrated(`${victim.label} can't be countered.`, victim.controller, victim.identity);
     for (let j = i + 1; j < out.length; j++) {
       const mv = out[j];
@@ -306,7 +310,7 @@ export function runReplacementFunnel(
   // consume the same shield. D385 - the CONTINUOUS prevention abilities (a
   // `PreventionDef` on a battlefield permanent) are asked in the same walk,
   // which is why it takes the oracle and the registry now.
-  const bodies = withoutPreventedDamage(state, oracle, scripts, withoutCountersOfTheUncounterable(state, scripts, rawBodies));
+  const bodies = withoutPreventedDamage(state, oracle, scripts, withoutCountersOfTheUncounterable(state, oracle, scripts, rawBodies));
   const defs = scripts.replacements();
   const settled: EventBody[] = [];
 

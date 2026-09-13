@@ -528,6 +528,9 @@ export function linesUnaccounted(
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;
+    // D422 - `This spell can't be countered.` the engine HONOURS (the counter funnel reads the face). Asked of the
+    // parser that set the flag, never re-read here.
+    if (face.cantBeCountered && line === "This spell can't be countered.") continue;
     // D403 - a Kicker / Multikicker line the engine CHARGES at cast time (`CastSpell.kicked`):
     // the cost is read off the face, the payment adds it, the stack object remembers it.
     if (face.kickerCost !== null && /^Kicker (?:\{[^}]+\})+$/.test(line)) continue;

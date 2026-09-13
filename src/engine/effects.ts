@@ -348,16 +348,28 @@ export function effectResult(
         // D336 - "This spell can't be countered.": the funnel would drop the
         // counter anyway; saying so here keeps the resolver's own line honest.
         const victimCard = victim.card === null ? undefined : state.cards[victim.card];
-        if (victimCard && deps.scripts.get(victimCard.oracleId)?.cantBeCountered !== undefined) {
+        // D422 - a SPELL face carries the line itself (`OracleFace.cantBeCountered`); a permanent's is its script's.
+        const victimFace = victimCard ? deps.oracle.byPrinting(victimCard.printingId) : undefined;
+        if (victimCard && (deps.scripts.get(victimCard.oracleId)?.cantBeCountered !== undefined || (victimFace !== undefined && faceOf(victimFace, victimCard.faceIndex).cantBeCountered))) {
           out.push(narrated(`${victim.label} can't be countered.`, obj.controller, obj.identity));
           break;
         }
         out.push({ t: 'SpellCountered', stackId: victim.id });
         // A countered SPELL goes to its owner's graveyard; an ability just ceases.
         // D307 - a spell cast by flashback goes to exile instead (CR 702.34a).
+        // D422 - the clause may say where instead (`If that spell is countered this way, exile it / put it into
+        // its owner's hand / on top of / on the bottom of its owner's library`): the card goes there, flashback's
+        // exile standing only where the clause names the graveyard it would have gone to.
         if (victim.card) {
           const vc = state.cards[victim.card];
-          if (vc) out.push(moveFromStack(victim.card, victim.castFrom?.kind === 'graveyard' ? 'exile' : 'graveyard', vc.owner));
+          const to = effect.counterTo;
+          if (vc && (to === 'libraryTop' || to === 'libraryBottom')) {
+            out.push({ t: 'CardsMoved', moves: [{ card: victim.card, from: { kind: 'stack', player: null }, to: { kind: 'library', player: vc.owner }, placement: to === 'libraryTop' ? 'top' : 'bottom' }] });
+          } else if (vc && to === 'hand') {
+            out.push({ t: 'CardsMoved', moves: [{ card: victim.card, from: { kind: 'stack', player: null }, to: { kind: 'hand', player: vc.owner } }] });
+          } else if (vc) {
+            out.push(moveFromStack(victim.card, to === 'exile' || victim.castFrom?.kind === 'graveyard' ? 'exile' : 'graveyard', vc.owner));
+          }
         }
         out.push(narrated(`${obj.label} counters ${victim.label}.`, obj.controller, obj.identity));
         break;
@@ -508,7 +520,10 @@ export function effectResult(
         else if (aim?.kind === 'stack') payer = state.stack.find((s) => s.id === aim.id)?.controller ?? null;
         if (!payer) break;
         const seat = state.players[payer];
-        const problem = buildPaymentProblem(pay.cost, 0, [], 0, pay.life);
+        // D422 - a price of `{X}` is the spell's announced X (CR 601.2b's value, on the stack object), substituted
+        // as the prompt is raised; an X nobody announced is 0.
+        const payCost = pay.cost && pay.cost.xCount > 0 ? { ...pay.cost, generic: pay.cost.generic + pay.cost.xCount * (obj.xValue ?? 0), xCount: 0 } : pay.cost;
+        const problem = buildPaymentProblem(payCost, 0, [], 0, pay.life);
         // D415 - a VERB price is payable while its candidates suffice (D369's rule: an unpayable price is
         // not a question), read off the same list the answer is checked against (D139). The public ones
         // ride the prompt; a discard's do not (a hand is hidden, D137 - the answerer reads its own).
@@ -530,7 +545,7 @@ export function effectResult(
         const can =
           !!seat &&
           seat.life >= pay.life &&
-          (pay.cost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null) &&
+          (payCost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null) &&
           (verbCandidates === null || verbCandidates.length > 0);
         if (!can) {
           out.push(narrated(`${obj.label} - the price cannot be paid.`, obj.controller, obj.identity));
@@ -543,7 +558,7 @@ export function effectResult(
           awaiting: {
             kind: 'payMana',
             player: payer,
-            cost: pay.cost,
+            cost: payCost,
             life: pay.life,
             label: obj.label,
             controller: obj.controller,

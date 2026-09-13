@@ -63,7 +63,9 @@ describe('D369 - the payment prompt', () => {
 
   test('the shapes it must refuse stay refused', () => {
     expect(parseEffects('Counter target spell unless any player pays {1}.', 'Testing', true).mode).not.toBe('auto');
-    expect(parseEffects('Counter target spell unless its controller pays {X}.', 'Testing', true).mode).not.toBe('auto');
+    // D422 - a {X} price READS now (the spell's announced X, substituted as the prompt is raised); a price naming
+    // the card itself still does not.
+    expect(parseEffects('Counter target spell unless its controller pays {X}.', 'Testing', true).mode).toBe('auto');
     expect(parseEffects('You may draw a card unless that player pays {1}.', 'Testing', true).mode).not.toBe('auto');
     expect(parseEffects('Target player discards a card unless they pay {2}.', 'Testing', true).mode).not.toBe('auto');
   });

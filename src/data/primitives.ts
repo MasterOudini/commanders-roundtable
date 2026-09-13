@@ -518,7 +518,9 @@ const SPELL_STRUCTURAL: readonly RegExp[] = [
   // cast restriction gates legality before any resolve exists. These are
   // one-line spells, so without this they would surface at the FRONT of a
   // lines-count-ordered wave as guaranteed draft refusals.
-  /\bcan't be countered\b/i,
+  // D422 - `This spell can't be countered.` is the face's own now (`OracleFace.cantBeCountered`, read by the
+  // counter funnel); the OTHER uncounterable wordings (`can't be countered by spells or abilities`) stay structural.
+  /\bcan't be countered by\b/i,
   /\ban additional cost\b/i,
   /\bcast (this spell|~) only\b/i,
   /\bspend only\b/i,
@@ -1052,6 +1054,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // its row, because those name machinery a spell def lacks exactly the way
   // a trigger def does (prompts, temporary grants, CR 707). And only past
   // the STRUCTURAL list, which names what a resolve cannot express.
+  // D422 - the uncounterable spell's own line: the engine's (the funnel drops the counter), a claim of nothing else.
+  if (spellFace && /^This spell can't be countered\.$/.test(text)) return 'scriptable';
   if (spellFace && !SPELL_STRUCTURAL.some((re) => re.test(text))) return 'scriptable';
 
   return 'unclassified';

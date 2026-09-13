@@ -241,6 +241,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // at least) off a {T}; Spontaneous Generation counts the hand. The driver activates and casts them freely.
   { names: ['Wellwisher', 'Timberwatch Elf', 'Spontaneous Generation'], copiesPerSeat: 2,
     counterKeys: ['countsResolved'], rotHistory: 'D418' },
+  // D422 - the counterspell family: Remand (to the hand) and Dissipate (to exile) counter whatever the driver aims
+  // them at; Abrupt Decay is the uncounterable spell a counter may meet.
+  { names: ['Remand', 'Dissipate', 'Abrupt Decay'], copiesPerSeat: 1,
+    counterKeys: ['countersRedirected'], rotHistory: 'D422' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1064,6 +1068,9 @@ interface Run {
   /** D418 - counted clauses resolved at a count of one or more, and at a count of zero (`counts nothing`). */
   readonly countsResolved: number;
   readonly countsEmpty: number;
+  /** D422 - countered cards moved off the stack to a hand or a library (the countered-this-way destination), and the funnel's `can't be countered` line. */
+  readonly countersRedirected: number;
+  readonly uncounterableSaid: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1419,6 +1426,10 @@ function runOne(seed: number): Run {
     // D418 - the executor narrates every counted clause: `counts N for` when it ran N times, `counts nothing` when not.
     countsResolved: game.log.filter((e) => e.body.t === 'Narrated' && / counts \d+ for /.test(e.body.text)).length,
     countsEmpty: game.log.filter((e) => e.body.t === 'Narrated' && / counts nothing /.test(e.body.text)).length,
+    // D422 - a move from the stack to a hand or a library is the countered-this-way destination (nothing else moves a
+    // card off the stack to either); the funnel's line is the uncounterable spell.
+    countersRedirected: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.from.kind === 'stack' && (m.to.kind === 'hand' || m.to.kind === 'library'))).length,
+    uncounterableSaid: game.log.filter((e) => e.body.t === 'Narrated' && /can't be countered/.test(e.body.text)).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1606,6 +1617,8 @@ const TOTAL_KEYS = [
   'playedFromExile',
   'countsResolved',
   'countsEmpty',
+  'countersRedirected',
+  'uncounterableSaid',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1908,6 +1921,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.playedFromExile).toBeGreaterThan(0);
         // D418 - a counted clause resolved at a count of one or more at gate size.
         expect(totals.countsResolved).toBeGreaterThan(0);
+        // D422 - a counter sent its spell to a hand or a library at gate size.
+        expect(totals.countersRedirected).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -1999,6 +2014,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.handReveals} hands revealed / ${totals.handChoicesAsked} picks asked · ` +
           `${totals.permissionsGranted} permissions / ${totals.playedFromExile} played from exile · ` +
           `${totals.countsResolved} counts resolved / ${totals.countsEmpty} empty · ` +
+          `${totals.countersRedirected} counters redirected / ${totals.uncounterableSaid} uncounterable · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +

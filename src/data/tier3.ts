@@ -160,7 +160,10 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     for (const word of p.other) add(`Protection from ${word}`, 'check it yourself — the app cannot decide this quality');
   }
 
-  if (/\bward\b/i.test(text) && !ENFORCED_WARD.test(text)) {
+  // D422 - read past the reminder text: an uncounterable spell whose reminder says the ward ability is included
+  // names ward without granting it, and the note said to pay a cost the card never prints.
+  const noReminder = text.replace(/\([^)]*\)/g, '');
+  if (/\bward\b/i.test(noReminder) && !ENFORCED_WARD.test(noReminder)) {
     add('Ward', 'the cost is not a fixed price, so pay it at the table');
   }
 

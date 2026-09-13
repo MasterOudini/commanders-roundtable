@@ -33656,3 +33656,154 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D422 — THE COUNTERSPELL FAMILY: `This spell can't be countered.` on a spell face, the countered-this-way destination (`If that spell is countered this way, exile it / put it into its owner's hand / on top of its owner's library instead`), and the `{X}` price (`Counter target spell unless its controller pays {X}`) — the face carries the uncounterable line and the counter funnel reads it beside the script property; `counterTo` rides the counter clause and the executor moves the countered card there; a price of `{X}` is the spell's announced X, substituted as the prompt is raised (2026-09-13)
+
+**9,596 of 31,692 Commander-legal cards now execute completely, up from 9,568
+(+28: 28 spells whole with no script — Remand, Dissipate, Memory Lapse, Lapse of Certainty, Syncopate,
+Logic Knot, Clash of Wills, Force of Negation, No More Lies, Deny Existence, Void Shatter, Liquify,
+Faerie Trickery, Spell Shrivel, Excise, Eject, Horribly Awry, Abrupt Decay, Supreme Verdict, Dovin's
+Veto, Void Rend, Last Word, Volcanic Fallout, Inescapable Blaze, Long Goodbye, Heated Debate, Tears
+of Valakut, Assert Authority).** `SHIPPED_SCRIPTS` **6,133** (no rows — the generator rows no spell);
+the REFUSED ledger 1,521 → **1,532** (11 added by reason; THREE `X payment price` rows named STALE by
+the guard and deleted). Fixtures 6,798 → **6,803** (6,642 by name + 154 tokens: the five proof spells).
+`scriptableToday` 1,620 → **1,630**; the select pool 0 → 11 → 0; the ladder `[1630, 1729, 3091, 4745,
+6082]`. Bot reach 9,492 → **9,520** from 291 commanders. An engine seam on Opus 5 by the user's choice
+— the stack-interaction slice the spec's §4.8 names, bounded to what the counter already does.
+
+### The measurement chose it — the spell sentences the vocabulary refuses, by shape
+
+The spell leftover (4,319 cards whose leftover is their lines alone; 2,004 with exactly ONE unread
+sentence) was measured sentence by sentence: `Until end of turn, target <X> ...` 50 (quoted-ability
+grants, mostly — the reorder alone flips 5), `This spell costs {M} less to cast` 29, `As an
+additional cost` 20, `Destroy target <X>` 19, `Search your library for up to` 17, `Counter target
+spell unless its controller pays` 16, `Prevent all combat damage` 16, `If that spell is countered
+this way` 15, `This spell can't be countered` 12 (30 sentences over the lines-only spells), `If this
+spell was kicked, that / it / instead` 13 + 10 + 8, `Create a token that's a copy` 14 (Fable's). The
+three counter shapes share one seam — the counter effect the engine already runs — and the ledger
+held three `X payment price (the parser refuses one: D369)` rows waiting on exactly the third.
+
+### The seam — the face, the destination, the price
+
+- **The face** (`oracle.ts` `OracleFace.cantBeCountered`, `oracleParse.ts`): `This spell can't be
+  countered.` printed on an instant or sorcery face (a trailing reminder — Slice from the Shadows'
+  note about ward — is the same line); a permanent's line stays its script's
+  (`CardScript.cantBeCountered`, D336). `effectParse` drops the line (no clause of the spell, like
+  Devoid); `engineComplete` claims it off the flag; the classifier's structural list keeps only the
+  OTHER wordings (`can't be countered by spells or abilities`) and reads the plain line as the
+  engine's own. The counter funnel (`triggers.ts` `withoutCountersOfTheUncounterable`, now with the
+  oracle) and the executor's counter case read the face beside the script property: the counter is
+  dropped, the move with it, and a line says so.
+- **The destination** (`oracle.ts` `EffectSpec.counterTo` — REQUIRED, null elsewhere; `effectParse.ts`
+  `matchCounteredThisWay`): the two-sentence span `<counter sentence>. If that spell is countered
+  this way, exile it | put it into its owner's hand | put it on top of / on the bottom of its owner's
+  library instead of (putting it) into its owner's / that player's graveyard.` — the first sentence is
+  asked of the rules on its own (a plain counter, or a counter-unless-pays whose unpaid branch is the
+  counter) and the destination rides the counter clause; a first sentence that is not a counter
+  refuses the span. `effects.ts` moves the countered card there (a library placement top or bottom,
+  the hand, exile); flashback's exile stands only where the clause names the graveyard.
+- **The price** (`effectParse.ts` `readPrice`, `effects.ts` `payOptional`): `{X}` is the spell's
+  announced X (`obj.xValue`, CR 601.2b), substituted into the prompt's cost as it is raised — an X
+  nobody announced is 0; the D369 refusal pin moved (`payMana.test.ts`).
+- `src/engine/counterFamily.test.ts` (4): the parser's three shapes and two refusals; Counterspell
+  aimed at Abrupt Decay resolves, counters nothing, says so, and the Decay resolves and kills; Remand
+  puts the countered Bears in its owner's hand and draws, Dissipate exiles, Memory Lapse puts it on
+  top of its owner's library; Syncopate for X=2 asks the caster for `{2}` — declined, the spell is
+  countered into exile with nothing spent; paid, it resolves with the two Forests tapped — the
+  replay hash on each.
+- **Tier 3** (`tier3.ts`): the Ward note read past a reminder — `(This includes by the ward
+  ability.)` names ward without granting it, and two cards the engine now runs completely carried a
+  note to pay a cost they never print.
+- **Fuzz**: Remand and Dissipate are staples (a counter each, aimed by the driver at whatever is on
+  the stack) beside Abrupt Decay, feeding `countersRedirected` (a countered card moved off the stack
+  to a hand or a library — exile is flashback's too and is not counted; a floor) and
+  `uncounterableSaid` (the funnel's line, no floor — a counter aimed at the Decay is the driver's coin
+  flip): **1,619 redirected / 0 uncounterable over the gate's 500 seeds** (210 / 0 at 60).
+
+### The wave — 28 whole, no rows
+
+The selector offered 11 once the family read, every one a spell whose OTHER line the vocabulary does
+not read (the generator rows no spell): a colour qualifier on the target (Fry), a three-type sweep
+(Obliterate), the amass mechanic (Commence the Endgame), a target's controller as a referent
+(Inevitable Defeat), a conditional draw on the destroyed card (Raze to the Ground), a hand reveal
+that exiles (Thought Distortion), `artifact or land` (Wreak Havoc), the spell's X in a pump (Slice
+from the Shadows), and the CONDITIONAL uncounterables the face does not carry — Banefire's `if X is
+5 or more` and Exquisite Firecraft's Spell mastery — beside Martyr of Frost's reveal cost; 11
+ledgered by reason. The 28 whole are the spells whose counter shape was the whole of what they
+lacked.
+
+### Traps
+
+- **THE INGEST AND THE PARSER MUST AGREE ON THE LINE**: `parseEffects` scrubs a reminder before it
+  drops the line, the ingest's regex read the raw text — with the strict regex Slice from the
+  Shadows would have been COMPLETE by the parser and COUNTERABLE by the engine (D90's exact
+  failure); the ingest admits the trailing parenthetical.
+- **`selfRef` RUNS BEFORE THE DROP**: the card's own `This spell` is `~` by the time the line filter
+  sees it — the filter reads `(?:This spell|~) can't be countered.`
+- **A REMINDER IS NOT A KEYWORD**: the Ward note fired on `(This includes by the ward ability.)`.
+- **THE ROW MAKER ROWS NO SPELL**: a spell in the pool is a ledger row by construction — the wave's
+  yield is the vocabulary's alone, measured by the leftover diff (28 seam, 0 rowed).
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6315 files, 30526
+passed / 11 skipped · 500-seed gate, 6 shards, 1020.0 s wall · build clean · probe
+124/124 · battery 140/140.**
+
+⚠️ **Reportables** (D422): the CONDITIONAL uncounterables the face does not carry (Banefire's `if X is 5
+or more`, Spell mastery's graveyard count, `can't be countered by spells or abilities` — the other
+wordings stay structural), the counter-unless-pays with a COUNTED price (`{1} for each card in your
+graveyard` — Circular Logic, Countervailing Winds; D418's counted price), the spell's X in a pump
+(`-X/-X` — Slice from the Shadows), the kicked `instead` forms (13 + 10 + 8), the other spell shapes
+measured (`This spell costs {M} less` 29, `As an additional cost` 20, `Destroy target <X>` 19, `Search
+your library for up to` 17, `Prevent all combat damage` 16, the quoted-ability grants behind `Until end
+of turn, target <X> gains` 50); the self subject's tail (D421 — damage from a source that has died,
+last known information: the `when this creature dies, it deals damage` family; the counted self
+pumps under the attack heads 14; the twenty-two trigger heads outside the library — dice, mutate,
+expend, a loyalty ability, a scry, `becomes the target of a spell or ability you control`, `attacks a
+battle`, `becomes blocked`, `blocks`, `deals combat damage`; the filtered heads the reader refuses; a
+payment under a sacrifice head whose fire funds the price); the ability word's tail (D420 —
+the Eerie head, the Valiant head, the Inspired payments whose branch makes a token, the copy half of
+Magecraft, the enchantment-enters wordings 22, the second-spell and first-spell heads, `attacks
+alone`, `becomes untapped`, `is dealt damage`, the `you may pay` wrapper's refused bodies); the board
+condition's tail (D419 — a creature with power N or greater 6, an opponent controls more lands
+than you 5, no untapped / tapped lands, exactly N, lands with different names, a creature with a
++1/+1 counter, a permanent with mana value N or greater, the Descend ability word, the seven
+`no <noun>` rows the armed board meets from the start); the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

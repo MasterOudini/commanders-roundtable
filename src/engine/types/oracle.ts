@@ -981,6 +981,12 @@ export interface EffectSpec {
   /** D418 - a counted effect: the amount (a pump's halves) is multiplied by this count at resolution. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly per: CountExpr | null;
   /**
+   * D422 - `counter` only: where the countered spell goes INSTEAD of its owner's graveyard (`If that spell is
+   * countered this way, exile it / put it into its owner's hand / on top of / on the bottom of its owner's
+   * library instead ...`). REQUIRED (D355/D356's rule), null elsewhere and for the plain counter.
+   */
+  readonly counterTo: 'exile' | 'hand' | 'libraryTop' | 'libraryBottom' | null;
+  /**
    * D402 - THE DELAYED TRIGGER (CR 603.7): this effect happens at the beginning of a LATER step
    * (`Draw a card at the beginning of the next turn's upkeep.`) rather than on resolution. The
    * resolution ARMS it (`DelayedTriggerArmed` carrying this spec with `delay` cleared) and the
@@ -1479,6 +1485,12 @@ export interface OracleFace {
    * "Flashback-<other cost>" stays null.
    */
   readonly flashbackCost: ManaCost | null;
+  /**
+   * D422 - `This spell can't be countered.` printed on a SPELL face (CR 701.5a: countering it does nothing).
+   * A permanent's line is its script's (`CardScript.cantBeCountered`, D336); a spell has no script, so the
+   * face carries it and the counter funnel reads both. False on every other face.
+   */
+  readonly cantBeCountered: boolean;
   /**
    * D403 - KICKER (CR 702.33): the optional additional cost `Kicker {M}` on its own line, paid at
    * cast time when the caster chooses (`CastSpell.kicked`), and `Multikicker {M}` paid any number

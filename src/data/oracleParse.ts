@@ -1052,6 +1052,9 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const wardCost = parseWard(face.oracleText, warn);
   const wardLife = parseWardLife(face.oracleText, warn);
   const flashbackCost = isPermanent ? null : parseFlashback(face.oracleText, warn);
+  // D422 - the uncounterable SPELL: the line as printed, on an instant or sorcery face alone.
+  // (a trailing reminder in parentheses - Slice from the Shadows' note about ward - is the same line.)
+  const cantBeCountered = !isPermanent && /^This spell can't be countered\.(?: \([^)]*\))?$/m.test(face.oracleText);
   const kicked = parseKicker(face.oracleText, warn);
   const altCosts = parseAltCosts(face.oracleText);
   const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
@@ -1132,6 +1135,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     instantSpeed: typeLine.types.includes('Instant') || keywords.includes('flash'),
     wardCost,
     flashbackCost,
+    cantBeCountered,
     kickerCost: kicked.kicker,
     multikickerCost: kicked.multikicker,
     convoke: altCosts.convoke,

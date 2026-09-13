@@ -251,6 +251,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D422 - the counterspell family reads: the 11 the selector offered once the uncounterable line was the face's own,
+  // that the row maker refused, by reason (spells whose OTHER line the vocabulary does not read - the generator rows no
+  // spell; the conditional uncounterables - Spell mastery, an X of 5 or more - stay properties the face does not carry).
+  ['Commence the Endgame', 'a spell line outside the vocabulary (draw two, then amass Zombies X - the amass mechanic) beside its uncounterable line'],
+  ['Fry', 'a spell line outside the vocabulary (5 damage to target creature or planeswalker that is white or blue - a colour qualifier on the target) beside its uncounterable line'],
+  ['Inevitable Defeat', "a spell line outside the vocabulary (exile target nonland permanent, its controller loses 3 life and you gain 3 life - the target's controller as a referent) beside its uncounterable line"],
+  ['Martyr of Frost', 'an activated cost outside the reader (Reveal X blue cards from your hand)'],
+  ['Obliterate', 'a spell line outside the vocabulary (destroy all artifacts, creatures, and lands - a three-type sweep that cannot be regenerated) beside its uncounterable line'],
+  ['Raze to the Ground', 'a spell line outside the vocabulary (destroy target artifact, then draw if its mana value was 1 or less - a conditional draw on the destroyed card) beside its uncounterable line'],
+  ['Thought Distortion', 'a spell line outside the vocabulary (reveal a hand, exile all noncreature nonland cards from hand and graveyard) beside its uncounterable line'],
+  ['Wreak Havoc', 'a spell line outside the vocabulary (destroy target artifact or land) beside its uncounterable line'],
+  ['Banefire', 'a spell line outside the vocabulary (X damage to any target, uncounterable and unpreventable if X is 5 or more - a conditional property)'],
+  ['Exquisite Firecraft', 'a spell line outside the vocabulary (Spell mastery - uncounterable on a graveyard count, a conditional property)'],
+  ['Slice from the Shadows', "a spell line outside the vocabulary (-X/-X until end of turn - the spell's X in a pump) beside its uncounterable line"],
   // D421 - the self subject reads: the 67 the selector offered once the classifier read a payload's self subject
   // (this creature deals, it gets, on this creature) as the vocabulary does, that the row maker refused, by reason
   // (the counted payloads under attack heads and the trigger heads outside the library among them).
@@ -2224,7 +2238,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Everything Comes to Dust', 'a spell line outside the row vocabulary beside its convoke (exile all creatures except those sharing a type with a convoker - a convoke referent)'],
   ['Hour of Reckoning', 'a spell line outside the row vocabulary beside its convoke (destroy all nontoken creatures)'],
   ['Lethal Scheme', 'a spell line outside the row vocabulary beside its convoke (a destroy, then each convoker connives - a convoke referent)'],
-  ['Logic Knot', 'a spell line outside the row vocabulary beside its delve (counter unless its controller pays {X})'],
   ['Organic Extinction', 'a spell line outside the row vocabulary beside its improvise (destroy all nonartifact creatures)'],
   ['Rite of Undoing', 'a spell line outside the row vocabulary beside its delve (two bounces, one of each side)'],
   ['Temporal Cleansing', 'a spell line outside the row vocabulary beside its convoke (a library placement the owner chooses)'],
@@ -2426,9 +2439,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spectral Interference', 'a typed-spell COMPOUND clause the aim layer does not read'],
   ['Goblin Cannon', 'a vocabulary clause the suite has no fixture for: a battle clause'],
   ['Ghost-Lit Warder', 'ability-word activated: Channel — {3}{U}, Discard this'],
-  ['Clash of Wills', 'an X payment price (the parser refuses one: D369)'],
   ['Condescend', 'an X payment price (the parser refuses one: D369)'],
-  ['Excise', 'an X payment price (the parser refuses one: D369)'],
   ['Mindswipe', 'an X payment price (the parser refuses one: D369)'],
   ['Overrule', 'an X payment price (the parser refuses one: D369)'],
   ['Power Sink', 'an X payment price (the parser refuses one: D369)'],

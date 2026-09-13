@@ -230,6 +230,7 @@ const BASE: EffectFields = {
   handChoice: null,
   exilePlay: null,
   per: null,
+  counterTo: null,
   delay: null,
   ifKicked: false,
   untilLeaves: false,
@@ -1706,7 +1707,8 @@ function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null 
   const life = raw.match(/(\d+) life$/i);
   const mana = raw.match(/^(?:\{[^}]+\})+/);
   const cost = mana ? parseManaCost(mana[0]) : null;
-  if (mana && (cost === null || cost.xCount > 0 || mana[0].includes('~'))) return null;
+  // D422 - a price of `{X}` is the spell's announced X, substituted as the prompt is raised (`obj.xValue`).
+  if (mana && (cost === null || mana[0].includes('~'))) return null;
   return { cost, life: life ? Number(life[1]) : 0 };
 }
 
@@ -1909,6 +1911,29 @@ function matchCounted(sentence: string): EffectSpec | null {
   return null;
 }
 
+/**
+ * D422 - THE COUNTERED-THIS-WAY DESTINATION (CR 701.5a's `instead`): `<counter sentence>. If that spell is
+ * countered this way, exile it | put it into its owner's hand | put it on top of its owner's library | put it
+ * on the bottom of its owner's library instead of (putting it) into its owner's / that player's graveyard.` The
+ * first sentence is asked of the rules on its own (a plain counter, or a counter-unless-pays whose unpaid
+ * branch is the counter), and the destination rides the counter clause as `counterTo`; the executor moves the
+ * countered card there. A first sentence that is not a counter refuses the span.
+ */
+const COUNTERED_THIS_WAY = /^(.+?)\. If that spell is countered this way, (exile it|put it into its owner's hand|put it on top of its owner's library|put it on the bottom of its owner's library) instead of (?:putting it )?into (?:its owner's|that player's) graveyard\.$/i;
+function matchCounteredThisWay(sentence: string): EffectSpec | null {
+  const m = COUNTERED_THIS_WAY.exec(sentence);
+  if (!m) return null;
+  const where = (m[2] ?? '').toLowerCase();
+  const counterTo = where === 'exile it' ? 'exile' : where.includes('hand') ? 'hand' : where.includes('top') ? 'libraryTop' : 'libraryBottom';
+  const inner = matchSentence((m[1] ?? '') + '.');
+  if (!inner) return null;
+  if (inner.kind === 'counter') return { ...inner, text: sentence, counterTo };
+  if (inner.kind === 'payOptional' && inner.pay && inner.pay.ifNotPaid.length === 1 && inner.pay.ifNotPaid[0]?.kind === 'counter' && inner.pay.ifPaid.length === 0) {
+    const c = inner.pay.ifNotPaid[0];
+    return { ...inner, text: sentence, pay: { ...inner.pay, ifNotPaid: [{ ...c, counterTo }] } };
+  }
+  return null;
+}
 function matchSentence(sentence: string): EffectSpec | null {
   const paid = matchPayment(sentence);
   if (paid) return paid;
@@ -1918,6 +1943,9 @@ function matchSentence(sentence: string): EffectSpec | null {
   // D402 - a delayed sentence before the rules: the rules would read `Draw a card at the`... as nothing.
   const delayed = matchDelayed(sentence);
   if (delayed) return delayed;
+  // D422 - the countered-this-way span before the rules (its first sentence is what the rules read).
+  const counteredTo = matchCounteredThisWay(sentence);
+  if (counteredTo) return counteredTo;
   // D418 - a counted sentence after the plain rules: `for each <noun>` and `where X is the number of`.
   return matchRule(sentence) ?? matchCounted(sentence);
 }
@@ -2001,6 +2029,8 @@ export function parseEffects(
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
     // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.
     .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(l.trim()))
+    // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
+    .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.
     .filter((l) => !/^Devoid$/i.test(l.trim()))
     .join('\n');

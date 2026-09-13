@@ -6779,6 +6779,12 @@ const WANTED = [
   'Downhill Charge',
   'Aerial Assault',
   'Lightkeeper of Emeria',
+  // D422 - the counterspell family: the seam's proof spells.
+  'Abrupt Decay',
+  'Remand',
+  'Dissipate',
+  'Memory Lapse',
+  'Syncopate',
   'Act on Impulse',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",

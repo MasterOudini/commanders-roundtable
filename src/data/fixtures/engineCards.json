@@ -205738,6 +205738,173 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ABRUPT_DECAY": {
+    "scryfallId": "02517f12-cd8a-4d62-89cb-523b9b9295d5",
+    "oracleId": "1c747fe2-289e-492a-a846-aa77707e2dc3",
+    "name": "Abrupt Decay",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abrupt Decay",
+        "manaCost": "{B}{G}",
+        "typeLine": "Instant",
+        "oracleText": "This spell can't be countered.\nDestroy target nonland permanent with mana value 3 or less.",
+        "flavorText": "The Izzet quickly suspended their policy of lifetime guarantees.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "02517f12-cd8a-4d62-89cb-523b9b9295d5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gk1",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REMAND": {
+    "scryfallId": "0027e5ca-8046-40a0-bd73-79be55f28bff",
+    "oracleId": "d71cd08e-3e84-41ff-b9db-9e343c0af6b4",
+    "name": "Remand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Remand",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. If that spell is countered this way, put it into its owner's hand instead of into that player's graveyard.\nDraw a card.",
+        "flavorText": "For the Azorius, the law can be a physical shield against chaos and anarchy.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "0027e5ca-8046-40a0-bd73-79be55f28bff"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddm",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISSIPATE": {
+    "scryfallId": "00ff9f72-b6da-426b-8f27-77aa79e7b75a",
+    "oracleId": "4b2e9aa9-6f91-41de-84b6-e9a89be06a53",
+    "name": "Dissipate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dissipate",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+        "flavorText": "\"If you weren't born with it, you don't need it.\"\n—Grahilah, former trader of Amiqat",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Richard Kane Ferguson",
+        "imageId": "00ff9f72-b6da-426b-8f27-77aa79e7b75a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wc97",
+    "collectorNumber": "pm61sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEMORY_LAPSE": {
+    "scryfallId": "13636e52-aee6-4262-9b4d-a2979193bfa3",
+    "oracleId": "bbfb3e4a-b389-4391-8141-13b68c0ef2e0",
+    "name": "Memory Lapse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Memory Lapse",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. If that spell is countered this way, put it on top of its owner's library instead of into that player's graveyard.",
+        "flavorText": "「我々が忘れてしまった考えはどこへ行ってすまったのだ？かつて知っていたことが思い出せない。」\n——タイヴァ校長の日記",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yumeko",
+        "imageId": "13636e52-aee6-4262-9b4d-a2979193bfa3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sta",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNCOPATE": {
+    "scryfallId": "08375017-4432-4296-9799-966db145ed7c",
+    "oracleId": "318f7f70-e374-40ef-8afb-3389c10461d8",
+    "name": "Syncopate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syncopate",
+        "manaCost": "{X}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell unless its controller pays {X}. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+        "flavorText": "\"Fool! Can't you see the tide has turned against you?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "08375017-4432-4296-9799-966db145ed7c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "vow",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ACT_ON_IMPULSE": {
     "scryfallId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29",
     "oracleId": "19ad338a-c89f-406d-ad1a-222c22044e1b",
