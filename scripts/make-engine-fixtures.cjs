@@ -6785,6 +6785,11 @@ const WANTED = [
   'Dissipate',
   'Memory Lapse',
   'Syncopate',
+  // D423 - the kicked instead: the seam's proof spells.
+  'Burst Lightning',
+  'Might of Murasa',
+  'Saproling Migration',
+  'Gift of Growth',
   'Act on Impulse',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",

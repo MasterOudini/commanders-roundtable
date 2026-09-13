@@ -139,7 +139,15 @@ export function effectResult(
    * anything — it was legal to choose none — and is skipped without a word.
    */
   const steps: { effect: EffectSpec; aim: Aim | null; missing: boolean }[] = [];
-  for (const effect of effects) {
+  for (let ei = 0; ei < effects.length; ei++) {
+    const effect = effects[ei] as EffectSpec;
+    // D423 - a kicked `instead` clause REPLACES the clause before it: the base is skipped on a kicked spell, and
+    // the narration says so (D90); the instead clause is D403's kicked gate when the spell was not kicked.
+    const next = effects[ei + 1];
+    if (next?.kickedInstead && (obj.kicked ?? 0) > 0) {
+      out.push(narrated(`${obj.label} was kicked — “${effect.text}” is replaced.`, obj.controller, obj.identity));
+      continue;
+    }
     if (effect.self) {
       if (SELF_AIMED.has(effect.kind)) {
         // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),

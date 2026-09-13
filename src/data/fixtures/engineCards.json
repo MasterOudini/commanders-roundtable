@@ -205905,6 +205905,146 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BURST_LIGHTNING": {
+    "scryfallId": "0f350255-930a-41da-a58b-55beb66da7bd",
+    "oracleId": "ac2086fe-98ee-4280-9c7c-c5c2d6548a8b",
+    "name": "Burst Lightning",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burst Lightning",
+        "manaCost": "{R}",
+        "typeLine": "Instant",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nBurst Lightning deals 2 damage to any target. If this spell was kicked, it deals 4 damage instead.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jung Park",
+        "imageId": "0f350255-930a-41da-a58b-55beb66da7bd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "37610",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIGHT_OF_MURASA": {
+    "scryfallId": "42914fd9-e56e-4c3e-a445-fdfa45a45178",
+    "oracleId": "902eb71f-62b3-40cb-816b-f6b7e92e91e7",
+    "name": "Might of Murasa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Might of Murasa",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Kicker {2}{G} (You may pay an additional {2}{G} as you cast this spell.)\nTarget creature gets +3/+3 until end of turn. If this spell was kicked, that creature gets +5/+5 until end of turn instead.",
+        "flavorText": "The continent of Murasa is defined by irrepressible growth, both natural and otherwise.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "42914fd9-e56e-4c3e-a445-fdfa45a45178"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAPROLING_MIGRATION": {
+    "scryfallId": "2578d25e-5f8d-42ff-90ce-4e7d100cbbb6",
+    "oracleId": "bbbb80bd-76fa-4155-929b-4a3565d1cb35",
+    "name": "Saproling Migration",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saproling Migration",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nCreate two 1/1 green Saproling creature tokens. If this spell was kicked, create four of those tokens instead.",
+        "flavorText": "Thallids herd saprolings from place to place in search of detritus to feed them.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christine Choi",
+        "imageId": "2578d25e-5f8d-42ff-90ce-4e7d100cbbb6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIFT_OF_GROWTH": {
+    "scryfallId": "3f1f81db-30e7-4be1-a3b7-68c072d42ed2",
+    "oracleId": "edbe4fdf-9e55-44fa-b3ec-5b1ac615f3a7",
+    "name": "Gift of Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gift of Growth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Kicker {2} (You may pay an additional {2} as you cast this spell.)\nUntap target creature. It gets +2/+2 until end of turn. If this spell was kicked, that creature gets +4/+4 until end of turn instead.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "YW Tang",
+        "imageId": "3f1f81db-30e7-4be1-a3b7-68c072d42ed2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DOM-163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ACT_ON_IMPULSE": {
     "scryfallId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29",
     "oracleId": "19ad338a-c89f-406d-ad1a-222c22044e1b",

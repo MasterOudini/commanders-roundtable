@@ -998,9 +998,15 @@ export interface EffectSpec {
   /**
    * D403 - `If this spell was kicked, <X>.`: this effect happens only when the spell was cast
    * kicked (`StackObject.kicked` > 0). REQUIRED (D355/D356's rule), `false` on every other effect.
-   * The `instead` forms (`it deals 4 damage instead`) stay unread.
+   * D423 - the `instead` forms ride `kickedInstead` below.
    */
   readonly ifKicked: boolean;
+  /**
+   * D423 - `If this spell was kicked, <clause> instead.`: this effect REPLACES the effect before it when the
+   * spell was kicked (the executor skips the base then, and this one when it was not). Always beside
+   * `ifKicked: true`. REQUIRED (D355/D356's rule), `false` on every other effect.
+   */
+  readonly kickedInstead: boolean;
   /**
    * D407 - `exile` only: `Exile target creature an opponent controls until this permanent leaves the
    * battlefield.` (CR 610.3) - the exile is LINKED to the resolving object's source on the battlefield

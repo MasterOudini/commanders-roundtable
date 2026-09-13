@@ -33807,3 +33807,153 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D423 — THE KICKED INSTEAD: `If this spell was kicked, <clause> instead.` REPLACES the clause before it — `it deals 4 damage instead` (the spell's own damage at the previous target), `that creature gets +5/+5 until end of turn instead` (a referent clause about the previous object), `create four of those tokens instead` (the previous token at a new count); the executor skips the base on a kicked spell and the instead clause on a plain one; the fuzz driver's kick is a coin flip (2026-09-13)
+
+**9,605 of 31,692 Commander-legal cards now execute completely, up from 9,596
+(+9: 9 spells whole with no script — Burst Lightning, Roil Eruption, Shivan Fire, Might of Murasa,
+Gift of Growth, Colossal Growth, Explosive Growth, Saproling Migration, Conqueror's Pledge).**
+`SHIPPED_SCRIPTS` **6,133** (no rows — the select pool was 0); the REFUSED ledger **1,532** (unchanged;
+the guard named nothing stale). Fixtures 6,803 → **6,807** (6,646 by name + 154 tokens: the four proof
+spells). `scriptableToday` **1,630**; the ladder `[1630, 1729, 3091, 4745, 6080]`. Bot reach 9,520 →
+**9,529** from 291 commanders. An engine seam on Opus 5 by the user's choice — the kicker's `instead`
+half, bounded to the clause shapes the referent rewrite (D392) already reads.
+
+### The measurement chose it — the kicked sentences over the one-unread spells
+
+D422's spell-sentence probe (2,004 spells with exactly ONE unread sentence) put the kicked forms third:
+`If this spell was kicked, that / it / instead ...` 13 + 10 + 8 = 31 sentences over some forty shapes.
+Read shape by shape: the `instead` forms whose clause is ABOUT the clause before them — `it deals N
+damage instead` 3, `that creature gets ±N/±N until end of turn instead` 3 + 4, `create N of those tokens
+instead` 3 — are D392's referent rewrite one gate over (the clause is the previous clause's target,
+token or phrase, with a new number); the rest carry a target of their own (`instead destroy target
+creature` — Bloodchief's Thirst, Waste Management, Blood Beckoning), a referent the vocabulary has no
+phrase for (`that player discards three cards instead` — Bog Down, Hypnotic Cloud), a scoped referent
+(`those creatures get -2/-2 instead` — Marsh Casualties, Dauntless Unity), a sweep with a qualifier
+(Canopy Surge, Breath of Darigaaz), a library search (Primal Growth, Grow from the Ashes), a copy
+token (Rite of Replication — Fable's), or a non-instead kicked clause beside an unread first line
+(Vines of Vastwood, Savage Offensive). D403 read `If this spell was kicked, <X>.` as X gated on the
+kick and pinned the `instead` form as a REFUSAL; the same pin moves.
+
+### The seam — a clause that replaces the one before it
+
+- **The spec** (`oracle.ts` `EffectSpec.kickedInstead` — REQUIRED, `false` elsewhere; always beside
+  `ifKicked: true`): the instead clause is a second `EffectSpec` right after the base, carrying the
+  base's target index and its own numbers.
+- **The parser** (`effectParse.ts` `kickedInsteadRewrite`, in `clausesOf` after the referent
+  rewrite): `If this spell was kicked, (instead) <clause> (instead).` is read against the clause
+  before it — `create N of those tokens` re-keys the previous `createToken` at N (`TOKEN_WORDS`; a
+  previous that is itself kicked refuses), `it deals N damage` re-asks the rules with the previous
+  clause's phrase (`~ deals N damage to <phrase>.` — the whole sentence machinery, not a number
+  swap), and anything else goes through `referentRewrite` and is refused when it lands a target of
+  its own, a payment, or a count. The previous clause's phrase is carried onto the instead clause
+  the way a referent's is.
+- **The executor** (`effects.ts`, the steps builder): a base whose NEXT clause is `kickedInstead` is
+  skipped on a kicked spell with a line — `Burst Lightning was kicked — “Burst Lightning deals 2
+  damage to any target.” is replaced.`; on a plain cast the instead clause falls under D403's
+  `ifKicked` gate (`was not kicked — … does nothing`). Nothing else moves: the target was aimed once
+  at cast, the kick is the object's `kicked` count.
+- `src/engine/kickedInstead.test.ts` (3): Burst Lightning at Air Elemental — 2 damage on a plain
+  cast with the `was not kicked` line, lethal 4 kicked with the `is replaced` line; Might of Murasa
+  +3/+3 plain and +5/+5 kicked, then Gift of Growth kicked on the same Bears (the untap is NOT
+  replaced, the +4/+4 stacks to power 11); Saproling Migration two tokens plain, four kicked — the
+  replay hash on each. `kicker.test.ts`' D403 pin moved (the instead form is `auto` now,
+  `[['damage', 2, false], ['damage', 4, true]]`).
+- **Fuzz**: Burst Lightning, Saproling Migration and Gift of Growth are staples feeding
+  `kickedReplaced` (the `is replaced` line; reported) and `kickedInsteadSkipped` (the unkicked
+  instead's `does nothing` line; the floor): **6 replaced / 106 skipped over the gate's
+  500 seeds** (16 skipped at 60). The driver's kick is a COIN FLIP now
+  (`chosen.kicker && p.below(2) === 0`): the offer carried `kicker` whenever the face had one and the
+  driver always sent `kicked: 1`, so a kicker spell was cast only when the kick was affordable —
+  D403's "the next pick may cast it plain" was never true (its counters read 1 / 1 at 60). A
+  fuzz-driver change shapes every seed; the gate's other floors held.
+
+### The wave — 9 whole, no rows
+
+The selector offered nothing (the pool 0 — the nine spells' other sentences were already the
+vocabulary's, and no permanent waits on a kicked instead); the yield is the leftover diff's alone
+(9 seam, 0 rowed, 0 regressed).
+
+### Traps
+
+- **THE PREVIOUS CLAUSE IS THE ANCHOR, NOT THE SENTENCE**: `it deals 4 damage instead` names no
+  target — the base's phrase is re-asked with the new number, so a base the rules refused leaves the
+  instead clause refused too (both halves read, or neither: D90).
+- **A COUNTED TOKEN IS NOT RE-KEYED**: `create N of those tokens` refuses a previous `createToken`
+  that is itself kicked; the count is the sentence's word, never a count expression.
+- **THE DRIVER ALWAYS KICKED**: a rate canary on a kicked branch reads the DRIVER's coin, not the
+  pool — the unkicked branch is the abundant one and carries the floor.
+- **A PROOF TARGET MUST SURVIVE THE PLAIN HALF**: a 5/2 died to the unkicked 2 damage and the kicked
+  proof had no target — the suite aims at a 4/4.
+
+**Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6,316 files, 30,529
+passed / 11 skipped · 500-seed gate, 6 shards, 1031.8 s wall · build clean · probe
+124/124 · battery 140/140.**
+⚠️ **Reportables** (D423): the kicked instead's residue (an instead clause with a TARGET of its own —
+`instead destroy target creature` Bloodchief's Thirst, Waste Management, Blood Beckoning's two targets;
+`that player` as a referent — Bog Down, Hypnotic Cloud; the scoped `those creatures` — Marsh Casualties,
+Dauntless Unity; the qualified sweeps — Canopy Surge, Breath of Darigaaz; the kicked searches — Primal
+Growth, Grow from the Ashes; Prohibit's conditional counter; Urza's Rage's unpreventable damage; Rite
+of Replication's copy token (Fable's); the plain kicked clauses beside an unread first line — Vines of
+Vastwood, Savage Offensive, Vastwood Surge), damage from a source that has died (last known information —
+the dead-source gap D421 named, `when this creature dies, it deals damage`), the driver's coin-flip
+kick (a {4} kick the pool rarely pays early — the kicked branch is reported, not floored); the
+counterspell tail (D422 — the CONDITIONAL uncounterables the face does not carry (Banefire's `if X is 5
+or more`, Spell mastery's graveyard count, `can't be countered by spells or abilities` — the other
+wordings stay structural), the counter-unless-pays with a COUNTED price (`{1} for each card in your
+graveyard` — Circular Logic, Countervailing Winds; D418's counted price), the spell's X in a pump
+(`-X/-X` — Slice from the Shadows), the other spell shapes
+measured (`This spell costs {M} less` 29, `As an additional cost` 20, `Destroy target <X>` 19, `Search
+your library for up to` 17, `Prevent all combat damage` 16, the quoted-ability grants behind `Until end
+of turn, target <X> gains` 50)); the self subject's tail (D421 — damage from a source that has died,
+last known information: the `when this creature dies, it deals damage` family; the counted self
+pumps under the attack heads 14; the twenty-two trigger heads outside the library — dice, mutate,
+expend, a loyalty ability, a scry, `becomes the target of a spell or ability you control`, `attacks a
+battle`, `becomes blocked`, `blocks`, `deals combat damage`; the filtered heads the reader refuses; a
+payment under a sacrifice head whose fire funds the price); the ability word's tail (D420 —
+the Eerie head, the Valiant head, the Inspired payments whose branch makes a token, the copy half of
+Magecraft, the enchantment-enters wordings 22, the second-spell and first-spell heads, `attacks
+alone`, `becomes untapped`, `is dealt damage`, the `you may pay` wrapper's refused bodies); the board
+condition's tail (D419 — a creature with power N or greater 6, an opponent controls more lands
+than you 5, no untapped / tapped lands, exactly N, lands with different names, a creature with a
++1/+1 counter, a permanent with mana value N or greater, the Descend ability word, the seven
+`no <noun>` rows the armed board meets from the start); the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

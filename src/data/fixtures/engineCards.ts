@@ -6113,6 +6113,10 @@ export const REMAND: CardData = F.REMAND as CardData;
 export const DISSIPATE: CardData = F.DISSIPATE as CardData;
 export const MEMORY_LAPSE: CardData = F.MEMORY_LAPSE as CardData;
 export const SYNCOPATE: CardData = F.SYNCOPATE as CardData;
+export const BURST_LIGHTNING: CardData = F.BURST_LIGHTNING as CardData;
+export const MIGHT_OF_MURASA: CardData = F.MIGHT_OF_MURASA as CardData;
+export const SAPROLING_MIGRATION: CardData = F.SAPROLING_MIGRATION as CardData;
+export const GIFT_OF_GROWTH: CardData = F.GIFT_OF_GROWTH as CardData;
 export const ACT_ON_IMPULSE: CardData = F.ACT_ON_IMPULSE as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
@@ -12919,6 +12923,10 @@ export const ENGINE_CARDS: CardData[] = [
   DISSIPATE,
   MEMORY_LAPSE,
   SYNCOPATE,
+  BURST_LIGHTNING,
+  MIGHT_OF_MURASA,
+  SAPROLING_MIGRATION,
+  GIFT_OF_GROWTH,
   ACT_ON_IMPULSE,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,

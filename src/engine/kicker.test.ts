@@ -28,9 +28,10 @@ describe('kicker (D403)', () => {
       ['bounce', 0, false],
       ['draw', -1, true],
     ]);
-    // The `instead` form stays unread: a rewrite of an amount, not a sentence the rules read.
+    // D423 - the `instead` form READS now: a clause that replaces the one before it on a kicked spell (`kickedInstead`).
     const instead = parseEffects('This spell deals 2 damage to any target. If this spell was kicked, it deals 4 damage instead.', 'Test Card', true);
-    expect(instead.mode).not.toBe('auto');
+    expect(instead.mode).toBe('auto');
+    expect(instead.effects.map((e) => [e.kind, e.amount, e.kickedInstead])).toEqual([['damage', 2, false], ['damage', 4, true]]);
   });
 
   test('a kicked cast pays the kicker, remembers it, and runs the kicked clause; an unkicked cast does not', () => {

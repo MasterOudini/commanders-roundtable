@@ -233,6 +233,7 @@ const BASE: EffectFields = {
   counterTo: null,
   delay: null,
   ifKicked: false,
+  kickedInstead: false,
   untilLeaves: false,
 };
 
@@ -1643,6 +1644,37 @@ function referentRewrite(sentence: string, previous: Clause | undefined): Effect
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }
 
+/**
+ * D423 - THE KICKED INSTEAD (CR 702.33): `If this spell was kicked, <clause> instead.` REPLACES the clause before
+ * it when the spell was kicked - `it deals 4 damage instead` (the spell's own damage at the previous target),
+ * `that creature gets +4/+4 until end of turn instead` (a referent clause about the previous object), `create
+ * four of those tokens instead` (the previous token, a new count). Read against the clause before it, the way a
+ * referent is (D392); the executor skips the base when the spell was kicked and the instead clause when it was
+ * not. An instead clause with a target of its own (`instead destroy target creature`) is a second mode the cast
+ * does not carry and stays unread; so does a referent the vocabulary has no phrase for (`that player`).
+ */
+const KICKED_INSTEAD = /^If this spell was kicked, (?:instead )?(.+?)(?: instead)?\.$/i;
+const TOKEN_WORDS: Readonly<Record<string, number>> = { a: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12 };
+function kickedInsteadRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
+  if (!/\binstead\b/i.test(sentence)) return null;
+  const m = KICKED_INSTEAD.exec(sentence);
+  if (!m || !previous?.spec) return null;
+  const inner = (m[1] ?? '').trim();
+  const tok = /^create (a|an|one|two|three|four|five|six|seven|eight|nine|ten|twelve) of those tokens$/i.exec(inner);
+  if (tok) {
+    if (previous.spec.kind !== 'createToken' || previous.spec.ifKicked) return null;
+    return { ...previous.spec, amount: TOKEN_WORDS[(tok[1] ?? '').toLowerCase()] ?? 1, text: sentence, ifKicked: true, kickedInstead: true };
+  }
+  const dmg = /^it deals (\d+) damage$/i.exec(inner);
+  if (dmg) {
+    if (previous.spec.kind !== 'damage' || previous.phrase === null) return null;
+    const hit = matchSentence(`~ deals ${dmg[1]} damage to ${previous.phrase}.`);
+    return hit ? { ...hit, text: sentence, referent: true, ifKicked: true, kickedInstead: true } : null;
+  }
+  const ref = referentRewrite(inner + '.', previous);
+  if (!ref || ref.targetIndex === -1 || ref.pay || ref.per) return null;
+  return { ...ref, text: sentence, ifKicked: true, kickedInstead: true };
+}
 function clausesOf(text: string): Clause[] {
   const raw = sentences(text);
   const out: Clause[] = [];
@@ -1662,8 +1694,11 @@ function clausesOf(text: string): Clause[] {
     const previous = out[out.length - 1];
     const referred = spec === null ? referentRewrite(raw[i] ?? '', previous) : null;
     if (referred) spec = referred;
+    // D423 - a kicked `instead` clause is read against the clause before it too.
+    const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
+    if (insteadK) spec = insteadK;
     const clauseText = raw.slice(i, i + span).join(' ');
-    out.push({ text: clauseText, spec, phrase: referred ? (previous?.phrase ?? null) : phraseOf(clauseText) });
+    out.push({ text: clauseText, spec, phrase: referred || insteadK ? (previous?.phrase ?? null) : phraseOf(clauseText) });
     i += span;
   }
   return out;

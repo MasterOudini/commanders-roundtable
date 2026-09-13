@@ -245,6 +245,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // them at; Abrupt Decay is the uncounterable spell a counter may meet.
   { names: ['Remand', 'Dissipate', 'Abrupt Decay'], copiesPerSeat: 1,
     counterKeys: ['countersRedirected'], rotHistory: 'D422' },
+  // D423 - the kicked instead: a bolt and a token spell whose kicked clause replaces the base (the driver always
+  // tries the kick, D403).
+  { names: ['Burst Lightning', 'Saproling Migration', 'Gift of Growth'], copiesPerSeat: 2,
+    counterKeys: ['kickedInsteadSkipped'], rotHistory: 'D423' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -904,7 +908,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         const altPicks = verb === undefined || n === 0 ? {} : verb === 'sacrifice' ? { sacrifice: picked } : verb === 'discard' ? { discard: picked } : verb === 'tap' ? { tap: picked } : verb === 'exileFromGraveyard' ? { exileFromGraveyard: picked } : verb === 'returnToHand' ? { returnToHand: picked } : { exileFromHand: picked };
         return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.kicker ? { kicked: 1 } : {}), alternative: true, ...altPicks };
       }
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      // D423 - the kick is a coin flip: a plain cast is the other half of every kicker card (and the only cast the
+      // pool can pay early), so both branches of a kicked clause are fuel.
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker && p.below(2) === 0 ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1071,6 +1077,10 @@ interface Run {
   /** D422 - countered cards moved off the stack to a hand or a library (the countered-this-way destination), and the funnel's `can't be countered` line. */
   readonly countersRedirected: number;
   readonly uncounterableSaid: number;
+  /** D423 - base clauses skipped for their kicked `instead` (the executor's `is replaced` line). */
+  readonly kickedReplaced: number;
+  /** D423 - instead clauses that said `does nothing` on an unkicked cast (the abundant branch; the floor). */
+  readonly kickedInsteadSkipped: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1430,6 +1440,8 @@ function runOne(seed: number): Run {
     // card off the stack to either); the funnel's line is the uncounterable spell.
     countersRedirected: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.from.kind === 'stack' && (m.to.kind === 'hand' || m.to.kind === 'library'))).length,
     uncounterableSaid: game.log.filter((e) => e.body.t === 'Narrated' && /can't be countered/.test(e.body.text)).length,
+    kickedReplaced: game.log.filter((e) => e.body.t === 'Narrated' && / is replaced\.$/.test(e.body.text)).length,
+    kickedInsteadSkipped: game.log.filter((e) => e.body.t === 'Narrated' && /was not kicked — “If this spell was kicked, [^”]* instead\.” does nothing\.$/.test(e.body.text)).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1619,6 +1631,8 @@ const TOTAL_KEYS = [
   'countsEmpty',
   'countersRedirected',
   'uncounterableSaid',
+  'kickedReplaced',
+  'kickedInsteadSkipped',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1923,6 +1937,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.countsResolved).toBeGreaterThan(0);
         // D422 - a counter sent its spell to a hand or a library at gate size.
         expect(totals.countersRedirected).toBeGreaterThan(0);
+        // D423 - an instead clause was read and gated on an unkicked cast at gate size (the kicked branch is the
+        // driver's coin flip - a {4} kick - and the unit suite's; it is reported, not floored).
+        expect(totals.kickedInsteadSkipped).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2015,6 +2032,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.permissionsGranted} permissions / ${totals.playedFromExile} played from exile · ` +
           `${totals.countsResolved} counts resolved / ${totals.countsEmpty} empty · ` +
           `${totals.countersRedirected} counters redirected / ${totals.uncounterableSaid} uncounterable · ` +
+          `${totals.kickedReplaced} kicked replaced / ${totals.kickedInsteadSkipped} instead skipped · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
