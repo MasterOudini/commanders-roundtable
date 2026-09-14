@@ -19,7 +19,7 @@ import { homedir } from 'node:os';
 import { createInterface } from 'node:readline';
 import { describe, expect, test } from 'vitest';
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
-import { AJANIS_MANTRA, HUMILITY_SCRIPT } from '../engine/testing/cardScripts';
+import { GRAVITY_SPHERE_SCRIPT, HUMILITY_SCRIPT } from '../engine/testing/cardScripts';
 import { engineCompleteness } from './engineComplete';
 import { tier3NotesFor } from './tier3';
 import type { CardData } from './cardTypes';
@@ -89,7 +89,10 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // took over: engineComplete refuses it (ability text a script does not
     // claim — the testing registry is not SHIPPED_SCRIPTS) and tier3 notes it,
     // and it is also the card the fuzz DECK teeth pin as never-dealt.
-    const testScripts = [AJANIS_MANTRA, HUMILITY_SCRIPT];
+    // D429 - Ajani's Mantra held this post from D156 until it SHIPPED in D429 (the subjectless `Gain 1 life.`
+    // read under its optional landfall trigger) - the same turnover Yotian Dissident had; Gravity Sphere (`All
+    // creatures lose flying.`, no script claims it) took over.
+    const testScripts = [GRAVITY_SPHERE_SCRIPT, HUMILITY_SCRIPT];
     const cards = await cardsFor(testScripts);
     const bad = testScripts.map((s) => violation(s, cards.get(s.oracleId))).filter((x) => x !== null);
     expect(bad).toHaveLength(testScripts.length);
@@ -180,7 +183,7 @@ describe.skipIf(!HAVE_DB)('what a shipped card script owes the player', () => {
     // all rung 1 (the user's own decks) - rituals, wraths, fights, burn,
     // draw. Bedevil and Fall of the Hammer were pulled at draft time by
     // their own failing tests (spell target parse - see the REFUSED ledger).
-    expect(SHIPPED_SCRIPTS).toHaveLength(6425);
+    expect(SHIPPED_SCRIPTS).toHaveLength(6524);
   });
 });
 

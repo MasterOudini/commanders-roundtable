@@ -964,7 +964,28 @@ const ROW_PAYLOADS: readonly RegExp[] = [
   /^Surveil \d+\.$/,
   /^Investigate\.$/,
   /^Create (?:a|two|three) (?:Food|Treasure|Blood|Gold|Map|Clue) tokens?\.$/,
+  // D429 - the subjectless form under an optional trigger (`you may gain 1 life` peeled to `Gain 1 life.`).
+  /^Gain \d+ life\.$/,
 ];
+/**
+ * D429 - THE ROW MAKER'S STATIC KINDS the classifier filed elsewhere (a restriction under `layer6`, an untap-step
+ * replacement and a must-attack under `unclassified`), each the exact sentence the row maker's `parseStatic` takes
+ * and the generator proves: measured by the wide run - the rows the row maker read that the classifier never
+ * offered. The subject is `~` after `selfRef` (the printed name, `This creature`).
+ */
+const ROW_STATICS: readonly RegExp[] = [
+  /^~ can't be blocked\.$/,
+  /^~ can't block\.$/,
+  /^~ attacks each combat if able\.$/,
+  /^~ doesn't untap during your untap step\.$/,
+  /^~ can't be blocked by creatures with power (?:[1-9]|\d{2,}) or less\.$|^~ can't be blocked by creatures with power [0-5] or greater\.$/,
+  /^Enchanted creature doesn't untap during its controller's untap step\.$/,
+  /^~ can't be countered\.$/,
+];
+function rowMakerStatic(text: string, cardName: string): boolean {
+  const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  return ROW_STATICS.some((re) => re.test(line));
+}
 const ROW_LIMIT = [
   'as a sorcery', 'as an instant', 'once each turn', 'during your turn(?:, before attackers are declared)?', 'during your upkeep',
   'if you have no cards in hand', `if you have ${COND_NUM} or fewer cards? in hand`,
@@ -1123,6 +1144,8 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D424 - the row maker's readers the classifier lacked (see `rowMakerReads`): asked of a permanent's line
   // before the `optional` bucket below can file the trigger the row maker has emitted since D313.
   if (!spellFace && rowMakerReads(text, cardName)) return 'scriptable';
+  // D429 - the row maker's static kinds (see `ROW_STATICS`).
+  if (!spellFace && rowMakerStatic(text, cardName)) return 'scriptable';
 
   if (MAY.test(text)) {
     const rest = withoutMay(text);

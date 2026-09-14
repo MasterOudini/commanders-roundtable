@@ -43,13 +43,15 @@ describe('tier3NotesFor', () => {
    * clause that is not enforced, and stay quiet about the one that is.
    */
   test('protection from a COLOUR is enforced, so it is not mentioned', () => {
-    // Kor Firewalker: "Protection from red" — enforced, so no protection note.
+    // Kor Firewalker's text on the Bears: "Protection from red" — enforced, so no protection note.
     // ⚠️ Its SECOND line is "Whenever a player casts a red spell, you may gain 1
-    // life.", which nothing runs, so the card is not silent — it is silent about
+    // life.", which nothing runs on the Bears, so the card is not silent — it is silent about
     // the protection. This test read `[]` until D122 and that was the gap: the
     // trigger went unmentioned on a card the panel then looked settled about.
-    expect(what(C.KOR_FIREWALKER)).toEqual(['Its ability text']);
-    expect(what(C.KOR_FIREWALKER)).not.toContain('Protection from red');
+    // D429 - Kor Firewalker itself SHIPPED (the subjectless gain), so the text rides a card no script claims.
+    const card = withText(C.GRIZZLY_BEARS, 'Protection from red' + String.fromCharCode(10) + 'Whenever a player casts a red spell, you may gain 1 life.', ['Protection']);
+    expect(what(card)).toEqual(['Its ability text']);
+    expect(what(card)).not.toContain('Protection from red');
   });
 
   // D356 - a card type, a subtype and a colour category are enforced now, so the disclosure says

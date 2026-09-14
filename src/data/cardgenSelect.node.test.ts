@@ -251,6 +251,61 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D429 - the wide run is the offer: 112 rows the row maker read over the whole leftover that the classifier never
+  // offered (its mirror's drift since D424, plus the subjectless life gain); 99 landed, 9 failed their suites
+  // on generator shapes the wave's multi-line combinations reached first (an enrage fight's damage baseline, a rampage
+  // fire that ends the game, a modal enters-or-attacks counter read twice, a dead source's power, an Aura's untap-skip
+  // the suite could not find, a fight suite naming a helper never imported, a cant-attack-unless walk), and 4 were
+  // rowed on the TOKEN printing that shares their name (the wide dump's first record; the disclaim check named them).
+  ['Pheres-Band Brawler', 'a fight suite naming onBoard the module never imports'],
+  ['Territorial Allosaurus', 'a fight suite naming onBoard the module never imports'],
+  ['Thirst', 'an attached untap-skip on an Aura the suite could not find on the enchanted creature'],
+  ['Chromium', 'a rampage suite whose fire ends the game (a 7/6 flier attacking into the block)'],
+  ['Apex Altisaur', 'an enrage fight whose damage the suite counts against the wrong baseline (the two damage heads)'],
+  ['Intrepid Rabbit', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
+  ['Juri, Master of the Revue', 'a dies payload reading the dead source power (last known information)'],
+  ['Starscape Cleric', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
+  ['Galadriel, Gift-Giver', 'a modal enters-or-attacks head whose counter the suite reads twice'],
+  ['Vodalian Serpent', 'a cant-attack-unless suite walking past its own declare-attackers step'],
+  ['Coruscation Mage', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
+  ['Sinuous Striker', 'an Eternalize keyword line outside the row library (the wide dump read the token printing)'],
+  ['Melancholy', 'an attached untap-skip on an Aura the suite could not find on the enchanted creature'],
+  // D429 - the classifier's static mirror (`ROW_STATICS`: can't be blocked / can't block / attacks each combat / the
+  // untap-step skip / can't be countered) offered 32 more, each on a card whose OTHER line the row maker refuses - by
+  // the wide run's reason (an Aura on a non-creature, a head outside the library, a filtered head's adjective, an untap
+  // payment branch, an ability-word line, a cost the suite cannot fund).
+  ['Confessor', 'a discard head by any player, which no card in the pool exercises: Whenever a player discards a card, you may gain 1 life.'],
+  ['Dehydration', 'an Aura that enchants something other than a creature'],
+  ['Entangling Vines', 'an Aura that enchants something other than a creature'],
+  ['Glimmerdust Nap', 'an Aura that enchants something other than a creature'],
+  ['Mycoid Shepherd', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature you control with '],
+  ['Paradise Plume', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever a player casts a spell of the chosen color, you may'],
+  ['Perimeter Captain', 'trigger head not in the library: Whenever a creature you control with defender blocks, you may gain 2 l'],
+  ['Sanctimony', 'trigger head not in the library: Whenever an opponent taps a Mountain for mana, you may gain 1 life.'],
+  ['Shattered Angel', "a filtered enters head on an opponent's board"],
+  ['Brass Gnat', 'a payment branch the suite cannot assert: untap'],
+  ['Brass Man', 'a payment branch the suite cannot assert: untap'],
+  ['Dormant Gomazoa', 'trigger head not in the library: Whenever you become the target of a spell, you may untap this creature'],
+  ['Dwarven Patrol', 'a filtered head outside the closed reader (a negated type outside the list: nonred): Whenever you cast a nonred spell, untap this creature.'],
+  ['Fear of Infinity', 'trigger head not in the library: Whenever an enchantment you control enters and whenever you fully unlo'],
+  ['Goblin Dirigible', 'a payment branch the suite cannot assert: untap'],
+  ['Goblin War Wagon', 'a payment branch the suite cannot assert: untap'],
+  ['Immobilizing Ink', 'a leftover line not among the printed lines: Enchanted creature has'],
+  ['Park Heights Maverick', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature deals combat damage to a player or di'],
+  ['Plumes of Peace', 'ability-word activated line: Forecast — {W}{U}, Reveal this card from'],
+  ['Rot Farm Skeleton', 'cost: Mill four cards'],
+  ['Selkie Hedge-Mage', "trigger payload not a pump: Return target tapped creature to its owner's hand."],
+  ["Shinen of Fear's Chill", 'ability-word activated line: Channel — {1}{B}, Discard this card: Tar'],
+  ['Sinking Feeling', 'a leftover line not among the printed lines: Enchanted creature has'],
+  ['Spectral Prison', 'trigger head not in the library: When enchanted creature becomes the target of a spell, sacrifice this '],
+  ['Stirge', 'ability-word activated line: Blood Drain — {1}{B}, Pay 1 life, Sacrif'],
+  ['Surrak, Elusive Hunter', 'trigger head not in the library: Whenever a creature you control or a creature spell you control become'],
+  ['Veilborn Ghoul', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
+  ['Bloodghast', 'trigger payload not a pump: Return this card from your graveyard to the battlefield.'],
+  ['Elaborate Firecannon', 'a payment branch the suite cannot assert: untap'],
+  ['Falkenrath Forebear', 'cost: a sacrifice cost with no fixture the suite can put: Blood tokens'],
+  ['Niv-Mizzet, Parun', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever a player casts an instant or sorcery spell, you dra'],
+  ['Toski, Bearer of Secrets', 'a must-attacker beside a head whose test attacks with another creature'],
   // D428 - the triggering player: the 4 the selector offered once a payload could name the player its head named,
   // that the row maker refused by reason (a referent discard AT RANDOM 3 - the vocabulary refuses randomness under
   // a def, the standing rule; an attached static whose toughness pump kills the 2/2 Bears 1).
@@ -413,14 +468,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Heidar, Rimewind Master', 'activation condition: if you control four or more snow permanents'],
   ['Herd Baloth', 'trigger head not in the library: Whenever one or more +1/+1 counters are put on this creature, you may '],
   ['Holy Mantle', 'a protection quality the derive does not read (protection from creatures) (D424)'],
-  ['Icefeather Aven', "trigger payload not a pump: Return another target creature to its owner's hand."],
   ['Infiltration Lens', 'trigger head not in the library: Whenever equipped creature becomes blocked by a creature, you may draw'],
   ['Invisible Woman, Sue Storm', 'trigger head not in the library: Whenever you put one or more +1/+1 counters on one or more other Heroe'],
   ['Isperia, Supreme Judge', 'trigger head not in the library: Whenever a creature attacks you or a planeswalker you control, you may'],
   ['Keen Sense', 'trigger head not in the library: Whenever enchanted creature deals damage to an opponent, you may draw '],
   ['Kithkin Mourncaller', 'a filtered head outside the closed reader (an adjective outside the list: attacking): Whenever an attacking Kithkin or Elf is put into your gravey'],
   ['Kothophed, Soul Hoarder', 'a filtered head outside the closed reader (an adjective outside the list: permanent): Whenever a permanent owned by another player is put into a g'],
-  ['Living Totem', 'trigger payload not a pump: Put a +1/+1 counter on another target creature.'],
   ['Mazirek, Kraul Death Priest', 'trigger head not in the library: Whenever a player sacrifices another permanent, put a +1/+1 counter on'],
   ['Mephitic Draught', 'a filtered head outside the closed reader (an adjective outside the list: this): When this artifact enters or is put into a graveyard from th'],
   ['Midnight Scavengers', 'multi-face or unusual layout'],
@@ -469,7 +522,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Unblinking Bleb', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another permanent is turned face u'],
   ['Undead Augur', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Zombie you control dies, y'],
   ['Urborg Mindsucker', 'effect not a row kind: Target opponent discards a card at random.'],
-  ['Vedalken Certarch', 'effect not a row kind: Tap target artifact, creature, or land.'],
   ['Vengeful Dead', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Zombie dies, each opponent'],
   ['Venom, Evil Unleashed', 'effect not a row kind: Put two +1/+1 counters on target creature. It gains deathtouch until end of turn.'],
   ['Verdant Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
@@ -2010,7 +2062,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Surgical Suite // Hospital Room', 'room mechanic'],
   ['Swarming of Moria', 'amass mechanic'],
   ['Sylvan Bounty', 'cycling mechanic'],
-  ['Teysa, Orzhov Scion', 'multi-sacrifice cost'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Tidal Bore', 'cast-time alternative cost'],
   ['Treason of Isengard', 'amass mechanic'],
@@ -2185,7 +2236,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // from a trigger (a script cannot raise the scry prompt).
   ['Samut, Tyrant Smasher', 'planeswalker loyalty ability'],
   ['Invasion of Belenon // Belenon War Anthem', 'battle (siege, defeat, transform)'],
-  ['Sylvan Anthem', 'script-raised scry prompt'],
 
   // D301 (M6.4el) — the one-shot seam offered the activated self / mass pumps;
   // the classifier cannot see a COST, so the ones no table row can charge are
@@ -2206,7 +2256,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
   ['Wildfire Elemental', 'trigger head outside the library'],
   ['Flawless Maneuver', 'alternative cost'],
-  ['Hardened Academic', 'trigger head outside the library'],
   ['Invasion Tactics', 'trigger head outside the library'],
   ['Saradoc, Master of Buckland', 'trigger head outside the library'],
   ['Steeling Stance', 'forecast (hand-activated ability)'],
@@ -2404,7 +2453,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
-  ['Panic Spellbomb', 'a paid trigger payload (Pay {R}. If you do, draw a card.) - the head arm takes one pump'],
   ['Hostile Realm', 'a quoted grant on an enchanted land (Enchanted land has ...) - the grant generator, not the mainline row maker'],
   ['Malicious Intent', 'a quoted grant on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
   ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
@@ -2582,7 +2630,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Arahbo, the First Fang', 'a trigger head outside the library (this creature OR another nontoken Cat enters)'],
   ['Attuma, Atlantean Warlord', 'a trigger head outside the library (one or more Merfolk you control attack a player)'],
   ['Pia Nalaar, Consul of Revival', 'a trigger head outside the library (you play a land or cast a spell FROM EXILE)'],
-  ['Quintorius, Field Historian', 'a trigger head outside the library (one or more cards leave your graveyard)'],
 
   // D362 (M6.4gu) - the two of D361's thirteen the row maker refuses, each for a COST the
   // engine does not charge rather than a shape the wave chose to skip.
@@ -2618,15 +2665,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Skywise Teachings', 'a payload outside both readers (Pay {1}{U}. If you do, create a 2/2 blue Djin)'],
   ['Gryffwing Cavalry', 'a payload outside both readers (Pay {1}{W}. If you do, target attacking creat)'],
   ['Trudge Garden', 'a payload outside both readers (Pay {2}. If you do, create a 4/4 green Fungus)'],
-  ['Dawn of Hope', 'a payload outside both readers (Pay {2}. If you do, draw a card.)'],
   ['Eternal Taskmaster', 'a payload outside both readers (Pay {2}{B}. If you do, return target creature)'],
   ['Numot, the Devastator', 'a payload outside both readers (Pay {2}{R}. If you do, destroy up to two targ)'],
   ['Veinwitch Coven', 'a payload outside both readers (Pay {B}. If you do, return target creature ca)'],
   ['Horizon Spellbomb', 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],
   ["Lifecrafter's Bestiary", 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],
   ['Shu Yun, the Silent Tempest', 'a payload outside both readers (Pay {R/W}{R/W}. If you do, target creature ga)'],
-  ['Flight Spellbomb', 'a payload outside both readers (Pay {U}. If you do, draw a card.)'],
-  ['Origin Spellbomb', 'a payload outside both readers (Pay {W}. If you do, draw a card.)'],
   ['Zhentarim Bandit', 'a payload outside both readers (Pay 1 life. If you do, create a Treasure toke)'],
   ['Breeding Pit', 'a payment row beside a second step-head trigger that fires during the walk'],
   ['Cut the Tethers', 'a per-item payment (one question per object)'],
@@ -2666,13 +2710,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Malachite Talisman', 'a trigger head outside the row library (Whenever a player casts a green spell)'],
   ['Hematite Talisman', 'a trigger head outside the row library (Whenever a player casts a red spell)'],
   ['Jeweled Torque', 'a trigger head outside the row library (Whenever a player casts a spell of the chosen colo)'],
-  ['Auspicious Ancestor', 'a trigger head outside the row library (Whenever a player casts a white spell)'],
   ['Nacre Talisman', 'a trigger head outside the row library (Whenever a player casts a white spell)'],
   ['Spirit Cairn', 'a trigger head outside the row library (Whenever a player discards a card)'],
   ["Raiders' Spoils", 'a trigger head outside the row library (Whenever a Warrior you control deals combat damage)'],
   ["Mind's Eye", 'a trigger head outside the row library (Whenever an opponent draws a card)'],
   ['Voracious Tome-Skimmer', "a trigger head outside the row library (Whenever you cast a spell during an opponent's tur)"],
-  ['Leaf-Crowned Visionary', 'a trigger head outside the row library (Whenever you cast an Elf spell)'],
   ['Lunar Mystic', 'a trigger head outside the row library (Whenever you cast an instant spell)'],
   ['Drake Haven', 'a trigger head outside the row library (Whenever you cycle or discard a card)'],
   ['Kels, Fight Fixer', 'a trigger head outside the row library (Whenever you sacrifice a creature)'],
@@ -2688,7 +2730,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spell Rupture', 'an X payment price (the parser refuses one: D369)'],
   ["Thassa's Rebuff", 'an X payment price (the parser refuses one: D369)'],
   ['Crystal Shard', 'cost: {T} or {U}'],
-  ['Sunken City', 'other: Blue creatures get +1/+1.'],
 
   // D371 (M6.4hd) - THE GRANT VOCABULARY: of the 26 the widened reader made offerable, 23
   // landed and these three did not, each for a SCOPE the suite cannot prove rather than a
@@ -2711,7 +2752,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Angelic Protector', 'a heroic self pump beside the Giant Growth the test casts'],
   ['Retrofitter Foundry', 'a sacrifice cost with no fixture the suite can put'],
   ['Honor-Worn Shaku', 'a tap cost with no fixture the suite can put'],
-  ['Captain Lannery Storm', 'a Vehicle head without a Crew line the engine charges'],
   ['Camera Launcher', 'ability-word activated line'],
   ['Fearless Pup', 'ability-word activated line'],
   ['Greenbelt Guardian', 'ability-word activated line'],
@@ -2786,14 +2826,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ulvenwald Mysteries', 'a sacrifice head whose token the engine cannot spend'],
   ['Vengeful Warchief', 'trigger head not in the library'],
   ['Wandertale Mentor', 'trigger head not in the library'],
-  ['Child of Gaea', 'trigger payload outside both readers'],
   ['Crystal Seer', 'trigger payload outside both readers'],
   ['Encroaching Dragonstorm', 'trigger payload outside both readers'],
   ['Forerunner of the Heralds', 'trigger payload outside both readers'],
-  ["Freyalise's Charm", 'trigger payload outside both readers'],
   ['Justice, Vance Astrovik', 'trigger payload outside both readers'],
-  ['Squirrel Sanctuary', 'trigger payload outside both readers'],
-  ['Tidus, Blitzball Star', 'trigger payload outside both readers'],
   ['Alms', 'exile-the-top-of-your-graveyard cost'],
   ['Clinging Mists', 'a spell line outside the vocabulary'],
   ["D'Avenant Healer", 'a vocabulary clause the suite has no fixture for: a combat-role clause'],

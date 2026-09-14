@@ -478,7 +478,9 @@ const SCRIPTS = createRegistry([
   // covers yet: the optional-trigger prompt, the layer-6 ordering pair, the
   // CR 616 replacement pair, and the CR 613.8 dependency pair. `Humility`
   // stays out — it is the teeth below.
-  AJANIS_MANTRA,
+  // ⚠️ `Ajani's Mantra` SHIPS since D429 (`cards/ajanisMantra`, the subjectless `Gain 1 life.` under its
+  // optional landfall trigger) - the testing copy that stood here since M6.4a for the optional-trigger
+  // prompt would be the duplicate the throw below refuses; the shipped def is optional too.
   // ⚠️ `Ajani's Pridemate` SHIPS since D303 (`cards/ajanisPridemate`, a derived
   // counter row under the you-gain-life head) - the testing copy that stood in
   // for it here (D130) would be the duplicate the throw below refuses.
@@ -1577,7 +1579,8 @@ describe('the fuzz pool covers every shipped script', () => {
    * ⚠️ THE TEETH, because both checks above pass over an empty list — D128’s
    * green-over-nothing, which this repo has now written down five times. The
    * TEST registry is the right thing to point them at: those scripts are
-   * deliberately not shipped, and `AJANIS_MANTRA` IS dealt while
+   * deliberately not shipped (`AJANIS_MANTRA`'s card ships since D429 - its oracleId still
+   * names a registered, dealt script, now the shipped one), and `Ajani's Mantra` IS dealt while
    * `KNIGHTHOOD_SCRIPT`’s card is not, so one half fires and the other does not.
    */
   test('and the checks have teeth', () => {
