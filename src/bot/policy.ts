@@ -17,7 +17,10 @@ import { decideRandom } from './random';
 import { creatureValue } from './eval';
 import { act, wait, type BotConfig, type BotDecision, type BotPort, type BotSnapshot } from './types';
 import { NO_ALT, altCount } from '../engine/altPayment';
-import type { CostPicks } from '../net/client';
+
+/** D437 - the X values an {X} spell is priced at, largest first; zero is never announced (a Blaze for nothing is a wasted card). */
+const X_TRIES: readonly number[] = [6, 5, 4, 3, 2, 1];
+import type { CastPreview, CostPicks } from '../net/client';
 
 /**
  * D406 - the picks a cast's additional cost takes, off the offer's own candidate lists: the least
@@ -199,8 +202,9 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
   const land = [...lands].sort((a, b) => landOrder(view, me, a, b))[0];
   if (land) return act({ t: 'PlayLand', player: me, card: land.card, faceIndex: land.faceIndex }, `play ${land.label}`);
 
+  // D437 - an X spell is offered too: cast for the largest X the mana pays (below), never for zero.
   const casts = snapshot.legal
-    .filter((x): x is Cast => x.t === 'CastSpell' && x.affordable && !x.hasX)
+    .filter((x): x is Cast => x.t === 'CastSpell' && x.affordable)
     .sort((a, b) => castOrder(view, a, b));
 
   for (const cast of casts) {
@@ -222,21 +226,30 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
     // valuable creature for a sacrifice, the first candidates otherwise); with `or pay {M}` printed the
     // mana is preferred while a plan exists, the picks are the fallback.
     const picks = castPicksFor(cast, view);
-    const withMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, 0, targets, cast.kicker ? 1 : 0, NO_ALT, {}) : null;
-    const withPicks = picks !== null ? port.previewCast(cast.card, 0, targets, cast.kicker ? 1 : 0, NO_ALT, picks) : null;
-    const kickedTry = withMana?.plan ? withMana : withPicks?.plan ? withPicks : null;
-    const kicked = cast.kicker ? kickedTry : null;
-    const plainMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, {}) : null;
-    const plainPicks = picks !== null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, picks) : null;
-    const plain = kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
-    // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
-    // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
-    const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, 0, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
-    // D408 - the ALTERNATIVE cost is the last fallback: its picks off the offer's own candidates (a token before
-    // a body for a sacrifice, the first candidates otherwise), elected only when the mana cost has no plan.
-    const altPicks = cast.alternativeAvailable ? altPicksFor(cast, view) : null;
-    const withAlternative = !plain?.plan && !withAlt?.plan && altPicks !== null ? port.previewCast(cast.card, 0, targets, 0, NO_ALT, altPicks, true) : null;
-    const preview = plain?.plan ? plain : withAlt?.plan ? withAlt : withAlternative?.plan ? withAlternative : null;
+    const previewFor = (x: number): CastPreview | null => {
+      const withMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, x, targets, cast.kicker ? 1 : 0, NO_ALT, {}) : null;
+      const withPicks = picks !== null ? port.previewCast(cast.card, x, targets, cast.kicker ? 1 : 0, NO_ALT, picks) : null;
+      const kickedTry = withMana?.plan ? withMana : withPicks?.plan ? withPicks : null;
+      const kicked = cast.kicker ? kickedTry : null;
+      const plainMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}) : null;
+      const plainPicks = picks !== null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, picks) : null;
+      const plain = kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
+      // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
+      // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
+      const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, x, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
+      // D408 - the ALTERNATIVE cost is the last fallback: its picks off the offer's own candidates (a token before
+      // a body for a sacrifice, the first candidates otherwise), elected only when the mana cost has no plan.
+      const altPicks = cast.alternativeAvailable ? altPicksFor(cast, view) : null;
+      const withAlternative = !plain?.plan && !withAlt?.plan && altPicks !== null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, altPicks, true) : null;
+      return plain?.plan ? plain : withAlt?.plan ? withAlt : withAlternative?.plan ? withAlternative : null;
+    };
+    // D437 - an {X} spell is priced from six down to one and cast for the first X that has a plan; no X, no cast.
+    let preview: CastPreview | null = null;
+    let xValue = 0;
+    for (const x of cast.hasX ? X_TRIES : [0]) {
+      const p = previewFor(x);
+      if (p?.plan) { preview = p; xValue = x; break; }
+    }
     if (!preview?.plan) continue;
     return act(
       {
@@ -246,6 +259,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         faceIndex: cast.faceIndex,
         plan: preview.plan,
         targets,
+        ...(cast.hasX ? { xValue } : {}),
         ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
         ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
         ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -258,7 +272,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.alternative ? { alternative: true as const } : {}),
         ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       },
-      `cast ${cast.label}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
+      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );
   }
 

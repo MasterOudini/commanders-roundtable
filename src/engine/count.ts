@@ -30,11 +30,15 @@ export function countOf(
   source: InstanceId | null,
   kicked: number,
   cache: DeriveCache | undefined,
+  /** D437 - the spell's announced X, off the resolving object; nothing announced counts as zero. */
+  xValue = 0,
 ): number {
   const d = (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache);
   switch (expr.kind) {
     case 'kicked':
       return Math.max(0, kicked);
+    case 'spellX':
+      return Math.max(0, xValue);
     case 'cardsInHand':
       return (state.zones.hand[controller] ?? []).length;
     case 'players': {

@@ -955,7 +955,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'StackTargetsSet':
       return {
         ...state,
-        stack: state.stack.map((o) => (o.id === body.stackId ? { ...o, targets: body.targets } : o)),
+        stack: state.stack.map((o) => (o.id === body.stackId ? { ...o, targets: body.targets, ...(body.targetSlots !== undefined ? { targetSlots: body.targetSlots } : {}) } : o)),
       };
 
     case 'StackModesSet':

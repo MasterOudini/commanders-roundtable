@@ -383,7 +383,8 @@ export type EventBody =
   /** D412 - a permanent has connived (CR 701.50c): the card discarded (null when there was none), and whether it was nonland. */
   | { readonly t: 'Connived'; readonly permanent: InstanceId; readonly controller: PlayerId; readonly card: InstanceId | null; readonly nonland: boolean }
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
-  | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[] }
+  /** D437 - `targetSlots`: the clause each target answers (D299's assignment), recorded for a triggered ability's prompt too. */
+  | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[]; readonly targetSlots?: readonly number[] }
   /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */
   | { readonly t: 'StackModesSet'; readonly stackId: StackId; readonly modes: readonly number[] }
   | { readonly t: 'CommanderCastCountIncreased'; readonly card: InstanceId; readonly to: number }

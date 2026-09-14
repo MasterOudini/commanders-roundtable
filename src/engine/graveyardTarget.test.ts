@@ -3,6 +3,7 @@
 // the target parser names the zone, the owner and the noun; the effect moves the aimed card out of its graveyard.
 
 import { describe, expect, test } from 'vitest';
+import { checkInvariants } from './invariants';
 import { replay, stateHash } from './log';
 import { createRegistry } from './scripts/registryCore';
 import { vocabularyEffects, vocabularyTargets } from './scripts/vocabulary';
@@ -41,6 +42,7 @@ function head(name: string, payload: string): CardScript {
 const ANY = head('Grizzly Bears', 'Exile target card from a graveyard.');
 const YOURS = head('Coral Eel', 'Exile target creature card from your graveyard.');
 const BOTTOM = head('Grizzly Bears', "Put target card from a graveyard on the bottom of its owner's library.");
+const TWO = head('Grizzly Bears', 'Exile up to one target card from a graveyard. Target creature you control gets +1/+1 until end of turn.');
 const TEN = ['Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest'];
 
 function armed(script: CardScript, name: string): Game {
@@ -107,6 +109,20 @@ describe('the graveyard-card target (D436)', () => {
     expect(zoneOf(g, corpse)).toEqual({ kind: 'library', player: 'p2' });
     // The bottom is the FRONT of the array.
     expect((g.state.zones.library.p2 ?? [])[0]).toBe(corpse);
+  });
+
+  test("an optional first clause left empty does not shift the second clause into the exile (D437, the gate's seed 225)", () => {
+    const g = armed(TWO, 'Grizzly Bears');
+    const goblin = put(g, 'p1', 'Raging Goblin');
+    settle(g);
+    atPrompt(g);
+    // Only the creature is named: it answers the SECOND clause, and the exile has nothing to aim at.
+    must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: goblin }] }));
+    settle(g);
+    expect(zoneOf(g, goblin)).toEqual({ kind: 'battlefield', player: 'p1' });
+    expect(g.state.untilEndOfTurn.some((e) => e.card === goblin && e.power === 1)).toBe(true);
+    expect(checkInvariants(g.state)).toEqual([]);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
   test('replays to the same hash', () => {

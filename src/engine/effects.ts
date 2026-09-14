@@ -239,7 +239,8 @@ export function effectResult(
     // same spec and would otherwise be scaled on a board the effect never resolves on.
     if (effect.per) {
       // A permanent's trigger reads the kicks its spell announced off the permanent (CR 702.33c).
-      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache);
+      // D437 - the spell's X rides the stack object (`xValue`, announced at the cast).
+      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache, obj.xValue ?? 0);
       if (count === 0) {
         out.push(narrated(`${obj.label} counts nothing — “${effect.text}” does nothing.`, obj.controller, obj.identity));
         continue;
@@ -896,14 +897,14 @@ export function effectResult(
         // D433 - a draw aimed at a player (`target player draws`), or over a player scope (`each player draws`, in
         // APNAP order); the caster's own otherwise.
         if (effect.scopes && effect.scopes.length > 0) {
-          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...drawEvents(state, p, effect.amount));
+          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...drawEvents(afterLibraryMoves(state, out), p, effect.amount));
           break;
         }
         if (!effect.self && aim?.kind === 'player') {
-          out.push(...drawEvents(state, aim.id, effect.amount));
+          out.push(...drawEvents(afterLibraryMoves(state, out), aim.id, effect.amount));
           break;
         }
-        out.push(...drawEvents(state, controller, effect.amount));
+        out.push(...drawEvents(afterLibraryMoves(state, out), controller, effect.amount));
         break;
       }
 
@@ -911,14 +912,14 @@ export function effectResult(
         // D434 - the top N of a library into its graveyard (CR 701.13): the aimed player's, every member of a player
         // scope in APNAP order, or the caster's own. A short library mills what it has; nothing is lost or asked.
         if (effect.scopes && effect.scopes.length > 0) {
-          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...millEvents(state, p, effect.amount));
+          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...millEvents(afterLibraryMoves(state, out), p, effect.amount));
           break;
         }
         if (!effect.self && aim?.kind === 'player') {
-          out.push(...millEvents(state, aim.id, effect.amount));
+          out.push(...millEvents(afterLibraryMoves(state, out), aim.id, effect.amount));
           break;
         }
-        out.push(...millEvents(state, controller, effect.amount));
+        out.push(...millEvents(afterLibraryMoves(state, out), controller, effect.amount));
         break;
       }
 
@@ -958,7 +959,7 @@ export function effectResult(
               : undefined;
         if (!who) break;
         if (effect.kind === 'controllerDraws') {
-          out.push(...drawEvents(state, who, effect.amount));
+          out.push(...drawEvents(afterLibraryMoves(state, out), who, effect.amount));
           break;
         }
         const p = state.players[who];
@@ -1008,18 +1009,19 @@ export function effectResult(
       // D436 - the graveyard-card target: out of whichever graveyard the aim sits in (the target layer admitted it),
       // into exile or under its owner's library. Not `moveTo` - that helper hardcodes `from: battlefield`.
       case 'exileFromGraveyard': {
-        if (aim?.kind !== 'card') break;
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'graveyard') break;
         out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: 'graveyard', player: aim.owner }, to: { kind: 'exile', player: aim.owner } }] });
         break;
       }
       case 'graveyardToLibraryBottom': {
-        if (aim?.kind !== 'card') break;
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'graveyard') break;
         // The bottom of a library is the FRONT of the array (`drawFromTop` takes from the end): `placement` says so.
         out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: 'graveyard', player: aim.owner }, to: { kind: 'library', player: aim.owner }, placement: 'bottom' }] });
         break;
       }
       case 'returnFromGraveyard': {
-        if (aim?.kind !== 'card') break;
+        // D437 - an aim that left its graveyard is an illegal target the clause leaves alone (CR 608.2b).
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'graveyard') break;
         // ⚠️ NOT `moveTo` — that helper hardcodes `from: battlefield`, which is
         // right for its four callers (destroy, exile, bounce) and wrong here.
         // A `from` that does not match where the card actually is leaves it in
@@ -1046,7 +1048,7 @@ export function effectResult(
        * ask "do YOU control two other lands" of the wrong seat (D135).
        */
       case 'reanimate': {
-        if (aim?.kind !== 'card') break;
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'graveyard') break;
         out.push({
           t: 'CardsMoved',
           moves: [
@@ -1079,7 +1081,7 @@ export function effectResult(
       case 'lookAtTop': {
         const look = effect.look;
         if (!look) break;
-        const library = state.zones.library[controller] ?? [];
+        const library = afterLibraryMoves(state, out).zones.library[controller] ?? [];
         if (library.length === 0) break;
         // The TOP of a library is the END of the array (`drawFromTop`).
         const top = library.slice(Math.max(0, library.length - effect.amount));
@@ -1184,8 +1186,9 @@ export function effectResult(
         // a hand no bigger than the count goes whole; otherwise the prompt, answered against the post-draw hand.
         if (effect.ifDrew !== undefined && effect.ifDrew > 0) {
           if (out.some((e) => e.t === 'AwaitingSet')) break;
-          const before = (state.zones.library[controller] ?? []).length;
-          const drawn = drawEvents(state, controller, effect.ifDrew);
+          const lib = afterLibraryMoves(state, out);
+          const before = (lib.zones.library[controller] ?? []).length;
+          const drawn = drawEvents(lib, controller, effect.ifDrew);
           out.push(...drawn);
           if (before === 0) break;
           const held = [...(state.zones.hand[controller] ?? [])];
@@ -1221,7 +1224,7 @@ export function effectResult(
                 reason: 'discard' as const,
               })),
             });
-            out.push(...drawEvents(state, controller, effect.thenDraw));
+            out.push(...drawEvents(afterLibraryMoves(state, out), controller, effect.thenDraw));
             break;
           }
           out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'hand', rest: null, count: effect.amount, label: obj.label, thenDraw: effect.thenDraw } });
@@ -1298,7 +1301,7 @@ export function effectResult(
        */
       case 'scry':
       case 'surveil': {
-        const library = state.zones.library[controller] ?? [];
+        const library = afterLibraryMoves(state, out).zones.library[controller] ?? [];
         const n = Math.min(effect.amount, library.length);
         if (n === 0) break;
         const top = library.slice(library.length - n);
@@ -1635,6 +1638,19 @@ export function moveFromStack(card: InstanceId, kind: 'graveyard' | 'exile', pla
  * as one `CardsMoved`. Not a draw: no `DrewCards` marker, no empty-library flag - a short library mills what it
  * has. ⚠️ Exported for the generated card scripts for `drawEvents`' reason: one reader of which end is the top.
  */
+/**
+ * D437 - the state the clauses so far have left, for a clause that reads a library's TOP: a mill before a draw in one
+ * resolution moved the top already (Thought Scour, Mental Note - the fuzz's seed 297 drew a card its own mill had put
+ * in the graveyard). Folded only when an event so far moved a card into or out of a library; the pre-batch state
+ * serves otherwise (the fold costs a reducer pass per event).
+ */
+function afterLibraryMoves(state: GameState, out: readonly EventBody[]): GameState {
+  if (!out.some((e) => e.t === 'CardsMoved' && e.moves.some((m) => m.from.kind === 'library' || m.to.kind === 'library'))) return state;
+  let scratch = state;
+  for (const body of out) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+  return scratch;
+}
+
 export function millEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
   const library = state.zones.library[player] ?? [];
   const take = Math.min(count, library.length);

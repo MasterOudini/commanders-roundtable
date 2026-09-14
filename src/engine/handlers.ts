@@ -1059,7 +1059,10 @@ function chooseX(
   const face = faceOf(oracleCard, card.faceIndex);
   // D403 - the kick announced with the cast stays in the problem X resizes.
   const xExtras = additionalExtras(face, pending.orPaid === true);
-  const base = buildPaymentProblem(face.manaCost, intent.x, [...kickerMana(face, pending.kicked ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life);
+  // D437 - a flashback cast keeps paying its FLASHBACK cost when X resizes the problem (D307): the printed cost was
+  // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
+  const xCost = pending.from.kind === 'graveyard' && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life);
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -1630,7 +1633,9 @@ function chooseTriggerTargets(
   return {
     ok: true,
     events: [
-      { t: 'StackTargetsSet', stackId: awaiting.stackId, targets: intent.targets },
+      // D437 - the clause each target answers rides the event: an optional first clause left empty must not shift the
+      // second clause's pick into the first executor's aim (`picksFor` read `targets[clause]` for a trigger before).
+      { t: 'StackTargetsSet', stackId: awaiting.stackId, targets: intent.targets, ...(verdict.assignment !== undefined ? { targetSlots: verdict.assignment } : {}) },
       { t: 'AwaitingSet', awaiting: null },
     ],
   };

@@ -3,6 +3,7 @@
 // its graveyard, top card first (CR 701.13). A short library mills what it has: no loss, no prompt.
 
 import { describe, expect, test } from 'vitest';
+import { checkInvariants } from './invariants';
 import { replay, stateHash } from './log';
 import { createRegistry } from './scripts/registryCore';
 import { vocabularyEffects, vocabularyTargets } from './scripts/vocabulary';
@@ -45,6 +46,7 @@ const AIMED = head('Grizzly Bears', 'Target player mills two cards.');
 const OWN = head('Coral Eel', 'Mill three cards.');
 const ALL = head('Grizzly Bears', 'Each player mills a card.');
 const FIVE = head('Coral Eel', 'Target player mills five cards.');
+const NOTE = head('Grizzly Bears', 'Mill two cards. Draw a card.');
 const TEN = ['Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest', 'Forest'];
 
 function armed(script: CardScript, name: string, p2Deck: readonly string[] = [...TEN, ...TEN], librarySize = 30): Game {
@@ -122,6 +124,20 @@ describe('the mill vocabulary (D434)', () => {
     expect(lib(g, 'p2').length).toBe(0);
     expect(g.state.players.p2).toBeDefined();
     expect(g.log.some((e) => e.body.t === 'DrewFromEmptyLibrary')).toBe(false);
+  });
+
+  test('a mill and a draw in one resolution read the library in turn (D437): the draw takes the card under the milled ones', () => {
+    const g = armed(NOTE, 'Grizzly Bears');
+    advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.step === 'draw', 20_000);
+    const before = [...lib(g, 'p1')];
+    const gy1 = gy(g, 'p1');
+    const hand1 = (g.state.zones.hand.p1 ?? []).length;
+    settle(g);
+    expect(gy(g, 'p1')).toBe(gy1 + 2);
+    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand1 + 1);
+    const third = before[before.length - 3];
+    expect(g.state.cards[third as string]?.zone).toEqual({ kind: 'hand', player: 'p1' });
+    expect(checkInvariants(g.state)).toEqual([]);
   });
 
   test('replays to the same hash', () => {

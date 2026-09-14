@@ -533,6 +533,8 @@ export type CountExpr =
   | { readonly kind: 'cardsInHand'; readonly who: 'you' }
   | { readonly kind: 'cardsInGraveyard'; readonly predicates: readonly PermanentPredicate[] | null; readonly named: string | null }
   | { readonly kind: 'kicked' }
+  /** D437 - the spell's announced X (`{X}` in its mana cost, `xValue` on the stack object): `Draw X cards.`, `~ deals X damage`. */
+  | { readonly kind: 'spellX' }
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }

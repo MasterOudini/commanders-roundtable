@@ -259,6 +259,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D437 - and once each-damage counted too, the mirror offered one counted self-damage the row maker does not read.
+  // (the wide run's reason).
+  ['Black Market Tycoon', 'trigger payload not a pump: ~ deals 2 damage to you for each Treasure you control (a counted self-damage the row maker does not read)'],
+  // D437 - the spell's X made the counted mill a multipliable kind, and the mirror offered 5 counted mills the suite
+  // cannot stage (a keyword refinement, a head whose arm sizes the board, a Locus with no witness) - by the wide run's reason.
+  ['Coral Colony', 'a counted noun with a refinement the suite cannot stage: Target player mills X cards, where X is the number of creatures you control with defender.'],
+  ['Doorkeeper', 'a counted noun with a refinement the suite cannot stage: Target player mills X cards, where X is the number of creatures you control with defender.'],
+  ['Halimar Excavator', 'a counted payload under a head whose arm sizes the board (selfOrAnotherAllyEnters): Target player mills X cards, where X is the number of Allies you control.'],
+  ['Master Pakku', 'a counted payload under a head whose arm sizes the board (becomesTapped): Target player mills X cards, where X is the number of Lesson cards in your graveyard.'],
+  ['Trenchpost', 'a counted noun with no witness the suite can put: Target player mills a card for each Locus you control.'],
   // D436 - the graveyard-card target's mirror offered 6 the row maker refuses (a two-card clause, a persist body, two
   // filtered heads, two heads outside the library) - each by the wide run's reason.
   ['Deadeye Tracker', "a vocabulary clause the suite has no fixture for: a counted clause (2..2) - Exile two target cards from an opponent's graveyard"],
@@ -686,7 +696,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wreak Havoc', 'a spell line outside the vocabulary (destroy target artifact or land) beside its uncounterable line'],
   ['Banefire', 'a spell line outside the vocabulary (X damage to any target, uncounterable and unpreventable if X is 5 or more - a conditional property)'],
   ['Exquisite Firecraft', 'a spell line outside the vocabulary (Spell mastery - uncounterable on a graveyard count, a conditional property)'],
-  ['Slice from the Shadows', "a spell line outside the vocabulary (-X/-X until end of turn - the spell's X in a pump) beside its uncounterable line"],
   // D421 - the self subject reads: the 67 the selector offered once the classifier read a payload's self subject
   // (this creature deals, it gets, on this creature) as the vocabulary does, that the row maker refused, by reason
   // (the counted payloads under attack heads and the trigger heads outside the library among them).
@@ -2378,7 +2387,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Scarab Feast', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Spectacular Pileup', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Starstorm', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Startling Development', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Trip Up', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Valiant Rescuer', 'trigger head outside the library (whenever you cycle another card for the first ti)'],
@@ -2408,7 +2416,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bulk Up', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Calibrated Blast', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Canopy Claws', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Devil\'s Play', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Echo of Eons', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ignite the Future', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Kaleidoscorch', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -2578,7 +2585,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D402 - the delayed trigger: the eleven spells the classifier offered once their cantrip line
   // (draw a card at the beginning of the next turn's upkeep) read, each refused for its OTHER line.
-  ['Balduvian Rage', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (+X/+0 where X is the mana spent)'],
   ['Clairvoyance', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (look at target player hand)'],
   ['Force Void', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (counter target spell unless its controller pays - the payment prompt on a spell row)'],
   ['Formation', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (banding)'],
@@ -2616,7 +2622,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // engine's that the row maker refused, by reason (fifteen spells for their other line - this generator
   // rows no spell but a mass pump; the rest by name).
   ['Appeal to Eirdu', 'a spell line outside the row vocabulary beside its convoke (one or two target creatures each get +2/+1)'],
-  ['Battle at the Bridge', 'a spell line outside the row vocabulary beside its improvise (-X/-X and X life)'],
   ['Calamity of Cinders', 'a spell line outside the row vocabulary beside its convoke (6 damage to each untapped creature)'],
   ['Endless Obedience', 'a spell line outside the row vocabulary beside its convoke (a creature card from a graveyard onto the battlefield)'],
   ['Everything Comes to Dust', 'a spell line outside the row vocabulary beside its convoke (exile all creatures except those sharing a type with a convoker - a convoke referent)'],
@@ -2625,8 +2630,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Organic Extinction', 'a spell line outside the row vocabulary beside its improvise (destroy all nonartifact creatures)'],
   ['Rite of Undoing', 'a spell line outside the row vocabulary beside its delve (two bounces, one of each side)'],
   ['Temporal Cleansing', 'a spell line outside the row vocabulary beside its convoke (a library placement the owner chooses)'],
-  ['Transcendent Message', 'a spell line outside the row vocabulary beside its convoke (draw X cards)'],
-  ['Universal Surveillance', 'a spell line outside the row vocabulary beside its improvise (draw X cards)'],
   ['Will of the Naga', 'a spell line outside the row vocabulary beside its delve (tap up to two, then a skip-untap rider)'],
   ['Bennie Bracks, Zoologist', 'an intervening if outside the closed reader (if you created a token this turn) under an each-end-step head, beside its convoke'],
   ['Conclave Phalanx', 'a board-sized life gain the suite cannot pin (1 life for each creature you control) under an enters head, beside its convoke'],

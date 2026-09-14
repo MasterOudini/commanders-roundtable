@@ -8101,6 +8101,8 @@ const WANTED = [
   'Malevolent Chandelier',
   'Startled Relic Sloth',
   // D436 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D437 - the flashback X pricing test's card (Devil's Play flashes back for {X}{R}{R}{R}).
+  "Devil's Play",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

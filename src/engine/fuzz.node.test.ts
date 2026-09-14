@@ -284,6 +284,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Creeper ({1}{B}; sacrifice: the same) - a colourless activation and a cheap one; the graveyards fill by turn two.
   { names: ['Honored Heirloom', 'Crypt Creeper'], copiesPerSeat: 2,
     counterKeys: ['graveyardAims'], rotHistory: 'D436' },
+  // D437 - the spell's X: Blaze ({X}{R} - X damage to any target), two a seat; the driver names X 0..2 and the count
+  // reads the casts announced for more than nothing.
+  { names: ['Blaze'], copiesPerSeat: 2,
+    counterKeys: ['spellXCasts'], rotHistory: 'D437' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -710,6 +714,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
      * in all 500 seeds while the gate stayed green. A coin flip reaches both,
      * and the two canaries below assert it did.
      */
+    // D437 - the spell's X is a coin flip over 0..1 (`simplestAnswer` names zero, and zero is the half that scales
+    // nothing; one extra mana is what the pool usually has spare - 0..2 named ONE cast for more over 60 seeds): a value
+    // the pool cannot pay is refused at the payment and the driver's next pick names another.
+    case 'chooseX':
+      return { t: 'ChooseX', player: awaiting.player, x: p.below(2) };
     case 'optionalTrigger':
       return {
         t: 'AnswerOptionalTrigger',
@@ -1132,6 +1141,8 @@ interface Run {
   readonly ifYouDoFires: number;
   /** D436 - abilities aimed at a card in a graveyard that reached the stack (a fire needs a legal aim: the target layer found one). */
   readonly graveyardAims: number;
+  /** D437 - spells cast with an announced X above zero (the vocabulary scales their X clauses by it). */
+  readonly spellXCasts: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1511,6 +1522,7 @@ function runOne(seed: number): Run {
     millsResolved: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.length > 0 && e.body.moves.every((m) => m.from.kind === 'library' && m.to.kind === 'graveyard')).length,
     ifYouDoFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /\. If you do, (?:discard|draw) /.test(e.body.obj.label)).length,
     graveyardAims: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /target [a-z ,]*card from (?:a|your|an opponent's) graveyard/i.test(e.body.obj.label) && e.body.obj.targets.some((t) => t.kind === 'card')).length,
+    spellXCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.xValue ?? 0) > 0).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1710,6 +1722,7 @@ const TOTAL_KEYS = [
   'millsResolved',
   'ifYouDoFires',
   'graveyardAims',
+  'spellXCasts',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -2035,6 +2048,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.ifYouDoFires).toBeGreaterThan(0);
         // D436 - an ability aimed at a graveyard card at gate size (Honored Heirloom, Crypt Creeper).
         expect(totals.graveyardAims).toBeGreaterThan(0);
+        // D437 - an X spell cast for more than nothing at gate size (Blaze).
+        expect(totals.spellXCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2135,6 +2150,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.millsResolved} mills resolved · ` +
           `${totals.ifYouDoFires} if-you-do fires · ` +
           `${totals.graveyardAims} graveyard aims · ` +
+          `${totals.spellXCasts} X spells cast for more than nothing · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

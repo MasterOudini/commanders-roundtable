@@ -196,7 +196,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // below asks whether every mode is understood. Asking parseEffects over the
   // whole text would read the mode lines as one unread sentence and tell the
   // player the app does not run a spell the engine runs.
-  const modal = parseModalFace(text, face.name, isSpellFace);
+  // D437 - the spell's X reads only under a mana cost that carries {X} (the classifier's own gate).
+  const xCost = /\{X\}/.test(face.manaCost);
+  const modal = parseModalFace(text, face.name, isSpellFace, undefined, xCost);
   const specs = modal ? modal.modes.flatMap((m) => [...m.targets]) : parseSpellTargets(text, isPermanent);
   const abilities = parseActivatedAbilities({
     oracleText: text,
@@ -214,7 +216,7 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     ? modal.modes.every((m) => m.effectMode === 'auto')
       ? 'auto'
       : 'manual'
-    : parseEffects(text, face.name, isSpellFace).mode;
+    : parseEffects(text, face.name, isSpellFace, undefined, xCost).mode;
   // ⚠️ A SHIPPED SPELL DEF RUNS THE WHOLE CARD (D187) — the seam in loop.ts
   // outranks the vocabulary, so however the PARSER reads this spell, the app
   // executes every word of it and both notes would be lies. The same set the

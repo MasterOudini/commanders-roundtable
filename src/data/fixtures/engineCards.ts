@@ -7358,6 +7358,7 @@ export const ASCENDANT_DUSTSPEAKER: CardData = F.ASCENDANT_DUSTSPEAKER as CardDa
 export const WRECK_REMOVER: CardData = F.WRECK_REMOVER as CardData;
 export const MALEVOLENT_CHANDELIER: CardData = F.MALEVOLENT_CHANDELIER as CardData;
 export const STARTLED_RELIC_SLOTH: CardData = F.STARTLED_RELIC_SLOTH as CardData;
+export const DEVIL_S_PLAY: CardData = F.DEVIL_S_PLAY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -14866,6 +14867,7 @@ export const ENGINE_CARDS: CardData[] = [
   WRECK_REMOVER,
   MALEVOLENT_CHANDELIER,
   STARTLED_RELIC_SLOTH,
+  DEVIL_S_PLAY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

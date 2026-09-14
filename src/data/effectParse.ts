@@ -2236,7 +2236,34 @@ function singularCountNoun(plural: string): string {
  * resolution. Only the amount-bearing kinds are counted - a gain, a loss, a draw, a token, a counter, a
  * pump, a damage; an `X/X` token or a bare X left in the sentence refuses it.
  */
-const MULTIPLIABLE: ReadonlySet<EffectKind> = new Set(['gainLife', 'loseLife', 'draw', 'createToken', 'putCounters', 'pump', 'damage']);
+const MULTIPLIABLE: ReadonlySet<EffectKind> = new Set(['gainLife', 'loseLife', 'draw', 'createToken', 'putCounters', 'pump', 'damage', 'damageEach', 'mill']);
+/**
+ * D437 - THE SPELL'S X. `Draw X cards.`, `~ deals X damage to any target.`, `Target creature gets -X/-X until end
+ * of turn.`, `Create X 1/1 white Soldier creature tokens.`: the X is the spell's announced X (`{X}` in its mana
+ * cost, `xValue` on the stack object), and the sentence is the counted sentence D418 reads with `X` as one, the
+ * count riding as `per: { kind: 'spellX' }`. ⚠️ ONLY while the FACE's mana cost carries {X}: a bare X elsewhere
+ * (`where X is` defines its own, an additional cost's X is not the mana's) stays unread. The gate is set by
+ * `parseEffects` for the length of one synchronous parse and cleared in its `finally`.
+ */
+let SPELL_X = false;
+function substituteX(base: string): string {
+  return base
+    .replace(/\bX cards\b/gi, 'a card')
+    .replace(/\bX life\b/gi, '1 life')
+    .replace(/\bX damage\b/gi, '1 damage')
+    .replace(/\bX \+1\/\+1 counters\b/gi, 'a +1/+1 counter')
+    .replace(/\bX -1\/-1 counters\b/gi, 'a -1/-1 counter')
+    .replace(/([+-])X\b/g, '$11')
+    .replace(/\b(create|creates) X ([^.]*?tokens?)\b/i, (_m, verb: string, rest: string) => verb + ' a ' + rest.replace(/tokens\b/, 'token'));
+}
+function matchSpellX(sentence: string): EffectSpec | null {
+  if (!SPELL_X || !/\bX\b/.test(sentence) || /\bwhere X is\b/i.test(sentence) || /\bX\/X\b/.test(sentence)) return null;
+  const base = substituteX(sentence);
+  if (/\bX\b/.test(base)) return null;
+  const inner = matchRule(base);
+  if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+  return { ...inner, text: sentence, per: { kind: 'spellX' } };
+}
 function matchCounted(sentence: string): EffectSpec | null {
   const fe = /^(.+?) for each ([^.]+)\.$/i.exec(sentence);
   if (fe) {
@@ -2303,7 +2330,8 @@ function matchSentence(sentence: string): EffectSpec | null {
   const counteredTo = matchCounteredThisWay(sentence);
   if (counteredTo) return counteredTo;
   // D418 - a counted sentence after the plain rules: `for each <noun>` and `where X is the number of`.
-  return matchRule(sentence) ?? matchCounted(sentence);
+  // D437 - and the spell's own X after those, while the face's cost carries one.
+  return matchRule(sentence) ?? matchCounted(sentence) ?? matchSpellX(sentence);
 }
 
 function matchRule(sentence: string): EffectSpec | null {
@@ -2360,8 +2388,19 @@ export function parseEffects(
   cardName: string,
   isInstantOrSorcery: boolean,
   warn: Warn = NOOP_WARN,
+  /** D437 - the face's mana cost carries {X}: a bare X in its text is the announced X. */
+  xCost = false,
 ): ParsedEffects {
   if (!isInstantOrSorcery || !oracleText) return { effects: [], mode: 'manual' };
+  SPELL_X = xCost;
+  try {
+    return parseEffectsInner(oracleText, cardName, warn);
+  } finally {
+    SPELL_X = false;
+  }
+}
+
+function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): ParsedEffects {
 
   // D306 - a "Cycling {N}" line on an instant or sorcery is an activated
   // ability the engine runs from the hand (`activatedParse` synthesizes it), not

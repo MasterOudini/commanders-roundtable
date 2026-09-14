@@ -1086,11 +1086,13 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   // empty, and the cast aims the chosen modes' clauses (`engine/modes.ts`).
   // The face is `auto` exactly when every mode is; otherwise it stays manual -
   // a modal card is never half-executed (D90).
-  const modal = parseModalFace(face.oracleText, face.name, isInstantOrSorcery, warn);
+  // D437 - a bare X in the text is the spell's announced X only while the mana cost carries {X}.
+  const xCost = manaCost !== null && manaCost.xCount > 0;
+  const modal = parseModalFace(face.oracleText, face.name, isInstantOrSorcery, warn, xCost);
   const targets = modal ? [] : parseSpellTargets(face.oracleText, isPermanent, warn);
   const parsedEffects = modal
     ? modalEffectSummary(modal, warn)
-    : parseEffects(face.oracleText, face.name, isInstantOrSorcery, warn);
+    : parseEffects(face.oracleText, face.name, isInstantOrSorcery, warn, xCost);
 
   // ⚠️ THE COVERAGE MEASUREMENT, and it belongs here rather than in
   // `parseKeywords` because only this function can see every Tier-2 field.

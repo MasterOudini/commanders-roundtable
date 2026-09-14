@@ -24,7 +24,7 @@ import type { Warn } from './oracleParse';
 const HEAD = /^Choose (one|two|three|one or both|one or more|any number) —$/;
 const NOOP: Warn = () => undefined;
 
-export function parseModalFace(oracleText: string, cardName: string, isInstantOrSorcery: boolean, warn: Warn = NOOP): ModalFace | null {
+export function parseModalFace(oracleText: string, cardName: string, isInstantOrSorcery: boolean, warn: Warn = NOOP, xCost = false): ModalFace | null {
   if (!isInstantOrSorcery || !oracleText) return null;
   const lines = oracleText
     .split('\n')
@@ -39,7 +39,7 @@ export function parseModalFace(oracleText: string, cardName: string, isInstantOr
     // The target clauses are counted into the face's own report (they are its
     // clauses); the effect read of each mode is silent here and the face warns
     // ONCE from its aggregate, so a modal face counts as one face in the report.
-    const parsed = parseEffects(text, cardName, true);
+    const parsed = parseEffects(text, cardName, true, NOOP, xCost);
     return { text, targets: parseTargetClauses(text, warn), effects: parsed.effects, effectMode: parsed.mode };
   });
   return { line: 0, min: choice.min, max: choice.max, modes };

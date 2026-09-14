@@ -500,9 +500,9 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 14538,
-  silentBefore: 25313,
-  silentAfter: 10679,
+  wasSilentAnyFace: 14539,
+  silentBefore: 25340,
+  silentAfter: 10706,
   residual: 225,
   residualKeyword: 225,
   residualManaLine: 0,
