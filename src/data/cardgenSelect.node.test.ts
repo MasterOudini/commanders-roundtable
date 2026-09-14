@@ -259,7 +259,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
-  // D432 - the draw heads offered one more the row maker refuses (a planeswalker's loyalty abilities beside its draw trigger).
+  // D433 - the targeted and scoped draws offered two more the row maker refuses (a second-card draw head outside the
+  // library; a spell with an airbend beside its draw-then-discard).
+  ['Faerie Mastermind', 'trigger head not in the library: Whenever an opponent draws their second card each turn, you draw a car'],
+  ['Whirlwind Technique', 'a spell with a line outside the vocabulary (airbend) beside its draw-then-discard'],
+  // D433 - the draw-step heads: the 34 the wide run rowed once each player's draw step and your own were heads, an
+  // additional card read as a draw, and a draw could be aimed at a player or over a player scope; 32 landed and these 2
+  // are refused by reason (two heads of one card on the same draw step - the extra draw fires the draw head twice).
+  ['Spiteful Visions', 'two heads of one card on the same draw step (the extra draw fires the draw head twice)'],
+  ['Nekusar, the Mindrazer', 'two heads of one card on the same draw step (the extra draw fires the draw head twice)'],
+  // D429 - the wide run is the offer: 112 rows the row maker read over the whole leftover that the classifier never
   ['Ob Nixilis, the Hate-Twisted', 'planeswalker loyalty ability'],
   // D432 - the draw heads: the 28 the wide run rowed once an opponent's or a player's draw was a head naming its player,
   // they / them were the referent and a token could be a payment's branch; 23 landed and these 5 are refused by reason
@@ -1686,7 +1695,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Unleash the Inferno', 'delayed trigger'],
   ['Unlucky Drop', 'script-raised prompt'],
   ['Unravel', 'mana-spent memory'],
-  ['Unstable Experiment', 'connive mechanic'],
   ['Unsubstantiate', 'mixed stack/permanent noun list'],
   ['Unwanted Remake', 'face-down (morph)'],
 

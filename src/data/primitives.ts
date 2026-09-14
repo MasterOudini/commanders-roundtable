@@ -1028,6 +1028,8 @@ const ROW_PLAYER_HEADS: readonly (readonly [RegExp, RegExp])[] = [
   ],
   // D432 - the draw heads name the drawing player; `they` / `them` / `their` are the same player there (conjugated below).
   [/^Whenever (?:a player|an opponent) draws a card, /, /\b(that) player('s)?\b/gi],
+  // D433 - the draw-step head names the active player.
+  [/^At the beginning of each player's draw step, /, /\b(that) player('s)?\b/gi],
   [/^Whenever (?:a player|an opponent) casts a spell, /, /\b(that) player('s)?\b|\b(its|that spell's) controller('s)?\b/gi],
   [/^Whenever (?:~|this creature) deals combat damage to a creature, |^(?:Alliance — )?Whenever (?:a|another) creature(?: you control)? (?:enters|dies), /, /\b(its|that creature's) controller('s)?\b/gi],
 ];
@@ -1058,6 +1060,11 @@ function rowMakerReads(text: string, cardName: string): boolean {
   // (1) the optional trigger.
   if (trigger && /^you may (?!pay )/i.test(payload) && !ROW_VERB_PRICE.test(payload)) {
     payload = payload.slice(8);
+    widened = true;
+  }
+  // D433 - `draws an additional card` under a draw-step head is a draw (the step's own is the turn-based action).
+  if (trigger && /^At the beginning of (?:each player's|your) draw step, /.test(line)) {
+    payload = payload.replace(/\b(draws?) (an|two|three) additional cards?\b/i, (_m, v: string, n: string) => v + ' ' + (n === 'an' ? 'a' : n) + (n === 'an' ? ' card' : ' cards'));
     widened = true;
   }
   // (4) D428 - the referent player, under a head that names one; the referent word its head does not name stays.

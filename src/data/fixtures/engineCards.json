@@ -243306,6 +243306,1044 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DICTATE_OF_KRUPHIX": {
+    "scryfallId": "01b98947-6790-4caf-9855-692a89be1906",
+    "oracleId": "be74a4c1-d569-4203-b28a-3e2ac6a82990",
+    "name": "Dictate of Kruphix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dictate of Kruphix",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nAt the beginning of each player's draw step, that player draws an additional card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Barger",
+        "imageId": "01b98947-6790-4caf-9855-692a89be1906"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "52326",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIMIR_GUILDMAGE": {
+    "scryfallId": "02d19fbe-0f6d-4e22-b56d-a63fd17a48ef",
+    "oracleId": "1b6c67e5-5913-4db9-85d9-8dae57da02ee",
+    "name": "Dimir Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir Guildmage",
+        "manaCost": "{U/B}{U/B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "({U/B} can be paid with either {U} or {B}.)\n{3}{U}: Target player draws a card. Activate only as a sorcery.\n{3}{B}: Target player discards a card. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "02d19fbe-0f6d-4e22-b56d-a63fd17a48ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALID_COLISEUM": {
+    "scryfallId": "03b9c9ed-fb6f-4f8d-bb1d-7999dec4245c",
+    "oracleId": "c733873e-77db-471f-8061-139db24f7e7c",
+    "name": "Cephalid Coliseum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalid Coliseum",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {U}. This land deals 1 damage to you.\nThreshold — {U}, {T}, Sacrifice this land: Target player draws three cards, then discards three cards. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "03b9c9ed-fb6f-4f8d-bb1d-7999dec4245c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "349",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODGIFT_DEMON": {
+    "scryfallId": "04151a78-eb5a-4cb2-aa1f-e4835f3124c1",
+    "oracleId": "e64b184d-9746-4723-a928-d459b5c3ee6c",
+    "name": "Bloodgift Demon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodgift Demon",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nAt the beginning of your upkeep, target player draws a card and loses 1 life.",
+        "flavorText": "He relishes the devotion of his Skirsdag puppets and their belief that it will earn them immortality.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "04151a78-eb5a-4cb2-aa1f-e4835f3124c1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "408",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOWLING_GOLEM": {
+    "scryfallId": "05b54aaa-93e2-4f8b-8d06-2a848498d1fd",
+    "oracleId": "75269a31-3819-4410-8bb7-10de16810a5e",
+    "name": "Howling Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Howling Golem",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever this creature attacks or blocks, each player draws a card.",
+        "flavorText": "It wails of buried riches and the souls lost seeking them.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "05b54aaa-93e2-4f8b-8d06-2a848498d1fd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUNED_SERVITOR": {
+    "scryfallId": "0616483f-3169-41ac-b7a8-6a543d483b87",
+    "oracleId": "4e5e81e1-ab47-4f08-9c42-dba0adc5cf9a",
+    "name": "Runed Servitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Runed Servitor",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature dies, each player draws a card.",
+        "flavorText": "Scholars had puzzled for centuries over the ruins at Tal Terig. Its secrets had always lived within one rune-carved head.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mike Bierek",
+        "imageId": "0616483f-3169-41ac-b7a8-6a543d483b87"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEIER_REACH_SANITARIUM": {
+    "scryfallId": "0b9fa570-770d-45a7-9b87-2def6992a22b",
+    "oracleId": "7b9fafe7-d26a-4ed5-b4c4-ce13763770b5",
+    "name": "Geier Reach Sanitarium",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geier Reach Sanitarium",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Each player draws a card, then discards a card.",
+        "flavorText": "All are welcome.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "0b9fa570-770d-45a7-9b87-2def6992a22b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPHINX_OF_ENLIGHTENMENT": {
+    "scryfallId": "0c681f35-e584-45a0-aa4d-bc8955ab1a8a",
+    "oracleId": "e6284fb3-7cf8-4730-b156-10085b70b0e8",
+    "name": "Sphinx of Enlightenment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sphinx of Enlightenment",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Sphinx",
+        "oracleText": "Flying\nWhen this creature enters, target opponent draws a card and you draw three cards.",
+        "flavorText": "\"I would be a fool if I taught you everything I know.\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "0c681f35-e584-45a0-aa4d-bc8955ab1a8a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "scd",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OVERBEING_OF_MYTH": {
+    "scryfallId": "11bbc404-a456-4a4b-af88-23921d80d671",
+    "oracleId": "5391f601-b778-413f-a31f-9f8b23b40f5c",
+    "name": "Overbeing of Myth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Overbeing of Myth",
+        "manaCost": "{G/U}{G/U}{G/U}{G/U}{G/U}",
+        "typeLine": "Creature — Spirit Avatar",
+        "oracleText": "Overbeing of Myth's power and toughness are each equal to the number of cards in your hand.\nAt the beginning of your draw step, draw an additional card.",
+        "flavorText": "\"She walks among us unseen, learning from our imperfections.\"\n—*The Seer's Parables*",
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Chippy",
+        "imageId": "11bbc404-a456-4a4b-af88-23921d80d671"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPER_SKRULL": {
+    "scryfallId": "11fc8221-756a-4919-9272-38793e9c1ad9",
+    "oracleId": "4644013f-c96a-450e-a7bc-ddfa7a563050",
+    "name": "Super-Skrull",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super-Skrull",
+        "manaCost": "{1}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Skrull Shapeshifter Villain",
+        "oracleText": "Flying\n{2}{W}: Create a 0/4 colorless Wall creature token with defender.\n{3}{G}: Super-Skrull gets +4/+4 until end of turn.\n{4}{R}: Super-Skrull deals 4 damage to target creature.\n{5}{U}: Target player draws four cards.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "11fc8221-756a-4919-9272-38793e9c1ad9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAWLING_CRAWLER": {
+    "scryfallId": "14d8c9b5-6863-45d1-89f0-6a4f8189758b",
+    "oracleId": "1d60c80d-9a95-4051-bbf7-02ca51ee1be2",
+    "name": "Scrawling Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrawling Crawler",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Phyrexian Construct",
+        "oracleText": "At the beginning of your upkeep, each player draws a card.\nWhenever an opponent draws a card, that player loses 1 life.",
+        "flavorText": "\"We will sow perfection into the soft flesh of the Multiverse.\"\n—Argent Etchings, plate 38, passage 8",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Maxime Minard",
+        "imageId": "14d8c9b5-6863-45d1-89f0-6a4f8189758b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "354",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FONT_OF_MYTHOS": {
+    "scryfallId": "18dc8a02-d284-4eb1-9d2a-02f7151e2f15",
+    "oracleId": "7194a262-5e7a-4c12-b271-2bc5e0799477",
+    "name": "Font of Mythos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Font of Mythos",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of each player's draw step, that player draws two additional cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Allsop",
+        "imageId": "18dc8a02-d284-4eb1-9d2a-02f7151e2f15"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALID_LOOTER": {
+    "scryfallId": "1ae87f9d-d6eb-4178-a99d-76a9dffacf28",
+    "oracleId": "412294bf-a25f-47c2-8043-12eb3e142b9e",
+    "name": "Cephalid Looter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalid Looter",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Octopus Rogue",
+        "oracleText": "{T}: Target player draws a card, then discards a card.",
+        "flavorText": "\"Amazing, isn't it, what humans will throw away when they're drowning?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Keith Garletts",
+        "imageId": "1ae87f9d-d6eb-4178-a99d-76a9dffacf28"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "72†",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RECKLESS_SCHOLAR": {
+    "scryfallId": "1d55bf66-0ba7-4bd5-a491-5ca98f22606c",
+    "oracleId": "604aded2-64c2-4474-b5b7-8c83e0e3fe76",
+    "name": "Reckless Scholar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reckless Scholar",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Target player draws a card, then discards a card.",
+        "flavorText": "\"Any good prospector must sift the gold from the sand.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "1d55bf66-0ba7-4bd5-a491-5ca98f22606c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cns",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "XIRA_ARIEN": {
+    "scryfallId": "21fa636b-8ce8-40b6-a4d0-3191a664bd92",
+    "oracleId": "4a6e367c-7bc9-44a3-8ede-f2d0651abad3",
+    "name": "Xira Arien",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Xira Arien",
+        "manaCost": "{B}{R}{G}",
+        "typeLine": "Legendary Creature — Insect Wizard",
+        "oracleText": "Flying\n{B}{R}{G}, {T}: Target player draws a card.",
+        "flavorText": "A regular guest at the Royal Masquerade, Arien is the envy of the Court. She appears in a new costume every hour.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R"
+        ],
+        "artist": "Melissa A. Benson",
+        "imageId": "21fa636b-8ce8-40b6-a4d0-3191a664bd92"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "chr",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUGHT_KNOT_SEER": {
+    "scryfallId": "27bf5e61-87d4-446e-8583-cece83d3aacd",
+    "oracleId": "cef7396d-2168-4282-bf38-670ca9eebd91",
+    "name": "Thought-Knot Seer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thought-Knot Seer",
+        "manaCost": "{3}{C}",
+        "typeLine": "Creature — Eldrazi",
+        "oracleText": "({C} represents colorless mana.)\nWhen this creature enters, target opponent reveals their hand. You choose a nonland card from it and exile that card.\nWhen this creature leaves the battlefield, target opponent draws a card.",
+        "flavorText": "Its gaze gifts you with knowledge no mortal mind should possess.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "27bf5e61-87d4-446e-8583-cece83d3aacd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "spg",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAULT_PLUNDERER": {
+    "scryfallId": "2e6bf35c-8763-47cc-ab2d-5dbabeb28072",
+    "oracleId": "80e5d768-cc1f-48f8-b0fe-ed974e4d1a56",
+    "name": "Vault Plunderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vault Plunderer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, target player draws a card and loses 1 life.",
+        "flavorText": "\"Kind of them to put all their valuables in the same place.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Evyn Fong",
+        "imageId": "2e6bf35c-8763-47cc-ab2d-5dbabeb28072"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOARING_SHOW_OFF": {
+    "scryfallId": "2e6c52da-efc8-4279-b6b5-01e490bcb035",
+    "oracleId": "5ca0f4f3-6133-4f53-9124-f63942796a07",
+    "name": "Soaring Show-Off",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soaring Show-Off",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Warrior",
+        "oracleText": "Flying\nWhen this creature enters, each player draws a card.",
+        "flavorText": "Some spectators love an underdog, but others are just as happy to support a proven winner.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "2e6c52da-efc8-4279-b6b5-01e490bcb035"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_OF_THE_FEAST": {
+    "scryfallId": "2ff21a18-d655-4f2b-80db-baada1213fd7",
+    "oracleId": "01dc86f3-5ebb-4b10-bf68-8fc9f232c724",
+    "name": "Master of the Feast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master of the Feast",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment Creature — Demon",
+        "oracleText": "Flying\nAt the beginning of your upkeep, each opponent draws a card.",
+        "flavorText": "I'll have whatever they're having!",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas Toye",
+        "imageId": "2ff21a18-d655-4f2b-80db-baada1213fd7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "7106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCED_FRUITION": {
+    "scryfallId": "3f8e50d6-9cd1-470c-b272-5d4b1a00aaec",
+    "oracleId": "448b27a5-7c0c-4ab6-bddf-bd62b920aacc",
+    "name": "Forced Fruition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forced Fruition",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever an opponent casts a spell, that player draws seven cards.",
+        "flavorText": "\"Petals within petals within petals, tadpole. The truth lurks below an opulence of illusion.\"\n—Neerdiv, fallowsage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "William O'Connor",
+        "imageId": "3f8e50d6-9cd1-470c-b272-5d4b1a00aaec"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "LRW-66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPLE_BELL": {
+    "scryfallId": "5bc51134-3698-48b8-8a30-2064f9add2b1",
+    "oracleId": "fc8032e9-c83a-4cf9-92e1-b1d2d9642695",
+    "name": "Temple Bell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temple Bell",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Each player draws a card.",
+        "flavorText": "Enlightenment is not gained by striking the bell or hearing its toll. It's found in the silence that follows.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "5bc51134-3698-48b8-8a30-2064f9add2b1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "c13",
+    "collectorNumber": "265",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANHOLE_COVER": {
+    "scryfallId": "5eeb4a0e-20d4-461b-954e-ef65c8612f68",
+    "oracleId": "38f7ff90-4cdf-4403-ad10-1400e05c32e9",
+    "name": "Manhole Cover",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manhole Cover",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this artifact enters, target creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)\n{2}, Sacrifice this artifact: Target player draws a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Devine",
+        "imageId": "5eeb4a0e-20d4-461b-954e-ef65c8612f68"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEIZAN_PERVERTER_OF_TRUTH": {
+    "scryfallId": "690c472e-98a9-464a-84de-78dda6d111c8",
+    "oracleId": "04d0d20f-720e-4cb6-a3ad-ea2b57bb7efa",
+    "name": "Seizan, Perverter of Truth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seizan, Perverter of Truth",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Demon Spirit",
+        "oracleText": "At the beginning of each player's upkeep, that player loses 2 life and draws two cards.",
+        "flavorText": "\"If you would taste the wisdom of the oni, be prepared to salt it with your blood.\"\n—Kiku, Night's Flower",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "690c472e-98a9-464a-84de-78dda6d111c8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "463",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIKOKORO_CENTER_OF_THE_SEA": {
+    "scryfallId": "7ef72797-328e-4303-8ffb-9686086648b8",
+    "oracleId": "a4580a1d-141e-449b-9018-e0258130634b",
+    "name": "Mikokoro, Center of the Sea",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mikokoro, Center of the Sea",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Each player draws a card.",
+        "flavorText": "\"Center of the Sea, Eye of the World, Shrine of Enlightenment. Seek it for answers. Seek it for healing. Seek it and return transformed.\"\n—Scroll fragment from the ruins of Minamo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "7ef72797-328e-4303-8ffb-9686086648b8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRIENDLY_TEDDY": {
+    "scryfallId": "82b142be-4586-487a-8dd8-a55eff776458",
+    "oracleId": "02a8b849-e708-427c-92fe-9a41bb0ec7fe",
+    "name": "Friendly Teddy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Friendly Teddy",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Bear Toy",
+        "oracleText": "When this creature dies, each player draws a card.",
+        "flavorText": "Best friends are great to share secrets with—like where the matches are, or how to find a human heart.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Johann Bodin",
+        "imageId": "82b142be-4586-487a-8dd8-a55eff776458"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dsk",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOCKWORK_FOX": {
+    "scryfallId": "8fbb37d7-7053-4b1f-b899-91695f88f7e0",
+    "oracleId": "eb73db77-4050-4617-a29b-f9a8c885b424",
+    "name": "Clockwork Fox",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clockwork Fox",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Fox",
+        "oracleText": "When this creature leaves the battlefield, you draw two cards and each opponent draws a card.",
+        "flavorText": "\"It might just be my greatest invention yet: A lovable pet that *decreases* the need for chores!\"\n—Jan Jansen",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "8fbb37d7-7053-4b1f-b899-91695f88f7e0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "308",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_THE_CRESCENT_MOON": {
+    "scryfallId": "958cdaca-60f7-4c26-ae28-bdc41bb59a84",
+    "oracleId": "38cfe4a0-6ead-435b-9f86-928205c0a52c",
+    "name": "Kami of the Crescent Moon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of the Crescent Moon",
+        "manaCost": "{U}{U}",
+        "typeLine": "Legendary Creature — Spirit",
+        "oracleText": "At the beginning of each player's draw step, that player draws an additional card.",
+        "flavorText": "\"He's a lot like me, that masterless little kami . . . unimpressed by grandeur and never at a loss for a trick.\"\n—Toshiro Umezawa",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "958cdaca-60f7-4c26-ae28-bdc41bb59a84"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cn2",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALID_BROKER": {
+    "scryfallId": "a5b435ee-82cc-41df-a09f-cf3602e31c23",
+    "oracleId": "18bb35a8-01ac-414f-9a45-e550060ff905",
+    "name": "Cephalid Broker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalid Broker",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Octopus",
+        "oracleText": "{T}: Target player draws two cards, then discards two cards.",
+        "flavorText": "Cephalids value the free exchange of ideas—except for the \"free\" part.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "a5b435ee-82cc-41df-a09f-cf3602e31c23"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ima",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SALTWATER_STALWART": {
+    "scryfallId": "ae11adef-57b1-4f39-951b-cd4d5c0a0b80",
+    "oracleId": "04472c4f-0df3-4de8-9cc2-882d95b822be",
+    "name": "Saltwater Stalwart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saltwater Stalwart",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk Warrior",
+        "oracleText": "Whenever this creature deals damage to an opponent, target player draws a card.",
+        "flavorText": "Every attack is a test of your defenses. Every hit marks the map of your defeat.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "ae11adef-57b1-4f39-951b-cd4d5c0a0b80"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bbd",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIMESTONE_GOLEM": {
+    "scryfallId": "b522518c-1846-4e95-b77d-2aadac78684d",
+    "oracleId": "0dddf5a9-fdf3-49e5-8103-a8cfd62f55c6",
+    "name": "Limestone Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Limestone Golem",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "{2}, Sacrifice this creature: Target player draws a card.",
+        "flavorText": "Dwarves have been known to take pickaxes to their own creations, hoping to discover treasures within.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "b522518c-1846-4e95-b77d-2aadac78684d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "301",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORE_BROKER": {
+    "scryfallId": "c7935b2b-aebe-44b3-b91b-52978bb4ded5",
+    "oracleId": "e60a9e8d-0be4-4d08-a03a-af9f9e2be65b",
+    "name": "Lore Broker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lore Broker",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{T}: Each player draws a card, then discards a card.",
+        "flavorText": "Lies are sold as often as truths—and used just as effectively.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "c7935b2b-aebe-44b3-b91b-52978bb4ded5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPER_INTELLIGENCE": {
+    "scryfallId": "f26613a1-b4ad-4c7f-8dd9-8f82de995f0c",
+    "oracleId": "d82929f2-57ad-45be-a834-984437046026",
+    "name": "Super Intelligence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super Intelligence",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nAt the beginning of the upkeep of enchanted creature's controller, that player draws a card.",
+        "flavorText": "\"With my gamma-enhanced genius, I am always at least two-hundred steps ahead.\"\n—Leader, Samuel Sterns",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "f26613a1-b4ad-4c7f-8dd9-8f82de995f0c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -248751,6 +249789,37 @@
     ],
     "setCode": "tarb",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WALL_0_4_CREATURE_DEFENDER_TOKEN": {
+    "scryfallId": "82d35a61-3c87-405d-b857-cf43067cb1c4",
+    "oracleId": "6bfd69dd-99e0-4b01-b9ef-a7d3876f2629",
+    "name": "Wall",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wall",
+        "manaCost": "",
+        "typeLine": "Token Creature — Wall",
+        "oracleText": "Defender",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Thanh Tuấn",
+        "imageId": "82d35a61-3c87-405d-b857-cf43067cb1c4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "tmsh",
+    "collectorNumber": "1",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

@@ -893,6 +893,16 @@ export function effectResult(
       }
 
       case 'draw': {
+        // D433 - a draw aimed at a player (`target player draws`), or over a player scope (`each player draws`, in
+        // APNAP order); the caster's own otherwise.
+        if (effect.scopes && effect.scopes.length > 0) {
+          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...drawEvents(state, p, effect.amount));
+          break;
+        }
+        if (!effect.self && aim?.kind === 'player') {
+          out.push(...drawEvents(state, aim.id, effect.amount));
+          break;
+        }
         out.push(...drawEvents(state, controller, effect.amount));
         break;
       }

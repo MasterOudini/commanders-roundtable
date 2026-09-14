@@ -7941,6 +7941,40 @@ const WANTED = [
   'Isolation Cell',
   'Havoc',
   // D432 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D433 - the draw-step heads: the rows the row maker reads once each player draw step / your draw step is a head, and an additional card is the referent draw.
+  'Dictate of Kruphix',
+  'Dimir Guildmage',
+  'Cephalid Coliseum',
+  'Bloodgift Demon',
+  'Howling Golem',
+  'Runed Servitor',
+  'Geier Reach Sanitarium',
+  'Sphinx of Enlightenment',
+  'Overbeing of Myth',
+  'Super-Skrull',
+  'Scrawling Crawler',
+  'Font of Mythos',
+  'Cephalid Looter',
+  'Reckless Scholar',
+  'Xira Arien',
+  'Thought-Knot Seer',
+  'Vault Plunderer',
+  'Soaring Show-Off',
+  'Master of the Feast',
+  'Forced Fruition',
+  'Temple Bell',
+  'Manhole Cover',
+  'Seizan, Perverter of Truth',
+  'Mikokoro, Center of the Sea',
+  'Friendly Teddy',
+  'Clockwork Fox',
+  'Kami of the Crescent Moon',
+  'Cephalid Broker',
+  'Saltwater Stalwart',
+  'Limestone Golem',
+  'Lore Broker',
+  'Super Intelligence',
+  // D433 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8236,6 +8270,8 @@ const WANTED_TOKENS = [
   { name: 'Soldier', set: 'ttla', cn: '11', key: 'SOLDIER_2DE43B03_TOKEN' },
   { name: 'Insect', set: 'tmh2', cn: '13', key: 'INSECT_03CE1033_TOKEN' },
   { name: 'Dragon', set: 'tarb', cn: '3', key: 'DRAGON_0BB628DA_TOKEN' },
+  // D433 - the tokens the wave's rows create (the port's token-pin step, missing until D433).
+  { name: 'Wall', set: 'tmsh', cn: '1', key: 'WALL_0_4_CREATURE_DEFENDER_TOKEN' },
 ];
 
 function constName(name) {

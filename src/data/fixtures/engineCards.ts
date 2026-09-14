@@ -7206,6 +7206,38 @@ export const SPIRIT_BONDS: CardData = F.SPIRIT_BONDS as CardData;
 export const ZHENTARIM_BANDIT: CardData = F.ZHENTARIM_BANDIT as CardData;
 export const ISOLATION_CELL: CardData = F.ISOLATION_CELL as CardData;
 export const HAVOC: CardData = F.HAVOC as CardData;
+export const DICTATE_OF_KRUPHIX: CardData = F.DICTATE_OF_KRUPHIX as CardData;
+export const DIMIR_GUILDMAGE: CardData = F.DIMIR_GUILDMAGE as CardData;
+export const CEPHALID_COLISEUM: CardData = F.CEPHALID_COLISEUM as CardData;
+export const BLOODGIFT_DEMON: CardData = F.BLOODGIFT_DEMON as CardData;
+export const HOWLING_GOLEM: CardData = F.HOWLING_GOLEM as CardData;
+export const RUNED_SERVITOR: CardData = F.RUNED_SERVITOR as CardData;
+export const GEIER_REACH_SANITARIUM: CardData = F.GEIER_REACH_SANITARIUM as CardData;
+export const SPHINX_OF_ENLIGHTENMENT: CardData = F.SPHINX_OF_ENLIGHTENMENT as CardData;
+export const OVERBEING_OF_MYTH: CardData = F.OVERBEING_OF_MYTH as CardData;
+export const SUPER_SKRULL: CardData = F.SUPER_SKRULL as CardData;
+export const SCRAWLING_CRAWLER: CardData = F.SCRAWLING_CRAWLER as CardData;
+export const FONT_OF_MYTHOS: CardData = F.FONT_OF_MYTHOS as CardData;
+export const CEPHALID_LOOTER: CardData = F.CEPHALID_LOOTER as CardData;
+export const RECKLESS_SCHOLAR: CardData = F.RECKLESS_SCHOLAR as CardData;
+export const XIRA_ARIEN: CardData = F.XIRA_ARIEN as CardData;
+export const THOUGHT_KNOT_SEER: CardData = F.THOUGHT_KNOT_SEER as CardData;
+export const VAULT_PLUNDERER: CardData = F.VAULT_PLUNDERER as CardData;
+export const SOARING_SHOW_OFF: CardData = F.SOARING_SHOW_OFF as CardData;
+export const MASTER_OF_THE_FEAST: CardData = F.MASTER_OF_THE_FEAST as CardData;
+export const FORCED_FRUITION: CardData = F.FORCED_FRUITION as CardData;
+export const TEMPLE_BELL: CardData = F.TEMPLE_BELL as CardData;
+export const MANHOLE_COVER: CardData = F.MANHOLE_COVER as CardData;
+export const SEIZAN_PERVERTER_OF_TRUTH: CardData = F.SEIZAN_PERVERTER_OF_TRUTH as CardData;
+export const MIKOKORO_CENTER_OF_THE_SEA: CardData = F.MIKOKORO_CENTER_OF_THE_SEA as CardData;
+export const FRIENDLY_TEDDY: CardData = F.FRIENDLY_TEDDY as CardData;
+export const CLOCKWORK_FOX: CardData = F.CLOCKWORK_FOX as CardData;
+export const KAMI_OF_THE_CRESCENT_MOON: CardData = F.KAMI_OF_THE_CRESCENT_MOON as CardData;
+export const CEPHALID_BROKER: CardData = F.CEPHALID_BROKER as CardData;
+export const SALTWATER_STALWART: CardData = F.SALTWATER_STALWART as CardData;
+export const LIMESTONE_GOLEM: CardData = F.LIMESTONE_GOLEM as CardData;
+export const LORE_BROKER: CardData = F.LORE_BROKER as CardData;
+export const SUPER_INTELLIGENCE: CardData = F.SUPER_INTELLIGENCE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -7370,6 +7402,7 @@ export const DETECTIVE_30A109AA_TOKEN: CardData = F.DETECTIVE_30A109AA_TOKEN as 
 export const SOLDIER_2DE43B03_TOKEN: CardData = F.SOLDIER_2DE43B03_TOKEN as CardData;
 export const INSECT_03CE1033_TOKEN: CardData = F.INSECT_03CE1033_TOKEN as CardData;
 export const DRAGON_0BB628DA_TOKEN: CardData = F.DRAGON_0BB628DA_TOKEN as CardData;
+export const WALL_0_4_CREATURE_DEFENDER_TOKEN: CardData = F.WALL_0_4_CREATURE_DEFENDER_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -14561,6 +14594,38 @@ export const ENGINE_CARDS: CardData[] = [
   ZHENTARIM_BANDIT,
   ISOLATION_CELL,
   HAVOC,
+  DICTATE_OF_KRUPHIX,
+  DIMIR_GUILDMAGE,
+  CEPHALID_COLISEUM,
+  BLOODGIFT_DEMON,
+  HOWLING_GOLEM,
+  RUNED_SERVITOR,
+  GEIER_REACH_SANITARIUM,
+  SPHINX_OF_ENLIGHTENMENT,
+  OVERBEING_OF_MYTH,
+  SUPER_SKRULL,
+  SCRAWLING_CRAWLER,
+  FONT_OF_MYTHOS,
+  CEPHALID_LOOTER,
+  RECKLESS_SCHOLAR,
+  XIRA_ARIEN,
+  THOUGHT_KNOT_SEER,
+  VAULT_PLUNDERER,
+  SOARING_SHOW_OFF,
+  MASTER_OF_THE_FEAST,
+  FORCED_FRUITION,
+  TEMPLE_BELL,
+  MANHOLE_COVER,
+  SEIZAN_PERVERTER_OF_TRUTH,
+  MIKOKORO_CENTER_OF_THE_SEA,
+  FRIENDLY_TEDDY,
+  CLOCKWORK_FOX,
+  KAMI_OF_THE_CRESCENT_MOON,
+  CEPHALID_BROKER,
+  SALTWATER_STALWART,
+  LIMESTONE_GOLEM,
+  LORE_BROKER,
+  SUPER_INTELLIGENCE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -14725,4 +14790,5 @@ export const ENGINE_CARDS: CardData[] = [
   SOLDIER_2DE43B03_TOKEN,
   INSECT_03CE1033_TOKEN,
   DRAGON_0BB628DA_TOKEN,
+  WALL_0_4_CREATURE_DEFENDER_TOKEN,
 ];

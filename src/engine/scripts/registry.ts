@@ -7,6 +7,38 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DICTATE_OF_KRUPHIX_SCRIPT } from './cards/dictateOfKruphix';
+import { DIMIR_GUILDMAGE_SCRIPT } from './cards/dimirGuildmage';
+import { CEPHALID_COLISEUM_SCRIPT } from './cards/cephalidColiseum';
+import { BLOODGIFT_DEMON_SCRIPT } from './cards/bloodgiftDemon';
+import { HOWLING_GOLEM_SCRIPT } from './cards/howlingGolem';
+import { RUNED_SERVITOR_SCRIPT } from './cards/runedServitor';
+import { GEIER_REACH_SANITARIUM_SCRIPT } from './cards/geierReachSanitarium';
+import { SPHINX_OF_ENLIGHTENMENT_SCRIPT } from './cards/sphinxOfEnlightenment';
+import { OVERBEING_OF_MYTH_SCRIPT } from './cards/overbeingOfMyth';
+import { SUPER_SKRULL_SCRIPT } from './cards/superSkrull';
+import { SCRAWLING_CRAWLER_SCRIPT } from './cards/scrawlingCrawler';
+import { FONT_OF_MYTHOS_SCRIPT } from './cards/fontOfMythos';
+import { CEPHALID_LOOTER_SCRIPT } from './cards/cephalidLooter';
+import { RECKLESS_SCHOLAR_SCRIPT } from './cards/recklessScholar';
+import { XIRA_ARIEN_SCRIPT } from './cards/xiraArien';
+import { THOUGHT_KNOT_SEER_SCRIPT } from './cards/thoughtKnotSeer';
+import { VAULT_PLUNDERER_SCRIPT } from './cards/vaultPlunderer';
+import { SOARING_SHOW_OFF_SCRIPT } from './cards/soaringShowOff';
+import { MASTER_OF_THE_FEAST_SCRIPT } from './cards/masterOfTheFeast';
+import { FORCED_FRUITION_SCRIPT } from './cards/forcedFruition';
+import { TEMPLE_BELL_SCRIPT } from './cards/templeBell';
+import { MANHOLE_COVER_SCRIPT } from './cards/manholeCover';
+import { SEIZAN_PERVERTER_OF_TRUTH_SCRIPT } from './cards/seizanPerverterOfTruth';
+import { MIKOKORO_CENTER_OF_THE_SEA_SCRIPT } from './cards/mikokoroCenterOfTheSea';
+import { FRIENDLY_TEDDY_SCRIPT } from './cards/friendlyTeddy';
+import { CLOCKWORK_FOX_SCRIPT } from './cards/clockworkFox';
+import { KAMI_OF_THE_CRESCENT_MOON_SCRIPT } from './cards/kamiOfTheCrescentMoon';
+import { CEPHALID_BROKER_SCRIPT } from './cards/cephalidBroker';
+import { SALTWATER_STALWART_SCRIPT } from './cards/saltwaterStalwart';
+import { LIMESTONE_GOLEM_SCRIPT } from './cards/limestoneGolem';
+import { LORE_BROKER_SCRIPT } from './cards/loreBroker';
+import { SUPER_INTELLIGENCE_SCRIPT } from './cards/superIntelligence';
 import { UNDERWORLD_DREAMS_SCRIPT } from './cards/underworldDreams';
 import { CONSECRATED_SPHINX_SCRIPT } from './cards/consecratedSphinx';
 import { RHYSTIC_STUDY_SCRIPT } from './cards/rhysticStudy';
@@ -4853,7 +4885,6 @@ import { ARENSONS_AURA_SCRIPT } from './cards/arensonsAura';
 import { ARMORER_GUILDMAGE_SCRIPT } from './cards/armorerGuildmage';
 import { ARRESTERS_ADMONITION_SCRIPT } from './cards/arrestersAdmonition';
 import { BANT_BATTLEMAGE_SCRIPT } from './cards/bantBattlemage';
-import { BARGAIN_SCRIPT } from './cards/bargain';
 import { BISHOP_OF_WINGS_SCRIPT } from './cards/bishopOfWings';
 import { BLIGHT_GRENADE_SCRIPT } from './cards/blightGrenade';
 import { BLIGHTED_SHAMAN_SCRIPT } from './cards/blightedShaman';
@@ -4877,7 +4908,6 @@ import { ZURAN_ORB_SCRIPT } from './cards/zuranOrb';
 import { ZURAN_SPELLCASTER_SCRIPT } from './cards/zuranSpellcaster';
 import { WISECRACK_SCRIPT } from './cards/wisecrack';
 import { WISTFUL_SELKIE_SCRIPT } from './cards/wistfulSelkie';
-import { WISTFUL_THINKING_SCRIPT } from './cards/wistfulThinking';
 import { WITS_END_SCRIPT } from './cards/witsEnd';
 import { WITHERBLOOM_CAMPUS_SCRIPT } from './cards/witherbloomCampus';
 import { WITHERING_GAZE_SCRIPT } from './cards/witheringGaze';
@@ -4959,7 +4989,6 @@ import { VIRTUES_RUIN_SCRIPT } from './cards/virtuesRuin';
 import { VIRTUOUS_VARIANT_SCRIPT } from './cards/virtuousVariant';
 import { VIRULENT_EMISSARY_SCRIPT } from './cards/virulentEmissary';
 import { VISCERA_SEER_SCRIPT } from './cards/visceraSeer';
-import { VISION_SKEINS_SCRIPT } from './cards/visionSkeins';
 import { VITALIZE_SCRIPT } from './cards/vitalize';
 import { VITALIZING_CASCADE_SCRIPT } from './cards/vitalizingCascade';
 import { VITHIAN_RENEGADES_SCRIPT } from './cards/vithianRenegades';
@@ -5588,7 +5617,6 @@ import { OSCORP_RESEARCH_TEAM_SCRIPT } from './cards/oscorpResearchTeam';
 import { OSTIARY_THRULL_SCRIPT } from './cards/ostiaryThrull';
 import { OUTLAW_MEDIC_SCRIPT } from './cards/outlawMedic';
 import { OUTNUMBER_SCRIPT } from './cards/outnumber';
-import { OVERFLOWING_INSIGHT_SCRIPT } from './cards/overflowingInsight';
 import { OVERGROWN_ESTATE_SCRIPT } from './cards/overgrownEstate';
 import { OVERWHELMING_FORCES_SCRIPT } from './cards/overwhelmingForces';
 import { OVERWHELMING_INSTINCT_SCRIPT } from './cards/overwhelmingInstinct';
@@ -5596,7 +5624,6 @@ import { OVERWHELMING_INTELLECT_SCRIPT } from './cards/overwhelmingIntellect';
 import { OXIDDA_SCRAPMELTER_SCRIPT } from './cards/oxiddaScrapmelter';
 import { OYOBI_WHO_SPLIT_THE_HEAVENS_SCRIPT } from './cards/oyobiWhoSplitTheHeavens';
 import { PACIFICATION_ARRAY_SCRIPT } from './cards/pacificationArray';
-import { PAINFUL_LESSON_SCRIPT } from './cards/painfulLesson';
 import { PALACE_FAMILIAR_SCRIPT } from './cards/palaceFamiliar';
 import { PALADIN_OF_THE_BLOODSTAINED_SCRIPT } from './cards/paladinOfTheBloodstained';
 import { PARADOX_GARDENS_SCRIPT } from './cards/paradoxGardens';
@@ -5612,7 +5639,6 @@ import { ONSLAUGHT_SCRIPT } from './cards/onslaught';
 import { ONYX_GOBLET_SCRIPT } from './cards/onyxGoblet';
 import { ONYX_MAGE_SCRIPT } from './cards/onyxMage';
 import { OPEN_THE_GRAVES_SCRIPT } from './cards/openTheGraves';
-import { OPPORTUNITY_SCRIPT } from './cards/opportunity';
 import { ORACLES_RESTORATION_SCRIPT } from './cards/oraclesRestoration';
 import { ORC_SURESHOT_SCRIPT } from './cards/orcSureshot';
 import { ORCISH_BLOODPAINTER_SCRIPT } from './cards/orcishBloodpainter';
@@ -5762,7 +5788,6 @@ import { KISHLA_VILLAGE_SCRIPT } from './cards/kishlaVillage';
 import { KISS_OF_THE_AMESHA_SCRIPT } from './cards/kissOfTheAmesha';
 import { LANGUISH_SCRIPT } from './cards/languish';
 import { LAQUATUSS_CREATIVITY_SCRIPT } from './cards/laquatussCreativity';
-import { INSPIRATION_SCRIPT } from './cards/inspiration';
 import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
 import { INUNDATE_SCRIPT } from './cards/inundate';
 import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
@@ -5809,7 +5834,6 @@ import { HURRICANE_SCRIPT } from './cards/hurricane';
 import { HYMN_OF_REBIRTH_SCRIPT } from './cards/hymnOfRebirth';
 import { HARMLESS_OFFERING_SCRIPT } from './cards/harmlessOffering';
 import { HARMONIC_CONVERGENCE_SCRIPT } from './cards/harmonicConvergence';
-import { HARROWING_JOURNEY_SCRIPT } from './cards/harrowingJourney';
 import { HARSH_SUSTENANCE_SCRIPT } from './cards/harshSustenance';
 import { HEARTWARMING_REDEMPTION_SCRIPT } from './cards/heartwarmingRedemption';
 import { HEAT_RAY_SCRIPT } from './cards/heatRay';
@@ -6058,7 +6082,6 @@ import { BLESSED_WIND_SCRIPT } from './cards/blessedWind';
 import { BLINDING_LIGHT_SCRIPT } from './cards/blindingLight';
 import { BLOOD_LUST_SCRIPT } from './cards/bloodLust';
 import { BLOOD_MIST_SCRIPT } from './cards/bloodMist';
-import { BLOOD_PACT_SCRIPT } from './cards/bloodPact';
 import { BLOOD_TITHE_SCRIPT } from './cards/bloodTithe';
 import { BLOODCURDLING_SCREAM_SCRIPT } from './cards/bloodcurdlingScream';
 import { BLOODLUST_INCITER_SCRIPT } from './cards/bloodlustInciter';
@@ -6664,6 +6687,38 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DICTATE_OF_KRUPHIX_SCRIPT,
+  DIMIR_GUILDMAGE_SCRIPT,
+  CEPHALID_COLISEUM_SCRIPT,
+  BLOODGIFT_DEMON_SCRIPT,
+  HOWLING_GOLEM_SCRIPT,
+  RUNED_SERVITOR_SCRIPT,
+  GEIER_REACH_SANITARIUM_SCRIPT,
+  SPHINX_OF_ENLIGHTENMENT_SCRIPT,
+  OVERBEING_OF_MYTH_SCRIPT,
+  SUPER_SKRULL_SCRIPT,
+  SCRAWLING_CRAWLER_SCRIPT,
+  FONT_OF_MYTHOS_SCRIPT,
+  CEPHALID_LOOTER_SCRIPT,
+  RECKLESS_SCHOLAR_SCRIPT,
+  XIRA_ARIEN_SCRIPT,
+  THOUGHT_KNOT_SEER_SCRIPT,
+  VAULT_PLUNDERER_SCRIPT,
+  SOARING_SHOW_OFF_SCRIPT,
+  MASTER_OF_THE_FEAST_SCRIPT,
+  FORCED_FRUITION_SCRIPT,
+  TEMPLE_BELL_SCRIPT,
+  MANHOLE_COVER_SCRIPT,
+  SEIZAN_PERVERTER_OF_TRUTH_SCRIPT,
+  MIKOKORO_CENTER_OF_THE_SEA_SCRIPT,
+  FRIENDLY_TEDDY_SCRIPT,
+  CLOCKWORK_FOX_SCRIPT,
+  KAMI_OF_THE_CRESCENT_MOON_SCRIPT,
+  CEPHALID_BROKER_SCRIPT,
+  SALTWATER_STALWART_SCRIPT,
+  LIMESTONE_GOLEM_SCRIPT,
+  LORE_BROKER_SCRIPT,
+  SUPER_INTELLIGENCE_SCRIPT,
   UNDERWORLD_DREAMS_SCRIPT,
   CONSECRATED_SPHINX_SCRIPT,
   RHYSTIC_STUDY_SCRIPT,
@@ -11510,7 +11565,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ARMORER_GUILDMAGE_SCRIPT,
   ARRESTERS_ADMONITION_SCRIPT,
   BANT_BATTLEMAGE_SCRIPT,
-  BARGAIN_SCRIPT,
   BISHOP_OF_WINGS_SCRIPT,
   BLIGHT_GRENADE_SCRIPT,
   BLIGHTED_SHAMAN_SCRIPT,
@@ -11534,7 +11588,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ZURAN_SPELLCASTER_SCRIPT,
   WISECRACK_SCRIPT,
   WISTFUL_SELKIE_SCRIPT,
-  WISTFUL_THINKING_SCRIPT,
   WITS_END_SCRIPT,
   WITHERBLOOM_CAMPUS_SCRIPT,
   WITHERING_GAZE_SCRIPT,
@@ -11616,7 +11669,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VIRTUOUS_VARIANT_SCRIPT,
   VIRULENT_EMISSARY_SCRIPT,
   VISCERA_SEER_SCRIPT,
-  VISION_SKEINS_SCRIPT,
   VITALIZE_SCRIPT,
   VITALIZING_CASCADE_SCRIPT,
   VITHIAN_RENEGADES_SCRIPT,
@@ -12244,7 +12296,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   OSTIARY_THRULL_SCRIPT,
   OUTLAW_MEDIC_SCRIPT,
   OUTNUMBER_SCRIPT,
-  OVERFLOWING_INSIGHT_SCRIPT,
   OVERGROWN_ESTATE_SCRIPT,
   OVERWHELMING_FORCES_SCRIPT,
   OVERWHELMING_INSTINCT_SCRIPT,
@@ -12252,7 +12303,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   OXIDDA_SCRAPMELTER_SCRIPT,
   OYOBI_WHO_SPLIT_THE_HEAVENS_SCRIPT,
   PACIFICATION_ARRAY_SCRIPT,
-  PAINFUL_LESSON_SCRIPT,
   PALACE_FAMILIAR_SCRIPT,
   PALADIN_OF_THE_BLOODSTAINED_SCRIPT,
   PARADOX_GARDENS_SCRIPT,
@@ -12268,7 +12318,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ONYX_GOBLET_SCRIPT,
   ONYX_MAGE_SCRIPT,
   OPEN_THE_GRAVES_SCRIPT,
-  OPPORTUNITY_SCRIPT,
   ORACLES_RESTORATION_SCRIPT,
   ORC_SURESHOT_SCRIPT,
   ORCISH_BLOODPAINTER_SCRIPT,
@@ -12418,7 +12467,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   KISS_OF_THE_AMESHA_SCRIPT,
   LANGUISH_SCRIPT,
   LAQUATUSS_CREATIVITY_SCRIPT,
-  INSPIRATION_SCRIPT,
   INSPIRED_ULTIMATUM_SCRIPT,
   INUNDATE_SCRIPT,
   INVIGORATING_FALLS_SCRIPT,
@@ -12465,7 +12513,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HYMN_OF_REBIRTH_SCRIPT,
   HARMLESS_OFFERING_SCRIPT,
   HARMONIC_CONVERGENCE_SCRIPT,
-  HARROWING_JOURNEY_SCRIPT,
   HARSH_SUSTENANCE_SCRIPT,
   HEARTWARMING_REDEMPTION_SCRIPT,
   HEAT_RAY_SCRIPT,
@@ -12714,7 +12761,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   BLINDING_LIGHT_SCRIPT,
   BLOOD_LUST_SCRIPT,
   BLOOD_MIST_SCRIPT,
-  BLOOD_PACT_SCRIPT,
   BLOOD_TITHE_SCRIPT,
   BLOODCURDLING_SCREAM_SCRIPT,
   BLOODLUST_INCITER_SCRIPT,

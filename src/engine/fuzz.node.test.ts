@@ -266,6 +266,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // every turn, so the head fires wherever the creature lands.
   { names: ['Fate Unraveler'], copiesPerSeat: 2,
     counterKeys: ['drawHeadFires'], rotHistory: 'D432' },
+  // D433 - the draw-step head: Font of Mythos ({4}) makes each player draw two more in their draw step and Kami of
+  // the Crescent Moon ({U}{U}) one more - a colourless body and a cheap one, two a seat each, where Font alone (one a
+  // seat) went uncast over 60 seeds in these mana-light pools; the active player named off the step.
+  { names: ['Font of Mythos', 'Kami of the Crescent Moon'], copiesPerSeat: 2,
+    counterKeys: ['drawStepHeadFires'], rotHistory: 'D433' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1106,6 +1111,8 @@ interface Run {
   readonly returnsResolved: number;
   /** D432 - triggers of the draw heads that reached the stack (an opponent's or any player's draw, per card). */
   readonly drawHeadFires: number;
+  /** D433 - triggers of the draw-step heads that reached the stack (each player's draw step, your own). */
+  readonly drawStepHeadFires: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1481,6 +1488,7 @@ function runOne(seed: number): Run {
     playerReferents: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.player !== undefined).length,
     returnsResolved: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'return').length,
     drawHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:opponentDrawsCard|aPlayerDrawsCard)-/.test(e.body.obj.abilityRef ?? '')).length,
+    drawStepHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:eachPlayerDrawStep|yourDrawStep)-/.test(e.body.obj.abilityRef ?? '')).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1676,6 +1684,7 @@ const TOTAL_KEYS = [
   'playerReferents',
   'returnsResolved',
   'drawHeadFires',
+  'drawStepHeadFires',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1993,6 +2002,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.returnsResolved).toBeGreaterThan(0);
         // D432 - a draw head fired at gate size (Fate Unraveler on an opponent's draw).
         expect(totals.drawHeadFires).toBeGreaterThan(0);
+        // D433 - a draw-step head fired at gate size (Font of Mythos).
+        expect(totals.drawStepHeadFires).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2089,6 +2100,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.playerReferents} triggers naming their player · ` +
           `${totals.returnsResolved} queued returns resolved · ` +
           `${totals.drawHeadFires} draw-head triggers · ` +
+          `${totals.drawStepHeadFires} draw-step triggers · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

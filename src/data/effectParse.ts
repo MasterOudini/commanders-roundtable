@@ -1089,6 +1089,30 @@ const RULES: readonly Rule[] = [
       return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
     },
   },
+  /**
+   * D433 - `Target player draws a card.` / `Target opponent draws two cards.` - the draw aimed at a player (the
+   * draw-step heads' referent: Howling Mine's `that player draws an additional card`); and `Each player draws a
+   * card.` / `Each opponent draws a card.` - the draw over a PLAYER scope, in APNAP order (the mass shape D383 gave
+   * every board effect). Neither asks.
+   */
+  {
+    kind: 'draw',
+    re: /^target (?:player|opponent) draws (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: 0 };
+    },
+  },
+  {
+    kind: 'draw',
+    re: /^each (player|opponent) draws (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null) return null;
+      const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }] };
+    },
+  },
   {
     kind: 'gainLife',
     re: new RegExp(`^you gain (${NUM}) life\\.$`, 'i'),
@@ -1859,7 +1883,15 @@ function conjunctionSplit(sentence: string, previous: Clause | undefined): Claus
       const left = matchSentence(leftText);
       if (!left || left.pay || left.delay) continue;
       const leftClause: Clause = { text: leftText, spec: left, phrase: phraseOf(leftText) };
-      const right = matchSentence(rightText) ?? referentRewrite(rightText, leftClause) ?? (previous ? referentRewrite(rightText, previous) : null);
+      // D433 - a right half with NO subject after a PLAYER subject on the left (`Target player draws a card, then discards a
+      // card.`, `Each player draws a card, then discards a card.`) is THAT player's, never the caster's own discard: the
+      // subject continues, and a targeted one aims where the left aimed (a referent, no index of its own).
+      const subj = /^(target (?:player|opponent)|each (?:player|opponent)) /i.exec(leftText)?.[1];
+      const bare = subj && /^(?:draws|discards|loses|gains|sacrifices|mills|exiles|reveals|puts|shuffles|creates|gets) /i.test(rightText)
+        ? matchSentence(cap(subj + ' ' + rightText.charAt(0).toLowerCase() + rightText.slice(1)))
+        : null;
+      const continued = bare ? (bare.targetIndex === -1 ? bare : { ...bare, referent: true as const }) : null;
+      const right = continued ?? matchSentence(rightText) ?? referentRewrite(rightText, leftClause) ?? (previous ? referentRewrite(rightText, previous) : null);
       if (!right || right.pay || right.delay) continue;
       const rightIsReferent = right.referent === true;
       return [leftClause, { text: rightText, spec: right, phrase: rightIsReferent ? leftClause.phrase : phraseOf(rightText) }];
