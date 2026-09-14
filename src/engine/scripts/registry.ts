@@ -7,6 +7,55 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DIMIR_AQUEDUCT_SCRIPT } from './cards/dimirAqueduct';
+import { SELESNYA_SANCTUARY_SCRIPT } from './cards/selesnyaSanctuary';
+import { FLEETFOOT_PANTHER_SCRIPT } from './cards/fleetfootPanther';
+import { DEVOURING_STROSSUS_SCRIPT } from './cards/devouringStrossus';
+import { RAKDOS_CARNARIUM_SCRIPT } from './cards/rakdosCarnarium';
+import { ORZHOV_BASILICA_SCRIPT } from './cards/orzhovBasilica';
+import { AZORIUS_CHANCERY_SCRIPT } from './cards/azoriusChancery';
+import { DAEMOGOTH_TITAN_SCRIPT } from './cards/daemogothTitan';
+import { SKULL_COLLECTOR_SCRIPT } from './cards/skullCollector';
+import { SIMIC_GROWTH_CHAMBER_SCRIPT } from './cards/simicGrowthChamber';
+import { WHITEMANE_LION_SCRIPT } from './cards/whitemaneLion';
+import { GOLGARI_ROT_FARM_SCRIPT } from './cards/golgariRotFarm';
+import { GRUUL_TURF_SCRIPT } from './cards/gruulTurf';
+import { IZZET_BOILERWORKS_SCRIPT } from './cards/izzetBoilerworks';
+import { STORM_SCULPTOR_SCRIPT } from './cards/stormSculptor';
+import { ROARING_PRIMADOX_SCRIPT } from './cards/roaringPrimadox';
+import { GOBLIN_FIREBUG_SCRIPT } from './cards/goblinFirebug';
+import { GUILDLESS_COMMONS_SCRIPT } from './cards/guildlessCommons';
+import { STEEL_LEAF_PALADIN_SCRIPT } from './cards/steelLeafPaladin';
+import { WAYWARD_GUIDE_BEAST_SCRIPT } from './cards/waywardGuideBeast';
+import { BOROS_GARRISON_SCRIPT } from './cards/borosGarrison';
+import { STAMPEDING_WILDEBEESTS_SCRIPT } from './cards/stampedingWildebeests';
+import { KJELDORAN_DEAD_SCRIPT } from './cards/kjeldoranDead';
+import { LESSER_GARGADON_SCRIPT } from './cards/lesserGargadon';
+import { STAMPEDING_SEROW_SCRIPT } from './cards/stampedingSerow';
+import { SALVAGE_SCUTTLER_SCRIPT } from './cards/salvageScuttler';
+import { SHIVAN_WURM_SCRIPT } from './cards/shivanWurm';
+import { NOGGLE_BRIDGEBREAKER_SCRIPT } from './cards/noggleBridgebreaker';
+import { ONI_OF_WILD_PLACES_SCRIPT } from './cards/oniOfWildPlaces';
+import { ESPERZOA_SCRIPT } from './cards/esperzoa';
+import { KEYMASTER_ROGUE_SCRIPT } from './cards/keymasterRogue';
+import { SHRIEKING_DRAKE_SCRIPT } from './cards/shriekingDrake';
+import { FOUL_SPIRIT_SCRIPT } from './cards/foulSpirit';
+import { SERVANT_OF_VOLRATH_SCRIPT } from './cards/servantOfVolrath';
+import { SPINED_FLUKE_SCRIPT } from './cards/spinedFluke';
+import { SILVER_DRAKE_SCRIPT } from './cards/silverDrake';
+import { DESECRATION_ELEMENTAL_SCRIPT } from './cards/desecrationElemental';
+import { ACCURSED_CENTAUR_SCRIPT } from './cards/accursedCentaur';
+import { COMMANDER_GREVEN_IL_VEC_SCRIPT } from './cards/commanderGrevenIlVec';
+import { SMOTHERING_ABOMINATION_SCRIPT } from './cards/smotheringAbomination';
+import { CAVERN_HARPY_SCRIPT } from './cards/cavernHarpy';
+import { DEMONIC_APPETITE_SCRIPT } from './cards/demonicAppetite';
+import { SPARKCASTER_SCRIPT } from './cards/sparkcaster';
+import { SPECIES_GORGER_SCRIPT } from './cards/speciesGorger';
+import { RUINOUS_MINOTAUR_SCRIPT } from './cards/ruinousMinotaur';
+import { RIPTIDE_CHIMERA_SCRIPT } from './cards/riptideChimera';
+import { HORNED_KAVU_SCRIPT } from './cards/hornedKavu';
+import { LAVA_ZOMBIE_SCRIPT } from './cards/lavaZombie';
+import { EIGANJO_FREE_RIDERS_SCRIPT } from './cards/eiganjoFreeRiders';
 import { ENIGMA_DRAKE_SCRIPT } from './cards/enigmaDrake';
 import { FLESHFORMER_SCRIPT } from './cards/fleshformer';
 import { STORM_KILN_ARTIST_SCRIPT } from './cards/stormKilnArtist';
@@ -6592,6 +6641,55 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIMIR_AQUEDUCT_SCRIPT,
+  SELESNYA_SANCTUARY_SCRIPT,
+  FLEETFOOT_PANTHER_SCRIPT,
+  DEVOURING_STROSSUS_SCRIPT,
+  RAKDOS_CARNARIUM_SCRIPT,
+  ORZHOV_BASILICA_SCRIPT,
+  AZORIUS_CHANCERY_SCRIPT,
+  DAEMOGOTH_TITAN_SCRIPT,
+  SKULL_COLLECTOR_SCRIPT,
+  SIMIC_GROWTH_CHAMBER_SCRIPT,
+  WHITEMANE_LION_SCRIPT,
+  GOLGARI_ROT_FARM_SCRIPT,
+  GRUUL_TURF_SCRIPT,
+  IZZET_BOILERWORKS_SCRIPT,
+  STORM_SCULPTOR_SCRIPT,
+  ROARING_PRIMADOX_SCRIPT,
+  GOBLIN_FIREBUG_SCRIPT,
+  GUILDLESS_COMMONS_SCRIPT,
+  STEEL_LEAF_PALADIN_SCRIPT,
+  WAYWARD_GUIDE_BEAST_SCRIPT,
+  BOROS_GARRISON_SCRIPT,
+  STAMPEDING_WILDEBEESTS_SCRIPT,
+  KJELDORAN_DEAD_SCRIPT,
+  LESSER_GARGADON_SCRIPT,
+  STAMPEDING_SEROW_SCRIPT,
+  SALVAGE_SCUTTLER_SCRIPT,
+  SHIVAN_WURM_SCRIPT,
+  NOGGLE_BRIDGEBREAKER_SCRIPT,
+  ONI_OF_WILD_PLACES_SCRIPT,
+  ESPERZOA_SCRIPT,
+  KEYMASTER_ROGUE_SCRIPT,
+  SHRIEKING_DRAKE_SCRIPT,
+  FOUL_SPIRIT_SCRIPT,
+  SERVANT_OF_VOLRATH_SCRIPT,
+  SPINED_FLUKE_SCRIPT,
+  SILVER_DRAKE_SCRIPT,
+  DESECRATION_ELEMENTAL_SCRIPT,
+  ACCURSED_CENTAUR_SCRIPT,
+  COMMANDER_GREVEN_IL_VEC_SCRIPT,
+  SMOTHERING_ABOMINATION_SCRIPT,
+  CAVERN_HARPY_SCRIPT,
+  DEMONIC_APPETITE_SCRIPT,
+  SPARKCASTER_SCRIPT,
+  SPECIES_GORGER_SCRIPT,
+  RUINOUS_MINOTAUR_SCRIPT,
+  RIPTIDE_CHIMERA_SCRIPT,
+  HORNED_KAVU_SCRIPT,
+  LAVA_ZOMBIE_SCRIPT,
+  EIGANJO_FREE_RIDERS_SCRIPT,
   ENIGMA_DRAKE_SCRIPT,
   FLESHFORMER_SCRIPT,
   STORM_KILN_ARTIST_SCRIPT,

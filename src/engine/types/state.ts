@@ -453,8 +453,11 @@ export interface PendingReplacement {
  * order or the forced picks would be re-deciding what the players already saw.
  */
 export interface PendingAsks {
-  /** `sacrifice`: a permanent from the battlefield; `discard`: a card from the hand. */
-  readonly verb: 'sacrifice' | 'discard';
+  /**
+   * `sacrifice`: a permanent from the battlefield; `discard`: a card from the hand; D431 - `return`: a permanent
+   * from the battlefield to its owner's hand (`Return a land you control to its owner's hand.` - the bounce lands).
+   */
+  readonly verb: 'sacrifice' | 'discard' | 'return';
   /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
   readonly remaining: readonly PlayerId[];
   /** What the sentence asks of each player. */

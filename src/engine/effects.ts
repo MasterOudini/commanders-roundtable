@@ -720,6 +720,15 @@ export function effectResult(
         break;
       }
 
+      // D431 - the queue's return verb: the caster chooses a permanent the noun admits; it goes to its owner's hand.
+      case 'returnChoose': {
+        if (!effect.returnChoose) break;
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const filter: LookFilter = { predicates: effect.returnChoose.predicates, what: effect.returnChoose.what };
+        out.push(...queueAsks(state, deps, controller, 'return', effect.scopes ?? [], effect.amount, filter, obj.label, cache));
+        break;
+      }
+
       case 'sacrificeSelf': {
         if (!source) break;
         const inst = state.cards[source];
@@ -1380,7 +1389,7 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard',
+  verb: 'sacrifice' | 'discard' | 'return',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
@@ -1403,13 +1412,14 @@ export function askCandidates(
  * discards - are simultaneous, CR 101.4), carrying the reason a watcher reads (D377), and the log
  * says what each player gave up.
  */
-export function askBatch(state: GameState, verb: 'sacrifice' | 'discard', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+export function askBatch(state: GameState, verb: 'sacrifice' | 'discard' | 'return', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+  // D431 - a RETURN goes to the owner's hand and carries no reason (a bounce never has).
   const moves = chosen.flatMap((c) =>
     c.cards.map((card) => ({
       card,
-      from: verb === 'sacrifice' ? { kind: 'battlefield' as const, player: null } : { kind: 'hand' as const, player: c.player },
-      to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? c.player },
-      reason: verb,
+      from: verb === 'discard' ? { kind: 'hand' as const, player: c.player } : { kind: 'battlefield' as const, player: null },
+      to: verb === 'return' ? { kind: 'hand' as const, player: state.cards[card]?.owner ?? c.player } : { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? c.player },
+      ...(verb === 'return' ? {} : { reason: verb }),
     })),
   );
   const out: EventBody[] = moves.length > 0 ? [{ t: 'CardsMoved', moves }] : [];
@@ -1419,7 +1429,9 @@ export function askBatch(state: GameState, verb: 'sacrifice' | 'discard', chosen
     out.push(
       k === 0
         ? narrated(n`${who(state, c.player)} ${vb(c.player, 'has', 'have')} nothing to ${verb}.`, c.player)
-        : narrated(n`${who(state, c.player)} ${vb(c.player, verb === 'discard' ? 'discards' : 'sacrifices', verb === 'discard' ? 'discard' : 'sacrifice')} ${thing}.`, c.player),
+        : verb === 'return'
+          ? narrated(n`${who(state, c.player)} ${vb(c.player, 'returns', 'return')} ${thing} to its owner's hand.`, c.player)
+          : narrated(n`${who(state, c.player)} ${vb(c.player, verb === 'discard' ? 'discards' : 'sacrifices', verb === 'discard' ? 'discard' : 'sacrifice')} ${thing}.`, c.player),
     );
   }
   return out;
@@ -1429,7 +1441,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard',
+  verb: 'sacrifice' | 'discard' | 'return',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -1453,7 +1465,7 @@ function queueAsks(
     { t: 'AsksQueued', pending },
     {
       t: 'AwaitingSet',
-      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'sacrifice' ? 'battlefield' : 'hand', rest: null, count, ...(filter ? { filter } : {}), label },
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(filter ? { filter } : {}), label },
     },
   ];
 }

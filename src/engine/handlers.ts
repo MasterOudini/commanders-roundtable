@@ -3353,7 +3353,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
           awaiting: {
             kind: 'chooseFromZone',
             player: next,
-            zone: pending.verb === 'sacrifice' ? 'battlefield' : 'hand',
+            zone: pending.verb === 'discard' ? 'hand' : 'battlefield',
             rest: null,
             count: pending.count,
             ...(pending.filter ? { filter: pending.filter } : {}),
@@ -3365,7 +3365,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
     chosen.push({ player: next, cards: cands });
     remaining.shift();
   }
-  return accept([{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved' }, ...askBatch(state, pending.verb, chosen, pending.filter)]);
+  return accept([{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, pending.verb, chosen, pending.filter)]);
 }
 
 function answerChooseFromZone(
@@ -3499,7 +3499,8 @@ function answerChooseFromZone(
    * next player's question, or the whole batch at once.
    */
   if (awaiting.zone === 'battlefield') {
-    const legal = askCandidates(state, deps, intent.player, 'sacrifice', awaiting.filter ?? null);
+    // D431 - the queue's own verb (a return reads the same board as a sacrifice).
+    const legal = askCandidates(state, deps, intent.player, state.pendingAsks?.verb ?? 'sacrifice', awaiting.filter ?? null);
     for (const card of intent.cards) {
       if (!legal.includes(card)) return reject('illegalTarget', `That is not ${awaiting.filter ? 'a ' + awaiting.filter.what : 'a permanent'} you control.`);
     }

@@ -1397,6 +1397,38 @@ const RULES: readonly Rule[] = [
    * sacrifice chooser's own reader (D168), so "a creature or planeswalker" is two arms and a word
    * it cannot place ("with flying", "nontoken") refuses the sentence rather than widening it.
    */
+  /**
+   * D431 - the caster's OWN sacrifice: `Sacrifice a creature.` / `You sacrifice a land.` / `Sacrifice two creatures.` - the
+   * queue above over the `you` scope (D426's discard shape), the ask last as ever. `Sacrifice ~` / `it` stays `sacrificeSelf`
+   * (its rule stands earlier); a noun the sacrifice chooser's reader cannot place refuses the sentence (D390's rule).
+   */
+  {
+    kind: 'sacrifice',
+    re: new RegExp(`^(?:you )?sacrifices? (${COUNT}) ([A-Za-z ]+?)\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null || n <= 0) return null;
+      const noun = (m[2] ?? '').trim().replace(/s$/, '');
+      const predicates = predicatesOf(noun);
+      if (!predicates || predicates.length === 0) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'you' }], sacrifice: { predicates, what: noun } };
+    },
+  },
+  /**
+   * D431 - `Return a land you control to its owner's hand.` / `Return a creature you control to its owner's hand.` - THE
+   * QUEUE's third verb (the bounce lands, the Invasion lairs' kin): the caster alone chooses a permanent the noun admits
+   * and it goes to its owner's hand. The same reader names the noun; it ASKS, so it is the sentence's last.
+   */
+  {
+    kind: 'returnChoose',
+    re: /^return (an? [A-Za-z ]+?) you control to its owner's hand\.$/i,
+    build: (m) => {
+      const noun = (m[1] ?? '').trim().replace(/^an? /i, '');
+      const predicates = predicatesOf(noun);
+      if (!predicates || predicates.length === 0) return null;
+      return { ...BASE, amount: 1, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'you' }], returnChoose: { predicates, what: noun } };
+    },
+  },
   {
     kind: 'sacrifice',
     re: /^each (player|opponent) sacrifices (an? [A-Za-z ]+?) of their choice\.$/i,
@@ -2294,7 +2326,7 @@ export function parseEffects(
    */
   // D390 - a queued sacrifice asks too (the first player with a real choice is prompted).
   // D416 - the hand reveal asks too (the caster picks from the revealed hand; a trailing life loss rides the spec).
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
+  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'returnChoose', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
   if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
     warn('effect:partial');
     return { effects, mode: 'assisted' };

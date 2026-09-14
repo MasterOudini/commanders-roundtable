@@ -268,7 +268,8 @@ const INCOMPLETE: readonly [string, CardData, string][] = [
   ['Tarmogoyf', fx.TARMOGOYF, 'a characteristic-defining ability'],
   // D355 / D411 - the shape Ancient Tomb and then Thalakos Lowlands used to hold (a mana line whose
   // second sentence the engine does not run) is held by a synthetic rider in `engine/manaDrawback.test.ts`.
-  ['Boros Garrison', fx.BOROS_GARRISON, 'enters tapped, which applyReplacements does not do'],
+  // D431 - Boros Garrison SHIPPED (the queue's return verb); Coral Atoll, whose entry asks a price no reader takes, holds the post.
+  ['Coral Atoll', fx.CORAL_ATOLL, 'an entry that asks an untapped Island back, which no script runs'],
   ['Cultivate', fx.CULTIVATE, 'a sorcery searching a library — outside the closed vocabulary'],
   ['Grist, the Hunger Tide', fx.GRIST_THE_HUNGER_TIDE, 'loyalty abilities'],
 ];
@@ -288,9 +289,10 @@ describe('engineCompleteness', () => {
 
   test('a rejection names the line it could not account for', () => {
     // Boros Garrison since M6.4a — Wall of Omens, the original example, is now
-    // COMPLETE (a shipped script runs its trigger). The Garrison's bounce
-    // trigger is still nobody's, and it names itself the same way.
-    const notes = engineCompleteness(fx.BOROS_GARRISON);
+    // COMPLETE (a shipped script runs its trigger). D431 - the Garrison's bounce
+    // trigger SHIPPED too; Coral Atoll's entry (a price no reader takes) is still
+    // nobody's, and it names itself the same way.
+    const notes = engineCompleteness(fx.CORAL_ATOLL);
     expect(notes.complete).toBe(false);
     expect(notes.leftover.join(' ')).toMatch(/enters/i);
   });
@@ -305,9 +307,10 @@ describe('engineCompleteness', () => {
   test('a shipped script accepts exactly its claimed line, and the keyword line stays Tier-2’s', () => {
     expect(engineCompleteness(fx.WALL_OF_OMENS).leftover).toEqual([]);
     expect(tier3NotesFor(fx.WALL_OF_OMENS)).toEqual([]);
-    // Same shape, no script shipped → still refused, still naming the line.
-    const garrison = engineCompleteness(fx.BOROS_GARRISON);
-    expect(garrison.complete).toBe(false);
+    // Same shape, no script shipped → still refused, still naming the line (D431 - Coral Atoll, since
+    // Boros Garrison's own bounce trigger shipped with the queue's return verb).
+    const atoll = engineCompleteness(fx.CORAL_ATOLL);
+    expect(atoll.complete).toBe(false);
   });
 
   /**

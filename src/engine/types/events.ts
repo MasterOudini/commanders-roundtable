@@ -370,7 +370,8 @@ export type EventBody =
    */
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
-  | { readonly t: 'AsksResolved' }
+  // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's

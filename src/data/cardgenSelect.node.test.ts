@@ -251,7 +251,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
-  // D430 - the counted static: the 46 the wide run rowed once a self pump, an attached pump or a power-only CDA took a
+  // D431 - the caster's own sacrifice offered 6 more the row maker refuses (a queued sacrifice of two, a fodder the suite
+  // cannot put, a search payload, a quoted grant) or that no row reaches (a spell whose ask is not last) - by reason.
+  ['Inevitable End', 'a leftover line not among the printed lines: Enchanted creature has'],
+  ['Lotus Field', 'a queued sacrifice of more than one: Sacrifice two lands.'],
+  ['Dredge', 'a spell whose ask is not last (the sacrifice before the draw; the generator rows no spell)'],
+  ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
+  ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
+  ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D431 - the return verb: the 52 the wide run rowed once the player queue could return a permanent to hand and the
+  // caster could sacrifice a permanent of their choice; 49 landed and these 3 are refused by reason (an optional trigger
+  // whose payload asks - two prompts; two asking payloads under one head - two queues the suite cannot order).
+  ['Tazeem Raptor', 'an optional trigger whose payload asks (two prompts)'],
+  ['Marsh Crocodile', 'two asking payloads under one head (two queues the suite cannot order)'],
+  ['Razing Snidd', 'two asking payloads under one head (two queues the suite cannot order)'],
+  // D429 - the wide run is the offer: 112 rows the row maker read over the whole leftover that the classifier never
   // count; 42 landed and these 4 are refused by reason (an anthem beside another statics block - one block per module;
   // a germ token beside a counted attached pump; two counted shrinks whose baseline count kills the creature).
   ['Vampirism', 'an anthem beside another statics block (one statics block per module)'],

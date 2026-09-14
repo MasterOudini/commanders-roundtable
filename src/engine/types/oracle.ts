@@ -689,6 +689,13 @@ export type EffectKind =
   | 'sacrifice'
   | 'discard'
   /**
+   * D431 - `Return a land you control to its owner's hand.` / `Return a creature you control to its owner's hand.` -
+   * THE PLAYER QUEUE's third verb over the battlefield (the caster alone, the `you` scope): the noun is
+   * `returnChoose.predicates`, the count `amount`; the picks go to their owners' hands at once. It ASKS, so it is
+   * the sentence's last.
+   */
+  | 'returnChoose'
+  /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
    * library, keep some on top in an order you choose, and put the rest on
    * the bottom (scry) or into your graveyard (surveil). The SECOND and
@@ -991,6 +998,8 @@ export interface EffectSpec {
   readonly exileScope: 'target' | 'damaged' | 'all' | 'opponents' | null;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
+  /** D431 - `returnChoose` only: the noun the queue offers. Absent on every other kind. */
+  readonly returnChoose?: SacrificeSpec;
   /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly handChoice: HandChoice | null;
   /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */

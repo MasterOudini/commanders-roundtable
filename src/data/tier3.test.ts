@@ -144,11 +144,12 @@ describe('a permanent’s text, which the app does not run', () => {
     // examples of "nothing runs it" from D122 until their scripts shipped —
     // now their notes are SILENT, which is the silence hook keeping invariant
     // 9's other direction: a card the engine runs completely must say nothing.
-    // Boros Garrison carries the same shape with no script, so the note it
-    // still shows is what the two used to.
+    // Boros Garrison carried the same shape with no script until D431 shipped it;
+    // Coral Atoll (an entry asking an untapped Island back) shows the note now.
     expect(what(C.WALL_OF_OMENS)).toEqual([]);
     expect(what(C.BALEFUL_STRIX)).toEqual([]);
-    expect(what(C.BOROS_GARRISON)).toContain('Its ability text');
+    expect(what(C.BOROS_GARRISON)).toEqual([]);
+    expect(what(C.CORAL_ATOLL)).toContain('Its ability text');
   });
 
   test('a static ability is said even when it grants an ENFORCED keyword', () => {
@@ -293,11 +294,12 @@ describe('a permanent’s text, which the app does not run', () => {
   });
 
   test('a mana line the engine models COMPLETELY stays quiet', () => {
-    // ⚠️ The direction that matters. Boros Garrison's `{T}: Add {R}{W}` and Mox
-    // Diamond's `{T}: Add one mana of any color` are run in full — the notes on
-    // those two cards are for their other lines, and a mana note here would send a
-    // player to tap something the app taps for them.
-    expect(what(C.BOROS_GARRISON)).toEqual(['Its ability text']);
+    // ⚠️ The direction that matters. Coral Atoll's `{T}: Add {C}{U}` (D431 - Boros
+    // Garrison, the example since M6.4a, shipped) and Mox Diamond's `{T}: Add one mana
+    // of any color` are run in full — the notes on those two cards are for their
+    // other lines, and a mana note here would send a player to tap something the app
+    // taps for them.
+    expect(what(C.CORAL_ATOLL)).toEqual(['Its ability text']);
     expect(what(C.MOX_DIAMOND)).toEqual(['Its ability text']);
     // D116's board-resolved scopes are deliberately NOT conditional, because the
     // engine knows both sets exactly.

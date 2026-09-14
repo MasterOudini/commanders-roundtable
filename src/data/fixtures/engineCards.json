@@ -240863,6 +240863,1678 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DIMIR_AQUEDUCT": {
+    "scryfallId": "012b9371-45e0-4e06-ad7a-4c52d1d38262",
+    "oracleId": "378a1d57-e2f1-4b84-9692-1564602e9e99",
+    "name": "Dimir Aqueduct",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir Aqueduct",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {U}{B}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "012b9371-45e0-4e06-ad7a-4c52d1d38262"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "brc",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELESNYA_SANCTUARY": {
+    "scryfallId": "02c63879-d0e2-4bb3-b0fe-52be077030df",
+    "oracleId": "00ef1c55-dea1-4564-bd57-66de86cba4df",
+    "name": "Selesnya Sanctuary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selesnya Sanctuary",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {G}{W}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "02c63879-d0e2-4bb3-b0fe-52be077030df"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c16",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEETFOOT_PANTHER": {
+    "scryfallId": "02db0f8e-5f87-427f-a3ff-0f261da679cd",
+    "oracleId": "d99e8f94-4a8a-42a1-b5d0-2b08cacb8676",
+    "name": "Fleetfoot Panther",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleetfoot Panther",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Flash\nWhen this creature enters, return a green or white creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Mark Brill",
+        "imageId": "02db0f8e-5f87-427f-a3ff-0f261da679cd"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "ddh",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVOURING_STROSSUS": {
+    "scryfallId": "064f013f-e74f-419d-8d17-7748bd91885e",
+    "oracleId": "8f2ab0a8-9d60-493b-a284-9ed7fa07e5ea",
+    "name": "Devouring Strossus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devouring Strossus",
+        "manaCost": "{5}{B}{B}{B}",
+        "typeLine": "Creature — Phyrexian Horror",
+        "oracleText": "Flying, trample\nAt the beginning of your upkeep, sacrifice a creature.\nSacrifice a creature: Regenerate this creature.",
+        "flavorText": null,
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "D. Alexander Gregory",
+        "imageId": "064f013f-e74f-419d-8d17-7748bd91885e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Regenerate",
+      "Trample"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKDOS_CARNARIUM": {
+    "scryfallId": "0670934a-b240-4be6-aebc-483b1332ea84",
+    "oracleId": "0a023964-2905-4928-9c3e-dc63e6ebd218",
+    "name": "Rakdos Carnarium",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakdos Carnarium",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {B}{R}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "0670934a-b240-4be6-aebc-483b1332ea84"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "266",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORZHOV_BASILICA": {
+    "scryfallId": "06837fb2-26bd-435f-8410-a5f12439c9e9",
+    "oracleId": "aa00ae0b-7c0f-427e-8102-ce0e2a6af5df",
+    "name": "Orzhov Basilica",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orzhov Basilica",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {W}{B}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "06837fb2-26bd-435f-8410-a5f12439c9e9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "264",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZORIUS_CHANCERY": {
+    "scryfallId": "0784336e-89ed-44ad-a9c4-58c5ee1fc01a",
+    "oracleId": "189fc8f4-17ac-4f1d-82c8-8401445bdaf4",
+    "name": "Azorius Chancery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azorius Chancery",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {W}{U}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "0784336e-89ed-44ad-a9c4-58c5ee1fc01a"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c18",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAEMOGOTH_TITAN": {
+    "scryfallId": "07917b35-24bc-4d07-9095-fcf53254b91a",
+    "oracleId": "a52e73bb-47cb-4912-9b81-4ae40641eabb",
+    "name": "Daemogoth Titan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daemogoth Titan",
+        "manaCost": "{B/G}{B/G}{B/G}{B/G}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Whenever this creature attacks or blocks, sacrifice a creature.",
+        "flavorText": "\"Of course it offered you power. Demons always do. But trust me—the sweeter the prize, the more ruinous the price.\"\n—Professor Onyx",
+        "power": "11",
+        "toughness": "10",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Chris Cold",
+        "imageId": "07917b35-24bc-4d07-9095-fcf53254b91a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pstx",
+    "collectorNumber": "174p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKULL_COLLECTOR": {
+    "scryfallId": "0da4b1bf-eef5-4a86-a861-be448845a743",
+    "oracleId": "42ec62b1-c899-4ebd-b786-28edf76ce8e0",
+    "name": "Skull Collector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skull Collector",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "At the beginning of your upkeep, return a black creature you control to its owner's hand.\n{1}{B}: Regenerate this creature.",
+        "flavorText": "\"Your blood I'll use. Your skull I'll keep.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "0da4b1bf-eef5-4a86-a861-be448845a743"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMIC_GROWTH_CHAMBER": {
+    "scryfallId": "0e8f3aa0-c557-4cc7-9b5f-1d2288b5b11f",
+    "oracleId": "046f5783-cc7b-416a-8cf6-2bcef9c2cc1a",
+    "name": "Simic Growth Chamber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Simic Growth Chamber",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {G}{U}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "0e8f3aa0-c557-4cc7-9b5f-1d2288b5b11f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "lcc",
+    "collectorNumber": "352",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITEMANE_LION": {
+    "scryfallId": "0fbe919e-13c8-44de-a778-8e6ce0b16a58",
+    "oracleId": "e8d6084b-9b72-438e-a30a-851b888f3e4d",
+    "name": "Whitemane Lion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whitemane Lion",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Flash\nWhen this creature enters, return a creature you control to its owner's hand.",
+        "flavorText": "Saltfield nomads call a sudden storm a \"whitemane.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "0fbe919e-13c8-44de-a778-8e6ce0b16a58"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "277",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLGARI_ROT_FARM": {
+    "scryfallId": "104364d5-ede8-4ac5-900f-19947f51bbc1",
+    "oracleId": "1b301478-b14f-4ef8-94e6-9647d582eabe",
+    "name": "Golgari Rot Farm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Golgari Rot Farm",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {B}{G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "104364d5-ede8-4ac5-900f-19947f51bbc1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "278",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRUUL_TURF": {
+    "scryfallId": "104961dc-6684-474e-b126-4fcd95849f98",
+    "oracleId": "657243dd-e479-4f4b-99d2-09b55d833a35",
+    "name": "Gruul Turf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gruul Turf",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {R}{G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "104961dc-6684-474e-b126-4fcd95849f98"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "895",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IZZET_BOILERWORKS": {
+    "scryfallId": "16e5c214-1896-4aa0-8d83-7cb0eeb5aad4",
+    "oracleId": "1cb9d94a-3039-4f2e-8fcc-6996f9a45f74",
+    "name": "Izzet Boilerworks",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Izzet Boilerworks",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {U}{R}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "16e5c214-1896-4aa0-8d83-7cb0eeb5aad4"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "gk1",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORM_SCULPTOR": {
+    "scryfallId": "1833a979-2210-42dd-a18f-68a3248fe766",
+    "oracleId": "e43eb15e-e910-4165-b9df-25cbe7054e0a",
+    "name": "Storm Sculptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Storm Sculptor",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "This creature can't be blocked.\nWhen this creature enters, return a creature you control to its owner's hand.",
+        "flavorText": "In his hands, the wind can become a weapon or a means of escape.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "1833a979-2210-42dd-a18f-68a3248fe766"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "XLN-85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROARING_PRIMADOX": {
+    "scryfallId": "19529b2f-03f0-469d-92d4-e2a2a933d5dc",
+    "oracleId": "2a098296-6a64-48ba-af40-5b68bae06bec",
+    "name": "Roaring Primadox",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roaring Primadox",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "At the beginning of your upkeep, return a creature you control to its owner's hand.",
+        "flavorText": "\"They're easy enough to find. Question is, are you sure you want to find one?\"\n—Juruk, Kalonian tracker",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "James Ryman",
+        "imageId": "19529b2f-03f0-469d-92d4-e2a2a933d5dc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m13",
+    "collectorNumber": "188",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_FIREBUG": {
+    "scryfallId": "2370d319-d1d2-4bca-9275-ff72fb400709",
+    "oracleId": "ee337677-d898-40a5-9453-405d07ec12b1",
+    "name": "Goblin Firebug",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Firebug",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "When this creature leaves the battlefield, sacrifice a land.",
+        "flavorText": "Most goblins leave behind a wake of destruction. A few goblins take one with them.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "2370d319-d1d2-4bca-9275-ff72fb400709"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUILDLESS_COMMONS": {
+    "scryfallId": "26a21ef8-e9c8-4a33-a08f-ff96f0ece8a5",
+    "oracleId": "ee723c7c-ec9f-4ffb-8f36-cd7637eb1fae",
+    "name": "Guildless Commons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guildless Commons",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {C}{C}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "26a21ef8-e9c8-4a33-a08f-ff96f0ece8a5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CMR-351",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEEL_LEAF_PALADIN": {
+    "scryfallId": "28e8697f-fdf3-4a1a-a84d-dd29b17336c2",
+    "oracleId": "15e0250e-a23b-499a-a8d2-24fc13084c28",
+    "name": "Steel Leaf Paladin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steel Leaf Paladin",
+        "manaCost": "{4}{G}{W}",
+        "typeLine": "Creature — Elf Knight",
+        "oracleText": "First strike\nWhen this creature enters, return a green or white creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "28e8697f-fdf3-4a1a-a84d-dd29b17336c2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "pls",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAYWARD_GUIDE_BEAST": {
+    "scryfallId": "2aa14133-2134-40ea-8325-a02ab0d34339",
+    "oracleId": "c752e001-56cc-46dc-acb3-3fca6c0bdd2e",
+    "name": "Wayward Guide-Beast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wayward Guide-Beast",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample, haste\nWhenever this creature deals combat damage to a player, return a land you control to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "2aa14133-2134-40ea-8325-a02ab0d34339"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "83796",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAMPEDING_WILDEBEESTS": {
+    "scryfallId": "3134cf43-7723-4420-be98-c6fc7b5bb49b",
+    "oracleId": "c270c770-91ed-4540-b281-c4b60b943b34",
+    "name": "Stampeding Wildebeests",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stampeding Wildebeests",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Antelope Beast",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nAt the beginning of your upkeep, return a green creature you control to its owner's hand.",
+        "flavorText": "The most violent and destructive storms in Femeref occur on cloudless days.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "3134cf43-7723-4420-be98-c6fc7b5bb49b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "gvl",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KJELDORAN_DEAD": {
+    "scryfallId": "37dff6e2-4280-494b-9647-9ec85248ac77",
+    "oracleId": "61e00946-7df7-4298-91b2-c656169e6601",
+    "name": "Kjeldoran Dead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kjeldoran Dead",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Skeleton",
+        "oracleText": "When this creature enters, sacrifice a creature.\n{B}: Regenerate this creature.",
+        "flavorText": "\"They shall drink sorrow's dregs. They shall kill those whom once they loved.\"\n—Lim-Dûl, the Necromancer",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Melissa A. Benson",
+        "imageId": "37dff6e2-4280-494b-9647-9ec85248ac77"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "6ed",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LESSER_GARGADON": {
+    "scryfallId": "3946b496-858c-401b-a68f-f39cd6de0661",
+    "oracleId": "7e162cc1-9482-4812-8897-209ec2927ec0",
+    "name": "Lesser Gargadon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lesser Gargadon",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever this creature attacks or blocks, sacrifice a land.",
+        "flavorText": "Trod on by a gargadon\n—Kipamu expression meaning \"wiped out\"",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "3946b496-858c-401b-a68f-f39cd6de0661"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "PCY-97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAMPEDING_SEROW": {
+    "scryfallId": "47c63065-6051-4193-8457-713a8a800393",
+    "oracleId": "7e605a8c-d6d4-410a-aca4-52576d08d81c",
+    "name": "Stampeding Serow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stampeding Serow",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Antelope Beast",
+        "oracleText": "Trample\nAt the beginning of your upkeep, return a green creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "47c63065-6051-4193-8457-713a8a800393"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SALVAGE_SCUTTLER": {
+    "scryfallId": "480be626-cf37-410d-a9c7-e5464345085f",
+    "oracleId": "01a6f8e6-439b-4de4-9f0a-21a035fd849e",
+    "name": "Salvage Scuttler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Salvage Scuttler",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Crab",
+        "oracleText": "Whenever this creature attacks, return an artifact you control to its owner's hand.",
+        "flavorText": "A hermit crab goes through many shells in its lifetime, and not all are natural in origin.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "480be626-cf37-410d-a9c7-e5464345085f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIVAN_WURM": {
+    "scryfallId": "4bc72997-78b0-47aa-a029-bf55f77c3e73",
+    "oracleId": "fc988ce3-0cad-41a5-8f13-656caca732df",
+    "name": "Shivan Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shivan Wurm",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nWhen this creature enters, return a red or green creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "4bc72997-78b0-47aa-a029-bf55f77c3e73"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "pls",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOGGLE_BRIDGEBREAKER": {
+    "scryfallId": "545a52ed-b4d4-4972-940d-9daf07a488b1",
+    "oracleId": "d7e127e4-56fd-4116-9c1a-421beab58e5c",
+    "name": "Noggle Bridgebreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noggle Bridgebreaker",
+        "manaCost": "{2}{U/R}{U/R}",
+        "typeLine": "Creature — Noggle Rogue",
+        "oracleText": "When this creature enters, return a land you control to its owner's hand.",
+        "flavorText": "\"It's always funny till someone gets hurt. Then it's hilarious.\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "545a52ed-b4d4-4972-940d-9daf07a488b1"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONI_OF_WILD_PLACES": {
+    "scryfallId": "55d93e4d-a6a3-4a76-9de6-c571971182e7",
+    "oracleId": "f551093d-40b7-43ac-8023-4cfbb6c646da",
+    "name": "Oni of Wild Places",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oni of Wild Places",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Demon Spirit",
+        "oracleText": "Haste\nAt the beginning of your upkeep, return a red creature you control to its owner's hand.",
+        "flavorText": "The oni leapt easily from peak to peak, toying with its victims, its voice a purr from the rumbling depths of nightmare.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "55d93e4d-a6a3-4a76-9de6-c571971182e7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESPERZOA": {
+    "scryfallId": "5b074e20-4981-485b-b8d5-1d1e45100f56",
+    "oracleId": "c9a188f9-2e65-4a66-826f-0150f25730af",
+    "name": "Esperzoa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Esperzoa",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact Creature — Jellyfish",
+        "oracleText": "Flying\nAt the beginning of your upkeep, return an artifact you control to its owner's hand.",
+        "flavorText": "The more metal it digests, the more its jelly will fetch on the alchemists' market.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "5b074e20-4981-485b-b8d5-1d1e45100f56"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ddf",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEYMASTER_ROGUE": {
+    "scryfallId": "6045f2a8-01f1-496d-9498-dff3c1654761",
+    "oracleId": "b8c0c102-f0ef-4ab6-9b1a-ee82ee159c54",
+    "name": "Keymaster Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keymaster Rogue",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "This creature can't be blocked.\nWhen this creature enters, return a creature you control to its owner's hand.",
+        "flavorText": "\"This one opens the grate outside Zelzo Base. This one is for Ismeri Library. This one is for an invisible door . . . No, I've said too much.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "6045f2a8-01f1-496d-9498-dff3c1654761"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRIEKING_DRAKE": {
+    "scryfallId": "63971a64-c5f3-4d1f-ae0d-489d7d5b18f0",
+    "oracleId": "2a8e14be-6f93-428d-a204-e2399dc93797",
+    "name": "Shrieking Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrieking Drake",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhen this creature enters, return a creature you control to its owner's hand.",
+        "flavorText": "\"Kaervek believes the drakes' cries herald his victory; in truth, they mourn aloud for his impending demise.\"\n—Teferi",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ian Miller",
+        "imageId": "63971a64-c5f3-4d1f-ae0d-489d7d5b18f0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vis",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUL_SPIRIT": {
+    "scryfallId": "64b63e5f-b2cf-42c2-8111-1ebb9ed5ca33",
+    "oracleId": "d8177d08-a603-42e9-9350-890eac05e184",
+    "name": "Foul Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foul Spirit",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, sacrifice a land.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "rk post",
+        "imageId": "64b63e5f-b2cf-42c2-8111-1ebb9ed5ca33"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "p02",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERVANT_OF_VOLRATH": {
+    "scryfallId": "691afabb-f266-45fd-b5a3-577be4f10f86",
+    "oracleId": "4e389b61-7b31-42ba-a19b-2502f63fd34a",
+    "name": "Servant of Volrath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Servant of Volrath",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Minion",
+        "oracleText": "When this creature leaves the battlefield, sacrifice a creature.",
+        "flavorText": "\"Volrath is a harsh master. My reflection is a constant reminder of that.\"\n—Greven *il*-Vec",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "691afabb-f266-45fd-b5a3-577be4f10f86"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINED_FLUKE": {
+    "scryfallId": "6e4e1cf1-b265-4f0e-8df9-55acc41f3dde",
+    "oracleId": "3c880ac2-0b22-4f7e-a55a-381de235e971",
+    "name": "Spined Fluke",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spined Fluke",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Worm Horror",
+        "oracleText": "When this creature enters, sacrifice a creature.\n{B}: Regenerate this creature.",
+        "flavorText": "Its spines are prized as writing quills by the priests of Gix.",
+        "power": "5",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark A. Nelson",
+        "imageId": "6e4e1cf1-b265-4f0e-8df9-55acc41f3dde"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "USG-160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVER_DRAKE": {
+    "scryfallId": "726aa407-dadd-4575-aee2-b7888e67a722",
+    "oracleId": "ec7eb7d8-92b2-4442-856e-a9790301c3b3",
+    "name": "Silver Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silver Drake",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhen this creature enters, return a white or blue creature you control to its owner's hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "726aa407-dadd-4575-aee2-b7888e67a722"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pmei",
+    "collectorNumber": "2000-2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DESECRATION_ELEMENTAL": {
+    "scryfallId": "73c14a7a-cce3-45a8-9092-834e71447f62",
+    "oracleId": "38ff7aa1-e2cb-450d-a18f-45841f9f9337",
+    "name": "Desecration Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Desecration Elemental",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nWhenever a player casts a spell, sacrifice a creature.",
+        "flavorText": "Its precious corpses dance like puppets to attract mindless nim prey.",
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "73c14a7a-cce3-45a8-9092-834e71447f62"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACCURSED_CENTAUR": {
+    "scryfallId": "894556d8-6d5c-431b-a45d-26cd37c5f456",
+    "oracleId": "b1e6921e-e460-4e58-82b0-d98ee31c279d",
+    "name": "Accursed Centaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Accursed Centaur",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie Centaur",
+        "oracleText": "When this creature enters, sacrifice a creature.",
+        "flavorText": "\"The Cabal mocks the natural order. For its minions, death is just a pause between duties.\"\n—Kamahl, druid acolyte",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jerry Tiritilli",
+        "imageId": "894556d8-6d5c-431b-a45d-26cd37c5f456"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMMANDER_GREVEN_IL_VEC": {
+    "scryfallId": "8a8ddd65-c482-426c-b4cd-9ad0206942ae",
+    "oracleId": "08fa1bee-cedf-4a29-9b02-cbdcc0926f8f",
+    "name": "Commander Greven il-Vec",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Commander Greven il-Vec",
+        "manaCost": "{3}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Phyrexian Human Warrior",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nWhen Commander Greven il-Vec enters, sacrifice a creature.",
+        "flavorText": "\"Rage is the only freedom left to me.\"",
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "8a8ddd65-c482-426c-b4cd-9ad0206942ae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "tpr",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMOTHERING_ABOMINATION": {
+    "scryfallId": "aac33238-e4bd-4c72-aecc-9905232c3ab4",
+    "oracleId": "c3db28e5-6162-4642-a1c9-a7ace0737950",
+    "name": "Smothering Abomination",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smothering Abomination",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Eldrazi",
+        "oracleText": "Devoid (This card has no color.)\nFlying\nAt the beginning of your upkeep, sacrifice a creature.\nWhenever you sacrifice a creature, draw a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aleksi Briclot",
+        "imageId": "aac33238-e4bd-4c72-aecc-9905232c3ab4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Devoid"
+    ],
+    "setCode": "soc",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAVERN_HARPY": {
+    "scryfallId": "adfb0804-50d6-4bca-8733-72e01030a543",
+    "oracleId": "81c40bd8-b989-41e8-9527-eae8fb87311d",
+    "name": "Cavern Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cavern Harpy",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Harpy Beast",
+        "oracleText": "Flying\nWhen this creature enters, return a blue or black creature you control to its owner's hand.\nPay 1 life: Return this creature to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "adfb0804-50d6-4bca-8733-72e01030a543"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pls",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMONIC_APPETITE": {
+    "scryfallId": "ca51786a-d58c-455f-910d-01efa5ef8470",
+    "oracleId": "52d34007-38c0-4858-8ec8-c622da916277",
+    "name": "Demonic Appetite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demonic Appetite",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature you control\nEnchanted creature gets +3/+3.\nAt the beginning of your upkeep, sacrifice a creature.",
+        "flavorText": "\"Morality is just shorthand for the constraints of being powerless.\"\n—Ob Nixilis",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "ca51786a-d58c-455f-910d-01efa5ef8470"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "roe",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPARKCASTER": {
+    "scryfallId": "daf442b3-fa39-4f6a-90a0-22dcd9df649c",
+    "oracleId": "84c912e8-6a92-47f7-88b6-e777bd0bb424",
+    "name": "Sparkcaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sparkcaster",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "When this creature enters, return a red or green creature you control to its owner's hand.\nWhen this creature enters, it deals 1 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "daf442b3-fa39-4f6a-90a0-22dcd9df649c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pls",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPECIES_GORGER": {
+    "scryfallId": "e0087a98-55cf-4c8b-a180-fb0d9c336eb2",
+    "oracleId": "0e741c79-5ea4-457d-a7d3-b11154459246",
+    "name": "Species Gorger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Species Gorger",
+        "manaCost": "{3}{G}{U}",
+        "typeLine": "Creature — Frog Beast",
+        "oracleText": "At the beginning of your upkeep, return a creature you control to its owner's hand.",
+        "flavorText": "\"We raised eelhawks to control the squidflies, then waspcrabs to prey on the eelhawks. Now what do we do with all these waspcrabs?\"\n—Gulistan, Simic biomancer",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Min Yum",
+        "imageId": "e0087a98-55cf-4c8b-a180-fb0d9c336eb2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUINOUS_MINOTAUR": {
+    "scryfallId": "e800a3fe-bb1a-45f1-8c81-5ec88ff8647b",
+    "oracleId": "ece9d3e5-79e5-4c56-9e8d-8abcd819c041",
+    "name": "Ruinous Minotaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruinous Minotaur",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "Whenever this creature deals damage to an opponent, sacrifice a land.",
+        "flavorText": "Not every intelligent being is interested in treasure and lost knowledge . . . or even the basics of speech.",
+        "power": "5",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "e800a3fe-bb1a-45f1-8c81-5ec88ff8647b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIPTIDE_CHIMERA": {
+    "scryfallId": "e9f88da5-b013-478a-8a0b-da9d1e8eb2c9",
+    "oracleId": "718d72c4-ad37-49b6-860a-0b921c0de978",
+    "name": "Riptide Chimera",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riptide Chimera",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment Creature — Chimera",
+        "oracleText": "Flying\nAt the beginning of your upkeep, return an enchantment you control to its owner's hand.",
+        "flavorText": "\"I want one.\"\n—Kiora",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ryan Barger",
+        "imageId": "e9f88da5-b013-478a-8a0b-da9d1e8eb2c9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORNED_KAVU": {
+    "scryfallId": "ecd79fbf-626d-4549-917b-435f16b973d9",
+    "oracleId": "14817050-9f2d-453f-b36b-e6429fa29165",
+    "name": "Horned Kavu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horned Kavu",
+        "manaCost": "{R}{G}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "When this creature enters, return a red or green creature you control to its owner's hand.",
+        "flavorText": "\"That didn't happen naturally,\" said Multani. \"Rath's overlay is interfering with the Æther itself.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "ecd79fbf-626d-4549-917b-435f16b973d9"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pls",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVA_ZOMBIE": {
+    "scryfallId": "fd87185b-1242-4fb3-abee-44bc267ee5fb",
+    "oracleId": "2232c38e-49eb-4823-a325-2342a952db72",
+    "name": "Lava Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lava Zombie",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, return a black or red creature you control to its owner's hand.\n{2}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Tom Wänerstrand",
+        "imageId": "fd87185b-1242-4fb3-abee-44bc267ee5fb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pls",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EIGANJO_FREE_RIDERS": {
+    "scryfallId": "fe47bbc5-6f7f-4135-9e83-9e2a428c97f5",
+    "oracleId": "0e381b7e-2d32-4a9a-a327-e9dd1236dc1b",
+    "name": "Eiganjo Free-Riders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eiganjo Free-Riders",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flying\nAt the beginning of your upkeep, return a white creature you control to its owner's hand.",
+        "flavorText": "\"The air filled with dust and the sound of wingbeats. The mothriders had joined the fray.\"\n—*Great Battles of Kamigawa*",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "fe47bbc5-6f7f-4135-9e83-9e2a428c97f5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORAL_ATOLL": {
+    "scryfallId": "5d7c4619-e5af-4aa0-bd3f-6bf0e1fdc1fc",
+    "oracleId": "3f347ebf-e0d2-4ae0-ad84-df7a460404e0",
+    "name": "Coral Atoll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coral Atoll",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\nWhen this land enters, sacrifice it unless you return an untapped Island you control to its owner's hand.\n{T}: Add {C}{U}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "5d7c4619-e5af-4aa0-bd3f-6bf0e1fdc1fc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -246101,6 +247773,213 @@
     ],
     "setCode": "tmsc",
     "collectorNumber": "32",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ROBOT_C46F9A07_TOKEN": {
+    "scryfallId": "c46f9a07-005c-44b7-8057-b2f00b274dd6",
+    "oracleId": "0e3afe6f-c2a1-4a06-b7f7-5bcbf57c3d2c",
+    "name": "Robot",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Robot",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Robot",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leonardo Santanna",
+        "imageId": "c46f9a07-005c-44b7-8057-b2f00b274dd6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "teoe",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "FAERIE_ROGUE_01E6B701_TOKEN": {
+    "scryfallId": "01e6b701-d7a4-400d-b5f1-b6ef725248d1",
+    "oracleId": "741b9f0d-8c0d-4865-b177-fb64b687ad11",
+    "name": "Faerie Rogue",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Faerie Rogue",
+        "manaCost": "",
+        "typeLine": "Token Creature — Faerie Rogue",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "01e6b701-d7a4-400d-b5f1-b6ef725248d1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tznc",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DETECTIVE_30A109AA_TOKEN": {
+    "scryfallId": "30a109aa-99d4-4cfe-a9b1-1b40db5b7885",
+    "oracleId": "44f63ae4-6605-49e2-a862-99c1feb3017a",
+    "name": "Detective",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Detective",
+        "manaCost": "",
+        "typeLine": "Token Creature — Detective",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Fay Dalton",
+        "imageId": "30a109aa-99d4-4cfe-a9b1-1b40db5b7885"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmkm",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SOLDIER_2DE43B03_TOKEN": {
+    "scryfallId": "2de43b03-9ac5-4292-ab29-2dc6210ef3d9",
+    "oracleId": "768c67a6-a6d0-4001-a252-72ae24b2829e",
+    "name": "Soldier",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Soldier",
+        "manaCost": "",
+        "typeLine": "Token Creature — Soldier",
+        "oracleText": "Firebending 1 (Whenever this token attacks, add {R}. This mana lasts until end of combat.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jo Cordisco",
+        "imageId": "2de43b03-9ac5-4292-ab29-2dc6210ef3d9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Firebending"
+    ],
+    "setCode": "ttla",
+    "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "INSECT_03CE1033_TOKEN": {
+    "scryfallId": "03ce1033-ce07-40ef-9315-beb759af9465",
+    "oracleId": "ea029c48-d26e-40b1-acef-2ec47fb61101",
+    "name": "Insect",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Insect",
+        "manaCost": "",
+        "typeLine": "Token Creature — Insect",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "03ce1033-ce07-40ef-9315-beb759af9465"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmh2",
+    "collectorNumber": "13",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DRAGON_0BB628DA_TOKEN": {
+    "scryfallId": "0bb628da-a02f-4d3e-b919-0c03821dd5f2",
+    "oracleId": "d13ec5e2-7c3a-4ace-b470-e5e0e07550c1",
+    "name": "Dragon",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Dragon",
+        "manaCost": "",
+        "typeLine": "Token Creature — Dragon",
+        "oracleText": "Flying, devour 2",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "0bb628da-a02f-4d3e-b919-0c03821dd5f2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying",
+      "Devour"
+    ],
+    "setCode": "tarb",
+    "collectorNumber": "3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

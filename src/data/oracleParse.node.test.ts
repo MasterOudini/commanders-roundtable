@@ -415,8 +415,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // magnitude larger than `botPool`'s distinct-name figures.
       // D369: the payment prompt - an unless-pays and a you-may-pay sentence read whole
       // (99 faces read auto, 65 more partial, 164 leave none).
-      'effect:none': 11857,
-      'effect:partial': 5211,
+      'effect:none': 11812,
+      'effect:partial': 5256,
       // D289: the target macro admits the KEYWORD qualifier ("with flying",
       // "without flying") now that TargetSpec.keyword is enforced, so 52 more
       // faces read whole (Plummet, Wing Snare, Roast, Defenestrate, ...), 67

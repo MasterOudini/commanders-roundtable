@@ -257,6 +257,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // makes whoever cast a spell discard - both name their player off the event (`playerOf`) and ask no target.
   { names: ['Copper Tablet', 'Oppression'], copiesPerSeat: 1,
     counterKeys: ['playerReferents'], rotHistory: 'D428' },
+  // D431 - the queue's return verb: a bounce land every seat can play - it enters and asks its player to return a
+  // land they control (the land itself when it is the only one), which the driver answers as it answers a sacrifice.
+  { names: ['Dimir Aqueduct'], copiesPerSeat: 2,
+    counterKeys: ['returnsResolved'], rotHistory: 'D431' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1093,6 +1097,8 @@ interface Run {
   readonly kickedInsteadSkipped: number;
   /** D428 - triggers that reached the stack carrying the player their head named (`StackObject.player`). */
   readonly playerReferents: number;
+  /** D431 - player queues that resolved with the return verb (`AsksResolved` carrying `verb: 'return'`). */
+  readonly returnsResolved: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1466,6 +1472,7 @@ function runOne(seed: number): Run {
     kickedReplaced: game.log.filter((e) => e.body.t === 'Narrated' && / is replaced\.$/.test(e.body.text)).length,
     kickedInsteadSkipped: game.log.filter((e) => e.body.t === 'Narrated' && /was not kicked — “If this spell was kicked, [^”]* instead\.” does nothing\.$/.test(e.body.text)).length,
     playerReferents: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.player !== undefined).length,
+    returnsResolved: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'return').length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1659,6 +1666,7 @@ const TOTAL_KEYS = [
   'kickedReplaced',
   'kickedInsteadSkipped',
   'playerReferents',
+  'returnsResolved',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1972,6 +1980,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.kickedInsteadSkipped).toBeGreaterThan(0);
         // D428 - a trigger carried the player its head named at gate size (Copper Tablet's upkeep ping, Oppression).
         expect(totals.playerReferents).toBeGreaterThan(0);
+        // D431 - a queued return resolved at gate size (Dimir Aqueduct's entry).
+        expect(totals.returnsResolved).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2066,6 +2076,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.countersRedirected} counters redirected / ${totals.uncounterableSaid} uncounterable · ` +
           `${totals.kickedReplaced} kicked replaced / ${totals.kickedInsteadSkipped} instead skipped · ` +
           `${totals.playerReferents} triggers naming their player · ` +
+          `${totals.returnsResolved} queued returns resolved · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

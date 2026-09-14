@@ -7864,6 +7864,58 @@ const WANTED = [
   'Nim Shambler',
   'Assassin Den',
   // D430 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D431 - the return verb: the rows the row maker reads once the player queue can return a permanent to hand and the caster can sacrifice a permanent of their choice.
+  'Dimir Aqueduct',
+  'Selesnya Sanctuary',
+  'Fleetfoot Panther',
+  'Devouring Strossus',
+  'Rakdos Carnarium',
+  'Orzhov Basilica',
+  'Azorius Chancery',
+  'Daemogoth Titan',
+  'Skull Collector',
+  'Simic Growth Chamber',
+  'Whitemane Lion',
+  'Golgari Rot Farm',
+  'Gruul Turf',
+  'Izzet Boilerworks',
+  'Storm Sculptor',
+  'Roaring Primadox',
+  'Goblin Firebug',
+  'Guildless Commons',
+  'Steel Leaf Paladin',
+  'Wayward Guide-Beast',
+  'Stampeding Wildebeests',
+  'Kjeldoran Dead',
+  'Lesser Gargadon',
+  'Stampeding Serow',
+  'Salvage Scuttler',
+  'Shivan Wurm',
+  'Noggle Bridgebreaker',
+  'Oni of Wild Places',
+  'Esperzoa',
+  'Keymaster Rogue',
+  'Shrieking Drake',
+  'Foul Spirit',
+  'Servant of Volrath',
+  'Spined Fluke',
+  'Silver Drake',
+  'Desecration Elemental',
+  'Accursed Centaur',
+  'Commander Greven il-Vec',
+  'Smothering Abomination',
+  'Cavern Harpy',
+  'Demonic Appetite',
+  'Sparkcaster',
+  'Species Gorger',
+  'Ruinous Minotaur',
+  'Riptide Chimera',
+  'Horned Kavu',
+  'Lava Zombie',
+  'Eiganjo Free-Riders',
+  // D431 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D431 - Coral Atoll: the unshipped bounce-family land that holds the incompleteness examples Boros Garrison held until it shipped.
+  'Coral Atoll',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8152,6 +8204,13 @@ const WANTED_TOKENS = [
   // D429 - the tokens the wave's rows create (the port's token-pin step, missing until D429).
   { name: 'Spirit', set: 'tlci', cn: '14', key: 'SPIRIT_3_2_RW_CREATURE_TOKEN' },
   { name: 'Robot Hero', set: 'tmsc', cn: '32', key: 'ROBOT_HERO_2_1_ARTIFACT_CREATURE_FLYING_TOKEN' },
+  // D431 - the tokens VOCABULARY payloads create (a conjunction's half, a referent row's) that no port step pinned: gate run 1 created three nameless ones off Bitterblossom's kin.
+  { name: 'Robot', set: 'teoe', cn: '10', key: 'ROBOT_C46F9A07_TOKEN' },
+  { name: 'Faerie Rogue', set: 'tznc', cn: '3', key: 'FAERIE_ROGUE_01E6B701_TOKEN' },
+  { name: 'Detective', set: 'tmkm', cn: '10', key: 'DETECTIVE_30A109AA_TOKEN' },
+  { name: 'Soldier', set: 'ttla', cn: '11', key: 'SOLDIER_2DE43B03_TOKEN' },
+  { name: 'Insect', set: 'tmh2', cn: '13', key: 'INSECT_03CE1033_TOKEN' },
+  { name: 'Dragon', set: 'tarb', cn: '3', key: 'DRAGON_0BB628DA_TOKEN' },
 ];
 
 function constName(name) {
