@@ -184,3 +184,34 @@ describe('D426 - the conjunction', () => {
     expect(parse('Sacrifice a creature and draw a card.').mode).not.toBe('auto');
   });
 });
+
+/** D427 - the shield's source and recipient scopes, as the sentence reader spells them. */
+describe('D427 - the scoped shield', () => {
+  test('a source filter: attacking creatures, a power ceiling, a colour, a subtype', () => {
+    expect(parse('Prevent all combat damage that would be dealt this turn by attacking creatures.').effects.map((e) => [e.kind, e.targetIndex, e.preventSource])).toEqual([['prevent', -1, { kind: 'creatures', controller: 'any', attacking: true }]]);
+    expect(parse('Prevent all combat damage that would be dealt this turn by creatures with power 4 or less.').effects[0]?.preventSource).toEqual({ kind: 'creatures', controller: 'any', powerAtMost: 4 });
+    expect(parse('Prevent all combat damage that would be dealt by nongreen creatures this turn.').effects[0]?.preventSource).toEqual({ kind: 'creatures', controller: 'any', notColor: 'G' });
+    expect(parse('Prevent all damage that would be dealt this turn by non-Human sources.').effects[0]?.preventSource).toEqual({ kind: 'sources', controller: 'any', notSubtype: 'Human' });
+  });
+
+  test('a target as the source, a target player whose creatures, one target excepted', () => {
+    expect(parse('Prevent all combat damage that would be dealt by target creature this turn.').effects.map((e) => [e.targetIndex, e.preventSource])).toEqual([[0, { kind: 'target' }]]);
+    expect(parse('Prevent all combat damage target creature would deal this turn.').effects[0]?.preventSource).toEqual({ kind: 'target' });
+    expect(parse('Prevent all combat damage that would be dealt this turn by creatures target opponent controls.').effects.map((e) => [e.targetIndex, e.preventSource])).toEqual([[0, { kind: 'creatures', controller: 'targetPlayer' }]]);
+    expect(parse('Prevent all combat damage that would be dealt by creatures other than target creature this turn.').effects[0]?.preventSource).toEqual({ kind: 'creatures', controller: 'any', exceptTarget: true });
+  });
+
+  test('a recipient set, and both ways through a referent', () => {
+    expect(parse('Prevent all damage that would be dealt to creatures this turn.').effects.map((e) => [e.targetIndex, e.preventRecipient])).toEqual([[-1, 'creatures']]);
+    expect(parse('Prevent all damage that would be dealt to you and permanents you control this turn.').effects[0]?.preventRecipient).toBe('youAndPermanents');
+    const r = parse('Untap target creature. Prevent all combat damage that would be dealt to and dealt by that creature this turn.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.targetIndex, e.preventBothWays])).toEqual([['untap', 0, undefined], ['prevent', 0, true]]);
+  });
+
+  test('a filter outside the closed list refuses the sentence', () => {
+    expect(parse('Prevent all damage that sources of the color of your choice would deal this turn.').mode).toBe('manual');
+    expect(parse('Prevent all damage that black sources and red sources would deal this turn.').mode).toBe('manual');
+    expect(parse('Prevent all combat damage that would be dealt to target creature this turn by creatures target opponent controls.').mode).toBe('manual');
+  });
+});

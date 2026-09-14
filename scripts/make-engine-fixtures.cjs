@@ -6790,6 +6790,14 @@ const WANTED = [
   'Might of Murasa',
   'Saproling Migration',
   'Gift of Growth',
+  // D427 - the shield's source and recipient scopes: the seam's proof spells.
+  'Harmless Assault',
+  'Vine Snare',
+  'Forfend',
+  'Fend Off',
+  'Encircling Fissure',
+  'Safe Passage',
+  "Hunter's Ambush",
   'Act on Impulse',
   // D399 - the temporary unblockable grant: the wave the seam made rowable (a self pump with the rider and cannot be blocked this turn, the plain grant on this creature or a target - the same closed reader).
   "Rogue's Passage",
@@ -7690,6 +7698,8 @@ const WANTED = [
   'Thunderscape Master',
   'Yawgmoth, Thran Physician',
   // D426 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D427 - the scoped shield: the rows the selector offered once the shield read a source and a recipient set.
+  // D427 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -33,9 +33,11 @@ import type {
   PaySpec,
   VerbPrice,
   CountExpr,
+  PreventSourceSpec,
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
+import type { ColorLetter } from './cardTypes';
 import { SELF_AIMED } from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
@@ -191,6 +193,7 @@ const NUM = '(?:\\d+)';
  */
 const SELF = '(?:this (?:creature|permanent|artifact|enchantment|land)|~)';
 
+
 const WORD_NUMBERS: Readonly<Record<string, number>> = {
   a: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
 };
@@ -274,6 +277,59 @@ const GRANTABLE: ReadonlyMap<string, Keyword> = new Map<string, Keyword>([
   ['wither', 'wither'],
 ]);
 const KW = [...GRANTABLE.keys()].sort((a, b) => b.length - a.length).join('|');
+
+/**
+ * D427 - the shield's SOURCE filter and RECIPIENT set, as the sentence names them. Closed lists: the funnel
+ * (`prevention.ts` `covers`) reads exactly these off the derived source, so a word outside them refuses the
+ * sentence rather than widening a shield.
+ */
+const SHIELD_COLOR = '(?:white|blue|black|red|green)';
+const SHIELD_SRC = [
+  `creatures other than ${TARGET}`,
+  `${TARGET}`,
+  'creatures your opponents control',
+  'creatures target opponent controls',
+  `creatures with power ${NUM} or less`,
+  `creatures without (?:${KW})`,
+  `non${SHIELD_COLOR} creatures`,
+  'non-[A-Z][a-z]+ creatures',
+  'creatures with no \\+1/\\+1 counters on them',
+  'attacking creatures',
+  'unblocked creatures',
+  'creatures',
+  'non-[A-Z][a-z]+ sources',
+  'colorless sources',
+].join('|');
+const SHIELD_RECIP = `(?:${TARGET}|you and creatures you control|you and permanents you control|creatures you control|creatures)`;
+const SHIELD_COLOR_LETTER: Readonly<Record<string, ColorLetter>> = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+function readShieldSource(raw: string): PreventSourceSpec | null {
+  const s = raw.trim();
+  const low = s.toLowerCase();
+  if (/^creatures other than target /i.test(s)) return { kind: 'creatures', controller: 'any', exceptTarget: true };
+  if (/^(?:any target|target )/i.test(s)) return { kind: 'target' };
+  if (low === 'creatures') return { kind: 'creatures', controller: 'any' };
+  if (low === 'attacking creatures') return { kind: 'creatures', controller: 'any', attacking: true };
+  if (low === 'unblocked creatures') return { kind: 'creatures', controller: 'any', unblocked: true };
+  if (low === 'creatures your opponents control') return { kind: 'creatures', controller: 'opponents' };
+  if (low === 'creatures target opponent controls') return { kind: 'creatures', controller: 'targetPlayer' };
+  if (low === 'creatures with no +1/+1 counters on them') return { kind: 'creatures', controller: 'any', noPlusCounter: true };
+  if (low === 'colorless sources') return { kind: 'sources', controller: 'any', colorless: true };
+  let m: RegExpExecArray | null;
+  if ((m = /^creatures with power (\d+) or less$/i.exec(s))) return { kind: 'creatures', controller: 'any', powerAtMost: Number(m[1]) };
+  if ((m = /^creatures without ([a-z ]+)$/i.exec(s))) { const kw = GRANTABLE.get((m[1] ?? '').toLowerCase()); return kw === undefined ? null : { kind: 'creatures', controller: 'any', withoutKeyword: kw }; }
+  if ((m = /^non(white|blue|black|red|green) creatures$/i.exec(s))) { const c = SHIELD_COLOR_LETTER[(m[1] ?? '').toLowerCase()]; return c === undefined ? null : { kind: 'creatures', controller: 'any', notColor: c }; }
+  if ((m = /^non-([A-Z][a-z]+) (creatures|sources)$/.exec(s))) return { kind: m[2] === 'creatures' ? 'creatures' : 'sources', controller: 'any', notSubtype: m[1] ?? '' };
+  return null;
+}
+function readShieldRecipient(raw: string): 'target' | 'creatures' | 'creaturesYouControl' | 'youAndCreatures' | 'youAndPermanents' | null {
+  const low = raw.trim().toLowerCase();
+  if (/^(?:any target|target )/.test(low)) return 'target';
+  if (low === 'creatures') return 'creatures';
+  if (low === 'creatures you control') return 'creaturesYouControl';
+  if (low === 'you and creatures you control') return 'youAndCreatures';
+  if (low === 'you and permanents you control') return 'youAndPermanents';
+  return null;
+}
 
 /**
  * D383 - THE CLOSED SCOPE VOCABULARY. Every phrase a scoped board effect may
@@ -1137,6 +1193,55 @@ const RULES: readonly Rule[] = [
     re: new RegExp(`^prevent all (combat )?damage that would be dealt to ${TARGET} this turn\.$`, 'i'),
     build: (m) => ({ ...BASE, preventAmount: 'all', preventCombatOnly: m[1] !== undefined }),
   },
+  /**
+   * D427 - THE SHIELD'S SOURCE AND RECIPIENT SCOPES. `Prevent all combat damage that would be dealt this turn by
+   * attacking creatures.` (Harmless Assault), `... by creatures with power 3 or less.` (Vine Snare), `... by
+   * creatures target opponent controls.` (Encircling Fissure), `... by target creature this turn.` (Fend Off),
+   * `Prevent all damage that would be dealt to creatures this turn.` (Forfend), `... to you and creatures you
+   * control this turn.` (Safe Passage), `... to and dealt by target creature this turn.` (Foxfire's referent) -
+   * 36 spells with nothing else unread carried one of these, over a shield that named a recipient and never a
+   * source. The source is a closed filter (`readShieldSource`) the funnel reads off the derived source; a form
+   * outside it (a colour of your choice, two colours, `except`) leaves the sentence unread (D90).
+   */
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent all (combat )?damage that would be dealt (?:this turn by (${SHIELD_SRC})|by (${SHIELD_SRC}) this turn)\\.$`, 'i'),
+    build: (m) => {
+      const src = readShieldSource(m[2] ?? m[3] ?? '');
+      if (src === null) return null;
+      const targeted = src.kind === 'target' || src.controller === 'targetPlayer' || src.exceptTarget === true;
+      return { ...BASE, ...(targeted ? {} : { targetIndex: -1, self: true }), preventAmount: 'all', preventCombatOnly: m[1] !== undefined, preventScope: 'any', preventSource: src };
+    },
+  },
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent all (combat )?damage that would be dealt (?:to (${SHIELD_RECIP}) this turn|this turn to (${SHIELD_RECIP}))(?: by (${SHIELD_SRC}))?\\.$`, 'i'),
+    build: (m) => {
+      const recip = readShieldRecipient(m[2] ?? m[3] ?? '');
+      const src = m[4] === undefined ? null : readShieldSource(m[4]);
+      if (recip === null || (m[4] !== undefined && src === null)) return null;
+      const srcTargeted = src !== null && (src.kind === 'target' || src.controller === 'targetPlayer' || src.exceptTarget === true);
+      // Two targets in one prevention (a target recipient and a target source) is a shape the aim cannot carry.
+      if (recip === 'target' && srcTargeted) return null;
+      const targeted = recip === 'target' || srcTargeted;
+      return { ...BASE, ...(targeted ? {} : { targetIndex: -1, self: true }), preventAmount: 'all', preventCombatOnly: m[1] !== undefined, ...(recip === 'target' ? {} : { preventRecipient: recip }), ...(src === null ? {} : { preventSource: src }) };
+    },
+  },
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent all (combat )?damage (?:that )?(${SHIELD_SRC}) would deal this turn\\.$`, 'i'),
+    build: (m) => {
+      const src = readShieldSource(m[2] ?? '');
+      if (src === null) return null;
+      const targeted = src.kind === 'target' || src.controller === 'targetPlayer' || src.exceptTarget === true;
+      return { ...BASE, ...(targeted ? {} : { targetIndex: -1, self: true }), preventAmount: 'all', preventCombatOnly: m[1] !== undefined, preventScope: 'any', preventSource: src };
+    },
+  },
+  {
+    kind: 'prevent',
+    re: new RegExp(`^prevent all (combat )?damage that would be dealt to and dealt by ${TARGET} this turn\\.$`, 'i'),
+    build: (m) => ({ ...BASE, preventAmount: 'all', preventCombatOnly: m[1] !== undefined, preventBothWays: true }),
+  },
   {
     kind: 'prevent',
     re: new RegExp(`^prevent the next (${NUM}) (combat )?damage that would be dealt to ${TARGET} this turn\.$`, 'i'),
@@ -1644,6 +1749,10 @@ interface Clause {
 const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker)|those (?:creatures|permanents))';
 const REFERENT_LEAD = new RegExp(`^(?:then )?(?:if )?${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
+// D427 - a prevention shield ABOUT the referent: `Prevent all damage that would be dealt to it this turn.`
+// (Djeru's Resolve), `... to and dealt by that creature this turn.` (Foxfire, Energy Arc) - the referent
+// stands where the target clause would, mid-sentence.
+const REFERENT_SHIELD = new RegExp(`^prevent all (?:combat )?damage that would be dealt (?:to|to and dealt by) ${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_ANY = new RegExp(`(?<![a-z])${REFERENT}(?![a-z'])`, 'gi');
 const PHRASE_TARGET = new RegExp(TARGET, 'i');
 const PHRASE_SELF = new RegExp(`^(?:then )?${SELF}(?![a-z])`, 'i');
@@ -1659,7 +1768,7 @@ function phraseOf(text: string): string | null {
 
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
-  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence)) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }

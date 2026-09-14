@@ -206045,6 +206045,241 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "HARMLESS_ASSAULT": {
+    "scryfallId": "a77fef2c-227e-474e-896e-c0ebe227f494",
+    "oracleId": "bfcc3a16-1ca8-4112-a10e-d4e52d3daa8d",
+    "name": "Harmless Assault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harmless Assault",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt this turn by attacking creatures.",
+        "flavorText": "After encasing it in a paralyzing beam of light, the angel studied the Eldrazi as a child would study a bug, curiously and without fear.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chippy",
+        "imageId": "a77fef2c-227e-474e-896e-c0ebe227f494"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "roe",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VINE_SNARE": {
+    "scryfallId": "d2241f71-4319-49bf-905a-b6b774ffcb27",
+    "oracleId": "f3303d45-b3ee-4389-8172-d9ffa8bf251b",
+    "name": "Vine Snare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vine Snare",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt this turn by creatures with power 4 or less.",
+        "flavorText": "Nissa found that the vines of the marsh could ensnare just as well as forest vines could—maybe even better.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "d2241f71-4319-49bf-905a-b6b774ffcb27"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORFEND": {
+    "scryfallId": "a410e333-60f2-4e19-ad0f-5259d4feab37",
+    "oracleId": "59f8f2c4-d30d-411c-9fac-a5a3219bb124",
+    "name": "Forfend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forfend",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all damage that would be dealt to creatures this turn.",
+        "flavorText": "\"Suddenly there stood a fortress protecting the clachan, its walls hewn of valor and mortared with honor.\"\n—*Clachan Tales*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "a410e333-60f2-4e19-ad0f-5259d4feab37"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEND_OFF": {
+    "scryfallId": "a64d7a33-986d-45ad-8662-7bca80d3628d",
+    "oracleId": "fa8f3827-8cd9-4896-ab0c-26fecacceb40",
+    "name": "Fend Off",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fend Off",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt by target creature this turn.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": "The best defense is to not get hit.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "a64d7a33-986d-45ad-8662-7bca80d3628d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "uds",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENCIRCLING_FISSURE": {
+    "scryfallId": "556105a9-aa2b-4597-a042-07f3e1040fda",
+    "oracleId": "39d7569e-62b0-4f37-813a-0985632c66c9",
+    "name": "Encircling Fissure",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Encircling Fissure",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt this turn by creatures target opponent controls.\nAwaken 2—{4}{W} (If you cast this spell for {4}{W}, also put two +1/+1 counters on target land you control and it becomes a 0/0 Elemental creature with haste. It's still a land.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "556105a9-aa2b-4597-a042-07f3e1040fda"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Awaken"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BFZ-23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAFE_PASSAGE": {
+    "scryfallId": "3d61671e-3407-4553-8c33-32d23a015f9f",
+    "oracleId": "dfa459a1-b065-4488-88d3-4da388261b52",
+    "name": "Safe Passage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Safe Passage",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all damage that would be dealt to you and creatures you control this turn.",
+        "flavorText": "With one flap of her wings, the angel beat back the fires of war.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "3d61671e-3407-4553-8c33-32d23a015f9f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ddi",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNTER_S_AMBUSH": {
+    "scryfallId": "6250c566-b224-405c-b1ac-97ca3b0aa44e",
+    "oracleId": "1f085891-0d99-46a6-8f09-b84f44d701f8",
+    "name": "Hunter's Ambush",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hunter's Ambush",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt by nongreen creatures this turn.",
+        "flavorText": "First you lose your enemy's trail. Then you lose all sense of direction. Then you hear the growls . . .",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "6250c566-b224-405c-b1ac-97ca3b0aa44e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M15-180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "ACT_ON_IMPULSE": {
     "scryfallId": "ae4fd9dc-5cf9-4f10-836a-8b7aaf8aca29",
     "oracleId": "19ad338a-c89f-406d-ad1a-222c22044e1b",

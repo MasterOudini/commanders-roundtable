@@ -249,6 +249,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // tries the kick, D403).
   { names: ['Burst Lightning', 'Saproling Migration', 'Gift of Growth'], copiesPerSeat: 2,
     counterKeys: ['kickedInsteadSkipped'], rotHistory: 'D423' },
+  // D427 - the scoped shield: Harmless Assault (a SOURCE filter - attacking creatures, combat-wide like Fog) and
+  // Forfend (a RECIPIENT set - creatures) need no target, so the driver casts them wherever it holds them.
+  { names: ['Harmless Assault', 'Forfend'], copiesPerSeat: 2,
+    counterKeys: ['scopedShields'], rotHistory: 'D427' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1105,6 +1109,9 @@ interface Run {
   /** D382 - CR 615: shields put up, and damage a shield actually stopped. */
   readonly preventionShields: number;
   readonly damagePrevented: number;
+  /** D427 - shields put up with a source filter or a recipient set (the floor), and what such a shield stopped. */
+  readonly scopedShields: number;
+  readonly scopedPrevented: number;
   /** D385 - CR 615: damage a CONTINUOUS prevention ability (a `PreventionDef`) absorbed. */
   readonly staticDamagePrevented: number;
   /** D377 - moves the rules recorded a reason on: a sacrifice, a discard, a cycling discard. */
@@ -1341,6 +1348,14 @@ function runOne(seed: number): Run {
     // D382 - CR 615. The first counts the shields real games put up; the second counts the damage
     // one actually stopped, which is the half a shield nothing spends could never prove.
     preventionShields: game.log.filter((e) => e.body.t === 'PreventionShieldsAdded').length,
+    // D427 - the scoped shields: a source filter or a set recipient on the record; the damage they stopped is read
+    // off the spends by shield id.
+    scopedShields: game.log.reduce((n, e) => (e.body.t === 'PreventionShieldsAdded' ? n + e.body.shields.filter((s) => s.source !== undefined || s.recipient.kind === 'creatures' || s.recipient.kind === 'playerAndTheirs').length : n), 0),
+    scopedPrevented: (() => {
+      const scoped = new Set<string>();
+      for (const e of game.log) if (e.body.t === 'PreventionShieldsAdded') for (const s of e.body.shields) if (s.source !== undefined || s.recipient.kind === 'creatures' || s.recipient.kind === 'playerAndTheirs') scoped.add(s.id);
+      return game.log.reduce((n, e) => (e.body.t === 'DamagePrevented' ? n + e.body.spends.filter((s) => scoped.has(s.id)).reduce((m, s) => m + s.amount, 0) : n), 0);
+    })(),
     damagePrevented: game.log.reduce(
       (n, e) => (e.body.t === 'DamagePrevented' ? n + e.body.spends.reduce((m, s) => m + s.amount, 0) : n),
       0,
@@ -1658,6 +1673,8 @@ const TOTAL_KEYS = [
   'paymentsDeclined',
   'preventionShields',
   'damagePrevented',
+  'scopedShields',
+  'scopedPrevented',
   'staticDamagePrevented',
 ] as const;
 type TotalKey = (typeof TOTAL_KEYS)[number] | 'finished';
@@ -1801,6 +1818,8 @@ function assertFloors(totals: Totals, seeds: number): void {
       // 4 at 60 seeds, which is a coin flip and not a floor (D155/D176's rule).
       expect(totals.preventionShields).toBeGreaterThan(0);
       if (seeds >= 500) expect(totals.damagePrevented).toBeGreaterThan(0);
+      // D427 - a scoped shield went up at gate size (Harmless Assault, Forfend); what it stopped is reported.
+      expect(totals.scopedShields).toBeGreaterThan(0);
       // D385 - THE CONTINUOUS PREVENTION CANARY. A `PreventionDef` spends nothing, so the state
       // hash proves nothing about it (D364) and only this count says the funnel consulted one.
       // ⚠️ ITS FIRST STAPLE READ ZERO AT 500 SEEDS and the finding was the DRIVER, not the seam:
@@ -2035,7 +2054,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.kickedReplaced} kicked replaced / ${totals.kickedInsteadSkipped} instead skipped · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
-          `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented) · ` +
+          `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +
           `${totals.staticDamagePrevented} damage absorbed by a continuous prevention ability`,
       );
 

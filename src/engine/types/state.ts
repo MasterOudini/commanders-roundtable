@@ -1168,6 +1168,29 @@ export interface Zones {
  * numeric shield shrinks by what it absorbs and is gone when it reaches zero.
  * Modelling "all" as Infinity would replay the same and read as a bug.
  */
+/**
+ * D427 - THE SOURCE a shield stands against (CR 615): absent is every source; one card (a target, a referent);
+ * or the creatures (or sources) a filter admits - a controller, attacking, unblocked, a power ceiling, a colour
+ * or a subtype the source must NOT have, a keyword it must lack, no +1/+1 counter, one card excepted. A closed
+ * shape read by `covers` off the derived source; a filter a printed sentence names outside it leaves the sentence
+ * unread (D90).
+ */
+export interface ShieldSourceFilter {
+  readonly kind: 'creatures' | 'sources';
+  /** Resolved when the shield is built: `you` is the caster, `your opponents` everyone but the caster. */
+  readonly controller: 'any' | { readonly player: PlayerId } | { readonly notPlayer: PlayerId };
+  readonly attacking?: true;
+  readonly unblocked?: true;
+  readonly powerAtMost?: number;
+  readonly notColor?: ColorLetter;
+  readonly colorless?: true;
+  readonly notSubtype?: string;
+  readonly withoutKeyword?: Keyword;
+  readonly noPlusCounter?: true;
+  readonly except?: InstanceId;
+}
+export type ShieldSource = { readonly kind: 'card'; readonly id: InstanceId } | ShieldSourceFilter;
+
 export interface PreventionShield {
   readonly id: string;
   readonly amount: number | 'all';
@@ -1177,7 +1200,13 @@ export interface PreventionShield {
     | { readonly kind: 'any' }
     | { readonly kind: 'players' }
     | { readonly kind: 'player'; readonly id: PlayerId }
-    | { readonly kind: 'card'; readonly id: InstanceId };
+    | { readonly kind: 'card'; readonly id: InstanceId }
+    // D427 - the creatures a controller has (`to creatures this turn`, `to creatures you control this turn`).
+    | { readonly kind: 'creatures'; readonly controller: 'any' | { readonly player: PlayerId } }
+    // D427 - a player and what they control (`to you and creatures you control`, `... and permanents you control`).
+    | { readonly kind: 'playerAndTheirs'; readonly player: PlayerId; readonly what: 'creatures' | 'permanents' };
+  /** D427 - the source the shield stands against; absent is every source. Optional so every earlier shield replays. */
+  readonly source?: ShieldSource;
 }
 
 export interface GameState {

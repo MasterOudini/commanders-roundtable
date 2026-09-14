@@ -6117,6 +6117,13 @@ export const BURST_LIGHTNING: CardData = F.BURST_LIGHTNING as CardData;
 export const MIGHT_OF_MURASA: CardData = F.MIGHT_OF_MURASA as CardData;
 export const SAPROLING_MIGRATION: CardData = F.SAPROLING_MIGRATION as CardData;
 export const GIFT_OF_GROWTH: CardData = F.GIFT_OF_GROWTH as CardData;
+export const HARMLESS_ASSAULT: CardData = F.HARMLESS_ASSAULT as CardData;
+export const VINE_SNARE: CardData = F.VINE_SNARE as CardData;
+export const FORFEND: CardData = F.FORFEND as CardData;
+export const FEND_OFF: CardData = F.FEND_OFF as CardData;
+export const ENCIRCLING_FISSURE: CardData = F.ENCIRCLING_FISSURE as CardData;
+export const SAFE_PASSAGE: CardData = F.SAFE_PASSAGE as CardData;
+export const HUNTER_S_AMBUSH: CardData = F.HUNTER_S_AMBUSH as CardData;
 export const ACT_ON_IMPULSE: CardData = F.ACT_ON_IMPULSE as CardData;
 export const ROGUE_S_PASSAGE: CardData = F.ROGUE_S_PASSAGE as CardData;
 export const ACCESS_TUNNEL: CardData = F.ACCESS_TUNNEL as CardData;
@@ -13227,6 +13234,13 @@ export const ENGINE_CARDS: CardData[] = [
   MIGHT_OF_MURASA,
   SAPROLING_MIGRATION,
   GIFT_OF_GROWTH,
+  HARMLESS_ASSAULT,
+  VINE_SNARE,
+  FORFEND,
+  FEND_OFF,
+  ENCIRCLING_FISSURE,
+  SAFE_PASSAGE,
+  HUNTER_S_AMBUSH,
   ACT_ON_IMPULSE,
   ROGUE_S_PASSAGE,
   ACCESS_TUNNEL,

@@ -51,13 +51,65 @@ import type { InstanceId } from './types/ids';
 import type { OracleDb } from './types/oracle';
 import type { GameState, PreventionShield } from './types/state';
 
+/** D427 - what `covers` reads off the board for a scoped shield: the derived source or recipient, the combat. */
+interface ShieldBoard {
+  readonly state: GameState;
+  readonly d: (id: InstanceId) => ReturnType<typeof derive>;
+}
+
+/**
+ * D427 - does the SOURCE filter admit this damage's source? A `creatures` filter wants a creature on the
+ * battlefield; a `sources` filter any permanent. The controller, the attack, the block, the power ceiling, the
+ * colour, the subtype, the keyword and the counter are read off the derived object as it is now (a granted
+ * flier counts, a face-down 2/2 is a creature); the one card excepted is the shield's target.
+ */
+function sourceAdmits(shield: PreventionShield, entry: ResolvedDamage, board: ShieldBoard): boolean {
+  const src = shield.source;
+  if (src === undefined) return true;
+  if (src.kind === 'card') return entry.source === src.id;
+  const inst = board.state.cards[entry.source];
+  if (!inst || inst.zone.kind !== 'battlefield') return false;
+  if (src.except !== undefined && entry.source === src.except) return false;
+  const chars = board.d(entry.source);
+  if (src.kind === 'creatures' && !chars.typeLine.types.includes('Creature')) return false;
+  const c = src.controller;
+  if (typeof c === 'object' && 'player' in c && inst.controller !== c.player) return false;
+  if (typeof c === 'object' && 'notPlayer' in c && inst.controller === c.notPlayer) return false;
+  if (src.attacking === true && !(board.state.combat?.attackers ?? []).some((a) => a.card === entry.source)) return false;
+  if (src.unblocked === true) {
+    const decl = (board.state.combat?.attackers ?? []).find((a) => a.card === entry.source);
+    if (!decl || decl.becameBlocked) return false;
+  }
+  if (src.powerAtMost !== undefined && (chars.power ?? 0) > src.powerAtMost) return false;
+  if (src.notColor !== undefined && chars.colors.includes(src.notColor)) return false;
+  if (src.colorless === true && chars.colors.length > 0) return false;
+  if (src.notSubtype !== undefined && chars.typeLine.subtypes.includes(src.notSubtype)) return false;
+  if (src.withoutKeyword !== undefined && chars.keywords.has(src.withoutKeyword)) return false;
+  if (src.noPlusCounter === true && (inst.counters['+1/+1'] ?? 0) > 0) return false;
+  return true;
+}
+
 /** Does this shield stand between that source and that target? */
-function covers(shield: PreventionShield, entry: ResolvedDamage, isCombat: boolean): boolean {
+function covers(shield: PreventionShield, entry: ResolvedDamage, isCombat: boolean, board: ShieldBoard): boolean {
   if (shield.combatOnly && !isCombat) return false;
+  if (!sourceAdmits(shield, entry, board)) return false;
   const r = shield.recipient;
   if (r.kind === 'any') return true;
   if (r.kind === 'players') return entry.target.kind === 'player';
   if (r.kind === 'player') return entry.target.kind === 'player' && entry.target.id === r.id;
+  // D427 - the recipient sets.
+  if (r.kind === 'creatures') {
+    if (entry.target.kind !== 'card') return false;
+    const inst = board.state.cards[entry.target.id];
+    if (!inst || inst.zone.kind !== 'battlefield' || !board.d(entry.target.id).typeLine.types.includes('Creature')) return false;
+    return r.controller === 'any' || inst.controller === r.controller.player;
+  }
+  if (r.kind === 'playerAndTheirs') {
+    if (entry.target.kind === 'player') return entry.target.id === r.player;
+    const inst = board.state.cards[entry.target.id];
+    if (!inst || inst.zone.kind !== 'battlefield' || inst.controller !== r.player) return false;
+    return r.what === 'permanents' || board.d(entry.target.id).typeLine.types.includes('Creature');
+  }
   return entry.target.kind === 'card' && entry.target.id === r.id;
 }
 
@@ -115,6 +167,8 @@ export function withoutPreventedDamage(
   if (!bodies.some((b) => b.t === 'DamageDealt' || b.t === 'CombatDamageDealt')) return bodies;
 
   const cache = makeDeriveCache(state);
+  // D427 - the scoped shields read the derived board; the same cache serves the statics.
+  const board: ShieldBoard = { state, d: (id) => derive(state, oracle, scripts, id, cache) };
   const statics = staticPreventions(state, oracle, scripts, cache);
   const ctx = statics.length > 0 ? ctxOver(state, oracle, scripts, cache) : null;
 
@@ -161,7 +215,7 @@ export function withoutPreventedDamage(
         if (remaining <= 0) break;
         const l = left.get(shield.id);
         if (l === undefined || (l !== 'all' && l <= 0)) continue;
-        if (!covers(shield, entry, isCombat)) continue;
+        if (!covers(shield, entry, isCombat, board)) continue;
         const taken = l === 'all' ? remaining : Math.min(l, remaining);
         if (taken <= 0) continue;
         remaining -= taken;

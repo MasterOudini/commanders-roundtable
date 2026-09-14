@@ -24,7 +24,7 @@ import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveChain } from './connive';
 import { countOf } from './count';
-import type { DelayedTrigger, GameState, PendingAsks, StackObject, TargetChoice } from './types/state';
+import type { DelayedTrigger, GameState, PendingAsks, PreventionShield, ShieldSourceFilter, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
 import { n, narrated, vb, who } from './narrate';
@@ -273,19 +273,52 @@ export function effectResult(
       case 'prevent': {
         const amount = effect.preventAmount;
         if (amount === undefined) break;
-        const recipient =
-          effect.preventScope === 'any'
-            ? ({ kind: 'any' } as const)
-            : effect.preventScope === 'players'
-              ? ({ kind: 'players' } as const)
-              : effect.preventScope === 'you'
-                ? ({ kind: 'player', id: obj.controller } as const)
-                : aim?.kind === 'card'
-                  ? ({ kind: 'card', id: aim.id } as const)
-                  : aim?.kind === 'player'
-                    ? ({ kind: 'player', id: aim.id } as const)
-                    : null;
+        // D427 - the SOURCE the sentence names: this clause's target (a card, or a player whose creatures), a
+        // filter with `you` / `your opponents` resolved to players now, one target excepted.
+        const ps = effect.preventSource;
+        const srcAimCard = ps !== undefined && (ps.kind === 'target' || ps.exceptTarget === true);
+        const srcAimPlayer = ps !== undefined && ps.kind !== 'target' && ps.controller === 'targetPlayer';
+        let source: PreventionShield['source'] | undefined;
+        if (ps !== undefined) {
+          if (ps.kind === 'target') {
+            if (aim?.kind !== 'card') break;
+            source = { kind: 'card', id: aim.id };
+          } else {
+            if (srcAimPlayer && aim?.kind !== 'player') break;
+            if (ps.exceptTarget === true && aim?.kind !== 'card') break;
+            const { controller: ctl, exceptTarget: _x, ...rest } = ps;
+            const controller: ShieldSourceFilter['controller'] =
+              ctl === 'any' ? 'any' : ctl === 'you' ? { player: obj.controller } : ctl === 'opponents' ? { notPlayer: obj.controller } : { player: (aim as { id: PlayerId }).id };
+            source = { ...rest, controller, ...(ps.exceptTarget === true && aim?.kind === 'card' ? { except: aim.id } : {}) };
+          }
+        }
+        // The recipient: a set the sentence names (D427), the scope, or this clause's aim - the aim the
+        // source did not take.
+        const rp = effect.preventRecipient;
+        const recipient: PreventionShield['recipient'] | null =
+          effect.preventBothWays === true
+            ? aim?.kind === 'card' ? ({ kind: 'card', id: aim.id } as const) : null
+            : rp === 'creatures'
+              ? ({ kind: 'creatures', controller: 'any' } as const)
+              : rp === 'creaturesYouControl'
+                ? ({ kind: 'creatures', controller: { player: obj.controller } } as const)
+                : rp === 'youAndCreatures'
+                  ? ({ kind: 'playerAndTheirs', player: obj.controller, what: 'creatures' } as const)
+                  : rp === 'youAndPermanents'
+                    ? ({ kind: 'playerAndTheirs', player: obj.controller, what: 'permanents' } as const)
+                    : effect.preventScope === 'any' || srcAimCard || srcAimPlayer
+                      ? ({ kind: 'any' } as const)
+                      : effect.preventScope === 'players'
+                        ? ({ kind: 'players' } as const)
+                        : effect.preventScope === 'you'
+                          ? ({ kind: 'player', id: obj.controller } as const)
+                          : aim?.kind === 'card'
+                            ? ({ kind: 'card', id: aim.id } as const)
+                            : aim?.kind === 'player'
+                              ? ({ kind: 'player', id: aim.id } as const)
+                              : null;
         if (recipient === null) break;
+        if (effect.preventBothWays === true && aim?.kind === 'card') source = { kind: 'card', id: aim.id };
         shieldSeq += 1;
         out.push({
           t: 'PreventionShieldsAdded',
@@ -295,6 +328,8 @@ export function effectResult(
               amount,
               combatOnly: effect.preventCombatOnly === true,
               recipient,
+              // Spread-conditional so a shield with no source is the exact pre-D427 record (hash-identical replays).
+              ...(source !== undefined ? { source } : {}),
             },
           ],
         });

@@ -12,7 +12,9 @@ import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';
 
-const P1 = ['Grizzly Bears', 'Fog', 'Lightning Bolt', 'Lightning Bolt', 'Mending Hands', 'Indestructible Aura', 'Pinpoint Avalanche'];
+const P1 = ['Grizzly Bears', 'Fog', 'Lightning Bolt', 'Lightning Bolt', 'Mending Hands', 'Indestructible Aura', 'Pinpoint Avalanche',
+  // D427 - the scoped shields' proof spells, and a red 5/2 of p1's own beside the green Bears.
+  'Harmless Assault', 'Vine Snare', 'Forfend', 'Fend Off', 'Safe Passage', "Hunter's Ambush", 'Cyclops of One-Eyed Pass'];
 
 function settle(g: Game): void {
   advanceUntil(g, (s) => s.stack.length === 0 && s.pendingTriggers.length === 0, 20_000);
@@ -97,6 +99,71 @@ describe('D382 - the shield goes up and the funnel spends it', () => {
     expect(g.state.cards[bears]?.zone.kind).toBe('graveyard');
     // The shield is still up: nothing was spent on damage it could not touch.
     expect(g.state.preventionShields.length).toBe(1);
+  });
+
+  // D427 - THE SHIELD'S SOURCE AND RECIPIENT SCOPES.
+  /** p1 attacks p2 with the Bears (green 2/2) and its own Cyclops (red 5/2), casting `name` before damage. */
+  function attackUnder(name: string, symbols: readonly string[], targets: readonly { kind: 'card' | 'player'; id: string }[] = []): { g: Game; bears: InstanceId; cy: InstanceId; life0: number } {
+    const { g, bears } = armed();
+    const cy = put(g, 'p1', 'Cyclops of One-Eyed Pass');
+    settle(g);
+    advanceUntil(g, (s) => s.turn.turnNumber === 5 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 40_000);
+    const life0 = g.state.players.p2?.life ?? 0;
+    advanceUntil(g, (s) => s.priority.awaiting?.kind === 'declareAttackers', 20_000);
+    must(g.submit({ t: 'DeclareAttackers', player: 'p1', attackers: [{ card: bears, defender: { kind: 'player', id: 'p2' } }, { card: cy, defender: { kind: 'player', id: 'p2' } }] }));
+    advanceUntil(g, (s) => s.priority.player === 'p1' && s.priority.awaiting === null && s.stack.length === 0, 20_000);
+    cast(g, name, symbols, targets.map((t) => (t.id === 'bears' ? { ...t, id: bears } : t.id === 'cy' ? { ...t, id: cy } : t)));
+    advanceUntil(g, (s) => s.turn.phase === 'postcombatMain', 20_000);
+    return { g, bears, cy, life0 };
+  }
+
+  test('Harmless Assault: attacking creatures deal nothing; a Bolt (not attacking, not combat) still lands', () => {
+    const { g, life0 } = attackUnder('Harmless Assault', ['W', 'W', 'C', 'C']);
+    expect(g.state.players.p2?.life).toBe(life0);
+    cast(g, 'Lightning Bolt', ['R'], [{ kind: 'player', id: 'p2' }]);
+    expect(g.state.players.p2?.life).toBe(life0 - 3);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test('Vine Snare: the 2/2 is stopped, the 5/2 is not (power 4 or less)', () => {
+    const { g, life0 } = attackUnder('Vine Snare', ['G', 'C', 'C']);
+    expect(g.state.players.p2?.life).toBe(life0 - 5);
+  });
+
+  test("Hunter's Ambush: the red Cyclops is stopped, the green Bears is not (nongreen creatures)", () => {
+    const { g, life0 } = attackUnder("Hunter's Ambush", ['G', 'C', 'C']);
+    expect(g.state.players.p2?.life).toBe(life0 - 2);
+  });
+
+  test('Fend Off: the targeted Bears deals nothing, the Cyclops deals 5', () => {
+    const { g, life0 } = attackUnder('Fend Off', ['W', 'C'], [{ kind: 'card', id: 'bears' }]);
+    expect(g.state.players.p2?.life).toBe(life0 - 5);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test('Forfend: damage to creatures is prevented, damage to players is not', () => {
+    const { g, bears } = armed();
+    const life0 = g.state.players.p2?.life ?? 0;
+    cast(g, 'Forfend', ['W', 'C']);
+    cast(g, 'Lightning Bolt', ['R'], [{ kind: 'card', id: bears }]);
+    expect(g.state.cards[bears]?.zone.kind).toBe('battlefield');
+    expect(g.state.cards[bears]?.damage ?? 0).toBe(0);
+    cast(g, 'Lightning Bolt', ['R'], [{ kind: 'player', id: 'p2' }]);
+    expect(g.state.players.p2?.life).toBe(life0 - 3);
+  });
+
+  test('Safe Passage: you and your creatures are covered, the opponent is not', () => {
+    const { g, bears } = armed();
+    const mine = g.state.players.p1?.life ?? 0;
+    const theirs = g.state.players.p2?.life ?? 0;
+    cast(g, 'Safe Passage', ['W', 'C', 'C']);
+    cast(g, 'Lightning Bolt', ['R'], [{ kind: 'card', id: bears }]);
+    expect(g.state.cards[bears]?.damage ?? 0).toBe(0);
+    cast(g, 'Lightning Bolt', ['R'], [{ kind: 'player', id: 'p1' }]);
+    expect(g.state.players.p1?.life).toBe(mine);
+    cast(g, 'Mending Hands', ['W'], [{ kind: 'player', id: 'p2' }]);
+    expect(g.state.players.p2?.life).toBe(theirs);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
   test('the shield is a THIS TURN effect: cleanup clears it, and the game replays', () => {

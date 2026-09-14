@@ -500,6 +500,23 @@ export function isFreeAim(spec: TargetSpec): boolean {
  * kicker count (D403), the creatures that died this turn (the turn record, D348), the party, the players,
  * the basic land types among your lands. A CLOSED union: a noun outside it refuses the sentence.
  */
+/** D427 - the shield's source as the sentence names it (the executor resolves the target forms to ids). */
+export type PreventSourceSpec =
+  | { readonly kind: 'target' }
+  | {
+      readonly kind: 'creatures' | 'sources';
+      readonly controller: 'any' | 'you' | 'opponents' | 'targetPlayer';
+      readonly attacking?: true;
+      readonly unblocked?: true;
+      readonly powerAtMost?: number;
+      readonly notColor?: ColorLetter;
+      readonly colorless?: true;
+      readonly notSubtype?: string;
+      readonly withoutKeyword?: Keyword;
+      readonly noPlusCounter?: true;
+      readonly exceptTarget?: true;
+    };
+
 export type CountExpr =
   | {
       readonly kind: 'permanents';
@@ -1088,6 +1105,20 @@ export interface EffectSpec {
    * Fog cycle); `players` and `you` name one.
    */
   readonly preventScope?: 'any' | 'players' | 'you';
+  /**
+   * D427 - `prevent` over a creature RECIPIENT set rather than one aim: `to creatures this turn`, `to creatures
+   * you control`, `to you and creatures you control`, `to you and permanents you control`.
+   */
+  readonly preventRecipient?: 'creatures' | 'creaturesYouControl' | 'youAndCreatures' | 'youAndPermanents';
+  /**
+   * D427 - the SOURCE the shield stands against: this clause's target (`by target creature`, `target creature
+   * would deal`), or a filter over creatures / sources (a controller - `your opponents`, a target player -,
+   * attacking, unblocked, a power ceiling, a colour or subtype the source must not have, a keyword it must
+   * lack, no +1/+1 counter, one target excepted). Absent is every source.
+   */
+  readonly preventSource?: PreventSourceSpec;
+  /** D427 - `to and dealt by <target>`: the shield covers damage TO the target and damage FROM it. */
+  readonly preventBothWays?: true;
   /**
    * D299: the clause reads "up to N" / "any number of" — declaring NO target
    * for it is legal, and the consumer skips the clause silently rather than

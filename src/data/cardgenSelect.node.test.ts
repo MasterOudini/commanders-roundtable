@@ -251,6 +251,25 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D427 - the scoped shield: the 15 the selector offered once the shield read a source and a recipient set, that
+  // the row maker refused by reason (a combat shield with no target the suite cannot prove 8 - it must attack; a
+  // combat-only scoped shield the suite cannot prove 4 - the same; a combat-role clause 2; a cost 1) - the spells the
+  // seam reads whole never enter the pool (the generator rows no spell).
+  ['Frontline Strategist', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage non-Soldier creatures would deal this turn.'],
+  ['Hidden Retreat', 'cost: Put a card from your hand on top of your library'],
+  ['Horn of Deafening', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt by target creature this turn.'],
+  ['Kor Haven', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt by target attacking creature this turn.'],
+  ['Lady Evangela', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt by target creature this turn.'],
+  ['Maze of Ith', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by that creature this turn.'],
+  ['Maze of Shadows', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by that creature this turn.'],
+  ['Resistance Fighter', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage target creature would deal this turn.'],
+  ['Safeguard', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt by target creature this turn.'],
+  ['Songstitcher', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt this turn by target attacking creature with flying.'],
+  ['Cephalid Illusionist', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by target creature you control this turn.'],
+  ['Obscuring Haze', 'a spell with a line outside the vocabulary: If you control a commander, you may cast this spell without '],
+  ['Shieldmage Elder', 'a shield with no target the suite cannot prove (it must attack): Prevent all damage target creature would deal this turn.'],
+  ["Sivvi's Ruse", 'a spell with a line outside the vocabulary: If an opponent controls a Mountain and you control a Plains,'],
+  ['Soratami Cloud Chariot', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by target creature you control this turn.'],
   // D426 - the conjunction: the 53 the selector offered once `X and Y.` read as two clauses that the row maker
   // refused by reason (a filtered head's adjective 11, a payload outside both readers 11, a head outside the library 9,
   // a queued discard the scaffold hand may not hold 4, a static line 4), the generator's two (a hand-size condition

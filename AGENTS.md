@@ -17692,6 +17692,156 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4jh — THE SHIELD'S SOURCE AND RECIPIENT SCOPES: the prevention
+      shield (D382) takes a SOURCE filter (`by attacking creatures`, `by
+      creatures with power 4 or less`, `by nongreen creatures`, `by target
+      creature`, `by creatures target opponent controls`, `by creatures
+      other than target creature`) and a recipient SET (`to creatures`, `to
+      creatures you control`, `to you and creatures you control`, `to and
+      dealt by that creature`); the funnel reads both off the derived board
+      (2026-09-14):** **9,975 of 31,692 Commander-legal cards now execute
+      completely, up from 9,947 (+28: 28 spells whole with no script - Harmless Assault, Vine Snare, Fog of War, Hunter's Ambush, Forfend, Safe Passage, Fend Off, Warning, Restrain, Foxfire, Energy Arc, Djeru's Resolve and their kin).**
+      `SHIPPED_SCRIPTS` **6,406** (no rows - the pool's fifteen permanents
+      were combat shields the suite cannot prove); ledger 1,728 → **1,743**
+      (15 added by reason). Fixtures 7,107 → **7,114** (6,951 by name + 156
+      tokens: the seven proof spells). `scriptableToday` 1,828 → **1,843**;
+      the select pool 0 → 15 → 0; the ladder `[1843, 1848, 3248, 4844,
+      6170]`. Bot reach 4,133 → **4,159** from 281. Decisions in **D427**;
+      an engine seam on Opus 5 by the user's choice - the prevention slice
+      of the spec's §4.6, bounded to what the funnel already spends.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the spell-sentence probe after the
+      conjunction - 36 spells whose one unread sentence was a shield with a
+      source or a recipient set over a shield that named a recipient and
+      never a source; the other families measured smaller (the counted /
+      conditional reductions 34 with a target-dependent half, the
+      additional costs 20, the `Until end of turn` heads 105 - quoted
+      grants mostly).
+      ⚠️ **THE SEAM:** `PreventionShield.source?` (`ShieldSource`: one card,
+      or a creatures / sources filter - a controller resolved to players
+      at build time, attacking, unblocked, a power ceiling, a colour or
+      subtype the source must not have, a keyword it must lack, no +1/+1
+      counter, one card excepted) and two recipient kinds (`creatures`,
+      `playerAndTheirs`), optional so every earlier shield replays;
+      `effectParse` - `SHIELD_SRC` / `SHIELD_RECIP` closed lists, four
+      sentence rules, a target as the source, a target player whose
+      creatures, `REFERENT_SHIELD` for `to it` / `to and dealt by that
+      creature`; `effects.ts` builds the source and the recipient the spec
+      names; `prevention.ts` `sourceAdmits` / `covers(.., board)` read the
+      derived source and recipient. `prevention.test.ts` (+6),
+      `twoPassEffects.test.ts` (+4). **Fuzz:** Harmless Assault + Forfend
+      staples feeding `scopedShields` (floor) / `scopedPrevented`
+      (reported): 14 at 60; 88 / 14 over 500 seeds.
+      **Landed:** 28 whole. botPool instant 1,359 / sorcery 1,012 - auto
+      1,740 · `oracleParse` `effect:auto` 7,263 · tier3 silentAfter 10,262
+      · batch.json 0 · select pool 0. The 551 suppression pins run before
+      the gate: none red.
+      ⚠️ A COMBAT-ONLY SHIELD IS PROVEN ONLY BY AN ATTACK (the generator
+      refuses it by name). ⚠️ THE CONTROLLER IS RESOLVED WHEN THE SHIELD IS
+      BUILT. ⚠️ A REFERENT MID-SENTENCE NEEDS ITS OWN ADMISSION.
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6,589 files,
+      31,705 passed / 11 skipped · 500-seed gate, 6 shards, 986.0 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D427): the shield forms the closed lists refuse
+      (a colour of your choice, two colours, `except ... enchanted
+      creatures`, `X target creatures would deal`, `a source of your
+      choice`), the combat shields on permanents the suite cannot prove
+      without an attack (15 ledgered - the arm must attack),
+      `scopedPrevented` at the mercy of the driver's rare attacks; the
+      conjunctions the split still refuses (D426 - an asking left half, a noun half, the Oxford `, and`, `and then`,
+      three clauses, a right half led by `if` / `unless`), the shapes the
+      halves still lack (`Lose N life`, `gain control of`, `that player`
+      as the left half's player), the reversed suppression pins (the
+      redundant D187 defs - a retirement of its own, D383), the other 47
+      splittable sentences on cards with more unread; the sacrificed
+      source's POWER (D425 - `It deals damage equal to its power` - Cinder
+      Shade and five more: last known information, D421's gap one shape
+      over), the `you` rider on a targeted
+      damage (Char, Psionic Blast, Orcish Cannonade), the payment branch
+      over `damageEach` (Force of Nature), the combat-role fixture the suite
+      lacks (`target attacking or blocking creature` 6), the other pain
+      riders; the wide run's map (D424 - the refusal histogram over the
+      one-piece leftover permanents: `trigger payload not a pump` 2,823, a
+      static line 1,559, `effect not a row kind` 1,446, a head outside the
+      library 699, a filtered head's adjective 234, a cost 197, a
+      condition 178, an intervening if 162), the two-piece leftover the
+      wide run never saw, the trigger bodies by shape (the pay wrapper's
+      inner clauses 57 + 41, `that player` as the triggering player 32,
+      `it gets +N/+N` as the triggering object 34, the typed cast heads
+      106), the protection qualities the derive does not read (from
+      multicolored / creatures), the up-to-N `each` subject (12), the cost
+      reductions with a count or a condition (144 lines, 16 sole), the
+      eight this port named; the kicked instead's residue (D423 - an
+      instead clause with a TARGET of its own, `that player`, the scoped
+      `those creatures`, the qualified sweeps, the kicked searches,
+      Prohibit, Urza's Rage, Rite of Replication's copy token, the plain
+      kicked clauses beside an unread first line; damage from a source that
+      has died; the driver's coin-flip kick reported, not floored);
+      the counterspell tail (D422 - the CONDITIONAL uncounterables the face
+      does not carry (Banefire's `if X is 5 or more`, Spell mastery's
+      graveyard count, `can't be countered by spells or abilities`), the
+      counter-unless-pays with a COUNTED price (D418's), the spell's X in a
+      pump, `This spell costs {M} less` (29), `As an additional cost` (20),
+      `Destroy target <X>` (19), the quoted-ability grants behind `Until
+      end of turn` (50)); the self subject's tail (D421 - damage from a source that has died, the
+      counted self pumps under the attack heads, the twenty-two trigger
+      heads outside the library, the filtered heads, a payment under a
+      sacrifice head); the ability word's tail (D420 - the Eerie head, the Valiant head, the
+      Inspired payments whose branch makes a token, the copy half of
+      Magecraft, the enchantment-enters wordings 22); the board condition's
+      tail (D419 - a creature with power
+      N or greater, an opponent controls more lands than you, no untapped /
+      tapped lands, exactly N, different names, a counter, a mana value,
+      Descend, the seven `no <noun>` rows); then D418's list unchanged — the
+      counted suite for the refinements, the party, the hand, the kicks,
+      the deaths, the domain and the attack heads (44 ledger rows), the
+      counted ENTRY (14), the counted STATIC (11), the counted PRICE (7),
+      the counted queue and reductions, `for each mana from a Treasure`,
+      `put into your graveyard from the battlefield this turn`; the
+      permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (110 over ninety shapes), the
+      `where X is` values (328 over forty forms), the top-of-library family
+      (23), `you may cast` (57 statics), the prevent-all shields (66), the
+      payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage
