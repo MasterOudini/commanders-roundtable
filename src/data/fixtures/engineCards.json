@@ -239404,6 +239404,1465 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ENIGMA_DRAKE": {
+    "scryfallId": "006b0048-8a84-469c-974f-b75177b4dd81",
+    "oracleId": "62007675-8a0d-4211-83b2-0daf3641dedc",
+    "name": "Enigma Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enigma Drake",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nEnigma Drake's power is equal to the number of instant and sorcery cards in your graveyard.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "006b0048-8a84-469c-974f-b75177b4dd81"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLESHFORMER": {
+    "scryfallId": "00c57090-c1fe-4100-a03c-95607074280e",
+    "oracleId": "67b8b67d-fda3-4a62-9bfb-51a171638502",
+    "name": "Fleshformer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleshformer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{W}{U}{B}{R}{G}: This creature gets +2/+2 and gains fear until end of turn. Target creature gets -2/-2 until end of turn. Activate only during your turn. (A creature with fear can't be blocked except by artifact creatures and/or black creatures.)",
+        "flavorText": "Necromancers who discovered the new sources of mana were quick to dream up new nightmares with them.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "00c57090-c1fe-4100-a03c-95607074280e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORM_KILN_ARTIST": {
+    "scryfallId": "01482a58-5156-41ba-bf9e-11095cc3f9ef",
+    "oracleId": "a145ff8c-5812-4bcb-bd16-9839dc25121d",
+    "name": "Storm-Kiln Artist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Storm-Kiln Artist",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Dwarf Shaman",
+        "oracleText": "This creature gets +1/+0 for each artifact you control.\nMagecraft — Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "A captured elemental makes for a potent, albeit unstable, power source.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "01482a58-5156-41ba-bf9e-11095cc3f9ef"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Treasure",
+      "Magecraft"
+    ],
+    "setCode": "otc",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENTOMBER_EXARCH": {
+    "scryfallId": "06004227-b532-4e22-84f9-2511a6718af3",
+    "oracleId": "e820296a-81b0-401f-959c-7aed8abefce1",
+    "name": "Entomber Exarch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Entomber Exarch",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Phyrexian Cleric",
+        "oracleText": "When this creature enters, choose one —\n• Return target creature card from your graveyard to your hand.\n• Target opponent reveals their hand. You choose a noncreature card from it. That player discards that card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "06004227-b532-4e22-84f9-2511a6718af3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "434",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYLVAN_YETI": {
+    "scryfallId": "096e7d5a-d998-4ef7-b34f-986aa69c526b",
+    "oracleId": "6493960b-4bbb-4ef0-8efb-abb122b1697d",
+    "name": "Sylvan Yeti",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sylvan Yeti",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Yeti",
+        "oracleText": "Sylvan Yeti's power is equal to the number of cards in your hand.",
+        "flavorText": "The deeper the wood, the greater its strength.",
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brom",
+        "imageId": "096e7d5a-d998-4ef7-b34f-986aa69c526b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "s99",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLHEART_CHIMERA": {
+    "scryfallId": "0a19670c-5afa-4e22-b3ff-258faca19556",
+    "oracleId": "9745fc92-4955-48e3-a6c8-1300891cf078",
+    "name": "Spellheart Chimera",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spellheart Chimera",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Creature — Chimera",
+        "oracleText": "Flying, trample\nSpellheart Chimera's power is equal to the number of instant and sorcery cards in your graveyard.",
+        "flavorText": "Thaumaturges remain silent around chimeras, lest their words conjure even stranger beasts.",
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "0a19670c-5afa-4e22-b3ff-258faca19556"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHERJACKET": {
+    "scryfallId": "0a29c8a5-fd98-422c-9518-2db0993495e5",
+    "oracleId": "062c8e40-dea7-4df7-bcaa-f1d696fe61c3",
+    "name": "Aetherjacket",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aetherjacket",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Thopter",
+        "oracleText": "Flying, vigilance\n{2}, {T}, Sacrifice this creature: Destroy another target artifact. Activate only as a sorcery.",
+        "flavorText": "The Sting Strike model saved thousands of lives during the Invasion and quickly became a bestseller for Shadowblayde Craftworks.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Domenico Cava",
+        "imageId": "0a29c8a5-fd98-422c-9518-2db0993495e5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMA_YI_WEI_FIELD_MARSHAL": {
+    "scryfallId": "0fa7239c-a833-4a8f-8010-d55386c1b057",
+    "oracleId": "eefa9a94-9915-4dcd-b5dc-7f8e9aa621a7",
+    "name": "Sima Yi, Wei Field Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sima Yi, Wei Field Marshal",
+        "manaCost": "{5}{B}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Sima Yi's power is equal to the number of Swamps you control.",
+        "flavorText": "Sima Yi fought for four generations of the Cao family before his own grandson became emperor and united the three kingdoms.",
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Gao Yan",
+        "imageId": "0fa7239c-a833-4a8f-8010-d55386c1b057"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pz2",
+    "collectorNumber": "65815",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAMBLING_SUIT": {
+    "scryfallId": "1100b898-31a8-4fdf-a54f-a1470ec032f3",
+    "oracleId": "862b777a-4816-4a3e-be8d-ddfcb72268e8",
+    "name": "Shambling Suit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shambling Suit",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Shambling Suit's power is equal to the number of artifacts and/or enchantments you control.",
+        "flavorText": "\"The young squire gripped her sword as the clanking stranger emerged. It was no knight that had come to challenge her.\"\n—*Beyond the Great Henge*",
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nicholas Gregory",
+        "imageId": "1100b898-31a8-4fdf-a54f-a1470ec032f3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUSPENSION_FIELD": {
+    "scryfallId": "11a5f26b-ff13-4a5f-8bea-1d5bbd55f0fb",
+    "oracleId": "baf8310f-5baf-459e-95ae-6b43a1d47e24",
+    "name": "Suspension Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Suspension Field",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, you may exile target creature with toughness 3 or greater until this enchantment leaves the battlefield. (That creature returns under its owner's control.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "11a5f26b-ff13-4a5f-8bea-1d5bbd55f0fb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "55876",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALL_THAT_GLITTERS": {
+    "scryfallId": "15d9fb74-9f2d-40f1-88b8-514a460a4f86",
+    "oracleId": "a4d751e0-41c1-4e90-853d-512f385acd81",
+    "name": "All That Glitters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "All That Glitters",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each artifact and/or enchantment you control.",
+        "flavorText": "Sooner or later, the House always wins.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "15d9fb74-9f2d-40f1-88b8-514a460a4f86"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAUGHTY_DJINN": {
+    "scryfallId": "15e7ed36-372d-4ade-b897-b341ce590951",
+    "oracleId": "44036bb5-f300-40bd-9180-6b246315d886",
+    "name": "Haughty Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haughty Djinn",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying\nHaughty Djinn's power is equal to the number of instant and sorcery cards in your graveyard.\nInstant and sorcery spells you cast cost {1} less to cast.",
+        "flavorText": "\"I adore your outfit. It's so . . . rustic.\"",
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mike Jordana",
+        "imageId": "15e7ed36-372d-4ade-b897-b341ce590951"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pdmu",
+    "collectorNumber": "52s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILESPAWN_SPIDER": {
+    "scryfallId": "1db5bb0b-af35-4040-9b26-4375ff656fe2",
+    "oracleId": "3e969073-76cc-4a2c-9abd-3a4094488fe5",
+    "name": "Vilespawn Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vilespawn Spider",
+        "manaCost": "{G}{U}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach\nAt the beginning of your upkeep, mill a card. (Put the top card of your library into your graveyard.)\n{2}{G}{U}, {T}, Sacrifice this creature: Create a 1/1 green Insect creature token for each creature card in your graveyard. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "1db5bb0b-af35-4040-9b26-4375ff656fe2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Mill"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "517",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISCIPLE_OF_THE_RING": {
+    "scryfallId": "1fc1a7bc-03fe-43ae-97b2-f0a63bae7c74",
+    "oracleId": "f06209e6-475e-47e0-b84c-3ec1215633a9",
+    "name": "Disciple of the Ring",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disciple of the Ring",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{1}, Exile an instant or sorcery card from your graveyard: Choose one —\n• Counter target noncreature spell unless its controller pays {2}.\n• This creature gets +1/+1 until end of turn.\n• Tap target creature.\n• Untap target creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "1fc1a7bc-03fe-43ae-97b2-f0a63bae7c74"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "2x2",
+    "collectorNumber": "428",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UURG_SPAWN_OF_TURG": {
+    "scryfallId": "216b4613-9b2a-472b-bc9a-49ad6c9b9f03",
+    "oracleId": "0191a93a-f304-4c20-9af4-7cdea82c07cf",
+    "name": "Uurg, Spawn of Turg",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Uurg, Spawn of Turg",
+        "manaCost": "{B}{B}{G}",
+        "typeLine": "Legendary Creature — Frog Beast",
+        "oracleText": "Uurg's power is equal to the number of land cards in your graveyard.\nAt the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\n{B}{G}, Sacrifice a land: You gain 2 life.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Eugene Frost",
+        "imageId": "216b4613-9b2a-472b-bc9a-49ad6c9b9f03"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BORDERLAND_BEHEMOTH": {
+    "scryfallId": "28ccfc78-b2d6-4eb7-b8bf-ba8bd876d2b8",
+    "oracleId": "378a78d8-9001-4aa5-a66b-2aca27fa8180",
+    "name": "Borderland Behemoth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Borderland Behemoth",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "Trample\nThis creature gets +4/+4 for each other Giant you control.",
+        "flavorText": "Giants share nothing but their fury.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "28ccfc78-b2d6-4eb7-b8bf-ba8bd876d2b8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEPHALOPOD_SENTRY": {
+    "scryfallId": "30c22eb9-5056-4c0b-a5d8-41e09161eb40",
+    "oracleId": "e8270c29-1887-4d3f-b70f-6b79ada8fe47",
+    "name": "Cephalopod Sentry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cephalopod Sentry",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Artifact Creature — Phyrexian Squid",
+        "oracleText": "Flying\nCephalopod Sentry's power is equal to the number of artifacts you control.",
+        "flavorText": "Silent observers swim through the air of Norn's Seedcore, watching the nascent Invasion Tree for any signs of interference.",
+        "power": "*",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "30c22eb9-5056-4c0b-a5d8-41e09161eb40"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "one",
+    "collectorNumber": "198",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COILING_WOODWORM": {
+    "scryfallId": "341a70be-2dbf-4365-9c7a-e52cb62a74fa",
+    "oracleId": "75dcdf05-b392-4a96-98ae-5ec4cd425eee",
+    "name": "Coiling Woodworm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coiling Woodworm",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect Worm",
+        "oracleText": "Coiling Woodworm's power is equal to the number of Forests on the battlefield.",
+        "flavorText": "Only the elves know where the woods end and the woodworm begins.",
+        "power": "*",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Martin",
+        "imageId": "341a70be-2dbf-4365-9c7a-e52cb62a74fa"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEROES_FOR_HIRE": {
+    "scryfallId": "37759556-ea31-47b4-8457-a83d17a51e28",
+    "oracleId": "45e5135b-274c-46b4-8249-7e05e37aaff7",
+    "name": "Heroes for Hire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heroes for Hire",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, create three Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")\nSacrifice a Treasure: Exile the top card of your library. You may play it this turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Irvin Rodriguez",
+        "imageId": "37759556-ea31-47b4-8457-a83d17a51e28"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "688",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNOW_VILLIERS": {
+    "scryfallId": "399bb699-e61d-4b41-b6e9-e594cbad6194",
+    "oracleId": "01cdaf69-f53a-4735-92f2-ef149de4d5c9",
+    "name": "Snow Villiers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snow Villiers",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Human Rebel Monk",
+        "oracleText": "Vigilance\nSnow Villiers's power is equal to the number of creatures you control.",
+        "flavorText": "\"All I can do is go forward. Keep fighting and surviving, until I find the answers I need.\"",
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Fariba Khamseh",
+        "imageId": "399bb699-e61d-4b41-b6e9-e594cbad6194"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZENDIKAR_INCARNATE": {
+    "scryfallId": "3a930668-0592-4630-afef-9f709eed7b64",
+    "oracleId": "ecd307e6-9096-401f-bd82-ad190532d389",
+    "name": "Zendikar Incarnate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zendikar Incarnate",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Zendikar Incarnate's power is equal to the number of lands you control.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "3a930668-0592-4630-afef-9f709eed7b64"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FILIGREE_ATTENDANT": {
+    "scryfallId": "411590fe-221e-4f6a-aad5-e156a95ac63b",
+    "oracleId": "ab7c9e72-8f30-47f7-918c-cd3c0593d704",
+    "name": "Filigree Attendant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Filigree Attendant",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Artifact Creature — Homunculus",
+        "oracleText": "Flying\nFiligree Attendant's power is equal to the number of artifacts you control.",
+        "flavorText": "\"The perfect assistant is one that's responsive, dextrous, and capable of reaching all the high shelves.\"\n—Coruk, Esper artificer",
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "411590fe-221e-4f6a-aad5-e156a95ac63b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "brc",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVEROBBER_SPIDER": {
+    "scryfallId": "41810472-ba24-44b6-886c-f8906ff0a7df",
+    "oracleId": "f0ad4a60-ce7f-4117-b8b0-266ffd0447c2",
+    "name": "Graverobber Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Graverobber Spider",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach\n{3}{B}: This creature gets +X/+X until end of turn, where X is the number of creature cards in your graveyard. Activate only once each turn.",
+        "flavorText": "Cloaks woven from its webs are durable and waterproof but said to bring on nightmares.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Richard Wright",
+        "imageId": "41810472-ba24-44b6-886c-f8906ff0a7df"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NANTUKO_MONASTERY": {
+    "scryfallId": "4188a561-46e3-4ddd-8797-f33c37e9adb2",
+    "oracleId": "c6de0ee9-785d-4cd8-8a7f-5bb715763131",
+    "name": "Nantuko Monastery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nantuko Monastery",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\nThreshold — {G}{W}: This land becomes a 4/4 green and white Insect Monk creature with first strike until end of turn. It's still a land. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "4188a561-46e3-4ddd-8797-f33c37e9adb2"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMELT_WARD_IGNUS": {
+    "scryfallId": "4f24b2b6-b994-455f-b8e6-aa73e1be81b4",
+    "oracleId": "494b642c-b2b5-40a0-b741-dca1aa9bdb59",
+    "name": "Smelt-Ward Ignus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smelt-Ward Ignus",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "{2}{R}, Sacrifice this creature: Gain control of target creature with power 3 or less until end of turn. Untap that creature. It gains haste until end of turn. Activate only as a sorcery.",
+        "flavorText": "\"Come in, yes? Is warm!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "4f24b2b6-b994-455f-b8e6-aa73e1be81b4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELKIE_HEDGE_MAGE": {
+    "scryfallId": "5f66b0b4-44fc-444d-9181-0b717c9642fa",
+    "oracleId": "1f1c369a-3209-405b-9880-0e10b86e5698",
+    "name": "Selkie Hedge-Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selkie Hedge-Mage",
+        "manaCost": "{2}{G/U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "When this creature enters, if you control two or more Forests, you may gain 3 life.\nWhen this creature enters, if you control two or more Islands, you may return target tapped creature to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "5f66b0b4-44fc-444d-9181-0b717c9642fa"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSTALKER_ENGINE": {
+    "scryfallId": "61e440ad-462f-4c7e-a646-8c5123a9f6b2",
+    "oracleId": "128b6751-4b47-4d7d-895e-c5d85776f6c4",
+    "name": "Nightstalker Engine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightstalker Engine",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Nightstalker",
+        "oracleText": "Nightstalker Engine's power is equal to the number of creature cards in your graveyard.",
+        "flavorText": "Part metal, part bone, and all death.",
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "61e440ad-462f-4c7e-a646-8c5123a9f6b2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADEYE_PLUNDERERS": {
+    "scryfallId": "63a7a1a4-aec2-467d-91a1-1a2605718c7c",
+    "oracleId": "597afe7c-a4ba-48d0-9c37-d9affe5ba195",
+    "name": "Deadeye Plunderers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadeye Plunderers",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "This creature gets +1/+1 for each artifact you control.\n{2}{U}{B}: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "\"Keep your friends close and your enemies within range.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "63a7a1a4-aec2-467d-91a1-1a2605718c7c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXCALIBUR_II": {
+    "scryfallId": "73c66867-8c4a-45dc-bbfd-53777bdc6c0a",
+    "oracleId": "bfb6651c-e0b3-4dbd-b26a-3eeb690985fc",
+    "name": "Excalibur II",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Excalibur II",
+        "manaCost": "{1}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Whenever you gain life, put a charge counter on Excalibur II.\nEquipped creature gets +1/+1 for each charge counter on Excalibur II.\nEquip {3}",
+        "flavorText": "The ultimate sword, used by a legendary king. It was forged in another world.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Russell Dongjun Lu",
+        "imageId": "73c66867-8c4a-45dc-bbfd-53777bdc6c0a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "pfin",
+    "collectorNumber": "257s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAKMOR_SORCERESS": {
+    "scryfallId": "776faedb-9709-48f7-a669-cc47321f25f3",
+    "oracleId": "be5d9522-40b4-4f45-978b-d78bd00f9491",
+    "name": "Dakmor Sorceress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dakmor Sorceress",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Human Wizard Sorcerer",
+        "oracleText": "Dakmor Sorceress's power is equal to the number of Swamps you control.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "776faedb-9709-48f7-a669-cc47321f25f3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENOM_EVIL_UNLEASHED": {
+    "scryfallId": "78fcfdd0-7744-4fed-83dc-6b9a3235ab6f",
+    "oracleId": "6731d861-cc52-4a2e-8c33-154681fd50e4",
+    "name": "Venom, Evil Unleashed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Venom, Evil Unleashed",
+        "manaCost": "{4}{B}",
+        "typeLine": "Legendary Creature — Symbiote Villain",
+        "oracleText": "Deathtouch\n{2}{B}, Exile this card from your graveyard: Put two +1/+1 counters on target creature. It gains deathtouch until end of turn. Activate only as a sorcery.",
+        "flavorText": "\"We like seeing fear in our victim's eyes.\"",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "78fcfdd0-7744-4fed-83dc-6b9a3235ab6f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "800",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHI_AR_SOLDIER": {
+    "scryfallId": "7fb26734-efbf-4d0b-9fcc-63a2db68adba",
+    "oracleId": "f20ec8e2-d6e4-4707-9b86-107dbc09ac63",
+    "name": "Shi'ar Soldier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shi'ar Soldier",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Shi'ar Soldier",
+        "oracleText": "Flying\n{U}, {T}: Return another target permanent you control to its owner's hand. Activate only during your turn.",
+        "flavorText": "\"For the Majestrix! For Chandilar!\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "7fb26734-efbf-4d0b-9fcc-63a2db68adba"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "637",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONCLAVE_S_BLESSING": {
+    "scryfallId": "86235d9f-ba69-417d-9203-812ab428b374",
+    "oracleId": "938e738f-c982-4bbf-b15f-0c3dd3a9901e",
+    "name": "Conclave's Blessing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conclave's Blessing",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nEnchant creature\nEnchanted creature gets +0/+2 for each other creature you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Shishizaru",
+        "imageId": "86235d9f-ba69-417d-9203-812ab428b374"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant",
+      "Convoke"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEETLE_LEGACY_CRIMINAL": {
+    "scryfallId": "8680fbe9-b231-4334-bca7-7fff7a7b10f9",
+    "oracleId": "87972de1-c1d7-408e-8d56-995590f639b8",
+    "name": "Beetle, Legacy Criminal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beetle, Legacy Criminal",
+        "manaCost": "{3}{U}",
+        "typeLine": "Legendary Creature — Human Rogue Villain",
+        "oracleText": "Flying\n{1}{U}, Exile this card from your graveyard: Put a +1/+1 counter on target creature. It gains flying until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "8680fbe9-b231-4334-bca7-7fff7a7b10f9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRON_MAN_MASTER_OF_MACHINES": {
+    "scryfallId": "8f84ab0a-bf6e-4f28-9da8-998512a224ed",
+    "oracleId": "94bc796d-8c04-4835-8a99-7e5dce9540ee",
+    "name": "Iron Man, Master of Machines",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iron Man, Master of Machines",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Legendary Artifact Creature — Human Hero",
+        "oracleText": "Flying, vigilance\nIron Man gets +1/+0 for each other artifact you control.\nWhenever Iron Man attacks, if an artifact entered the battlefield under your control this turn, draw a card.",
+        "flavorText": "\"The future is what we make it.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "John Tyler Christopher",
+        "imageId": "8f84ab0a-bf6e-4f28-9da8-998512a224ed"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FREEDOM_FIGHTER_RECRUIT": {
+    "scryfallId": "a2d75e36-0824-48db-86ff-ca163be27e2b",
+    "oracleId": "33e66662-aea6-480c-b69b-1907d987b69e",
+    "name": "Freedom Fighter Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Freedom Fighter Recruit",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Rebel Ally",
+        "oracleText": "Freedom Fighter Recruit's power is equal to the number of creatures you control.",
+        "flavorText": "Generations of war created lost children in every nation, with no loyalty to anyone but each other.",
+        "power": "*",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "TAPIOCA",
+        "imageId": "a2d75e36-0824-48db-86ff-ca163be27e2b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORCANT_S_EYES": {
+    "scryfallId": "a730b254-ff7c-4f89-a559-b44ad7fd6c6c",
+    "oracleId": "c55a27cc-8e25-4714-b1da-86e5c1c6661a",
+    "name": "Morcant's Eyes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Morcant's Eyes",
+        "manaCost": "{1}{G}",
+        "typeLine": "Kindred Enchantment — Elf",
+        "oracleText": "At the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\n{4}{G}{G}, Sacrifice this enchantment: Create X 2/2 black and green Elf creature tokens, where X is the number of Elf cards in your graveyard. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "a730b254-ff7c-4f89-a559-b44ad7fd6c6c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRONROOT_WARLORD": {
+    "scryfallId": "b78765aa-f952-47f5-b6fc-8aca93fc4104",
+    "oracleId": "abc49dc3-03b3-48a4-afe1-5fc435b65d0f",
+    "name": "Ironroot Warlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ironroot Warlord",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Treefolk Soldier",
+        "oracleText": "Ironroot Warlord's power is equal to the number of creatures you control.\n{3}{G}{W}: Create a 1/1 white Soldier creature token.",
+        "flavorText": "\"Alone, it's a fortification. At the head of its troops, it's a battering ram.\"\n—Skerk Hobnett, wilderness guide",
+        "power": "*",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "b78765aa-f952-47f5-b6fc-8aca93fc4104"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "452",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MADAME_HYDRA_REANIMATED": {
+    "scryfallId": "c831bdda-06a9-465a-bec5-2b380d28d82a",
+    "oracleId": "7274f6ed-310d-4b65-8083-eedb8e885a33",
+    "name": "Madame Hydra, Reanimated",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Madame Hydra, Reanimated",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Human Horror Villain",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nMadame Hydra gets +1/+1 for each creature card in your graveyard.\nWhenever Madame Hydra enters or attacks, mill two cards. (Put the top two cards of your library into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jennifer Hrabota Lesser",
+        "imageId": "c831bdda-06a9-465a-bec5-2b380d28d82a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace",
+      "Mill"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "538",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOULSURGE_ELEMENTAL": {
+    "scryfallId": "d0dcb81b-dcdb-44ca-9ef5-0b45d276c0dd",
+    "oracleId": "a98764e2-3cf6-40a4-aba5-34e2411623ab",
+    "name": "Soulsurge Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soulsurge Elemental",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "First strike\nSoulsurge Elemental's power is equal to the number of creatures you control.",
+        "flavorText": "It draws its strength from those around it, but the pleasure of destruction is all its own.",
+        "power": "*",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "d0dcb81b-dcdb-44ca-9ef5-0b45d276c0dd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "roe",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIM_SHAMBLER": {
+    "scryfallId": "e59c09a0-a374-46c1-978f-ec7478dc7ab7",
+    "oracleId": "83d2ff7f-4d6e-4cc0-b8a9-3c5b3236eea0",
+    "name": "Nim Shambler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nim Shambler",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "This creature gets +1/+0 for each artifact you control.\nSacrifice a creature: Regenerate this creature.",
+        "flavorText": "Called \"the Dross\" by its inhabitants, Mephidross is home to the nim, Mirrodin's mindless, ravenous undead.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "e59c09a0-a374-46c1-978f-ec7478dc7ab7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASSASSIN_DEN": {
+    "scryfallId": "ef45be55-42d7-475c-b405-78e856530277",
+    "oracleId": "826274fd-9831-4122-a5d9-0d1caa3d3a85",
+    "name": "Assassin Den",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Assassin Den",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\n{3}{U}: Put a +1/+1 counter on target creature you control. It can't be blocked this turn. Activate only as a sorcery.",
+        "flavorText": "The unassuming exterior was the perfect cover for the Brotherhood's operations.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jurijus Chitrovas",
+        "imageId": "ef45be55-42d7-475c-b405-78e856530277"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "281",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

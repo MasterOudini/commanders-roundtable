@@ -973,6 +973,21 @@ const ROW_PAYLOADS: readonly RegExp[] = [
  * and the generator proves: measured by the wide run - the rows the row maker read that the classifier never
  * offered. The subject is `~` after `selfRef` (the printed name, `This creature`).
  */
+const ROW_COUNT_ADJ = '(?:(?:white|blue|black|red|green|snow|nonland|non-Wall) )?';
+const ROW_COUNT_NOUN_ONE = '(?:Ally|Angel|Cat|Dinosaur|Elemental|Elf|Faerie|Forest|Giant|Goblin|Golem|Human|Island|Knight|Merfolk|Mountain|Pirate|Plains|Sliver|Soldier|Spirit|Squirrel|Swamp|Thopter|Turtle|Vampire|Vehicle|Warrior|Zombie|artifact|creature|enchantment|land|permanent)';
+const ROW_COUNT_NOUN_MANY = '(?:Allies|Angels|Cats|Dinosaurs|Elementals|Elves|Faeries|Forests|Giants|Goblins|Golems|Humans|Islands|Knights|Merfolk|Mountains|Pirates|Plains|Slivers|Soldiers|Spirits|Squirrels|Swamps|Thopters|Turtles|Vampires|Vehicles|Warriors|Zombies|artifacts|creatures|enchantments|lands|permanents)';
+const ROW_COUNT_WHERE = '(?:you control|on the battlefield)';
+const ROW_COUNT_COUNTER = '(?:\\+1/\\+1|-1/-1|[a-z]+) counters? on (?:it|~|this creature|this Aura|this Equipment)';
+const ROW_COUNT_ONE = [
+  `(?:other )?${ROW_COUNT_ADJ}${ROW_COUNT_NOUN_ONE} ${ROW_COUNT_WHERE}`,
+  '(?:(?:creature|land|instant|artifact|enchantment) )?card in (?:your graveyard|all graveyards)', 'card in your hand',
+  'instant and sorcery card in your graveyard', '(?:other )?artifact and/or enchantment you control', ROW_COUNT_COUNTER,
+].join('|');
+const ROW_COUNT_MANY = [
+  `(?:other )?${ROW_COUNT_ADJ}${ROW_COUNT_NOUN_MANY} ${ROW_COUNT_WHERE}`,
+  '(?:(?:creature|land|instant|artifact|enchantment) )?cards in (?:your graveyard|all graveyards)', 'cards in your hand',
+  'instant and sorcery cards in your graveyard', '(?:other )?artifacts and/or enchantments you control', ROW_COUNT_COUNTER,
+].join('|');
 const ROW_STATICS: readonly RegExp[] = [
   /^~ can't be blocked\.$/,
   /^~ can't block\.$/,
@@ -981,6 +996,11 @@ const ROW_STATICS: readonly RegExp[] = [
   /^~ can't be blocked by creatures with power (?:[1-9]|\d{2,}) or less\.$|^~ can't be blocked by creatures with power [0-5] or greater\.$/,
   /^Enchanted creature doesn't untap during its controller's untap step\.$/,
   /^~ can't be countered\.$/,
+  // D430 - THE COUNTED STATIC: a self pump, an attached pump or a power-only CDA whose amount is a count the row
+  // maker's closed reader takes (`ROW_COUNT`, singular under `for each`, plural under `the number of`).
+  new RegExp(`^~ gets [+-]\\d+/[+-]\\d+ for each (?:${ROW_COUNT_ONE})\\.$`),
+  new RegExp(`^(?:Enchanted|Equipped) creature gets [+-]\\d+/[+-]\\d+ for each (?:${ROW_COUNT_ONE})\\.$`),
+  new RegExp(`^~'s power is equal to the number of (?:${ROW_COUNT_MANY})\\.$`),
 ];
 function rowMakerStatic(text: string, cardName: string): boolean {
   const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');

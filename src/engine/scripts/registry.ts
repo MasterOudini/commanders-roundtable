@@ -7,6 +7,48 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ENIGMA_DRAKE_SCRIPT } from './cards/enigmaDrake';
+import { FLESHFORMER_SCRIPT } from './cards/fleshformer';
+import { STORM_KILN_ARTIST_SCRIPT } from './cards/stormKilnArtist';
+import { ENTOMBER_EXARCH_SCRIPT } from './cards/entomberExarch';
+import { SYLVAN_YETI_SCRIPT } from './cards/sylvanYeti';
+import { SPELLHEART_CHIMERA_SCRIPT } from './cards/spellheartChimera';
+import { AETHERJACKET_SCRIPT } from './cards/aetherjacket';
+import { SIMA_YI_WEI_FIELD_MARSHAL_SCRIPT } from './cards/simaYiWeiFieldMarshal';
+import { SHAMBLING_SUIT_SCRIPT } from './cards/shamblingSuit';
+import { SUSPENSION_FIELD_SCRIPT } from './cards/suspensionField';
+import { ALL_THAT_GLITTERS_SCRIPT } from './cards/allThatGlitters';
+import { HAUGHTY_DJINN_SCRIPT } from './cards/haughtyDjinn';
+import { VILESPAWN_SPIDER_SCRIPT } from './cards/vilespawnSpider';
+import { DISCIPLE_OF_THE_RING_SCRIPT } from './cards/discipleOfTheRing';
+import { UURG_SPAWN_OF_TURG_SCRIPT } from './cards/uurgSpawnOfTurg';
+import { BORDERLAND_BEHEMOTH_SCRIPT } from './cards/borderlandBehemoth';
+import { CEPHALOPOD_SENTRY_SCRIPT } from './cards/cephalopodSentry';
+import { COILING_WOODWORM_SCRIPT } from './cards/coilingWoodworm';
+import { HEROES_FOR_HIRE_SCRIPT } from './cards/heroesForHire';
+import { SNOW_VILLIERS_SCRIPT } from './cards/snowVilliers';
+import { ZENDIKAR_INCARNATE_SCRIPT } from './cards/zendikarIncarnate';
+import { FILIGREE_ATTENDANT_SCRIPT } from './cards/filigreeAttendant';
+import { GRAVEROBBER_SPIDER_SCRIPT } from './cards/graverobberSpider';
+import { NANTUKO_MONASTERY_SCRIPT } from './cards/nantukoMonastery';
+import { SMELT_WARD_IGNUS_SCRIPT } from './cards/smeltWardIgnus';
+import { SELKIE_HEDGE_MAGE_SCRIPT } from './cards/selkieHedgeMage';
+import { NIGHTSTALKER_ENGINE_SCRIPT } from './cards/nightstalkerEngine';
+import { DEADEYE_PLUNDERERS_SCRIPT } from './cards/deadeyePlunderers';
+import { EXCALIBUR_II_SCRIPT } from './cards/excaliburIi';
+import { DAKMOR_SORCERESS_SCRIPT } from './cards/dakmorSorceress';
+import { VENOM_EVIL_UNLEASHED_SCRIPT } from './cards/venomEvilUnleashed';
+import { SHIAR_SOLDIER_SCRIPT } from './cards/shiarSoldier';
+import { CONCLAVES_BLESSING_SCRIPT } from './cards/conclavesBlessing';
+import { BEETLE_LEGACY_CRIMINAL_SCRIPT } from './cards/beetleLegacyCriminal';
+import { IRON_MAN_MASTER_OF_MACHINES_SCRIPT } from './cards/ironManMasterOfMachines';
+import { FREEDOM_FIGHTER_RECRUIT_SCRIPT } from './cards/freedomFighterRecruit';
+import { MORCANTS_EYES_SCRIPT } from './cards/morcantsEyes';
+import { IRONROOT_WARLORD_SCRIPT } from './cards/ironrootWarlord';
+import { MADAME_HYDRA_REANIMATED_SCRIPT } from './cards/madameHydraReanimated';
+import { SOULSURGE_ELEMENTAL_SCRIPT } from './cards/soulsurgeElemental';
+import { NIM_SHAMBLER_SCRIPT } from './cards/nimShambler';
+import { ASSASSIN_DEN_SCRIPT } from './cards/assassinDen';
 import { SKIRSDAG_HIGH_PRIEST_SCRIPT } from './cards/skirsdagHighPriest';
 import { WURMS_TOOTH_SCRIPT } from './cards/wurmsTooth';
 import { BEREAVEMENT_SCRIPT } from './cards/bereavement';
@@ -6550,6 +6592,48 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ENIGMA_DRAKE_SCRIPT,
+  FLESHFORMER_SCRIPT,
+  STORM_KILN_ARTIST_SCRIPT,
+  ENTOMBER_EXARCH_SCRIPT,
+  SYLVAN_YETI_SCRIPT,
+  SPELLHEART_CHIMERA_SCRIPT,
+  AETHERJACKET_SCRIPT,
+  SIMA_YI_WEI_FIELD_MARSHAL_SCRIPT,
+  SHAMBLING_SUIT_SCRIPT,
+  SUSPENSION_FIELD_SCRIPT,
+  ALL_THAT_GLITTERS_SCRIPT,
+  HAUGHTY_DJINN_SCRIPT,
+  VILESPAWN_SPIDER_SCRIPT,
+  DISCIPLE_OF_THE_RING_SCRIPT,
+  UURG_SPAWN_OF_TURG_SCRIPT,
+  BORDERLAND_BEHEMOTH_SCRIPT,
+  CEPHALOPOD_SENTRY_SCRIPT,
+  COILING_WOODWORM_SCRIPT,
+  HEROES_FOR_HIRE_SCRIPT,
+  SNOW_VILLIERS_SCRIPT,
+  ZENDIKAR_INCARNATE_SCRIPT,
+  FILIGREE_ATTENDANT_SCRIPT,
+  GRAVEROBBER_SPIDER_SCRIPT,
+  NANTUKO_MONASTERY_SCRIPT,
+  SMELT_WARD_IGNUS_SCRIPT,
+  SELKIE_HEDGE_MAGE_SCRIPT,
+  NIGHTSTALKER_ENGINE_SCRIPT,
+  DEADEYE_PLUNDERERS_SCRIPT,
+  EXCALIBUR_II_SCRIPT,
+  DAKMOR_SORCERESS_SCRIPT,
+  VENOM_EVIL_UNLEASHED_SCRIPT,
+  SHIAR_SOLDIER_SCRIPT,
+  CONCLAVES_BLESSING_SCRIPT,
+  BEETLE_LEGACY_CRIMINAL_SCRIPT,
+  IRON_MAN_MASTER_OF_MACHINES_SCRIPT,
+  FREEDOM_FIGHTER_RECRUIT_SCRIPT,
+  MORCANTS_EYES_SCRIPT,
+  IRONROOT_WARLORD_SCRIPT,
+  MADAME_HYDRA_REANIMATED_SCRIPT,
+  SOULSURGE_ELEMENTAL_SCRIPT,
+  NIM_SHAMBLER_SCRIPT,
+  ASSASSIN_DEN_SCRIPT,
   SKIRSDAG_HIGH_PRIEST_SCRIPT,
   WURMS_TOOTH_SCRIPT,
   BEREAVEMENT_SCRIPT,
