@@ -1005,6 +1005,19 @@ export function effectResult(
        * to the caster's own graveyard (D138), and re-deciding it here from the
        * caster would send a stolen card to the wrong hand.
        */
+      // D436 - the graveyard-card target: out of whichever graveyard the aim sits in (the target layer admitted it),
+      // into exile or under its owner's library. Not `moveTo` - that helper hardcodes `from: battlefield`.
+      case 'exileFromGraveyard': {
+        if (aim?.kind !== 'card') break;
+        out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: 'graveyard', player: aim.owner }, to: { kind: 'exile', player: aim.owner } }] });
+        break;
+      }
+      case 'graveyardToLibraryBottom': {
+        if (aim?.kind !== 'card') break;
+        // The bottom of a library is the FRONT of the array (`drawFromTop` takes from the end): `placement` says so.
+        out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: 'graveyard', player: aim.owner }, to: { kind: 'library', player: aim.owner }, placement: 'bottom' }] });
+        break;
+      }
       case 'returnFromGraveyard': {
         if (aim?.kind !== 'card') break;
         // ⚠️ NOT `moveTo` — that helper hardcodes `from: battlefield`, which is

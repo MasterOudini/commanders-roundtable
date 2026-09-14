@@ -1552,6 +1552,22 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE }),
   },
   /**
+   * D436 - THE GRAVEYARD-CARD TARGET, one verb over from the returns above: `Exile target card from a graveyard.`
+   * (any graveyard - the target parser reads `a` as no owner), `... from your graveyard`, `... from an opponent's
+   * graveyard`, with the adjectives and nouns `GY_NOUN` admits; and `Put target card from a graveyard on the bottom
+   * of its owner's library.` Neither asks; a counted clause (`up to one`) runs once per pick.
+   */
+  {
+    kind: 'exileFromGraveyard',
+    re: new RegExp(`^exile ${COUNTED}target ${GY_NOUN} from (?:a|your|an opponent's) graveyard\\.$`, 'i'),
+    build: () => ({ ...BASE }),
+  },
+  {
+    kind: 'graveyardToLibraryBottom',
+    re: new RegExp(`^put ${COUNTED}target ${GY_NOUN} from (?:a|your|an opponent's) graveyard on the bottom of (?:its|their) owner's library\\.$`, 'i'),
+    build: () => ({ ...BASE }),
+  },
+  /**
    * M6.3n. `Forbidden Alchemy` and `Sleight of Hand` — look at the top N, keep
    * some, and the rest go somewhere. See D141.
    *

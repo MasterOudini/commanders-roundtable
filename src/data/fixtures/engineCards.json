@@ -247043,6 +247043,1370 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "REITO_SENTINEL": {
+    "scryfallId": "0218923a-b685-4492-8fdd-2d2d22ef532e",
+    "oracleId": "e574bfdb-505b-4d61-a376-6d26f03cd9b1",
+    "name": "Reito Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reito Sentinel",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Defender\nWhen this creature enters, target player mills three cards. (They put the top three cards of their library into their graveyard.)\n{3}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Auden Nash",
+        "imageId": "0218923a-b685-4492-8fdd-2d2d22ef532e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Mill",
+      "Defender"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONORED_HEIRLOOM": {
+    "scryfallId": "0364dedb-bdad-405f-b4f1-0a94af79824c",
+    "oracleId": "4bf0427e-5e87-4d32-ad34-1d8946ab96fd",
+    "name": "Honored Heirloom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honored Heirloom",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add one mana of any color.\n{2}, {T}: Exile target card from a graveyard.",
+        "flavorText": "After the Travails, Runechanters set about repairing twisted symbols of Avacyn as the first step in restoring faith in the Church.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leanna Crossan",
+        "imageId": "0364dedb-bdad-405f-b4f1-0a94af79824c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dbl",
+    "collectorNumber": "524",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYPT_CREEPER": {
+    "scryfallId": "0382cb94-0836-4e23-99b7-034faa363203",
+    "oracleId": "00b3971b-5bf7-4a3f-9607-6265f9af9098",
+    "name": "Crypt Creeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crypt Creeper",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Sacrifice this creature: Exile target card from a graveyard.",
+        "flavorText": "\"I guess what they say is true. What doesn't kill you makes you stronger. Or at least stranger.\"\n—Captain Eberhart",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Scott Chou",
+        "imageId": "0382cb94-0836-4e23-99b7-034faa363203"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUNKTROLLER": {
+    "scryfallId": "03fd8ee5-0a2a-4c68-9b09-01945c7189ab",
+    "oracleId": "6ef46fd7-82db-45d3-b02e-7312384577f3",
+    "name": "Junktroller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Junktroller",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Defender\n{T}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "\"Hey, wait! That's my boot!\"\n—Darijo, Ivy Street ruffian",
+        "power": "0",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Seaman",
+        "imageId": "03fd8ee5-0a2a-4c68-9b09-01945c7189ab"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISPOSAL_MUMMY": {
+    "scryfallId": "08c1ed4b-b9e0-43ba-a9e0-e836cb5f6dcc",
+    "oracleId": "002a9cea-8cf7-48ba-83eb-e1c87a7024e5",
+    "name": "Disposal Mummy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disposal Mummy",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Zombie Jackal",
+        "oracleText": "When this creature enters, exile target card from an opponent's graveyard.",
+        "flavorText": "Without the viziers to oversee their actions, some anointed went to extreme lengths to fulfill their directives.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "08c1ed4b-b9e0-43ba-a9e0-e836cb5f6dcc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "HOU-9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWNBRINGER_CLERIC": {
+    "scryfallId": "116033fe-1fc4-4282-921b-57785eeec054",
+    "oracleId": "0146f430-da82-48d3-a576-c2b05101797f",
+    "name": "Dawnbringer Cleric",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawnbringer Cleric",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature enters, choose one —\n• Cure Wounds — You gain 2 life.\n• Dispel Magic — Destroy target enchantment.\n• Gentle Repose — Exile target card from a graveyard.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "116033fe-1fc4-4282-921b-57785eeec054"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "AFR-9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONECLOAKER": {
+    "scryfallId": "134e37be-b3ca-40fc-8c4a-1584f2d60884",
+    "oracleId": "b2d597f4-162f-4adc-9dc9-6d44815b7a68",
+    "name": "Stonecloaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stonecloaker",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Gargoyle",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, return a creature you control to its owner's hand.\nWhen this creature enters, exile target card from a graveyard.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tomas Giorello",
+        "imageId": "134e37be-b3ca-40fc-8c4a-1584f2d60884"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "td0",
+    "collectorNumber": "A16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NANTUKO_TRACER": {
+    "scryfallId": "16b93c93-5944-4289-bc5a-30b6e73b0dfd",
+    "oracleId": "4fd567cb-0b8e-41dd-a2b7-87a196de294a",
+    "name": "Nantuko Tracer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nantuko Tracer",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Insect Druid",
+        "oracleText": "When this creature enters, you may put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Your past is a map to where you will go.\n—Nantuko teaching",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "16b93c93-5944-4289-bc5a-30b6e73b0dfd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jud",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROGENESIS": {
+    "scryfallId": "1dc3ea5f-1261-4f27-a87a-2b4475ad6a4b",
+    "oracleId": "ad08952a-bcae-41d6-8093-c18535dad7d5",
+    "name": "Necrogenesis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrogenesis",
+        "manaCost": "{B}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{2}: Exile target creature card from a graveyard. Create a 1/1 green Saproling creature token.",
+        "flavorText": "\"Those may be the squirms of one life ending or of another beginning. Either way, I'd leave it alone.\"\n—Rakka Mar",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "1dc3ea5f-1261-4f27-a87a-2b4475ad6a4b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ala",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRABEN_HERETIC": {
+    "scryfallId": "20eb4f21-2f20-4e4b-998c-a72527585549",
+    "oracleId": "67247945-17b7-4cb8-ba65-d0dfec367b77",
+    "name": "Thraben Heretic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thraben Heretic",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Exile target creature card from a graveyard.",
+        "flavorText": "\"Let them decry me for burning the dead. I'm not giving those ghoulcallers any more fuel for their madness.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "20eb4f21-2f20-4e4b-998c-a72527585549"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddq",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WITHERED_WRETCH": {
+    "scryfallId": "235f15f5-1a5a-4eff-b0db-262f777e2b66",
+    "oracleId": "29e13ec1-a239-4217-a2bd-24ff90745ec0",
+    "name": "Withered Wretch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Withered Wretch",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Zombie Cleric",
+        "oracleText": "{1}: Exile target card from a graveyard.",
+        "flavorText": "Once it consecrated the dead. Now it desecrates them.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tim Hildebrandt",
+        "imageId": "235f15f5-1a5a-4eff-b0db-262f777e2b66"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMBUSH_WOLF": {
+    "scryfallId": "2903832c-318e-42ab-bf58-c682ec2f7afd",
+    "oracleId": "4c48de92-e053-4af7-b936-d7ec0875e0d3",
+    "name": "Ambush Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ambush Wolf",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, exile up to one target card from a graveyard.",
+        "flavorText": "It lies perfectly still and silent for hours, concealed in the undergrowth, until its prey draws close enough to strike.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "2903832c-318e-42ab-bf58-c682ec2f7afd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUIN_RAT": {
+    "scryfallId": "2d72f330-a9cb-462b-9fc0-b6371b462fdd",
+    "oracleId": "f77012cd-170f-40df-816b-330bf85e809d",
+    "name": "Ruin Rat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruin Rat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "Deathtouch\nWhen this creature dies, exile target card from an opponent's graveyard.",
+        "flavorText": "From every shadow came the dull scratch of teeth on bones.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Shreya Shetty",
+        "imageId": "2d72f330-a9cb-462b-9fc0-b6371b462fdd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "HOU-75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROSSROADS_CANDLEGUIDE": {
+    "scryfallId": "2d7cbc98-917e-4cea-858d-1c4083a2eaee",
+    "oracleId": "1b817184-4965-4186-bfa9-6d9cf198050e",
+    "name": "Crossroads Candleguide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crossroads Candleguide",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Scarecrow",
+        "oracleText": "When this creature enters, exile up to one target card from a graveyard.\n{2}: Add one mana of any color.",
+        "flavorText": "Do the candleguides' heads turn to follow you as you pass, or is it merely a trick of the flickering light?",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Murayama Scott",
+        "imageId": "2d7cbc98-917e-4cea-858d-1c4083a2eaee"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dbl",
+    "collectorNumber": "253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_GUIDE_GRYFF": {
+    "scryfallId": "39388258-cf07-4f29-a379-c743ecac680b",
+    "oracleId": "e26a08de-6108-4051-9c42-b5ce9dd8b533",
+    "name": "Soul-Guide Gryff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul-Guide Gryff",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Hippogriff Spirit",
+        "oracleText": "Flying\nWhen this creature enters, exile up to one target card from a graveyard.",
+        "flavorText": "It conducts the souls of the righteous to their blessed rest and the spirits of the evil to justice.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "39388258-cf07-4f29-a379-c743ecac680b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CREAKWOOD_GHOUL": {
+    "scryfallId": "3d4e94d3-0df5-4d2b-a5d9-178fe1350ceb",
+    "oracleId": "94c47804-bb64-4a91-85c5-9241c39685aa",
+    "name": "Creakwood Ghoul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Creakwood Ghoul",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Plant Zombie",
+        "oracleText": "{B/G}{B/G}: Exile target card from a graveyard. You gain 1 life.",
+        "flavorText": "Some eat the living. Some eat the dead. It eats the past.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "3d4e94d3-0df5-4d2b-a5d9-178fe1350ceb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEAMCLAW": {
+    "scryfallId": "4f84a9bf-ce64-4301-8f2c-20f1b4acd3ef",
+    "oracleId": "8cbc0fa4-4f62-47e1-90dc-c21d2682a493",
+    "name": "Steamclaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steamclaw",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}: Exile target card from a graveyard.\n{1}, Sacrifice this artifact: Exile target card from a graveyard.",
+        "flavorText": "\"There's dead, and then there's *dead* dead.\"\n—Steamclaw driver",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jim Nelson",
+        "imageId": "4f84a9bf-ce64-4301-8f2c-20f1b4acd3ef"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JADE_CAST_SENTINEL": {
+    "scryfallId": "516ce5fa-bd00-429b-ba22-b38c7dd9306c",
+    "oracleId": "985192cd-ceb6-48ad-80b9-e10fc544260e",
+    "name": "Jade-Cast Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jade-Cast Sentinel",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Ape Snake",
+        "oracleText": "Reach\n{2}, {T}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Set in motion by artificers long forgotten, it remained loyal through the ages to the occupants of Kheru City.",
+        "power": "1",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Astruga",
+        "imageId": "516ce5fa-bd00-429b-ba22-b38c7dd9306c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLEANUP_CREW": {
+    "scryfallId": "5354868b-c96b-4765-b0c8-8895093e4019",
+    "oracleId": "12e0321b-1cd7-4519-8929-3261cf11a1a9",
+    "name": "Cleanup Crew",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cleanup Crew",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "When this creature enters, choose one —\n• Destroy target artifact.\n• Destroy target enchantment.\n• Exile target card from a graveyard.\n• You gain 4 life.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "5354868b-c96b-4765-b0c8-8895093e4019"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MECHANICAL_MOBSTER": {
+    "scryfallId": "540e334b-5c75-499e-860c-38bd260792d5",
+    "oracleId": "b0672aa3-3207-4ff8-af8f-bdabacbb4d04",
+    "name": "Mechanical Mobster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mechanical Mobster",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Human Robot Villain",
+        "oracleText": "When this creature enters, exile up to one target card from a graveyard. Target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Caio Monteiro",
+        "imageId": "540e334b-5c75-499e-860c-38bd260792d5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Connive"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEMETERY_REAPER": {
+    "scryfallId": "56494d1e-0d7e-4c29-942c-b376ff07cdf8",
+    "oracleId": "70fa209f-5e79-44de-81ce-1d8d0d8c1006",
+    "name": "Cemetery Reaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cemetery Reaper",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Other Zombie creatures you control get +1/+1.\n{2}{B}, {T}: Exile target creature card from a graveyard. Create a 2/2 black Zombie creature token.",
+        "flavorText": "Every grave cradles a recruit.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "56494d1e-0d7e-4c29-942c-b376ff07cdf8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGIC_POT": {
+    "scryfallId": "57d07ca0-5618-4a90-a605-ca14a193ce3b",
+    "oracleId": "caed9999-74b8-43e3-a319-fa505c04c71c",
+    "name": "Magic Pot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magic Pot",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Goblin Construct",
+        "oracleText": "When this creature dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\n{2}, {T}: Exile target card from a graveyard.",
+        "flavorText": "\"Gimme elixir!\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Astruga",
+        "imageId": "57d07ca0-5618-4a90-a605-ca14a193ce3b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "263",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APOSTLE_OF_PURIFYING_LIGHT": {
+    "scryfallId": "62f69602-b5fd-46d6-8dae-d77df35e378c",
+    "oracleId": "0b49dbdc-4f1d-4895-b263-a48c7b7e6b44",
+    "name": "Apostle of Purifying Light",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apostle of Purifying Light",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Protection from black (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything black.)\n{2}: Exile target card from a graveyard.",
+        "flavorText": "Waves of gloom crash in vain against his unyielding light.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "62f69602-b5fd-46d6-8dae-d77df35e378c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOARDING_RECLUSE": {
+    "scryfallId": "6559afec-6bb8-4501-8805-4eb108443048",
+    "oracleId": "5fc09704-56cf-4e47-bd96-27ac34434941",
+    "name": "Hoarding Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hoarding Recluse",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach, deathtouch\nWhen this creature dies, put up to one other target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "To the spiders of Argoth, thopters were just bigger, crunchier flies.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jorge Jacinto",
+        "imageId": "6559afec-6bb8-4501-8805-4eb108443048"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Deathtouch"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPTOR_WANDERGLYPH": {
+    "scryfallId": "7802ca61-6fcc-4965-9f8f-dd58fe82c6bf",
+    "oracleId": "81dda1a8-72ac-4e69-8367-4f72c445197c",
+    "name": "Disruptor Wanderglyph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disruptor Wanderglyph",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever this creature attacks, exile target card from an opponent's graveyard.",
+        "flavorText": "Wherever the spores begin to take hold, it crushes the ground to rubble.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Izzy",
+        "imageId": "7802ca61-6fcc-4965-9f8f-dd58fe82c6bf"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEONIN_OF_THE_LOST_PRIDE": {
+    "scryfallId": "7bef4958-9df3-4751-9ec6-325afa592a7b",
+    "oracleId": "3c692dd9-3986-46de-ac10-cc917b7c41b7",
+    "name": "Leonin of the Lost Pride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leonin of the Lost Pride",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Warrior",
+        "oracleText": "When this creature dies, exile target card from an opponent's graveyard.",
+        "flavorText": "Leonin band together in the Underworld, taking solace in their strength until, at last, both pride and self are forgotten.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "7bef4958-9df3-4751-9ec6-325afa592a7b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEAP_DOLL": {
+    "scryfallId": "86d726e1-a363-4d77-97d4-e8c94f93fd51",
+    "oracleId": "aa7f0f15-bcbb-4af5-ad31-ff215dd81e71",
+    "name": "Heap Doll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heap Doll",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Scarecrow",
+        "oracleText": "Sacrifice this creature: Exile target card from a graveyard.",
+        "flavorText": "\"I know one night it won't come back. Then I'll know it's truly done its job.\"\n—Braenna, cobblesmith",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "86d726e1-a363-4d77-97d4-e8c94f93fd51"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COGWORK_ARCHIVIST": {
+    "scryfallId": "8c024a2d-20fb-478b-a62e-e3590a1e3ac1",
+    "oracleId": "60674ef7-f8e2-41e8-bab3-0100cfc9fbe9",
+    "name": "Cogwork Archivist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cogwork Archivist",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Reach\n{2}, {T}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "\"It's the largest library in the Multiverse. Of course it has the largest librarians.\"\n—Kasmina",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joseph Meehan",
+        "imageId": "8c024a2d-20fb-478b-a62e-e3590a1e3ac1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "stx",
+    "collectorNumber": "254",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHROME_COMPANION": {
+    "scryfallId": "8ef269a0-1cb9-4901-81e6-43db3ae3756c",
+    "oracleId": "1ac6fabb-71db-442f-8c14-ba9e659f906c",
+    "name": "Chrome Companion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chrome Companion",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Dog",
+        "oracleText": "Whenever this creature becomes tapped, you gain 1 life.\n{2}, {T}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Liberation Station's morale greatly improved after Rover took up residence.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Gray Highsmith",
+        "imageId": "8ef269a0-1cb9-4901-81e6-43db3ae3756c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "236",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REITO_LANTERN": {
+    "scryfallId": "90eba910-852b-47e0-b4cd-07f30d80f921",
+    "oracleId": "ea871b01-ebaf-4987-a2bf-949cdd367ad1",
+    "name": "Reito Lantern",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reito Lantern",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Lanterns carved from the mystic stones of the Reito Mines were said to light the way of lost souls.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Hildebrandt",
+        "imageId": "90eba910-852b-47e0-b4cd-07f30d80f921"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "267",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_ARCHIVIST": {
+    "scryfallId": "93960b5e-b13c-4f7d-a826-8aad6bd210b4",
+    "oracleId": "cdef800d-033e-4095-964d-9b6066f9fd36",
+    "name": "Phyrexian Archivist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Archivist",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Phyrexian Construct",
+        "oracleText": "Reach\n{2}, {T}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Silence quickly went from an annoying library rule to an imperative for survival.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andreas Zafiratos",
+        "imageId": "93960b5e-b13c-4f7d-a826-8aad6bd210b4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "262",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VESSEL_OF_ENDLESS_REST": {
+    "scryfallId": "93ec86a5-7d2f-4413-919e-b4f7c70457df",
+    "oracleId": "8031285b-2add-42da-aa97-03c3f2fff226",
+    "name": "Vessel of Endless Rest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vessel of Endless Rest",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, put target card from a graveyard on the bottom of its owner's library.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Avon",
+        "imageId": "93ec86a5-7d2f-4413-919e-b4f7c70457df"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "uma",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVE_ROBBERS": {
+    "scryfallId": "a131605a-f646-4745-a1e4-48d155a3d94f",
+    "oracleId": "6698b059-f1ed-4023-9d44-fbdf39fb159a",
+    "name": "Grave Robbers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grave Robbers",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{B}, {T}: Exile target artifact card from a graveyard. You gain 2 life.",
+        "flavorText": "\"If you don't have your health, you don't have anything.\"\n—Proverb",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "a131605a-f646-4745-a1e4-48d155a3d94f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "drk",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOVERSTONE_PILGRIM": {
+    "scryfallId": "af7e12ee-3db6-4df7-9859-7a8dee9171c7",
+    "oracleId": "64399663-2c1e-447e-a3ed-c49ebd9f2231",
+    "name": "Hoverstone Pilgrim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hoverstone Pilgrim",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Flying\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\n{2}: Put target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "They scour for secrets in places too distant or dangerous for humans to tread.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Izzy",
+        "imageId": "af7e12ee-3db6-4df7-9859-7a8dee9171c7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Ward"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "254",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCAVENGING_HARPY": {
+    "scryfallId": "b0e237c5-45b4-49df-adb9-62b9f3b62986",
+    "oracleId": "94ea649c-9d4f-4882-a947-e2df4993b996",
+    "name": "Scavenging Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scavenging Harpy",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Harpy",
+        "oracleText": "Flying\nWhen this creature enters, exile target card from an opponent's graveyard.",
+        "flavorText": "Desecrating the dead is a convenient way for harpies to expand their foul collections.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daniel Ljunggren",
+        "imageId": "b0e237c5-45b4-49df-adb9-62b9f3b62986"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEWERDREG": {
+    "scryfallId": "b216ad4e-29b4-4e03-8c16-5796277bd05f",
+    "oracleId": "f05e3fb4-a7e0-4dfa-9f3e-5109be79ef16",
+    "name": "Sewerdreg",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sewerdreg",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nSacrifice this creature: Exile target card from a graveyard.",
+        "flavorText": "They hardly have form, dripping through pipe and grate with the slip and stench of flowing sewage.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joel Thomas",
+        "imageId": "b216ad4e-29b4-4e03-8c16-5796277bd05f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Landwalk",
+      "Swampwalk"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORTIPHOBIA": {
+    "scryfallId": "c7b93caa-0f43-43ac-84e9-99f6bcbf9e81",
+    "oracleId": "4fb8312c-058a-415c-93ab-59d37ebad270",
+    "name": "Mortiphobia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mortiphobia",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "{1}{B}, Discard a card: Exile target card from a graveyard.\n{1}{B}, Sacrifice this enchantment: Exile target card from a graveyard.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "c7b93caa-0f43-43ac-84e9-99f6bcbf9e81"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tor",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWIFTGEAR_DRAKE": {
+    "scryfallId": "d5ae38a2-2f95-4750-9b59-53eb1771e5ab",
+    "oracleId": "b7618312-6835-4851-9651-b5402001b3b0",
+    "name": "Swiftgear Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swiftgear Drake",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Drake",
+        "oracleText": "Flying, haste\nWhen this creature enters, put up to one target card from a graveyard on the bottom of its owner's library.",
+        "flavorText": "Inspired by fishing raptors, Tawnos designed the drake's talons to seize prey with overwhelming speed and precision.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zoltan Boros",
+        "imageId": "d5ae38a2-2f95-4750-9b59-53eb1771e5ab"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASCENDANT_DUSTSPEAKER": {
+    "scryfallId": "de3de40b-a7ac-455e-add2-4e451b602d17",
+    "oracleId": "295f8b8d-102a-47af-93c2-f8182c5f11ca",
+    "name": "Ascendant Dustspeaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ascendant Dustspeaker",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Orc Cleric",
+        "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on another target creature you control.\nAt the beginning of combat on your turn, exile up to one target card from a graveyard.",
+        "flavorText": "You can always tell who just left Professor Osgir's lecture on practical restoration.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josiah \"Jo\" Cameron",
+        "imageId": "de3de40b-a7ac-455e-add2-4e451b602d17"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WRECK_REMOVER": {
+    "scryfallId": "e3151960-cc0c-47b5-b476-295d7a17ae14",
+    "oracleId": "89c89499-23a8-412d-9406-1a7ffc88c64d",
+    "name": "Wreck Remover",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wreck Remover",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Whenever this creature enters or attacks, exile up to one target card from a graveyard. You gain 1 life.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": "\"Don't get too cocky. We're all junk to the cleanup crew.\"\n—Far Fortune",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Villarrte",
+        "imageId": "e3151960-cc0c-47b5-b476-295d7a17ae14"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALEVOLENT_CHANDELIER": {
+    "scryfallId": "ef09d296-4493-47f7-ad76-ad76c747df78",
+    "oracleId": "437553c1-0aa4-4093-b6e5-c175ede5f278",
+    "name": "Malevolent Chandelier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malevolent Chandelier",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Flying\n{2}: Put target card from a graveyard on the bottom of its owner's library. Activate only as a sorcery.",
+        "flavorText": "\"If you see a light moving toward you in the darkness, don't assume it's coming to help.\"\n—Winter",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mirko Failoni",
+        "imageId": "ef09d296-4493-47f7-ad76-ad76c747df78"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARTLED_RELIC_SLOTH": {
+    "scryfallId": "f143fd41-58c3-45a0-bef8-e9e4b4a502a5",
+    "oracleId": "5d46e85f-4a04-48b1-afe9-3a47678041d4",
+    "name": "Startled Relic Sloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Startled Relic Sloth",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Creature — Sloth Beast",
+        "oracleText": "Trample, lifelink\nAt the beginning of combat on your turn, exile up to one target card from a graveyard.",
+        "flavorText": "\"Should your sloth become agitated, remove all valuables from the immediate area and wait for it to tire out. This will not take long.\"\n—Lorehold student handbook",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "David Astruga",
+        "imageId": "f143fd41-58c3-45a0-bef8-e9e4b4a502a5"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Trample"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

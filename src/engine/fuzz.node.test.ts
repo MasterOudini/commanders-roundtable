@@ -280,6 +280,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // seat each, so the pair fires without a second event or the coin's consent (the counter reads the stack, not the prompt).
   { names: ['Stadium Tidalmage', 'Rook Turret', 'Riddlesmith'], copiesPerSeat: 2,
     counterKeys: ['ifYouDoFires'], rotHistory: 'D435' },
+  // D436 - the graveyard-card target: Honored Heirloom ({3}; {2}, {T}: exile target card from a graveyard) and Crypt
+  // Creeper ({1}{B}; sacrifice: the same) - a colourless activation and a cheap one; the graveyards fill by turn two.
+  { names: ['Honored Heirloom', 'Crypt Creeper'], copiesPerSeat: 2,
+    counterKeys: ['graveyardAims'], rotHistory: 'D436' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1126,6 +1130,8 @@ interface Run {
   readonly millsResolved: number;
   /** D435 - the if-you-do pair's fires: stack objects whose label carries the conditional sentence (a hand of one asks nothing). */
   readonly ifYouDoFires: number;
+  /** D436 - abilities aimed at a card in a graveyard that reached the stack (a fire needs a legal aim: the target layer found one). */
+  readonly graveyardAims: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1504,6 +1510,7 @@ function runOne(seed: number): Run {
     drawStepHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:eachPlayerDrawStep|yourDrawStep)-/.test(e.body.obj.abilityRef ?? '')).length,
     millsResolved: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.length > 0 && e.body.moves.every((m) => m.from.kind === 'library' && m.to.kind === 'graveyard')).length,
     ifYouDoFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /\. If you do, (?:discard|draw) /.test(e.body.obj.label)).length,
+    graveyardAims: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /target [a-z ,]*card from (?:a|your|an opponent's) graveyard/i.test(e.body.obj.label) && e.body.obj.targets.some((t) => t.kind === 'card')).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1702,6 +1709,7 @@ const TOTAL_KEYS = [
   'drawStepHeadFires',
   'millsResolved',
   'ifYouDoFires',
+  'graveyardAims',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -2025,6 +2033,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.millsResolved).toBeGreaterThan(0);
         // D435 - an if-you-do loot fired at gate size (Stadium Tidalmage, Rook Turret, Riddlesmith).
         expect(totals.ifYouDoFires).toBeGreaterThan(0);
+        // D436 - an ability aimed at a graveyard card at gate size (Honored Heirloom, Crypt Creeper).
+        expect(totals.graveyardAims).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2124,6 +2134,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.drawStepHeadFires} draw-step triggers · ` +
           `${totals.millsResolved} mills resolved · ` +
           `${totals.ifYouDoFires} if-you-do fires · ` +
+          `${totals.graveyardAims} graveyard aims · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

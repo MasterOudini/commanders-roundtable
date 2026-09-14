@@ -259,6 +259,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D436 - the graveyard-card target's mirror offered 6 the row maker refuses (a two-card clause, a persist body, two
+  // filtered heads, two heads outside the library) - each by the wide run's reason.
+  ['Deadeye Tracker', "a vocabulary clause the suite has no fixture for: a counted clause (2..2) - Exile two target cards from an opponent's graveyard"],
+  ['Grazing Kelpie', 'a self-sacrifice on a creature that returns (persist / undying)'],
+  ['Grixis Sojourners', 'a filtered head outside the closed reader (an adjective outside the list: you): When you cycle this card and when this creature dies, you may exile target card from a graveyard.'],
+  ['Dutiful Knowledge Seeker', 'trigger head not in the library: Whenever one or more cards are put into a library from anywhere, put a +1/+1 counter on this creature.'],
+  ['Restless Cottage', 'trigger head not in the library: Whenever this land attacks, create a Food token and exile up to one target card from a graveyard.'],
+  ['General Kudro of Drannith', "a filtered head outside the closed reader (an adjective outside the list: or): Whenever General Kudro or another Human you control enters, exile target card from an opponent's graveyard."],
   // D435 - the if-you-do pair's mirror offered 8 the row maker refuses (a Blight cost, four heads outside the library, two
   // filtered heads, a two-faced printing) - each by the wide run's reason.
   ['Baral, Chief of Compliance', 'trigger head not in the library: Whenever a spell or ability you control counters a spell, you may draw a card. If you do, discard a card.'],
@@ -2363,7 +2371,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Akroma\'s Vengeance', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Brand', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Essence Fracture', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Fade from Memory', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Frostveil Ambush', 'a spell line outside the vocabulary (its cycling runs)'],
 
@@ -2401,7 +2408,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bulk Up', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Calibrated Blast', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Canopy Claws', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Coffin Purge', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Devil\'s Play', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Echo of Eons', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ignite the Future', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -2412,7 +2418,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Molten Note', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Momentary Blink', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Past in Flames', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Purify the Grave', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Recoup', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Rite of Harmony', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Rockalanche', 'a spell line outside the vocabulary (its flashback runs)'],
@@ -2577,7 +2582,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Clairvoyance', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (look at target player hand)'],
   ['Force Void', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (counter target spell unless its controller pays - the payment prompt on a spell row)'],
   ['Formation', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (banding)'],
-  ['Headstone', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (exile target card from a graveyard)'],
   ['Jinx', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (a land becomes a basic land type of your choice)'],
   ['Jolt', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (you may tap or untap target permanent)'],
   ['Mind Ravel', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (target player discards a card)'],

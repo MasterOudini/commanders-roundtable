@@ -721,6 +721,14 @@ export type EffectKind =
    */
   | 'returnFromGraveyard'
   /**
+   * D436 - `Exile target card from a graveyard.` / `Exile target creature card from an opponent's graveyard.`: the
+   * aimed card, in whichever graveyard the target clause admits, into exile; and `Put target card from a graveyard
+   * on the bottom of its owner's library.` - the same aim, under its owner's library. The TARGET does the narrowing
+   * (D138's rule): the noun, the adjectives, the owner and the zone are the target parser's, enforced at the aim.
+   */
+  | 'exileFromGraveyard'
+  | 'graveyardToLibraryBottom'
+  /**
    * Reanimation — a creature card from a graveyard onto the BATTLEFIELD.
    * `Zombify`, `Resurrection`, `Unburial Rites`.
    *

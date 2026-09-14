@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 10339,
-      blocked: 21353,
+      complete: 10392,
+      blocked: 21300,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -329,7 +329,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1887,
+      scriptableToday: 1889,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -343,8 +343,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 1020,
-      counter: 1092,
-      token: 916,
+      counter: 1091,
+      token: 910,
     });
   });
 
@@ -381,7 +381,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1887, 1893, 3287, 4891, 6220]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1889, 1895, 3293, 4899, 6222]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -505,7 +505,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 345, permanent: 571 });
+    expect.soft(byOwner).toEqual({ spell: 341, permanent: 569 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -520,9 +520,9 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     expect.soft(byKind).toEqual({
       copy: 116,
       predefined: 134,
-      withAbilities: 279,
+      withAbilities: 277,
       variable: 77,
-      plain: 310,
+      plain: 306,
       unclaimed: 0,
     });
   });
@@ -553,8 +553,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1887, 1893]);
-    expect.soft(r.complete).toBe(10339);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1889, 1895]);
+    expect.soft(r.complete).toBe(10392);
   });
 });
 
@@ -603,7 +603,8 @@ describe('a "you may" line is only `optional` if that is all it needs', () => {
 
   /** A "may" over an effect nothing here reads is residue, not a built primitive. */
   test('and an unreadable one is residue rather than a tick', () => {
-    expect.soft(of('When this creature enters, you may exile target card from a graveyard.')).toBe('unclassified');
+    // D436 - the graveyard-card exile that stood here is read now (the graveyard-card target); a shuffle-in is not.
+    expect.soft(of('When this creature enters, you may have each player shuffle their graveyard into their library.')).toBe('unclassified');
   });
 });
 
@@ -696,20 +697,20 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 1922,
-      triggeredShell: 1757,
+      activatedCost: 1889,
+      triggeredShell: 1753,
       damage: 584,
-      exile: 816,
+      exile: 787,
       staticShell: 563,
       attackBlock: 737,
-      lifeGainLoss: 330,
+      lifeGainLoss: 328,
       drawDiscard: 287,
       tokensAndCounters: 279,
       copySpell: 214,
       cantBeCountered: 18,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 2840,
+      other: 2837,
     });
   });
 

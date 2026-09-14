@@ -7,6 +7,48 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { REITO_SENTINEL_SCRIPT } from './cards/reitoSentinel';
+import { HONORED_HEIRLOOM_SCRIPT } from './cards/honoredHeirloom';
+import { CRYPT_CREEPER_SCRIPT } from './cards/cryptCreeper';
+import { JUNKTROLLER_SCRIPT } from './cards/junktroller';
+import { DISPOSAL_MUMMY_SCRIPT } from './cards/disposalMummy';
+import { DAWNBRINGER_CLERIC_SCRIPT } from './cards/dawnbringerCleric';
+import { STONECLOAKER_SCRIPT } from './cards/stonecloaker';
+import { NANTUKO_TRACER_SCRIPT } from './cards/nantukoTracer';
+import { NECROGENESIS_SCRIPT } from './cards/necrogenesis';
+import { THRABEN_HERETIC_SCRIPT } from './cards/thrabenHeretic';
+import { WITHERED_WRETCH_SCRIPT } from './cards/witheredWretch';
+import { AMBUSH_WOLF_SCRIPT } from './cards/ambushWolf';
+import { RUIN_RAT_SCRIPT } from './cards/ruinRat';
+import { CROSSROADS_CANDLEGUIDE_SCRIPT } from './cards/crossroadsCandleguide';
+import { SOUL_GUIDE_GRYFF_SCRIPT } from './cards/soulGuideGryff';
+import { CREAKWOOD_GHOUL_SCRIPT } from './cards/creakwoodGhoul';
+import { STEAMCLAW_SCRIPT } from './cards/steamclaw';
+import { JADE_CAST_SENTINEL_SCRIPT } from './cards/jadeCastSentinel';
+import { CLEANUP_CREW_SCRIPT } from './cards/cleanupCrew';
+import { MECHANICAL_MOBSTER_SCRIPT } from './cards/mechanicalMobster';
+import { CEMETERY_REAPER_SCRIPT } from './cards/cemeteryReaper';
+import { MAGIC_POT_SCRIPT } from './cards/magicPot';
+import { APOSTLE_OF_PURIFYING_LIGHT_SCRIPT } from './cards/apostleOfPurifyingLight';
+import { HOARDING_RECLUSE_SCRIPT } from './cards/hoardingRecluse';
+import { DISRUPTOR_WANDERGLYPH_SCRIPT } from './cards/disruptorWanderglyph';
+import { LEONIN_OF_THE_LOST_PRIDE_SCRIPT } from './cards/leoninOfTheLostPride';
+import { HEAP_DOLL_SCRIPT } from './cards/heapDoll';
+import { COGWORK_ARCHIVIST_SCRIPT } from './cards/cogworkArchivist';
+import { CHROME_COMPANION_SCRIPT } from './cards/chromeCompanion';
+import { REITO_LANTERN_SCRIPT } from './cards/reitoLantern';
+import { PHYREXIAN_ARCHIVIST_SCRIPT } from './cards/phyrexianArchivist';
+import { VESSEL_OF_ENDLESS_REST_SCRIPT } from './cards/vesselOfEndlessRest';
+import { GRAVE_ROBBERS_SCRIPT } from './cards/graveRobbers';
+import { HOVERSTONE_PILGRIM_SCRIPT } from './cards/hoverstonePilgrim';
+import { SCAVENGING_HARPY_SCRIPT } from './cards/scavengingHarpy';
+import { SEWERDREG_SCRIPT } from './cards/sewerdreg';
+import { MORTIPHOBIA_SCRIPT } from './cards/mortiphobia';
+import { SWIFTGEAR_DRAKE_SCRIPT } from './cards/swiftgearDrake';
+import { ASCENDANT_DUSTSPEAKER_SCRIPT } from './cards/ascendantDustspeaker';
+import { WRECK_REMOVER_SCRIPT } from './cards/wreckRemover';
+import { MALEVOLENT_CHANDELIER_SCRIPT } from './cards/malevolentChandelier';
+import { STARTLED_RELIC_SLOTH_SCRIPT } from './cards/startledRelicSloth';
 import { MURDER_OF_CROWS_SCRIPT } from './cards/murderOfCrows';
 import { RIDDLESMITH_SCRIPT } from './cards/riddlesmith';
 import { MASK_OF_MEMORY_SCRIPT } from './cards/maskOfMemory';
@@ -4941,7 +4983,6 @@ import { GRIM_BAUBLE_SCRIPT } from './cards/grimBauble';
 import { GRUUL_GUILDMAGE_SCRIPT } from './cards/gruulGuildmage';
 import { GUARDIAN_OF_CLOVERDELL_SCRIPT } from './cards/guardianOfCloverdell';
 import { CREEPING_CHILL_SCRIPT } from './cards/creepingChill';
-import { CREMATE_SCRIPT } from './cards/cremate';
 import { CUNNING_STRIKE_SCRIPT } from './cards/cunningStrike';
 import { DEGA_DISCIPLE_SCRIPT } from './cards/degaDisciple';
 import { DISCIPLE_OF_TEVESH_SZAT_SCRIPT } from './cards/discipleOfTeveshSzat';
@@ -6765,6 +6806,48 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  REITO_SENTINEL_SCRIPT,
+  HONORED_HEIRLOOM_SCRIPT,
+  CRYPT_CREEPER_SCRIPT,
+  JUNKTROLLER_SCRIPT,
+  DISPOSAL_MUMMY_SCRIPT,
+  DAWNBRINGER_CLERIC_SCRIPT,
+  STONECLOAKER_SCRIPT,
+  NANTUKO_TRACER_SCRIPT,
+  NECROGENESIS_SCRIPT,
+  THRABEN_HERETIC_SCRIPT,
+  WITHERED_WRETCH_SCRIPT,
+  AMBUSH_WOLF_SCRIPT,
+  RUIN_RAT_SCRIPT,
+  CROSSROADS_CANDLEGUIDE_SCRIPT,
+  SOUL_GUIDE_GRYFF_SCRIPT,
+  CREAKWOOD_GHOUL_SCRIPT,
+  STEAMCLAW_SCRIPT,
+  JADE_CAST_SENTINEL_SCRIPT,
+  CLEANUP_CREW_SCRIPT,
+  MECHANICAL_MOBSTER_SCRIPT,
+  CEMETERY_REAPER_SCRIPT,
+  MAGIC_POT_SCRIPT,
+  APOSTLE_OF_PURIFYING_LIGHT_SCRIPT,
+  HOARDING_RECLUSE_SCRIPT,
+  DISRUPTOR_WANDERGLYPH_SCRIPT,
+  LEONIN_OF_THE_LOST_PRIDE_SCRIPT,
+  HEAP_DOLL_SCRIPT,
+  COGWORK_ARCHIVIST_SCRIPT,
+  CHROME_COMPANION_SCRIPT,
+  REITO_LANTERN_SCRIPT,
+  PHYREXIAN_ARCHIVIST_SCRIPT,
+  VESSEL_OF_ENDLESS_REST_SCRIPT,
+  GRAVE_ROBBERS_SCRIPT,
+  HOVERSTONE_PILGRIM_SCRIPT,
+  SCAVENGING_HARPY_SCRIPT,
+  SEWERDREG_SCRIPT,
+  MORTIPHOBIA_SCRIPT,
+  SWIFTGEAR_DRAKE_SCRIPT,
+  ASCENDANT_DUSTSPEAKER_SCRIPT,
+  WRECK_REMOVER_SCRIPT,
+  MALEVOLENT_CHANDELIER_SCRIPT,
+  STARTLED_RELIC_SLOTH_SCRIPT,
   MURDER_OF_CROWS_SCRIPT,
   RIDDLESMITH_SCRIPT,
   MASK_OF_MEMORY_SCRIPT,
@@ -11699,7 +11782,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   GRUUL_GUILDMAGE_SCRIPT,
   GUARDIAN_OF_CLOVERDELL_SCRIPT,
   CREEPING_CHILL_SCRIPT,
-  CREMATE_SCRIPT,
   CUNNING_STRIKE_SCRIPT,
   DEGA_DISCIPLE_SCRIPT,
   DISCIPLE_OF_TEVESH_SZAT_SCRIPT,
