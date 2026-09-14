@@ -974,6 +974,21 @@ const ROW_LIMIT = [
 ].join('|');
 const ROW_LIMIT_CLAUSE = new RegExp(`^(?:${ROW_LIMIT})$`);
 const ROW_VERB_PRICE = /^you may (?:sacrifice|discard|exile|return|tap) [^.]*\. If you do, /i;
+/**
+ * D428 - THE TRIGGERING PLAYER, the row maker's `playerHeads128` mirrored: under a head whose event names ONE
+ * player, the payload's `that player` (the creature's, the spell's controller - by what each head names) is
+ * its `target player` clause, aimed by the def off the event rather than asked. Each pair is the heads and
+ * the referent words they admit; a referent word left after the rewrite is one the head does not name.
+ */
+const ROW_PLAYER_HEADS: readonly (readonly [RegExp, RegExp])[] = [
+  [
+    /^Whenever (?:~|this creature) deals (?:combat damage to a player|damage to (?:a player|an opponent)), |^Whenever (?:equipped|enchanted) creature deals combat damage to a player, |^At the beginning of (?:each (?:player's |opponent's )?upkeep|(?:the|each) end step|the upkeep of enchanted creature's controller), /,
+    /\b(that) player('s)?\b/gi,
+  ],
+  [/^Whenever (?:a player|an opponent) casts a spell, /, /\b(that) player('s)?\b|\b(its|that spell's) controller('s)?\b/gi],
+  [/^Whenever (?:~|this creature) deals combat damage to a creature, |^(?:Alliance — )?Whenever (?:a|another) creature(?: you control)? (?:enters|dies), /, /\b(its|that creature's) controller('s)?\b/gi],
+];
+const ROW_PLAYER_REF = /\b(?:that player|its controller|that creature's controller|that spell's controller)('s)?\b/i;
 function rowMakerReads(text: string, cardName: string): boolean {
   const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
   const trigger = TRIGGER_HEAD.test(line);
@@ -991,6 +1006,18 @@ function rowMakerReads(text: string, cardName: string): boolean {
   // (1) the optional trigger.
   if (trigger && /^you may (?!pay )/i.test(payload) && !ROW_VERB_PRICE.test(payload)) {
     payload = payload.slice(8);
+    widened = true;
+  }
+  // (4) D428 - the referent player, under a head that names one; the referent word its head does not name stays.
+  if (trigger && ROW_PLAYER_REF.test(payload)) {
+    const pair = ROW_PLAYER_HEADS.find(([head]) => head.test(line));
+    if (!pair) return false;
+    payload = payload.replace(pair[1], (...m: string[]) => {
+      const first = m.slice(1, -2).find((g) => g !== undefined && !/^'s$/.test(g)) ?? '';
+      const pos = m.slice(1, -2).some((g) => g === "'s");
+      return (/^[A-Z]/.test(first) ? 'Target' : 'target') + ' player' + (pos ? "'s" : '');
+    });
+    if (ROW_PLAYER_REF.test(payload)) return false;
     widened = true;
   }
   payload = payload.charAt(0).toUpperCase() + payload.slice(1);

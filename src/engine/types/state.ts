@@ -357,6 +357,8 @@ export interface StackObject {
    * tapped permanent THIS firing answers. Absent on every other object.
    */
   readonly item?: InstanceId;
+  /** D428 - the PLAYER the trigger's head named (the damaged player, the caster, the active player), for `that player`. */
+  readonly player?: PlayerId;
   /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *
@@ -561,6 +563,8 @@ export interface PendingTrigger {
    * every pre-D190 pending — and its replay — is untouched.
    */
   readonly item?: InstanceId;
+  /** D428 - the PLAYER the head named (`playerOf`), riding onto `StackObject.player`. Optional, replay-safe. */
+  readonly player?: PlayerId;
   /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
   readonly delayed?: string;
   /**

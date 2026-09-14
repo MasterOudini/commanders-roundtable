@@ -7700,6 +7700,27 @@ const WANTED = [
   // D426 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D427 - the scoped shield: the rows the selector offered once the shield read a source and a recipient set.
   // D427 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D428 - the triggering player: the rows the selector offered once a payload could name the player its head named.
+  'Abyssal Specter',
+  'Blazing Specter',
+  'Copper Tablet',
+  'Dingus Staff',
+  'Furnace Scamp',
+  'Headhunter',
+  'Necrogen Mists',
+  'Odylic Wraith',
+  'Oppression',
+  'Order of Yawgmoth',
+  'Orzhov Racketeers',
+  'Riptide Pilferer',
+  'Silent Specter',
+  'Soul Bleed',
+  'Spellshock',
+  'Wei Night Raiders',
+  'Chilling Apparition',
+  'Lightning Skelemental',
+  "Specter's Shroud",
+  // D428 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

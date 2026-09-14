@@ -235472,6 +235472,655 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ABYSSAL_SPECTER": {
+    "scryfallId": "15beb937-dc3a-4b3a-8d33-5a74fa9addeb",
+    "oracleId": "51833cff-6519-4806-8d91-0040e9a02189",
+    "name": "Abyssal Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abyssal Specter",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Flying\nWhenever this creature deals damage to a player, that player discards a card.",
+        "flavorText": "To gaze under its hood is to invite death.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "15beb937-dc3a-4b3a-8d33-5a74fa9addeb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dvd",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLAZING_SPECTER": {
+    "scryfallId": "048dbfec-b1d4-4bb2-8709-21a5f0f3d8ab",
+    "oracleId": "4c046368-5899-42ef-9972-3a3a6c8fe3fd",
+    "name": "Blazing Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blazing Specter",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Flying, haste\nWhenever this creature deals combat damage to a player, that player discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Marc Fishman",
+        "imageId": "048dbfec-b1d4-4bb2-8709-21a5f0f3d8ab"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "vma",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COPPER_TABLET": {
+    "scryfallId": "30935e4a-013e-4c46-ad05-304df8e5dfa4",
+    "oracleId": "16d1023b-2162-4010-8bf4-218dbe7c99a0",
+    "name": "Copper Tablet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Copper Tablet",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of each player's upkeep, this artifact deals 1 damage to that player.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Amy Weber",
+        "imageId": "30935e4a-013e-4c46-ad05-304df8e5dfa4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lea",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DINGUS_STAFF": {
+    "scryfallId": "065b4358-5dee-4f13-bff9-8254bdb92069",
+    "oracleId": "7127fc35-600c-4397-8c01-5327d3c4944b",
+    "name": "Dingus Staff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dingus Staff",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a creature dies, this artifact deals 2 damage to that creature's controller.",
+        "flavorText": "\"A sharp conscience is the weapon of the soul.\"\n—Hanna, *Weatherlight* navigator",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Richard Kane Ferguson",
+        "imageId": "065b4358-5dee-4f13-bff9-8254bdb92069"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FURNACE_SCAMP": {
+    "scryfallId": "97538294-058c-47d4-b7a8-4db3753a6628",
+    "oracleId": "d0868a52-5b19-4429-acf1-399f3ae8308c",
+    "name": "Furnace Scamp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Furnace Scamp",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "Whenever this creature deals combat damage to a player, you may sacrifice it. If you do, this creature deals 3 damage to that player.",
+        "flavorText": "Born of the core, and dying to stoke it.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "97538294-058c-47d4-b7a8-4db3753a6628"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEADHUNTER": {
+    "scryfallId": "3cbd82d5-d64f-4833-b1a9-9652fcfa1578",
+    "oracleId": "83578de7-5488-4952-af47-8fe966897210",
+    "name": "Headhunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Headhunter",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player discards a card.\nMorph {B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "3cbd82d5-d64f-4833-b1a9-9652fcfa1578"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROGEN_MISTS": {
+    "scryfallId": "14309ac9-5e75-4ac8-9f17-a256decd52e9",
+    "oracleId": "db25d48e-e5eb-4364-9d7a-f9757ee4ccbe",
+    "name": "Necrogen Mists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrogen Mists",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of each player's upkeep, that player discards a card.",
+        "flavorText": "\"Eat my dust, fleshbags!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ryan Roadkill",
+        "imageId": "14309ac9-5e75-4ac8-9f17-a256decd52e9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1405",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ODYLIC_WRAITH": {
+    "scryfallId": "3a3b7cd1-051c-43a8-b5f0-72a9d704efbc",
+    "oracleId": "613fa223-856e-49c4-8952-224895e00b5e",
+    "name": "Odylic Wraith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Odylic Wraith",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Wraith",
+        "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nWhenever this creature deals damage to a player, that player discards a card.",
+        "flavorText": "By the time you've seen it, you won't remember that you did.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ian Miller",
+        "imageId": "3a3b7cd1-051c-43a8-b5f0-72a9d704efbc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landwalk",
+      "Swampwalk"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OPPRESSION": {
+    "scryfallId": "148685c3-5c92-4439-aedd-55d451444e74",
+    "oracleId": "f488f679-f5d5-4e61-b0c8-0b0eb622df0d",
+    "name": "Oppression",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oppression",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a player casts a spell, that player discards a card.",
+        "flavorText": "THE EARTH BELOW IS YOUR CELL\nTHE AIR YOU BREATHE FORMS YOUR CHAINS\nTHE ONLY PATH TO FREEDOM LIES IN SUBMISSION",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "TOMO77",
+        "imageId": "148685c3-5c92-4439-aedd-55d451444e74"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1424",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORDER_OF_YAWGMOTH": {
+    "scryfallId": "49e5ff9f-9ec9-4c96-b28f-938a2abd15bf",
+    "oracleId": "c1795e9c-31c9-4892-a796-7656e09257b3",
+    "name": "Order of Yawgmoth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Order of Yawgmoth",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Phyrexian Zombie Knight",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nWhenever this creature deals damage to a player, that player discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chippy",
+        "imageId": "49e5ff9f-9ec9-4c96-b28f-938a2abd15bf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "dde",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORZHOV_RACKETEERS": {
+    "scryfallId": "29b89f68-72ba-493d-95c4-eb37751fbd3d",
+    "oracleId": "4f6c9cee-5af7-4b00-a2a4-2770dab0a2dc",
+    "name": "Orzhov Racketeers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orzhov Racketeers",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player discards a card.\nAfterlife 2 (When this creature dies, create two 1/1 white and black Spirit creature tokens with flying.)",
+        "flavorText": "\"Looks like you need protection.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "29b89f68-72ba-493d-95c4-eb37751fbd3d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Afterlife"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIPTIDE_PILFERER": {
+    "scryfallId": "4bcc3c1a-edb5-4534-aafa-5e078d503e64",
+    "oracleId": "d3e40d26-1687-4cb4-9ff8-4c4421f09e53",
+    "name": "Riptide Pilferer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riptide Pilferer",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player discards a card.\nMorph {U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "4bcc3c1a-edb5-4534-aafa-5e078d503e64"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "plc",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILENT_SPECTER": {
+    "scryfallId": "28a3f78c-f7c1-4257-95cc-09d10022abba",
+    "oracleId": "49e70569-b0bc-4705-927e-eb1504925210",
+    "name": "Silent Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silent Specter",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, that player discards two cards.\nMorph {3}{B}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "28a3f78c-f7c1-4257-95cc-09d10022abba"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Morph"
+    ],
+    "setCode": "pons",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_BLEED": {
+    "scryfallId": "54800a5a-33fe-4291-a7b4-a1eb256dfa8f",
+    "oracleId": "e4f1acd6-b883-470b-88c2-3989011869d7",
+    "name": "Soul Bleed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul Bleed",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nAt the beginning of the upkeep of enchanted creature's controller, that player loses 1 life.",
+        "flavorText": "Whether the end comes swift or slow, it always comes too soon.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "54800a5a-33fe-4291-a7b4-a1eb256dfa8f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "m10",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLSHOCK": {
+    "scryfallId": "4ee1059d-a7bc-4494-999e-788817f7b12c",
+    "oracleId": "6579bb00-3886-447b-a265-3e72e98bbe2c",
+    "name": "Spellshock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spellshock",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a player casts a spell, this enchantment deals 2 damage to that player.",
+        "flavorText": "A snap of fingers, a snap of teeth.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "4ee1059d-a7bc-4494-999e-788817f7b12c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "EXO-104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEI_NIGHT_RAIDERS": {
+    "scryfallId": "7ee86c30-4828-40e4-a2c4-69b6005e1eba",
+    "oracleId": "d24ee48a-86a9-4a72-9311-79b6ea3f41f2",
+    "name": "Wei Night Raiders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wei Night Raiders",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)\nWhenever this creature deals damage to an opponent, that player discards a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Wang Feng",
+        "imageId": "7ee86c30-4828-40e4-a2c4-69b6005e1eba"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Horsemanship"
+    ],
+    "setCode": "me3",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILLING_APPARITION": {
+    "scryfallId": "c20edb71-aa1d-437b-bcfb-953efbe45150",
+    "oracleId": "13cfc92c-142a-4016-b86f-ace6bda1a69c",
+    "name": "Chilling Apparition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chilling Apparition",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{B}: Regenerate this creature.\nWhenever this creature deals combat damage to a player, that player discards a card.",
+        "flavorText": "Mortal minds shrivel at its touch.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "c20edb71-aa1d-437b-bcfb-953efbe45150"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_SKELEMENTAL": {
+    "scryfallId": "5734012b-31db-4125-8fea-c88666969cd6",
+    "oracleId": "7c3f2b3d-1517-4818-9675-189949175623",
+    "name": "Lightning Skelemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Skelemental",
+        "manaCost": "{B}{R}{R}",
+        "typeLine": "Creature — Elemental Skeleton",
+        "oracleText": "Trample, haste\nWhenever this creature deals combat damage to a player, that player discards two cards.\nAt the beginning of the end step, sacrifice this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "5734012b-31db-4125-8fea-c88666969cd6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPECTER_S_SHROUD": {
+    "scryfallId": "110cbd16-2105-4dc8-b253-8f4cc0f72b50",
+    "oracleId": "dbc2b0f9-73e8-41b7-9d64-07f86fbc5d6c",
+    "name": "Specter's Shroud",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Specter's Shroud",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+0.\nWhenever equipped creature deals combat damage to a player, that player discards a card.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Hildebrandt",
+        "imageId": "110cbd16-2105-4dc8-b253-8f4cc0f72b50"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "L15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

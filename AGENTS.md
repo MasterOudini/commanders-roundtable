@@ -17842,6 +17842,168 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4ji — THE TRIGGERING PLAYER: a trigger head whose event names
+      ONE player (`deals combat damage to a player`, `each player's upkeep`,
+      `a player casts a spell`, `a creature dies`) carries that player onto
+      the stack (`TriggerDef.playerOf` → `PendingTrigger.player` →
+      `StackObject.player`), and the payload's `that player` / `its
+      controller` is its `target player` clause aimed there without asking
+      (2026-09-14):** **9,994 of 31,692 Commander-legal cards now execute
+      completely, up from 9,975 (+19: 19 rows under the library heads - Abyssal Specter, Blazing Specter, Copper Tablet, Dingus Staff, Necrogen Mists, Oppression, Order of Yawgmoth, Silent Specter, Soul Bleed, Wei Night Raiders, Lightning Skelemental and their kin).**
+      `SHIPPED_SCRIPTS` 6,406 → **6,425**; ledger 1,743 → **1,747** (4 added
+      by reason - three referent discards AT RANDOM, one attached pump).
+      Fixtures 7,114 → **7,133** (6,970 by name + 156 tokens).
+      `scriptableToday` 1,843 → **1,846**; the select pool 0 → 23 → 0; the
+      ladder `[1846, 1852, 3254, 4850, 6176]`. Bot reach 4,159 → **4,162**
+      from 281. Decisions in **D428**; an engine seam on Opus 5 by the
+      user's choice - the smallest cut through the family the wide run and
+      the spell probe both named.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** 300 one-piece permanents name `that
+      player` (the creature's, the spell's controller) under a head the
+      library already fires - `combatDamagePlayer` 75, `eachUpkeep` 49,
+      `eachOpponentUpkeep` 14, `dealsDamagePlayer` 13, `aPlayerCastsSpell`
+      11, `enchantedControllerUpkeep` 8, `combatDamageCreature` 7 - with
+      the discards, the pings, the life losses and the mills the
+      vocabulary already reads as `target player ...`.
+      ⚠️ **THE SEAM:** `TriggerDef.playerOf?(ctx, self, ev, item)` - the
+      player read off the EVENT (the damaged player, the active player, the
+      caster, the dying or entering creature's controller), `null` fires
+      nothing; `PendingTrigger.player?` / `StackObject.player?` optional so
+      every earlier trigger replays; the bus asks it at both fan-out sites,
+      per item under `perItem`. The generator's `playerHeads128` (eighteen
+      heads: `playerOf` mirroring each matcher - a damage head reads both
+      damage events for its `Any` twin - the referent words each admits, a
+      `perItem` for the dies / enters heads, the suite's player); the row
+      maker rewrites the referent to `target player` and takes the
+      VOCABULARY reading alone; the def asks no target and aims the pick at
+      `obj.player` through `ctx.vocabulary`; the suite reads the head's
+      player, stops at an asking payload's prompt, and p2's life under a
+      combat head net of the fire's own damage. The classifier mirrors the
+      heads and the rewrite (`ROW_PLAYER_HEADS`).
+      `triggeringPlayer.test.ts` (+4). **Fuzz:** Copper Tablet + Oppression
+      staples feeding `playerReferents` (floor): 91 at 60; 964 over
+      500 seeds.
+      **Landed:** 19 rows. botPool creature 5,864 / artifact 559 /
+      enchantment 579 · tier3 silentAfter 10,281 · batch.json 0 · select
+      pool 0. No vocabulary widening: the 551 suppression pins not due.
+      ⚠️ A DAMAGE HEAD IS TWO DEFS (the `Any` twin fires on `DamageDealt`;
+      a `playerOf` reading one event silenced it). ⚠️ THE FIRE'S OWN COMBAT
+      DAMAGE IS IN THE BASELINE'S WAY (`p2LifeAdjOf`). ⚠️ THE REFERENT
+      PAYLOAD IS THE VOCABULARY'S ALONE (a row kind would ask).
+      **Verified: `verify.cjs --full` (sharded) — ALL FIVE GATES: 6609 files,
+      31789 passed / 11 skipped · 500-seed gate, 6 shards, 941.0 s wall · build
+      clean · probe 124/124 · battery 140/140.**
+      ⚠️ **Reportables** (D428): the referent bodies the vocabulary does
+      not read yet (`that player reveals the top card`, `exiles cards from
+      the top`, the Oaths' `chooses target player who`, `sacrifices a
+      creature of their choice`, the random discards - RNG under a def),
+      the heads outside the library that name a player (`each player's end
+      step` 10, `draw step` 6, `first main phase` 4, `an opponent draws a
+      card` 4, `a player taps a land for mana` 8), the in-payload referent
+      under `etb` / `upkeep` (63 - D392's referent across a reveal), the
+      triggering OBJECT as a referent (`it gets +N/+N` 34), `unless that
+      player pays`, the multi-source heads (`creatureCombatDamagePlayer` -
+      a player per attacker); the shield forms the closed lists refuse (D427 -
+      a colour of your choice, two colours, `except ... enchanted
+      creatures`, `X target creatures would deal`, `a source of your
+      choice`), the combat shields on permanents the suite cannot prove
+      without an attack (15 ledgered - the arm must attack),
+      `scopedPrevented` at the mercy of the driver's rare attacks; the
+      conjunctions the split still refuses (D426 - an asking left half, a noun half, the Oxford `, and`, `and then`,
+      three clauses, a right half led by `if` / `unless`), the shapes the
+      halves still lack (`Lose N life`, `gain control of`, `that player`
+      as the left half's player), the reversed suppression pins (the
+      redundant D187 defs - a retirement of its own, D383), the other 47
+      splittable sentences on cards with more unread; the sacrificed
+      source's POWER (D425 - `It deals damage equal to its power` - Cinder
+      Shade and five more: last known information, D421's gap one shape
+      over), the `you` rider on a targeted
+      damage (Char, Psionic Blast, Orcish Cannonade), the payment branch
+      over `damageEach` (Force of Nature), the combat-role fixture the suite
+      lacks (`target attacking or blocking creature` 6), the other pain
+      riders; the wide run's map (D424 - the refusal histogram over the
+      one-piece leftover permanents: `trigger payload not a pump` 2,823, a
+      static line 1,559, `effect not a row kind` 1,446, a head outside the
+      library 699, a filtered head's adjective 234, a cost 197, a
+      condition 178, an intervening if 162), the two-piece leftover the
+      wide run never saw, the trigger bodies by shape (the pay wrapper's
+      inner clauses 57 + 41, `that player` as the triggering player 32,
+      `it gets +N/+N` as the triggering object 34, the typed cast heads
+      106), the protection qualities the derive does not read (from
+      multicolored / creatures), the up-to-N `each` subject (12), the cost
+      reductions with a count or a condition (144 lines, 16 sole), the
+      eight this port named; the kicked instead's residue (D423 - an
+      instead clause with a TARGET of its own, `that player`, the scoped
+      `those creatures`, the qualified sweeps, the kicked searches,
+      Prohibit, Urza's Rage, Rite of Replication's copy token, the plain
+      kicked clauses beside an unread first line; damage from a source that
+      has died; the driver's coin-flip kick reported, not floored);
+      the counterspell tail (D422 - the CONDITIONAL uncounterables the face
+      does not carry (Banefire's `if X is 5 or more`, Spell mastery's
+      graveyard count, `can't be countered by spells or abilities`), the
+      counter-unless-pays with a COUNTED price (D418's), the spell's X in a
+      pump, `This spell costs {M} less` (29), `As an additional cost` (20),
+      `Destroy target <X>` (19), the quoted-ability grants behind `Until
+      end of turn` (50)); the self subject's tail (D421 - damage from a source that has died, the
+      counted self pumps under the attack heads, the twenty-two trigger
+      heads outside the library, the filtered heads, a payment under a
+      sacrifice head); the ability word's tail (D420 - the Eerie head, the Valiant head, the
+      Inspired payments whose branch makes a token, the copy half of
+      Magecraft, the enchantment-enters wordings 22); the board condition's
+      tail (D419 - a creature with power
+      N or greater, an opponent controls more lands than you, no untapped /
+      tapped lands, exactly N, different names, a counter, a mana value,
+      Descend, the seven `no <noun>` rows); then D418's list unchanged — the
+      counted suite for the refinements, the party, the hand, the kicks,
+      the deaths, the domain and the attack heads (44 ledger rows), the
+      counted ENTRY (14), the counted STATIC (11), the counted PRICE (7),
+      the counted queue and reductions, `for each mana from a Treasure`,
+      `put into your graveyard from the battlefield this turn`; the
+      permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (110 over ninety shapes), the
+      `where X is` values (328 over forty forms), the top-of-library family
+      (23), `you may cast` (57 statics), the prevent-all shields (66), the
+      payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

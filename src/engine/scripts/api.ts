@@ -168,6 +168,15 @@ export interface TriggerDef {
    */
   readonly perItem?: (ctx: ScriptCtx, self: InstanceId, ev: EventBody) => readonly InstanceId[];
   /**
+   * D428 - THE TRIGGERING PLAYER. A head about a PLAYER (`Whenever this creature deals combat damage to a
+   * player`, `At the beginning of each player's upkeep`, `Whenever an opponent casts a spell`, `At the beginning
+   * of the upkeep of enchanted creature's controller`) has a payload about `that player`; this names them off
+   * the event (and the per-item `item` when the def fans out), and the bus carries the answer on the pending
+   * trigger and the loop onto the stack object (`obj.player`), where `resolve` aims the payload at it. A null
+   * answer fires nothing - the head named nobody.
+   */
+  readonly playerOf?: (ctx: ScriptCtx, self: InstanceId, ev: EventBody, item?: InstanceId) => PlayerId | null;
+  /**
    * CR 603.10a — this trigger LOOKS BACK IN TIME.
    *
    * ⚠️ A "dies" or "leaves the battlefield" trigger is the case, and without

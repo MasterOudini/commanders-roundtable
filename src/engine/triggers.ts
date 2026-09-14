@@ -1039,6 +1039,9 @@ export function collectTriggers(
           ? def.perItem(ctx, id, event.body)
           : [undefined];
         for (const item of items) {
+          // D428 - the triggering player: named off the event (and the item); a head that named nobody fires nothing.
+          const player = def.playerOf ? def.playerOf(ctx, id, event.body, item) : undefined;
+          if (def.playerOf && player === null) continue;
           out.push({
             id: `t${n++}`,
             source: id,
@@ -1052,6 +1055,7 @@ export function collectTriggers(
             // D343 - a modal trigger's modes ride the same way, for the same reason.
             ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
             ...(item !== undefined ? { item } : {}),
+            ...(player !== undefined && player !== null ? { player } : {}),
           });
         }
       }
@@ -1126,6 +1130,9 @@ export function collectTriggers(
             if (!def.matches(ctx, id, event.body)) continue;
             const items: readonly (InstanceId | undefined)[] = def.perItem ? def.perItem(ctx, id, event.body) : [undefined];
             for (const item of items) {
+              // D428 - the triggering player, off the recipient's own firing.
+              const player = def.playerOf ? def.playerOf(ctx, id, event.body, item) : undefined;
+              if (def.playerOf && player === null) continue;
               out.push({
                 id: `t${n++}`,
                 source: id,
@@ -1136,6 +1143,7 @@ export function collectTriggers(
                 specs: def.targets ?? [],
                 ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
                 ...(item !== undefined ? { item } : {}),
+                ...(player !== undefined && player !== null ? { player } : {}),
               });
             }
           }

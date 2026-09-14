@@ -266,6 +266,8 @@ export function stackPendingTriggers(
       castFrom: null,
       // The per-item firing's subject rides through to `resolve` (D190).
       ...(trigger.item !== undefined ? { item: trigger.item } : {}),
+      // D428 - the triggering player rides through to `resolve` the same way.
+      ...(trigger.player !== undefined ? { player: trigger.player } : {}),
       // D402 - a delayed trigger's effects ride onto the stack; the armed entry leaves the list as it goes on.
       ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
     };

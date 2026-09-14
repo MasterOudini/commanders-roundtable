@@ -251,6 +251,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a resolve cannot see into, which is Aya of Alexandria's D163 refusal on
   // taps and attack declarations.
   ["Lullmage's Familiar", 'kicker memory'],
+  // D428 - the triggering player: the 4 the selector offered once a payload could name the player its head named,
+  // that the row maker refused by reason (a referent discard AT RANDOM 3 - the vocabulary refuses randomness under
+  // a def, the standing rule; an attached static whose toughness pump kills the 2/2 Bears 1).
+  ['Bottomless Pit', 'a player referent payload the vocabulary does not read: Target player discards a card at random.'],
+  ['Hypnotic Specter', 'a player referent payload the vocabulary does not read: Target player discards a card at random.'],
+  ['Rakdos Ringleader', 'a player referent payload the vocabulary does not read: Target player discards a card at random.'],
+  ['Stab Wound', 'an attached static whose toughness pump kills the 2/2 Bears'],
   // D427 - the scoped shield: the 15 the selector offered once the shield read a source and a recipient set, that
   // the row maker refused by reason (a combat shield with no target the suite cannot prove 8 - it must attack; a
   // combat-only scoped shield the suite cannot prove 4 - the same; a combat-role clause 2; a cost 1) - the spells the

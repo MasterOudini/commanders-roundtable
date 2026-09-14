@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABYSSAL_SPECTER_SCRIPT } from './cards/abyssalSpecter';
+import { BLAZING_SPECTER_SCRIPT } from './cards/blazingSpecter';
+import { COPPER_TABLET_SCRIPT } from './cards/copperTablet';
+import { DINGUS_STAFF_SCRIPT } from './cards/dingusStaff';
+import { FURNACE_SCAMP_SCRIPT } from './cards/furnaceScamp';
+import { HEADHUNTER_SCRIPT } from './cards/headhunter';
+import { NECROGEN_MISTS_SCRIPT } from './cards/necrogenMists';
+import { ODYLIC_WRAITH_SCRIPT } from './cards/odylicWraith';
+import { OPPRESSION_SCRIPT } from './cards/oppression';
+import { ORDER_OF_YAWGMOTH_SCRIPT } from './cards/orderOfYawgmoth';
+import { ORZHOV_RACKETEERS_SCRIPT } from './cards/orzhovRacketeers';
+import { RIPTIDE_PILFERER_SCRIPT } from './cards/riptidePilferer';
+import { SILENT_SPECTER_SCRIPT } from './cards/silentSpecter';
+import { SOUL_BLEED_SCRIPT } from './cards/soulBleed';
+import { SPELLSHOCK_SCRIPT } from './cards/spellshock';
+import { WEI_NIGHT_RAIDERS_SCRIPT } from './cards/weiNightRaiders';
+import { CHILLING_APPARITION_SCRIPT } from './cards/chillingApparition';
+import { LIGHTNING_SKELEMENTAL_SCRIPT } from './cards/lightningSkelemental';
+import { SPECTERS_SHROUD_SCRIPT } from './cards/spectersShroud';
 import { BLIGHT_KEEPER_SCRIPT } from './cards/blightKeeper';
 import { BITTERBLOOM_BEARER_SCRIPT } from './cards/bitterbloomBearer';
 import { BITTERBLOSSOM_SCRIPT } from './cards/bitterblossom';
@@ -6432,6 +6451,25 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABYSSAL_SPECTER_SCRIPT,
+  BLAZING_SPECTER_SCRIPT,
+  COPPER_TABLET_SCRIPT,
+  DINGUS_STAFF_SCRIPT,
+  FURNACE_SCAMP_SCRIPT,
+  HEADHUNTER_SCRIPT,
+  NECROGEN_MISTS_SCRIPT,
+  ODYLIC_WRAITH_SCRIPT,
+  OPPRESSION_SCRIPT,
+  ORDER_OF_YAWGMOTH_SCRIPT,
+  ORZHOV_RACKETEERS_SCRIPT,
+  RIPTIDE_PILFERER_SCRIPT,
+  SILENT_SPECTER_SCRIPT,
+  SOUL_BLEED_SCRIPT,
+  SPELLSHOCK_SCRIPT,
+  WEI_NIGHT_RAIDERS_SCRIPT,
+  CHILLING_APPARITION_SCRIPT,
+  LIGHTNING_SKELEMENTAL_SCRIPT,
+  SPECTERS_SHROUD_SCRIPT,
   BLIGHT_KEEPER_SCRIPT,
   BITTERBLOOM_BEARER_SCRIPT,
   BITTERBLOSSOM_SCRIPT,

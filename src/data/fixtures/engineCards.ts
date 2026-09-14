@@ -6976,6 +6976,25 @@ export const ROUSING_READ: CardData = F.ROUSING_READ as CardData;
 export const SLING_GANG_LIEUTENANT: CardData = F.SLING_GANG_LIEUTENANT as CardData;
 export const THUNDERSCAPE_MASTER: CardData = F.THUNDERSCAPE_MASTER as CardData;
 export const YAWGMOTH_THRAN_PHYSICIAN: CardData = F.YAWGMOTH_THRAN_PHYSICIAN as CardData;
+export const ABYSSAL_SPECTER: CardData = F.ABYSSAL_SPECTER as CardData;
+export const BLAZING_SPECTER: CardData = F.BLAZING_SPECTER as CardData;
+export const COPPER_TABLET: CardData = F.COPPER_TABLET as CardData;
+export const DINGUS_STAFF: CardData = F.DINGUS_STAFF as CardData;
+export const FURNACE_SCAMP: CardData = F.FURNACE_SCAMP as CardData;
+export const HEADHUNTER: CardData = F.HEADHUNTER as CardData;
+export const NECROGEN_MISTS: CardData = F.NECROGEN_MISTS as CardData;
+export const ODYLIC_WRAITH: CardData = F.ODYLIC_WRAITH as CardData;
+export const OPPRESSION: CardData = F.OPPRESSION as CardData;
+export const ORDER_OF_YAWGMOTH: CardData = F.ORDER_OF_YAWGMOTH as CardData;
+export const ORZHOV_RACKETEERS: CardData = F.ORZHOV_RACKETEERS as CardData;
+export const RIPTIDE_PILFERER: CardData = F.RIPTIDE_PILFERER as CardData;
+export const SILENT_SPECTER: CardData = F.SILENT_SPECTER as CardData;
+export const SOUL_BLEED: CardData = F.SOUL_BLEED as CardData;
+export const SPELLSHOCK: CardData = F.SPELLSHOCK as CardData;
+export const WEI_NIGHT_RAIDERS: CardData = F.WEI_NIGHT_RAIDERS as CardData;
+export const CHILLING_APPARITION: CardData = F.CHILLING_APPARITION as CardData;
+export const LIGHTNING_SKELEMENTAL: CardData = F.LIGHTNING_SKELEMENTAL as CardData;
+export const SPECTER_S_SHROUD: CardData = F.SPECTER_S_SHROUD as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -14093,6 +14112,25 @@ export const ENGINE_CARDS: CardData[] = [
   SLING_GANG_LIEUTENANT,
   THUNDERSCAPE_MASTER,
   YAWGMOTH_THRAN_PHYSICIAN,
+  ABYSSAL_SPECTER,
+  BLAZING_SPECTER,
+  COPPER_TABLET,
+  DINGUS_STAFF,
+  FURNACE_SCAMP,
+  HEADHUNTER,
+  NECROGEN_MISTS,
+  ODYLIC_WRAITH,
+  OPPRESSION,
+  ORDER_OF_YAWGMOTH,
+  ORZHOV_RACKETEERS,
+  RIPTIDE_PILFERER,
+  SILENT_SPECTER,
+  SOUL_BLEED,
+  SPELLSHOCK,
+  WEI_NIGHT_RAIDERS,
+  CHILLING_APPARITION,
+  LIGHTNING_SKELEMENTAL,
+  SPECTER_S_SHROUD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
