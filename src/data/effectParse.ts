@@ -196,6 +196,8 @@ const SELF = '(?:this (?:creature|permanent|artifact|enchantment|land)|~)';
 
 const WORD_NUMBERS: Readonly<Record<string, number>> = {
   a: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
+  // D434 - the mill counts run past seven (`mills ten cards`, `Mill twelve cards`); every rule still gates its own words.
+  eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, twenty: 20,
 };
 
 function num(raw: string | undefined): number | null {
@@ -384,6 +386,8 @@ function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | n
  */
 const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1)`;
 const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
+/** D434 - a mill's count: the words past seven the printed mills use. */
+const MILL_COUNT = '(?:a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|twenty|\\d+)';
 
 /**
  * The nouns a graveyard-return sentence may name — CLOSED, and closed to exactly
@@ -1106,6 +1110,37 @@ const RULES: readonly Rule[] = [
   {
     kind: 'draw',
     re: /^each (player|opponent) draws (a|one|two|three|four|five|six|seven|\d+) cards?\.$/i,
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null) return null;
+      const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }] };
+    },
+  },
+  /**
+   * D434 - the mill: `Mill three cards.` (the caster's own library), `Target player mills two cards.` (aimed at the
+   * player), `Each player mills four cards.` (a player scope, APNAP). The top N into the graveyard; fewer if the
+   * library is short. Nothing asks.
+   */
+  {
+    kind: 'mill',
+    re: new RegExp(`^(?:you )?mill (${MILL_COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'mill',
+    re: new RegExp(`^target (?:player|opponent) mills (${MILL_COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: 0 };
+    },
+  },
+  {
+    kind: 'mill',
+    re: new RegExp(`^each (player|opponent) mills (${MILL_COUNT}) cards?\\.$`, 'i'),
     build: (m) => {
       const n = num(m[2]);
       if (n === null) return null;

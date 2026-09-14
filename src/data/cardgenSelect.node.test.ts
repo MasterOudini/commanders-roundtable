@@ -259,6 +259,28 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D434 - the mill vocabulary's mirror offered 15 more the row maker refuses (a meld card, a mill as a payment's branch,
+  // three quoted grants, four heads outside the library, two filtered heads, a Clue sacrifice head, a cycling trigger on
+  // a spell, two loyalty faces) - each by the wide run's reason.
+  ['Argoth, Sanctum of Nature', 'multi-face or unusual layout (a meld card)'],
+  ['Drowner Initiate', 'a payment branch the suite cannot assert: mill (a graveyard count under a payment)'],
+  ['Evanescent Intellect', "a quoted ability grant (the granted mill is not the card's own line): Enchanted creature has \"{1}{U}, {T}: Target player mills three cards.\""],
+  ['Mindscour Dragon', 'trigger head not in the library: Whenever this creature deals combat damage to an opponent, target player mills four cards.'],
+  ['Scrabbling Skullcrab', 'trigger head not in the library: Eerie - Whenever an enchantment you control enters and whenever you fully unlock a Room, target player mills two cards.'],
+  ['Screaming Shield', "a quoted ability grant (the granted mill is not the card's own line): Equipped creature gets +0/+3 and has \"{2}, {T}: Target player mills three cards.\""],
+  ['Screeching Sliver', "a quoted ability grant (the granted mill is not the card's own line): All Slivers have \"{T}: Target player mills a card.\""],
+  ['Selhoff Occultist', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature dies, target player mills a card.'],
+  ['Enigma Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
+  ['Fleeting Memories', 'a sacrifice head no fixture the suite can sacrifice satisfies: a Clue'],
+  ['Fractured Sanity', 'a spell whose cycling trigger the engine does not run (When you cycle this card, each opponent mills four cards.)'],
+  ['Restless Reef', 'trigger head not in the library: Whenever this land attacks, target player mills four cards.'],
+  ["Thieves' Guild Enforcer", 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Rogue you control enters, each opponent mills two cards.'],
+  ['Jace Beleren', 'planeswalker loyalty ability'],
+  ['Jace Beleren // Jace Beleren', 'planeswalker loyalty ability'],
+  // D434 - the mill vocabulary: the 63 the wide run rowed once a mill could be the caster's own, aimed at a player or
+  // over a player scope; 62 landed and this 1 is refused by reason (two heads of one card interact - the enters loot's
+  // draw fires the draw head, and the suite answers one prompt where two are raised).
+  ["Teferi's Tutelage", 'two heads of one card interact (the loot draw fires the draw head; the suite answers one prompt where two are raised)'],
   // D433 - the targeted and scoped draws offered two more the row maker refuses (a second-card draw head outside the
   // library; a spell with an airbend beside its draw-then-discard).
   ['Faerie Mastermind', 'trigger head not in the library: Whenever an opponent draws their second card each turn, you draw a car'],

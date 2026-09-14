@@ -907,6 +907,21 @@ export function effectResult(
         break;
       }
 
+      case 'mill': {
+        // D434 - the top N of a library into its graveyard (CR 701.13): the aimed player's, every member of a player
+        // scope in APNAP order, or the caster's own. A short library mills what it has; nothing is lost or asked.
+        if (effect.scopes && effect.scopes.length > 0) {
+          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) out.push(...millEvents(state, p, effect.amount));
+          break;
+        }
+        if (!effect.self && aim?.kind === 'player') {
+          out.push(...millEvents(state, aim.id, effect.amount));
+          break;
+        }
+        out.push(...millEvents(state, controller, effect.amount));
+        break;
+      }
+
       case 'gainLife': {
         const p = state.players[controller];
         if (!p) break;
@@ -1554,6 +1569,19 @@ export function moveFromStack(card: InstanceId, kind: 'graveyard' | 'exile', pla
  * empty-library flag would be re-derived in `scripts/cards/` and eventually
  * disagree with this copy about what an empty library means.
  */
+/**
+ * D434 - a mill (CR 701.13): the top `count` cards of the player's library into their graveyard, top card first,
+ * as one `CardsMoved`. Not a draw: no `DrewCards` marker, no empty-library flag - a short library mills what it
+ * has. ⚠️ Exported for the generated card scripts for `drawEvents`' reason: one reader of which end is the top.
+ */
+export function millEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
+  const library = state.zones.library[player] ?? [];
+  const take = Math.min(count, library.length);
+  if (take <= 0) return [];
+  const ids = library.slice(library.length - take).reverse();
+  return [{ t: 'CardsMoved', moves: ids.map((card) => ({ card, from: { kind: 'library' as const, player }, to: { kind: 'graveyard' as const, player } })) }];
+}
+
 export function drawEvents(state: GameState, player: PlayerId, count: number): EventBody[] {
   const library = state.zones.library[player] ?? [];
   // ⚠️ The SAME helper the draw step and the mulligan use. A second "take N off

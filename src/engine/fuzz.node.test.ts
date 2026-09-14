@@ -271,6 +271,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // seat) went uncast over 60 seeds in these mana-light pools; the active player named off the step.
   { names: ['Font of Mythos', 'Kami of the Crescent Moon'], copiesPerSeat: 2,
     counterKeys: ['drawStepHeadFires'], rotHistory: 'D433' },
+  // D434 - the mill vocabulary: Hedron Crab ({U}, landfall - target player mills three) and Millstone ({2}; {2}, {T}:
+  // target player mills two) - a trigger and an activation, a coloured body and a colourless one, two a seat each.
+  { names: ['Hedron Crab', 'Millstone'], copiesPerSeat: 2,
+    counterKeys: ['millsResolved'], rotHistory: 'D434' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1113,6 +1117,8 @@ interface Run {
   readonly drawHeadFires: number;
   /** D433 - triggers of the draw-step heads that reached the stack (each player's draw step, your own). */
   readonly drawStepHeadFires: number;
+  /** D434 - mills that resolved: a `CardsMoved` whose every move is library to graveyard (a mill's one event). */
+  readonly millsResolved: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1489,6 +1495,7 @@ function runOne(seed: number): Run {
     returnsResolved: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'return').length,
     drawHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:opponentDrawsCard|aPlayerDrawsCard)-/.test(e.body.obj.abilityRef ?? '')).length,
     drawStepHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:eachPlayerDrawStep|yourDrawStep)-/.test(e.body.obj.abilityRef ?? '')).length,
+    millsResolved: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.length > 0 && e.body.moves.every((m) => m.from.kind === 'library' && m.to.kind === 'graveyard')).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1685,6 +1692,7 @@ const TOTAL_KEYS = [
   'returnsResolved',
   'drawHeadFires',
   'drawStepHeadFires',
+  'millsResolved',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -2004,6 +2012,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.drawHeadFires).toBeGreaterThan(0);
         // D433 - a draw-step head fired at gate size (Font of Mythos).
         expect(totals.drawStepHeadFires).toBeGreaterThan(0);
+        // D434 - a mill resolved at gate size (Hedron Crab's landfall, Millstone's activation).
+        expect(totals.millsResolved).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2101,6 +2111,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.returnsResolved} queued returns resolved · ` +
           `${totals.drawHeadFires} draw-head triggers · ` +
           `${totals.drawStepHeadFires} draw-step triggers · ` +
+          `${totals.millsResolved} mills resolved · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

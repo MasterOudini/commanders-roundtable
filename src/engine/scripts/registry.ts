@@ -7,6 +7,68 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WALL_OF_LOST_THOUGHTS_SCRIPT } from './cards/wallOfLostThoughts';
+import { SAGES_ROW_DENIZEN_SCRIPT } from './cards/sagesRowDenizen';
+import { SHADOW_STINGER_SCRIPT } from './cards/shadowStinger';
+import { RETURNED_CENTAUR_SCRIPT } from './cards/returnedCentaur';
+import { RUIN_CRAB_SCRIPT } from './cards/ruinCrab';
+import { ALTAR_OF_THE_BROOD_SCRIPT } from './cards/altarOfTheBrood';
+import { MILLSTONE_SCRIPT } from './cards/millstone';
+import { VEDALKEN_ENTRANCER_SCRIPT } from './cards/vedalkenEntrancer';
+import { DROWNER_OF_SECRETS_SCRIPT } from './cards/drownerOfSecrets';
+import { MOLDGRAF_MILLIPEDE_SCRIPT } from './cards/moldgrafMillipede';
+import { MINDWRACK_HARPY_SCRIPT } from './cards/mindwrackHarpy';
+import { MEMORY_EROSION_SCRIPT } from './cards/memoryErosion';
+import { IPNU_RIVULET_SCRIPT } from './cards/ipnuRivulet';
+import { MERFOLK_MESMERIST_SCRIPT } from './cards/merfolkMesmerist';
+import { SIBSIG_HOST_SCRIPT } from './cards/sibsigHost';
+import { DROWNYARD_AMALGAM_SCRIPT } from './cards/drownyardAmalgam';
+import { PSYCHIC_CORROSION_SCRIPT } from './cards/psychicCorrosion';
+import { TOWER_OF_MURMURS_SCRIPT } from './cards/towerOfMurmurs';
+import { EYE_COLLECTOR_SCRIPT } from './cards/eyeCollector';
+import { DUSKMANTLE_HOUSE_OF_SHADOW_SCRIPT } from './cards/duskmantleHouseOfShadow';
+import { REEF_PIRATES_SCRIPT } from './cards/reefPirates';
+import { WATCHER_OF_THE_WAYSIDE_SCRIPT } from './cards/watcherOfTheWayside';
+import { GNAWING_VERMIN_SCRIPT } from './cards/gnawingVermin';
+import { DROWNED_SECRETS_SCRIPT } from './cards/drownedSecrets';
+import { SORATAMI_MINDSWEEPER_SCRIPT } from './cards/soratamiMindsweeper';
+import { MIRE_TRITON_SCRIPT } from './cards/mireTriton';
+import { WORRY_BEADS_SCRIPT } from './cards/worryBeads';
+import { SAGE_OF_MYSTERIES_SCRIPT } from './cards/sageOfMysteries';
+import { SHRIEKGEIST_SCRIPT } from './cards/shriekgeist';
+import { RETURNED_REVELER_SCRIPT } from './cards/returnedReveler';
+import { HEDRON_CRAB_SCRIPT } from './cards/hedronCrab';
+import { CODEX_SHREDDER_SCRIPT } from './cards/codexShredder';
+import { GERALFS_MINDCRUSHER_SCRIPT } from './cards/geralfsMindcrusher';
+import { MYSTIC_REDACTION_SCRIPT } from './cards/mysticRedaction';
+import { PELARGIR_SURVIVOR_SCRIPT } from './cards/pelargirSurvivor';
+import { WHETSTONE_SCRIPT } from './cards/whetstone';
+import { DILIGENT_EXCAVATOR_SCRIPT } from './cards/diligentExcavator';
+import { TENURED_OILCASTER_SCRIPT } from './cards/tenuredOilcaster';
+import { SHINRA_REINFORCEMENTS_SCRIPT } from './cards/shinraReinforcements';
+import { NEPHALIA_DROWNYARD_SCRIPT } from './cards/nephaliaDrownyard';
+import { SEER_OF_THE_LAST_TOMORROW_SCRIPT } from './cards/seerOfTheLastTomorrow';
+import { FESTERLEECH_SCRIPT } from './cards/festerleech';
+import { KOMAS_FAITHFUL_SCRIPT } from './cards/komasFaithful';
+import { GHOULCALLERS_BELL_SCRIPT } from './cards/ghoulcallersBell';
+import { AMBASSADOR_LAQUATUS_SCRIPT } from './cards/ambassadorLaquatus';
+import { EYEBLIGHT_CULLERS_SCRIPT } from './cards/eyeblightCullers';
+import { WINDGRACE_ACOLYTE_SCRIPT } from './cards/windgraceAcolyte';
+import { CATHARTIC_ADEPT_SCRIPT } from './cards/catharticAdept';
+import { TOLARIAN_SERPENT_SCRIPT } from './cards/tolarianSerpent';
+import { HOMARID_EXPLORER_SCRIPT } from './cards/homaridExplorer';
+import { MINDEYE_DRAKE_SCRIPT } from './cards/mindeyeDrake';
+import { DESPERATE_BLOODSEEKER_SCRIPT } from './cards/desperateBloodseeker';
+import { VESSEL_OF_PARAMNESIA_SCRIPT } from './cards/vesselOfParamnesia';
+import { HAIR_STRUNG_KOTO_SCRIPT } from './cards/hairStrungKoto';
+import { THASSAS_DEVOURER_SCRIPT } from './cards/thassasDevourer';
+import { MERROW_WITSNIPER_SCRIPT } from './cards/merrowWitsniper';
+import { SPHINX_MINDBREAKER_SCRIPT } from './cards/sphinxMindbreaker';
+import { GRINDING_STATION_SCRIPT } from './cards/grindingStation';
+import { NIMANA_SKYDANCER_SCRIPT } from './cards/nimanaSkydancer';
+import { NAVIGATORS_RUIN_SCRIPT } from './cards/navigatorsRuin';
+import { DOOMS_SERVO_GUARDS_SCRIPT } from './cards/doomsServoGuards';
+import { ROTCROWN_GHOUL_SCRIPT } from './cards/rotcrownGhoul';
 import { DICTATE_OF_KRUPHIX_SCRIPT } from './cards/dictateOfKruphix';
 import { DIMIR_GUILDMAGE_SCRIPT } from './cards/dimirGuildmage';
 import { CEPHALID_COLISEUM_SCRIPT } from './cards/cephalidColiseum';
@@ -6687,6 +6749,68 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WALL_OF_LOST_THOUGHTS_SCRIPT,
+  SAGES_ROW_DENIZEN_SCRIPT,
+  SHADOW_STINGER_SCRIPT,
+  RETURNED_CENTAUR_SCRIPT,
+  RUIN_CRAB_SCRIPT,
+  ALTAR_OF_THE_BROOD_SCRIPT,
+  MILLSTONE_SCRIPT,
+  VEDALKEN_ENTRANCER_SCRIPT,
+  DROWNER_OF_SECRETS_SCRIPT,
+  MOLDGRAF_MILLIPEDE_SCRIPT,
+  MINDWRACK_HARPY_SCRIPT,
+  MEMORY_EROSION_SCRIPT,
+  IPNU_RIVULET_SCRIPT,
+  MERFOLK_MESMERIST_SCRIPT,
+  SIBSIG_HOST_SCRIPT,
+  DROWNYARD_AMALGAM_SCRIPT,
+  PSYCHIC_CORROSION_SCRIPT,
+  TOWER_OF_MURMURS_SCRIPT,
+  EYE_COLLECTOR_SCRIPT,
+  DUSKMANTLE_HOUSE_OF_SHADOW_SCRIPT,
+  REEF_PIRATES_SCRIPT,
+  WATCHER_OF_THE_WAYSIDE_SCRIPT,
+  GNAWING_VERMIN_SCRIPT,
+  DROWNED_SECRETS_SCRIPT,
+  SORATAMI_MINDSWEEPER_SCRIPT,
+  MIRE_TRITON_SCRIPT,
+  WORRY_BEADS_SCRIPT,
+  SAGE_OF_MYSTERIES_SCRIPT,
+  SHRIEKGEIST_SCRIPT,
+  RETURNED_REVELER_SCRIPT,
+  HEDRON_CRAB_SCRIPT,
+  CODEX_SHREDDER_SCRIPT,
+  GERALFS_MINDCRUSHER_SCRIPT,
+  MYSTIC_REDACTION_SCRIPT,
+  PELARGIR_SURVIVOR_SCRIPT,
+  WHETSTONE_SCRIPT,
+  DILIGENT_EXCAVATOR_SCRIPT,
+  TENURED_OILCASTER_SCRIPT,
+  SHINRA_REINFORCEMENTS_SCRIPT,
+  NEPHALIA_DROWNYARD_SCRIPT,
+  SEER_OF_THE_LAST_TOMORROW_SCRIPT,
+  FESTERLEECH_SCRIPT,
+  KOMAS_FAITHFUL_SCRIPT,
+  GHOULCALLERS_BELL_SCRIPT,
+  AMBASSADOR_LAQUATUS_SCRIPT,
+  EYEBLIGHT_CULLERS_SCRIPT,
+  WINDGRACE_ACOLYTE_SCRIPT,
+  CATHARTIC_ADEPT_SCRIPT,
+  TOLARIAN_SERPENT_SCRIPT,
+  HOMARID_EXPLORER_SCRIPT,
+  MINDEYE_DRAKE_SCRIPT,
+  DESPERATE_BLOODSEEKER_SCRIPT,
+  VESSEL_OF_PARAMNESIA_SCRIPT,
+  HAIR_STRUNG_KOTO_SCRIPT,
+  THASSAS_DEVOURER_SCRIPT,
+  MERROW_WITSNIPER_SCRIPT,
+  SPHINX_MINDBREAKER_SCRIPT,
+  GRINDING_STATION_SCRIPT,
+  NIMANA_SKYDANCER_SCRIPT,
+  NAVIGATORS_RUIN_SCRIPT,
+  DOOMS_SERVO_GUARDS_SCRIPT,
+  ROTCROWN_GHOUL_SCRIPT,
   DICTATE_OF_KRUPHIX_SCRIPT,
   DIMIR_GUILDMAGE_SCRIPT,
   CEPHALID_COLISEUM_SCRIPT,

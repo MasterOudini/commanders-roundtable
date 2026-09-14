@@ -244344,6 +244344,2153 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WALL_OF_LOST_THOUGHTS": {
+    "scryfallId": "03a0a627-ea7a-48bb-bf30-60b2677dd8ae",
+    "oracleId": "49b80368-d38a-4877-b1de-f3b5f3d40d4d",
+    "name": "Wall of Lost Thoughts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wall of Lost Thoughts",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\nWhen this creature enters, target player mills four cards. (They put the top four cards of their library into their graveyard.)",
+        "flavorText": "Those who intrude upon the Dimir seldom remember that they have done so.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "03a0a627-ea7a-48bb-bf30-60b2677dd8ae"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill",
+      "Defender"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAGE_S_ROW_DENIZEN": {
+    "scryfallId": "063e6df9-2287-485a-ab46-fa4a38783884",
+    "oracleId": "fc59aa9a-3abd-4479-a63e-ef0eeb35b5f2",
+    "name": "Sage's Row Denizen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sage's Row Denizen",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Vedalken Wizard",
+        "oracleText": "Whenever another blue creature you control enters, target player mills two cards.",
+        "flavorText": "\"I offer you wisdom untainted by false loyalty, learning free of any guild's agenda.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "063e6df9-2287-485a-ab46-fa4a38783884"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADOW_STINGER": {
+    "scryfallId": "093e0b1e-2cd9-4743-9c0e-b8f3fbc41798",
+    "oracleId": "214562b1-fdf0-4d5d-93f0-594b31b80bb3",
+    "name": "Shadow Stinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shadow Stinger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "Tap another untapped Rogue you control: This creature gains deathtouch until end of turn.\nWhenever this creature deals combat damage to a player, that player mills three cards. (They put the top three cards of their library into their graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Thacker",
+        "imageId": "093e0b1e-2cd9-4743-9c0e-b8f3fbc41798"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RETURNED_CENTAUR": {
+    "scryfallId": "0bc1b4f7-74e5-4fff-b0cd-9d3b2bf2e634",
+    "oracleId": "223c97fb-dc96-41ba-be9d-bad9b5e4876f",
+    "name": "Returned Centaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Returned Centaur",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Centaur",
+        "oracleText": "When this creature enters, target player mills four cards.",
+        "flavorText": "Driven away by his living kin, he wanders mourning through the wilderness, seeking the dead city of Asphodel.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "0bc1b4f7-74e5-4fff-b0cd-9d3b2bf2e634"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ORI-116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUIN_CRAB": {
+    "scryfallId": "0c90e4e7-a60c-479b-93ae-5209761b7c7c",
+    "oracleId": "8afc00d4-a1c6-4329-af2c-a7f58a0c33e7",
+    "name": "Ruin Crab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruin Crab",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Crab",
+        "oracleText": "Landfall — Whenever a land you control enters, each opponent mills three cards. (To mill a card, a player puts the top card of their library into their graveyard.)",
+        "flavorText": "探検家にとっては、かけがえのない財宝。カニにとっては、頼れる我が家。",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "0c90e4e7-a60c-479b-93ae-5209761b7c7c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill",
+      "Landfall"
+    ],
+    "setCode": "pmei",
+    "collectorNumber": "2023-4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALTAR_OF_THE_BROOD": {
+    "scryfallId": "0d656542-f0cd-485d-9d74-05573a2d49e4",
+    "oracleId": "c3aafcdd-c890-4971-b8a9-5bfcad794c0b",
+    "name": "Altar of the Brood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Altar of the Brood",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever another permanent you control enters, each opponent mills a card.",
+        "flavorText": "Worshippers are allowed to pluck one memory from a chosen nonbeliever. Maybe a battle plan. Maybe a profession of love.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Josh Freydkis",
+        "imageId": "0d656542-f0cd-485d-9d74-05573a2d49e4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "slc",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MILLSTONE": {
+    "scryfallId": "107646bc-2181-49f4-8821-1eaa46291855",
+    "oracleId": "3212e47a-5492-4c50-9d4a-6ea562f1a6e1",
+    "name": "Millstone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Millstone",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Target player mills two cards.",
+        "flavorText": "More than one mage was driven insane by the sound of the Millstone relentlessly grinding away.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kaja Foglio",
+        "imageId": "107646bc-2181-49f4-8821-1eaa46291855"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "atq",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VEDALKEN_ENTRANCER": {
+    "scryfallId": "11fe8103-fa45-4469-85a1-065b1092ba5b",
+    "oracleId": "04cc5292-a485-4bb8-a143-9364229d480f",
+    "name": "Vedalken Entrancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vedalken Entrancer",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Vedalken Wizard",
+        "oracleText": "{U}, {T}: Target player mills two cards.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "11fe8103-fa45-4469-85a1-065b1092ba5b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "H18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROWNER_OF_SECRETS": {
+    "scryfallId": "149aa77e-fc10-4b9b-8f38-cc6db5be7b79",
+    "oracleId": "a5ce3fb6-9c70-4433-a079-467c911bfd4d",
+    "name": "Drowner of Secrets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drowner of Secrets",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Tap an untapped Merfolk you control: Target player mills a card.",
+        "flavorText": "Merrows consider themselves the keepers of Lorwyn's past—and consider it their duty to edit when necessary.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "149aa77e-fc10-4b9b-8f38-cc6db5be7b79"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLDGRAF_MILLIPEDE": {
+    "scryfallId": "190fc5e1-013d-485d-a4a1-bf616a53098d",
+    "oracleId": "48edac92-0dd8-4274-bf1b-122243770540",
+    "name": "Moldgraf Millipede",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moldgraf Millipede",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Insect Horror",
+        "oracleText": "When this creature enters, mill three cards, then put a +1/+1 counter on this creature for each creature card in your graveyard. (To mill three cards, put the top three cards of your library into your graveyard.)",
+        "flavorText": "Between stitchers, cultists, and scavengers, corpses are in high demand.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "190fc5e1-013d-485d-a4a1-bf616a53098d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "691",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINDWRACK_HARPY": {
+    "scryfallId": "1a89e0cb-8021-4fe7-80a3-1773d3b2e50b",
+    "oracleId": "f20f27d1-2c50-41d5-b1af-44a0e7ca2e00",
+    "name": "Mindwrack Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mindwrack Harpy",
+        "manaCost": "{3}{B}",
+        "typeLine": "Enchantment Creature — Harpy",
+        "oracleText": "Flying\nAt the beginning of combat on your turn, each player mills three cards.",
+        "flavorText": "Harpies are among the most detested creatures in all of Theros... and they thoroughly deserve it.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "1a89e0cb-8021-4fe7-80a3-1773d3b2e50b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "THB-276",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEMORY_EROSION": {
+    "scryfallId": "1ac12aba-0ec6-4922-94cb-1b77634a603b",
+    "oracleId": "f4a96881-586d-44ad-b427-5cdf8988f9a1",
+    "name": "Memory Erosion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Memory Erosion",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever an opponent casts a spell, that player mills two cards.",
+        "flavorText": "\"The Filigree Texts do not compel you to act in accordance with their precepts. They only specify the consequences should you fail.\"\n—Lodus of the Ethersworn",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "1ac12aba-0ec6-4922-94cb-1b77634a603b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "CM2-45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IPNU_RIVULET": {
+    "scryfallId": "203011ef-3737-4fd1-bd23-0e531b5a7c32",
+    "oracleId": "c17d799f-adc9-4c41-87cf-b243b5ea3be1",
+    "name": "Ipnu Rivulet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ipnu Rivulet",
+        "manaCost": "",
+        "typeLine": "Land — Desert",
+        "oracleText": "{T}: Add {C}.\n{T}, Pay 1 life: Add {U}.\n{1}{U}, {T}, Sacrifice a Desert: Target player mills four cards. (They put the top four cards of their library into their graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Paick",
+        "imageId": "203011ef-3737-4fd1-bd23-0e531b5a7c32"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERFOLK_MESMERIST": {
+    "scryfallId": "220dede5-472c-4a09-bdf0-73e722d9d4d2",
+    "oracleId": "590d524f-278d-4cf4-ae3f-efcced4517b1",
+    "name": "Merfolk Mesmerist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merfolk Mesmerist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{U}, {T}: Target player mills two cards.",
+        "flavorText": "\"Don't you think if I saw a half-woman, half-fish with three glowing eyes, I'd have remembered?\"\n—Drugo, town guard",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jana Schirmer & Johannes Voss",
+        "imageId": "220dede5-472c-4a09-bdf0-73e722d9d4d2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "m12",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIBSIG_HOST": {
+    "scryfallId": "2791f1a5-bf29-48ac-8a41-88b7f97ede41",
+    "oracleId": "11776f73-f504-4f19-b5b6-2f58279f8b15",
+    "name": "Sibsig Host",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sibsig Host",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, each player mills three cards.",
+        "flavorText": "\"They were your friends, your family, your clan. They want only to welcome you.\"\n—Tasigur, the Golden Fang",
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "2791f1a5-bf29-48ac-8a41-88b7f97ede41"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROWNYARD_AMALGAM": {
+    "scryfallId": "27d0bfd9-1df6-4fd6-99b0-30fe5b9b4e88",
+    "oracleId": "2378d6fc-b6ba-4a44-b951-5698ed507e4c",
+    "name": "Drownyard Amalgam",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drownyard Amalgam",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "When this creature enters, target player mills three cards. (They put the top three cards of their library into their graveyard.)\n{2}{U}: This creature can't be blocked this turn.",
+        "flavorText": "When human corpses are in short supply, stitchers get creative.",
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Brock",
+        "imageId": "27d0bfd9-1df6-4fd6-99b0-30fe5b9b4e88"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PSYCHIC_CORROSION": {
+    "scryfallId": "285d22fa-1623-463a-83c0-a9aa7c969ce2",
+    "oracleId": "328b42f1-d679-4f9c-80e3-38fe3b965d10",
+    "name": "Psychic Corrosion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Psychic Corrosion",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you draw a card, each opponent mills two cards.",
+        "flavorText": "\"To break another's mind is to deliver a fate worse than death. It is a terrifying power.\"\n—Jace Beleren",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bastien L. Deharme",
+        "imageId": "285d22fa-1623-463a-83c0-a9aa7c969ce2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOWER_OF_MURMURS": {
+    "scryfallId": "2ad7e6c4-27a1-4aef-81a1-7e8fbcce89e3",
+    "oracleId": "c383b28c-b319-49cd-acf1-4721a1301bbb",
+    "name": "Tower of Murmurs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tower of Murmurs",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{8}, {T}: Target player mills eight cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Glen Angus",
+        "imageId": "2ad7e6c4-27a1-4aef-81a1-7e8fbcce89e3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "H25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYE_COLLECTOR": {
+    "scryfallId": "2b9bb2f3-a7c7-4e8f-ba39-44e6acd9240b",
+    "oracleId": "553c2006-e123-406e-ab4a-1d1f67c7468c",
+    "name": "Eye Collector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eye Collector",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Faerie",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, each player mills a card. (Each player puts the top card of their library into their graveyard.)",
+        "flavorText": "\"Lord Rankle will see you now—all he asks is a small token of tribute.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Uriah Voth",
+        "imageId": "2b9bb2f3-a7c7-4e8f-ba39-44e6acd9240b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSKMANTLE_HOUSE_OF_SHADOW": {
+    "scryfallId": "2d3c85e2-58a5-4469-85ea-7e89268f310c",
+    "oracleId": "67b2cd0c-ecc8-4129-b1ac-820c9924190c",
+    "name": "Duskmantle, House of Shadow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duskmantle, House of Shadow",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{U}{B}, {T}: Target player mills a card.",
+        "flavorText": "In a space where there is no room, in a structure that was never built, meets the guild that doesn't exist.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martina Pilcerova",
+        "imageId": "2d3c85e2-58a5-4469-85ea-7e89268f310c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "277",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REEF_PIRATES": {
+    "scryfallId": "2d712139-bf12-4f7b-bb9b-34d15fac56df",
+    "oracleId": "13fb5413-0057-4022-84da-2c90ce065ed1",
+    "name": "Reef Pirates",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reef Pirates",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Zombie Pirate",
+        "oracleText": "Whenever this creature deals damage to an opponent, that player mills a card.",
+        "flavorText": "Relentless as the tides, souls dark as a moonless night. Bloodshed on their minds, and greed burning in their hearts like molten gold.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tom Wänerstrand",
+        "imageId": "2d712139-bf12-4f7b-bb9b-34d15fac56df"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "5ed",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WATCHER_OF_THE_WAYSIDE": {
+    "scryfallId": "2dcafdac-a293-4adc-a540-3b3f469cf6f3",
+    "oracleId": "b30eafed-2755-4423-9592-c8b83c68804b",
+    "name": "Watcher of the Wayside",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Watcher of the Wayside",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "When this creature enters, target player mills two cards. You gain 2 life. (To mill two cards, a player puts the top two cards of their library into their graveyard.)",
+        "flavorText": "Against dragonlords, khans, and Ugin himself, the golem survived. Original purpose forgotten, it awaits orders that will never come, from a world that has moved on without it.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Valeza",
+        "imageId": "2dcafdac-a293-4adc-a540-3b3f469cf6f3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNAWING_VERMIN": {
+    "scryfallId": "2fa2fa48-ddb7-45f0-b183-4186df98f7cc",
+    "oracleId": "33ef3d51-845d-460b-97a0-95e7591cf466",
+    "name": "Gnawing Vermin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnawing Vermin",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, target player mills two cards.\nWhen this creature dies, target creature you don't control gets -1/-1 until end of turn.",
+        "flavorText": "\"Everyone warns about the sand and the food, but the rats are worse than both put together!\"\n—Sanwell, letter to his family",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "2fa2fa48-ddb7-45f0-b183-4186df98f7cc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROWNED_SECRETS": {
+    "scryfallId": "396873f9-3709-4046-ac2f-00054b58653e",
+    "oracleId": "cab305d9-27fb-4a41-adf1-892e15167cb9",
+    "name": "Drowned Secrets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drowned Secrets",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast a blue spell, target player mills two cards.",
+        "flavorText": "Beneath Ravnica's streets runs a layer of tunnels, then caverns and waterways, then terrors and nightmares.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alexander Forssberg",
+        "imageId": "396873f9-3709-4046-ac2f-00054b58653e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "pgrn",
+    "collectorNumber": "39p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORATAMI_MINDSWEEPER": {
+    "scryfallId": "3bafb35f-ba86-4bf0-92db-77b16e7c5bcc",
+    "oracleId": "2ef6f4d6-f755-4402-8339-2a9b6c86f96c",
+    "name": "Soratami Mindsweeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soratami Mindsweeper",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Moonfolk Wizard",
+        "oracleText": "Flying\n{2}, Return a land you control to its owner's hand: Target player mills two cards.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "3bafb35f-ba86-4bf0-92db-77b16e7c5bcc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "H50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRE_TRITON": {
+    "scryfallId": "3f8427d3-4d9e-48c9-838b-239fd1357d95",
+    "oracleId": "4fe6f784-0290-4d4a-85ae-0b66522d31e9",
+    "name": "Mire Triton",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mire Triton",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Merfolk",
+        "oracleText": "Deathtouch\nWhen this creature enters, mill two cards and you gain 2 life. (To mill a card, put the top card of your library into your graveyard.)",
+        "flavorText": "Caught between life and death, between land and sea, between thought and oblivion.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "3f8427d3-4d9e-48c9-838b-239fd1357d95"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill",
+      "Deathtouch"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WORRY_BEADS": {
+    "scryfallId": "400edfe9-9efa-43f9-b713-13ad4eae2fa4",
+    "oracleId": "ab050d55-a47d-4880-b65a-29f562773d7a",
+    "name": "Worry Beads",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Worry Beads",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "At the beginning of each player's upkeep, that player mills a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "rk post",
+        "imageId": "400edfe9-9efa-43f9-b713-13ad4eae2fa4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "315",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAGE_OF_MYSTERIES": {
+    "scryfallId": "4138fd65-e0c3-42a1-9c0d-4d5f20228b55",
+    "oracleId": "62c949c8-0011-4ab7-8388-e643be79df83",
+    "name": "Sage of Mysteries",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sage of Mysteries",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Constellation — Whenever an enchantment you control enters, target player mills two cards.",
+        "flavorText": "\"I see destruction, suffering, and one tormented glimmer of hope.\"",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Stanko",
+        "imageId": "4138fd65-e0c3-42a1-9c0d-4d5f20228b55"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill",
+      "Constellation"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRIEKGEIST": {
+    "scryfallId": "424b08b1-d9a3-4f18-a5ef-0f46698ac7ed",
+    "oracleId": "e8dd4341-e7e5-49f7-b173-e4c3195e3334",
+    "name": "Shriekgeist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shriekgeist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, that player mills two cards.",
+        "flavorText": "Wounds of the flesh are easy to heal. Wounds of the mind may never be undone.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "424b08b1-d9a3-4f18-a5ef-0f46698ac7ed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RETURNED_REVELER": {
+    "scryfallId": "4beadd29-e445-42f5-bf0f-75050b701b2c",
+    "oracleId": "f90df69a-d53f-44b1-833a-5223d2e6c296",
+    "name": "Returned Reveler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Returned Reveler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Satyr",
+        "oracleText": "When this creature dies, each player mills three cards.",
+        "flavorText": "The flesh is dead and the life forgotten, but old habits persist.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "4beadd29-e445-42f5-bf0f-75050b701b2c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "460",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEDRON_CRAB": {
+    "scryfallId": "4d804aad-ccf5-4605-9076-9000f8f9538a",
+    "oracleId": "7216f974-3c84-40ef-b904-82019900c204",
+    "name": "Hedron Crab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hedron Crab",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Crab",
+        "oracleText": "Landfall — Whenever a land you control enters, target player mills three cards. (They put the top three cards of their library into their graveyard.)",
+        "flavorText": "Hedrons perplex minds both great and small.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "4d804aad-ccf5-4605-9076-9000f8f9538a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill",
+      "Landfall"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ZEN-47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CODEX_SHREDDER": {
+    "scryfallId": "4f5a3293-f3e7-4f68-af6a-b478959226c1",
+    "oracleId": "ef7b11ab-24e7-4e7c-91a7-920bade6e60b",
+    "name": "Codex Shredder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Codex Shredder",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Target player mills a card. (They put the top card of their library into their graveyard.)\n{5}, {T}, Sacrifice this artifact: Return target card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Felix",
+        "imageId": "4f5a3293-f3e7-4f68-af6a-b478959226c1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GERALF_S_MINDCRUSHER": {
+    "scryfallId": "53dcdb62-28d8-4981-8704-1de4309f76bb",
+    "oracleId": "e8fa9455-92ac-46e0-bb34-4175c3c66fee",
+    "name": "Geralf's Mindcrusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geralf's Mindcrusher",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "When this creature enters, target player mills five cards.\nUndying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "53dcdb62-28d8-4981-8704-1de4309f76bb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Undying",
+      "Mill"
+    ],
+    "setCode": "scd",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_REDACTION": {
+    "scryfallId": "57bec76f-243b-41b6-9e47-17a61f18ae53",
+    "oracleId": "c2e54e13-dad5-4d01-850f-a1735eea54ae",
+    "name": "Mystic Redaction",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Redaction",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, scry 1.\nWhenever you discard a card, each opponent mills two cards. (They put the top two cards of their library into their graveyard.)",
+        "flavorText": "Action: Show GLOWING BLUE GLYPHS being TORN out of a GRIMOIRE, leaving BLANK PAGES behind.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "57bec76f-243b-41b6-9e47-17a61f18ae53"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill",
+      "Scry"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "338",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PELARGIR_SURVIVOR": {
+    "scryfallId": "5b3d1272-07fd-4b02-a0cc-7a9284bdbbed",
+    "oracleId": "ce0b3c22-3f77-4a6c-a126-9ed3c06b4482",
+    "name": "Pelargir Survivor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pelargir Survivor",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "{T}: Add one mana of any color. Spend this mana only to cast an instant or sorcery spell.\n{5}{U}, {T}: Target player mills three cards. (They put the top three cards of their library into their graveyard.)",
+        "flavorText": "\"The Corsairs are upon us! Back to the walls! Back to the City before all are overwhelmed!\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "5b3d1272-07fd-4b02-a0cc-7a9284bdbbed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "515",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHETSTONE": {
+    "scryfallId": "627805a0-535f-4cba-8176-a4de290b9c15",
+    "oracleId": "940e461c-b205-4075-bd1f-a1534c33db6c",
+    "name": "Whetstone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whetstone",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}: Each player mills two cards.",
+        "flavorText": "To hone swords and dull minds.\n—Whetstone inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Simanson",
+        "imageId": "627805a0-535f-4cba-8176-a4de290b9c15"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DILIGENT_EXCAVATOR": {
+    "scryfallId": "65212970-770e-4110-aa86-c89128688867",
+    "oracleId": "a3866181-c127-45d6-8553-97e9f64a3ca5",
+    "name": "Diligent Excavator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diligent Excavator",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Whenever you cast a historic spell, target player mills two cards. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": "Archaeologists don't just dig in the dirt. They excavate time, scraping off the years grain by grain.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Behm",
+        "imageId": "65212970-770e-4110-aa86-c89128688867"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TENURED_OILCASTER": {
+    "scryfallId": "65721bc1-87fa-45b9-8b45-ee77c1aab6ac",
+    "oracleId": "7fb837d7-e2c9-40f8-8a7d-156b3aa86830",
+    "name": "Tenured Oilcaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tenured Oilcaster",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Phyrexian Wizard",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nThis creature gets +3/+0 as long as an opponent has eight or more cards in their graveyard.\nWhenever this creature attacks or blocks, each player mills a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Francisco Miyara",
+        "imageId": "65721bc1-87fa-45b9-8b45-ee77c1aab6ac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace",
+      "Mill"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHINRA_REINFORCEMENTS": {
+    "scryfallId": "7367b257-1a8c-4593-a307-7116e36e0342",
+    "oracleId": "6cfe63ac-3581-461b-8ed3-3e231851e3f8",
+    "name": "Shinra Reinforcements",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shinra Reinforcements",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, mill three cards and you gain 3 life. (To mill three cards, put the top three cards of your library into your graveyard.)",
+        "flavorText": "\"End of the line, punk!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Airi Yoshihisa",
+        "imageId": "7367b257-1a8c-4593-a307-7116e36e0342"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEPHALIA_DROWNYARD": {
+    "scryfallId": "7819a326-1d07-4194-a1eb-01d4081ed192",
+    "oracleId": "6429b4ed-1845-4643-9a3d-85f7c12f2bba",
+    "name": "Nephalia Drownyard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nephalia Drownyard",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}{U}{B}, {T}: Target player mills three cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kerby Rosanes",
+        "imageId": "7819a326-1d07-4194-a1eb-01d4081ed192"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "351",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEER_OF_THE_LAST_TOMORROW": {
+    "scryfallId": "7e897f14-8775-4bc3-a3b2-b149f79ec702",
+    "oracleId": "dc5cb189-9eff-4b4e-a46d-7a8e62529c89",
+    "name": "Seer of the Last Tomorrow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seer of the Last Tomorrow",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Snake Cleric",
+        "oracleText": "{U}, {T}, Discard a card: Target player mills three cards.",
+        "flavorText": "\"The truth? It's been here all along. The Hours as we understood them are lies.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "7e897f14-8775-4bc3-a3b2-b149f79ec702"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "hou",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FESTERLEECH": {
+    "scryfallId": "83a6fa37-8351-403b-ae05-b67e9bf74bbb",
+    "oracleId": "d14fdc1d-62bc-4e9c-b79b-8c9c3232f0bc",
+    "name": "Festerleech",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Festerleech",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie Leech",
+        "oracleText": "Whenever this creature deals combat damage to a player, you mill two cards.\n{1}{B}: This creature gets +2/+2 until end of turn. Activate only once each turn.",
+        "flavorText": "\"Four Dead in Zombie Leech Attack, Dozens Nauseated\"\n—*Tenth District Times* headline",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Helge C. Balzer",
+        "imageId": "83a6fa37-8351-403b-ae05-b67e9bf74bbb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOMA_S_FAITHFUL": {
+    "scryfallId": "848c544e-f896-4a6d-a786-02a23474e65a",
+    "oracleId": "1d705d77-4b1a-4a17-b3b7-e502f2f6f6e6",
+    "name": "Koma's Faithful",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Koma's Faithful",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Elf Cleric",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature dies, each player mills three cards. (They each put the top three cards of their library into their graveyard.)",
+        "flavorText": "\"Great Serpent, hear my song! We wait, our faith unshaken, for your glorious return.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "848c544e-f896-4a6d-a786-02a23474e65a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Mill"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "457",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOULCALLER_S_BELL": {
+    "scryfallId": "863e7c2a-698c-4dce-a10b-ca58e4affa57",
+    "oracleId": "36e1485d-3b8c-4c23-9d12-6937fd216b25",
+    "name": "Ghoulcaller's Bell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghoulcaller's Bell",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Each player mills a card.",
+        "flavorText": "The bell's chime heralds the rise of the unhallowed from the grave and the fall of their victims into the earth.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lars Grant-West",
+        "imageId": "863e7c2a-698c-4dce-a10b-ca58e4affa57"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMBASSADOR_LAQUATUS": {
+    "scryfallId": "887cac61-2001-4bd1-aeeb-20149ebc5856",
+    "oracleId": "2df8f253-1d3c-4b1f-8549-93fb90623474",
+    "name": "Ambassador Laquatus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ambassador Laquatus",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Legendary Creature — Merfolk Wizard",
+        "oracleText": "{3}: Target player mills three cards.",
+        "flavorText": "\"He smiles with poisoned lips.\"\n—Empress Llawan",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "887cac61-2001-4bd1-aeeb-20149ebc5856"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYEBLIGHT_CULLERS": {
+    "scryfallId": "89b47813-9b6c-4e8f-9212-fe37fb50e405",
+    "oracleId": "b7d69422-b90b-4149-8c6d-eef636d5c6f5",
+    "name": "Eyeblight Cullers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eyeblight Cullers",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "When this creature dies, create three 1/1 green Elf Warrior creature tokens, then mill three cards. (Put the top three cards of your library into your graveyard.)",
+        "flavorText": "\"As long as eyeblights exist, the hunt will never end.\"\n—Miara, Thorn of the Glade",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "89b47813-9b6c-4e8f-9212-fe37fb50e405"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "khc",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINDGRACE_ACOLYTE": {
+    "scryfallId": "8cd9fc6f-d85c-4475-b79e-705a1674099e",
+    "oracleId": "334a98c0-9a16-4145-8f5b-bdf017afe73f",
+    "name": "Windgrace Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Windgrace Acolyte",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Cat Warrior",
+        "oracleText": "Flying\nWhen this creature enters, mill three cards and you gain 3 life.",
+        "flavorText": "Acolytes of the lost Lord Windgrace fight to keep Urborg relics out of Cabal hands.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bayard Wu",
+        "imageId": "8cd9fc6f-d85c-4475-b79e-705a1674099e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DOM-112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATHARTIC_ADEPT": {
+    "scryfallId": "8e63626d-f55c-4155-9712-511f591c0614",
+    "oracleId": "44d30168-8203-4a8e-a11f-b4a068231e55",
+    "name": "Cathartic Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cathartic Adept",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: Target player mills a card.",
+        "flavorText": "\"Forget. Only then will there be space for hope between the pain and fear.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "8e63626d-f55c-4155-9712-511f591c0614"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOLARIAN_SERPENT": {
+    "scryfallId": "9236a857-c4ca-4de2-a4a2-e0914d16b54b",
+    "oracleId": "684e18bf-1390-4d12-8e7a-e8562db64dbb",
+    "name": "Tolarian Serpent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tolarian Serpent",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Serpent",
+        "oracleText": "At the beginning of your upkeep, mill seven cards.",
+        "flavorText": "\"When the fishtails' threats of magic didn't move me, they set their pet on us.\"\n—Tahngarth of the *Weatherlight*",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stuart Griffin",
+        "imageId": "9236a857-c4ca-4de2-a4a2-e0914d16b54b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOMARID_EXPLORER": {
+    "scryfallId": "93be7aa6-1897-4657-b3a6-991b05f7ea5e",
+    "oracleId": "ac30745c-addf-433a-be73-d3d9f4cc4328",
+    "name": "Homarid Explorer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Homarid Explorer",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Homarid Scout",
+        "oracleText": "When this creature enters, target player mills four cards.",
+        "flavorText": "\"Homarids spread northward from Sarpadia as the climate cooled, raiding coastal settlements for supplies.\"\n—*Time of Ice*",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "93be7aa6-1897-4657-b3a6-991b05f7ea5e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "dom",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINDEYE_DRAKE": {
+    "scryfallId": "947f44b0-91be-4115-b499-57893f0f69a9",
+    "oracleId": "6e33ec9a-e148-4aa6-bff8-b356c45fb369",
+    "name": "Mindeye Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mindeye Drake",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhen this creature dies, target player mills five cards.",
+        "flavorText": "They can map both the cityscape and the minds of its architects.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "947f44b0-91be-4115-b499-57893f0f69a9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DESPERATE_BLOODSEEKER": {
+    "scryfallId": "a59da027-b5dd-4920-b3a1-9da05fcb1977",
+    "oracleId": "de8d7cad-02c7-43f1-896e-eaa73f016ada",
+    "name": "Desperate Bloodseeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Desperate Bloodseeker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Lifelink\nWhen this creature enters, target player mills two cards. (They put the top two cards of their library into their graveyard.)",
+        "flavorText": "With no mammals around, some vampires tried to feed on cactusfolk, with horrible results for everyone involved.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "a59da027-b5dd-4920-b3a1-9da05fcb1977"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Mill"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VESSEL_OF_PARAMNESIA": {
+    "scryfallId": "b4596140-1113-4349-aabe-4e828ea574e8",
+    "oracleId": "f6894486-0bac-4b72-92b7-5ce99fa426e6",
+    "name": "Vessel of Paramnesia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vessel of Paramnesia",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "{U}, Sacrifice this enchantment: Target player mills three cards. Draw a card.",
+        "flavorText": "\"Write everything down. Trust me.\"\n—Vallon, Thraben inspector",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "b4596140-1113-4349-aabe-4e828ea574e8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAIR_STRUNG_KOTO": {
+    "scryfallId": "c5354475-6a0b-4b1f-b94c-7c103d99e88b",
+    "oracleId": "f7944c30-d226-4cb9-931d-6e9f2fe5cb42",
+    "name": "Hair-Strung Koto",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hair-Strung Koto",
+        "manaCost": "{6}",
+        "typeLine": "Artifact",
+        "oracleText": "Tap an untapped creature you control: Target player mills a card.",
+        "flavorText": "\"The Kami War drove many members of Konda's court insane. As their spiritual world turned against them, so too did their minds turn from reality.\"\n—*The History of Kamigawa*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rebecca Guay",
+        "imageId": "c5354475-6a0b-4b1f-b94c-7c103d99e88b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THASSA_S_DEVOURER": {
+    "scryfallId": "d4ebd8c0-bb03-434d-b669-d9b35d07b2c6",
+    "oracleId": "b9794b16-3ef4-424a-b1ee-e2077f53873d",
+    "name": "Thassa's Devourer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thassa's Devourer",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment Creature — Elemental",
+        "oracleText": "Constellation — Whenever this creature or another enchantment you control enters, target player mills two cards.",
+        "flavorText": "When mortals claim there are places Thassa cannot reach, the sea god laughs.",
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "d4ebd8c0-bb03-434d-b669-d9b35d07b2c6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill",
+      "Constellation"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERROW_WITSNIPER": {
+    "scryfallId": "d5b4e77f-012f-47f4-8b44-930148250b1d",
+    "oracleId": "79f8378a-fb50-4178-be53-b6926bc1cba5",
+    "name": "Merrow Witsniper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merrow Witsniper",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "When this creature enters, target player mills a card.",
+        "flavorText": "\"The world above the waterline must be monitored—and, when necessary, adjusted.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "d5b4e77f-012f-47f4-8b44-930148250b1d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPHINX_MINDBREAKER": {
+    "scryfallId": "d70c50ce-48f0-49a6-9653-42b8ccb9a647",
+    "oracleId": "a5270cf7-1eb3-4907-9f47-d787f61940d3",
+    "name": "Sphinx Mindbreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sphinx Mindbreaker",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Sphinx",
+        "oracleText": "Flying\nWhen this creature enters, each opponent mills ten cards.",
+        "flavorText": "Riddles draw you in, paradoxes hold you fast, and answers shatter your perceptions.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "PINDURSKI",
+        "imageId": "d70c50ce-48f0-49a6-9653-42b8ccb9a647"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRINDING_STATION": {
+    "scryfallId": "df1df511-b52c-45cd-9503-ffce4271a802",
+    "oracleId": "0fcd476f-4db8-4293-9388-1678a0043c9e",
+    "name": "Grinding Station",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grinding Station",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}, Sacrifice an artifact: Target player mills three cards.\nWhenever an artifact enters, you may untap this artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "df1df511-b52c-45cd-9503-ffce4271a802"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMANA_SKYDANCER": {
+    "scryfallId": "e72eaa0f-cbec-45a1-b390-cbbedf5a02f2",
+    "oracleId": "27a66362-f2f5-4d46-9faf-a73752753304",
+    "name": "Nimana Skydancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimana Skydancer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, target opponent mills two cards. (They put the top two cards of their library into their graveyard.)",
+        "flavorText": "The Free City of Nimana is a great place to recruit adventurers with shady skill sets.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bryan Sola",
+        "imageId": "e72eaa0f-cbec-45a1-b390-cbbedf5a02f2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Flash",
+      "Mill"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NAVIGATOR_S_RUIN": {
+    "scryfallId": "eb082e5e-770a-4c5a-8976-ee394ab73c86",
+    "oracleId": "cd830c46-3444-488d-ae5b-0a2533158a13",
+    "name": "Navigator's Ruin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Navigator's Ruin",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Raid — At the beginning of your end step, if you attacked this turn, target opponent mills four cards.",
+        "flavorText": "\"You won't be needing this. Or this. Or these . . .\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "eb082e5e-770a-4c5a-8976-ee394ab73c86"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Raid",
+      "Mill"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOM_S_SERVO_GUARDS": {
+    "scryfallId": "f0f35123-a6c2-4887-aa1f-8812c599dc33",
+    "oracleId": "296e79f9-57cb-4af7-9e18-48d2d655b537",
+    "name": "Doom's Servo-Guards",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doom's Servo-Guards",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact Creature — Robot Villain",
+        "oracleText": "When this creature enters, you gain 2 life and mill two cards. (Put the top two cards of your library into your graveyard.)",
+        "flavorText": "\"My robot army stands guard night and day! For no one knows what is best for you—except your mighty sovereign!\"\n—Doctor Doom",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lixin Yin",
+        "imageId": "f0f35123-a6c2-4887-aa1f-8812c599dc33"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "535",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROTCROWN_GHOUL": {
+    "scryfallId": "f13b5ba6-0de1-4f5c-867b-57e2c10bde8e",
+    "oracleId": "e9a420d4-a834-4a14-b874-1db96624d8ef",
+    "name": "Rotcrown Ghoul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rotcrown Ghoul",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature dies, target player mills five cards.",
+        "flavorText": "\"Don't look into its eyes. It's thinking things no dead thing should think.\"\n—Captain Eberhart",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "f13b5ba6-0de1-4f5c-867b-57e2c10bde8e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

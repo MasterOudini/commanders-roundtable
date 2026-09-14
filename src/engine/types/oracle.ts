@@ -637,6 +637,12 @@ export type EffectKind =
   /** D383 - "Put target creature on top of its owner's library." */
   | 'toLibraryTop'
   | 'draw'
+  /**
+   * D434 - `Mill three cards.` / `Target player mills two cards.` / `Each opponent mills four cards.`: the top N
+   * cards of a library into its owner's graveyard (CR 701.13) - the caster's own, the aimed player's, or every
+   * member of a player scope in APNAP order. Fewer than N mills what is there; no loss, no prompt.
+   */
+  | 'mill'
   | 'gainLife'
   | 'loseLife'
   /**
