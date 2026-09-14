@@ -259,7 +259,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
-  // D431 - the return verb: the 52 the wide run rowed once the player queue could return a permanent to hand and the
+  // D432 - the draw heads offered one more the row maker refuses (a planeswalker's loyalty abilities beside its draw trigger).
+  ['Ob Nixilis, the Hate-Twisted', 'planeswalker loyalty ability'],
+  // D432 - the draw heads: the 28 the wide run rowed once an opponent's or a player's draw was a head naming its player,
+  // they / them were the referent and a token could be a payment's branch; 23 landed and these 5 are refused by reason
+  // (the Inspired untap-step payments whose fire walks past the prompt; a token branch under a cast head).
+  ['Aerie Worshippers', 'a payment under an untap-step head (the fire walks past the prompt)'],
+  ['Forlorn Pseudamma', 'a payment under an untap-step head (the fire walks past the prompt)'],
+  ['Pheres-Band Raiders', 'a payment under an untap-step head (the fire walks past the prompt)'],
+  ['Skywise Teachings', 'a token pay branch under a cast head (the board baseline counts the cast)'],
+  ['God-Favored General', 'a payment under an untap-step head (the fire walks past the prompt)'],
+  // D429 - the wide run is the offer: 112 rows the row maker read over the whole leftover that the classifier never
   // caster could sacrifice a permanent of their choice; 49 landed and these 3 are refused by reason (an optional trigger
   // whose payload asks - two prompts; two asking payloads under one head - two queues the suite cannot order).
   ['Tazeem Raptor', 'an optional trigger whose payload asks (two prompts)'],
@@ -464,7 +474,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cho-Arrim Bruiser', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
   ['Coastal Piracy', 'trigger head not in the library: Whenever a creature you control deals combat damage to an opponent, yo'],
   ['Compost', 'a put-into-graveyard head from anywhere with a filter no zone can answer: a black card'],
-  ['Consecrated Sphinx', 'trigger head not in the library: Whenever an opponent draws a card, you may draw two cards.'],
   ['Corpse Cur', 'trigger payload not a pump: Return target creature card with infect from your graveyard '],
   ["Cosi's Trickster", 'trigger head not in the library: Whenever an opponent shuffles their library, you may put a +1/+1 count'],
   ['Crow of Dark Tidings', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, mill two cards.'],
@@ -519,7 +528,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Qasali Slingers', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Cat you control enters, yo'],
   ['Regeneration', 'an Aura that enchants something other than a creature'],
   ['Reparations', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever an opponent casts a spell that targets you or a cre'],
-  ['Rhystic Study', 'trigger payload not a pump: Draw a card unless that player pays {1}.'],
   ['Sanctum Seeker', 'trigger head not in the library: Whenever a Vampire you control attacks, each opponent loses 1 life and'],
   ['Scheming Aspirant', 'trigger head not in the library: Whenever you proliferate, each opponent loses 2 life and you gain 2 li'],
   ['Scurry Oak', 'trigger head not in the library: Whenever one or more +1/+1 counters are put on this creature, you may '],
@@ -590,7 +598,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Purple Pentapus', 'a graveyard return beside another cost piece'],
   ['Quest for the Gemblades', 'trigger head not in the library: Whenever a creature you control deals combat damage to a creature, you'],
   ['Quest for the Gravelord', 'trigger payload not a pump: Put a quest counter on this enchantment.'],
-  ['Rank Officer', 'a payment branch the suite cannot assert: createToken'],
   ['Sandstorm Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
   ['Screams from Within', 'trigger payload not a pump: Return this card from your graveyard to the battlefield.'],
   ['Serum Tank', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this artifact or another artifact enters, put a cha'],
@@ -816,12 +823,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D415 - the verb price at resolution reads: the 18 the selector offered once `you may <verb>. If you do` and
   // `unless you <verb>` read that the row maker refused, by reason (seven payment branches the suite cannot assert among them).
   ['Akki Ronin', 'a trigger head outside the library (whenever a Samurai or Warrior you control attacks alone) beside its verb-price line'],
-  ['Aphemia, the Cacophony', 'a payment branch the suite cannot assert (createToken) beside its verb-price line'],
   ['Bloodmist Infiltrator', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
   ['Giott, King of the Dwarves', 'a filtered head outside the closed reader (whenever ~ or another Dwarf you control enters) beside its verb-price line'],
   ['Gravelgill Scoundrel', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
   ['Master Skald', 'a payment branch the suite cannot assert (returnFromGraveyard) beside its verb-price line'],
-  ['Pack Guardian', 'a payment branch the suite cannot assert (createToken) beside its verb-price line'],
   ['Wasp of the Bitter End', 'a filtered head no fixture satisfies (a Bolas planeswalker spell) beside its verb-price line'],
   ['Withercrown', 'a leftover line not among the printed lines (an Aura static the probe split) beside its verb-price line'],
   ['Biblioplex Kraken', 'a payment branch the suite cannot assert (cantBeBlocked) beside its verb-price line'],
@@ -2515,7 +2520,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Valkyrie Harbinger', 'a token outside TOKEN_TABLE (a 4/4 white Angel with flying and vigilance) under the conditioned end-step head'],
   ['Canonized in Blood', 'a token outside TOKEN_TABLE (a 4/3 white and black Vampire Demon with flying) under the conditioned end-step head'],
   ['Crested Sunmare', 'a scoped static over Horses (other Horses you control have indestructible) beside the conditioned end-step head - Horse is outside the scope list'],
-  ["Liliana's Devotee", 'a payment prompt whose paid branch creates a token (the suite asserts no token payload behind a pay prompt) under the conditioned end-step head'],
   ['Corpses of the Lost', 'a scoped anthem over Skeletons (Skeletons you control get +1/+0 and have haste) beside the conditioned end-step head - Skeleton is outside the scope list'],
 
   // D401 - the conditional statics: the nine the selector offered after the classifier admitted
@@ -2679,17 +2683,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rune Snag', 'a computed payment price (pays N for each ...)'],
   ['Spell Stutter', 'a computed payment price (pays N for each ...)'],
   ['Spell Syphon', 'a computed payment price (pays N for each ...)'],
-  ['Myrsmith', 'a payload outside both readers (Pay {1}. If you do, create a 1/1 colorless My)'],
   ['Skywise Teachings', 'a payload outside both readers (Pay {1}{U}. If you do, create a 2/2 blue Djin)'],
   ['Gryffwing Cavalry', 'a payload outside both readers (Pay {1}{W}. If you do, target attacking creat)'],
-  ['Trudge Garden', 'a payload outside both readers (Pay {2}. If you do, create a 4/4 green Fungus)'],
   ['Eternal Taskmaster', 'a payload outside both readers (Pay {2}{B}. If you do, return target creature)'],
   ['Numot, the Devastator', 'a payload outside both readers (Pay {2}{R}. If you do, destroy up to two targ)'],
   ['Veinwitch Coven', 'a payload outside both readers (Pay {B}. If you do, return target creature ca)'],
   ['Horizon Spellbomb', 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],
   ["Lifecrafter's Bestiary", 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],
   ['Shu Yun, the Silent Tempest', 'a payload outside both readers (Pay {R/W}{R/W}. If you do, target creature ga)'],
-  ['Zhentarim Bandit', 'a payload outside both readers (Pay 1 life. If you do, create a Treasure toke)'],
   ['Breeding Pit', 'a payment row beside a second step-head trigger that fires during the walk'],
   ['Cut the Tethers', 'a per-item payment (one question per object)'],
   ['Whirlwind Denial', 'a per-item payment (one question per object)'],
@@ -2718,10 +2719,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Barbarian Outcast', 'a trigger head outside the row library (When you control no Swamps)'],
   ['City of Traitors', 'a trigger head outside the row library (When you play another land)'],
   ['Jedit Ojanen, Mercenary', 'a trigger head outside the row library (Whenever ~ or another legendary creature you contr)'],
-  ['Haunted Library', 'a trigger head outside the row library (Whenever a creature an opponent controls dies)'],
   ['Symmetry Matrix', 'a trigger head outside the row library (Whenever a creature you control with power equal t)'],
   ['Pedantic Learning', 'a trigger head outside the row library (Whenever a land card is put into your graveyard fr)'],
-  ['Spirit Bonds', 'a trigger head outside the row library (Whenever a nontoken creature you control enters)'],
   ['Azorius Aethermage', 'a trigger head outside the row library (Whenever a permanent is returned to your hand)'],
   ['Onyx Talisman', 'a trigger head outside the row library (Whenever a player casts a black spell)'],
   ['Lapis Lazuli Talisman', 'a trigger head outside the row library (Whenever a player casts a blue spell)'],
@@ -2731,10 +2730,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nacre Talisman', 'a trigger head outside the row library (Whenever a player casts a white spell)'],
   ['Spirit Cairn', 'a trigger head outside the row library (Whenever a player discards a card)'],
   ["Raiders' Spoils", 'a trigger head outside the row library (Whenever a Warrior you control deals combat damage)'],
-  ["Mind's Eye", 'a trigger head outside the row library (Whenever an opponent draws a card)'],
   ['Voracious Tome-Skimmer', "a trigger head outside the row library (Whenever you cast a spell during an opponent's tur)"],
   ['Lunar Mystic', 'a trigger head outside the row library (Whenever you cast an instant spell)'],
-  ['Drake Haven', 'a trigger head outside the row library (Whenever you cycle or discard a card)'],
   ['Kels, Fight Fixer', 'a trigger head outside the row library (Whenever you sacrifice a creature)'],
   ['Assimilate Essence', 'a typed-spell COMPOUND clause the aim layer does not read'],
   ['Scatter Ray', 'a typed-spell COMPOUND clause the aim layer does not read'],

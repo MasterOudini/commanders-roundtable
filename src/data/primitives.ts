@@ -1026,10 +1026,21 @@ const ROW_PLAYER_HEADS: readonly (readonly [RegExp, RegExp])[] = [
     /^Whenever (?:~|this creature) deals (?:combat damage to a player|damage to (?:a player|an opponent)), |^Whenever (?:equipped|enchanted) creature deals combat damage to a player, |^At the beginning of (?:each (?:player's |opponent's )?upkeep|(?:the|each) end step|the upkeep of enchanted creature's controller), /,
     /\b(that) player('s)?\b/gi,
   ],
+  // D432 - the draw heads name the drawing player; `they` / `them` / `their` are the same player there (conjugated below).
+  [/^Whenever (?:a player|an opponent) draws a card, /, /\b(that) player('s)?\b/gi],
   [/^Whenever (?:a player|an opponent) casts a spell, /, /\b(that) player('s)?\b|\b(its|that spell's) controller('s)?\b/gi],
   [/^Whenever (?:~|this creature) deals combat damage to a creature, |^(?:Alliance — )?Whenever (?:a|another) creature(?: you control)? (?:enters|dies), /, /\b(its|that creature's) controller('s)?\b/gi],
 ];
-const ROW_PLAYER_REF = /\b(?:that player|its controller|that creature's controller|that spell's controller)('s)?\b/i;
+const ROW_PLAYER_REF = /\b(?:that player|its controller|that creature's controller|that spell's controller|they|them|their)('s)?\b/i;
+// D432 - `they lose 2 life` / `deals 1 damage to them` / `their library` under a head that names a player: the
+// row maker's `rewriteThey` (playerHeads) conjugates the verb for the singular subject.
+const ROW_THEY_VERB: Readonly<Record<string, string>> = { lose: 'loses', discard: 'discards', sacrifice: 'sacrifices', mill: 'mills', draw: 'draws', exile: 'exiles', get: 'gets', gain: 'gains', put: 'puts', reveal: 'reveals', shuffle: 'shuffles', return: 'returns', pay: 'pays' };
+function rowRewriteThey(s: string): string {
+  return s
+    .replace(/\b([Tt])hey (lose|discard|sacrifice|mill|draw|exile|get|gain|put|reveal|shuffle|return|pay)\b/g, (_m, t: string, v: string) => (t === 'T' ? 'Target' : 'target') + ' player ' + (ROW_THEY_VERB[v] ?? v))
+    .replace(/\b([Tt])hem\b/g, (_m, t: string) => (t === 'T' ? 'Target' : 'target') + ' player')
+    .replace(/\b([Tt])heir\b/g, (_m, t: string) => (t === 'T' ? 'Target' : 'target') + " player's");
+}
 function rowMakerReads(text: string, cardName: string): boolean {
   const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
   const trigger = TRIGGER_HEAD.test(line);
@@ -1058,6 +1069,8 @@ function rowMakerReads(text: string, cardName: string): boolean {
       const pos = m.slice(1, -2).some((g) => g === "'s");
       return (/^[A-Z]/.test(first) ? 'Target' : 'target') + ' player' + (pos ? "'s" : '');
     });
+    // D432 - the pronoun forms, under the heads whose referent is a player (the first regex of each pair names one).
+    if (/\(that\) player/.test(pair[1].source)) payload = rowRewriteThey(payload);
     if (ROW_PLAYER_REF.test(payload)) return false;
     widened = true;
   }

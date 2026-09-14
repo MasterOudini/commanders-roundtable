@@ -162,6 +162,16 @@ export function effectResult(
       out.push(narrated(`${obj.label} was kicked — “${effect.text}” is replaced.`, obj.controller, obj.identity));
       continue;
     }
+    // D432 - a payment whose PAYER is the target player but whose body names no target (Smothering Tithe's Treasure,
+    // `you gain 2 life unless target player pays`): the payer is the object's first player target - a referent row's
+    // injected pick (D428) - and the body aims at nobody. The body's own `self` must not route it below, where the aim
+    // would be null and the payer with it.
+    if (effect.kind === 'payOptional' && effect.pay?.who === 'targetPlayer' && effect.targetIndex === -1) {
+      const who = obj.targets.find((t) => t.kind === 'player');
+      const aim = who ? aimOf(state, who) : null;
+      steps.push({ effect, aim, missing: aim === null });
+      continue;
+    }
     if (effect.self) {
       if (SELF_AIMED.has(effect.kind)) {
         // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),

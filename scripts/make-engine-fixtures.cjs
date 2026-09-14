@@ -7916,6 +7916,31 @@ const WANTED = [
   // D431 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D431 - Coral Atoll: the unshipped bounce-family land that holds the incompleteness examples Boros Garrison held until it shipped.
   'Coral Atoll',
+  // D432 - the draw heads: the rows the row maker reads once an opponent draw / a player draw is a head naming its player, and they / them are the referent.
+  'Underworld Dreams',
+  'Consecrated Sphinx',
+  'Rhystic Study',
+  "Mind's Eye",
+  'Sheoldred, the Apocalypse',
+  'Myrsmith',
+  'Soul Charmer',
+  'Fate Unraveler',
+  'Smothering Tithe',
+  "Liliana's Devotee",
+  'Drake Haven',
+  'Aphemia, the Cacophony',
+  'Grovetender Druids',
+  'Phyrexian Tyranny',
+  'Pack Guardian',
+  'Haunted Library',
+  'Rank Officer',
+  'Trudge Garden',
+  'Soul Barrier',
+  'Spirit Bonds',
+  'Zhentarim Bandit',
+  'Isolation Cell',
+  'Havoc',
+  // D432 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -7,6 +7,29 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { UNDERWORLD_DREAMS_SCRIPT } from './cards/underworldDreams';
+import { CONSECRATED_SPHINX_SCRIPT } from './cards/consecratedSphinx';
+import { RHYSTIC_STUDY_SCRIPT } from './cards/rhysticStudy';
+import { MINDS_EYE_SCRIPT } from './cards/mindsEye';
+import { SHEOLDRED_THE_APOCALYPSE_SCRIPT } from './cards/sheoldredTheApocalypse';
+import { MYRSMITH_SCRIPT } from './cards/myrsmith';
+import { SOUL_CHARMER_SCRIPT } from './cards/soulCharmer';
+import { FATE_UNRAVELER_SCRIPT } from './cards/fateUnraveler';
+import { SMOTHERING_TITHE_SCRIPT } from './cards/smotheringTithe';
+import { LILIANAS_DEVOTEE_SCRIPT } from './cards/lilianasDevotee';
+import { DRAKE_HAVEN_SCRIPT } from './cards/drakeHaven';
+import { APHEMIA_THE_CACOPHONY_SCRIPT } from './cards/aphemiaTheCacophony';
+import { GROVETENDER_DRUIDS_SCRIPT } from './cards/grovetenderDruids';
+import { PHYREXIAN_TYRANNY_SCRIPT } from './cards/phyrexianTyranny';
+import { PACK_GUARDIAN_SCRIPT } from './cards/packGuardian';
+import { HAUNTED_LIBRARY_SCRIPT } from './cards/hauntedLibrary';
+import { RANK_OFFICER_SCRIPT } from './cards/rankOfficer';
+import { TRUDGE_GARDEN_SCRIPT } from './cards/trudgeGarden';
+import { SOUL_BARRIER_SCRIPT } from './cards/soulBarrier';
+import { SPIRIT_BONDS_SCRIPT } from './cards/spiritBonds';
+import { ZHENTARIM_BANDIT_SCRIPT } from './cards/zhentarimBandit';
+import { ISOLATION_CELL_SCRIPT } from './cards/isolationCell';
+import { HAVOC_SCRIPT } from './cards/havoc';
 import { DIMIR_AQUEDUCT_SCRIPT } from './cards/dimirAqueduct';
 import { SELESNYA_SANCTUARY_SCRIPT } from './cards/selesnyaSanctuary';
 import { FLEETFOOT_PANTHER_SCRIPT } from './cards/fleetfootPanther';
@@ -6641,6 +6664,29 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UNDERWORLD_DREAMS_SCRIPT,
+  CONSECRATED_SPHINX_SCRIPT,
+  RHYSTIC_STUDY_SCRIPT,
+  MINDS_EYE_SCRIPT,
+  SHEOLDRED_THE_APOCALYPSE_SCRIPT,
+  MYRSMITH_SCRIPT,
+  SOUL_CHARMER_SCRIPT,
+  FATE_UNRAVELER_SCRIPT,
+  SMOTHERING_TITHE_SCRIPT,
+  LILIANAS_DEVOTEE_SCRIPT,
+  DRAKE_HAVEN_SCRIPT,
+  APHEMIA_THE_CACOPHONY_SCRIPT,
+  GROVETENDER_DRUIDS_SCRIPT,
+  PHYREXIAN_TYRANNY_SCRIPT,
+  PACK_GUARDIAN_SCRIPT,
+  HAUNTED_LIBRARY_SCRIPT,
+  RANK_OFFICER_SCRIPT,
+  TRUDGE_GARDEN_SCRIPT,
+  SOUL_BARRIER_SCRIPT,
+  SPIRIT_BONDS_SCRIPT,
+  ZHENTARIM_BANDIT_SCRIPT,
+  ISOLATION_CELL_SCRIPT,
+  HAVOC_SCRIPT,
   DIMIR_AQUEDUCT_SCRIPT,
   SELESNYA_SANCTUARY_SCRIPT,
   FLEETFOOT_PANTHER_SCRIPT,

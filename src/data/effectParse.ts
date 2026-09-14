@@ -1913,8 +1913,12 @@ function clausesOf(text: string): Clause[] {
  * the engine cannot name ("any player", "they"), a cost with X.
  */
 const PAY_COST = String.raw`((?:\{[^}]+\})+|\d+ life|(?:\{[^}]+\})+ and \d+ life)`;
-const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|you) pays? ${PAY_COST}\.$`, 'i');
+// D432 - `unless target player pays` (a referent row's rewrite, D428) and `unless they pay` (the draw heads' player).
+const UNLESS_RE = new RegExp(String.raw`^(.+?) unless (its controller|that player|target player|they|you) pays? ${PAY_COST}\.$`, 'i');
 const MAY_PAY_RE = new RegExp(String.raw`^you may pay ${PAY_COST}\. if you do, (.+)$`, 'i');
+// D432 - `Target player may pay {2}. If the player doesn't, you create a Treasure token.` (Smothering Tithe's shape): the
+// referent player is asked and the body happens when they decline - `X unless target player pays` in the other order.
+const TARGET_MAY_PAY_RE = new RegExp(String.raw`^target player may pay ${PAY_COST}\. if (?:the player|they) (?:doesn't|don't), (.+)$`, 'i');
 /**
  * D415 - THE VERB PRICE. `You may <verb>. If you do, <body>.` and `<body> unless you <verb>.` are the
  * same prompt with a chooser-verb price - D406's grammar (one sacrifice, discard, tap, exile from the
@@ -1949,7 +1953,10 @@ function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null 
 
 function payBody(sentence: string): EffectSpec | null {
   if (/^you may\b/i.test(sentence)) return null;
-  const inner = matchRule(sentence.endsWith('.') ? sentence : sentence + '.');
+  // D432 - `you create a Treasure token` (Smothering Tithe's decline body): the imperative the rules read, with the
+  // caster named. `you may` above stays refused; `you gain` / `you lose` / `you draw` already read with their subject.
+  const bare = sentence.replace(/^you create\b/i, 'create');
+  const inner = matchRule(bare.endsWith('.') ? bare : bare + '.');
   if (!inner || PAY_BODY_REFUSED.has(inner.kind) || inner.atRandom) return null;
   return inner;
 }
@@ -1960,8 +1967,15 @@ function matchPayment(sentence: string): EffectSpec | null {
     const price = readPrice(u[3] ?? '');
     const inner = payBody(u[1] ?? '');
     if (!price || !inner) return null;
-    const who = /^its controller$/i.test(u[2] ?? '') ? 'targetController' : /^that player$/i.test(u[2] ?? '') ? 'targetPlayer' : 'controller';
+    const who = /^its controller$/i.test(u[2] ?? '') ? 'targetController' : /^(?:that player|target player|they)$/i.test(u[2] ?? '') ? 'targetPlayer' : 'controller';
     return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who, ifPaid: [], ifNotPaid: [inner] } };
+  }
+  const tm = sentence.match(TARGET_MAY_PAY_RE);
+  if (tm) {
+    const price = readPrice(tm[1] ?? '');
+    const inner = payBody(tm[2] ?? '');
+    if (!price || !inner) return null;
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who: 'targetPlayer', ifPaid: [], ifNotPaid: [inner] } };
   }
   const m = sentence.match(MAY_PAY_RE);
   if (m) {

@@ -261,6 +261,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // land they control (the land itself when it is the only one), which the driver answers as it answers a sacrifice.
   { names: ['Dimir Aqueduct'], copiesPerSeat: 2,
     counterKeys: ['returnsResolved'], rotHistory: 'D431' },
+  // D432 - the draw heads: Fate Unraveler ({3}{B} - one black source, where Underworld Dreams' {B}{B}{B} went uncast
+  // at 60 seeds) pings whoever draws (once per card, the drawing player named off the event); every seat draws
+  // every turn, so the head fires wherever the creature lands.
+  { names: ['Fate Unraveler'], copiesPerSeat: 2,
+    counterKeys: ['drawHeadFires'], rotHistory: 'D432' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1099,6 +1104,8 @@ interface Run {
   readonly playerReferents: number;
   /** D431 - player queues that resolved with the return verb (`AsksResolved` carrying `verb: 'return'`). */
   readonly returnsResolved: number;
+  /** D432 - triggers of the draw heads that reached the stack (an opponent's or any player's draw, per card). */
+  readonly drawHeadFires: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1473,6 +1480,7 @@ function runOne(seed: number): Run {
     kickedInsteadSkipped: game.log.filter((e) => e.body.t === 'Narrated' && /was not kicked — “If this spell was kicked, [^”]* instead\.” does nothing\.$/.test(e.body.text)).length,
     playerReferents: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.player !== undefined).length,
     returnsResolved: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'return').length,
+    drawHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:opponentDrawsCard|aPlayerDrawsCard)-/.test(e.body.obj.abilityRef ?? '')).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1667,6 +1675,7 @@ const TOTAL_KEYS = [
   'kickedInsteadSkipped',
   'playerReferents',
   'returnsResolved',
+  'drawHeadFires',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -1982,6 +1991,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.playerReferents).toBeGreaterThan(0);
         // D431 - a queued return resolved at gate size (Dimir Aqueduct's entry).
         expect(totals.returnsResolved).toBeGreaterThan(0);
+        // D432 - a draw head fired at gate size (Fate Unraveler on an opponent's draw).
+        expect(totals.drawHeadFires).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2077,6 +2088,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.kickedReplaced} kicked replaced / ${totals.kickedInsteadSkipped} instead skipped · ` +
           `${totals.playerReferents} triggers naming their player · ` +
           `${totals.returnsResolved} queued returns resolved · ` +
+          `${totals.drawHeadFires} draw-head triggers · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

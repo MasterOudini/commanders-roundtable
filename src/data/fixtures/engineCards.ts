@@ -7183,6 +7183,29 @@ export const HORNED_KAVU: CardData = F.HORNED_KAVU as CardData;
 export const LAVA_ZOMBIE: CardData = F.LAVA_ZOMBIE as CardData;
 export const EIGANJO_FREE_RIDERS: CardData = F.EIGANJO_FREE_RIDERS as CardData;
 export const CORAL_ATOLL: CardData = F.CORAL_ATOLL as CardData;
+export const UNDERWORLD_DREAMS: CardData = F.UNDERWORLD_DREAMS as CardData;
+export const CONSECRATED_SPHINX: CardData = F.CONSECRATED_SPHINX as CardData;
+export const RHYSTIC_STUDY: CardData = F.RHYSTIC_STUDY as CardData;
+export const MIND_S_EYE: CardData = F.MIND_S_EYE as CardData;
+export const SHEOLDRED_THE_APOCALYPSE: CardData = F.SHEOLDRED_THE_APOCALYPSE as CardData;
+export const MYRSMITH: CardData = F.MYRSMITH as CardData;
+export const SOUL_CHARMER: CardData = F.SOUL_CHARMER as CardData;
+export const FATE_UNRAVELER: CardData = F.FATE_UNRAVELER as CardData;
+export const SMOTHERING_TITHE: CardData = F.SMOTHERING_TITHE as CardData;
+export const LILIANA_S_DEVOTEE: CardData = F.LILIANA_S_DEVOTEE as CardData;
+export const DRAKE_HAVEN: CardData = F.DRAKE_HAVEN as CardData;
+export const APHEMIA_THE_CACOPHONY: CardData = F.APHEMIA_THE_CACOPHONY as CardData;
+export const GROVETENDER_DRUIDS: CardData = F.GROVETENDER_DRUIDS as CardData;
+export const PHYREXIAN_TYRANNY: CardData = F.PHYREXIAN_TYRANNY as CardData;
+export const PACK_GUARDIAN: CardData = F.PACK_GUARDIAN as CardData;
+export const HAUNTED_LIBRARY: CardData = F.HAUNTED_LIBRARY as CardData;
+export const RANK_OFFICER: CardData = F.RANK_OFFICER as CardData;
+export const TRUDGE_GARDEN: CardData = F.TRUDGE_GARDEN as CardData;
+export const SOUL_BARRIER: CardData = F.SOUL_BARRIER as CardData;
+export const SPIRIT_BONDS: CardData = F.SPIRIT_BONDS as CardData;
+export const ZHENTARIM_BANDIT: CardData = F.ZHENTARIM_BANDIT as CardData;
+export const ISOLATION_CELL: CardData = F.ISOLATION_CELL as CardData;
+export const HAVOC: CardData = F.HAVOC as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -14515,6 +14538,29 @@ export const ENGINE_CARDS: CardData[] = [
   LAVA_ZOMBIE,
   EIGANJO_FREE_RIDERS,
   CORAL_ATOLL,
+  UNDERWORLD_DREAMS,
+  CONSECRATED_SPHINX,
+  RHYSTIC_STUDY,
+  MIND_S_EYE,
+  SHEOLDRED_THE_APOCALYPSE,
+  MYRSMITH,
+  SOUL_CHARMER,
+  FATE_UNRAVELER,
+  SMOTHERING_TITHE,
+  LILIANA_S_DEVOTEE,
+  DRAKE_HAVEN,
+  APHEMIA_THE_CACOPHONY,
+  GROVETENDER_DRUIDS,
+  PHYREXIAN_TYRANNY,
+  PACK_GUARDIAN,
+  HAUNTED_LIBRARY,
+  RANK_OFFICER,
+  TRUDGE_GARDEN,
+  SOUL_BARRIER,
+  SPIRIT_BONDS,
+  ZHENTARIM_BANDIT,
+  ISOLATION_CELL,
+  HAVOC,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
