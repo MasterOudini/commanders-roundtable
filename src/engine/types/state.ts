@@ -974,6 +974,12 @@ export type Awaiting =
       /** D412 - a connive's discard (CR 701.50): the conniving permanent, and how many connives wait behind this one. */
       readonly connive?: { readonly permanent: InstanceId; readonly remaining: number };
       /**
+       * D435 - `Discard a card. If you do, draw N cards.`: the draw that follows the ANSWER (the discard is what
+       * `you do`; a hand too small to ask discards at once and draws in the same batch). The scry rider's design
+       * (D195): carried through the prompt, emitted by the answer handler. Absent on every other discard.
+       */
+      readonly thenDraw?: number;
+      /**
        * D416 - THE HAND REVEAL'S PICK: the hand is ANOTHER player's (`owner`), revealed to every seat the
        * moment the effect resolved, and the chooser (`player`) names one card the noun admits (`filter`,
        * and `qualifier` for a mana-value bound), which the owner discards or which is exiled (`then`).

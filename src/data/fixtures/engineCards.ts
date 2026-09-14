@@ -7300,6 +7300,22 @@ export const NIMANA_SKYDANCER: CardData = F.NIMANA_SKYDANCER as CardData;
 export const NAVIGATOR_S_RUIN: CardData = F.NAVIGATOR_S_RUIN as CardData;
 export const DOOM_S_SERVO_GUARDS: CardData = F.DOOM_S_SERVO_GUARDS as CardData;
 export const ROTCROWN_GHOUL: CardData = F.ROTCROWN_GHOUL as CardData;
+export const MURDER_OF_CROWS: CardData = F.MURDER_OF_CROWS as CardData;
+export const RIDDLESMITH: CardData = F.RIDDLESMITH as CardData;
+export const MASK_OF_MEMORY: CardData = F.MASK_OF_MEMORY as CardData;
+export const SKELETON_KEY: CardData = F.SKELETON_KEY as CardData;
+export const DARING_SABOTEUR: CardData = F.DARING_SABOTEUR as CardData;
+export const JESKAI_ELDER: CardData = F.JESKAI_ELDER as CardData;
+export const MARAUDING_LOOTER: CardData = F.MARAUDING_LOOTER as CardData;
+export const ROOK_TURRET: CardData = F.ROOK_TURRET as CardData;
+export const SALVAGE_DRONE: CardData = F.SALVAGE_DRONE as CardData;
+export const SHIPWRECK_LOOTER: CardData = F.SHIPWRECK_LOOTER as CardData;
+export const AKOUM_FLAMESEEKER: CardData = F.AKOUM_FLAMESEEKER as CardData;
+export const ABOMINATION_OF_GUDUL: CardData = F.ABOMINATION_OF_GUDUL as CardData;
+export const LAMPLIGHTER_OF_SELHOFF: CardData = F.LAMPLIGHTER_OF_SELHOFF as CardData;
+export const STADIUM_TIDALMAGE: CardData = F.STADIUM_TIDALMAGE as CardData;
+export const SKYSWIMMER_KOI: CardData = F.SKYSWIMMER_KOI as CardData;
+export const SHOAL_KRAKEN: CardData = F.SHOAL_KRAKEN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -14750,6 +14766,22 @@ export const ENGINE_CARDS: CardData[] = [
   NAVIGATOR_S_RUIN,
   DOOM_S_SERVO_GUARDS,
   ROTCROWN_GHOUL,
+  MURDER_OF_CROWS,
+  RIDDLESMITH,
+  MASK_OF_MEMORY,
+  SKELETON_KEY,
+  DARING_SABOTEUR,
+  JESKAI_ELDER,
+  MARAUDING_LOOTER,
+  ROOK_TURRET,
+  SALVAGE_DRONE,
+  SHIPWRECK_LOOTER,
+  AKOUM_FLAMESEEKER,
+  ABOMINATION_OF_GUDUL,
+  LAMPLIGHTER_OF_SELHOFF,
+  STADIUM_TIDALMAGE,
+  SKYSWIMMER_KOI,
+  SHOAL_KRAKEN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

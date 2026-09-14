@@ -7,6 +7,22 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MURDER_OF_CROWS_SCRIPT } from './cards/murderOfCrows';
+import { RIDDLESMITH_SCRIPT } from './cards/riddlesmith';
+import { MASK_OF_MEMORY_SCRIPT } from './cards/maskOfMemory';
+import { SKELETON_KEY_SCRIPT } from './cards/skeletonKey';
+import { DARING_SABOTEUR_SCRIPT } from './cards/daringSaboteur';
+import { JESKAI_ELDER_SCRIPT } from './cards/jeskaiElder';
+import { MARAUDING_LOOTER_SCRIPT } from './cards/maraudingLooter';
+import { ROOK_TURRET_SCRIPT } from './cards/rookTurret';
+import { SALVAGE_DRONE_SCRIPT } from './cards/salvageDrone';
+import { SHIPWRECK_LOOTER_SCRIPT } from './cards/shipwreckLooter';
+import { AKOUM_FLAMESEEKER_SCRIPT } from './cards/akoumFlameseeker';
+import { ABOMINATION_OF_GUDUL_SCRIPT } from './cards/abominationOfGudul';
+import { LAMPLIGHTER_OF_SELHOFF_SCRIPT } from './cards/lamplighterOfSelhoff';
+import { STADIUM_TIDALMAGE_SCRIPT } from './cards/stadiumTidalmage';
+import { SKYSWIMMER_KOI_SCRIPT } from './cards/skyswimmerKoi';
+import { SHOAL_KRAKEN_SCRIPT } from './cards/shoalKraken';
 import { WALL_OF_LOST_THOUGHTS_SCRIPT } from './cards/wallOfLostThoughts';
 import { SAGES_ROW_DENIZEN_SCRIPT } from './cards/sagesRowDenizen';
 import { SHADOW_STINGER_SCRIPT } from './cards/shadowStinger';
@@ -6749,6 +6765,22 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MURDER_OF_CROWS_SCRIPT,
+  RIDDLESMITH_SCRIPT,
+  MASK_OF_MEMORY_SCRIPT,
+  SKELETON_KEY_SCRIPT,
+  DARING_SABOTEUR_SCRIPT,
+  JESKAI_ELDER_SCRIPT,
+  MARAUDING_LOOTER_SCRIPT,
+  ROOK_TURRET_SCRIPT,
+  SALVAGE_DRONE_SCRIPT,
+  SHIPWRECK_LOOTER_SCRIPT,
+  AKOUM_FLAMESEEKER_SCRIPT,
+  ABOMINATION_OF_GUDUL_SCRIPT,
+  LAMPLIGHTER_OF_SELHOFF_SCRIPT,
+  STADIUM_TIDALMAGE_SCRIPT,
+  SKYSWIMMER_KOI_SCRIPT,
+  SHOAL_KRAKEN_SCRIPT,
   WALL_OF_LOST_THOUGHTS_SCRIPT,
   SAGES_ROW_DENIZEN_SCRIPT,
   SHADOW_STINGER_SCRIPT,

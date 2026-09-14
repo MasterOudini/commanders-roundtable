@@ -3564,6 +3564,9 @@ function answerChooseFromZone(
       intent.player,
     ),
   ];
+  // D435 - the rummage's draw (`Discard a card. If you do, draw a card.`): the discard just happened, so the draw
+  // follows in the same batch - off the library the discard never touched.
+  if (awaiting.thenDraw !== undefined && awaiting.thenDraw > 0) events.push(...drawEvents(state, intent.player, awaiting.thenDraw));
   // D412 - a connive's discard: the counter for a nonland card, the marker (CR 701.50c), and the chain's
   // remainder, run against the state the answer left.
   if (awaiting.connive) {

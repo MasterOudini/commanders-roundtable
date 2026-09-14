@@ -8039,6 +8039,24 @@ const WANTED = [
   "Doom's Servo-Guards",
   'Rotcrown Ghoul',
   // D434 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D435 - the if-you-do pair: the rows the row maker reads once a draw could gate a discard and a discard a draw (Draw a card. If you do, discard a card. and its mirror).
+  'Murder of Crows',
+  'Riddlesmith',
+  'Mask of Memory',
+  'Skeleton Key',
+  'Daring Saboteur',
+  'Jeskai Elder',
+  'Marauding Looter',
+  'Rook Turret',
+  'Salvage Drone',
+  'Shipwreck Looter',
+  'Akoum Flameseeker',
+  'Abomination of Gudul',
+  'Lamplighter of Selhoff',
+  'Stadium Tidalmage',
+  'Skyswimmer Koi',
+  'Shoal Kraken',
+  // D435 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

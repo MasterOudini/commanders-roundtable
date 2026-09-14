@@ -246491,6 +246491,558 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MURDER_OF_CROWS": {
+    "scryfallId": "0689e9a6-b435-4a38-b913-3a2b1aeedafd",
+    "oracleId": "babab2f5-fd1f-4e0a-a692-6c2ce35df708",
+    "name": "Murder of Crows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Murder of Crows",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever another creature dies, you may draw a card. If you do, discard a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Drew Baker",
+        "imageId": "0689e9a6-b435-4a38-b913-3a2b1aeedafd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sis",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIDDLESMITH": {
+    "scryfallId": "08e25713-05ea-4eed-aa7f-5ca4e57a8152",
+    "oracleId": "e3b9c9e3-5a35-4dd2-ab17-d1b6a140b185",
+    "name": "Riddlesmith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riddlesmith",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Whenever you cast an artifact spell, you may draw a card. If you do, discard a card.",
+        "flavorText": "The Neurok see the artificer as an archaeologist, clearing away falsehoods to see the truth hidden beneath.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "08e25713-05ea-4eed-aa7f-5ca4e57a8152"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASK_OF_MEMORY": {
+    "scryfallId": "30acbb34-3ff5-4d38-b349-f108351f94f8",
+    "oracleId": "d6b2c998-a226-426c-a40d-6e6007041bfe",
+    "name": "Mask of Memory",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mask of Memory",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Whenever equipped creature deals combat damage to a player, you may draw two cards. If you do, discard a card.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Roman Tishenin",
+        "imageId": "30acbb34-3ff5-4d38-b349-f108351f94f8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKELETON_KEY": {
+    "scryfallId": "3168317b-b166-483e-9d9a-20cdfcdc255c",
+    "oracleId": "328834f6-1f49-417a-a2d6-d430b8dca177",
+    "name": "Skeleton Key",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skeleton Key",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has skulk. (It can't be blocked by creatures with greater power.)\nWhenever equipped creature deals combat damage to a player, you may draw a card. If you do, discard a card.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "3168317b-b166-483e-9d9a-20cdfcdc255c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "263",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DARING_SABOTEUR": {
+    "scryfallId": "34f0cf08-0409-492c-84c2-ceb4b86b8d68",
+    "oracleId": "d36f64a0-53f7-4c56-9f40-a7927a5c2608",
+    "name": "Daring Saboteur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daring Saboteur",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "{2}{U}: This creature can't be blocked this turn.\nWhenever this creature deals combat damage to a player, you may draw a card. If you do, discard a card.",
+        "flavorText": "\"They'll never see me coming.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "34f0cf08-0409-492c-84c2-ceb4b86b8d68"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pxln",
+    "collectorNumber": "49s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JESKAI_ELDER": {
+    "scryfallId": "38fd9091-2d22-411f-955a-24c32293cdca",
+    "oracleId": "dfbd5ad1-0f68-4219-95c4-98f674f321be",
+    "name": "Jeskai Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jeskai Elder",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever this creature deals combat damage to a player, you may draw a card. If you do, discard a card.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "38fd9091-2d22-411f-955a-24c32293cdca"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARAUDING_LOOTER": {
+    "scryfallId": "3c41fee8-7b03-4dc8-babb-f8c8369a74c2",
+    "oracleId": "427bf4eb-3dfd-4747-be92-4a4a3d96a228",
+    "name": "Marauding Looter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Marauding Looter",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Raid — At the beginning of your end step, if you attacked this turn, you may draw a card. If you do, discard a card.",
+        "flavorText": "\"I'll be taking that.\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "3c41fee8-7b03-4dc8-babb-f8c8369a74c2"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOK_TURRET": {
+    "scryfallId": "4572884d-0c0e-41e7-b219-f76b95fdbd01",
+    "oracleId": "c5a6d752-9975-4059-8552-55c6ffb3ab68",
+    "name": "Rook Turret",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rook Turret",
+        "manaCost": "{3}{U}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Flying\nWhenever another artifact you control enters, you may draw a card. If you do, discard a card.",
+        "flavorText": "\"'Tis unfortunate that many Ishgardians cannot appreciate the practicality of my work.\"\n—Stephanivien de Haillenarte",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Thanh Tuấn",
+        "imageId": "4572884d-0c0e-41e7-b219-f76b95fdbd01"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SALVAGE_DRONE": {
+    "scryfallId": "4b8ce2a9-9d8e-442b-bc12-74545ceb65bd",
+    "oracleId": "9b18bbf3-3b1c-4010-bc6f-e7eacb2ffb70",
+    "name": "Salvage Drone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Salvage Drone",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nIngest (Whenever this creature deals combat damage to a player, that player exiles the top card of their library.)\nWhen this creature dies, you may draw a card. If you do, discard a card.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Slawomir Maniak",
+        "imageId": "4b8ce2a9-9d8e-442b-bc12-74545ceb65bd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Devoid",
+      "Ingest"
+    ],
+    "setCode": "bfz",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIPWRECK_LOOTER": {
+    "scryfallId": "61f1ba12-c674-465b-8df3-edf812ea4447",
+    "oracleId": "ead1accc-b90e-424a-a55f-2f4771726ce1",
+    "name": "Shipwreck Looter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shipwreck Looter",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "Raid — When this creature enters, if you attacked this turn, you may draw a card. If you do, discard a card.",
+        "flavorText": "One pirate's wreck is another's reward.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "61f1ba12-c674-465b-8df3-edf812ea4447"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "XLN-76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKOUM_FLAMESEEKER": {
+    "scryfallId": "6ef4e1e2-7961-47d2-bb55-9168ea201214",
+    "oracleId": "efae637f-3232-46f2-9839-f3386e2f447d",
+    "name": "Akoum Flameseeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akoum Flameseeker",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Shaman Ally",
+        "oracleText": "Cohort — {T}, Tap an untapped Ally you control: Discard a card. If you do, draw a card.",
+        "flavorText": "In the face of extinction, the most perilous endeavors can be cause for hope.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "6ef4e1e2-7961-47d2-bb55-9168ea201214"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cohort"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABOMINATION_OF_GUDUL": {
+    "scryfallId": "7df9759e-1072-4a6a-be57-f73b15bf3847",
+    "oracleId": "3d98af5f-7a0b-4a5a-b3e4-f3c9d150c993",
+    "name": "Abomination of Gudul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abomination of Gudul",
+        "manaCost": "{3}{B}{G}{U}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, you may draw a card. If you do, discard a card.\nMorph {2}{B}{G}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "U"
+        ],
+        "artist": "Erica Yang",
+        "imageId": "7df9759e-1072-4a6a-be57-f73b15bf3847"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Morph"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAMPLIGHTER_OF_SELHOFF": {
+    "scryfallId": "80dadecc-f1f1-44a2-8829-6c94aade73a0",
+    "oracleId": "a88c5540-a242-49bc-a725-39b9fda085c3",
+    "name": "Lamplighter of Selhoff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lamplighter of Selhoff",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "When this creature enters, if you control another Zombie, you may draw a card. If you do, discard a card.",
+        "flavorText": "For stitchers and necro-alchemists, it's important that work can continue at all hours.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "80dadecc-f1f1-44a2-8829-6c94aade73a0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "soi",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STADIUM_TIDALMAGE": {
+    "scryfallId": "a689289e-7141-4950-8a87-82e9bd6846fe",
+    "oracleId": "1c45e872-3af8-47a4-9dc7-a99c293338f8",
+    "name": "Stadium Tidalmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stadium Tidalmage",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Djinn Sorcerer",
+        "oracleText": "Whenever this creature enters or attacks, you may draw a card. If you do, discard a card.",
+        "flavorText": "The Prismari team takes the direction to \"flood the zone\" literally.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Ioannis Fiore",
+        "imageId": "a689289e-7141-4950-8a87-82e9bd6846fe"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSWIMMER_KOI": {
+    "scryfallId": "db50259b-8ca8-4fbe-8ae3-6b0312d70980",
+    "oracleId": "53b9a2cf-2e6e-4ce0-bb9f-f33fb27b7b5e",
+    "name": "Skyswimmer Koi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyswimmer Koi",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "Flying\nWhenever an artifact you control enters, you may draw a card. If you do, discard a card.",
+        "flavorText": "Once they swam alone among the clouds, but now the people of Kamigawa have built high enough to reach them.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "db50259b-8ca8-4fbe-8ae3-6b0312d70980"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHOAL_KRAKEN": {
+    "scryfallId": "ec538182-efba-48d0-91ad-457461b44748",
+    "oracleId": "be700da5-123e-461e-8192-88f9d86925b9",
+    "name": "Shoal Kraken",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shoal Kraken",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Kraken",
+        "oracleText": "Constellation — Whenever an enchantment you control enters, you may draw a card. If you do, discard a card.",
+        "flavorText": "It eats the things that eat the things that are drawn to the light.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "ec538182-efba-48d0-91ad-457461b44748"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Constellation"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

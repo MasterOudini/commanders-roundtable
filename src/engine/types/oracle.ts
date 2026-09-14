@@ -1056,6 +1056,12 @@ export interface EffectSpec {
    */
   readonly thenDraw: number;
   /**
+   * D435 - `Draw N cards. If you do, discard M cards.` (a `discard` of M): the draw of N precedes the discard and
+   * GATES it - an empty library draws nothing, so nothing is discarded (CR 701.8, the if-you-do read at
+   * resolution). Absent on every other discard.
+   */
+  readonly ifDrew?: number;
+  /**
    * Which of the spell's targets this clause applies to — an index into
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.
    */

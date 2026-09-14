@@ -1440,6 +1440,30 @@ const RULES: readonly Rule[] = [
       return n === null || n <= 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'you' }] };
     },
   },
+  /**
+   * D435 - THE IF-YOU-DO PAIR. `Draw a card. If you do, discard a card.` (the loot the library gates: an empty
+   * library draws nothing and discards nothing) and `Discard a card. If you do, draw a card.` (the rummage the
+   * hand gates: an empty hand discards nothing and draws nothing). Each is ONE clause - a discard of the
+   * controller's own, with the draw riding it (`ifDrew` before, `thenDraw` after) - so the ask stays last.
+   */
+  {
+    kind: 'discard',
+    re: new RegExp(`^draw (${COUNT}) cards?\\. if you do, discard (${COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const d = num(m[1]);
+      const n = num(m[2]);
+      return d === null || n === null || d <= 0 || n <= 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, ifDrew: d };
+    },
+  },
+  {
+    kind: 'discard',
+    re: new RegExp(`^discard (${COUNT}) cards?\\. if you do, draw (${COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const d = num(m[2]);
+      return d === null || n === null || d <= 0 || n <= 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true, thenDraw: d };
+    },
+  },
   {
     kind: 'discard',
     re: new RegExp(`^each (player|opponent) discards (${COUNT}) cards?\\.$`, 'i'),

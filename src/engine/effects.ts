@@ -1166,6 +1166,54 @@ export function effectResult(
       }
 
       case 'discard': {
+        // D435 - `Draw N cards. If you do, discard M cards.`: the draw first; an empty library draws nothing, so
+        // nothing is discarded. The discard reads the hand AS DRAWN INTO (the drawn card may be the one discarded):
+        // a hand no bigger than the count goes whole; otherwise the prompt, answered against the post-draw hand.
+        if (effect.ifDrew !== undefined && effect.ifDrew > 0) {
+          if (out.some((e) => e.t === 'AwaitingSet')) break;
+          const before = (state.zones.library[controller] ?? []).length;
+          const drawn = drawEvents(state, controller, effect.ifDrew);
+          out.push(...drawn);
+          if (before === 0) break;
+          const held = [...(state.zones.hand[controller] ?? [])];
+          for (const ev of drawn) if (ev.t === 'CardsMoved') for (const m of ev.moves) if (m.to.kind === 'hand') held.push(m.card);
+          if (held.length <= effect.amount) {
+            out.push({
+              t: 'CardsMoved',
+              moves: held.map((card) => ({
+                card,
+                from: { kind: 'hand' as const, player: controller },
+                to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? controller },
+                reason: 'discard' as const,
+              })),
+            });
+            break;
+          }
+          out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'hand', rest: null, count: effect.amount, label: obj.label } });
+          break;
+        }
+        // D435 - `Discard N cards. If you do, draw M cards.`: an empty hand discards nothing and draws nothing; a
+        // hand no bigger than the count goes whole and draws at once; otherwise the draw RIDES the prompt.
+        if (effect.thenDraw > 0 && effect.self) {
+          if (out.some((e) => e.t === 'AwaitingSet')) break;
+          const held = state.zones.hand[controller] ?? [];
+          if (held.length === 0) break;
+          if (held.length <= effect.amount) {
+            out.push({
+              t: 'CardsMoved',
+              moves: held.map((card) => ({
+                card,
+                from: { kind: 'hand' as const, player: controller },
+                to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? controller },
+                reason: 'discard' as const,
+              })),
+            });
+            out.push(...drawEvents(state, controller, effect.thenDraw));
+            break;
+          }
+          out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'hand', rest: null, count: effect.amount, label: obj.label, thenDraw: effect.thenDraw } });
+          break;
+        }
         // D390 - "each opponent discards a card": the player queue over the hand (see `sacrifice`).
         if (effect.scopes !== undefined && effect.scopes.length > 0) {
           if (out.some((e) => e.t === 'AwaitingSet')) break;

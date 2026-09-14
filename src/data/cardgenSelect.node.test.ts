@@ -259,6 +259,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D435 - the if-you-do pair's mirror offered 8 the row maker refuses (a Blight cost, four heads outside the library, two
+  // filtered heads, a two-faced printing) - each by the wide run's reason.
+  ['Baral, Chief of Compliance', 'trigger head not in the library: Whenever a spell or ability you control counters a spell, you may draw a card. If you do, discard a card.'],
+  ['Gristle Glutton', 'cost: Blight 1'],
+  ['Projektor Inspector', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Detective you control enters and whenever a Detective you control is turned face up'],
+  ['Sage of the Falls', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another non-Human creature you control enters'],
+  ["Smuggler's Copter", 'trigger head not in the library: Whenever this Vehicle attacks or blocks, you may draw a card. If you do, discard a card.'],
+  ['Izzet Keyrune', 'trigger head not in the library: Whenever this artifact deals combat damage to a player, you may draw a card. If you do, discard a card.'],
+  ["Smuggler's Copter // Smuggler's Copter", 'multi-face or unusual layout'],
+  ['Wharf Infiltrator', 'trigger head not in the library: Whenever you discard a creature card, you may pay {2}. If you do, create a 3/2 colorless Eldrazi Horror creature token.'],
   // D434 - the mill vocabulary's mirror offered 15 more the row maker refuses (a meld card, a mill as a payment's branch,
   // three quoted grants, four heads outside the library, two filtered heads, a Clue sacrifice head, a cycling trigger on
   // a spell, two loyalty faces) - each by the wide run's reason.

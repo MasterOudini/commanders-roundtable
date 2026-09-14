@@ -275,6 +275,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // target player mills two) - a trigger and an activation, a coloured body and a colourless one, two a seat each.
   { names: ['Hedron Crab', 'Millstone'], copiesPerSeat: 2,
     counterKeys: ['millsResolved'], rotHistory: 'D434' },
+  // D435 - the if-you-do pair: Stadium Tidalmage ({3}{U} - enters or attacks: a cast is a fire), Rook Turret ({3} - another
+  // artifact you control enters) and Riddlesmith ({1}{U} - you cast an artifact spell) loot off the seat's own casts; two a
+  // seat each, so the pair fires without a second event or the coin's consent (the counter reads the stack, not the prompt).
+  { names: ['Stadium Tidalmage', 'Rook Turret', 'Riddlesmith'], copiesPerSeat: 2,
+    counterKeys: ['ifYouDoFires'], rotHistory: 'D435' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1119,6 +1124,8 @@ interface Run {
   readonly drawStepHeadFires: number;
   /** D434 - mills that resolved: a `CardsMoved` whose every move is library to graveyard (a mill's one event). */
   readonly millsResolved: number;
+  /** D435 - the if-you-do pair's fires: stack objects whose label carries the conditional sentence (a hand of one asks nothing). */
+  readonly ifYouDoFires: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1496,6 +1503,7 @@ function runOne(seed: number): Run {
     drawHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:opponentDrawsCard|aPlayerDrawsCard)-/.test(e.body.obj.abilityRef ?? '')).length,
     drawStepHeadFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:eachPlayerDrawStep|yourDrawStep)-/.test(e.body.obj.abilityRef ?? '')).length,
     millsResolved: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.length > 0 && e.body.moves.every((m) => m.from.kind === 'library' && m.to.kind === 'graveyard')).length,
+    ifYouDoFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /\. If you do, (?:discard|draw) /.test(e.body.obj.label)).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1693,6 +1701,7 @@ const TOTAL_KEYS = [
   'drawHeadFires',
   'drawStepHeadFires',
   'millsResolved',
+  'ifYouDoFires',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -2014,6 +2023,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.drawStepHeadFires).toBeGreaterThan(0);
         // D434 - a mill resolved at gate size (Hedron Crab's landfall, Millstone's activation).
         expect(totals.millsResolved).toBeGreaterThan(0);
+        // D435 - an if-you-do loot fired at gate size (Stadium Tidalmage, Rook Turret, Riddlesmith).
+        expect(totals.ifYouDoFires).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2112,6 +2123,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.drawHeadFires} draw-head triggers · ` +
           `${totals.drawStepHeadFires} draw-step triggers · ` +
           `${totals.millsResolved} mills resolved · ` +
+          `${totals.ifYouDoFires} if-you-do fires · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +
