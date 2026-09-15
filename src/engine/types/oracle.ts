@@ -1226,7 +1226,7 @@ export type ActivationCondition =
   | { readonly kind: 'duringStep'; readonly step: 'upkeep' | 'declareAttackers' | 'declareBlockers'; readonly whose: 'yours' | 'any' }
   | { readonly kind: 'duringCombat' }
   | { readonly kind: 'beforeAttackersDeclared' }
-  | { readonly kind: 'board'; readonly condition: Exclude<EntersTappedCondition, { kind: 'payLife' }> }
+  | { readonly kind: 'board'; readonly condition: Exclude<EntersTappedCondition, { kind: 'payLife' | 'reveal' }> }
   | { readonly kind: 'controlCount'; readonly count: number; readonly any: readonly PermanentPredicate[] }
   | { readonly kind: 'selfPowerAtLeast'; readonly power: number }
   | { readonly kind: 'handSize'; readonly cmp: 'atMost' | 'exactly' | 'atLeast'; readonly count: number }

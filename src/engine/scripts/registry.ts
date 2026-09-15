@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FLAMEKIN_VILLAGE_SCRIPT } from './cards/flamekinVillage';
+import { STITCHERS_SUPPLIER_SCRIPT } from './cards/stitchersSupplier';
+import { CROW_OF_DARK_TIDINGS_SCRIPT } from './cards/crowOfDarkTidings';
+import { SANGUINE_EVANGELIST_SCRIPT } from './cards/sanguineEvangelist';
+import { GULPING_SCRAPTRAP_SCRIPT } from './cards/gulpingScraptrap';
+import { EXPERIMENTAL_SYNTHESIZER_SCRIPT } from './cards/experimentalSynthesizer';
+import { MOGG_WAR_MARSHAL_SCRIPT } from './cards/moggWarMarshal';
+import { GOBLIN_MARSHAL_SCRIPT } from './cards/goblinMarshal';
+import { MOUSER_FOUNDRY_SCRIPT } from './cards/mouserFoundry';
+import { SUBTERRANEAN_SHAMBLER_SCRIPT } from './cards/subterraneanShambler';
 import { SYNDICATE_HEAVY_SCRIPT } from './cards/syndicateHeavy';
 import { LIFE_INSURANCE_SCRIPT } from './cards/lifeInsurance';
 import { ARCBOUND_CONDOR_SCRIPT } from './cards/arcboundCondor';
@@ -6847,6 +6857,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FLAMEKIN_VILLAGE_SCRIPT,
+  STITCHERS_SUPPLIER_SCRIPT,
+  CROW_OF_DARK_TIDINGS_SCRIPT,
+  SANGUINE_EVANGELIST_SCRIPT,
+  GULPING_SCRAPTRAP_SCRIPT,
+  EXPERIMENTAL_SYNTHESIZER_SCRIPT,
+  MOGG_WAR_MARSHAL_SCRIPT,
+  GOBLIN_MARSHAL_SCRIPT,
+  MOUSER_FOUNDRY_SCRIPT,
+  SUBTERRANEAN_SHAMBLER_SCRIPT,
   SYNDICATE_HEAVY_SCRIPT,
   LIFE_INSURANCE_SCRIPT,
   ARCBOUND_CONDOR_SCRIPT,

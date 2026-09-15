@@ -129,6 +129,12 @@ function describe(
           ? `${awaiting.label} — name a colour.`
           : `${nameOf(seats, awaiting.player)} is naming a colour for ${awaiting.label}.`;
       case 'entersChoice':
+        // D441 - a reveal land's price is a card shown, not life.
+        if (awaiting.reveal !== undefined) {
+          return awaiting.player === viewer
+            ? `${awaiting.label} enters tapped unless you reveal a ${awaiting.reveal.text} card from your hand.`
+            : `${nameOf(seats, awaiting.player)} is deciding whether to reveal a card for ${awaiting.label}.`;
+        }
         return awaiting.player === viewer
           ? `${awaiting.label} enters tapped unless you pay ${awaiting.life} life.`
           : `${nameOf(seats, awaiting.player)} is deciding whether to pay for ${awaiting.label}.`;
@@ -360,6 +366,8 @@ export function PromptBar() {
                     ? `${mode.verb === 'discard' ? 'Discard' : mode.verb === 'tap' ? 'Tap' : mode.verb === 'returnToHand' ? 'Return to hand' : 'Exile from your graveyard'} ${mode.count - mode.chosen.length} more for ${mode.name}`
                     : mode.kind === 'payPick'
                       ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to ${mode.costText}`
+                    : mode.kind === 'revealPick'
+                      ? `${mode.name}: click a ${mode.text} card in your hand to reveal it`
                     : mode.kind === 'boardPick'
                       ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to sacrifice`
                       : mode.kind === 'proliferate'
@@ -675,6 +683,17 @@ export function PromptBar() {
             one, and hiding it would make the expensive answer the easy one. */}
         {awaiting?.kind === 'entersChoice' && mine('entersChoice') && (
           <>
+            {/* D441 - a reveal land's price arms the pick over the hand; a life price pays at once. */}
+            {awaiting.reveal !== undefined ? (
+              <button
+                type="button"
+                className={BTN}
+                data-action="reveal-enters-choice"
+                onClick={() => setMode({ kind: 'revealPick', name: awaiting.label, source: awaiting.source, text: awaiting.reveal?.text ?? '', any: awaiting.reveal?.any ?? [] })}
+              >
+                Reveal a {awaiting.reveal.text} card
+              </button>
+            ) : (
             <button
               type="button"
               className={BTN}
@@ -685,6 +704,7 @@ export function PromptBar() {
             >
               Pay {awaiting.life} life
             </button>
+            )}
             <button
               type="button"
               className={BTN_GHOST}

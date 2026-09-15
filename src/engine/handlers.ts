@@ -6,7 +6,7 @@
 // has just been told "no". "notYourPriority" is a code for the client; "Ana has
 // priority — wait for her to pass" is the message.
 
-import { replacementOptions, resumeReplacementFunnel } from './triggers';
+import { replacementOptions, resumeReplacementFunnel, revealAdmits } from './triggers';
 import {
   legalDefenders,
   needsFirstStrikeSubstep,
@@ -136,7 +136,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerChooseColor':
       return answerChooseColor(state, intent);
     case 'AnswerEntersChoice':
-      return answerEntersChoice(state, intent);
+      return answerEntersChoice(state, intent, deps);
     case 'AnswerPayMana':
       return answerPayMana(state, intent, deps);
     case 'AnswerSearchLibrary':
@@ -3102,9 +3102,17 @@ function verbPriceEvents(
   return { error: reject('cannotAfford', `${awaiting.label}: a price the app cannot charge.`) };
 }
 
+/** D441 - the printed name of a hand card a reveal land shows. */
+function revealedName(state: GameState, deps: EngineDeps, id: InstanceId): string {
+  const inst = state.cards[id];
+  const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+  return inst && printing ? faceOf(printing, inst.faceIndex).name : 'a card';
+}
+
 function answerEntersChoice(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerEntersChoice' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'entersChoice' || awaiting.player !== intent.player) {
@@ -3117,14 +3125,33 @@ function answerEntersChoice(
     return reject('notAwaitingThat', 'That is not the permanent you are being asked about.');
   }
   const seat = state.players[intent.player];
-  if (intent.pay && (!seat || seat.life < awaiting.life)) {
+  if (intent.pay && awaiting.reveal === undefined && (!seat || seat.life < awaiting.life)) {
     return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
+  }
+  // D441 - a reveal price: the answer names a card of the answerer's hand the noun admits (the printed face, the one
+  // reader). The card is shown to every seat and the permanent enters untapped; nothing else moves.
+  if (intent.pay && awaiting.reveal !== undefined) {
+    const shown = intent.reveal;
+    if (shown === undefined || !(state.zones.hand[intent.player] ?? []).includes(shown)) {
+      return reject('noSuchCard', 'Name a card in your hand to reveal.');
+    }
+    if (!revealAdmits(state, deps.oracle, shown, awaiting.reveal.any)) {
+      return reject('noSuchCard', `That card is not a ${awaiting.reveal.text} card.`);
+    }
   }
 
   const events: EventBody[] = [
     { t: 'EntersChoiceAnswered', card: awaiting.source, player: intent.player, pay: intent.pay },
   ];
-  if (intent.pay) {
+  if (intent.pay && awaiting.reveal !== undefined && intent.reveal !== undefined) {
+    events.push({ t: 'CardsRevealed', cards: [intent.reveal], to: state.seating });
+    events.push(
+      narrated(
+        n`${who(state, intent.player)} ${vb(intent.player, 'reveals', 'reveal')} ${revealedName(state, deps, intent.reveal)} for ${awaiting.label}.`,
+        intent.player,
+      ),
+    );
+  } else if (intent.pay) {
     const life = seat?.life ?? 0;
     events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.life, to: life - awaiting.life });
     events.push(
@@ -3150,6 +3177,7 @@ function answerEntersChoice(
           source: next.card,
           life: next.life,
           label: next.label,
+          ...(next.reveal !== undefined ? { reveal: next.reveal } : {}),
           queue: awaiting.queue.slice(1),
         }
       : null,

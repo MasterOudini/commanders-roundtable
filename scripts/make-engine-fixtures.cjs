@@ -8195,6 +8195,21 @@ const WANTED = [
   'Life Insurance',
   'Arcbound Condor',
   // D440 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D441 - the reveal lands: a shadow land and a tribal land.
+  'Port Town',
+  'Ancient Amphitheater',
+  // D441 - the reveal lands and the enters-or-dies head: the rows the row maker reads once the entry reveal is the engine's and the two-event head splits.
+  'Flamekin Village',
+  "Stitcher's Supplier",
+  'Crow of Dark Tidings',
+  'Sanguine Evangelist',
+  'Gulping Scraptrap',
+  'Experimental Synthesizer',
+  'Mogg War Marshal',
+  'Goblin Marshal',
+  'Mouser Foundry',
+  'Subterranean Shambler',
+  // D441 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8492,6 +8507,8 @@ const WANTED_TOKENS = [
   { name: 'Dragon', set: 'tarb', cn: '3', key: 'DRAGON_0BB628DA_TOKEN' },
   // D433 - the tokens the wave's rows create (the port's token-pin step, missing until D433).
   { name: 'Wall', set: 'tmsh', cn: '1', key: 'WALL_0_4_CREATURE_DEFENDER_TOKEN' },
+  // D441 - the tokens the wave's rows create (the port's token-pin step, missing until D441).
+  { name: 'Samurai', set: 'tneo', cn: '3', key: 'SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN' },
 ];
 
 function constName(name) {

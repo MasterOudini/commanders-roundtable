@@ -107,6 +107,15 @@ export function GameLayer({
       setTargets(pool.filter((id) => !mode.chosen.includes(id)).map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // D441 - the reveal land's price: the viewer's hand cards the noun admits, read off the printed face.
+    if (mode.kind === 'revealPick') {
+      const pool = (view.zones[zoneId('hand', viewer)] ?? []).filter((id) => {
+        const face = view.cards[id]?.card?.faces[0];
+        return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, mode.any) : false;
+      });
+      setTargets(pool.map((id) => ({ kind: 'card' as const, id })));
+      return;
+    }
     // D390 - the queued sacrifice: the viewer's own permanents the printed noun admits, read off
     // the PRINTED face here (the host reads the DERIVED one and validates every pick), minus what
     // is already chosen. An unfiltered prompt offers the whole board.
@@ -209,6 +218,7 @@ export function GameLayer({
           mode.kind === 'costPick' ||
           mode.kind === 'boardPick' ||
           mode.kind === 'payPick' ||
+          mode.kind === 'revealPick' ||
           mode.kind === 'proliferate'
         }
         legalTargets={targets}

@@ -234,7 +234,8 @@ export type Intent =
   /** CR 616.1 — which applicable replacement effect applies next. See D148. */
   | { readonly t: 'AnswerChooseReplacement'; readonly player: PlayerId; readonly key: string }
   | { readonly t: 'AnswerChooseColor'; readonly player: PlayerId; readonly color: ColorLetter }
-  | { readonly t: 'AnswerEntersChoice'; readonly player: PlayerId; readonly source: InstanceId; readonly pay: boolean }
+  /** D441 - `reveal` names the hand card a reveal land's price shows (with `pay: true`); absent for a life price. */
+  | { readonly t: 'AnswerEntersChoice'; readonly player: PlayerId; readonly source: InstanceId; readonly pay: boolean; readonly reveal?: InstanceId }
   /**
    * CR 701.8a. The cards the player picked out of their own hand, or out of the
    * top of their library (D141).

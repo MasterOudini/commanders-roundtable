@@ -159,6 +159,16 @@ export function onVeilPick(choice: TargetChoice): void {
     return;
   }
 
+  // D441 - the reveal land's answer: the one card shown, then `AnswerEntersChoice` with it. TIER 1: the host checks
+  // the card against the hand and the noun.
+  if (mode.kind === 'revealPick') {
+    if (choice.kind !== 'card') return;
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    session.submit({ t: 'AnswerEntersChoice', player: table.viewer, source: mode.source, pay: true, reveal: choice.id });
+    return;
+  }
+
   // D415 - the verb price's answer: N picks, then `AnswerPayMana` with them. TIER 1 like the picks
   // above - the host re-validates every id against the board as it stands.
   if (mode.kind === 'payPick') {

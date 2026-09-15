@@ -259,6 +259,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D441 - the enters-or-dies head splits into two defs now, and one pair's counter payload is read absolutely by the
+  // dies arm (the wide run's reason).
+  ['Hunting Moa', 'an enters-or-dies pair whose counter payload the dies arm reads absolutely (the etb half counts too)'],
   // D440 - and the mirror offered two the row maker refused: a second-spell head and a Construct search (the wide run's
   // reason).
   ['Arcbound Tracker', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast a spell other than your first spell each t'],
@@ -272,14 +275,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D439 - and the mirror offered 15 the row maker refused - the enters-or-dies heads, an anthem beside a mass pump, a
   // counted loss beside a cost piece, the pay-or-scry riders (the wide run's reason).
   ['Dream Beavers', 'trigger payload not a pump: Each opponent loses 1 life and you gain 1 life. Scry 1.'],
-  ['Goblin Marshal', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, create two 1/1 red Goblin'],
   ['Hunting Moa', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, put a +1/+1 counter on ta'],
   ['Inner Sanctum', 'a line that is neither an activated ability nor a library trigger: Prevent all damage that would be dealt to creatures you control.'],
-  ['Mogg War Marshal', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, create a 1/1 red Goblin c'],
   ['Mystic Might', 'a leftover line not among the printed lines: Enchanted land has'],
   ['Rotwidow Pack', 'a counted payload beside a cost piece that leaves a fixture behind: Each opponent loses 1 life for each Spider you control.'],
   ['Slitherwisp', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast another spell that has flash, you draw a c'],
-  ['Subterranean Shambler', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or leaves the battlefield, it deal'],
   ['Yavimaya Granger', 'trigger payload not a pump: Search your library for a basic land card, put that card ont'],
   ['Bubbling Cauldron', 'cost: a sacrifice cost with no fixture the suite can put: creature named Festering Newt'],
   ['Corroding Dragonstorm', 'trigger payload not a pump: Each opponent loses 2 life and you gain 2 life. Surveil 2.'],
@@ -540,7 +540,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cinder Shade', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Minion of Tevesh Szat', 'a payment branch the suite cannot assert: damageEach'],
   ['Minotaur Illusionist', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
-  ['Mouser Foundry', 'a filtered head outside the closed reader (an adjective outside the list: this): When this artifact enters or leaves the battlefield, create '],
   ['Ominous Parcel', 'effect not a row kind: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.'],
   ['Scrap Compactor', 'a vocabulary clause the suite has no fixture for: a clause whose alternatives differ'],
   ['Skarrgan Skybreaker', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
@@ -565,7 +564,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Compost', 'a put-into-graveyard head from anywhere with a filter no zone can answer: a black card'],
   ['Corpse Cur', 'trigger payload not a pump: Return target creature card with infect from your graveyard '],
   ["Cosi's Trickster", 'trigger head not in the library: Whenever an opponent shuffles their library, you may put a +1/+1 count'],
-  ['Crow of Dark Tidings', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, mill two cards.'],
   ['Cruel Celebrant', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or planeswalker y'],
   ['Curator of Mysteries', "a scry under the cycle-or-discard head: the cycling's own draw moves the library count the suite pins (D424)"],
   ['Curiosity', 'trigger head not in the library: Whenever enchanted creature deals damage to an opponent, you may draw '],
@@ -631,7 +629,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spirit Mantle', 'a protection quality the derive does not read (protection from creatures) (D424)'],
   ['Squee, Goblin Nabob', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
   ['Stinging Cave Crawler', 'a line that is neither an activated ability nor a library trigger: Descend 4 — Whenever this creature attacks, if there are four or more '],
-  ["Stitcher's Supplier", 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, mill three cards.'],
   ['Stone Docent', 'effect not a row kind: You gain 2 life. Surveil 1.'],
   ['Strength Bobblehead', 'effect not a row kind: Put X +1/+1 counters on target creature, where X is the number of Bobbleheads you control.'],
   ['Sunshot Militia', 'cost: a tap cost with no fixture the suite can put: artifacts and/or creatures'],
@@ -661,7 +658,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Dragon's Hoard", 'trigger payload not a pump: Put a gold counter on this artifact.'],
   ['Dreadhound', 'trigger head not in the library: Whenever a creature dies or a creature card is put into a graveyard fr'],
   ["Evershrike's Gift", 'cost: Blight 2'],
-  ['Experimental Synthesizer', 'a filtered head outside the closed reader (an adjective outside the list: this): When this artifact enters or leaves the battlefield, exile t'],
   ['Forerunner of the Coalition', 'trigger payload not a pump: Search your library for a Pirate card, reveal it, then shuff'],
   ['Garza Zol, Plague Queen', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creature dealt damage by ~ this turn dies, put a '],
   ['Golem Foundry', 'trigger payload not a pump: Put a charge counter on this artifact.'],
@@ -2546,7 +2542,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D391 - proliferate: the four the selector offered after the wave that the row maker refused, by reason.
   ['Grateful Apparition', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
   ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
-  ['Gulping Scraptrap', 'a compound head (this creature enters OR dies) outside the closed reader'],
   ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
   // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
   ['Agonasaur Rex', 'trigger head not in the library (when you cycle this card)'],

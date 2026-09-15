@@ -325,6 +325,19 @@ export function answerAwaiting(
     }
     case 'entersChoice': {
       if (awaiting.player !== me) return wait('not my permanent');
+      // D441 - a reveal price: show the first hand card the noun admits (the printed face, the one reader) - it
+      // costs nothing but the information, and an untapped land is worth that; none, and the land enters tapped.
+      if (awaiting.reveal !== undefined) {
+        const any = awaiting.reveal.any;
+        const shown = myHand(view, me).find((c) => {
+          const face = c.card?.faces[0];
+          return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, any) : false;
+        });
+        return act(
+          shown ? { t: 'AnswerEntersChoice', player: me, source: awaiting.source, pay: true, reveal: shown.instanceId } : { t: 'AnswerEntersChoice', player: me, source: awaiting.source, pay: false },
+          shown ? `reveal ${shown.card?.name ?? 'a card'} for ${awaiting.label}` : `let ${awaiting.label} enter tapped`,
+        );
+      }
       const life = view.seats[me]?.life ?? 0;
       const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR;
       return act(

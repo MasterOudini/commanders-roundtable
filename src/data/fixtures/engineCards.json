@@ -251341,6 +251341,413 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PORT_TOWN": {
+    "scryfallId": "0392196d-cd02-47e4-be7f-588ebee859fe",
+    "oracleId": "458d2b12-f578-4392-98d3-c3bc83f316c4",
+    "name": "Port Town",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Port Town",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {W} or {U}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kamila Szutenberg",
+        "imageId": "0392196d-cd02-47e4-be7f-588ebee859fe"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ncc",
+    "collectorNumber": "420",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANCIENT_AMPHITHEATER": {
+    "scryfallId": "04a37397-1d93-45d6-a19d-e02245b5f2fe",
+    "oracleId": "7211221d-d4d8-4bbe-9d2a-b82e005bfe8a",
+    "name": "Ancient Amphitheater",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ancient Amphitheater",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may reveal a Giant card from your hand. If you don't, this land enters tapped.\n{T}: Add {R} or {W}.",
+        "flavorText": "The arbiter Galanda Feudkiller judges Lorwyn's squabbles from a lofty perspective.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "04a37397-1d93-45d6-a19d-e02245b5f2fe"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "c15",
+    "collectorNumber": "276",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMEKIN_VILLAGE": {
+    "scryfallId": "0fe90c85-c9ef-4ceb-9dc3-4d428b4157d5",
+    "oracleId": "34a1eb04-08f6-49d8-a1d1-b987a76bd8b1",
+    "name": "Flamekin Village",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flamekin Village",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "As this land enters, you may reveal an Elemental card from your hand. If you don't, this land enters tapped.\n{T}: Add {R}.\n{R}, {T}: Target creature gains haste until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ron Spears",
+        "imageId": "0fe90c85-c9ef-4ceb-9dc3-4d428b4157d5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "cm2",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STITCHER_S_SUPPLIER": {
+    "scryfallId": "10e65e74-14fc-4286-84d3-36c70d6dcf46",
+    "oracleId": "7fd61a18-6e4f-40c5-aa00-3d101ec1ec82",
+    "name": "Stitcher's Supplier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stitcher's Supplier",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters or dies, mill three cards. (Put the top three cards of your library into your graveyard.)",
+        "flavorText": "\"Let me give you a hand. He won't be needing it; he's left-handed. Also dead.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Canata Katana",
+        "imageId": "10e65e74-14fc-4286-84d3-36c70d6dcf46"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROW_OF_DARK_TIDINGS": {
+    "scryfallId": "14e4d1b5-72de-4062-9fdd-e9bfd655ee79",
+    "oracleId": "a4ffe297-5e82-43f9-91a4-7aa3d8dd3b4a",
+    "name": "Crow of Dark Tidings",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crow of Dark Tidings",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Bird",
+        "oracleText": "Flying\nWhen this creature enters or dies, mill two cards. (Put the top two cards of your library into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tianhua X",
+        "imageId": "14e4d1b5-72de-4062-9fdd-e9bfd655ee79"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANGUINE_EVANGELIST": {
+    "scryfallId": "269ddd84-fdc4-4c94-b183-32ecec56967c",
+    "oracleId": "a70d9645-7c25-4fcb-9d16-fb73ce8b55e2",
+    "name": "Sanguine Evangelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanguine Evangelist",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nWhen this creature enters or dies, create a 1/1 black Bat creature token with flying.",
+        "flavorText": "\"Fang-brethren, we feed together.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "269ddd84-fdc4-4c94-b183-32ecec56967c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GULPING_SCRAPTRAP": {
+    "scryfallId": "28f48394-c6aa-4453-954a-68195d9bd6ea",
+    "oracleId": "d9e48750-d930-4095-abf0-dec2ac53be81",
+    "name": "Gulping Scraptrap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gulping Scraptrap",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Phyrexian Horror",
+        "oracleText": "When this creature enters or dies, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"Does anyone else hear that horrible crunching sound?\"\n—Jace",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Franchina",
+        "imageId": "28f48394-c6aa-4453-954a-68195d9bd6ea"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "one",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPERIMENTAL_SYNTHESIZER": {
+    "scryfallId": "3638828e-66f7-42e9-ba61-0ba06bce7a59",
+    "oracleId": "11db299a-0918-46a3-b39b-16acc3f4e281",
+    "name": "Experimental Synthesizer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Experimental Synthesizer",
+        "manaCost": "{R}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters or leaves the battlefield, exile the top card of your library. Until end of turn, you may play that card.\n{2}{R}, Sacrifice this artifact: Create a 2/2 white Samurai creature token with vigilance. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "3638828e-66f7-42e9-ba61-0ba06bce7a59"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "NEO-138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGG_WAR_MARSHAL": {
+    "scryfallId": "4ebce261-3a53-48f2-a173-0d98c68aff2c",
+    "oracleId": "7b8f4879-578e-40e4-863a-41d0c32c6bdd",
+    "name": "Mogg War Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogg War Marshal",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Echo {1}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters or dies, create a 1/1 red Goblin creature token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "4ebce261-3a53-48f2-a173-0d98c68aff2c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DMR-131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_MARSHAL": {
+    "scryfallId": "6a85b2f9-c12c-46dd-ae04-470ebf5ec6d9",
+    "oracleId": "4bc91d7d-37aa-475c-8fe9-763975d51add",
+    "name": "Goblin Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Marshal",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Echo {4}{R}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters or dies, create two 1/1 red Goblin creature tokens.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "DiTerlizzi",
+        "imageId": "6a85b2f9-c12c-46dd-ae04-470ebf5ec6d9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "uds",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOUSER_FOUNDRY": {
+    "scryfallId": "8aae3bd6-a935-44a5-aa4d-a525b00cbf50",
+    "oracleId": "404e958b-ead9-4ec7-b786-7b3d65e29967",
+    "name": "Mouser Foundry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mouser Foundry",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters or leaves the battlefield, create a 1/1 colorless Robot artifact creature token.\n{4}{R}, Sacrifice this artifact: It deals 3 damage to target creature.",
+        "flavorText": "\"Hmmm . . . How many should I send? Three? Five? Ten, maybe!\"\n—Baxter Stockman",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jakob Eirich",
+        "imageId": "8aae3bd6-a935-44a5-aa4d-a525b00cbf50"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBTERRANEAN_SHAMBLER": {
+    "scryfallId": "f9429ec0-ff23-494d-ab1c-b88f3a0dee1b",
+    "oracleId": "d06be0a6-0d45-4e95-b132-88ce80dd7cb6",
+    "name": "Subterranean Shambler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Subterranean Shambler",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Echo {3}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters or leaves the battlefield, it deals 1 damage to each creature without flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "f9429ec0-ff23-494d-ab1c-b88f3a0dee1b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -256817,6 +257224,41 @@
     ],
     "setCode": "tmsh",
     "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN": {
+    "scryfallId": "f68e5337-6e44-4f8f-a102-2f97b433beea",
+    "oracleId": "acdaf04d-19ef-4132-a3b6-5a99f0b5165f",
+    "name": "Samurai",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Samurai",
+        "manaCost": "",
+        "typeLine": "Token Creature — Samurai",
+        "oracleText": "Vigilance",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gaboleps",
+        "imageId": "f68e5337-6e44-4f8f-a102-2f97b433beea"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tneo",
+    "collectorNumber": "3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

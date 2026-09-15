@@ -20,7 +20,7 @@ import { STEP_ORDER } from './turn';
 import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
-import { isAskedCondition, type EntersTappedCondition } from '../data/replacementParse';
+import { isAskedCondition, predicateAdmits, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
 import type { DerivedCharacteristics, OracleCard, OracleDb } from './types/oracle';
 import {
   livingPlayers,
@@ -667,7 +667,7 @@ function withEntersTapped(
   events: readonly EventBody[],
 ): EventBody[] {
   const tapping: InstanceId[] = [];
-  const asking: { card: InstanceId; player: PlayerId; life: number; label: string }[] = [];
+  const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string } }[] = [];
   for (const ev of events) {
     if (ev.t !== 'CardsMoved') continue;
     for (const move of ev.moves) {
@@ -698,7 +698,16 @@ function withEntersTapped(
           // make. A player already out of the game is not asked either, for
           // `optionalTrigger`'s reason (D128): their answer is not in doubt.
           const seat = state.players[controller];
-          if (seat && !seat.hasLost && seat.life >= unless.life) {
+          // D441 - a reveal price is asked only of a player whose hand HOLDS a card the noun admits (the same
+          // rule as the life: nothing to show is no question, the land enters tapped). Read off the printed
+          // faces - a hand card has no derived characteristics.
+          if (unless.kind === 'reveal') {
+            const holds = seat !== undefined && !seat.hasLost && (state.zones.hand[controller] ?? []).some((id) => revealAdmits(state, oracle, id, unless.any));
+            if (holds) {
+              asking.push({ card: move.card, player: controller, life: 0, label: face.name, reveal: { any: unless.any, text: unless.text } });
+              continue;
+            }
+          } else if (seat && !seat.hasLost && seat.life >= unless.life) {
             asking.push({ card: move.card, player: controller, life: unless.life, label: face.name });
             continue;
           }
@@ -728,11 +737,21 @@ function withEntersTapped(
         source: head.card,
         life: head.life,
         label: head.label,
+        ...(head.reveal !== undefined ? { reveal: head.reveal } : {}),
         queue: asking.slice(1),
       },
     });
   }
   return out;
+}
+
+/** D441 - does this hand card's printed face satisfy a reveal land's noun? (One reader: `predicateAdmits`, D389.) */
+export function revealAdmits(state: GameState, oracle: OracleDb, id: InstanceId, any: readonly PermanentPredicate[]): boolean {
+  const inst = state.cards[id];
+  const printing = inst ? oracle.byPrinting(inst.printingId) : undefined;
+  if (!inst || !printing) return false;
+  const face = faceOf(printing, inst.faceIndex);
+  return predicateAdmits({ typeLine: face.typeLine, colors: face.colors }, any);
 }
 
 /**
@@ -763,7 +782,7 @@ export function conditionHolds(
   state: GameState,
   oracle: OracleDb,
   scripts: ScriptRegistry,
-  condition: Exclude<EntersTappedCondition, { kind: 'payLife' }>,
+  condition: Exclude<EntersTappedCondition, { kind: 'payLife' | 'reveal' }>,
   controller: PlayerId,
 ): boolean {
   const cache = makeDeriveCache(state);

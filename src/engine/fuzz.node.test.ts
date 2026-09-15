@@ -34,6 +34,7 @@ import {
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
 import { predicateAdmits } from '../data/replacementParse';
+import { revealAdmits } from './triggers';
 import { handChoiceCandidates } from './handChoice';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
@@ -300,6 +301,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['extortsFired'], rotHistory: 'D440' },
   { names: ['Arcbound Worker'], copiesPerSeat: 2,
     counterKeys: ['modularMoves'], rotHistory: 'D440' },
+  // D441 - the reveal lands: Port Town asks for a Plains or Island from the hand as it enters - three a seat, because
+  // the pool holds one Plains and one Island in ~150 cards and the question needs one in hand at the drop (0 asks at
+  // 60 seeds with one copy); the driver reveals on its coin flip, and a hand with nothing to show taps silently.
+  { names: ['Port Town'], copiesPerSeat: 3,
+    counterKeys: ['revealsAsked'], rotHistory: 'D441' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -848,6 +854,15 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: picked };
     }
     case 'entersChoice': {
+      // D441 - a reveal price: on the paying half of the flip, the first hand card the noun admits (the prompt
+      // ships no candidates - the driver reads the state, as the answerer reads its own hand).
+      if (awaiting.reveal !== undefined) {
+        const any = awaiting.reveal.any;
+        const shown = (state.zones.hand[awaiting.player] ?? []).find((id) => revealAdmits(state, ORACLE, id, any));
+        return shown !== undefined && p.below(2) === 0
+          ? { t: 'AnswerEntersChoice', player: awaiting.player, source: awaiting.source, pay: true, reveal: shown }
+          : { t: 'AnswerEntersChoice', player: awaiting.player, source: awaiting.source, pay: false };
+      }
       const life = state.players[awaiting.player]?.life ?? 0;
       return {
         t: 'AnswerEntersChoice',
@@ -1159,6 +1174,9 @@ interface Run {
   readonly upkeepPricesFired: number;
   /** D440 - extort triggers on the stack, modular counters moved to a target, scavenge activations on the stack. */
   readonly extortsFired: number;
+  /** D441 - reveal-land prompts raised (a noun on the entersChoice), and one-card reveals shown to every seat. */
+  readonly revealsAsked: number;
+  readonly revealsShown: number;
   readonly modularMoves: number;
   readonly scavenges: number;
   readonly upkeepPricesAsked: number;
@@ -1545,6 +1563,8 @@ function runOne(seed: number): Run {
     spellXCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.xValue ?? 0) > 0).length,
     upkeepPricesFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:(?:echo|cumulativeUpkeep)$/.test(e.body.obj.abilityRef ?? '')).length,
     extortsFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:extort$/.test(e.body.obj.abilityRef ?? '')).length,
+    revealsAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.reveal !== undefined).length,
+    revealsShown: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.cards.length === 1 && e.body.to.length === game.state.seating.length).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
     upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
@@ -1751,6 +1771,8 @@ const TOTAL_KEYS = [
   'spellXCasts',
   'upkeepPricesFired',
   'extortsFired',
+  'revealsAsked',
+  'revealsShown',
   'modularMoves',
   'scavenges',
   'upkeepPricesAsked',
@@ -2086,6 +2108,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.upkeepPricesFired).toBeGreaterThan(0);
         // D440 - an extort trigger on the stack at gate size (Syndic of Tithes).
         expect(totals.extortsFired).toBeGreaterThan(0);
+        // D441 - a reveal land asked at gate size (Port Town with a Plains or Island in hand).
+        expect(totals.revealsAsked).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2189,6 +2213,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.spellXCasts} X spells cast for more than nothing · ` +
           `${totals.upkeepPricesFired} upkeep prices fired (${totals.upkeepPricesAsked} asked, ${totals.agesAdded} age counters) · ` +
           `${totals.extortsFired} extorts fired · ${totals.modularMoves} modular moves · ${totals.scavenges} scavenges · ` +
+          `${totals.revealsAsked} reveal lands asked (${totals.revealsShown} shown) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

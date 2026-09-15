@@ -69,6 +69,12 @@ export type EntersTappedCondition =
    * `conditionHolds` refuses this kind rather than inventing an answer.
    */
   | { readonly kind: 'payLife'; readonly life: number }
+  /**
+   * D441 - `you may reveal a <noun> card from your hand` - THE SECOND ASKED MEMBER: the shadow lands (`Plains or
+   * Island`), the tribal lands (`Elemental`, `Giant`, `Dragon`, `Soldier`). `any` is the noun as `predicatesOf` reads
+   * it (one alternative per `or`), `text` the noun as printed, for the prompt's label.
+   */
+  | { readonly kind: 'reveal'; readonly any: readonly PermanentPredicate[]; readonly text: string }
   /** `you control two or more other lands` · `two or fewer other lands` */
   | { readonly kind: 'otherLands'; readonly at: 'least' | 'most'; readonly count: number }
   /** `you control two or more basic lands` */
@@ -100,8 +106,8 @@ export interface EntersTapped {
  */
 export function isAskedCondition(
   c: EntersTappedCondition,
-): c is Extract<EntersTappedCondition, { kind: 'payLife' }> {
-  return c.kind === 'payLife';
+): c is Extract<EntersTappedCondition, { kind: 'payLife' | 'reveal' }> {
+  return c.kind === 'payLife' || c.kind === 'reveal';
 }
 
 const NUMBERS: Readonly<Record<string, number>> = {
@@ -327,6 +333,8 @@ const IF_TAPPED = /^if (.+), ~ enters(?: the battlefield)? tapped\.$/i;
  * test — the rule this file has followed since D135.
  */
 const PAY_TO_UNTAP = /^as ~ enters, you may pay (\d+) life\. if you don'?t, (?:it|~) enters(?: the battlefield)? tapped\.$/i;
+// D441 - the reveal lands: the noun between `reveal a` and `card from your hand` is the predicate list.
+const REVEAL_TO_UNTAP = /^as ~ enters, you may reveal an? (.+?) card from your hand\. if you don'?t, (?:it|~) enters(?: the battlefield)? tapped\.$/i;
 
 /**
  * ⚠️ The INVERTED wording is the same query with its polarity flipped, and
@@ -366,6 +374,12 @@ export function parseEntersTappedLine(line: string, cardName: string): EntersTap
     const life = Number(pay[1]);
     // A cost of 0 would be a prompt whose two answers are the same board.
     return life > 0 ? { unless: { kind: 'payLife', life } } : null;
+  }
+  // D441 - the reveal lands: asked, like the life; a noun the predicate grammar cannot read refuses the line.
+  const reveal = REVEAL_TO_UNTAP.exec(s);
+  if (reveal) {
+    const any = predicatesOf(reveal[1] ?? '');
+    return any === null ? null : { unless: { kind: 'reveal', any, text: reveal[1] ?? '' } };
   }
   const unless = UNLESS.exec(s);
   if (unless) {

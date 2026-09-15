@@ -5,6 +5,7 @@ import type { CardData } from '../data/cardTypes';
 // ⚠️ Pure option types only — the exception invariant 4 allows. This store never
 // sees a `GameState`; it reads a `PlayerView` like every other client.
 import type { Awaiting, DefenderRef, StopPolicy, TargetChoice } from '../engine/types/state';
+import type { PermanentPredicate } from '../data/replacementParse';
 import type { TargetSpec } from '../engine/types/oracle';
 import type { CostPicks } from '../net/client';
 
@@ -198,6 +199,18 @@ export type TableMode =
       readonly candidates: readonly string[] | null;
       readonly count: number;
       readonly chosen: readonly string[];
+    }
+  /**
+   * D441 - answering a REVEAL LAND's price (`you may reveal a Plains or Island card from your hand`): one hand
+   * card the noun admits, then `AnswerEntersChoice` with it. Armed by the prompt bar's Reveal button (Enter tapped
+   * is the other button); Escape drops it and the buttons stand. TIER 1: the host checks the card.
+   */
+  | {
+      readonly kind: 'revealPick';
+      readonly name: string;
+      readonly source: string;
+      readonly text: string;
+      readonly any: readonly PermanentPredicate[];
     }
   /**
    * D391 - answering a PROLIFERATE ask (CR 701.27a): any number of permanents with a counter, on
@@ -547,7 +560,7 @@ export const useTable = create<TableUi>((set, get) => ({
       set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
       return;
     }
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'proliferate') {
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'revealPick' || mode.kind === 'proliferate') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

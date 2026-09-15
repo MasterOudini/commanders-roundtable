@@ -826,6 +826,12 @@ export type Awaiting =
       readonly life: number;
       readonly label: string;
       /**
+       * D441 - the reveal lands: the price is a card of the noun revealed from the answerer's hand, not life.
+       * The noun rides (`any` for the check, `text` for the label); the candidates never do - a hand is hidden
+       * (D137), the answerer reads its own, and the host checks the card named.
+       */
+      readonly reveal?: { readonly any: readonly PermanentPredicate[]; readonly text: string };
+      /**
        * The permanents after this one still waiting to be asked about.
        *
        * ⚠️ Each entry carries its own LABEL, so the handler that pops the queue
@@ -839,6 +845,7 @@ export type Awaiting =
         readonly player: PlayerId;
         readonly life: number;
         readonly label: string;
+        readonly reveal?: { readonly any: readonly PermanentPredicate[]; readonly text: string };
       }[];
     }
   /**
