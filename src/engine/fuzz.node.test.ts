@@ -340,6 +340,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D448 - unearth: a {1}{B} 2/1 that comes back from the graveyard for {B} with haste, exiled at the end step.
   { names: ['Dregscape Zombie'], copiesPerSeat: 3,
     counterKeys: ['unearths'], rotHistory: 'D448' },
+  // D449 - the keyword alternative costs: an evoke flier (sacrificed as it enters) and a dash two-drop (haste, back
+  // to hand at the end step); the driver elects an alternative cost when it can pay it.
+  { names: ['Mulldrifter'], copiesPerSeat: 2,
+    counterKeys: ['evokedCasts'], rotHistory: 'D449' },
+  { names: ['Zurgo Bellstriker'], copiesPerSeat: 3,
+    counterKeys: ['dashedCasts'], rotHistory: 'D449' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1186,6 +1192,11 @@ interface Run {
   readonly additionalCostCasts: number;
   /** D408 - casts that elected an alternative cost (the stack object's `alternativePaid`). */
   readonly alternativeCasts: number;
+  /** D449 - the entry moves marked evoke / dash, the evoke sacrifices on the stack, the dash returns resolved. */
+  readonly evokedCasts: number;
+  readonly dashedCasts: number;
+  readonly evokeSacrifices: number;
+  readonly dashReturns: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1597,6 +1608,10 @@ function runOne(seed: number): Run {
     reducedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && !e.body.obj.isCommanderCast && e.body.obj.taxApplied < 0).length,
     additionalCostCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.additionalPaid ?? 0) > 0).length,
     alternativeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true).length,
+    evokedCasts: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.altKeyword === 'evoke')).length,
+    dashedCasts: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.altKeyword === 'dash')).length,
+    evokeSacrifices: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:evoke$/.test(e.body.obj.abilityRef ?? '')).length,
+    dashReturns: game.log.filter((e) => e.body.t === 'Narrated' && /dash: return it to hand resolves/.test(e.body.text)).length,
     explores: game.log.filter((e) => e.body.t === 'Explored').length,
     typecyclings: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.reason === 'cycling' && typedCycler(game, m.card))).length,
     untapSkips: game.log.filter((e) => e.body.t === 'UntapSkipSet' && e.body.skip).length,
@@ -1833,6 +1848,10 @@ const TOTAL_KEYS = [
   'reducedCasts',
   'additionalCostCasts',
   'alternativeCasts',
+  'evokedCasts',
+  'dashedCasts',
+  'evokeSacrifices',
+  'dashReturns',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2224,6 +2243,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.backupsFired).toBeGreaterThan(0);
         // D448 - an unearth resolved at gate size (Dregscape Zombie; 5 at 60 seeds).
         expect(totals.unearths).toBeGreaterThan(0);
+        // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
+        expect(totals.evokedCasts).toBeGreaterThan(0);
+        expect(totals.dashedCasts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2305,6 +2327,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.additionalCostCasts} casts paying an additional cost · ` +
           `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
           `${totals.alternativeCasts} casts for an alternative cost · ` +
+          `${totals.evokedCasts} evoked (${totals.evokeSacrifices} evoke sacrifices) · ${totals.dashedCasts} dashed (${totals.dashReturns} dash returns) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

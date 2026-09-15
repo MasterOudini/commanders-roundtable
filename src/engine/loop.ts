@@ -34,7 +34,7 @@ import { EMPTY_POOL, poolTotal } from './types/mana';
 import type { RngState } from './rng';
 import type { ActivatedAbility, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type GameState, type PendingTrigger, type StackObject } from './types/state';
-import { unearthExileSpec } from '../data/effectParse';
+import { dashReturnSpec, unearthExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
 
 export interface EngineDeps {
@@ -863,9 +863,28 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.faceDown ? { faceDown: true } : {}),
           // D403 - the kick the spell was cast with rides onto the permanent it becomes.
           ...(obj.kicked !== undefined && obj.kicked > 0 ? { kicked: obj.kicked } : {}),
+          // D449 - and the keyword alternative cost it was cast for (evoke / dash).
+          ...(obj.alternativePaid && face?.alternativeCost?.keyword !== undefined ? { altKeyword: face.alternativeCost.keyword } : {}),
         },
       ],
     });
+    // D449 - DASH (CR 702.109a): a dashed permanent returns to its owner's hand at the beginning of the next
+    // end step - a delayed trigger armed as the spell resolves, its one effect the self return (a source that
+    // has left the battlefield by then is a subject that is gone, and the fire says so).
+    if (obj.alternativePaid && face?.alternativeCost?.keyword === 'dash') {
+      const trigger: DelayedTrigger = {
+        id: `${obj.id}-dash`,
+        controller: obj.controller,
+        source: obj.card,
+        when: { step: 'end', whose: 'next' },
+        armedTurn: state.turn.turnNumber,
+        armedStep: state.turn.step,
+        effects: [dashReturnSpec()],
+        label: `${face.name} — dash: return it to hand`,
+      };
+      events.push({ t: 'DelayedTriggerArmed', trigger });
+      events.push(narrated(n`${face.name} was dashed: it has haste, and it returns to hand at the beginning of the next end step.`, obj.controller, obj.identity));
+    }
     // CR 303.4g — an Aura SPELL enters attached to the object it targeted.
     // ⚠️ This was MISSING: the resolved Aura sat unattached for exactly one
     // sweep and SBA 704.5m binned it — measured live as "Ana casts Pacifism.

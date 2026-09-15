@@ -259,6 +259,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D449 - evoke and dash are the engine's now, and the mirror offered four the row maker refused: two up-to-two
+  // clauses no fixture serves, a typed attack head outside the library, a token outside TOKEN_TABLE (the wide run's reason).
+  ['Glarewielder', "a vocabulary clause the suite has no fixture for: a counted clause (0..2): up to two target creatures can't block this turn."],
+  ["Kolaghan, the Storm's Fury", 'trigger head not in the library: Whenever a Dragon you control attacks, creatures you control get +1/+0 until end of turn.'],
+  ['Reveillark', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2): return up to two target creature cards with power 2 or less from your graveyard to the battlefield.'],
+  ['Riders of Rohan', 'a token outside TOKEN_TABLE: Human Knight|2/2|R|Creature|trample,haste'],
   // D448 - unearth is the engine's now, and the mirror offered three the row maker refused: an ability-word activated
   // line, a search-to-graveyard payload and a combat-damage head that also sacrifices (the wide run's reason).
   ['Chronomancer', 'ability-word activated line: Atomic Transmutation — {1}, {T}, Sacrifice another artifact: Draw a card.'],

@@ -1074,6 +1074,12 @@ export interface AlternativeCost {
   readonly exileFromHand: { readonly count: number; readonly colors: readonly string[] } | null;
   /** The conditions the election needs, in the activation grammar's terms (empty: none). */
   readonly conditions: readonly ActivationCondition[];
+  /**
+   * D449 - the KEYWORD this alternative cost is (CR 702.74 evoke, CR 702.109 dash): the cast that elects it
+   * marks the permanent (`CardInstance.evoked` / `dashed`) and the engine runs the rider. Absent for a
+   * printed `rather than pay` line.
+   */
+  readonly keyword?: 'evoke' | 'dash';
 }
 
 export const ALTERNATIVE_COST_LINE = /rather than pay (?:this spell's|its) mana cost\.$/;
@@ -1081,6 +1087,28 @@ export const ALTERNATIVE_COST_LINE = /rather than pay (?:this spell's|its) mana 
 export function parseAlternativeCost(oracleText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): AlternativeCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    // D449 - THE KEYWORD ALTERNATIVE COSTS: `Evoke {cost}` and `Dash {cost}` on their own line (reminder text
+    // aside) are "you may pay {cost} rather than pay this spell's mana cost" with a rider the engine runs off
+    // the mark the cast leaves. One alternative cost per face: a printed line found first wins.
+    const kwAlt = /^(Evoke|Dash) ((?:\{[^}]+\})+)$/.exec(line);
+    if (kwAlt) {
+      const kwMana = parseCost(kwAlt[2] ?? '');
+      if (kwMana === null) return null;
+      return {
+        line,
+        costText: kwAlt[2] ?? '',
+        mana: kwMana,
+        lifeCost: 0,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: null,
+        exileFromGraveyardCost: null,
+        returnCost: null,
+        exileFromHand: null,
+        conditions: [],
+        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : 'dash',
+      };
+    }
     if (!ALTERNATIVE_COST_LINE.test(line)) continue;
     // An ability word (`Raid — `) is print; a condition leads with `If ...,`.
     const body = line.replace(/^[A-Z][a-z]+ [\u2014-] /, '');

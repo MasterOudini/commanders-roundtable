@@ -57,6 +57,8 @@ export interface CardMove {
   readonly faceDown?: boolean;
   /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
   readonly kicked?: number;
+  /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
+  readonly altKeyword?: 'evoke' | 'dash';
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**

@@ -365,6 +365,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if ((kw === 'echo' || kw === 'cumulativeUpkeep') && readUpkeepPrice(face?.oracleText ?? '', kw) === null) continue;
     // D445 - backup is the engine's only when the abilities printed below it are keywords it can grant.
     if (kw === 'backup' && parseBackup(face?.oracleText ?? '') === null) continue;
+    // D449 - evoke and dash are the engine's only when their line read as the face's alternative cost.
+    if ((kw === 'evoke' || kw === 'dash') && parseAlternativeCost(face?.oracleText ?? '', parseManaCost)?.keyword !== kw) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;

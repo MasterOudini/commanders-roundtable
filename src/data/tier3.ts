@@ -39,7 +39,7 @@ import { parseAltCosts, parseBackup, parseFlashback, parseKicker, parseManaCost,
 import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
-import { parseActivatedAbilities } from './activatedParse';
+import { parseActivatedAbilities, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { enchantSpecRuns, SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
@@ -358,6 +358,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     } else if (canon === 'backup') {
       // D445 - backup is the engine's only when the abilities printed below it are keywords it can grant.
       if (parseBackup(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
+    } else if (canon === 'evoke' || canon === 'dash') {
+      // D449 - evoke and dash are the engine's when their line read as the face's alternative cost.
+      if (parseAlternativeCost(card.faces[faceIndex]?.oracleText ?? '', parseManaCost)?.keyword === canon) continue;
     } else if (canon !== null) continue;
     // D304 - an Aura's Enchant is the engine's own when its spec is enforced
     // (the cast aims by it, CR 704.5m keeps it): the same predicate the

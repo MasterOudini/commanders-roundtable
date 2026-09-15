@@ -508,6 +508,23 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Ke
     },
   ],
   [
+    'evoke',
+    {
+      // CR 702.74a - when this permanent enters, if its evoke cost was paid, its controller sacrifices it. The
+      // mark is the cast's (`CardInstance.evoked`, off the resolving spell's `alternativePaid` and the face's
+      // keyword alternative cost); a card cast for its mana cost enters unmarked and the trigger never fires.
+      event: 'CardsMoved',
+      optional: false,
+      matches: (ctx, self, ev) => enteredThisEvent(self, ev) && ctx.state.cards[self]?.evoked === true,
+      label: (ctx, self) => `${nameOf(ctx, self)} - evoke (sacrifice it)`,
+      resolve: (ctx, self) => {
+        const card = ctx.state.cards[self];
+        if (!card || card.zone.kind !== 'battlefield' || card.evoked !== true) return [];
+        return [{ t: 'CardsMoved', moves: [{ card: self, from: { kind: 'battlefield', player: null }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] }];
+      },
+    },
+  ],
+  [
     'backup',
     {
       // CR 702.165a - when this creature enters, put N +1/+1 counters on target creature; if that's another

@@ -95,6 +95,12 @@ export const TIER2_KEYWORDS = [
   // keywords printed below the line granted until end of turn when the target is another creature. Gated on the
   // reading (`parseBackup`): every line below must be a Tier-2 keyword line.
   'backup',
+  // D449 - THE KEYWORD ALTERNATIVE COSTS: evoke (CR 702.74 - cast for the evoke cost, sacrificed as it enters: an
+  // ETB trigger from the same table, gated on `CardInstance.evoked`) and dash (CR 702.109 - cast for the dash cost,
+  // haste while it stays, returned to hand at the next end step by a delayed trigger armed as it resolves). Both
+  // are the face's `alternativeCost` with a `keyword`, elected by `CastSpell.alternative` (D408's machinery).
+  'evoke',
+  'dash',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

@@ -7,6 +7,35 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { VESPERLARK_SCRIPT } from './cards/vesperlark';
+import { MULLDRIFTER_SCRIPT } from './cards/mulldrifter';
+import { BRIARHORN_SCRIPT } from './cards/briarhorn';
+import { MARDU_SHADOWSPEAR_SCRIPT } from './cards/marduShadowspear';
+import { SHRIEKMAW_SCRIPT } from './cards/shriekmaw';
+import { VAULTBREAKER_SCRIPT } from './cards/vaultbreaker';
+import { SPITEBELLOWS_SCRIPT } from './cards/spitebellows';
+import { MARDU_STRIKE_LEADER_SCRIPT } from './cards/marduStrikeLeader';
+import { KOLAGHAN_FORERUNNERS_SCRIPT } from './cards/kolaghanForerunners';
+import { AETHERSNIPE_SCRIPT } from './cards/aethersnipe';
+import { LIGHTNING_BERSERKER_SCRIPT } from './cards/lightningBerserker';
+import { SOUL_OF_MIGRATION_SCRIPT } from './cards/soulOfMigration';
+import { NIGHT_INCARNATE_SCRIPT } from './cards/nightIncarnate';
+import { WALKER_OF_THE_GROVE_SCRIPT } from './cards/walkerOfTheGrove';
+import { MOURNWHELK_SCRIPT } from './cards/mournwhelk';
+import { NEVERMAKER_SCRIPT } from './cards/nevermaker';
+import { CLOUDTHRESHER_SCRIPT } from './cards/cloudthresher';
+import { FOUNDATION_BREAKER_SCRIPT } from './cards/foundationBreaker';
+import { WISPMARE_SCRIPT } from './cards/wispmare';
+import { PITILESS_HORDE_SCRIPT } from './cards/pitilessHorde';
+import { GOBLIN_HEELCUTTER_SCRIPT } from './cards/goblinHeelcutter';
+import { OFFALSNOUT_SCRIPT } from './cards/offalsnout';
+import { INNER_FLAME_ACOLYTE_SCRIPT } from './cards/innerFlameAcolyte';
+import { INGOT_CHEWER_SCRIPT } from './cards/ingotChewer';
+import { RECKLESS_IMP_SCRIPT } from './cards/recklessImp';
+import { SPRINTING_WARBRUTE_SCRIPT } from './cards/sprintingWarbrute';
+import { FAULTGRINDER_SCRIPT } from './cards/faultgrinder';
+import { TREETOP_AMBUSHER_SCRIPT } from './cards/treetopAmbusher';
+import { DAWNFLUKE_SCRIPT } from './cards/dawnfluke';
 import { SHAMBLING_REMAINS_SCRIPT } from './cards/shamblingRemains';
 import { SIMIAN_SIMULACRUM_SCRIPT } from './cards/simianSimulacrum';
 import { FIRST_SPHERE_GARGANTUA_SCRIPT } from './cards/firstSphereGargantua';
@@ -6945,6 +6974,35 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  VESPERLARK_SCRIPT,
+  MULLDRIFTER_SCRIPT,
+  BRIARHORN_SCRIPT,
+  MARDU_SHADOWSPEAR_SCRIPT,
+  SHRIEKMAW_SCRIPT,
+  VAULTBREAKER_SCRIPT,
+  SPITEBELLOWS_SCRIPT,
+  MARDU_STRIKE_LEADER_SCRIPT,
+  KOLAGHAN_FORERUNNERS_SCRIPT,
+  AETHERSNIPE_SCRIPT,
+  LIGHTNING_BERSERKER_SCRIPT,
+  SOUL_OF_MIGRATION_SCRIPT,
+  NIGHT_INCARNATE_SCRIPT,
+  WALKER_OF_THE_GROVE_SCRIPT,
+  MOURNWHELK_SCRIPT,
+  NEVERMAKER_SCRIPT,
+  CLOUDTHRESHER_SCRIPT,
+  FOUNDATION_BREAKER_SCRIPT,
+  WISPMARE_SCRIPT,
+  PITILESS_HORDE_SCRIPT,
+  GOBLIN_HEELCUTTER_SCRIPT,
+  OFFALSNOUT_SCRIPT,
+  INNER_FLAME_ACOLYTE_SCRIPT,
+  INGOT_CHEWER_SCRIPT,
+  RECKLESS_IMP_SCRIPT,
+  SPRINTING_WARBRUTE_SCRIPT,
+  FAULTGRINDER_SCRIPT,
+  TREETOP_AMBUSHER_SCRIPT,
+  DAWNFLUKE_SCRIPT,
   SHAMBLING_REMAINS_SCRIPT,
   SIMIAN_SIMULACRUM_SCRIPT,
   FIRST_SPHERE_GARGANTUA_SCRIPT,

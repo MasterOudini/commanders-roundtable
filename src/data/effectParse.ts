@@ -1798,6 +1798,11 @@ const RULES: readonly Rule[] = [
  * Replace the card's own name with `~`, so a self-reference does not defeat
  * matching. Lightning Bolt's text literally says "Lightning Bolt deals 3 damage".
  */
+/** D449 - the delayed return dash arms (CR 702.109a): the source itself to its owner's hand, if it is still on the battlefield. */
+export function dashReturnSpec(): EffectSpec {
+  return { ...BASE, kind: 'bounce', text: "Return it to its owner's hand.", targetIndex: -1, self: true };
+}
+
 /** D448 - the delayed exile unearth arms (CR 702.84c): the source itself, if it is still on the battlefield. */
 export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };

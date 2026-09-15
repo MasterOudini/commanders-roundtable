@@ -7561,6 +7561,36 @@ export const MOLTEN_GATEKEEPER: CardData = F.MOLTEN_GATEKEEPER as CardData;
 export const MISHRA_S_JUGGERNAUT: CardData = F.MISHRA_S_JUGGERNAUT as CardData;
 export const YOTIAN_FRONTLINER: CardData = F.YOTIAN_FRONTLINER as CardData;
 export const TOCASIA_S_ONULET: CardData = F.TOCASIA_S_ONULET as CardData;
+export const MULLDRIFTER: CardData = F.MULLDRIFTER as CardData;
+export const ZURGO_BELLSTRIKER: CardData = F.ZURGO_BELLSTRIKER as CardData;
+export const VESPERLARK: CardData = F.VESPERLARK as CardData;
+export const BRIARHORN: CardData = F.BRIARHORN as CardData;
+export const MARDU_SHADOWSPEAR: CardData = F.MARDU_SHADOWSPEAR as CardData;
+export const SHRIEKMAW: CardData = F.SHRIEKMAW as CardData;
+export const VAULTBREAKER: CardData = F.VAULTBREAKER as CardData;
+export const SPITEBELLOWS: CardData = F.SPITEBELLOWS as CardData;
+export const MARDU_STRIKE_LEADER: CardData = F.MARDU_STRIKE_LEADER as CardData;
+export const KOLAGHAN_FORERUNNERS: CardData = F.KOLAGHAN_FORERUNNERS as CardData;
+export const AETHERSNIPE: CardData = F.AETHERSNIPE as CardData;
+export const LIGHTNING_BERSERKER: CardData = F.LIGHTNING_BERSERKER as CardData;
+export const SOUL_OF_MIGRATION: CardData = F.SOUL_OF_MIGRATION as CardData;
+export const NIGHT_INCARNATE: CardData = F.NIGHT_INCARNATE as CardData;
+export const WALKER_OF_THE_GROVE: CardData = F.WALKER_OF_THE_GROVE as CardData;
+export const MOURNWHELK: CardData = F.MOURNWHELK as CardData;
+export const NEVERMAKER: CardData = F.NEVERMAKER as CardData;
+export const CLOUDTHRESHER: CardData = F.CLOUDTHRESHER as CardData;
+export const FOUNDATION_BREAKER: CardData = F.FOUNDATION_BREAKER as CardData;
+export const WISPMARE: CardData = F.WISPMARE as CardData;
+export const PITILESS_HORDE: CardData = F.PITILESS_HORDE as CardData;
+export const GOBLIN_HEELCUTTER: CardData = F.GOBLIN_HEELCUTTER as CardData;
+export const OFFALSNOUT: CardData = F.OFFALSNOUT as CardData;
+export const INNER_FLAME_ACOLYTE: CardData = F.INNER_FLAME_ACOLYTE as CardData;
+export const INGOT_CHEWER: CardData = F.INGOT_CHEWER as CardData;
+export const RECKLESS_IMP: CardData = F.RECKLESS_IMP as CardData;
+export const SPRINTING_WARBRUTE: CardData = F.SPRINTING_WARBRUTE as CardData;
+export const FAULTGRINDER: CardData = F.FAULTGRINDER as CardData;
+export const TREETOP_AMBUSHER: CardData = F.TREETOP_AMBUSHER as CardData;
+export const DAWNFLUKE: CardData = F.DAWNFLUKE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -7729,6 +7759,7 @@ export const WALL_0_4_CREATURE_DEFENDER_TOKEN: CardData = F.WALL_0_4_CREATURE_DE
 export const SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN: CardData = F.SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN as CardData;
 export const PLANT_1_1_G_CREATURE_TOKEN: CardData = F.PLANT_1_1_G_CREATURE_TOKEN as CardData;
 export const FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN: CardData = F.FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN as CardData;
+export const WARRIOR_2_1_B_CREATURE_TOKEN: CardData = F.WARRIOR_2_1_B_CREATURE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -15275,6 +15306,36 @@ export const ENGINE_CARDS: CardData[] = [
   MISHRA_S_JUGGERNAUT,
   YOTIAN_FRONTLINER,
   TOCASIA_S_ONULET,
+  MULLDRIFTER,
+  ZURGO_BELLSTRIKER,
+  VESPERLARK,
+  BRIARHORN,
+  MARDU_SHADOWSPEAR,
+  SHRIEKMAW,
+  VAULTBREAKER,
+  SPITEBELLOWS,
+  MARDU_STRIKE_LEADER,
+  KOLAGHAN_FORERUNNERS,
+  AETHERSNIPE,
+  LIGHTNING_BERSERKER,
+  SOUL_OF_MIGRATION,
+  NIGHT_INCARNATE,
+  WALKER_OF_THE_GROVE,
+  MOURNWHELK,
+  NEVERMAKER,
+  CLOUDTHRESHER,
+  FOUNDATION_BREAKER,
+  WISPMARE,
+  PITILESS_HORDE,
+  GOBLIN_HEELCUTTER,
+  OFFALSNOUT,
+  INNER_FLAME_ACOLYTE,
+  INGOT_CHEWER,
+  RECKLESS_IMP,
+  SPRINTING_WARBRUTE,
+  FAULTGRINDER,
+  TREETOP_AMBUSHER,
+  DAWNFLUKE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -15443,4 +15504,5 @@ export const ENGINE_CARDS: CardData[] = [
   SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN,
   PLANT_1_1_G_CREATURE_TOKEN,
   FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN,
+  WARRIOR_2_1_B_CREATURE_TOKEN,
 ];

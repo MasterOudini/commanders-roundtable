@@ -296,6 +296,9 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     faceIndex: 0,
     // D403 - a permanent remembers its kick only from the spell it entered as.
     kicked: undefined,
+    // D449 - and its evoke or dash the same way.
+    evoked: undefined,
+    dashed: undefined,
     // D411 - a new object owes no untap step.
     skipsUntap: undefined,
     // D444 - a new object chooses its riot again.
@@ -532,6 +535,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
           // D403 - after the reset too: the kick the entering spell was cast with.
           ...(move.kicked === undefined ? {} : { kicked: move.kicked }),
+          // D449 - the keyword alternative the entering spell was cast for.
+          ...(move.altKeyword === 'evoke' ? { evoked: true as const } : {}),
+          ...(move.altKeyword === 'dash' ? { dashed: true as const } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),

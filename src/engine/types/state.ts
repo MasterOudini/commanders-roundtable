@@ -220,6 +220,13 @@ export interface CardInstance {
    */
   readonly kicked?: number | undefined;
   /**
+   * D449 - the keyword alternative cost this permanent's spell was cast for: evoke (sacrificed as it enters,
+   * by the keyword trigger) or dash (haste; returned to hand at the next end step). Cleared on entry like
+   * `kicked`; absent on every older log.
+   */
+  readonly evoked?: true | undefined;
+  readonly dashed?: true | undefined;
+  /**
    * D407 - THE ENTRY STAMP (CR 400.7): how many times this card has entered the battlefield, counted
    * by the reducer on every entry (a token is born at 1). A permanent that leaves and returns is a
    * NEW object; anything that remembered the old one compares this number. Absent before the first

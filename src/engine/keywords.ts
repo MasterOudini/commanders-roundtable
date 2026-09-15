@@ -69,6 +69,9 @@ const CANON: Readonly<Record<string, Keyword>> = {
   riot: 'riot',
   // D445 - the entry counters with a keyword grant.
   backup: 'backup',
+  // D449 - the keyword alternative costs: evoke (sacrificed as it enters) and dash (haste; back to hand at the end step).
+  evoke: 'evoke',
+  dash: 'dash',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

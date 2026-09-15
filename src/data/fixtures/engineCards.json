@@ -255436,6 +255436,1071 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MULLDRIFTER": {
+    "scryfallId": "02ec46dc-7551-41a0-97b3-ff3286e1755c",
+    "oracleId": "24d0f5e7-0d9e-4b76-900e-a7274e80312d",
+    "name": "Mulldrifter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mulldrifter",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, draw two cards.\nEvoke {2}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "02ec46dc-7551-41a0-97b3-ff3286e1755c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "36190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZURGO_BELLSTRIKER": {
+    "scryfallId": "4aafa8c8-fd24-468c-9d87-f23301ef804f",
+    "oracleId": "46808926-d95b-4313-89d1-6bdfe13fcb77",
+    "name": "Zurgo Bellstriker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zurgo Bellstriker",
+        "manaCost": "{R}",
+        "typeLine": "Legendary Creature — Orc Warrior",
+        "oracleText": "Zurgo can't block creatures with power 2 or greater.\nDash {1}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "4aafa8c8-fd24-468c-9d87-f23301ef804f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VESPERLARK": {
+    "scryfallId": "0261234e-e8ea-49ae-b077-7a6159827220",
+    "oracleId": "b801a701-15ce-4792-a3d7-d632e7bd9f72",
+    "name": "Vesperlark",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vesperlark",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature leaves the battlefield, return target creature card with power 1 or less from your graveyard to the battlefield.\nEvoke {1}{W} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "0261234e-e8ea-49ae-b077-7a6159827220"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIARHORN": {
+    "scryfallId": "0e2ec7a0-2594-450f-8f8f-ade5e274652b",
+    "oracleId": "fcc7dd32-2198-446c-9144-e50d56ef53ed",
+    "name": "Briarhorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Briarhorn",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flash\nWhen this creature enters, target creature gets +3/+3 until end of turn.\nEvoke {1}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "0e2ec7a0-2594-450f-8f8f-ade5e274652b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Evoke",
+      "Flash"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DDR-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARDU_SHADOWSPEAR": {
+    "scryfallId": "0eb57b38-3465-45bb-af82-16f4885f1204",
+    "oracleId": "b6e972ae-cc2d-4c7e-9f49-c0616dc82064",
+    "name": "Mardu Shadowspear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mardu Shadowspear",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks, each opponent loses 1 life.\nDash {1}{B} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "0eb57b38-3465-45bb-af82-16f4885f1204"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "pfrf",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRIEKMAW": {
+    "scryfallId": "1055f518-c15d-4aee-9b91-a4068ec22466",
+    "oracleId": "717bbb9d-0a5b-4979-a24b-9d54aac7657a",
+    "name": "Shriekmaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shriekmaw",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nWhen this creature enters, destroy target nonartifact, nonblack creature.\nEvoke {1}{B} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "1055f518-c15d-4aee-9b91-a4068ec22466"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Evoke",
+      "Fear"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAULTBREAKER": {
+    "scryfallId": "12891fcf-7118-428a-bdfe-9495a77f8b3d",
+    "oracleId": "2577860a-663a-4b56-880c-05576522e3b7",
+    "name": "Vaultbreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vaultbreaker",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Orc Rogue",
+        "oracleText": "Whenever this creature attacks, you may discard a card. If you do, draw a card.\nDash {2}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "12891fcf-7118-428a-bdfe-9495a77f8b3d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITEBELLOWS": {
+    "scryfallId": "1516163a-4c45-444d-8c71-3a09fb8804c8",
+    "oracleId": "fee18f57-4ae5-4df8-af3b-f82ed2157ac3",
+    "name": "Spitebellows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spitebellows",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature leaves the battlefield, it deals 6 damage to target creature.\nEvoke {1}{R}{R} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": "Disaster stalks with gaping jaws across unready lands.",
+        "power": "6",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Larry MacDougall",
+        "imageId": "1516163a-4c45-444d-8c71-3a09fb8804c8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARDU_STRIKE_LEADER": {
+    "scryfallId": "2a6b5de6-74e3-4ba8-8ec4-3fcef01a2d18",
+    "oracleId": "9be8e04f-f87f-4477-93f3-c546e9b346f0",
+    "name": "Mardu Strike Leader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mardu Strike Leader",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks, create a 2/1 black Warrior creature token.\nDash {3}{B} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "2a6b5de6-74e3-4ba8-8ec4-3fcef01a2d18"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "pfrf",
+    "collectorNumber": "75s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOLAGHAN_FORERUNNERS": {
+    "scryfallId": "2c56a8de-8ae8-4672-8119-9e6a1f4cf5cd",
+    "oracleId": "07b6fbd3-03f9-4aef-929e-514c799d75b9",
+    "name": "Kolaghan Forerunners",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kolaghan Forerunners",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Trample\nKolaghan Forerunners's power is equal to the number of creatures you control.\nDash {2}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "2c56a8de-8ae8-4672-8119-9e6a1f4cf5cd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample",
+      "Dash"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHERSNIPE": {
+    "scryfallId": "2cc9b5ee-4d6d-42ea-8b13-b8a7059781c9",
+    "oracleId": "3e0be003-4f42-4917-b85d-46baf2afd734",
+    "name": "Aethersnipe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aethersnipe",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, return target nonland permanent to its owner's hand.\nEvoke {1}{U}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "2cc9b5ee-4d6d-42ea-8b13-b8a7059781c9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_BERSERKER": {
+    "scryfallId": "3285cb6f-a9c0-4195-b6b2-3f33a16eaa01",
+    "oracleId": "1e474772-3fe4-46be-8c5f-6e477b9fd74e",
+    "name": "Lightning Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Berserker",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "{R}: This creature gets +1/+0 until end of turn.\nDash {R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "3285cb6f-a9c0-4195-b6b2-3f33a16eaa01"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_OF_MIGRATION": {
+    "scryfallId": "34e0433a-e8a1-442e-93cf-93a25c1eb765",
+    "oracleId": "f90ebf35-08f9-4277-92d9-75165f32a84e",
+    "name": "Soul of Migration",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul of Migration",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, create two 1/1 white Bird creature tokens with flying.\nEvoke {3}{W} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "34e0433a-e8a1-442e-93cf-93a25c1eb765"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_INCARNATE": {
+    "scryfallId": "35a5956b-8ea4-4149-83dc-ed4f70d12d34",
+    "oracleId": "abd1c415-8fd3-4852-92c6-4557453dfc41",
+    "name": "Night Incarnate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Incarnate",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Deathtouch\nWhen this creature leaves the battlefield, all creatures get -3/-3 until end of turn.\nEvoke {3}{B} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "35a5956b-8ea4-4149-83dc-ed4f70d12d34"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Evoke",
+      "Deathtouch"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "70749",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALKER_OF_THE_GROVE": {
+    "scryfallId": "3a4e30fa-c49a-4992-b029-5234a3063aee",
+    "oracleId": "02d69413-e040-46b1-8f58-69bde666329d",
+    "name": "Walker of the Grove",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Walker of the Grove",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature leaves the battlefield, create a 4/4 green Elemental creature token.\nEvoke {4}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "3a4e30fa-c49a-4992-b029-5234a3063aee"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOURNWHELK": {
+    "scryfallId": "3a62a282-5f94-444b-9095-4c36fabdad57",
+    "oracleId": "10277cc5-f53b-4b33-bd68-edb0534a2040",
+    "name": "Mournwhelk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mournwhelk",
+        "manaCost": "{6}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, target player discards two cards.\nEvoke {3}{B} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": "It hoards Lorwyn's rare sorrows.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeremy Jarvis",
+        "imageId": "3a62a282-5f94-444b-9095-4c36fabdad57"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEVERMAKER": {
+    "scryfallId": "41b623f1-77bf-4305-aa43-05fe48cf9323",
+    "oracleId": "38a2ef3e-3311-4e0a-807d-e5ccdd05af49",
+    "name": "Nevermaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nevermaker",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature leaves the battlefield, put target nonland permanent on top of its owner's library.\nEvoke {3}{U} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chuck Lukacs",
+        "imageId": "41b623f1-77bf-4305-aa43-05fe48cf9323"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MOR-44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDTHRESHER": {
+    "scryfallId": "4e18bff6-bf0b-48f8-93e2-09d435247596",
+    "oracleId": "ab0e2aa0-1ddd-4a4c-b7cd-4063caaa8bcd",
+    "name": "Cloudthresher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloudthresher",
+        "manaCost": "{2}{G}{G}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flash\nReach\nWhen this creature enters, it deals 2 damage to each creature with flying and each player.\nEvoke {2}{G}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "4e18bff6-bf0b-48f8-93e2-09d435247596"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Evoke",
+      "Flash"
+    ],
+    "setCode": "cma",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNDATION_BREAKER": {
+    "scryfallId": "4f08381e-34f5-4d08-b737-8c37964719e0",
+    "oracleId": "8b7a3613-f1bd-4262-9b11-b631167c2c2d",
+    "name": "Foundation Breaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foundation Breaker",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, you may destroy target artifact or enchantment.\nEvoke {1}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": "The castle finally got vengeance for enduring years of royally bad taste.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "4f08381e-34f5-4d08-b737-8c37964719e0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WISPMARE": {
+    "scryfallId": "56389c91-a470-4c43-9368-98df4d38f7fd",
+    "oracleId": "a3bb8ce0-e61e-438d-8875-32473bb5b61c",
+    "name": "Wispmare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wispmare",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, destroy target enchantment.\nEvoke {W} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Fortune",
+        "imageId": "56389c91-a470-4c43-9368-98df4d38f7fd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PITILESS_HORDE": {
+    "scryfallId": "5b19898e-a94a-4f81-843f-eb2a65779778",
+    "oracleId": "d5726b60-60f6-4481-bc76-759fbb55bb49",
+    "name": "Pitiless Horde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pitiless Horde",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Orc Berserker",
+        "oracleText": "At the beginning of your upkeep, you lose 2 life.\nDash {2}{B}{B} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "5b19898e-a94a-4f81-843f-eb2a65779778"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_HEELCUTTER": {
+    "scryfallId": "5b3bfeb6-95d6-4f00-8981-c6d3c9c93f67",
+    "oracleId": "ab52988f-ffd0-4154-9052-593a9d450d98",
+    "name": "Goblin Heelcutter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Heelcutter",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Berserker",
+        "oracleText": "Whenever this creature attacks, target creature can't block this turn.\nDash {2}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "5b3bfeb6-95d6-4f00-8981-c6d3c9c93f67"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OFFALSNOUT": {
+    "scryfallId": "632dcea3-53ad-4317-b8bc-457b1887e7b5",
+    "oracleId": "f0a20c62-035d-408a-9385-8f2bc2a6d332",
+    "name": "Offalsnout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Offalsnout",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flash\nWhen this creature leaves the battlefield, exile target card from a graveyard.\nEvoke {B} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "632dcea3-53ad-4317-b8bc-457b1887e7b5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Evoke",
+      "Flash"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INNER_FLAME_ACOLYTE": {
+    "scryfallId": "70ec84e5-2a49-4738-9594-f51c76387d33",
+    "oracleId": "699812af-4dba-49dc-987d-67e472a68971",
+    "name": "Inner-Flame Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inner-Flame Acolyte",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Elemental Shaman",
+        "oracleText": "When this creature enters, target creature gets +2/+0 and gains haste until end of turn.\nEvoke {R} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "70ec84e5-2a49-4738-9594-f51c76387d33"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "jvc",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INGOT_CHEWER": {
+    "scryfallId": "7130e801-f66c-4c65-8a53-985738c55192",
+    "oracleId": "127795e6-3f0e-4318-95ad-ccb1912580ac",
+    "name": "Ingot Chewer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ingot Chewer",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, destroy target artifact.\nEvoke {R} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": "Elementals are ideas given form. This one is the idea of \"smashitude.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "7130e801-f66c-4c65-8a53-985738c55192"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Evoke"
+    ],
+    "setCode": "jvc",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RECKLESS_IMP": {
+    "scryfallId": "74a44e0a-5fff-4fc0-a76d-1b097f1d4d5d",
+    "oracleId": "e8e88e9a-0097-49ac-8b23-482a3190f21b",
+    "name": "Reckless Imp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reckless Imp",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Imp",
+        "oracleText": "Flying\nThis creature can't block.\nDash {1}{B} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Torstein Nordstrand",
+        "imageId": "74a44e0a-5fff-4fc0-a76d-1b097f1d4d5d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Dash"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRINTING_WARBRUTE": {
+    "scryfallId": "a215bde8-1680-4aea-9d0f-2d6d80a592e3",
+    "oracleId": "e680f3e9-5c76-41e6-a4a5-662ee05ac3af",
+    "name": "Sprinting Warbrute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sprinting Warbrute",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Ogre Berserker",
+        "oracleText": "This creature attacks each combat if able.\nDash {3}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "a215bde8-1680-4aea-9d0f-2d6d80a592e3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAULTGRINDER": {
+    "scryfallId": "b66ca1a0-d638-48df-8474-143228c23382",
+    "oracleId": "4aa34391-d532-48e5-a125-2619d04f27ff",
+    "name": "Faultgrinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faultgrinder",
+        "manaCost": "{6}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample\nWhen this creature enters, destroy target land.\nEvoke {4}{R} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "b66ca1a0-d638-48df-8474-143228c23382"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Evoke",
+      "Trample"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREETOP_AMBUSHER": {
+    "scryfallId": "e1722a55-850c-4924-be98-45539f4676a2",
+    "oracleId": "72949d87-76cd-472c-86b3-2b7d5fce3159",
+    "name": "Treetop Ambusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treetop Ambusher",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Berserker",
+        "oracleText": "Dash {1}{G} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)\nWhenever this creature attacks, target creature you control gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "e1722a55-850c-4924-be98-45539f4676a2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWNFLUKE": {
+    "scryfallId": "f8968bc0-518f-4c41-bf00-2bf295065e33",
+    "oracleId": "9ca9168f-54cb-4091-b80c-7c264773c1a2",
+    "name": "Dawnfluke",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawnfluke",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flash\nWhen this creature enters, prevent the next 3 damage that would be dealt to any target this turn.\nEvoke {W} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "f8968bc0-518f-4c41-bf00-2bf295065e33"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Evoke",
+      "Flash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -261015,6 +262080,39 @@
     ],
     "setCode": "tsoc",
     "collectorNumber": "17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WARRIOR_2_1_B_CREATURE_TOKEN": {
+    "scryfallId": "3b5eaba1-a7e1-4bbb-949c-e7f6a9592f50",
+    "oracleId": "62c8ce28-4653-432a-9401-5066743f6d90",
+    "name": "Warrior",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Warrior",
+        "manaCost": "",
+        "typeLine": "Token Creature — Warrior",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "3b5eaba1-a7e1-4bbb-949c-e7f6a9592f50"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tfrf",
+    "collectorNumber": "3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }
