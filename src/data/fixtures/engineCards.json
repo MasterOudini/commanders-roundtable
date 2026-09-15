@@ -253048,6 +253048,192 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BOON_BRINGER_VALKYRIE": {
+    "scryfallId": "802cc901-ae12-45e0-a9cf-e505c3a21dd1",
+    "oracleId": "8652d88f-edca-4235-b942-6e7467608de8",
+    "name": "Boon-Bringer Valkyrie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boon-Bringer Valkyrie",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel Warrior",
+        "oracleText": "Backup 1 (When this creature enters, put a +1/+1 counter on target creature. If that's another creature, it gains the following abilities until end of turn.)\nFlying, first strike, lifelink",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "802cc901-ae12-45e0-a9cf-e505c3a21dd1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "Backup",
+      "First strike"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "343",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAIBA_CRYPTOMANCER": {
+    "scryfallId": "3934d535-740d-471a-bbf1-c3b26b1cd596",
+    "oracleId": "15f89b06-5025-4c9f-bf51-e25bc5c2dd6b",
+    "name": "Saiba Cryptomancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saiba Cryptomancer",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Moonfolk Ninja",
+        "oracleText": "Flash\nBackup 1 (When this creature enters, put a +1/+1 counter on target creature. If that's another creature, it gains the following ability until end of turn.)\nHexproof",
+        "flavorText": "\"Good luck getting through a class-seven proxy ward, creep.\"",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "3934d535-740d-471a-bbf1-c3b26b1cd596"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Backup",
+      "Hexproof",
+      "Flash"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLOOMFANG_MAULER": {
+    "scryfallId": "025a5338-133f-486d-9f73-0896226685c0",
+    "oracleId": "5437f560-7f61-4326-be8e-15d74bf4e6ec",
+    "name": "Gloomfang Mauler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gloomfang Mauler",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Nightmare",
+        "oracleText": "Swampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)\nBackup 2 (When this creature enters, put two +1/+1 counters on target creature. If that's another creature, it gains the following ability until end of turn.)\nMenace",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Denis Zhbankov",
+        "imageId": "025a5338-133f-486d-9f73-0896226685c0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Backup",
+      "Landcycling",
+      "Menace",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHOMPING_KAVU": {
+    "scryfallId": "31c249d9-37c0-451d-866b-e834c4c57214",
+    "oracleId": "20a362c3-d278-437f-881c-e7d9fe78fc2d",
+    "name": "Chomping Kavu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chomping Kavu",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Kavu",
+        "oracleText": "Backup 1 (When this creature enters, put a +1/+1 counter on target creature. If that's another creature, it gains the following ability until end of turn.)\nThis creature can't be blocked by creatures with power 2 or less.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "31c249d9-37c0-451d-866b-e834c4c57214"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Backup"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGILED_SENTINEL": {
+    "scryfallId": "7f65b178-51d6-4dcb-a1cc-4b4dcb2237cd",
+    "oracleId": "79c90a68-1c31-4e16-be53-1304132da80f",
+    "name": "Sigiled Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sigiled Sentinel",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Backup 1 (When this creature enters, put a +1/+1 counter on target creature. If that's another creature, it gains the following ability until end of turn.)\nVigilance",
+        "flavorText": "\"Alara has been broken before. I will not let it break again.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "7f65b178-51d6-4dcb-a1cc-4b4dcb2237cd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Backup"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -258559,6 +258745,74 @@
     ],
     "setCode": "tneo",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PLANT_1_1_G_CREATURE_TOKEN": {
+    "scryfallId": "10a63c10-9bf9-4e0f-831c-830d7994a62a",
+    "oracleId": "8d9b5713-e02c-4b75-96b2-9cf8d5fbd9a7",
+    "name": "Plant",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Plant",
+        "manaCost": "",
+        "typeLine": "Token Creature — Plant",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "10a63c10-9bf9-4e0f-831c-830d7994a62a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tbfz",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN": {
+    "scryfallId": "2646dda1-05f0-49e4-b610-19205784b3b0",
+    "oracleId": "81183cc6-d39c-4e51-a982-2351588987aa",
+    "name": "Fungus Beast",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Fungus Beast",
+        "manaCost": "",
+        "typeLine": "Token Creature — Fungus Beast",
+        "oracleText": "Trample",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "2646dda1-05f0-49e4-b610-19205784b3b0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "tsoc",
+    "collectorNumber": "17",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

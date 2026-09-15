@@ -33,6 +33,9 @@ import {
 // mechanically; `createRegistry` throws on a duplicate oracleId, so a testing
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
+import { candidatesFromState, legalTargetsFor } from './targets';
+import { targetingSourceFor } from './loop';
+import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
 import { handChoiceCandidates } from './handChoice';
@@ -144,12 +147,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // every opponent, whose resolutions ask the players in APNAP order and move every pick at once.
   { names: ['Innocent Blood', 'Unnerve'], copiesPerSeat: 1,
     counterKeys: ['queueAsks', 'queueBatches'], rotHistory: 'D390' },
-  { names: ['Grim Affliction'], copiesPerSeat: 1,
-    counterKeys: ['proliferateAsks', 'proliferations'], rotHistory: 'D391' },
+  // D445 - two a seat: proliferations read 2 over 500 seeds at D445's first gate.
+  { names: ['Grim Affliction'], copiesPerSeat: 2,
+    counterKeys: ['proliferateAsks', 'proliferations'], rotHistory: 'D391, D445' },
   // D393 - threaten (CR 514.2): a {2}{R} sorcery every seat can cast whose control change ENDS,
   // so the cleanup revert is exercised at gate size.
-  { names: ['Act of Treason'], copiesPerSeat: 1,
-    counterKeys: ['controlTaken', 'controlReverted'], rotHistory: 'D393' },
+  // D445 - ROTTED to 0 over 500 seeds (3, 1, 2 at the three gates before) once the staples reshaped the pools: three a seat.
+  { names: ['Act of Treason'], copiesPerSeat: 3,
+    counterKeys: ['controlTaken', 'controlReverted'], rotHistory: 'D393, D445' },
   // D394 - the can't-block restriction (CR 509.1b with an END): a {R} instant every seat can cast
   // whose second sentence is the referent form, so the flag is set at gate size.
   { names: ['Mugging'], copiesPerSeat: 1,
@@ -186,8 +191,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // generic the seat's graveyard pays as the game fills it; the driver names the chooser's pick
   // when the mana falls short, as the bot does. Improvise (Bastion Inventor) is counted, no floor:
   // the seat's untapped artifacts are few and mostly tapped for mana already.
-  { names: ["Pack's Favor", 'Hooting Mandrills'], copiesPerSeat: 1,
-    counterKeys: ['convokedCasts', 'delvedCasts'], rotHistory: 'D405' },
+  // D445 - two a seat: convoked casts read 4 over 500 seeds at D445's first gate.
+  { names: ["Pack's Favor", 'Hooting Mandrills'], copiesPerSeat: 2,
+    counterKeys: ['convokedCasts', 'delvedCasts'], rotHistory: 'D405, D445' },
   // D406 - the additional cost at cast: a {B} sorcery that sacrifices a creature and draws two, and a
   // {1}{R} sorcery that discards a card and draws two - one coloured source each, a creature or a hand
   // card every seat has; the driver names the first candidates the offer lists.
@@ -328,6 +334,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['unleashAsked'], rotHistory: 'D444' },
   { names: ['Clamor Shaman'], copiesPerSeat: 3,
     counterKeys: ['riotAsked'], rotHistory: 'D444' },
+  // D445 - backup: a {2}{W} vigilance creature whose entry puts a counter on a target and grants vigilance.
+  { names: ['Sigiled Sentinel'], copiesPerSeat: 3,
+    counterKeys: ['backupsFired'], rotHistory: 'D445' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -450,7 +459,11 @@ const STAPLE_NAMES: ReadonlySet<string> = new Set(CANARY_STAPLES.flatMap((s) => 
  * never here — an inline weight is the rot shape D193 ended.
  */
 const FIXED_CORE = [
-  'Forest', 'Island', 'Mountain', 'Plains', 'Swamp',
+  // D445 - TEN of each basic: one was a single source of its colour in ~300 cards (eight percent land - a real deck
+  // is a third), and every coloured canary outside the seat's identity starved: Act of Treason, Lava Coil and Anger
+  // of the Gods were in hand and unaffordable at every probe, on one to four lands mid-game. Three of each moved
+  // nothing; ten (a fifth of the pool) with the land drop taken first is the shape every rate reads against now.
+  ...Array<readonly string[]>(10).fill(['Forest', 'Island', 'Mountain', 'Plains', 'Swamp']).flat(),
   'Command Tower', 'Sol Ring', 'Arcane Signet', 'Tundra', 'Boros Garrison',
   'Llanowar Elves', 'Birds of Paradise', 'Grizzly Bears', 'Serra Angel',
   'Giant Spider', 'Colossal Dreadmaw', 'Vampire Nighthawk', 'Typhoid Rats',
@@ -876,6 +889,23 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       }
       return { t: 'AnswerChooseFromZone', player: awaiting.player, cards: picked };
     }
+    case 'chooseTargets': {
+      // D445 - a RANDOM legal candidate per required pick (the harness takes the first, which is usually the
+      // caster's own oldest permanent - a threaten aimed that way changes nothing). Short of a legal pick, the
+      // cast is cancelled, as the harness would.
+      const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player);
+      if (!src) return simplestAnswer(awaiting, state);
+      const pool = candidatesFromState(state, deps(SCRIPTS));
+      const picked: TargetChoice[] = [];
+      for (const spec of awaiting.specs) {
+        for (let i = 0; i < spec.min; i++) {
+          const legal = legalTargetsFor(spec, src, pool).filter((c) => !picked.some((q) => q.kind === c.kind && q.id === c.id));
+          if (legal.length === 0) return { t: 'CancelPendingCast', player: awaiting.player };
+          picked.push(legal[p.below(legal.length)] as TargetChoice);
+        }
+      }
+      return { t: 'ChooseTargets', player: awaiting.player, targets: picked };
+    }
     case 'entersChoice': {
       // D441 - a reveal price: on the paying half of the flip, the first hand card the noun admits (the prompt
       // ships no candidates - the driver reads the state, as the answerer reads its own hand).
@@ -981,7 +1011,10 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   // uniform pick over every usable action reached a kicked Ardent Soldier once in sixty seeds, and the kicked
   // ENTRY canary rotted to 0 over 500. The plain branch stays the early turns' (the kick unaffordable).
   const kickable = usable.filter((a) => a.t === 'CastSpell' && a.kicker !== undefined && a.kickerAffordable === true);
-  const chosen = kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
+  // D445 - the land drop first: the uniform pick skipped most of them, and every three-mana canary starved (a seat
+  // on one to three lands mid-game). A land is played whenever one can be; which land stays random.
+  const lands = usable.filter((a) => a.t === 'PlayLand');
+  const chosen = lands.length > 0 ? p.pick(lands) : kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -1216,6 +1249,9 @@ interface Run {
   readonly unleashAsked: number;
   readonly riotAsked: number;
   readonly riotHastes: number;
+  /** D445 - backup triggers on the stack, and the keyword-only until-end-of-turn grants of ANY source (backup among them). */
+  readonly backupsFired: number;
+  readonly keywordGrants: number;
   readonly modularMoves: number;
   readonly scavenges: number;
   readonly upkeepPricesAsked: number;
@@ -1610,6 +1646,8 @@ function runOne(seed: number): Run {
     unleashAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.option === 'unleash').length,
     riotAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.option === 'riot').length,
     riotHastes: game.log.filter((e) => e.body.t === 'HasteChosen').length,
+    backupsFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:backup$/.test(e.body.obj.abilityRef ?? '')).length,
+    keywordGrants: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.power === 0 && e.body.toughness === 0 && (e.body.keywords ?? []).length > 0).length,
     exertTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:exertAttack|youExertCreature)-\d+$/.test(e.body.obj.abilityRef ?? '')).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
@@ -1826,6 +1864,8 @@ const TOTAL_KEYS = [
   'unleashAsked',
   'riotAsked',
   'riotHastes',
+  'backupsFired',
+  'keywordGrants',
   'modularMoves',
   'scavenges',
   'upkeepPricesAsked',
@@ -2170,6 +2210,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D444 - an unleash and a riot asked at gate size (Gore-House Chainwalker, Zhur-Taa Goblin).
         expect(totals.unleashAsked).toBeGreaterThan(0);
         expect(totals.riotAsked).toBeGreaterThan(0);
+        // D445 - a backup trigger on the stack at gate size (Sigiled Sentinel).
+        expect(totals.backupsFired).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2277,6 +2319,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.cleanupDiscards} cleanup discards asked (${totals.cleanupRepeats} cleanup steps repeated) · ` +
           `${totals.exerts} exerts (${totals.exertTriggers} exert triggers on the stack) · ` +
           `${totals.unleashAsked} unleash / ${totals.riotAsked} riot asked (${totals.riotHastes} hastes) · ` +
+          `${totals.backupsFired} backups fired (${totals.keywordGrants} keyword-only grants until end of turn, all sources) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

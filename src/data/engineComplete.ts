@@ -57,7 +57,8 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // part 2 that print a number. Rampage and modular are NOT here: neither is in the
 // table, so neither line is the engine's own.
 // D440 - and modular, whose number is the entry counters (`withEntryCounters`) and whose trigger moves them.
-const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular']);
+// D445 - and backup, gated on the reading (`parseBackup`): `face.keywords` carries it only when the grants read.
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 

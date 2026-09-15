@@ -121,6 +121,18 @@ function mostLife(ctx: ScriptCtx): number {
 const EXTORT_TEXT = 'You may pay {W/B}. If you do, each opponent loses 1 life. You gain life equal to the life lost this way.';
 /** D440 - a modular creature's number, off the printed line (`keywordAmount` reads `modular N`). */
 const MODULAR_TEXT = 'When this creature dies, you may put its +1/+1 counters on target artifact creature.';
+/** D445 - backup's target clause (CR 702.165a); the number and the grants are the face's (`OracleFace.backup`). */
+const BACKUP_TEXT = 'When this creature enters, put N +1/+1 counters on target creature.';
+/** D445 - the face's backup reading for one permanent, at resolution (the one reader). */
+function backupOf(ctx: ScriptCtx, id: InstanceId): { n: number; grants: readonly Keyword[] } | null {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? faceOf(printing, card.faceIndex).backup : null;
+}
+/** The move of this permanent ONTO the battlefield from anywhere else, which is what "enters" means. */
+const enteredThisEvent = (self: InstanceId, ev: EventBody): boolean =>
+  ev.t === 'CardsMoved' &&
+  ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield');
 function soulshiftText(n: number): string {
   return `When this creature dies, you may return target Spirit card with mana value ${n} or less from your graveyard to your hand.`;
 }
@@ -492,6 +504,32 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Ke
         const chars = ctx.derive(target.id);
         if (!chars.typeLine.types.includes('Artifact') || !chars.typeLine.types.includes('Creature')) return [];
         return [{ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: n }] }];
+      },
+    },
+  ],
+  [
+    'backup',
+    {
+      // CR 702.165a - when this creature enters, put N +1/+1 counters on target creature; if that's another
+      // creature, it gains the abilities printed below the Backup line until end of turn - the keywords the
+      // parser read (`OracleFace.backup.grants`; a card with anything else below the line has no backup here).
+      // The grant is D194's keyword rider on the until-end-of-turn entry, with no P/T beside it.
+      event: 'CardsMoved',
+      optional: false,
+      targets: () => parseTargetClauses(BACKUP_TEXT),
+      matches: (_ctx, self, ev) => enteredThisEvent(self, ev),
+      label: (ctx, self) => `${nameOf(ctx, self)} - backup ${backupOf(ctx, self)?.n ?? 1}`,
+      resolve: (ctx, self, obj) => {
+        const read = backupOf(ctx, self);
+        const target = obj.targets[0];
+        if (!read || !target || target.kind !== 'card') return [];
+        const card = ctx.state.cards[target.id];
+        if (!card || card.zone.kind !== 'battlefield' || !ctx.derive(target.id).isCreature) return [];
+        const out: EventBody[] = [{ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: read.n }] }];
+        if (target.id !== self && read.grants.length > 0) {
+          out.push({ t: 'PtModifiedUntilEndOfTurn', card: target.id, power: 0, toughness: 0, keywords: [...read.grants] });
+        }
+        return out;
       },
     },
   ],

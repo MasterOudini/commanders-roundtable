@@ -327,6 +327,32 @@ export function readUpkeepPrice(oracleText: string, keyword: 'echo' | 'cumulativ
   return null;
 }
 
+/**
+ * D445 - Backup N (CR 702.165a): the number, and the abilities printed BELOW the Backup line - the ones the target
+ * gains until end of turn. Read per line: every line after `Backup N` must be a keyword line (comma-separated
+ * keywords, each a Tier-2 keyword the engine models, none priced or numbered); a line the engine cannot grant
+ * (a trigger, an activated ability, a static, a keyword outside the table) refuses the whole reading, and the
+ * keyword stays a leftover line. The reminder text is dropped first.
+ */
+export function parseBackup(oracleText: string): { n: number; grants: Keyword[] } | null {
+  if (!oracleText) return null;
+  const lines = oracleText.split('\n').map((l) => l.replace(/ \([^)]*\)/g, '').trim()).filter((l) => l !== '');
+  const at = lines.findIndex((l) => /^Backup \d+$/.test(l));
+  if (at < 0) return null;
+  const n = Number((lines[at] ?? '').slice('Backup '.length));
+  if (!Number.isInteger(n) || n <= 0) return null;
+  const grants: Keyword[] = [];
+  for (const line of lines.slice(at + 1)) {
+    for (const word of line.split(', ')) {
+      const kw = canonicalKeyword(word);
+      // A keyword that carries a number or a price (bushido 2, echo {R}) or a second backup is not a grant.
+      if (kw === null || kw === 'backup' || !/^[A-Za-z ]+$/.test(word)) return null;
+      if (!grants.includes(kw)) grants.push(kw);
+    }
+  }
+  return { n, grants };
+}
+
 export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NOOP_WARN): Keyword[] {
   const face = card.faces[faceIndex];
   const multiFace = card.faces.length > 1;
@@ -337,6 +363,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (!kw) continue;
     // D439 - a PRICED keyword is the engine's only when its printed price is one the engine asks for.
     if ((kw === 'echo' || kw === 'cumulativeUpkeep') && readUpkeepPrice(face?.oracleText ?? '', kw) === null) continue;
+    // D445 - backup is the engine's only when the abilities printed below it are keywords it can grant.
+    if (kw === 'backup' && parseBackup(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -1223,5 +1251,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     handSize: isPermanent ? parseHandSize(face.oracleText) : null,
     // D443 - the exert permission, either printed form, on a permanent.
     exertsOnAttack: isPermanent && parseExertsOnAttack(face.oracleText, face.name.split(',')[0] ?? face.name),
+    // D445 - backup's number and the keywords it grants, on a creature.
+    backup: isCreature ? parseBackup(face.oracleText) : null,
   };
 }

@@ -91,6 +91,10 @@ export const TIER2_KEYWORDS = [
   // with an `option`; the haste chosen is remembered on the object (`CardInstance.riotHaste`).
   'unleash',
   'riot',
+  // D445 - BACKUP (CR 702.165): an ETB trigger from the same table - N +1/+1 counters on target creature, and the
+  // keywords printed below the line granted until end of turn when the target is another creature. Gated on the
+  // reading (`parseBackup`): every line below must be a Tier-2 keyword line.
+  'backup',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -1723,6 +1727,13 @@ export interface OracleFace {
    * same line (the reflexive trigger). Read by `canExert`, which also needs the script to fire on `Exerted`.
    */
   readonly exertsOnAttack: boolean;
+  /**
+   * D445 - Backup N (CR 702.165): `When this creature enters, put N +1/+1 counters on target creature. If that's
+   * another creature, it gains the following abilities until end of turn.` - `grants` are the keywords printed
+   * BELOW the Backup line (the abilities that follow it), every one a Tier-2 keyword the engine models; a card
+   * with a non-keyword line below backup is not read (`null`), and the keyword is not granted (`parseKeywords`).
+   */
+  readonly backup: { readonly n: number; readonly grants: readonly Keyword[] } | null;
 }
 
 /** D442 - see `OracleFace.handSize`. `none` is unlimited; `set` replaces the seven; `delta` adds to it. */

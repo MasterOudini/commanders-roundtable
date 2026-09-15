@@ -8258,6 +8258,12 @@ const WANTED = [
   'Burning-Tree Vandal',
   'Chaos Imps',
   // D444 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D445 - backup: the seam's own fixtures (three keyword grants, a Flash above the line, a static below it).
+  'Boon-Bringer Valkyrie',
+  'Saiba Cryptomancer',
+  'Gloomfang Mauler',
+  'Chomping Kavu',
+  'Sigiled Sentinel',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8557,6 +8563,9 @@ const WANTED_TOKENS = [
   { name: 'Wall', set: 'tmsh', cn: '1', key: 'WALL_0_4_CREATURE_DEFENDER_TOKEN' },
   // D441 - the tokens the wave's rows create (the port's token-pin step, missing until D441).
   { name: 'Samurai', set: 'tneo', cn: '3', key: 'SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN' },
+  // D445 - the two tokens a shipped PAY prompt's branch creates (Trudge Garden's Fungus Beast, a Plant) whose pins the port's token step never saw: the pay prompt's ifPaid list was outside its sweep. Found by the fuzz's named-token canary once the driver's new economy could pay the {2}.
+  { name: 'Plant', set: 'tbfz', cn: '10', key: 'PLANT_1_1_G_CREATURE_TOKEN' },
+  { name: 'Fungus Beast', set: 'tsoc', cn: '17', key: 'FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN' },
 ];
 
 function constName(name) {
