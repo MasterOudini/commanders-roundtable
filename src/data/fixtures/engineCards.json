@@ -253234,6 +253234,917 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLOOD_BURGLAR": {
+    "scryfallId": "01efd5af-ed6d-4132-8f33-37f6a9fa55d0",
+    "oracleId": "9c975fda-471a-4d41-9bb6-ea42edc6a0e6",
+    "name": "Blood Burglar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Burglar",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "During your turn, this creature has lifelink.(Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": "\"You've heard that a vampire can't enter a home without an invitation? A lie meant to help you sleep at night.\"\n—Kerin, watch sergeant",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "01efd5af-ed6d-4132-8f33-37f6a9fa55d0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOUSTING_LANCE": {
+    "scryfallId": "060518c9-a76c-410e-8a90-fc1d24747f74",
+    "oracleId": "ab747483-2aa1-4b25-b2fa-cf7372a1b1dc",
+    "name": "Jousting Lance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jousting Lance",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+0.\nDuring your turn, equipped creature has first strike.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alayna Danner",
+        "imageId": "060518c9-a76c-410e-8a90-fc1d24747f74"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "779",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JAVELIN_OF_LIGHTNING": {
+    "scryfallId": "13d2f660-97f9-404b-82bb-37e396602580",
+    "oracleId": "3f244320-3e74-4eff-ba4e-a345700c40c9",
+    "name": "Javelin of Lightning",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Javelin of Lightning",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control.\nDuring your turn, equipped creature gets +2/+0 and has first strike.\nEquip {4} ({4}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Paick",
+        "imageId": "13d2f660-97f9-404b-82bb-37e396602580"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIFE": {
+    "scryfallId": "1d39504f-09bb-4e05-a46c-daab87edf34a",
+    "oracleId": "7627163a-1689-446f-b5aa-a6c56aefb532",
+    "name": "Knife",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knife",
+        "manaCost": "{R}",
+        "typeLine": "Artifact — Clue Equipment",
+        "oracleText": "During your turn, equipped creature gets +1/+0 and has first strike.\n{2}, Sacrifice this Equipment: Draw a card.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Clint Lockwood",
+        "imageId": "1d39504f-09bb-4e05-a46c-daab87edf34a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRESH_FACED_RECRUIT": {
+    "scryfallId": "276d127a-2685-4de2-b4df-dd37f7682cd7",
+    "oracleId": "14319020-faf2-49c4-a808-c39650203383",
+    "name": "Fresh-Faced Recruit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fresh-Faced Recruit",
+        "manaCost": "{1}{R/W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "During your turn, this creature has first strike.",
+        "flavorText": "\"Hold on to your ideals. They'll be tested more than your armor or the edge of your blade.\"\n—Tajic",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "276d127a-2685-4de2-b4df-dd37f7682cd7"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "clu",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AHN_CROP_INVADER": {
+    "scryfallId": "2dea2466-5c7f-40ce-b749-100ae89d2c90",
+    "oracleId": "d7d163a7-6f3f-40ab-a47c-ed497df92244",
+    "name": "Ahn-Crop Invader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ahn-Crop Invader",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Zombie Minotaur Warrior",
+        "oracleText": "During your turn, this creature has first strike.\n{1}, Sacrifice another creature: This creature gets +2/+0 until end of turn.",
+        "flavorText": "\"Give me a crew like this one and I'd rule any sea I sailed.\"\n—Angrath",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "2dea2466-5c7f-40ce-b749-100ae89d2c90"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEECH_FANATIC": {
+    "scryfallId": "307f9fe7-241b-4eb6-a059-be5384b4a1b6",
+    "oracleId": "17bcd92b-1826-4a36-9048-49e5e65a12fd",
+    "name": "Leech Fanatic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leech Fanatic",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "During your turn, this creature has lifelink.",
+        "flavorText": "\"Everyone thinks that leeches maintain a strictly sanguivorous diet, but in fact, most freshwater leeches are carnivores. Wait, where are you going?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Sean Sevestre",
+        "imageId": "307f9fe7-241b-4eb6-a059-be5384b4a1b6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRICKLEBOAR": {
+    "scryfallId": "3191a8fd-2c54-4e47-9d5a-692bb38c811f",
+    "oracleId": "a023deaa-c393-44f9-9c9c-6bb9aae05c1a",
+    "name": "Prickleboar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prickleboar",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Boar",
+        "oracleText": "During your turn, this creature gets +2/+0 and has first strike. (It deals combat damage before creatures without first strike.)",
+        "flavorText": "\"Canyons in the Phoberos badlands are essentially gates to the Underworld.\"\n—Mirinthes, Akroan captain",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "3191a8fd-2c54-4e47-9d5a-692bb38c811f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POUNCING_LYNX": {
+    "scryfallId": "32e00f43-bd0e-4664-8ef3-fb0aeb0d281e",
+    "oracleId": "d8d92f97-d54c-4954-8324-b9c0a9b96ec2",
+    "name": "Pouncing Lynx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pouncing Lynx",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "During your turn, this creature has first strike.",
+        "flavorText": "\"I don't understand. He's normally so well behaved!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "32e00f43-bd0e-4664-8ef3-fb0aeb0d281e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPOREBACK_WOLF": {
+    "scryfallId": "3fb04879-9348-4d4f-9a23-c82fd99d04c6",
+    "oracleId": "6fd5f773-e53e-4a7d-9093-dddd9b2e741f",
+    "name": "Sporeback Wolf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sporeback Wolf",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "During your turn, this creature gets +0/+2.",
+        "flavorText": "The mushrooms growing in the wolves' fur possess curative properties incredible enough to tempt many alchemists into risking their lives to track one down.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Elias",
+        "imageId": "3fb04879-9348-4d4f-9a23-c82fd99d04c6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "vow",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILDWOOD_GEIST": {
+    "scryfallId": "4658b4b2-7043-4ca2-96fd-4f663c20c80f",
+    "oracleId": "9fb4aa2d-6414-4176-9070-e5230e100c6a",
+    "name": "Wildwood Geist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wildwood Geist",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "During your turn, this creature gets +2/+2.",
+        "flavorText": "The geists that dwell in the deep forests of Kessig are as untamable as the woods themselves.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "4658b4b2-7043-4ca2-96fd-4f663c20c80f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOOKBLADE": {
+    "scryfallId": "52b283b1-a3df-48f8-b1e6-a97a1aa1dcc6",
+    "oracleId": "8df6c4e2-8b62-4c64-a1d2-f17ae9d02bac",
+    "name": "Hookblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hookblade",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+0.\nDuring your turn, equipped creature has flying.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Thanh Tuấn",
+        "imageId": "52b283b1-a3df-48f8-b1e6-a97a1aa1dcc6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOOKBLADE_VETERAN": {
+    "scryfallId": "551d1f1e-8bc0-4196-8998-0aa7db23b388",
+    "oracleId": "bad2385b-6981-46fa-a012-d3992c3bc118",
+    "name": "Hookblade Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hookblade Veteran",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "During your turn, this creature has flying. (It can't be blocked except by creatures with flying or reach.)",
+        "flavorText": "\"The standard Ottoman hookblade has two parts, you see—the hook, and the blade.\"\n—Yusuf Tazim",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "551d1f1e-8bc0-4196-8998-0aa7db23b388"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "283",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUELIST_OF_DEEP_FAITH": {
+    "scryfallId": "56444440-a9e6-4583-a289-9f0571a98093",
+    "oracleId": "30d69e88-2bf6-43b8-8678-2cf37f6a5cf5",
+    "name": "Duelist of Deep Faith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duelist of Deep Faith",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Phyrexian Soldier",
+        "oracleText": "Toxic 1 (Players dealt combat damage by this creature also get a poison counter.)\nDuring your turn, this creature has first strike.",
+        "flavorText": "\"There is no hate behind our blades. We kill out of love, and the desire to share Norn's blessings with all.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marcela Bolívar",
+        "imageId": "56444440-a9e6-4583-a289-9f0571a98093"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Toxic"
+    ],
+    "setCode": "one",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAGGERSAIL_AERONAUT": {
+    "scryfallId": "5a46b090-8b03-4498-840e-cf130510892c",
+    "oracleId": "7c0ef3b7-b368-4a5b-8cbe-bf1f47610f74",
+    "name": "Daggersail Aeronaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daggersail Aeronaut",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "During your turn, this creature has flying.",
+        "flavorText": "\"Coming down is the best part!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "5a46b090-8b03-4498-840e-cf130510892c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARDY_VETERAN": {
+    "scryfallId": "62f2755f-276f-4260-a201-f02af88b5708",
+    "oracleId": "fc112282-bc40-4b91-ac5f-ae49db1dabb8",
+    "name": "Hardy Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hardy Veteran",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "During your turn, this creature gets +0/+2.",
+        "flavorText": "For the Sun Empire, the Immortal Sun is a symbol of national identity. When they reclaim it, the Empire will flourish once more.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Suzanne Helmigh",
+        "imageId": "62f2755f-276f-4260-a201-f02af88b5708"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICK_DRAW_KATANA": {
+    "scryfallId": "69beec98-c89c-4673-953c-8b3ef3d81560",
+    "oracleId": "604ef241-df8f-48f8-8680-f9ed77ff30ae",
+    "name": "Quick-Draw Katana",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quick-Draw Katana",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "During your turn, equipped creature gets +2/+0 and has first strike. (It deals combat damage before creatures without first strike.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "\"Draw swiftly, strike cleanly, and sheathe before the ground tastes blood.\"\n—Munetsugu Takeno, *Way of the Samurai*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Paolo Parente",
+        "imageId": "69beec98-c89c-4673-953c-8b3ef3d81560"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STREET_RIOT": {
+    "scryfallId": "80b352d5-4a57-41bc-b4c4-8b81255a9db8",
+    "oracleId": "526db754-abb6-450c-bead-81dd1e1c347c",
+    "name": "Street Riot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Street Riot",
+        "manaCost": "{4}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "During your turn, creatures you control get +1/+0 and have trample.",
+        "flavorText": "\"They said obey and you'll be happy. They said you'll be safe. But we're not safe. We're not happy. And we will not obey.\"\n—Domri Rade",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "80b352d5-4a57-41bc-b4c4-8b81255a9db8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITEFUL_PRANKSTER": {
+    "scryfallId": "8a9f1f7e-2e6a-4af3-8272-68cee14b6156",
+    "oracleId": "58cbac5c-d58e-4794-87f3-9563fce1b53f",
+    "name": "Spiteful Prankster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiteful Prankster",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "During your turn, this creature has first strike.\nWhenever another creature dies, this creature deals 1 damage to target player or planeswalker.",
+        "flavorText": "\"ApRiL fOOls!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "8a9f1f7e-2e6a-4af3-8272-68cee14b6156"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "801",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPARTAN_VETERAN": {
+    "scryfallId": "b16fba05-25d7-4495-a9f6-cec6b3aabbbd",
+    "oracleId": "b255d1ec-49ac-49a2-9af8-21915bbcd224",
+    "name": "Spartan Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spartan Veteran",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "During your turn, this creature has first strike. (It deals combat damage before creatures without first strike.)\n{2}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "The Spartans attack relentlessly, giving their opponents no time to think or breathe.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "b16fba05-25d7-4495-a9f6-cec6b3aabbbd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "292",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_GIRL_LEGACY_HERO": {
+    "scryfallId": "d1f3196a-fe48-446f-ab07-00c66b7816c8",
+    "oracleId": "d459b3f5-a18c-4c17-a855-dc147f7c2161",
+    "name": "Spider-Girl, Legacy Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Girl, Legacy Hero",
+        "manaCost": "{G}{W}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "During your turn, Spider-Girl has flying.\nWhen Spider-Girl leaves the battlefield, create a 1/1 green and white Human Citizen creature token.",
+        "flavorText": "On Earth-982, May \"Mayday\" Parker, the first child of Peter and Mary Jane, continues her father's legacy.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Lixin Yin",
+        "imageId": "d1f3196a-fe48-446f-ab07-00c66b7816c8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "spm",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEVOTED_CROP_MATE": {
+    "scryfallId": "d3677f10-b530-4606-b7c8-a72dd2131160",
+    "oracleId": "fcde4643-a212-4a9e-94c3-0a0a95841bc6",
+    "name": "Devoted Crop-Mate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Devoted Crop-Mate",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "You may exert this creature as it attacks. When you do, return target creature card with mana value 2 or less from your graveyard to the battlefield. (An exerted creature won't untap during your next untap step.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "d3677f10-b530-4606-b7c8-a72dd2131160"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exert"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEARER_OF_GLORY": {
+    "scryfallId": "d6d91e42-43db-428d-a4dd-ef9d40306314",
+    "oracleId": "963947d5-5fe4-49cd-be0c-0bdb5f7bcbb6",
+    "name": "Bearer of Glory",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bearer of Glory",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "During your turn, this creature has first strike.\n{4}{W}: Creatures you control get +1/+1 until end of turn.",
+        "flavorText": "Morale stands so long as he does.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Joshua Cairos",
+        "imageId": "d6d91e42-43db-428d-a4dd-ef9d40306314"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAITHFUL_PIKEMASTER": {
+    "scryfallId": "de149bae-dd71-4a27-a975-4d0fbc646ee4",
+    "oracleId": "17d5c53d-7c77-45c2-b8be-7e43c1ecd902",
+    "name": "Faithful Pikemaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faithful Pikemaster",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Rhino Monk Soldier",
+        "oracleText": "When this creature enters, scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)\nAs long as it's your turn, this creature has first strike.",
+        "flavorText": "\"I seek no fight with you, but neither will I stand aside.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Justine Cruz",
+        "imageId": "de149bae-dd71-4a27-a975-4d0fbc646ee4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NULL_GROUP_BIOLOGICAL_ASSETS": {
+    "scryfallId": "eb44c134-fcd8-4ad8-841c-f1723ba93216",
+    "oracleId": "49598fd5-2aad-4974-b499-38b60fc371b6",
+    "name": "Null Group Biological Assets",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Null Group Biological Assets",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Mutant Mercenary",
+        "oracleText": "During your turn, this creature has first strike.\nWhenever this creature attacks, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"I'm a company woman. I'm part of the plan. I'm part of the team. And I enjoy my work.\"\n—Zodi",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Miklós Ligeti",
+        "imageId": "eb44c134-fcd8-4ad8-841c-f1723ba93216"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEXGOLD_HALBERD": {
+    "scryfallId": "f22108ec-28f0-44d3-ba6b-3075f5f6bc65",
+    "oracleId": "c43b176a-9001-4fe4-bd9b-809880134067",
+    "name": "Hexgold Halberd",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hexgold Halberd",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "For Mirrodin! (When this Equipment enters, create a 2/2 red Rebel creature token, then attach this to it.)\nDuring your turn, equipped creature has first strike and trample.\nEquip {2}{R}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "f22108ec-28f0-44d3-ba6b-3075f5f6bc65"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "For Mirrodin!",
+      "Equip"
+    ],
+    "setCode": "one",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEISTY_SPIKELING": {
+    "scryfallId": "f69f3a27-ecda-4d27-82fe-612ed57dbb28",
+    "oracleId": "fcf796fa-43ae-43d1-a124-776338bc3542",
+    "name": "Feisty Spikeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Feisty Spikeling",
+        "manaCost": "{1}{R/W}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nDuring your turn, this creature has first strike.",
+        "flavorText": "As the changeling found its form, the innocent mischief in its gaze was replaced with daring ferocity.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Tiffany Turrill",
+        "imageId": "f69f3a27-ecda-4d27-82fe-612ed57dbb28"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

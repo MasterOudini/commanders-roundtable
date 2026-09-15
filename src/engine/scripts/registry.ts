@@ -7,6 +7,33 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BLOOD_BURGLAR_SCRIPT } from './cards/bloodBurglar';
+import { JOUSTING_LANCE_SCRIPT } from './cards/joustingLance';
+import { JAVELIN_OF_LIGHTNING_SCRIPT } from './cards/javelinOfLightning';
+import { KNIFE_SCRIPT } from './cards/knife';
+import { FRESH_FACED_RECRUIT_SCRIPT } from './cards/freshFacedRecruit';
+import { AHN_CROP_INVADER_SCRIPT } from './cards/ahnCropInvader';
+import { LEECH_FANATIC_SCRIPT } from './cards/leechFanatic';
+import { PRICKLEBOAR_SCRIPT } from './cards/prickleboar';
+import { POUNCING_LYNX_SCRIPT } from './cards/pouncingLynx';
+import { SPOREBACK_WOLF_SCRIPT } from './cards/sporebackWolf';
+import { WILDWOOD_GEIST_SCRIPT } from './cards/wildwoodGeist';
+import { HOOKBLADE_SCRIPT } from './cards/hookblade';
+import { HOOKBLADE_VETERAN_SCRIPT } from './cards/hookbladeVeteran';
+import { DUELIST_OF_DEEP_FAITH_SCRIPT } from './cards/duelistOfDeepFaith';
+import { DAGGERSAIL_AERONAUT_SCRIPT } from './cards/daggersailAeronaut';
+import { HARDY_VETERAN_SCRIPT } from './cards/hardyVeteran';
+import { QUICK_DRAW_KATANA_SCRIPT } from './cards/quickDrawKatana';
+import { STREET_RIOT_SCRIPT } from './cards/streetRiot';
+import { SPITEFUL_PRANKSTER_SCRIPT } from './cards/spitefulPrankster';
+import { SPARTAN_VETERAN_SCRIPT } from './cards/spartanVeteran';
+import { SPIDER_GIRL_LEGACY_HERO_SCRIPT } from './cards/spiderGirlLegacyHero';
+import { DEVOTED_CROP_MATE_SCRIPT } from './cards/devotedCropMate';
+import { BEARER_OF_GLORY_SCRIPT } from './cards/bearerOfGlory';
+import { FAITHFUL_PIKEMASTER_SCRIPT } from './cards/faithfulPikemaster';
+import { NULL_GROUP_BIOLOGICAL_ASSETS_SCRIPT } from './cards/nullGroupBiologicalAssets';
+import { HEXGOLD_HALBERD_SCRIPT } from './cards/hexgoldHalberd';
+import { FEISTY_SPIKELING_SCRIPT } from './cards/feistySpikeling';
 import { GRIM_ROUSTABOUT_SCRIPT } from './cards/grimRoustabout';
 import { HELLHOLE_FLAILER_SCRIPT } from './cards/hellholeFlailer';
 import { CLAMOR_SHAMAN_SCRIPT } from './cards/clamorShaman';
@@ -6884,6 +6911,33 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLOOD_BURGLAR_SCRIPT,
+  JOUSTING_LANCE_SCRIPT,
+  JAVELIN_OF_LIGHTNING_SCRIPT,
+  KNIFE_SCRIPT,
+  FRESH_FACED_RECRUIT_SCRIPT,
+  AHN_CROP_INVADER_SCRIPT,
+  LEECH_FANATIC_SCRIPT,
+  PRICKLEBOAR_SCRIPT,
+  POUNCING_LYNX_SCRIPT,
+  SPOREBACK_WOLF_SCRIPT,
+  WILDWOOD_GEIST_SCRIPT,
+  HOOKBLADE_SCRIPT,
+  HOOKBLADE_VETERAN_SCRIPT,
+  DUELIST_OF_DEEP_FAITH_SCRIPT,
+  DAGGERSAIL_AERONAUT_SCRIPT,
+  HARDY_VETERAN_SCRIPT,
+  QUICK_DRAW_KATANA_SCRIPT,
+  STREET_RIOT_SCRIPT,
+  SPITEFUL_PRANKSTER_SCRIPT,
+  SPARTAN_VETERAN_SCRIPT,
+  SPIDER_GIRL_LEGACY_HERO_SCRIPT,
+  DEVOTED_CROP_MATE_SCRIPT,
+  BEARER_OF_GLORY_SCRIPT,
+  FAITHFUL_PIKEMASTER_SCRIPT,
+  NULL_GROUP_BIOLOGICAL_ASSETS_SCRIPT,
+  HEXGOLD_HALBERD_SCRIPT,
+  FEISTY_SPIKELING_SCRIPT,
   GRIM_ROUSTABOUT_SCRIPT,
   HELLHOLE_FLAILER_SCRIPT,
   CLAMOR_SHAMAN_SCRIPT,
