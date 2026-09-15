@@ -518,6 +518,9 @@ export function linesUnaccounted(
     // second regex here would eventually accept "choose a creature type", which
     // the engine asks nobody about and nothing reads.
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
+    // D442 - a printed maximum hand size the cleanup step READS (`maxHandSize`, CR 514.1). Asked of the
+    // parser that set the field, never re-read here.
+    if (face.handSize !== null && face.handSize.line === line) continue;
     // D304 - an Enchant line the engine RUNS (see `enchantLineRuns`).
     if (enchantLineRuns(line, face)) continue;
     // D305 - an Equip line the engine RUNS: `activatedParse` synthesized the

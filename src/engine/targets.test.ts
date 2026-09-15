@@ -3,7 +3,7 @@ import { legalActions } from './legal';
 import { candidatesFromState, legalTargetsFor, targetAllowed } from './targets';
 import { faceOf } from './oracle';
 import { parseSpellTargets, parseTargetClauses } from '../data/targetParse';
-import { ORACLE, deps, findAnywhere, fullControl, must, nameOf, put, startedGame } from './testing/harness';
+import { ORACLE, answer, deps, findAnywhere, fullControl, must, nameOf, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { TargetChoice } from './types/state';
 
@@ -361,7 +361,11 @@ function advanceToMyTurn(game: Game): void {
   for (let i = 0; i < 4000; i++) {
     if (game.state.turn.activePlayer === 'p1' && game.state.turn.turnNumber > 1) return;
     const awaiting = game.state.priority.awaiting;
-    if (awaiting) return;
+    // D442 - the cleanup discard asks on the way; answered, not stopped at.
+    if (awaiting) {
+      answer(game, awaiting);
+      continue;
+    }
     const holder = game.state.priority.player;
     if (!holder) return;
     const r = game.submit({ t: 'PassPriority', player: holder });

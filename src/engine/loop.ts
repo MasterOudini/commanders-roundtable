@@ -24,7 +24,7 @@ import { faceOf } from './oracle';
 import { n, narrated, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
 import { orderTriggersApnap } from './triggers';
-import { grantsPriority, nextStep, skipsFirstDraw } from './turn';
+import { grantsPriority, maxHandSize, nextStep, skipsFirstDraw } from './turn';
 import { shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
@@ -65,7 +65,16 @@ export function advance(state: GameState, deps: EngineDeps): Emitted {
   if (over.length > 0) return emitted(over);
 
   // 2 — trigger drain, APNAP (CR 603.3b).
-  if (state.pendingTriggers.length > 0) return drainTriggers(state, deps);
+  if (state.pendingTriggers.length > 0) {
+    const drained = drainTriggers(state, deps);
+    // D442 - CR 514.3a, the TRIGGER arm of the SBA rule above: an ability triggering during cleanup means
+    // players receive priority and another cleanup step follows. Reachable now that the cleanup discard
+    // (CR 514.1) can wake a discard watcher; before it, a trigger stacked here rode into the next turn.
+    if (state.turn.step === 'cleanup' && !state.turn.cleanupNeedsRepeat) {
+      return { ...drained, events: [{ t: 'CleanupRepeatSet', value: true }, ...drained.events] };
+    }
+    return drained;
+  }
 
   // 3 — blocked on a human. The engine stops here and nowhere else.
   if (state.priority.awaiting !== null) return emitted([]);
@@ -480,6 +489,23 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
       break;
     }
 
+    case 'cleanup': {
+      // D442 - CR 514.1: the active player discards down to their maximum hand size FIRST. The prompt is
+      // D137's discard (the hand is hidden, so no ids ride it), raised WITHOUT `TurnBasedActionsDone`: the
+      // loop stops on it, and the answer re-enters this case with a hand that fits - then CR 514.2 runs.
+      const hand = state.zones.hand[ap] ?? [];
+      const max = maxHandSize(state, deps.oracle, deps.scripts, ap);
+      if (hand.length > max) {
+        events.push({
+          t: 'AwaitingSet',
+          awaiting: { kind: 'chooseFromZone', player: ap, zone: 'hand', rest: null, count: hand.length - max, label: 'Cleanup step' },
+        });
+        return emitted(events);
+      }
+      events.push(...cleanupActions(state));
+      break;
+    }
+
     default:
       break;
   }
@@ -650,45 +676,52 @@ function endStep(state: GameState, deps: EngineDeps): Emitted {
   const next = nextStep(state);
   if (!next) return emitted([...events, ...beginNextTurn(state)]);
 
-  // Cleanup's own turn-based actions, emitted as the step begins, because there
-  // is no priority round in which to do them.
   events.push({ t: 'StepBegan', phase: next.phase, step: next.step });
   // D417 - `until your next end step`: the active player's permissions of that kind end as their end step begins.
   if (next.step === 'end') {
     const due = state.playPermissions.filter((p) => p.until === 'yourNextEndStep' && p.player === state.turn.activePlayer).map((p) => p.card);
     if (due.length > 0) events.push({ t: 'PlayPermissionsExpired', cards: due });
   }
-  if (next.step === 'cleanup') {
-    // D417 - `this turn` permissions end at cleanup; `until the end of your next turn` ones end at the
-    // cleanup of the player's own turn that began after the grant.
-    const due = state.playPermissions
-      .filter((p) => p.until === 'thisTurn' || (p.until === 'yourNextTurn' && p.player === state.turn.activePlayer && state.turn.turnNumber > p.grantedTurn))
-      .map((p) => p.card);
-    if (due.length > 0) events.push({ t: 'PlayPermissionsExpired', cards: due });
-    const damaged = state.zones.battlefield.filter((id) => (state.cards[id]?.damage ?? 0) > 0);
-    if (damaged.length > 0) events.push({ t: 'DamageCleared', cards: damaged });
-    // CR 514.2 — "until end of turn" effects end here, in the same turn-based
-    // action that wipes damage. A Giant Growth that outlived its turn would make
-    // every subsequent combat wrong, quietly.
-    // D393 - THREATEN: a permanent taken until end of turn goes back first (CR 514.2), if it is
-    // still on the battlefield - one that left is a new object (CR 400.7) and its entry is
-    // dropped with the rest. A permanent taken twice this turn goes back to the controller the
-    // FIRST entry remembers: the reverts are emitted newest first, so the oldest is applied last.
-    for (const mod of [...state.untilEndOfTurn].reverse()) {
-      if (mod.controlRevert === undefined) continue;
-      const card = state.cards[mod.card];
-      if (!card || card.zone.kind !== 'battlefield') continue;
-      events.push({ t: 'ControlChanged', card: mod.card, controller: mod.controlRevert });
-    }
-    if (
-      state.untilEndOfTurn.length > 0 ||
-      Object.keys(state.regenerationShields).length > 0 ||
-      state.preventionShields.length > 0
-    )
-      events.push({ t: 'UntilEndOfTurnEnded' });
-  }
+  // D442 - the cleanup actions (CR 514.2) run as the step's turn-based actions now, behind the discard.
   void deps;
   return emitted(events);
+}
+
+/**
+ * CR 514.2 - the cleanup actions AFTER the discard (D442): the turn-long play permissions end, damage
+ * wears off and every "until end of turn" effect ends, simultaneously. Emitted as the step began until
+ * D442, because there was no turn-based action of the step to hang them on; the discard is one.
+ */
+function cleanupActions(state: GameState): EventBody[] {
+  const events: EventBody[] = [];
+  // D417 - `this turn` permissions end at cleanup; `until the end of your next turn` ones end at the
+  // cleanup of the player's own turn that began after the grant.
+  const due = state.playPermissions
+    .filter((p) => p.until === 'thisTurn' || (p.until === 'yourNextTurn' && p.player === state.turn.activePlayer && state.turn.turnNumber > p.grantedTurn))
+    .map((p) => p.card);
+  if (due.length > 0) events.push({ t: 'PlayPermissionsExpired', cards: due });
+  const damaged = state.zones.battlefield.filter((id) => (state.cards[id]?.damage ?? 0) > 0);
+  if (damaged.length > 0) events.push({ t: 'DamageCleared', cards: damaged });
+  // CR 514.2 — "until end of turn" effects end here, in the same turn-based
+  // action that wipes damage. A Giant Growth that outlived its turn would make
+  // every subsequent combat wrong, quietly.
+  // D393 - THREATEN: a permanent taken until end of turn goes back first (CR 514.2), if it is
+  // still on the battlefield - one that left is a new object (CR 400.7) and its entry is
+  // dropped with the rest. A permanent taken twice this turn goes back to the controller the
+  // FIRST entry remembers: the reverts are emitted newest first, so the oldest is applied last.
+  for (const mod of [...state.untilEndOfTurn].reverse()) {
+    if (mod.controlRevert === undefined) continue;
+    const card = state.cards[mod.card];
+    if (!card || card.zone.kind !== 'battlefield') continue;
+    events.push({ t: 'ControlChanged', card: mod.card, controller: mod.controlRevert });
+  }
+  if (
+    state.untilEndOfTurn.length > 0 ||
+    Object.keys(state.regenerationShields).length > 0 ||
+    state.preventionShields.length > 0
+  )
+    events.push({ t: 'UntilEndOfTurnEnded' });
+  return events;
 }
 
 function beginNextTurn(state: GameState): EventBody[] {

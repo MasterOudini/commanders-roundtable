@@ -1177,6 +1177,9 @@ interface Run {
   /** D441 - reveal-land prompts raised (a noun on the entersChoice), and one-card reveals shown to every seat. */
   readonly revealsAsked: number;
   readonly revealsShown: number;
+  /** D442 - cleanup discard prompts raised (CR 514.1), and cleanup steps repeated for an SBA or a trigger (CR 514.3a). */
+  readonly cleanupDiscards: number;
+  readonly cleanupRepeats: number;
   readonly modularMoves: number;
   readonly scavenges: number;
   readonly upkeepPricesAsked: number;
@@ -1565,6 +1568,8 @@ function runOne(seed: number): Run {
     extortsFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:extort$/.test(e.body.obj.abilityRef ?? '')).length,
     revealsAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.reveal !== undefined).length,
     revealsShown: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.cards.length === 1 && e.body.to.length === game.state.seating.length).length,
+    cleanupDiscards: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.label === 'Cleanup step').length,
+    cleanupRepeats: game.log.filter((e) => e.body.t === 'CleanupRepeatSet' && e.body.value === true).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
     upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
@@ -1773,6 +1778,8 @@ const TOTAL_KEYS = [
   'extortsFired',
   'revealsAsked',
   'revealsShown',
+  'cleanupDiscards',
+  'cleanupRepeats',
   'modularMoves',
   'scavenges',
   'upkeepPricesAsked',
@@ -2110,6 +2117,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.extortsFired).toBeGreaterThan(0);
         // D441 - a reveal land asked at gate size (Port Town with a Plains or Island in hand).
         expect(totals.revealsAsked).toBeGreaterThan(0);
+        // D442 - the cleanup discard asked at gate size (a hand above seven at the end of a turn).
+        expect(totals.cleanupDiscards).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2214,6 +2223,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.upkeepPricesFired} upkeep prices fired (${totals.upkeepPricesAsked} asked, ${totals.agesAdded} age counters) · ` +
           `${totals.extortsFired} extorts fired · ${totals.modularMoves} modular moves · ${totals.scavenges} scavenges · ` +
           `${totals.revealsAsked} reveal lands asked (${totals.revealsShown} shown) · ` +
+          `${totals.cleanupDiscards} cleanup discards asked (${totals.cleanupRepeats} cleanup steps repeated) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

@@ -3236,10 +3236,20 @@ async function sectionEngine(js, send) {
       if (a.kind === 'chooseLegendKeep') return { t: 'ChooseLegendKeep', player: a.player, keep: a.candidates[0] };
       if (a.kind === 'commanderZoneChoice') return { t: 'CommanderZoneChoice', player: a.player, toCommandZone: true, always: true };
       if (a.kind === 'mulligan') return { t: 'MulliganDecision', player: a.players[0], keep: true };
+      if (a.kind === 'chooseFromZone' && a.zone === 'hand' && a.owner === undefined) {
+        // D442 - the cleanup discard (CR 514.1): the first cards of the seat's own hand, read through its view.
+        const prev = window.__crt.engine.state().viewer;
+        if (prev !== a.player) window.__crt.engine.setViewer(a.player);
+        const hand = window.__crt.engine.view().zones['hand:' + a.player] || [];
+        if (prev !== a.player) window.__crt.engine.setViewer(prev);
+        return { t: 'AnswerChooseFromZone', player: a.player, cards: hand.slice(0, a.count) };
+      }
       return { t: 'PassPriority', player: st.priority };
     }
   })()`);
-  const steps = [...new Set(audit.stops.map((s) => s.step))];
+  // D442 - the policy is about PRIORITY stops; the cleanup discard (CR 514.1) is a prompt the rules make, and it
+  // is asserted on its own below.
+  const steps = [...new Set(audit.stops.filter((s) => s.kind === 'priority').map((s) => s.step))];
   check('a full turn cycle completes through the real loop', audit.turn.number >= 3,
     `reached turn ${audit.turn.number} in ${audit.stops.length} stops`);
   check('the game never stops in the untap step (CR 502.3)', !steps.includes('untap'),
@@ -3255,6 +3265,10 @@ async function sectionEngine(js, send) {
   check('the game stops only where this player could actually act',
     steps.length > 0 && steps.every((s) => s === 'precombatMain' || s === 'postcombatMain'),
     steps.join(', '));
+  // D442 - CR 514.1: a seat holding eight cards at its cleanup is asked to discard one, in the cleanup step.
+  check('the cleanup discard asks the active player with eight cards (CR 514.1)',
+    audit.stops.some((s) => s.kind === 'awaiting:chooseFromZone' && s.step === 'cleanup'),
+    audit.stops.filter((s) => s.kind.startsWith('awaiting:')).map((s) => s.kind + '@' + s.step).join(', ') || 'no prompt');
 
   // ⚠️ With no creatures the engine declares "no attackers" ITSELF rather than
   // prompting — one fewer forced click per player per turn. So the prompt has
@@ -3296,6 +3310,14 @@ async function sectionEngine(js, send) {
       if (a.kind === 'chooseLegendKeep') return { t: 'ChooseLegendKeep', player: a.player, keep: a.candidates[0] };
       if (a.kind === 'commanderZoneChoice') return { t: 'CommanderZoneChoice', player: a.player, toCommandZone: true, always: true };
       if (a.kind === 'mulligan') return { t: 'MulliganDecision', player: a.players[0], keep: true };
+      if (a.kind === 'chooseFromZone' && a.zone === 'hand' && a.owner === undefined) {
+        // D442 - the cleanup discard (CR 514.1): the first cards of the seat's own hand, read through its view.
+        const prev = window.__crt.engine.state().viewer;
+        if (prev !== a.player) window.__crt.engine.setViewer(a.player);
+        const hand = window.__crt.engine.view().zones['hand:' + a.player] || [];
+        if (prev !== a.player) window.__crt.engine.setViewer(prev);
+        return { t: 'AnswerChooseFromZone', player: a.player, cards: hand.slice(0, a.count) };
+      }
       return { t: 'PassPriority', player: st.priority };
     }
   })()`);
@@ -3356,6 +3378,14 @@ async function sectionEngine(js, send) {
         if (a.kind === 'declareAttackers') window.__crt.engine.submit({ t: 'DeclareAttackers', player: player, attackers: [] });
         else if (a.kind === 'declareBlockers') window.__crt.engine.submit({ t: 'DeclareBlockers', player: player, blocks: [] });
         else if (a.kind === 'mulligan') window.__crt.engine.submit({ t: 'MulliganDecision', player: player, keep: true });
+        else if (a.kind === 'chooseFromZone' && a.zone === 'hand' && a.owner === undefined) {
+          // D442 - the cleanup discard, answered off the seat's own hand.
+          const prev = window.__crt.engine.state().viewer;
+          if (prev !== player) window.__crt.engine.setViewer(player);
+          const hand = window.__crt.engine.view().zones['hand:' + player] || [];
+          if (prev !== player) window.__crt.engine.setViewer(prev);
+          window.__crt.engine.submit({ t: 'AnswerChooseFromZone', player: player, cards: hand.slice(0, a.count) });
+        }
         else if (st.priority) window.__crt.engine.submit({ t: 'PassPriority', player: st.priority });
         else break;
       } else if (st.priority) {
@@ -5201,11 +5231,24 @@ async function sectionPrompts(js, send) {
             if (btn('take-optional-trigger')) { await nap(250); return true; }
             const v = e.view();
             const aw = v.awaiting;
+            // D442 - the cleanup discard (CR 514.1) is read off the ENGINE snapshot, not the lagging view (the
+            // header's own warning): a hand of forty after the draws above asks at p1's cleanup, and Ben's
+            // eight at his. Answered off the seat's own hand, through its view.
+            const dw = e.state().awaiting;
+            if (dw && dw.kind === 'chooseFromZone' && dw.zone === 'hand' && dw.owner === undefined) {
+              if (dw.player !== 'p1') e.setViewer(dw.player);
+              const hand = e.view().zones['hand:' + dw.player] || [];
+              if (dw.player !== 'p1') e.setViewer('p1');
+              e.submit({ t: 'AnswerChooseFromZone', player: dw.player, cards: hand.slice(0, dw.count) });
+              await nap(60);
+              continue;
+            }
             // ⚠️ Nobody attacks. Otherwise p2's starter deck swings, p1's life
             // moves for reasons that have nothing to do with the trigger, and
             // the life assertions below measure combat instead.
             if (aw && aw.kind === 'declareAttackers') e.submit({ t: 'DeclareAttackers', player: aw.player, attackers: [] });
             else if (aw && aw.kind === 'declareBlockers') e.submit({ t: 'DeclareBlockers', player: aw.player, blocks: [] });
+
             else if (v.priority) e.submit({ t: 'PassPriority', player: v.priority });
             await nap(60);
           }

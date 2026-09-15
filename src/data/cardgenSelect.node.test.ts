@@ -259,6 +259,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D442 - the printed maximum hand size is the engine's now, and the mirror offered two the row maker refused: a
+  // token-combat head outside the library and a hand-sized life gain no suite can stage (the wide run's reason).
+  ['Curiosity Crafter', 'trigger head not in the library: Whenever a creature token you control deals combat damage to a player,'],
+  ["Venser's Journal", 'a counted noun the suite cannot stage (cardsInHand): You gain 1 life for each card in your hand.'],
   // D441 - the enters-or-dies head splits into two defs now, and one pair's counter payload is read absolutely by the
   // dies arm (the wide run's reason).
   ['Hunting Moa', 'an enters-or-dies pair whose counter payload the dies arm reads absolutely (the etb half counts too)'],

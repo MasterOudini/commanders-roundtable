@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { JIN_GITAXIAS_CORE_AUGUR_SCRIPT } from './cards/jinGitaxiasCoreAugur';
+import { TISHANA_VOICE_OF_THUNDER_SCRIPT } from './cards/tishanaVoiceOfThunder';
+import { ANVIL_OF_BOGARDAN_SCRIPT } from './cards/anvilOfBogardan';
+import { MORSKA_UNDERSEA_SLEUTH_SCRIPT } from './cards/morskaUnderseaSleuth';
+import { TRUSTED_ADVISOR_SCRIPT } from './cards/trustedAdvisor';
 import { FLAMEKIN_VILLAGE_SCRIPT } from './cards/flamekinVillage';
 import { STITCHERS_SUPPLIER_SCRIPT } from './cards/stitchersSupplier';
 import { CROW_OF_DARK_TIDINGS_SCRIPT } from './cards/crowOfDarkTidings';
@@ -6857,6 +6862,11 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JIN_GITAXIAS_CORE_AUGUR_SCRIPT,
+  TISHANA_VOICE_OF_THUNDER_SCRIPT,
+  ANVIL_OF_BOGARDAN_SCRIPT,
+  MORSKA_UNDERSEA_SLEUTH_SCRIPT,
+  TRUSTED_ADVISOR_SCRIPT,
   FLAMEKIN_VILLAGE_SCRIPT,
   STITCHERS_SUPPLIER_SCRIPT,
   CROW_OF_DARK_TIDINGS_SCRIPT,

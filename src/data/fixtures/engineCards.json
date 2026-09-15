@@ -251748,6 +251748,342 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RELIQUARY_TOWER": {
+    "scryfallId": "064e88cb-b9ae-4b70-a788-7a0c2e215f1c",
+    "oracleId": "c23e5b80-08d2-4e24-9908-fe2aa4f30f6f",
+    "name": "Reliquary Tower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reliquary Tower",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "You have no maximum hand size.\n{T}: Add {C}.",
+        "flavorText": "Once guarded by the Knights of the Reliquary, the tower stands now protected only by its own remoteness, its dusty treasures open to plunder by anyone.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jesper Ejsing",
+        "imageId": "064e88cb-b9ae-4b70-a788-7a0c2e215f1c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M3C-368",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUGHT_NIBBLER": {
+    "scryfallId": "7284a7fd-cda8-43ac-b119-ad47b33c2ec4",
+    "oracleId": "9a640695-fc17-4ccc-ac88-ce48b6c6ad53",
+    "name": "Thought Nibbler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thought Nibbler",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Flying\nYour maximum hand size is reduced by two.",
+        "flavorText": "Balshan wizards have long used them to gnaw away the memories they wish to forget.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "7284a7fd-cda8-43ac-b119-ad47b33c2ec4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNAT_MISER": {
+    "scryfallId": "f1c51ee1-d6f6-42d7-9be6-fe3f982984ba",
+    "oracleId": "cfb5da72-9f00-4ae2-8d59-f997faab451b",
+    "name": "Gnat Miser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnat Miser",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat Shaman",
+        "oracleText": "Each opponent's maximum hand size is reduced by one.",
+        "flavorText": "Nezumi insect-shamans enjoyed solitary lives, which was fortunate since no other nezumi could stand to live within half a mile of their foul stench.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "f1c51ee1-d6f6-42d7-9be6-fe3f982984ba"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANVIL_OF_BOGARDAN": {
+    "scryfallId": "7ff965dd-54b4-4f21-a52f-81c0dd1e691e",
+    "oracleId": "9deb2a0b-f40c-4d13-8321-41dc41448d24",
+    "name": "Anvil of Bogardan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Anvil of Bogardan",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Players have no maximum hand size.\nAt the beginning of each player's draw step, that player draws an additional card, then discards a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Roger Raupp",
+        "imageId": "7ff965dd-54b4-4f21-a52f-81c0dd1e691e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NULL_PROFUSION": {
+    "scryfallId": "c996792c-0846-4b78-bce5-1c6ad29640f6",
+    "oracleId": "7077ee9a-59c6-4b8e-bf33-9b094412ad38",
+    "name": "Null Profusion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Null Profusion",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Skip your draw step.\nWhenever you play a card, draw a card.\nYour maximum hand size is two.",
+        "flavorText": "\"Some say that time is cyclical and that history inevitably repeats. My will is my own. I won't bow to fate.\"\n—Volrath",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "c996792c-0846-4b78-bce5-1c6ad29640f6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plc",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINAMO_SCROLLKEEPER": {
+    "scryfallId": "335767c3-c91c-40d6-a95b-cf92742a7057",
+    "oracleId": "9ad4f876-e923-4a09-8e70-eb826aacf89d",
+    "name": "Minamo Scrollkeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Minamo Scrollkeeper",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Defender\nYour maximum hand size is increased by one.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "335767c3-c91c-40d6-a95b-cf92742a7057"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "H6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JIN_GITAXIAS_CORE_AUGUR": {
+    "scryfallId": "00fbe0b5-bf75-41ca-b0ba-1bb2a99defd6",
+    "oracleId": "eb23aed0-c450-4e57-96f2-2866dceca004",
+    "name": "Jin-Gitaxias, Core Augur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jin-Gitaxias, Core Augur",
+        "manaCost": "{8}{U}{U}",
+        "typeLine": "Legendary Creature — Phyrexian Praetor",
+        "oracleText": "Flash\nAt the beginning of your end step, draw seven cards.\nEach opponent's maximum hand size is reduced by seven.",
+        "flavorText": "His knowledge of the Multiverse enabled New Phyrexia to strike each plane with surgical precision.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kekai Kotaki",
+        "imageId": "00fbe0b5-bf75-41ca-b0ba-1bb2a99defd6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 10,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "mul",
+    "collectorNumber": "141z",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TISHANA_VOICE_OF_THUNDER": {
+    "scryfallId": "19c5cfbe-3972-4d2e-a37f-e96cca33bb33",
+    "oracleId": "479dd04b-0048-446a-9202-a4dc9472e5c3",
+    "name": "Tishana, Voice of Thunder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tishana, Voice of Thunder",
+        "manaCost": "{5}{G}{U}",
+        "typeLine": "Legendary Creature — Merfolk Shaman",
+        "oracleText": "Tishana's power and toughness are each equal to the number of cards in your hand.\nYou have no maximum hand size.\nWhen Tishana enters, draw a card for each creature you control.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Anna Steinbauer",
+        "imageId": "19c5cfbe-3972-4d2e-a37f-e96cca33bb33"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORSKA_UNDERSEA_SLEUTH": {
+    "scryfallId": "87a9e169-0556-4354-bf9d-76f6a5188118",
+    "oracleId": "80ea3e65-946d-42c3-a26f-3d74e81d70b4",
+    "name": "Morska, Undersea Sleuth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Morska, Undersea Sleuth",
+        "manaCost": "{G}{W}{U}",
+        "typeLine": "Legendary Creature — Vedalken Fish Detective",
+        "oracleText": "You have no maximum hand size.\nAt the beginning of your upkeep, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nWhenever you draw your second card each turn, put two +1/+1 counters on Morska.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Ekaterina Burmak",
+        "imageId": "87a9e169-0556-4354-bf9d-76f6a5188118"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "317",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUSTED_ADVISOR": {
+    "scryfallId": "ee63cba4-ab12-4adb-8463-d42edbf5794d",
+    "oracleId": "430e4e74-33ee-49f2-aef5-6d09079c5eb7",
+    "name": "Trusted Advisor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trusted Advisor",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "Your maximum hand size is increased by two.\nAt the beginning of your upkeep, return a blue creature you control to its owner's hand.",
+        "flavorText": "Some of Minamo's students claimed he was as old as the knowledge he dispensed.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "ee63cba4-ab12-4adb-8463-d42edbf5794d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -3,7 +3,7 @@ import { applyPatch, diffView, viewHash } from './diffView';
 import { legalActions } from './legal';
 import { project } from './project';
 import { seedRng, nextBelow } from './rng';
-import { deps, keepAll, newTestGame, ORACLE } from './testing/harness';
+import { deps, keepAll, newTestGame, simplestAnswer, ORACLE } from './testing/harness';
 import { NO_SCRIPTS } from './scripts/registryCore';
 import type { Game } from './game';
 import type { Intent } from './types/intents';
@@ -41,6 +41,9 @@ function randomIntent(game: Game, rand: () => number): Intent | null {
         return { t: 'CommanderZoneChoice', player: awaiting.player, toCommandZone: true, always: true };
       case 'orderTriggers':
         return { t: 'OrderTriggers', player: awaiting.player, order: [...awaiting.triggers] };
+      // D442 - the cleanup discard, answered the harness's way (the first cards of the hand).
+      case 'chooseFromZone':
+        return simplestAnswer(awaiting, state);
       default:
         return null;
     }

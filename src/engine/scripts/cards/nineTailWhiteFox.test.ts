@@ -16,6 +16,8 @@ function foxed(): { g: Game; mid: number } {
     players: 2,
     decks: [['Nine-Tail White Fox'], []],
     scripts: createRegistry([NINE_TAIL_WHITE_FOX_SCRIPT]),
+    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    options: { maxHandSize: null },
   });
   const fox = put(g, 'p1', 'Nine-Tail White Fox');
   settle(g);

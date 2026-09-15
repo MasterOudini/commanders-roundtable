@@ -13,7 +13,7 @@ function settle(g: Game): void {
 }
 
 /** Thorn of the Black Rose enters for p1 on p1's third-turn main phase: "When this creature enters, you become the monarch." */
-function crowned(): { g: Game; self: InstanceId; no: InstanceId; hand0: number; life0: number } {
+function crowned(): { g: Game; self: InstanceId; no: InstanceId; hand0: number; life0: number; lib0: number } {
   const g = startedGame({
     players: 2,
     decks: [['Thorn of the Black Rose'], ['Cyclops of One-Eyed Pass']],
@@ -30,16 +30,18 @@ function crowned(): { g: Game; self: InstanceId; no: InstanceId; hand0: number; 
   settle(g);
   expect(g.state.monarch).toBe('p1');
   const hand0 = (g.state.zones.hand.p1 ?? []).length;
+  // D442 - the draw is counted off the LIBRARY: the hand is discarded to seven at cleanup (CR 514.1).
+  const lib0 = (g.state.zones.library.p1 ?? []).length;
   const life0 = g.state.players.p1?.life ?? 0;
-  return { g, self, no, hand0, life0 };
+  return { g, self, no, hand0, life0, lib0 };
 }
 
 describe('D332 - the monarch', () => {
   test('the monarch draws a card at the beginning of their end step (CR 724.3)', () => {
-    const { g, hand0 } = crowned();
+    const { g, lib0 } = crowned();
     advanceUntil(g, (s) => s.turn.turnNumber === 4, 40_000);
     // p1's end-step draw, and nothing else (p2's draw step is p2's).
-    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand0 + 1);
+    expect((g.state.zones.library.p1 ?? []).length).toBe(lib0 - 1);
     expect(g.state.monarch).toBe('p1');
   });
 
@@ -65,12 +67,12 @@ describe('D332 - the monarch', () => {
       must(g.submit({ t: 'DeclareBlockers', player: 'p1', blocks: [] }));
     }
     advanceUntil(g, (s) => s.turn.turnNumber === 4 && s.turn.phase === 'postcombatMain', 40_000);
-    const p1 = (g.state.zones.hand.p1 ?? []).length;
-    const p2 = (g.state.zones.hand.p2 ?? []).length;
+    const p1 = (g.state.zones.library.p1 ?? []).length;
+    const p2 = (g.state.zones.library.p2 ?? []).length;
     advanceUntil(g, (s) => s.turn.turnNumber === 5, 40_000);
     // p2's end step: p2 draws as the monarch; at the top of turn 5 (before p1's
     // own draw step) p1's hand is exactly what it was - the old monarch drew nothing.
-    expect((g.state.zones.hand.p2 ?? []).length).toBe(p2 + 1);
-    expect((g.state.zones.hand.p1 ?? []).length).toBe(p1);
+    expect((g.state.zones.library.p2 ?? []).length).toBe(p2 - 1);
+    expect((g.state.zones.library.p1 ?? []).length).toBe(p1);
   });
 });

@@ -23,6 +23,8 @@ function armed(which: number): Armed {
     players: 2,
     decks: [["Scragnoth"], ["Cyclops of One-Eyed Pass", "Counterspell"]],
     scripts: createRegistry([SCRAGNOTH_SCRIPT]),
+    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    options: { maxHandSize: null },
   });
   holdEverywhere(g);
   const no = put(g, 'p2', "Cyclops of One-Eyed Pass");

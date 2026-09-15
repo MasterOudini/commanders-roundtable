@@ -30,6 +30,8 @@ function armed(which: number): Armed {
     players: 2,
     decks: [["Mistcutter Hydra"], ["Cyclops of One-Eyed Pass", "Counterspell"]],
     scripts: createRegistry([MISTCUTTER_HYDRA_SCRIPT]),
+    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    options: { maxHandSize: null },
   });
   holdEverywhere(g);
   const no = put(g, 'p2', "Cyclops of One-Eyed Pass");

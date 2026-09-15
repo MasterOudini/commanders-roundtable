@@ -30,6 +30,8 @@ function armed(which: number): Armed {
     players: 2,
     decks: [["Akroma, Angel of Fury"], ["Cyclops of One-Eyed Pass", "Counterspell"]],
     scripts: createRegistry([AKROMA_ANGEL_OF_FURY_SCRIPT]),
+    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    options: { maxHandSize: null },
   });
   holdEverywhere(g);
   const no = put(g, 'p2', "Cyclops of One-Eyed Pass");

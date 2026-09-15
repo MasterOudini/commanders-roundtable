@@ -32,6 +32,7 @@ import { NO_PROTECTION } from '../engine/types/oracle';
 import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions, parseGrantedReductions } from './costParse';
+import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
@@ -1195,5 +1196,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     // somehow matched would be claiming a rule it can never reach.
     entersTapped: isPermanent ? parseEntersTapped(face.oracleText, face.name) : null,
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
+    // D442 - a permanent's printed maximum hand size (CR 402.2); the cleanup step reads it.
+    handSize: isPermanent ? parseHandSize(face.oracleText) : null,
   };
 }

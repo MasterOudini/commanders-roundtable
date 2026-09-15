@@ -67,9 +67,11 @@ describe('the delayed trigger (D402)', () => {
     expect((g.state.zones.hand.p1 ?? []).length, 'the card came at the upkeep').toBe(hand0);
     expect(g.state.delayedTriggers, 'the entry left the list as it fired').toEqual([]);
     expect(g.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined).length, 'it fired once, as an ability').toBe(1);
+    const lib1 = (g.state.zones.library.p1 ?? []).length;
     advanceUntil(g, (s) => s.turn.turnNumber === t0 + 5 && s.turn.step === 'upkeep', 40_000);
     settle(g);
-    expect((g.state.zones.hand.p1 ?? []).length, 'and never again').toBe(hand0 + 1);
+    // D442 - counted off the library (the hand is discarded to seven at cleanup): one draw step of p1's own turn, no more.
+    expect((g.state.zones.library.p1 ?? []).length, 'and never again').toBe(lib1 - 1);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 

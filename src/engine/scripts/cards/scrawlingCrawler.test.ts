@@ -23,6 +23,8 @@ function armed(which: number): Armed {
     players: 2,
     decks: [["Scrawling Crawler"], ["Cyclops of One-Eyed Pass"]],
     scripts: createRegistry([SCRAWLING_CRAWLER_SCRIPT]),
+    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    options: { maxHandSize: null },
   });
   holdEverywhere(g);
   const no = put(g, 'p2', "Cyclops of One-Eyed Pass");

@@ -1,18 +1,18 @@
-// `Master of the Feast` - every printed ability proven in its own game: the cost's mark, the pump
+// `Jin-Gitaxias, Core Augur` - every printed ability proven in its own game: the cost's mark, the pump
 // (or the token, the card, the life, the tap, the bounce), the end at cleanup, the replay
 // hash (D301). Generated from one table row.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { createRegistry } from '../registryCore';
-import { MASTER_OF_THE_FEAST_SCRIPT } from './masterOfTheFeast';
+import { JIN_GITAXIAS_CORE_AUGUR_SCRIPT } from './jinGitaxiasCoreAugur';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';
 import type { InstanceId } from '../../types/ids';
 
-const CARD = "Master of the Feast";
+const CARD = "Jin-Gitaxias, Core Augur";
 
-type Armed = { g: Game; self: InstanceId; no: InstanceId; life0: number; hand0: number; board0: number; p2life0: number; p2hand0: number; gy0: number; lib0: number };
+type Armed = { g: Game; self: InstanceId; no: InstanceId; life0: number; hand0: number; board0: number; p2life0: number; p2hand0: number; gy0: number; p2gy0: number; lib0: number };
 
 function settle(g: Game): void {
   advanceUntil(g, (s) => s.stack.length === 0 && s.pendingTriggers.length === 0, 20_000);
@@ -21,9 +21,8 @@ function settle(g: Game): void {
 function armed(which: number): Armed {
   const g = startedGame({
     players: 2,
-    decks: [["Master of the Feast"], ["Cyclops of One-Eyed Pass"]],
-    scripts: createRegistry([MASTER_OF_THE_FEAST_SCRIPT]),
-    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    decks: [["Jin-Gitaxias, Core Augur"], ["Cyclops of One-Eyed Pass"]],
+    scripts: createRegistry([JIN_GITAXIAS_CORE_AUGUR_SCRIPT]),
     options: { maxHandSize: null },
   });
   holdEverywhere(g);
@@ -43,19 +42,19 @@ function armed(which: number): Armed {
   const p2life0 = g.state.players.p2?.life ?? 0;
   const p2hand0 = (g.state.zones.hand.p2 ?? []).length;
   const gy0 = (g.state.zones.graveyard.p1 ?? []).length;
+  const p2gy0 = (g.state.zones.graveyard.p2 ?? []).length;
   const lib0 = (g.state.zones.library.p1 ?? []).length;
   if (which === 0) {
-    advanceUntil(g, (s) => s.turn.turnNumber === 5 && s.turn.step === 'upkeep', 40_000);
+    advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.step === 'end', 20000);
     settle(g);
     }
-  return { g, self, no, life0, hand0, board0, p2life0, p2hand0, gy0, lib0 };
+  return { g, self, no, life0, hand0, board0, p2life0, p2hand0, gy0, p2gy0, lib0 };
 }
 
-describe("Master of the Feast", () => {
-  test("At the beginning of your upkeep: the vocabulary resolves \"Each opponent draws a card.\"", () => {
-    const { g, hand0, p2hand0 } = armed(0);
-    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand0 + 0);
-    expect((g.state.zones.hand.p2 ?? []).length).toBe(p2hand0 + 1 + 1);
+describe("Jin-Gitaxias, Core Augur", () => {
+  test("At the beginning of your end step: the vocabulary resolves \"Draw seven cards.\"", () => {
+    const { g, hand0 } = armed(0);
+    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand0 + 7);
   });
 
   test('replays to the same hash', () => {

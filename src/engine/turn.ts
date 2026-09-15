@@ -1,6 +1,11 @@
 // Phase and step structure.
 
 import type { GameState, Phase, Step } from './types/state';
+import type { InstanceId, PlayerId } from './types/ids';
+import type { OracleDb } from './types/oracle';
+import type { ScriptRegistry } from './scripts/registry';
+import { derive } from './derive';
+import { faceOf } from './oracle';
 
 /** In turn order. `firstStrikeDamage` is skipped unless combat needs it. */
 export const STEP_ORDER: readonly { readonly phase: Phase; readonly step: Step }[] = [
@@ -74,6 +79,39 @@ export function grantsPriority(state: GameState): boolean {
   if (state.turn.step === 'untap') return false;
   if (state.turn.step === 'cleanup') return state.turn.cleanupNeedsRepeat;
   return true;
+}
+
+/**
+ * D442 - CR 402.2: a player's maximum hand size, normally seven (`GameOptions.maxHandSize`). Read off every battlefield permanent
+ * that still has abilities (`hasAbilities` - a face-down or Humility-blanked one prints nothing) whose
+ * face carries a hand-size line (`OracleFace.handSize`) and names this player: `you` is the
+ * controller's own, `each` everyone's, `opponents` everyone but the controller's.
+ *
+ * `none` wins outright - a player with no maximum hand size is not modified by a reduction or an
+ * increase (Spellbook's printed ruling). Otherwise the LAST `set` in battlefield order (the entry
+ * order, so the newest timestamp) replaces the seven, then every `delta` adds to it, floored at zero.
+ * `Infinity` is the unlimited answer, so `hand.length > max` reads the same either way.
+ */
+export function maxHandSize(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, player: PlayerId): number {
+  let unlimited = state.options.maxHandSize === null;
+  let base = state.options.maxHandSize ?? 7;
+  let delta = 0;
+  for (const id of state.zones.battlefield as readonly InstanceId[]) {
+    const card = state.cards[id];
+    if (!card) continue;
+    const printing = oracle.byPrinting(card.printingId);
+    if (!printing) continue;
+    const mod = faceOf(printing, card.faceIndex).handSize;
+    if (mod === null) continue;
+    const applies = mod.who === 'each' || (mod.who === 'you' ? card.controller === player : card.controller !== player);
+    if (!applies) continue;
+    if (!derive(state, oracle, scripts, id).hasAbilities) continue;
+    if (mod.kind === 'none') unlimited = true;
+    else if (mod.kind === 'set') base = mod.n;
+    else delta += mod.n;
+  }
+  if (unlimited) return Infinity;
+  return Math.max(0, base + delta);
 }
 
 export function isMainPhase(step: Step): boolean {

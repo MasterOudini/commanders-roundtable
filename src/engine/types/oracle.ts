@@ -1701,6 +1701,26 @@ export interface OracleFace {
    * of that sentence.
    */
   readonly choosesColorOnEntry: boolean;
+  /**
+   * D442 - a printed MAXIMUM HAND SIZE modifier (CR 402.2), read off ONE exact line of a permanent
+   * (`parseHandSize`): `You have no maximum hand size.`, `Players have no maximum hand size.`,
+   * `Your maximum hand size is N.`, `Your maximum hand size is reduced/increased by N.`,
+   * `Each opponent's maximum hand size is reduced by N.` The cleanup step reads it off every
+   * battlefield permanent that still has abilities (`maxHandSize`), the way the entry flags above
+   * are read - a rules-text static with a closed vocabulary, not a script line. `null` when the
+   * face prints none of the six; a line with a duration (`for the rest of the game`, `until your
+   * next turn`) or a chosen player is NOT read - it is a spell effect or a memory the engine lacks.
+   */
+  readonly handSize: HandSizeMod | null;
+}
+
+/** D442 - see `OracleFace.handSize`. `none` is unlimited; `set` replaces the seven; `delta` adds to it. */
+export interface HandSizeMod {
+  readonly who: 'you' | 'each' | 'opponents';
+  readonly kind: 'none' | 'set' | 'delta';
+  readonly n: number;
+  /** The line as printed, for the accounting (`linesUnaccounted` asks the parser, never re-reads). */
+  readonly line: string;
 }
 
 export interface OracleCard {

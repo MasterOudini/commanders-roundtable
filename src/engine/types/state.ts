@@ -82,6 +82,12 @@ export interface GameOptions {
   /** CR 903.9a. 'ask' teaches the rule; 'always' hides a real choice (Q3). */
   readonly commanderZoneReplacement: 'ask' | 'always' | 'never';
   readonly poisonThreshold: number;
+  /**
+   * D442 - CR 402.2: the maximum hand size the cleanup discard (CR 514.1) reads, normally seven; `null` is no
+   * maximum at all. A printed modifier (`OracleFace.handSize`) applies over it (`maxHandSize` in turn.ts).
+   * The generated card suites play with `null`: their counts model the card, not the discard.
+   */
+  readonly maxHandSize: number | null;
 }
 
 export const DEFAULT_OPTIONS: GameOptions = {
@@ -92,6 +98,7 @@ export const DEFAULT_OPTIONS: GameOptions = {
   freeFirstMulligan: true,
   commanderZoneReplacement: 'ask',
   poisonThreshold: 10,
+  maxHandSize: 7,
 };
 
 export interface StopPolicy {

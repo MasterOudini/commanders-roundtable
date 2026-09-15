@@ -1,33 +1,37 @@
-// `Master of the Feast` - every printed ability proven in its own game: the cost's mark, the pump
+// `Trusted Advisor` - every printed ability proven in its own game: the cost's mark, the pump
 // (or the token, the card, the life, the tap, the bounce), the end at cleanup, the replay
 // hash (D301). Generated from one table row.
 
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from '../../log';
 import { createRegistry } from '../registryCore';
-import { MASTER_OF_THE_FEAST_SCRIPT } from './masterOfTheFeast';
+import { TRUSTED_ADVISOR_SCRIPT } from './trustedAdvisor';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from '../../testing/harness';
 import type { Game } from '../../game';
 import type { InstanceId } from '../../types/ids';
 
-const CARD = "Master of the Feast";
+const CARD = "Trusted Advisor";
 
-type Armed = { g: Game; self: InstanceId; no: InstanceId; life0: number; hand0: number; board0: number; p2life0: number; p2hand0: number; gy0: number; lib0: number };
+type Armed = { g: Game; self: InstanceId; no: InstanceId; life0: number; hand0: number; board0: number; p2life0: number; p2hand0: number; gy0: number; p2gy0: number; lib0: number; queueFodderL1_upkeep: InstanceId };
 
 function settle(g: Game): void {
   advanceUntil(g, (s) => s.stack.length === 0 && s.pendingTriggers.length === 0, 20_000);
 }
 
+function onBoard(g: Game): number {
+  return Object.values(g.state.cards).filter((c) => c.zone.kind === 'battlefield' && c.controller === 'p1').length;
+}
+
 function armed(which: number): Armed {
   const g = startedGame({
     players: 2,
-    decks: [["Master of the Feast"], ["Cyclops of One-Eyed Pass"]],
-    scripts: createRegistry([MASTER_OF_THE_FEAST_SCRIPT]),
-    // D442 - no cleanup discard in a generated game: the counts below model the card, not CR 514.1.
+    decks: [["Trusted Advisor", "Aegis Turtle"], ["Cyclops of One-Eyed Pass"]],
+    scripts: createRegistry([TRUSTED_ADVISOR_SCRIPT]),
     options: { maxHandSize: null },
   });
   holdEverywhere(g);
   const no = put(g, 'p2', "Cyclops of One-Eyed Pass");
+  const queueFodderL1_upkeep = put(g, 'p1', "Aegis Turtle");
   settle(g);
   const self = put(g, 'p1', CARD, 'graveyard');
   settle(g);
@@ -43,19 +47,24 @@ function armed(which: number): Armed {
   const p2life0 = g.state.players.p2?.life ?? 0;
   const p2hand0 = (g.state.zones.hand.p2 ?? []).length;
   const gy0 = (g.state.zones.graveyard.p1 ?? []).length;
+  const p2gy0 = (g.state.zones.graveyard.p2 ?? []).length;
   const lib0 = (g.state.zones.library.p1 ?? []).length;
   if (which === 0) {
     advanceUntil(g, (s) => s.turn.turnNumber === 5 && s.turn.step === 'upkeep', 40_000);
-    settle(g);
     }
-  return { g, self, no, life0, hand0, board0, p2life0, p2hand0, gy0, lib0 };
+  return { g, self, no, life0, hand0, board0, p2life0, p2hand0, gy0, p2gy0, lib0, queueFodderL1_upkeep };
 }
 
-describe("Master of the Feast", () => {
-  test("At the beginning of your upkeep: the vocabulary resolves \"Each opponent draws a card.\"", () => {
-    const { g, hand0, p2hand0 } = armed(0);
-    expect((g.state.zones.hand.p1 ?? []).length).toBe(hand0 + 0);
-    expect((g.state.zones.hand.p2 ?? []).length).toBe(p2hand0 + 1 + 1);
+describe("Trusted Advisor", () => {
+  test("At the beginning of your upkeep: the vocabulary resolves \"Return a blue creature you control to its owner's hand.\"", () => {
+    const { g, board0, queueFodderL1_upkeep } = armed(0);
+    advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseFromZone' || (s.stack.length === 0 && s.pendingTriggers.length === 0 && s.pendingAsks === null && s.priority.awaiting === null), 20_000);
+    { const qa = g.state.priority.awaiting;
+      if (qa?.kind === 'chooseFromZone' && qa.zone === 'battlefield') must(g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [queueFodderL1_upkeep] })); }
+    settle(g);
+    expect(g.state.pendingAsks).toBeNull();
+    expect(g.state.cards[queueFodderL1_upkeep]?.zone).toEqual({ kind: 'hand', player: 'p1' });
+    expect(onBoard(g)).toBe(board0 + -1);
   });
 
   test('replays to the same hash', () => {

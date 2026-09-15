@@ -8210,6 +8210,19 @@ const WANTED = [
   'Mouser Foundry',
   'Subterranean Shambler',
   // D441 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D442 - the cleanup discard and the maximum hand size: the seam's own fixtures (the six printed forms).
+  'Reliquary Tower',
+  'Thought Nibbler',
+  'Gnat Miser',
+  'Anvil of Bogardan',
+  'Null Profusion',
+  'Minamo Scrollkeeper',
+  // D442 - the cleanup discard and the maximum hand size: the rows the row maker reads once CR 514.1 is the engine's.
+  'Jin-Gitaxias, Core Augur',
+  'Tishana, Voice of Thunder',
+  'Morska, Undersea Sleuth',
+  'Trusted Advisor',
+  // D442 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
