@@ -437,6 +437,8 @@ export type EventBody =
    * and the fuzz canary could not tell the two answers apart.
    */
   | { readonly t: 'EntersChoiceAnswered'; readonly card: InstanceId; readonly player: PlayerId; readonly pay: boolean }
+  /** D444 - riot's haste chosen as the creature entered (CR 702.132); the object keeps it while it stays. */
+  | { readonly t: 'HasteChosen'; readonly card: InstanceId }
   /**
    * D369 - a player's answer to a payment prompt, recorded before its consequence in the
    * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like

@@ -321,6 +321,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['exertTriggers'], rotHistory: 'D443' },
   { names: ['Bitterblade Warrior'], copiesPerSeat: 3,
     counterKeys: ['exerts'], rotHistory: 'D443' },
+  // D444 - the entry choices: an unleash two-drop and a riot two-drop, asked as they enter (the driver flips).
+  // The one-hybrid-mana Cackler and the mono-red Shaman, three a seat: Gore-House Chainwalker x2 read 4 then 0 asks
+  // at 60 seeds, Zhur-Taa Goblin's {R}{G} one, Arcbound Slasher's {4}{R} none.
+  { names: ['Rakdos Cackler'], copiesPerSeat: 3,
+    counterKeys: ['unleashAsked'], rotHistory: 'D444' },
+  { names: ['Clamor Shaman'], copiesPerSeat: 3,
+    counterKeys: ['riotAsked'], rotHistory: 'D444' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1205,6 +1212,10 @@ interface Run {
   /** D443 - creatures exerted as they attacked (CR 701.39), and the `When you do` triggers that put on the stack. */
   readonly exerts: number;
   readonly exertTriggers: number;
+  /** D444 - the entry choices asked (unleash / riot), and the hastes chosen. */
+  readonly unleashAsked: number;
+  readonly riotAsked: number;
+  readonly riotHastes: number;
   readonly modularMoves: number;
   readonly scavenges: number;
   readonly upkeepPricesAsked: number;
@@ -1596,6 +1607,9 @@ function runOne(seed: number): Run {
     cleanupDiscards: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.label === 'Cleanup step').length,
     cleanupRepeats: game.log.filter((e) => e.body.t === 'CleanupRepeatSet' && e.body.value === true).length,
     exerts: game.log.filter((e) => e.body.t === 'Exerted').length,
+    unleashAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.option === 'unleash').length,
+    riotAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.option === 'riot').length,
+    riotHastes: game.log.filter((e) => e.body.t === 'HasteChosen').length,
     exertTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:exertAttack|youExertCreature)-\d+$/.test(e.body.obj.abilityRef ?? '')).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
@@ -1809,6 +1823,9 @@ const TOTAL_KEYS = [
   'cleanupRepeats',
   'exerts',
   'exertTriggers',
+  'unleashAsked',
+  'riotAsked',
+  'riotHastes',
   'modularMoves',
   'scavenges',
   'upkeepPricesAsked',
@@ -2150,6 +2167,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.cleanupDiscards).toBeGreaterThan(0);
         // D443 - a creature exerted at gate size (Khenra Scrapper, a staple).
         expect(totals.exerts).toBeGreaterThan(0);
+        // D444 - an unleash and a riot asked at gate size (Gore-House Chainwalker, Zhur-Taa Goblin).
+        expect(totals.unleashAsked).toBeGreaterThan(0);
+        expect(totals.riotAsked).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2256,6 +2276,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.revealsAsked} reveal lands asked (${totals.revealsShown} shown) · ` +
           `${totals.cleanupDiscards} cleanup discards asked (${totals.cleanupRepeats} cleanup steps repeated) · ` +
           `${totals.exerts} exerts (${totals.exertTriggers} exert triggers on the stack) · ` +
+          `${totals.unleashAsked} unleash / ${totals.riotAsked} riot asked (${totals.riotHastes} hastes) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

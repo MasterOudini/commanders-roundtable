@@ -3156,7 +3156,19 @@ function answerEntersChoice(
   const events: EventBody[] = [
     { t: 'EntersChoiceAnswered', card: awaiting.source, player: intent.player, pay: intent.pay },
   ];
-  if (intent.pay && awaiting.reveal !== undefined && intent.reveal !== undefined) {
+  // D444 - an entry choice: `pay` is the +1/+1 counter (unleash and riot alike); declined, unleash takes nothing
+  // and riot takes haste. Neither branch taps - the tap is the life price's decline only.
+  if (awaiting.option !== undefined) {
+    if (intent.pay) {
+      events.push({ t: 'CountersChanged', changes: [{ card: awaiting.source, kind: '+1/+1', delta: 1 }] });
+      events.push(narrated(n`${awaiting.label} enters with a +1/+1 counter.`, intent.player));
+    } else if (awaiting.option === 'riot') {
+      events.push({ t: 'HasteChosen', card: awaiting.source });
+      events.push(narrated(n`${awaiting.label} enters with haste.`, intent.player));
+    } else {
+      events.push(narrated(n`${awaiting.label} enters without a counter.`, intent.player));
+    }
+  } else if (intent.pay && awaiting.reveal !== undefined && intent.reveal !== undefined) {
     events.push({ t: 'CardsRevealed', cards: [intent.reveal], to: state.seating });
     events.push(
       narrated(
@@ -3191,6 +3203,7 @@ function answerEntersChoice(
           life: next.life,
           label: next.label,
           ...(next.reveal !== undefined ? { reveal: next.reveal } : {}),
+          ...(next.option !== undefined ? { option: next.option } : {}),
           queue: awaiting.queue.slice(1),
         }
       : null,

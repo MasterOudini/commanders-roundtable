@@ -196,6 +196,8 @@ export type BlockRejection =
   // D394 - "can't block this turn": a one-shot restriction with an END, on the
   // until-end-of-turn list (CR 509.1b, CR 514.2).
   | 'cantBlockThisTurn'
+  /** D444 - unleash (CR 702.98b): it can't block as long as it has a +1/+1 counter on it. */
+  | 'unleashed'
   // D399 - "can't be blocked this turn": the ATTACKER carries the evasion with an END, on the
   // same list (CR 509.1b, CR 514.2).
   | 'cantBeBlockedThisTurn';
@@ -227,6 +229,8 @@ export function canBlock(
   const bc = d(deps, blocker);
   const ac = d(deps, attacker);
   if (!bc.isCreature) return 'notACreature';
+  // D444 - unleash: a +1/+1 counter on it is the choice that keeps it from blocking (CR 702.98b).
+  if (bc.keywords.has('unleash') && (b.counters['+1/+1'] ?? 0) > 0) return 'unleashed';
 
   const decl = state.combat?.attackers.find((x) => x.card === attacker);
   if (!decl) return 'notAttacking';
@@ -386,6 +390,8 @@ function blockRejectionText(
       return `Something on the battlefield stops ${bn} blocking ${an}.`;
     case 'cantBlockThisTurn':
       return `${bn} can't block this turn.`;
+    case 'unleashed':
+      return `${bn} can't block while it has a +1/+1 counter on it (unleash).`;
     case 'cantBeBlockedThisTurn':
       return `${an} can't be blocked this turn.`;
   }

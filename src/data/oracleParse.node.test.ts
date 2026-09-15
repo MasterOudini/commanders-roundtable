@@ -407,7 +407,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
    */
   test('the measured coverage matches the numbers pinned in D32', () => {
     expect(report.warnings).toEqual({
-      'keywords:noneTier2': 22369, // D440: extort and modular; D439: echo and cumulative upkeep with a price the engine asks for; D310: changeling and devoid are Tier 2 now; D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now; D361: soulshift, afterlife, dethrone, melee, training, afflict, ingest
+      'keywords:noneTier2': 22340, // D444: unleash and riot; D440: extort and modular; D439: echo and cumulative upkeep with a price the engine asks for; D310: changeling and devoid are Tier 2 now; D308: prowess, exalted, bushido, flanking, persist, undying, evolve are Tier 2 now; D361: soulshift, afterlife, dethrone, melee, training, afflict, ingest
       // ⚠️ M6.3c moved all three (D130): the counter vocabulary took 115 FACES
       // out of "understood nothing" — 17 to fully understood and 98 to partly,
       // where the prompt bar offers the counter clause as one logged click.

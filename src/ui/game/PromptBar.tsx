@@ -135,6 +135,17 @@ function describe(
             ? `${awaiting.label} enters tapped unless you reveal a ${awaiting.reveal.text} card from your hand.`
             : `${nameOf(seats, awaiting.player)} is deciding whether to reveal a card for ${awaiting.label}.`;
         }
+        // D444 - an entry choice: the counter, or nothing (unleash - it can't block with one) / haste (riot).
+        if (awaiting.option === 'unleash') {
+          return awaiting.player === viewer
+            ? `${awaiting.label}: unleash - enter with a +1/+1 counter (it can't block while it has one), or without?`
+            : `${nameOf(seats, awaiting.player)} is choosing whether to unleash ${awaiting.label}.`;
+        }
+        if (awaiting.option === 'riot') {
+          return awaiting.player === viewer
+            ? `${awaiting.label}: riot - enter with a +1/+1 counter, or with haste?`
+            : `${nameOf(seats, awaiting.player)} is choosing ${awaiting.label}'s riot.`;
+        }
         return awaiting.player === viewer
           ? `${awaiting.label} enters tapped unless you pay ${awaiting.life} life.`
           : `${nameOf(seats, awaiting.player)} is deciding whether to pay for ${awaiting.label}.`;
@@ -702,7 +713,7 @@ export function PromptBar() {
                 send({ t: 'AnswerEntersChoice', player: viewer, source: awaiting.source, pay: true })
               }
             >
-              Pay {awaiting.life} life
+              {awaiting.option !== undefined ? 'A +1/+1 counter' : `Pay ${awaiting.life} life`}
             </button>
             )}
             <button
@@ -713,7 +724,8 @@ export function PromptBar() {
                 send({ t: 'AnswerEntersChoice', player: viewer, source: awaiting.source, pay: false })
               }
             >
-              Enter tapped
+              {/* D444 - an entry choice's other half: nothing (unleash) or haste (riot); a price's decline taps. */}
+              {awaiting.option === 'riot' ? 'Haste' : awaiting.option === 'unleash' ? 'No counter' : 'Enter tapped'}
             </button>
           </>
         )}

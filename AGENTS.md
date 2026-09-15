@@ -20990,6 +20990,224 @@ timeout that looks exactly like a wedged gesture. Restore the window first.
       CONTINUATION seam proper, the two gate items — the tournament floor's
       MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
 
+- [x] **M6.4jy — UNLEASH AND RIOT (CR 702.98 / 702.132): a +1/+1 counter
+      as it enters or none (unleash - it can't block while it has one),
+      a +1/+1 counter or haste (riot) - one option on D136's entry
+      prompt, the haste remembered on the object (2026-09-15):**
+      **10,621 of 31,692 Commander-legal cards now execute completely, up from 10,601 (+20: the fourteen keyword-only cards the seam completed alone - Rakdos Cackler, Carnival Hellsteed, Thrill-Kill Assassin, Splatter Thug, Gore-House Chainwalker, Spawn of Rix Maadi, Dead Reveler, Rakdos Drake, Bloodfray Giant, Rampaging Rendhorn, Zhur-Taa Goblin, Arcbound Slasher, Ghor-Clan Wrecker, Wrecking Beast - and 6 rows: Grim Roustabout, Hellhole Flailer, Chaos Imps, Clamor Shaman, Frenzied Arynx, Burning-Tree Vandal).**
+      `SHIPPED_SCRIPTS` 6,852 → **6,858** (6 in); ledger **1,818**
+      (unchanged - the select pool 0). Fixtures 7,629 → **7,640**.
+      `scriptableToday` **1,903**; the ladder `[1903, 1909, 3292, 4913,
+      6229]`. Bot reach 4,382 → **4,384** from 318. Decisions in
+      **D444**; an engine seam on Opus 5 by the user's choice.
+      ⚠️ **THE MEASUREMENT CHOSE IT:** the two entry choices that are
+      one question (27 / 14 sole); fabricate (16 / 10) is a trigger whose
+      choice is made on resolution - a branch prompt - and stays.
+      ⚠️ **AN ENTRY CHOICE IS NOT A PRICE:** `pay` is the counter and the
+      decline never taps; the block rule reads the counter, not the
+      choice; a new object chooses again.
+      ⚠️ **Reportables** (D444): fabricate 16 / 10 (a trigger whose
+      counter-or-Servos choice is made on resolution - a branch prompt
+      the engine lacks), the unleash / riot cards blocked elsewhere (the
+      granted keywords - `Other Dogs you control have unleash`), the
+      bot's entry rule (the counter unless riot can swing now), the
+      harness's decline (haste for riot); the exert COST (D443 - `{T},
+      Exert this creature:` 7 - a cost piece over D168's grammar), Combat
+      Celebrant's once-per-turn condition, the exert payloads the
+      vocabulary refuses (9), the bot's exert rule (a blocker stays home),
+      the driver's rare attacks (2 exerts at 60 seeds); the hand-size
+      forms outside the six (D442 - `for the rest of the game` 6 - a
+      game-long player flag; `until your next turn`; a Saga's; Cursed
+      Rack's chosen player; a counter count; a delirium), the suites' opt-out (`maxHandSize: null`), the
+      harness's first-cards pick, `cleanupRepeats` 0 at 60 seeds, the
+      bot's cleanup pick (worst by mana value), the isolated corpus run's
+      51 minutes (measure with `--no-isolate`); the older `enters tapped
+      unless you reveal` wording (D441 - 2), the entry choice the client has no dialog for
+      (fabricate 16 / 10 - on resolution), the split head's absolute payloads (the generator's
+      etb-half accounting), the second-spell head's payloads (23 / 10),
+      suspend 33, madness 33, backup 25, cascade 23, dash 22, devour 19,
+      enlist 12; the entry-counter baseline the generator lacks (four
+      Arcbounds; graft, devour, fabricate would be the same), the modular
+      replacement, the second-spell head, the Construct search, the
+      keyword families measured and left (suspend 33,
+      madness 33, backup 25, cascade 23, dash 22, devour 19, the reveal
+      lands 19 / 17, fabricate 16, enlist 12), the
+      `*`-power scavengers; the prices the engine cannot charge (D439 -
+      `{W} or {U}` 4, `{S}` 2, `Add {R}`, 13 singleton verbs; echo's
+      `Discard a card` 2), the linked price heads (Hibernation's End, Balduvian
+      Fallen, Heart of Bogardan, Shah of Naar Isle), the two-line
+      cumulative upkeeps with an unread line (~30), the keyword families
+      measured and not built (suspend
+      33; madness 33; backup 25; modular 23; cascade 23 - the
+      continuation seam; dash 22; devour 19; the reveal lands 19; extort
+      17; fabricate 16; scavenge 14), the enters-or-dies heads (`this` as an adjective, 5), the
+      pay-or-scry riders, the counted loss beside a cost piece; the block
+      counts' scoped forms (D438 - 27 -
+      `Each creature you control ... can't be blocked by more than one
+      creature` 10, the Auras and Equipment 8, the spells' `this turn`
+      grants 3, the self forms with a rider, the named selves), the 20
+      plain forms beside an unread line, the dormant `orderAttackers`
+      prompt, THE FUZZ DRIVER NEVER BLOCKS; the X spells beside a rider
+      (D437 - 303 - the X
+      in a TARGET clause, `Exile the top X cards`, an additional cost of
+      X, the modal X spells), the 38 hand X defs the vocabulary cannot
+      read whole, the bot's X ceiling of six, the driver's X of 0..1, the
+      D187 pins' parse without the face's gate; THE CLIENT AIMS ONLY THE
+      PILE'S TOP (D436 - a
+      buried graveyard card has no aim slot - a client debt over D138's
+      returns and these), the two-card graveyard clauses, the graveyard
+      exiles with riders (Scavenging Ooze, Mardu Woe-Reaper, Soul
+      Separator), the any-owner reanimates, the persist self-sacrifices;
+      the pair's cards blocked elsewhere (D435 -
+      Baral, Smuggler's Copter, the `this creature or another` filters,
+      Scrapwork Mutt's Unearth, the attack-head rummagers), `discard your
+      hand. If you do, draw N` (3), the other `If you do` continuations
+      (925 lines), the in-spell `you may discard a card. If you do, draw`,
+      `Each player loses N life` (11); the milled-card referents (D434 -
+      `put a
+      permanent card from among the milled cards into your hand`, `for
+      each creature card put into your graveyard this way` - 171 + 67
+      single-line cards carry a mill line, most with such a rider),
+      `Target player mills X cards`, `Its controller mills N`, the mill as
+      a payment branch (Drowner Initiate), the `Whenever you mill` heads,
+      the loot-plus-draw-head cards (Teferi's Tutelage); the two-heads
+      cards (D433 - Nekusar, Spiteful
+      Visions), the second-card draw head (Faerie Mastermind), the
+      draw-step heads with an intervening if or a rider (Howling Mine,
+      Academy Loremaster, Sylvan Library, Well of Ideas; 13 `your` + 10
+      `each player's` lines stay), `Target player draws X cards`, the
+      67 aimed and 36 scoped draw lines on cards with more unread; the
+      Inspired untap-step payments (D432 - 4), the token branch under a
+      cast head, Kederekt Parasite's conditional optional, the `youDraw` /
+      `secondCard` cards waiting on other lines (28 + 27), the pronoun
+      forms the conjugation map lacks; the return forms the rule refuses
+      (D431 - any land - not yours; two arms; a count; the Invasion lairs' `unless you
+      return` price), the two-ask cards, the optional asks, Dredge (an ask
+      not last), the bot's pick (its worst permanent - right for a karoo,
+      wrong for a Panther); the count phrases the reader still refuses
+      (D430 - the attachments 8, the player counters 5, flying 2, colours
+      2, the commander casts 2, the Rats 4, the greatest mana value 2, the
+      life total 2), the Lhurgoyf form (8), the counted ANTHEM (10 - a
+      statics block beside the anthem's), the counted shrinks (2), the
+      counted cards blocked by their other lines (the both-CDA 28, ~50);
+      the classifier mirror's remaining drift (D429 - the modal lines, the filtered and intervening-if heads, the fights,
+      the P/T counts), the nine generator shapes the port named, the map's
+      larger families (the chosen characteristic 121, the counted statics
+      60, the P/T counts 59, curses 42, the top-card look 36, the
+      sacrifice-cost mana abilities 41, the fetch searches 41, the bounce
+      lands 14, the keyword mechanics - Cumulative upkeep 30, Soulbond 24,
+      Exploit 23, Ascend 22, Cascade 22, Backup 23 - the each-player step
+      heads 20), the triggering OBJECT referent (~60); the referent bodies
+      the vocabulary does not read yet (D428 - `that player reveals the top card`, `exiles cards from
+      the top`, the Oaths' `chooses target player who`, `sacrifices a
+      creature of their choice`, the random discards - RNG under a def),
+      the heads outside the library that name a player (`each player's end
+      step` 10, `draw step` 6, `first main phase` 4, `an opponent draws a
+      card` 4, `a player taps a land for mana` 8), the in-payload referent
+      under `etb` / `upkeep` (63 - D392's referent across a reveal), the
+      triggering OBJECT as a referent (`it gets +N/+N` 34), `unless that
+      player pays`, the multi-source heads (`creatureCombatDamagePlayer` -
+      a player per attacker); the shield forms the closed lists refuse (D427 -
+      a colour of your choice, two colours, `except ... enchanted
+      creatures`, `X target creatures would deal`, `a source of your
+      choice`), the combat shields on permanents the suite cannot prove
+      without an attack (15 ledgered - the arm must attack),
+      `scopedPrevented` at the mercy of the driver's rare attacks; the
+      conjunctions the split still refuses (D426 - an asking left half, a noun half, the Oxford `, and`, `and then`,
+      three clauses, a right half led by `if` / `unless`), the shapes the
+      halves still lack (`Lose N life`, `gain control of`, `that player`
+      as the left half's player), the reversed suppression pins (the
+      redundant D187 defs - a retirement of its own, D383), the other 47
+      splittable sentences on cards with more unread; the sacrificed
+      source's POWER (D425 - `It deals damage equal to its power` - Cinder
+      Shade and five more: last known information, D421's gap one shape
+      over), the `you` rider on a targeted
+      damage (Char, Psionic Blast, Orcish Cannonade), the payment branch
+      over `damageEach` (Force of Nature), the combat-role fixture the suite
+      lacks (`target attacking or blocking creature` 6), the other pain
+      riders; the wide run's map (D424 - the refusal histogram over the
+      one-piece leftover permanents: `trigger payload not a pump` 2,823, a
+      static line 1,559, `effect not a row kind` 1,446, a head outside the
+      library 699, a filtered head's adjective 234, a cost 197, a
+      condition 178, an intervening if 162), the two-piece leftover the
+      wide run never saw, the trigger bodies by shape (the pay wrapper's
+      inner clauses 57 + 41, `that player` as the triggering player 32,
+      `it gets +N/+N` as the triggering object 34, the typed cast heads
+      106), the protection qualities the derive does not read (from
+      multicolored / creatures), the up-to-N `each` subject (12), the cost
+      reductions with a count or a condition (144 lines, 16 sole), the
+      eight this port named; the kicked instead's residue (D423 - an
+      instead clause with a TARGET of its own, `that player`, the scoped
+      `those creatures`, the qualified sweeps, the kicked searches,
+      Prohibit, Urza's Rage, Rite of Replication's copy token, the plain
+      kicked clauses beside an unread first line; damage from a source that
+      has died; the driver's coin-flip kick reported, not floored);
+      the counterspell tail (D422 - the CONDITIONAL uncounterables the face
+      does not carry (Banefire's `if X is 5 or more`, Spell mastery's
+      graveyard count, `can't be countered by spells or abilities`), the
+      counter-unless-pays with a COUNTED price (D418's), the spell's X in a
+      pump, `This spell costs {M} less` (29), `As an additional cost` (20),
+      `Destroy target <X>` (19), the quoted-ability grants behind `Until
+      end of turn` (50)); the self subject's tail (D421 - damage from a source that has died, the
+      counted self pumps under the attack heads, the twenty-two trigger
+      heads outside the library, the filtered heads, a payment under a
+      sacrifice head); the ability word's tail (D420 - the Eerie head, the Valiant head, the
+      Inspired payments whose branch makes a token, the copy half of
+      Magecraft, the enchantment-enters wordings 22); the board condition's
+      tail (D419 - a creature with power
+      N or greater, an opponent controls more lands than you, no untapped /
+      tapped lands, exactly N, different names, a counter, a mana value,
+      Descend, the seven `no <noun>` rows); then D418's list unchanged — the
+      counted suite for the refinements, the party, the hand, the kicks,
+      the deaths, the domain and the attack heads (44 ledger rows), the
+      counted ENTRY (14), the counted STATIC (11), the counted PRICE (7),
+      the counted queue and reductions, `for each mana from a Treasure`,
+      `put into your graveyard from the battlefield this turn`; the
+      permission tail (the `you may
+      cast` permissions, the conditional permission, the permission with a
+      consequence, the X counts, the face-down piles, another player's
+      card, the zone browser's missing cast button, the 18
+      `play-from-exile permission` rows), the hand-reveal tail, the
+      verb-price tail, the qualifier's tail, the exile-instead tail,
+      connive's tail, the untap-skip tail, the cycling GRANTS (3), the
+      `whenever a creature you control explores` heads (5), the reader's
+      edge (`nontoken blue creature`, `exile the top three black cards of
+      your graveyard`, `each other player gain 2 life`, `If exactly one
+      creature is attacking`), the `{X}` alternatives, a chooser verb on
+      BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings,
+      Emerge, the OLD Oblivion Ring wording, the qualifier before the
+      controller, `defending player controls`, the same-name riders, the
+      exile with a permission, the flicker within one batch, the other
+      durations (`for as long as you control` 23, `remains exiled` 33,
+      `remains on the battlefield` 14), the SACRIFICED REFERENT, two verbs
+      joined by `or`, a counter cost at cast, the FaceChoice path, HYBRID
+      symbols paid by convoke, a per-creature chooser in the review,
+      `Flying, convoke`, the convoke REFERENTS, Affinity for <kind>, the
+      `for each` reductions (97 / 17), the up-to-N label (28 sentences),
+      the script-raised prompt class (84 over ~10 shapes), the
+      reveal-the-top family (27 / 18), the quoted-grant BODIES,
+      `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+      spells` (2), the leading conditions on a grant, the planeswalker `+1:`
+      grant, a SUBTYPE VOCABULARY at parse time, the `costs {N} more` taxes,
+      the two-kicker `and/or` form (17), the MULTIKICKER row (7), the
+      `instead` rewrites (6), `whenever you cast a kicked spell`, the
+      REFERENT across the wait, the self-aimed delayed forms, the HOST
+      characteristics under an attached static (29), "you control a token",
+      the incarnations' graveyard statics (5), `Whenever you attack` and the
+      each-combat head, the search forms (110 over ninety shapes), the
+      `where X is` values (328 over forty forms), the top-of-library family
+      (23), `you may cast` (57 statics), the prevent-all shields (66), the
+      payment heads,
+      the search residue, the scoped grant, the blocker-predicate form (8 +
+      1), ⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the
+      nth-resolution memory (16), the 172 AMOUNT forms (the first taken),
+      the restriction's exotic purposes (14), the twenty-two older fight and
+      bite suites, token copies (15), the permanent control family (20) and
+      exchange control (24), the activation restrictions (313), the keyword
+      entry replacements (22), copy (~200 — waits for Fable), the prompt
+      CONTINUATION seam proper, the two gate items — the tournament floor's
+      MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+
 
 ⚠️ **One that protects the enforcement of every other one (D154):**
 14. **No source file contains a control character.** Tab, newline and carriage

@@ -8242,6 +8242,22 @@ const WANTED = [
   'Battlefield Scavenger',
   'Bitterblade Warrior',
   // D443 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D444 - unleash and riot: the seam's own fixtures.
+  'Gore-House Chainwalker',
+  'Zhur-Taa Goblin',
+  'Rakdos Cackler',
+  'Rampaging Rendhorn',
+  // D444 - the colourless riot staple.
+  'Arcbound Slasher',
+  // D444 - the riot staple (a mono-red three-drop).
+  'Clamor Shaman',
+  // D444 - unleash and riot: the rows the row maker reads once the entry choice is the engine's.
+  'Grim Roustabout',
+  'Hellhole Flailer',
+  'Frenzied Arynx',
+  'Burning-Tree Vandal',
+  'Chaos Imps',
+  // D444 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -86,6 +86,11 @@ export const TIER2_KEYWORDS = [
   // (CR 702.43 - enters with N +1/+1 counters, a built-in; dies: put them on target artifact creature, a memo).
   'extort',
   'modular',
+  // D444 - THE ENTRY CHOICES: unleash (CR 702.98 - a +1/+1 counter as it enters, or none; it can't block while it
+  // has one) and riot (CR 702.132 - a +1/+1 counter or haste as it enters). Asked through D136's `entersChoice`
+  // with an `option`; the haste chosen is remembered on the object (`CardInstance.riotHaste`).
+  'unleash',
+  'riot',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

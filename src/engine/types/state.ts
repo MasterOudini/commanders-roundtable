@@ -271,6 +271,11 @@ export interface CardInstance {
    * leaving the battlefield. Absent for every card that was never frozen, so older logs replay.
    */
   readonly skipsUntap?: true | undefined;
+  /**
+   * D444 - riot's haste (CR 702.132): the answer chose haste as the creature entered, and it has haste for as long
+   * as it stays on the battlefield (a new object chooses again). Absent on every older log.
+   */
+  readonly riotHaste?: true | undefined;
 }
 
 export type DefenderRef =
@@ -846,6 +851,11 @@ export type Awaiting =
        */
       readonly reveal?: { readonly any: readonly PermanentPredicate[]; readonly text: string };
       /**
+       * D444 - an ENTRY CHOICE instead of a price: `pay` means the +1/+1 counter; declined, unleash takes nothing and
+       * riot takes haste. Neither branch taps. Absent on every price prompt.
+       */
+      readonly option?: 'unleash' | 'riot';
+      /**
        * The permanents after this one still waiting to be asked about.
        *
        * ⚠️ Each entry carries its own LABEL, so the handler that pops the queue
@@ -860,6 +870,7 @@ export type Awaiting =
         readonly life: number;
         readonly label: string;
         readonly reveal?: { readonly any: readonly PermanentPredicate[]; readonly text: string };
+        readonly option?: 'unleash' | 'riot';
       }[];
     }
   /**

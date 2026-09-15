@@ -667,7 +667,7 @@ function withEntersTapped(
   events: readonly EventBody[],
 ): EventBody[] {
   const tapping: InstanceId[] = [];
-  const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string } }[] = [];
+  const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string }; option?: 'unleash' | 'riot' }[] = [];
   for (const ev of events) {
     if (ev.t !== 'CardsMoved') continue;
     for (const move of ev.moves) {
@@ -678,6 +678,15 @@ function withEntersTapped(
       const printing = oracle.byPrinting(card.printingId);
       if (!printing) continue;
       const face = enteringFace(move, card, printing);
+      // D444 - THE ENTRY CHOICES (CR 702.98 / 702.132): a creature entering with unleash or riot asks its controller
+      // - a +1/+1 counter, or nothing / haste. The printed keywords, read the way `entersTapped` is: the object is
+      // not on the battlefield yet, so there is nothing to derive. A seat out of the game is not asked.
+      const option = face.keywords.includes('riot') ? 'riot' : face.keywords.includes('unleash') ? 'unleash' : null;
+      if (option !== null) {
+        const chooser = move.to.player ?? card.controller ?? card.owner;
+        const seat = state.players[chooser];
+        if (seat && !seat.hasLost) asking.push({ card: move.card, player: chooser, life: 0, label: face.name, option });
+      }
       const rule = face.entersTapped;
       if (!rule) continue;
       // ⚠️ The controller comes from the DESTINATION, then the card. A
@@ -738,6 +747,7 @@ function withEntersTapped(
         life: head.life,
         label: head.label,
         ...(head.reveal !== undefined ? { reveal: head.reveal } : {}),
+        ...(head.option !== undefined ? { option: head.option } : {}),
         queue: asking.slice(1),
       },
     });

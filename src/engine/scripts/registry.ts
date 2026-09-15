@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GRIM_ROUSTABOUT_SCRIPT } from './cards/grimRoustabout';
+import { HELLHOLE_FLAILER_SCRIPT } from './cards/hellholeFlailer';
+import { CLAMOR_SHAMAN_SCRIPT } from './cards/clamorShaman';
+import { FRENZIED_ARYNX_SCRIPT } from './cards/frenziedArynx';
+import { BURNING_TREE_VANDAL_SCRIPT } from './cards/burningTreeVandal';
+import { CHAOS_IMPS_SCRIPT } from './cards/chaosImps';
 import { HOODED_BRAWLER_SCRIPT } from './cards/hoodedBrawler';
 import { KHENRA_SCRAPPER_SCRIPT } from './cards/khenraScrapper';
 import { GLORY_BOUND_INITIATE_SCRIPT } from './cards/gloryBoundInitiate';
@@ -6878,6 +6884,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GRIM_ROUSTABOUT_SCRIPT,
+  HELLHOLE_FLAILER_SCRIPT,
+  CLAMOR_SHAMAN_SCRIPT,
+  FRENZIED_ARYNX_SCRIPT,
+  BURNING_TREE_VANDAL_SCRIPT,
+  CHAOS_IMPS_SCRIPT,
   HOODED_BRAWLER_SCRIPT,
   KHENRA_SCRAPPER_SCRIPT,
   GLORY_BOUND_INITIATE_SCRIPT,

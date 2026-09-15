@@ -338,6 +338,15 @@ export function answerAwaiting(
           shown ? `reveal ${shown.card?.name ?? 'a card'} for ${awaiting.label}` : `let ${awaiting.label} enter tapped`,
         );
       }
+      // D444 - an entry choice: unleash takes the counter (a bigger body now; the block it gives up is the price);
+      // riot takes haste on my own first main phase, when the creature can attack this turn, else the counter.
+      if (awaiting.option !== undefined) {
+        const haste = awaiting.option === 'riot' && view.turn.active === me && view.turn.phase === 'main1';
+        return act(
+          { t: 'AnswerEntersChoice', player: me, source: awaiting.source, pay: !haste },
+          haste ? `${awaiting.label} enters with haste` : `${awaiting.label} enters with a +1/+1 counter`,
+        );
+      }
       const life = view.seats[me]?.life ?? 0;
       const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR;
       return act(

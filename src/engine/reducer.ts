@@ -298,6 +298,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     kicked: undefined,
     // D411 - a new object owes no untap step.
     skipsUntap: undefined,
+    // D444 - a new object chooses its riot again.
+    riotHaste: undefined,
   };
 }
 
@@ -944,6 +946,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D411 - the untap skip: set by an effect, spent by the untap step.
     case 'UntapSkipSet':
       return withCard(state, body.card, body.skip ? { skipsUntap: true } : { skipsUntap: undefined });
+
+    // D444 - riot's haste, remembered on the object until it leaves.
+    case 'HasteChosen':
+      return withCard(state, body.card, { riotHaste: true });
 
     // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
     case 'Explored':
