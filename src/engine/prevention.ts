@@ -134,8 +134,10 @@ function staticPreventions(state: GameState, oracle: OracleDb, scripts: ScriptRe
     const source = state.cards[sourceId];
     if (!source || source.faceDown) continue;
     let able: boolean | null = null;
-    for (const { script, def } of defs) {
-      if (source.oracleId !== script.oracleId) continue;
+    // D438 - the source's OWN script's defs (the registry-scaling walk, see derive.ts); `defs` stays the gate.
+    const script = scripts.get(source.oracleId);
+    if (!script) continue;
+    for (const def of script.prevention ?? []) {
       if (!def.activeZones.includes(source.zone.kind)) continue;
       if (able === null) able = derive(state, oracle, scripts, sourceId, cache).hasAbilities;
       if (!able) break;

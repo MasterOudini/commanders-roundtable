@@ -248442,6 +248442,786 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FORIYSIAN_BRIGADE": {
+    "scryfallId": "0d11b6ef-3a24-4709-a62f-c5e062a6cee1",
+    "oracleId": "7261dc6d-7669-4682-977b-1304f57a201d",
+    "name": "Foriysian Brigade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foriysian Brigade",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature can block an additional creature each combat.",
+        "flavorText": "\"A double-edged sword lets you cut down your enemies with the backswing as well.\"\n—Gerrard of the *Weatherlight*",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0d11b6ef-3a24-4709-a62f-c5e062a6cee1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWO_HEADED_DRAGON": {
+    "scryfallId": "105068c1-a5e5-4248-82b6-a521ba1e5205",
+    "oracleId": "a4fa3052-d1ec-4442-a832-15ba36c500ee",
+    "name": "Two-Headed Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Two-Headed Dragon",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nMenace (This creature can't be blocked except by two or more creatures.)\nThis creature can block an additional creature each combat.\n{1}{R}: This creature gets +2/+0 until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sam Wood",
+        "imageId": "105068c1-a5e5-4248-82b6-a521ba1e5205"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Menace"
+    ],
+    "setCode": "8ed",
+    "collectorNumber": "229★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_COLOSSUS": {
+    "scryfallId": "1b0ba37a-ce52-4c01-89aa-25e90cda04ba",
+    "oracleId": "caab555c-7852-418a-bdc3-f908af7e0932",
+    "name": "Phyrexian Colossus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Colossus",
+        "manaCost": "{7}",
+        "typeLine": "Artifact Creature — Phyrexian Golem",
+        "oracleText": "This creature doesn't untap during your untap step.\nPay 8 life: Untap this creature.\nThis creature can't be blocked except by three or more creatures.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "1b0ba37a-ce52-4c01-89aa-25e90cda04ba"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "305",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OUTLAND_COLOSSUS": {
+    "scryfallId": "1caad298-52cb-46f1-8212-fe657ab80159",
+    "oracleId": "5b034e04-70e5-4783-8ac8-04d8e5a9f961",
+    "name": "Outland Colossus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Outland Colossus",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Renown 6 (When this creature deals combat damage to a player, if it isn't renowned, put six +1/+1 counters on it and it becomes renowned.)\nThis creature can't be blocked by more than one creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "1caad298-52cb-46f1-8212-fe657ab80159"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Renown"
+    ],
+    "setCode": "ori",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUANG_ZHONG_SHU_GENERAL": {
+    "scryfallId": "1ebf9dea-b4f8-4955-9824-7da5bbba91e9",
+    "oracleId": "7d6c4290-d46d-4b98-805c-3f537462c4c8",
+    "name": "Huang Zhong, Shu General",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Huang Zhong, Shu General",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Huang Zhong can't be blocked by more than one creature.",
+        "flavorText": "\"Virile in war, he kept the north in fear; His prodigies subdued the western sphere.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Quan Xuejun",
+        "imageId": "1ebf9dea-b4f8-4955-9824-7da5bbba91e9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pz2",
+    "collectorNumber": "65801",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWO_HEADED_GIANT_OF_FORIYS": {
+    "scryfallId": "203186e6-843d-4296-ab27-10ac444e651c",
+    "oracleId": "38aa31bd-7145-43b9-9409-463d9ad6cd69",
+    "name": "Two-Headed Giant of Foriys",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Two-Headed Giant of Foriys",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Trample\nThis creature can block an additional creature each combat.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anson Maddocks",
+        "imageId": "203186e6-843d-4296-ab27-10ac444e651c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "me4",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STALKING_TIGER": {
+    "scryfallId": "2048b66a-586f-49ad-bd2b-7fce1eb45ce6",
+    "oracleId": "e6af1429-276f-41a8-88d0-062661dc0cd4",
+    "name": "Stalking Tiger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stalking Tiger",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "In the Jamuraan jungles, there is often no separating beauty from danger.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "2048b66a-586f-49ad-bd2b-7fce1eb45ce6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "w17",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_MARKET_GUARD": {
+    "scryfallId": "2098bb0f-6ab5-407c-93f7-fee3b385926e",
+    "oracleId": "3a7a27fe-60f0-4a21-a1c1-5fef8a528391",
+    "name": "Night Market Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Market Guard",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature can block an additional creature each combat.",
+        "flavorText": "\"One head watches for Consulate enforcers. The other watches for renegade thieves.\"\n—Crime Lord Gonti",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steve Argyle",
+        "imageId": "2098bb0f-6ab5-407c-93f7-fee3b385926e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "bbd",
+    "collectorNumber": "242",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRISTLING_BOAR": {
+    "scryfallId": "27591452-2750-4eed-bded-832bdee79e00",
+    "oracleId": "f4aed3d2-04f5-49a4-a6be-d3cf097903f8",
+    "name": "Bristling Boar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bristling Boar",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Boar",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "\"I can bring down anything in Zagoth, but for some quarry the ratio of fight to meat is too high.\"\n—Master Hunter Chevill",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "27591452-2750-4eed-bded-832bdee79e00"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "635",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIKE_TAILED_CERATOPS": {
+    "scryfallId": "41a3b5f2-0b0b-42e0-a15b-4bb2fce05927",
+    "oracleId": "399ea8a4-55f5-4f14-ad7a-7af306959496",
+    "name": "Spike-Tailed Ceratops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spike-Tailed Ceratops",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "This creature can block an additional creature each combat.",
+        "flavorText": "The conquistadors surrounded the dinosaur only to find that it had outflanked them.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "41a3b5f2-0b0b-42e0-a15b-4bb2fce05927"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "209",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHARGING_RHINO": {
+    "scryfallId": "49e47248-051c-4ee6-aad2-352ebd1f38ca",
+    "oracleId": "26966ecb-15d3-47e5-ab63-e38510c87ecc",
+    "name": "Charging Rhino",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Charging Rhino",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Rhino",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "A rhino rarely uses its horn to announce its charge, only to end it.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Una Fricker",
+        "imageId": "49e47248-051c-4ee6-aad2-352ebd1f38ca"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPAGING_CERATOPS": {
+    "scryfallId": "4be8d613-7697-413b-a107-0a25c1662835",
+    "oracleId": "91d01119-9b3e-4629-8cf0-bbca2c19a7cc",
+    "name": "Rampaging Ceratops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampaging Ceratops",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "This creature can't be blocked except by three or more creatures.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "4be8d613-7697-413b-a107-0a25c1662835"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "322",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHT_OF_SORROWS": {
+    "scryfallId": "4f35e4c3-3461-4f53-a081-393057d509aa",
+    "oracleId": "50f644d6-2597-4ad6-8ea8-6b09056f90c0",
+    "name": "Knight of Sorrows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knight of Sorrows",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "This creature can block an additional creature each combat.\nAfterlife 1 (When this creature dies, create a 1/1 white and black Spirit creature token with flying.)",
+        "flavorText": "The helmet reveals no eyes to witness your penance, no mouth to offer absolution.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "4f35e4c3-3461-4f53-a081-393057d509aa"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Afterlife"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "RNA-14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PALACE_GUARD": {
+    "scryfallId": "51e73c28-bf82-413e-bec2-adbb52fa6993",
+    "oracleId": "5c92f375-ae6a-4be5-a499-ab87d6bdc49b",
+    "name": "Palace Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Palace Guard",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature can block any number of creatures.",
+        "flavorText": "\"I'm not nearly as bothered by being outnumbered as I am by their foul stench.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "51e73c28-bf82-413e-bec2-adbb52fa6993"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m11",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALL_OF_GLARE": {
+    "scryfallId": "56ce4f3d-fb59-4916-b72a-84dbdad0cfd4",
+    "oracleId": "a59897cb-7ead-494a-a1d0-c9baf79bf18b",
+    "name": "Wall of Glare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wall of Glare",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\nThis creature can block any number of creatures.",
+        "flavorText": "The blinding barrier served Benalia better than a hundred shields.",
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Patrick Ho",
+        "imageId": "56ce4f3d-fb59-4916-b72a-84dbdad0cfd4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "UDS-25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROFESSIONAL_WRESTLER": {
+    "scryfallId": "5e1bc145-8e4b-484a-bf29-4b46089d9300",
+    "oracleId": "3dd92eea-02ca-4e55-8f69-8c8059dd7ee6",
+    "name": "Professional Wrestler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Professional Wrestler",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior Performer",
+        "oracleText": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nThis creature can't be blocked by more than one creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Mangum",
+        "imageId": "5e1bc145-8e4b-484a-bf29-4b46089d9300"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRONHOOF_OX": {
+    "scryfallId": "7c2528c2-6405-4db9-9137-623946a4de2f",
+    "oracleId": "1871af55-f7cd-4b8e-affb-5d010df811b1",
+    "name": "Ironhoof Ox",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ironhoof Ox",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Ox",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "The good news is it's vegetarian. The bad news is it just doesn't like you.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Una Fricker",
+        "imageId": "7c2528c2-6405-4db9-9137-623946a4de2f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORIYSIAN_INTERCEPTOR": {
+    "scryfallId": "833a3622-9f24-47a3-816f-1732c0e077d0",
+    "oracleId": "52989a30-773d-4daf-aea3-8dbee2a947fa",
+    "name": "Foriysian Interceptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Foriysian Interceptor",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nDefender\nThis creature can block an additional creature each combat.",
+        "flavorText": "A focal point for time rifts, Foriys contends simultaneously with foes both new and old.",
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anson Maddocks",
+        "imageId": "833a3622-9f24-47a3-816f-1732c0e077d0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flash",
+      "Defender"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NORWOOD_RIDERS": {
+    "scryfallId": "904ba8db-853e-4f51-acfe-83e472524380",
+    "oracleId": "1816b87c-73ba-4bfc-a51e-c982381c067d",
+    "name": "Norwood Riders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Norwood Riders",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "\"Trade my moose? Sure—when I find a *horse* that can spear ten goblins at a time!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "904ba8db-853e-4f51-acfe-83e472524380"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELESNYA_SAGITTARS": {
+    "scryfallId": "9a72e933-d977-4be9-985f-8b8cf1267f8c",
+    "oracleId": "027484b8-0df5-48b6-b69b-bb4e39c5ba81",
+    "name": "Selesnya Sagittars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selesnya Sagittars",
+        "manaCost": "{3}{G}{W}",
+        "typeLine": "Creature — Elf Archer",
+        "oracleText": "Reach (This creature can block creatures with flying.)\nThis creature can block an additional creature each combat.",
+        "flavorText": "\"What's their strike range, you ask? Let's put it this way: sagittars aim their bows using *maps*.\"\n—Otak, Tin Street shopkeep",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "9a72e933-d977-4be9-985f-8b8cf1267f8c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROLL_OF_KHAZAD_D_M": {
+    "scryfallId": "a6539e26-b63b-4725-9407-caaf451de084",
+    "oracleId": "222fd9fc-7af4-4269-bbb9-cd7b8ac029bd",
+    "name": "Troll of Khazad-dûm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Troll of Khazad-dûm",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Troll",
+        "oracleText": "This creature can't be blocked except by three or more creatures.\nSwampcycling {1} ({1}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": "\"A great cave-troll, I think. There is no hope of escape that way.\"\n—Gandalf",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "a6539e26-b63b-4725-9407-caaf451de084"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRONFIST_CRUSHER": {
+    "scryfallId": "c7284e32-de54-4c83-a7de-7b249c47319a",
+    "oracleId": "ba4c9337-4cdf-44d8-849b-ffd808e5407d",
+    "name": "Ironfist Crusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ironfist Crusher",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature can block any number of creatures.\nMorph {3}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Iain McCaig",
+        "imageId": "c7284e32-de54-4c83-a7de-7b249c47319a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHASTBARK_TWINS": {
+    "scryfallId": "d470e441-3520-4669-aaa5-f0c57829352a",
+    "oracleId": "bdd0d01d-b9f2-4c3f-9b3b-04e122013de5",
+    "name": "Ghastbark Twins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghastbark Twins",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nThis creature can block an additional creature each combat.",
+        "flavorText": "They grow closer with every passing season.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "d470e441-3520-4669-aaa5-f0c57829352a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -139,6 +139,9 @@ function applicableTo(
 ): { key: string; sourceId: InstanceId; def: ReplacementEntry['def'] }[] {
   const cache = makeDeriveCache(state);
   const out: { key: string; sourceId: InstanceId; def: ReplacementEntry['def'] }[] = [];
+  // D438 - THE REGISTRY-SCALING WALK: `defs` is the funnel's gate (empty means no game here replaces); the walk
+  // below asks each source's OWN script for its replacement defs rather than comparing every def by oracleId.
+  if (defs.length === 0) return out;
   // ⚠️ BATTLEFIELD ORDER, still — it is the tie-break when the choice is not
   // the player's (one applicable effect) and it is the order the options are
   // OFFERED in, which is the order they appear on screen. CR 613.7c's timestamp,
@@ -146,8 +149,9 @@ function applicableTo(
   for (const sourceId of state.zones.battlefield) {
     const source = state.cards[sourceId];
     if (!source) continue;
-    for (const { script, def } of defs) {
-      if (source.oracleId !== script.oracleId) continue;
+    const script = scripts.get(source.oracleId);
+    if (!script) continue;
+    for (const def of script.replacements ?? []) {
       if (!def.activeZones.includes(source.zone.kind)) continue;
       // CR 613 layer 6 — see `hasAbilities`. A silenced permanent replaces
       // nothing.
@@ -172,8 +176,9 @@ function applicableTo(
       if (state.zones.battlefield.includes(sourceId)) continue;
       const source = state.cards[sourceId];
       if (!source) continue;
-      for (const { script, def } of defs) {
-        if (source.oracleId !== script.oracleId) continue;
+      const script = scripts.get(source.oracleId);
+      if (!script) continue;
+      for (const def of script.replacements ?? []) {
         if (!def.activeZones.includes('battlefield')) continue;
         if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
         const key = `${sourceId}#${def.abilityId}`;

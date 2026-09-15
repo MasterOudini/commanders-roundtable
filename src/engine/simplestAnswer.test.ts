@@ -30,7 +30,18 @@ import {
   put,
   simplestAnswer,
   startedGame,
+  ORACLE,
 } from './testing/harness';
+import { createRegistry } from './scripts/registryCore';
+import type { CardScript } from './scripts/api';
+
+// D438 - CR 509.1a is enforced now (a creature blocks ONE attacker unless an ability lifts it), so a test that
+// stages one blocker on two attackers gives the blocker a testing CombatDef that lets it block two.
+function blocksTwo(name: string): CardScript {
+  const card = ORACLE.byName(name);
+  if (!card) throw new Error(name + ' is not in the fixtures');
+  return { oracleId: card.oracleId, name, combat: [{ abilityId: 'count-0', text: '', activeZones: ['battlefield'], blockCapacity: (_ctx, self, blocker) => (blocker === self ? 2 : null) }] };
+}
 
 describe('simplestAnswer — the driver answers every prompt it is given', () => {
   /**
@@ -169,6 +180,7 @@ describe('simplestAnswer — the driver answers every prompt it is given', () =>
     const game = startedGame({
       players: 2,
       decks: [['Grizzly Bears', 'Scathe Zombies'], ['Serra Angel']],
+      scripts: createRegistry([blocksTwo('Serra Angel')]),
     });
     const bear = put(game, 'p1', 'Grizzly Bears');
     const zombie = put(game, 'p1', 'Scathe Zombies');

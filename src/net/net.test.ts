@@ -29,7 +29,10 @@ import { zoneId } from '../view/types';
 // ⚠️ Deliberately NOT global: a real hang anywhere else still fails at 20 s, and
 // this raise follows the fuzz ceiling's rule (D167/D170/D181) — only after a
 // completed-and-equal run proved growth over hang.
-vi.setConfig({ testTimeout: 60_000 });
+// D438 - measured idle at 6,773 scripts: the heaviest three run 39-43 s (14-15 s at 4,564 - the cost grows
+// FASTER than the registry), and under the gate's contention two spilled to 61-62 s while passing 37/37 alone.
+// 60 s -> 120 s under the same rule, after the completed-and-equal run.
+vi.setConfig({ testTimeout: 120_000 });
 
 async function fourPlayerGame() {
   const table = makeTable();
@@ -65,7 +68,7 @@ describe('host + four loopback clients', () => {
       expect(client.desyncs).toEqual([]);
       expect(viewHash(client.session.currentView())).toBe(viewHash(table.host.viewOf(you) as never));
     }
-  }, 60_000);
+  }, 120_000);
 
   test('a complete scripted game ends with every client equal to a FRESH project()', async () => {
     const table = await fourPlayerGame();
@@ -173,7 +176,7 @@ describe('host + four loopback clients', () => {
     for (const client of table.clients) {
       expect(client.batches.length).toBeGreaterThan(0);
     }
-  }, 60_000);
+  }, 120_000);
 });
 
 describe('joining', () => {
@@ -437,7 +440,7 @@ describe('the projection a client holds', () => {
     const mine = viewHash(client.session.currentView());
     expect(mine).toBe(viewHash(host.viewOf('p2') as never));
     expect(mine).not.toBe(viewHash(host.viewOf('p1') as never));
-  }, 60_000);
+  }, 120_000);
 
   test('previewCast runs the same solver the host validates with', async () => {
     const table = await fourPlayerGame();
@@ -449,7 +452,7 @@ describe('the projection a client holds', () => {
     const preview = acting.session.previewCast(cast.card, 0);
     expect(preview?.name).toBe(cast.label);
     expect(preview?.tax).toBe(cast.tax);
-  }, 60_000);
+  }, 120_000);
 
   test('targetableIds comes from the view, never from state', async () => {
     const table = await fourPlayerGame();
@@ -461,7 +464,7 @@ describe('the projection a client holds', () => {
       if (t.kind === 'card') expect(view.cards[t.id]).toBeDefined();
       if (t.kind === 'player') expect(view.seats[t.id]).toBeDefined();
     }
-  }, 60_000);
+  }, 120_000);
 });
 
 describe('the loopback transport itself', () => {

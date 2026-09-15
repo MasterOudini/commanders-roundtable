@@ -98,8 +98,10 @@ function restrictedBy(
   for (const sourceId of state.zones.battlefield) {
     const source = state.cards[sourceId];
     if (!source) continue;
-    for (const { script, def } of defs) {
-      if (source.oracleId !== script.oracleId) continue;
+    // D438 - the source's OWN script's defs (the registry-scaling walk, see derive.ts); `defs` stays the gate.
+    const script = deps.scripts.get(source.oracleId);
+    if (!script) continue;
+    for (const def of script.combat ?? []) {
       if (!def.activeZones.includes(source.zone.kind)) continue;
       // CR 613 layer 6 — a silenced permanent restricts nothing.
       if (!d(deps, sourceId).hasAbilities) continue;
@@ -108,6 +110,47 @@ function restrictedBy(
     }
   }
   return false;
+}
+
+/**
+ * D438 - the block counts every registered def answers for one creature, folded: the largest capacity and minimum,
+ * the smallest maximum. `null` where no def speaks (the validator's defaults are CR 509.1a's one attacker per
+ * blocker, no ceiling on blockers, menace's two or none).
+ */
+function countsBy(deps: CombatDeps, ask: (def: CombatDef, ctx: ScriptCtx, self: InstanceId) => number | null, fold: (a: number, b: number) => number): number | null {
+  const defs = deps.scripts.combat();
+  if (defs.length === 0) return null;
+  const { state } = deps;
+  let ctx: ScriptCtx | null = null;
+  let out: number | null = null;
+  for (const sourceId of state.zones.battlefield) {
+    const source = state.cards[sourceId];
+    if (!source) continue;
+    const script = deps.scripts.get(source.oracleId);
+    if (!script) continue;
+    for (const def of script.combat ?? []) {
+      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!d(deps, sourceId).hasAbilities) continue;
+      ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
+      const n = ask(def, ctx, sourceId);
+      if (n === null) continue;
+      out = out === null ? n : fold(out, n);
+    }
+  }
+  return out;
+}
+/** D438 - how many attackers one creature may block: one (CR 509.1a) unless a def lifts it. */
+export function blockCapacityOf(deps: CombatDeps, blocker: InstanceId): number {
+  return countsBy(deps, (def, ctx, self) => def.blockCapacity?.(ctx, self, blocker) ?? null, Math.max) ?? 1;
+}
+/** D438 - the most creatures that may block one attacker, or null for no ceiling. */
+export function maxBlockersOf(deps: CombatDeps, attacker: InstanceId): number | null {
+  return countsBy(deps, (def, ctx, self) => def.maxBlockers?.(ctx, self, attacker) ?? null, Math.min);
+}
+/** D438 - the fewest that must block one attacker when any do: menace's two, a def's more, else one. */
+export function minBlockersOf(deps: CombatDeps, attacker: InstanceId): number {
+  const printed = d(deps, attacker).keywords.has('menace') ? 2 : 1;
+  return Math.max(printed, countsBy(deps, (def, ctx, self) => def.minBlockers?.(ctx, self, attacker) ?? null, Math.max) ?? 1);
 }
 
 /** Opponents still in the game, plus the planeswalkers and battles they control. */
@@ -265,13 +308,31 @@ export function validateBlockDeclaration(
     }
     perAttacker.set(b.attacker, [...(perAttacker.get(b.attacker) ?? []), b.blocker]);
   }
+  // D438 - CR 509.1a: a creature blocks one attacker unless an ability lets it block more (`can block an additional
+  // creature each combat`, `can block any number of creatures`) - the base rule was never checked before this.
+  const perBlocker = new Map<InstanceId, number>();
+  for (const b of blocks) perBlocker.set(b.blocker, (perBlocker.get(b.blocker) ?? 0) + 1);
+  for (const [blocker, n] of perBlocker) {
+    const cap = blockCapacityOf(deps, blocker);
+    if (n > cap) {
+      const bn = d(deps, blocker).name || 'That creature';
+      return { ok: false, reason: 'illegalBlock', detail: cap === 1 ? `${bn} can block only one creature.` : `${bn} can block up to ${cap} creatures.` };
+    }
+  }
   for (const [attacker, blockers] of perAttacker) {
     const ac = d(deps, attacker);
-    if (ac.keywords.has('menace') && blockers.length === 1) {
+    // D438 - `can't be blocked by more than one creature`: a ceiling on the blockers of one attacker.
+    const most = maxBlockersOf(deps, attacker);
+    if (most !== null && blockers.length > most) {
+      return { ok: false, reason: 'illegalBlock', detail: most === 1 ? `${ac.name} can't be blocked by more than one creature.` : `${ac.name} can't be blocked by more than ${most} creatures.` };
+    }
+    // Menace (CR 702.110b) and `can't be blocked except by N or more creatures` share the floor: N or none.
+    const least = minBlockersOf(deps, attacker);
+    if (least > 1 && blockers.length < least) {
       return {
         ok: false,
         reason: 'menaceRequiresTwo',
-        detail: `${ac.name} has menace — block it with two creatures or none.`,
+        detail: ac.keywords.has('menace') && least === 2 ? `${ac.name} has menace — block it with two creatures or none.` : `${ac.name} can't be blocked except by ${least} or more creatures.`,
       };
     }
   }

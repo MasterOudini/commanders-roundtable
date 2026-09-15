@@ -8103,6 +8103,31 @@ const WANTED = [
   // D436 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D437 - the flashback X pricing test's card (Devil's Play flashes back for {X}{R}{R}{R}).
   "Devil's Play",
+  // D438 - the block counts: the rows the row maker reads once a creature could block an additional creature or any number, be blocked by no more than one, or by no fewer than N.
+  'Foriysian Brigade',
+  'Two-Headed Dragon',
+  'Phyrexian Colossus',
+  'Outland Colossus',
+  'Huang Zhong, Shu General',
+  'Two-Headed Giant of Foriys',
+  'Stalking Tiger',
+  'Night Market Guard',
+  'Bristling Boar',
+  'Spike-Tailed Ceratops',
+  'Charging Rhino',
+  'Rampaging Ceratops',
+  'Knight of Sorrows',
+  'Palace Guard',
+  'Wall of Glare',
+  'Professional Wrestler',
+  'Ironhoof Ox',
+  'Foriysian Interceptor',
+  'Norwood Riders',
+  'Selesnya Sagittars',
+  'Troll of Khazad-dûm',
+  'Ironfist Crusher',
+  'Ghastbark Twins',
+  // D438 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -248,6 +248,18 @@ export interface CombatDef {
    * it in `requiredAttackers`, and a declaration without it is refused.
    */
   mustAttack?(ctx: ScriptCtx, self: InstanceId, candidate: InstanceId): boolean;
+  /**
+   * D438 - THE BLOCK COUNTS, asked over the whole declaration (they are properties of it, like menace):
+   * `blockCapacity` - how many attackers `blocker` may block (CR 509.1a says one; `can block an additional
+   * creature each combat` says two, `can block any number of creatures` says `Infinity`); `maxBlockers` - how
+   * many creatures may block `attacker` (`can't be blocked by more than one creature` says one); `minBlockers` -
+   * how many must, when any do (`can't be blocked except by two or more creatures` says two - menace's own rule,
+   * `three or more` says three). `null` when this ability says nothing about that creature; the validator takes
+   * the largest capacity and minimum and the smallest maximum any def answers.
+   */
+  blockCapacity?(ctx: ScriptCtx, self: InstanceId, blocker: InstanceId): number | null;
+  maxBlockers?(ctx: ScriptCtx, self: InstanceId, attacker: InstanceId): number | null;
+  minBlockers?(ctx: ScriptCtx, self: InstanceId, attacker: InstanceId): number | null;
 }
 
 /**

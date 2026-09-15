@@ -7,6 +7,29 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FORIYSIAN_BRIGADE_SCRIPT } from './cards/foriysianBrigade';
+import { TWO_HEADED_DRAGON_SCRIPT } from './cards/twoHeadedDragon';
+import { PHYREXIAN_COLOSSUS_SCRIPT } from './cards/phyrexianColossus';
+import { OUTLAND_COLOSSUS_SCRIPT } from './cards/outlandColossus';
+import { HUANG_ZHONG_SHU_GENERAL_SCRIPT } from './cards/huangZhongShuGeneral';
+import { TWO_HEADED_GIANT_OF_FORIYS_SCRIPT } from './cards/twoHeadedGiantOfForiys';
+import { STALKING_TIGER_SCRIPT } from './cards/stalkingTiger';
+import { NIGHT_MARKET_GUARD_SCRIPT } from './cards/nightMarketGuard';
+import { BRISTLING_BOAR_SCRIPT } from './cards/bristlingBoar';
+import { SPIKE_TAILED_CERATOPS_SCRIPT } from './cards/spikeTailedCeratops';
+import { CHARGING_RHINO_SCRIPT } from './cards/chargingRhino';
+import { RAMPAGING_CERATOPS_SCRIPT } from './cards/rampagingCeratops';
+import { KNIGHT_OF_SORROWS_SCRIPT } from './cards/knightOfSorrows';
+import { PALACE_GUARD_SCRIPT } from './cards/palaceGuard';
+import { WALL_OF_GLARE_SCRIPT } from './cards/wallOfGlare';
+import { PROFESSIONAL_WRESTLER_SCRIPT } from './cards/professionalWrestler';
+import { IRONHOOF_OX_SCRIPT } from './cards/ironhoofOx';
+import { FORIYSIAN_INTERCEPTOR_SCRIPT } from './cards/foriysianInterceptor';
+import { NORWOOD_RIDERS_SCRIPT } from './cards/norwoodRiders';
+import { SELESNYA_SAGITTARS_SCRIPT } from './cards/selesnyaSagittars';
+import { TROLL_OF_KHAZAD_DM_SCRIPT } from './cards/trollOfKhazadDM';
+import { IRONFIST_CRUSHER_SCRIPT } from './cards/ironfistCrusher';
+import { GHASTBARK_TWINS_SCRIPT } from './cards/ghastbarkTwins';
 import { REITO_SENTINEL_SCRIPT } from './cards/reitoSentinel';
 import { HONORED_HEIRLOOM_SCRIPT } from './cards/honoredHeirloom';
 import { CRYPT_CREEPER_SCRIPT } from './cards/cryptCreeper';
@@ -6776,6 +6799,29 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FORIYSIAN_BRIGADE_SCRIPT,
+  TWO_HEADED_DRAGON_SCRIPT,
+  PHYREXIAN_COLOSSUS_SCRIPT,
+  OUTLAND_COLOSSUS_SCRIPT,
+  HUANG_ZHONG_SHU_GENERAL_SCRIPT,
+  TWO_HEADED_GIANT_OF_FORIYS_SCRIPT,
+  STALKING_TIGER_SCRIPT,
+  NIGHT_MARKET_GUARD_SCRIPT,
+  BRISTLING_BOAR_SCRIPT,
+  SPIKE_TAILED_CERATOPS_SCRIPT,
+  CHARGING_RHINO_SCRIPT,
+  RAMPAGING_CERATOPS_SCRIPT,
+  KNIGHT_OF_SORROWS_SCRIPT,
+  PALACE_GUARD_SCRIPT,
+  WALL_OF_GLARE_SCRIPT,
+  PROFESSIONAL_WRESTLER_SCRIPT,
+  IRONHOOF_OX_SCRIPT,
+  FORIYSIAN_INTERCEPTOR_SCRIPT,
+  NORWOOD_RIDERS_SCRIPT,
+  SELESNYA_SAGITTARS_SCRIPT,
+  TROLL_OF_KHAZAD_DM_SCRIPT,
+  IRONFIST_CRUSHER_SCRIPT,
+  GHASTBARK_TWINS_SCRIPT,
   REITO_SENTINEL_SCRIPT,
   HONORED_HEIRLOOM_SCRIPT,
   CRYPT_CREEPER_SCRIPT,

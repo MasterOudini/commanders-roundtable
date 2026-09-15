@@ -503,15 +503,19 @@ function staticSourcesFor(
   const hit = cache?.staticSources.get(layer);
   if (hit) return hit;
 
-  const defs = scripts.staticsFor(layer);
   const out: StaticSource[] = [];
   for (const sourceId of state.zones.battlefield) {
     const source = state.cards[sourceId];
     if (!source) continue;
     // D309 - a face-down source grants nothing (CR 708.2).
     if (source.faceDown) continue;
-    for (const { script, def } of defs) {
-      if (source.oracleId !== script.oracleId) continue;
+    // D438 - THE REGISTRY-SCALING WALK: the source's OWN script's defs of this layer, not every def of the layer
+    // compared by oracleId (N permanents x ~1,000 layer-6 defs per cache-less derive - the tournament profile put
+    // 80% of the bot's whole pipeline in this loop). Same sources, same order: a script lists its defs in order.
+    const script = scripts.get(source.oracleId);
+    if (!script) continue;
+    for (const def of script.statics ?? []) {
+      if (def.layer !== layer) continue;
       if (!def.activeZones.includes(source.zone.kind)) continue;
       out.push({ sourceId, def });
     }
