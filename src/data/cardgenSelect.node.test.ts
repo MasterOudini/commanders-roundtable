@@ -259,6 +259,16 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D440 - and the mirror offered two the row maker refused: a second-spell head and a Construct search (the wide run's
+  // reason).
+  ['Arcbound Tracker', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast a spell other than your first spell each t'],
+  ['Scrapyard Recombiner', 'effect not a row kind: Search your library for a Construct card, reveal it, put it into your hand, then shuffle.'],
+  // D440 - modular's entry counters are the engine's now, and the four Arcbounds beside a self-counter or self-pump row
+  // read N too many against the printed base (the wide run's reason).
+  ['Arcbound Crusher', 'an entry-counter keyword beside the row (the suite reads the printed base, not the counters it enters with)'],
+  ['Arcbound Ravager', 'an entry-counter keyword beside the row (the suite reads the printed base, not the counters it enters with)'],
+  ['Arcbound Whelp', 'an entry-counter keyword beside the row (the suite reads the printed base, not the counters it enters with)'],
+  ['Arcbound Slith', 'an entry-counter keyword beside the row (the suite reads the printed base, not the counters it enters with)'],
   // D439 - and the mirror offered 15 the row maker refused - the enters-or-dies heads, an anthem beside a mass pump, a
   // counted loss beside a cost piece, the pay-or-scry riders (the wide run's reason).
   ['Dream Beavers', 'trigger payload not a pump: Each opponent loses 1 life and you gain 1 life. Scry 1.'],

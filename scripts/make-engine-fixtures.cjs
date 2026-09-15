@@ -8184,6 +8184,17 @@ const WANTED = [
   'Soulcage Fiend',
   'Servant of Tymaret',
   // D439 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D440 - extort, modular and scavenge: the seam fixtures.
+  'Syndic of Tithes',
+  'Arcbound Worker',
+  'Arcbound Bruiser',
+  'Sewer Shambler',
+  'Deadbridge Goliath',
+  // D440 - extort, modular and the hand size: the rows the row maker reads once the three lines are the engine's own.
+  'Syndicate Heavy',
+  'Life Insurance',
+  'Arcbound Condor',
+  // D440 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

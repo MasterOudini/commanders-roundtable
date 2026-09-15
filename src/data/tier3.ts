@@ -295,6 +295,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.cycling !== undefined) continue;
     // D311 - crew resolves natively: the tap chooser charges it, the engine animates.
     if (ability.crew !== undefined) continue;
+    // D440 - scavenge resolves natively: the exile and the mana charged, the counters put.
+    if (ability.scavenge !== undefined) continue;
 
     // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
     // charged by the engine, effect resolved by the script — so the card owes
@@ -363,6 +365,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'cycling' && abilities.some((a) => a.cycling !== undefined)) continue;
     // D311 - a Crew the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'crew' && abilities.some((a) => a.crew !== undefined)) continue;
+    // D440 - a Scavenge the engine runs is no note either.
+    if (raw.trim().toLowerCase() === 'scavenge' && abilities.some((a) => a.scavenge !== undefined)) continue;
     // D312 - an Affinity the engine prices is no note either.
     if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.

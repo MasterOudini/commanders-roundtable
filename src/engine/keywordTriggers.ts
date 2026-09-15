@@ -37,6 +37,12 @@ export interface KeywordTrigger {
    */
   readonly optional?: boolean;
   /**
+   * D440 - a NUMBER read off the state the entry matched against (the pre-event state for a looks-back entry) and
+   * carried onto the stack object (`obj.memo`): what a modular creature's counters were as it died, which the
+   * resolution cannot read any more (they clear as the card leaves the battlefield).
+   */
+  memo?(ctx: ScriptCtx, self: InstanceId, ev: EventBody): number;
+  /**
    * D361 - the target clauses the keyword declares; absent for the ones that aim
    * at nothing (all seven of D308's).
    *
@@ -111,6 +117,10 @@ function mostLife(ctx: ScriptCtx): number {
  * reminder text is a property of the PRINTING, so a printing that omits it would
  * silently lose the aim. The words are the reminder's own.
  */
+/** D440 - extort's whole text as the vocabulary reads it: D369's pay prompt with D439's drain rider as its body. */
+const EXTORT_TEXT = 'You may pay {W/B}. If you do, each opponent loses 1 life. You gain life equal to the life lost this way.';
+/** D440 - a modular creature's number, off the printed line (`keywordAmount` reads `modular N`). */
+const MODULAR_TEXT = 'When this creature dies, you may put its +1/+1 counters on target artifact creature.';
 function soulshiftText(n: number): string {
   return `When this creature dies, you may return target Spirit card with mana value ${n} or less from your graveyard to your hand.`;
 }
@@ -444,6 +454,44 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Ke
         if (ctx.state.cards[self]?.zone.kind !== 'battlefield') return [];
         const ages = (ctx.state.cards[self]?.counters['age'] ?? 0) + 1;
         return [{ t: 'CountersChanged', changes: [{ card: self, kind: 'age', delta: 1 }] }, ...upkeepPrompt(ctx, self, obj, upkeepPriceOf(ctx, self, 'cumulativeUpkeep'), ages)];
+      },
+    },
+  ],
+  // ── D440 — THE TABLE, PART 3 ──────────────────────────────────────────────
+  [
+    'extort',
+    {
+      // CR 702.100a - whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you
+      // gain that much life. The vocabulary's own pay prompt (D369) with the scoped loss and its drain rider (D439)
+      // as the paid body - the bot's answer, the driver's coin flip and the client's dialog for free.
+      event: 'SpellCast',
+      matches: (ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.controller === ctx.query.controllerOf(self),
+      label: (ctx, self) => `${nameOf(ctx, self)} - extort`,
+      resolve: (ctx, self, obj) => (onBattlefield(ctx, self) ? ctx.vocabulary(obj, vocabularyEffects(EXTORT_TEXT, nameOf(ctx, self)), []) : []),
+    },
+  ],
+  [
+    'modular',
+    {
+      // CR 702.43a - this enters with N +1/+1 counters (`withEntryCounters`, the built-in); when it dies, you may put
+      // its +1/+1 counters on target artifact creature. The counters clear as the card leaves the battlefield, so
+      // the head MEMOISES them off the pre-event state and the resolution reads `obj.memo` (D440's plumbing).
+      event: 'CardsMoved',
+      looksBack: true,
+      optional: true,
+      targets: () => parseTargetClauses(MODULAR_TEXT),
+      matches: (_ctx, self, ev) => diedThisEvent(self, ev),
+      memo: (ctx, self) => ctx.state.cards[self]?.counters['+1/+1'] ?? 0,
+      label: (ctx, self) => `${nameOf(ctx, self)} - modular ${keywordAmount(ctx, self, 'modular')}`,
+      resolve: (ctx, _self, obj) => {
+        const n = obj.memo ?? 0;
+        const target = obj.targets[0];
+        if (n <= 0 || !target || target.kind !== 'card') return [];
+        const card = ctx.state.cards[target.id];
+        if (!card || card.zone.kind !== 'battlefield') return [];
+        const chars = ctx.derive(target.id);
+        if (!chars.typeLine.types.includes('Artifact') || !chars.typeLine.types.includes('Creature')) return [];
+        return [{ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: n }] }];
       },
     },
   ],

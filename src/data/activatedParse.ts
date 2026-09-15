@@ -370,6 +370,9 @@ export function cyclingAbilities(printed: string): readonly { readonly cost: str
 }
 // D311 - THE CREW SEAM: "Crew N" on its own line (reminder text aside).
 const CREW_RE = /^Crew (\d+)$/;
+// D440 - scavenge (CR 702.96a): the mana price on the printed line; the rest of the ability is the rule's own words.
+const SCAVENGE_RE = /^Scavenge ((?:\{[^}]+\})+)$/;
+const SCAVENGE_EFFECT = "Put a number of +1/+1 counters equal to this card's power on target creature.";
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
 
 export interface ActivatedParseInput {
@@ -381,6 +384,8 @@ export interface ActivatedParseInput {
   readonly parseCost: (raw: string, warn?: Warn) => ManaCost | null;
   /** D320 - the face's short name, which an older printing uses where a newer one says "this creature". */
   readonly selfName?: string;
+  /** D440 - the face's printed power, for scavenge's counters (null or `*` refuses the synthesis). */
+  readonly basePower?: number | null;
 }
 
 /**
@@ -420,7 +425,7 @@ export function parseActivatedAbilities(
   input: ActivatedParseInput,
   warn: Warn = NOOP_WARN,
 ): ActivatedAbility[] {
-  const { oracleText, isPermanent, producesMana, parseCost, selfName } = input;
+  const { oracleText, isPermanent, producesMana, parseCost, selfName, basePower } = input;
   if (!oracleText) return [];
 
   // ⚠️ Asked, not guessed. A null `line` is an intrinsic land-type ability, which
@@ -526,6 +531,47 @@ export function parseActivatedAbilities(
     // its cost - tap any number of untapped creatures you control with total
     // power N or more (CR 702.122a) - and the engine's own effect: the Vehicle
     // is an artifact creature until end of turn. Instant speed, no targets.
+    // D440 - THE SCAVENGE SEAM: an activated ability from the graveyard whose cost the engine charges (the mana, and
+    // the card's own exile - D329's price) and whose counters resolve natively off the printed power; a `*` power
+    // or an unreadable price leaves the line unsynthesized.
+    const scav = SCAVENGE_RE.exec(printed);
+    if (scav) {
+      const scavCost = parseCost(scav[1] ?? '', warn);
+      const power = basePower ?? null;
+      if (scavCost !== null && power !== null && power > 0) {
+        out.push({
+          index: out.length,
+          costText: `${scav[1]}, Exile this card from your graveyard`,
+          effectText: SCAVENGE_EFFECT,
+          manaCost: scavCost,
+          requiresTap: false,
+          requiresUntap: false,
+          lifeCost: 0,
+          lifeCostCommanderColors: false,
+          sacrificesSelf: false,
+          sacrificeCost: null,
+          discardCost: null,
+          exileFromGraveyardCost: null,
+          exileSelfFromGraveyard: true,
+          activatesFromGraveyard: false,
+          removeCounterCost: null,
+          tapCost: null,
+          returnCost: null,
+          returnsSelf: false,
+          putCounterCost: null,
+          unpaidCosts: [],
+          payable: true,
+          isManaAbility: false,
+          isLoyalty: false,
+          sorceryOnly: true,
+          oncePerTurn: false,
+          activateOnly: [],
+          targets: parseTargetClauses(SCAVENGE_EFFECT, warn),
+          scavenge: { line: printed, power },
+        });
+        continue;
+      }
+    }
     const crewLine = CREW_RE.exec(printed);
     if (crewLine) {
       const power = Number(crewLine[1] ?? '0');

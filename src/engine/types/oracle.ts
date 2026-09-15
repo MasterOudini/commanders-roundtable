@@ -82,6 +82,10 @@ export const TIER2_KEYWORDS = [
   // `Discard a card` or a cumulative upkeep of `Sacrifice a creature` stays a leftover line.
   'echo',
   'cumulativeUpkeep',
+  // D440 - THE TABLE, PART 3: extort (CR 702.100a - a pay prompt with the drain rider as its body) and modular
+  // (CR 702.43 - enters with N +1/+1 counters, a built-in; dies: put them on target artifact creature, a memo).
+  'extort',
+  'modular',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -1502,6 +1506,13 @@ export interface ActivatedAbility {
    * is the printed line it accounts for.
    */
   readonly crew?: { readonly line: string; readonly power: number };
+  /**
+   * D440 - THE SCAVENGE SEAM. The synthesized "Scavenge {cost}" ability (CR 702.96a): the mana and the card's own
+   * exile from the graveyard as the cost, `target creature` as the clause, and the card's PRINTED power in +1/+1
+   * counters resolved natively (`resolveAbility`) - the card is in exile by then, and its power is last known
+   * information the parse carries. `line` is the printed line it accounts for.
+   */
+  readonly scavenge?: { readonly line: string; readonly power: number };
 }
 
 /**

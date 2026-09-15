@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SYNDICATE_HEAVY_SCRIPT } from './cards/syndicateHeavy';
+import { LIFE_INSURANCE_SCRIPT } from './cards/lifeInsurance';
+import { ARCBOUND_CONDOR_SCRIPT } from './cards/arcboundCondor';
 import { URZAS_BLUEPRINTS_SCRIPT } from './cards/urzasBlueprints';
 import { GHITU_SLINGER_SCRIPT } from './cards/ghituSlinger';
 import { KOKUSHO_THE_EVENING_STAR_SCRIPT } from './cards/kokushoTheEveningStar';
@@ -6844,6 +6847,9 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SYNDICATE_HEAVY_SCRIPT,
+  LIFE_INSURANCE_SCRIPT,
+  ARCBOUND_CONDOR_SCRIPT,
   URZAS_BLUEPRINTS_SCRIPT,
   GHITU_SLINGER_SCRIPT,
   KOKUSHO_THE_EVENING_STAR_SCRIPT,

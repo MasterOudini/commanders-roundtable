@@ -364,7 +364,8 @@ export function legalActions(
       // D352 - a return cost names permanents on the BATTLEFIELD; nothing activated from a
       // graveyard is charged one here.
       if (ability.returnCost || ability.returnsSelf) continue;
-      if (!activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      // D440 - a synthesized scavenge resolves natively (its counters are the printed power): no def to require.
+      if (ability.scavenge === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // D342 - "Activate only <condition>": offered only while every read condition holds.

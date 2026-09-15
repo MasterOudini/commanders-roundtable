@@ -268,6 +268,8 @@ export function stackPendingTriggers(
       ...(trigger.item !== undefined ? { item: trigger.item } : {}),
       // D428 - the triggering player rides through to `resolve` the same way.
       ...(trigger.player !== undefined ? { player: trigger.player } : {}),
+      // D440 - a number the head memoised off the pre-event state (a modular creature's counters) rides the same way.
+      ...(trigger.memo !== undefined ? { memo: trigger.memo } : {}),
       // D402 - a delayed trigger's effects ride onto the stack; the armed entry leaves the list as it goes on.
       ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
     };
@@ -1113,6 +1115,11 @@ export function resolveAbility(
     // (CR 702.29b) runs the search the vocabulary read for its type instead (the shuffle is the answer's).
     if (ability?.cycling !== undefined) {
       events.push(...(ability.cycling.effects ? effectResult(state, deps, obj, ability.cycling.effects).events : drawEvents(state, obj.controller, 1)));
+    }
+    // D440 - SCAVENGE resolves natively (CR 702.96a): the card's printed power in +1/+1 counters on the target
+    // creature, if the clause still admits it (CR 608.2b); the card itself is in exile - the cost was its exile.
+    if (ability?.scavenge !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
+      events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.scavenge.power }] });
     }
     // D311 - CREW resolves natively: the Vehicle is an artifact creature until
     // end of turn (CR 702.122a), carried by the same until-end-of-turn list a

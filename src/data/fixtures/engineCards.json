@@ -251060,6 +251060,287 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SYNDIC_OF_TITHES": {
+    "scryfallId": "2bafaa3b-eeaa-427f-9a73-6a1c98d257ca",
+    "oracleId": "8f5c52d2-0583-4c94-a043-15b2118877fa",
+    "name": "Syndic of Tithes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syndic of Tithes",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)",
+        "flavorText": "\"Entrance is free. Donations are required.\"\n—Notice outside Vizkopa Bank",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "2bafaa3b-eeaa-427f-9a73-6a1c98d257ca"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Extort"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCBOUND_WORKER": {
+    "scryfallId": "4e165505-7908-479f-9567-6fb2a06f9508",
+    "oracleId": "6d9af084-cd5d-4242-b0f0-24a36d0a75d4",
+    "name": "Arcbound Worker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcbound Worker",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Modular 1 (This creature enters with a +1/+1 counter on it. When it dies, you may put its +1/+1 counters on target artifact creature.)",
+        "flavorText": "The parts are as strong as the whole.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Darrell Riche",
+        "imageId": "4e165505-7908-479f-9567-6fb2a06f9508"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Modular"
+    ],
+    "setCode": "ddf",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCBOUND_BRUISER": {
+    "scryfallId": "a4672ba6-cd82-4208-bc08-764986899999",
+    "oracleId": "51577a8b-28d6-4f9e-8d3f-6a1380270fab",
+    "name": "Arcbound Bruiser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcbound Bruiser",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Modular 3 (This creature enters with three +1/+1 counters on it. When it dies, you may put its +1/+1 counters on target artifact creature.)",
+        "flavorText": "Break in case of emergency.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Moeller",
+        "imageId": "a4672ba6-cd82-4208-bc08-764986899999"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Modular"
+    ],
+    "setCode": "dst",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEWER_SHAMBLER": {
+    "scryfallId": "0ae7ba14-c901-4266-ae31-812e001916d3",
+    "oracleId": "5d111adc-a91a-437d-8aac-3b246e980bd8",
+    "name": "Sewer Shambler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sewer Shambler",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nScavenge {2}{B} ({2}{B}, Exile this card from your graveyard: Put a number of +1/+1 counters equal to this card's power on target creature. Scavenge only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "0ae7ba14-c901-4266-ae31-812e001916d3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scavenge",
+      "Landwalk",
+      "Swampwalk"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADBRIDGE_GOLIATH": {
+    "scryfallId": "0fce3a3a-56d8-4895-8110-27e5480e15fd",
+    "oracleId": "1498f5a1-6df7-4f80-9470-c93528b64a9c",
+    "name": "Deadbridge Goliath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadbridge Goliath",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Scavenge {4}{G}{G} ({4}{G}{G}, Exile this card from your graveyard: Put a number of +1/+1 counters equal to this card's power on target creature. Scavenge only as a sorcery.)",
+        "flavorText": "Some Golgari insects live for centuries—and they never stop growing.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "0fce3a3a-56d8-4895-8110-27e5480e15fd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scavenge"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "645",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNDICATE_HEAVY": {
+    "scryfallId": "251e36f1-1bfd-4c04-8c61-1c2bc18beb8a",
+    "oracleId": "01becf76-aa53-4fd5-94c1-665c64674219",
+    "name": "Syndicate Heavy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syndicate Heavy",
+        "manaCost": "{2}{W/B}{W/B}",
+        "typeLine": "Creature — Giant Rogue",
+        "oracleText": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)\nAt the beginning of each end step, if you gained 4 or more life this turn, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "251e36f1-1bfd-4c04-8c61-1c2bc18beb8a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Investigate",
+      "Extort"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIFE_INSURANCE": {
+    "scryfallId": "60e1921e-6c98-4c60-88f4-8fbb6f30236e",
+    "oracleId": "50779f73-c538-4364-aca4-4ab069a00814",
+    "name": "Life Insurance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Life Insurance",
+        "manaCost": "{3}{W}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)\nWhenever a nontoken creature dies, you lose 1 life and create a Treasure token.",
+        "flavorText": "All the money in the world won't buy back a pulse.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "60e1921e-6c98-4c60-88f4-8fbb6f30236e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Extort",
+      "Treasure"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCBOUND_CONDOR": {
+    "scryfallId": "e7995b44-7932-4d28-9a4c-a32ba35c60d7",
+    "oracleId": "d484be42-5dd4-49e0-afcd-2d3c1a2c3037",
+    "name": "Arcbound Condor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcbound Condor",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Artifact Creature — Bird",
+        "oracleText": "Flying\nModular 3 (This creature enters with three +1/+1 counters on it. When it dies, you may put its +1/+1 counters on target artifact creature.)\nWhenever another artifact you control enters, target creature an opponent controls gets -1/-1 until end of turn.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "e7995b44-7932-4d28-9a4c-a32ba35c60d7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Modular"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

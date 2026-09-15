@@ -615,6 +615,11 @@ function withEntryCounters(
       if (baseDefense !== null && baseDefense > 0 && face.typeLine.types.includes('Battle')) {
         changes.push({ card: move.card, kind: 'defense', delta: baseDefense });
       }
+      // D440 - modular N (CR 702.43a): the creature enters with N +1/+1 counters, the number off the printed line.
+      if (face.keywords.includes('modular')) {
+        const n = Number(/\bmodular (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
+        if (n > 0) changes.push({ card: move.card, kind: '+1/+1', delta: n });
+      }
     }
   }
   if (changes.length === 0) return [...events];
@@ -1190,6 +1195,8 @@ export function collectTriggers(
             optional: kt.optional === true,
             specs: kt.targets ? kt.targets(ctx, id) : [],
             ...(item !== undefined ? { item } : {}),
+            // D440 - the entry's memo, read off the state it matched against (before, for a looks-back entry).
+            ...(kt.memo ? { memo: kt.memo(ctx, id, event.body) } : {}),
           });
         }
       }

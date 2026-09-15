@@ -7435,6 +7435,14 @@ export const ARCTIC_WOLVES: CardData = F.ARCTIC_WOLVES as CardData;
 export const BLOOD_TOLL_HARPY: CardData = F.BLOOD_TOLL_HARPY as CardData;
 export const SOULCAGE_FIEND: CardData = F.SOULCAGE_FIEND as CardData;
 export const SERVANT_OF_TYMARET: CardData = F.SERVANT_OF_TYMARET as CardData;
+export const SYNDIC_OF_TITHES: CardData = F.SYNDIC_OF_TITHES as CardData;
+export const ARCBOUND_WORKER: CardData = F.ARCBOUND_WORKER as CardData;
+export const ARCBOUND_BRUISER: CardData = F.ARCBOUND_BRUISER as CardData;
+export const SEWER_SHAMBLER: CardData = F.SEWER_SHAMBLER as CardData;
+export const DEADBRIDGE_GOLIATH: CardData = F.DEADBRIDGE_GOLIATH as CardData;
+export const SYNDICATE_HEAVY: CardData = F.SYNDICATE_HEAVY as CardData;
+export const LIFE_INSURANCE: CardData = F.LIFE_INSURANCE as CardData;
+export const ARCBOUND_CONDOR: CardData = F.ARCBOUND_CONDOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15020,6 +15028,14 @@ export const ENGINE_CARDS: CardData[] = [
   BLOOD_TOLL_HARPY,
   SOULCAGE_FIEND,
   SERVANT_OF_TYMARET,
+  SYNDIC_OF_TITHES,
+  ARCBOUND_WORKER,
+  ARCBOUND_BRUISER,
+  SEWER_SHAMBLER,
+  DEADBRIDGE_GOLIATH,
+  SYNDICATE_HEAVY,
+  LIFE_INSURANCE,
+  ARCBOUND_CONDOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

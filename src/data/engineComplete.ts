@@ -56,7 +56,8 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // D338 - and D361 added soulshift, afterlife and afflict, the three of the table's
 // part 2 that print a number. Rampage and modular are NOT here: neither is in the
 // table, so neither line is the engine's own.
-const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict']);
+// D440 - and modular, whose number is the entry counters (`withEntryCounters`) and whose trigger moves them.
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 
@@ -531,6 +532,9 @@ export function linesUnaccounted(
     // D311 - a Crew line the engine RUNS (the synthesized ability: the tap
     // chooser charged by power, the Vehicle animated natively).
     if (face.activated.some((a) => a.crew !== undefined && a.crew.line === line)) continue;
+    // D440 - a Scavenge line the engine RUNS (the synthesized ability: offered from the graveyard, the exile and
+    // the mana charged, the printed power's counters resolved natively).
+    if (face.activated.some((a) => a.scavenge !== undefined && a.scavenge.line === line)) continue;
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;

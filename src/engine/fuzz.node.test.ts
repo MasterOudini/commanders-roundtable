@@ -293,6 +293,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the price is payable (an unpayable one sacrifices without a question, D369).
   { names: ['Shivan Raptor', 'Illusionary Forces'], copiesPerSeat: 2,
     counterKeys: ['upkeepPricesFired'], rotHistory: 'D439' },
+  // D440 - extort (Syndic of Tithes - every spell the seat casts asks for {W/B}), modular (two Arcbound Workers - a
+  // dying one may move its counter to the other) and scavenge (Deadbridge Goliath - a graveyard activation the
+  // driver picks like any other); the trigger on the stack is the floor.
+  { names: ['Syndic of Tithes', 'Deadbridge Goliath'], copiesPerSeat: 1,
+    counterKeys: ['extortsFired'], rotHistory: 'D440' },
+  { names: ['Arcbound Worker'], copiesPerSeat: 2,
+    counterKeys: ['modularMoves'], rotHistory: 'D440' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1150,6 +1157,10 @@ interface Run {
   readonly spellXCasts: number;
   /** D439 - echo / cumulative upkeep triggers on the stack, the pay prompts they raised, the age counters put. */
   readonly upkeepPricesFired: number;
+  /** D440 - extort triggers on the stack, modular counters moved to a target, scavenge activations on the stack. */
+  readonly extortsFired: number;
+  readonly modularMoves: number;
+  readonly scavenges: number;
   readonly upkeepPricesAsked: number;
   readonly agesAdded: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
@@ -1533,6 +1544,9 @@ function runOne(seed: number): Run {
     graveyardAims: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /target [a-z ,]*card from (?:a|your|an opponent's) graveyard/i.test(e.body.obj.label) && e.body.obj.targets.some((t) => t.kind === 'card')).length,
     spellXCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.xValue ?? 0) > 0).length,
     upkeepPricesFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:(?:echo|cumulativeUpkeep)$/.test(e.body.obj.abilityRef ?? '')).length,
+    extortsFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:extort$/.test(e.body.obj.abilityRef ?? '')).length,
+    modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
+    scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
     upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
     agesAdded: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'age' && c.delta > 0)).length,
     playedFromExile:
@@ -1736,6 +1750,9 @@ const TOTAL_KEYS = [
   'graveyardAims',
   'spellXCasts',
   'upkeepPricesFired',
+  'extortsFired',
+  'modularMoves',
+  'scavenges',
   'upkeepPricesAsked',
   'agesAdded',
   'linkedExiles',
@@ -2067,6 +2084,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.spellXCasts).toBeGreaterThan(0);
         // D439 - an echo or a cumulative upkeep on the stack at gate size (Shivan Raptor, Illusionary Forces).
         expect(totals.upkeepPricesFired).toBeGreaterThan(0);
+        // D440 - an extort trigger on the stack at gate size (Syndic of Tithes).
+        expect(totals.extortsFired).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2169,6 +2188,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.graveyardAims} graveyard aims · ` +
           `${totals.spellXCasts} X spells cast for more than nothing · ` +
           `${totals.upkeepPricesFired} upkeep prices fired (${totals.upkeepPricesAsked} asked, ${totals.agesAdded} age counters) · ` +
+          `${totals.extortsFired} extorts fired · ${totals.modularMoves} modular moves · ${totals.scavenges} scavenges · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

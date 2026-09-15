@@ -367,6 +367,12 @@ export interface StackObject {
   /** D428 - the PLAYER the trigger's head named (the damaged player, the caster, the active player), for `that player`. */
   readonly player?: PlayerId;
   /**
+   * D440 - a NUMBER the head read off the state BEFORE its event, for a resolution that cannot read it any more: the
+   * +1/+1 counters a modular creature died with (cleared as it left the battlefield). Last known information for
+   * one keyword; absent on every other object, so every older log replays untouched.
+   */
+  readonly memo?: number;
+  /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *
    * ⚠️ **THE SPELL CARRIES IT, NOT THE CARD, AND THAT IS FORCED**: every zone
@@ -575,6 +581,8 @@ export interface PendingTrigger {
   readonly item?: InstanceId;
   /** D428 - the PLAYER the head named (`playerOf`), riding onto `StackObject.player`. Optional, replay-safe. */
   readonly player?: PlayerId;
+  /** D440 - a number the head read off the pre-event state (a modular creature's counters), riding onto `StackObject.memo`. */
+  readonly memo?: number;
   /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
   readonly delayed?: string;
   /**
