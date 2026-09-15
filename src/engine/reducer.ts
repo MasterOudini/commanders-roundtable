@@ -1033,6 +1033,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'CombatBegan':
       return { ...state, combat: { attackers: [], blockers: [], hasFirstStrikeSubstep: false } };
 
+    // D443 - the exert is in the log for the trigger bus and the narration; the untap it costs is
+    // `UntapSkipSet`'s, emitted beside it.
+    case 'Exerted':
+      return state;
+
     case 'AttackersDeclared':
       return {
         ...state,

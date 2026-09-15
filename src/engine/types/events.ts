@@ -475,6 +475,12 @@ export type EventBody =
       readonly t: 'AttackersDeclared';
       readonly attackers: readonly { readonly card: InstanceId; readonly defender: DefenderRef }[];
     }
+  /**
+   * D443 - CR 701.39: a creature EXERTED as it was declared an attacker. The untap it will miss is
+   * `UntapSkipSet` (D411's field is exert's memory); this is the event the card's own `When you do`
+   * trigger fires on (`TriggerDef.event: 'Exerted'`).
+   */
+  | { readonly t: 'Exerted'; readonly card: InstanceId; readonly player: PlayerId }
   | {
       readonly t: 'BlockersDeclared';
       readonly blocks: readonly { readonly blocker: InstanceId; readonly attacker: InstanceId }[];

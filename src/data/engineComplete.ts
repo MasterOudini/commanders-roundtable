@@ -48,7 +48,7 @@ function modesOf(d: object): readonly ModeDecl[] {
 }
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { protectionFullyRead } from '../engine/protection';
-import { parseFace, parseProtection, parseWard, parseWardLife, readUpkeepPrice } from './oracleParse';
+import { exertForm, parseFace, parseProtection, parseWard, parseWardLife, readUpkeepPrice } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 
@@ -145,16 +145,20 @@ const COMPLETE: Completeness = { complete: true, leftover: [] };
 export interface LineClaims {
   readonly sentences: ReadonlySet<string>;
   readonly activated: ReadonlySet<string>;
+  /** D443 - the script fires on `Exerted`: the bare `You may exert this creature as it attacks.` line is its. */
+  readonly exert: boolean;
 }
 
 export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, LineClaims> {
-  const out = new Map<string, { sentences: Set<string>; activated: Set<string> }>();
+  const out = new Map<string, { sentences: Set<string>; activated: Set<string>; exert: boolean }>();
   const entry = (oracleId: string) => {
-    const got = out.get(oracleId) ?? { sentences: new Set<string>(), activated: new Set<string>() };
+    const got = out.get(oracleId) ?? { sentences: new Set<string>(), activated: new Set<string>(), exert: false };
     out.set(oracleId, got);
     return got;
   };
   for (const s of scripts) {
+    // D443 - a trigger on `Exerted` makes the bare exert permission the engine's (`canExert` asks the same).
+    if ((s.triggers ?? []).some((t) => t.event === 'Exerted')) entry(s.oracleId).exert = true;
     const defs = [
       ...(s.triggers ?? []),
       ...(s.statics ?? []),
@@ -521,6 +525,9 @@ export function linesUnaccounted(
     // D442 - a printed maximum hand size the cleanup step READS (`maxHandSize`, CR 514.1). Asked of the
     // parser that set the field, never re-read here.
     if (face.handSize !== null && face.handSize.line === line) continue;
+    // D443 - the bare exert permission is the engine's when the script fires on exerts (the reflexive form is a
+    // trigger line the def claims by its text). Asked of the parser that set the flag.
+    if (face.exertsOnAttack && claims?.exert === true && exertForm(line, face.name.split(',')[0] ?? face.name) === 'bare') continue;
     // D304 - an Enchant line the engine RUNS (see `enchantLineRuns`).
     if (enchantLineRuns(line, face)) continue;
     // D305 - an Equip line the engine RUNS: `activatedParse` synthesized the

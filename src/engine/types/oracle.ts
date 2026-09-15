@@ -1712,6 +1712,12 @@ export interface OracleFace {
    * next turn`) or a chosen player is NOT read - it is a spell effect or a memory the engine lacks.
    */
   readonly handSize: HandSizeMod | null;
+  /**
+   * D443 - CR 701.39a: the card lets its controller exert it as it attacks - `You may exert this creature as
+   * it attacks.` alone (the payload on a `Whenever you exert a creature` line) or with `When you do, ...` on the
+   * same line (the reflexive trigger). Read by `canExert`, which also needs the script to fire on `Exerted`.
+   */
+  readonly exertsOnAttack: boolean;
 }
 
 /** D442 - see `OracleFace.handSize`. `none` is unlimited; `set` replaces the seven; `delta` adds to it. */

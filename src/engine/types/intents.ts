@@ -178,7 +178,8 @@ export type Intent =
   | {
       readonly t: 'DeclareAttackers';
       readonly player: PlayerId;
-      readonly attackers: readonly { readonly card: InstanceId; readonly defender: DefenderRef }[];
+      /** D443 - `exert: true` exerts the creature as it attacks (CR 701.39); legal only on a prompt-listed exertable one. */
+      readonly attackers: readonly { readonly card: InstanceId; readonly defender: DefenderRef; readonly exert?: boolean }[];
     }
   | {
       readonly t: 'DeclareBlockers';

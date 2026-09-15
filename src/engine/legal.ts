@@ -21,6 +21,7 @@ import type { ScriptRegistry } from './scripts/registry';
 import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb, OracleFace } from './types/oracle';
 import type { GameState } from './types/state';
+import type { ManaCost } from './types/mana';
 
 export type LegalAction =
   | {
@@ -43,6 +44,8 @@ export type LegalAction =
       readonly faceDown?: true;
       /** D403 - the face has a kicker the cast may announce (`CastSpell.kicked`), or a multikicker. */
       readonly kicker?: 'once' | 'many';
+      /** D443 - the kicked cast (base + one kick) is payable now; the fuzz driver kicks exactly when it is. */
+      readonly kickerAffordable?: boolean;
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -901,6 +904,10 @@ function castAction(
     label: face.name,
     // D403 - a kick is offered, not priced: the preview prices the count the player announces.
     ...(face.multikickerCost !== null ? { kicker: 'many' as const } : face.kickerCost !== null ? { kicker: 'once' as const } : {}),
+    // D443 - and whether one kick is payable beside the base, priced by the same solver.
+    ...(face.multikickerCost !== null || face.kickerCost !== null
+      ? { kickerAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), (face.multikickerCost ?? face.kickerCost) as ManaCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
+      : {}),
     // D405 - convoke / improvise / delve are offered, not priced: the preview prices what the player names.
     ...(face.convoke ? { convoke: true as const } : {}),
     ...(face.improvise ? { improvise: true as const } : {}),

@@ -25,6 +25,8 @@ type BlockPrompt = Extract<Awaiting, { kind: 'declareBlockers' }>;
 export interface Attack {
   readonly card: InstanceId;
   readonly defender: DefenderRef;
+  /** D443 - exert it as it attacks (CR 701.39): the prompt listed it, and a blocker stays home. */
+  readonly exert?: boolean;
 }
 export interface Block {
   readonly blocker: InstanceId;
@@ -283,9 +285,13 @@ export function chooseAttacks(view: PlayerView, prompt: AttackPrompt, me: Player
   // if able is in the declaration.
   const chosen = new Set(set.map((c) => c.instanceId));
   for (const id of prompt.required) chosen.add(id);
+  // D443 - EXERT (CR 701.39): the payload is the card's own upside this turn and the price is the next untap,
+  // so an exertable attacker is exerted whenever some creature of mine is NOT attacking - it can block while
+  // the exerted one stays tapped. A lone attacker keeps its untap.
+  const staysHome = candidates.some((c) => !chosen.has(c.instanceId));
   return [...chosen]
     .sort((a, b) => a.localeCompare(b))
-    .map((card) => ({ card, defender }));
+    .map((card) => (staysHome && prompt.exertable.includes(card) ? { card, defender, exert: true } : { card, defender }));
 }
 
 /**

@@ -8223,6 +8223,25 @@ const WANTED = [
   'Morska, Undersea Sleuth',
   'Trusted Advisor',
   // D442 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D443 - exert: the seam's own fixtures (the two plainest pumps).
+  'Khenra Scrapper',
+  'Hooded Brawler',
+  // D443 - exert: the rows the row maker reads once the exert head fires off the attack declaration.
+  'Glory-Bound Initiate',
+  'Anep, Vizier of Hazoret',
+  'Ahn-Crop Crasher',
+  'Rhet-Crop Spearmaster',
+  'Trueheart Twins',
+  'Gust Walker',
+  'Resolute Survivors',
+  'Nef-Crop Entangler',
+  'Tah-Crop Elite',
+  'Watchful Naga',
+  'Emberhorn Minotaur',
+  'Vizier of the True',
+  'Battlefield Scavenger',
+  'Bitterblade Warrior',
+  // D443 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

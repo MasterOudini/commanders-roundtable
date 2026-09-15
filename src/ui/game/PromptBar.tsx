@@ -831,7 +831,8 @@ export function PromptBar() {
                   send({
                     t: 'DeclareAttackers',
                     player: viewer,
-                    attackers: mode.chosen.map((a) => ({ card: a.card, defender: a.defender })),
+                    // D443 - the exert toggles ride the declaration (CR 701.39).
+                    attackers: mode.chosen.map((a) => (a.exert ? { card: a.card, defender: a.defender, exert: true } : { card: a.card, defender: a.defender })),
                   });
                   setMode({ kind: 'idle' });
                 }}
@@ -839,6 +840,30 @@ export function PromptBar() {
                 Attack with {mode.chosen.length}
               </button>
             )}
+            {/* D443 - EXERT: one toggle per chosen attacker the prompt lists as exertable (its script fires on the
+                exert). The bar names the card, because the veil shows only that it is attacking. */}
+            {mode.kind === 'attackers' &&
+              awaiting?.kind === 'declareAttackers' &&
+              mode.chosen
+                .filter((a) => awaiting.exertable.includes(a.card))
+                .map((a) => (
+                  <button
+                    key={a.card}
+                    type="button"
+                    className={a.exert ? BTN_SMALL : BTN_GHOST_SMALL}
+                    data-action="toggle-exert"
+                    data-instance-id={a.card}
+                    onClick={() =>
+                      setMode({
+                        ...mode,
+                        chosen: mode.chosen.map((c) => (c.card === a.card ? { ...c, exert: !c.exert } : c)),
+                      })
+                    }
+                  >
+                    {a.exert ? 'Exerting ' : 'Exert '}
+                    {view.cards[a.card]?.card?.name ?? 'it'}
+                  </button>
+                ))}
             <button
               type="button"
               className={BTN_GHOST}

@@ -52,7 +52,7 @@ import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
-import { abilityOfRef, activatedModesFor, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
+import { abilityOfRef, activatedModesFor, canExert, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
 import { modeChoiceProblem, modeSpecs, modesInOrder } from './modes';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
@@ -2588,6 +2588,11 @@ function declareAttackers(
       const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
       return reject('illegalAttacker', `${name} can't attack that defender.`);
     }
+    // D443 - an exert (CR 701.39) only where a script fires on it; recomputed, never read off the prompt.
+    if (a.exert === true && !canExert(cdeps, a.card)) {
+      const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
+      return reject('illegalAttacker', `${name} can't be exerted.`);
+    }
   }
   // D341 - "can't attack or block alone": the only attacker declared may not be one that needs company.
   const lone = intent.attackers.length === 1 ? intent.attackers[0] : undefined;
@@ -2607,7 +2612,7 @@ function declareAttackers(
   }
 
   const events: EventBody[] = [
-    { t: 'AttackersDeclared', attackers: intent.attackers },
+    { t: 'AttackersDeclared', attackers: intent.attackers.map((a) => ({ card: a.card, defender: a.defender })) },
     { t: 'AwaitingSet', awaiting: null },
   ];
   // CR 508.1f — attacking taps the creature unless it has vigilance.
@@ -2615,6 +2620,14 @@ function declareAttackers(
     .map((a) => a.card)
     .filter((id) => !derive(state, deps.oracle, deps.scripts, id, cache).keywords.has('vigilance'));
   if (toTap.length > 0) events.push({ t: 'PermanentsTapped', cards: toTap });
+  // D443 - CR 701.39: an exerted attacker won't untap during its controller's next untap step (D411's
+  // field), and its `When you do` fires on `Exerted`.
+  for (const a of intent.attackers) {
+    if (a.exert !== true) continue;
+    events.push({ t: 'UntapSkipSet', card: a.card, skip: true });
+    events.push({ t: 'Exerted', card: a.card, player: intent.player });
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'exerts', 'exert')} ${derive(state, deps.oracle, deps.scripts, a.card, cache).name}.`, intent.player));
+  }
   events.push(
     narrated(
       intent.attackers.length === 0

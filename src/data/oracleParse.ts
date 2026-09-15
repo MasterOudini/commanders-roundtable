@@ -1073,6 +1073,29 @@ function baseNumber(printed: string | null): number | null {
   return Number(trimmed);
 }
 
+/**
+ * D443 - `You may exert this creature as it attacks.` (CR 701.39a), bare or followed by `When you do, ...` on
+ * the same line; the short name stands for `this creature` on older printings (`You may exert Anep as it
+ * attacks`). Read per LINE.
+ */
+export function parseExertsOnAttack(oracleText: string, selfName: string): boolean {
+  if (!oracleText) return false;
+  return oracleText.split('\n').some((line) => exertForm(line, selfName) !== null);
+}
+
+/**
+ * D443 - which exert permission a line prints: `bare` (`You may exert this creature as it attacks.`, the payload
+ * on a `Whenever you exert a creature` line) or `reflexive` (`... When you do, ...`). A trailing reminder is
+ * allowed (the Amonkhet printings carry one). `null` for every other sentence.
+ */
+export function exertForm(line: string, selfName: string): 'bare' | 'reflexive' | null {
+  const name = selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const t = line.trim().replace(/ \([^)]*\)$/, '');
+  if (new RegExp('^You may exert (?:this creature|' + name + ') as it attacks\\.$').test(t)) return 'bare';
+  if (new RegExp('^You may exert (?:this creature|' + name + ') as it attacks\\. When you do, .+$').test(t)) return 'reflexive';
+  return null;
+}
+
 export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_WARN): OracleFace {
   const face = card.faces[faceIndex] ?? card.faces[0];
   if (!face) throw new Error(`card ${card.scryfallId} has no faces`);
@@ -1198,5 +1221,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
     // D442 - a permanent's printed maximum hand size (CR 402.2); the cleanup step reads it.
     handSize: isPermanent ? parseHandSize(face.oracleText) : null,
+    // D443 - the exert permission, either printed form, on a permanent.
+    exertsOnAttack: isPermanent && parseExertsOnAttack(face.oracleText, face.name.split(',')[0] ?? face.name),
   };
 }

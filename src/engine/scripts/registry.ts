@@ -7,6 +7,22 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { HOODED_BRAWLER_SCRIPT } from './cards/hoodedBrawler';
+import { KHENRA_SCRAPPER_SCRIPT } from './cards/khenraScrapper';
+import { GLORY_BOUND_INITIATE_SCRIPT } from './cards/gloryBoundInitiate';
+import { ANEP_VIZIER_OF_HAZORET_SCRIPT } from './cards/anepVizierOfHazoret';
+import { AHN_CROP_CRASHER_SCRIPT } from './cards/ahnCropCrasher';
+import { RHET_CROP_SPEARMASTER_SCRIPT } from './cards/rhetCropSpearmaster';
+import { TRUEHEART_TWINS_SCRIPT } from './cards/trueheartTwins';
+import { GUST_WALKER_SCRIPT } from './cards/gustWalker';
+import { RESOLUTE_SURVIVORS_SCRIPT } from './cards/resoluteSurvivors';
+import { NEF_CROP_ENTANGLER_SCRIPT } from './cards/nefCropEntangler';
+import { TAH_CROP_ELITE_SCRIPT } from './cards/tahCropElite';
+import { WATCHFUL_NAGA_SCRIPT } from './cards/watchfulNaga';
+import { EMBERHORN_MINOTAUR_SCRIPT } from './cards/emberhornMinotaur';
+import { VIZIER_OF_THE_TRUE_SCRIPT } from './cards/vizierOfTheTrue';
+import { BATTLEFIELD_SCAVENGER_SCRIPT } from './cards/battlefieldScavenger';
+import { BITTERBLADE_WARRIOR_SCRIPT } from './cards/bitterbladeWarrior';
 import { JIN_GITAXIAS_CORE_AUGUR_SCRIPT } from './cards/jinGitaxiasCoreAugur';
 import { TISHANA_VOICE_OF_THUNDER_SCRIPT } from './cards/tishanaVoiceOfThunder';
 import { ANVIL_OF_BOGARDAN_SCRIPT } from './cards/anvilOfBogardan';
@@ -6862,6 +6878,22 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HOODED_BRAWLER_SCRIPT,
+  KHENRA_SCRAPPER_SCRIPT,
+  GLORY_BOUND_INITIATE_SCRIPT,
+  ANEP_VIZIER_OF_HAZORET_SCRIPT,
+  AHN_CROP_CRASHER_SCRIPT,
+  RHET_CROP_SPEARMASTER_SCRIPT,
+  TRUEHEART_TWINS_SCRIPT,
+  GUST_WALKER_SCRIPT,
+  RESOLUTE_SURVIVORS_SCRIPT,
+  NEF_CROP_ENTANGLER_SCRIPT,
+  TAH_CROP_ELITE_SCRIPT,
+  WATCHFUL_NAGA_SCRIPT,
+  EMBERHORN_MINOTAUR_SCRIPT,
+  VIZIER_OF_THE_TRUE_SCRIPT,
+  BATTLEFIELD_SCAVENGER_SCRIPT,
+  BITTERBLADE_WARRIOR_SCRIPT,
   JIN_GITAXIAS_CORE_AUGUR_SCRIPT,
   TISHANA_VOICE_OF_THUNDER_SCRIPT,
   ANVIL_OF_BOGARDAN_SCRIPT,

@@ -13,7 +13,7 @@
 // two places the engine stops.
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
-import { derive, makeDeriveCache } from './derive';
+import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult } from './effects';
 import { keywordTargetSpecs, keywordTriggerDef } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
@@ -446,6 +446,8 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
               possible.filter((id) => legalDefenders(deps2, ap).some((dref) => canAttackDefender(deps2, id, dref))),
             ),
             defenders: legalDefenders(deps2, ap),
+            // D443 - the attackers a script lets the player exert (a trigger on `Exerted`), abilities intact.
+            exertable: possible.filter((id) => canExert(deps2, id)),
           },
         });
         return emitted(events);
@@ -523,6 +525,25 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
  * and having a client guess at it is what made an aim veil impossible for
  * blocks. `canBlock` reads DERIVED keywords, so no client can reproduce it.
  */
+/**
+ * D443 - CR 701.39: may this creature be exerted as it attacks? Only a permanent whose FACE prints the
+ * permission (`You may exert this creature as it attacks`, bare or with `When you do, ...`), whose SCRIPT
+ * fires on `Exerted` (the reflexive trigger, or the card's own `Whenever you exert a creature`), and that
+ * still has its abilities. The line alone is not enough: a card with the permission and no script would pay
+ * the untap for nothing (D90). One reader for the prompt and the handler.
+ */
+export function canExert(deps: { state: GameState; oracle: OracleDb; scripts: ScriptRegistry; cache: DeriveCache }, id: InstanceId): boolean {
+  const card = deps.state.cards[id];
+  if (!card) return false;
+  // The permission is PRINTED (CR 701.39a): a script that merely watches exerts (`Whenever you exert a
+  // creature`) on a creature without the line lets nothing be exerted.
+  const printing = deps.oracle.byPrinting(card.printingId);
+  if (!printing || !faceOf(printing, card.faceIndex).exertsOnAttack) return false;
+  const script = deps.scripts.get(card.oracleId);
+  if (!script || !(script.triggers ?? []).some((t) => t.event === 'Exerted')) return false;
+  return derive(deps.state, deps.oracle, deps.scripts, id, deps.cache).hasAbilities;
+}
+
 function blockPrompt(
   state: GameState,
   deps: EngineDeps,

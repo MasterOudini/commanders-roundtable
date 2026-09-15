@@ -650,6 +650,13 @@ export type Awaiting =
       /** D335 - CR 508.1d: the attackers a declaration must include (each attacks each combat if able). */
       readonly required: readonly InstanceId[];
       readonly defenders: readonly DefenderRef[];
+      /**
+       * D443 - CR 701.39: the attackers that MAY be exerted as they attack - those whose script carries a
+       * trigger on `Exerted` (`You may exert ~ as it attacks. When you do, ...`) and that still have their
+       * abilities. A card with the line and no script is not listed: exerting it would cost the untap and
+       * fire nothing (D90). Carried for the same reason `attackers` is: the registry is the host's.
+       */
+      readonly exertable: readonly InstanceId[];
     }
   /**
    * ⚠️ Carries the legal PAIRINGS for the same reason `declareAttackers` carries

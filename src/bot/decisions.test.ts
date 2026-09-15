@@ -78,6 +78,7 @@ const attackPrompt = (attackers: CardView[]): Awaiting =>
     attackers: attackers.map((c) => c.instanceId),
     required: [],
     defenders: [{ kind: 'player', id: FOE }],
+    exertable: [],
   }) as Awaiting;
 
 const blockPrompt = (pairs: { blocker: CardView; attackers: CardView[] }[]): Awaiting =>

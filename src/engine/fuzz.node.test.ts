@@ -166,8 +166,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // lands, which the core deals every seat) enters with a counter when kicked; the driver always
   // tries the kick. Goblin Bushwhacker ({R} + {R}) read ZERO kicked casts over 60 seeds: two red
   // sources at once are rare in a core with one basic of each colour, so it stays a plain deal.
+  // D443 - ROTTED to 0 kicked entries over 500 seeds (1 / 1, 2 / 0, 1 / 0 at the last three 60-seed reads) once two
+  // exert staples reshaped the pools - the third rot, so a MECHANISM (D180): the offer says whether the kick is
+  // payable (`kickerAffordable`) and the driver kicks exactly then, never on a coin. Copies unchanged.
   { names: ['Ardent Soldier'], copiesPerSeat: 2,
-    counterKeys: ['kickedCasts', 'kickedEntries'], rotHistory: 'D403' },
+    counterKeys: ['kickedCasts', 'kickedEntries'], rotHistory: 'D403, D443' },
+  // D443 - and a THREE-mana kicked permanent ({1}{W} + {B}): the driver's random land drops reach four mana rarely.
+  { names: ['Benalish Sleeper'], copiesPerSeat: 2,
+    counterKeys: ['kickedEntries'], rotHistory: 'D443' },
   // D404 - the board-granted cost reduction: a {2} artifact making the seat's white spells cheaper,
   // and the core deals white spells every seat (Swords, Pacifism, Wrath, the Angel), so a cast
   // priced below its printed generic is reached at gate size.
@@ -306,6 +312,15 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // 60 seeds with one copy); the driver reveals on its coin flip, and a hand with nothing to show taps silently.
   { names: ['Port Town'], copiesPerSeat: 3,
     counterKeys: ['revealsAsked'], rotHistory: 'D441' },
+  // D443 - exert: the three two-drops with a reflexive pump (one per colour the core deals), three a seat, and the
+  // driver exerts EVERY exertable attacker it declares - it rarely attacks (the gate's standing fact), so two
+  // copies on a coin flip read 5 exerts over 500 seeds and 0 over a 60-seed leg.
+  { names: ['Gust Walker'], copiesPerSeat: 3,
+    counterKeys: ['exerts'], rotHistory: 'D443' },
+  { names: ['Nef-Crop Entangler'], copiesPerSeat: 3,
+    counterKeys: ['exertTriggers'], rotHistory: 'D443' },
+  { names: ['Bitterblade Warrior'], copiesPerSeat: 3,
+    counterKeys: ['exerts'], rotHistory: 'D443' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -712,10 +727,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // Declare a random subset; the handler rejects anything illegal, which is
       // itself a thing worth exercising.
       const chosen = attackers.filter(() => p.below(2) === 0);
+      // D443 - every exertable attacker (the prompt lists them) is exerted: the attack itself is the rare event.
       return {
         t: 'DeclareAttackers',
         player: awaiting.player,
-        attackers: chosen.map((card) => ({ card, defender: { kind: 'player' as const, id: defender } })),
+        attackers: chosen.map((card) => (awaiting.exertable.includes(card) ? { card, defender: { kind: 'player' as const, id: defender }, exert: true } : { card, defender: { kind: 'player' as const, id: defender } })),
       };
     }
     case 'declareBlockers': {
@@ -954,7 +970,11 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
   const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'));
-  const chosen = p.pick(usable);
+  // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
+  // uniform pick over every usable action reached a kicked Ardent Soldier once in sixty seeds, and the kicked
+  // ENTRY canary rotted to 0 over 500. The plain branch stays the early turns' (the kick unaffordable).
+  const kickable = usable.filter((a) => a.t === 'CastSpell' && a.kicker !== undefined && a.kickerAffordable === true);
+  const chosen = kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -981,9 +1001,11 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
         const altPicks = verb === undefined || n === 0 ? {} : verb === 'sacrifice' ? { sacrifice: picked } : verb === 'discard' ? { discard: picked } : verb === 'tap' ? { tap: picked } : verb === 'exileFromGraveyard' ? { exileFromGraveyard: picked } : verb === 'returnToHand' ? { returnToHand: picked } : { exileFromHand: picked };
         return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.kicker ? { kicked: 1 } : {}), alternative: true, ...altPicks };
       }
-      // D423 - the kick is a coin flip: a plain cast is the other half of every kicker card (and the only cast the
-      // pool can pay early), so both branches of a kicked clause are fuel.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker && p.below(2) === 0 ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      // D423 - a plain cast is the other half of every kicker card (and the only cast the pool can pay early), so
+      // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
+      // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
+      // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker && chosen.kickerAffordable === true ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1180,6 +1202,9 @@ interface Run {
   /** D442 - cleanup discard prompts raised (CR 514.1), and cleanup steps repeated for an SBA or a trigger (CR 514.3a). */
   readonly cleanupDiscards: number;
   readonly cleanupRepeats: number;
+  /** D443 - creatures exerted as they attacked (CR 701.39), and the `When you do` triggers that put on the stack. */
+  readonly exerts: number;
+  readonly exertTriggers: number;
   readonly modularMoves: number;
   readonly scavenges: number;
   readonly upkeepPricesAsked: number;
@@ -1570,6 +1595,8 @@ function runOne(seed: number): Run {
     revealsShown: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.cards.length === 1 && e.body.to.length === game.state.seating.length).length,
     cleanupDiscards: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.label === 'Cleanup step').length,
     cleanupRepeats: game.log.filter((e) => e.body.t === 'CleanupRepeatSet' && e.body.value === true).length,
+    exerts: game.log.filter((e) => e.body.t === 'Exerted').length,
+    exertTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:exertAttack|youExertCreature)-\d+$/.test(e.body.obj.abilityRef ?? '')).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
     upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
@@ -1780,6 +1807,8 @@ const TOTAL_KEYS = [
   'revealsShown',
   'cleanupDiscards',
   'cleanupRepeats',
+  'exerts',
+  'exertTriggers',
   'modularMoves',
   'scavenges',
   'upkeepPricesAsked',
@@ -2119,6 +2148,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.revealsAsked).toBeGreaterThan(0);
         // D442 - the cleanup discard asked at gate size (a hand above seven at the end of a turn).
         expect(totals.cleanupDiscards).toBeGreaterThan(0);
+        // D443 - a creature exerted at gate size (Khenra Scrapper, a staple).
+        expect(totals.exerts).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2224,6 +2255,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.extortsFired} extorts fired · ${totals.modularMoves} modular moves · ${totals.scavenges} scavenges · ` +
           `${totals.revealsAsked} reveal lands asked (${totals.revealsShown} shown) · ` +
           `${totals.cleanupDiscards} cleanup discards asked (${totals.cleanupRepeats} cleanup steps repeated) · ` +
+          `${totals.exerts} exerts (${totals.exertTriggers} exert triggers on the stack) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +
