@@ -254145,6 +254145,349 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GNARLBARK_ELM": {
+    "scryfallId": "1e9d65b6-22ff-49f2-8b2a-aeaef91088d3",
+    "oracleId": "a848ea46-347d-49c7-85c8-023cf836d0b3",
+    "name": "Gnarlbark Elm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnarlbark Elm",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Treefolk Warlock",
+        "oracleText": "This creature enters with two -1/-1 counters on it.\n{2}{B}, Remove two counters from this creature: Target creature gets -2/-2 until end of turn. Activate only as a sorcery.",
+        "flavorText": "It greedily drinks boggart curses and returns their pain in kind.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "1e9d65b6-22ff-49f2-8b2a-aeaef91088d3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WICKERBOUGH_ELDER": {
+    "scryfallId": "3a5832cc-f9f6-4881-99dd-c0728a52cabe",
+    "oracleId": "3d794629-9014-460a-8d3b-785eadc1cdb5",
+    "name": "Wickerbough Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wickerbough Elder",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Treefolk Shaman",
+        "oracleText": "This creature enters with a -1/-1 counter on it.\n{G}, Remove a -1/-1 counter from this creature: Destroy target artifact or enchantment.",
+        "flavorText": "\"Living scarecrows make a mockery of the natural order. Dead ones make fine hats.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "3a5832cc-f9f6-4881-99dd-c0728a52cabe"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ncc",
+    "collectorNumber": "320",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIM_POPPET": {
+    "scryfallId": "3bac9d9c-6685-465b-8933-dd6164569f4d",
+    "oracleId": "43e0dbaf-3c81-47e2-b0c2-364f7ac7295f",
+    "name": "Grim Poppet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grim Poppet",
+        "manaCost": "{7}",
+        "typeLine": "Artifact Creature — Scarecrow",
+        "oracleText": "This creature enters with three -1/-1 counters on it.\nRemove a -1/-1 counter from this creature: Put a -1/-1 counter on another target creature.",
+        "flavorText": "Beware a scarecrow bearing gifts—especially sloshing vessels of acid.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kev Walker",
+        "imageId": "3bac9d9c-6685-465b-8933-dd6164569f4d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAMBLEBACK_BRUTE": {
+    "scryfallId": "5ebb8365-c6e1-46e8-a242-6aa27b21e68a",
+    "oracleId": "eb25920a-3162-4838-b092-09cbd43332fd",
+    "name": "Brambleback Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brambleback Brute",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "This creature enters with two -1/-1 counters on it.\n{1}{R}, Remove a counter from this creature: Target creature can't block this turn. Activate only as a sorcery.",
+        "flavorText": "Her tangled cape grew with every village razed.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "5ebb8365-c6e1-46e8-a242-6aa27b21e68a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEITY_OF_SCARS": {
+    "scryfallId": "7efc2cc8-2445-4d64-b1c5-26483efbcc30",
+    "oracleId": "bf7c1fa8-0460-4be5-b00d-72c0960c4149",
+    "name": "Deity of Scars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deity of Scars",
+        "manaCost": "{B/G}{B/G}{B/G}{B/G}{B/G}",
+        "typeLine": "Creature — Spirit Avatar",
+        "oracleText": "Trample\nThis creature enters with two -1/-1 counters on it.\n{B/G}, Remove a -1/-1 counter from this creature: Regenerate this creature.",
+        "flavorText": "\"His skin cuts swords.\"\n—*The Seer's Parables*",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "7efc2cc8-2445-4d64-b1c5-26483efbcc30"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Regenerate",
+      "Trample"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REAPING_WILLOW": {
+    "scryfallId": "97c33cc2-3573-410a-908b-c0392fff524b",
+    "oracleId": "ce60402c-34cd-44fe-ae1d-4a5404298f5b",
+    "name": "Reaping Willow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reaping Willow",
+        "manaCost": "{1}{W/B}{W/B}{W/B}",
+        "typeLine": "Creature — Treefolk Cleric",
+        "oracleText": "Lifelink\nThis creature enters with two -1/-1 counters on it.\n{1}{W/B}, Remove two counters from this creature: Return target creature card with mana value 3 or less from your graveyard to the battlefield. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Igor Krstic",
+        "imageId": "97c33cc2-3573-410a-908b-c0392fff524b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "240",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOVEL_HURLER": {
+    "scryfallId": "adc6a4c5-4e92-43ee-8d0c-204042965eb7",
+    "oracleId": "fb9cd9d0-8eea-4aa8-bb9c-bb0aac847421",
+    "name": "Hovel Hurler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hovel Hurler",
+        "manaCost": "{3}{R/W}{R/W}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "This creature enters with two -1/-1 counters on it.\n{R/W}{R/W}, Remove a counter from this creature: Another target creature you control gets +1/+0 and gains flying until end of turn. Activate only as a sorcery.",
+        "flavorText": "Giants love two things: sleeping, and getting rid of things that wake them up.",
+        "power": "6",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "adc6a4c5-4e92-43ee-8d0c-204042965eb7"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODIED_GHOST": {
+    "scryfallId": "b019b49a-7f9e-4d51-a46c-26bd3de1a7c4",
+    "oracleId": "1195de01-f0ee-42c1-8e9e-a4bb90dd4932",
+    "name": "Bloodied Ghost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodied Ghost",
+        "manaCost": "{1}{W/B}{W/B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nThis creature enters with a -1/-1 counter on it.",
+        "flavorText": "\"Only a knife left for a fortnight in the hollow of a ghastbark tree can inflict a wound so grave.\"\n—Kithkin superstition",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Mike Dringenberg",
+        "imageId": "b019b49a-7f9e-4d51-a46c-26bd3de1a7c4"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "EVE-83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETCHED_MONSTROSITY": {
+    "scryfallId": "f6be7947-b929-408d-ad67-3b07b93dd36e",
+    "oracleId": "d0dd582a-ac35-4a46-beca-6304fdd2d358",
+    "name": "Etched Monstrosity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Etched Monstrosity",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Phyrexian Golem",
+        "oracleText": "This creature enters with five -1/-1 counters on it.\n{W}{U}{B}{R}{G}, Remove five -1/-1 counters from this creature: Target player draws three cards.",
+        "flavorText": "Now etched only with the scars of phyresis.",
+        "power": "10",
+        "toughness": "10",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steven Belledin",
+        "imageId": "f6be7947-b929-408d-ad67-3b07b93dd36e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOONLIT_LAMENTER": {
+    "scryfallId": "fb8fc509-cff6-470f-abf6-b07f6c3f94e1",
+    "oracleId": "ce009bd4-5ffb-46a4-a9dd-b9c060926467",
+    "name": "Moonlit Lamenter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moonlit Lamenter",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Treefolk Cleric",
+        "oracleText": "This creature enters with a -1/-1 counter on it.\n{1}{W}, Remove a counter from this creature: Draw a card. Activate only as a sorcery.",
+        "flavorText": "Isilu's adherents mourn the dead, purging grief through keening rituals.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "fb8fc509-cff6-470f-abf6-b07f6c3f94e1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

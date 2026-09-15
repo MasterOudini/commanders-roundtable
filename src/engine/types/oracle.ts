@@ -1436,8 +1436,15 @@ export interface ActivatedAbility {
    * shape D319 shipped and every existing row still uses.
    *
    * ⚠️ THE KIND IS NEVER A CHOICE. `CounterKind` is +1/+1 and -1/-1 and nothing
-   * else (D130), so "Remove A COUNTER" - any kind - stays unpaid: the engine
-   * cannot enumerate what it cannot represent.
+   * else (D130), so the CHOOSER names its kind - a pick over the board must say
+   * what it takes.
+   *
+   * D447 - AND THE SELF FORM MAY NAME NONE. "Remove a counter from this creature"
+   * is `kind: null`: the two kinds the engine represents annihilate in pairs as a
+   * state-based action (CR 704.5q), so a permanent carries ONE kind whenever a
+   * player has priority and the price is still deterministic - the engine takes
+   * the kind the permanent carries (`handlers.ts` drains the kinds present in a
+   * fixed order, which only matters in a state no player ever acts in).
    *
    * ⚠️ REPETITION IS LEGAL where the sacrifice chooser forbids it. "Remove two
    * +1/+1 counters from AMONG creatures you control" may take both from one
@@ -1445,7 +1452,8 @@ export interface ActivatedAbility {
    * times must carry k counters.
    */
   readonly removeCounterCost: {
-    readonly kind: string;
+    /** D447 - `null` is a counter of ANY kind (the self form alone; the chooser always names one). */
+    readonly kind: string | null;
     readonly count: number;
     /** D363 - the permanents the picks may name; `null` is this permanent alone. */
     readonly from: readonly PermanentPredicate[] | null;

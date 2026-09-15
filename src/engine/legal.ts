@@ -582,7 +582,8 @@ export function legalActions(
         ...(returnCandidates && ability.returnCost
           ? { returnCandidates, returnCount: ability.returnCost.count }
           : {}),
-        ...(removeCounterCandidates && ability.removeCounterCost?.from
+        // D447 - the chooser always names its kind (`kind: null` is the self form alone).
+        ...(removeCounterCandidates && ability.removeCounterCost?.from && ability.removeCounterCost.kind !== null
           ? {
               removeCounterCandidates,
               removeCounterCount: ability.removeCounterCost.count,
@@ -803,22 +804,34 @@ export function removeCounterCandidatesFor(
 ): readonly InstanceId[] {
   if (cost.from === null) {
     const self = state.cards[selfId];
-    return self && (self.counters[cost.kind] ?? 0) >= cost.count ? [selfId] : [];
+    return self && countersOfKind(self.counters, cost.kind) >= cost.count ? [selfId] : [];
   }
   const out: InstanceId[] = [];
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
-    if ((inst.counters[cost.kind] ?? 0) <= 0) continue;
+    if (countersOfKind(inst.counters, cost.kind) <= 0) continue;
     if (predicateHit(cost.from, deriveOf(id))) out.push(id);
   }
   return out;
 }
 
 /** D363 - how many counters of that kind the candidates carry between them. */
-export function removeCounterSupply(state: GameState, candidates: readonly InstanceId[], kind: string): number {
+export function removeCounterSupply(state: GameState, candidates: readonly InstanceId[], kind: string | null): number {
   let n = 0;
-  for (const id of candidates) n += state.cards[id]?.counters[kind] ?? 0;
+  for (const id of candidates) n += countersOfKind(state.cards[id]?.counters ?? {}, kind);
+  return n;
+}
+
+/**
+ * D447 - the counters a permanent carries of a kind, or of EVERY kind when the cost names
+ * none ("Remove a counter from this creature"). One kind at a time in practice: +1/+1 and
+ * -1/-1 annihilate in pairs (CR 704.5q) before any player can activate.
+ */
+export function countersOfKind(counters: Readonly<Record<string, number>>, kind: string | null): number {
+  if (kind !== null) return counters[kind] ?? 0;
+  let n = 0;
+  for (const v of Object.values(counters)) n += v;
   return n;
 }
 

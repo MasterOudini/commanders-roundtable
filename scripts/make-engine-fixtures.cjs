@@ -8293,6 +8293,18 @@ const WANTED = [
   'Hexgold Halberd',
   'Feisty Spikeling',
   // D446 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D447 - the -1/-1 entry counters: the rows the row maker reads once the entry-counter kind is read.
+  'Gnarlbark Elm',
+  'Wickerbough Elder',
+  'Grim Poppet',
+  'Brambleback Brute',
+  'Deity of Scars',
+  'Reaping Willow',
+  'Hovel Hurler',
+  'Bloodied Ghost',
+  'Etched Monstrosity',
+  'Moonlit Lamenter',
+  // D447 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

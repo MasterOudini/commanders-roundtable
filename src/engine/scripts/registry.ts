@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GNARLBARK_ELM_SCRIPT } from './cards/gnarlbarkElm';
+import { BURDENED_STONEBACK_SCRIPT } from './cards/burdenedStoneback';
+import { WICKERBOUGH_ELDER_SCRIPT } from './cards/wickerboughElder';
+import { GRIM_POPPET_SCRIPT } from './cards/grimPoppet';
+import { BRAMBLEBACK_BRUTE_SCRIPT } from './cards/bramblebackBrute';
+import { DEITY_OF_SCARS_SCRIPT } from './cards/deityOfScars';
+import { REAPING_WILLOW_SCRIPT } from './cards/reapingWillow';
+import { HOVEL_HURLER_SCRIPT } from './cards/hovelHurler';
+import { BLOODIED_GHOST_SCRIPT } from './cards/bloodiedGhost';
+import { ETCHED_MONSTROSITY_SCRIPT } from './cards/etchedMonstrosity';
+import { MOONLIT_LAMENTER_SCRIPT } from './cards/moonlitLamenter';
 import { BLOOD_BURGLAR_SCRIPT } from './cards/bloodBurglar';
 import { JOUSTING_LANCE_SCRIPT } from './cards/joustingLance';
 import { JAVELIN_OF_LIGHTNING_SCRIPT } from './cards/javelinOfLightning';
@@ -6911,6 +6922,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GNARLBARK_ELM_SCRIPT,
+  BURDENED_STONEBACK_SCRIPT,
+  WICKERBOUGH_ELDER_SCRIPT,
+  GRIM_POPPET_SCRIPT,
+  BRAMBLEBACK_BRUTE_SCRIPT,
+  DEITY_OF_SCARS_SCRIPT,
+  REAPING_WILLOW_SCRIPT,
+  HOVEL_HURLER_SCRIPT,
+  BLOODIED_GHOST_SCRIPT,
+  ETCHED_MONSTROSITY_SCRIPT,
+  MOONLIT_LAMENTER_SCRIPT,
   BLOOD_BURGLAR_SCRIPT,
   JOUSTING_LANCE_SCRIPT,
   JAVELIN_OF_LIGHTNING_SCRIPT,

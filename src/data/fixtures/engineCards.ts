@@ -7524,6 +7524,16 @@ export const FAITHFUL_PIKEMASTER: CardData = F.FAITHFUL_PIKEMASTER as CardData;
 export const NULL_GROUP_BIOLOGICAL_ASSETS: CardData = F.NULL_GROUP_BIOLOGICAL_ASSETS as CardData;
 export const HEXGOLD_HALBERD: CardData = F.HEXGOLD_HALBERD as CardData;
 export const FEISTY_SPIKELING: CardData = F.FEISTY_SPIKELING as CardData;
+export const GNARLBARK_ELM: CardData = F.GNARLBARK_ELM as CardData;
+export const WICKERBOUGH_ELDER: CardData = F.WICKERBOUGH_ELDER as CardData;
+export const GRIM_POPPET: CardData = F.GRIM_POPPET as CardData;
+export const BRAMBLEBACK_BRUTE: CardData = F.BRAMBLEBACK_BRUTE as CardData;
+export const DEITY_OF_SCARS: CardData = F.DEITY_OF_SCARS as CardData;
+export const REAPING_WILLOW: CardData = F.REAPING_WILLOW as CardData;
+export const HOVEL_HURLER: CardData = F.HOVEL_HURLER as CardData;
+export const BLOODIED_GHOST: CardData = F.BLOODIED_GHOST as CardData;
+export const ETCHED_MONSTROSITY: CardData = F.ETCHED_MONSTROSITY as CardData;
+export const MOONLIT_LAMENTER: CardData = F.MOONLIT_LAMENTER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15201,6 +15211,16 @@ export const ENGINE_CARDS: CardData[] = [
   NULL_GROUP_BIOLOGICAL_ASSETS,
   HEXGOLD_HALBERD,
   FEISTY_SPIKELING,
+  GNARLBARK_ELM,
+  WICKERBOUGH_ELDER,
+  GRIM_POPPET,
+  BRAMBLEBACK_BRUTE,
+  DEITY_OF_SCARS,
+  REAPING_WILLOW,
+  HOVEL_HURLER,
+  BLOODIED_GHOST,
+  ETCHED_MONSTROSITY,
+  MOONLIT_LAMENTER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

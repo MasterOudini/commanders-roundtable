@@ -835,6 +835,18 @@ export function parseActivatedAbilities(
           continue;
         }
       }
+      // D447 - "Remove a counter from this creature" / "Remove two counters from this creature": no kind
+      // named, SELF only. Deterministic all the same - +1/+1 and -1/-1 annihilate in pairs (CR 704.5q), so
+      // the permanent carries one kind whenever the ability can be activated, and `kind: null` says "the
+      // kind it carries". The chooser form ("from a creature you control") still needs a kind to pick by.
+      const rca = new RegExp('^remove (a|an|one|two|three|four|five) counters? from (?:this [a-z]+' + selfAlt + ')$', 'i').exec(part.trim());
+      if (rca && removeCounterCost === null) {
+        const count = COUNT_WORDS[(rca[1] ?? '').toLowerCase()] ?? 0;
+        if (count > 0) {
+          removeCounterCost = { kind: null, count, from: null };
+          continue;
+        }
+      }
       // D363 - THE CHOOSER HALF: "Remove a +1/+1 counter from a creature you
       // control" / "Remove two +1/+1 counters from among creatures you control".
       // ⚠️ Anchored at both ends and read through `predicatesOf`, the same grammar

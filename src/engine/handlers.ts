@@ -26,6 +26,7 @@ import {
   sacrificeCandidatesFor,
   tapCandidatesFor,
   removeCounterCandidatesFor,
+  countersOfKind,
   returnCandidatesFor,
   castCostCandidates,
   exileFromHandCandidates,
@@ -1316,7 +1317,8 @@ function activateAbility(
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     if (ability.removeCounterCost.from === null) {
-      if ((card.counters[ability.removeCounterCost.kind] ?? 0) < ability.removeCounterCost.count) {
+      // D447 - `kind: null` counts every kind (one is ever carried at priority, CR 704.5q).
+      if (countersOfKind(card.counters, ability.removeCounterCost.kind) < ability.removeCounterCost.count) {
         return reject('notCastable', `${face.name} does not have the counters its "${ability.costText}" cost removes.`);
       }
     } else {
@@ -1341,7 +1343,7 @@ function activateAbility(
       const rcNeed = new Map<InstanceId, number>();
       for (const pick of picks) rcNeed.set(pick, (rcNeed.get(pick) ?? 0) + 1);
       for (const [pick, n] of rcNeed) {
-        if (!rcLegal.has(pick) || (state.cards[pick]?.counters[rcKind] ?? 0) < n) {
+        if (!rcLegal.has(pick) || countersOfKind(state.cards[pick]?.counters ?? {}, rcKind) < n) {
           return reject('illegalRemoveCounter', `Those counters cannot pay ${face.name}'s "${ability.costText}" cost.`);
         }
       }
@@ -2192,14 +2194,32 @@ function finishAbility(
     if (ability.removeCounterCost.from === null) need.set(pending.card, count);
     else for (const pick of pending.removeCounter ?? []) need.set(pick, (need.get(pick) ?? 0) + 1);
     for (const [pick, n] of need) {
-      if ((state.cards[pick]?.counters[kind] ?? 0) < n) {
+      if (countersOfKind(state.cards[pick]?.counters ?? {}, kind) < n) {
         return reject('notCastable', `${face.name} no longer has the counters its "${ability.costText}" cost removes.`);
       }
     }
-    events.push({ t: 'CountersChanged', changes: [...need].map(([pick, n]) => ({ card: pick, kind, delta: -n })) });
+    // D447 - a cost that names no kind takes the kind the permanent carries: the kinds present are
+    // drained in a fixed (sorted) order, which only matters in a state no player ever acts in.
+    const changes: { card: InstanceId; kind: string; delta: number }[] = [];
+    for (const [pick, n] of need) {
+      if (kind !== null) {
+        changes.push({ card: pick, kind, delta: -n });
+        continue;
+      }
+      let left = n;
+      const carried = state.cards[pick]?.counters ?? {};
+      for (const k of Object.keys(carried).sort()) {
+        const take = Math.min(left, carried[k] ?? 0);
+        if (take <= 0) continue;
+        changes.push({ card: pick, kind: k, delta: -take });
+        left -= take;
+        if (left === 0) break;
+      }
+    }
+    events.push({ t: 'CountersChanged', changes });
     events.push(
       narrated(
-        n`${who(state, pending.player)} ${vb(pending.player, 'removes', 'remove')} ${count} ${kind} counter${count === 1 ? '' : 's'} from ${face.name}.`,
+        n`${who(state, pending.player)} ${vb(pending.player, 'removes', 'remove')} ${count}${kind === null ? '' : ' ' + kind} counter${count === 1 ? '' : 's'} from ${face.name}.`,
         pending.player,
         identity,
       ),

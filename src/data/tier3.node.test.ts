@@ -481,12 +481,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 13364,
+  abilityText: 13353,
   payable: 3696,
   manaPart: 353,
-  either: 15675,
-  eitherAnyFace: 15697,
-  wasSilent: 14467,
+  either: 15664,
+  eitherAnyFace: 15686,
+  wasSilent: 14466,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -501,8 +501,8 @@ const MEASURED: Record<string, number> = {
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
   wasSilentAnyFace: 14375,
-  silentBefore: 25343,
-  silentAfter: 10876,
+  silentBefore: 25353,
+  silentAfter: 10887,
   residual: 154,
   residualKeyword: 154,
   residualManaLine: 0,
