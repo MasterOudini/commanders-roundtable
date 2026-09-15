@@ -360,6 +360,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           hasLost: false,
           lossReason: null,
           drewFromEmptyLibrary: false,
+          lastUpkeepTurn: null,
           mulligan: { taken: 0, kept: false, toBottom: 0 },
           stops: state.players[p.id]?.stops ?? DEFAULT_STOPS,
           connected: true,
@@ -839,8 +840,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
 
-    case 'StepEnded':
-      return { ...state, priority: { ...state.priority, passedSinceLastAction: [], player: null } };
+    case 'StepEnded': {
+      // D439 - the active player's upkeep is complete: echo reads this field at the NEXT upkeep's beginning.
+      const stepped = body.step === 'upkeep' ? withPlayer(state, state.turn.activePlayer, { lastUpkeepTurn: state.turn.turnNumber }) : state;
+      return { ...stepped, priority: { ...stepped.priority, passedSinceLastAction: [], player: null } };
+    }
 
     case 'TurnBasedActionsDone':
       return { ...state, turn: { ...state.turn, turnBasedActionsDone: true } };

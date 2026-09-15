@@ -294,6 +294,38 @@ export function isPermanentType(t: ParsedTypeLine): boolean {
  * so this is exact for single-faced cards (where it is also a no-op) and
  * correct in every double-faced case checked against the bulk data.
  */
+/**
+ * D439 - THE UPKEEP PRICES. The printed price of an echo or a cumulative upkeep line - `Echo {1}{R}`,
+ * `Cumulative upkeep {U}`, `Cumulative upkeep—Pay 1 life.`, `Cumulative upkeep—Pay {B} and 1 life.` - or null when
+ * the engine cannot ask for it (`Echo—Discard a card.`, `Cumulative upkeep—Sacrifice a creature.`, `{W} or {U}`,
+ * `{S}`, `Add {R}`). THE ONE READER: `parseKeywords` gates the keyword on it, `engineComplete` accounts the line
+ * by it, `tier3` notes by it, and the keyword trigger prices the prompt by it - so a price the engine cannot
+ * charge is never claimed anywhere.
+ */
+export interface UpkeepPrice {
+  readonly mana: string | null;
+  readonly life: number;
+  readonly text: string;
+}
+const UPKEEP_PRICE_RE = {
+  echo: /^Echo(?:[—-]| )\s*(.+?)\s*(?:\(.*\))?$/m,
+  cumulativeUpkeep: /^Cumulative upkeep(?:[—-]| )\s*(.+?)\s*(?:\(.*\))?$/m,
+} as const;
+const UPKEEP_MANA_RE = /^(?:\{[^}]+\})+$/;
+const UPKEEP_MANA_REFUSED = /\{[XS]\}/;
+export function readUpkeepPrice(oracleText: string, keyword: 'echo' | 'cumulativeUpkeep'): UpkeepPrice | null {
+  const m = UPKEEP_PRICE_RE[keyword].exec(oracleText);
+  if (!m) return null;
+  const raw = (m[1] ?? '').trim();
+  if (UPKEEP_MANA_RE.test(raw) && !UPKEEP_MANA_REFUSED.test(raw) && parseManaCost(raw) !== null) return { mana: raw, life: 0, text: raw };
+  const life = /^Pay (\d+) life\.$/i.exec(raw);
+  if (life) return { mana: null, life: Number(life[1]), text: raw };
+  const both = /^Pay ((?:\{[^}]+\})+) and (\d+) life\.$/i.exec(raw);
+  const bothMana = both?.[1] ?? '';
+  if (both && !UPKEEP_MANA_REFUSED.test(bothMana) && parseManaCost(bothMana) !== null) return { mana: bothMana, life: Number(both[2]), text: raw };
+  return null;
+}
+
 export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NOOP_WARN): Keyword[] {
   const face = card.faces[faceIndex];
   const multiFace = card.faces.length > 1;
@@ -302,6 +334,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
   for (const raw of card.keywords) {
     const kw = canonicalKeyword(raw);
     if (!kw) continue;
+    // D439 - a PRICED keyword is the engine's only when its printed price is one the engine asks for.
+    if ((kw === 'echo' || kw === 'cumulativeUpkeep') && readUpkeepPrice(face?.oracleText ?? '', kw) === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;

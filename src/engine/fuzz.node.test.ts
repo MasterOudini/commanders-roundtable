@@ -288,6 +288,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // reads the casts announced for more than nothing.
   { names: ['Blaze'], copiesPerSeat: 2,
     counterKeys: ['spellXCasts'], rotHistory: 'D437' },
+  // D439 - the upkeep prices: Shivan Raptor (echo {1}{R}) and Illusionary Forces (cumulative upkeep {U}), two a
+  // seat; the trigger fires at the next upkeep of anything the driver cast, and the prompt is raised only while
+  // the price is payable (an unpayable one sacrifices without a question, D369).
+  { names: ['Shivan Raptor', 'Illusionary Forces'], copiesPerSeat: 2,
+    counterKeys: ['upkeepPricesFired'], rotHistory: 'D439' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1143,6 +1148,10 @@ interface Run {
   readonly graveyardAims: number;
   /** D437 - spells cast with an announced X above zero (the vocabulary scales their X clauses by it). */
   readonly spellXCasts: number;
+  /** D439 - echo / cumulative upkeep triggers on the stack, the pay prompts they raised, the age counters put. */
+  readonly upkeepPricesFired: number;
+  readonly upkeepPricesAsked: number;
+  readonly agesAdded: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
   readonly linkedExiles: number;
   readonly linkedReturns: number;
@@ -1523,6 +1532,9 @@ function runOne(seed: number): Run {
     ifYouDoFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /\. If you do, (?:discard|draw) /.test(e.body.obj.label)).length,
     graveyardAims: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /target [a-z ,]*card from (?:a|your|an opponent's) graveyard/i.test(e.body.obj.label) && e.body.obj.targets.some((t) => t.kind === 'card')).length,
     spellXCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.xValue ?? 0) > 0).length,
+    upkeepPricesFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:(?:echo|cumulativeUpkeep)$/.test(e.body.obj.abilityRef ?? '')).length,
+    upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
+    agesAdded: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'age' && c.delta > 0)).length,
     playedFromExile:
       game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile').length +
       game.log.filter((e, i) => {
@@ -1723,6 +1735,9 @@ const TOTAL_KEYS = [
   'ifYouDoFires',
   'graveyardAims',
   'spellXCasts',
+  'upkeepPricesFired',
+  'upkeepPricesAsked',
+  'agesAdded',
   'linkedExiles',
   'linkedReturns',
   'convokedCasts',
@@ -2050,6 +2065,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.graveyardAims).toBeGreaterThan(0);
         // D437 - an X spell cast for more than nothing at gate size (Blaze).
         expect(totals.spellXCasts).toBeGreaterThan(0);
+        // D439 - an echo or a cumulative upkeep on the stack at gate size (Shivan Raptor, Illusionary Forces).
+        expect(totals.upkeepPricesFired).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2151,6 +2168,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.ifYouDoFires} if-you-do fires · ` +
           `${totals.graveyardAims} graveyard aims · ` +
           `${totals.spellXCasts} X spells cast for more than nothing · ` +
+          `${totals.upkeepPricesFired} upkeep prices fired (${totals.upkeepPricesAsked} asked, ${totals.agesAdded} age counters) · ` +
           `${totals.animations} permanents animated · ` +
           `${totals.fights} fights / ${totals.bites} bites · ` +
           `${totals.preventionShields} prevention shields put up (${totals.damagePrevented} damage prevented; ${totals.scopedShields} scoped, ${totals.scopedPrevented} stopped by them) · ` +

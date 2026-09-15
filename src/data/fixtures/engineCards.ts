@@ -7382,6 +7382,59 @@ export const SELESNYA_SAGITTARS: CardData = F.SELESNYA_SAGITTARS as CardData;
 export const TROLL_OF_KHAZAD_D_M: CardData = F.TROLL_OF_KHAZAD_D_M as CardData;
 export const IRONFIST_CRUSHER: CardData = F.IRONFIST_CRUSHER as CardData;
 export const GHASTBARK_TWINS: CardData = F.GHASTBARK_TWINS as CardData;
+export const SHIVAN_RAPTOR: CardData = F.SHIVAN_RAPTOR as CardData;
+export const ILLUSIONARY_FORCES: CardData = F.ILLUSIONARY_FORCES as CardData;
+export const GALLOWBRAID: CardData = F.GALLOWBRAID as CardData;
+export const DEEPCAVERN_IMP: CardData = F.DEEPCAVERN_IMP as CardData;
+export const BRAID_OF_FIRE: CardData = F.BRAID_OF_FIRE as CardData;
+export const URZA_S_BLUEPRINTS: CardData = F.URZA_S_BLUEPRINTS as CardData;
+export const GHITU_SLINGER: CardData = F.GHITU_SLINGER as CardData;
+export const KOKUSHO_THE_EVENING_STAR: CardData = F.KOKUSHO_THE_EVENING_STAR as CardData;
+export const AVALANCHE_RIDERS: CardData = F.AVALANCHE_RIDERS as CardData;
+export const RING_OF_GIX: CardData = F.RING_OF_GIX as CardData;
+export const STORMFIST_CRUSADER: CardData = F.STORMFIST_CRUSADER as CardData;
+export const ALBINO_TROLL: CardData = F.ALBINO_TROLL as CardData;
+export const BONE_SHREDDER: CardData = F.BONE_SHREDDER as CardData;
+export const MYSTIC_REMORA: CardData = F.MYSTIC_REMORA as CardData;
+export const KARMIC_GUIDE: CardData = F.KARMIC_GUIDE as CardData;
+export const TICKING_GNOMES: CardData = F.TICKING_GNOMES as CardData;
+export const HAMMERHEIM_DEADEYE: CardData = F.HAMMERHEIM_DEADEYE as CardData;
+export const ARNJLOT_S_ASCENT: CardData = F.ARNJLOT_S_ASCENT as CardData;
+export const CAUSTIC_HOUND: CardData = F.CAUSTIC_HOUND as CardData;
+export const KELDON_CHAMPION: CardData = F.KELDON_CHAMPION as CardData;
+export const EXTRUDER: CardData = F.EXTRUDER as CardData;
+export const STINGSCOURGER: CardData = F.STINGSCOURGER as CardData;
+export const LIGHTNING_DRAGON: CardData = F.LIGHTNING_DRAGON as CardData;
+export const SHEPHERD_OF_ROT: CardData = F.SHEPHERD_OF_ROT as CardData;
+export const HENCHFIEND_OF_UKOR: CardData = F.HENCHFIEND_OF_UKOR as CardData;
+export const TORMENTED_HERO: CardData = F.TORMENTED_HERO as CardData;
+export const SPITEFLAME_WITCH: CardData = F.SPITEFLAME_WITCH as CardData;
+export const MAGGOT_CARRIER: CardData = F.MAGGOT_CARRIER as CardData;
+export const MULTANI_S_ACOLYTE: CardData = F.MULTANI_S_ACOLYTE as CardData;
+export const KELDON_VANDALS: CardData = F.KELDON_VANDALS as CardData;
+export const SUBVERSION: CardData = F.SUBVERSION as CardData;
+export const SHROUDSTOMPER: CardData = F.SHROUDSTOMPER as CardData;
+export const ORCISH_HELLRAISER: CardData = F.ORCISH_HELLRAISER as CardData;
+export const THRAN_WAR_MACHINE: CardData = F.THRAN_WAR_MACHINE as CardData;
+export const DERANGED_HERMIT: CardData = F.DERANGED_HERMIT as CardData;
+export const DEATHCURSE_OGRE: CardData = F.DEATHCURSE_OGRE as CardData;
+export const SAURON_THE_LIDLESS_EYE: CardData = F.SAURON_THE_LIDLESS_EYE as CardData;
+export const RABID_BLOODSUCKER: CardData = F.RABID_BLOODSUCKER as CardData;
+export const LOCTHWAIN_LANCER: CardData = F.LOCTHWAIN_LANCER as CardData;
+export const AGENT_OF_MASKS: CardData = F.AGENT_OF_MASKS as CardData;
+export const RADIANT_S_DRAGOONS: CardData = F.RADIANT_S_DRAGOONS as CardData;
+export const RAVEN_FAMILIAR: CardData = F.RAVEN_FAMILIAR as CardData;
+export const MESMERIC_TRANCE: CardData = F.MESMERIC_TRANCE as CardData;
+export const SCHOLAR_OF_ATHREOS: CardData = F.SCHOLAR_OF_ATHREOS as CardData;
+export const HOWLING_BANSHEE: CardData = F.HOWLING_BANSHEE as CardData;
+export const TECTONIC_FIEND: CardData = F.TECTONIC_FIEND as CardData;
+export const BASALT_GARGOYLE: CardData = F.BASALT_GARGOYLE as CardData;
+export const SOLDEVI_SIMULACRUM: CardData = F.SOLDEVI_SIMULACRUM as CardData;
+export const SKIRSDAG_SUPPLICANT: CardData = F.SKIRSDAG_SUPPLICANT as CardData;
+export const ARCTIC_WOLVES: CardData = F.ARCTIC_WOLVES as CardData;
+export const BLOOD_TOLL_HARPY: CardData = F.BLOOD_TOLL_HARPY as CardData;
+export const SOULCAGE_FIEND: CardData = F.SOULCAGE_FIEND as CardData;
+export const SERVANT_OF_TYMARET: CardData = F.SERVANT_OF_TYMARET as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -14914,6 +14967,59 @@ export const ENGINE_CARDS: CardData[] = [
   TROLL_OF_KHAZAD_D_M,
   IRONFIST_CRUSHER,
   GHASTBARK_TWINS,
+  SHIVAN_RAPTOR,
+  ILLUSIONARY_FORCES,
+  GALLOWBRAID,
+  DEEPCAVERN_IMP,
+  BRAID_OF_FIRE,
+  URZA_S_BLUEPRINTS,
+  GHITU_SLINGER,
+  KOKUSHO_THE_EVENING_STAR,
+  AVALANCHE_RIDERS,
+  RING_OF_GIX,
+  STORMFIST_CRUSADER,
+  ALBINO_TROLL,
+  BONE_SHREDDER,
+  MYSTIC_REMORA,
+  KARMIC_GUIDE,
+  TICKING_GNOMES,
+  HAMMERHEIM_DEADEYE,
+  ARNJLOT_S_ASCENT,
+  CAUSTIC_HOUND,
+  KELDON_CHAMPION,
+  EXTRUDER,
+  STINGSCOURGER,
+  LIGHTNING_DRAGON,
+  SHEPHERD_OF_ROT,
+  HENCHFIEND_OF_UKOR,
+  TORMENTED_HERO,
+  SPITEFLAME_WITCH,
+  MAGGOT_CARRIER,
+  MULTANI_S_ACOLYTE,
+  KELDON_VANDALS,
+  SUBVERSION,
+  SHROUDSTOMPER,
+  ORCISH_HELLRAISER,
+  THRAN_WAR_MACHINE,
+  DERANGED_HERMIT,
+  DEATHCURSE_OGRE,
+  SAURON_THE_LIDLESS_EYE,
+  RABID_BLOODSUCKER,
+  LOCTHWAIN_LANCER,
+  AGENT_OF_MASKS,
+  RADIANT_S_DRAGOONS,
+  RAVEN_FAMILIAR,
+  MESMERIC_TRANCE,
+  SCHOLAR_OF_ATHREOS,
+  HOWLING_BANSHEE,
+  TECTONIC_FIEND,
+  BASALT_GARGOYLE,
+  SOLDEVI_SIMULACRUM,
+  SKIRSDAG_SUPPLICANT,
+  ARCTIC_WOLVES,
+  BLOOD_TOLL_HARPY,
+  SOULCAGE_FIEND,
+  SERVANT_OF_TYMARET,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

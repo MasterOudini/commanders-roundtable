@@ -48,7 +48,7 @@ function modesOf(d: object): readonly ModeDecl[] {
 }
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
 import { protectionFullyRead } from '../engine/protection';
-import { parseFace, parseProtection, parseWard, parseWardLife } from './oracleParse';
+import { parseFace, parseProtection, parseWard, parseWardLife, readUpkeepPrice } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
 import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 
@@ -246,6 +246,12 @@ function clauseAccounted(raw: string, face: OracleFace): boolean {
   // shape: a regex over oracle text "finds 'flying' inside 'Whenever a creature
   // with flying attacks…' and grants it to the wrong card."
   //
+  // D439 - a PRICED keyword (echo, cumulative upkeep) is its keyword and its price - `Echo {1}{R}`, `Cumulative
+  // upkeep—Pay 1 life.` - accounted when `parseKeywords` granted the keyword, which it does only for a price the
+  // engine asks for (`readUpkeepPrice`, the one reader). Before the period guard: a life price prints one.
+  const pricedKw = /^echo\b/i.test(s) ? 'echo' : /^cumulative upkeep\b/i.test(s) ? 'cumulativeUpkeep' : null;
+  if (pricedKw !== null) return readUpkeepPrice(raw.trim(), pricedKw) !== null && face.keywords.includes(pricedKw);
+
   // A printed keyword clause never contains a period, a semicolon or a colon.
   // Anything that does is a sentence or an ability line, and the branches below
   // — four of which locate their clause by prefix — must not see it.

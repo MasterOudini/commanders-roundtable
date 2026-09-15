@@ -931,6 +931,18 @@ export function effectResult(
       }
 
       case 'loseLife': {
+        // D439 - the scoped loss: every member of the player scope in APNAP order (D434's mill shape), and the
+        // drain rider hands the caster the sum (`lifeChanged` keeps the batch's ledger, so a caster inside the
+        // scope loses and gains on one running total).
+        if (effect.scopes && effect.scopes.length > 0) {
+          let lost = 0;
+          for (const p of apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players)) {
+            out.push(lifeChanged(p, -effect.amount));
+            lost += effect.amount;
+          }
+          if (effect.gainLost && lost > 0) out.push(lifeChanged(controller, lost));
+          break;
+        }
         // D295: `self` is the controller ("You lose 3 life."); otherwise the aimed player.
         const who = effect.self ? controller : aim?.kind === 'player' ? aim.id : null;
         if (!who) break;

@@ -1174,6 +1174,22 @@ const RULES: readonly Rule[] = [
     },
   },
   /**
+   * D439 - `Each player loses 2 life.` / `Each opponent loses 1 life.` - THE SCOPED LIFE LOSS, D434's mill shape one
+   * verb over: every member of the player scope, APNAP. `You gain life equal to the life lost this way.` beside it
+   * (Kokusho, Gray Merchant's shape without the count) is the same clause with the sum handed back (`gainLost`).
+   */
+  {
+    kind: 'loseLife',
+    re: new RegExp(`^each (player|opponent) loses (${NUM}) life\\.( you gain life equal to the life lost this way\\.)?$`, 'i'),
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null) return null;
+      const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
+      const gainLost = (m[3] ?? '') !== '';
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }], ...(gainLost ? { gainLost: true } : {}) };
+    },
+  },
+  /**
    * D295. `Hideous End` - "Destroy target nonblack creature. Its controller
    * loses 2 life." and `Countersquall` - "Counter target noncreature spell.
    * Its controller loses 2 life." The aim is the FIRST target (the sentence

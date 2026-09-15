@@ -13,6 +13,8 @@
 // the derive does not carry, and a granted bushido with no number is 1.
 
 import { parseTargetClauses } from '../data/targetParse';
+import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
+import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
@@ -409,7 +411,63 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Ke
       },
     },
   ],
+  [
+    'echo',
+    {
+      // D439 - CR 702.30a: at the beginning of your upkeep, if this permanent came under your control since the
+      // beginning of your last upkeep, sacrifice it unless you pay its echo cost. The memory is the controller's
+      // `lastUpkeepTurn` (their previous COMPLETED upkeep, `PlayerState`) against the card's `summonedOnTurn`:
+      // it entered, or changed control, on or after that turn. A player's first upkeep echoes everything.
+      event: 'StepBegan',
+      matches: (ctx, self, ev) => {
+        if (ev.t !== 'StepBegan' || ev.step !== 'upkeep') return false;
+        const me = ctx.query.controllerOf(self);
+        if (ctx.state.turn.activePlayer !== me) return false;
+        const since = ctx.state.cards[self]?.summonedOnTurn ?? null;
+        const last = ctx.state.players[me]?.lastUpkeepTurn ?? null;
+        return since !== null && (last === null || since >= last);
+      },
+      label: (ctx, self) => `${nameOf(ctx, self)} - echo ${upkeepPriceOf(ctx, self, 'echo')?.text ?? ''}`.trim(),
+      resolve: (ctx, self, obj) => upkeepPrompt(ctx, self, obj, upkeepPriceOf(ctx, self, 'echo'), 1),
+    },
+  ],
+  [
+    'cumulativeUpkeep',
+    {
+      // D439 - CR 702.24a: at the beginning of your upkeep, put an age counter on this permanent, then sacrifice
+      // it unless you pay its upkeep cost for each age counter on it. The counter lands first (an event of this
+      // resolution); the price is the printed one times the counters it then carries.
+      event: 'StepBegan',
+      matches: (ctx, self, ev) => ev.t === 'StepBegan' && ev.step === 'upkeep' && ctx.state.turn.activePlayer === ctx.query.controllerOf(self),
+      label: (ctx, self) => `${nameOf(ctx, self)} - cumulative upkeep ${upkeepPriceOf(ctx, self, 'cumulativeUpkeep')?.text ?? ''}`.trim(),
+      resolve: (ctx, self, obj) => {
+        if (ctx.state.cards[self]?.zone.kind !== 'battlefield') return [];
+        const ages = (ctx.state.cards[self]?.counters['age'] ?? 0) + 1;
+        return [{ t: 'CountersChanged', changes: [{ card: self, kind: 'age', delta: 1 }] }, ...upkeepPrompt(ctx, self, obj, upkeepPriceOf(ctx, self, 'cumulativeUpkeep'), ages)];
+      },
+    },
+  ],
 ]);
+
+/** D439 - the printed echo / cumulative upkeep price of one permanent, read at resolution (the one reader). */
+function upkeepPriceOf(ctx: ScriptCtx, id: InstanceId, keyword: 'echo' | 'cumulativeUpkeep'): UpkeepPrice | null {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? readUpkeepPrice(faceOf(printing, card.faceIndex).oracleText, keyword) : null;
+}
+/**
+ * D439 - `sacrifice it unless you pay <price>`, the price taken `times` over: the vocabulary's own pay prompt
+ * (D369 - a price the player cannot pay is no question, the permanent goes), so the prompt, the bot's answer, the
+ * driver's coin flip and the client's dialog are the ones every `unless you pay` row already has. No printed
+ * price (a keyword granted with none - nothing ships one) asks nothing and takes nothing.
+ */
+function upkeepPrompt(ctx: ScriptCtx, self: InstanceId, obj: StackObject, price: UpkeepPrice | null, times: number): readonly EventBody[] {
+  if (price === null || ctx.state.cards[self]?.zone.kind !== 'battlefield') return [];
+  const mana = price.mana === null ? '' : price.mana.repeat(times);
+  const life = price.life * times;
+  const priceText = mana !== '' && life > 0 ? `${mana} and ${life} life` : mana !== '' ? mana : `${life} life`;
+  return ctx.vocabulary(obj, vocabularyEffects(`Sacrifice this permanent unless you pay ${priceText}.`, nameOf(ctx, self)), []);
+}
 
 function evolveEntrants(ctx: ScriptCtx, self: InstanceId, ev: EventBody): InstanceId[] {
   if (ev.t !== 'CardsMoved') return [];

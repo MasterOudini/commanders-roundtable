@@ -35,7 +35,7 @@
 
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
-import { parseAltCosts, parseFlashback, parseKicker, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseTypeLine } from './oracleParse';
+import { parseAltCosts, parseFlashback, parseKicker, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseTypeLine, readUpkeepPrice } from './oracleParse';
 import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
@@ -346,7 +346,12 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   }
 
   for (const raw of card.keywords) {
-    if (canonicalKeyword(raw) !== null) continue;
+    const canon = canonicalKeyword(raw);
+    // D439 - a priced keyword is the engine's only for a price it asks for (`readUpkeepPrice`, the one reader);
+    // an echo of `Discard a card` keeps its note.
+    if (canon === 'echo' || canon === 'cumulativeUpkeep') {
+      if (readUpkeepPrice(card.faces[faceIndex]?.oracleText ?? '', canon) !== null) continue;
+    } else if (canon !== null) continue;
     // D304 - an Aura's Enchant is the engine's own when its spec is enforced
     // (the cast aims by it, CR 704.5m keeps it): the same predicate the
     // accounting asks, so an accepted card carries no note here.

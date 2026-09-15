@@ -58,6 +58,9 @@ const CANON: Readonly<Record<string, Keyword>> = {
   training: 'training',
   afflict: 'afflict',
   ingest: 'ingest',
+  // D439 - the upkeep prices (Scryfall spells both as the bare keyword; the price is in the printed text).
+  echo: 'echo',
+  'cumulative upkeep': 'cumulativeUpkeep',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

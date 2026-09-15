@@ -167,6 +167,13 @@ export interface PlayerState {
   readonly lossReason: LossReason | null;
   /** Set by a draw from an empty library; the SBA reads it on the NEXT pass. */
   readonly drewFromEmptyLibrary: boolean;
+  /**
+   * D439 - the turn number of this player's most recent COMPLETED upkeep (set as the step ends), null before the
+   * first. Echo asks whether a permanent came under its controller's control since the beginning of their LAST
+   * upkeep: at this upkeep's beginning the field still names the previous one, and `summonedOnTurn >= it` is the
+   * question (a permanent that entered during that upkeep, after its beginning, echoes - CR 702.30a).
+   */
+  readonly lastUpkeepTurn: number | null;
   readonly mulligan: MulliganState;
   readonly stops: StopPolicy;
   readonly connected: boolean;

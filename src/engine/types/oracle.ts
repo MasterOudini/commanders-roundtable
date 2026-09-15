@@ -76,6 +76,12 @@ export const TIER2_KEYWORDS = [
   'training',
   'afflict',
   'ingest',
+  // D439 - THE UPKEEP PRICES: two keywords that ARE upkeep triggers with a price the engine asks for (the same
+  // table): echo (CR 702.30) and cumulative upkeep (CR 702.24). ⚠️ GATED on the printed price - `parseKeywords`
+  // grants the keyword only when `readUpkeepPrice` reads it (a mana cost, `Pay N life.`, or both); an echo of
+  // `Discard a card` or a cumulative upkeep of `Sacrifice a creature` stays a leftover line.
+  'echo',
+  'cumulativeUpkeep',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -1071,6 +1077,11 @@ export interface EffectSpec {
    * resolution). Absent on every other discard.
    */
   readonly ifDrew?: number;
+  /**
+   * D439 - `Each opponent loses N life. You gain life equal to the life lost this way.` (a scoped `loseLife`): the
+   * caster gains what the scope's members lost, summed at resolution. Absent on every other loss.
+   */
+  readonly gainLost?: boolean;
   /**
    * Which of the spell's targets this clause applies to — an index into
    * `StackObject.targets`. -1 means "no target", e.g. `Draw three cards`.

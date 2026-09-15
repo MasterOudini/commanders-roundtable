@@ -7,6 +7,54 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { URZAS_BLUEPRINTS_SCRIPT } from './cards/urzasBlueprints';
+import { GHITU_SLINGER_SCRIPT } from './cards/ghituSlinger';
+import { KOKUSHO_THE_EVENING_STAR_SCRIPT } from './cards/kokushoTheEveningStar';
+import { AVALANCHE_RIDERS_SCRIPT } from './cards/avalancheRiders';
+import { RING_OF_GIX_SCRIPT } from './cards/ringOfGix';
+import { STORMFIST_CRUSADER_SCRIPT } from './cards/stormfistCrusader';
+import { ALBINO_TROLL_SCRIPT } from './cards/albinoTroll';
+import { BONE_SHREDDER_SCRIPT } from './cards/boneShredder';
+import { MYSTIC_REMORA_SCRIPT } from './cards/mysticRemora';
+import { KARMIC_GUIDE_SCRIPT } from './cards/karmicGuide';
+import { TICKING_GNOMES_SCRIPT } from './cards/tickingGnomes';
+import { HAMMERHEIM_DEADEYE_SCRIPT } from './cards/hammerheimDeadeye';
+import { ARNJLOTS_ASCENT_SCRIPT } from './cards/arnjlotsAscent';
+import { CAUSTIC_HOUND_SCRIPT } from './cards/causticHound';
+import { KELDON_CHAMPION_SCRIPT } from './cards/keldonChampion';
+import { EXTRUDER_SCRIPT } from './cards/extruder';
+import { STINGSCOURGER_SCRIPT } from './cards/stingscourger';
+import { LIGHTNING_DRAGON_SCRIPT } from './cards/lightningDragon';
+import { SHEPHERD_OF_ROT_SCRIPT } from './cards/shepherdOfRot';
+import { HENCHFIEND_OF_UKOR_SCRIPT } from './cards/henchfiendOfUkor';
+import { TORMENTED_HERO_SCRIPT } from './cards/tormentedHero';
+import { SPITEFLAME_WITCH_SCRIPT } from './cards/spiteflameWitch';
+import { MAGGOT_CARRIER_SCRIPT } from './cards/maggotCarrier';
+import { MULTANIS_ACOLYTE_SCRIPT } from './cards/multanisAcolyte';
+import { KELDON_VANDALS_SCRIPT } from './cards/keldonVandals';
+import { SUBVERSION_SCRIPT } from './cards/subversion';
+import { SHROUDSTOMPER_SCRIPT } from './cards/shroudstomper';
+import { ORCISH_HELLRAISER_SCRIPT } from './cards/orcishHellraiser';
+import { THRAN_WAR_MACHINE_SCRIPT } from './cards/thranWarMachine';
+import { DERANGED_HERMIT_SCRIPT } from './cards/derangedHermit';
+import { DEATHCURSE_OGRE_SCRIPT } from './cards/deathcurseOgre';
+import { SAURON_THE_LIDLESS_EYE_SCRIPT } from './cards/sauronTheLidlessEye';
+import { RABID_BLOODSUCKER_SCRIPT } from './cards/rabidBloodsucker';
+import { LOCTHWAIN_LANCER_SCRIPT } from './cards/locthwainLancer';
+import { AGENT_OF_MASKS_SCRIPT } from './cards/agentOfMasks';
+import { RADIANTS_DRAGOONS_SCRIPT } from './cards/radiantsDragoons';
+import { RAVEN_FAMILIAR_SCRIPT } from './cards/ravenFamiliar';
+import { MESMERIC_TRANCE_SCRIPT } from './cards/mesmericTrance';
+import { SCHOLAR_OF_ATHREOS_SCRIPT } from './cards/scholarOfAthreos';
+import { HOWLING_BANSHEE_SCRIPT } from './cards/howlingBanshee';
+import { TECTONIC_FIEND_SCRIPT } from './cards/tectonicFiend';
+import { BASALT_GARGOYLE_SCRIPT } from './cards/basaltGargoyle';
+import { SOLDEVI_SIMULACRUM_SCRIPT } from './cards/soldeviSimulacrum';
+import { SKIRSDAG_SUPPLICANT_SCRIPT } from './cards/skirsdagSupplicant';
+import { ARCTIC_WOLVES_SCRIPT } from './cards/arcticWolves';
+import { BLOOD_TOLL_HARPY_SCRIPT } from './cards/bloodTollHarpy';
+import { SOULCAGE_FIEND_SCRIPT } from './cards/soulcageFiend';
+import { SERVANT_OF_TYMARET_SCRIPT } from './cards/servantOfTymaret';
 import { FORIYSIAN_BRIGADE_SCRIPT } from './cards/foriysianBrigade';
 import { TWO_HEADED_DRAGON_SCRIPT } from './cards/twoHeadedDragon';
 import { PHYREXIAN_COLOSSUS_SCRIPT } from './cards/phyrexianColossus';
@@ -5983,7 +6031,6 @@ import { GREY_HAVENS_NAVIGATOR_SCRIPT } from './cards/greyHavensNavigator';
 import { GRIPTIDE_SCRIPT } from './cards/griptide';
 import { GROUND_ASSAULT_SCRIPT } from './cards/groundAssault';
 import { GROWTH_CYCLE_SCRIPT } from './cards/growthCycle';
-import { GRUESOME_FATE_SCRIPT } from './cards/gruesomeFate';
 import { GUAN_YUS_MARCH_SCRIPT } from './cards/guanYusMarch';
 import { GUARDIAN_OF_SOLITUDE_SCRIPT } from './cards/guardianOfSolitude';
 import { HAIL_STORM_SCRIPT } from './cards/hailStorm';
@@ -6134,7 +6181,6 @@ import { CRUEL_BARGAIN_SCRIPT } from './cards/cruelBargain';
 import { CRUEL_TRUTHS_SCRIPT } from './cards/cruelTruths';
 import { CRUEL_WITNESS_SCRIPT } from './cards/cruelWitness';
 import { CRUMBLE_SCRIPT } from './cards/crumble';
-import { CRUSHING_DISAPPOINTMENT_SCRIPT } from './cards/crushingDisappointment';
 import { CRYPT_INCURSION_SCRIPT } from './cards/cryptIncursion';
 import { CRYSTAL_BALL_SCRIPT } from './cards/crystalBall';
 import { CULLING_SUN_SCRIPT } from './cards/cullingSun';
@@ -6196,7 +6242,6 @@ import { BLESSED_WIND_SCRIPT } from './cards/blessedWind';
 import { BLINDING_LIGHT_SCRIPT } from './cards/blindingLight';
 import { BLOOD_LUST_SCRIPT } from './cards/bloodLust';
 import { BLOOD_MIST_SCRIPT } from './cards/bloodMist';
-import { BLOOD_TITHE_SCRIPT } from './cards/bloodTithe';
 import { BLOODLUST_INCITER_SCRIPT } from './cards/bloodlustInciter';
 import { BLOODTHORN_TAUNTER_SCRIPT } from './cards/bloodthornTaunter';
 import { BLOSSOMING_WREATH_SCRIPT } from './cards/blossomingWreath';
@@ -6799,6 +6844,54 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  URZAS_BLUEPRINTS_SCRIPT,
+  GHITU_SLINGER_SCRIPT,
+  KOKUSHO_THE_EVENING_STAR_SCRIPT,
+  AVALANCHE_RIDERS_SCRIPT,
+  RING_OF_GIX_SCRIPT,
+  STORMFIST_CRUSADER_SCRIPT,
+  ALBINO_TROLL_SCRIPT,
+  BONE_SHREDDER_SCRIPT,
+  MYSTIC_REMORA_SCRIPT,
+  KARMIC_GUIDE_SCRIPT,
+  TICKING_GNOMES_SCRIPT,
+  HAMMERHEIM_DEADEYE_SCRIPT,
+  ARNJLOTS_ASCENT_SCRIPT,
+  CAUSTIC_HOUND_SCRIPT,
+  KELDON_CHAMPION_SCRIPT,
+  EXTRUDER_SCRIPT,
+  STINGSCOURGER_SCRIPT,
+  LIGHTNING_DRAGON_SCRIPT,
+  SHEPHERD_OF_ROT_SCRIPT,
+  HENCHFIEND_OF_UKOR_SCRIPT,
+  TORMENTED_HERO_SCRIPT,
+  SPITEFLAME_WITCH_SCRIPT,
+  MAGGOT_CARRIER_SCRIPT,
+  MULTANIS_ACOLYTE_SCRIPT,
+  KELDON_VANDALS_SCRIPT,
+  SUBVERSION_SCRIPT,
+  SHROUDSTOMPER_SCRIPT,
+  ORCISH_HELLRAISER_SCRIPT,
+  THRAN_WAR_MACHINE_SCRIPT,
+  DERANGED_HERMIT_SCRIPT,
+  DEATHCURSE_OGRE_SCRIPT,
+  SAURON_THE_LIDLESS_EYE_SCRIPT,
+  RABID_BLOODSUCKER_SCRIPT,
+  LOCTHWAIN_LANCER_SCRIPT,
+  AGENT_OF_MASKS_SCRIPT,
+  RADIANTS_DRAGOONS_SCRIPT,
+  RAVEN_FAMILIAR_SCRIPT,
+  MESMERIC_TRANCE_SCRIPT,
+  SCHOLAR_OF_ATHREOS_SCRIPT,
+  HOWLING_BANSHEE_SCRIPT,
+  TECTONIC_FIEND_SCRIPT,
+  BASALT_GARGOYLE_SCRIPT,
+  SOLDEVI_SIMULACRUM_SCRIPT,
+  SKIRSDAG_SUPPLICANT_SCRIPT,
+  ARCTIC_WOLVES_SCRIPT,
+  BLOOD_TOLL_HARPY_SCRIPT,
+  SOULCAGE_FIEND_SCRIPT,
+  SERVANT_OF_TYMARET_SCRIPT,
   FORIYSIAN_BRIGADE_SCRIPT,
   TWO_HEADED_DRAGON_SCRIPT,
   PHYREXIAN_COLOSSUS_SCRIPT,
@@ -12774,7 +12867,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   GRIPTIDE_SCRIPT,
   GROUND_ASSAULT_SCRIPT,
   GROWTH_CYCLE_SCRIPT,
-  GRUESOME_FATE_SCRIPT,
   GUAN_YUS_MARCH_SCRIPT,
   GUARDIAN_OF_SOLITUDE_SCRIPT,
   HAIL_STORM_SCRIPT,
@@ -12925,7 +13017,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   CRUEL_TRUTHS_SCRIPT,
   CRUEL_WITNESS_SCRIPT,
   CRUMBLE_SCRIPT,
-  CRUSHING_DISAPPOINTMENT_SCRIPT,
   CRYPT_INCURSION_SCRIPT,
   CRYSTAL_BALL_SCRIPT,
   CULLING_SUN_SCRIPT,
@@ -12987,7 +13078,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   BLINDING_LIGHT_SCRIPT,
   BLOOD_LUST_SCRIPT,
   BLOOD_MIST_SCRIPT,
-  BLOOD_TITHE_SCRIPT,
   BLOODLUST_INCITER_SCRIPT,
   BLOODTHORN_TAUNTER_SCRIPT,
   BLOSSOMING_WREATH_SCRIPT,

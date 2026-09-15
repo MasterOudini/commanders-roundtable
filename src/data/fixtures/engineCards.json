@@ -249222,6 +249222,1844 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SHIVAN_RAPTOR": {
+    "scryfallId": "03909585-77ee-45b4-9ded-cb3540afa07a",
+    "oracleId": "bc01d36b-dea3-47d4-afdf-0dbbba7ca7b2",
+    "name": "Shivan Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shivan Raptor",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "First strike, haste\nEcho {2}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bob Eggleton",
+        "imageId": "03909585-77ee-45b4-9ded-cb3540afa07a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike",
+      "Haste",
+      "Echo"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "USG-215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLUSIONARY_FORCES": {
+    "scryfallId": "1f011ad5-0ff1-4538-942e-b72e93d87e3c",
+    "oracleId": "e17e3bda-75cb-47a1-9f60-f50705a46a1e",
+    "name": "Illusionary Forces",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illusionary Forces",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "Flying\nCumulative upkeep {U} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "flavorText": "\"This school was founded in secret, operates in secret, and exists for the teaching of secrets. Those who would alter reality must first escape it.\"\n—Gerda Äagesdotter, Archmage of the Unseen",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justin Hampton",
+        "imageId": "1f011ad5-0ff1-4538-942e-b72e93d87e3c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cumulative upkeep",
+      "Flying"
+    ],
+    "setCode": "me1",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALLOWBRAID": {
+    "scryfallId": "8df86192-6374-42ac-94bc-95e2e8284bd6",
+    "oracleId": "4a4418fa-7574-4027-aa09-4ca789be15ba",
+    "name": "Gallowbraid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gallowbraid",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Phyrexian Horror",
+        "oracleText": "Trample\nCumulative upkeep—Pay 1 life. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "flavorText": "\"If its skin looks like stone, it is only to match its heart.\"\n—Crovax",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "8df86192-6374-42ac-94bc-95e2e8284bd6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample",
+      "Cumulative upkeep"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEPCAVERN_IMP": {
+    "scryfallId": "13cfa5f3-495f-457b-ad44-bd2cf3414ce4",
+    "oracleId": "1f295f2f-969a-4b82-98d1-7fe307ec83a7",
+    "name": "Deepcavern Imp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deepcavern Imp",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Imp Rebel",
+        "oracleText": "Flying, haste\nEcho—Discard a card. (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Scott Altmann",
+        "imageId": "13cfa5f3-495f-457b-ad44-bd2cf3414ce4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo",
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRAID_OF_FIRE": {
+    "scryfallId": "09b8f805-9a02-4704-a5b6-6becdf030804",
+    "oracleId": "796009b3-73b5-42c0-a490-66f12be5a42e",
+    "name": "Braid of Fire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Braid of Fire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Cumulative upkeep—Add {R}. (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)",
+        "flavorText": "The prominence danced before the shaman, a tangle of power and flame—his to unravel.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "09b8f805-9a02-4704-a5b6-6becdf030804"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1247",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URZA_S_BLUEPRINTS": {
+    "scryfallId": "026f0d4b-c13e-48a6-915f-b0edd2ac0ae8",
+    "oracleId": "ad75efdb-3e36-4253-be47-1df5a3cf8204",
+    "name": "Urza's Blueprints",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urza's Blueprints",
+        "manaCost": "{6}",
+        "typeLine": "Artifact",
+        "oracleText": "Echo {6} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{T}: Draw a card.",
+        "flavorText": "From concept to paper to reality.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tom Wänerstrand",
+        "imageId": "026f0d4b-c13e-48a6-915f-b0edd2ac0ae8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHITU_SLINGER": {
+    "scryfallId": "05f6b023-a673-44a9-b372-81fa0b760b36",
+    "oracleId": "8e2b5f90-e405-4b24-a71a-0988c37cf67a",
+    "name": "Ghitu Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghitu Slinger",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Nomad",
+        "oracleText": "Echo {2}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, it deals 2 damage to any target.",
+        "flavorText": "If you survive a slinger attack, the slinger wished you to live.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Melissa A. Benson",
+        "imageId": "05f6b023-a673-44a9-b372-81fa0b760b36"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ULG-77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOKUSHO_THE_EVENING_STAR": {
+    "scryfallId": "06a80365-1613-4d26-abe3-8cec0d40146b",
+    "oracleId": "cf631c93-b7fb-4e4f-b405-3778c15b1117",
+    "name": "Kokusho, the Evening Star",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kokusho, the Evening Star",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Legendary Creature — Dragon Spirit",
+        "oracleText": "Flying\nWhen Kokusho dies, each opponent loses 5 life. You gain life equal to the life lost this way.",
+        "flavorText": "The fall of the evening star never heralds a gentle dawn.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tsutomu Kawade",
+        "imageId": "06a80365-1613-4d26-abe3-8cec0d40146b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVALANCHE_RIDERS": {
+    "scryfallId": "086707d3-6de8-4794-ad13-1d04b44ac901",
+    "oracleId": "c9048d35-aff7-45ae-ae97-db89397b3e74",
+    "name": "Avalanche Riders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avalanche Riders",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Nomad",
+        "oracleText": "Haste\nEcho {3}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, destroy target land.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "086707d3-6de8-4794-ad13-1d04b44ac901"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Echo"
+    ],
+    "setCode": "wc99",
+    "collectorNumber": "mlp74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RING_OF_GIX": {
+    "scryfallId": "0b09dc9b-ed01-49de-9675-48c41f428385",
+    "oracleId": "e01fe9e9-a76c-4909-924c-a0cba403f975",
+    "name": "Ring of Gix",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ring of Gix",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Echo {3} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{1}, {T}: Tap target artifact, creature, or land.",
+        "flavorText": "Not every cage is made of bars.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "0b09dc9b-ed01-49de-9675-48c41f428385"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMFIST_CRUSADER": {
+    "scryfallId": "0b420ce8-3dd1-430b-a090-4b4e8dcb6aa9",
+    "oracleId": "0d3bebc6-662a-4cd4-ad1e-aeed0c5e04f6",
+    "name": "Stormfist Crusader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormfist Crusader",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Menace\nAt the beginning of your upkeep, each player draws a card and loses 1 life.",
+        "flavorText": "\"As she reached the pinnacle, lightning flashed and her eyes blazed with newfound power.\"\n—*Legend of the Gilded Knights*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "0b420ce8-3dd1-430b-a090-4b4e8dcb6aa9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALBINO_TROLL": {
+    "scryfallId": "0bf2ee15-fdcb-40b0-9688-6eae31e59549",
+    "oracleId": "02079e18-ac14-4255-95c4-741eb76c4799",
+    "name": "Albino Troll",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Albino Troll",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Troll",
+        "oracleText": "Echo {1}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{1}{G}: Regenerate this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "0bf2ee15-fdcb-40b0-9688-6eae31e59549"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate",
+      "Echo"
+    ],
+    "setCode": "wc99",
+    "collectorNumber": "ml231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BONE_SHREDDER": {
+    "scryfallId": "0fb5d4ce-516e-43fd-9de0-30f8517f7220",
+    "oracleId": "69aa1ac7-17da-4fc9-a3dc-df8a52841f4a",
+    "name": "Bone Shredder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bone Shredder",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Phyrexian Minion",
+        "oracleText": "Flying\nEcho {2}{B} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, destroy target nonartifact, nonblack creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "0fb5d4ce-516e-43fd-9de0-30f8517f7220"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo",
+      "Flying"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ULG-49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_REMORA": {
+    "scryfallId": "13a08c07-e8b8-43bf-99e6-d268c79a62bf",
+    "oracleId": "8a52f3c0-2552-4425-b2e3-5496eb2232a7",
+    "name": "Mystic Remora",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Remora",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ken Meyer, Jr.",
+        "imageId": "13a08c07-e8b8-43bf-99e6-d268c79a62bf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "me1",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARMIC_GUIDE": {
+    "scryfallId": "15090117-5fef-454d-8972-8f31e9fd870f",
+    "oracleId": "8c31fec9-e4b3-4761-990e-7be38eb05604",
+    "name": "Karmic Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karmic Guide",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel Spirit",
+        "oracleText": "Flying, protection from black\nEcho {3}{W}{W} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, return target creature card from your graveyard to the battlefield.",
+        "flavorText": "Just one moment more",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "15090117-5fef-454d-8972-8f31e9fd870f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Echo",
+      "Flying",
+      "Protection"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "281",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TICKING_GNOMES": {
+    "scryfallId": "1ba051be-123d-48b1-9557-dec405bc1da7",
+    "oracleId": "963de959-848d-48df-90fa-88a6d988b9fe",
+    "name": "Ticking Gnomes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ticking Gnomes",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "Echo {3} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nSacrifice this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Henry Van Der Linde",
+        "imageId": "1ba051be-123d-48b1-9557-dec405bc1da7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "wc99",
+    "collectorNumber": "js136b",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAMMERHEIM_DEADEYE": {
+    "scryfallId": "1bd39a59-688f-4465-8f00-540326c41128",
+    "oracleId": "a6962ccc-9883-48ca-9a5f-aeb68e66fd97",
+    "name": "Hammerheim Deadeye",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hammerheim Deadeye",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "Echo {5}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, destroy target creature with flying.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "1bd39a59-688f-4465-8f00-540326c41128"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARNJLOT_S_ASCENT": {
+    "scryfallId": "2307fb16-8b77-45b5-8a02-51a13214791d",
+    "oracleId": "f2cedb38-12b0-4489-a62b-9b6a3776d695",
+    "name": "Arnjlot's Ascent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arnjlot's Ascent",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Cumulative upkeep {U} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\n{1}: Target creature gains flying until end of turn.",
+        "flavorText": "\"The dreams of a child fulfilled:\nthe wind on my brow,\nthe air 'neath my feet.\"\n—Arnjlot Olasson, Sky Mage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Drew Tucker",
+        "imageId": "2307fb16-8b77-45b5-8a02-51a13214791d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "ice",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAUSTIC_HOUND": {
+    "scryfallId": "2a54115f-150a-4ae2-a5c7-20e2ba884dd1",
+    "oracleId": "032cc574-f7e7-4753-9a30-76cbd45d9563",
+    "name": "Caustic Hound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caustic Hound",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Phyrexian Dog",
+        "oracleText": "When this creature dies, each player loses 4 life.",
+        "flavorText": "At first, the Mirrans aimed for its exposed gut. The survivors quickly learned to do otherwise.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "2a54115f-150a-4ae2-a5c7-20e2ba884dd1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "mbs",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_CHAMPION": {
+    "scryfallId": "2ca0987e-7dff-410a-8328-45ba1c53e974",
+    "oracleId": "1600b361-9298-49f0-8925-4c1aad363e1b",
+    "name": "Keldon Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Champion",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Human Barbarian",
+        "oracleText": "Haste\nEcho {2}{R}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, it deals 3 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "2ca0987e-7dff-410a-8328-45ba1c53e974"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Echo"
+    ],
+    "setCode": "ema",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXTRUDER": {
+    "scryfallId": "2fc2f0d0-273d-428f-9a8a-c582f4d16394",
+    "oracleId": "93cc6425-a13b-4b32-bb8f-fdc9bfa0ef9b",
+    "name": "Extruder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Extruder",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Juggernaut",
+        "oracleText": "Echo {4} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nSacrifice an artifact: Put a +1/+1 counter on target creature.",
+        "flavorText": "As the invasion drew closer, Urza's means began to resemble Phyrexia's end.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "2fc2f0d0-273d-428f-9a8a-c582f4d16394"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "uds",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STINGSCOURGER": {
+    "scryfallId": "3102b0df-04c0-418c-a316-c8ea8660e9f7",
+    "oracleId": "3e8d1051-1739-4a10-9cef-78f7333b4979",
+    "name": "Stingscourger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stingscourger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Echo {3}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, return target creature an opponent controls to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "3102b0df-04c0-418c-a316-c8ea8660e9f7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_DRAGON": {
+    "scryfallId": "342fc7bc-657f-43a3-9558-f516fa545a09",
+    "oracleId": "be0fc708-b205-4307-85f3-f8fd1efd4cf6",
+    "name": "Lightning Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Dragon",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nEcho {2}{R}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "342fc7bc-657f-43a3-9558-f516fa545a09"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Echo",
+      "Flying"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHEPHERD_OF_ROT": {
+    "scryfallId": "384d5883-1aab-4f7b-a59f-498f33f53142",
+    "oracleId": "af18e496-fef9-4869-867b-bdac653cafd0",
+    "name": "Shepherd of Rot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shepherd of Rot",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Cleric",
+        "oracleText": "{T}: Each player loses 1 life for each Zombie on the battlefield.",
+        "flavorText": "\"My priests swore loyalty to the Cabal not until death, but beyond it.\"\n—Cabal Patriarch",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "384d5883-1aab-4f7b-a59f-498f33f53142"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "ONS-168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HENCHFIEND_OF_UKOR": {
+    "scryfallId": "3b41cef7-bb16-4d89-9900-dc6d1f5200f0",
+    "oracleId": "91b5688d-4dd6-477b-998f-bdc7612de37a",
+    "name": "Henchfiend of Ukor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Henchfiend of Ukor",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Ogre",
+        "oracleText": "Haste\nEcho {1}{B} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{B/R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "3b41cef7-bb16-4d89-9900-dc6d1f5200f0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Echo"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORMENTED_HERO": {
+    "scryfallId": "3b804e46-c1a2-4934-9117-d0b0c4b01e1a",
+    "oracleId": "47fbb4f0-565b-4682-9971-0735210c76e5",
+    "name": "Tormented Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tormented Hero",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature enters tapped.\nHeroic — Whenever you cast a spell that targets this creature, each opponent loses 1 life. You gain life equal to the life lost this way.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Wesley Burt",
+        "imageId": "3b804e46-c1a2-4934-9117-d0b0c4b01e1a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Heroic"
+    ],
+    "setCode": "f14",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITEFLAME_WITCH": {
+    "scryfallId": "41d1a332-f950-4f56-9b1e-37c0954e72f6",
+    "oracleId": "b4ab38e5-c446-4845-b509-4d6f4438949d",
+    "name": "Spiteflame Witch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiteflame Witch",
+        "manaCost": "{1}{B/R}",
+        "typeLine": "Creature — Elemental Shaman",
+        "oracleText": "{B}{R}: Each player loses 1 life.",
+        "flavorText": "Cinder beliefs revolve around the Path of Sorrow, a spiritual descent into oblivion. They don't mind taking others on their journey down.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "William O'Connor",
+        "imageId": "41d1a332-f950-4f56-9b1e-37c0954e72f6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGGOT_CARRIER": {
+    "scryfallId": "4aa250a2-f3e2-42b0-aea0-7816f60f4d1d",
+    "oracleId": "e4ad4b81-3685-4f95-84c0-755263b9d3b1",
+    "name": "Maggot Carrier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maggot Carrier",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, each player loses 1 life.",
+        "flavorText": "\"We do not suddenly fall on death, but advance towards it by slight degrees; we die every day.\"\n—Seneca, *Epistles*, trans. Gummere",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "4aa250a2-f3e2-42b0-aea0-7816f60f4d1d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "142★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MULTANI_S_ACOLYTE": {
+    "scryfallId": "4e5fdecb-bca0-48ea-b5bb-d0886c7d3316",
+    "oracleId": "d08725e6-ed9a-4c82-89d4-0dd037c376f6",
+    "name": "Multani's Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Multani's Acolyte",
+        "manaCost": "{G}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Echo {G}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "4e5fdecb-bca0-48ea-b5bb-d0886c7d3316"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_VANDALS": {
+    "scryfallId": "4fc5c47f-12bb-4eed-8db3-1558495eb2ca",
+    "oracleId": "0aa7bd6a-0a8d-4413-a9e8-b7a459300841",
+    "name": "Keldon Vandals",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Vandals",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Echo {2}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, destroy target artifact.",
+        "flavorText": "Keldons divide all their spoils into two groups: trophies and catapult ammunition.",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "4fc5c47f-12bb-4eed-8db3-1558495eb2ca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "td0",
+    "collectorNumber": "A59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBVERSION": {
+    "scryfallId": "50f1bca9-5831-4e8b-8920-f28ebb3ffb27",
+    "oracleId": "0772c5d2-9189-47e2-b0ee-13babd94ea93",
+    "name": "Subversion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Subversion",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, each opponent loses 1 life. You gain life equal to the life lost this way.",
+        "flavorText": "Kerrick's corrupt domain swelled like a blister on Tolaria's skin.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "50f1bca9-5831-4e8b-8920-f28ebb3ffb27"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ulg",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHROUDSTOMPER": {
+    "scryfallId": "53f746bf-0642-48db-835e-27a7fe369fef",
+    "oracleId": "36415fe3-6bf3-4fec-909c-6c16584c44eb",
+    "name": "Shroudstomper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shroudstomper",
+        "manaCost": "{3}{W}{W}{B}{B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Deathtouch\nWhenever this creature enters or attacks, each opponent loses 2 life. You gain 2 life and draw a card.",
+        "flavorText": "\"At least the razorkin are happy when they kill you. The walkers don't even notice.\"\n—Angus, survivor scout",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "53f746bf-0642-48db-835e-27a7fe369fef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCISH_HELLRAISER": {
+    "scryfallId": "56ea32e5-b164-4a8d-9312-c35ae5cd8b2a",
+    "oracleId": "dd21cbaa-7537-414b-b720-3c7d6fc7c93d",
+    "name": "Orcish Hellraiser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orcish Hellraiser",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "Echo {R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature dies, it deals 2 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Darren Tan",
+        "imageId": "56ea32e5-b164-4a8d-9312-c35ae5cd8b2a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRAN_WAR_MACHINE": {
+    "scryfallId": "5908714a-be91-4279-b87e-e2bc09dbaaba",
+    "oracleId": "b3b8fe34-4f69-4555-bcac-04563d02c99f",
+    "name": "Thran War Machine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thran War Machine",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Echo {4} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nThis creature attacks each combat if able.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pete Venters",
+        "imageId": "5908714a-be91-4279-b87e-e2bc09dbaaba"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DERANGED_HERMIT": {
+    "scryfallId": "5c94e2b8-9fe6-41fd-bf43-ab7534abfd33",
+    "oracleId": "b9cd714b-2ad8-4fdb-a8aa-82b17730e071",
+    "name": "Deranged Hermit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deranged Hermit",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Echo {3}{G}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, create four 1/1 green Squirrel creature tokens.\nSquirrel creatures get +1/+1.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "5c94e2b8-9fe6-41fd-bf43-ab7534abfd33"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "g04",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHCURSE_OGRE": {
+    "scryfallId": "62bd3c73-fff4-40e8-b9db-80a010a4dd37",
+    "oracleId": "0d40bc98-28e7-4fa5-b848-1cbac5345c12",
+    "name": "Deathcurse Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathcurse Ogre",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "When this creature dies, each player loses 3 life.",
+        "flavorText": "After their worship of oni began, only a few of Kamigawa's ogres remained in the bitter cold of the Tendo Peaks. Most were drawn to the darkness of Takenuma.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "62bd3c73-fff4-40e8-b9db-80a010a4dd37"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAURON_THE_LIDLESS_EYE": {
+    "scryfallId": "6b80de80-8b4e-46e2-9145-b9f3031d32d7",
+    "oracleId": "00b9d3a3-fd64-4757-9159-b3af06b5f5b1",
+    "name": "Sauron, the Lidless Eye",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sauron, the Lidless Eye",
+        "manaCost": "{3}{B}{R}",
+        "typeLine": "Legendary Creature — Avatar Horror",
+        "oracleText": "When Sauron enters, gain control of target creature an opponent controls until end of turn. Untap it. It gains haste until end of turn.\n{1}{B}{R}: Creatures you control get +2/+0 until end of turn. Each opponent loses 2 life.",
+        "flavorText": "There is an Eye in the Dark Tower that does not sleep.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Yigit Koroglu",
+        "imageId": "6b80de80-8b4e-46e2-9145-b9f3031d32d7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "396",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RABID_BLOODSUCKER": {
+    "scryfallId": "7335da62-3b59-4c73-a19e-b1733393ed88",
+    "oracleId": "e6b0c47b-9758-4ee3-b831-0af0650660fe",
+    "name": "Rabid Bloodsucker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rabid Bloodsucker",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying (This creature can't be blocked except by creatures with flying or reach.)\nWhen this creature enters, each player loses 2 life.",
+        "flavorText": "She haunts the streets, wings spread wide, with carrion on her breath and blood in her eyes.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "7335da62-3b59-4c73-a19e-b1733393ed88"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ori",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOCTHWAIN_LANCER": {
+    "scryfallId": "7417067d-de28-404c-981e-e62b05d2bdf1",
+    "oracleId": "a9baa117-ab06-4af5-9a09-4be423d7cbbd",
+    "name": "Locthwain Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Locthwain Lancer",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Menace\nWhenever a nontoken Knight you control dies, each opponent loses 1 life and you draw a card.",
+        "flavorText": "For years she believed persistence meant hunting for the Cauldron of Eternity. Now she knew it meant never giving up the fight against a world gone mad.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "7417067d-de28-404c-981e-e62b05d2bdf1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "moc",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_OF_MASKS": {
+    "scryfallId": "7d6ace1f-c056-494d-a41f-75efa54312a5",
+    "oracleId": "632ccf7e-eaf4-42a6-9069-6ad915d03a5b",
+    "name": "Agent of Masks",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent of Masks",
+        "manaCost": "{3}{W}{B}",
+        "typeLine": "Creature — Human Advisor",
+        "oracleText": "At the beginning of your upkeep, each opponent loses 1 life. You gain life equal to the life lost this way.",
+        "flavorText": "\"Two-faced\" is an understatement.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "7d6ace1f-c056-494d-a41f-75efa54312a5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mm3",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RADIANT_S_DRAGOONS": {
+    "scryfallId": "8a0f39de-6ad2-410c-bc6c-75fd3c8d159b",
+    "oracleId": "a0fe91a8-633c-4902-bc75-da0a5aa76992",
+    "name": "Radiant's Dragoons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Radiant's Dragoons",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Echo {3}{W} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, you gain 5 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "8a0f39de-6ad2-410c-bc6c-75fd3c8d159b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVEN_FAMILIAR": {
+    "scryfallId": "8b60227d-74de-4f2a-b281-3512dd77ffe8",
+    "oracleId": "47aabd9d-0f68-490a-a2ae-5cd9ef689be6",
+    "name": "Raven Familiar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raven Familiar",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nEcho {2}{U} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Avon",
+        "imageId": "8b60227d-74de-4f2a-b281-3512dd77ffe8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo",
+      "Flying"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MESMERIC_TRANCE": {
+    "scryfallId": "91129aeb-eed5-4b98-896f-fb3bab48b25d",
+    "oracleId": "d1cc6979-d786-4035-963b-768ac8cef116",
+    "name": "Mesmeric Trance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mesmeric Trance",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\n{U}, Discard a card: Draw a card.",
+        "flavorText": "\"Magic overused can freeze the mind. Creativity is more important than power.\"\n—Zur the Enchanter",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "91129aeb-eed5-4b98-896f-fb3bab48b25d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCHOLAR_OF_ATHREOS": {
+    "scryfallId": "95a36e06-39f3-47d0-b6a9-43728afceb4a",
+    "oracleId": "18c5e7a0-4397-48bb-b993-1c3e3b08be2c",
+    "name": "Scholar of Athreos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scholar of Athreos",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{2}{B}: Each opponent loses 1 life. You gain life equal to the life lost this way.",
+        "flavorText": "She asks pointed questions of the dead who wait for Athreos, learning of life from those who are about to leave it.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "95a36e06-39f3-47d0-b6a9-43728afceb4a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOWLING_BANSHEE": {
+    "scryfallId": "98bc4a4e-8fca-45a3-a542-38936f841532",
+    "oracleId": "6156bd59-d623-4612-8e86-b5228d5de750",
+    "name": "Howling Banshee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Howling Banshee",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhen this creature enters, each player loses 3 life.",
+        "flavorText": "\"No such thing as 'too quiet.' Quiet is good. Quiet means we don't end up dead in the mud, bleeding from our ears.\"\n—Rem Karolus",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lordigan",
+        "imageId": "98bc4a4e-8fca-45a3-a542-38936f841532"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TECTONIC_FIEND": {
+    "scryfallId": "9c8aaf09-312f-4c82-9e0a-bd797e7f26c3",
+    "oracleId": "ead1bcc4-6bf7-4ace-b705-e3095e6a716c",
+    "name": "Tectonic Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tectonic Fiend",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Echo {4}{R}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nThis creature attacks each combat if able.",
+        "flavorText": "The barbarians of Pardia are long dead, but its mountains still smolder with rage.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "9c8aaf09-312f-4c82-9e0a-bd797e7f26c3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASALT_GARGOYLE": {
+    "scryfallId": "9d49201b-bd41-49b7-b00e-4ab8034a3a03",
+    "oracleId": "83a38c8d-e2f6-404b-83be-9cfce037d6e2",
+    "name": "Basalt Gargoyle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basalt Gargoyle",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Gargoyle",
+        "oracleText": "Flying\nEcho {2}{R} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\n{R}: This creature gets +0/+1 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Clint Langley",
+        "imageId": "9d49201b-bd41-49b7-b00e-4ab8034a3a03"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo",
+      "Flying"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLDEVI_SIMULACRUM": {
+    "scryfallId": "9d60f16a-0a67-4ad7-8dad-ee97cd01fb89",
+    "oracleId": "227ed0b7-7a9a-41f1-a190-1d1b85a44720",
+    "name": "Soldevi Simulacrum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soldevi Simulacrum",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Soldier",
+        "oracleText": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\n{1}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "They look human—until they bleed.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Frazier",
+        "imageId": "9d60f16a-0a67-4ad7-8dad-ee97cd01fb89"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKIRSDAG_SUPPLICANT": {
+    "scryfallId": "b3f63897-15a1-4b34-9916-d9df62f66785",
+    "oracleId": "c7d97311-6e34-4679-a678-e107022c785c",
+    "name": "Skirsdag Supplicant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skirsdag Supplicant",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{B}, {T}, Discard a card: Each player loses 2 life.",
+        "flavorText": "\"I can no longer stand by as these Skirsdag infiltrators rot the church from within. Even the Lunarch Council is compromised. What a fool I've been.\"\n—Odric",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "b3f63897-15a1-4b34-9916-d9df62f66785"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "emn",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCTIC_WOLVES": {
+    "scryfallId": "b5fb56a2-5138-4c31-aa4b-0824a1a24573",
+    "oracleId": "c9e7218f-07f2-46f3-bc63-eb5c0d32538b",
+    "name": "Arctic Wolves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arctic Wolves",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "Cumulative upkeep {2} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhen this creature enters, draw a card.",
+        "flavorText": "\"No matter where we cat warriors go in the world, those stupid slobberers find us.\"\n—Mirri of the *Weatherlight*",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve White",
+        "imageId": "b5fb56a2-5138-4c31-aa4b-0824a1a24573"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Cumulative upkeep"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_TOLL_HARPY": {
+    "scryfallId": "c081f3e2-e4e6-4ef5-9969-64aca9c11413",
+    "oracleId": "98f9619e-585f-486f-b143-fb42085eb583",
+    "name": "Blood-Toll Harpy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood-Toll Harpy",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Harpy",
+        "oracleText": "Flying\nWhen this creature enters, each player loses 1 life.",
+        "flavorText": "When harpies demand a toll to cross through their territory, consider yourself lucky if they permit payment in coin.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "c081f3e2-e4e6-4ef5-9969-64aca9c11413"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOULCAGE_FIEND": {
+    "scryfallId": "c6f1d112-4c62-41c0-8be6-da78c1036b4d",
+    "oracleId": "ecbb660a-4013-410a-b683-82c3ef1690cd",
+    "name": "Soulcage Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soulcage Fiend",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "When this creature dies, each player loses 3 life.",
+        "flavorText": "Vowing to free the souls of her children, Kastinne followed the tormentors into the ghastly network of caves below Stensia.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "c6f1d112-4c62-41c0-8be6-da78c1036b4d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "470",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERVANT_OF_TYMARET": {
+    "scryfallId": "dfb16d4f-ed42-4b19-9e45-330db88eea9b",
+    "oracleId": "1ea5a8c2-d8c4-4028-b1fe-9951514ea882",
+    "name": "Servant of Tymaret",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Servant of Tymaret",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Inspired — Whenever this creature becomes untapped, each opponent loses 1 life. You gain life equal to the life lost this way.\n{2}{B}: Regenerate this creature.",
+        "flavorText": "Life is most precious to those who have already lost it.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "dfb16d4f-ed42-4b19-9e45-330db88eea9b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Inspired",
+      "Regenerate"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

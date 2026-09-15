@@ -315,7 +315,12 @@ export function answerAwaiting(
           payVerb ? `${v.costText} for ${awaiting.label}` : `decline to ${v.costText} for ${awaiting.label}`,
         );
       }
-      const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3);
+      // D439 - a price that KEEPS a permanent (`sacrifice it unless you pay` - echo, cumulative upkeep, the upkeep
+      // rows): paid while it is no more than the permanent is worth (its mana value), an echo always, a cumulative
+      // upkeep until the age counters outgrow the card; a plain tax keeps D126's three.
+      const keeps = awaiting.ifNotPaid.some((e) => e.kind === 'sacrificeSelf');
+      const worth = keeps && awaiting.source !== null ? (view.cards[awaiting.source]?.card?.cmc ?? 0) : 0;
+      const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3 || (keeps && mv <= worth));
       return act({ t: 'AnswerPayMana', player: me, pay }, pay ? `pay for ${awaiting.label}` : `decline to pay for ${awaiting.label}`);
     }
     case 'entersChoice': {

@@ -259,6 +259,26 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D439 - and the mirror offered 15 the row maker refused - the enters-or-dies heads, an anthem beside a mass pump, a
+  // counted loss beside a cost piece, the pay-or-scry riders (the wide run's reason).
+  ['Dream Beavers', 'trigger payload not a pump: Each opponent loses 1 life and you gain 1 life. Scry 1.'],
+  ['Goblin Marshal', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, create two 1/1 red Goblin'],
+  ['Hunting Moa', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, put a +1/+1 counter on ta'],
+  ['Inner Sanctum', 'a line that is neither an activated ability nor a library trigger: Prevent all damage that would be dealt to creatures you control.'],
+  ['Mogg War Marshal', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, create a 1/1 red Goblin c'],
+  ['Mystic Might', 'a leftover line not among the printed lines: Enchanted land has'],
+  ['Rotwidow Pack', 'a counted payload beside a cost piece that leaves a fixture behind: Each opponent loses 1 life for each Spider you control.'],
+  ['Slitherwisp', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast another spell that has flash, you draw a c'],
+  ['Subterranean Shambler', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or leaves the battlefield, it deal'],
+  ['Yavimaya Granger', 'trigger payload not a pump: Search your library for a basic land card, put that card ont'],
+  ['Bubbling Cauldron', 'cost: a sacrifice cost with no fixture the suite can put: creature named Festering Newt'],
+  ['Corroding Dragonstorm', 'trigger payload not a pump: Each opponent loses 2 life and you gain 2 life. Surveil 2.'],
+  ['Fyndhorn Pollen', 'an anthem beside a mass pump (the Eel reads both)'],
+  ['Illusions of Grandeur', 'a filtered head outside the closed reader (an adjective outside the list: this): When this enchantment leaves the battlefield, you lose 20 li'],
+  ['Juju Bubble', 'trigger head not in the library: When you play a card, sacrifice this artifact.'],
+  // D439 - the upkeep prices made the echo cards rowable, and one of them aims its enters and its leaves damage at the
+  // suite's one Cyclops (the wide run's reason).
+  ['Firemaw Kavu', "an enters damage that kills the leaves payload's only fixture (the suite stages one Cyclops; the echo is paid, the fixture is dead)"],
   // D437 - and once each-damage counted too, the mirror offered one counted self-damage the row maker does not read.
   // (the wide run's reason).
   ['Black Market Tycoon', 'trigger payload not a pump: ~ deals 2 damage to you for each Treasure you control (a counted self-damage the row maker does not read)'],
