@@ -337,6 +337,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D445 - backup: a {2}{W} vigilance creature whose entry puts a counter on a target and grants vigilance.
   { names: ['Sigiled Sentinel'], copiesPerSeat: 3,
     counterKeys: ['backupsFired'], rotHistory: 'D445' },
+  // D448 - unearth: a {1}{B} 2/1 that comes back from the graveyard for {B} with haste, exiled at the end step.
+  { names: ['Dregscape Zombie'], copiesPerSeat: 3,
+    counterKeys: ['unearths'], rotHistory: 'D448' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1254,6 +1257,9 @@ interface Run {
   readonly keywordGrants: number;
   readonly modularMoves: number;
   readonly scavenges: number;
+  /** D448 - unearth activations on the stack, and the exiles its riders performed (the end step, the leave). */
+  readonly unearths: number;
+  readonly unearthExiles: number;
   readonly upkeepPricesAsked: number;
   readonly agesAdded: number;
   /** D407 - exiles linked to a permanent (the move carries `until`), and the state-based returns that ended them. */
@@ -1651,6 +1657,8 @@ function runOne(seed: number): Run {
     exertTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#(?:exertAttack|youExertCreature)-\d+$/.test(e.body.obj.abilityRef ?? '')).length,
     modularMoves: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:modular$/.test(e.body.obj.abilityRef ?? '') && e.body.obj.targets.length > 0).length,
     scavenges: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /equal to this card's power on target creature/.test(e.body.obj.label)).length,
+    unearths: game.log.filter((e) => e.body.t === 'Unearthed').length,
+    unearthExiles: game.log.filter((e) => e.body.t === 'Narrated' && /(was unearthed: it is exiled instead|unearth: exile it resolves)/.test(e.body.text)).length,
     upkeepPricesAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && / - (?:echo|cumulative upkeep) /.test(e.body.awaiting.label)).length,
     agesAdded: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'age' && c.delta > 0)).length,
     playedFromExile:
@@ -1868,6 +1876,8 @@ const TOTAL_KEYS = [
   'keywordGrants',
   'modularMoves',
   'scavenges',
+  'unearths',
+  'unearthExiles',
   'upkeepPricesAsked',
   'agesAdded',
   'linkedExiles',
@@ -2212,6 +2222,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.riotAsked).toBeGreaterThan(0);
         // D445 - a backup trigger on the stack at gate size (Sigiled Sentinel).
         expect(totals.backupsFired).toBeGreaterThan(0);
+        // D448 - an unearth resolved at gate size (Dregscape Zombie; 5 at 60 seeds).
+        expect(totals.unearths).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2315,6 +2327,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.spellXCasts} X spells cast for more than nothing · ` +
           `${totals.upkeepPricesFired} upkeep prices fired (${totals.upkeepPricesAsked} asked, ${totals.agesAdded} age counters) · ` +
           `${totals.extortsFired} extorts fired · ${totals.modularMoves} modular moves · ${totals.scavenges} scavenges · ` +
+          `${totals.unearths} unearths (${totals.unearthExiles} unearth exiles) · ` +
           `${totals.revealsAsked} reveal lands asked (${totals.revealsShown} shown) · ` +
           `${totals.cleanupDiscards} cleanup discards asked (${totals.cleanupRepeats} cleanup steps repeated) · ` +
           `${totals.exerts} exerts (${totals.exertTriggers} exert triggers on the stack) · ` +

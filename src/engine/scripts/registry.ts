@@ -7,6 +7,29 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SHAMBLING_REMAINS_SCRIPT } from './cards/shamblingRemains';
+import { SIMIAN_SIMULACRUM_SCRIPT } from './cards/simianSimulacrum';
+import { FIRST_SPHERE_GARGANTUA_SCRIPT } from './cards/firstSphereGargantua';
+import { PRIEST_OF_FELL_RITES_SCRIPT } from './cards/priestOfFellRites';
+import { PLATOON_DISPENSER_SCRIPT } from './cards/platoonDispenser';
+import { COMBAT_COURIER_SCRIPT } from './cards/combatCourier';
+import { HELLSPARK_ELEMENTAL_SCRIPT } from './cards/hellsparkElemental';
+import { VITHIAN_STINGER_SCRIPT } from './cards/vithianStinger';
+import { ARCHFIEND_OF_SORROWS_SCRIPT } from './cards/archfiendOfSorrows';
+import { HELLS_THUNDER_SCRIPT } from './cards/hellsThunder';
+import { SCRAPWORK_MUTT_SCRIPT } from './cards/scrapworkMutt';
+import { ROTTING_RATS_SCRIPT } from './cards/rottingRats';
+import { SCOURGE_DEVIL_SCRIPT } from './cards/scourgeDevil';
+import { ASHNODS_HARVESTER_SCRIPT } from './cards/ashnodsHarvester';
+import { SEDRAXIS_SPECTER_SCRIPT } from './cards/sedraxisSpecter';
+import { UNDEAD_LEOTAU_SCRIPT } from './cards/undeadLeotau';
+import { GRIXIS_SLAVEDRIVER_SCRIPT } from './cards/grixisSlavedriver';
+import { SCRAPWORK_COHORT_SCRIPT } from './cards/scrapworkCohort';
+import { SCRAPWORK_RAGER_SCRIPT } from './cards/scrapworkRager';
+import { MOLTEN_GATEKEEPER_SCRIPT } from './cards/moltenGatekeeper';
+import { MISHRAS_JUGGERNAUT_SCRIPT } from './cards/mishrasJuggernaut';
+import { YOTIAN_FRONTLINER_SCRIPT } from './cards/yotianFrontliner';
+import { TOCASIAS_ONULET_SCRIPT } from './cards/tocasiasOnulet';
 import { GNARLBARK_ELM_SCRIPT } from './cards/gnarlbarkElm';
 import { BURDENED_STONEBACK_SCRIPT } from './cards/burdenedStoneback';
 import { WICKERBOUGH_ELDER_SCRIPT } from './cards/wickerboughElder';
@@ -6922,6 +6945,29 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SHAMBLING_REMAINS_SCRIPT,
+  SIMIAN_SIMULACRUM_SCRIPT,
+  FIRST_SPHERE_GARGANTUA_SCRIPT,
+  PRIEST_OF_FELL_RITES_SCRIPT,
+  PLATOON_DISPENSER_SCRIPT,
+  COMBAT_COURIER_SCRIPT,
+  HELLSPARK_ELEMENTAL_SCRIPT,
+  VITHIAN_STINGER_SCRIPT,
+  ARCHFIEND_OF_SORROWS_SCRIPT,
+  HELLS_THUNDER_SCRIPT,
+  SCRAPWORK_MUTT_SCRIPT,
+  ROTTING_RATS_SCRIPT,
+  SCOURGE_DEVIL_SCRIPT,
+  ASHNODS_HARVESTER_SCRIPT,
+  SEDRAXIS_SPECTER_SCRIPT,
+  UNDEAD_LEOTAU_SCRIPT,
+  GRIXIS_SLAVEDRIVER_SCRIPT,
+  SCRAPWORK_COHORT_SCRIPT,
+  SCRAPWORK_RAGER_SCRIPT,
+  MOLTEN_GATEKEEPER_SCRIPT,
+  MISHRAS_JUGGERNAUT_SCRIPT,
+  YOTIAN_FRONTLINER_SCRIPT,
+  TOCASIAS_ONULET_SCRIPT,
   GNARLBARK_ELM_SCRIPT,
   BURDENED_STONEBACK_SCRIPT,
   WICKERBOUGH_ELDER_SCRIPT,

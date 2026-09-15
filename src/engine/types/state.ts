@@ -276,6 +276,12 @@ export interface CardInstance {
    * as it stays on the battlefield (a new object chooses again). Absent on every older log.
    */
   readonly riotHaste?: true | undefined;
+  /**
+   * D448 - unearth (CR 702.84): the object returned by its own Unearth ability. It has haste for as long as it
+   * stays; the replacement funnel exiles it instead of letting it leave for anywhere else; the delayed trigger
+   * armed with it exiles it at the next end step. Cleared with the battlefield fields - a new object owes nothing.
+   */
+  readonly unearthed?: true | undefined;
 }
 
 export type DefenderRef =

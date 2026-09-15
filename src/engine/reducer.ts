@@ -300,6 +300,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     skipsUntap: undefined,
     // D444 - a new object chooses its riot again.
     riotHaste: undefined,
+    // D448 - a new object was not unearthed.
+    unearthed: undefined,
   };
 }
 
@@ -950,6 +952,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D444 - riot's haste, remembered on the object until it leaves.
     case 'HasteChosen':
       return withCard(state, body.card, { riotHaste: true });
+
+    // D448 - unearth, remembered on the object until it leaves (and it leaves for exile).
+    case 'Unearthed':
+      return withCard(state, body.card, { unearthed: true });
 
     // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
     case 'Explored':

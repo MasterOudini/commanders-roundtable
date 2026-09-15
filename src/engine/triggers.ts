@@ -69,6 +69,8 @@ export function applyReplacements(
     // D413 - a marked creature that would die goes to exile instead (CR 614.1); after the commander rule,
     // which already sent a commander home, and reading its output like the rest.
     events = withExileInsteadOfDying(state, oracle, scripts, events);
+    // D448 - an unearthed permanent that would leave for anywhere but exile goes to exile instead (CR 702.84c).
+    events = withUnearthedLeavingToExile(state, oracle, scripts, events);
   }
 
   // Built-in: the other half of CR 306.5b. A permanent already on the
@@ -482,6 +484,26 @@ function withExileInsteadOfDying(state: GameState, oracle: OracleDb, scripts: Sc
     });
     out.push(redirected.length === 0 ? ev : { ...ev, moves });
     for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} is exiled instead of dying.`, null));
+  }
+  return out;
+}
+
+/**
+ * D448 - unearth's leave replacement (CR 702.84c): a move from the battlefield to anywhere but exile of an
+ * `unearthed` object goes to its owner's exile instead, and the log says so. Nothing else moves.
+ */
+function withUnearthedLeavingToExile(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, events: readonly EventBody[]): EventBody[] {
+  const out: EventBody[] = [];
+  for (const ev of events) {
+    if (ev.t !== 'CardsMoved') { out.push(ev); continue; }
+    const redirected: InstanceId[] = [];
+    const moves = ev.moves.map((m) => {
+      if (m.from.kind !== 'battlefield' || m.to.kind === 'exile' || state.cards[m.card]?.unearthed !== true) return m;
+      redirected.push(m.card);
+      return { ...m, to: { kind: 'exile' as const, player: state.cards[m.card]?.owner ?? m.to.player } };
+    });
+    out.push(redirected.length === 0 ? ev : { ...ev, moves });
+    for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} was unearthed: it is exiled instead.`, null));
   }
   return out;
 }

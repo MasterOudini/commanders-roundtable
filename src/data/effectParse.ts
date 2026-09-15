@@ -1798,6 +1798,11 @@ const RULES: readonly Rule[] = [
  * Replace the card's own name with `~`, so a self-reference does not defeat
  * matching. Lightning Bolt's text literally says "Lightning Bolt deals 3 damage".
  */
+/** D448 - the delayed exile unearth arms (CR 702.84c): the source itself, if it is still on the battlefield. */
+export function unearthExileSpec(): EffectSpec {
+  return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
+}
+
 export function selfRef(text: string, name: string): string {
   if (!name) return text;
   let out = text.split(name).join('~');

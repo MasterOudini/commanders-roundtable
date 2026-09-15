@@ -706,6 +706,8 @@ export type EffectKind =
    * sentence, never a spell's: "sacrifice this creature unless you pay {U}".
    */
   | 'sacrificeSelf'
+  /** D448 - the source itself to exile, if it is still on the battlefield (unearth's delayed exile). */
+  | 'exileSelf'
   /**
    * D390 - "Each player sacrifices a creature of their choice." / "Each opponent sacrifices a
    * permanent of their choice." - THE PLAYER QUEUE: every player in the spec's PLAYER scope
@@ -1530,6 +1532,13 @@ export interface ActivatedAbility {
    * information the parse carries. `line` is the printed line it accounts for.
    */
   readonly scavenge?: { readonly line: string; readonly power: number };
+  /**
+   * D448 - THE UNEARTH SEAM. The synthesized "Unearth {cost}" ability (CR 702.84a): the printed mana as the cost,
+   * activated from its owner's graveyard at sorcery speed, resolved natively (`resolveAbility`) - the card returns
+   * to the battlefield `unearthed` (haste while it stays, exile instead of leaving, exile at the next end step by
+   * the delayed trigger armed with it). `line` is the printed line it accounts for.
+   */
+  readonly unearth?: { readonly line: string };
 }
 
 /**

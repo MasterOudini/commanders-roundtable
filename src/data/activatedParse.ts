@@ -373,6 +373,9 @@ const CREW_RE = /^Crew (\d+)$/;
 // D440 - scavenge (CR 702.96a): the mana price on the printed line; the rest of the ability is the rule's own words.
 const SCAVENGE_RE = /^Scavenge ((?:\{[^}]+\})+)$/;
 const SCAVENGE_EFFECT = "Put a number of +1/+1 counters equal to this card's power on target creature.";
+// D448 - unearth (CR 702.84a): the mana price on the printed line; the rest of the ability is the rule's own words.
+const UNEARTH_RE = /^Unearth ((?:\{[^}]+\})+)$/;
+const UNEARTH_EFFECT = 'Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield.';
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
 
 export interface ActivatedParseInput {
@@ -568,6 +571,46 @@ export function parseActivatedAbilities(
           activateOnly: [],
           targets: parseTargetClauses(SCAVENGE_EFFECT, warn),
           scavenge: { line: printed, power },
+        });
+        continue;
+      }
+    }
+    // D448 - THE UNEARTH SEAM: an activated ability from the graveyard (CR 702.84a) whose cost is the printed mana
+    // and whose effect the engine runs natively - the card returns unearthed (haste, exile on leaving, exile at
+    // the next end step). Sorcery speed is the rule's; an unreadable price leaves the line unsynthesized.
+    const unearth = UNEARTH_RE.exec(printed);
+    if (unearth) {
+      const unearthCost = parseCost(unearth[1] ?? '', warn);
+      if (unearthCost !== null) {
+        out.push({
+          index: out.length,
+          costText: unearth[1] ?? '',
+          effectText: UNEARTH_EFFECT,
+          manaCost: unearthCost,
+          requiresTap: false,
+          requiresUntap: false,
+          lifeCost: 0,
+          lifeCostCommanderColors: false,
+          sacrificesSelf: false,
+          sacrificeCost: null,
+          discardCost: null,
+          exileFromGraveyardCost: null,
+          exileSelfFromGraveyard: false,
+          activatesFromGraveyard: true,
+          removeCounterCost: null,
+          tapCost: null,
+          returnCost: null,
+          returnsSelf: false,
+          putCounterCost: null,
+          unpaidCosts: [],
+          payable: true,
+          isManaAbility: false,
+          isLoyalty: false,
+          sorceryOnly: true,
+          oncePerTurn: false,
+          activateOnly: [],
+          targets: [],
+          unearth: { line: printed },
         });
         continue;
       }

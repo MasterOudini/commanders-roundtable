@@ -254488,6 +254488,954 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DREGSCAPE_ZOMBIE": {
+    "scryfallId": "3b8dc03e-76ec-4544-9c3b-e14e28641611",
+    "oracleId": "be9d1346-4416-4ade-ae84-7a4121e0bd12",
+    "name": "Dregscape Zombie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dregscape Zombie",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Unearth {B} ({B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": "The undead of Grixis are fueled by their hatred of the living.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "3b8dc03e-76ec-4544-9c3b-e14e28641611"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "arc",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_FIELD_OGRE": {
+    "scryfallId": "0d023dd3-e92f-4b8a-a178-b60db018bf2a",
+    "oracleId": "343a258e-ea46-4acb-8543-9f869e43bc59",
+    "name": "Fire-Field Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire-Field Ogre",
+        "manaCost": "{1}{U}{B}{R}",
+        "typeLine": "Creature — Ogre Mutant",
+        "oracleText": "First strike\nUnearth {U}{B}{R} ({U}{B}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Mitch Cotie",
+        "imageId": "0d023dd3-e92f-4b8a-a178-b60db018bf2a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike",
+      "Unearth"
+    ],
+    "setCode": "ddh",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KATHARI_SCREECHER": {
+    "scryfallId": "150cf865-79e2-4f74-a872-44e1e5bc73c4",
+    "oracleId": "fb51bafe-5a70-4910-a42e-ef75d9dd2f0a",
+    "name": "Kathari Screecher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kathari Screecher",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nUnearth {2}{U} ({2}{U}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "150cf865-79e2-4f74-a872-44e1e5bc73c4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Unearth"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VISCERA_DRAGGER": {
+    "scryfallId": "6d6d2d84-7141-4485-8379-b3c71af47cd1",
+    "oracleId": "77630700-3828-4063-95a7-f6283f0f9da5",
+    "name": "Viscera Dragger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viscera Dragger",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Ogre Warrior",
+        "oracleText": "Cycling {2} ({2}, Discard this card: Draw a card.)\nUnearth {1}{B} ({1}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "6d6d2d84-7141-4485-8379-b3c71af47cd1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Unearth",
+      "Cycling"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHAMBLING_REMAINS": {
+    "scryfallId": "0171e38f-b663-477b-970e-fce8f00321c7",
+    "oracleId": "5a29fe9f-89bf-405e-acf6-1b56435cb9ee",
+    "name": "Shambling Remains",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shambling Remains",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Zombie Horror",
+        "oracleText": "This creature can't block.\nUnearth {B}{R} ({B}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "0171e38f-b663-477b-970e-fce8f00321c7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "ddk",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMIAN_SIMULACRUM": {
+    "scryfallId": "036eee90-b002-4d9a-a72e-56cef7cc8648",
+    "oracleId": "77eb44ca-53e9-4924-b19f-31732f14ef14",
+    "name": "Simian Simulacrum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Simian Simulacrum",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Ape",
+        "oracleText": "When this creature enters, put two +1/+1 counters on target creature you control.\nUnearth {2}{G}{G} ({2}{G}{G}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Vargas",
+        "imageId": "036eee90-b002-4d9a-a72e-56cef7cc8648"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "352",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRST_SPHERE_GARGANTUA": {
+    "scryfallId": "06279e37-b746-4ec8-9922-a49c66e4c0f3",
+    "oracleId": "e101edcd-34d8-4bcd-8ba6-d5941584f9fa",
+    "name": "First-Sphere Gargantua",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "First-Sphere Gargantua",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Phyrexian Horror",
+        "oracleText": "When this creature enters, you draw a card and you lose 1 life.\nUnearth {2}{B} ({2}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "06279e37-b746-4ec8-9922-a49c66e4c0f3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "330",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIEST_OF_FELL_RITES": {
+    "scryfallId": "1131c841-d736-4c97-9c80-7e61fa30079d",
+    "oracleId": "ec6ccd8f-cc75-4a50-8639-f4ec31a280aa",
+    "name": "Priest of Fell Rites",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Priest of Fell Rites",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "{T}, Pay 3 life, Sacrifice this creature: Return target creature card from your graveyard to the battlefield. Activate only as a sorcery.\nUnearth {3}{W}{B} ({3}{W}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Crystal Fae",
+        "imageId": "1131c841-d736-4c97-9c80-7e61fa30079d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "fic",
+    "collectorNumber": "328",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLATOON_DISPENSER": {
+    "scryfallId": "1549221a-9b37-44a9-af36-9c2e6c99684e",
+    "oracleId": "339c39d9-7e10-458e-b602-4f0550840436",
+    "name": "Platoon Dispenser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Platoon Dispenser",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "At the beginning of your end step, if you control two or more other creatures, draw a card.\n{3}{W}: Create a 1/1 colorless Soldier artifact creature token.\nUnearth {2}{W}{W}",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leon Tukker",
+        "imageId": "1549221a-9b37-44a9-af36-9c2e6c99684e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "310",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMBAT_COURIER": {
+    "scryfallId": "171edf80-ffc1-4894-9be5-c3e93a96f734",
+    "oracleId": "54d32245-c796-4e8e-b61e-c218e3902565",
+    "name": "Combat Courier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Combat Courier",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{2}, Sacrifice this creature: Draw a card.\nUnearth {U} ({U}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alix Branwyn",
+        "imageId": "171edf80-ffc1-4894-9be5-c3e93a96f734"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELLSPARK_ELEMENTAL": {
+    "scryfallId": "205bd3b3-969a-4cbf-b4c7-4973c0a0a10b",
+    "oracleId": "a7ba88c6-81e7-4ab7-9c9b-308831e56833",
+    "name": "Hellspark Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hellspark Elemental",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample, haste\nAt the beginning of the end step, sacrifice this creature.\nUnearth {1}{R} ({1}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "205bd3b3-969a-4cbf-b4c7-4973c0a0a10b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth",
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "36172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VITHIAN_STINGER": {
+    "scryfallId": "21626e4b-9361-4657-bac0-85fb475de225",
+    "oracleId": "1c329131-bef2-41c6-823a-136c110ff0ad",
+    "name": "Vithian Stinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vithian Stinger",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{T}: This creature deals 1 damage to any target.\nUnearth {1}{R} ({1}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "21626e4b-9361-4657-bac0-85fb475de225"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "ddk",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCHFIEND_OF_SORROWS": {
+    "scryfallId": "22eb0d3c-41e6-4e3f-8f5b-52850ab2301c",
+    "oracleId": "fe84966e-0f0c-4df8-b61c-e9693492dfd8",
+    "name": "Archfiend of Sorrows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Archfiend of Sorrows",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nWhen this creature enters, creatures your opponents control get -2/-2 until end of turn.\nUnearth {3}{B}{B} ({3}{B}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "22eb0d3c-41e6-4e3f-8f5b-52850ab2301c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Unearth"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MH2-74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELL_S_THUNDER": {
+    "scryfallId": "2b5fab78-9391-4247-ab26-467fc78e9b97",
+    "oracleId": "5aad3485-47c1-4d87-b340-61d7003cd786",
+    "name": "Hell's Thunder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hell's Thunder",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying, haste\nAt the beginning of the end step, sacrifice this creature.\nUnearth {4}{R} ({4}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "2b5fab78-9391-4247-ab26-467fc78e9b97"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Unearth",
+      "Haste"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ALA-103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPWORK_MUTT": {
+    "scryfallId": "2d78d844-72e8-481b-a700-f92571b2d347",
+    "oracleId": "5906b378-c7a7-44fd-a63b-55a347d97854",
+    "name": "Scrapwork Mutt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapwork Mutt",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Dog",
+        "oracleText": "When this creature enters, you may discard a card. If you do, draw a card.\nUnearth {1}{R} ({1}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "2d78d844-72e8-481b-a700-f92571b2d347"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BRO-164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROTTING_RATS": {
+    "scryfallId": "34dea310-8738-4fd9-b790-0361afe1e150",
+    "oracleId": "1f361ae9-98a2-40ff-a579-fa5b9f510df4",
+    "name": "Rotting Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rotting Rats",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Rat",
+        "oracleText": "When this creature enters, each player discards a card.\nUnearth {1}{B} ({1}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "34dea310-8738-4fd9-b790-0361afe1e150"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "con",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCOURGE_DEVIL": {
+    "scryfallId": "4b7d2a08-f567-4635-9e67-d05142390339",
+    "oracleId": "3ee65210-547f-4375-8f9a-3484d963339f",
+    "name": "Scourge Devil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scourge Devil",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "When this creature enters, creatures you control get +1/+0 until end of turn.\nUnearth {2}{R} ({2}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "4b7d2a08-f567-4635-9e67-d05142390339"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM3-111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHNOD_S_HARVESTER": {
+    "scryfallId": "58baa977-16c1-4983-8343-dbd65e98ddb7",
+    "oracleId": "9ea87566-43da-4ebd-a904-ae8b8830c3a2",
+    "name": "Ashnod's Harvester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashnod's Harvester",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Whenever this creature attacks, exile target card from a graveyard.\nUnearth {1}{B} ({1}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Halil Ural",
+        "imageId": "58baa977-16c1-4983-8343-dbd65e98ddb7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEDRAXIS_SPECTER": {
+    "scryfallId": "73c16dd5-0940-4a9b-8685-a594ca7cbbe7",
+    "oracleId": "eccc1230-df5a-44a0-859b-9e1e0d176dff",
+    "name": "Sedraxis Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sedraxis Specter",
+        "manaCost": "{U}{B}{R}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, that player discards a card.\nUnearth {1}{B} ({1}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Cole Eastburn",
+        "imageId": "73c16dd5-0940-4a9b-8685-a594ca7cbbe7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Unearth"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM3-181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDEAD_LEOTAU": {
+    "scryfallId": "7ab9a62a-5503-430d-8b67-061a46b5c22c",
+    "oracleId": "dd7df06c-9434-46ce-893c-80081fbc2df7",
+    "name": "Undead Leotau",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undead Leotau",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Zombie Cat",
+        "oracleText": "{R}: This creature gets +1/-1 until end of turn.\nUnearth {2}{B} ({2}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "7ab9a62a-5503-430d-8b67-061a46b5c22c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIXIS_SLAVEDRIVER": {
+    "scryfallId": "7b1fef26-7a5d-4e8d-95df-aac67dd25fd5",
+    "oracleId": "9087928a-4732-4661-b3ed-d0b1ea06edf6",
+    "name": "Grixis Slavedriver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grixis Slavedriver",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Zombie Giant",
+        "oracleText": "When this creature leaves the battlefield, create a 2/2 black Zombie creature token.\nUnearth {3}{B} ({3}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "7b1fef26-7a5d-4e8d-95df-aac67dd25fd5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "mm3",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPWORK_COHORT": {
+    "scryfallId": "91b0f17e-603a-4840-b2c3-381ec6f102f3",
+    "oracleId": "149694e6-5cf0-4983-9546-a4bd579b2ade",
+    "name": "Scrapwork Cohort",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapwork Cohort",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Soldier",
+        "oracleText": "When this creature enters, create a 1/1 colorless Soldier artifact creature token.\nUnearth {2}{W} ({2}{W}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Caio Monteiro",
+        "imageId": "91b0f17e-603a-4840-b2c3-381ec6f102f3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPWORK_RAGER": {
+    "scryfallId": "9d1f2544-bb56-44a8-af25-ae0e6bc69abb",
+    "oracleId": "552867ec-5741-4e34-813f-4aaf185661f7",
+    "name": "Scrapwork Rager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapwork Rager",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Phyrexian Horror",
+        "oracleText": "When this creature enters, you draw a card and you lose 1 life.\nUnearth {3}{B} ({3}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michal Ivan",
+        "imageId": "9d1f2544-bb56-44a8-af25-ae0e6bc69abb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BRO-123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTEN_GATEKEEPER": {
+    "scryfallId": "9f5ba065-2806-4e99-a330-168cfe76250f",
+    "oracleId": "90fdfba8-f29e-44f9-91d2-7bf3c458a9c1",
+    "name": "Molten Gatekeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molten Gatekeeper",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Whenever another creature you control enters, this creature deals 1 damage to each opponent.\nUnearth {R} ({R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "9f5ba065-2806-4e99-a330-168cfe76250f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISHRA_S_JUGGERNAUT": {
+    "scryfallId": "b30457c3-57df-4720-8b45-962f16316d17",
+    "oracleId": "fa6fa2f5-eb9b-402e-82f4-e0a8d30df245",
+    "name": "Mishra's Juggernaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mishra's Juggernaut",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Juggernaut",
+        "oracleText": "Trample\nThis creature attacks each combat if able.\nUnearth {5}{R} ({5}{R}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steve Prescott",
+        "imageId": "b30457c3-57df-4720-8b45-962f16316d17"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Unearth",
+      "Trample"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YOTIAN_FRONTLINER": {
+    "scryfallId": "bfa05d1e-6728-4e77-bfb2-da0b9598e44b",
+    "oracleId": "cd39e485-71ba-40cb-8608-f5a0dfb7ef5f",
+    "name": "Yotian Frontliner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yotian Frontliner",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Soldier",
+        "oracleText": "Whenever this creature attacks, another target creature you control gets +1/+1 until end of turn.\nUnearth {W} ({W}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jehan Choo",
+        "imageId": "bfa05d1e-6728-4e77-bfb2-da0b9598e44b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOCASIA_S_ONULET": {
+    "scryfallId": "e4abf2fb-f78a-4e75-b46f-524d3d7405db",
+    "oracleId": "150dd67b-4de2-4fcd-b753-e4096de911a2",
+    "name": "Tocasia's Onulet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tocasia's Onulet",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature leaves the battlefield, you gain 2 life.\nUnearth {3}{W} ({3}{W}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eddie Mendoza",
+        "imageId": "e4abf2fb-f78a-4e75-b46f-524d3d7405db"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

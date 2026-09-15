@@ -740,6 +740,16 @@ export function effectResult(
         break;
       }
 
+      // D448 - unearth's delayed exile: the source, if it is still on the battlefield (it may have left for exile
+      // already by the leave replacement - then nothing).
+      case 'exileSelf': {
+        if (!source) break;
+        const gone = state.cards[source];
+        if (!gone || gone.zone.kind !== 'battlefield') break;
+        out.push(moveTo(source, 'exile', gone.owner));
+        break;
+      }
+
       case 'sacrificeSelf': {
         if (!source) break;
         const inst = state.cards[source];

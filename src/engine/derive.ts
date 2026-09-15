@@ -297,7 +297,8 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     loyalty: face.baseLoyalty,
     defense: face.baseDefense,
     // D444 - riot's haste is the object's from its entry (CR 702.132), read at layer 1 with the printed keywords.
-    keywords: new Set<Keyword>(inst.riotHaste ? [...face.keywords, 'haste'] : face.keywords),
+    // D448 - an unearthed object has haste too (CR 702.84a).
+    keywords: new Set<Keyword>(inst.riotHaste || inst.unearthed ? [...face.keywords, 'haste'] : face.keywords),
     // ⚠️ LAYER ONE: a printed object HAS its abilities. Only a layer-6 effect
     // takes them away, which is why the default lives here and not in a
     // constructor default nobody would read.

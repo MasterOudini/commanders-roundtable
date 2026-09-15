@@ -33,7 +33,8 @@ import type { AbilityRef, InstanceId, PlayerId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
 import type { RngState } from './rng';
 import type { ActivatedAbility, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
-import { apnapOrder, livingPlayers, type Awaiting, type GameState, type PendingTrigger, type StackObject } from './types/state';
+import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type GameState, type PendingTrigger, type StackObject } from './types/state';
+import { unearthExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
 
 export interface EngineDeps {
@@ -1174,6 +1175,29 @@ export function resolveAbility(
     // creature, if the clause still admits it (CR 608.2b); the card itself is in exile - the cost was its exile.
     if (ability?.scavenge !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.scavenge.power }] });
+    }
+    // D448 - UNEARTH resolves natively (CR 702.84a): the card returns from its owner's graveyard to the battlefield
+    // under the activator's control, unearthed - haste (derive), exile instead of leaving (the funnel) - and a
+    // delayed trigger armed now exiles it at the next end step (CR 603.7). A card no longer in the graveyard
+    // (a response exiled it) returns nothing.
+    if (ability?.unearth !== undefined) {
+      const src = state.cards[obj.source];
+      if (src && src.zone.kind === 'graveyard') {
+        events.push({ t: 'CardsMoved', moves: [{ card: obj.source, from: { kind: 'graveyard', player: src.owner }, to: { kind: 'battlefield', player: obj.controller } }] });
+        events.push({ t: 'Unearthed', card: obj.source });
+        const trigger: DelayedTrigger = {
+          id: `${obj.id}-unearth`,
+          controller: obj.controller,
+          source: obj.source,
+          when: { step: 'end', whose: 'next' },
+          armedTurn: state.turn.turnNumber,
+          armedStep: state.turn.step,
+          effects: [unearthExileSpec()],
+          label: `${srcFace.name} — unearth: exile it`,
+        };
+        events.push({ t: 'DelayedTriggerArmed', trigger });
+        events.push(narrated(n`${srcFace.name} returns unearthed: it has haste, and it will be exiled at the beginning of the next end step or if it would leave the battlefield.`, obj.controller, obj.identity));
+      }
     }
     // D311 - CREW resolves natively: the Vehicle is an artifact creature until
     // end of turn (CR 702.122a), carried by the same until-end-of-turn list a

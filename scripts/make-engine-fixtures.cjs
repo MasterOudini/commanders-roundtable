@@ -8305,6 +8305,36 @@ const WANTED = [
   'Etched Monstrosity',
   'Moonlit Lamenter',
   // D447 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D448 - unearth: the seam's own fixtures (the staple and three complete-on-seam cards).
+  'Dregscape Zombie',
+  'Fire-Field Ogre',
+  'Kathari Screecher',
+  'Viscera Dragger',
+  // D448 - unearth (CR 702.84): the rows the row maker reads once the keyword is the engine's own.
+  'Shambling Remains',
+  'Simian Simulacrum',
+  'First-Sphere Gargantua',
+  'Priest of Fell Rites',
+  'Platoon Dispenser',
+  'Combat Courier',
+  'Hellspark Elemental',
+  'Vithian Stinger',
+  'Archfiend of Sorrows',
+  "Hell's Thunder",
+  'Scrapwork Mutt',
+  'Rotting Rats',
+  'Scourge Devil',
+  "Ashnod's Harvester",
+  'Sedraxis Specter',
+  'Undead Leotau',
+  'Grixis Slavedriver',
+  'Scrapwork Cohort',
+  'Scrapwork Rager',
+  'Molten Gatekeeper',
+  "Mishra's Juggernaut",
+  'Yotian Frontliner',
+  "Tocasia's Onulet",
+  // D448 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

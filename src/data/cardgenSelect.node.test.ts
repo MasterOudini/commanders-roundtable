@@ -259,6 +259,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D448 - unearth is the engine's now, and the mirror offered three the row maker refused: an ability-word activated
+  // line, a search-to-graveyard payload and a combat-damage head that also sacrifices (the wide run's reason).
+  ['Chronomancer', 'ability-word activated line: Atomic Transmutation — {1}, {T}, Sacrifice another artifact: Draw a card.'],
+  ['Corpse Connoisseur', 'trigger payload not a pump: Search your library for a creature card, put that card into your graveyard, then shuffle.'],
+  ['Kathari Bomber', 'trigger head not in the library: When this creature deals combat damage to a player, create two 1/1 red Goblin creature tokens and sacrifice this creature.'],
   // D442 - the printed maximum hand size is the engine's now, and the mirror offered two the row maker refused: a
   // token-combat head outside the library and a hand-sized life gain no suite can stage (the wide run's reason).
   ['Curiosity Crafter', 'trigger head not in the library: Whenever a creature token you control deals combat damage to a player,'],

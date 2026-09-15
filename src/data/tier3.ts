@@ -297,6 +297,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.crew !== undefined) continue;
     // D440 - scavenge resolves natively: the exile and the mana charged, the counters put.
     if (ability.scavenge !== undefined) continue;
+    // D448 - unearth resolves natively: the mana charged, the return and its riders run by the engine.
+    if (ability.unearth !== undefined) continue;
 
     // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
     // charged by the engine, effect resolved by the script — so the card owes
@@ -370,6 +372,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'crew' && abilities.some((a) => a.crew !== undefined)) continue;
     // D440 - a Scavenge the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'scavenge' && abilities.some((a) => a.scavenge !== undefined)) continue;
+    // D448 - an Unearth the engine runs is no note either.
+    if (raw.trim().toLowerCase() === 'unearth' && abilities.some((a) => a.unearth !== undefined)) continue;
     // D312 - an Affinity the engine prices is no note either.
     if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
