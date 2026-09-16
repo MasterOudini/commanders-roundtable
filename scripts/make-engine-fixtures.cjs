@@ -8516,6 +8516,12 @@ const WANTED = [
   'Nightdrinker Moroii',
   'Alley Assailant',
   // D460 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D461 - the enters-or-turned-face-up compound head: split into its two library heads by the row maker (D380 way), the rows that read.
+  'Ponyback Brigade',
+  'Rakish Scoundrel',
+  'Efreet Weaponmaster',
+  'Offender at Large',
+  // D461 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

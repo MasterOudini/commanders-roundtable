@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PONYBACK_BRIGADE_SCRIPT } from './cards/ponybackBrigade';
+import { GADGET_TECHNICIAN_SCRIPT } from './cards/gadgetTechnician';
+import { RAKISH_SCOUNDREL_SCRIPT } from './cards/rakishScoundrel';
+import { EFREET_WEAPONMASTER_SCRIPT } from './cards/efreetWeaponmaster';
+import { OFFENDER_AT_LARGE_SCRIPT } from './cards/offenderAtLarge';
 import { SHADY_INFORMANT_SCRIPT } from './cards/shadyInformant';
 import { UNDERCOVER_CROCODELF_SCRIPT } from './cards/undercoverCrocodelf';
 import { EXIT_SPECIALIST_SCRIPT } from './cards/exitSpecialist';
@@ -7087,6 +7092,11 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PONYBACK_BRIGADE_SCRIPT,
+  GADGET_TECHNICIAN_SCRIPT,
+  RAKISH_SCOUNDREL_SCRIPT,
+  EFREET_WEAPONMASTER_SCRIPT,
+  OFFENDER_AT_LARGE_SCRIPT,
   SHADY_INFORMANT_SCRIPT,
   UNDERCOVER_CROCODELF_SCRIPT,
   EXIT_SPECIALIST_SCRIPT,

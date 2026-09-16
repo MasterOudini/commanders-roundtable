@@ -7710,6 +7710,10 @@ export const SANGUINE_SAVIOR: CardData = F.SANGUINE_SAVIOR as CardData;
 export const FORUM_FAMILIAR: CardData = F.FORUM_FAMILIAR as CardData;
 export const NIGHTDRINKER_MOROII: CardData = F.NIGHTDRINKER_MOROII as CardData;
 export const ALLEY_ASSAILANT: CardData = F.ALLEY_ASSAILANT as CardData;
+export const PONYBACK_BRIGADE: CardData = F.PONYBACK_BRIGADE as CardData;
+export const RAKISH_SCOUNDREL: CardData = F.RAKISH_SCOUNDREL as CardData;
+export const EFREET_WEAPONMASTER: CardData = F.EFREET_WEAPONMASTER as CardData;
+export const OFFENDER_AT_LARGE: CardData = F.OFFENDER_AT_LARGE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15576,6 +15580,10 @@ export const ENGINE_CARDS: CardData[] = [
   FORUM_FAMILIAR,
   NIGHTDRINKER_MOROII,
   ALLEY_ASSAILANT,
+  PONYBACK_BRIGADE,
+  RAKISH_SCOUNDREL,
+  EFREET_WEAPONMASTER,
+  OFFENDER_AT_LARGE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

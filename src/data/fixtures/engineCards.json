@@ -260683,6 +260683,158 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PONYBACK_BRIGADE": {
+    "scryfallId": "192d77ef-e8b5-44e2-842b-2c1f342c1e69",
+    "oracleId": "8cfb5181-8ab7-484b-8821-a62c561f762f",
+    "name": "Ponyback Brigade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ponyback Brigade",
+        "manaCost": "{3}{R}{W}{B}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "When this creature enters or is turned face up, create three 1/1 red Goblin creature tokens.\nMorph {2}{R}{W}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "192d77ef-e8b5-44e2-842b-2c1f342c1e69"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "191",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKISH_SCOUNDREL": {
+    "scryfallId": "6aaa8c6b-7ef7-45db-99c9-4a6e7f177b94",
+    "oracleId": "d69cb63f-98cc-4699-a03d-4f1beeeb7065",
+    "name": "Rakish Scoundrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakish Scoundrel",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Creature — Elf Rogue",
+        "oracleText": "Deathtouch\nWhen this creature enters or is turned face up, target creature gains indestructible until end of turn.\nDisguise {4}{B/G}{B/G} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Ina Wong",
+        "imageId": "6aaa8c6b-7ef7-45db-99c9-4a6e7f177b94"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise",
+      "Deathtouch"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EFREET_WEAPONMASTER": {
+    "scryfallId": "8986cb2e-76e0-41f3-8810-3d11c39a527a",
+    "oracleId": "882a9dc9-b1bb-4be8-850f-e28bad8f5840",
+    "name": "Efreet Weaponmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Efreet Weaponmaster",
+        "manaCost": "{3}{U}{R}{W}",
+        "typeLine": "Creature — Efreet Monk",
+        "oracleText": "First strike\nWhen this creature enters or is turned face up, another target creature you control gets +3/+0 until end of turn.\nMorph {2}{U}{R}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Ryan Alexander Lee",
+        "imageId": "8986cb2e-76e0-41f3-8810-3d11c39a527a"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Morph",
+      "First strike"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OFFENDER_AT_LARGE": {
+    "scryfallId": "f096ff4a-85f4-46f1-9478-e8921f21309d",
+    "oracleId": "c8c42851-1b1b-49dd-a97c-7eda57dadb13",
+    "name": "Offender at Large",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Offender at Large",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Giant Rogue",
+        "oracleText": "Disguise {4}{R} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature enters or is turned face up, up to one target creature gets +2/+0 until end of turn.",
+        "flavorText": "\"In a city this big, anyone can blend in.\"\n—Imel of the Foundway Associates",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "f096ff4a-85f4-46f1-9478-e8921f21309d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

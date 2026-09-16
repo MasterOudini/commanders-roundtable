@@ -258,9 +258,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.
   ['Museum Nightwatch', 'a token outside TOKEN_TABLE: Detective|2/2|WU|Creature|'],
-  ['Gadget Technician', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, create a 1/1 colorless Thopter artifact creature token with flying.'],
-  ['Rakish Scoundrel', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, target creature gains indestructible until end of turn.'],
-  ['Offender at Large', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, ...'],
   ['Arno Dorian', 'a subtype anthem outside the scope vocabulary: Other Assassins you control get +2/+0.'],
   ['Basilica Stalker', 'a trigger payload outside the vocabulary (a surveil beside a life gain): You gain 1 life and surveil 1.'],
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
@@ -948,7 +945,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flensing Raptor', 'a clause the suite has no fixture for (another target creature you control with toxic) beside its enters head'],
   ['Rime Tender', 'a clause the suite has no fixture for (another target snow permanent) beside its activation'],
   ['Carrion Thrash', 'a payment branch the suite cannot assert (returnFromGraveyard) beside its another-target line'],
-  ['Efreet Weaponmaster', 'a filtered head outside the closed reader (an adjective outside the list: this) beside its another-target line'],
   ['Dour Port-Mage', 'a filtered head outside the closed reader (whenever one or more creatures you control leave without dying) beside its untap line'],
   ['Matterbending Mage', 'a filtered head outside the closed reader (whenever you cast a spell) beside its another-target line'],
   ['Nobody', "a trigger payload outside the row kinds (return up to one other target artifact you control to its owner's hand - an up-to-one bounce)"],
@@ -2460,7 +2456,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D309 (M6.4et) — the morph pool: the morph creatures whose other
   // lines the vocabulary does not read yet - their morph runs.
-  ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
   ['Voidmage Apprentice', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
