@@ -769,6 +769,8 @@ export function parseActivatedAbilities(
     let returnsSelf = false;
     let putCounterCost: ActivatedAbility['putCounterCost'] = null;
     let isLoyalty = false;
+    // D472 - the loyalty cost as a signed number (`+2`, `−3`, `0`); `X` forms stay unpaid.
+    let loyaltyCost: number | undefined;
 
     for (const part of parts) {
       if (part === '{T}') {
@@ -781,6 +783,8 @@ export function parseActivatedAbilities(
       }
       if (LOYALTY_RE.test(part)) {
         isLoyalty = true;
+        const num = part.replace('−', '-');
+        if (/^[+-]?\d+$/.test(num)) loyaltyCost = Number(num);
         continue;
       }
       if (MANA_ONLY_RE.test(part)) {
@@ -1032,10 +1036,10 @@ export function parseActivatedAbilities(
     else if (unpaidCosts.length > 0) warn('activated:nonManaCost');
 
     // ⚠️ A life cost IS payable — `parseWardLife` set that precedent in M5 and
-    // the payment problem already carries a life component. But loyalty is not,
-    // because it needs once-per-turn tracking and a counter cost that do not
-    // exist, and an ability whose cost we cannot charge is not offered at all.
-    const payable = unpaidCosts.length === 0 && !isLoyalty;
+    // the payment problem already carries a life component. D472 - and so is a NUMERIC loyalty
+    // cost now (CR 606): the counters are the price, charged in the cost batch, once a turn per
+    // permanent at sorcery speed (`legal.ts` / `handlers.ts`). An X loyalty cost stays unpaid.
+    const payable = unpaidCosts.length === 0 && (!isLoyalty || loyaltyCost !== undefined);
 
     out.push({
       index: out.length,
@@ -1063,8 +1067,10 @@ export function parseActivatedAbilities(
       payable,
       isManaAbility,
       isLoyalty,
+      ...(loyaltyCost !== undefined ? { loyaltyCost } : {}),
       // D342 - the compound tails ("as a sorcery and only once each turn") read by the clause parser too.
-      sorceryOnly: SORCERY_ONLY_RE.test(line.text) || activation.sorceryOnly,
+      // D472 - CR 606.3: a loyalty ability is activated only at sorcery speed.
+      sorceryOnly: SORCERY_ONLY_RE.test(line.text) || activation.sorceryOnly || isLoyalty,
       oncePerTurn: ONCE_PER_TURN_RE.test(line.text) || activation.oncePerTurn || boast,
       ...(exhaust ? { exhaust: true as const } : {}),
       ...(boast ? { boast: true as const } : {}),

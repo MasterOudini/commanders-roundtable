@@ -235,10 +235,11 @@ describe('a permanent’s text, which the app does not run', () => {
     expect(note?.how).toContain('nothing happens');
   });
 
-  test('a loyalty ability is unchanged, and its static line is now said too', () => {
+  test('a loyalty ability is charged now (D472), and its static line is still said', () => {
     // Grist is a static line ("As long as Grist isn't on the battlefield…") plus
-    // three loyalty abilities, which have been named since M5 and still are.
-    expect(what(C.GRIST_THE_HUNGER_TIDE)).toEqual(['Its ability text', 'Its loyalty abilities']);
+    // three loyalty abilities - named since M5; since D472 each is payable (the
+    // counters are charged), so each earns the charged-for-nothing note by its cost.
+    expect(what(C.GRIST_THE_HUNGER_TIDE)).toEqual(['Its ability text', 'Its “+1” ability', 'Its “−2” ability', 'Its “−5” ability']);
   });
 
   test('the spell path is untouched', () => {

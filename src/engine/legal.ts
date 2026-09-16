@@ -472,7 +472,14 @@ export function legalActions(
     }));
     for (const g of d.grantedActivated) offerable.push({ ability: g.ability, grantRef: g.ref, defReady: true });
     for (const { ability, grantRef, defReady } of offerable) {
-      if (ability.isManaAbility || ability.isLoyalty || !ability.payable) continue;
+      if (ability.isManaAbility || !ability.payable) continue;
+      // D472 - a loyalty ability (payable: a numeric cost, CR 606): once a turn per PERMANENT (606.3 - the key is
+      // the permanent, not the ability), and a negative cost only with the counters to pay it (606.5); the sorcery
+      // timing rides `sorceryOnly` below.
+      if (ability.isLoyalty) {
+        if ((state.turn.activations[`${id}|loyalty`] ?? 0) >= 1) continue;
+        if (ability.loyaltyCost !== undefined && ability.loyaltyCost < 0 && (inst.counters['loyalty'] ?? 0) + ability.loyaltyCost < 0) continue;
+      }
       const ref: AbilityRef = grantRef ?? `${card.oracleId}#a${ability.index}`;
       // D329 - priced by exiling the card from the graveyard: offered from there, not here.
       if (ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) continue;

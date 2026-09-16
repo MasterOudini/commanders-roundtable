@@ -265649,6 +265649,144 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "JACE_BELEREN": {
+    "scryfallId": "38f5e6d2-e4b2-4292-85d6-b14a26c8e909",
+    "oracleId": "cc2b6e58-2d6f-495e-95f3-9496105c4cba",
+    "name": "Jace Beleren",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jace Beleren",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Legendary Planeswalker — Jace",
+        "oracleText": "+2: Each player draws a card.\n−1: Target player draws a card.\n−10: Target player mills twenty cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "3",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yoshino Himori",
+        "imageId": "38f5e6d2-e4b2-4292-85d6-b14a26c8e909"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "dd2",
+    "collectorNumber": "1★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIORA_BEHEMOTH_BECKONER": {
+    "scryfallId": "0ffe59ce-b4f3-44ff-9972-44c0549cb9eb",
+    "oracleId": "1efe485e-6874-4f4c-b981-e10f41670865",
+    "name": "Kiora, Behemoth Beckoner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kiora, Behemoth Beckoner",
+        "manaCost": "{2}{G/U}",
+        "typeLine": "Legendary Planeswalker — Kiora",
+        "oracleText": "Whenever a creature you control with power 4 or greater enters, draw a card.\n−1: Untap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "7",
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Justin Gerard",
+        "imageId": "0ffe59ce-b4f3-44ff-9972-44c0549cb9eb"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1700",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARKHAN_VOL": {
+    "scryfallId": "181e20e9-94a2-40b6-abc4-797f588866bf",
+    "oracleId": "d902074a-2a2b-42b7-a1e5-750862c64fbe",
+    "name": "Sarkhan Vol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sarkhan Vol",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Legendary Planeswalker — Sarkhan",
+        "oracleText": "+1: Creatures you control get +1/+1 and gain haste until end of turn.\n−2: Gain control of target creature until end of turn. Untap that creature. It gains haste until end of turn.\n−6: Create five 4/4 red Dragon creature tokens with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "181e20e9-94a2-40b6-abc4-797f588866bf"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mma",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIVIEN_OF_THE_ARKBOW": {
+    "scryfallId": "8c185555-acd4-461a-821a-b21b7b0914a5",
+    "oracleId": "34fe53c2-8909-4786-b5c0-331de997ff81",
+    "name": "Vivien of the Arkbow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vivien of the Arkbow",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Planeswalker — Vivien",
+        "oracleText": "+2: Put two +1/+1 counters on up to one target creature.\n−3: Target creature you control deals damage equal to its power to target creature you don't control.\n−9: Creatures you control get +4/+4 and gain trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "8c185555-acd4-461a-821a-b21b7b0914a5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "301",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

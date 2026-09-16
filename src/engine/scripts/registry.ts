@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KIORA_BEHEMOTH_BECKONER_SCRIPT } from './cards/kioraBehemothBeckoner';
+import { SARKHAN_VOL_SCRIPT } from './cards/sarkhanVol';
+import { JACE_BELEREN_SCRIPT } from './cards/jaceBeleren';
+import { VIVIEN_OF_THE_ARKBOW_SCRIPT } from './cards/vivienOfTheArkbow';
 import { AVENGING_HUNTBONDER_SCRIPT } from './cards/avengingHuntbonder';
 import { VOID_BECKONER_SCRIPT } from './cards/voidBeckoner';
 import { WINDCALLER_AVEN_SCRIPT } from './cards/windcallerAven';
@@ -7225,6 +7229,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KIORA_BEHEMOTH_BECKONER_SCRIPT,
+  SARKHAN_VOL_SCRIPT,
+  JACE_BELEREN_SCRIPT,
+  VIVIEN_OF_THE_ARKBOW_SCRIPT,
   AVENGING_HUNTBONDER_SCRIPT,
   VOID_BECKONER_SCRIPT,
   WINDCALLER_AVEN_SCRIPT,

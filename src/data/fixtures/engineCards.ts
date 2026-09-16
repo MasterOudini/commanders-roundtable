@@ -7856,6 +7856,10 @@ export const TITANOTH_REX: CardData = F.TITANOTH_REX as CardData;
 export const VIZIER_OF_TUMBLING_SANDS: CardData = F.VIZIER_OF_TUMBLING_SANDS as CardData;
 export const SANCTUARY_SMASHER: CardData = F.SANCTUARY_SMASHER as CardData;
 export const AVIAN_ODDITY: CardData = F.AVIAN_ODDITY as CardData;
+export const JACE_BELEREN: CardData = F.JACE_BELEREN as CardData;
+export const KIORA_BEHEMOTH_BECKONER: CardData = F.KIORA_BEHEMOTH_BECKONER as CardData;
+export const SARKHAN_VOL: CardData = F.SARKHAN_VOL as CardData;
+export const VIVIEN_OF_THE_ARKBOW: CardData = F.VIVIEN_OF_THE_ARKBOW as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15870,6 +15874,10 @@ export const ENGINE_CARDS: CardData[] = [
   VIZIER_OF_TUMBLING_SANDS,
   SANCTUARY_SMASHER,
   AVIAN_ODDITY,
+  JACE_BELEREN,
+  KIORA_BEHEMOTH_BECKONER,
+  SARKHAN_VOL,
+  VIVIEN_OF_THE_ARKBOW,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

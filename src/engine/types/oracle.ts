@@ -1530,6 +1530,12 @@ export interface ActivatedAbility {
   /** CR 605 — does NOT use the stack. */
   readonly isManaAbility: boolean;
   readonly isLoyalty: boolean;
+  /**
+   * D472 - the loyalty cost as a signed number (CR 606): `+2` adds, `−3` removes and needs that many
+   * counters (606.5), `0` is free. Absent for an X cost, which stays unpaid. Once a turn per
+   * PERMANENT (606.3), at sorcery speed - `sorceryOnly` is set with it.
+   */
+  readonly loyaltyCost?: number;
   /** `Activate only as a sorcery`. */
   readonly sorceryOnly: boolean;
   /** D328 - `Activate only once each turn` (CR 602.5b): refused and unoffered once `TurnState.activations` counts it. */

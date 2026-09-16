@@ -416,7 +416,8 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
    * so the next kind of note added has to look at this number.
    */
   test('the longest note list is still panel-sized', () => {
-    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 24 });
+    // D472 - a planeswalker's payable loyalty abilities each earn the charged-for-nothing note until a row runs them.
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 99 });
   });
 
   /**
@@ -481,11 +482,11 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 13087,
+  abilityText: 13086,
   payable: 3707,
   manaPart: 353,
-  either: 15418,
-  eitherAnyFace: 15440,
+  either: 15417,
+  eitherAnyFace: 15439,
   wasSilent: 14263,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
@@ -501,8 +502,8 @@ const MEASURED: Record<string, number> = {
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
   wasSilentAnyFace: 14172,
-  silentBefore: 25476,
-  silentAfter: 11213,
+  silentBefore: 25481,
+  silentAfter: 11218,
   residual: 114,
   residualKeyword: 114,
   residualManaLine: 0,

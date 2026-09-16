@@ -328,7 +328,7 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // ⚠️ PAYABLE IS NOT RUN, AND THE COST IS TAKEN ANYWAY (D122). `payable` means
     // the engine can charge the COST, never that it can run the EFFECT:
     // `legal.ts` offers every ability that is
-    // `payable && !isManaAbility && !isLoyalty`, `handlers.ts` taps the permanent
+    // `payable && !isManaAbility`, `handlers.ts` taps the permanent
     // and takes the mana, and `loop.ts` resolves it with "with no card scripts
     // there is nothing to run" — unless a shipped def claimed it above.
     // `Krenko, Mob Boss` is a starter commander — tap
@@ -336,10 +336,10 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // payable. What the engine does is not this file's to change; saying it is.
     //
     // The condition mirrors `legal.ts`'s so the two can be read against each
-    // other. `activatedParse` already makes `payable` false for a loyalty cost,
-    // so `!isLoyalty` is belt-and-braces — and worth keeping, because the note
-    // below is the right one for a planeswalker either way.
-    if (ability.payable && !ability.isLoyalty) {
+    // other. D472 - a payable loyalty ability (a numeric cost) is RUN too: the
+    // counters are charged, once a turn, at sorcery speed - so it takes this note;
+    // only an unreadable loyalty cost (X, a symbol) keeps the M5 note below.
+    if (ability.payable) {
       add(
         abilityNoteLabel(ability.costText),
         'the app charges that cost and then nothing happens — apply the effect yourself with the manual tools',

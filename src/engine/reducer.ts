@@ -83,7 +83,10 @@ function withPlayer(state: GameState, id: PlayerId, patch: Partial<PlayerState>)
 function recordActivation(turn: TurnState, obj: StackObject): TurnState {
   if (obj.kind !== 'activated' || obj.source === null || obj.abilityRef === null) return turn;
   const key = `${obj.source}|${obj.abilityRef}`;
-  return { ...turn, activations: { ...turn.activations, [key]: (turn.activations[key] ?? 0) + 1 } };
+  const activations = { ...turn.activations, [key]: (turn.activations[key] ?? 0) + 1 };
+  // D472 - CR 606.3: a loyalty ability counts against the PERMANENT for the turn, whichever of its abilities it was.
+  if (obj.loyalty !== undefined) activations[`${obj.source}|loyalty`] = (activations[`${obj.source}|loyalty`] ?? 0) + 1;
+  return { ...turn, activations };
 }
 
 /** D348 - the empty record a turn starts with. */

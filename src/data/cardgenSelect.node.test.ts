@@ -369,8 +369,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fleeting Memories', 'a sacrifice head no fixture the suite can sacrifice satisfies: a Clue'],
   ['Fractured Sanity', 'a spell whose cycling trigger the engine does not run (When you cycle this card, each opponent mills four cards.)'],
   ['Restless Reef', 'trigger head not in the library: Whenever this land attacks, target player mills four cards.'],
-  ['Jace Beleren', 'planeswalker loyalty ability'],
-  ['Jace Beleren // Jace Beleren', 'planeswalker loyalty ability'],
   // D434 - the mill vocabulary: the 63 the wide run rowed once a mill could be the caster's own, aimed at a player or
   // over a player scope; 62 landed and this 1 is refused by reason (two heads of one card interact - the enters loot's
   // draw fires the draw head, and the suite answers one prompt where two are raised).
@@ -2049,7 +2047,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Three conditional FREE casts (Lethargy Trap, Massacre, Mogg Salvage)
   // join the cast-time alternative cost class after D275's four.
   ["Katara's Reversal", 'up-to-N targeting'],
-  ['Kiora, Behemoth Beckoner', 'planeswalker loyalty ability'],
   ['Krovikan Rot', 'recover mechanic'],
   ['Lantern Flare', 'cleave mechanic'],
   ["Laquatus's Disdain", 'cast-zone discriminator'],
@@ -2517,7 +2514,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
   ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
   ["Kari Zev's Expertise", 'a noun the target parser cannot place (creature or Vehicle) and a free cast from the hand'],
-  ['Sarkhan Vol', 'planeswalker loyalty abilities'],
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
@@ -2533,7 +2529,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Surestrike Trident', 'a quoted grant of a bite on an equipped creature (Equipped creature has first strike and ...) - the grant generator, not the mainline row maker'],
   ['Legolas, Master Archer', 'a filtered cast head outside the closed reader (whenever you cast a spell that targets ...)'],
   ['Markov Enforcer', 'a compound head (whenever this creature or another Vampire enters) outside the closed reader'],
-  ['Vivien of the Arkbow', 'planeswalker loyalty abilities'],
 
   // D397 - spend-restricted mana: the two the selector offered after the seam that the row maker refused, by reason.
   ['Maelstrom of the Spirit Dragon', 'a search payload (for a Dragon card, reveal it, to hand) as an ACTIVATED effect the row maker does not read - the search arm reads a trigger payload'],

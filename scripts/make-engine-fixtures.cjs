@@ -8687,6 +8687,13 @@ const WANTED = [
   'Sanctuary Smasher',
   'Avian Oddity',
   // D471 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D472 - the loyalty ability: the seam test's own planeswalker (three loyalty abilities the vocabulary reads).
+  'Jace Beleren',
+  // D472 - the loyalty ability: CR 606 as an engine rule (the loyalty cost charged in counters, once a turn a permanent, at sorcery speed), the planeswalkers whose every line reads.
+  'Kiora, Behemoth Beckoner',
+  'Sarkhan Vol',
+  'Vivien of the Arkbow',
+  // D472 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

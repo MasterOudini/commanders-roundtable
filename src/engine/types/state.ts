@@ -391,6 +391,8 @@ export interface StackObject {
   readonly exhaust?: true;
   /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */
   readonly boast?: true;
+  /** D472 - a loyalty ability's cost (CR 606); the reducer counts the permanent's one activation a turn off it. */
+  readonly loyalty?: number;
   /**
    * D405 - how many creatures convoked, artifacts improvised and cards were delved to cast this
    * spell (CR 702.51 / 702.126 / 702.66); absent when none did. The record of the alternative

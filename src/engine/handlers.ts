@@ -1179,6 +1179,16 @@ function activateAbility(
   if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${abilityRef}`] ?? 0) >= 1) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability was activated this turn already.`);
   }
+  // D472 - CR 606.3 / 606.5: one loyalty ability per permanent per turn, and a negative cost only with the
+  // counters to pay it (`legal.ts` offers by the same two rules; the sorcery timing is checked with `sorceryOnly`).
+  if (ability.loyaltyCost !== undefined) {
+    if ((state.turn.activations[`${intent.card}|loyalty`] ?? 0) >= 1) {
+      return reject('timingRestriction', `${face.name} has activated a loyalty ability this turn already.`);
+    }
+    if (ability.loyaltyCost < 0 && (card.counters['loyalty'] ?? 0) + ability.loyaltyCost < 0) {
+      return reject('cannotAfford', `${face.name} has too few loyalty counters for "${ability.costText}".`);
+    }
+  }
   // D457 - CR 702.178: an exhaust ability this object has activated is refused for good (`legal.ts` stops offering it).
   if (ability.exhaust && (card.exhausted ?? []).includes(abilityRef)) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability has been activated already (exhaust).`);
@@ -2274,6 +2284,10 @@ function finishAbility(
     );
   }
 
+  // D472 - CR 606: the loyalty cost is the counters themselves, added or removed as the ability goes on the stack.
+  if (ability.loyaltyCost !== undefined && ability.loyaltyCost !== 0) {
+    events.push({ t: 'CountersChanged', changes: [{ card: pending.card, kind: 'loyalty', delta: ability.loyaltyCost }] });
+  }
   const obj: StackObject = {
     id: pending.stackId,
     kind: 'activated',
@@ -2297,6 +2311,8 @@ function finishAbility(
     // D457 - the reducer stamps the source's exhaust memory off this flag.
     ...(ability.exhaust ? { exhaust: true as const } : {}),
     ...(ability.boast ? { boast: true as const } : {}),
+    // D472 - the reducer records the permanent's loyalty activation off this field.
+    ...(ability.loyaltyCost !== undefined ? { loyalty: ability.loyaltyCost } : {}),
     // D462 - the defender the returned creature was attacking, read before the return was charged (CR 702.49a).
     ...(ability.ninjutsu !== undefined && pending.returnToHand && pending.returnToHand.length > 0
       ? (() => { const d = state.combat?.attackers.find((a) => a.card === pending.returnToHand?.[0])?.defender; return d ? { ninjutsuDefender: d } : {}; })()

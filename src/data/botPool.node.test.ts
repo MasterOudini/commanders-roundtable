@@ -274,17 +274,17 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * becomes non-zero is a day worth noticing — and because a bug once made this
    * read 9 enchantments (see `clauseAccounted`'s substring note).
    */
-  test('enchantments execute now - 393 after the trigger heads; planeswalkers and battles still none', () => {
+  test('enchantments execute now - 393 after the trigger heads; five planeswalkers since D472, battles still none', () => {
     // ⚠️ This pinned exact ZEROES from M6.1 until M6.4c (D160), "because the
     // day one becomes non-zero is a day worth noticing" — `Ajani's Welcome`
     // was that day; `Captive Flame` (D166) and `Centaur Glade` (D167 — an
     // activated token maker) followed, and D169's chooser+target batch more
     // than doubled it (Aura Fracture, Barrage of Expendables, Blood Rites,
-    // Contemplation). Planeswalkers (loyalty costs) and battles are still
-    // structurally out, and stay pinned at zero for the same reason the
-    // enchantments were.
+    // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
+    // first five planeswalkers whose every line reads are in; battles stay
+    // pinned at zero for the same reason the enchantments were.
     expect.soft(r.poolByType['enchantment'] ?? 0).toBe(673);
-    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(0);
+    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(5);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
 
@@ -457,6 +457,8 @@ const POOL: Record<string, number> = {
   land: 660,
   artifact: 630,
   enchantment: 673,
+  // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
+  planeswalker: 5,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

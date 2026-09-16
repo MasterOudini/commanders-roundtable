@@ -390,6 +390,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // counter spent at that creature's next untap step by the built-in, CR 122.1j).
   { names: ['Rowdy Snowballers'], copiesPerSeat: 2,
     counterKeys: ['stunCountersPut', 'stunCountersSpent'], rotHistory: 'D470' },
+  // D472 - the loyalty ability: a Jace Beleren a seat ({1}{U}{U}; +2 each player draws, −1 target player draws - the
+  // driver activates whichever is offered at sorcery speed, once a turn).
+  { names: ['Jace Beleren'], copiesPerSeat: 2,
+    counterKeys: ['loyaltyActivations'], rotHistory: 'D472' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1288,6 +1292,8 @@ interface Run {
   /** D470 - the stun counters put on permanents, and the ones the untap built-in removed in place of an untap (CR 122.1j). */
   readonly stunCountersPut: number;
   readonly stunCountersSpent: number;
+  /** D472 - the loyalty abilities put on the stack (CR 606; the cost charged in counters). */
+  readonly loyaltyActivations: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1722,6 +1728,7 @@ function runOne(seed: number): Run {
     shieldCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'shield' && c.delta > 0)).length,
     stunCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta > 0)).length,
     stunCountersSpent: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta < 0)).length,
+    loyaltyActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.loyalty !== undefined).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1988,6 +1995,7 @@ const TOTAL_KEYS = [
   'shieldCountersPut',
   'stunCountersPut',
   'stunCountersSpent',
+  'loyaltyActivations',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2385,6 +2393,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.mobilizeFired).toBeGreaterThan(0);
         // D470 - a stun counter spent in place of an untap at gate size (Rowdy Snowballers 6 at 60 seeds, 11 at 150).
         expect(totals.stunCountersSpent).toBeGreaterThan(0);
+        // D472 - a loyalty ability activated at gate size (Jace Beleren 21 at 60 seeds, 53 at 150).
+        expect(totals.loyaltyActivations).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2487,6 +2497,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.creatureTypesChosen} creature types chosen · ` +
           `${totals.shieldCountersPut} shield counters put / ${totals.shieldCountersSpent} spent · ` +
           `${totals.stunCountersPut} stun counters put / ${totals.stunCountersSpent} spent · ` +
+          `${totals.loyaltyActivations} loyalty activations · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +
