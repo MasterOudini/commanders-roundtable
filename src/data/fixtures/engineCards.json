@@ -256951,6 +256951,842 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BANNERHIDE_KRUSHOK": {
+    "scryfallId": "1271251b-7d79-4cb4-80bb-98574aa63249",
+    "oracleId": "e3191093-1aaa-4002-a603-7c8d132b6a31",
+    "name": "Bannerhide Krushok",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bannerhide Krushok",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nReinforce 2—{1}{G} ({1}{G}, Discard this card: Put two +1/+1 counters on target creature.)\nScavenge {5}{G}{G} ({5}{G}{G}, Exile this card from your graveyard: Put a number of +1/+1 counters equal to this card's power on target creature. Scavenge only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "1271251b-7d79-4cb4-80bb-98574aa63249"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Scavenge",
+      "Trample",
+      "Reinforce"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORCHWALKER": {
+    "scryfallId": "14ac6bde-1fef-45f4-b505-80a66b03140a",
+    "oracleId": "566d6fcd-dd50-4135-a912-ec923fc433df",
+    "name": "Scorchwalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scorchwalker",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Bloodrush — {1}{R}{R}, Discard this card: Target attacking creature gets +5/+1 until end of turn.",
+        "flavorText": "\"Borborygmos's elemental launched an assault, but the Izzet wards held and experiments continue.\"\n—Skyknight report on the Rubblebelt",
+        "power": "5",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "14ac6bde-1fef-45f4-b505-80a66b03140a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKARRG_GOLIATH": {
+    "scryfallId": "0357e2ce-da68-46ff-a7e6-86df8a8ce91c",
+    "oracleId": "72350461-8231-4737-a57f-f20fb5d179a3",
+    "name": "Skarrg Goliath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skarrg Goliath",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nBloodrush — {5}{G}{G}, Discard this card: Target attacking creature gets +9/+9 and gains trample until end of turn.",
+        "flavorText": "\"They bind us with their laws. We free ourselves with nature's fist.\"\n—Nikya of the Old Ways",
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0357e2ce-da68-46ff-a7e6-86df8a8ce91c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Bloodrush",
+      "Trample"
+    ],
+    "setCode": "pgtc",
+    "collectorNumber": "133★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARBALEST_ELITE": {
+    "scryfallId": "094c839e-0aea-4754-af37-edf6292623e1",
+    "oracleId": "1d79b7a8-2b4c-4893-afdb-879c74957288",
+    "name": "Arbalest Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arbalest Elite",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Archer",
+        "oracleText": "{2}{W}, {T}: This creature deals 3 damage to target attacking or blocking creature. This creature doesn't untap during your next untap step.",
+        "flavorText": "There are few things as satisfying as a good, healthy thunk.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "094c839e-0aea-4754-af37-edf6292623e1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOR_CLAN_RAMPAGER": {
+    "scryfallId": "1d4b884b-1240-46a7-9474-5021faaadbee",
+    "oracleId": "ec7a9e7f-742b-4344-983e-73372c6a1760",
+    "name": "Ghor-Clan Rampager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghor-Clan Rampager",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nBloodrush — {R}{G}, Discard this card: Target attacking creature gets +4/+4 and gains trample until end of turn.",
+        "flavorText": "\"The Simic come from the cold slow depths. How could they understand the fire in a wild heart?\"\n—Kroshkar, Gruul shaman",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "1d4b884b-1240-46a7-9474-5021faaadbee"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bloodrush",
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "50110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEEL_WRECKING_BALL": {
+    "scryfallId": "296b300a-115a-458e-b526-65a1679053ca",
+    "oracleId": "3a07e22c-71cd-4723-b07e-0ff02009a878",
+    "name": "Steel Wrecking Ball",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steel Wrecking Ball",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, it deals 5 damage to target creature.\n{1}{R}, Discard this card: Destroy target artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kev Fang",
+        "imageId": "296b300a-115a-458e-b526-65a1679053ca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "om1",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUBBLEBELT_MAAKA": {
+    "scryfallId": "2f3f29fe-8985-4939-8ced-786145261085",
+    "oracleId": "185db9c7-3936-473c-9220-ae255527aaf9",
+    "name": "Rubblebelt Maaka",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rubblebelt Maaka",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Bloodrush — {R}, Discard this card: Target attacking creature gets +3/+3 until end of turn.",
+        "flavorText": "\"The maaka remain loyal to us in this time of strife. We don't even have to feed them—our enemies do.\"\n—Nedja, Gruul shaman",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eric Velhagen",
+        "imageId": "2f3f29fe-8985-4939-8ced-786145261085"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM3-109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WASTELAND_VIPER": {
+    "scryfallId": "35d15017-b6f8-47ea-9d15-e77dd83e6f01",
+    "oracleId": "e30b4eb8-6393-486a-9f8e-970ad2351d8a",
+    "name": "Wasteland Viper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wasteland Viper",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Deathtouch\nBloodrush — {G}, Discard this card: Target attacking creature gets +1/+2 and gains deathtouch until end of turn.",
+        "flavorText": "\"The Gruul embrace all things poisonous and living in the cracks of society.\"\n—Teysa Karlov",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "35d15017-b6f8-47ea-9d15-e77dd83e6f01"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Bloodrush",
+      "Deathtouch"
+    ],
+    "setCode": "gk2",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLAUGHTERHORN": {
+    "scryfallId": "4010a419-8291-4c8b-8cda-38c35fbd7b88",
+    "oracleId": "f1fca987-3484-4a76-86b6-d61ef0a2cf0f",
+    "name": "Slaughterhorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slaughterhorn",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Bloodrush — {G}, Discard this card: Target attacking creature gets +3/+2 until end of turn.",
+        "flavorText": "The Orzhov clergy would never cross its path, but sending thrull couriers to do so is cheap and entertaining.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "4010a419-8291-4c8b-8cda-38c35fbd7b88"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "mm3",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVE_BOMBER": {
+    "scryfallId": "65162b24-8a3b-4b92-a831-6f23f809c76f",
+    "oracleId": "9c121cc4-1ef4-4b8c-bcb1-d3f56f576d84",
+    "name": "Dive Bomber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dive Bomber",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\n{T}, Sacrifice this creature: It deals 2 damage to target attacking or blocking creature.",
+        "flavorText": "\"Your graves will lie beneath my final nest.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "65162b24-8a3b-4b92-a831-6f23f809c76f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZHUR_TAA_SWINE": {
+    "scryfallId": "7a191269-d2e4-4810-b65f-91a1e03fbae6",
+    "oracleId": "dcc31cbf-f75d-4584-a97b-aa9d19d7b142",
+    "name": "Zhur-Taa Swine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zhur-Taa Swine",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Boar",
+        "oracleText": "Bloodrush — {1}{R}{G}, Discard this card: Target attacking creature gets +5/+4 until end of turn.",
+        "flavorText": "Gurley was the first to domesticate one, though his widow didn't take much solace in that accomplishment.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "7a191269-d2e4-4810-b65f-91a1e03fbae6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "gk2",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAWNRAY_ARCHER": {
+    "scryfallId": "86c1ff65-8ad5-42e0-9e4c-1caf83ab86e0",
+    "oracleId": "19055292-1a79-413e-8056-7d4aec9839ed",
+    "name": "Dawnray Archer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dawnray Archer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Archer",
+        "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\n{W}, {T}: This creature deals 1 damage to target attacking or blocking creature.",
+        "flavorText": "Their shots are fired most often as signals—or at those who didn't get the message.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Dos Santos",
+        "imageId": "86c1ff65-8ad5-42e0-9e4c-1caf83ab86e0"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exalted"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVEL_SLINGER": {
+    "scryfallId": "87551307-6b5f-4f12-aa1f-4beebefad3b3",
+    "oracleId": "0aab31b7-7196-4843-b4f1-c15e9e05dd86",
+    "name": "Gravel Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gravel Slinger",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}: This creature deals 1 damage to target attacking or blocking creature.\nMorph {1}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "87551307-6b5f-4f12-aa1f-4beebefad3b3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WRECKING_OGRE": {
+    "scryfallId": "87f1a27c-c576-4c34-873f-6faf020c2773",
+    "oracleId": "85d03947-a39a-4f4f-97c3-6d1094c9248e",
+    "name": "Wrecking Ogre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wrecking Ogre",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Double strike\nBloodrush — {3}{R}{R}, Discard this card: Target attacking creature gets +3/+3 and gains double strike until end of turn.",
+        "flavorText": "If no opponent can be found, ogres of the Bolrac Clan will often pick fights with buildings.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "87f1a27c-c576-4c34-873f-6faf020c2773"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Bloodrush",
+      "Double strike"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIVEBOMBER_GRIFFIN": {
+    "scryfallId": "8aa5a010-6253-4dfb-952e-df05ff08eb9e",
+    "oracleId": "11e84e48-0f18-41b6-9f2a-30c64aecf9a7",
+    "name": "Divebomber Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Divebomber Griffin",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\n{T}, Sacrifice this creature: It deals 3 damage to target attacking or blocking creature.",
+        "flavorText": "Justice flies swiftly on angry wings.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "8aa5a010-6253-4dfb-952e-df05ff08eb9e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKINBRAND_GOBLIN": {
+    "scryfallId": "9535cdfe-d505-4ee5-bec0-cfd7aa4b2a23",
+    "oracleId": "2e1d5873-50e6-432a-b7a9-9f8d2632a0b9",
+    "name": "Skinbrand Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skinbrand Goblin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Bloodrush — {R}, Discard this card: Target attacking creature gets +2/+1 until end of turn.",
+        "flavorText": "\"These Gruul skin-runes—discern whether their patterns evoke streets, leylines, or both. You have four days.\"\n—Niv-Mizzet, to his assistant",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Marco Nelor",
+        "imageId": "9535cdfe-d505-4ee5-bec0-cfd7aa4b2a23"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "2xm",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCAB_CLAN_CHARGER": {
+    "scryfallId": "964c88d3-3141-44ab-8856-44a3f08331ea",
+    "oracleId": "2f947056-fa10-4491-95e5-532ea3b76d10",
+    "name": "Scab-Clan Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scab-Clan Charger",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Centaur Warrior",
+        "oracleText": "Bloodrush — {1}{G}, Discard this card: Target attacking creature gets +2/+4 until end of turn.",
+        "flavorText": "\"The only roads I wish to see are those beaten flat by wild hooves.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "964c88d3-3141-44ab-8856-44a3f08331ea"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Bloodrush"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUERGAR_ASSAILANT": {
+    "scryfallId": "a6555cbb-97fc-4258-9b11-096c3eaec833",
+    "oracleId": "85b52f70-b583-4f04-a2ab-226d7291c03a",
+    "name": "Duergar Assailant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duergar Assailant",
+        "manaCost": "{R/W}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "Sacrifice this creature: It deals 1 damage to target attacking or blocking creature.",
+        "flavorText": "Some duergars dismiss the world above as a fable. They react violently when their comfortable illusions are dispelled.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Paul Bonner",
+        "imageId": "a6555cbb-97fc-4258-9b11-096c3eaec833"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARPOON_SNIPER": {
+    "scryfallId": "c10ccaef-2a75-43d6-95f2-c3690ae5c87a",
+    "oracleId": "2856844d-f727-48aa-8387-cb6079afb40c",
+    "name": "Harpoon Sniper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harpoon Sniper",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Merfolk Archer",
+        "oracleText": "{W}, {T}: This creature deals X damage to target attacking or blocking creature, where X is the number of Merfolk you control.",
+        "flavorText": "Made from whiskergill bones, merrow spinebows can fire bolts through tree trunks.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dominick Domingo",
+        "imageId": "c10ccaef-2a75-43d6-95f2-c3690ae5c87a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULTIMO_CIVILIZATION_S_END": {
+    "scryfallId": "d40e073a-ec98-4f8e-ae4b-6cfd0530bcdf",
+    "oracleId": "43d79ee6-8ba1-4ec9-9bb2-907ed8401a2f",
+    "name": "Ultimo, Civilization's End",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ultimo, Civilization's End",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Legendary Artifact Creature — Robot Villain",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen Ultimo enters, each opponent sacrifices a creature of their choice.\n{2}{B}, Discard this card: Each opponent sacrifices a creature of their choice.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paulius Daščioras",
+        "imageId": "d40e073a-ec98-4f8e-ae4b-6cfd0530bcdf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "540",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "D_AVENANT_HEALER": {
+    "scryfallId": "deac6492-ce39-4137-8418-6169d3b1b632",
+    "oracleId": "91770dc7-3de3-458f-a240-6540455fe05f",
+    "name": "D'Avenant Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "D'Avenant Healer",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Cleric Archer",
+        "oracleText": "{T}: This creature deals 1 damage to target attacking or blocking creature.\n{T}: Prevent the next 1 damage that would be dealt to any target this turn.",
+        "flavorText": "\"One arrow keenly fired might prevent more battlefield wounds than I could treat.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "deac6492-ce39-4137-8418-6169d3b1b632"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsp",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLDIER_REPLICA": {
+    "scryfallId": "e31761a8-1146-4003-9653-881233787ac4",
+    "oracleId": "702693f0-09f6-4f19-8dc9-6b31641e3347",
+    "name": "Soldier Replica",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soldier Replica",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Soldier",
+        "oracleText": "{1}{W}, Sacrifice this creature: It deals 3 damage to target attacking or blocking creature.",
+        "flavorText": "It fights with inhuman vigor.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Carl Critchlow",
+        "imageId": "e31761a8-1146-4003-9653-881233787ac4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPENDABLE_TROOPS": {
+    "scryfallId": "f31d7d1b-a219-4653-be99-a885bc9b2e2f",
+    "oracleId": "70ebd18a-c878-4a93-b7c4-3f7a2aa65f5e",
+    "name": "Expendable Troops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expendable Troops",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{T}, Sacrifice this creature: It deals 2 damage to target attacking or blocking creature.",
+        "flavorText": "No doubt in their minds, no fear in their hearts.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "f31d7d1b-a219-4653-be99-a885bc9b2e2f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ulg",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIASHINO_SHANKTAIL": {
+    "scryfallId": "f5dd72d5-548a-4b0e-95bb-e6b8d2de0fbe",
+    "oracleId": "1e49f33b-84c0-4b68-abd4-e8c00b3ce98f",
+    "name": "Viashino Shanktail",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viashino Shanktail",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "First strike\nBloodrush — {2}{R}, Discard this card: Target attacking creature gets +3/+1 and gains first strike until end of turn.",
+        "flavorText": "The Slizt Clan's battle cry is an impressive display of fury, defiance, and spit.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "f5dd72d5-548a-4b0e-95bb-e6b8d2de0fbe"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike",
+      "Bloodrush"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

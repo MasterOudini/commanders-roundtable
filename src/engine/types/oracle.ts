@@ -1493,6 +1493,11 @@ export interface ActivatedAbility {
    * nothing; the effect moves the card itself.
    */
   readonly activatesFromGraveyard: boolean;
+  /**
+   * D451 - "Discard this card" in the cost: the ability is activated from the HAND (CR 113.6 - bloodrush,
+   * reinforce) and the discard is charged in the cost batch as cycling's is (D306). Absent everywhere else.
+   */
+  readonly discardsSelf?: true;
   readonly unpaidCosts: readonly string[];
   readonly payable: boolean;
   /** CR 605 — does NOT use the stack. */
@@ -1550,6 +1555,12 @@ export interface ActivatedAbility {
    * the delayed trigger armed with it). `line` is the printed line it accounts for.
    */
   readonly unearth?: { readonly line: string };
+  /**
+   * D451 - THE REINFORCE SEAM. The synthesized "Reinforce N—{cost}" ability (CR 702.77a): the mana and the
+   * card's own discard from the hand as the cost, `target creature` as the clause, N +1/+1 counters resolved
+   * natively. `line` is the printed line it accounts for.
+   */
+  readonly reinforce?: { readonly line: string; readonly n: number };
 }
 
 /**

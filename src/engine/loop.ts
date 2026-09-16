@@ -1195,6 +1195,11 @@ export function resolveAbility(
     if (ability?.scavenge !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.scavenge.power }] });
     }
+    // D451 - REINFORCE resolves natively (CR 702.77a): N +1/+1 counters on the target creature, if the clause
+    // still admits it (CR 608.2b); the card itself is in the graveyard - the cost was its discard.
+    if (ability?.reinforce !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
+      events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.reinforce.n }] });
+    }
     // D448 - UNEARTH resolves natively (CR 702.84a): the card returns from its owner's graveyard to the battlefield
     // under the activator's control, unearthed - haste (derive), exile instead of leaving (the funnel) - and a
     // delayed trigger armed now exiles it at the next end step (CR 603.7). A card no longer in the graveyard

@@ -443,7 +443,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // TAP choosers — 1,125 lines moved, and `payable` below grew by the
       // same 1,125. Same def gate again.
       // D447 - 2,835 -> 2,809: `Remove a counter from this creature` (no kind named) is a price the engine takes.
-      'activated:nonManaCost': 2809,
+      // D451 - 2,809 -> 2,719: `Discard this card` is a price the engine takes from the hand (bloodrush and its kin).
+      'activated:nonManaCost': 2719,
       'activated:loyalty': 4635,
       'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -514,15 +515,15 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
     // the effect, `legal.ts`'s gate), `targeted` +50 (target clauses inside
     // the newly admitted lines).
     expect(report.activated).toEqual({
-      lines: 43799, // D448: the 155 synthesized Unearth abilities; D440: the 26 synthesized Scavenge abilities; D311: the 529 synthesized Crew abilities; D410: the typecyclings
+      lines: 43814, // D451: the 15 synthesized Reinforce abilities; D448: the 155 synthesized Unearth abilities; D440: the 26 synthesized Scavenge abilities; D311: the 529 synthesized Crew abilities; D410: the typecyclings
       // ⚠️ 28,133 → 29,933 in M6.4k (D168): the sacrifice-cost chooser's
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 36355, // D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
+      payable: 36460, // D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
-      targeted: 12389,
+      targeted: 12404, // D451: the reinforce clauses.
     });
   });
 

@@ -351,6 +351,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['vanishingTicks'], rotHistory: 'D450' },
   { names: ['Blastoderm'], copiesPerSeat: 2,
     counterKeys: ['fadingFires'], rotHistory: 'D450' },
+  // D451 - the hand activations: a reinforce 4/4 a seat (two counters on a target for {1}{G} and the card).
+  { names: ['Bannerhide Krushok'], copiesPerSeat: 2,
+    counterKeys: ['handActivations'], rotHistory: 'D451' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1206,6 +1209,8 @@ interface Run {
   readonly vanishingTicks: number;
   readonly vanishingSacrifices: number;
   readonly fadingFires: number;
+  /** D451 - the abilities on the stack whose source was discarded from the hand as the cost (reinforce, bloodrush). */
+  readonly handActivations: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1624,6 +1629,12 @@ function runOne(seed: number): Run {
     vanishingTicks: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishing$/.test(e.body.obj.abilityRef ?? '')).length,
     vanishingSacrifices: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishingLast$/.test(e.body.obj.abilityRef ?? '')).length,
     fadingFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:fading$/.test(e.body.obj.abilityRef ?? '')).length,
+    handActivations: game.log.filter((e, i) => {
+      const b = e.body;
+      if (b.t !== 'AbilityPutOnStack') return false;
+      const src = b.obj.source;
+      return game.log.slice(Math.max(0, i - 6), i).some((d) => d.body.t === 'CardsMoved' && d.body.moves.some((m) => m.card === src && m.reason === 'discard' && m.from.kind === 'hand'));
+    }).length,
     explores: game.log.filter((e) => e.body.t === 'Explored').length,
     typecyclings: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.reason === 'cycling' && typedCycler(game, m.card))).length,
     untapSkips: game.log.filter((e) => e.body.t === 'UntapSkipSet' && e.body.skip).length,
@@ -1867,6 +1878,7 @@ const TOTAL_KEYS = [
   'vanishingTicks',
   'vanishingSacrifices',
   'fadingFires',
+  'handActivations',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2264,6 +2276,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D450 - a vanishing tick and a fading fire at gate size (Calciderm 15, Blastoderm 6 at 150 seeds).
         expect(totals.vanishingTicks).toBeGreaterThan(0);
         expect(totals.fadingFires).toBeGreaterThan(0);
+        // D451 - a hand activation at gate size (Bannerhide Krushok; 4 at 60 seeds, 9 at 150).
+        expect(totals.handActivations).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2347,6 +2361,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.alternativeCasts} casts for an alternative cost · ` +
           `${totals.evokedCasts} evoked (${totals.evokeSacrifices} evoke sacrifices) · ${totals.dashedCasts} dashed (${totals.dashReturns} dash returns) · ` +
           `${totals.vanishingTicks} vanishing ticks (${totals.vanishingSacrifices} last-counter sacrifices) · ${totals.fadingFires} fading fires · ` +
+          `${totals.handActivations} hand activations (the card discarded as the cost) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

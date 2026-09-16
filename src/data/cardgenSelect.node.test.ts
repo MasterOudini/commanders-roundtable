@@ -546,17 +546,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // port named (damage equal to its power from a sacrificed source - the dead-source gap, D421, one shape over).
   ['City of Brass', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this land becomes tapped, it deals 1 damage to you.'],
   ['Aerie Ouphes', 'a self-sacrifice on a creature that returns (persist / undying)'],
-  ['Dive Bomber', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
-  ['Divebomber Griffin', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
-  ['Duergar Assailant', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
-  ['Expendable Troops', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
   ['Fire Shrine Keeper', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
   ['Flame Elemental', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Force of Nature', 'a payment branch the suite cannot assert: damageEach'],
   ['Ghitu Fire-Eater', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Hasran Ogress', 'a payment branch the suite cannot assert: damageEach'],
   ['Heartfire Immolator', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
-  ['Soldier Replica', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
   ['War-Torch Goblin', 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
   ['Cinder Shade', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Minion of Tevesh Szat', 'a payment branch the suite cannot assert: damageEach'],
@@ -811,7 +806,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nettle Guard', 'trigger head not in the library (Whenever this creature becomes the target of a spell or ability you co)'],
   ['Recon Craft Theta', 'trigger payload not a pump (Create a 0/0 blue Alien creature token. Put a +1/+1 counter)'],
   ['Scourge of Valkas', 'a filtered head outside the closed reader (an adjective outside the list (this: Whenever this creature or another Dragon you control enters,)'],
-  ['Steel Wrecking Ball', 'cost (Discard this card)'],
   ['Trial of Zeal', 'a filtered head no fixture satisfies (a Cartouche you control)'],
   // D420 - the ability word reads: the 27 the selector offered once the classifier read past a true ability word
   // (Landfall, Magecraft, Constellation, Heroic, Inspired, Eerie, Valiant, Battalion, Domain, Undergrowth) that the row
@@ -869,7 +863,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Drana's Silencer", 'a counted party noun (creatures in your party) the suite cannot stage'],
   ['Escaped Experiment', 'a counted payload under an attacks head (the arm sizes the board) beside its counted line'],
   ['Glimmerpost', 'a counted noun with no witness fixture (Locus) beside its counted line'],
-  ['Harpoon Sniper', 'a vocabulary clause the suite has no fixture for (a combat-role clause) beside its counted line'],
   ['Honden of Cleansing Fire', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
   ["Honden of Life's Web", 'a counted noun with no witness fixture (Shrine) beside its counted line'],
   ['Honden of Seeing Winds', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
@@ -972,7 +965,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ledger Shredder', 'a filtered head outside the closed reader (whenever a player casts their second spell each turn - an any-player second-spell head) beside its connive'],
   // D411 - the untap skip is the engine's own: the two the selector offered once the freeze sentences read
   // that the row maker refused, by reason.
-  ['Arbalest Elite', 'a vocabulary clause the suite has no fixture for (target attacking or blocking creature - a combat-role clause) beside its self untap skip'],
   ['Ojutai, Soul of Winter', 'a trigger head outside the library (whenever a Dragon you control attacks) beside its untap skip'],
   // D410 - typecycling is the engine's own (CR 702.29b): the seven the selector offered once the typed
   // cycling lines read whose OTHER line the row maker refused, by reason.
@@ -2244,17 +2236,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // "another target blocking creature" (the "another" split, d292/design.md);
   // `Sandstone Deadfall` sacrifices "two lands and this artifact" (the
   // multi-sacrifice cost).
-  ['Ghor-Clan Rampager', 'hand-activated ability'],
-  ['Rubblebelt Maaka', 'hand-activated ability'],
-  ['Scab-Clan Charger', 'hand-activated ability'],
-  ['Scorchwalker', 'hand-activated ability'],
-  ['Skarrg Goliath', 'hand-activated ability'],
-  ['Skinbrand Goblin', 'hand-activated ability'],
-  ['Slaughterhorn', 'hand-activated ability'],
-  ['Viashino Shanktail', 'hand-activated ability'],
-  ['Wasteland Viper', 'hand-activated ability'],
-  ['Wrecking Ogre', 'hand-activated ability'],
-  ['Zhur-Taa Swine', 'hand-activated ability'],
   ['Pitfall Trap', 'cast-time alternative cost'],
   ['Slingbow Trap', 'cast-time alternative cost'],
   ['Enduring Victory', 'bolster tie choice'],
@@ -2262,7 +2243,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ `Lieutenant Kirtar` sacrifices ITSELF BY NAME ("Sacrifice Lieutenant
   // Kirtar:"); the cost reader prices "Sacrifice this creature" and not the
   // printed-name form, so the ability is never offered - measured at the port.
-  ['Lieutenant Kirtar', 'self-sacrifice by name (cost)'],
 
   // D295 (M6.4eg) — the 137 cards D294's adjective seam made offerable: the
   // activated/triggered families landed from one table, the spells by hand or
@@ -2487,7 +2467,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other
   // lines the vocabulary does not read yet - their keyword trigger runs.
-  ['Dawnray Archer', 'a creature line outside the vocabulary (its exalted runs)'],
   ['Glen Elendra Archmage', 'a creature line outside the vocabulary (its persist runs)'],
   ['Pinnacle Monk // Mystic Peak', 'a creature line outside the vocabulary (its prowess runs)'],
   ['Pollywog Prodigy', 'a creature line outside the vocabulary (its evolve runs)'],
@@ -2496,7 +2475,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D309 (M6.4et) — the morph pool: the morph creatures whose other
   // lines the vocabulary does not read yet - their morph runs.
-  ['Gravel Slinger', 'an activated line outside the vocabulary (its morph runs)'],
   ['Ponyback Brigade', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Stratus Dancer', 'a turned-face-up trigger (its morph runs; a head over FaceDownSet next)'],
   ['Venomspout Brackus', 'an activated line outside the vocabulary (its morph runs)'],
@@ -2558,7 +2536,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Butcher of Malakir', 'a compound-subject dies head (this creature OR another creature you control) outside the closed subject reader'],
   ['Mindlash Sliver', 'a quoted grant of a queued discard (All Slivers have ...) - the grant generator, not the mainline row maker'],
   ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
-  ["Ultimo, Civilization's End", 'hand-activated ability (channel-shaped: Discard this card)'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
   // D391 - proliferate: the four the selector offered after the wave that the row maker refused, by reason.
   ['Grateful Apparition', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
@@ -2940,7 +2917,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Justice, Vance Astrovik', 'trigger payload outside both readers'],
   ['Alms', 'exile-the-top-of-your-graveyard cost'],
   ['Clinging Mists', 'a spell line outside the vocabulary'],
-  ["D'Avenant Healer", 'a vocabulary clause the suite has no fixture for: a combat-role clause'],
   ['Dawnstrider', 'a prevention shield with no target (the suite must attack to prove it)'],
   ['Eiganjo Castle', 'a vocabulary clause the suite has no fixture for: target legendary creature'],
   ['Glacial Crevasses', 'a prevention shield with no target (the suite must attack to prove it)'],

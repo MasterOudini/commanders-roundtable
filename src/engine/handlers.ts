@@ -1138,6 +1138,13 @@ function activateAbility(
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
   }
+  // D451 - an ability priced by discarding the card is activated from the hand (CR 113.6 - bloodrush, reinforce).
+  if (ability.discardsSelf === true && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
+    return reject('wrongZone', `${face.name}'s ability is activated from your hand.`);
+  }
+  if (ability.discardsSelf === true && ability.reinforce === undefined && !defReady) {
+    return reject('notCastable', `${face.name}'s "${ability.costText}" ability is not one the app runs yet.`);
+  }
   // D329 - an ability priced by exiling the card from the graveyard is activated from there (CR 113.6).
   if ((ability.exileSelfFromGraveyard || ability.activatesFromGraveyard) && (card.zone.kind !== 'graveyard' || card.zone.player !== intent.player)) {
     return reject('wrongZone', `${face.name}'s ability is activated from your graveyard.`);
@@ -1147,7 +1154,7 @@ function activateAbility(
   // handler required a zone only for cycling and the graveyard activations, so a
   // hand-built intent on a card in a graveyard went straight to payment - the D342
   // port's own proof activated a sacrificed land from its graveyard.
-  if (ability.cycling === undefined && !ability.exileSelfFromGraveyard && !ability.activatesFromGraveyard && card.zone.kind !== 'battlefield') {
+  if (ability.cycling === undefined && ability.discardsSelf !== true && !ability.exileSelfFromGraveyard && !ability.activatesFromGraveyard && card.zone.kind !== 'battlefield') {
     return reject('wrongZone', `${face.name} is not on the battlefield.`);
   }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
@@ -1418,7 +1425,7 @@ function activateAbility(
     from:
       ability.exileSelfFromGraveyard || ability.activatesFromGraveyard
         ? { kind: 'graveyard', player: intent.player }
-        : ability.cycling !== undefined
+        : ability.cycling !== undefined || ability.discardsSelf === true
           ? { kind: 'hand', player: intent.player }
           : { kind: 'battlefield', player: intent.player },
     stackId,
@@ -2062,6 +2069,17 @@ function finishAbility(
         identity,
       ),
     );
+  }
+  // D451 - "Discard this card" IS the cost (CR 113.6), paid in the cost batch through the ordinary
+  // hand->graveyard move with the discard reason, so discard watchers see it; the source sits in its
+  // owner's graveyard before anything can respond.
+  if (ability.discardsSelf === true) {
+    const src = state.cards[pending.card];
+    if (!src || src.zone.kind !== 'hand' || src.zone.player !== pending.player) {
+      return reject('noSuchCard', 'The card being discarded is no longer in your hand.');
+    }
+    events.push({ t: 'CardsMoved', moves: [{ card: pending.card, from: { kind: 'hand', player: pending.player }, to: { kind: 'graveyard', player: src.owner }, reason: 'discard' }] });
+    events.push(narrated(n`${who(state, pending.player)} ${vb(pending.player, 'discards', 'discard')} ${face.name}.`, pending.player, identity));
   }
   // D329 - "Exile this card from your graveyard" IS the cost (CR 113.6), paid
   // in the cost batch: the source leaves the graveyard before anything can

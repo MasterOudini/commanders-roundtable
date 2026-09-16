@@ -550,6 +550,9 @@ export function linesUnaccounted(
     // D448 - an Unearth line the engine RUNS (the synthesized ability: offered from the graveyard, the mana charged,
     // the return, the haste, the exile on leaving and at the next end step resolved natively).
     if (face.activated.some((a) => a.unearth !== undefined && a.unearth.line === line)) continue;
+    // D451 - a Reinforce line the engine RUNS (the synthesized ability: offered from the hand, the mana and the
+    // discard charged, the counters resolved natively).
+    if (face.activated.some((a) => a.reinforce !== undefined && a.reinforce.line === line)) continue;
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;

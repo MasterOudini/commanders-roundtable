@@ -335,6 +335,27 @@ export function legalActions(
     const face = faceOf(card, inst.faceIndex);
     for (const ability of face.activated) {
       // D410 - a typed cycling whose search did not read is never offered (it would resolve as nothing).
+      // D451 - and every hand ability priced by the card's own discard (bloodrush, reinforce): a printed one
+      // past a registered def (D159), a synthesized reinforce natively; targets are declared as the stack asks.
+      if (ability.discardsSelf === true) {
+        if (!ability.payable || ability.isManaAbility || ability.isLoyalty || ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.returnCost || ability.returnsSelf || ability.exileFromGraveyardCost) continue;
+        if (ability.reinforce === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (ability.sorceryOnly && !sorcerySpeed) continue;
+        if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
+        if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
+        const handProblem = buildPaymentProblem(ability.manaCost, 0, [], 0, ability.lifeCost);
+        out.push({
+          t: 'ActivateAbility',
+          card: id,
+          abilityIndex: ability.index,
+          affordable: affordable(context.solve, handProblem, abilityPurpose(face.typeLine, faceColors(face))),
+          requiresTap: false,
+          costText: ability.costText,
+          effectText: ability.effectText,
+          label: face.name,
+        });
+        continue;
+      }
       if (ability.cycling === undefined || !ability.payable || (ability.cycling.type !== undefined && ability.cycling.effects === undefined)) continue;
       const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, 0);
       out.push({

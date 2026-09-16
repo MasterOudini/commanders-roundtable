@@ -317,7 +317,7 @@ function tokenPredicates(phrase: string): readonly PermanentPredicate[] | null {
  * printed (Boast: attacked this turn and once each turn), and stripping those
  * would charge the cost and drop the rule. `costText` keeps the printed word.
  */
-const ABILITY_WORD_RE = /^(?:Threshold|Hellbent|Metalcraft|Delirium|Ferocious|Formidable|Domain|Morbid|Fateful hour|Chroma|Radiance|Landfall|Constellation|Inspired|Heroic|Battalion|Raid|Revolt|Spell mastery|Adamant|Alliance|Coven|Pack tactics|Enrage|Converge|Magecraft|Addendum|Corrupted|Celebration|Valiant|Paradox|Survival|Flurry|Eerie|Undergrowth|Kinship|Lieutenant|Parley|Sweep|Grandeur|Strive|Cohort|Eminence|Fathomless descent|Max speed|Council's dilemma|Will of the council|Tempting offer|Join forces|Descend \d+) — /;
+const ABILITY_WORD_RE = /^(?:Bloodrush|Threshold|Hellbent|Metalcraft|Delirium|Ferocious|Formidable|Domain|Morbid|Fateful hour|Chroma|Radiance|Landfall|Constellation|Inspired|Heroic|Battalion|Raid|Revolt|Spell mastery|Adamant|Alliance|Coven|Pack tactics|Enrage|Converge|Magecraft|Addendum|Corrupted|Celebration|Valiant|Paradox|Survival|Flurry|Eerie|Undergrowth|Kinship|Lieutenant|Parley|Sweep|Grandeur|Strive|Cohort|Eminence|Fathomless descent|Max speed|Council's dilemma|Will of the council|Tempting offer|Join forces|Descend \d+) — /;
 
 function costParts(costText: string): string[] {
   return costText
@@ -376,6 +376,8 @@ const SCAVENGE_EFFECT = "Put a number of +1/+1 counters equal to this card's pow
 // D448 - unearth (CR 702.84a): the mana price on the printed line; the rest of the ability is the rule's own words.
 const UNEARTH_RE = /^Unearth ((?:\{[^}]+\})+)$/;
 const UNEARTH_EFFECT = 'Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield.';
+// D451 - reinforce (CR 702.77a): the number and the mana price on the printed line; the rest is the rule's own words.
+const REINFORCE_RE = /^Reinforce (\d+)—((?:\{[^}]+\})+)$/;
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
 
 export interface ActivatedParseInput {
@@ -615,6 +617,49 @@ export function parseActivatedAbilities(
         continue;
       }
     }
+    // D451 - THE REINFORCE SEAM: an activated ability from the hand (CR 702.77a) whose cost is the printed mana
+    // and the card's own discard, and whose counters resolve natively off the printed number; an unreadable
+    // price leaves the line unsynthesized.
+    const reinforce = REINFORCE_RE.exec(printed);
+    if (reinforce) {
+      const reinforceCost = parseCost(reinforce[2] ?? '', warn);
+      const rn = Number(reinforce[1] ?? '0');
+      if (reinforceCost !== null && rn > 0) {
+        const reinforceEffect = `Put ${rn === 1 ? 'a' : rn === 2 ? 'two' : rn === 3 ? 'three' : String(rn)} +1/+1 counter${rn === 1 ? '' : 's'} on target creature.`;
+        out.push({
+          index: out.length,
+          costText: `${reinforce[2]}, Discard this card`,
+          effectText: reinforceEffect,
+          manaCost: reinforceCost,
+          requiresTap: false,
+          requiresUntap: false,
+          lifeCost: 0,
+          lifeCostCommanderColors: false,
+          sacrificesSelf: false,
+          sacrificeCost: null,
+          discardCost: null,
+          exileFromGraveyardCost: null,
+          exileSelfFromGraveyard: false,
+          activatesFromGraveyard: false,
+          discardsSelf: true,
+          removeCounterCost: null,
+          tapCost: null,
+          returnCost: null,
+          returnsSelf: false,
+          putCounterCost: null,
+          unpaidCosts: [],
+          payable: true,
+          isManaAbility: false,
+          isLoyalty: false,
+          sorceryOnly: false,
+          oncePerTurn: false,
+          activateOnly: [],
+          targets: parseTargetClauses(reinforceEffect, warn),
+          reinforce: { line: printed, n: rn },
+        });
+        continue;
+      }
+    }
     const crewLine = CREW_RE.exec(printed);
     if (crewLine) {
       const power = Number(crewLine[1] ?? '0');
@@ -666,6 +711,7 @@ export function parseActivatedAbilities(
     let tapCost: ActivatedAbility['tapCost'] = null;
     let exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'] = null;
     let exileSelfFromGraveyard = false;
+    let discardsSelf = false;
     let removeCounterCost: ActivatedAbility['removeCounterCost'] = null;
     let returnCost: ActivatedAbility['returnCost'] = null;
     let returnsSelf = false;
@@ -716,6 +762,12 @@ export function parseActivatedAbilities(
       // deterministic price on an older printing that names the card.
       if (new RegExp('^exile (?:this card' + sacSelfAlt + ') from your graveyard$', 'i').test(part.trim())) {
         exileSelfFromGraveyard = true;
+        continue;
+      }
+      // D451 - "Discard this card" (CR 113.6): the ability is activated from the hand, the card discarded as
+      // its cost - a deterministic price (bloodrush; an older printing names the card).
+      if (new RegExp('^discard (?:this card' + sacSelfAlt + ')$', 'i').test(part.trim())) {
+        discardsSelf = true;
         continue;
       }
       // D329 - "Exile N <predicate> cards from your graveyard": a chooser over
@@ -952,6 +1004,7 @@ export function parseActivatedAbilities(
       removeCounterCost,
       exileFromGraveyardCost,
       exileSelfFromGraveyard,
+      ...(discardsSelf ? { discardsSelf: true as const } : {}),
       // D333 - the effect names the zone the ability is activated from.
       activatesFromGraveyard: new RegExp('^return (?:this card' + (selfName ? '|' + selfName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '') + ') from your graveyard to (?:the battlefield|your hand)', 'i').test(line.effectText),
       unpaidCosts,

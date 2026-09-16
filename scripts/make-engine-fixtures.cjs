@@ -8384,6 +8384,33 @@ const WANTED = [
   'Rusting Golem',
   'Defender en-Vec',
   // D450 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D451 - bloodrush and reinforce: the seam's own fixtures (Bannerhide Krushok, Scorchwalker).
+  'Bannerhide Krushok',
+  'Scorchwalker',
+  // D451 - bloodrush and reinforce (CR 702.77): the rows the row maker reads once a discard-self cost is charged from the hand.
+  'Skarrg Goliath',
+  'Arbalest Elite',
+  'Ghor-Clan Rampager',
+  'Steel Wrecking Ball',
+  'Rubblebelt Maaka',
+  'Wasteland Viper',
+  'Slaughterhorn',
+  'Dive Bomber',
+  'Zhur-Taa Swine',
+  'Dawnray Archer',
+  'Gravel Slinger',
+  'Wrecking Ogre',
+  'Divebomber Griffin',
+  'Skinbrand Goblin',
+  'Scab-Clan Charger',
+  'Duergar Assailant',
+  'Harpoon Sniper',
+  "Ultimo, Civilization's End",
+  "D'Avenant Healer",
+  'Soldier Replica',
+  'Expendable Troops',
+  'Viashino Shanktail',
+  // D451 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

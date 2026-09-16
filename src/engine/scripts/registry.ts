@@ -7,6 +7,30 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SKARRG_GOLIATH_SCRIPT } from './cards/skarrgGoliath';
+import { ARBALEST_ELITE_SCRIPT } from './cards/arbalestElite';
+import { SCORCHWALKER_SCRIPT } from './cards/scorchwalker';
+import { GHOR_CLAN_RAMPAGER_SCRIPT } from './cards/ghorClanRampager';
+import { STEEL_WRECKING_BALL_SCRIPT } from './cards/steelWreckingBall';
+import { RUBBLEBELT_MAAKA_SCRIPT } from './cards/rubblebeltMaaka';
+import { WASTELAND_VIPER_SCRIPT } from './cards/wastelandViper';
+import { SLAUGHTERHORN_SCRIPT } from './cards/slaughterhorn';
+import { LIEUTENANT_KIRTAR_SCRIPT } from './cards/lieutenantKirtar';
+import { DIVE_BOMBER_SCRIPT } from './cards/diveBomber';
+import { ZHUR_TAA_SWINE_SCRIPT } from './cards/zhurTaaSwine';
+import { DAWNRAY_ARCHER_SCRIPT } from './cards/dawnrayArcher';
+import { GRAVEL_SLINGER_SCRIPT } from './cards/gravelSlinger';
+import { WRECKING_OGRE_SCRIPT } from './cards/wreckingOgre';
+import { DIVEBOMBER_GRIFFIN_SCRIPT } from './cards/divebomberGriffin';
+import { SKINBRAND_GOBLIN_SCRIPT } from './cards/skinbrandGoblin';
+import { SCAB_CLAN_CHARGER_SCRIPT } from './cards/scabClanCharger';
+import { DUERGAR_ASSAILANT_SCRIPT } from './cards/duergarAssailant';
+import { HARPOON_SNIPER_SCRIPT } from './cards/harpoonSniper';
+import { ULTIMO_CIVILIZATIONS_END_SCRIPT } from './cards/ultimoCivilizationsEnd';
+import { DAVENANT_HEALER_SCRIPT } from './cards/davenantHealer';
+import { SOLDIER_REPLICA_SCRIPT } from './cards/soldierReplica';
+import { EXPENDABLE_TROOPS_SCRIPT } from './cards/expendableTroops';
+import { VIASHINO_SHANKTAIL_SCRIPT } from './cards/viashinoShanktail';
 import { FOUR_KNOCKS_SCRIPT } from './cards/fourKnocks';
 import { KELDON_MARAUDERS_SCRIPT } from './cards/keldonMarauders';
 import { AVEN_RIFTWATCHER_SCRIPT } from './cards/avenRiftwatcher';
@@ -6985,6 +7009,30 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SKARRG_GOLIATH_SCRIPT,
+  ARBALEST_ELITE_SCRIPT,
+  SCORCHWALKER_SCRIPT,
+  GHOR_CLAN_RAMPAGER_SCRIPT,
+  STEEL_WRECKING_BALL_SCRIPT,
+  RUBBLEBELT_MAAKA_SCRIPT,
+  WASTELAND_VIPER_SCRIPT,
+  SLAUGHTERHORN_SCRIPT,
+  LIEUTENANT_KIRTAR_SCRIPT,
+  DIVE_BOMBER_SCRIPT,
+  ZHUR_TAA_SWINE_SCRIPT,
+  DAWNRAY_ARCHER_SCRIPT,
+  GRAVEL_SLINGER_SCRIPT,
+  WRECKING_OGRE_SCRIPT,
+  DIVEBOMBER_GRIFFIN_SCRIPT,
+  SKINBRAND_GOBLIN_SCRIPT,
+  SCAB_CLAN_CHARGER_SCRIPT,
+  DUERGAR_ASSAILANT_SCRIPT,
+  HARPOON_SNIPER_SCRIPT,
+  ULTIMO_CIVILIZATIONS_END_SCRIPT,
+  DAVENANT_HEALER_SCRIPT,
+  SOLDIER_REPLICA_SCRIPT,
+  EXPENDABLE_TROOPS_SCRIPT,
+  VIASHINO_SHANKTAIL_SCRIPT,
   FOUR_KNOCKS_SCRIPT,
   KELDON_MARAUDERS_SCRIPT,
   AVEN_RIFTWATCHER_SCRIPT,
