@@ -7762,6 +7762,41 @@ export const SPECIES_SPECIALIST: CardData = F.SPECIES_SPECIALIST as CardData;
 export const OBELISK_OF_URD: CardData = F.OBELISK_OF_URD as CardData;
 export const XENOGRAFT: CardData = F.XENOGRAFT as CardData;
 export const BALDUVIAN_BEARS: CardData = F.BALDUVIAN_BEARS as CardData;
+export const TAOIST_MYSTIC: CardData = F.TAOIST_MYSTIC as CardData;
+export const JUGGERNAUT: CardData = F.JUGGERNAUT as CardData;
+export const NICK_VALENTINE_PRIVATE_EYE: CardData = F.NICK_VALENTINE_PRIVATE_EYE as CardData;
+export const GNAT_ALLEY_CREEPER: CardData = F.GNAT_ALLEY_CREEPER as CardData;
+export const BOG_RATS: CardData = F.BOG_RATS as CardData;
+export const STROMKIRK_NOBLE: CardData = F.STROMKIRK_NOBLE as CardData;
+export const ORCHARD_SPIRIT: CardData = F.ORCHARD_SPIRIT as CardData;
+export const SILHANA_LEDGEWALKER: CardData = F.SILHANA_LEDGEWALKER as CardData;
+export const TREETOP_SCOUT: CardData = F.TREETOP_SCOUT as CardData;
+export const LIGHTNING_MARE: CardData = F.LIGHTNING_MARE as CardData;
+export const FEN_HAULER: CardData = F.FEN_HAULER as CardData;
+export const TREETOP_RANGERS: CardData = F.TREETOP_RANGERS as CardData;
+export const BARRENTON_CRAGTREADS: CardData = F.BARRENTON_CRAGTREADS as CardData;
+export const AUDACIOUS_INFILTRATOR: CardData = F.AUDACIOUS_INFILTRATOR as CardData;
+export const DAUTHI_HORROR: CardData = F.DAUTHI_HORROR as CardData;
+export const SPIRE_TRACER: CardData = F.SPIRE_TRACER as CardData;
+export const DREAD_WARLOCK: CardData = F.DREAD_WARLOCK as CardData;
+export const SIGNAL_PEST: CardData = F.SIGNAL_PEST as CardData;
+export const NOGGLE_BANDIT: CardData = F.NOGGLE_BANDIT as CardData;
+export const ZUO_CI_THE_MOCKING_SAGE: CardData = F.ZUO_CI_THE_MOCKING_SAGE as CardData;
+export const STONE_SPIRIT: CardData = F.STONE_SPIRIT as CardData;
+export const PROWLING_NIGHTSTALKER: CardData = F.PROWLING_NIGHTSTALKER as CardData;
+export const RAMPART_CRAWLER: CardData = F.RAMPART_CRAWLER as CardData;
+export const RIVER_DARTER: CardData = F.RIVER_DARTER as CardData;
+export const PLAGUE_MARE: CardData = F.PLAGUE_MARE as CardData;
+export const DEATHCULT_ROGUE: CardData = F.DEATHCULT_ROGUE as CardData;
+export const WANDERBRINE_ROOTCUTTERS: CardData = F.WANDERBRINE_ROOTCUTTERS as CardData;
+export const ARGOTHIAN_SPRITE: CardData = F.ARGOTHIAN_SPRITE as CardData;
+export const RAVEN_S_RUN_DRAGOON: CardData = F.RAVEN_S_RUN_DRAGOON as CardData;
+export const VINE_MARE: CardData = F.VINE_MARE as CardData;
+export const MUDBRAWLER_RAIDERS: CardData = F.MUDBRAWLER_RAIDERS as CardData;
+export const SKYSCYTHE_ENGULFER: CardData = F.SKYSCYTHE_ENGULFER as CardData;
+export const SOOTWALKERS: CardData = F.SOOTWALKERS as CardData;
+export const STEEL_WALL: CardData = F.STEEL_WALL as CardData;
+export const WEI_SCOUT: CardData = F.WEI_SCOUT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15681,6 +15716,41 @@ export const ENGINE_CARDS: CardData[] = [
   OBELISK_OF_URD,
   XENOGRAFT,
   BALDUVIAN_BEARS,
+  TAOIST_MYSTIC,
+  JUGGERNAUT,
+  NICK_VALENTINE_PRIVATE_EYE,
+  GNAT_ALLEY_CREEPER,
+  BOG_RATS,
+  STROMKIRK_NOBLE,
+  ORCHARD_SPIRIT,
+  SILHANA_LEDGEWALKER,
+  TREETOP_SCOUT,
+  LIGHTNING_MARE,
+  FEN_HAULER,
+  TREETOP_RANGERS,
+  BARRENTON_CRAGTREADS,
+  AUDACIOUS_INFILTRATOR,
+  DAUTHI_HORROR,
+  SPIRE_TRACER,
+  DREAD_WARLOCK,
+  SIGNAL_PEST,
+  NOGGLE_BANDIT,
+  ZUO_CI_THE_MOCKING_SAGE,
+  STONE_SPIRIT,
+  PROWLING_NIGHTSTALKER,
+  RAMPART_CRAWLER,
+  RIVER_DARTER,
+  PLAGUE_MARE,
+  DEATHCULT_ROGUE,
+  WANDERBRINE_ROOTCUTTERS,
+  ARGOTHIAN_SPRITE,
+  RAVEN_S_RUN_DRAGOON,
+  VINE_MARE,
+  MUDBRAWLER_RAIDERS,
+  SKYSCYTHE_ENGULFER,
+  SOOTWALKERS,
+  STEEL_WALL,
+  WEI_SCOUT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

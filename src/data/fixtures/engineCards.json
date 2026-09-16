@@ -262452,6 +262452,1184 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TAOIST_MYSTIC": {
+    "scryfallId": "023ae64a-7888-4ad2-b879-0649d8e341ac",
+    "oracleId": "e705ec38-b8f7-4f99-8cb9-8448dc3e50ec",
+    "name": "Taoist Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Taoist Mystic",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Mystic",
+        "oracleText": "This creature can't be blocked by creatures with horsemanship.",
+        "flavorText": "By appearing in places miles apart at the same time, Zuo Ci exhibited the mystic's ability to \"shrink the land.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Qu Xin",
+        "imageId": "023ae64a-7888-4ad2-b879-0649d8e341ac"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ptk",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUGGERNAUT": {
+    "scryfallId": "07474c6d-a52d-4163-b2f9-5de654ae69d8",
+    "oracleId": "4ac9116f-36bc-4d71-b696-d6ee064e1d58",
+    "name": "Juggernaut",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Juggernaut",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Juggernaut",
+        "oracleText": "This creature attacks each combat if able.\nThis creature can't be blocked by Walls.",
+        "flavorText": "We had taken refuge in a small cave, thinking the entrance was too narrow for it to follow. To our horror, its gigantic head smashed into the mountainside, ripping itself a new entrance.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dan Frazier",
+        "imageId": "07474c6d-a52d-4163-b2f9-5de654ae69d8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cei",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NICK_VALENTINE_PRIVATE_EYE": {
+    "scryfallId": "0a7c9553-d4a8-4d51-8e8a-8a0ffbdf1715",
+    "oracleId": "5663288a-7300-4e1b-8fb0-43c467709fe5",
+    "name": "Nick Valentine, Private Eye",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nick Valentine, Private Eye",
+        "manaCost": "{2}{U}",
+        "typeLine": "Legendary Artifact Creature — Synth Detective",
+        "oracleText": "Nick Valentine can't be blocked except by artifact creatures.\nWhenever Nick Valentine or another artifact creature you control dies, you may investigate. (To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": "\"Your case is my top concern.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "0a7c9553-d4a8-4d51-8e8a-8a0ffbdf1715"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GNAT_ALLEY_CREEPER": {
+    "scryfallId": "0ccf9c8b-8a03-4ef8-8267-af57ac35fe02",
+    "oracleId": "17f930a9-64ee-46f9-8a7c-8877e532c94f",
+    "name": "Gnat Alley Creeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gnat Alley Creeper",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "This creature can't be blocked by creatures with flying.",
+        "flavorText": "Despite its diminutive name, Gnat Alley is the longest street in Ravnica. Mile after twisting mile, it threads its way among the broader, safer thoroughfares like a parasite.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0ccf9c8b-8a03-4ef8-8267-af57ac35fe02"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dis",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOG_RATS": {
+    "scryfallId": "0da038c4-73ff-4d82-8440-9bca2f051fd5",
+    "oracleId": "035d61a9-5ca2-4275-b8df-fcfa9f5c1b31",
+    "name": "Bog Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bog Rats",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "This creature can't be blocked by Walls.",
+        "flavorText": "Their stench was vile and strong enough, but not nearly as powerful as their hunger.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "0da038c4-73ff-4d82-8440-9bca2f051fd5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "6ed",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STROMKIRK_NOBLE": {
+    "scryfallId": "0f306c7e-cacc-4c26-a3f1-fad4f3ff7cf3",
+    "oracleId": "c55909d3-1f67-4a4a-9d53-8513d6cf96d8",
+    "name": "Stromkirk Noble",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stromkirk Noble",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "This creature can't be blocked by Humans.\nWhenever this creature deals combat damage to a player, put a +1/+1 counter on it.",
+        "flavorText": "\"A responsible king walks among his subjects.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Ryman",
+        "imageId": "0f306c7e-cacc-4c26-a3f1-fad4f3ff7cf3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "632",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCHARD_SPIRIT": {
+    "scryfallId": "1bd3077a-0446-4cf4-9a32-366b4c4085a3",
+    "oracleId": "b6eb56a7-4dfe-4d51-a1df-55f892c1b014",
+    "name": "Orchard Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orchard Spirit",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "This creature can't be blocked except by creatures with flying or reach.",
+        "flavorText": "\"Pick not the rotten fruit, but neither touch the best. Leave those as an offering for our unseen guests.\"\n—Radwick, farmer of Gatstaf",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "1bd3077a-0446-4cf4-9a32-366b4c4085a3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILHANA_LEDGEWALKER": {
+    "scryfallId": "1de113f0-0a81-45d3-9e56-7f11b4b5c76c",
+    "oracleId": "5b15dcac-38dc-4957-bc01-40153ea07559",
+    "name": "Silhana Ledgewalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silhana Ledgewalker",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Rogue",
+        "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nThis creature can't be blocked except by creatures with flying.",
+        "flavorText": "Street folk call them \"spire mice,\" but behind the mockery is an unspoken envy of the ledgewalkers' skill at avoiding harm.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "James Wong",
+        "imageId": "1de113f0-0a81-45d3-9e56-7f11b4b5c76c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Hexproof"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREETOP_SCOUT": {
+    "scryfallId": "2a822f19-6a4b-490e-93a6-3e81dfada5c6",
+    "oracleId": "f62d4910-4547-43f6-909c-fc6a86ecc922",
+    "name": "Treetop Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treetop Scout",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "This creature can't be blocked except by creatures with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "2a822f19-6a4b-490e-93a6-3e81dfada5c6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "B5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_MARE": {
+    "scryfallId": "2ca822a3-4793-4cbc-a2f3-f43985e7ce8f",
+    "oracleId": "7c7948c6-5144-4df0-8e33-117710ae00af",
+    "name": "Lightning Mare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Mare",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Elemental Horse",
+        "oracleText": "This spell can't be countered.\nThis creature can't be blocked by blue creatures.\n{1}{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "When it passes, storm clouds bolt across the land.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "2ca822a3-4793-4cbc-a2f3-f43985e7ce8f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "151",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEN_HAULER": {
+    "scryfallId": "2d04ebf7-a7aa-481f-8b45-5afbceeaf84e",
+    "oracleId": "0f909cfd-c643-48d2-983a-da2e38cd2bff",
+    "name": "Fen Hauler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fen Hauler",
+        "manaCost": "{6}{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Improvise (Your artifacts can help cast this spell. Each artifact you tap after you're done activating mana abilities pays for {1}.)\nThis creature can't be blocked by artifact creatures.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "2d04ebf7-a7aa-481f-8b45-5afbceeaf84e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Improvise"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREETOP_RANGERS": {
+    "scryfallId": "33f1a343-250b-4a30-a3b5-296282a70446",
+    "oracleId": "e4606bc2-faaa-4dd8-9109-55ce3440cf5b",
+    "name": "Treetop Rangers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treetop Rangers",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Ranger",
+        "oracleText": "This creature can't be blocked except by creatures with flying.",
+        "flavorText": "\"If you can't catch them, cut the trees down from beneath them. Force them to fight on our terms.\"\n—Mishra",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "33f1a343-250b-4a30-a3b5-296282a70446"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARRENTON_CRAGTREADS": {
+    "scryfallId": "361dab9e-22f0-45e4-a793-aa6c97a96781",
+    "oracleId": "969233f8-a644-4297-a2bf-b1ca7a58bb0b",
+    "name": "Barrenton Cragtreads",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barrenton Cragtreads",
+        "manaCost": "{2}{W/U}{W/U}",
+        "typeLine": "Creature — Kithkin Scout",
+        "oracleText": "This creature can't be blocked by red creatures.",
+        "flavorText": "\"Boggarts are easy to get around. Just toss some mutton in another direction. Giants are a little harder. You have to be quick to avoid their steps. Cinders are the difficult ones, but even they have fears to be exploited.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "361dab9e-22f0-45e4-a793-aa6c97a96781"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AUDACIOUS_INFILTRATOR": {
+    "scryfallId": "36a348bb-cdc5-4e2a-933f-21f91faab891",
+    "oracleId": "e01b3d52-297d-42e3-9de9-4f45c2359bcc",
+    "name": "Audacious Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Audacious Infiltrator",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dwarf Rogue",
+        "oracleText": "This creature can't be blocked by artifact creatures.",
+        "flavorText": "\"This little critter can turn all of you to scrap in under thirty seconds! Come on, who wants to be the first to go? Try and stop me!\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "36a348bb-cdc5-4e2a-933f-21f91faab891"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAUTHI_HORROR": {
+    "scryfallId": "3a834d04-6ce6-4474-a3fe-e2676ce64a00",
+    "oracleId": "07c20708-c305-46e7-a98e-c99f54aeafec",
+    "name": "Dauthi Horror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dauthi Horror",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Dauthi Horror",
+        "oracleText": "Shadow (This creature can block or be blocked by only creatures with shadow.)\nThis creature can't be blocked by white creatures.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff Laubenstein",
+        "imageId": "3a834d04-6ce6-4474-a3fe-e2676ce64a00"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Shadow"
+    ],
+    "setCode": "tpr",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRE_TRACER": {
+    "scryfallId": "428b0d43-94c9-4f7f-b042-ea63f88ac697",
+    "oracleId": "9b38ab81-7ee7-4d89-878b-3507e44836ca",
+    "name": "Spire Tracer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spire Tracer",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "This creature can't be blocked except by creatures with flying or reach.",
+        "flavorText": "Cartographers on Ravnica chart not just the horizontal, but also the vertical.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "428b0d43-94c9-4f7f-b042-ea63f88ac697"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAD_WARLOCK": {
+    "scryfallId": "4f964660-c2db-4995-bb16-65383362cf19",
+    "oracleId": "5791710d-c718-4f64-9c14-3668154716f1",
+    "name": "Dread Warlock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dread Warlock",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Wizard Warlock",
+        "oracleText": "This creature can't be blocked except by black creatures.",
+        "flavorText": "\"I don't know who to pity more: those who flee from my presence or the damned who can withstand it.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "4f964660-c2db-4995-bb16-65383362cf19"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m10",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIGNAL_PEST": {
+    "scryfallId": "5312358c-128f-4bcb-b121-1f7441ae7bc7",
+    "oracleId": "724f3d2f-0513-4efd-961f-56a7ea7b5731",
+    "name": "Signal Pest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Signal Pest",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Pest",
+        "oracleText": "Battle cry (Whenever this creature attacks, each other attacking creature gets +1/+0 until end of turn.)\nThis creature can't be blocked except by creatures with flying or reach.",
+        "flavorText": "It leaps from tree to tree, revealing the enemy's positions.",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chippy",
+        "imageId": "5312358c-128f-4bcb-b121-1f7441ae7bc7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Battle Cry"
+    ],
+    "setCode": "dci",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOGGLE_BANDIT": {
+    "scryfallId": "552c9c66-8023-41ef-8d4f-3b0dc30743f3",
+    "oracleId": "3e7707df-54e3-4307-9695-2de4e3edcf89",
+    "name": "Noggle Bandit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noggle Bandit",
+        "manaCost": "{1}{U/R}{U/R}",
+        "typeLine": "Creature — Noggle Rogue",
+        "oracleText": "This creature can't be blocked except by creatures with defender.",
+        "flavorText": "Noggles believe that they were the first race ever to walk Shadowmoor. They don't \"steal.\" They just take back what's rightfully theirs.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Thomas Denmark",
+        "imageId": "552c9c66-8023-41ef-8d4f-3b0dc30743f3"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZUO_CI_THE_MOCKING_SAGE": {
+    "scryfallId": "5c4c2944-30f0-4928-87fb-4b4ccad9e72f",
+    "oracleId": "ae8773a3-05f2-4074-9a53-033b0c127235",
+    "name": "Zuo Ci, the Mocking Sage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zuo Ci, the Mocking Sage",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Legendary Creature — Human Advisor",
+        "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nZuo Ci can't be blocked by creatures with horsemanship.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wang Yuqun",
+        "imageId": "5c4c2944-30f0-4928-87fb-4b4ccad9e72f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Hexproof"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "65805",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONE_SPIRIT": {
+    "scryfallId": "705c927b-1258-4758-bbff-10cc032587a2",
+    "oracleId": "63bc0a02-0d6c-4a00-8b17-1b024f830219",
+    "name": "Stone Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stone Spirit",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Elemental Spirit",
+        "oracleText": "This creature can't be blocked by creatures with flying.",
+        "flavorText": "\"The spirit of the stone is the spirit of strength.\"\n—Lovisa Coldeyes, Balduvian chieftain",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "James Allen",
+        "imageId": "705c927b-1258-4758-bbff-10cc032587a2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "5ed",
+    "collectorNumber": "271",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROWLING_NIGHTSTALKER": {
+    "scryfallId": "749e3992-693b-4b4f-b410-b5f2faac0040",
+    "oracleId": "6279078a-5c77-4a9e-8e9b-e99310363b6f",
+    "name": "Prowling Nightstalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prowling Nightstalker",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Nightstalker",
+        "oracleText": "This creature can't be blocked except by black creatures.",
+        "flavorText": "Silent as a serpent, twisted as a lone bog tree, evil as Tojira's heart.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Keith Parkinson",
+        "imageId": "749e3992-693b-4b4f-b410-b5f2faac0040"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPART_CRAWLER": {
+    "scryfallId": "8b60f86f-c78a-4dfb-bb18-e9bcf21b26c4",
+    "oracleId": "302c0400-043d-42fa-abbb-488e520116ba",
+    "name": "Rampart Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampart Crawler",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Lizard Mercenary",
+        "oracleText": "This creature can't be blocked by Walls.",
+        "flavorText": "\"Not even the magistrate in his lofty tower is out of our reach.\"\n—Cateran overlord",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "8b60f86f-c78a-4dfb-bb18-e9bcf21b26c4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVER_DARTER": {
+    "scryfallId": "8e97eb8b-a8ff-4f5f-a62d-1aee11664ca2",
+    "oracleId": "939a6815-bed1-43b0-bf4d-f0581ba0fed5",
+    "name": "River Darter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "River Darter",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Warrior",
+        "oracleText": "This creature can't be blocked by Dinosaurs.",
+        "flavorText": "\"Don't make splashes. Make progress.\"\n—Tishana",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "8e97eb8b-a8ff-4f5f-a62d-1aee11664ca2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "RIX-47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLAGUE_MARE": {
+    "scryfallId": "995596a3-343d-4272-86bf-d76fd32ab78e",
+    "oracleId": "4cd096ac-dd67-4208-a3ad-8e6061b442c6",
+    "name": "Plague Mare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plague Mare",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Nightmare Horse",
+        "oracleText": "This creature can't be blocked by white creatures.\nWhen this creature enters, creatures your opponents control get -1/-1 until end of turn.",
+        "flavorText": "When it passes, those who sleep dream of sickness and death.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "G-host Lee",
+        "imageId": "995596a3-343d-4272-86bf-d76fd32ab78e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHCULT_ROGUE": {
+    "scryfallId": "a4c186d2-e631-4811-83ea-fdb54e730a5d",
+    "oracleId": "fa8ae8ac-4ad2-4cda-9f6b-4ec634526658",
+    "name": "Deathcult Rogue",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathcult Rogue",
+        "manaCost": "{1}{U/B}{U/B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "This creature can't be blocked except by Rogues.",
+        "flavorText": "\"The hussars can't catch him, and he evades our traps with ease. I fear he walks unseen even in the halls of New Prahv.\"\n—Arrester Lavinia, Tenth Precinct",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "a4c186d2-e631-4811-83ea-fdb54e730a5d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WANDERBRINE_ROOTCUTTERS": {
+    "scryfallId": "ab739d64-cdcd-4f07-9854-e067c37c4f41",
+    "oracleId": "7e2e96db-e4df-41de-b5a7-712c4a8fe7be",
+    "name": "Wanderbrine Rootcutters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wanderbrine Rootcutters",
+        "manaCost": "{2}{U/B}{U/B}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "This creature can't be blocked by green creatures.",
+        "flavorText": "Most dirtwalkers only know of the vicious merrows that dwell in the shallows. They can't begin to fathom the wickedness that skulks in the Dark Meanders.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Chippy",
+        "imageId": "ab739d64-cdcd-4f07-9854-e067c37c4f41"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARGOTHIAN_SPRITE": {
+    "scryfallId": "b5dbc383-7e08-4701-8d4a-6b99b74fe358",
+    "oracleId": "0dbcc5d8-9533-48fd-a69d-bbc6c72aaac5",
+    "name": "Argothian Sprite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Argothian Sprite",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Faerie",
+        "oracleText": "This creature can't be blocked by artifact creatures.\n{7}: Put two +1/+1 counters on this creature.",
+        "flavorText": "\"Make the exhaust vents smaller next time!\"\n—Urza, notes to his engineers",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rudy Siswanto",
+        "imageId": "b5dbc383-7e08-4701-8d4a-6b99b74fe358"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVEN_S_RUN_DRAGOON": {
+    "scryfallId": "b868da85-9d19-4407-a0c3-fc3b2b237cda",
+    "oracleId": "e405800a-27e6-468a-938b-484346ee20cd",
+    "name": "Raven's Run Dragoon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raven's Run Dragoon",
+        "manaCost": "{2}{G/W}{G/W}",
+        "typeLine": "Creature — Elf Knight",
+        "oracleText": "This creature can't be blocked by black creatures.",
+        "flavorText": "\"I have a gift. The ability to sense encroaching darkness has saved many lives. And yet constantly feeling the force of so much ugliness is a terrible burden.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "b868da85-9d19-4407-a0c3-fc3b2b237cda"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VINE_MARE": {
+    "scryfallId": "b9980835-cd32-4870-88df-c79cd5534968",
+    "oracleId": "499c7ee3-08a3-4f40-809a-3f7087ab9b24",
+    "name": "Vine Mare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vine Mare",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Elemental Horse",
+        "oracleText": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nThis creature can't be blocked by black creatures.",
+        "flavorText": "When it passes, the dead are displaced by flourishing life.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alex Konstad",
+        "imageId": "b9980835-cd32-4870-88df-c79cd5534968"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Hexproof"
+    ],
+    "setCode": "m19",
+    "collectorNumber": "207",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUDBRAWLER_RAIDERS": {
+    "scryfallId": "cbe4af47-d913-4c19-a027-501e2c78758c",
+    "oracleId": "d8863b64-110d-4f6b-9d0e-4662f2b399cb",
+    "name": "Mudbrawler Raiders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mudbrawler Raiders",
+        "manaCost": "{2}{R/G}{R/G}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "This creature can't be blocked by blue creatures.",
+        "flavorText": "To reach the ravine of the Wanderbrine River, they were told to take the shortcut \"through the mountains.\" They took the directions literally.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "cbe4af47-d913-4c19-a027-501e2c78758c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSCYTHE_ENGULFER": {
+    "scryfallId": "d7898399-3c52-402c-9cd7-baad2cb7f00e",
+    "oracleId": "b7cc831c-c1a1-4ea4-ae78-5be2b6173407",
+    "name": "Skyscythe Engulfer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyscythe Engulfer",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "Reach, trample\nThis creature can't be blocked by creatures with flying.",
+        "flavorText": "\"I bet even Skithiryx would take the long way around this one.\"\n—Kara Vrist, resistance spymaster",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Helge C. Balzer",
+        "imageId": "d7898399-3c52-402c-9cd7-baad2cb7f00e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Trample"
+    ],
+    "setCode": "one",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOOTWALKERS": {
+    "scryfallId": "f36c7932-cc1e-4b1f-ae39-2f04b84bcddb",
+    "oracleId": "1492e778-b85e-4675-b48c-bc0a2eb1d105",
+    "name": "Sootwalkers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sootwalkers",
+        "manaCost": "{2}{B/R}{B/R}",
+        "typeLine": "Creature — Elemental Rogue",
+        "oracleText": "This creature can't be blocked by white creatures.",
+        "flavorText": "\"Why allow the fires of others to burn, when ours do not? Why leave them content, while we suffer? If there is to be misery, let it be borne by all.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "f36c7932-cc1e-4b1f-ae39-2f04b84bcddb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEEL_WALL": {
+    "scryfallId": "3d641aaf-e2ff-4ccb-9e4e-27bbfc31ba8c",
+    "oracleId": "5ccb57e1-ca94-4b5a-8e5f-b8b5e692cfb9",
+    "name": "Steel Wall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steel Wall",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)",
+        "flavorText": "\"We sculpt the land into what we need—homes, armament, fortresses of war. Our strength comes not only from knowing, but from *commanding* the terrain.\"\n—Raksha Golden Cub, leonin kha",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Day",
+        "imageId": "3d641aaf-e2ff-4ccb-9e4e-27bbfc31ba8c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEI_SCOUT": {
+    "scryfallId": "a11d58fb-fb70-4e8f-8f64-232ad2c1f59b",
+    "oracleId": "f7fa054f-39cb-47d3-a55d-3f70ae164063",
+    "name": "Wei Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wei Scout",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Soldier Scout",
+        "oracleText": "Horsemanship (This creature can't be blocked except by creatures with horsemanship.)",
+        "flavorText": "\"He will win who, prepared himself, waits to take the enemy unprepared.\"\n—Sun Tzu, *Art of War* (trans. Giles)",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jiang Zhuqing",
+        "imageId": "a11d58fb-fb70-4e8f-8f64-232ad2c1f59b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Horsemanship"
+    ],
+    "setCode": "ptk",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

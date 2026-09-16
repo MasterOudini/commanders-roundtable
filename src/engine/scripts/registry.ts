@@ -7,6 +7,39 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TAOIST_MYSTIC_SCRIPT } from './cards/taoistMystic';
+import { JUGGERNAUT_SCRIPT } from './cards/juggernaut';
+import { NICK_VALENTINE_PRIVATE_EYE_SCRIPT } from './cards/nickValentinePrivateEye';
+import { GNAT_ALLEY_CREEPER_SCRIPT } from './cards/gnatAlleyCreeper';
+import { BOG_RATS_SCRIPT } from './cards/bogRats';
+import { STROMKIRK_NOBLE_SCRIPT } from './cards/stromkirkNoble';
+import { ORCHARD_SPIRIT_SCRIPT } from './cards/orchardSpirit';
+import { SILHANA_LEDGEWALKER_SCRIPT } from './cards/silhanaLedgewalker';
+import { TREETOP_SCOUT_SCRIPT } from './cards/treetopScout';
+import { LIGHTNING_MARE_SCRIPT } from './cards/lightningMare';
+import { FEN_HAULER_SCRIPT } from './cards/fenHauler';
+import { TREETOP_RANGERS_SCRIPT } from './cards/treetopRangers';
+import { BARRENTON_CRAGTREADS_SCRIPT } from './cards/barrentonCragtreads';
+import { AUDACIOUS_INFILTRATOR_SCRIPT } from './cards/audaciousInfiltrator';
+import { DAUTHI_HORROR_SCRIPT } from './cards/dauthiHorror';
+import { SPIRE_TRACER_SCRIPT } from './cards/spireTracer';
+import { DREAD_WARLOCK_SCRIPT } from './cards/dreadWarlock';
+import { SIGNAL_PEST_SCRIPT } from './cards/signalPest';
+import { NOGGLE_BANDIT_SCRIPT } from './cards/noggleBandit';
+import { ZUO_CI_THE_MOCKING_SAGE_SCRIPT } from './cards/zuoCiTheMockingSage';
+import { STONE_SPIRIT_SCRIPT } from './cards/stoneSpirit';
+import { PROWLING_NIGHTSTALKER_SCRIPT } from './cards/prowlingNightstalker';
+import { RAMPART_CRAWLER_SCRIPT } from './cards/rampartCrawler';
+import { RIVER_DARTER_SCRIPT } from './cards/riverDarter';
+import { PLAGUE_MARE_SCRIPT } from './cards/plagueMare';
+import { DEATHCULT_ROGUE_SCRIPT } from './cards/deathcultRogue';
+import { WANDERBRINE_ROOTCUTTERS_SCRIPT } from './cards/wanderbrineRootcutters';
+import { ARGOTHIAN_SPRITE_SCRIPT } from './cards/argothianSprite';
+import { RAVENS_RUN_DRAGOON_SCRIPT } from './cards/ravensRunDragoon';
+import { VINE_MARE_SCRIPT } from './cards/vineMare';
+import { MUDBRAWLER_RAIDERS_SCRIPT } from './cards/mudbrawlerRaiders';
+import { SKYSCYTHE_ENGULFER_SCRIPT } from './cards/skyscytheEngulfer';
+import { SOOTWALKERS_SCRIPT } from './cards/sootwalkers';
 import { RALLY_THE_RANKS_SCRIPT } from './cards/rallyTheRanks';
 import { ADAPTIVE_AUTOMATON_SCRIPT } from './cards/adaptiveAutomaton';
 import { SHARED_TRIUMPH_SCRIPT } from './cards/sharedTriumph';
@@ -7134,6 +7167,39 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TAOIST_MYSTIC_SCRIPT,
+  JUGGERNAUT_SCRIPT,
+  NICK_VALENTINE_PRIVATE_EYE_SCRIPT,
+  GNAT_ALLEY_CREEPER_SCRIPT,
+  BOG_RATS_SCRIPT,
+  STROMKIRK_NOBLE_SCRIPT,
+  ORCHARD_SPIRIT_SCRIPT,
+  SILHANA_LEDGEWALKER_SCRIPT,
+  TREETOP_SCOUT_SCRIPT,
+  LIGHTNING_MARE_SCRIPT,
+  FEN_HAULER_SCRIPT,
+  TREETOP_RANGERS_SCRIPT,
+  BARRENTON_CRAGTREADS_SCRIPT,
+  AUDACIOUS_INFILTRATOR_SCRIPT,
+  DAUTHI_HORROR_SCRIPT,
+  SPIRE_TRACER_SCRIPT,
+  DREAD_WARLOCK_SCRIPT,
+  SIGNAL_PEST_SCRIPT,
+  NOGGLE_BANDIT_SCRIPT,
+  ZUO_CI_THE_MOCKING_SAGE_SCRIPT,
+  STONE_SPIRIT_SCRIPT,
+  PROWLING_NIGHTSTALKER_SCRIPT,
+  RAMPART_CRAWLER_SCRIPT,
+  RIVER_DARTER_SCRIPT,
+  PLAGUE_MARE_SCRIPT,
+  DEATHCULT_ROGUE_SCRIPT,
+  WANDERBRINE_ROOTCUTTERS_SCRIPT,
+  ARGOTHIAN_SPRITE_SCRIPT,
+  RAVENS_RUN_DRAGOON_SCRIPT,
+  VINE_MARE_SCRIPT,
+  MUDBRAWLER_RAIDERS_SCRIPT,
+  SKYSCYTHE_ENGULFER_SCRIPT,
+  SOOTWALKERS_SCRIPT,
   RALLY_THE_RANKS_SCRIPT,
   ADAPTIVE_AUTOMATON_SCRIPT,
   SHARED_TRIUMPH_SCRIPT,
