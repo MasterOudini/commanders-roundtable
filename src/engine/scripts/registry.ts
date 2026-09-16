@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BLADED_AMBASSADOR_SCRIPT } from './cards/bladedAmbassador';
+import { SUNSET_PYRAMID_SCRIPT } from './cards/sunsetPyramid';
+import { TRIGON_OF_RAGE_SCRIPT } from './cards/trigonOfRage';
+import { TRIGON_OF_CORRUPTION_SCRIPT } from './cards/trigonOfCorruption';
+import { PREDATION_STEWARD_SCRIPT } from './cards/predationSteward';
+import { GITAXIAN_RAPTOR_SCRIPT } from './cards/gitaxianRaptor';
+import { NECROGEN_CENSER_SCRIPT } from './cards/necrogenCenser';
+import { TUMBLE_MAGNET_SCRIPT } from './cards/tumbleMagnet';
+import { INCUBATION_SAC_SCRIPT } from './cards/incubationSac';
+import { FURNACE_STRIDER_SCRIPT } from './cards/furnaceStrider';
+import { SHRIEKHORN_SCRIPT } from './cards/shriekhorn';
+import { TRIGON_OF_INFESTATION_SCRIPT } from './cards/trigonOfInfestation';
+import { GLISTENER_SEER_SCRIPT } from './cards/glistenerSeer';
+import { AXIOM_ENGRAVER_SCRIPT } from './cards/axiomEngraver';
+import { TAMIYOS_IMMOBILIZER_SCRIPT } from './cards/tamiyosImmobilizer';
+import { TRAWLER_DRAKE_SCRIPT } from './cards/trawlerDrake';
+import { TRIGON_OF_THOUGHT_SCRIPT } from './cards/trigonOfThought';
 import { PROFESSIONAL_FACE_BREAKER_SCRIPT } from './cards/professionalFaceBreaker';
 import { MORIA_MARAUDER_SCRIPT } from './cards/moriaMarauder';
 import { COASTAL_PIRACY_SCRIPT } from './cards/coastalPiracy';
@@ -7179,6 +7196,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLADED_AMBASSADOR_SCRIPT,
+  SUNSET_PYRAMID_SCRIPT,
+  TRIGON_OF_RAGE_SCRIPT,
+  TRIGON_OF_CORRUPTION_SCRIPT,
+  PREDATION_STEWARD_SCRIPT,
+  GITAXIAN_RAPTOR_SCRIPT,
+  NECROGEN_CENSER_SCRIPT,
+  TUMBLE_MAGNET_SCRIPT,
+  INCUBATION_SAC_SCRIPT,
+  FURNACE_STRIDER_SCRIPT,
+  SHRIEKHORN_SCRIPT,
+  TRIGON_OF_INFESTATION_SCRIPT,
+  GLISTENER_SEER_SCRIPT,
+  AXIOM_ENGRAVER_SCRIPT,
+  TAMIYOS_IMMOBILIZER_SCRIPT,
+  TRAWLER_DRAKE_SCRIPT,
+  TRIGON_OF_THOUGHT_SCRIPT,
   PROFESSIONAL_FACE_BREAKER_SCRIPT,
   MORIA_MARAUDER_SCRIPT,
   COASTAL_PIRACY_SCRIPT,

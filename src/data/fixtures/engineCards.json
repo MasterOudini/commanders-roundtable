@@ -264092,6 +264092,553 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLADED_AMBASSADOR": {
+    "scryfallId": "0bd8d2b8-4caf-4349-9538-0dfbebf0ce1b",
+    "oracleId": "3088ee75-3b51-4cbc-8987-76cb93f416b1",
+    "name": "Bladed Ambassador",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bladed Ambassador",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Phyrexian Soldier",
+        "oracleText": "This creature enters with an oil counter on it.\n{1}, Remove an oil counter from this creature: This creature gains indestructible until end of turn.",
+        "flavorText": "\"Let those thanebound dissenters prattle about their dead god. I serve the Mother of Machines, and in her name I carve out their heresy.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "0bd8d2b8-4caf-4349-9538-0dfbebf0ce1b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNSET_PYRAMID": {
+    "scryfallId": "0cef76a7-6135-4c93-83d2-7cda9e2e7c16",
+    "oracleId": "5972f426-4a51-4130-baf5-25407c1499f1",
+    "name": "Sunset Pyramid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunset Pyramid",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three brick counters on it.\n{2}, {T}, Remove a brick counter from this artifact: Draw a card.\n{2}, {T}: Scry 1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "0cef76a7-6135-4c93-83d2-7cda9e2e7c16"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIGON_OF_RAGE": {
+    "scryfallId": "1135f3b7-8c6b-47ff-b895-b7127836b0bf",
+    "oracleId": "3b172be8-1bac-441e-98cc-f5af8da6005b",
+    "name": "Trigon of Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trigon of Rage",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{R}{R}, {T}: Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Target creature gets +3/+0 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Marc Simonetti",
+        "imageId": "1135f3b7-8c6b-47ff-b895-b7127836b0bf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIGON_OF_CORRUPTION": {
+    "scryfallId": "26e215e0-836c-4b37-8f9a-9093a535bff1",
+    "oracleId": "0da19cd4-7b3f-47bb-bb35-cbcc88ab53cd",
+    "name": "Trigon of Corruption",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trigon of Corruption",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{B}{B}, {T}: Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Put a -1/-1 counter on target creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "26e215e0-836c-4b37-8f9a-9093a535bff1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PREDATION_STEWARD": {
+    "scryfallId": "419fab07-f921-4eff-91e2-1974ae121077",
+    "oracleId": "5e3d2b03-4c44-49a3-ab11-871ca9c372f7",
+    "name": "Predation Steward",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Predation Steward",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Phyrexian Elf Warrior",
+        "oracleText": "This creature enters with two oil counters on it.\n{2}{G}, {T}, Remove an oil counter from this creature: Target creature gets +2/+2 until end of turn. Activate only as a sorcery.",
+        "flavorText": "\"Best we move on. That gurgling means it's feeding time.\"\n—Melira",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "419fab07-f921-4eff-91e2-1974ae121077"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GITAXIAN_RAPTOR": {
+    "scryfallId": "4f5e95f8-c04d-405f-bba4-e83a8f6bf463",
+    "oracleId": "6096b221-7b6e-4528-8b5d-8ad0fcef3fba",
+    "name": "Gitaxian Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gitaxian Raptor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Phyrexian Bird",
+        "oracleText": "Flying\nThis creature enters with three oil counters on it.\nRemove an oil counter from this creature: This creature gets +1/-1 until end of turn.",
+        "flavorText": "Bored with the ruins of Lumengrid, it migrated to the ruins of the Mephidross.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "4f5e95f8-c04d-405f-bba4-e83a8f6bf463"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "one",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROGEN_CENSER": {
+    "scryfallId": "4f707119-ede9-4697-b723-d6cea96e6f2b",
+    "oracleId": "f1feac23-8ba3-440c-828c-590f88008c31",
+    "name": "Necrogen Censer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrogen Censer",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with two charge counters on it.\n{T}, Remove a charge counter from this artifact: Target player loses 2 life.",
+        "flavorText": "Moriok necromancers actively spread necrogen, encouraging the transformation from Mirran to nim.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pete Venters",
+        "imageId": "4f707119-ede9-4697-b723-d6cea96e6f2b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TUMBLE_MAGNET": {
+    "scryfallId": "74baa632-d046-401a-9172-1ab6284240bc",
+    "oracleId": "0481adcd-b66d-432e-80ba-3a4718bb3a7d",
+    "name": "Tumble Magnet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tumble Magnet",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{T}, Remove a charge counter from this artifact: Tap target artifact or creature.",
+        "flavorText": "Magnetic devices that keep massive golems and structures standing can also be used for the opposite purpose.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Drew Baker",
+        "imageId": "74baa632-d046-401a-9172-1ab6284240bc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "2xm",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INCUBATION_SAC": {
+    "scryfallId": "a6b36e23-a414-400c-a3a5-e23883e866d3",
+    "oracleId": "478cc55b-dd71-4adc-909d-c39d435587ee",
+    "name": "Incubation Sac",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Incubation Sac",
+        "manaCost": "{G}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three oil counters on it.\n{4}, {T}, Remove an oil counter from this artifact: Create a 3/3 colorless Phyrexian Golem artifact creature token. Activate only as a sorcery.",
+        "flavorText": "\"This one needs a bit longer to ripen.\"\n—Glissa Sunslayer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "a6b36e23-a414-400c-a3a5-e23883e866d3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FURNACE_STRIDER": {
+    "scryfallId": "aa625ab0-1e79-4497-a5da-98fe1abfd024",
+    "oracleId": "85488433-3c23-4a29-b063-53dba71f26c4",
+    "name": "Furnace Strider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Furnace Strider",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "This creature enters with two oil counters on it.\nRemove an oil counter from this creature: Target creature you control gains haste until end of turn.",
+        "flavorText": "With the Quiet Furnace closed to all other factions, Urabrask's smiths were free to build anything their creativity demanded.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Denis Zhbankov",
+        "imageId": "aa625ab0-1e79-4497-a5da-98fe1abfd024"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRIEKHORN": {
+    "scryfallId": "bb41269f-007d-43ba-a682-d3929cc69696",
+    "oracleId": "571c1923-790f-48b7-86d2-70c3e79fdba3",
+    "name": "Shriekhorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shriekhorn",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{T}, Remove a charge counter from this artifact: Target player mills two cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Erica Yang",
+        "imageId": "bb41269f-007d-43ba-a682-d3929cc69696"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "mbs",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIGON_OF_INFESTATION": {
+    "scryfallId": "be409a80-846c-4883-8aee-c2e3f973fc0f",
+    "oracleId": "6af2b898-7ba0-4641-8234-5171397cf602",
+    "name": "Trigon of Infestation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trigon of Infestation",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{G}{G}, {T}: Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Create a 1/1 green Phyrexian Insect creature token with infect.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Allsop",
+        "imageId": "be409a80-846c-4883-8aee-c2e3f973fc0f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "214",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLISTENER_SEER": {
+    "scryfallId": "c22aaaec-bad5-43e9-8e92-9c4bde95fcfd",
+    "oracleId": "bcbb318d-0ebc-48a2-afd7-69cf5351893d",
+    "name": "Glistener Seer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glistener Seer",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Phyrexian Advisor",
+        "oracleText": "This creature enters with three oil counters on it.\n{T}, Remove an oil counter from this creature: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "\"The oil is all-knowing. The trick is to ask the right questions.\"",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "c22aaaec-bad5-43e9-8e92-9c4bde95fcfd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "one",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AXIOM_ENGRAVER": {
+    "scryfallId": "c9b3b785-396e-4240-bfa3-58ab53497686",
+    "oracleId": "a7ee67a6-0ac7-4079-a947-4e52d09ace8e",
+    "name": "Axiom Engraver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Axiom Engraver",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Phyrexian Wizard",
+        "oracleText": "This creature enters with two oil counters on it.\n{T}, Remove an oil counter from this creature, Discard a card: Draw a card.",
+        "flavorText": "\"I will not rest until the truth of Phyrexia is inscribed across the Multiverse.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pavel Kolomeyets",
+        "imageId": "c9b3b785-396e-4240-bfa3-58ab53497686"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAMIYO_S_IMMOBILIZER": {
+    "scryfallId": "daa20112-2955-439d-8802-3a228ba0832e",
+    "oracleId": "c2c7a9c2-28f8-4cf0-a042-420f6a4ba8bd",
+    "name": "Tamiyo's Immobilizer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tamiyo's Immobilizer",
+        "manaCost": "{3}{U}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with four oil counters on it.\n{T}, Remove an oil counter from this artifact: Tap target artifact or creature.",
+        "flavorText": "Visitors to the Surgical Bay often become permanent residents.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "daa20112-2955-439d-8802-3a228ba0832e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRAWLER_DRAKE": {
+    "scryfallId": "f442442d-2e5d-4913-82d8-bab2f31541f8",
+    "oracleId": "4fe38c9e-6fa0-4e05-9d3f-8fd635c457fb",
+    "name": "Trawler Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trawler Drake",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Phyrexian Drake",
+        "oracleText": "Flying\nThis creature enters with an oil counter on it.\nThis creature gets +1/+1 for each oil counter on it.\nWhenever you cast a noncreature spell, put an oil counter on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daniel Ljunggren",
+        "imageId": "f442442d-2e5d-4913-82d8-bab2f31541f8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "one",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRIGON_OF_THOUGHT": {
+    "scryfallId": "f8da37ba-52e3-417e-8d7b-6c3e060552a4",
+    "oracleId": "8a179d68-c9e6-4f46-99bf-11b2a2708990",
+    "name": "Trigon of Thought",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trigon of Thought",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three charge counters on it.\n{U}{U}, {T}: Put a charge counter on this artifact.\n{2}, {T}, Remove a charge counter from this artifact: Draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mike Bierek",
+        "imageId": "f8da37ba-52e3-417e-8d7b-6c3e060552a4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -269799,6 +270346,41 @@
     "keywords": [],
     "setCode": "ttdm",
     "collectorNumber": "13",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN": {
+    "scryfallId": "5a90e8ab-5a76-4834-9cd6-186af939ea41",
+    "oracleId": "d7e7f7f2-d2e1-48ce-97d0-55c43c360d88",
+    "name": "Phyrexian Insect",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Phyrexian Insect",
+        "manaCost": "",
+        "typeLine": "Token Creature — Phyrexian Insect",
+        "oracleText": "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Adrian Smith",
+        "imageId": "5a90e8ab-5a76-4834-9cd6-186af939ea41"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Infect"
+    ],
+    "setCode": "tonc",
+    "collectorNumber": "15",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

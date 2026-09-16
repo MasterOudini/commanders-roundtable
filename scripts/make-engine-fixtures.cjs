@@ -8633,6 +8633,25 @@ const WANTED = [
   "Raiders' Spoils",
   // D467 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Fang of Shigeki',
+  // D468 - the named entry counter: ~ enters with N <kind> counters on any permanent, the self remove-counter activations behind it, the rows that read.
+  'Bladed Ambassador',
+  'Sunset Pyramid',
+  'Trigon of Rage',
+  'Trigon of Corruption',
+  'Predation Steward',
+  'Gitaxian Raptor',
+  'Necrogen Censer',
+  'Tumble Magnet',
+  'Incubation Sac',
+  'Furnace Strider',
+  'Shriekhorn',
+  'Trigon of Infestation',
+  'Glistener Seer',
+  'Axiom Engraver',
+  "Tamiyo's Immobilizer",
+  'Trawler Drake',
+  'Trigon of Thought',
+  // D468 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8943,6 +8962,8 @@ const WANTED_TOKENS = [
   { name: 'Servo', set: 'tdft', cn: '8', key: 'SERVO_1_1_ARTIFACT_CREATURE_TOKEN' },
   // D463 - mobilize: the Warrior the keyword table makes (pinned like afterlife's Spirit).
   { name: 'Warrior', set: 'ttdm', cn: '13', key: 'WARRIOR_1_1_R_CREATURE_TOKEN' },
+  // D468 - the tokens the wave's rows create (the port's token-pin step, missing until D468).
+  { name: 'Phyrexian Insect', set: 'tonc', cn: '15', key: 'PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN' },
 ];
 
 function constName(name) {
