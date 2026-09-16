@@ -829,9 +829,12 @@ export type EffectKind =
   | 'exileTopPlay';
 
 /**
- * The counters a spell may put on or take off, and the list is CLOSED at two.
+ * The counters a spell may put on or take off, and the list is CLOSED at three.
  *
- * ⚠️ **BECAUSE THESE ARE THE TWO THE ENGINE READS.** `derive.ts` sums `+1/+1`
+ * D469 - `shield` joined: the prevention funnel and the three destroy sites apply it (CR 122.1i),
+ * so putting one is a change the board shows. The rule for the others stands.
+ *
+ * ⚠️ **BECAUSE THESE ARE THE ONES THE ENGINE READS.** `derive.ts` sums `+1/+1`
  * and `-1/-1` at layer 7d, so putting one of them is a change the board actually
  * shows. Every other counter Magic prints — charge, trample, deathtouch, page,
  * stun — would be recorded on the card and applied by NOTHING, which is
@@ -843,7 +846,7 @@ export type EffectKind =
  * Commander-legal spell's WHOLE text is that clause, so admitting it would widen
  * the vocabulary for zero cards and one more thing to be wrong about.
  */
-export type CounterKind = '+1/+1' | '-1/-1';
+export type CounterKind = '+1/+1' | '-1/-1' | 'shield';
 
 /**
  * D357 - what a library search is allowed to find, and where it goes.

@@ -68,6 +68,8 @@ export function checkStateBasedActions(
   const counterChanges: { card: InstanceId; kind: string; delta: number }[] = [];
   const detachments: InstanceId[] = [];
   const regenerated: InstanceId[] = [];
+  // D469 - CR 122.1i: the permanents whose shield counter replaced a lethal-damage destruction this pass.
+  const shielded: InstanceId[] = [];
 
   for (const id of state.zones.battlefield) {
     const card = state.cards[id];
@@ -104,6 +106,12 @@ export function checkStateBasedActions(
       if ((state.regenerationShields[id] ?? 0) > 0) {
         actions.push({ t: 'regenerated', card: id });
         regenerated.push(id);
+        continue;
+      }
+      // D469 - CR 122.1i: a shield counter is removed instead; the damage stays marked and the next pass asks again.
+      if ((card.counters['shield'] ?? 0) > 0) {
+        actions.push({ t: 'shielded', card: id });
+        shielded.push(id);
         continue;
       }
       actions.push({ t: 'lethalDamage', card: id });
@@ -276,6 +284,12 @@ export function checkStateBasedActions(
     events.push({ t: 'AwaitingSet', awaiting: legendPrompt.awaiting });
   }
 
+  // D469 - the shield counters spent in place of a destruction.
+  for (const id of shielded) {
+    events.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'shield', delta: -1 }] });
+    const card = state.cards[id];
+    if (card) events.push(narrated(`A shield counter on ${derive(state, oracle, scripts, id, cache).name} is removed instead.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []));
+  }
   // D330 - the regeneration itself: tapped, damage removed, out of combat, the shield spent.
   if (regenerated.length > 0) {
     const untapped = regenerated.filter((id) => state.cards[id]?.tapped === false);

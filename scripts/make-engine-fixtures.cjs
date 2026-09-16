@@ -8652,6 +8652,15 @@ const WANTED = [
   'Trawler Drake',
   'Trigon of Thought',
   // D468 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D469 - the shield counter: CR 122.1i as an engine rule (the damage prevented, the destruction replaced, the counter spent), the entry rows that read.
+  'Proud Pack-Rhino',
+  'Swooping Protector',
+  'Brokers Veteran',
+  'Wingshield Agent',
+  'Disciplined Duelist',
+  'Rhox Pummeler',
+  'Dapper Shieldmate',
+  // D469 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

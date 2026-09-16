@@ -375,6 +375,12 @@ export function effectResult(
           out.push(narrated(`${d.name} regenerates.`, obj.controller, obj.identity));
           break;
         }
+        // D469 - CR 122.1i: a shield counter replaces the destruction and is removed instead.
+        if ((state.cards[aim.id]?.counters['shield'] ?? 0) > 0) {
+          out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: 'shield', delta: -1 }] });
+          out.push(narrated(`A shield counter on ${d.name} is removed instead.`, obj.controller, obj.identity));
+          break;
+        }
         out.push(moveTo(aim.id, 'graveyard', aim.owner));
         break;
       }
@@ -514,6 +520,11 @@ export function effectResult(
             out.push({ t: 'DamageCleared', cards: [id] });
             out.push({ t: 'RemovedFromCombat', cards: [id] });
             out.push({ t: 'Regenerated', card: id });
+            continue;
+          }
+          // D469 - CR 122.1i, per member: a shield counter is removed instead of the destruction.
+          if ((inst.counters['shield'] ?? 0) > 0) {
+            out.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'shield', delta: -1 }] });
             continue;
           }
           moves.push({ card: id, from: { kind: 'battlefield' as const, player: inst.controller }, to: { kind: 'graveyard' as const, player: inst.owner } });

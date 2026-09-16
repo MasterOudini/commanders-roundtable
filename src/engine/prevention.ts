@@ -165,8 +165,11 @@ export function withoutPreventedDamage(
 ): readonly EventBody[] {
   // ⚠️ THE GATE: an empty registry and no shield means no walk at all, which is
   // what keeps a damage batch free for the games that have neither (D368).
-  if (state.preventionShields.length === 0 && scripts.preventions().length === 0) return bodies;
   if (!bodies.some((b) => b.t === 'DamageDealt' || b.t === 'CombatDamageDealt')) return bodies;
+  // D469 - THE SHIELD COUNTER (CR 122.1i): a permanent with one takes no damage from the event and loses one counter.
+  // The gate learns the third reason to walk: a damaged permanent that carries a shield counter.
+  const shieldedTarget = bodies.some((b) => (b.t === 'DamageDealt' || b.t === 'CombatDamageDealt') && b.damages.some((d) => d.target.kind === 'card' && (state.cards[d.target.id]?.counters['shield'] ?? 0) > 0));
+  if (state.preventionShields.length === 0 && scripts.preventions().length === 0 && !shieldedTarget) return bodies;
 
   const cache = makeDeriveCache(state);
   // D427 - the scoped shields read the derived board; the same cache serves the statics.
@@ -179,6 +182,9 @@ export function withoutPreventedDamage(
   for (const s of state.preventionShields) left.set(s.id, s.amount);
 
   const out: EventBody[] = [];
+  // D469 - the shield counters left on each permanent across the batch: one damage EVENT (one body) spends one
+  // counter however many entries hit the permanent; a second body in the same batch spends another.
+  const shieldsLeft = new Map<InstanceId, number>();
   const spends = new Map<string, number>();
   const absorbed = new Map<string, { source: InstanceId; abilityId: string; amount: number }>();
   let preventedTotal = 0;
@@ -190,10 +196,24 @@ export function withoutPreventedDamage(
     }
     const isCombat = body.t === 'CombatDamageDealt';
     const kept: ResolvedDamage[] = [];
+    const shieldedHere = new Set<InstanceId>();
     for (const entry of body.damages) {
       if (entry.unpreventable === true) {
         kept.push(entry);
         continue;
+      }
+      // D469 - CR 122.1i first: the counter prevents the whole entry, and this event spends one counter per permanent.
+      if (entry.target.kind === 'card') {
+        const id = entry.target.id;
+        const have = shieldsLeft.get(id) ?? (state.cards[id]?.counters['shield'] ?? 0);
+        if (have > 0 || shieldedHere.has(id)) {
+          if (!shieldedHere.has(id)) {
+            shieldedHere.add(id);
+            shieldsLeft.set(id, have - 1);
+          }
+          preventedTotal += entry.amount;
+          continue;
+        }
       }
       // D385 - the continuous abilities first: one that applies absorbs the WHOLE
       // entry and spends nothing, so no shield is asked about damage that was
@@ -229,6 +249,10 @@ export function withoutPreventedDamage(
       kept.push(remaining === entry.amount ? entry : { ...entry, amount: remaining });
     }
     if (kept.length > 0) out.push({ ...body, damages: kept });
+    for (const id of shieldedHere) {
+      out.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'shield', delta: -1 }] });
+      out.push(narrated(`A shield counter on ${derive(state, oracle, scripts, id, cache).name} absorbs the damage.`, null));
+    }
   }
 
   if (preventedTotal === 0) return bodies;

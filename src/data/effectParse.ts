@@ -380,11 +380,12 @@ function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | n
 
 /**
  * The counters a spell may put on or take off — CLOSED at the two `derive.ts`
- * actually reads at layer 7d. See `CounterKind` for why a `charge counter` is
+ * actually reads at layer 7d and the shield counter the funnel and the destroy
+ * sites spend (D469, CR 122.1i). See `CounterKind` for why a `charge counter` is
  * not here: recording a counter nothing applies is half-execution with a number
  * on it.
  */
-const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1)`;
+const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield)`;
 const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
 /** D434 - a mill's count: the words past seven the printed mills use. */
 const MILL_COUNT = '(?:a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|twenty|\\d+)';
@@ -417,7 +418,7 @@ const GY_ADJECTIVE = ADJECTIVE.replace(/\\s\+\)\*$/, ',?\\s+)*');
 const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)s?` + QUALIFIER;
 
 function counterKindOf(raw: string | undefined): CounterKind | null {
-  if (raw === '+1/+1' || raw === '-1/-1') return raw;
+  if (raw === '+1/+1' || raw === '-1/-1' || raw === 'shield') return raw;
   return null;
 }
 

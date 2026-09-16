@@ -481,12 +481,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 13115,
+  abilityText: 13108,
   payable: 3711,
   manaPart: 353,
-  either: 15447,
-  eitherAnyFace: 15469,
-  wasSilent: 14292,
+  either: 15440,
+  eitherAnyFace: 15462,
+  wasSilent: 14285,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -500,9 +500,9 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 14201,
-  silentBefore: 25462,
-  silentAfter: 11170,
+  wasSilentAnyFace: 14194,
+  silentBefore: 25464,
+  silentAfter: 11179,
   residual: 114,
   residualKeyword: 114,
   residualManaLine: 0,

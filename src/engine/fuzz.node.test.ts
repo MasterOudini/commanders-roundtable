@@ -382,6 +382,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the anthem the generated static reads off the answer).
   { names: ['Shared Triumph'], copiesPerSeat: 2,
     counterKeys: ['creatureTypesChosen'], rotHistory: 'D465' },
+  // D469 - the shield counter: a Disciplined Duelist a seat ({G}{W}, enters with one); the Bolts, the blocks and the
+  // sweeps the pool already deals spend it (CR 122.1i, the funnel and the three destroy sites).
+  { names: ['Disciplined Duelist'], copiesPerSeat: 2,
+    counterKeys: ['shieldCountersPut', 'shieldCountersSpent'], rotHistory: 'D469' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1274,6 +1278,9 @@ interface Run {
   readonly mobilizeWarriors: number;
   /** D465 - the creature types named as a permanent entered (`CreatureTypeChosen`, CR 614.12). */
   readonly creatureTypesChosen: number;
+  /** D469 - the shield counters removed in place of damage or a destruction (CR 122.1i). */
+  readonly shieldCountersSpent: number;
+  readonly shieldCountersPut: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1704,6 +1711,8 @@ function runOne(seed: number): Run {
     mobilizeFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:mobilize')).length,
     mobilizeWarriors: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AttackerAdded' && made.has(e.body.card)).length; })(),
     creatureTypesChosen: game.log.filter((e) => e.body.t === 'CreatureTypeChosen').length,
+    shieldCountersSpent: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'shield' && c.delta < 0)).length,
+    shieldCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'shield' && c.delta > 0)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1966,6 +1975,8 @@ const TOTAL_KEYS = [
   'mobilizeFired',
   'mobilizeWarriors',
   'creatureTypesChosen',
+  'shieldCountersSpent',
+  'shieldCountersPut',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2461,6 +2472,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.ninjutsus} ninjutsus · ` +
           `${totals.mobilizeFired} mobilizes (${totals.mobilizeWarriors} Warriors attacking) · ` +
           `${totals.creatureTypesChosen} creature types chosen · ` +
+          `${totals.shieldCountersPut} shield counters put / ${totals.shieldCountersSpent} spent · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

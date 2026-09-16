@@ -180,6 +180,8 @@ export type SbaAction =
   | { readonly t: 'tokenCeasesToExist'; readonly card: InstanceId }
   /** D330 - lethal damage met a regeneration shield: tapped, damage removed, out of combat, not destroyed. */
   | { readonly t: 'regenerated'; readonly card: InstanceId }
+  /** D469 - CR 122.1i: lethal damage met a shield counter: the counter removed instead, the damage still marked. */
+  | { readonly t: 'shielded'; readonly card: InstanceId }
   | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number };
 
 export type EventBody =

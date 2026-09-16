@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PROUD_PACK_RHINO_SCRIPT } from './cards/proudPackRhino';
+import { SWOOPING_PROTECTOR_SCRIPT } from './cards/swoopingProtector';
+import { BROKERS_VETERAN_SCRIPT } from './cards/brokersVeteran';
+import { WINGSHIELD_AGENT_SCRIPT } from './cards/wingshieldAgent';
+import { DISCIPLINED_DUELIST_SCRIPT } from './cards/disciplinedDuelist';
+import { RHOX_PUMMELER_SCRIPT } from './cards/rhoxPummeler';
+import { DAPPER_SHIELDMATE_SCRIPT } from './cards/dapperShieldmate';
 import { BLADED_AMBASSADOR_SCRIPT } from './cards/bladedAmbassador';
 import { SUNSET_PYRAMID_SCRIPT } from './cards/sunsetPyramid';
 import { TRIGON_OF_RAGE_SCRIPT } from './cards/trigonOfRage';
@@ -7196,6 +7203,13 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PROUD_PACK_RHINO_SCRIPT,
+  SWOOPING_PROTECTOR_SCRIPT,
+  BROKERS_VETERAN_SCRIPT,
+  WINGSHIELD_AGENT_SCRIPT,
+  DISCIPLINED_DUELIST_SCRIPT,
+  RHOX_PUMMELER_SCRIPT,
+  DAPPER_SHIELDMATE_SCRIPT,
   BLADED_AMBASSADOR_SCRIPT,
   SUNSET_PYRAMID_SCRIPT,
   TRIGON_OF_RAGE_SCRIPT,

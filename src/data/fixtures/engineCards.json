@@ -264639,6 +264639,248 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PROUD_PACK_RHINO": {
+    "scryfallId": "0821e622-88b8-4b82-a696-954da1dde915",
+    "oracleId": "292cd535-916e-486e-b0cc-ecdb9477287d",
+    "name": "Proud Pack-Rhino",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Proud Pack-Rhino",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Rhino",
+        "oracleText": "When this creature enters, choose one —\n• Put a shield counter on target permanent. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\n• Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "0821e622-88b8-4b82-a696-954da1dde915"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWOOPING_PROTECTOR": {
+    "scryfallId": "8713498f-a467-4a11-9de2-53a1bbd0b18b",
+    "oracleId": "094689cc-617a-426e-beb9-3f8de692cd5b",
+    "name": "Swooping Protector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swooping Protector",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Citizen",
+        "oracleText": "Flash\nFlying\nThis creature enters with a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Behm",
+        "imageId": "8713498f-a467-4a11-9de2-53a1bbd0b18b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROKERS_VETERAN": {
+    "scryfallId": "9d4a54bd-5598-4313-b5e6-29fd38da016a",
+    "oracleId": "feee1926-0b63-404f-9b01-df965de26b5f",
+    "name": "Brokers Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brokers Veteran",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature dies, put a shield counter on target creature you control. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
+        "flavorText": "One last job before he retires.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "9d4a54bd-5598-4313-b5e6-29fd38da016a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINGSHIELD_AGENT": {
+    "scryfallId": "b9ec36ec-1a9c-41db-b304-c23286a4d182",
+    "oracleId": "513034fc-873a-4877-afb2-39ece1ea6a7c",
+    "name": "Wingshield Agent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wingshield Agent",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature enters with a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\nWhenever this creature attacks, up to one other target creature gains flying until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "b9ec36ec-1a9c-41db-b304-c23286a4d182"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISCIPLINED_DUELIST": {
+    "scryfallId": "c55b348b-c147-4d02-b26c-d610f515bce0",
+    "oracleId": "c650f497-92d6-48cf-8b59-5d61eb184dc0",
+    "name": "Disciplined Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disciplined Duelist",
+        "manaCost": "{G}{W}{U}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "Double strike\nThis creature enters with a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Serena Malyon",
+        "imageId": "c55b348b-c147-4d02-b26c-d610f515bce0"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RHOX_PUMMELER": {
+    "scryfallId": "c99f5b02-16b9-4672-b0ec-f77662e9de76",
+    "oracleId": "898c8415-8769-48c4-ad16-a4ba8c3d5d7d",
+    "name": "Rhox Pummeler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rhox Pummeler",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Rhino Soldier",
+        "oracleText": "This creature enters with a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\nThis creature has trample as long as it has a shield counter on it.",
+        "flavorText": "When all you have is a warhammer, every face looks like a nail.",
+        "power": "6",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "c99f5b02-16b9-4672-b0ec-f77662e9de76"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAPPER_SHIELDMATE": {
+    "scryfallId": "d6ce9c33-4ab3-43c9-b6bc-ee2d40d8f9b6",
+    "oracleId": "3cdd795b-13b8-4812-89ee-d248368f915b",
+    "name": "Dapper Shieldmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dapper Shieldmate",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature enters with a shield counter on it. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\nDuring your turn, this creature gets +2/+0.",
+        "flavorText": "Descended from Old Capenna's paladins, the Brokers are masters of defensive combat.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "d6ce9c33-4ab3-43c9-b6bc-ee2d40d8f9b6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -7827,6 +7827,13 @@ export const AXIOM_ENGRAVER: CardData = F.AXIOM_ENGRAVER as CardData;
 export const TAMIYO_S_IMMOBILIZER: CardData = F.TAMIYO_S_IMMOBILIZER as CardData;
 export const TRAWLER_DRAKE: CardData = F.TRAWLER_DRAKE as CardData;
 export const TRIGON_OF_THOUGHT: CardData = F.TRIGON_OF_THOUGHT as CardData;
+export const PROUD_PACK_RHINO: CardData = F.PROUD_PACK_RHINO as CardData;
+export const SWOOPING_PROTECTOR: CardData = F.SWOOPING_PROTECTOR as CardData;
+export const BROKERS_VETERAN: CardData = F.BROKERS_VETERAN as CardData;
+export const WINGSHIELD_AGENT: CardData = F.WINGSHIELD_AGENT as CardData;
+export const DISCIPLINED_DUELIST: CardData = F.DISCIPLINED_DUELIST as CardData;
+export const RHOX_PUMMELER: CardData = F.RHOX_PUMMELER as CardData;
+export const DAPPER_SHIELDMATE: CardData = F.DAPPER_SHIELDMATE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15812,6 +15819,13 @@ export const ENGINE_CARDS: CardData[] = [
   TAMIYO_S_IMMOBILIZER,
   TRAWLER_DRAKE,
   TRIGON_OF_THOUGHT,
+  PROUD_PACK_RHINO,
+  SWOOPING_PROTECTOR,
+  BROKERS_VETERAN,
+  WINGSHIELD_AGENT,
+  DISCIPLINED_DUELIST,
+  RHOX_PUMMELER,
+  DAPPER_SHIELDMATE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
