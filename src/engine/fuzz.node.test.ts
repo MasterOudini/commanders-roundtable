@@ -400,6 +400,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // `Sacrifice this token: Add {C}.` is the printing's own, run by the mana path).
   { names: ['Nest Invader'], copiesPerSeat: 2,
     counterKeys: ['spawnTokensMade', 'spawnTokensSpent'], rotHistory: 'D473' },
+  // D474 - a token printing's own def: a Chocobo Racetrack a seat ({2}{G} enchantment; each land drop makes a 2/2 Bird
+  // whose own landfall pump - the printing's line, rowed like a card - fires on the next land drop).
+  { names: ['Chocobo Racetrack'], copiesPerSeat: 2,
+    counterKeys: ['tokenTriggersFired'], rotHistory: 'D474' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -572,7 +576,9 @@ const FIXED_CORE = [
  * the same pool forever or replay breaks.
  */
 const CORE_NAMES: ReadonlySet<string> = new Set([...FIXED_CORE, ...STAPLE_NAMES]);
-const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.map((s) => s.name)
+// D474 - a TOKEN printing's script (a Pest's dies trigger, a Rat's can't-block) is registered like any other and
+// never dealt: a token is not a library card, and a name shared with a card (`Wizard`) would deal the wrong thing.
+const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.filter((s) => ORACLE.byOracle(s.oracleId)?.layout !== 'token').map((s) => s.name)
   .filter((n) => !CORE_NAMES.has(n))
   .sort();
 /**
@@ -956,7 +962,7 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // D445 - a RANDOM legal candidate per required pick (the harness takes the first, which is usually the
       // caster's own oldest permanent - a threaten aimed that way changes nothing). Short of a legal pick, the
       // cast is cancelled, as the harness would.
-      const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player);
+      const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player, awaiting.lki);
       if (!src) return simplestAnswer(awaiting, state);
       const pool = candidatesFromState(state, deps(SCRIPTS));
       const picked: TargetChoice[] = [];
@@ -1303,6 +1309,8 @@ interface Run {
   /** D473 - the Eldrazi Spawn and Scions created off a quoted description, and the ones sacrificed for {C}. */
   readonly spawnTokensMade: number;
   readonly spawnTokensSpent: number;
+  /** D474 - a token printing's OWN triggered ability put on the stack (the printings rowed like cards). */
+  readonly tokenTriggersFired: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1740,6 +1748,7 @@ function runOne(seed: number): Run {
     loyaltyActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.loyalty !== undefined).length,
     spawnTokensMade: game.log.filter((e) => e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId)).length,
     spawnTokensSpent: (() => { const spawn = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId) ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.source !== null && spawn.has(e.body.source)).length; })(),
+    tokenTriggersFired: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && e.body.obj.source !== null && made.has(e.body.obj.source)).length; })(),
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2009,6 +2018,7 @@ const TOTAL_KEYS = [
   'loyaltyActivations',
   'spawnTokensMade',
   'spawnTokensSpent',
+  'tokenTriggersFired',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2515,6 +2525,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.stunCountersPut} stun counters put / ${totals.stunCountersSpent} spent · ` +
           `${totals.loyaltyActivations} loyalty activations · ` +
           `${totals.spawnTokensMade} Spawn made / ${totals.spawnTokensSpent} spent · ` +
+          `${totals.tokenTriggersFired} token triggers · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

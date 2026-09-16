@@ -302,11 +302,11 @@ function sourceOf(
   awaiting: Extract<NonNullable<GameState['priority']['awaiting']>, { kind: 'chooseTargets' }>,
 ): TargetingSource | null {
   const card = state.cards[awaiting.source];
-  if (!card) return null;
-  const oracleCard = ORACLE.byPrinting(card.printingId);
+  // D474 - a ceased token's trigger: the face from the prompt's last known printing (CR 603.10).
+  const oracleCard = card ? ORACLE.byPrinting(card.printingId) : awaiting.lki ? ORACLE.byPrinting(awaiting.lki.printingId) : undefined;
   if (!oracleCard) return null;
   // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
-  return targetingSourceFor(state, deps(), awaiting.source, awaiting.player) ?? { controller: awaiting.player, colors: faceOf(oracleCard, card.faceIndex).colors };
+  return targetingSourceFor(state, deps(), awaiting.source, awaiting.player, awaiting.lki) ?? { controller: awaiting.player, colors: faceOf(oracleCard, card ? card.faceIndex : (awaiting.lki?.faceIndex ?? 0)).colors };
 }
 
 /** An instance id no card can have, so the handler rejects it BY NAME. */

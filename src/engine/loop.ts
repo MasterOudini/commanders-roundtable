@@ -29,7 +29,7 @@ import { shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
-import type { AbilityRef, InstanceId, PlayerId } from './types/ids';
+import type { AbilityRef, InstanceId, PlayerId, PrintingId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
 import type { RngState } from './rng';
 import type { ActivatedAbility, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
@@ -241,7 +241,7 @@ export function stackPendingTriggers(
       continue;
     }
     if (modalLegal === null && trigger.specs.length > 0) {
-      const src = targetingSourceFor(state, deps, trigger.source, trigger.controller);
+      const src = targetingSourceFor(state, deps, trigger.source, trigger.controller, trigger.lki);
       const fill = src
         ? minimumLegalTargets(trigger.specs, src, candidatesFromState(state, deps))
         : null;
@@ -329,6 +329,8 @@ export function stackPendingTriggers(
         stackId: obj.id,
         count: trigger.specs.reduce((sum, s) => sum + s.min, 0),
         source: trigger.source,
+        // D474 - a ceased token's printing rides to the answer (CR 603.10).
+        ...(trigger.lki ? { lki: trigger.lki } : {}),
         label: trigger.label,
         specs: trigger.specs,
         forKind: 'trigger',
@@ -1282,16 +1284,18 @@ export function targetingSourceFor(
   deps: EngineDeps,
   source: InstanceId | null,
   controller: PlayerId,
+  /** D474 - a ceased token's last known printing (CR 603.10): read when the instance is gone. */
+  lki?: { readonly printingId: PrintingId; readonly faceIndex: number },
 ): TargetingSource | null {
   if (!source) return null;
   const card = state.cards[source];
-  const printing = card ? deps.oracle.byPrinting(card.printingId) : undefined;
-  if (!card || !printing) return null;
+  const printing = card ? deps.oracle.byPrinting(card.printingId) : lki ? deps.oracle.byPrinting(lki.printingId) : undefined;
+  if (!printing) return null;
   // D341 - the source's own power and toughness, for a clause that compares against it (Mentor).
-  const chars = card.zone.kind === 'battlefield' ? derive(state, deps.oracle, deps.scripts, source) : null;
+  const chars = card && card.zone.kind === 'battlefield' ? derive(state, deps.oracle, deps.scripts, source) : null;
   // D356 - the source's TYPE LINE rides with its colours, because `protection from artifacts`
   // is a question about the source and the aim layer is where it is asked.
-  const srcFace = faceOf(printing, card.faceIndex);
+  const srcFace = faceOf(printing, card ? card.faceIndex : (lki?.faceIndex ?? 0));
   return { controller, colors: srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source };
 }
 

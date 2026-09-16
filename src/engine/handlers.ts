@@ -1660,14 +1660,15 @@ function chooseTriggerTargets(
     return reject('notYourTurn', 'That ability is not yours to aim.');
   }
   const source = state.cards[awaiting.source];
-  const printing = source ? deps.oracle.byPrinting(source.printingId) : undefined;
-  if (!source || !printing) return reject('noSuchCard', 'That card is not in the game.');
-  const face = faceOf(printing, source.faceIndex);
+  // D474 - a ceased token's trigger aims by its last known printing (CR 603.10).
+  const printing = source ? deps.oracle.byPrinting(source.printingId) : awaiting.lki ? deps.oracle.byPrinting(awaiting.lki.printingId) : undefined;
+  if (!printing) return reject('noSuchCard', 'That card is not in the game.');
+  const face = faceOf(printing, source ? source.faceIndex : (awaiting.lki?.faceIndex ?? 0));
 
   const verdict = validateTargets(
     awaiting.specs,
     // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
-    targetingSourceFor(state, deps, awaiting.source, intent.player) ?? { controller: intent.player, colors: face.colors },
+    targetingSourceFor(state, deps, awaiting.source, intent.player, awaiting.lki) ?? { controller: intent.player, colors: face.colors },
     awaiting.label,
     intent.targets,
     candidatesFromState(state, deps),

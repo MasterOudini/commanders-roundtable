@@ -266516,6 +266516,759 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DIGSITE_ENGINEER": {
+    "scryfallId": "0050be51-8c4e-4b97-b171-ede5fadfd141",
+    "oracleId": "e57025ed-3de6-4b2f-92bd-5481fd33b7f1",
+    "name": "Digsite Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Digsite Engineer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "Whenever you cast an artifact spell, you may pay {2}. If you do, create a 0/0 colorless Construct artifact creature token with \"This token gets +1/+1 for each artifact you control.\"",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "0050be51-8c4e-4b97-b171-ede5fadfd141"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "342",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGE_S_ATTENDANT": {
+    "scryfallId": "0cce08e8-340b-4a67-9884-4cbf01d63790",
+    "oracleId": "94b1e7ed-87f3-44e6-bf34-186dd9a1a0d1",
+    "name": "Mage's Attendant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mage's Attendant",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Cat Rogue",
+        "oracleText": "When this creature enters, create a 1/1 blue Wizard creature token with \"{1}, Sacrifice this token: Counter target noncreature spell unless its controller pays {1}.\"",
+        "flavorText": "Crime sometimes makes unlikely allies into lifelong friends.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "0cce08e8-340b-4a67-9884-4cbf01d63790"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHOCOBO_RACETRACK": {
+    "scryfallId": "1565813b-6912-42f4-bae0-22136a2d6a92",
+    "oracleId": "7522f7fd-6fda-4ed3-9131-21bf91616a73",
+    "name": "Chocobo Racetrack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chocobo Racetrack",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Artifact",
+        "oracleText": "Landfall — Whenever a land you control enters, create a 2/2 green Bird creature token with \"Whenever a land you control enters, this token gets +1/+0 until end of turn.\"",
+        "flavorText": "\"No matter how you make your bet, you win some and you lose some. It all comes down to skill and luck.\"\n—Racing expert",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Bachzim",
+        "imageId": "1565813b-6912-42f4-bae0-22136a2d6a92"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARRIED_SPEARGUARD": {
+    "scryfallId": "1db79785-4f55-445f-93f2-14c6e4606fc5",
+    "oracleId": "e3542d0f-fcee-4df7-aa95-b55138caa2ab",
+    "name": "Harried Spearguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harried Spearguard",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Haste\nWhen this creature dies, create a 1/1 black Rat creature token with \"This token can't block.\"",
+        "flavorText": "\"Why're you vermin so daft? This is a warehouse full of bricks. BRICKS! You can't eat bricks.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "1db79785-4f55-445f-93f2-14c6e4606fc5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIMULACRUM_SYNTHESIZER": {
+    "scryfallId": "28a11489-11c5-4018-aab8-c9d036638414",
+    "oracleId": "eb7a1f21-a66d-415b-8520-710b44890bb6",
+    "name": "Simulacrum Synthesizer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Simulacrum Synthesizer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, scry 2.\nWhenever another artifact you control with mana value 3 or greater enters, create a 0/0 colorless Construct artifact creature token with \"This token gets +1/+1 for each artifact you control.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "28a11489-11c5-4018-aab8-c9d036638414"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "big",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORD_SKITTER_SEWER_KING": {
+    "scryfallId": "29d926f2-3658-48db-b094-4e33cdd9e26c",
+    "oracleId": "f5bed085-bb7a-4250-9599-b2a8a95e6b6f",
+    "name": "Lord Skitter, Sewer King",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lord Skitter, Sewer King",
+        "manaCost": "{2}{B}",
+        "typeLine": "Legendary Creature — Rat Noble",
+        "oracleText": "Whenever another Rat you control enters, exile up to one target card from an opponent's graveyard.\nAt the beginning of combat on your turn, create a 1/1 black Rat creature token with \"This token can't block.\"",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "29d926f2-3658-48db-b094-4e33cdd9e26c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pwoe",
+    "collectorNumber": "97s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URZA_CHIEF_ARTIFICER": {
+    "scryfallId": "2ca13d10-d6e7-432c-93c1-cb9f68d7e83f",
+    "oracleId": "9deced63-80d0-419e-a5ac-71b06ba1459e",
+    "name": "Urza, Chief Artificer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urza, Chief Artificer",
+        "manaCost": "{3}{W}{U}{B}",
+        "typeLine": "Legendary Creature — Human Artificer",
+        "oracleText": "Affinity for artifact creatures (This spell costs {1} less to cast for each artifact creature you control.)\nArtifact creatures you control have menace.\nAt the beginning of your end step, create a 0/0 colorless Construct artifact creature token with \"This token gets +1/+1 for each artifact you control.\"",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U",
+          "W"
+        ],
+        "artist": "Bartłomiej Gaweł",
+        "imageId": "2ca13d10-d6e7-432c-93c1-cb9f68d7e83f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Affinity"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "105796",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_PRYDWEN_STEEL_FLAGSHIP": {
+    "scryfallId": "31a4d4fb-d55f-4a75-94bc-e5e27cc443a6",
+    "oracleId": "f6ea8085-5ba9-43b6-994d-04be35c5793b",
+    "name": "The Prydwen, Steel Flagship",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Prydwen, Steel Flagship",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Legendary Artifact — Vehicle",
+        "oracleText": "Flying\nWhenever another nontoken artifact you control enters, create a 2/2 white Human Knight creature token with \"This token gets +2/+2 as long as an artifact entered the battlefield under your control this turn.\"\nCrew 2",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Victor Harmatiuk",
+        "imageId": "31a4d4fb-d55f-4a75-94bc-e5e27cc443a6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Crew"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "550",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUEEN_BRAHNE": {
+    "scryfallId": "5957ab2d-55ed-4160-8c78-8c70009c39d8",
+    "oracleId": "0527b7b5-a55d-4720-af1f-17fc1178f4a6",
+    "name": "Queen Brahne",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Queen Brahne",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Human Noble",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever Queen Brahne attacks, create a 0/1 black Wizard creature token with \"Whenever you cast a noncreature spell, this token deals 1 damage to each opponent.\"",
+        "flavorText": "\"Oh? Are you defying me as well?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lorenzo Mastroianni",
+        "imageId": "5957ab2d-55ed-4160-8c78-8c70009c39d8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "464",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WANTED_GRIFFIN": {
+    "scryfallId": "624a176b-fe24-4441-8877-464cf172ccff",
+    "oracleId": "c1348afe-4dc7-41bb-9d3f-1e8751abd7db",
+    "name": "Wanted Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wanted Griffin",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\nWhen this creature dies, create a 1/1 red Mercenary creature token with \"{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.\"",
+        "flavorText": "Many a would-be captor has gotten close enough to count its feathers, only to be left behind with nothing but regret and a dangling rope.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "624a176b-fe24-4441-8877-464cf172ccff"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSIDIAN_ELDER": {
+    "scryfallId": "6bc39af4-be19-4889-b930-df7ebf7b9481",
+    "oracleId": "10039992-d51a-47e7-9a70-02fe2227c163",
+    "name": "Mysidian Elder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mysidian Elder",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, create a 0/1 black Wizard creature token with \"Whenever you cast a noncreature spell, this token deals 1 damage to each opponent.\"",
+        "flavorText": "\"Perhaps this is a test and you must prove yourself worthy.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "David Astruga",
+        "imageId": "6bc39af4-be19-4889-b930-df7ebf7b9481"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEZUMI_LINKBREAKER": {
+    "scryfallId": "6dd0095b-6136-4368-94cb-4c82621aaf37",
+    "oracleId": "5d24fb6b-7176-407c-b917-6c88a6da40df",
+    "name": "Nezumi Linkbreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nezumi Linkbreaker",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Rat Warlock",
+        "oracleText": "When this creature dies, create a 1/1 red Mercenary creature token with \"{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.\"",
+        "flavorText": "\"If they want to get to Prosperity so badly, they can walk there.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Miro Petrov",
+        "imageId": "6dd0095b-6136-4368-94cb-4c82621aaf37"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VORACIOUS_VERMIN": {
+    "scryfallId": "8059be65-3c73-49bb-a3b6-c346ce2f9fa4",
+    "oracleId": "8d36d80e-9934-4b56-bf3c-2b18a6da3d2d",
+    "name": "Voracious Vermin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Voracious Vermin",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, create a 1/1 black Rat creature token with \"This token can't block.\"\nWhenever another creature you control dies, put a +1/+1 counter on this creature.",
+        "flavorText": "Lord Skitter promised the starving rats of Edgewall that they would never go hungry again.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "8059be65-3c73-49bb-a3b6-c346ce2f9fa4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROFESSOR_OF_ZOOMANCY": {
+    "scryfallId": "8347f2e8-ef70-4879-860a-12f7cab25902",
+    "oracleId": "a22b8220-b41d-4b58-aa68-2c65ce37c517",
+    "name": "Professor of Zoomancy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Professor of Zoomancy",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Bear Druid",
+        "oracleText": "When this creature enters, create a 1/1 black and green Pest creature token with \"When this token dies, you gain 1 life.\"",
+        "flavorText": "She's brilliant, if a bit overbearing.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rudy Siswanto",
+        "imageId": "8347f2e8-ef70-4879-860a-12f7cab25902"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EDGEWALL_PACK": {
+    "scryfallId": "acda9d02-00fc-49e2-a9f3-176e9c0a8c5f",
+    "oracleId": "ef702a1a-4ace-43e0-8e86-dcceb0b1e4d5",
+    "name": "Edgewall Pack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Edgewall Pack",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, create a 1/1 black Rat creature token with \"This token can't block.\"",
+        "flavorText": "The mayor sent hounds to root out Lord Skitter, but their loyalty was easily bought with a handful of bones.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Leesha Hannigan",
+        "imageId": "acda9d02-00fc-49e2-a9f3-176e9c0a8c5f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PESTBROOD_SLOTH": {
+    "scryfallId": "c1251ae6-2f19-4f84-ab02-6a6cc7ce6056",
+    "oracleId": "2970d09b-4bef-468e-8de5-f994c820ccc0",
+    "name": "Pestbrood Sloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pestbrood Sloth",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Plant Sloth",
+        "oracleText": "Reach\nWhen this creature dies, create two 1/1 black and green Pest creature tokens with \"Whenever this token attacks, you gain 1 life.\"",
+        "flavorText": "The sloths of Titan's Grave move so infrequently that entire ecosystems develop in their fur.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "c1251ae6-2f19-4f84-ab02-6a6cc7ce6056"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAREHOUSE_TABBY": {
+    "scryfallId": "d500ad81-9659-4a00-8f99-8be7c23587e8",
+    "oracleId": "a7736614-cdd3-43bd-ab3e-461e3e24ed40",
+    "name": "Warehouse Tabby",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warehouse Tabby",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever an enchantment you control is put into a graveyard from the battlefield, create a 1/1 black Rat creature token with \"This token can't block.\"\n{1}{B}: This creature gains deathtouch until end of turn.",
+        "flavorText": "For every rat she kills, ten more take its place.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "d500ad81-9659-4a00-8f99-8be7c23587e8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEROES_OF_THE_REVEL": {
+    "scryfallId": "dfdfb481-3446-42f4-a1c3-a88b69f2189a",
+    "oracleId": "d4f72eac-2161-4fe8-8590-436e241c3b22",
+    "name": "Heroes of the Revel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heroes of the Revel",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Satyr Soldier",
+        "oracleText": "When this creature enters, create a 1/1 red Satyr creature token with \"This token can't block.\"\nWhenever you cast a spell that targets this creature, creatures you control get +1/+0 until end of turn.",
+        "flavorText": "Brashness is close enough to bravery.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "dfdfb481-3446-42f4-a1c3-a88b69f2189a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRICKLY_PAIR": {
+    "scryfallId": "e70f2278-8857-46e4-aa2b-fff5589b750f",
+    "oracleId": "4ce8e0d0-6a3e-4c47-a7b7-c1b1ea1b9426",
+    "name": "Prickly Pair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prickly Pair",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Plant Mercenary",
+        "oracleText": "When this creature enters, create a 1/1 red Mercenary creature token with \"{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.\"",
+        "flavorText": "They grew together, awoke together, and took up arms together. If they were going to fall, they'd do that together too.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "e70f2278-8857-46e4-aa2b-fff5589b750f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LASSOED_BY_THE_LAW": {
+    "scryfallId": "ea96eeac-c316-4247-a81f-0ddf52675ebf",
+    "oracleId": "9457f3c1-a087-46cd-a8be-cf665466b77c",
+    "name": "Lassoed by the Law",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lassoed by the Law",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\nWhen this enchantment enters, create a 1/1 red Mercenary creature token with \"{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Leanna Crossan",
+        "imageId": "ea96eeac-c316-4247-a81f-0ddf52675ebf"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNAPSE_NECROMAGE": {
+    "scryfallId": "efeb22a4-37bf-487a-9cf4-74de4cbbc0a3",
+    "oracleId": "f5eace41-0f53-4084-8bec-1e079c04287b",
+    "name": "Synapse Necromage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Synapse Necromage",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Fungus Wizard",
+        "oracleText": "When this creature dies, create two 1/1 black Fungus creature tokens with \"This token can't block.\"",
+        "flavorText": "\"It's no good killing them? Then what do we do? Distract them with a tea party?\"\n—Mervin, Brazen Coalition prospector",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Piotr Foksowicz",
+        "imageId": "efeb22a4-37bf-487a-9cf4-74de4cbbc0a3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANA_CHARGED_DRAGON": {
+    "scryfallId": "03245712-18b9-48d2-b95e-24a38367abb9",
+    "oracleId": "87354a7b-01be-419e-b383-4c28e12a2f2b",
+    "name": "Mana-Charged Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mana-Charged Dragon",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, trample\nJoin forces — Whenever this creature attacks or blocks, each player starting with you may pay any amount of mana. This creature gets +X/+0 until end of turn, where X is the total amount of mana paid this way.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "03245712-18b9-48d2-b95e-24a38367abb9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Trample",
+      "Join forces"
+    ],
+    "setCode": "cma",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -272316,6 +273069,1636 @@
     "keywords": [],
     "setCode": "togw",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "MERCENARY_5F04607F_TOKEN": {
+    "scryfallId": "5f04607f-eed2-462e-897f-82e41e5f7049",
+    "oracleId": "e989b4b7-2230-4a6f-bc4f-7c2b54b6d45a",
+    "name": "Mercenary",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Mercenary",
+        "manaCost": "",
+        "typeLine": "Token Creature — Mercenary",
+        "oracleText": "{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eduardo Francisco",
+        "imageId": "5f04607f-eed2-462e-897f-82e41e5f7049"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "totj",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "RAT_1E0205F2_TOKEN": {
+    "scryfallId": "1e0205f2-25c1-403b-b408-56e3f2d63b4d",
+    "oracleId": "b2580667-88dc-4916-a64c-3080956b24bc",
+    "name": "Rat",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Rat",
+        "manaCost": "",
+        "typeLine": "Token Creature — Rat",
+        "oracleText": "This token can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "1e0205f2-25c1-403b-b408-56e3f2d63b4d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "twoe",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PEST_1AE25997_TOKEN": {
+    "scryfallId": "1ae25997-391f-45b2-bdc1-d86cf6b69223",
+    "oracleId": "37c4adc8-7455-4725-95fb-169a8b0254e5",
+    "name": "Pest",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pest",
+        "manaCost": "",
+        "typeLine": "Token Creature — Pest",
+        "oracleText": "When this creature dies, you gain 1 life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "1ae25997-391f-45b2-bdc1-d86cf6b69223"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "TSTX-5",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DEVIL_14F9C505_TOKEN": {
+    "scryfallId": "14f9c505-a833-4240-83a0-fbd160bdbf0f",
+    "oracleId": "02d1dc2f-625e-4be3-9daf-e48c44bc9bf7",
+    "name": "Devil",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Devil",
+        "manaCost": "",
+        "typeLine": "Token Creature — Devil",
+        "oracleText": "When this creature dies, it deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Campbell White",
+        "imageId": "14f9c505-a833-4240-83a0-fbd160bdbf0f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmid",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PILOT_8672D795_TOKEN": {
+    "scryfallId": "8672d795-04f9-4089-9c92-6d6ff628da12",
+    "oracleId": "36a21469-6134-497d-9796-95454415a068",
+    "name": "Pilot",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pilot",
+        "manaCost": "",
+        "typeLine": "Token Creature — Pilot",
+        "oracleText": "This token saddles Mounts and crews Vehicles as though its power were 2 greater.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julia Metzger",
+        "imageId": "8672d795-04f9-4089-9c92-6d6ff628da12"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdft",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BIRD_1FBC471D_TOKEN": {
+    "scryfallId": "1fbc471d-5948-47fc-b7cc-81cc13a4cd15",
+    "oracleId": "b9b3385e-a899-46ca-b476-a5c7989b97ba",
+    "name": "Bird",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Bird",
+        "manaCost": "",
+        "typeLine": "Token Creature — Bird",
+        "oracleText": "Whenever a land you control enters, this token gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Frasheski",
+        "imageId": "1fbc471d-5948-47fc-b7cc-81cc13a4cd15"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tfin",
+    "collectorNumber": "16",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SPIRIT_F59EBA51_TOKEN": {
+    "scryfallId": "f59eba51-458a-40e0-b754-999f91d5d839",
+    "oracleId": "9d73d64b-3ef7-43b0-b0c2-203ab976d564",
+    "name": "Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Spirit",
+        "oracleText": "This token can't block or be blocked by non-Spirit creatures.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Valera Lutfullina",
+        "imageId": "f59eba51-458a-40e0-b754-999f91d5d839"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttla",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WIZARD_04AE24BF_TOKEN": {
+    "scryfallId": "04ae24bf-0b24-4996-afae-7bf9f9d7471c",
+    "oracleId": "27a141bd-611c-4127-83c7-fbd7682c1427",
+    "name": "Wizard",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wizard",
+        "manaCost": "",
+        "typeLine": "Token Creature — Wizard",
+        "oracleText": "Whenever you cast a noncreature spell, this token deals 1 damage to each opponent.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ramza Psyru",
+        "imageId": "04ae24bf-0b24-4996-afae-7bf9f9d7471c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tfin",
+    "collectorNumber": "35",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CONSTRUCT_008D3B2E_TOKEN": {
+    "scryfallId": "008d3b2e-a5e6-4ac2-85a0-82628333b80c",
+    "oracleId": "ee740c48-59cd-4fcc-b4a5-fe3dde1361d5",
+    "name": "Construct",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Construct",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Construct",
+        "oracleText": "This creature gets +1/+1 for each artifact you control.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zoltan Boros",
+        "imageId": "008d3b2e-a5e6-4ac2-85a0-82628333b80c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tc21",
+    "collectorNumber": "23",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PEST_40B22872_TOKEN": {
+    "scryfallId": "40b22872-7b7b-4a6d-a343-4152e552b00a",
+    "oracleId": "fdad48dc-8042-4763-bbf6-a69a1d609b20",
+    "name": "Pest",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pest",
+        "manaCost": "",
+        "typeLine": "Token Creature — Pest",
+        "oracleText": "Whenever this token attacks, you gain 1 life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "40b22872-7b7b-4a6d-a343-4152e552b00a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tsos",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "FISH_3B2E726B_TOKEN": {
+    "scryfallId": "3b2e726b-f124-43f7-87e4-bb06bbe8e3d7",
+    "oracleId": "5bef2c1c-7215-4b01-8bb3-426e1c3dd2e0",
+    "name": "Fish",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Fish",
+        "manaCost": "",
+        "typeLine": "Token Creature — Fish",
+        "oracleText": "This creature can't be blocked.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stella Spente",
+        "imageId": "3b2e726b-f124-43f7-87e4-bb06bbe8e3d7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tsnc",
+    "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DRONE_3FCF8950_TOKEN": {
+    "scryfallId": "3fcf8950-117a-4587-8522-79001dffa500",
+    "oracleId": "1c68ec5e-2ffa-48b7-b369-4b6148d9dce4",
+    "name": "Drone",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Drone",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Drone",
+        "oracleText": "Flying\nThis token can block only creatures with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Artur Nakhodkin",
+        "imageId": "3fcf8950-117a-4587-8522-79001dffa500"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "teoe",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PILOT_BE84F259_TOKEN": {
+    "scryfallId": "be84f259-2809-48c9-9c70-861437f08c23",
+    "oracleId": "425c9e23-3227-44a5-8e10-0cf4d0967799",
+    "name": "Pilot",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pilot",
+        "manaCost": "",
+        "typeLine": "Token Creature — Pilot",
+        "oracleText": "This creature crews Vehicles as though its power were 2 greater.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mila Pesic",
+        "imageId": "be84f259-2809-48c9-9c70-861437f08c23"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tneo",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SATYR_49BDAE00_TOKEN": {
+    "scryfallId": "49bdae00-bcbd-4238-87d6-7e12ff7ffd83",
+    "oracleId": "fe5006d4-d0c5-4708-9ba0-00d9218e6739",
+    "name": "Satyr",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Satyr",
+        "manaCost": "",
+        "typeLine": "Token Creature — Satyr",
+        "oracleText": "This creature can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "49bdae00-bcbd-4238-87d6-7e12ff7ffd83"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tcmm",
+    "collectorNumber": "29",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "FAERIE_0F9A993F_TOKEN": {
+    "scryfallId": "0f9a993f-1f2b-4b17-b415-e975b7873e18",
+    "oracleId": "6004bdef-b952-40db-9113-921e6d6b8964",
+    "name": "Faerie",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Faerie",
+        "manaCost": "",
+        "typeLine": "Token Creature — Faerie",
+        "oracleText": "Flying\nThis creature can block only creatures with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alessandra Pisano",
+        "imageId": "0f9a993f-1f2b-4b17-b415-e975b7873e18"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "twoe",
+    "collectorNumber": "5",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "FUNGUS_73FF66E3_TOKEN": {
+    "scryfallId": "73ff66e3-ea24-4542-887f-c41abb1759e6",
+    "oracleId": "2f4a08eb-6b4b-449f-83d7-cfda59eba45a",
+    "name": "Fungus",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Fungus",
+        "manaCost": "",
+        "typeLine": "Token Creature — Fungus",
+        "oracleText": "This creature can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "73ff66e3-ea24-4542-887f-c41abb1759e6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tlci",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SKELETON_1ABB1AB0_TOKEN": {
+    "scryfallId": "1abb1ab0-f8f4-44e8-b8a7-df37a8782e76",
+    "oracleId": "9174887a-5990-49c8-ae95-83d830f9d4f3",
+    "name": "Skeleton",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Skeleton",
+        "manaCost": "",
+        "typeLine": "Token Creature — Skeleton",
+        "oracleText": "{B}: Regenerate this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "1abb1ab0-f8f4-44e8-b8a7-df37a8782e76"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "ta25",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ALIEN_ECA87CBB_TOKEN": {
+    "scryfallId": "eca87cbb-5958-4775-93ce-b1d4c7ef3a99",
+    "oracleId": "f3d6022e-2859-470a-98c4-2526af81519f",
+    "name": "Alien",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Alien",
+        "manaCost": "",
+        "typeLine": "Token Creature — Alien",
+        "oracleText": "Haste\nThis token attacks each combat if able.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "eca87cbb-5958-4775-93ce-b1d4c7ef3a99"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tmsh",
+    "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ASSASSIN_B7E997AC_TOKEN": {
+    "scryfallId": "b7e997ac-5a4a-4555-9b37-06c25a5db356",
+    "oracleId": "3d16f64b-db92-4468-81f9-409d16304b96",
+    "name": "Assassin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Assassin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Assassin",
+        "oracleText": "Deathtouch\nWhenever this creature deals damage to a planeswalker, destroy that planeswalker.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "b7e997ac-5a4a-4555-9b37-06c25a5db356"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "twar",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ASSASSIN_4401437C_TOKEN": {
+    "scryfallId": "4401437c-23ea-44ac-a8e7-eb033e1d61eb",
+    "oracleId": "d32c3005-d2d9-4863-a4f3-2301b854230c",
+    "name": "Assassin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Assassin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Assassin",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player loses the game.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "4401437c-23ea-44ac-a8e7-eb033e1d61eb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tc19",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "AVATAR_94A50ACD_TOKEN": {
+    "scryfallId": "94a50acd-ac2d-47bf-b331-0bcf5edd9c75",
+    "oracleId": "1bbf9c3a-3791-4523-b832-b163263ffc67",
+    "name": "Avatar",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Avatar",
+        "manaCost": "",
+        "typeLine": "Token Creature — Avatar",
+        "oracleText": "Haste\nWhenever this creature attacks, it deals 3 damage to each opponent.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Bryan Sola",
+        "imageId": "94a50acd-ac2d-47bf-b331-0bcf5edd9c75"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tstx",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BEAST_F43E18D8_TOKEN": {
+    "scryfallId": "f43e18d8-529d-4d63-b627-b9d9fa4f3f38",
+    "oracleId": "d2f35b1a-1eba-4007-8f27-737d26b7a6a2",
+    "name": "Beast",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Beast",
+        "manaCost": "",
+        "typeLine": "Token Creature — Beast",
+        "oracleText": "This creature can't attack or block alone.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "f43e18d8-529d-4d63-b627-b9d9fa4f3f38"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdsk",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BIRD_561341F5_TOKEN": {
+    "scryfallId": "561341f5-3eb1-4f52-8dee-668a60e091be",
+    "oracleId": "d2f429c4-f16a-436d-8e75-b09acbe653d2",
+    "name": "Bird",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Bird",
+        "manaCost": "",
+        "typeLine": "Token Creature — Bird",
+        "oracleText": "Flying\nWhenever this creature attacks, target attacking creature gains flying until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Pablo Mendoza",
+        "imageId": "561341f5-3eb1-4f52-8dee-668a60e091be"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tltc",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BIRD_8DCE95D5_TOKEN": {
+    "scryfallId": "8dce95d5-2ae7-4bd9-92f4-1cb3bed5f733",
+    "oracleId": "77d80292-3745-4622-ab8f-9a7a49f18cbe",
+    "name": "Bird",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Bird",
+        "manaCost": "",
+        "typeLine": "Token Creature — Bird",
+        "oracleText": "Flying\nThis creature can't block.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Allen Douglas",
+        "imageId": "8dce95d5-2ae7-4bd9-92f4-1cb3bed5f733"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tdmu",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BIRD_A0F7B2F0_TOKEN": {
+    "scryfallId": "a0f7b2f0-16d3-4db0-a737-c7b8dcb9d5de",
+    "oracleId": "f50b144c-021a-4025-9dc7-1639fdc65505",
+    "name": "Bird",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Bird",
+        "manaCost": "",
+        "typeLine": "Token Creature — Bird",
+        "oracleText": "Flying\nThis creature can block only creatures with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "a0f7b2f0-16d3-4db0-a737-c7b8dcb9d5de"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tmid",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "BOAR_365B2234_TOKEN": {
+    "scryfallId": "365b2234-c29d-42db-a8e0-80685a4b6434",
+    "oracleId": "a6f7f5c7-8832-40f8-803e-f181571422f8",
+    "name": "Boar",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Boar",
+        "manaCost": "",
+        "typeLine": "Token Creature — Boar",
+        "oracleText": "When this creature dies, create a Food token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Stacie Pitt",
+        "imageId": "365b2234-c29d-42db-a8e0-80685a4b6434"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "teld",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CLERIC_88BB40E8_TOKEN": {
+    "scryfallId": "88bb40e8-3057-4707-82e8-4b3d19d51e91",
+    "oracleId": "e12d9459-1520-423f-aa33-231df05e61bb",
+    "name": "Cleric",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Cleric",
+        "manaCost": "",
+        "typeLine": "Token Creature — Cleric",
+        "oracleText": "{3}{W}{B}{B}, {T}, Sacrifice this creature: Return a card named Deathpact Angel from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "88bb40e8-3057-4707-82e8-4b3d19d51e91"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tgk2",
+    "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DRAGON_0EFAA5B5_TOKEN": {
+    "scryfallId": "0efaa5b5-984d-4eff-81b6-9b4989f149eb",
+    "oracleId": "ec6df381-5ea7-4c68-8416-093b107f0784",
+    "name": "Dragon",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Dragon",
+        "manaCost": "",
+        "typeLine": "Token Creature — Dragon",
+        "oracleText": "Flying\n{R}: This creature gets +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jack Wang",
+        "imageId": "0efaa5b5-984d-4eff-81b6-9b4989f149eb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tm14",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DRAGON_SPIRIT_B997ACE9_TOKEN": {
+    "scryfallId": "b997ace9-ea21-437c-b9cd-128d02f58fa7",
+    "oracleId": "5ec57007-9912-404f-948e-cd174e2e8331",
+    "name": "Dragon Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Dragon Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Dragon Spirit",
+        "oracleText": "When this creature deals damage, sacrifice it.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "b997ace9-ea21-437c-b9cd-128d02f58fa7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tafc",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DRONE_CFACAC5F_TOKEN": {
+    "scryfallId": "cfacac5f-7685-4792-9e4c-166d4b421240",
+    "oracleId": "9af1a0c1-d7bd-4e19-9714-8179ec095b3f",
+    "name": "Drone",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Drone",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Drone",
+        "oracleText": "Deathtouch\nWhen this creature leaves the battlefield, each opponent loses 2 life and you gain 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Steve Argyle",
+        "imageId": "cfacac5f-7685-4792-9e4c-166d4b421240"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "tone",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_512FEDF8_TOKEN": {
+    "scryfallId": "512fedf8-f50d-4e81-9856-e051850dc05f",
+    "oracleId": "e0cb29c7-8689-4174-a65a-4b21f21dee03",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "At the beginning of your upkeep, sacrifice this creature and return target card named Rekindling Phoenix from your graveyard to the battlefield. It gains haste until end of turn.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "512fedf8-f50d-4e81-9856-e051850dc05f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tncc",
+    "collectorNumber": "18",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOBLIN_1DB51576_TOKEN": {
+    "scryfallId": "1db51576-a755-45de-b37b-f16b27e8f3a1",
+    "oracleId": "43b2d6cb-ddbd-4053-921b-b462a74525d4",
+    "name": "Goblin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Goblin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Goblin",
+        "oracleText": "Creatures you control attack each combat if able.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "1db51576-a755-45de-b37b-f16b27e8f3a1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tclb",
+    "collectorNumber": "34",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOBLIN_SHAMAN_0D9461C3_TOKEN": {
+    "scryfallId": "0d9461c3-f545-4efb-926e-759961db0495",
+    "oracleId": "4ece8767-a2e0-42fc-aadf-86a4ae863343",
+    "name": "Goblin Shaman",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Goblin Shaman",
+        "manaCost": "",
+        "typeLine": "Token Creature — Goblin Shaman",
+        "oracleText": "Whenever this creature attacks, create a Treasure token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "0d9461c3-f545-4efb-926e-759961db0495"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "tneo",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HORSE_5E29C393_TOKEN": {
+    "scryfallId": "5e29c393-6d89-481d-8f33-19c61c46621a",
+    "oracleId": "79029843-d4d3-483f-b2bd-c5f7fcaa2ee1",
+    "name": "Horse",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Horse",
+        "manaCost": "",
+        "typeLine": "Token Creature — Horse",
+        "oracleText": "Doctors you control have horsemanship. (They can't be blocked except by creatures with horsemanship.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anton Solovianchyk",
+        "imageId": "5e29c393-6d89-481d-8f33-19c61c46621a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "twho",
+    "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HUMAN_KNIGHT_546BDA77_TOKEN": {
+    "scryfallId": "546bda77-e3a8-4f2a-ba9c-94fb0b9ff183",
+    "oracleId": "21f78330-6b0a-4c76-974e-c2a1ef0c098d",
+    "name": "Human Knight",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Human Knight",
+        "manaCost": "",
+        "typeLine": "Token Creature — Human Knight",
+        "oracleText": "This creature gets +2/+2 as long as an artifact entered the battlefield under your control this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Wu",
+        "imageId": "546bda77-e3a8-4f2a-ba9c-94fb0b9ff183"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tpip",
+    "collectorNumber": "2",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ILLUSION_42A6BC0B_TOKEN": {
+    "scryfallId": "42a6bc0b-e76d-4c45-b39d-0186d9bc9c42",
+    "oracleId": "f37f7ef1-dbbf-44df-851f-efcdf0129f65",
+    "name": "Illusion",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Illusion",
+        "manaCost": "",
+        "typeLine": "Token Creature — Illusion",
+        "oracleText": "This creature gets +1/+0 for each other Illusion you control.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "42a6bc0b-e76d-4c45-b39d-0186d9bc9c42"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tafc",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ILLUSION_A10729A5_TOKEN": {
+    "scryfallId": "a10729a5-061a-4daf-91d6-0f6ce813a992",
+    "oracleId": "b667447a-96d8-4908-a34d-309666e2180a",
+    "name": "Illusion",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Illusion",
+        "manaCost": "",
+        "typeLine": "Token Creature — Illusion",
+        "oracleText": "When this creature becomes the target of a spell, sacrifice it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "a10729a5-061a-4daf-91d6-0f6ce813a992"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "txln",
+    "collectorNumber": "2",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ILLUSION_CCC3D8DA_TOKEN": {
+    "scryfallId": "ccc3d8da-9005-44d9-bb10-18cdac7a32f5",
+    "oracleId": "349852d6-1697-48cf-86a4-c20a2aabf0fc",
+    "name": "Illusion",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Illusion",
+        "manaCost": "",
+        "typeLine": "Token Creature — Illusion",
+        "oracleText": "Whenever this creature blocks a creature, that creature doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "ccc3d8da-9005-44d9-bb10-18cdac7a32f5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "trna",
+    "collectorNumber": "2",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "IMP_47A1385B_TOKEN": {
+    "scryfallId": "47a1385b-2be2-49a8-8400-186cd5525dad",
+    "oracleId": "0d46eb4f-8cde-4140-a509-86c41acc2ef0",
+    "name": "Imp",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Imp",
+        "manaCost": "",
+        "typeLine": "Token Creature — Imp",
+        "oracleText": "When this creature dies, it deals 2 damage to each opponent.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "47a1385b-2be2-49a8-8400-186cd5525dad"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmkm",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "NIGHTMARE_C528581F_TOKEN": {
+    "scryfallId": "c528581f-f671-45ae-8d7a-ae26a4e62ceb",
+    "oracleId": "c0c02361-9f45-48f6-83c5-aac57694ee2a",
+    "name": "Nightmare",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Nightmare",
+        "manaCost": "",
+        "typeLine": "Token Creature — Nightmare",
+        "oracleText": "Whenever this creature attacks or blocks, each opponent exiles the top two cards of their library.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "c528581f-f671-45ae-8d7a-ae26a4e62ceb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tthb",
+    "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "NIGHTMARE_858428EE_TOKEN": {
+    "scryfallId": "858428ee-3a9c-4dfc-84c2-751e59df2ed7",
+    "oracleId": "bf637a60-738f-4206-82f5-49366d0b6e8e",
+    "name": "Nightmare",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Nightmare",
+        "manaCost": "",
+        "typeLine": "Token Creature — Nightmare",
+        "oracleText": "At the beginning of combat on your turn, if a card was put into exile this turn, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "858428ee-3a9c-4dfc-84c2-751e59df2ed7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "twoe",
+    "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "NINJA_14EB629E_TOKEN": {
+    "scryfallId": "14eb629e-f09f-4deb-b434-7615a3010a4d",
+    "oracleId": "e91f412a-6626-44fc-a735-a2cce5225622",
+    "name": "Ninja",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ninja",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ninja",
+        "oracleText": "This creature can't be blocked.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "14eb629e-f09f-4deb-b434-7615a3010a4d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tneo",
+    "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "OOZE_18B9C83D_TOKEN": {
+    "scryfallId": "18b9c83d-4422-4b95-9fc2-070ed6b5bdf6",
+    "oracleId": "8b3e81cb-d756-44e9-854c-715f51949ade",
+    "name": "Ooze",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ooze",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ooze",
+        "oracleText": "When this creature dies, create two 1/1 green Ooze creature tokens.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "18b9c83d-4422-4b95-9fc2-070ed6b5bdf6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tpca",
+    "collectorNumber": "17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PIRATE_D5F108E7_TOKEN": {
+    "scryfallId": "d5f108e7-7454-4c11-b1de-97d0bcc3c470",
+    "oracleId": "0065fbf9-32bf-4a82-b324-73035c8e5aee",
+    "name": "Pirate",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Pirate",
+        "manaCost": "",
+        "typeLine": "Token Creature — Pirate",
+        "oracleText": "This creature can't block.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Igor Krstic",
+        "imageId": "d5f108e7-7454-4c11-b1de-97d0bcc3c470"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "twoc",
+    "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ROBOT_319AAAAE_TOKEN": {
+    "scryfallId": "319aaaae-1efb-412c-8839-c575a2694485",
+    "oracleId": "c17a988c-2de6-4169-b00a-b837fcb37bf7",
+    "name": "Robot",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Robot",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Robot",
+        "oracleText": "This creature can't block.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Philip Helliwell",
+        "imageId": "319aaaae-1efb-412c-8839-c575a2694485"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "t40k",
+    "collectorNumber": "23",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SPIRIT_349E3241_TOKEN": {
+    "scryfallId": "349e3241-8f9d-4c52-9848-e01b575fd372",
+    "oracleId": "2c6d6eff-ecb2-4b98-8e1f-c5a5cdf95ac5",
+    "name": "Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Spirit",
+        "oracleText": "Vigilance\nWhenever you draw a card, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "349e3241-8f9d-4c52-9848-e01b575fd372"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tbro",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WARRIOR_A2661EA2_TOKEN": {
+    "scryfallId": "a2661ea2-7ff6-4188-9d40-f18bb625ed52",
+    "oracleId": "b7fc2167-5313-44e8-abbf-a999fba79a93",
+    "name": "Warrior",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Warrior",
+        "manaCost": "",
+        "typeLine": "Token Creature — Warrior",
+        "oracleText": "Whenever this creature and at least one other creature token attack, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "a2661ea2-7ff6-4188-9d40-f18bb625ed52"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmom",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WIZARD_7F3EDAF7_TOKEN": {
+    "scryfallId": "7f3edaf7-0ebd-4a8b-9954-dd91bb797744",
+    "oracleId": "7fb12be3-b0e8-4c5b-8258-076ed8c2aa77",
+    "name": "Wizard",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wizard",
+        "manaCost": "",
+        "typeLine": "Token Creature — Wizard",
+        "oracleText": "{1}, Sacrifice this creature: Counter target noncreature spell unless its controller pays {1}.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Denys Tsiperko",
+        "imageId": "7f3edaf7-0ebd-4a8b-9954-dd91bb797744"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tsnc",
+    "collectorNumber": "5",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WOLF_61EA0E0E_TOKEN": {
+    "scryfallId": "61ea0e0e-13cf-4de3-80bf-89e66fa9b200",
+    "oracleId": "21c3b763-b6a2-4e9e-8621-d2ab62e448f2",
+    "name": "Wolf",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wolf",
+        "manaCost": "",
+        "typeLine": "Token Creature — Wolf",
+        "oracleText": "When this creature dies, put a loyalty counter on each Garruk you control.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "61ea0e0e-13cf-4de3-80bf-89e66fa9b200"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tblc",
+    "collectorNumber": "35",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

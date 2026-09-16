@@ -7,6 +7,59 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DIGSITE_ENGINEER_SCRIPT } from './cards/digsiteEngineer';
+import { SEDGEMOOR_WITCH_SCRIPT } from './cards/sedgemoorWitch';
+import { MAGES_ATTENDANT_SCRIPT } from './cards/magesAttendant';
+import { CHOCOBO_RACETRACK_SCRIPT } from './cards/chocoboRacetrack';
+import { HARRIED_SPEARGUARD_SCRIPT } from './cards/harriedSpearguard';
+import { SIMULACRUM_SYNTHESIZER_SCRIPT } from './cards/simulacrumSynthesizer';
+import { LORD_SKITTER_SEWER_KING_SCRIPT } from './cards/lordSkitterSewerKing';
+import { URZA_CHIEF_ARTIFICER_SCRIPT } from './cards/urzaChiefArtificer';
+import { THE_PRYDWEN_STEEL_FLAGSHIP_SCRIPT } from './cards/thePrydwenSteelFlagship';
+import { QUEEN_BRAHNE_SCRIPT } from './cards/queenBrahne';
+import { WANTED_GRIFFIN_SCRIPT } from './cards/wantedGriffin';
+import { MYSIDIAN_ELDER_SCRIPT } from './cards/mysidianElder';
+import { NEZUMI_LINKBREAKER_SCRIPT } from './cards/nezumiLinkbreaker';
+import { VORACIOUS_VERMIN_SCRIPT } from './cards/voraciousVermin';
+import { PROFESSOR_OF_ZOOMANCY_SCRIPT } from './cards/professorOfZoomancy';
+import { EDGEWALL_PACK_SCRIPT } from './cards/edgewallPack';
+import { PESTBROOD_SLOTH_SCRIPT } from './cards/pestbroodSloth';
+import { WAREHOUSE_TABBY_SCRIPT } from './cards/warehouseTabby';
+import { HEROES_OF_THE_REVEL_SCRIPT } from './cards/heroesOfTheRevel';
+import { PRICKLY_PAIR_SCRIPT } from './cards/pricklyPair';
+import { LASSOED_BY_THE_LAW_SCRIPT } from './cards/lassoedByTheLaw';
+import { SYNAPSE_NECROMAGE_SCRIPT } from './cards/synapseNecromage';
+import { MERCENARY_TOKEN5F04607F_SCRIPT } from './cards/mercenaryToken5f04607f';
+import { RAT_TOKEN1E0205F2_SCRIPT } from './cards/ratToken1e0205f2';
+import { PEST_TOKEN1AE25997_SCRIPT } from './cards/pestToken1ae25997';
+import { DEVIL_TOKEN14F9C505_SCRIPT } from './cards/devilToken14f9c505';
+import { BIRD_TOKEN1FBC471D_SCRIPT } from './cards/birdToken1fbc471d';
+import { WIZARD_TOKEN04AE24BF_SCRIPT } from './cards/wizardToken04ae24bf';
+import { CONSTRUCT_TOKEN008D3B2E_SCRIPT } from './cards/constructToken008d3b2e';
+import { PEST_TOKEN40B22872_SCRIPT } from './cards/pestToken40b22872';
+import { FISH_TOKEN3B2E726B_SCRIPT } from './cards/fishToken3b2e726b';
+import { DRONE_TOKEN3FCF8950_SCRIPT } from './cards/droneToken3fcf8950';
+import { SATYR_TOKEN49BDAE00_SCRIPT } from './cards/satyrToken49bdae00';
+import { FAERIE_TOKEN0F9A993F_SCRIPT } from './cards/faerieToken0f9a993f';
+import { FUNGUS_TOKEN73FF66E3_SCRIPT } from './cards/fungusToken73ff66e3';
+import { SKELETON_TOKEN1ABB1AB0_SCRIPT } from './cards/skeletonToken1abb1ab0';
+import { ALIEN_TOKENECA87CBB_SCRIPT } from './cards/alienTokeneca87cbb';
+import { AVATAR_TOKEN94A50ACD_SCRIPT } from './cards/avatarToken94a50acd';
+import { BEAST_TOKENF43E18D8_SCRIPT } from './cards/beastTokenf43e18d8';
+import { BIRD_TOKEN561341F5_SCRIPT } from './cards/birdToken561341f5';
+import { BIRD_TOKEN8DCE95D5_SCRIPT } from './cards/birdToken8dce95d5';
+import { BIRD_TOKENA0F7B2F0_SCRIPT } from './cards/birdTokena0f7b2f0';
+import { BOAR_TOKEN365B2234_SCRIPT } from './cards/boarToken365b2234';
+import { DRAGON_TOKEN0EFAA5B5_SCRIPT } from './cards/dragonToken0efaa5b5';
+import { DRONE_TOKENCFACAC5F_SCRIPT } from './cards/droneTokencfacac5f';
+import { GOBLIN_SHAMAN_TOKEN0D9461C3_SCRIPT } from './cards/goblinShamanToken0d9461c3';
+import { HUMAN_KNIGHT_TOKEN546BDA77_SCRIPT } from './cards/humanKnightToken546bda77';
+import { IMP_TOKEN47A1385B_SCRIPT } from './cards/impToken47a1385b';
+import { NINJA_TOKEN14EB629E_SCRIPT } from './cards/ninjaToken14eb629e';
+import { PIRATE_TOKEND5F108E7_SCRIPT } from './cards/pirateTokend5f108e7';
+import { ROBOT_TOKEN319AAAAE_SCRIPT } from './cards/robotToken319aaaae';
+import { SPIRIT_TOKEN349E3241_SCRIPT } from './cards/spiritToken349e3241';
+import { WIZARD_TOKEN7F3EDAF7_SCRIPT } from './cards/wizardToken7f3edaf7';
 import { AWAKENING_ZONE_SCRIPT } from './cards/awakeningZone';
 import { BROOD_MONITOR_SCRIPT } from './cards/broodMonitor';
 import { EMRAKULS_HATCHER_SCRIPT } from './cards/emrakulsHatcher';
@@ -7250,6 +7303,59 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIGSITE_ENGINEER_SCRIPT,
+  SEDGEMOOR_WITCH_SCRIPT,
+  MAGES_ATTENDANT_SCRIPT,
+  CHOCOBO_RACETRACK_SCRIPT,
+  HARRIED_SPEARGUARD_SCRIPT,
+  SIMULACRUM_SYNTHESIZER_SCRIPT,
+  LORD_SKITTER_SEWER_KING_SCRIPT,
+  URZA_CHIEF_ARTIFICER_SCRIPT,
+  THE_PRYDWEN_STEEL_FLAGSHIP_SCRIPT,
+  QUEEN_BRAHNE_SCRIPT,
+  WANTED_GRIFFIN_SCRIPT,
+  MYSIDIAN_ELDER_SCRIPT,
+  NEZUMI_LINKBREAKER_SCRIPT,
+  VORACIOUS_VERMIN_SCRIPT,
+  PROFESSOR_OF_ZOOMANCY_SCRIPT,
+  EDGEWALL_PACK_SCRIPT,
+  PESTBROOD_SLOTH_SCRIPT,
+  WAREHOUSE_TABBY_SCRIPT,
+  HEROES_OF_THE_REVEL_SCRIPT,
+  PRICKLY_PAIR_SCRIPT,
+  LASSOED_BY_THE_LAW_SCRIPT,
+  SYNAPSE_NECROMAGE_SCRIPT,
+  MERCENARY_TOKEN5F04607F_SCRIPT,
+  RAT_TOKEN1E0205F2_SCRIPT,
+  PEST_TOKEN1AE25997_SCRIPT,
+  DEVIL_TOKEN14F9C505_SCRIPT,
+  BIRD_TOKEN1FBC471D_SCRIPT,
+  WIZARD_TOKEN04AE24BF_SCRIPT,
+  CONSTRUCT_TOKEN008D3B2E_SCRIPT,
+  PEST_TOKEN40B22872_SCRIPT,
+  FISH_TOKEN3B2E726B_SCRIPT,
+  DRONE_TOKEN3FCF8950_SCRIPT,
+  SATYR_TOKEN49BDAE00_SCRIPT,
+  FAERIE_TOKEN0F9A993F_SCRIPT,
+  FUNGUS_TOKEN73FF66E3_SCRIPT,
+  SKELETON_TOKEN1ABB1AB0_SCRIPT,
+  ALIEN_TOKENECA87CBB_SCRIPT,
+  AVATAR_TOKEN94A50ACD_SCRIPT,
+  BEAST_TOKENF43E18D8_SCRIPT,
+  BIRD_TOKEN561341F5_SCRIPT,
+  BIRD_TOKEN8DCE95D5_SCRIPT,
+  BIRD_TOKENA0F7B2F0_SCRIPT,
+  BOAR_TOKEN365B2234_SCRIPT,
+  DRAGON_TOKEN0EFAA5B5_SCRIPT,
+  DRONE_TOKENCFACAC5F_SCRIPT,
+  GOBLIN_SHAMAN_TOKEN0D9461C3_SCRIPT,
+  HUMAN_KNIGHT_TOKEN546BDA77_SCRIPT,
+  IMP_TOKEN47A1385B_SCRIPT,
+  NINJA_TOKEN14EB629E_SCRIPT,
+  PIRATE_TOKEND5F108E7_SCRIPT,
+  ROBOT_TOKEN319AAAAE_SCRIPT,
+  SPIRIT_TOKEN349E3241_SCRIPT,
+  WIZARD_TOKEN7F3EDAF7_SCRIPT,
   AWAKENING_ZONE_SCRIPT,
   BROOD_MONITOR_SCRIPT,
   EMRAKULS_HATCHER_SCRIPT,

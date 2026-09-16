@@ -626,6 +626,12 @@ export interface PendingTrigger {
   readonly label: string;
   readonly optional: boolean;
   /**
+   * D474 - the source's last known printing, carried for a TOKEN only: a token outside the battlefield ceases
+   * to exist (CR 704.5d) before its dies trigger is put on the stack, and the aim reads the face from here
+   * when the instance is gone (CR 603.10). Absent for a card, which is never deleted.
+   */
+  readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+  /**
    * The ITEM this firing is about, when its def fanned a batched event out
    * per item (D190) — the dealing creature, the tapped permanent, the drawn
    * card. Rides onto `StackObject.item` so `resolve` can read it. Optional so
@@ -780,6 +786,8 @@ export type Awaiting =
       readonly count: number;
       /** The card being cast, or the permanent whose ability is being activated. */
       readonly source: InstanceId;
+      /** D474 - a ceased token's last known printing (the trigger's `lki`), read when `source` is gone. */
+      readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
       /** `Lightning Bolt` · `Prodigal Sorcerer — {T}: deals 1 damage to any target`. */
       readonly label: string;
       /** One per clause, in printed order. Never empty while this prompt is up. */

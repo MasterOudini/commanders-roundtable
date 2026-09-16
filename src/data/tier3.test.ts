@@ -218,11 +218,15 @@ describe('a permanent’s text, which the app does not run', () => {
    * sorcery spell, create a 1/1 …" OPENS with a printed keyword while being a
    * whole triggered ability. Reading the clause after the comma is what tells the
    * two apart — see `isPrintedKeywordLine`.
+   *
+   * D474 - Sedgemoor Witch held this post from M5 until it SHIPPED in D474 (its Pest
+   * token's own dies trigger rowed like a card, so the maker's description reads);
+   * Mana-Charged Dragon (`Join forces —`, a per-player payment no script runs) took over.
    */
-  test('an ability-word trigger is said, and the ward and menace beside it are not', () => {
-    // Menace is enforced; `Ward—Pay 3 life` is charged (D68); the magecraft
-    // trigger is not run, and it is the only thing this card says.
-    expect(what(C.SEDGEMOOR_WITCH)).toEqual(['Its ability text']);
+  test('an ability-word trigger is said, and the flying and trample beside it are not', () => {
+    // Flying and trample are enforced; the Join forces trigger is not run, and it is
+    // the only thing this card says.
+    expect(what(C.MANA_CHARGED_DRAGON)).toEqual(['Its ability text']);
   });
 
   test('a payable ability says the cost is charged and the effect is not', () => {

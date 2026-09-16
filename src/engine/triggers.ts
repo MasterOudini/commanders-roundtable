@@ -1152,6 +1152,8 @@ export function collectTriggers(
             ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
             ...(item !== undefined ? { item } : {}),
             ...(player !== undefined && player !== null ? { player } : {}),
+            // D474 - a token's trigger carries its printing: the instance may have ceased before the aim (CR 603.10).
+            ...(card.isToken ? { lki: { printingId: card.printingId, faceIndex: card.faceIndex } } : {}),
           });
         }
       }
