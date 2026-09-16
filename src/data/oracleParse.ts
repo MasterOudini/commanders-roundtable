@@ -584,13 +584,14 @@ export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): Mana
  * D309 - "Morph {N}" / "Megamorph {N}" on its own line (reminder text aside),
  * as a mana cost; a dash cost ("Morph—Discard a card.") is null.
  */
-export function parseMorph(oracleText: string, warn: Warn = NOOP_WARN): { cost: ManaCost; mega: boolean; text: string } | null {
+export function parseMorph(oracleText: string, warn: Warn = NOOP_WARN): { cost: ManaCost; mega: boolean; disguise: boolean; text: string } | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
-    const m = /^(Morph|Megamorph) ((?:\{[^}]+\})+)$/.exec(line);
+    // D460 - Disguise (CR 702.168) is the same shape with ward {2} while face down; read beside Morph, flagged.
+    const m = /^(Morph|Megamorph|Disguise) ((?:\{[^}]+\})+)$/.exec(line);
     if (m) {
       const cost = parseManaCost(m[2] ?? '', warn);
-      return cost ? { cost, mega: m[1] === 'Megamorph', text: m[2] ?? '' } : null;
+      return cost ? { cost, mega: m[1] === 'Megamorph', disguise: m[1] === 'Disguise', text: m[2] ?? '' } : null;
     }
   }
   return null;
@@ -1236,6 +1237,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     morphCost: morph?.cost ?? null,
     morphCostText: morph?.text ?? null,
     megamorph: morph?.mega ?? false,
+    disguise: morph?.disguise ?? false,
     costReductions,
     grantedReductions,
     wardLife,

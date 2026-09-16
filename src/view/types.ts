@@ -139,6 +139,11 @@ export interface CardView {
   faceIndex: number;
   /** Face-down on the battlefield, or in a zone the viewer cannot see into. */
   faceDown: boolean;
+  /**
+   * D460 - a face-down permanent cast with DISGUISE: it has ward {2} (CR 702.168c). PUBLIC - the ability that put
+   * it face down is known to every player - so the client's cost preview can charge what the host charges (D53).
+   */
+  disguised?: true;
   controller: PlayerId;
   owner: PlayerId;
   tapped: boolean;

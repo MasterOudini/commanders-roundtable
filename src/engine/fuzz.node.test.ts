@@ -366,6 +366,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D459 - fabricate: a Weaponcraft Enthusiast a seat (the entry choice, answered at random - counters or Servos).
   { names: ['Weaponcraft Enthusiast'], copiesPerSeat: 2,
     counterKeys: ['fabricateFired'], rotHistory: 'D459' },
+  // D460 - disguise: a Museum Nightwatch a seat (cast face down for {3} with ward {2}, turned up for {1}{W}).
+  { names: ['Museum Nightwatch'], copiesPerSeat: 2,
+    counterKeys: ['disguiseCasts'], rotHistory: 'D460' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1248,6 +1251,9 @@ interface Run {
   /** D459 - the fabricate triggers put on the stack, and the Servos they made (the other mode is the counters). */
   readonly fabricateFired: number;
   readonly fabricateServos: number;
+  /** D460 - the face-down casts of a DISGUISE card, and the turns face up of one (the ward rode in between). */
+  readonly disguiseCasts: number;
+  readonly disguiseUnmasks: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1672,6 +1678,8 @@ function runOne(seed: number): Run {
     boastActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.boast === true).length,
     fabricateFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:fabricate')).length,
     fabricateServos: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.oracleId === 'b6ca7bd1-d72e-4260-8b52-997ee1377279').length,
+    disguiseCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.faceDown === true && e.body.obj.card !== null && (ORACLE.byPrinting(game.state.cards[e.body.obj.card]?.printingId ?? '')?.faces[0]?.disguise ?? false)).length,
+    disguiseUnmasks: game.log.filter((e) => e.body.t === 'FaceDownSet' && e.body.faceDown === false && (ORACLE.byPrinting(game.state.cards[e.body.card]?.printingId ?? '')?.faces[0]?.disguise ?? false)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1928,6 +1936,8 @@ const TOTAL_KEYS = [
   'boastActivations',
   'fabricateFired',
   'fabricateServos',
+  'disguiseCasts',
+  'disguiseUnmasks',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2319,6 +2329,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.backupsFired).toBeGreaterThan(0);
         // D448 - an unearth resolved at gate size (Dregscape Zombie; 5 at 60 seeds).
         expect(totals.unearths).toBeGreaterThan(0);
+        // D460 - a disguise cast face down at gate size (Museum Nightwatch 8 at 60 seeds, 21 at 150).
+        expect(totals.disguiseCasts).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2415,6 +2427,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.exhaustActivations} exhaust activations · ` +
           `${totals.boastActivations} boast activations · ` +
           `${totals.fabricateFired} fabricates (${totals.fabricateServos} Servos) · ` +
+          `${totals.disguiseCasts} disguise casts (${totals.disguiseUnmasks} turned up) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

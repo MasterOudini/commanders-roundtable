@@ -260356,6 +260356,333 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MUSEUM_NIGHTWATCH": {
+    "scryfallId": "37860682-4973-4a0f-a43a-3056037bd2dc",
+    "oracleId": "3891a914-e597-4126-846f-39bf8534eb92",
+    "name": "Museum Nightwatch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Museum Nightwatch",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Centaur Soldier",
+        "oracleText": "When this creature dies, create a 2/2 white and blue Detective creature token.\nDisguise {1}{W} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": "\"You there, halt! The gallery is closed. Wait—what are you doing?\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "37860682-4973-4a0f-a43a-3056037bd2dc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADY_INFORMANT": {
+    "scryfallId": "0de36e63-8190-415f-b65b-bae1e595845d",
+    "oracleId": "5cf3727b-eb7b-414e-982c-3acf4c05ddf1",
+    "name": "Shady Informant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shady Informant",
+        "manaCost": "{3}{B}{R}",
+        "typeLine": "Creature — Ogre Rogue",
+        "oracleText": "When this creature dies, it deals 2 damage to any target.\nDisguise {2}{B/R}{B/R} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": "Rakdos snitches rarely survive to get stitches.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "0de36e63-8190-415f-b65b-bae1e595845d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GADGET_TECHNICIAN": {
+    "scryfallId": "3b489a54-ee43-4962-be7b-16e0e28800e0",
+    "oracleId": "d7f777ae-6122-4af9-b962-7574bc8e2691",
+    "name": "Gadget Technician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gadget Technician",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Goblin Artificer",
+        "oracleText": "When this creature enters or is turned face up, create a 1/1 colorless Thopter artifact creature token with flying.\nDisguise {U/R}{U/R} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "3b489a54-ee43-4962-be7b-16e0e28800e0"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERCOVER_CROCODELF": {
+    "scryfallId": "1163c6f2-dca1-4d6f-8f0d-7c3c55c6f75e",
+    "oracleId": "3ba223b7-743f-4f99-836e-869778fb2e99",
+    "name": "Undercover Crocodelf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undercover Crocodelf",
+        "manaCost": "{4}{G}{U}",
+        "typeLine": "Creature — Elf Crocodile Detective",
+        "oracleText": "Whenever this creature deals combat damage to a player, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nDisguise {3}{G/U}{G/U} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "1163c6f2-dca1-4d6f-8f0d-7c3c55c6f75e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Investigate",
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "239†",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXIT_SPECIALIST": {
+    "scryfallId": "268f142d-9fb1-4673-b804-add1f08dacb9",
+    "oracleId": "79d2efb2-145d-4377-a4e2-832ff2cb5677",
+    "name": "Exit Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exit Specialist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Detective",
+        "oracleText": "This creature can't be blocked by creatures with power 3 or greater.\nDisguise {1}{U} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, return another target creature to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "268f142d-9fb1-4673-b804-add1f08dacb9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANGUINE_SAVIOR": {
+    "scryfallId": "9cba5503-ba99-43d8-8062-66d905e0d86b",
+    "oracleId": "cc3a6c83-a671-4ce8-b98e-434989fb6778",
+    "name": "Sanguine Savior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanguine Savior",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Flying, lifelink\nDisguise {W/B}{W/B} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, another target creature you control gains lifelink until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "9cba5503-ba99-43d8-8062-66d905e0d86b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORUM_FAMILIAR": {
+    "scryfallId": "b06a243d-acc8-42cd-926c-98a4cc96ab21",
+    "oracleId": "7ea0012b-b90b-43d6-bb5b-e4e92452bea7",
+    "name": "Forum Familiar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forum Familiar",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Disguise {1}{W} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, return another target permanent you control to its owner's hand and put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "b06a243d-acc8-42cd-926c-98a4cc96ab21"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTDRINKER_MOROII": {
+    "scryfallId": "ce043cba-aea4-4156-b1d0-545eda06c400",
+    "oracleId": "07d830a7-f0a2-4d46-9a53-101dca681603",
+    "name": "Nightdrinker Moroii",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightdrinker Moroii",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nWhen this creature enters, you lose 3 life.\nDisguise {B}{B} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "ce043cba-aea4-4156-b1d0-545eda06c400"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALLEY_ASSAILANT": {
+    "scryfallId": "edf238c9-61de-4f3a-b82f-05af46e5e81b",
+    "oracleId": "57eba48e-87bd-4b54-8635-7348020f2ba4",
+    "name": "Alley Assailant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alley Assailant",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Rogue",
+        "oracleText": "This creature enters tapped.\nDisguise {4}{B}{B} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, target opponent loses 3 life and you gain 3 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "edf238c9-61de-4f3a-b82f-05af46e5e81b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -126,6 +126,8 @@ export class Projector {
         card: (oracleCard?.data ?? null) as CardData | null,
         faceIndex: inst.faceIndex,
         faceDown: !visible || inst.faceDown,
+        // D460 - the public disguise flag: read off the printing the projector holds, whoever is looking.
+        ...(inst.faceDown && inst.zone.kind === 'battlefield' && (this.oracle.byPrinting(inst.printingId)?.faces[0]?.disguise ?? false) ? { disguised: true as const } : {}),
         controller: inst.controller,
         owner: inst.owner,
         tapped: inst.tapped,
@@ -429,6 +431,7 @@ function sameCardView(a: CardView, b: CardView): boolean {
     a.card === b.card &&
     a.faceIndex === b.faceIndex &&
     a.faceDown === b.faceDown &&
+    a.disguised === b.disguised &&
     a.controller === b.controller &&
     a.owner === b.owner &&
     a.tapped === b.tapped &&

@@ -581,7 +581,8 @@ export function linesUnaccounted(
     if (face.alternativeCost !== null && face.alternativeCost.line === line) continue;
     // D309 - a Morph / Megamorph line the engine RUNS (cast face down for {3},
     // turned face up for the cost). Asked of the parser that read it.
-    if (face.morphCost !== null && /^(?:Morph|Megamorph) (?:\{[^}]+\})+$/.test(line)) continue;
+    // D460 - and a Disguise line: the same cast and turn, the ward {2} charged on both sides while face down.
+    if (face.morphCost !== null && /^(?:Morph|Megamorph|Disguise) (?:\{[^}]+\})+$/.test(line)) continue;
     // D312 - a cost-reduction line the engine PRICES at cast time (affinity,
     // "costs {N} less ..."). Asked of the parser that read it.
     if (face.costReductions.some((r) => r.line === line)) continue;

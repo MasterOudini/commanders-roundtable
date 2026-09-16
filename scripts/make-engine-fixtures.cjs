@@ -8504,6 +8504,18 @@ const WANTED = [
   // D459 - Fabricate: the entry choice (counters or Servos) the keyword table runs now; the rows beside it.
   'Elegant Edgecrafters',
   // D459 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D460 - disguise: the seam's own fixtures (cast face down with ward {2}, turned face up).
+  'Museum Nightwatch',
+  'Shady Informant',
+  'Gadget Technician',
+  // D460 - Disguise: the face-down cast with ward {2} the engine charges on both sides now; the rows beside it.
+  'Undercover Crocodelf',
+  'Exit Specialist',
+  'Sanguine Savior',
+  'Forum Familiar',
+  'Nightdrinker Moroii',
+  'Alley Assailant',
+  // D460 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

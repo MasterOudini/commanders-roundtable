@@ -32,7 +32,7 @@ import {
   exileFromHandCandidates,
   type CostVerbs,
 } from './legal';
-import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
+import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
 import { handChoiceAdmits } from './handChoice';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
@@ -720,6 +720,12 @@ function wardTaxFor(
     if (card.controller === player) continue;
     const oracleCard = deps.oracle.byPrinting(card.printingId);
     if (!oracleCard) continue;
+    // D460 - a face-down permanent has no printed ward (CR 708.2); a DISGUISED one has ward {2} (CR 702.168c).
+    // The client reads the same fact off the public view flag - the same constant, the same sum.
+    if (card.faceDown) {
+      if (faceOf(oracleCard, 0).disguise) faces.push(DISGUISE_WARD);
+      continue;
+    }
     faces.push(faceOf(oracleCard, card.faceIndex));
   }
   // ⚠️ The SUM is shared with the client (D53). Only the lookup above differs.

@@ -406,6 +406,15 @@ export function buildPaymentProblem(
  * The caller is responsible for passing ONLY faces of permanents an opponent
  * controls. Your own warded creature is free.
  */
+/**
+ * D460 - the ward a face-down DISGUISED permanent carries (CR 702.168c): {2}, no life. ⚠️ ONE constant for the
+ * host's tax and the client's preview - the arithmetic they share must not fork (D53).
+ */
+export const DISGUISE_WARD: { readonly wardCost: ManaCost | null; readonly wardLife: number } = {
+  wardCost: { generic: 2, xCount: 0, colored: { W: 0, U: 0, B: 0, R: 0, G: 0 }, colorless: 0, snow: 0, hybrids: [], manaValue: 2, raw: '{2}' },
+  wardLife: 0,
+};
+
 export function wardTaxFrom(
   faces: readonly { readonly wardCost: ManaCost | null; readonly wardLife: number }[],
 ): { mana: ManaCost[]; life: number } {

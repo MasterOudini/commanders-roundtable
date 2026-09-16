@@ -1682,6 +1682,8 @@ export interface OracleFace {
   /** The printed morph cost ("{1}{R}{R}"), for the offer's label; null with no morph cost. */
   readonly morphCostText: string | null;
   readonly megamorph: boolean;
+  /** D460 - the morph cost is a DISGUISE cost (CR 702.168): the face-down permanent has ward {2}. */
+  readonly disguise: boolean;
   /**
    * D312 - THE COST-REDUCTION SEAM. The printed generic reductions the engine
    * prices from the board at cast time (affinity, "costs {N} less to cast for

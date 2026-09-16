@@ -254,6 +254,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D460 - disguise is the engine's now, and the mirror offered six the row maker refused: a token outside the table, the
+  // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
+  // beside a life gain.
+  ['Museum Nightwatch', 'a token outside TOKEN_TABLE: Detective|2/2|WU|Creature|'],
+  ['Gadget Technician', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, create a 1/1 colorless Thopter artifact creature token with flying.'],
+  ['Rakish Scoundrel', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, target creature gains indestructible until end of turn.'],
+  ['Offender at Large', 'a compound head the library lacks (enters or is turned face up): When this creature enters or is turned face up, ...'],
+  ['Arno Dorian', 'a subtype anthem outside the scope vocabulary: Other Assassins you control get +2/+0.'],
+  ['Basilica Stalker', 'a trigger payload outside the vocabulary (a surveil beside a life gain): You gain 1 life and surveil 1.'],
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
   // (creature or artifact) the filtered-head reader does not split.
   ['Marionette Apprentice', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control is put into a graveyard from the battlefield'],

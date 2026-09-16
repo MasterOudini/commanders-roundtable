@@ -18,7 +18,7 @@
 // side of the wire. Everything the UI needs comes back through `subscribe`.
 
 import { applyPatch, viewHash } from '../engine/diffView';
-import { buildPaymentProblem, wardTaxFrom } from '../engine/mana';
+import { DISGUISE_WARD, buildPaymentProblem, wardTaxFrom } from '../engine/mana';
 import { NO_ALT, altCount, applyAlternativePayment, assignAlternativePayment, chooseAlternatives, type AltChoice, type ConvokeCandidate } from '../engine/altPayment';
 import { faceOf } from '../engine/oracle';
 import { suggestPayment } from '../engine/payment';
@@ -573,9 +573,15 @@ export class ClientSession {
     for (const target of targets) {
       if (target.kind !== 'card') continue;
       const card = this.view.cards[target.id];
-      if (!card?.card) continue;
+      if (!card) continue;
       if (card.controller === this.you) continue;
       if (!(this.view.zones[`bf:${card.controller}`] ?? []).includes(target.id)) continue;
+      // D460 - a face-down permanent: ward {2} when disguised (the public flag), nothing otherwise (CR 708.2).
+      if (card.faceDown) {
+        if (card.disguised) out.push(DISGUISE_WARD);
+        continue;
+      }
+      if (!card.card) continue;
       const oracleCard = this.pool.oracle().byPrinting(card.card.scryfallId);
       if (!oracleCard) continue;
       out.push(faceOf(oracleCard, 0));

@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SHADY_INFORMANT_SCRIPT } from './cards/shadyInformant';
+import { UNDERCOVER_CROCODELF_SCRIPT } from './cards/undercoverCrocodelf';
+import { EXIT_SPECIALIST_SCRIPT } from './cards/exitSpecialist';
+import { SANGUINE_SAVIOR_SCRIPT } from './cards/sanguineSavior';
+import { FORUM_FAMILIAR_SCRIPT } from './cards/forumFamiliar';
+import { NIGHTDRINKER_MOROII_SCRIPT } from './cards/nightdrinkerMoroii';
+import { ALLEY_ASSAILANT_SCRIPT } from './cards/alleyAssailant';
 import { ELEGANT_EDGECRAFTERS_SCRIPT } from './cards/elegantEdgecrafters';
 import { ANGEL_OF_INVENTION_SCRIPT } from './cards/angelOfInvention';
 import { FEARLESS_PUP_SCRIPT } from './cards/fearlessPup';
@@ -7080,6 +7087,13 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SHADY_INFORMANT_SCRIPT,
+  UNDERCOVER_CROCODELF_SCRIPT,
+  EXIT_SPECIALIST_SCRIPT,
+  SANGUINE_SAVIOR_SCRIPT,
+  FORUM_FAMILIAR_SCRIPT,
+  NIGHTDRINKER_MOROII_SCRIPT,
+  ALLEY_ASSAILANT_SCRIPT,
   ELEGANT_EDGECRAFTERS_SCRIPT,
   ANGEL_OF_INVENTION_SCRIPT,
   FEARLESS_PUP_SCRIPT,
