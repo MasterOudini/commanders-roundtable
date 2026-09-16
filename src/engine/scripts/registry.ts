@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GIFT_OF_PARADISE_SCRIPT } from './cards/giftOfParadise';
+import { NEW_HORIZONS_SCRIPT } from './cards/newHorizons';
+import { ABUNDANT_GROWTH_SCRIPT } from './cards/abundantGrowth';
+import { UNBRIDLED_GROWTH_SCRIPT } from './cards/unbridledGrowth';
+import { URBAN_UTOPIA_SCRIPT } from './cards/urbanUtopia';
+import { WEIRDING_WOOD_SCRIPT } from './cards/weirdingWood';
+import { SUNKEN_FIELD_SCRIPT } from './cards/sunkenField';
+import { HOSTILE_REALM_SCRIPT } from './cards/hostileRealm';
+import { MYSTIC_MIGHT_SCRIPT } from './cards/mysticMight';
 import { UTOPIA_VOW_SCRIPT } from './cards/utopiaVow';
 import { BURNING_ANGER_SCRIPT } from './cards/burningAnger';
 import { FIRE_WHIP_SCRIPT } from './cards/fireWhip';
@@ -7046,6 +7055,15 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GIFT_OF_PARADISE_SCRIPT,
+  NEW_HORIZONS_SCRIPT,
+  ABUNDANT_GROWTH_SCRIPT,
+  UNBRIDLED_GROWTH_SCRIPT,
+  URBAN_UTOPIA_SCRIPT,
+  WEIRDING_WOOD_SCRIPT,
+  SUNKEN_FIELD_SCRIPT,
+  HOSTILE_REALM_SCRIPT,
+  MYSTIC_MIGHT_SCRIPT,
   UTOPIA_VOW_SCRIPT,
   BURNING_ANGER_SCRIPT,
   FIRE_WHIP_SCRIPT,

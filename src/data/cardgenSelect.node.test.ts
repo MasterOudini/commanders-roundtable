@@ -302,7 +302,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dream Beavers', 'trigger payload not a pump: Each opponent loses 1 life and you gain 1 life. Scry 1.'],
   ['Hunting Moa', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, put a +1/+1 counter on ta'],
   ['Inner Sanctum', 'a line that is neither an activated ability nor a library trigger: Prevent all damage that would be dealt to creatures you control.'],
-  ['Mystic Might', 'a leftover line not among the printed lines: Enchanted land has'],
   ['Rotwidow Pack', 'a counted payload beside a cost piece that leaves a fixture behind: Each opponent loses 1 life for each Spider you control.'],
   ['Slitherwisp', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast another spell that has flash, you draw a c'],
   ['Yavimaya Granger', 'trigger payload not a pump: Search your library for a basic land card, put that card ont'],
@@ -2535,7 +2534,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
-  ['Hostile Realm', 'a quoted grant on an enchanted land (Enchanted land has ...) - the grant generator, not the mainline row maker'],
   ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   ['Quakefoot Cyclops', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   // D395 - the animate family: the four the selector offered after the seam that the row maker refused, by reason.
@@ -2941,7 +2939,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ninja\'s Kunai', 'a BY-NAME sacrifice cost the engine does not charge: {1}, {T}, Sacrifice Ninja\'s Kunai'],
   ['Farmstead', 'an effect the scaffold cannot assert: payOptional'],
   ['Leonin Bola', 'an effect the scaffold cannot assert: tap'],
-  ['Sunken Field', 'an effect the scaffold cannot assert: payOptional'],
   ['Heartseeker', 'an effect the scaffold cannot assert: destroy'],
   ['Trusty Boomerang', 'an effect the scaffold cannot assert: tap'],
 

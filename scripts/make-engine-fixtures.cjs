@@ -8456,6 +8456,17 @@ const WANTED = [
   'Malicious Intent',
   'Ringing Strike Mastery',
   // D454 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D455 - the land-host quoted grants: the Enchant land Auras whose granted mana, token and vocabulary bodies the row maker reads on a Forest host.
+  'Gift of Paradise',
+  'New Horizons',
+  'Abundant Growth',
+  'Unbridled Growth',
+  'Urban Utopia',
+  'Weirding Wood',
+  'Sunken Field',
+  'Hostile Realm',
+  'Mystic Might',
+  // D455 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -259121,6 +259121,323 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GIFT_OF_PARADISE": {
+    "scryfallId": "00b361e3-8aaa-4194-8ae8-45bdb70c97bb",
+    "oracleId": "43a86d36-9653-4498-a533-8b30b919cdbf",
+    "name": "Gift of Paradise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gift of Paradise",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, you gain 3 life.\nEnchanted land has \"{T}: Add two mana of any one color.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "00b361e3-8aaa-4194-8ae8-45bdb70c97bb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEW_HORIZONS": {
+    "scryfallId": "02c521da-677e-43b9-b5fe-c84dc64e66ec",
+    "oracleId": "8834d3c9-cdb5-423b-bc78-94a94add5e74",
+    "name": "New Horizons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "New Horizons",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, put a +1/+1 counter on target creature you control.\nEnchanted land has \"{T}: Add two mana of any one color.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eytan Zana",
+        "imageId": "02c521da-677e-43b9-b5fe-c84dc64e66ec"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "war",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABUNDANT_GROWTH": {
+    "scryfallId": "120b71f5-3c4d-4e00-9a3d-6872416a4373",
+    "oracleId": "947a2665-2f4d-4193-8768-118f85334549",
+    "name": "Abundant Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abundant Growth",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, draw a card.\nEnchanted land has \"{T}: Add one mana of any color.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Victor Harmatiuk",
+        "imageId": "120b71f5-3c4d-4e00-9a3d-6872416a4373"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pip",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNBRIDLED_GROWTH": {
+    "scryfallId": "393fc419-a6ce-447d-9994-744cf41f9a27",
+    "oracleId": "d749d075-6135-486a-a94a-36c3142960d7",
+    "name": "Unbridled Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unbridled Growth",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Add one mana of any color.\"\nSacrifice this Aura: Draw a card.",
+        "flavorText": "\"If the Consulate has abandoned restraint, so too shall the wilds.\"\n—Surash, keeper of the Cowl",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "393fc419-a6ce-447d-9994-744cf41f9a27"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URBAN_UTOPIA": {
+    "scryfallId": "45d7ab0e-db37-4051-86dd-3ab09c047a2b",
+    "oracleId": "77b73f11-a59a-4f2b-83d3-e6fe5064bc87",
+    "name": "Urban Utopia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Urban Utopia",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, draw a card.\nEnchanted land has \"{T}: Add one mana of any color.\"",
+        "flavorText": "Ravnica's diversity produces blossoms of opinion in a rich soil of perspectives.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jedd Chevrier",
+        "imageId": "45d7ab0e-db37-4051-86dd-3ab09c047a2b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEIRDING_WOOD": {
+    "scryfallId": "65b73086-30f0-44c6-bf83-a0faeb91e885",
+    "oracleId": "9ce5cc2f-e223-4c3b-adc1-c0109fd31762",
+    "name": "Weirding Wood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weirding Wood",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nEnchanted land has \"{T}: Add two mana of any one color.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jung Park",
+        "imageId": "65b73086-30f0-44c6-bf83-a0faeb91e885"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Investigate",
+      "Enchant"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNKEN_FIELD": {
+    "scryfallId": "9211ee02-e854-4414-92b1-65a7af29f0b9",
+    "oracleId": "46569712-1f28-41cb-81be-fd938408c71f",
+    "name": "Sunken Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunken Field",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Counter target spell unless its controller pays {1}.\"",
+        "flavorText": "The land is heavy with promise, the harvest ripe with betrayal.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "9211ee02-e854-4414-92b1-65a7af29f0b9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOSTILE_REALM": {
+    "scryfallId": "e172b353-7a16-4831-b735-206230b22e59",
+    "oracleId": "e7c3bd74-959c-4b07-b13d-30fe0f0ede2a",
+    "name": "Hostile Realm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hostile Realm",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}: Target creature can't block this turn.\"",
+        "flavorText": "Lorwyn's crust explodes with power when the greater elementals are born. The flamekin use the fallout as cover for forays into enemy territory.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Avon",
+        "imageId": "e172b353-7a16-4831-b735-206230b22e59"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYSTIC_MIGHT": {
+    "scryfallId": "e35d7f08-0687-41bd-8c53-31a49adabb11",
+    "oracleId": "967eca77-d273-4fc6-97d1-df7d8cc6ff59",
+    "name": "Mystic Might",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mystic Might",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land you control\nCumulative upkeep {1}{U} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nEnchanted land has \"{T}: Target creature gets +2/+2 until end of turn.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nicola Leonard",
+        "imageId": "e35d7f08-0687-41bd-8c53-31a49adabb11"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Cumulative upkeep"
+    ],
+    "setCode": "ice",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

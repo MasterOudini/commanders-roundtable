@@ -7666,6 +7666,15 @@ export const EVANESCENT_INTELLECT: CardData = F.EVANESCENT_INTELLECT as CardData
 export const SCREAMING_SHIELD: CardData = F.SCREAMING_SHIELD as CardData;
 export const MALICIOUS_INTENT: CardData = F.MALICIOUS_INTENT as CardData;
 export const RINGING_STRIKE_MASTERY: CardData = F.RINGING_STRIKE_MASTERY as CardData;
+export const GIFT_OF_PARADISE: CardData = F.GIFT_OF_PARADISE as CardData;
+export const NEW_HORIZONS: CardData = F.NEW_HORIZONS as CardData;
+export const ABUNDANT_GROWTH: CardData = F.ABUNDANT_GROWTH as CardData;
+export const UNBRIDLED_GROWTH: CardData = F.UNBRIDLED_GROWTH as CardData;
+export const URBAN_UTOPIA: CardData = F.URBAN_UTOPIA as CardData;
+export const WEIRDING_WOOD: CardData = F.WEIRDING_WOOD as CardData;
+export const SUNKEN_FIELD: CardData = F.SUNKEN_FIELD as CardData;
+export const HOSTILE_REALM: CardData = F.HOSTILE_REALM as CardData;
+export const MYSTIC_MIGHT: CardData = F.MYSTIC_MIGHT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15486,6 +15495,15 @@ export const ENGINE_CARDS: CardData[] = [
   SCREAMING_SHIELD,
   MALICIOUS_INTENT,
   RINGING_STRIKE_MASTERY,
+  GIFT_OF_PARADISE,
+  NEW_HORIZONS,
+  ABUNDANT_GROWTH,
+  UNBRIDLED_GROWTH,
+  URBAN_UTOPIA,
+  WEIRDING_WOOD,
+  SUNKEN_FIELD,
+  HOSTILE_REALM,
+  MYSTIC_MIGHT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
