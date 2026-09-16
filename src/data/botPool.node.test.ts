@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1865);
-    expect.soft(r.spells.assisted).toBe(1947);
-    expect.soft(r.spells.autoAnyFace).toBe(1874);
+    expect.soft(r.spells.auto).toBe(1871);
+    expect.soft(r.spells.assisted).toBe(1946);
+    expect.soft(r.spells.autoAnyFace).toBe(1880);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(673);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(674);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(5);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -449,14 +449,15 @@ const POOL: Record<string, number> = {
   // M6.4hp (D383): the SCOPED BOARD EFFECT reads a sentence about a whole scope, so +17 instants
   // and +17 sorceries flip with no script at all, beside the wave's +25 creatures and +2
   // enchantments.
-  creature: 6628,
-  instant: 1403,
-  sorcery: 1041,
+  // D473 - the quoted token: the Eldrazi Spawn and Scion makers (+20 creatures, Awakening Zone) and six spells.
+  creature: 6648,
+  instant: 1405,
+  sorcery: 1045,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 660,
   artifact: 630,
-  enchantment: 673,
+  enchantment: 674,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 5,
 };

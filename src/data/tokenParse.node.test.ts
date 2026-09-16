@@ -193,8 +193,9 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // (primitives records the same move as token 969 -> 961).
       // D383 - the SCOPED BOARD EFFECT reads a card's other sentence first, so one more card
       // leaves this sole-need population (primitives records the same move as token 958 -> 957).
-      cards: 917,
-      lines: 951,
+      // D473 - the quoted tokens read whole (the Eldrazi Scion and Spawn makers): 22 cards leave the sole-need population.
+      cards: 895,
+      lines: 929,
       parsed: 211,
       unique: 189,
       noMatch: 22,

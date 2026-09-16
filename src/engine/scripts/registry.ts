@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AWAKENING_ZONE_SCRIPT } from './cards/awakeningZone';
+import { BROOD_MONITOR_SCRIPT } from './cards/broodMonitor';
+import { EMRAKULS_HATCHER_SCRIPT } from './cards/emrakulsHatcher';
+import { SIFTER_OF_SKULLS_SCRIPT } from './cards/sifterOfSkulls';
+import { ELDRAZI_SKYSPAWNER_SCRIPT } from './cards/eldraziSkyspawner';
+import { NEST_INVADER_SCRIPT } from './cards/nestInvader';
+import { DREAD_DRONE_SCRIPT } from './cards/dreadDrone';
+import { BROOD_BUTCHER_SCRIPT } from './cards/broodButcher';
+import { CARRIER_THRALL_SCRIPT } from './cards/carrierThrall';
+import { KOZILEKS_PREDATOR_SCRIPT } from './cards/kozileksPredator';
+import { EYELESS_WATCHER_SCRIPT } from './cards/eyelessWatcher';
+import { CATACOMB_SIFTER_SCRIPT } from './cards/catacombSifter';
+import { GLARING_FLESHRAKER_SCRIPT } from './cards/glaringFleshraker';
+import { SCION_SUMMONER_SCRIPT } from './cards/scionSummoner';
+import { PAWN_OF_ULAMOG_SCRIPT } from './cards/pawnOfUlamog';
+import { BLISTERPOD_SCRIPT } from './cards/blisterpod';
+import { BIRTHING_HULK_SCRIPT } from './cards/birthingHulk';
+import { SKITTERING_PRECURSOR_SCRIPT } from './cards/skitteringPrecursor';
+import { INCUBATOR_DRONE_SCRIPT } from './cards/incubatorDrone';
+import { SPAWN_GANG_COMMANDER_SCRIPT } from './cards/spawnGangCommander';
+import { EMRAKULS_MESSENGER_SCRIPT } from './cards/emrakulsMessenger';
 import { KIORA_BEHEMOTH_BECKONER_SCRIPT } from './cards/kioraBehemothBeckoner';
 import { SARKHAN_VOL_SCRIPT } from './cards/sarkhanVol';
 import { JACE_BELEREN_SCRIPT } from './cards/jaceBeleren';
@@ -7229,6 +7250,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AWAKENING_ZONE_SCRIPT,
+  BROOD_MONITOR_SCRIPT,
+  EMRAKULS_HATCHER_SCRIPT,
+  SIFTER_OF_SKULLS_SCRIPT,
+  ELDRAZI_SKYSPAWNER_SCRIPT,
+  NEST_INVADER_SCRIPT,
+  DREAD_DRONE_SCRIPT,
+  BROOD_BUTCHER_SCRIPT,
+  CARRIER_THRALL_SCRIPT,
+  KOZILEKS_PREDATOR_SCRIPT,
+  EYELESS_WATCHER_SCRIPT,
+  CATACOMB_SIFTER_SCRIPT,
+  GLARING_FLESHRAKER_SCRIPT,
+  SCION_SUMMONER_SCRIPT,
+  PAWN_OF_ULAMOG_SCRIPT,
+  BLISTERPOD_SCRIPT,
+  BIRTHING_HULK_SCRIPT,
+  SKITTERING_PRECURSOR_SCRIPT,
+  INCUBATOR_DRONE_SCRIPT,
+  SPAWN_GANG_COMMANDER_SCRIPT,
+  EMRAKULS_MESSENGER_SCRIPT,
   KIORA_BEHEMOTH_BECKONER_SCRIPT,
   SARKHAN_VOL_SCRIPT,
   JACE_BELEREN_SCRIPT,

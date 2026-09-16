@@ -8694,6 +8694,31 @@ const WANTED = [
   'Sarkhan Vol',
   'Vivien of the Arkbow',
   // D472 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D473 - the quoted token: the seam test casts Call the Scions (two Eldrazi Scions, their quoted mana ability the printing's own).
+  'Call the Scions',
+  // D473 - the quoted token: a description that quotes the token printing's own ability text (Eldrazi Scions and Spawn, Pests, Rats), read whole and resolved to the printing.
+  'Awakening Zone',
+  'Brood Monitor',
+  "Emrakul's Hatcher",
+  'Sifter of Skulls',
+  'Eldrazi Skyspawner',
+  'Nest Invader',
+  'Dread Drone',
+  'Brood Butcher',
+  'Carrier Thrall',
+  "Kozilek's Predator",
+  'Eyeless Watcher',
+  'Catacomb Sifter',
+  'Glaring Fleshraker',
+  'Scion Summoner',
+  'Pawn of Ulamog',
+  'Blisterpod',
+  'Birthing Hulk',
+  'Skittering Precursor',
+  'Incubator Drone',
+  'Spawn-Gang Commander',
+  "Emrakul's Messenger",
+  // D473 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9006,6 +9031,9 @@ const WANTED_TOKENS = [
   { name: 'Warrior', set: 'ttdm', cn: '13', key: 'WARRIOR_1_1_R_CREATURE_TOKEN' },
   // D468 - the tokens the wave's rows create (the port's token-pin step, missing until D468).
   { name: 'Phyrexian Insect', set: 'tonc', cn: '15', key: 'PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN' },
+  // D473 - the quoted token: the Eldrazi Scion and Spawn printings the quoted descriptions resolve to (Sacrifice this token: Add {C}).
+  { name: 'Eldrazi Spawn', set: 'tmh3', cn: '2', key: 'ELDRAZI_SPAWN_TOKEN' },
+  { name: 'Eldrazi Scion', set: 'togw', cn: '3', key: 'ELDRAZI_SCION_TOKEN' },
 ];
 
 function constName(name) {

@@ -44,7 +44,7 @@ import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
-import { parseTokenClause, specKey } from './tokenParse';
+import { foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
 import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, cyclingAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs } from './activatedParse';
@@ -1788,7 +1788,8 @@ const RULES: readonly Rule[] = [
     kind: 'createToken',
     re: new RegExp(`^creates? (${COUNT}) .+ tokens?(?: with [^.]+)?\\.$`, 'i'),
     build: (m) => {
-      const spec = parseTokenClause(m[0] ?? '');
+      // D473 - the quotes `parseEffectsInner` lifted out ride beside the clause (`TOKEN_QUOTES`).
+      const spec = parseTokenClause(m[0] ?? '', TOKEN_QUOTES);
       if (!spec) return null;
       const token = TOKEN_TABLE[specKey(spec)];
       if (!token) return null;
@@ -2285,6 +2286,8 @@ const MULTIPLIABLE: ReadonlySet<EffectKind> = new Set(['gainLife', 'loseLife', '
  * `parseEffects` for the length of one synchronous parse and cleared in its `finally`.
  */
 let SPELL_X = false;
+/** D473 - the token quotes `foldTokenQuotes` lifted out of the face, for the length of one parse (as `SPELL_X`). */
+let TOKEN_QUOTES: readonly string[] = [];
 function substituteX(base: string): string {
   return base
     .replace(/\bX cards\b/gi, 'a card')
@@ -2436,6 +2439,7 @@ export function parseEffects(
     return parseEffectsInner(oracleText, cardName, warn);
   } finally {
     SPELL_X = false;
+    TOKEN_QUOTES = [];
   }
 }
 
@@ -2458,7 +2462,11 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
     .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
     .join('\n');
-  const clean = scrub(selfRef(priced, cardName))
+  // D473 - THE QUOTED TOKEN: a token description's quote is the printing's own text, lifted out BEFORE
+  // the self-reference rewrite and the scrub (either would change it), read back by the token rule.
+  const folded = foldTokenQuotes(priced);
+  TOKEN_QUOTES = folded.quotes;
+  const clean = scrub(selfRef(folded.text, cardName))
     .split('\n')
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
     // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.

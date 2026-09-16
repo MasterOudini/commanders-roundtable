@@ -37,6 +37,13 @@ export interface TokenSpec {
   readonly types: readonly string[];
   /** Normalised, `''` when the token has no rules text. */
   readonly abilities: string;
+  /**
+   * D473 - THE QUOTED TOKEN. The printing's own rules text, quoted on the card that makes it
+   * (`Eldrazi Spawn creature token with "Sacrifice this creature: Add {C}."`), held VERBATIM: it is
+   * matched against the printing by exact text and never read as an ability of the maker. Absent
+   * when the description quotes nothing.
+   */
+  readonly quoted?: string;
 }
 
 const COLOUR_WORDS: Readonly<Record<string, ColorLetter | ''>> = {
@@ -134,6 +141,32 @@ function abilitySet(text: string): string {
 }
 
 /**
+ * D473 - THE QUOTED TOKEN. A card that makes a token whose rules text is not a keyword prints that
+ * text in quotes (`… Eldrazi Spawn creature token with "Sacrifice this creature: Add {C}."`, `… Scion
+ * creature tokens. They have "…"`), and `scrub` has always blanked the quote - so the description
+ * arrived as a token with a run of spaces where its ability was, and was refused (the Dragon Egg
+ * rule below). The quote is the PRINTING'S OWN TEXT, which is exactly what `matchToken` needs to
+ * compare: lifted out here, BEFORE any scrub, and stood in for by a `#qN#` mark the parser reads
+ * back through `quotes`. Three printed shapes - `token with "Q"`, `token with flying and "Q"`, and
+ * the second sentence `token. It has "Q"` / `tokens. They have "Q"` / `Those tokens have "Q"` -
+ * fold to `token with [keywords and ]#qN#.`: one clause, sentence-safe (the quote's own periods no
+ * longer split it). A quote anywhere else is left for `scrub`, as before.
+ */
+const QUOTED_SECOND_SENTENCE = /((?:creature|artifact|enchantment) tokens?)\. (?:It has|They have|Those tokens have|Each of those tokens has) ["“]([^"”]*)["”]/g;
+const QUOTED_WITH = /((?:creature|artifact|enchantment) tokens? with (?:[a-z][a-z-]*(?: [a-z-]+)?(?:, |,? and ))*)["“]([^"”]*)["”]/g;
+export function foldTokenQuotes(text: string): { readonly text: string; readonly quotes: readonly string[] } {
+  const quotes: string[] = [];
+  const mark = (q: string): string => {
+    quotes.push(q);
+    return `#q${quotes.length - 1}#.`;
+  };
+  const folded = text
+    .replace(QUOTED_SECOND_SENTENCE, (_m, t: string, q: string) => `${t} with ${mark(q)}`)
+    .replace(QUOTED_WITH, (_m, t: string, q: string) => `${t}${mark(q)}`);
+  return { text: folded, quotes };
+}
+
+/**
  * Read a printed token description.
  *
  * Returns `null` for anything this module does not understand completely — a
@@ -142,7 +175,7 @@ function abilitySet(text: string): string {
  * unreadable sentence, which is what stops the app creating something the card
  * did not ask for.
  */
-export function parseTokenClause(sentence: string): TokenSpec | null {
+export function parseTokenClause(sentence: string, quotes: readonly string[] = []): TokenSpec | null {
   // A copy is CR 707 and a different problem entirely (M6.4-LIBRARY-SPEC §4.4).
   if (/\bcopy\b/i.test(sentence)) return null;
   // ⚠️ **A RUN OF SPACES IS SCRUBBING'S FOOTPRINT, AND IT IS A REFUSAL.**
@@ -225,7 +258,15 @@ export function parseTokenClause(sentence: string): TokenSpec | null {
   // A token whose NAME differs from its subtypes ("…with flying named Wasp") is
   // a different printing and this module cannot find it by subtype.
   if (/\bnamed\b/i.test(rawAbilities)) return null;
-  const abilities = normaliseAbilities(rawAbilities);
+  const abilities0 = normaliseAbilities(rawAbilities);
+  // D473 - a `#qN#` mark is a quoted ability `foldTokenQuotes` lifted out: read back verbatim, and the
+  // rest of the list must still be keywords. A mark with nothing behind it, or one not last, refuses.
+  let quoted: string | undefined;
+  const abilities = abilities0.replace(/(?:^|, | and )#q(\d+)#$/, (_m, n: string) => {
+    quoted = quotes[Number(n)];
+    return '';
+  });
+  if (/#q\d+#/.test(abilities) || (quoted === undefined && abilities !== abilities0)) return null;
   // ⚠️ A LIST MAY NOT END IN A CONJUNCTION. `Dragon Egg` reads "…create a 2/2
   // red Dragon creature token with flying and \"{R}: This token gets +1/+0
   // until end of turn.\"" — and by the time this module sees the line the
@@ -234,7 +275,7 @@ export function parseTokenClause(sentence: string): TokenSpec | null {
   if (/(?:,|\band)$/.test(abilities)) return null;
   if (abilities !== '' && !isKeywordList(abilities)) return null;
 
-  return { count, name: subtypes.join(' '), power, toughness, colors, types, abilities };
+  return { count, name: subtypes.join(' '), power, toughness, colors, types, abilities, ...(quoted !== undefined ? { quoted } : {}) };
 }
 
 /**
@@ -269,6 +310,8 @@ export function specKey(spec: TokenSpec): string {
     [...spec.colors].sort().join(''),
     [...spec.types].sort().join(' '),
     abilitySet(spec.abilities),
+    // D473 - the quoted text is identity too (the Rat that can't block is not the plain Rat).
+    ...(spec.quoted !== undefined ? [`q=${spec.quoted}`] : []),
   ].join('|');
 }
 
@@ -308,12 +351,26 @@ export function matchToken(spec: TokenSpec, candidates: readonly CardData[]): Ca
     if ((face.toughness ?? null) !== spec.toughness) continue;
     if (!predefined) {
       if ([...(face.colors ?? [])].sort().join('') !== wantColors) continue;
-      const printed = normaliseAbilities(face.oracleText ?? '');
-      // ⚠️ Two comparisons, and the SET one is not a loosening: it exists
-      // because "Flying, vigilance" and "vigilance and flying" are the same
-      // token printed two ways. A whole sentence with its own commas fails the
-      // set test and is caught by the string one.
-      if (printed !== spec.abilities && abilitySet(printed) !== wantSet) continue;
+      if (spec.quoted !== undefined) {
+        // D473 - the quoted text is the printing's own, minus the keyword lines the `with` list names:
+        // EXACT, reminder text aside (a printing states its keyword with one; a quote never carries one) and
+        // the self-reference aside - the printing says `this creature` where a newer card quotes `this token`
+        // (CR 111.4: the card's wording is the token's; on a token the two words name one object).
+        const lines = (face.oracleText ?? '').split('\n').map((l) => l.trim()).filter((l) => l !== '');
+        const isKeywordLine = (l: string): boolean => isKeywordList(normaliseAbilities(l));
+        const same = (t: string): string => t.replace(/\s*\([^)]*\)/g, '').replace(/\bthis (?:token|creature|permanent|artifact|enchantment|land)\b/gi, 'this ~');
+        const rest = lines.filter((l) => !isKeywordLine(l)).map(same).join('\n');
+        if (rest !== same(spec.quoted)) continue;
+        const printedKeywords = lines.filter(isKeywordLine).map(normaliseAbilities).join(', ');
+        if (printedKeywords !== spec.abilities && abilitySet(printedKeywords) !== wantSet) continue;
+      } else {
+        const printed = normaliseAbilities(face.oracleText ?? '');
+        // ⚠️ Two comparisons, and the SET one is not a loosening: it exists
+        // because "Flying, vigilance" and "vigilance and flying" are the same
+        // token printed two ways. A whole sentence with its own commas fails the
+        // set test and is caught by the string one.
+        if (printed !== spec.abilities && abilitySet(printed) !== wantSet) continue;
+      }
     }
     out.push(card);
   }
@@ -371,8 +428,10 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
   const out = new Set<string>();
   for (const card of cards) {
     for (const face of card.faces) {
-      for (const line of (face.oracleText ?? '').split(/\n|(?<=\.)\s+/)) {
-        const spec = parseTokenClause(line.trim());
+      // D473 - the quoted tokens: the quotes lifted out first, read back beside the clause.
+      const folded = foldTokenQuotes(face.oracleText ?? '');
+      for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {
+        const spec = parseTokenClause(line.trim(), folded.quotes);
         if (!spec) continue;
         const ref = TOKEN_TABLE[specKey(spec)];
         if (ref) out.add(ref.printingId);
@@ -384,8 +443,9 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
 
 export function tokenNamesIn(oracleText: string): string[] {
   const out = new Set<string>();
-  for (const line of oracleText.split(/\n|(?<=\.)\s+/)) {
-    const spec = parseTokenClause(line.trim());
+  const folded = foldTokenQuotes(oracleText);
+  for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {
+    const spec = parseTokenClause(line.trim(), folded.quotes);
     if (spec) out.add(spec.name);
   }
   return [...out];

@@ -69,12 +69,22 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
  * positions of the self-aimed shapes are rewritten.
  */
 function recipientAsSelf(payload: string): string {
+  // D473 - a quoted span is a token's own text (`… token with "Sacrifice this creature: Add {C}."`), left
+  // verbatim: the rewrite runs over the text OUTSIDE the quotes, the anchored forms on the opening span only.
   return payload
-    .replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~')
-    .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
-    .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
-    // D470 - only with no target phrase before it: after one, `it` is that target (the referent rewrite's).
-    .replace(/\bon it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'on ~.'));
+    .split(/("[^"]*"|“[^”]*”)/)
+    .map((span, i) => (i % 2 === 1 ? span : i === 0 ? rewriteSelf(span, true) : rewriteSelf(span, false)))
+    .join('');
+}
+function rewriteSelf(text: string, opening: boolean): string {
+  const unanchored = text.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
+  const anchored = opening
+    ? unanchored
+        .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
+        .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
+    : unanchored;
+  // D470 - only with no target phrase before it: after one, `it` is that target (the referent rewrite's).
+  return anchored.replace(/\bon it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'on ~.'));
 }
 
 /**

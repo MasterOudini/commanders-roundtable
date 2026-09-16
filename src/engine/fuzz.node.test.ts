@@ -102,6 +102,8 @@ interface CanaryStaple {
   readonly rotHistory: string;
 }
 
+/** D473 - the Eldrazi Spawn and Scion token oracles the quoted descriptions resolve to (`TOKEN_TABLE`, the `|q=` keys). */
+const SPAWN_ORACLES: ReadonlySet<string> = new Set(['3aaf906a-e749-4e86-ac79-97650b92f271', '0eb3cd4b-c34e-448c-a9ab-e7b0b4524833']);
 const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Transform-into-planeswalker: draw him, afford {1}{U}, resolve, then roll
   // the one manual tool in nine that flips — the rarest event in the gate.
@@ -394,6 +396,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // driver activates whichever is offered at sorcery speed, once a turn).
   { names: ['Jace Beleren'], copiesPerSeat: 2,
     counterKeys: ['loyaltyActivations'], rotHistory: 'D472' },
+  // D473 - the quoted token: a Nest Invader a seat ({1}{G} 2/2; enters with a 0/1 Eldrazi Spawn whose quoted
+  // `Sacrifice this token: Add {C}.` is the printing's own, run by the mana path).
+  { names: ['Nest Invader'], copiesPerSeat: 2,
+    counterKeys: ['spawnTokensMade', 'spawnTokensSpent'], rotHistory: 'D473' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1294,6 +1300,9 @@ interface Run {
   readonly stunCountersSpent: number;
   /** D472 - the loyalty abilities put on the stack (CR 606; the cost charged in counters). */
   readonly loyaltyActivations: number;
+  /** D473 - the Eldrazi Spawn and Scions created off a quoted description, and the ones sacrificed for {C}. */
+  readonly spawnTokensMade: number;
+  readonly spawnTokensSpent: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1729,6 +1738,8 @@ function runOne(seed: number): Run {
     stunCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta > 0)).length,
     stunCountersSpent: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta < 0)).length,
     loyaltyActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.loyalty !== undefined).length,
+    spawnTokensMade: game.log.filter((e) => e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId)).length,
+    spawnTokensSpent: (() => { const spawn = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId) ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.source !== null && spawn.has(e.body.source)).length; })(),
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1996,6 +2007,8 @@ const TOTAL_KEYS = [
   'stunCountersPut',
   'stunCountersSpent',
   'loyaltyActivations',
+  'spawnTokensMade',
+  'spawnTokensSpent',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2395,6 +2408,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.stunCountersSpent).toBeGreaterThan(0);
         // D472 - a loyalty ability activated at gate size (Jace Beleren 21 at 60 seeds, 53 at 150).
         expect(totals.loyaltyActivations).toBeGreaterThan(0);
+        // D473 - a quoted Eldrazi Spawn created and sacrificed for {C} at gate size (Nest Invader 2 / 2 at 60 seeds, 14 / 8 at 150).
+        expect(totals.spawnTokensMade).toBeGreaterThan(0);
+        expect(totals.spawnTokensSpent).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2498,6 +2514,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.shieldCountersPut} shield counters put / ${totals.shieldCountersSpent} spent · ` +
           `${totals.stunCountersPut} stun counters put / ${totals.stunCountersSpent} spent · ` +
           `${totals.loyaltyActivations} loyalty activations · ` +
+          `${totals.spawnTokensMade} Spawn made / ${totals.spawnTokensSpent} spent · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

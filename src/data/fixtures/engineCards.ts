@@ -7860,6 +7860,28 @@ export const JACE_BELEREN: CardData = F.JACE_BELEREN as CardData;
 export const KIORA_BEHEMOTH_BECKONER: CardData = F.KIORA_BEHEMOTH_BECKONER as CardData;
 export const SARKHAN_VOL: CardData = F.SARKHAN_VOL as CardData;
 export const VIVIEN_OF_THE_ARKBOW: CardData = F.VIVIEN_OF_THE_ARKBOW as CardData;
+export const CALL_THE_SCIONS: CardData = F.CALL_THE_SCIONS as CardData;
+export const AWAKENING_ZONE: CardData = F.AWAKENING_ZONE as CardData;
+export const BROOD_MONITOR: CardData = F.BROOD_MONITOR as CardData;
+export const EMRAKUL_S_HATCHER: CardData = F.EMRAKUL_S_HATCHER as CardData;
+export const SIFTER_OF_SKULLS: CardData = F.SIFTER_OF_SKULLS as CardData;
+export const ELDRAZI_SKYSPAWNER: CardData = F.ELDRAZI_SKYSPAWNER as CardData;
+export const NEST_INVADER: CardData = F.NEST_INVADER as CardData;
+export const DREAD_DRONE: CardData = F.DREAD_DRONE as CardData;
+export const BROOD_BUTCHER: CardData = F.BROOD_BUTCHER as CardData;
+export const CARRIER_THRALL: CardData = F.CARRIER_THRALL as CardData;
+export const KOZILEK_S_PREDATOR: CardData = F.KOZILEK_S_PREDATOR as CardData;
+export const EYELESS_WATCHER: CardData = F.EYELESS_WATCHER as CardData;
+export const CATACOMB_SIFTER: CardData = F.CATACOMB_SIFTER as CardData;
+export const GLARING_FLESHRAKER: CardData = F.GLARING_FLESHRAKER as CardData;
+export const SCION_SUMMONER: CardData = F.SCION_SUMMONER as CardData;
+export const PAWN_OF_ULAMOG: CardData = F.PAWN_OF_ULAMOG as CardData;
+export const BLISTERPOD: CardData = F.BLISTERPOD as CardData;
+export const BIRTHING_HULK: CardData = F.BIRTHING_HULK as CardData;
+export const SKITTERING_PRECURSOR: CardData = F.SKITTERING_PRECURSOR as CardData;
+export const INCUBATOR_DRONE: CardData = F.INCUBATOR_DRONE as CardData;
+export const SPAWN_GANG_COMMANDER: CardData = F.SPAWN_GANG_COMMANDER as CardData;
+export const EMRAKUL_S_MESSENGER: CardData = F.EMRAKUL_S_MESSENGER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -8033,6 +8055,8 @@ export const DWARF_BERSERKER_2_1_R_CREATURE_TOKEN: CardData = F.DWARF_BERSERKER_
 export const SERVO_1_1_ARTIFACT_CREATURE_TOKEN: CardData = F.SERVO_1_1_ARTIFACT_CREATURE_TOKEN as CardData;
 export const WARRIOR_1_1_R_CREATURE_TOKEN: CardData = F.WARRIOR_1_1_R_CREATURE_TOKEN as CardData;
 export const PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN: CardData = F.PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN as CardData;
+export const ELDRAZI_SPAWN_TOKEN: CardData = F.ELDRAZI_SPAWN_TOKEN as CardData;
+export const ELDRAZI_SCION_TOKEN: CardData = F.ELDRAZI_SCION_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -15878,6 +15902,28 @@ export const ENGINE_CARDS: CardData[] = [
   KIORA_BEHEMOTH_BECKONER,
   SARKHAN_VOL,
   VIVIEN_OF_THE_ARKBOW,
+  CALL_THE_SCIONS,
+  AWAKENING_ZONE,
+  BROOD_MONITOR,
+  EMRAKUL_S_HATCHER,
+  SIFTER_OF_SKULLS,
+  ELDRAZI_SKYSPAWNER,
+  NEST_INVADER,
+  DREAD_DRONE,
+  BROOD_BUTCHER,
+  CARRIER_THRALL,
+  KOZILEK_S_PREDATOR,
+  EYELESS_WATCHER,
+  CATACOMB_SIFTER,
+  GLARING_FLESHRAKER,
+  SCION_SUMMONER,
+  PAWN_OF_ULAMOG,
+  BLISTERPOD,
+  BIRTHING_HULK,
+  SKITTERING_PRECURSOR,
+  INCUBATOR_DRONE,
+  SPAWN_GANG_COMMANDER,
+  EMRAKUL_S_MESSENGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -16051,4 +16097,6 @@ export const ENGINE_CARDS: CardData[] = [
   SERVO_1_1_ARTIFACT_CREATURE_TOKEN,
   WARRIOR_1_1_R_CREATURE_TOKEN,
   PHYREXIAN_INSECT_1_1_G_CREATURE_INFECT_TOKEN,
+  ELDRAZI_SPAWN_TOKEN,
+  ELDRAZI_SCION_TOKEN,
 ];

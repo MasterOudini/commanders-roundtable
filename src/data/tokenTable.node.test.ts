@@ -22,7 +22,8 @@ import { homedir } from 'node:os';
 import { createInterface } from 'node:readline';
 import { describe, expect, test } from 'vitest';
 import type { CardData } from './cardTypes';
-import { parseTokenClause, resolveToken, specKey } from './tokenParse';
+import { engineCompleteness } from './engineComplete';
+import { foldTokenQuotes, parseTokenClause, resolveToken, specKey } from './tokenParse';
 import { TOKEN_TABLE, type TokenRef } from './tokenTable';
 
 const DATA_DIR = process.env.CRT_DATA_DIR ?? join(homedir(), '.commanders-roundtable');
@@ -60,18 +61,28 @@ async function build(): Promise<Record<string, TokenRef>> {
     }
     if (card.commanderLegality !== 'legal') continue;
     for (const face of card.faces) {
-      for (const l of (face.oracleText ?? '').split(/\n|(?<=\.)\s+/)) {
-        if (/\btokens?\b/i.test(l)) clauses.add(l.trim());
+      // D473 - the quoted tokens: the quotes lifted out first and carried beside the clause (a mark
+      // is numbered per face, so two faces' marks must not meet in one key).
+      const folded = foldTokenQuotes(face.oracleText ?? '');
+      for (const l of folded.text.split(/\n|(?<=\.)\s+/)) {
+        if (/\btokens?\b/i.test(l)) clauses.add(JSON.stringify([l.trim(), /#q\d+#/.test(l) ? folded.quotes : []]));
       }
     }
   }
 
   const out: Record<string, TokenRef> = {};
-  for (const clause of clauses) {
-    const spec = parseTokenClause(clause);
+  for (const entry of clauses) {
+    const [clause, quotes] = JSON.parse(entry) as [string, string[]];
+    const spec = parseTokenClause(clause, quotes);
     if (!spec) continue;
     const hit = resolveToken(spec, byName.get(spec.name) ?? []);
     if (!hit) continue;
+    // D473 - a QUOTED description is the card's own text (D90): baked only when the printing it names is
+    // engine-complete, so the quoted ability RUNS on the token (a mana ability today - the Eldrazi Scion and
+    // Spawn, the Elf Druid). A Pest whose dies trigger nothing fires, a 0/0 Construct whose pump nothing derives
+    // (it would die on arrival), a Rat whose can't-block nothing enforces: refused here, like a description
+    // naming no printing. The predefined artifacts keep the Blood precedent (D174): the card prints no quote.
+    if (spec.quoted !== undefined && !engineCompleteness(hit).complete) continue;
     // ⚠️ Last write wins is fine and cannot differ: `resolveToken` refuses
     // anything that resolves to two oracle ids, so one key can only ever reach
     // one token — and the PRINTING it picks is deterministic too.

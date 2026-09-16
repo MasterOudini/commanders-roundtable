@@ -7,7 +7,7 @@
 
 import { describe, expect, test } from 'vitest';
 import { BEAST_TOKEN, SOLDIER_TOKEN, TREASURE_TOKEN } from './fixtures/engineCards';
-import { matchToken, parseTokenClause, resolveToken, tokenNamesIn } from './tokenParse';
+import { foldTokenQuotes, matchToken, parseTokenClause, resolveToken, specKey, tokenNamesIn } from './tokenParse';
 
 const TOKENS = [SOLDIER_TOKEN, TREASURE_TOKEN, BEAST_TOKEN];
 
@@ -194,5 +194,56 @@ describe('the names a card asks for', () => {
 
   test('nothing for a card that makes none', () => {
     expect(tokenNamesIn('Flying\nWhen this creature dies, draw a card.')).toEqual([]);
+  });
+});
+
+/**
+ * D473 - THE QUOTED TOKEN. A token whose rules text is not a keyword is printed with that text quoted, and the
+ * quote is the printing's own text - lifted out before the scrub, read back by a mark, matched exactly.
+ */
+describe('D473 - the quoted token', () => {
+  const Q = 'Sacrifice this creature: Add {C}.';
+  const SPAWN = `Create a 0/1 colorless Eldrazi Spawn creature token with "${Q}"`;
+  const SCIONS = `When this creature enters, create three 1/1 colorless Eldrazi Scion creature tokens. They have "${Q}"`;
+  const DEVIL = 'Create a 2/2 red Devil creature token with trample and "When this creature dies, it deals 1 damage to any target."';
+
+  test('the three printed shapes fold to one clause with a mark, the quote held verbatim', () => {
+    expect(foldTokenQuotes(SPAWN)).toEqual({ text: 'Create a 0/1 colorless Eldrazi Spawn creature token with #q0#.', quotes: [Q] });
+    expect(foldTokenQuotes(SCIONS)).toEqual({ text: 'When this creature enters, create three 1/1 colorless Eldrazi Scion creature tokens with #q0#.', quotes: [Q] });
+    expect(foldTokenQuotes(DEVIL).text).toBe('Create a 2/2 red Devil creature token with trample and #q0#.');
+    // A quote anywhere else is not a token's: left in place for `scrub`.
+    expect(foldTokenQuotes('Enchanted creature has "{T}: Add {G}."')).toEqual({ text: 'Enchanted creature has "{T}: Add {G}."', quotes: [] });
+  });
+
+  test('the mark reads back as `quoted`, beside the keywords', () => {
+    const f = foldTokenQuotes(DEVIL);
+    const spec = parseTokenClause(f.text, f.quotes);
+    expect(spec).toMatchObject({ count: 1, name: 'Devil', power: '2', toughness: '2', colors: ['R'], abilities: 'trample', quoted: 'When this creature dies, it deals 1 damage to any target.' });
+    expect(specKey(spec as NonNullable<typeof spec>)).toBe('Devil|2/2|R|Creature|trample|q=When this creature dies, it deals 1 damage to any target.');
+    // A mark with no quote behind it, and a quote scrubbed to spaces, are both refusals.
+    expect(parseTokenClause('Create a 0/1 colorless Eldrazi Spawn creature token with #q0#.')).toBeNull();
+    expect(parseTokenClause('Create a 0/1 colorless Eldrazi Spawn creature token with ' + ' '.repeat(Q.length + 2) + '.')).toBeNull();
+    // No quote, no field: the plain key is byte-identical to what it was.
+    expect(specKey(parseTokenClause('Create a 1/1 white Soldier creature token.') as NonNullable<ReturnType<typeof parseTokenClause>>)).toBe('Soldier|1/1|W|Creature|');
+  });
+
+  test('a quoted spec matches the printing whose own text is the quote, and no other', () => {
+    const spawn = { ...SOLDIER_TOKEN, oracleId: 'spawn', scryfallId: 'spawn-1', name: 'Eldrazi Spawn', faces: [{ ...SOLDIER_TOKEN.faces[0]!, name: 'Eldrazi Spawn', typeLine: 'Token Creature — Eldrazi Spawn', power: '0', toughness: '1', colors: [], oracleText: Q }] };
+    const plain = { ...spawn, oracleId: 'plain', scryfallId: 'plain-1', faces: [{ ...spawn.faces[0]!, oracleText: '' }] };
+    const other = { ...spawn, oracleId: 'other', scryfallId: 'other-1', faces: [{ ...spawn.faces[0]!, oracleText: 'Sacrifice this creature: Add {C}{C}.' }] };
+    // The printing's `this creature` is the card's `this token` (CR 111.4) - one object, matched.
+    const older = { ...spawn, oracleId: 'older', scryfallId: 'older-1', faces: [{ ...spawn.faces[0]!, oracleText: 'Sacrifice this token: Add {C}.' }] };
+    const f = foldTokenQuotes(SPAWN);
+    const spec = parseTokenClause(f.text, f.quotes);
+    if (!spec) throw new Error('expected a spec');
+    expect(matchToken(spec, [spawn, plain, other, older]).map((c) => c.oracleId)).toEqual(['spawn', 'older']);
+    // And the plain description does not take the quoted printing.
+    const bare = parseTokenClause('Create a 0/1 colorless Eldrazi Spawn creature token.');
+    if (!bare) throw new Error('expected a spec');
+    expect(matchToken(bare, [spawn, plain, other]).map((c) => c.oracleId)).toEqual(['plain']);
+  });
+
+  test('the names a card asks for see through the quote', () => {
+    expect(tokenNamesIn(SCIONS)).toEqual(['Eldrazi Scion']);
   });
 });
