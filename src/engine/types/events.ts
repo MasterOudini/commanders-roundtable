@@ -508,6 +508,8 @@ export type EventBody =
       readonly damages: readonly ResolvedDamage[];
     }
   | { readonly t: 'RemovedFromCombat'; readonly cards: readonly InstanceId[] }
+  /** D462 - a creature put onto the battlefield ATTACKING (ninjutsu, CR 702.49a): it joins the attackers, unblocked. */
+  | { readonly t: 'AttackerAdded'; readonly card: InstanceId; readonly defender: DefenderRef }
   | { readonly t: 'CombatEnded' }
   // D330 - CR 701.19: a regeneration shield put on a permanent, and one spent.
   | { readonly t: 'RegenerationShieldAdded'; readonly card: InstanceId }

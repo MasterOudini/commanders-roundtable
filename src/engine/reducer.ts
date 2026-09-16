@@ -1179,6 +1179,18 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return { ...marked, combat, turn: { ...marked.turn, memory: recordDamage(marked.turn.memory, body.damages) } };
     }
 
+    // D462 - a creature entering attacking joins the attackers as an unblocked one (the turn record's
+    // `attackerIds` names DECLARED attackers only - it never attacked, CR 702.49a / boast).
+    case 'AttackerAdded': {
+      if (!state.combat) return state;
+      return {
+        ...state,
+        combat: {
+          ...state.combat,
+          attackers: [...state.combat.attackers, { card: body.card, defender: body.defender, becameBlocked: false, blockerOrder: [], dealtFirstStrikeDamage: false }],
+        },
+      };
+    }
     case 'RemovedFromCombat': {
       if (!state.combat) return state;
       return {

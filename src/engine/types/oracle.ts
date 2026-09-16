@@ -1570,6 +1570,12 @@ export interface ActivatedAbility {
    */
   readonly unearth?: { readonly line: string };
   /**
+   * D462 - NINJUTSU (CR 702.49a): synthesized from the printed `Ninjutsu {cost}` line - activated from the hand,
+   * the cost the mana plus `returnCost` (one unblocked attacker you control), the effect native (`loop.ts`: the
+   * card enters tapped and attacking the returned creature's defender). Offered only inside the combat window.
+   */
+  readonly ninjutsu?: { readonly line: string };
+  /**
    * D451 - THE REINFORCE SEAM. The synthesized "Reinforce N—{cost}" ability (CR 702.77a): the mana and the
    * card's own discard from the hand as the cost, `target creature` as the clause, N +1/+1 counters resolved
    * natively. `line` is the printed line it accounts for.

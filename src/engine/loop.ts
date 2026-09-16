@@ -1223,6 +1223,18 @@ export function resolveAbility(
         events.push(narrated(n`${srcFace.name} returns unearthed: it has haste, and it will be exiled at the beginning of the next end step or if it would leave the battlefield.`, obj.controller, obj.identity));
       }
     }
+    // D462 - NINJUTSU resolves natively (CR 702.49a): the card, still in the hand and combat still on, enters
+    // tapped and attacking the defender the returned creature attacked (an unblocked attacker, added to the
+    // combat); gone from the hand or past combat, nothing happens.
+    if (ability?.ninjutsu !== undefined) {
+      const src = state.cards[obj.source];
+      if (src && src.zone.kind === 'hand' && src.zone.player === obj.controller && state.combat !== null && obj.ninjutsuDefender !== undefined) {
+        events.push({ t: 'CardsMoved', moves: [{ card: obj.source, from: { kind: 'hand', player: obj.controller }, to: { kind: 'battlefield', player: obj.controller } }] });
+        events.push({ t: 'PermanentsTapped', cards: [obj.source] });
+        events.push({ t: 'AttackerAdded', card: obj.source, defender: obj.ninjutsuDefender });
+        events.push(narrated(n`${srcFace.name} enters tapped and attacking (ninjutsu).`, obj.controller));
+      }
+    }
     // D311 - CREW resolves natively: the Vehicle is an artifact creature until
     // end of turn (CR 702.122a), carried by the same until-end-of-turn list a
     // pump rides on, cleared by the same cleanup.

@@ -301,6 +301,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.unearth !== undefined) continue;
     // D451 - reinforce resolves natively: the mana and the discard charged, the counters put.
     if (ability.reinforce !== undefined) continue;
+    // D462 - ninjutsu resolves natively: the mana and the return charged, the entry tapped and attacking.
+    if (ability.ninjutsu !== undefined) continue;
 
     // ⚠️ A SHIPPED `ActivatedDef` RUNS THIS ABILITY COMPLETELY (D159) — cost
     // charged by the engine, effect resolved by the script — so the card owes
@@ -381,6 +383,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'unearth' && abilities.some((a) => a.unearth !== undefined)) continue;
     // D451 - a Reinforce the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'reinforce' && abilities.some((a) => a.reinforce !== undefined)) continue;
+    // D462 - a Ninjutsu the engine runs is no note either.
+    if (raw.trim().toLowerCase() === 'ninjutsu' && abilities.some((a) => a.ninjutsu !== undefined)) continue;
     // D312 - an Affinity the engine prices is no note either.
     if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.

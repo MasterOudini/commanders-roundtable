@@ -413,6 +413,8 @@ export interface StackObject {
    * one keyword; absent on every other object, so every older log replays untouched.
    */
   readonly memo?: number;
+  /** D462 - a ninjutsu activation: the defender the returned creature was attacking, for the entry (CR 702.49a). */
+  readonly ninjutsuDefender?: DefenderRef;
   /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *

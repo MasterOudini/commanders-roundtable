@@ -8522,6 +8522,18 @@ const WANTED = [
   'Efreet Weaponmaster',
   'Offender at Large',
   // D461 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D462 - ninjutsu: the seam's own fixtures (the engine test returns the Bears and enters the ninja attacking).
+  'Mukotai Ambusher',
+  'Ninja of the New Moon',
+  // D462 - Ninjutsu: the hand activation that returns an unblocked attacker and enters tapped and attacking, the engine's own now; the rows beside it.
+  'Spring-Leaf Avenger',
+  'Ninja of the Deep Hours',
+  'Moonsnare Specialist',
+  'Okiba-Gang Shinobi',
+  'Azra Smokeshaper',
+  'Nezumi Prowler',
+  'Moonblade Shinobi',
+  // D462 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

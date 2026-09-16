@@ -19,6 +19,7 @@ import {
 import { derive, makeDeriveCache } from './derive';
 import {
   activatedDefRegistered,
+  NINJUTSU_STEPS,
   canActAtSorcerySpeed,
   castableFaces,
   discardCandidatesFor,
@@ -1139,7 +1140,8 @@ function activateAbility(
   const abilityRef: AbilityRef = grant ? grant.ref : `${oracleCard.oracleId}#a${intent.abilityIndex}`;
   // A printed ability's destructive cost is offered only past a registered def
   // (D159); a granted ability EXISTS only because a def installed it.
-  const defReady = grant !== undefined || activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex);
+  // D462 - a synthesized ninjutsu resolves natively: its return is the engine's own to charge.
+  const defReady = grant !== undefined || ability.ninjutsu !== undefined || activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex);
   // D306 - cycling is activated from the hand and nowhere else (CR 702.29a).
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
@@ -1160,7 +1162,14 @@ function activateAbility(
   // handler required a zone only for cycling and the graveyard activations, so a
   // hand-built intent on a card in a graveyard went straight to payment - the D342
   // port's own proof activated a sacrificed land from its graveyard.
-  if (ability.cycling === undefined && ability.discardsSelf !== true && !ability.exileSelfFromGraveyard && !ability.activatesFromGraveyard && card.zone.kind !== 'battlefield') {
+  // D462 - ninjutsu is activated from the hand (CR 702.49a), inside the combat window (blockers declared, combat not over).
+  if (ability.ninjutsu !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
+    return reject('wrongZone', `${face.name}'s ninjutsu is activated from your hand.`);
+  }
+  if (ability.ninjutsu !== undefined && (state.combat === null || !NINJUTSU_STEPS.has(state.turn.step))) {
+    return reject('timingRestriction', `${face.name}'s ninjutsu can be activated only after blockers are declared, while combat lasts.`);
+  }
+  if (ability.cycling === undefined && ability.discardsSelf !== true && ability.ninjutsu === undefined && !ability.exileSelfFromGraveyard && !ability.activatesFromGraveyard && card.zone.kind !== 'battlefield') {
     return reject('wrongZone', `${face.name} is not on the battlefield.`);
   }
   // D328 - CR 602.5b: "Activate only once each turn" is refused the second
@@ -2146,6 +2155,11 @@ function finishAbility(
       moves.push({ card: chosen, from: { kind: 'battlefield', player: pending.player }, to: { kind: 'hand', player: inst.owner } });
     }
     events.push({ t: 'CardsMoved', moves });
+    // D462 - a returned attacker leaves combat with the return (CR 506.4).
+    if (state.combat !== null) {
+      const inCombat = moves.map((m) => m.card).filter((c) => state.combat?.attackers.some((a) => a.card === c) || state.combat?.blockers.some((b) => b.card === c));
+      if (inCombat.length > 0) events.push({ t: 'RemovedFromCombat', cards: inCombat });
+    }
     events.push(
       narrated(
         n`${who(state, pending.player)} ${vb(pending.player, 'returns', 'return')} ${moves.length} permanent${moves.length === 1 ? '' : 's'} to hand.`,
@@ -2281,6 +2295,10 @@ function finishAbility(
     // D457 - the reducer stamps the source's exhaust memory off this flag.
     ...(ability.exhaust ? { exhaust: true as const } : {}),
     ...(ability.boast ? { boast: true as const } : {}),
+    // D462 - the defender the returned creature was attacking, read before the return was charged (CR 702.49a).
+    ...(ability.ninjutsu !== undefined && pending.returnToHand && pending.returnToHand.length > 0
+      ? (() => { const d = state.combat?.attackers.find((a) => a.card === pending.returnToHand?.[0])?.defender; return d ? { ninjutsuDefender: d } : {}; })()
+      : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(

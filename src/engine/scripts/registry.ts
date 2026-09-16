@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SPRING_LEAF_AVENGER_SCRIPT } from './cards/springLeafAvenger';
+import { NINJA_OF_THE_DEEP_HOURS_SCRIPT } from './cards/ninjaOfTheDeepHours';
+import { MOONSNARE_SPECIALIST_SCRIPT } from './cards/moonsnareSpecialist';
+import { OKIBA_GANG_SHINOBI_SCRIPT } from './cards/okibaGangShinobi';
+import { AZRA_SMOKESHAPER_SCRIPT } from './cards/azraSmokeshaper';
+import { NEZUMI_PROWLER_SCRIPT } from './cards/nezumiProwler';
+import { MOONBLADE_SHINOBI_SCRIPT } from './cards/moonbladeShinobi';
 import { PONYBACK_BRIGADE_SCRIPT } from './cards/ponybackBrigade';
 import { GADGET_TECHNICIAN_SCRIPT } from './cards/gadgetTechnician';
 import { RAKISH_SCOUNDREL_SCRIPT } from './cards/rakishScoundrel';
@@ -7092,6 +7099,13 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPRING_LEAF_AVENGER_SCRIPT,
+  NINJA_OF_THE_DEEP_HOURS_SCRIPT,
+  MOONSNARE_SPECIALIST_SCRIPT,
+  OKIBA_GANG_SHINOBI_SCRIPT,
+  AZRA_SMOKESHAPER_SCRIPT,
+  NEZUMI_PROWLER_SCRIPT,
+  MOONBLADE_SHINOBI_SCRIPT,
   PONYBACK_BRIGADE_SCRIPT,
   GADGET_TECHNICIAN_SCRIPT,
   RAKISH_SCOUNDREL_SCRIPT,

@@ -382,6 +382,10 @@ const UNEARTH_RE = /^Unearth ((?:\{[^}]+\})+)$/;
 const UNEARTH_EFFECT = 'Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield.';
 // D451 - reinforce (CR 702.77a): the number and the mana price on the printed line; the rest is the rule's own words.
 const REINFORCE_RE = /^Reinforce (\d+)—((?:\{[^}]+\})+)$/;
+/** D462 - the ninjutsu line (CR 702.49a); `Commander ninjutsu` is not this word and stays Tier 3. */
+const NINJUTSU_RE = /^Ninjutsu ((?:\{[^}]+\})+)$/;
+const NINJUTSU_EFFECT = 'Put this card onto the battlefield from your hand tapped and attacking.';
+const NINJUTSU_RETURN = { count: 1, another: false, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [], unblockedAttacker: true }] } as const;
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
 
 export interface ActivatedParseInput {
@@ -617,6 +621,46 @@ export function parseActivatedAbilities(
           activateOnly: [],
           targets: [],
           unearth: { line: printed },
+        });
+        continue;
+      }
+    }
+    // D462 - THE NINJUTSU SEAM: an activated ability from the hand (CR 702.49a) whose cost is the printed mana and
+    // the return of an unblocked attacker you control (D352's chooser, one predicate more), and whose effect the
+    // engine runs natively - the card enters tapped and attacking. An unreadable price leaves the line unsynthesized.
+    const ninjutsu = NINJUTSU_RE.exec(printed);
+    if (ninjutsu) {
+      const ninjutsuCost = parseCost(ninjutsu[1] ?? '', warn);
+      if (ninjutsuCost !== null) {
+        out.push({
+          index: out.length,
+          costText: (ninjutsu[1] ?? '') + ", Return an unblocked attacker you control to its owner's hand",
+          effectText: NINJUTSU_EFFECT,
+          manaCost: ninjutsuCost,
+          requiresTap: false,
+          requiresUntap: false,
+          lifeCost: 0,
+          lifeCostCommanderColors: false,
+          sacrificesSelf: false,
+          sacrificeCost: null,
+          discardCost: null,
+          exileFromGraveyardCost: null,
+          exileSelfFromGraveyard: false,
+          activatesFromGraveyard: false,
+          removeCounterCost: null,
+          tapCost: null,
+          returnCost: NINJUTSU_RETURN,
+          returnsSelf: false,
+          putCounterCost: null,
+          unpaidCosts: [],
+          payable: true,
+          isManaAbility: false,
+          isLoyalty: false,
+          sorceryOnly: false,
+          oncePerTurn: false,
+          activateOnly: [],
+          targets: [],
+          ninjutsu: { line: printed },
         });
         continue;
       }

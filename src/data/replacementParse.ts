@@ -36,6 +36,8 @@ export interface PermanentPredicate {
   readonly colors: readonly ColorLetter[];
   /** D328 - the sacrifice chooser only: the permanent must be a token (`CardInstance.isToken`). */
   readonly token?: boolean;
+  /** D462 - the return chooser only (ninjutsu): the permanent must be an attacking creature that is not blocked. */
+  readonly unblockedAttacker?: boolean;
 }
 
 /**

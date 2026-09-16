@@ -254,6 +254,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D462 - ninjutsu is the engine's now, and the mirror offered two the row maker refused: filtered combat-damage heads
+  // (a Ninja you control; one or more Ninja or Rogue creatures) the library lacks.
+  ['Ingenious Infiltrator', 'a filtered combat-damage head outside the library (a Ninja you control deals combat damage to a player): Whenever a Ninja you control deals combat damage to a player, draw a card.'],
+  ['Prosperous Thief', 'a filtered combat-damage head outside the library (one or more Ninja or Rogue creatures you control): Whenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a Treasure token.'],
   // D460 - disguise is the engine's now, and the mirror offered six the row maker refused: a token outside the table, the
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.

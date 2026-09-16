@@ -260835,6 +260835,322 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MUKOTAI_AMBUSHER": {
+    "scryfallId": "0adf3293-c1e0-447c-8231-26fa9476a262",
+    "oracleId": "3a3f0bf4-7a02-4a57-8a18-ff22f012e0ef",
+    "name": "Mukotai Ambusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mukotai Ambusher",
+        "manaCost": "{3}{B}",
+        "typeLine": "Artifact Creature — Rat Ninja",
+        "oracleText": "Ninjutsu {1}{B} ({1}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nLifelink",
+        "flavorText": "The Mukotai Reckoners specialize in stealth and subterfuge.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "0adf3293-c1e0-447c-8231-26fa9476a262"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Ninjutsu"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NINJA_OF_THE_NEW_MOON": {
+    "scryfallId": "08be60eb-15ec-4112-919c-995062a9ed54",
+    "oracleId": "bf44b9b7-180c-4d8c-a410-9561e4c8fb9b",
+    "name": "Ninja of the New Moon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ninja of the New Moon",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Spirit Ninja",
+        "oracleText": "Ninjutsu {3}{B} ({3}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)",
+        "flavorText": "The night is the greatest ally of all.",
+        "power": "6",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "08be60eb-15ec-4112-919c-995062a9ed54"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRING_LEAF_AVENGER": {
+    "scryfallId": "02468510-1c54-4366-be41-8d10bf7bdaf2",
+    "oracleId": "19797dd6-6f48-47bc-a9ac-84d4acad3fa5",
+    "name": "Spring-Leaf Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spring-Leaf Avenger",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Insect Ninja",
+        "oracleText": "Ninjutsu {3}{G} ({3}{G}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, return target permanent card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wisnu Tan",
+        "imageId": "02468510-1c54-4366-be41-8d10bf7bdaf2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "pneo",
+    "collectorNumber": "208p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NINJA_OF_THE_DEEP_HOURS": {
+    "scryfallId": "14fdc73b-5dca-429f-9e9c-7cad3edff803",
+    "oracleId": "1f3c2b00-0000-4ae1-9650-9553accac52e",
+    "name": "Ninja of the Deep Hours",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ninja of the Deep Hours",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Ninja",
+        "oracleText": "Ninjutsu {1}{U} ({1}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, you may draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "14fdc73b-5dca-429f-9e9c-7cad3edff803"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOONSNARE_SPECIALIST": {
+    "scryfallId": "1e8b209f-f577-45cc-9d18-03c1d67d391e",
+    "oracleId": "ba858b68-ae93-4e1c-8a3a-3e4ac97282e8",
+    "name": "Moonsnare Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moonsnare Specialist",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Ninja",
+        "oracleText": "Ninjutsu {2}{U} ({2}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, return up to one target creature to its owner's hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "1e8b209f-f577-45cc-9d18-03c1d67d391e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OKIBA_GANG_SHINOBI": {
+    "scryfallId": "3ac72d23-d8c8-40fc-bd65-3cc2cc8af308",
+    "oracleId": "efe3b58f-6f83-45d5-beb1-7dde1cae9dd7",
+    "name": "Okiba-Gang Shinobi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Okiba-Gang Shinobi",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Rat Ninja",
+        "oracleText": "Ninjutsu {3}{B} ({3}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, that player discards two cards.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "3ac72d23-d8c8-40fc-bd65-3cc2cc8af308"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "370",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZRA_SMOKESHAPER": {
+    "scryfallId": "42e9affa-e546-4f90-ac37-54feb1af1b66",
+    "oracleId": "6f6e0abb-18d0-4a15-9b21-0a72542998ac",
+    "name": "Azra Smokeshaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azra Smokeshaper",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Azra Ninja",
+        "oracleText": "Ninjutsu {1}{B} ({1}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, target creature you control gains indestructible until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "42e9affa-e546-4f90-ac37-54feb1af1b66"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "287",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEZUMI_PROWLER": {
+    "scryfallId": "54fa5e72-ca3a-4f4e-b352-66d9f881479a",
+    "oracleId": "a93b5956-c11e-434e-bed5-94af9de55382",
+    "name": "Nezumi Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nezumi Prowler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact Creature — Rat Ninja",
+        "oracleText": "Ninjutsu {1}{B} ({1}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhen this creature enters, target creature you control gains deathtouch and lifelink until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joseph Weston",
+        "imageId": "54fa5e72-ca3a-4f4e-b352-66d9f881479a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "NEO-116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOONBLADE_SHINOBI": {
+    "scryfallId": "ebfbb4fe-a415-44fa-9a5b-cd6c05251723",
+    "oracleId": "046e25ee-c96d-4cff-93be-f7e3379d713c",
+    "name": "Moonblade Shinobi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moonblade Shinobi",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Ninja",
+        "oracleText": "Ninjutsu {2}{U} ({2}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, create a 1/1 blue Illusion creature token with flying.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Taylor Ingvarsson",
+        "imageId": "ebfbb4fe-a415-44fa-9a5b-cd6c05251723"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

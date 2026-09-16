@@ -20,7 +20,7 @@ import { candidatesFromState } from './targets';
 import type { ScriptRegistry } from './scripts/registry';
 import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb, OracleFace } from './types/oracle';
-import type { GameState } from './types/state';
+import type { GameState, Step } from './types/state';
 import type { ManaCost } from './types/mana';
 
 export type LegalAction =
@@ -355,6 +355,26 @@ export function legalActions(
           costText: ability.costText,
           effectText: ability.effectText,
           label: face.name,
+        });
+        continue;
+      }
+      // D462 - ninjutsu is activated from the hand inside the combat window (blockers declared, combat not over),
+      // with an unblocked attacker to return; the chooser's candidates ride the offer (D352).
+      if (ability.ninjutsu !== undefined) {
+        if (!ability.payable || !ability.returnCost || state.combat === null || !NINJUTSU_STEPS.has(state.turn.step)) continue;
+        const ninjaReturns = returnCandidatesFor(state, (cid) => derive(state, oracle, scripts, cid, context.cache), player, id, ability.returnCost);
+        if (ninjaReturns.length < ability.returnCost.count) continue;
+        out.push({
+          t: 'ActivateAbility',
+          card: id,
+          abilityIndex: ability.index,
+          affordable: affordable(context.solve, buildPaymentProblem(ability.manaCost, 0, [], 0, 0), abilityPurpose(face.typeLine, faceColors(face))),
+          requiresTap: false,
+          costText: ability.costText,
+          effectText: ability.effectText,
+          label: face.name,
+          returnCandidates: ninjaReturns,
+          returnCount: ability.returnCost.count,
         });
         continue;
       }
@@ -798,6 +818,9 @@ export function tapCandidatesFor(
  * for neither, and Quirion Ranger untapping the Forest it just returned is the
  * whole point of the card.
  */
+/** D462 - the steps a ninjutsu may be activated in: blockers declared, combat not yet over (CR 702.49a). */
+export const NINJUTSU_STEPS: ReadonlySet<Step> = new Set<Step>(['declareBlockers', 'firstStrikeDamage', 'combatDamage', 'endCombat']);
+
 export function returnCandidatesFor(
   state: GameState,
   deriveOf: (id: InstanceId) => PredicateChars,
@@ -810,6 +833,8 @@ export function returnCandidatesFor(
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
     if (cost.another && id === selfId) continue;
+    // D462 - the unblocked-attacker predicate (ninjutsu): an attacking creature no blocker was declared against.
+    if (cost.any.some((p) => p.unblockedAttacker) && !state.combat?.attackers.some((a) => a.card === id && !a.becameBlocked)) continue;
     if (predicateHit(cost.any, deriveOf(id))) out.push(id);
   }
   return out;
