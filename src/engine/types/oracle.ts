@@ -1774,6 +1774,12 @@ export interface OracleFace {
    */
   readonly choosesColorOnEntry: boolean;
   /**
+   * D465 - "As this ~ enters, choose a creature type." (CR 614.12), the colour clause one noun
+   * over: asked as the permanent enters, remembered on `CardInstance.chosenType`, read by the
+   * statics over "of the chosen type".
+   */
+  readonly choosesTypeOnEntry: boolean;
+  /**
    * D453 - `You control enchanted creature.` / `You control enchanted permanent.` on an Aura (CR 613.2 - a layer-2
    * control effect): while the Aura stays attached, its controller controls the enchanted permanent (`sba.ts`'s
    * built-in takes it and gives it back). Read off ONE exact line; false everywhere else.

@@ -37,7 +37,7 @@ import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { parseEntersTapped, parseChoosesColorOnEntry } from './replacementParse';
+import { parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
 /**
  * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
@@ -1251,6 +1251,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     // somehow matched would be claiming a rule it can never reach.
     entersTapped: isPermanent ? parseEntersTapped(face.oracleText, face.name) : null,
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
+    // D465 - the creature-type clause, the same way.
+    choosesTypeOnEntry: isPermanent && parseChoosesTypeOnEntry(face.oracleText),
     // D453 - an Aura that takes its host: one exact line, on an Aura face alone.
     controlsEnchanted: isPermanent && typeLine.subtypes.includes('Aura') && /^You control enchanted (?:creature|permanent)\.$/m.test(face.oracleText),
     // D442 - a permanent's printed maximum hand size (CR 402.2); the cleanup step reads it.

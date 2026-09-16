@@ -3,7 +3,9 @@ import { ManaCost } from '../card/ManaCost';
 import { useTable } from '../../store/tableStore';
 import { useGame } from '../../store/gameStore';
 import * as session from '../../game/session';
-import { BTN, BTN_GHOST, BTN_GHOST_SMALL, BTN_SMALL, PANEL } from './styles';
+import { BTN, BTN_GHOST, BTN_GHOST_SMALL, BTN_SMALL, FIELD, PANEL } from './styles';
+import { parseTypeLine } from '../../data/oracleParse';
+import type { PlayerView } from '../../view/types';
 import { aimPrompt, commitTargets } from './aimCommit';
 import { useAim } from '../../store/aimStore';
 import type { Awaiting, TargetChoice } from '../../engine/types/state';
@@ -39,6 +41,23 @@ function defaultDefenderFor(view: { seatOrder: string[]; seats: Record<string, {
 function nameOf(seats: readonly { id: string; name: string }[], id: string | null): string {
   if (!id) return 'nobody';
   return seats.find((s) => s.id === id)?.name ?? id;
+}
+
+/**
+ * D465 - the creature types the viewer can see on the table (every creature face in the view),
+ * as the suggestions under the name field. The host checks the answer against the whole
+ * catalogue, so a type typed from memory that no visible card prints is still accepted.
+ */
+function visibleCreatureTypes(view: PlayerView): string[] {
+  const out = new Set<string>();
+  for (const c of Object.values(view.cards)) {
+    for (const face of c.card?.faces ?? []) {
+      const t = parseTypeLine(face.typeLine);
+      if (!t.types.includes('Creature')) continue;
+      for (const sub of t.subtypes) out.add(sub);
+    }
+  }
+  return [...out].sort((a, b) => a.localeCompare(b));
 }
 
 function describe(
@@ -128,6 +147,10 @@ function describe(
         return awaiting.player === viewer
           ? `${awaiting.label} — name a colour.`
           : `${nameOf(seats, awaiting.player)} is naming a colour for ${awaiting.label}.`;
+      case 'chooseCreatureType':
+        return awaiting.player === viewer
+          ? `${awaiting.label} — name a creature type.`
+          : `${nameOf(seats, awaiting.player)} is naming a creature type for ${awaiting.label}.`;
       case 'entersChoice':
         // D441 - a reveal land's price is a card shown, not life.
         if (awaiting.reveal !== undefined) {
@@ -305,6 +328,8 @@ export function PromptBar() {
   const [offer, setOffer] = useState<EffectOffer | null>(null);
   // D343 - the modes picked so far on a prompt that allows more than one.
   const [modePicks, setModePicks] = useState<readonly number[]>([]);
+  // D465 - the creature type typed so far for a chooseCreatureType prompt.
+  const [typeName, setTypeName] = useState('');
   useEffect(
     () =>
       session.onSpellResolved(({ card, targets, controller }) => {
@@ -594,6 +619,41 @@ export function PromptBar() {
                 <ManaCost cost={`{${c}}`} />
               </button>
             ))}
+          </>
+        )}
+        {awaiting?.kind === 'chooseCreatureType' && mine('chooseCreatureType') && (
+          <>
+            <input
+              list="crt-creature-types"
+              className={`${FIELD} w-44`}
+              placeholder="Creature type"
+              value={typeName}
+              data-action="choose-creature-type-name"
+              onChange={(e) => setTypeName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && typeName.trim()) {
+                  send({ t: 'AnswerChooseCreatureType', player: viewer, creatureType: typeName.trim() });
+                  setTypeName('');
+                }
+              }}
+            />
+            <datalist id="crt-creature-types">
+              {visibleCreatureTypes(view).map((t) => (
+                <option key={t} value={t} />
+              ))}
+            </datalist>
+            <button
+              type="button"
+              className={BTN}
+              data-action="choose-creature-type"
+              disabled={!typeName.trim()}
+              onClick={() => {
+                send({ t: 'AnswerChooseCreatureType', player: viewer, creatureType: typeName.trim() });
+                setTypeName('');
+              }}
+            >
+              Name it
+            </button>
           </>
         )}
         {/* D415 - a VERB price: the Pay button SAYS the price and arms the pick (the object's own

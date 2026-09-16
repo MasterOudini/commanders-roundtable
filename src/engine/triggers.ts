@@ -1372,14 +1372,15 @@ function withChosenColor(
       if (!card) continue;
       const printing = oracle.byPrinting(card.printingId);
       if (!printing) continue;
-      if (!faceOf(printing, card.faceIndex).choosesColorOnEntry) continue;
+      const face = faceOf(printing, card.faceIndex);
+      // D465 - the creature-type clause is asked the same way (a face prints at most one of the two).
+      if (!face.choosesColorOnEntry && !face.choosesTypeOnEntry) continue;
       const player = move.to.player ?? card.controller ?? card.owner;
-      const awaiting: Awaiting = {
-        kind: 'chooseColor',
-        player,
-        source: move.card,
-        label: faceOf(printing, card.faceIndex).name,
-      };
+      // Two literals rather than one object with a computed kind: the awaiting pin reads the
+      // constructions by their literal kind, and each of the two must keep a producer site.
+      const awaiting: Awaiting = face.choosesColorOnEntry
+        ? { kind: 'chooseColor', player, source: move.card, label: face.name }
+        : { kind: 'chooseCreatureType', player, source: move.card, label: face.name };
       return [...events, { t: 'AwaitingSet', awaiting }];
     }
   }

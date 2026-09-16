@@ -435,3 +435,18 @@ const CHOOSE_COLOR_RE = /^As (?:this [a-z]+|[A-Z][^,]*) enters, choose a colou?r
 export function parseChoosesColorOnEntry(oracleText: string): boolean {
   return oracleText.split('\n').some((line) => CHOOSE_COLOR_RE.test(line.trim()));
 }
+
+/**
+ * D465 - the creature-type twin of the colour clause (CR 614.12): "As this ~ enters,
+ * choose a creature type." The consumer the colour note said did not exist now does -
+ * the generated statics over "of the chosen type" read `CardInstance.chosenType` - so
+ * the question is asked and its answer remembered. Anchored at both ends the same way:
+ * "choose a creature type other than …" and "choose a color and a creature type" are
+ * different questions and are not read.
+ */
+// `this Vehicle` and `this Aura` print a capital (Lifecraft Engine), so the noun is case-free here.
+const CHOOSE_TYPE_RE = /^As (?:this [A-Za-z]+|[A-Z][^,]*) enters, choose a creature type\.$/;
+
+export function parseChoosesTypeOnEntry(oracleText: string): boolean {
+  return oracleText.split('\n').some((line) => CHOOSE_TYPE_RE.test(line.trim()));
+}

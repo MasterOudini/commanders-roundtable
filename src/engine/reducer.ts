@@ -294,6 +294,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     ptOverride: null,
     typeOverride: null,
     chosenColor: null,
+    // D465 - the chosen creature type is a battlefield fact too; a permanent that leaves and re-enters is asked again.
+    chosenType: null,
     faceIndex: 0,
     // D403 - a permanent remembers its kick only from the spell it entered as.
     kicked: undefined,
@@ -985,6 +987,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'ColorChosen':
       return withCard(state, body.card, { chosenColor: body.color });
 
+    case 'CreatureTypeChosen':
+      return withCard(state, body.card, { chosenType: body.creatureType });
+
     case 'StackTargetsSet':
       return {
         ...state,
@@ -1369,6 +1374,7 @@ function newInstance(
     ptOverride: null,
     typeOverride: null,
     chosenColor: null,
+    chosenType: null,
     revealedTo: [],
     phasedOut: false,
   };

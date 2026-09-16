@@ -98,6 +98,11 @@ export function simplestIntent(
         return awaiting.player === snapshot.you
           ? { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' }
           : null;
+      /** D465 - the creature-type twin; Human, for reproducibility. */
+      case 'chooseCreatureType':
+        return awaiting.player === snapshot.you
+          ? { t: 'AnswerChooseCreatureType', player: awaiting.player, creatureType: 'Human' }
+          : null;
       /** D343 - the first offered mode(s), as many as the prompt requires. */
       case 'chooseModes':
         return awaiting.player === snapshot.you

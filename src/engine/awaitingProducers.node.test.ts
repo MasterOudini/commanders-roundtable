@@ -135,10 +135,11 @@ const PRODUCED = [...new Set(SITES.map((s) => s.kind))].sort();
 const NO_PRODUCER = ['orderAttackers', 'orderBlockers'] as const;
 
 describe('Awaiting — which prompts the engine can raise', () => {
-  test('the union is the twenty-three kinds this test knows about', () => {
+  test('the union is the twenty-four kinds this test knows about', () => {
     expect([...KINDS].sort()).toEqual(
       [
         'chooseColor',
+        'chooseCreatureType',
         'chooseReplacement',
         'chooseFromZone',
         'searchLibrary',
@@ -165,10 +166,11 @@ describe('Awaiting — which prompts the engine can raise', () => {
     );
   });
 
-  test('twenty-one of the twenty-three have a producer, and the sites are real', () => {
+  test('twenty-two of the twenty-four have a producer, and the sites are real', () => {
     expect(PRODUCED).toEqual(
       [
         'chooseColor',
+        'chooseCreatureType',
         'chooseReplacement',
         'chooseFromZone',
         'searchLibrary',

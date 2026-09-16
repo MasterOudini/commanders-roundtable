@@ -494,6 +494,32 @@ export function answerAwaiting(
     }
 
     /**
+     * D465 - the creature type the deck is built around: the subtype most of my own creature cards
+     * (hand and battlefield) print, Human when nothing says. The view holds my hand in full and every
+     * permanent on the board, so the tally is over the cards the bot can actually see; ties break
+     * alphabetically so the answer is a function of the view alone.
+     */
+    case 'chooseCreatureType': {
+      const tally = new Map<string, number>();
+      for (const c of [...myHand(view, me), ...myPermanents(view, me)]) {
+        const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
+        if (!face) continue;
+        const t = parseTypeLine(face.typeLine);
+        if (!t.types.includes('Creature')) continue;
+        for (const sub of t.subtypes) tally.set(sub, (tally.get(sub) ?? 0) + 1);
+      }
+      let best = 'Human';
+      let bestN = 0;
+      for (const [sub, n] of [...tally].sort((a, b) => a[0].localeCompare(b[0]))) {
+        if (n > bestN) {
+          best = sub;
+          bestN = n;
+        }
+      }
+      return act({ t: 'AnswerChooseCreatureType', player: me, creatureType: best }, 'name a creature type');
+    }
+
+    /**
      * D343 - THE FIRST OFFERED MODE(S), AND SAID TO BE A POLICY. The modes are
      * printed text, and `src/bot/` may not import an engine module that takes a
      * `GameState` to price them; the card in the bot's deck was put there to be

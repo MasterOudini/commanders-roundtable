@@ -137,6 +137,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerChooseReplacement(state, intent, deps);
     case 'AnswerChooseColor':
       return answerChooseColor(state, intent);
+    case 'AnswerChooseCreatureType':
+      return answerChooseCreatureType(state, intent, deps);
     case 'AnswerEntersChoice':
       return answerEntersChoice(state, intent, deps);
     case 'AnswerPayMana':
@@ -3066,6 +3068,40 @@ function answerChooseColor(
       { t: 'ColorChosen', card: awaiting.source, color: intent.color },
       narrated(
         n`${who(state, intent.player)} ${vb(intent.player, 'names', 'name')} {${intent.color}} for ${awaiting.label}.`,
+        intent.player,
+      ),
+      { t: 'AwaitingSet', awaiting: null },
+    ],
+  };
+}
+
+/**
+ * D465 - the creature-type twin of `answerChooseColor`. The catalogue is the oracle catalogue
+ * (`creatureTypes`, the changeling list, D310): a name outside it is REFUSED with a message
+ * rather than stored, because every consumer compares it against derived subtypes and a
+ * misspelling would be a permanent that quietly applies to nothing.
+ */
+function answerChooseCreatureType(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerChooseCreatureType' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'chooseCreatureType') {
+    return reject('noPendingChoice', 'Nothing is waiting for a creature type.');
+  }
+  if (awaiting.player !== intent.player) {
+    return reject('notYourTurn', 'That choice is not yours to make.');
+  }
+  if (!deps.oracle.creatureTypes.has(intent.creatureType)) {
+    return reject('notACreatureType', `${intent.creatureType} is not a creature type.`);
+  }
+  return {
+    ok: true,
+    events: [
+      { t: 'CreatureTypeChosen', card: awaiting.source, creatureType: intent.creatureType },
+      narrated(
+        n`${who(state, intent.player)} ${vb(intent.player, 'names', 'name')} ${intent.creatureType} for ${awaiting.label}.`,
         intent.player,
       ),
       { t: 'AwaitingSet', awaiting: null },

@@ -373,9 +373,15 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Mukotai Ambusher'], copiesPerSeat: 2,
     counterKeys: ['ninjutsus'], rotHistory: 'D462' },
   // D463 - mobilize: a Shock Brigade a seat ({1}{R}, mobilize 1 whenever it attacks - a Warrior tapped and attacking;
-  // the four-mana Lancer was never cast over 150 seeds - a seat holds three basics, D445).
-  { names: ['Shock Brigade'], copiesPerSeat: 2,
-    counterKeys: ['mobilizeFired'], rotHistory: 'D463' },
+  // the four-mana Lancer was never cast over 150 seeds - a seat holds three basics, D445). D465 - FOUR a seat: two
+  // read 0 at 60 and 150 seeds on the D465 tree (15 over the D464 gate`s 500), and the rate is the deal, not the
+  // mechanism (8 fires in one 20-seed shard at twelve a seat).
+  { names: ['Shock Brigade'], copiesPerSeat: 4,
+    counterKeys: ['mobilizeFired'], rotHistory: 'D463, D465' },
+  // D465 - the chosen creature type: a Shared Triumph a seat ({1}{W}; the entry prompt the driver answers Bear,
+  // the anthem the generated static reads off the answer).
+  { names: ['Shared Triumph'], copiesPerSeat: 2,
+    counterKeys: ['creatureTypesChosen'], rotHistory: 'D465' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1266,6 +1272,8 @@ interface Run {
   /** D463 - the mobilize triggers put on the stack, and the Warriors that joined a combat attacking. */
   readonly mobilizeFired: number;
   readonly mobilizeWarriors: number;
+  /** D465 - the creature types named as a permanent entered (`CreatureTypeChosen`, CR 614.12). */
+  readonly creatureTypesChosen: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1695,6 +1703,7 @@ function runOne(seed: number): Run {
     ninjutsus: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.ninjutsuDefender !== undefined).length,
     mobilizeFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:mobilize')).length,
     mobilizeWarriors: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AttackerAdded' && made.has(e.body.card)).length; })(),
+    creatureTypesChosen: game.log.filter((e) => e.body.t === 'CreatureTypeChosen').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1956,6 +1965,7 @@ const TOTAL_KEYS = [
   'ninjutsus',
   'mobilizeFired',
   'mobilizeWarriors',
+  'creatureTypesChosen',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2450,6 +2460,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.disguiseCasts} disguise casts (${totals.disguiseUnmasks} turned up) · ` +
           `${totals.ninjutsus} ninjutsus · ` +
           `${totals.mobilizeFired} mobilizes (${totals.mobilizeWarriors} Warriors attacking) · ` +
+          `${totals.creatureTypesChosen} creature types chosen · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

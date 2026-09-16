@@ -261979,6 +261979,479 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SHARED_TRIUMPH": {
+    "scryfallId": "0d07ebe6-76cf-4345-b59b-9954496c44d0",
+    "oracleId": "64d022ab-5222-4a7a-ab8a-89749560f666",
+    "name": "Shared Triumph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shared Triumph",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nCreatures of the chosen type get +1/+1.",
+        "flavorText": "\"Win together, die alone.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Brill",
+        "imageId": "0d07ebe6-76cf-4345-b59b-9954496c44d0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RALLY_THE_RANKS": {
+    "scryfallId": "03595195-3be2-4d18-b5c0-43b2dcc1c0f5",
+    "oracleId": "eeb07c8a-21d1-43fa-a5f3-ee3fe328a671",
+    "name": "Rally the Ranks",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rally the Ranks",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.",
+        "flavorText": "Halvar united the spirits of all the clans into a single, devastating force.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "03595195-3be2-4d18-b5c0-43b2dcc1c0f5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADAPTIVE_AUTOMATON": {
+    "scryfallId": "0955a8e9-05ea-4747-a148-8d86a800d850",
+    "oracleId": "53c730c6-2f8c-4af8-b400-b9d573a71e60",
+    "name": "Adaptive Automaton",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adaptive Automaton",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nOther creatures you control of the chosen type get +1/+1.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "0955a8e9-05ea-4747-a148-8d86a800d850"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "brr",
+    "collectorNumber": "64z",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COVER_OF_DARKNESS": {
+    "scryfallId": "0d6d7d88-d82b-40f4-bf57-ec5d7c480689",
+    "oracleId": "d78654fc-7d90-40ce-9c36-a211424d1a88",
+    "name": "Cover of Darkness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cover of Darkness",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nCreatures of the chosen type have fear. (They can't be blocked except by artifact creatures and/or black creatures.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0d6d7d88-d82b-40f4-bf57-ec5d7c480689"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VANQUISHER_S_BANNER": {
+    "scryfallId": "1b56ca43-4652-4faa-ac25-e48f57315634",
+    "oracleId": "8cf38025-5821-45a0-9483-266353b7e82d",
+    "name": "Vanquisher's Banner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vanquisher's Banner",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Milivoj Ćeran",
+        "imageId": "1b56ca43-4652-4faa-ac25-e48f57315634"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pxln",
+    "collectorNumber": "251s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENGINEERED_PLAGUE": {
+    "scryfallId": "1c7008a8-a841-4d6c-be17-c9ef60e51976",
+    "oracleId": "dc8210b4-8e17-4156-994b-e95e215e3e34",
+    "name": "Engineered Plague",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Engineered Plague",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nAll creatures of the chosen type get -1/-1.",
+        "flavorText": "\"The admixture of bitterwort in the viral brew has produced most favorable results.\"\n—Phyrexian progress notes",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "1c7008a8-a841-4d6c-be17-c9ef60e51976"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "32543",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHRONICLE_OF_VICTORY": {
+    "scryfallId": "2b6471ba-b724-42d8-8db5-a719b4f79dd6",
+    "oracleId": "e949b362-4988-4482-ac51-c1049af9040c",
+    "name": "Chronicle of Victory",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chronicle of Victory",
+        "manaCost": "{6}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "As Chronicle of Victory enters, choose a creature type.\nCreatures you control of the chosen type get +2/+2 and have first strike and trample.\nWhenever you cast a spell of the chosen type, draw a card.",
+        "flavorText": "\"For those we lost, that they may forever live.\"\n—Tapestry inscription",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aldo Domínguez",
+        "imageId": "2b6471ba-b724-42d8-8db5-a719b4f79dd6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pecl",
+    "collectorNumber": "253p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATCHWORK_BANNER": {
+    "scryfallId": "36034cb5-3d39-49f5-9e30-8d78ec2ae65f",
+    "oracleId": "4fb00dbe-1f82-4ba6-b18c-97e816d10d3a",
+    "name": "Patchwork Banner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patchwork Banner",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sarah Finnigan",
+        "imageId": "36034cb5-3d39-49f5-9e30-8d78ec2ae65f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pmei",
+    "collectorNumber": "2024-7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODLINE_PRETENDER": {
+    "scryfallId": "69696834-d306-4431-9279-37143c9ac00a",
+    "oracleId": "51d6d164-6e5f-4be3-8f09-433e0b8d4c6b",
+    "name": "Bloodline Pretender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodline Pretender",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nAs this creature enters, choose a creature type.\nWhenever another creature you control of the chosen type enters, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Slawomir Maniak",
+        "imageId": "69696834-d306-4431-9279-37143c9ac00a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "757",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSTRUMENTS_OF_WAR": {
+    "scryfallId": "9526bea2-8d47-4a82-a617-6c57c7abc69a",
+    "oracleId": "8be46af9-1b70-4da9-b16d-869c3831dc99",
+    "name": "Instruments of War",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Instruments of War",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash\nAs this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.",
+        "flavorText": "Perfect for keeping time at a battle or a ball.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Drew Tucker",
+        "imageId": "9526bea2-8d47-4a82-a617-6c57c7abc69a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEELY_RESOLVE": {
+    "scryfallId": "b88c530a-abc3-4cc4-8a48-5b76e1504a3c",
+    "oracleId": "48c127f0-2857-4c36-97bc-1291b6fe4a82",
+    "name": "Steely Resolve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steely Resolve",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nCreatures of the chosen type have shroud. (They can't be the targets of spells or abilities.)",
+        "flavorText": "No one in Wirewood understands what is happening. They just know it's unnatural—and coming from Krosa.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "b88c530a-abc3-4cc4-8a48-5b76e1504a3c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "286",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPECIES_SPECIALIST": {
+    "scryfallId": "bb2cbf12-7f35-4162-b1a0-89a1632728c7",
+    "oracleId": "51feda69-0ae8-4df3-bb50-a4bb9deb965d",
+    "name": "Species Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Species Specialist",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "As this creature enters, choose a creature type.\nWhenever a creature of the chosen type dies, you may draw a card.",
+        "flavorText": "\"I don't have anything against Snapdax. I'm just more of a dog person.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "bb2cbf12-7f35-4162-b1a0-89a1632728c7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "c20",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBELISK_OF_URD": {
+    "scryfallId": "c610beb6-6fd5-4230-ae74-240a005d5c8c",
+    "oracleId": "e2ef3a24-9e78-47fc-9192-049aa0ddb7a0",
+    "name": "Obelisk of Urd",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obelisk of Urd",
+        "manaCost": "{6}",
+        "typeLine": "Artifact",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nAs this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +2/+2.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Severin Brassell",
+        "imageId": "c610beb6-6fd5-4230-ae74-240a005d5c8c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Convoke"
+    ],
+    "setCode": "znc",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "XENOGRAFT": {
+    "scryfallId": "f52f08e1-b234-42e4-8f1f-485a4f6edb3b",
+    "oracleId": "76642e7a-3c8f-45b8-9cd7-dac8086bea87",
+    "name": "Xenograft",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Xenograft",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "As this enchantment enters, choose a creature type.\nEach creature you control is the chosen type in addition to its other types.",
+        "flavorText": "\"I despise Vorinclex and his slobberings about 'evolution.' Only I know true progress.\"\n—Jin-Gitaxias, Core Augur",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daniel Ljunggren",
+        "imageId": "f52f08e1-b234-42e4-8f1f-485a4f6edb3b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUVIAN_BEARS": {
+    "scryfallId": "662dc886-ce6b-4db1-a806-cc0d4fc504f6",
+    "oracleId": "32c10a3e-85b0-49af-9b23-81d0b7e407df",
+    "name": "Balduvian Bears",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balduvian Bears",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Bear",
+        "oracleText": "",
+        "flavorText": "\"They're a hardy bunch, but I'd still bet that they just slept through the worst of the cold times.\"\n—Disa the Restless, journal entry",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "662dc886-ce6b-4db1-a806-cc0d4fc504f6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dkm",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

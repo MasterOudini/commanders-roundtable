@@ -254,6 +254,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D465 - the chosen creature type is the engine's now, and the mirror offered two the row maker refused: a compound
+  // enters-or-attacks head over a filtered subject, a sacrifice cost whose predicate names the chosen type.
+  ['Kindred Discovery', 'a compound enters-or-attacks head over a filtered subject the library lacks (a creature you control of the chosen type enters or attacks): Whenever a creature you control of the chosen type enters or attacks, draw a card.'],
+  ['Doom Cannon', 'a sacrifice cost over the chosen type no fixture the suite can put satisfies (the cost chooser reads no chosenType): {3}, {T}, Sacrifice a creature of the chosen type: This artifact deals 3 damage to any target.'],
   // D463 - mobilize is the engine's now, and the mirror offered one the row maker refused: a compound dies head
   // (this creature or another creature you control) the library lacks.
   // D462 - ninjutsu is the engine's now, and the mirror offered two the row maker refused: filtered combat-damage heads

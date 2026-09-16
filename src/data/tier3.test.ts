@@ -290,7 +290,9 @@ describe('a permanent’s text, which the app does not run', () => {
     // `ManaProduction.conditional` is set, and the flag does not say which — so
     // one note names all of them.
     expect(what(C.GEMSTONE_MINE)).toEqual(['Its ability text', 'Part of its mana ability']);
-    expect(what(C.CAVERN_OF_SOULS)).toEqual(['Its ability text', 'Part of its mana ability']);
+    // D465 - Cavern of Souls' `As this land enters, choose a creature type.` is the engine's now (asked and
+    // remembered, `chosenType`), so the ability-text note is gone; the spend restriction still owes its note.
+    expect(what(C.CAVERN_OF_SOULS)).toEqual(['Part of its mana ability']);
   });
 
   test('a mana line the engine models COMPLETELY stays quiet', () => {

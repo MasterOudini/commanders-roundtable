@@ -235,6 +235,8 @@ export type Intent =
   /** CR 616.1 — which applicable replacement effect applies next. See D148. */
   | { readonly t: 'AnswerChooseReplacement'; readonly player: PlayerId; readonly key: string }
   | { readonly t: 'AnswerChooseColor'; readonly player: PlayerId; readonly color: ColorLetter }
+  /** D465 - the creature-type twin of the colour answer; a name outside the oracle catalogue is refused. */
+  | { readonly t: 'AnswerChooseCreatureType'; readonly player: PlayerId; readonly creatureType: string }
   /** D441 - `reveal` names the hand card a reveal land's price shows (with `pay: true`); absent for a life price. */
   | { readonly t: 'AnswerEntersChoice'; readonly player: PlayerId; readonly source: InstanceId; readonly pay: boolean; readonly reveal?: InstanceId }
   /**
@@ -402,6 +404,8 @@ export type RejectReason =
   | 'noPendingCast'
   /** Nothing is waiting for the answer that was sent. */
   | 'noPendingChoice'
+  /** D465 - the creature type named is not one the oracle catalogue knows. */
+  | 'notACreatureType'
   | 'wrongCastStage'
   | 'illegalTarget'
   | 'illegalMode'

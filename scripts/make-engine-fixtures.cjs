@@ -8563,6 +8563,24 @@ const WANTED = [
   'Venerated Stormsinger',
   'Vengeful Bloodwitch',
   // D464 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D465 - the chosen creature type: the seam test's own card (an entry prompt the engine asks, an inline static that reads the answer).
+  'Shared Triumph',
+  // D465 - the chosen creature type: the statics over the chosen type (anthems, grants, the type-add) beside the entry prompt the engine now asks, the rows that read.
+  'Rally the Ranks',
+  'Adaptive Automaton',
+  'Cover of Darkness',
+  "Vanquisher's Banner",
+  'Engineered Plague',
+  'Chronicle of Victory',
+  'Patchwork Banner',
+  'Bloodline Pretender',
+  'Instruments of War',
+  'Steely Resolve',
+  'Species Specialist',
+  'Obelisk of Urd',
+  'Xenograft',
+  // D465 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Balduvian Bears',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

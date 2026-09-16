@@ -381,6 +381,13 @@ export function simplestAnswer(
     case 'chooseColor':
       return { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' };
     /**
+     * D465 - BEAR, ALWAYS, for the same reason white is: any catalogued type is legal on any board, and
+     * a fixed answer keeps the fuzzer reproducible. Bear rather than Human because Grizzly Bears is the
+     * generated suites' fixture, so a static over the chosen type is proven on the body every suite deals.
+     */
+    case 'chooseCreatureType':
+      return { t: 'AnswerChooseCreatureType', player: awaiting.player, creatureType: 'Bear' };
+    /**
      * D343 - the first offered mode(s): as many as the prompt requires, at least
      * one when it allows any number. A cast with too few modes offered is
      * cancelled (a trigger with too few is never raised).

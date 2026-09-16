@@ -275,6 +275,14 @@ export interface CardInstance {
    * fact, so a permanent that leaves and re-enters is asked again (CR 400.7).
    */
   readonly chosenColor: ColorLetter | null;
+  /**
+   * D465 - the creature type named by "As this ~ enters, choose a creature type." (CR 614.12):
+   * the second of the three shapes the note above counted, landed the day its consumer did -
+   * the generated statics over "of the chosen type" (anthems, keyword grants, the type-add)
+   * read it off the source. A creature type the oracle catalogue knows (`OracleDb.creatureTypes`,
+   * the changeling list), or null while nothing has been chosen. Cleared with the colour.
+   */
+  readonly chosenType: string | null;
   /** Players who may see this card even though its zone is hidden. */
   readonly revealedTo: readonly PlayerId[];
   readonly phasedOut: boolean;
@@ -864,6 +872,17 @@ export type Awaiting =
    */
   | {
       readonly kind: 'chooseColor';
+      readonly player: PlayerId;
+      readonly source: InstanceId;
+      readonly label: string;
+    }
+  /**
+   * D465 - the creature-type twin: a fact, remembered on `CardInstance.chosenType`. No options
+   * ride it - the catalogue is the oracle catalogue (`creatureTypes`), which every client already
+   * holds, and the handler refuses a name outside it.
+   */
+  | {
+      readonly kind: 'chooseCreatureType';
       readonly player: PlayerId;
       readonly source: InstanceId;
       readonly label: string;

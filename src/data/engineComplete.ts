@@ -63,7 +63,7 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // D463 - mobilize: the attack trigger, the tokens, the delayed sacrifice - all the table's.
 const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading', 'fabricate', 'mobilize']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
-import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
+import { parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
 export interface Completeness {
   readonly complete: boolean;
@@ -523,9 +523,11 @@ export function linesUnaccounted(
     // ⚠️ Same rule, one clause along (D147): ASKED OF THE PARSER that set the
     // flag, never re-read here. `face.choosesColorOnEntry` is already the answer
     // to "is this the colour-choice clause", and it is deliberately narrow — a
-    // second regex here would eventually accept "choose a creature type", which
-    // the engine asks nobody about and nothing reads.
+    // second regex here would eventually accept "choose an opponent", which
+    // the engine asks nobody about and nothing reads (the creature type joined in D465).
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
+    // D465 - the creature-type clause, asked of the parser that set the flag the same way.
+    if (face.choosesTypeOnEntry && parseChoosesTypeOnEntry(line)) continue;
     // D453 - the control Aura's line, when the face flag read it (the built-in in sba.ts takes and gives back).
     if (face.controlsEnchanted && /^You control enchanted (?:creature|permanent)\.$/.test(line)) continue;
     // D442 - a printed maximum hand size the cleanup step READS (`maxHandSize`, CR 514.1). Asked of the

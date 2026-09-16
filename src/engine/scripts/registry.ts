@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RALLY_THE_RANKS_SCRIPT } from './cards/rallyTheRanks';
+import { ADAPTIVE_AUTOMATON_SCRIPT } from './cards/adaptiveAutomaton';
+import { SHARED_TRIUMPH_SCRIPT } from './cards/sharedTriumph';
+import { COVER_OF_DARKNESS_SCRIPT } from './cards/coverOfDarkness';
+import { VANQUISHERS_BANNER_SCRIPT } from './cards/vanquishersBanner';
+import { ENGINEERED_PLAGUE_SCRIPT } from './cards/engineeredPlague';
+import { CHRONICLE_OF_VICTORY_SCRIPT } from './cards/chronicleOfVictory';
+import { PATCHWORK_BANNER_SCRIPT } from './cards/patchworkBanner';
+import { BLOODLINE_PRETENDER_SCRIPT } from './cards/bloodlinePretender';
+import { INSTRUMENTS_OF_WAR_SCRIPT } from './cards/instrumentsOfWar';
+import { STEELY_RESOLVE_SCRIPT } from './cards/steelyResolve';
+import { SPECIES_SPECIALIST_SCRIPT } from './cards/speciesSpecialist';
+import { OBELISK_OF_URD_SCRIPT } from './cards/obeliskOfUrd';
+import { XENOGRAFT_SCRIPT } from './cards/xenograft';
 import { BLOOD_ARTIST_SCRIPT } from './cards/bloodArtist';
 import { AYARA_FIRST_OF_LOCTHWAIN_SCRIPT } from './cards/ayaraFirstOfLocthwain';
 import { UNDEAD_AUGUR_SCRIPT } from './cards/undeadAugur';
@@ -7120,6 +7134,20 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RALLY_THE_RANKS_SCRIPT,
+  ADAPTIVE_AUTOMATON_SCRIPT,
+  SHARED_TRIUMPH_SCRIPT,
+  COVER_OF_DARKNESS_SCRIPT,
+  VANQUISHERS_BANNER_SCRIPT,
+  ENGINEERED_PLAGUE_SCRIPT,
+  CHRONICLE_OF_VICTORY_SCRIPT,
+  PATCHWORK_BANNER_SCRIPT,
+  BLOODLINE_PRETENDER_SCRIPT,
+  INSTRUMENTS_OF_WAR_SCRIPT,
+  STEELY_RESOLVE_SCRIPT,
+  SPECIES_SPECIALIST_SCRIPT,
+  OBELISK_OF_URD_SCRIPT,
+  XENOGRAFT_SCRIPT,
   BLOOD_ARTIST_SCRIPT,
   AYARA_FIRST_OF_LOCTHWAIN_SCRIPT,
   UNDEAD_AUGUR_SCRIPT,
