@@ -386,6 +386,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // sweeps the pool already deals spend it (CR 122.1i, the funnel and the three destroy sites).
   { names: ['Disciplined Duelist'], copiesPerSeat: 2,
     counterKeys: ['shieldCountersPut', 'shieldCountersSpent'], rotHistory: 'D469' },
+  // D470 - the stun counter: a Rowdy Snowballers a seat ({2}{U}; taps an opponent`s creature and stuns it on entry - the
+  // counter spent at that creature's next untap step by the built-in, CR 122.1j).
+  { names: ['Rowdy Snowballers'], copiesPerSeat: 2,
+    counterKeys: ['stunCountersPut', 'stunCountersSpent'], rotHistory: 'D470' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1281,6 +1285,9 @@ interface Run {
   /** D469 - the shield counters removed in place of damage or a destruction (CR 122.1i). */
   readonly shieldCountersSpent: number;
   readonly shieldCountersPut: number;
+  /** D470 - the stun counters put on permanents, and the ones the untap built-in removed in place of an untap (CR 122.1j). */
+  readonly stunCountersPut: number;
+  readonly stunCountersSpent: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1713,6 +1720,8 @@ function runOne(seed: number): Run {
     creatureTypesChosen: game.log.filter((e) => e.body.t === 'CreatureTypeChosen').length,
     shieldCountersSpent: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'shield' && c.delta < 0)).length,
     shieldCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'shield' && c.delta > 0)).length,
+    stunCountersPut: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta > 0)).length,
+    stunCountersSpent: game.log.filter((e) => e.body.t === 'CountersChanged' && e.body.changes.some((c) => c.kind === 'stun' && c.delta < 0)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1977,6 +1986,8 @@ const TOTAL_KEYS = [
   'creatureTypesChosen',
   'shieldCountersSpent',
   'shieldCountersPut',
+  'stunCountersPut',
+  'stunCountersSpent',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2372,6 +2383,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.disguiseCasts).toBeGreaterThan(0);
         // D463 - a mobilize fired at gate size (Shock Brigade 4 at 60 seeds, 12 at 150).
         expect(totals.mobilizeFired).toBeGreaterThan(0);
+        // D470 - a stun counter spent in place of an untap at gate size (Rowdy Snowballers 6 at 60 seeds, 11 at 150).
+        expect(totals.stunCountersSpent).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2473,6 +2486,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.mobilizeFired} mobilizes (${totals.mobilizeWarriors} Warriors attacking) · ` +
           `${totals.creatureTypesChosen} creature types chosen · ` +
           `${totals.shieldCountersPut} shield counters put / ${totals.shieldCountersSpent} spent · ` +
+          `${totals.stunCountersPut} stun counters put / ${totals.stunCountersSpent} spent · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

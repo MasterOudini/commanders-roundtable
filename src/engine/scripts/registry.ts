@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { REFEREE_SQUAD_SCRIPT } from './cards/refereeSquad';
+import { ALCHEMAX_SLAYER_BOTS_SCRIPT } from './cards/alchemaxSlayerBots';
+import { ROWDY_SNOWBALLERS_SCRIPT } from './cards/rowdySnowballers';
+import { COLLECTORS_CASE_SCRIPT } from './cards/collectorsCase';
+import { FROSTFIST_STRIDER_SCRIPT } from './cards/frostfistStrider';
+import { UTROM_SCIENTISTS_SCRIPT } from './cards/utromScientists';
+import { CRYOGEN_RELIC_SCRIPT } from './cards/cryogenRelic';
+import { SHIPWRECK_PATROL_SCRIPT } from './cards/shipwreckPatrol';
+import { ICE_FLAN_SCRIPT } from './cards/iceFlan';
+import { FRACTAL_MASCOT_SCRIPT } from './cards/fractalMascot';
+import { GRAPPLING_KRAKEN_SCRIPT } from './cards/grapplingKraken';
+import { WAYLAYING_PIRATES_SCRIPT } from './cards/waylayingPirates';
+import { PETRIFYING_MEDDLER_SCRIPT } from './cards/petrifyingMeddler';
 import { PROUD_PACK_RHINO_SCRIPT } from './cards/proudPackRhino';
 import { SWOOPING_PROTECTOR_SCRIPT } from './cards/swoopingProtector';
 import { BROKERS_VETERAN_SCRIPT } from './cards/brokersVeteran';
@@ -7203,6 +7216,19 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  REFEREE_SQUAD_SCRIPT,
+  ALCHEMAX_SLAYER_BOTS_SCRIPT,
+  ROWDY_SNOWBALLERS_SCRIPT,
+  COLLECTORS_CASE_SCRIPT,
+  FROSTFIST_STRIDER_SCRIPT,
+  UTROM_SCIENTISTS_SCRIPT,
+  CRYOGEN_RELIC_SCRIPT,
+  SHIPWRECK_PATROL_SCRIPT,
+  ICE_FLAN_SCRIPT,
+  FRACTAL_MASCOT_SCRIPT,
+  GRAPPLING_KRAKEN_SCRIPT,
+  WAYLAYING_PIRATES_SCRIPT,
+  PETRIFYING_MEDDLER_SCRIPT,
   PROUD_PACK_RHINO_SCRIPT,
   SWOOPING_PROTECTOR_SCRIPT,
   BROKERS_VETERAN_SCRIPT,

@@ -8661,6 +8661,21 @@ const WANTED = [
   'Rhox Pummeler',
   'Dapper Shieldmate',
   // D469 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D470 - the stun counter: CR 122.1j as an engine rule (a permanent that would untap loses a stun counter instead), the tap-and-stun payloads and the entry rows that read.
+  'Referee Squad',
+  'Alchemax Slayer-Bots',
+  'Rowdy Snowballers',
+  "Collector's Case",
+  'Frostfist Strider',
+  'Utrom Scientists',
+  'Cryogen Relic',
+  'Shipwreck Patrol',
+  'Ice Flan',
+  'Fractal Mascot',
+  'Grappling Kraken',
+  'Waylaying Pirates',
+  'Petrifying Meddler',
+  // D470 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

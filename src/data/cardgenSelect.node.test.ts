@@ -251,6 +251,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D470 - the stun counter is the engine's now (and the vocabulary puts it), and the mirror offered four the row maker
+  // refused: a block proof beside a payload that taps the opponent's blocker, two multi-face layouts, a tap head the
+  // library lacks.
+  ['Gilded Scuttler', "a block proof beside a payload that taps the opponent's blocker (the entry taps and stuns the Cyclops; the declare-blockers prompt is skipped with no untapped blocker): This creature can't be blocked. + When this creature enters, tap target creature an opponent controls and put a stun counter on it."],
+  ['Invasion of Kamigawa // Rooftop Saboteurs', 'multi-face or unusual layout (a battle with a stun-counter face)'],
+  ['Meat Locker // Drowned Diner', 'multi-face or unusual layout (a Room whose door taps and stuns)'],
+  ['Solitary Sanctuary', 'trigger head not in the library (you tap an untapped creature an opponent controls): Whenever you tap an untapped creature an opponent controls, put a +1/+1 counter on target creature you control.'],
   // D465 - the chosen creature type is the engine's now, and the mirror offered two the row maker refused: a compound
   // enters-or-attacks head over a filtered subject, a sacrifice cost whose predicate names the chosen type.
   ['Kindred Discovery', 'a compound enters-or-attacks head over a filtered subject the library lacks (a creature you control of the chosen type enters or attacks): Whenever a creature you control of the chosen type enters or attacks, draw a card.'],

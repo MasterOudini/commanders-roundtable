@@ -80,6 +80,12 @@ export function applyReplacements(
     events = withTransformCounters(state, oracle, ev);
   }
 
+  // D470 - CR 122.1j: a permanent with a stun counter that would become untapped stays tapped and loses one
+  // counter instead - the untap step's batch and an effect's untap alike.
+  if (ev.t === 'PermanentsUntapped') {
+    events = withStunCounters(state, oracle, ev);
+  }
+
   // ⚠️ **THE BUILT-INS AND NOTHING ELSE, since D148.** Card-script replacements
   // moved to `runReplacementFunnel` below, because CR 616 lets them ASK — and a
   // function that returns `EventBody[]` has nowhere to put a question. The
@@ -934,6 +940,26 @@ export function conditionHolds(
  * one-way — so the divergence is only reachable by driving a one-way transform
  * backwards with a manual tool, and the alternative is a Jace sitting on 10.
  */
+/**
+ * D470 - THE STUN COUNTER (CR 122.1j). Every card in the untap that carries a stun counter is held back and
+ * loses one counter; the rest untap as the event said. An untap that held only stunned permanents becomes
+ * the counter changes alone.
+ */
+function withStunCounters(state: GameState, oracle: OracleDb, ev: Extract<EventBody, { t: 'PermanentsUntapped' }>): EventBody[] {
+  const stunned = ev.cards.filter((id) => (state.cards[id]?.counters['stun'] ?? 0) > 0);
+  if (stunned.length === 0) return [ev];
+  const rest = ev.cards.filter((id) => !stunned.includes(id));
+  const out: EventBody[] = rest.length > 0 ? [{ ...ev, cards: rest }] : [];
+  for (const id of stunned) {
+    out.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'stun', delta: -1 }] });
+    const card = state.cards[id];
+    const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+    const name = card && printing ? faceOf(printing, card.faceIndex).name : 'It';
+    out.push(narrated(`${name} stays tapped: a stun counter is removed instead.`, card?.controller ?? null));
+  }
+  return out;
+}
+
 function withTransformCounters(
   state: GameState,
   oracle: OracleDb,

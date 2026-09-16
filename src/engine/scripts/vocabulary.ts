@@ -73,7 +73,8 @@ function recipientAsSelf(payload: string): string {
     .replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~')
     .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
     .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
-    .replace(/\bon it\.$/i, 'on ~.');
+    // D470 - only with no target phrase before it: after one, `it` is that target (the referent rewrite's).
+    .replace(/\bon it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'on ~.'));
 }
 
 /**

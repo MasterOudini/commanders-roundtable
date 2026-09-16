@@ -380,12 +380,13 @@ function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | n
 
 /**
  * The counters a spell may put on or take off — CLOSED at the two `derive.ts`
- * actually reads at layer 7d and the shield counter the funnel and the destroy
- * sites spend (D469, CR 122.1i). See `CounterKind` for why a `charge counter` is
+ * actually reads at layer 7d, the shield counter the funnel and the destroy
+ * sites spend (D469, CR 122.1i) and the stun counter the untap built-in spends
+ * (D470, CR 122.1j). See `CounterKind` for why a `charge counter` is
  * not here: recording a counter nothing applies is half-execution with a number
  * on it.
  */
-const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield)`;
+const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield|stun)`;
 const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
 /** D434 - a mill's count: the words past seven the printed mills use. */
 const MILL_COUNT = '(?:a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|twenty|\\d+)';
@@ -418,7 +419,7 @@ const GY_ADJECTIVE = ADJECTIVE.replace(/\\s\+\)\*$/, ',?\\s+)*');
 const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)s?` + QUALIFIER;
 
 function counterKindOf(raw: string | undefined): CounterKind | null {
-  if (raw === '+1/+1' || raw === '-1/-1' || raw === 'shield') return raw;
+  if (raw === '+1/+1' || raw === '-1/-1' || raw === 'shield' || raw === 'stun') return raw;
   return null;
 }
 
@@ -1912,6 +1913,9 @@ interface Clause {
 const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker)|those (?:creatures|permanents))';
 const REFERENT_LEAD = new RegExp(`^(?:then )?(?:if )?${REFERENT}(?![a-z'])`, 'i');
 const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
+// D470 - the counter put ON the referent (`Tap target creature an opponent controls and put a stun counter on it.`,
+// `Untap target creature. Put a +1/+1 counter on it.`): the referent stands where the target phrase would.
+const REFERENT_COUNTER = new RegExp(`^(?:then )?put ${COUNT} ${COUNTER_KIND} counters? on ${REFERENT}(?![a-z'])`, 'i');
 // D427 - a prevention shield ABOUT the referent: `Prevent all damage that would be dealt to it this turn.`
 // (Djeru's Resolve), `... to and dealt by that creature this turn.` (Foxfire, Energy Arc) - the referent
 // stands where the target clause would, mid-sentence.
@@ -1931,7 +1935,7 @@ function phraseOf(text: string): string | null {
 
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
-  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence)) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }

@@ -7834,6 +7834,19 @@ export const WINGSHIELD_AGENT: CardData = F.WINGSHIELD_AGENT as CardData;
 export const DISCIPLINED_DUELIST: CardData = F.DISCIPLINED_DUELIST as CardData;
 export const RHOX_PUMMELER: CardData = F.RHOX_PUMMELER as CardData;
 export const DAPPER_SHIELDMATE: CardData = F.DAPPER_SHIELDMATE as CardData;
+export const REFEREE_SQUAD: CardData = F.REFEREE_SQUAD as CardData;
+export const ALCHEMAX_SLAYER_BOTS: CardData = F.ALCHEMAX_SLAYER_BOTS as CardData;
+export const ROWDY_SNOWBALLERS: CardData = F.ROWDY_SNOWBALLERS as CardData;
+export const COLLECTOR_S_CASE: CardData = F.COLLECTOR_S_CASE as CardData;
+export const FROSTFIST_STRIDER: CardData = F.FROSTFIST_STRIDER as CardData;
+export const UTROM_SCIENTISTS: CardData = F.UTROM_SCIENTISTS as CardData;
+export const CRYOGEN_RELIC: CardData = F.CRYOGEN_RELIC as CardData;
+export const SHIPWRECK_PATROL: CardData = F.SHIPWRECK_PATROL as CardData;
+export const ICE_FLAN: CardData = F.ICE_FLAN as CardData;
+export const FRACTAL_MASCOT: CardData = F.FRACTAL_MASCOT as CardData;
+export const GRAPPLING_KRAKEN: CardData = F.GRAPPLING_KRAKEN as CardData;
+export const WAYLAYING_PIRATES: CardData = F.WAYLAYING_PIRATES as CardData;
+export const PETRIFYING_MEDDLER: CardData = F.PETRIFYING_MEDDLER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15826,6 +15839,19 @@ export const ENGINE_CARDS: CardData[] = [
   DISCIPLINED_DUELIST,
   RHOX_PUMMELER,
   DAPPER_SHIELDMATE,
+  REFEREE_SQUAD,
+  ALCHEMAX_SLAYER_BOTS,
+  ROWDY_SNOWBALLERS,
+  COLLECTOR_S_CASE,
+  FROSTFIST_STRIDER,
+  UTROM_SCIENTISTS,
+  CRYOGEN_RELIC,
+  SHIPWRECK_PATROL,
+  ICE_FLAN,
+  FRACTAL_MASCOT,
+  GRAPPLING_KRAKEN,
+  WAYLAYING_PIRATES,
+  PETRIFYING_MEDDLER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
