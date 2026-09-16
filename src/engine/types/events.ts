@@ -165,6 +165,9 @@ export type SbaAction =
   | { readonly t: 'zeroDefense'; readonly card: InstanceId }
   | { readonly t: 'auraFalls'; readonly card: InstanceId }
   | { readonly t: 'equipmentUnattaches'; readonly card: InstanceId }
+  /** D453 - a control Aura took (or gave back) the permanent it enchants. */
+  | { readonly t: 'controlTakenByAura'; readonly card: InstanceId; readonly source: InstanceId }
+  | { readonly t: 'controlReverts'; readonly card: InstanceId }
   | { readonly t: 'legendRule'; readonly player: PlayerId; readonly name: string; readonly candidates: readonly InstanceId[] }
   /**
    * CR 704.5m. ⚠️ Carries no `candidates` and raises no prompt, unlike
@@ -249,6 +252,10 @@ export type EventBody =
   | { readonly t: 'FaceDownSet'; readonly card: InstanceId; readonly faceDown: boolean }
   | { readonly t: 'FaceIndexSet'; readonly card: InstanceId; readonly faceIndex: number }
   | { readonly t: 'ControlChanged'; readonly card: InstanceId; readonly controller: PlayerId }
+  /** D453 - an Aura's controller takes the enchanted permanent (the memory rides the permanent; CR 302.6 sickness). */
+  | { readonly t: 'ControlTakenByAura'; readonly card: InstanceId; readonly controller: PlayerId; readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId }
+  /** D453 - the Aura no longer holds it: control goes back and the memory is cleared. */
+  | { readonly t: 'ControlReverted'; readonly card: InstanceId; readonly controller: PlayerId }
   | {
       readonly t: 'PtOverrideSet';
       readonly card: InstanceId;

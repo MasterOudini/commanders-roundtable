@@ -259,6 +259,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D453 - the control Auras are the engine's now, and the mirror offered two the row maker refused: an additional
+  // chooser cost the cast arm cannot pay, an intervening if the armed board already meets (the wide run's reason).
+  ['Grafted Identity', 'an additional cost with a chooser verb the cast arm cannot pay: As an additional cost to cast this spell, sacrifice a creature.'],
+  ['Mark of the Oni', 'an intervening if the armed board already meets (not this wave): you control no Demons'],
   // D450 - vanishing and fading are the engine's now, and the mirror offered four the row maker refused: a two-head
   // line, a possessive filter, and two vanishing-1 cards the suite's own walk would kill before the fire (the wide run's reason).
   ['Crack in Time', "trigger head not in the library: When this enchantment enters and at the beginning of your first main phase, tap all creatures you don't control."],

@@ -354,6 +354,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D451 - the hand activations: a reinforce 4/4 a seat (two counters on a target for {1}{G} and the card).
   { names: ['Bannerhide Krushok'], copiesPerSeat: 2,
     counterKeys: ['handActivations'], rotHistory: 'D451' },
+  // D453 - the control Auras: two Control Magics a seat (the aim is random, D445 - a creature of anyone's).
+  { names: ['Control Magic'], copiesPerSeat: 2,
+    counterKeys: ['controlAuras'], rotHistory: 'D453' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1211,6 +1214,9 @@ interface Run {
   readonly fadingFires: number;
   /** D451 - the abilities on the stack whose source was discarded from the hand as the cost (reinforce, bloodrush). */
   readonly handActivations: number;
+  /** D453 - the control Auras: the permanents taken through an Aura, and the give-backs. */
+  readonly controlAuras: number;
+  readonly controlAuraReverts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1629,6 +1635,8 @@ function runOne(seed: number): Run {
     vanishingTicks: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishing$/.test(e.body.obj.abilityRef ?? '')).length,
     vanishingSacrifices: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishingLast$/.test(e.body.obj.abilityRef ?? '')).length,
     fadingFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:fading$/.test(e.body.obj.abilityRef ?? '')).length,
+    controlAuras: game.log.filter((e) => e.body.t === 'ControlTakenByAura').length,
+    controlAuraReverts: game.log.filter((e) => e.body.t === 'ControlReverted').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1879,6 +1887,8 @@ const TOTAL_KEYS = [
   'vanishingSacrifices',
   'fadingFires',
   'handActivations',
+  'controlAuras',
+  'controlAuraReverts',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2362,6 +2372,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.evokedCasts} evoked (${totals.evokeSacrifices} evoke sacrifices) · ${totals.dashedCasts} dashed (${totals.dashReturns} dash returns) · ` +
           `${totals.vanishingTicks} vanishing ticks (${totals.vanishingSacrifices} last-counter sacrifices) · ${totals.fadingFires} fading fires · ` +
           `${totals.handActivations} hand activations (the card discarded as the cost) · ` +
+          `${totals.controlAuras} control Auras (${totals.controlAuraReverts} given back) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

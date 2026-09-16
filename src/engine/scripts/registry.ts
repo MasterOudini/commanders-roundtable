@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { YAVIMAYAS_EMBRACE_SCRIPT } from './cards/yavimayasEmbrace';
+import { BINDING_GRASP_SCRIPT } from './cards/bindingGrasp';
+import { CORRUPTED_CONSCIENCE_SCRIPT } from './cards/corruptedConscience';
+import { VAPOR_SNARE_SCRIPT } from './cards/vaporSnare';
+import { SPIRIT_AWAY_SCRIPT } from './cards/spiritAway';
 import { PEGASUS_COURSER_SCRIPT } from './cards/pegasusCourser';
 import { GHOST_LIT_STALKER_SCRIPT } from './cards/ghostLitStalker';
 import { MNEMONIC_SPHERE_SCRIPT } from './cards/mnemonicSphere';
@@ -7030,6 +7035,11 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  YAVIMAYAS_EMBRACE_SCRIPT,
+  BINDING_GRASP_SCRIPT,
+  CORRUPTED_CONSCIENCE_SCRIPT,
+  VAPOR_SNARE_SCRIPT,
+  SPIRIT_AWAY_SCRIPT,
   PEGASUS_COURSER_SCRIPT,
   GHOST_LIT_STALKER_SCRIPT,
   MNEMONIC_SPHERE_SCRIPT,

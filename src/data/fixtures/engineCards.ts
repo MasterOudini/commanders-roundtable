@@ -7648,6 +7648,13 @@ export const GHOST_LIT_REDEEMER: CardData = F.GHOST_LIT_REDEEMER as CardData;
 export const BAZAAR_KROVOD: CardData = F.BAZAAR_KROVOD as CardData;
 export const COLOSSAL_SKYTURTLE: CardData = F.COLOSSAL_SKYTURTLE as CardData;
 export const GHOST_LIT_NOURISHER: CardData = F.GHOST_LIT_NOURISHER as CardData;
+export const MIND_CONTROL: CardData = F.MIND_CONTROL as CardData;
+export const CONTROL_MAGIC: CardData = F.CONTROL_MAGIC as CardData;
+export const YAVIMAYA_S_EMBRACE: CardData = F.YAVIMAYA_S_EMBRACE as CardData;
+export const BINDING_GRASP: CardData = F.BINDING_GRASP as CardData;
+export const CORRUPTED_CONSCIENCE: CardData = F.CORRUPTED_CONSCIENCE as CardData;
+export const VAPOR_SNARE: CardData = F.VAPOR_SNARE as CardData;
+export const SPIRIT_AWAY: CardData = F.SPIRIT_AWAY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15450,6 +15457,13 @@ export const ENGINE_CARDS: CardData[] = [
   BAZAAR_KROVOD,
   COLOSSAL_SKYTURTLE,
   GHOST_LIT_NOURISHER,
+  MIND_CONTROL,
+  CONTROL_MAGIC,
+  YAVIMAYA_S_EMBRACE,
+  BINDING_GRASP,
+  CORRUPTED_CONSCIENCE,
+  VAPOR_SNARE,
+  SPIRIT_AWAY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

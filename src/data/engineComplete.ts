@@ -524,6 +524,8 @@ export function linesUnaccounted(
     // second regex here would eventually accept "choose a creature type", which
     // the engine asks nobody about and nothing reads.
     if (face.choosesColorOnEntry && parseChoosesColorOnEntry(line)) continue;
+    // D453 - the control Aura's line, when the face flag read it (the built-in in sba.ts takes and gives back).
+    if (face.controlsEnchanted && /^You control enchanted (?:creature|permanent)\.$/.test(line)) continue;
     // D442 - a printed maximum hand size the cleanup step READS (`maxHandSize`, CR 514.1). Asked of the
     // parser that set the field, never re-read here.
     if (face.handSize !== null && face.handSize.line === line) continue;

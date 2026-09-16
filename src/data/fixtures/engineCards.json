@@ -258490,6 +258490,253 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MIND_CONTROL": {
+    "scryfallId": "2c1468fc-52ba-4d21-bb39-d2d42f6cd50c",
+    "oracleId": "5912546a-acc2-448c-b042-64bdac5ec129",
+    "name": "Mind Control",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mind Control",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.",
+        "flavorText": "\"Why fight the body when you can dominate the mind that rules it?\"\n—Jace Beleren",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Keith Garletts",
+        "imageId": "2c1468fc-52ba-4d21-bb39-d2d42f6cd50c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "dci",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONTROL_MAGIC": {
+    "scryfallId": "02c062d8-49c7-4f19-8fba-cadea35ddebe",
+    "oracleId": "cd0d7141-46d2-4aa3-bc77-6b3b4513803e",
+    "name": "Control Magic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Control Magic",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dameon Willich",
+        "imageId": "02c062d8-49c7-4f19-8fba-cadea35ddebe"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ptc",
+    "collectorNumber": "ml64sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_S_EMBRACE": {
+    "scryfallId": "1ac29eb6-2770-4723-942b-b393c2abc02b",
+    "oracleId": "d5cb0370-a6f0-40c0-8b8f-553fca23778d",
+    "name": "Yavimaya's Embrace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya's Embrace",
+        "manaCost": "{5}{G}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.\nEnchanted creature gets +2/+2 and has trample.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Eric Peterson",
+        "imageId": "1ac29eb6-2770-4723-942b-b393c2abc02b"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "2xm",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BINDING_GRASP": {
+    "scryfallId": "27cf6b51-6e77-490d-9b1a-02c1ba3109d1",
+    "oracleId": "1ebdc091-16d5-4803-821a-ac8c4696b5bc",
+    "name": "Binding Grasp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Binding Grasp",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nAt the beginning of your upkeep, sacrifice this Aura unless you pay {1}{U}.\nYou control enchanted creature.\nEnchanted creature gets +0/+1.",
+        "flavorText": "\"What I want, I take.\"\n—Gustha Ebbasdotter, Kjeldoran royal mage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ruth Thompson",
+        "imageId": "27cf6b51-6e77-490d-9b1a-02c1ba3109d1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORRUPTED_CONSCIENCE": {
+    "scryfallId": "5d8a8278-0791-4ff2-95b8-71b94298e503",
+    "oracleId": "c645fab4-51ac-440c-b112-57777c8f4676",
+    "name": "Corrupted Conscience",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corrupted Conscience",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.\nEnchanted creature has infect. (It deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)",
+        "flavorText": "Karn's creation is now his master.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Chan",
+        "imageId": "5d8a8278-0791-4ff2-95b8-71b94298e503"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MBS-22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAPOR_SNARE": {
+    "scryfallId": "bf09358e-099a-4115-807e-48ceb024d186",
+    "oracleId": "29ae5540-5fdf-48be-86ba-b4db0fe19f6c",
+    "name": "Vapor Snare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vapor Snare",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.\nAt the beginning of your upkeep, sacrifice this Aura unless you return a land you control to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "bf09358e-099a-4115-807e-48ceb024d186"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "wwk",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRIT_AWAY": {
+    "scryfallId": "d8823bdc-0467-47f1-9bef-a281b4a7071d",
+    "oracleId": "15b618f0-281f-4745-8504-bd70e7b4a267",
+    "name": "Spirit Away",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spirit Away",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.\nEnchanted creature gets +2/+2 and has flying.",
+        "flavorText": "The fear of slipping from the geist's tenuous grip overwhelmed Tolo's joy at his first flight.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "d8823bdc-0467-47f1-9bef-a281b4a7071d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

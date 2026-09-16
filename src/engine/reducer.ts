@@ -299,6 +299,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     // D449 - and its evoke or dash the same way.
     evoked: undefined,
     dashed: undefined,
+    // D453 - a new object is held by no Aura.
+    controlledVia: undefined,
     // D411 - a new object owes no untap step.
     skipsUntap: undefined,
     // D444 - a new object chooses its riot again.
@@ -711,6 +713,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'ControlChanged':
       return withCard(state, body.card, { controller: body.controller });
+
+    // D453 - the control Auras: taken with the memory (and CR 302.6's sickness), given back without it.
+    case 'ControlTakenByAura':
+      return withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo } });
+    case 'ControlReverted':
+      return withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined });
 
     case 'PtOverrideSet':
       return withCard(state, body.card, { ptOverride: body.override });

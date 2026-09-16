@@ -172,6 +172,40 @@ export function checkStateBasedActions(
     }
   }
 
+  // D453 - THE CONTROL AURAS (CR 613.2, layer 2 through a static): a permanent enchanted by an Aura whose face says
+  // `You control enchanted creature / permanent` is controlled by the Aura's controller while the Aura stays
+  // attached, and goes back to whoever had it when the Aura leaves, moves on or falls off this very pass. Checked
+  // here because every road an Aura takes onto or off a permanent ends in this sweep - and the memory rides the
+  // permanent (`controlledVia`), stamped with the Aura's entry so a returned Aura is a new object (CR 400.7).
+  for (const id of state.zones.battlefield) {
+    const card = state.cards[id];
+    if (!card || doomed.has(id)) continue;
+    if (card.controlledVia !== undefined) {
+      const src = state.cards[card.controlledVia.source];
+      const holds = src !== undefined && src.zone.kind === 'battlefield' && !doomed.has(src.id) && src.attachedTo === id && (src.entries ?? 0) === card.controlledVia.entry;
+      if (!holds) {
+        actions.push({ t: 'controlReverts', card: id });
+        events.push({ t: 'ControlReverted', card: id, controller: card.controlledVia.revertTo });
+        events.push(narrated(`${derive(state, oracle, scripts, id, cache).name} goes back to ${who(state, card.controlledVia.revertTo)}.`, card.controlledVia.revertTo));
+      } else if (src.controller !== card.controller) {
+        // The Aura itself changed hands: the permanent follows its Aura, the way back unchanged.
+        actions.push({ t: 'controlTakenByAura', card: id, source: src.id });
+        events.push({ t: 'ControlTakenByAura', card: id, controller: src.controller, source: src.id, entry: src.entries ?? 0, revertTo: card.controlledVia.revertTo });
+      }
+      continue;
+    }
+    for (const auraId of card.attachments) {
+      const aura = state.cards[auraId];
+      if (!aura || aura.zone.kind !== 'battlefield' || doomed.has(auraId) || aura.attachedTo !== id) continue;
+      const printing = oracle.byPrinting(aura.printingId);
+      if (!printing || !faceOf(printing, aura.faceIndex).controlsEnchanted || aura.controller === card.controller) continue;
+      actions.push({ t: 'controlTakenByAura', card: id, source: auraId });
+      events.push({ t: 'ControlTakenByAura', card: id, controller: aura.controller, source: auraId, entry: aura.entries ?? 0, revertTo: card.controller });
+      events.push(narrated(`${who(state, aura.controller)} ${vb(aura.controller, 'takes', 'take')} control of ${derive(state, oracle, scripts, id, cache).name}.`, aura.controller));
+      break;
+    }
+  }
+
   // 7 — a token outside the battlefield ceases to exist (CR 704.5d).
   //
   // ⚠️ TWO-STEP, deliberately. A dying token first goes to the graveyard via

@@ -227,6 +227,12 @@ export interface CardInstance {
   readonly evoked?: true | undefined;
   readonly dashed?: true | undefined;
   /**
+   * D453 - this permanent is controlled through an Aura (`You control enchanted creature`): the Aura, its entry
+   * stamp (a new object is a new Aura, CR 400.7) and the controller it goes back to when the Aura no longer holds
+   * it. Set and cleared by the state-based built-in in `sba.ts`; cleared with the battlefield fields.
+   */
+  readonly controlledVia?: { readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId } | undefined;
+  /**
    * D407 - THE ENTRY STAMP (CR 400.7): how many times this card has entered the battlefield, counted
    * by the reducer on every entry (a token is born at 1). A permanent that leaves and returns is a
    * NEW object; anything that remembered the old one compares this number. Absent before the first

@@ -8433,6 +8433,16 @@ const WANTED = [
   'Colossal Skyturtle',
   'Ghost-Lit Nourisher',
   // D452 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D453 - the control Auras: the seam's own fixtures (Mind Control, Control Magic).
+  'Mind Control',
+  'Control Magic',
+  // D453 - the control Auras: the rows the row maker reads once You control enchanted creature is the engine's own.
+  "Yavimaya's Embrace",
+  'Binding Grasp',
+  'Corrupted Conscience',
+  'Vapor Snare',
+  'Spirit Away',
+  // D453 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

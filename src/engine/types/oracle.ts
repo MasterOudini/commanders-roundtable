@@ -1750,6 +1750,12 @@ export interface OracleFace {
    */
   readonly choosesColorOnEntry: boolean;
   /**
+   * D453 - `You control enchanted creature.` / `You control enchanted permanent.` on an Aura (CR 613.2 - a layer-2
+   * control effect): while the Aura stays attached, its controller controls the enchanted permanent (`sba.ts`'s
+   * built-in takes it and gives it back). Read off ONE exact line; false everywhere else.
+   */
+  readonly controlsEnchanted: boolean;
+  /**
    * D442 - a printed MAXIMUM HAND SIZE modifier (CR 402.2), read off ONE exact line of a permanent
    * (`parseHandSize`): `You have no maximum hand size.`, `Players have no maximum hand size.`,
    * `Your maximum hand size is N.`, `Your maximum hand size is reduced/increased by N.`,
