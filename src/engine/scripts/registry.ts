@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FARMSTEAD_SCRIPT } from './cards/farmstead';
+import { INFINITY_FORMULA_SCRIPT } from './cards/infinityFormula';
+import { NURTURING_PRESENCE_SCRIPT } from './cards/nurturingPresence';
+import { PILLORY_OF_THE_SLEEPLESS_SCRIPT } from './cards/pilloryOfTheSleepless';
+import { CANDLESTICK_SCRIPT } from './cards/candlestick';
+import { INEVITABLE_END_SCRIPT } from './cards/inevitableEnd';
+import { SIXTH_SENSE_SCRIPT } from './cards/sixthSense';
+import { ICONIC_SHIELD_SCRIPT } from './cards/iconicShield';
 import { GIFT_OF_PARADISE_SCRIPT } from './cards/giftOfParadise';
 import { NEW_HORIZONS_SCRIPT } from './cards/newHorizons';
 import { ABUNDANT_GROWTH_SCRIPT } from './cards/abundantGrowth';
@@ -7055,6 +7063,14 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FARMSTEAD_SCRIPT,
+  INFINITY_FORMULA_SCRIPT,
+  NURTURING_PRESENCE_SCRIPT,
+  PILLORY_OF_THE_SLEEPLESS_SCRIPT,
+  CANDLESTICK_SCRIPT,
+  INEVITABLE_END_SCRIPT,
+  SIXTH_SENSE_SCRIPT,
+  ICONIC_SHIELD_SCRIPT,
   GIFT_OF_PARADISE_SCRIPT,
   NEW_HORIZONS_SCRIPT,
   ABUNDANT_GROWTH_SCRIPT,

@@ -7675,6 +7675,14 @@ export const WEIRDING_WOOD: CardData = F.WEIRDING_WOOD as CardData;
 export const SUNKEN_FIELD: CardData = F.SUNKEN_FIELD as CardData;
 export const HOSTILE_REALM: CardData = F.HOSTILE_REALM as CardData;
 export const MYSTIC_MIGHT: CardData = F.MYSTIC_MIGHT as CardData;
+export const FARMSTEAD: CardData = F.FARMSTEAD as CardData;
+export const INFINITY_FORMULA: CardData = F.INFINITY_FORMULA as CardData;
+export const NURTURING_PRESENCE: CardData = F.NURTURING_PRESENCE as CardData;
+export const PILLORY_OF_THE_SLEEPLESS: CardData = F.PILLORY_OF_THE_SLEEPLESS as CardData;
+export const CANDLESTICK: CardData = F.CANDLESTICK as CardData;
+export const INEVITABLE_END: CardData = F.INEVITABLE_END as CardData;
+export const SIXTH_SENSE: CardData = F.SIXTH_SENSE as CardData;
+export const ICONIC_SHIELD: CardData = F.ICONIC_SHIELD as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15504,6 +15512,14 @@ export const ENGINE_CARDS: CardData[] = [
   SUNKEN_FIELD,
   HOSTILE_REALM,
   MYSTIC_MIGHT,
+  FARMSTEAD,
+  INFINITY_FORMULA,
+  NURTURING_PRESENCE,
+  PILLORY_OF_THE_SLEEPLESS,
+  CANDLESTICK,
+  INEVITABLE_END,
+  SIXTH_SENSE,
+  ICONIC_SHIELD,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

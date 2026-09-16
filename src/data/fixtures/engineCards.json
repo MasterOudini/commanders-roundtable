@@ -259438,6 +259438,289 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FARMSTEAD": {
+    "scryfallId": "0b4a1194-ce5d-4491-9700-1a1abc6ee8e4",
+    "oracleId": "0d71b157-09a0-4fd4-beb9-103117a784ad",
+    "name": "Farmstead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Farmstead",
+        "manaCost": "{W}{W}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"At the beginning of your upkeep, you may pay {W}{W}. If you do, you gain 1 life.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "0b4a1194-ce5d-4491-9700-1a1abc6ee8e4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "30a",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INFINITY_FORMULA": {
+    "scryfallId": "18286716-cdd6-4035-af0d-8e0a8dde68f7",
+    "oracleId": "83669321-46cd-4805-b4ce-441c5db0f338",
+    "name": "Infinity Formula",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Infinity Formula",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+2 and has \"Whenever this creature attacks, you gain 2 life.\"\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "18286716-cdd6-4035-af0d-8e0a8dde68f7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "601",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NURTURING_PRESENCE": {
+    "scryfallId": "1b302947-5d66-425d-b67e-bf1d5846d490",
+    "oracleId": "3f03c834-2cb3-4c54-bee6-c64f3a5fce47",
+    "name": "Nurturing Presence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nurturing Presence",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"Whenever a creature you control enters, this creature gets +1/+1 until end of turn.\"\nWhen this Aura enters, create a 1/1 white Spirit creature token with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "1b302947-5d66-425d-b67e-bf1d5846d490"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PILLORY_OF_THE_SLEEPLESS": {
+    "scryfallId": "1bc97379-91aa-4bba-80af-8980eeb57630",
+    "oracleId": "74776491-29c3-46e6-989b-cf9a00bbfcef",
+    "name": "Pillory of the Sleepless",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pillory of the Sleepless",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\nEnchanted creature has \"At the beginning of your upkeep, you lose 1 life.\"",
+        "flavorText": "Which is worse—the sleep which never ends or that which never comes?",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Marc Simonetti",
+        "imageId": "1bc97379-91aa-4bba-80af-8980eeb57630"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "a25",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANDLESTICK": {
+    "scryfallId": "5aeae6fb-3834-4891-924e-3d1fb3e19e09",
+    "oracleId": "2f7b46c1-3d82-4fd9-9882-589315cab47b",
+    "name": "Candlestick",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Candlestick",
+        "manaCost": "{U}",
+        "typeLine": "Artifact — Clue Equipment",
+        "oracleText": "Equipped creature gets +1/+1 and has \"Whenever this creature attacks, surveil 2.\" (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\n{2}, Sacrifice this Equipment: Draw a card.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "5aeae6fb-3834-4891-924e-3d1fb3e19e09"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Surveil",
+      "Equip"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INEVITABLE_END": {
+    "scryfallId": "a6522f01-ae7a-467e-9a05-530a5ccd304d",
+    "oracleId": "e1a5c389-6a56-4da7-b7c4-e26fdec224e5",
+    "name": "Inevitable End",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inevitable End",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"At the beginning of your upkeep, sacrifice a creature.\"",
+        "flavorText": "\"How many more will die before you accept your fate?\"\n—Erebos, god of the dead",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "a6522f01-ae7a-467e-9a05-530a5ccd304d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIXTH_SENSE": {
+    "scryfallId": "c142986f-8489-497a-8e83-2bd344f65d24",
+    "oracleId": "25d35e3e-ece8-4c94-9dbc-d076a52fca0d",
+    "name": "Sixth Sense",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sixth Sense",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"Whenever this creature deals combat damage to a player, you may draw a card.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "c142986f-8489-497a-8e83-2bd344f65d24"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "akr",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICONIC_SHIELD": {
+    "scryfallId": "e35881d3-bf69-4e69-8e6b-3d7daf40822b",
+    "oracleId": "1c4fdd52-dc99-4942-bdaa-93f74dd4ebdc",
+    "name": "Iconic Shield",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iconic Shield",
+        "manaCost": "{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+2 and has \"Whenever this creature attacks, another target attacking creature gains indestructible until end of turn.\" (Damage and effects that say \"destroy\" don't destroy it.)\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gal Or",
+        "imageId": "e35881d3-bf69-4e69-8e6b-3d7daf40822b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "520",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -8467,6 +8467,16 @@ const WANTED = [
   'Hostile Realm',
   'Mystic Might',
   // D455 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D456 - the quoted trigger grants: the attached Auras and Equipment whose granted triggered bodies the row maker reads on the host through the D368 carrier.
+  'Farmstead',
+  'Infinity Formula',
+  'Nurturing Presence',
+  'Pillory of the Sleepless',
+  'Candlestick',
+  'Inevitable End',
+  'Sixth Sense',
+  'Iconic Shield',
+  // D456 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
