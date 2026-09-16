@@ -261151,6 +261151,225 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DRAGONBACK_LANCER": {
+    "scryfallId": "0200a8c5-3293-48d0-a523-ba148680f588",
+    "oracleId": "7875c063-19c3-4e6e-81d8-1a378a4e16e5",
+    "name": "Dragonback Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragonback Lancer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Flying\nMobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)",
+        "flavorText": "The Mardu's standing army need not always stand on the ground.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "0200a8c5-3293-48d0-a523-ba148680f588"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHOCK_BRIGADE": {
+    "scryfallId": "66940466-8e9d-4a85-bfb0-e92189b7a121",
+    "oracleId": "8676e917-17dd-4047-99c4-402f2e909e16",
+    "name": "Shock Brigade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shock Brigade",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Soldier",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nMobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)",
+        "flavorText": "\"From Alesha to Zurgo, all Mardu khans started right here. At the front lines.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "66940466-8e9d-4a85-bfb0-e92189b7a121"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace",
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DALKOVAN_PACKBEASTS": {
+    "scryfallId": "4df7b253-6107-47d6-b650-cb4d3e0aec6b",
+    "oracleId": "cdd1a043-bd47-4197-be26-e2f7d3f1d209",
+    "name": "Dalkovan Packbeasts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dalkovan Packbeasts",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Ox",
+        "oracleText": "Vigilance\nMobilize 3 (Whenever this creature attacks, create three tapped and attacking 1/1 red Warrior creature tokens. Sacrifice them at the beginning of the next end step.)",
+        "flavorText": "A burden shared is a burden lightened.\n—Mardu proverb",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Constantin Marin",
+        "imageId": "4df7b253-6107-47d6-b650-cb4d3e0aec6b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTBLADE_BRIGADE": {
+    "scryfallId": "648debd9-d4cf-4788-8882-f1601a3d87f5",
+    "oracleId": "36d04190-7ce3-431a-b18e-3a1895ec6fc7",
+    "name": "Nightblade Brigade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightblade Brigade",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Goblin Soldier",
+        "oracleText": "Deathtouch\nMobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nWhen this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Gary Laib",
+        "imageId": "648debd9-d4cf-4788-8882-f1601a3d87f5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Surveil",
+      "Mobilize",
+      "Deathtouch"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZURGO_S_VANGUARD": {
+    "scryfallId": "a1aa3501-5738-4063-a7f4-51d2600b0041",
+    "oracleId": "d6fdfd94-cef5-482c-83ed-11c5ba40abe9",
+    "name": "Zurgo's Vanguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zurgo's Vanguard",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dog Soldier",
+        "oracleText": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nZurgo's Vanguard's power is equal to the number of creatures you control.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "a1aa3501-5738-4063-a7f4-51d2600b0041"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REIGNING_VICTOR": {
+    "scryfallId": "a394112a-032b-4047-887a-6522cf7b83d5",
+    "oracleId": "b8c5e481-371c-4999-bb2c-347a2aa33171",
+    "name": "Reigning Victor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reigning Victor",
+        "manaCost": "{2/R}{2/W}{2/B}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nWhen this creature enters, target creature gets +1/+0 and gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "a394112a-032b-4047-887a-6522cf7b83d5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -266825,6 +267044,39 @@
     "keywords": [],
     "setCode": "tdft",
     "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WARRIOR_1_1_R_CREATURE_TOKEN": {
+    "scryfallId": "7edc0515-a130-45a7-aa09-0e23bba41587",
+    "oracleId": "7217090a-e420-4c17-ad47-f92cc3ae9190",
+    "name": "Warrior",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Warrior",
+        "manaCost": "",
+        "typeLine": "Token Creature — Warrior",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Forrest Imel",
+        "imageId": "7edc0515-a130-45a7-aa09-0e23bba41587"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdm",
+    "collectorNumber": "13",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { NIGHTBLADE_BRIGADE_SCRIPT } from './cards/nightbladeBrigade';
+import { ZURGOS_VANGUARD_SCRIPT } from './cards/zurgosVanguard';
+import { REIGNING_VICTOR_SCRIPT } from './cards/reigningVictor';
 import { SPRING_LEAF_AVENGER_SCRIPT } from './cards/springLeafAvenger';
 import { NINJA_OF_THE_DEEP_HOURS_SCRIPT } from './cards/ninjaOfTheDeepHours';
 import { MOONSNARE_SPECIALIST_SCRIPT } from './cards/moonsnareSpecialist';
@@ -7099,6 +7102,9 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  NIGHTBLADE_BRIGADE_SCRIPT,
+  ZURGOS_VANGUARD_SCRIPT,
+  REIGNING_VICTOR_SCRIPT,
   SPRING_LEAF_AVENGER_SCRIPT,
   NINJA_OF_THE_DEEP_HOURS_SCRIPT,
   MOONSNARE_SPECIALIST_SCRIPT,

@@ -16,11 +16,12 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
+import { mobilizeSacrificeSpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { Keyword, ModeDecl, TargetSpec } from './types/oracle';
-import type { DefenderRef, StackObject } from './types/state';
+import type { DefenderRef, DelayedTrigger, StackObject } from './types/state';
 import { faceOf } from './oracle';
 
 export interface KeywordTrigger {
@@ -159,6 +160,8 @@ function tokenRef(key: string): TokenRef {
 const AFTERLIFE_SPIRIT = tokenRef('Spirit|1/1|BW|Creature|flying');
 /** D459 - the token `fabricate` may make. ⚠️ Pinned in `WANTED_TOKENS` too (the same reason). */
 const FABRICATE_SERVO = tokenRef('Servo|1/1||Artifact Creature|');
+/** D463 - the token `mobilize` makes. ⚠️ Pinned in `WANTED_TOKENS` too (the same reason). */
+const MOBILIZE_WARRIOR = tokenRef('Warrior|1/1|R|Creature|');
 const isCreature = (ctx: ScriptCtx, id: InstanceId): boolean => ctx.derive(id).typeLine.types.includes('Creature');
 
 export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<string, KeywordTrigger>([
@@ -535,6 +538,40 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
         const card = ctx.state.cards[self];
         if (!card || card.zone.kind !== 'battlefield' || card.evoked !== true) return [];
         return [{ t: 'CardsMoved', moves: [{ card: self, from: { kind: 'battlefield', player: null }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] }];
+      },
+    },
+  ],
+  [
+    'mobilize',
+    {
+      // CR 702.179a - whenever this creature attacks, create N 1/1 red Warrior creature tokens that are tapped and
+      // attacking (the same defender); sacrifice them at the beginning of the next end step.
+      event: 'AttackersDeclared',
+      matches: (_ctx, self, ev) => ev.t === 'AttackersDeclared' && ev.attackers.some((a) => a.card === self),
+      label: (ctx, self) => `${nameOf(ctx, self)} - mobilize ${keywordAmount(ctx, self, 'mobilize')}`,
+      resolve: (ctx, self, obj) => {
+        const n = keywordAmount(ctx, self, 'mobilize');
+        const defender = ctx.state.combat?.attackers.find((a) => a.card === self)?.defender;
+        if (!defender || ctx.state.combat === null) return [];
+        const out: EventBody[] = [];
+        for (let i = 0; i < n; i++) {
+          const id = ctx.ids.nextInstance();
+          out.push({ t: 'TokenCreated', card: id, oracleId: MOBILIZE_WARRIOR.oracleId, printingId: MOBILIZE_WARRIOR.printingId, controller: obj.controller, owner: obj.controller, turnNumber: ctx.state.turn.turnNumber });
+          out.push({ t: 'PermanentsTapped', cards: [id] });
+          out.push({ t: 'AttackerAdded', card: id, defender });
+          const trigger: DelayedTrigger = {
+            id: `${obj.id}-mobilize-${i}`,
+            controller: obj.controller,
+            source: id,
+            when: { step: 'end', whose: 'next' },
+            armedTurn: ctx.state.turn.turnNumber,
+            armedStep: ctx.state.turn.step,
+            effects: [mobilizeSacrificeSpec()],
+            label: 'Warrior - mobilize: sacrifice it',
+          };
+          out.push({ t: 'DelayedTriggerArmed', trigger });
+        }
+        return out;
       },
     },
   ],

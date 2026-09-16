@@ -108,6 +108,8 @@ export const TIER2_KEYWORDS = [
   'fading',
   // D459 - FABRICATE (CR 702.122 - N +1/+1 counters or N Servos as it enters): a modal trigger from the keyword table.
   'fabricate',
+  // D463 - MOBILIZE (CR 702.179 - N Warrior tokens tapped and attacking as it attacks, sacrificed at the next end step).
+  'mobilize',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

@@ -77,6 +77,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   fading: 'fading',
   // D459 - fabricate N: the entry choice (counters or Servos) the keyword table runs.
   fabricate: 'fabricate',
+  // D463 - mobilize N: the attack trigger that makes N Warriors tapped and attacking, sacrificed at the next end step.
+  mobilize: 'mobilize',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

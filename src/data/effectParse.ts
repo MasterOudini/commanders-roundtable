@@ -1803,6 +1803,11 @@ export function dashReturnSpec(): EffectSpec {
   return { ...BASE, kind: 'bounce', text: "Return it to its owner's hand.", targetIndex: -1, self: true };
 }
 
+/** D463 - the delayed sacrifice mobilize arms on each Warrior (CR 702.179a): the token itself, if it is still there. */
+export function mobilizeSacrificeSpec(): EffectSpec {
+  return { ...BASE, kind: 'sacrificeSelf', text: 'Sacrifice it.', targetIndex: -1, self: true };
+}
+
 /** D448 - the delayed exile unearth arms (CR 702.84c): the source itself, if it is still on the battlefield. */
 export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };

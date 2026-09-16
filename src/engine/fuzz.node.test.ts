@@ -372,6 +372,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D462 - ninjutsu: a Mukotai Ambusher a seat ({1}{B} and an unblocked attacker returned, in the combat window).
   { names: ['Mukotai Ambusher'], copiesPerSeat: 2,
     counterKeys: ['ninjutsus'], rotHistory: 'D462' },
+  // D463 - mobilize: a Shock Brigade a seat ({1}{R}, mobilize 1 whenever it attacks - a Warrior tapped and attacking;
+  // the four-mana Lancer was never cast over 150 seeds - a seat holds three basics, D445).
+  { names: ['Shock Brigade'], copiesPerSeat: 2,
+    counterKeys: ['mobilizeFired'], rotHistory: 'D463' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1259,6 +1263,9 @@ interface Run {
   readonly disguiseUnmasks: number;
   /** D462 - the ninjutsu activations put on the stack (the defender remembered on the object). */
   readonly ninjutsus: number;
+  /** D463 - the mobilize triggers put on the stack, and the Warriors that joined a combat attacking. */
+  readonly mobilizeFired: number;
+  readonly mobilizeWarriors: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1686,6 +1693,8 @@ function runOne(seed: number): Run {
     disguiseCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.faceDown === true && e.body.obj.card !== null && (ORACLE.byPrinting(game.state.cards[e.body.obj.card]?.printingId ?? '')?.faces[0]?.disguise ?? false)).length,
     disguiseUnmasks: game.log.filter((e) => e.body.t === 'FaceDownSet' && e.body.faceDown === false && (ORACLE.byPrinting(game.state.cards[e.body.card]?.printingId ?? '')?.faces[0]?.disguise ?? false)).length,
     ninjutsus: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.ninjutsuDefender !== undefined).length,
+    mobilizeFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:mobilize')).length,
+    mobilizeWarriors: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AttackerAdded' && made.has(e.body.card)).length; })(),
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1945,6 +1954,8 @@ const TOTAL_KEYS = [
   'disguiseCasts',
   'disguiseUnmasks',
   'ninjutsus',
+  'mobilizeFired',
+  'mobilizeWarriors',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2338,6 +2349,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.unearths).toBeGreaterThan(0);
         // D460 - a disguise cast face down at gate size (Museum Nightwatch 8 at 60 seeds, 21 at 150).
         expect(totals.disguiseCasts).toBeGreaterThan(0);
+        // D463 - a mobilize fired at gate size (Shock Brigade 4 at 60 seeds, 12 at 150).
+        expect(totals.mobilizeFired).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2436,6 +2449,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.fabricateFired} fabricates (${totals.fabricateServos} Servos) · ` +
           `${totals.disguiseCasts} disguise casts (${totals.disguiseUnmasks} turned up) · ` +
           `${totals.ninjutsus} ninjutsus · ` +
+          `${totals.mobilizeFired} mobilizes (${totals.mobilizeWarriors} Warriors attacking) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

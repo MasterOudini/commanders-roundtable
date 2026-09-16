@@ -8534,6 +8534,15 @@ const WANTED = [
   'Nezumi Prowler',
   'Moonblade Shinobi',
   // D462 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D463 - mobilize: the seam's own fixtures (the engine test attacks and reads the Warriors).
+  'Dragonback Lancer',
+  'Shock Brigade',
+  'Dalkovan Packbeasts',
+  // D463 - Mobilize: the attack trigger that makes Warriors tapped and attacking, the keyword table's now; the rows beside it.
+  'Nightblade Brigade',
+  "Zurgo's Vanguard",
+  'Reigning Victor',
+  // D463 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8842,6 +8851,8 @@ const WANTED_TOKENS = [
   { name: 'Dwarf Berserker', set: 'tkhm', cn: '12', key: 'DWARF_BERSERKER_2_1_R_CREATURE_TOKEN' },
   // D459 - fabricate: the Servo the keyword table makes (pinned like afterlife's Spirit).
   { name: 'Servo', set: 'tdft', cn: '8', key: 'SERVO_1_1_ARTIFACT_CREATURE_TOKEN' },
+  // D463 - mobilize: the Warrior the keyword table makes (pinned like afterlife's Spirit).
+  { name: 'Warrior', set: 'ttdm', cn: '13', key: 'WARRIOR_1_1_R_CREATURE_TOKEN' },
 ];
 
 function constName(name) {
