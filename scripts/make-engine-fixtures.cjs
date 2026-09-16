@@ -8543,6 +8543,26 @@ const WANTED = [
   "Zurgo's Vanguard",
   'Reigning Victor',
   // D463 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D464 - the this-or-another compound heads: split into the self half and the filtered other half by the row maker (D380 way), the rows that read.
+  'Blood Artist',
+  'Ayara, First of Locthwain',
+  'Undead Augur',
+  'Zulaport Cutthroat',
+  'Arbaaz Mir',
+  'Falkenrath Noble',
+  "Thieves' Guild Enforcer",
+  'Butcher of Malakir',
+  'Arahbo, the First Fang',
+  'Dross Scorpion',
+  'Qasali Slingers',
+  'Mycoid Shepherd',
+  'Pactdoll Terror',
+  'Vengeful Dead',
+  'Selhoff Occultist',
+  'Scion of Opulence',
+  'Venerated Stormsinger',
+  'Vengeful Bloodwitch',
+  // D464 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

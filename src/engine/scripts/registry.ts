@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BLOOD_ARTIST_SCRIPT } from './cards/bloodArtist';
+import { AYARA_FIRST_OF_LOCTHWAIN_SCRIPT } from './cards/ayaraFirstOfLocthwain';
+import { UNDEAD_AUGUR_SCRIPT } from './cards/undeadAugur';
+import { ZULAPORT_CUTTHROAT_SCRIPT } from './cards/zulaportCutthroat';
+import { ARBAAZ_MIR_SCRIPT } from './cards/arbaazMir';
+import { FALKENRATH_NOBLE_SCRIPT } from './cards/falkenrathNoble';
+import { THIEVES_GUILD_ENFORCER_SCRIPT } from './cards/thievesGuildEnforcer';
+import { BUTCHER_OF_MALAKIR_SCRIPT } from './cards/butcherOfMalakir';
+import { ARAHBO_THE_FIRST_FANG_SCRIPT } from './cards/arahboTheFirstFang';
+import { DROSS_SCORPION_SCRIPT } from './cards/drossScorpion';
+import { QASALI_SLINGERS_SCRIPT } from './cards/qasaliSlingers';
+import { MYCOID_SHEPHERD_SCRIPT } from './cards/mycoidShepherd';
+import { PACTDOLL_TERROR_SCRIPT } from './cards/pactdollTerror';
+import { VENGEFUL_DEAD_SCRIPT } from './cards/vengefulDead';
+import { SELHOFF_OCCULTIST_SCRIPT } from './cards/selhoffOccultist';
+import { SCION_OF_OPULENCE_SCRIPT } from './cards/scionOfOpulence';
+import { VENERATED_STORMSINGER_SCRIPT } from './cards/veneratedStormsinger';
+import { VENGEFUL_BLOODWITCH_SCRIPT } from './cards/vengefulBloodwitch';
 import { NIGHTBLADE_BRIGADE_SCRIPT } from './cards/nightbladeBrigade';
 import { ZURGOS_VANGUARD_SCRIPT } from './cards/zurgosVanguard';
 import { REIGNING_VICTOR_SCRIPT } from './cards/reigningVictor';
@@ -7102,6 +7120,24 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLOOD_ARTIST_SCRIPT,
+  AYARA_FIRST_OF_LOCTHWAIN_SCRIPT,
+  UNDEAD_AUGUR_SCRIPT,
+  ZULAPORT_CUTTHROAT_SCRIPT,
+  ARBAAZ_MIR_SCRIPT,
+  FALKENRATH_NOBLE_SCRIPT,
+  THIEVES_GUILD_ENFORCER_SCRIPT,
+  BUTCHER_OF_MALAKIR_SCRIPT,
+  ARAHBO_THE_FIRST_FANG_SCRIPT,
+  DROSS_SCORPION_SCRIPT,
+  QASALI_SLINGERS_SCRIPT,
+  MYCOID_SHEPHERD_SCRIPT,
+  PACTDOLL_TERROR_SCRIPT,
+  VENGEFUL_DEAD_SCRIPT,
+  SELHOFF_OCCULTIST_SCRIPT,
+  SCION_OF_OPULENCE_SCRIPT,
+  VENERATED_STORMSINGER_SCRIPT,
+  VENGEFUL_BLOODWITCH_SCRIPT,
   NIGHTBLADE_BRIGADE_SCRIPT,
   ZURGOS_VANGUARD_SCRIPT,
   REIGNING_VICTOR_SCRIPT,

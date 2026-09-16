@@ -261370,6 +261370,615 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLOOD_ARTIST": {
+    "scryfallId": "036f387a-8dee-482e-b3e3-cf79b54c61e1",
+    "oracleId": "310f141c-7f37-4729-aed6-dd9c09db448d",
+    "name": "Blood Artist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Artist",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+        "flavorText": "\"Vanya Falkenrath's paintings are astonishing. How does she manage to achieve such rich crimson hues?\"\n—Stefan, art critic",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "L.A. Draws",
+        "imageId": "036f387a-8dee-482e-b3e3-cf79b54c61e1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "inr",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AYARA_FIRST_OF_LOCTHWAIN": {
+    "scryfallId": "06921700-6094-41e6-9f50-4d0e208d0ab2",
+    "oracleId": "388168b3-ec68-4af2-b88c-6a5ec88c15f6",
+    "name": "Ayara, First of Locthwain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ayara, First of Locthwain",
+        "manaCost": "{B}{B}{B}",
+        "typeLine": "Legendary Creature — Elf Noble",
+        "oracleText": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life.\n{T}, Sacrifice another black creature: Draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Omar Rayyan",
+        "imageId": "06921700-6094-41e6-9f50-4d0e208d0ab2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mul",
+    "collectorNumber": "143z",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDEAD_AUGUR": {
+    "scryfallId": "08be2ba3-4254-4835-9cf6-9db8c4f93b9f",
+    "oracleId": "c26887e1-27f4-4550-921b-53460e43c079",
+    "name": "Undead Augur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undead Augur",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Zombie Wizard",
+        "oracleText": "Whenever this creature or another Zombie you control dies, you draw a card and you lose 1 life.",
+        "flavorText": "\"To see past the veil of death, cross it.\"\n—The Red Book of Mezdrithalik",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "08be2ba3-4254-4835-9cf6-9db8c4f93b9f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "91271",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZULAPORT_CUTTHROAT": {
+    "scryfallId": "08fca446-fee8-4617-91bc-5f1b18daf2ec",
+    "oracleId": "76b003e0-15af-4f22-bdf2-1ade5430964a",
+    "name": "Zulaport Cutthroat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zulaport Cutthroat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rogue Ally",
+        "oracleText": "Whenever this creature or another creature you control dies, each opponent loses 1 life and you gain 1 life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "08fca446-fee8-4617-91bc-5f1b18daf2ec"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARBAAZ_MIR": {
+    "scryfallId": "0c92faf6-1fbb-4e5e-93d8-22da66886f33",
+    "oracleId": "a383ef16-1af8-4b3a-956c-c10a93768617",
+    "name": "Arbaaz Mir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arbaaz Mir",
+        "manaCost": "{R}{W}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": "\"Until you have found a cause worth fighting for, you cannot know what you will sacrifice for it.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Wangjie Li",
+        "imageId": "0c92faf6-1fbb-4e5e-93d8-22da66886f33"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALKENRATH_NOBLE": {
+    "scryfallId": "0fad9e17-c45c-4f94-af5b-63dc1dda1e5b",
+    "oracleId": "3739b179-bc81-4737-8376-66a57e16b942",
+    "name": "Falkenrath Noble",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falkenrath Noble",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "Flying\nWhenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+        "flavorText": "\"I often think on how excited they must feel to be chosen as my prey.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "0fad9e17-c45c-4f94-af5b-63dc1dda1e5b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "lcc",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THIEVES_GUILD_ENFORCER": {
+    "scryfallId": "127d6399-fd20-4bf6-b376-f18ee1ca348f",
+    "oracleId": "84c0db59-255d-41af-a3d4-3f3548f1195f",
+    "name": "Thieves' Guild Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thieves' Guild Enforcer",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Flash\nWhenever this creature or another Rogue you control enters, each opponent mills two cards.\nAs long as an opponent has eight or more cards in their graveyard, this creature gets +2/+1 and has deathtouch.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Evyn Fong",
+        "imageId": "127d6399-fd20-4bf6-b376-f18ee1ca348f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flash",
+      "Mill"
+    ],
+    "setCode": "pm21",
+    "collectorNumber": "125p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BUTCHER_OF_MALAKIR": {
+    "scryfallId": "1a015b68-eb88-4c20-867e-fa61ef046188",
+    "oracleId": "a85197ab-dc94-4b72-9716-8dbdbbe90ff8",
+    "name": "Butcher of Malakir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Butcher of Malakir",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "Flying\nWhenever this creature or another creature you control dies, each opponent sacrifices a creature of their choice.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kevin Eastman",
+        "imageId": "1a015b68-eb88-4c20-867e-fa61ef046188"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "7071",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARAHBO_THE_FIRST_FANG": {
+    "scryfallId": "2507fddd-2dc0-45f0-ac47-1ddd8690be46",
+    "oracleId": "dfec65a0-6fb6-463d-aa62-e84a427db217",
+    "name": "Arahbo, the First Fang",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arahbo, the First Fang",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Cat Avatar",
+        "oracleText": "Other Cats you control get +1/+1.\nWhenever Arahbo or another nontoken Cat you control enters, create a 1/1 white Cat creature token.",
+        "flavorText": "The rumble of his roar is a call to the hunt.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "2507fddd-2dc0-45f0-ac47-1ddd8690be46"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "363",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROSS_SCORPION": {
+    "scryfallId": "27c5381c-2e79-41fa-b1d7-2cf0c6dc1808",
+    "oracleId": "132786bb-157c-4e2c-8f82-13df6a667448",
+    "name": "Dross Scorpion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dross Scorpion",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Scorpion",
+        "oracleText": "Whenever this creature or another artifact creature dies, you may untap target artifact.",
+        "flavorText": "They skitter out of the mists to consume fresh kill before Mephidross has a chance to corrode it away.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jim Nelson",
+        "imageId": "27c5381c-2e79-41fa-b1d7-2cf0c6dc1808"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mrd",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QASALI_SLINGERS": {
+    "scryfallId": "40e21394-146e-4648-b81e-63659c0c4764",
+    "oracleId": "f763d118-3183-4604-a50c-7c3933e2185e",
+    "name": "Qasali Slingers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Qasali Slingers",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Cat Warrior",
+        "oracleText": "Reach\nWhenever this creature or another Cat you control enters, you may destroy target artifact or enchantment.",
+        "flavorText": "All things will crumble, whether by time or by force.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Izzy",
+        "imageId": "40e21394-146e-4648-b81e-63659c0c4764"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "c17",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYCOID_SHEPHERD": {
+    "scryfallId": "4bb53920-2511-4467-b287-79b562d3c24c",
+    "oracleId": "c4a4e607-7f37-4dc6-8fc0-f77bdafeb919",
+    "name": "Mycoid Shepherd",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mycoid Shepherd",
+        "manaCost": "{1}{G}{G}{W}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "Whenever this creature or another creature you control with power 5 or greater dies, you may gain 5 life.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Jarreau Wimberly",
+        "imageId": "4bb53920-2511-4467-b287-79b562d3c24c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dci",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PACTDOLL_TERROR": {
+    "scryfallId": "70226354-47b7-4f9d-a5a8-559d17f07720",
+    "oracleId": "e02fff6b-9ee4-474f-97fc-d70d4bc8001b",
+    "name": "Pactdoll Terror",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pactdoll Terror",
+        "manaCost": "{3}{B}",
+        "typeLine": "Artifact Creature — Toy",
+        "oracleText": "Whenever this creature or another artifact you control enters, each opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\"And you're telling me this was designed for *children*?\"\n—Sita Varma",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Astruga",
+        "imageId": "70226354-47b7-4f9d-a5a8-559d17f07720"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_DEAD": {
+    "scryfallId": "7c11c11d-9809-4031-8cbc-21aef07d7f1f",
+    "oracleId": "277c8ee9-0157-4e45-96ad-1b67716955ee",
+    "name": "Vengeful Dead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Dead",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Whenever this creature or another Zombie dies, each opponent loses 1 life.",
+        "flavorText": "Those who don't learn from their deaths are destined to repeat them.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "7c11c11d-9809-4031-8cbc-21aef07d7f1f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "scg",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELHOFF_OCCULTIST": {
+    "scryfallId": "94975b02-f678-4442-9d1a-cf586aee8789",
+    "oracleId": "d72031e1-c8cf-4e57-b15b-6a5eaacff1e2",
+    "name": "Selhoff Occultist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selhoff Occultist",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Whenever this creature or another creature dies, target player mills a card.",
+        "flavorText": "\"The mist whispers to those who know it to be more than a mundane fog.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "94975b02-f678-4442-9d1a-cf586aee8789"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCION_OF_OPULENCE": {
+    "scryfallId": "95db3c0a-30d3-46af-b28d-cf8c4990233a",
+    "oracleId": "5818b31e-2e86-4230-937e-478e14534f91",
+    "name": "Scion of Opulence",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scion of Opulence",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "Whenever this creature or another nontoken Vampire you control dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\n{R}, Sacrifice two artifacts: Exile the top card of your library. You may play that card this turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "95db3c0a-30d3-46af-b28d-cf8c4990233a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "voc",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENERATED_STORMSINGER": {
+    "scryfallId": "a4a4e985-facd-47e6-b680-3023c82c2957",
+    "oracleId": "4aff2f31-619f-406e-b2c9-a2c733c04bc4",
+    "name": "Venerated Stormsinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Venerated Stormsinger",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Orc Cleric",
+        "oracleText": "Mobilize 1 (Whenever this creature attacks, create a tapped and attacking 1/1 red Warrior creature token. Sacrifice it at the beginning of the next end step.)\nWhenever this creature or another creature you control dies, each opponent loses 1 life and you gain 1 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Elizabeth Peiró",
+        "imageId": "a4a4e985-facd-47e6-b680-3023c82c2957"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mobilize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_BLOODWITCH": {
+    "scryfallId": "bd0c12dd-f138-45c0-9614-d83a1d8e8399",
+    "oracleId": "4cdbc466-42fc-471f-beab-397caec18101",
+    "name": "Vengeful Bloodwitch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Bloodwitch",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire Warlock",
+        "oracleText": "Whenever this creature or another creature you control dies, target opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\"You thought I was unarmed? Poor fool—your veins are my arsenal.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jarel Threat",
+        "imageId": "bd0c12dd-f138-45c0-9614-d83a1d8e8399"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
