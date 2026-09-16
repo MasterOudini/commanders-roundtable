@@ -7689,6 +7689,14 @@ export const GREENBELT_GUARDIAN: CardData = F.GREENBELT_GUARDIAN as CardData;
 export const STAMPEDING_SCURRYFOOT: CardData = F.STAMPEDING_SCURRYFOOT as CardData;
 export const CAMERA_LAUNCHER: CardData = F.CAMERA_LAUNCHER as CardData;
 export const HAZARD_OF_THE_DUNES: CardData = F.HAZARD_OF_THE_DUNES as CardData;
+export const FEARLESS_PUP: CardData = F.FEARLESS_PUP as CardData;
+export const USHER_OF_THE_FALLEN: CardData = F.USHER_OF_THE_FALLEN as CardData;
+export const FEARLESS_LIBERATOR: CardData = F.FEARLESS_LIBERATOR as CardData;
+export const GOLDMAW_CHAMPION: CardData = F.GOLDMAW_CHAMPION as CardData;
+export const DUSKWIELDER: CardData = F.DUSKWIELDER as CardData;
+export const DRAUGR_RECRUITER: CardData = F.DRAUGR_RECRUITER as CardData;
+export const TUSKERI_FIREWALKER: CardData = F.TUSKERI_FIREWALKER as CardData;
+export const HAGI_MOB: CardData = F.HAGI_MOB as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -7858,6 +7866,7 @@ export const SAMURAI_2_2_W_CREATURE_VIGILANCE_TOKEN: CardData = F.SAMURAI_2_2_W_
 export const PLANT_1_1_G_CREATURE_TOKEN: CardData = F.PLANT_1_1_G_CREATURE_TOKEN as CardData;
 export const FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN: CardData = F.FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN as CardData;
 export const WARRIOR_2_1_B_CREATURE_TOKEN: CardData = F.WARRIOR_2_1_B_CREATURE_TOKEN as CardData;
+export const DWARF_BERSERKER_2_1_R_CREATURE_TOKEN: CardData = F.DWARF_BERSERKER_2_1_R_CREATURE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -15532,6 +15541,14 @@ export const ENGINE_CARDS: CardData[] = [
   STAMPEDING_SCURRYFOOT,
   CAMERA_LAUNCHER,
   HAZARD_OF_THE_DUNES,
+  FEARLESS_PUP,
+  USHER_OF_THE_FALLEN,
+  FEARLESS_LIBERATOR,
+  GOLDMAW_CHAMPION,
+  DUSKWIELDER,
+  DRAUGR_RECRUITER,
+  TUSKERI_FIREWALKER,
+  HAGI_MOB,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -15701,4 +15718,5 @@ export const ENGINE_CARDS: CardData[] = [
   PLANT_1_1_G_CREATURE_TOKEN,
   FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN,
   WARRIOR_2_1_B_CREATURE_TOKEN,
+  DWARF_BERSERKER_2_1_R_CREATURE_TOKEN,
 ];

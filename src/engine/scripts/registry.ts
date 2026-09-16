@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FEARLESS_PUP_SCRIPT } from './cards/fearlessPup';
+import { USHER_OF_THE_FALLEN_SCRIPT } from './cards/usherOfTheFallen';
+import { FEARLESS_LIBERATOR_SCRIPT } from './cards/fearlessLiberator';
+import { GOLDMAW_CHAMPION_SCRIPT } from './cards/goldmawChampion';
+import { DUSKWIELDER_SCRIPT } from './cards/duskwielder';
+import { DRAUGR_RECRUITER_SCRIPT } from './cards/draugrRecruiter';
+import { TUSKERI_FIREWALKER_SCRIPT } from './cards/tuskeriFirewalker';
+import { HAGI_MOB_SCRIPT } from './cards/hagiMob';
+import { BATTERSHIELD_WARRIOR_SCRIPT } from './cards/battershieldWarrior';
 import { GREENBELT_GUARDIAN_SCRIPT } from './cards/greenbeltGuardian';
 import { SKYSTREAK_ENGINEER_SCRIPT } from './cards/skystreakEngineer';
 import { STAMPEDING_SCURRYFOOT_SCRIPT } from './cards/stampedingScurryfoot';
@@ -7069,6 +7078,15 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FEARLESS_PUP_SCRIPT,
+  USHER_OF_THE_FALLEN_SCRIPT,
+  FEARLESS_LIBERATOR_SCRIPT,
+  GOLDMAW_CHAMPION_SCRIPT,
+  DUSKWIELDER_SCRIPT,
+  DRAUGR_RECRUITER_SCRIPT,
+  TUSKERI_FIREWALKER_SCRIPT,
+  HAGI_MOB_SCRIPT,
+  BATTERSHIELD_WARRIOR_SCRIPT,
   GREENBELT_GUARDIAN_SCRIPT,
   SKYSTREAK_ENGINEER_SCRIPT,
   STAMPEDING_SCURRYFOOT_SCRIPT,

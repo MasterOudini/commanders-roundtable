@@ -343,6 +343,7 @@ export function legalActions(
         if (ability.sorceryOnly && !sorcerySpeed) continue;
         if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
         if (ability.exhaust && (inst.exhausted ?? []).includes(`${card.oracleId}#a${ability.index}`)) continue;
+        if (ability.boast && !state.turn.memory.attackerIds.includes(id)) continue;
         if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
         const handProblem = buildPaymentProblem(ability.manaCost, 0, [], 0, ability.lifeCost);
         out.push({
@@ -396,6 +397,8 @@ export function legalActions(
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // D457 - CR 702.178: an exhaust ability this object has activated is not offered again.
       if (ability.exhaust && (inst.exhausted ?? []).includes(`${card.oracleId}#a${ability.index}`)) continue;
+      // D458 - CR 702.142: a boast is offered only to a creature that attacked this turn.
+      if (ability.boast && !state.turn.memory.attackerIds.includes(id)) continue;
       // D342 - "Activate only <condition>": offered only while every read condition holds.
       if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
       // D334 - the exile-from-graveyard chooser on a graveyard-activated ability (the card itself never a candidate).
@@ -456,6 +459,7 @@ export function legalActions(
       // D328 - CR 602.5b: activated this turn already, not offered again.
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${ref}`] ?? 0) >= 1) continue;
       if (ability.exhaust && (inst.exhausted ?? []).includes(ref)) continue;
+      if (ability.boast && !state.turn.memory.attackerIds.includes(id)) continue;
       // D342 - "Activate only <condition>": offered only while every read condition holds.
       if (ability.activateOnly.length > 0 && !activationConditionsHold(state, oracle, scripts, player, id, ability.activateOnly, context.cache)) continue;
       // ⚠️ A DESTRUCTIVE COST IS OFFERED ONLY WHEN A SCRIPT WILL RUN THE EFFECT

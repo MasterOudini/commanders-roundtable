@@ -1166,6 +1166,10 @@ function activateAbility(
   if (ability.exhaust && (card.exhausted ?? []).includes(abilityRef)) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability has been activated already (exhaust).`);
   }
+  // D458 - CR 702.142: a boast is refused unless this creature attacked this turn (the once-each-turn half is above).
+  if (ability.boast && !state.turn.memory.attackerIds.includes(intent.card)) {
+    return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability can be activated only if it attacked this turn (boast).`);
+  }
   // D342 - "Activate only <condition>": every condition the parser read must hold
   // now (`legal.ts` offers the ability the same way); CR 602.5b-d.
   if (ability.activateOnly.length > 0 && !activationConditionsHold(state, deps.oracle, deps.scripts, intent.player, intent.card, ability.activateOnly)) {
@@ -2270,6 +2274,7 @@ function finishAbility(
     castFrom: null,
     // D457 - the reducer stamps the source's exhaust memory off this flag.
     ...(ability.exhaust ? { exhaust: true as const } : {}),
+    ...(ability.boast ? { boast: true as const } : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(

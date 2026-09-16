@@ -178,12 +178,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // RECEIVER side of Aya's class — two simultaneous sources are two damage
   // instances batched into one event, so per-event firing under-fires.
   ['Dragonborn Champion', 'per-damage-entry trigger granularity'],
-  ['Draugr Recruiter', 'once-per-turn trigger memory'],
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
   // instances batched into one event (Aya's class, dealer side widened).
   ['Ezio, Blade of Vengeance', 'per-damage-entry trigger granularity'],
-  ['Fearless Liberator', 'once-per-turn trigger memory'],
   // M6.4s (D175) — batch 17's four refusals. Floodbringer and Flooded
   // Shoreline open a NEW class: "Return a land you control to its owner's
   // hand" as an ACTIVATION COST — the chooser one verb over from
@@ -195,7 +193,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Goblins" has no carrier. Sacrifice-event discriminator: `EventCause`
   // has no sacrifice kind AND `matches` receives the event BODY, so a
   // "whenever you sacrifice" watcher would over-fire on every death.
-  ['Goldmaw Champion', 'once-per-turn trigger memory'],
   ['Graf Mole', 'sacrifice-event discriminator'],
   // Batch 20 (D178) — THREE new classes. Alternative cost: "{3}, {T} or
   // {R}, {T}:" has no carrier and a def would charge one reading of an
@@ -204,7 +201,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // candidate. Graveyard-activated: the ability itself lives in the
   // graveyard, and legal.ts offers battlefield abilities only.
   ['Granite Shard', 'alternative activation cost'],
-  ['Hagi Mob', 'once-per-turn trigger memory'],
   ['Half-Elf Monk', 'ability-word activated cost'],
   // Batch 21 (D179): one existing class and THREE new ones. `Hardened
   // Tactician` pays with "a token" — predicatesOf models card types and
@@ -502,7 +498,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Burning Prophet', 'trigger payload not a pump: ~ gets +1/+0 until end of turn, then scry 1.'],
   ['Compassionate Healer', 'trigger payload not a pump: You gain 1 life and scry 1.'],
   ['Cyclopean Snare', 'a tap cost beside a vocabulary self bounce (the suite reads the tap after the return)'],
-  ['Duskwielder', 'ability-word activated line: Boast — {1}: Target opponent loses 1 lif'],
   ['Falkenrath Noble', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature dies, target play'],
   ['Geyser Leaper', 'a line that is neither an activated ability nor a library trigger: Waterbend {4}: Draw a card, then discard a card.'],
   ['Hard Cover', 'a leftover line not among the printed lines: Enchanted creature gets +0/+2 and has'],
@@ -902,7 +897,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Moria Marauder', 'a trigger head outside the library (whenever a Goblin or Orc you control deals combat damage to a player) beside its permission line'],
   ['Ob Nixilis, Captive Kingpin', 'a trigger head outside the library (whenever one or more opponents each lose exactly 1 life) beside its permission line'],
   ['Tempered in Solitude', 'an attack head on a card with no creature body (whenever a creature you control attacks alone) beside its permission line'],
-  ['Tuskeri Firewalker', 'an ability-word activated line (Boast) beside its permission line'],
   ['Araña, Heart of the Spider', 'a vocabulary clause the suite has no fixture for (a combat-role clause) beside its permission line'],
   ['Faldorn, Dread Wolf Herald', 'a filtered head outside the closed reader (whenever you cast a spell from exile or a land you control enters from exile) beside its permission line'],
   ['Kami of Celebration', 'a trigger head outside the library (whenever a modified creature you control attacks) beside its permission line'],
@@ -1785,7 +1779,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // also REMOVES a keyword until end of turn, and D194's carrier has no lose
   // direction.
   ["Urza's Ruinous Blast", 'cast-permission condition'],
-  ['Usher of the Fallen', 'once-per-turn memory'],
   ['Vanguard Seraph', 'once-per-turn memory'],
   ['Vega, the Watcher', 'cast-zone discriminator'],
   ['Vertigo', 'temporary keyword loss'],
@@ -2351,7 +2344,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thalia\'s Geistcaller', 'trigger head outside the library'],
   ['Garruk Wildspeaker', 'planeswalker loyalty ability'],
   ['Garruk Wildspeaker // Garruk Wildspeaker', 'planeswalker loyalty ability'],
-  ['Battershield Warrior', 'boast (once-per-turn memory)'],
   ['Myrkul\'s Invoker', 'ability-word cost'],
   ['Sanctum Spirit', 'historic discard cost'],
 
@@ -2814,7 +2806,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Angelic Protector', 'a heroic self pump beside the Giant Growth the test casts'],
   ['Retrofitter Foundry', 'a sacrifice cost with no fixture the suite can put'],
   ['Honor-Worn Shaku', 'a tap cost with no fixture the suite can put'],
-  ['Fearless Pup', 'ability-word activated line'],
   ['Mold Folk', 'ability-word activated line'],
   ['Dwarven Soldier', 'blocks-by predicate outside the vocabulary'],
   ['Consumptive Goo', 'effect outside the row kinds'],

@@ -446,7 +446,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // D451 - 2,809 -> 2,719: `Discard this card` is a price the engine takes from the hand (bloodrush and its kin).
       // D452 - 2,719 -> 2,622: Channel is an ability word; its discard-self price is D451's.
       // D457 - 2,622 -> 2,521: the exhaust word is read and the cost behind it charged (CR 702.178).
-      'activated:nonManaCost': 2521,
+      // D458 - 2,521 -> 2,478: the boast word the same way (CR 702.142).
+      'activated:nonManaCost': 2478,
       'activated:loyalty': 4635,
       'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -522,7 +523,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 36658, // D457: the 101 exhaust lines; D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
+      payable: 36701, // D458: the 43 boast lines; D457: the 101 exhaust lines; D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
       targeted: 12404, // D451: the reinforce clauses.

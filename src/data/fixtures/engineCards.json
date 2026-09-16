@@ -259931,6 +259931,287 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FEARLESS_PUP": {
+    "scryfallId": "0eba2250-0e9b-46fd-a4b5-23f30329e063",
+    "oracleId": "61295adf-9a58-479a-b6e5-403aa0876c22",
+    "name": "Fearless Pup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fearless Pup",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "First strike\nBoast — {2}{R}: This creature gets +2/+0 until end of turn. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"Awooo!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "0eba2250-0e9b-46fd-a4b5-23f30329e063"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "First strike",
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "USHER_OF_THE_FALLEN": {
+    "scryfallId": "172b167b-52ec-45af-b68a-dc6ce3effa43",
+    "oracleId": "a6eb06dc-a62d-4fdb-b336-e304d8d68c92",
+    "name": "Usher of the Fallen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Usher of the Fallen",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Spirit Warrior",
+        "oracleText": "Boast — {1}{W}: Create a 1/1 white Human Warrior creature token. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "172b167b-52ec-45af-b68a-dc6ce3effa43"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "pmei",
+    "collectorNumber": "2022-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEARLESS_LIBERATOR": {
+    "scryfallId": "212462b7-e23e-4c87-93aa-9cadefbf1ac8",
+    "oracleId": "b0b93253-6432-401e-9a01-94c41fb72c10",
+    "name": "Fearless Liberator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fearless Liberator",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Berserker",
+        "oracleText": "Boast — {2}{R}: Create a 2/1 red Dwarf Berserker creature token. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"No one else had the spine for it, so I ran right between that giant's legs and hauled poor Valdir back to Axgard!\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "212462b7-e23e-4c87-93aa-9cadefbf1ac8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLDMAW_CHAMPION": {
+    "scryfallId": "44d4cd64-8560-48f5-b0bc-f75286c1c91c",
+    "oracleId": "9cbc8765-1735-48ca-bbc2-411aa7da2ed3",
+    "name": "Goldmaw Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goldmaw Champion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Dwarf Warrior",
+        "oracleText": "Boast — {1}{W}: Tap target creature. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"That was nothing. I once took down a frost giant with a spoon!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "44d4cd64-8560-48f5-b0bc-f75286c1c91c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSKWIELDER": {
+    "scryfallId": "5b5490b8-5652-40f5-8678-e1263ef69b5a",
+    "oracleId": "b9227f38-7db7-4ea1-9482-94e5de3984fe",
+    "name": "Duskwielder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duskwielder",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Elf Berserker",
+        "oracleText": "Boast — {1}: Target opponent loses 1 life and you gain 1 life. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"My shadow alone will slay you.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "5b5490b8-5652-40f5-8678-e1263ef69b5a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAUGR_RECRUITER": {
+    "scryfallId": "6b0fe66b-0067-4e5c-9b3a-b014b2f0daf2",
+    "oracleId": "f854ea0d-aae3-4b6a-9767-6ac1788f2190",
+    "name": "Draugr Recruiter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Draugr Recruiter",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Cleric",
+        "oracleText": "Boast — {3}{B}: Return target creature card from your graveyard to your hand. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"You cannot stand against us, but when you fall, you will stand with us!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Colin Boyer",
+        "imageId": "6b0fe66b-0067-4e5c-9b3a-b014b2f0daf2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TUSKERI_FIREWALKER": {
+    "scryfallId": "a54d0170-a375-4e65-b98d-3e94a3aeef90",
+    "oracleId": "36dda03b-a3c1-4ef4-ae62-da318028a39e",
+    "name": "Tuskeri Firewalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tuskeri Firewalker",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Boast — {1}: Exile the top card of your library. You may play that card this turn. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"Toralf blessed me with fire. I am worthy of Starnheim!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "a54d0170-a375-4e65-b98d-3e94a3aeef90"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAGI_MOB": {
+    "scryfallId": "d3b18cdb-bc17-42ae-bfb7-4eafce01cd39",
+    "oracleId": "c19aaf86-b098-4e7d-af50-9e02ae3cda55",
+    "name": "Hagi Mob",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hagi Mob",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Troll Berserker",
+        "oracleText": "Boast — {1}{R}: This creature deals 1 damage to any target. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"Graarg!\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "d3b18cdb-bc17-42ae-bfb7-4eafce01cd39"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -265543,6 +265824,39 @@
     "keywords": [],
     "setCode": "tfrf",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DWARF_BERSERKER_2_1_R_CREATURE_TOKEN": {
+    "scryfallId": "142bbbe1-4446-4d80-b82d-0df8ef17eac1",
+    "oracleId": "0cc90ce1-5c09-4bd2-8ce4-4e96449b4402",
+    "name": "Dwarf Berserker",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Dwarf Berserker",
+        "manaCost": "",
+        "typeLine": "Token Creature — Dwarf Berserker",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Olivier Bernard",
+        "imageId": "142bbbe1-4446-4d80-b82d-0df8ef17eac1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tkhm",
+    "collectorNumber": "12",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

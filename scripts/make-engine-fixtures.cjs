@@ -8486,6 +8486,17 @@ const WANTED = [
   'Camera Launcher',
   'Hazard of the Dunes',
   // D457 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D458 - Boast: the seam's own fixtures (the engine test attacks with the Pup and boasts in combat).
+  'Fearless Pup',
+  'Usher of the Fallen',
+  // D458 - Boast: the attacked-this-turn, once-each-turn activations the engine reads now, rowed with the attack staged and the early attempt refused.
+  'Fearless Liberator',
+  'Goldmaw Champion',
+  'Duskwielder',
+  'Draugr Recruiter',
+  'Tuskeri Firewalker',
+  'Hagi Mob',
+  // D458 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8790,6 +8801,8 @@ const WANTED_TOKENS = [
   { name: 'Fungus Beast', set: 'tsoc', cn: '17', key: 'FUNGUS_BEAST_4_4_G_CREATURE_TRAMPLE_TOKEN' },
   // D449 - the tokens the wave's rows create (the port's token-pin step, missing until D449).
   { name: 'Warrior', set: 'tfrf', cn: '3', key: 'WARRIOR_2_1_B_CREATURE_TOKEN' },
+  // D458 - the tokens the wave's rows create (the port's token-pin step, missing until D458).
+  { name: 'Dwarf Berserker', set: 'tkhm', cn: '12', key: 'DWARF_BERSERKER_2_1_R_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

@@ -1514,6 +1514,12 @@ export interface ActivatedAbility {
    */
   readonly exhaust?: true;
   /**
+   * D458 - `Boast — <cost>: <effect>` (CR 702.142): activated only if this creature attacked this turn, once each
+   * turn (`oncePerTurn` is set with it). Read off the printed word, the cost charged behind it; `legal.ts` withholds
+   * and `handlers.ts` refuses it while `TurnMemory.attackerIds` does not name the source.
+   */
+  readonly boast?: true;
+  /**
    * D342 - every other `Activate only ...` condition the vocabulary read, ALL of
    * which must hold at activation (`activationConditionsHold`). Empty when the
    * line prints none; an unread one made the ability unpayable instead.

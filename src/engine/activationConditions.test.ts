@@ -72,8 +72,12 @@ describe('D342 - the activation conditions', () => {
     expect(threshold.payable).toBe(true);
     expect(threshold.costText).toBe('Threshold — {1}{G}');
     expect(threshold.activateOnly).toEqual([{ kind: 'graveyardCards', count: 7, types: [] }]);
-    // Boast carries a rule the card does not print: never charged as a bare cost.
-    expect(ability('Boast — {1}: Draw a card.').payable).toBe(false);
+    // D458 - Boast is read by its own reader too: the cost charged behind the word, the rules on the flags.
+    const boast = ability('Boast — {1}: Draw a card.');
+    expect(boast.payable).toBe(true);
+    expect(boast.boast).toBe(true);
+    expect(boast.oncePerTurn).toBe(true);
+    expect(boast.costText).toBe('Boast — {1}');
     // D457 - Exhaust is read by its own reader: the cost charged behind the word, the once-per-object rule on the flag.
     const exhaust = ability('Exhaust — {2}: Draw a card.');
     expect(exhaust.payable).toBe(true);

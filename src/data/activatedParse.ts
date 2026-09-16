@@ -321,6 +321,8 @@ const ABILITY_WORD_RE = /^(?:Bloodrush|Channel|Threshold|Hellbent|Metalcraft|Del
 
 /** D457 - the exhaust word before the cost (CR 702.178): read into `ActivatedAbility.exhaust`, never stripped silently. */
 const EXHAUST_RE = /^Exhaust — /;
+/** D458 - the boast word before the cost (CR 702.142): read into `ActivatedAbility.boast` + `oncePerTurn`. */
+const BOAST_RE = /^Boast — /;
 function costParts(costText: string): string[] {
   return costText
     .replace(ABILITY_WORD_RE, '')
@@ -702,7 +704,9 @@ export function parseActivatedAbilities(
 
     // D457 - the exhaust word is the ability's own rule (once per object), read off the cost text and charged behind.
     const exhaust = EXHAUST_RE.test(line.costText);
-    const parts = costParts(exhaust ? line.costText.replace(EXHAUST_RE, '') : line.costText);
+    // D458 - and the boast word the same way (attacked this turn, once each turn - the rules ride the flags).
+    const boast = BOAST_RE.test(line.costText);
+    const parts = costParts(exhaust ? line.costText.replace(EXHAUST_RE, '') : boast ? line.costText.replace(BOAST_RE, '') : line.costText);
     const manaSymbols: string[] = [];
     const unpaidCosts: string[] = [];
     let requiresTap = false;
@@ -1017,8 +1021,9 @@ export function parseActivatedAbilities(
       isLoyalty,
       // D342 - the compound tails ("as a sorcery and only once each turn") read by the clause parser too.
       sorceryOnly: SORCERY_ONLY_RE.test(line.text) || activation.sorceryOnly,
-      oncePerTurn: ONCE_PER_TURN_RE.test(line.text) || activation.oncePerTurn,
+      oncePerTurn: ONCE_PER_TURN_RE.test(line.text) || activation.oncePerTurn || boast,
       ...(exhaust ? { exhaust: true as const } : {}),
+      ...(boast ? { boast: true as const } : {}),
       activateOnly: activation.conditions,
       // The same clause parser the spell path uses — one grammar, not two.
       // Measured: 6,082 ability lines contain a target clause.

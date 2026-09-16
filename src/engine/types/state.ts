@@ -381,6 +381,8 @@ export interface StackObject {
   readonly kicked?: number;
   /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
   readonly exhaust?: true;
+  /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */
+  readonly boast?: true;
   /**
    * D405 - how many creatures convoked, artifacts improvised and cards were delved to cast this
    * spell (CR 702.51 / 702.126 / 702.66); absent when none did. The record of the alternative
@@ -1175,6 +1177,8 @@ export interface TurnMemory {
   readonly gainedLife: Readonly<Record<PlayerId, boolean>>;
   /** How many creatures the active player declared as attackers this turn. */
   readonly attackers: number;
+  /** D458 - WHICH creatures attacked this turn (boast: `this creature attacked this turn`, CR 702.142). */
+  readonly attackerIds: readonly InstanceId[];
   /**
    * D398 - what LEFT the battlefield this turn, to ANY zone, and who controlled it
    * then (last known information, like `died`): "if a permanent left the

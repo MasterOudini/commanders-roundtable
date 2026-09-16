@@ -97,6 +97,7 @@ export const EMPTY_TURN_MEMORY: TurnMemory = {
   lostLife: {},
   gainedLife: {},
   attackers: 0,
+  attackerIds: [],
   left: [],
   damaged: {},
   lifeGained: {},
@@ -1078,7 +1079,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         // D348 - and how many attacked, for "if you attacked with two or more creatures this turn".
         turn:
           body.attackers.length > 0
-            ? { ...state.turn, attacked: true, memory: { ...state.turn.memory, attackers: state.turn.memory.attackers + body.attackers.length } }
+            ? { ...state.turn, attacked: true, memory: { ...state.turn.memory, attackers: state.turn.memory.attackers + body.attackers.length, attackerIds: [...state.turn.memory.attackerIds, ...body.attackers.map((a) => a.card)] } }
             : state.turn,
         combat: {
           attackers: body.attackers.map((a) => ({
