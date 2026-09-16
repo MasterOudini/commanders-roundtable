@@ -7847,6 +7847,15 @@ export const FRACTAL_MASCOT: CardData = F.FRACTAL_MASCOT as CardData;
 export const GRAPPLING_KRAKEN: CardData = F.GRAPPLING_KRAKEN as CardData;
 export const WAYLAYING_PIRATES: CardData = F.WAYLAYING_PIRATES as CardData;
 export const PETRIFYING_MEDDLER: CardData = F.PETRIFYING_MEDDLER as CardData;
+export const AVENGING_HUNTBONDER: CardData = F.AVENGING_HUNTBONDER as CardData;
+export const VOID_BECKONER: CardData = F.VOID_BECKONER as CardData;
+export const WINDCALLER_AVEN: CardData = F.WINDCALLER_AVEN as CardData;
+export const SPLENDOR_MARE: CardData = F.SPLENDOR_MARE as CardData;
+export const MAI_JADED_EDGE: CardData = F.MAI_JADED_EDGE as CardData;
+export const TITANOTH_REX: CardData = F.TITANOTH_REX as CardData;
+export const VIZIER_OF_TUMBLING_SANDS: CardData = F.VIZIER_OF_TUMBLING_SANDS as CardData;
+export const SANCTUARY_SMASHER: CardData = F.SANCTUARY_SMASHER as CardData;
+export const AVIAN_ODDITY: CardData = F.AVIAN_ODDITY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15852,6 +15861,15 @@ export const ENGINE_CARDS: CardData[] = [
   GRAPPLING_KRAKEN,
   WAYLAYING_PIRATES,
   PETRIFYING_MEDDLER,
+  AVENGING_HUNTBONDER,
+  VOID_BECKONER,
+  WINDCALLER_AVEN,
+  SPLENDOR_MARE,
+  MAI_JADED_EDGE,
+  TITANOTH_REX,
+  VIZIER_OF_TUMBLING_SANDS,
+  SANCTUARY_SMASHER,
+  AVIAN_ODDITY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

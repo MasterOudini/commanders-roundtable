@@ -943,7 +943,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nobody', "a trigger payload outside the row kinds (return up to one other target artifact you control to its owner's hand - an up-to-one bounce)"],
   ['Defiant Greatmaw', 'a trigger head outside the library (whenever you put one or more -1/-1 counters on this creature) beside its another-target line'],
   ['Restless Ridgeline', 'a trigger head outside the library (whenever this land attacks - the animated land) beside its another-target line'],
-  ['Vizier of Tumbling Sands', 'a trigger head outside the library (when you cycle this card) beside its another-target line'],
   ['Forensic Researcher', 'a cost the engine does not charge (collect evidence 3) beside its another-target line'],
   ['North Pole Patrol', 'a keyword-worded activation (Waterbend {3}, {T}: tap target creature) beside its another-target line'],
   // D412 - connive is the engine's own (CR 701.50): the one the selector offered once the connive sentences read
@@ -2393,7 +2392,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Valiant Rescuer', 'trigger head outside the library (whenever you cycle another card for the first ti)'],
   ['Violent Impact', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Volcanic Submersion', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Windcaller Aven', 'a when-you-cycle trigger (its cycling runs; a head over the cycling event next)'],
   ['Death Pulse', 'a when-you-cycle trigger (its cycling runs; a head over the cycling event next)'],
   ['Decree of Annihilation', 'a when-you-cycle trigger (its cycling runs; a head over the cycling event next)'],
   ['Decree of Pain', 'a when-you-cycle trigger (its cycling runs; a head over the cycling event next)'],

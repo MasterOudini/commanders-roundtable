@@ -8676,6 +8676,17 @@ const WANTED = [
   'Waylaying Pirates',
   'Petrifying Meddler',
   // D470 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D471 - the keyword counter: CR 122.1c as an engine rule (derive reads the keyword off the counter), the keyword-counter payloads and entry rows that read.
+  'Avenging Huntbonder',
+  'Void Beckoner',
+  'Windcaller Aven',
+  'Splendor Mare',
+  'Mai, Jaded Edge',
+  'Titanoth Rex',
+  'Vizier of Tumbling Sands',
+  'Sanctuary Smasher',
+  'Avian Oddity',
+  // D471 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

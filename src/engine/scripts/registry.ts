@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AVENGING_HUNTBONDER_SCRIPT } from './cards/avengingHuntbonder';
+import { VOID_BECKONER_SCRIPT } from './cards/voidBeckoner';
+import { WINDCALLER_AVEN_SCRIPT } from './cards/windcallerAven';
+import { SPLENDOR_MARE_SCRIPT } from './cards/splendorMare';
+import { MAI_JADED_EDGE_SCRIPT } from './cards/maiJadedEdge';
+import { TITANOTH_REX_SCRIPT } from './cards/titanothRex';
+import { VIZIER_OF_TUMBLING_SANDS_SCRIPT } from './cards/vizierOfTumblingSands';
+import { SANCTUARY_SMASHER_SCRIPT } from './cards/sanctuarySmasher';
+import { AVIAN_ODDITY_SCRIPT } from './cards/avianOddity';
 import { REFEREE_SQUAD_SCRIPT } from './cards/refereeSquad';
 import { ALCHEMAX_SLAYER_BOTS_SCRIPT } from './cards/alchemaxSlayerBots';
 import { ROWDY_SNOWBALLERS_SCRIPT } from './cards/rowdySnowballers';
@@ -7216,6 +7225,15 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AVENGING_HUNTBONDER_SCRIPT,
+  VOID_BECKONER_SCRIPT,
+  WINDCALLER_AVEN_SCRIPT,
+  SPLENDOR_MARE_SCRIPT,
+  MAI_JADED_EDGE_SCRIPT,
+  TITANOTH_REX_SCRIPT,
+  VIZIER_OF_TUMBLING_SANDS_SCRIPT,
+  SANCTUARY_SMASHER_SCRIPT,
+  AVIAN_ODDITY_SCRIPT,
   REFEREE_SQUAD_SCRIPT,
   ALCHEMAX_SLAYER_BOTS_SCRIPT,
   ROWDY_SNOWBALLERS_SCRIPT,

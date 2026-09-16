@@ -37,6 +37,7 @@ import type {
   SearchQualifier,
   SearchSpec,
 } from '../engine/types/oracle';
+import { COUNTER_KINDS } from '../engine/types/oracle';
 import type { ColorLetter } from './cardTypes';
 import { SELF_AIMED } from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
@@ -386,7 +387,8 @@ function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | n
  * not here: recording a counter nothing applies is half-execution with a number
  * on it.
  */
-const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield|stun)`;
+// D471 - the keyword counters the engine reads (CR 122.1c) are printed as their words, two of them with a space.
+const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield|stun|flying|first strike|double strike|deathtouch|hexproof|indestructible|lifelink|menace|reach|trample|vigilance|shadow)`;
 const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
 /** D434 - a mill's count: the words past seven the printed mills use. */
 const MILL_COUNT = '(?:a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|twenty|\\d+)';
@@ -419,8 +421,9 @@ const GY_ADJECTIVE = ADJECTIVE.replace(/\\s\+\)\*$/, ',?\\s+)*');
 const GY_NOUN = `${GY_ADJECTIVE}(?:artifact or enchantment card|artifact or creature card|instant or sorcery card|permanent card|creature card|artifact card|enchantment card|land card|planeswalker card|instant card|sorcery card|zombie card|goblin card|card)s?` + QUALIFIER;
 
 function counterKindOf(raw: string | undefined): CounterKind | null {
-  if (raw === '+1/+1' || raw === '-1/-1' || raw === 'shield' || raw === 'stun') return raw;
-  return null;
+  if (raw === undefined) return null;
+  const hit = COUNTER_KINDS.find((k) => k === raw.toLowerCase());
+  return hit ?? null;
 }
 
 /**

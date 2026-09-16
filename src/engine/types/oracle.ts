@@ -829,11 +829,12 @@ export type EffectKind =
   | 'exileTopPlay';
 
 /**
- * The counters a spell may put on or take off, and the list is CLOSED at four.
+ * The counters a spell may put on or take off, and the list is CLOSED at the ones the engine reads.
  *
  * D469 - `shield` joined: the prevention funnel and the three destroy sites apply it (CR 122.1i),
  * so putting one is a change the board shows. D470 - `stun` joined the same way (CR 122.1j, the
- * untap built-in). The rule for the others stands.
+ * untap built-in). D471 - the KEYWORD counters the engine enforces joined (CR 122.1c, `derive`
+ * reads them at layer 6). The rule for the others stands.
  *
  * ⚠️ **BECAUSE THESE ARE THE ONES THE ENGINE READS.** `derive.ts` sums `+1/+1`
  * and `-1/-1` at layer 7d, so putting one of them is a change the board actually
@@ -847,7 +848,25 @@ export type EffectKind =
  * Commander-legal spell's WHOLE text is that clause, so admitting it would widen
  * the vocabulary for zero cards and one more thing to be wrong about.
  */
-export type CounterKind = '+1/+1' | '-1/-1' | 'shield' | 'stun';
+export type CounterKind =
+  | '+1/+1'
+  | '-1/-1'
+  | 'shield'
+  | 'stun'
+  | 'flying'
+  | 'first strike'
+  | 'double strike'
+  | 'deathtouch'
+  | 'hexproof'
+  | 'indestructible'
+  | 'lifelink'
+  | 'menace'
+  | 'reach'
+  | 'trample'
+  | 'vigilance'
+  | 'shadow';
+/** D471 - the counter kinds the vocabulary may put, as printed; `counterKindOf` is the one gate. */
+export const COUNTER_KINDS: readonly CounterKind[] = ['+1/+1', '-1/-1', 'shield', 'stun', 'flying', 'first strike', 'double strike', 'deathtouch', 'hexproof', 'indestructible', 'lifelink', 'menace', 'reach', 'trample', 'vigilance', 'shadow'];
 
 /**
  * D357 - what a library search is allowed to find, and where it goes.

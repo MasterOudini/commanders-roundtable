@@ -147,6 +147,13 @@ function computeDerived(
     if (mod.card !== inst.id || mod.keywords === undefined) continue;
     for (const k of mod.keywords) chars.keywords.add(k);
   }
+  // D471 - CR 122.1c: a keyword counter gives the object that keyword. The counter kind is the printed word
+  // (`first strike`), the keyword the engine's id; a kind outside the enforced list is inert, as before.
+  for (const [kind, n] of Object.entries(inst.counters)) {
+    if (n <= 0) continue;
+    const kw = KEYWORD_COUNTERS[kind];
+    if (kw !== undefined) chars.keywords.add(kw);
+  }
   // D311 - layer 4: card types gained until end of turn (a crewed Vehicle is
   // an artifact creature; CR 702.122a).
   for (const mod of state.untilEndOfTurn) {
@@ -231,6 +238,22 @@ function everyCreatureType(t: ParsedTypeLine, oracle: OracleDb): ParsedTypeLine 
   for (const sub of oracle.creatureTypes) if (!t.subtypes.includes(sub)) extra.push(sub);
   return extra.length === 0 ? t : { ...t, subtypes: [...t.subtypes, ...extra] };
 }
+
+/** D471 - the keyword counters CR 122.1c names that the engine enforces, by the printed counter word. */
+const KEYWORD_COUNTERS: Readonly<Record<string, Keyword>> = {
+  flying: 'flying',
+  'first strike': 'firstStrike',
+  'double strike': 'doubleStrike',
+  deathtouch: 'deathtouch',
+  hexproof: 'hexproof',
+  indestructible: 'indestructible',
+  lifelink: 'lifelink',
+  menace: 'menace',
+  reach: 'reach',
+  trample: 'trample',
+  vigilance: 'vigilance',
+  shadow: 'shadow',
+};
 
 function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics {
   // CR 708.2: a face-down permanent is a 2/2 creature with no name, no mana
