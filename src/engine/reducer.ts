@@ -299,6 +299,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     // D449 - and its evoke or dash the same way.
     evoked: undefined,
     dashed: undefined,
+    // D457 - a new object has exhausted nothing.
+    exhausted: undefined,
     // D453 - a new object is held by no Aura.
     controlledVia: undefined,
     // D411 - a new object owes no untap step.
@@ -997,8 +999,13 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'SpellCast':
     case 'AbilityPutOnStack': {
       const stackAdds = state.priority.stackAdds + 1;
+      // D457 - an exhaust activation is remembered on its source for as long as the object lasts (CR 702.178).
+      const exhaustSrc = body.obj.exhaust && body.obj.source !== null && body.obj.abilityRef !== null ? state.cards[body.obj.source] : undefined;
       return {
         ...state,
+        ...(exhaustSrc && body.obj.source !== null && body.obj.abilityRef !== null
+          ? { cards: { ...state.cards, [body.obj.source]: { ...exhaustSrc, exhausted: [...(exhaustSrc.exhausted ?? []), body.obj.abilityRef] } } }
+          : {}),
         stack: [...state.stack, body.obj],
         // D402 - a delayed trigger leaves the armed list as its ability goes on the stack.
         ...(body.obj.delayedEffects ? { delayedTriggers: state.delayedTriggers.filter((d) => d.id !== body.obj.abilityRef) } : {}),

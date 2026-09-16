@@ -319,6 +319,8 @@ function tokenPredicates(phrase: string): readonly PermanentPredicate[] | null {
  */
 const ABILITY_WORD_RE = /^(?:Bloodrush|Channel|Threshold|Hellbent|Metalcraft|Delirium|Ferocious|Formidable|Domain|Morbid|Fateful hour|Chroma|Radiance|Landfall|Constellation|Inspired|Heroic|Battalion|Raid|Revolt|Spell mastery|Adamant|Alliance|Coven|Pack tactics|Enrage|Converge|Magecraft|Addendum|Corrupted|Celebration|Valiant|Paradox|Survival|Flurry|Eerie|Undergrowth|Kinship|Lieutenant|Parley|Sweep|Grandeur|Strive|Cohort|Eminence|Fathomless descent|Max speed|Council's dilemma|Will of the council|Tempting offer|Join forces|Descend \d+) — /;
 
+/** D457 - the exhaust word before the cost (CR 702.178): read into `ActivatedAbility.exhaust`, never stripped silently. */
+const EXHAUST_RE = /^Exhaust — /;
 function costParts(costText: string): string[] {
   return costText
     .replace(ABILITY_WORD_RE, '')
@@ -698,7 +700,9 @@ export function parseActivatedAbilities(
     }
     if (line.kind !== 'activated') continue;
 
-    const parts = costParts(line.costText);
+    // D457 - the exhaust word is the ability's own rule (once per object), read off the cost text and charged behind.
+    const exhaust = EXHAUST_RE.test(line.costText);
+    const parts = costParts(exhaust ? line.costText.replace(EXHAUST_RE, '') : line.costText);
     const manaSymbols: string[] = [];
     const unpaidCosts: string[] = [];
     let requiresTap = false;
@@ -1014,6 +1018,7 @@ export function parseActivatedAbilities(
       // D342 - the compound tails ("as a sorcery and only once each turn") read by the clause parser too.
       sorceryOnly: SORCERY_ONLY_RE.test(line.text) || activation.sorceryOnly,
       oncePerTurn: ONCE_PER_TURN_RE.test(line.text) || activation.oncePerTurn,
+      ...(exhaust ? { exhaust: true as const } : {}),
       activateOnly: activation.conditions,
       // The same clause parser the spell path uses — one grammar, not two.
       // Measured: 6,082 ability lines contain a target clause.

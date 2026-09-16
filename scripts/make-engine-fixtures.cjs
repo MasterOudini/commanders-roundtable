@@ -8477,6 +8477,15 @@ const WANTED = [
   'Sixth Sense',
   'Iconic Shield',
   // D456 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D457 - Exhaust: the seam's own fixtures (the engine test activates the exhaust ability once and is refused after).
+  'Prowcatcher Specialist',
+  'Skystreak Engineer',
+  // D457 - Exhaust: the once-per-object activations the engine remembers now, rowed by the one-shot row maker with the second activation refused.
+  'Greenbelt Guardian',
+  'Stampeding Scurryfoot',
+  'Camera Launcher',
+  'Hazard of the Dunes',
+  // D457 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

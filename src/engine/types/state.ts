@@ -295,6 +295,12 @@ export interface CardInstance {
    * armed with it exiles it at the next end step. Cleared with the battlefield fields - a new object owes nothing.
    */
   readonly unearthed?: true | undefined;
+  /**
+   * D457 - exhaust (CR 702.178): the refs of the exhaust abilities THIS object has activated. Stamped by the reducer
+   * as the ability goes on the stack (`StackObject.exhaust`), read by `legal.ts` and `handlers.ts`, cleared with
+   * the battlefield fields - a new object may exhaust again.
+   */
+  readonly exhausted?: readonly AbilityRef[] | undefined;
 }
 
 export type DefenderRef =
@@ -373,6 +379,8 @@ export interface StackObject {
    * permanent the spell becomes (`CardMove.kicked`, `CardInstance.kicked`).
    */
   readonly kicked?: number;
+  /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
+  readonly exhaust?: true;
   /**
    * D405 - how many creatures convoked, artifacts improvised and cards were delved to cast this
    * spell (CR 702.51 / 702.126 / 702.66); absent when none did. The record of the alternative

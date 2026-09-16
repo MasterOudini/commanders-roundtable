@@ -357,6 +357,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D453 - the control Auras: two Control Magics a seat (the aim is random, D445 - a creature of anyone's).
   { names: ['Control Magic'], copiesPerSeat: 2,
     counterKeys: ['controlAuras'], rotHistory: 'D453' },
+  // D457 - exhaust: a Prowcatcher Specialist a seat ({3}{R} once per object - the driver pays it when it can).
+  { names: ['Prowcatcher Specialist'], copiesPerSeat: 2,
+    counterKeys: ['exhaustActivations'], rotHistory: 'D457' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1217,6 +1220,8 @@ interface Run {
   /** D453 - the control Auras: the permanents taken through an Aura, and the give-backs. */
   readonly controlAuras: number;
   readonly controlAuraReverts: number;
+  /** D457 - the exhaust abilities put on the stack (each at most once per object - the invariant walker checks). */
+  readonly exhaustActivations: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1637,6 +1642,7 @@ function runOne(seed: number): Run {
     fadingFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:fading$/.test(e.body.obj.abilityRef ?? '')).length,
     controlAuras: game.log.filter((e) => e.body.t === 'ControlTakenByAura').length,
     controlAuraReverts: game.log.filter((e) => e.body.t === 'ControlReverted').length,
+    exhaustActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.exhaust === true).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1889,6 +1895,7 @@ const TOTAL_KEYS = [
   'handActivations',
   'controlAuras',
   'controlAuraReverts',
+  'exhaustActivations',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2373,6 +2380,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.vanishingTicks} vanishing ticks (${totals.vanishingSacrifices} last-counter sacrifices) · ${totals.fadingFires} fading fires · ` +
           `${totals.handActivations} hand activations (the card discarded as the cost) · ` +
           `${totals.controlAuras} control Auras (${totals.controlAuraReverts} given back) · ` +
+          `${totals.exhaustActivations} exhaust activations · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

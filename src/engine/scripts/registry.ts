@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GREENBELT_GUARDIAN_SCRIPT } from './cards/greenbeltGuardian';
+import { SKYSTREAK_ENGINEER_SCRIPT } from './cards/skystreakEngineer';
+import { STAMPEDING_SCURRYFOOT_SCRIPT } from './cards/stampedingScurryfoot';
+import { CAMERA_LAUNCHER_SCRIPT } from './cards/cameraLauncher';
+import { PROWCATCHER_SPECIALIST_SCRIPT } from './cards/prowcatcherSpecialist';
+import { HAZARD_OF_THE_DUNES_SCRIPT } from './cards/hazardOfTheDunes';
 import { FARMSTEAD_SCRIPT } from './cards/farmstead';
 import { INFINITY_FORMULA_SCRIPT } from './cards/infinityFormula';
 import { NURTURING_PRESENCE_SCRIPT } from './cards/nurturingPresence';
@@ -7063,6 +7069,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GREENBELT_GUARDIAN_SCRIPT,
+  SKYSTREAK_ENGINEER_SCRIPT,
+  STAMPEDING_SCURRYFOOT_SCRIPT,
+  CAMERA_LAUNCHER_SCRIPT,
+  PROWCATCHER_SPECIALIST_SCRIPT,
+  HAZARD_OF_THE_DUNES_SCRIPT,
   FARMSTEAD_SCRIPT,
   INFINITY_FORMULA_SCRIPT,
   NURTURING_PRESENCE_SCRIPT,

@@ -1508,6 +1508,12 @@ export interface ActivatedAbility {
   /** D328 - `Activate only once each turn` (CR 602.5b): refused and unoffered once `TurnState.activations` counts it. */
   readonly oncePerTurn: boolean;
   /**
+   * D457 - `Exhaust — <cost>: <effect>` (CR 702.178): activated only once per OBJECT. Read off the printed word,
+   * the cost charged behind it; `legal.ts` withholds and `handlers.ts` refuses it once `CardInstance.exhausted`
+   * names its ref. Absent when the line prints no exhaust.
+   */
+  readonly exhaust?: true;
+  /**
    * D342 - every other `Activate only ...` condition the vocabulary read, ALL of
    * which must hold at activation (`activationConditionsHold`). Empty when the
    * line prints none; an unread one made the ability unpayable instead.

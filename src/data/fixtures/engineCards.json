@@ -259721,6 +259721,216 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PROWCATCHER_SPECIALIST": {
+    "scryfallId": "affbc8db-4ff7-4a86-954a-910493e5a2ef",
+    "oracleId": "594132ac-32a7-41d5-b7f0-3692bbed7f6f",
+    "name": "Prowcatcher Specialist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prowcatcher Specialist",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Haste\nExhaust — {3}{R}: Put two +1/+1 counters on this creature. (Activate each exhaust ability only once.)",
+        "flavorText": "\"Don't you know it's dangerous to go faster than us?\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Konstantin Porubov",
+        "imageId": "affbc8db-4ff7-4a86-954a-910493e5a2ef"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste",
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSTREAK_ENGINEER": {
+    "scryfallId": "5bc9c501-098d-4560-9826-329b05689e0f",
+    "oracleId": "2f920bf2-6a49-47c2-be3c-9787c377673b",
+    "name": "Skystreak Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skystreak Engineer",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Pilot",
+        "oracleText": "Flying\nExhaust — {4}{U}: Put two +1/+1 counters on this creature. (Activate each exhaust ability only once.)",
+        "flavorText": "Garima was delighted to finally test out her design. The amazing views were a bonus.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Elizabeth Peiró",
+        "imageId": "5bc9c501-098d-4560-9826-329b05689e0f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENBELT_GUARDIAN": {
+    "scryfallId": "2f6b0000-5fd3-483b-bac5-f9b888d8755b",
+    "oracleId": "2d8aa053-289d-40d9-baa7-9bd1c5b8e957",
+    "name": "Greenbelt Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greenbelt Guardian",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Ranger",
+        "oracleText": "{G}: Target creature gains trample until end of turn.\nExhaust — {3}{G}: Put three +1/+1 counters on this creature. (Activate each exhaust ability only once.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tianxing Xu",
+        "imageId": "2f6b0000-5fd3-483b-bac5-f9b888d8755b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAMPEDING_SCURRYFOOT": {
+    "scryfallId": "7fc713d7-4a7e-4f1f-b461-e89bb1457d7d",
+    "oracleId": "7b860806-0118-40f8-861b-225a7c1cf151",
+    "name": "Stampeding Scurryfoot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stampeding Scurryfoot",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Mouse",
+        "oracleText": "Exhaust — {3}{G}: Put a +1/+1 counter on this creature. Create a 3/3 green Elephant creature token. (Activate each exhaust ability only once.)",
+        "flavorText": "All creatures great and small contribute to the stampede.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "7fc713d7-4a7e-4f1f-b461-e89bb1457d7d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAMERA_LAUNCHER": {
+    "scryfallId": "968651db-92fb-46cd-acda-9e097668b7c9",
+    "oracleId": "b46bac37-5b45-4be5-93d0-76e48dbd9f74",
+    "name": "Camera Launcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Camera Launcher",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Exhaust — {3}: Put a +1/+1 counter on this creature. Create a 1/1 colorless Thopter artifact creature token with flying. (Activate each exhaust ability only once.)",
+        "flavorText": "Vnwxt's contract demanded at least one dedicated camera on him at all times.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ben Wootten",
+        "imageId": "968651db-92fb-46cd-acda-9e097668b7c9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAZARD_OF_THE_DUNES": {
+    "scryfallId": "c3fbee7a-7e73-43cf-bc39-ccb1c63bf837",
+    "oracleId": "799664fc-279c-40c1-8e40-44a68c38801b",
+    "name": "Hazard of the Dunes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hazard of the Dunes",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample, reach\nExhaust — {6}{G}: Put three +1/+1 counters on this creature. (Activate each exhaust ability only once.)",
+        "flavorText": "\"It's aggravating that nature can build better hazards than I ever could.\"\n—Termin, track designer",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "c3fbee7a-7e73-43cf-bc39-ccb1c63bf837"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Trample",
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

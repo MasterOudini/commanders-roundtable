@@ -1162,6 +1162,10 @@ function activateAbility(
   if (ability.oncePerTurn && (state.turn.activations[`${intent.card}|${abilityRef}`] ?? 0) >= 1) {
     return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability was activated this turn already.`);
   }
+  // D457 - CR 702.178: an exhaust ability this object has activated is refused for good (`legal.ts` stops offering it).
+  if (ability.exhaust && (card.exhausted ?? []).includes(abilityRef)) {
+    return reject('timingRestriction', `${face.name}'s "${ability.costText}" ability has been activated already (exhaust).`);
+  }
   // D342 - "Activate only <condition>": every condition the parser read must hold
   // now (`legal.ts` offers the ability the same way); CR 602.5b-d.
   if (ability.activateOnly.length > 0 && !activationConditionsHold(state, deps.oracle, deps.scripts, intent.player, intent.card, ability.activateOnly)) {
@@ -2264,6 +2268,8 @@ function finishAbility(
     taxApplied: 0,
     isCommanderCast: false,
     castFrom: null,
+    // D457 - the reducer stamps the source's exhaust memory off this flag.
+    ...(ability.exhaust ? { exhaust: true as const } : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(

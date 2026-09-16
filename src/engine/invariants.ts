@@ -69,6 +69,11 @@ export function checkInvariants(state: GameState): string[] {
       if (!Number.isInteger(n) || n <= 0) problems.push(`${id} has a ${kind} counter count of ${n}`);
     }
     if (card.damage < 0) problems.push(`${id} has negative damage`);
+    // D457 - an exhaust memory names each ref once and lives only on the battlefield (CR 702.178, CR 400.7).
+    if (card.exhausted !== undefined) {
+      if (new Set(card.exhausted).size !== card.exhausted.length) problems.push(`${id} exhausted one ability twice`);
+      if (card.zone.kind !== 'battlefield') problems.push(`${id} carries an exhaust memory off the battlefield`);
+    }
     // ⚠️ Both directions of an attachment, every time. Clearing one side leaves
     // a dead id in the other, and the aura-falls SBA then fires on a permanent
     // that no longer exists — a crash several turns after the real mistake.
