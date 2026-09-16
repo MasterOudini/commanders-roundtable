@@ -134,7 +134,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // `CombatDamageDealt` batches EVERY creature's damage into one event and
   // the bus fires per event, so a per-creature damage trigger under-fires on
   // multi-attacker turns (D163).
-  ['Aya of Alexandria', 'per-damage-entry trigger granularity'],
   // Discard-a-card-as-cost chooser — the hand-side sibling of the sacrifice
   // chooser (D163).
   // Batch 7 (D164).
@@ -165,7 +164,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // "Whenever a Dinosaur you control deals combat damage" — NOT self-only,
   // so `CombatDamageDealt`'s per-event batching under-fires it on
   // multi-Dinosaur turns (Aya's class, D163).
-  ['Curious Altisaur', 'per-damage-entry trigger granularity'],
   // A dies-trigger raising the TARGET OPPONENT's discard prompt (D160's
   // class, Corrupt Court Official's dies-twin).
   // M6.4o (D171) — batch 13's five refusals, all existing classes.
@@ -181,7 +179,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // M6.4r (D174) — batch 16's two refusals. Ezio watches a CLASS of
   // creatures deal combat damage, so two simultaneous Assassins are two
   // instances batched into one event (Aya's class, dealer side widened).
-  ['Ezio, Blade of Vengeance', 'per-damage-entry trigger granularity'],
   // M6.4s (D175) — batch 17's four refusals. Floodbringer and Flooded
   // Shoreline open a NEW class: "Return a land you control to its owner's
   // hand" as an ACTIVATION COST — the chooser one verb over from
@@ -262,8 +259,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // (this creature or another creature you control) the library lacks.
   // D462 - ninjutsu is the engine's now, and the mirror offered two the row maker refused: filtered combat-damage heads
   // (a Ninja you control; one or more Ninja or Rogue creatures) the library lacks.
-  ['Ingenious Infiltrator', 'a filtered combat-damage head outside the library (a Ninja you control deals combat damage to a player): Whenever a Ninja you control deals combat damage to a player, draw a card.'],
-  ['Prosperous Thief', 'a filtered combat-damage head outside the library (one or more Ninja or Rogue creatures you control): Whenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a Treasure token.'],
   // D460 - disguise is the engine's now, and the mirror offered six the row maker refused: a token outside the table, the
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.
@@ -582,7 +577,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Chandra's Phoenix", 'trigger head not in the library: Whenever an opponent is dealt damage by a red instant or sorcery spell'],
   ['Charisma Bobblehead', 'effect not a row kind: Create X 1/1 white Soldier creature tokens, where X is the number of Bobbleheads you control.'],
   ['Cho-Arrim Bruiser', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
-  ['Coastal Piracy', 'trigger head not in the library: Whenever a creature you control deals combat damage to an opponent, yo'],
   ['Compost', 'a put-into-graveyard head from anywhere with a filter no zone can answer: a black card'],
   ['Corpse Cur', 'trigger payload not a pump: Return target creature card with infect from your graveyard '],
   ["Cosi's Trickster", 'trigger head not in the library: Whenever an opponent shuffles their library, you may put a +1/+1 count'],
@@ -639,7 +633,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Scurry Oak', 'trigger head not in the library: Whenever one or more +1/+1 counters are put on this creature, you may '],
   ['Setessan Starbreaker', 'trigger payload not a pump: Destroy target Aura.'],
   ["Shapers' Sanctuary", 'trigger head not in the library: Whenever a creature you control becomes the target of a spell or abili'],
-  ['Sharding Sphinx', 'trigger head not in the library: Whenever an artifact creature you control deals combat damage to a pla'],
   ['Sharuum the Hegemon', 'a filtered head no fixture satisfies: Sharuum'],
   ['Skemfar Avenger', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another nontoken Elf or Berserker you control dies,'],
   ['Skyfire Phoenix', 'a filtered head outside the closed reader (an adjective outside the list: your): When you cast your commander, return this card from your gra'],
@@ -899,14 +892,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Armory Paladin', 'a filtered head outside the closed reader (whenever you cast an Aura or Equipment spell) beside its permission line'],
   ['Capricious Sliver', 'a leftover line not among the printed lines (a Sliver static the probe split) beside its permission line'],
   ['Molly Hayes, Runaway', 'a line that is neither an activated ability nor a library trigger (Power-up, an ability word) beside its permission line'],
-  ['Moria Marauder', 'a trigger head outside the library (whenever a Goblin or Orc you control deals combat damage to a player) beside its permission line'],
   ['Ob Nixilis, Captive Kingpin', 'a trigger head outside the library (whenever one or more opponents each lose exactly 1 life) beside its permission line'],
   ['Tempered in Solitude', 'an attack head on a card with no creature body (whenever a creature you control attacks alone) beside its permission line'],
   ['Araña, Heart of the Spider', 'a vocabulary clause the suite has no fixture for (a combat-role clause) beside its permission line'],
   ['Faldorn, Dread Wolf Herald', 'a filtered head outside the closed reader (whenever you cast a spell from exile or a land you control enters from exile) beside its permission line'],
   ['Kami of Celebration', 'a trigger head outside the library (whenever a modified creature you control attacks) beside its permission line'],
   ['Laelia, the Blade Reforged', 'a trigger head outside the library (whenever one or more cards are put into exile from your library) beside its permission line'],
-  ['Professional Face-Breaker', 'a trigger head outside the library (whenever one or more creatures you control deal combat damage to a player) beside its permission line'],
   ['Spinneret and Spiderling', 'a trigger head outside the library (whenever you attack with two or more Spiders) beside its permission line'],
   ['Syr Carah, the Bold', 'a trigger head outside the library (whenever ~ or an instant or sorcery spell you control deals damage to a player) beside its permission line'],
   // D416 - the hand reveal and choose reads: the 4 the selector offered once the reveal-and-choose sentences read
@@ -2768,7 +2759,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Jeweled Torque', 'a trigger head outside the row library (Whenever a player casts a spell of the chosen colo)'],
   ['Nacre Talisman', 'a trigger head outside the row library (Whenever a player casts a white spell)'],
   ['Spirit Cairn', 'a trigger head outside the row library (Whenever a player discards a card)'],
-  ["Raiders' Spoils", 'a trigger head outside the row library (Whenever a Warrior you control deals combat damage)'],
   ['Voracious Tome-Skimmer', "a trigger head outside the row library (Whenever you cast a spell during an opponent's tur)"],
   ['Lunar Mystic', 'a trigger head outside the row library (Whenever you cast an instant spell)'],
   ['Kels, Fight Fixer', 'a trigger head outside the row library (Whenever you sacrifice a creature)'],
@@ -2857,7 +2847,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lightless Evangel', 'a filtered head whose subject names two types with an or'],
   ['Marvel Boy, Noh-Varr', 'compound trigger head'],
   ['Meddling Youths', 'trigger head not in the library'],
-  ['Ongoing Investigation', 'trigger head not in the library'],
   ['Overzealous Muscle', 'trigger head not in the library'],
   ['Paired Tactician', 'trigger head not in the library'],
   ['Pangosaur', 'trigger head not in the library'],

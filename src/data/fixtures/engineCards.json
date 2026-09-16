@@ -263630,6 +263630,468 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PROFESSIONAL_FACE_BREAKER": {
+    "scryfallId": "05bf07aa-1dda-4628-8a4b-c40d13145a49",
+    "oracleId": "04152e7a-969c-4858-841b-0a569a9fc1bf",
+    "name": "Professional Face-Breaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Professional Face-Breaker",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Menace\nWhenever one or more creatures you control deal combat damage to a player, create a Treasure token.\nSacrifice a Treasure: Exile the top card of your library. You may play that card this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "05bf07aa-1dda-4628-8a4b-c40d13145a49"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure",
+      "Menace"
+    ],
+    "setCode": "psnc",
+    "collectorNumber": "116p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORIA_MARAUDER": {
+    "scryfallId": "0e44120a-bf63-4871-b068-733e19ef2b0c",
+    "oracleId": "9f0027e3-815b-4965-9ef4-3c4814c62cf3",
+    "name": "Moria Marauder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moria Marauder",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Double strike\nWhenever a Goblin or Orc you control deals combat damage to a player, exile the top card of your library. You may play that card this turn.",
+        "flavorText": "There was a rush of hoarse laughter, like the fall of sliding stones into a pit; amid the clamor a deep voice was raised in command.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrea Piparo",
+        "imageId": "0e44120a-bf63-4871-b068-733e19ef2b0c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "pltr",
+    "collectorNumber": "138s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COASTAL_PIRACY": {
+    "scryfallId": "0f2c4e43-71b2-4483-ba54-4be1dcffcd5f",
+    "oracleId": "8a05ec32-7b0c-4f23-a4f7-413301c2a70a",
+    "name": "Coastal Piracy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coastal Piracy",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control deals combat damage to an opponent, you may draw a card.",
+        "flavorText": "\"I don't like to think of myself as a pirate. I'm more like a stimulator of the local economy.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "0f2c4e43-71b2-4483-ba54-4be1dcffcd5f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHARDING_SPHINX": {
+    "scryfallId": "1722d394-ef72-4265-bc5b-eed7b91f5cb4",
+    "oracleId": "9ebc0144-fc45-4de7-b3d8-ef8cf2e211ae",
+    "name": "Sharding Sphinx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sharding Sphinx",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Artifact Creature — Sphinx",
+        "oracleText": "Flying\nWhenever an artifact creature you control deals combat damage to a player, you may create a 1/1 blue Thopter artifact creature token with flying.",
+        "flavorText": "Whether mechanical or biological, life finds a way to propagate itself.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michael Bruinsma",
+        "imageId": "1722d394-ef72-4265-bc5b-eed7b91f5cb4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ONGOING_INVESTIGATION": {
+    "scryfallId": "19b8f962-8d4e-4dd8-a157-c0a55f9e152a",
+    "oracleId": "68227832-2916-49b9-92bb-c09b8a0c13f5",
+    "name": "Ongoing Investigation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ongoing Investigation",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever one or more creatures you control deal combat damage to a player, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\n{1}{G}, Exile a creature card from your graveyard: Investigate. You gain 2 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bud Cook",
+        "imageId": "19b8f962-8d4e-4dd8-a157-c0a55f9e152a"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMPART_SMASHER": {
+    "scryfallId": "2fb9a632-a56b-48fb-bc24-14572b6a8a55",
+    "oracleId": "5ece1778-fb19-40d5-8bcc-f23033e1d5c0",
+    "name": "Rampart Smasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampart Smasher",
+        "manaCost": "{R/G}{R/G}{R/G}{R/G}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "This creature can't be blocked by Knights or Walls.",
+        "flavorText": "\"He has strength and courage—just way, way too much of both.\"\n—Syr Faren, the Hengehammer",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Emrah Elmasli",
+        "imageId": "2fb9a632-a56b-48fb-bc24-14572b6a8a55"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROSPEROUS_THIEF": {
+    "scryfallId": "5dea029b-ffc9-49d1-925c-b55a944d3439",
+    "oracleId": "6d03971a-8365-449a-8fbe-07b5b9bb42dc",
+    "name": "Prosperous Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prosperous Thief",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Ninja",
+        "oracleText": "Ninjutsu {1}{U} ({1}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "5dea029b-ffc9-49d1-925c-b55a944d3439"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure",
+      "Ninjutsu"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "346",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AYA_OF_ALEXANDRIA": {
+    "scryfallId": "720096c1-cbbc-4a2f-b585-899c3b87032c",
+    "oracleId": "27b690f2-d7ce-43b6-8e8b-98a8ffe487bb",
+    "name": "Aya of Alexandria",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aya of Alexandria",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Menace, lifelink\nWhenever a historic creature you control deals combat damage to a player, create a 1/1 black Assassin creature token with menace. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "720096c1-cbbc-4a2f-b585-899c3b87032c"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Menace"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INGENIOUS_INFILTRATOR": {
+    "scryfallId": "7efde575-7d5f-4c1a-ae64-99e448fad352",
+    "oracleId": "354defd2-f63f-4a48-9fd4-2526b3878a84",
+    "name": "Ingenious Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ingenious Infiltrator",
+        "manaCost": "{2}{U}{B}",
+        "typeLine": "Creature — Vedalken Ninja",
+        "oracleText": "Ninjutsu {U}{B} ({U}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever a Ninja you control deals combat damage to a player, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "7efde575-7d5f-4c1a-ae64-99e448fad352"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "697",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURIOUS_ALTISAUR": {
+    "scryfallId": "83fb87d8-d6f6-4cb0-aca1-49e6fcb181b1",
+    "oracleId": "80686908-abb5-4728-a5f6-71baca27f467",
+    "name": "Curious Altisaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Curious Altisaur",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Vigilance, reach\nWhenever a Dinosaur you control deals combat damage to a player, draw a card.",
+        "flavorText": "After long days of squeezing through cramped tunnels, the Sun Empire's dinosaurs were overjoyed to stretch their necks and survey the wonders of the Core.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "83fb87d8-d6f6-4cb0-aca1-49e6fcb181b1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Vigilance"
+    ],
+    "setCode": "lcc",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EZIO_BLADE_OF_VENGEANCE": {
+    "scryfallId": "bbdc8019-9b5e-4d9a-a09b-2a14f41ddfe1",
+    "oracleId": "2127a245-d664-45cb-8ed1-0024de1a10df",
+    "name": "Ezio, Blade of Vengeance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ezio, Blade of Vengeance",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhenever an Assassin you control deals combat damage to a player, draw a card.",
+        "flavorText": "\"Nothing is true. Everything is permitted.\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "bbdc8019-9b5e-4d9a-a09b-2a14f41ddfe1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "275",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAIDERS_SPOILS": {
+    "scryfallId": "cd3e423e-cb62-43e1-9d0c-e702f823c8e1",
+    "oracleId": "45fd14b9-d66a-452d-add4-36f512fff9c2",
+    "name": "Raiders' Spoils",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raiders' Spoils",
+        "manaCost": "{3}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Creatures you control get +1/+0.\nWhenever a Warrior you control deals combat damage to a player, you may pay 1 life. If you do, draw a card.",
+        "flavorText": "\"To conquer is to eat.\"\n—Edicts of Ilagra",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "cd3e423e-cb62-43e1-9d0c-e702f823c8e1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ktk",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FANG_OF_SHIGEKI": {
+    "scryfallId": "2dd0fef1-209f-4de5-a736-8f9bca2faa0a",
+    "oracleId": "9e187d43-ae75-4589-81fc-476ae95ba5b9",
+    "name": "Fang of Shigeki",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fang of Shigeki",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment Creature — Snake Ninja",
+        "oracleText": "Deathtouch",
+        "flavorText": "\"Let me give you a taste of the poison you've poured into our land.\"\n—Shigeki, founder of the Order of Jukai",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yigit Koroglu",
+        "imageId": "2dd0fef1-209f-4de5-a736-8f9bca2faa0a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

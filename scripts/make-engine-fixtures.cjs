@@ -8618,6 +8618,21 @@ const WANTED = [
   // D466 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Steel Wall',
   'Wei Scout',
+  // D467 - the filtered combat-damage head: Whenever (one or more) <subject> deals combat damage to a player as a filter base, the rows that read.
+  'Professional Face-Breaker',
+  'Moria Marauder',
+  'Coastal Piracy',
+  'Sharding Sphinx',
+  'Ongoing Investigation',
+  'Rampart Smasher',
+  'Prosperous Thief',
+  'Aya of Alexandria',
+  'Ingenious Infiltrator',
+  'Curious Altisaur',
+  'Ezio, Blade of Vengeance',
+  "Raiders' Spoils",
+  // D467 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Fang of Shigeki',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

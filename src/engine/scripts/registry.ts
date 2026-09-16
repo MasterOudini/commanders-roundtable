@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PROFESSIONAL_FACE_BREAKER_SCRIPT } from './cards/professionalFaceBreaker';
+import { MORIA_MARAUDER_SCRIPT } from './cards/moriaMarauder';
+import { COASTAL_PIRACY_SCRIPT } from './cards/coastalPiracy';
+import { SHARDING_SPHINX_SCRIPT } from './cards/shardingSphinx';
+import { ONGOING_INVESTIGATION_SCRIPT } from './cards/ongoingInvestigation';
+import { RAMPART_SMASHER_SCRIPT } from './cards/rampartSmasher';
+import { PROSPEROUS_THIEF_SCRIPT } from './cards/prosperousThief';
+import { AYA_OF_ALEXANDRIA_SCRIPT } from './cards/ayaOfAlexandria';
+import { INGENIOUS_INFILTRATOR_SCRIPT } from './cards/ingeniousInfiltrator';
+import { CURIOUS_ALTISAUR_SCRIPT } from './cards/curiousAltisaur';
+import { EZIO_BLADE_OF_VENGEANCE_SCRIPT } from './cards/ezioBladeOfVengeance';
+import { RAIDERS_SPOILS_SCRIPT } from './cards/raidersSpoils';
 import { TAOIST_MYSTIC_SCRIPT } from './cards/taoistMystic';
 import { JUGGERNAUT_SCRIPT } from './cards/juggernaut';
 import { NICK_VALENTINE_PRIVATE_EYE_SCRIPT } from './cards/nickValentinePrivateEye';
@@ -7167,6 +7179,18 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PROFESSIONAL_FACE_BREAKER_SCRIPT,
+  MORIA_MARAUDER_SCRIPT,
+  COASTAL_PIRACY_SCRIPT,
+  SHARDING_SPHINX_SCRIPT,
+  ONGOING_INVESTIGATION_SCRIPT,
+  RAMPART_SMASHER_SCRIPT,
+  PROSPEROUS_THIEF_SCRIPT,
+  AYA_OF_ALEXANDRIA_SCRIPT,
+  INGENIOUS_INFILTRATOR_SCRIPT,
+  CURIOUS_ALTISAUR_SCRIPT,
+  EZIO_BLADE_OF_VENGEANCE_SCRIPT,
+  RAIDERS_SPOILS_SCRIPT,
   TAOIST_MYSTIC_SCRIPT,
   JUGGERNAUT_SCRIPT,
   NICK_VALENTINE_PRIVATE_EYE_SCRIPT,
