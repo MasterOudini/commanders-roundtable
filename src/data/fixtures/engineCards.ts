@@ -7655,6 +7655,17 @@ export const BINDING_GRASP: CardData = F.BINDING_GRASP as CardData;
 export const CORRUPTED_CONSCIENCE: CardData = F.CORRUPTED_CONSCIENCE as CardData;
 export const VAPOR_SNARE: CardData = F.VAPOR_SNARE as CardData;
 export const SPIRIT_AWAY: CardData = F.SPIRIT_AWAY as CardData;
+export const UTOPIA_VOW: CardData = F.UTOPIA_VOW as CardData;
+export const BURNING_ANGER: CardData = F.BURNING_ANGER as CardData;
+export const FIRE_WHIP: CardData = F.FIRE_WHIP as CardData;
+export const SINGING_BELL_STRIKE: CardData = F.SINGING_BELL_STRIKE as CardData;
+export const OCULAR_HALO: CardData = F.OCULAR_HALO as CardData;
+export const KARAMETRA_S_FAVOR: CardData = F.KARAMETRA_S_FAVOR as CardData;
+export const DRAGON_MANTLE: CardData = F.DRAGON_MANTLE as CardData;
+export const EVANESCENT_INTELLECT: CardData = F.EVANESCENT_INTELLECT as CardData;
+export const SCREAMING_SHIELD: CardData = F.SCREAMING_SHIELD as CardData;
+export const MALICIOUS_INTENT: CardData = F.MALICIOUS_INTENT as CardData;
+export const RINGING_STRIKE_MASTERY: CardData = F.RINGING_STRIKE_MASTERY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15464,6 +15475,17 @@ export const ENGINE_CARDS: CardData[] = [
   CORRUPTED_CONSCIENCE,
   VAPOR_SNARE,
   SPIRIT_AWAY,
+  UTOPIA_VOW,
+  BURNING_ANGER,
+  FIRE_WHIP,
+  SINGING_BELL_STRIKE,
+  OCULAR_HALO,
+  KARAMETRA_S_FAVOR,
+  DRAGON_MANTLE,
+  EVANESCENT_INTELLECT,
+  SCREAMING_SHIELD,
+  MALICIOUS_INTENT,
+  RINGING_STRIKE_MASTERY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

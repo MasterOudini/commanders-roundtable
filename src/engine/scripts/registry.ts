@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { UTOPIA_VOW_SCRIPT } from './cards/utopiaVow';
+import { BURNING_ANGER_SCRIPT } from './cards/burningAnger';
+import { FIRE_WHIP_SCRIPT } from './cards/fireWhip';
+import { SINGING_BELL_STRIKE_SCRIPT } from './cards/singingBellStrike';
+import { OCULAR_HALO_SCRIPT } from './cards/ocularHalo';
+import { KARAMETRAS_FAVOR_SCRIPT } from './cards/karametrasFavor';
+import { DRAGON_MANTLE_SCRIPT } from './cards/dragonMantle';
+import { EVANESCENT_INTELLECT_SCRIPT } from './cards/evanescentIntellect';
+import { SCREAMING_SHIELD_SCRIPT } from './cards/screamingShield';
+import { MALICIOUS_INTENT_SCRIPT } from './cards/maliciousIntent';
+import { RINGING_STRIKE_MASTERY_SCRIPT } from './cards/ringingStrikeMastery';
 import { YAVIMAYAS_EMBRACE_SCRIPT } from './cards/yavimayasEmbrace';
 import { BINDING_GRASP_SCRIPT } from './cards/bindingGrasp';
 import { CORRUPTED_CONSCIENCE_SCRIPT } from './cards/corruptedConscience';
@@ -7035,6 +7046,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UTOPIA_VOW_SCRIPT,
+  BURNING_ANGER_SCRIPT,
+  FIRE_WHIP_SCRIPT,
+  SINGING_BELL_STRIKE_SCRIPT,
+  OCULAR_HALO_SCRIPT,
+  KARAMETRAS_FAVOR_SCRIPT,
+  DRAGON_MANTLE_SCRIPT,
+  EVANESCENT_INTELLECT_SCRIPT,
+  SCREAMING_SHIELD_SCRIPT,
+  MALICIOUS_INTENT_SCRIPT,
+  RINGING_STRIKE_MASTERY_SCRIPT,
   YAVIMAYAS_EMBRACE_SCRIPT,
   BINDING_GRASP_SCRIPT,
   CORRUPTED_CONSCIENCE_SCRIPT,

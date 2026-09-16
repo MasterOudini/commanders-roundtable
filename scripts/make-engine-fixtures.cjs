@@ -8443,6 +8443,19 @@ const WANTED = [
   'Vapor Snare',
   'Spirit Away',
   // D453 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D454 - the attached quoted grants: the rows the row maker reads once the granted activated and mana bodies are its own.
+  'Utopia Vow',
+  'Burning Anger',
+  'Fire Whip',
+  'Singing Bell Strike',
+  'Ocular Halo',
+  "Karametra's Favor",
+  'Dragon Mantle',
+  'Evanescent Intellect',
+  'Screaming Shield',
+  'Malicious Intent',
+  'Ringing Strike Mastery',
+  // D454 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

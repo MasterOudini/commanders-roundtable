@@ -347,10 +347,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a spell, two loyalty faces) - each by the wide run's reason.
   ['Argoth, Sanctum of Nature', 'multi-face or unusual layout (a meld card)'],
   ['Drowner Initiate', 'a payment branch the suite cannot assert: mill (a graveyard count under a payment)'],
-  ['Evanescent Intellect', "a quoted ability grant (the granted mill is not the card's own line): Enchanted creature has \"{1}{U}, {T}: Target player mills three cards.\""],
   ['Mindscour Dragon', 'trigger head not in the library: Whenever this creature deals combat damage to an opponent, target player mills four cards.'],
   ['Scrabbling Skullcrab', 'trigger head not in the library: Eerie - Whenever an enchantment you control enters and whenever you fully unlock a Room, target player mills two cards.'],
-  ['Screaming Shield', "a quoted ability grant (the granted mill is not the card's own line): Equipped creature gets +0/+3 and has \"{2}, {T}: Target player mills three cards.\""],
   ['Screeching Sliver', "a quoted ability grant (the granted mill is not the card's own line): All Slivers have \"{T}: Target player mills a card.\""],
   ['Selhoff Occultist', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature dies, target player mills a card.'],
   ['Enigma Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
@@ -2538,7 +2536,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Hostile Realm', 'a quoted grant on an enchanted land (Enchanted land has ...) - the grant generator, not the mainline row maker'],
-  ['Malicious Intent', 'a quoted grant on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
   ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   ['Quakefoot Cyclops', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   // D395 - the animate family: the four the selector offered after the seam that the row maker refused, by reason.
@@ -2547,7 +2544,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Restless Anchorage', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
   ['Restless Bivouac', 'trigger head not in the library (whenever this land attacks - the animated land as the attacker)'],
   // D396 - bite and fight: the seven the selector offered after the seam that the row maker refused, by reason.
-  ['Burning Anger', 'a quoted grant of a bite on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
   ["Sinstriker's Will", 'a quoted grant of a bite on an enchanted creature (Enchanted creature has ...) - the grant generator, not the mainline row maker'],
   ['Surestrike Trident', 'a quoted grant of a bite on an equipped creature (Equipped creature has first strike and ...) - the grant generator, not the mainline row maker'],
   ['Legolas, Master Archer', 'a filtered cast head outside the closed reader (whenever you cast a spell that targets ...)'],
@@ -2937,7 +2933,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sticky Fingers', 'a grant line beside a second line this generator does not emit: Enchanted creature has menace and | When enchanted creature dies, draw a card.'],
   ['Dormant Sliver', 'a grant line beside a second line this generator does not emit: All Sliver creatures have defender. | All Slivers have'],
   ['Candlestick', 'a grant line beside a second line this generator does not emit: Equipped creature gets +1/+1 and has | {2}, Sacrifice this Equipment: Draw a car'],
-  ['Dragon Mantle', 'a grant line beside a second line this generator does not emit: When this Aura enters, draw a card. | Enchanted creature has'],
   ['Deconstruction Hammer', 'a BY-NAME sacrifice cost the engine does not charge: {3}, {T}, Sacrifice Deconstruction Hammer'],
   ['Lunarch Mantle', 'a CHOSEN sacrifice cost the scaffold does not stage: {1}, Sacrifice a permanent'],
   ['Harmonic Sliver', 'a head outside the library: When this permanent enters'],

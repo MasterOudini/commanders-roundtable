@@ -258737,6 +258737,390 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "UTOPIA_VOW": {
+    "scryfallId": "144e3aa3-68c8-4876-91e6-679007ec85e1",
+    "oracleId": "917652c7-ac12-4cd7-ab2d-f2260a620d02",
+    "name": "Utopia Vow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Utopia Vow",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\nEnchanted creature has \"{T}: Add one mana of any color.\"",
+        "flavorText": "\"I'll guard this fruit and its seedling until the land is healed. My life now belongs to Dominaria.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "144e3aa3-68c8-4876-91e6-679007ec85e1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "PLC-142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURNING_ANGER": {
+    "scryfallId": "2058a7eb-0f78-46a4-bea5-afdfe920264f",
+    "oracleId": "a2c76ac2-5ab1-450c-b64e-e9a6c4dad1ca",
+    "name": "Burning Anger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burning Anger",
+        "manaCost": "{4}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals damage equal to its power to any target.\"",
+        "flavorText": "\"With rage as your forge, your hammer can smite anything.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "2058a7eb-0f78-46a4-bea5-afdfe920264f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "m15",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_WHIP": {
+    "scryfallId": "3ee194b4-f18f-4ebd-b42f-c7dfef42f22e",
+    "oracleId": "9d4372f0-eedf-4897-9f03-f96fb14ac4a6",
+    "name": "Fire Whip",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Whip",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature you control\nEnchanted creature has \"{T}: This creature deals 1 damage to any target.\"\nSacrifice this Aura: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "3ee194b4-f18f-4ebd-b42f-c7dfef42f22e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "wth",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SINGING_BELL_STRIKE": {
+    "scryfallId": "670f24e1-dec9-42e6-b762-c447366ed16c",
+    "oracleId": "dad07f8c-1f24-4f56-b8a6-7c4b82e27e0f",
+    "name": "Singing Bell Strike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Singing Bell Strike",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.\nEnchanted creature has \"{6}: Untap this creature.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "670f24e1-dec9-42e6-b762-c447366ed16c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OCULAR_HALO": {
+    "scryfallId": "6c883e75-5c37-44bb-a6c8-f97aa704c739",
+    "oracleId": "e649614a-ff23-4234-92f4-6f564cbfe648",
+    "name": "Ocular Halo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ocular Halo",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Draw a card.\"\n{W}: Enchanted creature gains vigilance until end of turn.",
+        "flavorText": "While the soldier dreams, the eyes stand watch.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "6c883e75-5c37-44bb-a6c8-f97aa704c739"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARAMETRA_S_FAVOR": {
+    "scryfallId": "77026cf6-7e89-41a6-8279-de1068569a02",
+    "oracleId": "fc3e48c9-e303-435c-bdb1-7dc7881a9858",
+    "name": "Karametra's Favor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karametra's Favor",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature has \"{T}: Add one mana of any color.\"",
+        "flavorText": "The harvest god's cornucopia contains the fruits of the fields, the forest, and beyond.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "77026cf6-7e89-41a6-8279-de1068569a02"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGON_MANTLE": {
+    "scryfallId": "8ce86caa-8827-4ab1-95c9-edc4848c41ab",
+    "oracleId": "0cc5aaa1-07bf-4872-ac72-303cef9fb143",
+    "name": "Dragon Mantle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragon Mantle",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature has \"{R}: This creature gets +1/+0 until end of turn.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "8ce86caa-8827-4ab1-95c9-edc4848c41ab"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "437",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EVANESCENT_INTELLECT": {
+    "scryfallId": "d38cfe97-77b3-4423-95ac-88eb850cf854",
+    "oracleId": "e766b774-eaf3-41ce-bc23-fd29fd22bc39",
+    "name": "Evanescent Intellect",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Evanescent Intellect",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{1}{U}, {T}: Target player mills three cards.\"",
+        "flavorText": "The mind is a vessel that may be emptied like any other.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "d38cfe97-77b3-4423-95ac-88eb850cf854"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Mill"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCREAMING_SHIELD": {
+    "scryfallId": "ebb42a80-0442-4850-b0e7-41182d5633ff",
+    "oracleId": "9c0aba12-4460-4150-b74f-93f5f8006cf5",
+    "name": "Screaming Shield",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Screaming Shield",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +0/+3 and has \"{2}, {T}: Target player mills three cards.\"\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "Shhh . . .",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "ebb42a80-0442-4850-b0e7-41182d5633ff"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Mill"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "239",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MALICIOUS_INTENT": {
+    "scryfallId": "f1dda42d-55eb-46fc-89da-17cc5bfaa823",
+    "oracleId": "8aac06d0-c353-4af9-a243-feb59b9d0c54",
+    "name": "Malicious Intent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Malicious Intent",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Target creature can't block this turn.\"",
+        "flavorText": "As peace returned to Thraben, some cathars made the mistake of letting down their guard.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "f1dda42d-55eb-46fc-89da-17cc5bfaa823"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "avr",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RINGING_STRIKE_MASTERY": {
+    "scryfallId": "ff4fc7ec-05f5-479a-8fbb-31e12a67b57e",
+    "oracleId": "334ffdc4-9fe6-4a7f-bf5d-bcd88adab715",
+    "name": "Ringing Strike Mastery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ringing Strike Mastery",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, tap enchanted creature.\nEnchanted creature doesn't untap during its controller's untap step.\nEnchanted creature has \"{5}: Untap this creature.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "ff4fc7ec-05f5-479a-8fbb-31e12a67b57e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
