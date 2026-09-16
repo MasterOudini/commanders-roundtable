@@ -254,6 +254,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
+  // (creature or artifact) the filtered-head reader does not split.
+  ['Marionette Apprentice', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control is put into a graveyard from the battlefield'],
   // D453 - the control Auras are the engine's now, and the mirror offered two the row maker refused: an additional
   // chooser cost the cast arm cannot pay, an intervening if the armed board already meets (the wide run's reason).
   ['Grafted Identity', 'an additional cost with a chooser verb the cast arm cannot pay: As an additional cost to cast this spell, sacrifice a creature.'],

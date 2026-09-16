@@ -19,7 +19,7 @@ import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import type { Keyword, TargetSpec } from './types/oracle';
+import type { Keyword, ModeDecl, TargetSpec } from './types/oracle';
 import type { DefenderRef, StackObject } from './types/state';
 import { faceOf } from './oracle';
 
@@ -60,6 +60,12 @@ export interface KeywordTrigger {
    * engine's own parser produces for the same printed words.
    */
   targets?(ctx: ScriptCtx, self: InstanceId): readonly TargetSpec[];
+  /**
+   * D459 - a MODAL keyword trigger (fabricate): the modes ride onto the pending trigger the way a def's do
+   * (D343 - chosen as it goes on the stack, `obj.modes` at resolution), one to be chosen unless `modeChoice` says.
+   */
+  modes?(ctx: ScriptCtx, self: InstanceId): readonly ModeDecl[];
+  readonly modeChoice?: { readonly min: number; readonly max: number };
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
 }
 
@@ -151,6 +157,8 @@ function tokenRef(key: string): TokenRef {
 
 /** The token `afterlife` makes. ⚠️ Pinned in `WANTED_TOKENS` too, or it derives to a nameless 0/0 (D133/D298). */
 const AFTERLIFE_SPIRIT = tokenRef('Spirit|1/1|BW|Creature|flying');
+/** D459 - the token `fabricate` may make. ⚠️ Pinned in `WANTED_TOKENS` too (the same reason). */
+const FABRICATE_SERVO = tokenRef('Servo|1/1||Artifact Creature|');
 const isCreature = (ctx: ScriptCtx, id: InstanceId): boolean => ctx.derive(id).typeLine.types.includes('Creature');
 
 export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<string, KeywordTrigger>([
@@ -527,6 +535,39 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
         const card = ctx.state.cards[self];
         if (!card || card.zone.kind !== 'battlefield' || card.evoked !== true) return [];
         return [{ t: 'CardsMoved', moves: [{ card: self, from: { kind: 'battlefield', player: null }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] }];
+      },
+    },
+  ],
+  [
+    'fabricate',
+    {
+      // CR 702.122a - when this permanent enters, put N +1/+1 counters on it or create N 1/1 colorless Servo artifact
+      // creature tokens: a modal trigger, the mode chosen as it goes on the stack (D343).
+      event: 'CardsMoved',
+      matches: (_ctx, self, ev) => enteredThisEvent(self, ev),
+      label: (ctx, self) => `${nameOf(ctx, self)} - fabricate ${keywordAmount(ctx, self, 'fabricate')}`,
+      modes: (ctx, self) => {
+        const n = keywordAmount(ctx, self, 'fabricate');
+        return [{ text: `Put ${n} +1/+1 counter${n === 1 ? '' : 's'} on it` }, { text: `Create ${n} 1/1 colorless Servo artifact creature token${n === 1 ? '' : 's'}` }];
+      },
+      resolve: (ctx, self, obj) => {
+        const n = keywordAmount(ctx, self, 'fabricate');
+        if (obj.modes[0] === 0) {
+          return onBattlefield(ctx, self) ? [{ t: 'CountersChanged', changes: [{ card: self, kind: '+1/+1', delta: n }] }] : [];
+        }
+        const out: EventBody[] = [];
+        for (let i = 0; i < n; i++) {
+          out.push({
+            t: 'TokenCreated',
+            card: ctx.ids.nextInstance(),
+            oracleId: FABRICATE_SERVO.oracleId,
+            printingId: FABRICATE_SERVO.printingId,
+            controller: obj.controller,
+            owner: obj.controller,
+            turnNumber: ctx.state.turn.turnNumber,
+          });
+        }
+        return out;
       },
     },
   ],

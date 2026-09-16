@@ -8497,6 +8497,13 @@ const WANTED = [
   'Tuskeri Firewalker',
   'Hagi Mob',
   // D458 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D459 - fabricate: the seam's own fixtures (the engine test enters them and chooses).
+  'Weaponcraft Enthusiast',
+  'Peema Outrider',
+  'Angel of Invention',
+  // D459 - Fabricate: the entry choice (counters or Servos) the keyword table runs now; the rows beside it.
+  'Elegant Edgecrafters',
+  // D459 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -8803,6 +8810,8 @@ const WANTED_TOKENS = [
   { name: 'Warrior', set: 'tfrf', cn: '3', key: 'WARRIOR_2_1_B_CREATURE_TOKEN' },
   // D458 - the tokens the wave's rows create (the port's token-pin step, missing until D458).
   { name: 'Dwarf Berserker', set: 'tkhm', cn: '12', key: 'DWARF_BERSERKER_2_1_R_CREATURE_TOKEN' },
+  // D459 - fabricate: the Servo the keyword table makes (pinned like afterlife's Spirit).
+  { name: 'Servo', set: 'tdft', cn: '8', key: 'SERVO_1_1_ARTIFACT_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

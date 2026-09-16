@@ -75,6 +75,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   // D450 - the counted-down keywords: time counters (vanishing) and fade counters (fading) off the upkeep.
   vanishing: 'vanishing',
   fading: 'fading',
+  // D459 - fabricate N: the entry choice (counters or Servos) the keyword table runs.
+  fabricate: 'fabricate',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

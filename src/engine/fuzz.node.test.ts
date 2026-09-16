@@ -363,6 +363,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D458 - boast: a Fearless Pup a seat ({2}{R} after it attacked, once a turn - the driver attacks and pays by chance).
   { names: ['Fearless Pup'], copiesPerSeat: 2,
     counterKeys: ['boastActivations'], rotHistory: 'D458' },
+  // D459 - fabricate: a Weaponcraft Enthusiast a seat (the entry choice, answered at random - counters or Servos).
+  { names: ['Weaponcraft Enthusiast'], copiesPerSeat: 2,
+    counterKeys: ['fabricateFired'], rotHistory: 'D459' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -950,6 +953,21 @@ function answerFor(state: GameState, p: Picker): Intent | null {
         pay: life >= awaiting.life && p.below(2) === 0,
       };
     }
+    // D459 - a modal prompt answered at random among the legal modes (the harness takes the first, and a
+    // fabricate's Servo mode - every modal trigger's second mode - was never played over 150 seeds).
+    case 'chooseModes': {
+      const want = Math.min(awaiting.max, Math.max(awaiting.min, 1));
+      const pool = [...awaiting.legal];
+      const modes: number[] = [];
+      while (modes.length < want && pool.length > 0) {
+        const m = p.pick(pool);
+        if (m === undefined) break;
+        modes.push(m);
+        pool.splice(pool.indexOf(m), 1);
+      }
+      if (modes.length < awaiting.min && awaiting.forKind !== 'trigger') return { t: 'CancelPendingCast', player: awaiting.player };
+      return { t: 'ChooseModes', player: awaiting.player, modes };
+    }
     default:
       return simplestAnswer(awaiting, state);
   }
@@ -1227,6 +1245,9 @@ interface Run {
   readonly exhaustActivations: number;
   /** D458 - the boast abilities put on the stack (their source attacked this turn - the offer says so). */
   readonly boastActivations: number;
+  /** D459 - the fabricate triggers put on the stack, and the Servos they made (the other mode is the counters). */
+  readonly fabricateFired: number;
+  readonly fabricateServos: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1649,6 +1670,8 @@ function runOne(seed: number): Run {
     controlAuraReverts: game.log.filter((e) => e.body.t === 'ControlReverted').length,
     exhaustActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.exhaust === true).length,
     boastActivations: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.boast === true).length,
+    fabricateFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:fabricate')).length,
+    fabricateServos: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.oracleId === 'b6ca7bd1-d72e-4260-8b52-997ee1377279').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -1903,6 +1926,8 @@ const TOTAL_KEYS = [
   'controlAuraReverts',
   'exhaustActivations',
   'boastActivations',
+  'fabricateFired',
+  'fabricateServos',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2389,6 +2414,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.controlAuras} control Auras (${totals.controlAuraReverts} given back) · ` +
           `${totals.exhaustActivations} exhaust activations · ` +
           `${totals.boastActivations} boast activations · ` +
+          `${totals.fabricateFired} fabricates (${totals.fabricateServos} Servos) · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

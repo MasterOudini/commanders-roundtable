@@ -260212,6 +260212,150 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WEAPONCRAFT_ENTHUSIAST": {
+    "scryfallId": "4f096976-20a0-419b-9249-1cf0cccd2eb5",
+    "oracleId": "7c27136a-bf9d-4f42-9c37-abe347fad1bb",
+    "name": "Weaponcraft Enthusiast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weaponcraft Enthusiast",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Aetherborn Artificer",
+        "oracleText": "Fabricate 2 (When this creature enters, put two +1/+1 counters on it or create two 1/1 colorless Servo artifact creature tokens.)",
+        "flavorText": "\"No, I don't believe they have the proper permits for those, but I'm not going to be the one to ask.\"\n—Caru, Consulate warden",
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "4f096976-20a0-419b-9249-1cf0cccd2eb5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Fabricate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "KLD-105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PEEMA_OUTRIDER": {
+    "scryfallId": "04aa422b-1f85-4ba7-92e3-9a1478c3b022",
+    "oracleId": "7747e94c-35a7-4e3b-956b-339a16634502",
+    "name": "Peema Outrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Peema Outrider",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Elf Artificer",
+        "oracleText": "Trample\nFabricate 1 (When this creature enters, put a +1/+1 counter on it or create a 1/1 colorless Servo artifact creature token.)",
+        "flavorText": "Connected as artificer and invention, bonded as rider and steed.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "04aa422b-1f85-4ba7-92e3-9a1478c3b022"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Fabricate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "KLD-166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGEL_OF_INVENTION": {
+    "scryfallId": "37229823-00ce-47db-83e4-cbea90e70534",
+    "oracleId": "28c7f2b6-ba67-4ccf-9e1b-99c89a9d1f72",
+    "name": "Angel of Invention",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angel of Invention",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying, vigilance, lifelink\nFabricate 2 (When this creature enters, put two +1/+1 counters on it or create two 1/1 colorless Servo artifact creature tokens.)\nOther creatures you control get +1/+1.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "37229823-00ce-47db-83e4-cbea90e70534"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "Vigilance",
+      "Fabricate"
+    ],
+    "setCode": "m3c",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELEGANT_EDGECRAFTERS": {
+    "scryfallId": "352941f3-951e-428d-bec4-7790c3ea7cb2",
+    "oracleId": "eeb3d282-97df-4df2-8bea-9432e21b6d62",
+    "name": "Elegant Edgecrafters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elegant Edgecrafters",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Elf Artificer",
+        "oracleText": "This creature can't be blocked by creatures with power 2 or less.\nFabricate 2 (When this creature enters, put two +1/+1 counters on it or create two 1/1 colorless Servo artifact creature tokens.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sean Sevestre",
+        "imageId": "352941f3-951e-428d-bec4-7790c3ea7cb2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Fabricate"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -265857,6 +266001,35 @@
     "keywords": [],
     "setCode": "tkhm",
     "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SERVO_1_1_ARTIFACT_CREATURE_TOKEN": {
+    "scryfallId": "10de413b-3307-4bc7-bb21-f177543d7e21",
+    "oracleId": "b6ca7bd1-d72e-4260-8b52-997ee1377279",
+    "name": "Servo",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Servo",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Servo",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adrián Rodríguez Pérez",
+        "imageId": "10de413b-3307-4bc7-bb21-f177543d7e21"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdft",
+    "collectorNumber": "8",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

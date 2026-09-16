@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ELEGANT_EDGECRAFTERS_SCRIPT } from './cards/elegantEdgecrafters';
+import { ANGEL_OF_INVENTION_SCRIPT } from './cards/angelOfInvention';
 import { FEARLESS_PUP_SCRIPT } from './cards/fearlessPup';
 import { USHER_OF_THE_FALLEN_SCRIPT } from './cards/usherOfTheFallen';
 import { FEARLESS_LIBERATOR_SCRIPT } from './cards/fearlessLiberator';
@@ -7078,6 +7080,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ELEGANT_EDGECRAFTERS_SCRIPT,
+  ANGEL_OF_INVENTION_SCRIPT,
   FEARLESS_PUP_SCRIPT,
   USHER_OF_THE_FALLEN_SCRIPT,
   FEARLESS_LIBERATOR_SCRIPT,

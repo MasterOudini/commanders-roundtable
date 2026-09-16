@@ -106,6 +106,8 @@ export const TIER2_KEYWORDS = [
   // can be): the entry counters from `withEntryCounters`, the triggers from the keyword table.
   'vanishing',
   'fading',
+  // D459 - FABRICATE (CR 702.122 - N +1/+1 counters or N Servos as it enters): a modal trigger from the keyword table.
+  'fabricate',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

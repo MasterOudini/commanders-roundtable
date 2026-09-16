@@ -1255,6 +1255,8 @@ export function collectTriggers(
             // the same table entry with different bounds.
             optional: kt.optional === true,
             specs: kt.targets ? kt.targets(ctx, id) : [],
+            // D459 - a modal keyword trigger's modes ride like a def's (D343).
+            ...(kt.modes ? { modes: kt.modes(ctx, id), modeChoice: kt.modeChoice ?? { min: 1, max: 1 } } : {}),
             ...(item !== undefined ? { item } : {}),
             // D440 - the entry's memo, read off the state it matched against (before, for a looks-back entry).
             ...(kt.memo ? { memo: kt.memo(ctx, id, event.body) } : {}),
