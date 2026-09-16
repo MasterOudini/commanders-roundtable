@@ -21,7 +21,7 @@ import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import { isAskedCondition, predicateAdmits, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
-import type { DerivedCharacteristics, OracleCard, OracleDb } from './types/oracle';
+import type { DerivedCharacteristics, Keyword, OracleCard, OracleDb } from './types/oracle';
 import {
   livingPlayers,
   type Awaiting,
@@ -642,6 +642,15 @@ function withEntryCounters(
         const n = Number(/\bmodular (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
         if (n > 0) changes.push({ card: move.card, kind: '+1/+1', delta: n });
       }
+      // D450 - vanishing N / fading N (CR 702.63a, 702.32a): N time / fade counters as it enters.
+      if (face.keywords.includes('vanishing')) {
+        const n = Number(/\bvanishing (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
+        if (n > 0) changes.push({ card: move.card, kind: 'time', delta: n });
+      }
+      if (face.keywords.includes('fading')) {
+        const n = Number(/\bfading (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
+        if (n > 0) changes.push({ card: move.card, kind: 'fade', delta: n });
+      }
     }
   }
   if (changes.length === 0) return [...events];
@@ -1228,7 +1237,8 @@ export function collectTriggers(
         const card = state.cards[id];
         if (!card || card.zone.kind !== 'battlefield') continue;
         if (!hasAbilities(state, oracle, scripts, id)) continue;
-        if (!ctx.derive(id).keywords.has(keyword)) continue;
+        // D450 - the entry names the keyword that gates it (a keyword may carry two triggers under two keys).
+        if (!ctx.derive(id).keywords.has(kt.keyword ?? (keyword as Keyword))) continue;
         if (!kt.matches(ctx, id, event.body)) continue;
         const items: readonly (InstanceId | undefined)[] = kt.perItem ? kt.perItem(ctx, id, event.body) : [undefined];
         for (const item of items) {

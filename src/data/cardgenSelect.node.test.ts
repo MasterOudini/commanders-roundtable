@@ -259,6 +259,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   ['Alpine Guide', 'trigger payload not a pump: Search your library for a Mountain card, put that card onto '],
   ['Molten Man, Inferno Incarnate', 'trigger payload not a pump: Search your library for a basic Mountain card, put it onto t'],
+  // D450 - vanishing and fading are the engine's now, and the mirror offered four the row maker refused: a two-head
+  // line, a possessive filter, and two vanishing-1 cards the suite's own walk would kill before the fire (the wide run's reason).
+  ['Crack in Time', "trigger head not in the library: When this enchantment enters and at the beginning of your first main phase, tap all creatures you don't control."],
+  ['Dreamtide Whale', 'a filtered head outside the closed reader (an adjective outside the list: their): Whenever a player casts their second spell each turn, proliferate.'],
+  ['Lavacore Elemental', "a vanishing count the suite walk removes (1 against 1 upkeep ticks): the card dies at its controller's first upkeep before the combat-damage head fires"],
+  ['Soultether Golem', "a vanishing count the suite walk removes (1 against 1 upkeep ticks): the card dies at its controller's first upkeep before another creature enters"],
   // D449 - evoke and dash are the engine's now, and the mirror offered four the row maker refused: two up-to-two
   // clauses no fixture serves, a typed attack head outside the library, a token outside TOKEN_TABLE (the wide run's reason).
   ['Glarewielder', "a vocabulary clause the suite has no fixture for: a counted clause (0..2): up to two target creatures can't block this turn."],

@@ -7591,6 +7591,19 @@ export const SPRINTING_WARBRUTE: CardData = F.SPRINTING_WARBRUTE as CardData;
 export const FAULTGRINDER: CardData = F.FAULTGRINDER as CardData;
 export const TREETOP_AMBUSHER: CardData = F.TREETOP_AMBUSHER as CardData;
 export const DAWNFLUKE: CardData = F.DAWNFLUKE as CardData;
+export const CALCIDERM: CardData = F.CALCIDERM as CardData;
+export const BLASTODERM: CardData = F.BLASTODERM as CardData;
+export const FOUR_KNOCKS: CardData = F.FOUR_KNOCKS as CardData;
+export const KELDON_MARAUDERS: CardData = F.KELDON_MARAUDERS as CardData;
+export const AVEN_RIFTWATCHER: CardData = F.AVEN_RIFTWATCHER as CardData;
+export const DEEP_FOREST_HERMIT: CardData = F.DEEP_FOREST_HERMIT as CardData;
+export const WOODRIPPER: CardData = F.WOODRIPPER as CardData;
+export const DEADWOOD_TREEFOLK: CardData = F.DEADWOOD_TREEFOLK as CardData;
+export const JOLTING_MERFOLK: CardData = F.JOLTING_MERFOLK as CardData;
+export const REJUVENATION_CHAMBER: CardData = F.REJUVENATION_CHAMBER as CardData;
+export const PHYREXIAN_PROWLER: CardData = F.PHYREXIAN_PROWLER as CardData;
+export const RUSTING_GOLEM: CardData = F.RUSTING_GOLEM as CardData;
+export const DEFENDER_EN_VEC: CardData = F.DEFENDER_EN_VEC as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -15336,6 +15349,19 @@ export const ENGINE_CARDS: CardData[] = [
   FAULTGRINDER,
   TREETOP_AMBUSHER,
   DAWNFLUKE,
+  CALCIDERM,
+  BLASTODERM,
+  FOUR_KNOCKS,
+  KELDON_MARAUDERS,
+  AVEN_RIFTWATCHER,
+  DEEP_FOREST_HERMIT,
+  WOODRIPPER,
+  DEADWOOD_TREEFOLK,
+  JOLTING_MERFOLK,
+  REJUVENATION_CHAMBER,
+  PHYREXIAN_PROWLER,
+  RUSTING_GOLEM,
+  DEFENDER_EN_VEC,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

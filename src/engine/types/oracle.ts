@@ -101,6 +101,11 @@ export const TIER2_KEYWORDS = [
   // are the face's `alternativeCost` with a `keyword`, elected by `CastSpell.alternative` (D408's machinery).
   'evoke',
   'dash',
+  // D450 - VANISHING (CR 702.63 - N time counters as it enters, one removed each of its controller's upkeeps, sacrificed
+  // when the last is removed) and FADING (CR 702.32 - N fade counters, one removed each upkeep, sacrificed when none
+  // can be): the entry counters from `withEntryCounters`, the triggers from the keyword table.
+  'vanishing',
+  'fading',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

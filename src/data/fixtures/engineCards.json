@@ -256501,6 +256501,456 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CALCIDERM": {
+    "scryfallId": "1585bb24-41de-48a7-820e-d99ee76aec01",
+    "oracleId": "329d53eb-d443-4376-ae5a-4be7dfb1fc91",
+    "name": "Calciderm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Calciderm",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nVanishing 4 (This creature enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "1585bb24-41de-48a7-820e-d99ee76aec01"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Shroud",
+      "Vanishing"
+    ],
+    "setCode": "ema",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLASTODERM": {
+    "scryfallId": "1354ca60-7183-47ae-ba7b-0871311cba66",
+    "oracleId": "d6ee8bd6-0207-46ee-9892-c1d1b23b934e",
+    "name": "Blastoderm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blastoderm",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nFading 3 (This creature enters with three fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "1354ca60-7183-47ae-ba7b-0871311cba66"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Shroud",
+      "Fading"
+    ],
+    "setCode": "ddd",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUR_KNOCKS": {
+    "scryfallId": "02fe50fc-6c6c-43e7-ad0e-8f13a254da2a",
+    "oracleId": "64fe83b1-5aae-4433-82c3-a11c8c83137e",
+    "name": "Four Knocks",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Four Knocks",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Vanishing 4 (This enchantment enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nAt the beginning of your first main phase, draw a card.",
+        "flavorText": "\"Wilfred, it's my honor. Better be quick. Three, two, one.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Darren Tan",
+        "imageId": "02fe50fc-6c6c-43e7-ad0e-8f13a254da2a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vanishing"
+    ],
+    "setCode": "who",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_MARAUDERS": {
+    "scryfallId": "150c1f6c-52b2-4dbd-921f-78a3f76a3f3b",
+    "oracleId": "e05b850f-24cd-42b9-bc4f-0f05f9aea679",
+    "name": "Keldon Marauders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Marauders",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Vanishing 2 (This creature enters with two time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhen this creature enters or leaves the battlefield, it deals 1 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "150c1f6c-52b2-4dbd-921f-78a3f76a3f3b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vanishing"
+    ],
+    "setCode": "td0",
+    "collectorNumber": "B19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_RIFTWATCHER": {
+    "scryfallId": "261691c8-371d-49b6-9c9b-50ece5984aa2",
+    "oracleId": "a4d22abe-87c5-4f6b-ad14-4a7935883169",
+    "name": "Aven Riftwatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Riftwatcher",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Bird Rebel Soldier",
+        "oracleText": "Flying\nVanishing 3 (This creature enters with three time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhen this creature enters or leaves the battlefield, you gain 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Don Hazeltine",
+        "imageId": "261691c8-371d-49b6-9c9b-50ece5984aa2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Vanishing"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEP_FOREST_HERMIT": {
+    "scryfallId": "3287775f-7bec-4e8f-bb8d-daf5ce92e4a8",
+    "oracleId": "80e9a42e-f4f4-4bfc-91a2-ad124737dca2",
+    "name": "Deep Forest Hermit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deep Forest Hermit",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "Vanishing 3 (This creature enters with three time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhen this creature enters, create four 1/1 green Squirrel creature tokens.\nSquirrels you control get +1/+1.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "3287775f-7bec-4e8f-bb8d-daf5ce92e4a8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vanishing"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOODRIPPER": {
+    "scryfallId": "5126b782-d74c-40ca-a9b2-a6c78f94d138",
+    "oracleId": "d0653734-9eb7-48c6-9042-65ffdd50fd2a",
+    "name": "Woodripper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Woodripper",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Fading 3 (This creature enters with three fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\n{1}, Remove a fade counter from this creature: Destroy target artifact.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "5126b782-d74c-40ca-a9b2-a6c78f94d138"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADWOOD_TREEFOLK": {
+    "scryfallId": "69983244-a9c6-4025-91c6-a4742cb1db1e",
+    "oracleId": "b7efcb42-aa52-4d13-8c7c-b2db2dd51afd",
+    "name": "Deadwood Treefolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadwood Treefolk",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Vanishing 3 (This creature enters with three time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhen this creature enters or leaves the battlefield, return another target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Don Hazeltine",
+        "imageId": "69983244-a9c6-4025-91c6-a4742cb1db1e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Vanishing"
+    ],
+    "setCode": "c13",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOLTING_MERFOLK": {
+    "scryfallId": "8b4d1c74-8b73-445c-b226-349c57a972f6",
+    "oracleId": "3b71aeee-a4a8-46d3-9973-06db14d8bf6c",
+    "name": "Jolting Merfolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jolting Merfolk",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Merfolk",
+        "oracleText": "Fading 4 (This creature enters with four fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\nRemove a fade counter from this creature: Tap target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Glen Angus",
+        "imageId": "8b4d1c74-8b73-445c-b226-349c57a972f6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REJUVENATION_CHAMBER": {
+    "scryfallId": "b97f86ce-4758-4ae3-af29-b08a4d771652",
+    "oracleId": "c1ebe189-db71-47cd-a763-8cb8c305383a",
+    "name": "Rejuvenation Chamber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rejuvenation Chamber",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Fading 2 (This artifact enters with two fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\n{T}: You gain 2 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alan Pollack",
+        "imageId": "b97f86ce-4758-4ae3-af29-b08a4d771652"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_PROWLER": {
+    "scryfallId": "c204e4a1-40ec-4e23-8063-ed3830d9f4d8",
+    "oracleId": "128ec451-97f6-4f01-8929-689fd4c45f40",
+    "name": "Phyrexian Prowler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Prowler",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Phyrexian Zombie Mercenary",
+        "oracleText": "Fading 3 (This creature enters with three fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\nRemove a fade counter from this creature: This creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "c204e4a1-40ec-4e23-8063-ed3830d9f4d8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "NEM-65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUSTING_GOLEM": {
+    "scryfallId": "c2605448-8e0d-492b-a635-468923c64625",
+    "oracleId": "688c232f-385b-4bd5-aed0-e55059111fb3",
+    "name": "Rusting Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rusting Golem",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "Fading 5 (This creature enters with five fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\nRusting Golem's power and toughness are each equal to the number of fade counters on it.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "c2605448-8e0d-492b-a635-468923c64625"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEFENDER_EN_VEC": {
+    "scryfallId": "e7b224b7-d5f7-4515-beca-523f305ee3b8",
+    "oracleId": "bb8a55a5-596e-427c-b745-4de8b0dfb095",
+    "name": "Defender en-Vec",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Defender en-Vec",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Fading 4 (This creature enters with four fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\nRemove a fade counter from this creature: Prevent the next 2 damage that would be dealt to any target this turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Bradley Williams",
+        "imageId": "e7b224b7-d5f7-4515-beca-523f305ee3b8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

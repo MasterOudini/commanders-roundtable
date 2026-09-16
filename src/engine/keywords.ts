@@ -72,6 +72,9 @@ const CANON: Readonly<Record<string, Keyword>> = {
   // D449 - the keyword alternative costs: evoke (sacrificed as it enters) and dash (haste; back to hand at the end step).
   evoke: 'evoke',
   dash: 'dash',
+  // D450 - the counted-down keywords: time counters (vanishing) and fade counters (fading) off the upkeep.
+  vanishing: 'vanishing',
+  fading: 'fading',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

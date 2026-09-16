@@ -8368,6 +8368,22 @@ const WANTED = [
   'Treetop Ambusher',
   'Dawnfluke',
   // D449 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D450 - vanishing and fading: the seam's own fixtures (Calciderm, Blastoderm).
+  'Calciderm',
+  'Blastoderm',
+  // D450 - vanishing and fading (CR 702.63, 702.32): the rows the row maker reads once the time and fade counters are the engine's own.
+  'Four Knocks',
+  'Keldon Marauders',
+  'Aven Riftwatcher',
+  'Deep Forest Hermit',
+  'Woodripper',
+  'Deadwood Treefolk',
+  'Jolting Merfolk',
+  'Rejuvenation Chamber',
+  'Phyrexian Prowler',
+  'Rusting Golem',
+  'Defender en-Vec',
+  // D450 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

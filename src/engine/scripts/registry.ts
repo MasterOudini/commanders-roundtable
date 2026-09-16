@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FOUR_KNOCKS_SCRIPT } from './cards/fourKnocks';
+import { KELDON_MARAUDERS_SCRIPT } from './cards/keldonMarauders';
+import { AVEN_RIFTWATCHER_SCRIPT } from './cards/avenRiftwatcher';
+import { DEEP_FOREST_HERMIT_SCRIPT } from './cards/deepForestHermit';
+import { WOODRIPPER_SCRIPT } from './cards/woodripper';
+import { DEADWOOD_TREEFOLK_SCRIPT } from './cards/deadwoodTreefolk';
+import { JOLTING_MERFOLK_SCRIPT } from './cards/joltingMerfolk';
+import { REJUVENATION_CHAMBER_SCRIPT } from './cards/rejuvenationChamber';
+import { PHYREXIAN_PROWLER_SCRIPT } from './cards/phyrexianProwler';
+import { RUSTING_GOLEM_SCRIPT } from './cards/rustingGolem';
+import { DEFENDER_EN_VEC_SCRIPT } from './cards/defenderEnVec';
 import { VESPERLARK_SCRIPT } from './cards/vesperlark';
 import { MULLDRIFTER_SCRIPT } from './cards/mulldrifter';
 import { BRIARHORN_SCRIPT } from './cards/briarhorn';
@@ -6974,6 +6985,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FOUR_KNOCKS_SCRIPT,
+  KELDON_MARAUDERS_SCRIPT,
+  AVEN_RIFTWATCHER_SCRIPT,
+  DEEP_FOREST_HERMIT_SCRIPT,
+  WOODRIPPER_SCRIPT,
+  DEADWOOD_TREEFOLK_SCRIPT,
+  JOLTING_MERFOLK_SCRIPT,
+  REJUVENATION_CHAMBER_SCRIPT,
+  PHYREXIAN_PROWLER_SCRIPT,
+  RUSTING_GOLEM_SCRIPT,
+  DEFENDER_EN_VEC_SCRIPT,
   VESPERLARK_SCRIPT,
   MULLDRIFTER_SCRIPT,
   BRIARHORN_SCRIPT,

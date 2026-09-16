@@ -346,6 +346,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['evokedCasts'], rotHistory: 'D449' },
   { names: ['Zurgo Bellstriker'], copiesPerSeat: 3,
     counterKeys: ['dashedCasts'], rotHistory: 'D449' },
+  // D450 - the counted-down keywords: a vanishing 5/5 and a fading 5/5 a seat (both shroud - no aims lost to them).
+  { names: ['Calciderm'], copiesPerSeat: 2,
+    counterKeys: ['vanishingTicks'], rotHistory: 'D450' },
+  { names: ['Blastoderm'], copiesPerSeat: 2,
+    counterKeys: ['fadingFires'], rotHistory: 'D450' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1197,6 +1202,10 @@ interface Run {
   readonly dashedCasts: number;
   readonly evokeSacrifices: number;
   readonly dashReturns: number;
+  /** D450 - the vanishing upkeep ticks, the last-counter sacrifices, the fading upkeep fires. */
+  readonly vanishingTicks: number;
+  readonly vanishingSacrifices: number;
+  readonly fadingFires: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1612,6 +1621,9 @@ function runOne(seed: number): Run {
     dashedCasts: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.altKeyword === 'dash')).length,
     evokeSacrifices: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:evoke$/.test(e.body.obj.abilityRef ?? '')).length,
     dashReturns: game.log.filter((e) => e.body.t === 'Narrated' && /dash: return it to hand resolves/.test(e.body.text)).length,
+    vanishingTicks: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishing$/.test(e.body.obj.abilityRef ?? '')).length,
+    vanishingSacrifices: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:vanishingLast$/.test(e.body.obj.abilityRef ?? '')).length,
+    fadingFires: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && /#kw:fading$/.test(e.body.obj.abilityRef ?? '')).length,
     explores: game.log.filter((e) => e.body.t === 'Explored').length,
     typecyclings: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.reason === 'cycling' && typedCycler(game, m.card))).length,
     untapSkips: game.log.filter((e) => e.body.t === 'UntapSkipSet' && e.body.skip).length,
@@ -1852,6 +1864,9 @@ const TOTAL_KEYS = [
   'dashedCasts',
   'evokeSacrifices',
   'dashReturns',
+  'vanishingTicks',
+  'vanishingSacrifices',
+  'fadingFires',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2246,6 +2261,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
+        // D450 - a vanishing tick and a fading fire at gate size (Calciderm 15, Blastoderm 6 at 150 seeds).
+        expect(totals.vanishingTicks).toBeGreaterThan(0);
+        expect(totals.fadingFires).toBeGreaterThan(0);
         // D395 - a permanent animated at least once at gate size.
         expect(totals.animations).toBeGreaterThan(0);
         // D396 - a fight and a bite resolved at least once at gate size.
@@ -2328,6 +2346,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.linkedExiles} linked exiles / ${totals.linkedReturns} returns · ` +
           `${totals.alternativeCasts} casts for an alternative cost · ` +
           `${totals.evokedCasts} evoked (${totals.evokeSacrifices} evoke sacrifices) · ${totals.dashedCasts} dashed (${totals.dashReturns} dash returns) · ` +
+          `${totals.vanishingTicks} vanishing ticks (${totals.vanishingSacrifices} last-counter sacrifices) · ${totals.fadingFires} fading fires · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

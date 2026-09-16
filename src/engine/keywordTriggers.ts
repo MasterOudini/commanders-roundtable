@@ -24,6 +24,12 @@ import type { DefenderRef, StackObject } from './types/state';
 import { faceOf } from './oracle';
 
 export interface KeywordTrigger {
+  /**
+   * D450 - the keyword that GATES this entry when it is not the map's key: a keyword with two triggers
+   * (vanishing's upkeep tick and its last-counter sacrifice) keeps them under two keys, each firing for
+   * every permanent whose derived keywords carry the one named here.
+   */
+  readonly keyword?: Keyword;
   readonly event: EventKind;
   readonly looksBack?: boolean;
   matches(ctx: ScriptCtx, self: InstanceId, ev: EventBody): boolean;
@@ -147,7 +153,7 @@ function tokenRef(key: string): TokenRef {
 const AFTERLIFE_SPIRIT = tokenRef('Spirit|1/1|BW|Creature|flying');
 const isCreature = (ctx: ScriptCtx, id: InstanceId): boolean => ctx.derive(id).typeLine.types.includes('Creature');
 
-export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Keyword, KeywordTrigger>([
+export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<string, KeywordTrigger>([
   [
     'prowess',
     {
@@ -525,6 +531,50 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<Keyword, KeywordTrigger> = new Map<Ke
     },
   ],
   [
+    'vanishing',
+    {
+      // CR 702.63b - at the beginning of its controller's upkeep, if it has a time counter on it, remove one.
+      event: 'StepBegan',
+      matches: (ctx, self, ev) => ev.t === 'StepBegan' && ev.step === 'upkeep' && ctx.state.turn.activePlayer === ctx.query.controllerOf(self) && (ctx.state.cards[self]?.counters['time'] ?? 0) > 0,
+      label: (ctx, self) => `${nameOf(ctx, self)} - vanishing (remove a time counter)`,
+      resolve: (ctx, self) =>
+        onBattlefield(ctx, self) && (ctx.state.cards[self]?.counters['time'] ?? 0) > 0 ? [{ t: 'CountersChanged', changes: [{ card: self, kind: 'time', delta: -1 }] }] : [],
+    },
+  ],
+  [
+    'vanishingLast',
+    {
+      // CR 702.63c - when the last time counter is removed from it, sacrifice it. The removal is read off the
+      // event and the state after it (the counter gone), whichever ability removed it.
+      keyword: 'vanishing',
+      event: 'CountersChanged',
+      matches: (ctx, self, ev) =>
+        ev.t === 'CountersChanged' && ev.changes.some((c) => c.card === self && c.kind === 'time' && c.delta < 0) && (ctx.state.cards[self]?.counters['time'] ?? 0) === 0,
+      label: (ctx, self) => `${nameOf(ctx, self)} - vanishing (sacrifice it)`,
+      resolve: (ctx, self) => {
+        const card = ctx.state.cards[self];
+        if (!card || card.zone.kind !== 'battlefield') return [];
+        return [{ t: 'CardsMoved', moves: [{ card: self, from: { kind: 'battlefield', player: null }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] }];
+      },
+    },
+  ],
+  [
+    'fading',
+    {
+      // CR 702.32a - at the beginning of its controller's upkeep, remove a fade counter from it; if you can't,
+      // sacrifice it.
+      event: 'StepBegan',
+      matches: (ctx, self, ev) => ev.t === 'StepBegan' && ev.step === 'upkeep' && ctx.state.turn.activePlayer === ctx.query.controllerOf(self),
+      label: (ctx, self) => `${nameOf(ctx, self)} - fading (remove a fade counter or sacrifice it)`,
+      resolve: (ctx, self) => {
+        const card = ctx.state.cards[self];
+        if (!card || card.zone.kind !== 'battlefield') return [];
+        if ((card.counters['fade'] ?? 0) > 0) return [{ t: 'CountersChanged', changes: [{ card: self, kind: 'fade', delta: -1 }] }];
+        return [{ t: 'CardsMoved', moves: [{ card: self, from: { kind: 'battlefield', player: null }, to: { kind: 'graveyard', player: card.owner }, reason: 'sacrifice' }] }];
+      },
+    },
+  ],
+  [
     'backup',
     {
       // CR 702.165a - when this creature enters, put N +1/+1 counters on target creature; if that's another
@@ -590,7 +640,7 @@ function evolveEntrants(ctx: ScriptCtx, self: InstanceId, ev: EventBody): Instan
 export function keywordTriggerEntry(abilityRef: string): KeywordTrigger | undefined {
   const at = abilityRef.indexOf('#kw:');
   if (at < 0) return undefined;
-  return KEYWORD_TRIGGERS.get(abilityRef.slice(at + 4) as Keyword);
+  return KEYWORD_TRIGGERS.get(abilityRef.slice(at + 4));
 }
 
 /**
@@ -610,7 +660,7 @@ export function keywordTargetSpecs(ctx: ScriptCtx, abilityRef: string, self: Ins
 export function keywordTriggerDef(abilityRef: string): TriggerDef | undefined {
   const at = abilityRef.indexOf('#kw:');
   if (at < 0) return undefined;
-  const keyword = abilityRef.slice(at + 4) as Keyword;
+  const keyword = abilityRef.slice(at + 4);
   const kt = KEYWORD_TRIGGERS.get(keyword);
   if (!kt) return undefined;
   return {

@@ -58,7 +58,8 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // table, so neither line is the engine's own.
 // D440 - and modular, whose number is the entry counters (`withEntryCounters`) and whose trigger moves them.
 // D445 - and backup, gated on the reading (`parseBackup`): `face.keywords` carries it only when the grants read.
-const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup']);
+// D450 - vanishing and fading: the number is the entry counters (the built-in) and the ticks are the table's.
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersTappedLine, parseChoosesColorOnEntry } from './replacementParse';
 
