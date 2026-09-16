@@ -8411,6 +8411,28 @@ const WANTED = [
   'Expendable Troops',
   'Viashino Shanktail',
   // D451 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D452 - the co-attacker and Channel: the rows the row maker reads once an attacking fixture rides an attack head and Channel is an ability word.
+  'Pegasus Courser',
+  'Ghost-Lit Stalker',
+  'Mnemonic Sphere',
+  "Appa, Aang's Companion",
+  'Clammy Prowler',
+  "Shinen of Fury's Fire",
+  'Malamet Brawler',
+  "Shinen of Stars' Light",
+  "Shinen of Flight's Wings",
+  'Ironhoof Boar',
+  "Shinen of Fear's Chill",
+  'Gryffwing Cavalry',
+  'Aerial Guide',
+  'Phase Dolphin',
+  'Reinforced Ronin',
+  'Phyrexian Pegasus',
+  'Ghost-Lit Redeemer',
+  'Bazaar Krovod',
+  'Colossal Skyturtle',
+  'Ghost-Lit Nourisher',
+  // D452 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -446,7 +446,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Park Heights Maverick', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature deals combat damage to a player or di'],
   ['Plumes of Peace', 'ability-word activated line: Forecast — {W}{U}, Reveal this card from'],
   ['Rot Farm Skeleton', 'cost: Mill four cards'],
-  ["Shinen of Fear's Chill", 'ability-word activated line: Channel — {1}{B}, Discard this card: Tar'],
   ['Sinking Feeling', 'a leftover line not among the printed lines: Enchanted creature has'],
   ['Spectral Prison', 'trigger head not in the library: When enchanted creature becomes the target of a spell, sacrifice this '],
   ['Stirge', 'ability-word activated line: Blood Drain — {1}{B}, Pay 1 life, Sacrif'],
@@ -938,13 +937,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Yuma, Proud Protector', 'a put-into-graveyard head from anywhere with a filter no zone can answer (a Desert card) beside its verb-price line'],
   // D414 - the another qualifier is enforced: the 23 the selector offered once `another target` read that the row
   // maker refused, by reason (seven combat-role clauses the suite cannot stage among them).
-  ['Aerial Guide', 'a combat-role clause the suite has no fixture for (another target attacking creature) beside its attack head'],
-  ["Appa, Aang's Companion", 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
-  ['Bazaar Krovod', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
-  ['Clammy Prowler', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
-  ['Pegasus Courser', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
-  ['Phase Dolphin', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
-  ['Phyrexian Pegasus', 'a combat-role clause the suite has no fixture for (another target attacking creature)'],
   ['Angelic Quartermaster', 'a counted clause the suite has no fixture for (up to two other target creatures) beside its enters head'],
   ["Bessie, the Doctor's Roadster", 'a clause the suite has no fixture for (another target legendary creature) beside its attack head'],
   ['Flensing Raptor', 'a clause the suite has no fixture for (another target creature you control with toxic) beside its enters head'],
@@ -1341,7 +1333,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // built or-less/or-greater only), the numeric family's fourth hole.
   ['Interpret the Signs', 'script-raised prompt'],
   ['Invade the City', 'amass mechanic'],
-  ['Ironhoof Boar', 'hand-activated ability'],
   ["Isildur's Fateful Strike", 'cast-permission condition'],
   ['Isolate', 'spell target parse (numeric exact)'],
   ['Isolation at Orthanc', 'library position placement'],
@@ -1377,7 +1368,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Madcap Experiment', 'ctx.random'],
   ["Mages' Contest", 'bidding mechanic'],
   ['Magical Hack', 'text-changing effect (CR 612)'],
-  ['Malamet Brawler', 'combat target qualifier unenforced'],
   ['Malicious Advice', 'cast-time computed target count'],
   ['Mana Vapors', 'untap restriction'],
   ['Manhole Missile', 'script-raised prompt'],
@@ -1541,9 +1531,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D246 (M6.4ci)
   ['Serpentine Ambush', 'until-end-of-turn base P/T set'],
   ["Shade's Breath", 'temporary non-keyword ability grant'],
-  ["Shinen of Flight's Wings", 'hand-activated ability'],
-  ["Shinen of Fury's Fire", 'hand-activated ability'],
-  ["Shinen of Stars' Light", 'hand-activated ability'],
   // D247 (M6.4cj)
   ['Shoving Match', 'temporary non-keyword ability grant'],
   ['Show and Tell', 'script-raised prompt'],
@@ -1981,7 +1968,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Chivalric Alliance', 'discard-cost chooser'],
   ['Clear the Mind', 'ctx.random'],
   ['Clutch of the Undercity', 'transmute mechanic'],
-  ['Colossal Skyturtle', 'hand-activated ability'],
   ['Controvert', 'recover mechanic'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
@@ -2031,8 +2017,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Force of Vigor', 'cast-time alternative cost'],
   ['Fowl Strike', 'hand-activated ability'],
   ['Garbage Fire', 'draft-matters'],
-  ['Ghost-Lit Nourisher', 'hand-activated ability'],
-  ['Ghost-Lit Redeemer', 'hand-activated ability'],
   ['Ghostfire', 'color-defining static'],
   ['Gluttonous Guest', 'sacrifice-event discriminator'],
   ["Gollum's Bite", 'the Ring mechanic'],
@@ -2085,7 +2069,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Metrognome', 'discard-event discriminator'],
   ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
   ['Mindstab', 'suspend mechanic'],
-  ['Mnemonic Sphere', 'hand-activated ability'],
   ['Mogg Salvage', 'cast-time alternative cost'],
 
   // D278 (M6.4do) — the M/N/O/P residue; ZERO new classes, and the leanest
@@ -2221,7 +2204,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // targets one — the validator has no combat-role field. D289 enforced the
   // KEYWORD half; the combat-role half is the next qualifier seam (a
   // `TargetCandidate.attacking`/`blocking` pair read off `state.combat`).
-  ['Bamboo Grove Archer', 'hand-activated ability'],
 
   // D292 (M6.4ec) — the 54 cards D291's combat-role seam made offerable: 38
   // landed, sixteen refused.
@@ -2754,7 +2736,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spell Stutter', 'a computed payment price (pays N for each ...)'],
   ['Spell Syphon', 'a computed payment price (pays N for each ...)'],
   ['Skywise Teachings', 'a payload outside both readers (Pay {1}{U}. If you do, create a 2/2 blue Djin)'],
-  ['Gryffwing Cavalry', 'a payload outside both readers (Pay {1}{W}. If you do, target attacking creat)'],
   ['Eternal Taskmaster', 'a payload outside both readers (Pay {2}{B}. If you do, return target creature)'],
   ['Numot, the Devastator', 'a payload outside both readers (Pay {2}{R}. If you do, destroy up to two targ)'],
   ['Veinwitch Coven', 'a payload outside both readers (Pay {B}. If you do, return target creature ca)'],
@@ -2843,7 +2824,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hazard of the Dunes', 'ability-word activated line'],
   ['Mold Folk', 'ability-word activated line'],
   ['Prowcatcher Specialist', 'ability-word activated line'],
-  ['Reinforced Ronin', 'ability-word activated line'],
   ['Skystreak Engineer', 'ability-word activated line'],
   ['Stampeding Scurryfoot', 'ability-word activated line'],
   ['Dwarven Soldier', 'blocks-by predicate outside the vocabulary'],

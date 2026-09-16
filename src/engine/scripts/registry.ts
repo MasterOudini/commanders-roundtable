@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PEGASUS_COURSER_SCRIPT } from './cards/pegasusCourser';
+import { GHOST_LIT_STALKER_SCRIPT } from './cards/ghostLitStalker';
+import { MNEMONIC_SPHERE_SCRIPT } from './cards/mnemonicSphere';
+import { APPA_AANGS_COMPANION_SCRIPT } from './cards/appaAangsCompanion';
+import { CLAMMY_PROWLER_SCRIPT } from './cards/clammyProwler';
+import { SHINEN_OF_FURYS_FIRE_SCRIPT } from './cards/shinenOfFurysFire';
+import { MALAMET_BRAWLER_SCRIPT } from './cards/malametBrawler';
+import { SHINEN_OF_STARS_LIGHT_SCRIPT } from './cards/shinenOfStarsLight';
+import { SHINEN_OF_FLIGHTS_WINGS_SCRIPT } from './cards/shinenOfFlightsWings';
+import { IRONHOOF_BOAR_SCRIPT } from './cards/ironhoofBoar';
+import { SHINEN_OF_FEARS_CHILL_SCRIPT } from './cards/shinenOfFearsChill';
+import { GRYFFWING_CAVALRY_SCRIPT } from './cards/gryffwingCavalry';
+import { AERIAL_GUIDE_SCRIPT } from './cards/aerialGuide';
+import { PHASE_DOLPHIN_SCRIPT } from './cards/phaseDolphin';
+import { REINFORCED_RONIN_SCRIPT } from './cards/reinforcedRonin';
+import { BAMBOO_GROVE_ARCHER_SCRIPT } from './cards/bambooGroveArcher';
+import { PHYREXIAN_PEGASUS_SCRIPT } from './cards/phyrexianPegasus';
+import { GHOST_LIT_REDEEMER_SCRIPT } from './cards/ghostLitRedeemer';
+import { BAZAAR_KROVOD_SCRIPT } from './cards/bazaarKrovod';
+import { COLOSSAL_SKYTURTLE_SCRIPT } from './cards/colossalSkyturtle';
+import { GHOST_LIT_NOURISHER_SCRIPT } from './cards/ghostLitNourisher';
 import { SKARRG_GOLIATH_SCRIPT } from './cards/skarrgGoliath';
 import { ARBALEST_ELITE_SCRIPT } from './cards/arbalestElite';
 import { SCORCHWALKER_SCRIPT } from './cards/scorchwalker';
@@ -7009,6 +7030,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PEGASUS_COURSER_SCRIPT,
+  GHOST_LIT_STALKER_SCRIPT,
+  MNEMONIC_SPHERE_SCRIPT,
+  APPA_AANGS_COMPANION_SCRIPT,
+  CLAMMY_PROWLER_SCRIPT,
+  SHINEN_OF_FURYS_FIRE_SCRIPT,
+  MALAMET_BRAWLER_SCRIPT,
+  SHINEN_OF_STARS_LIGHT_SCRIPT,
+  SHINEN_OF_FLIGHTS_WINGS_SCRIPT,
+  IRONHOOF_BOAR_SCRIPT,
+  SHINEN_OF_FEARS_CHILL_SCRIPT,
+  GRYFFWING_CAVALRY_SCRIPT,
+  AERIAL_GUIDE_SCRIPT,
+  PHASE_DOLPHIN_SCRIPT,
+  REINFORCED_RONIN_SCRIPT,
+  BAMBOO_GROVE_ARCHER_SCRIPT,
+  PHYREXIAN_PEGASUS_SCRIPT,
+  GHOST_LIT_REDEEMER_SCRIPT,
+  BAZAAR_KROVOD_SCRIPT,
+  COLOSSAL_SKYTURTLE_SCRIPT,
+  GHOST_LIT_NOURISHER_SCRIPT,
   SKARRG_GOLIATH_SCRIPT,
   ARBALEST_ELITE_SCRIPT,
   SCORCHWALKER_SCRIPT,

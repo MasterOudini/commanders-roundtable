@@ -444,7 +444,8 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // same 1,125. Same def gate again.
       // D447 - 2,835 -> 2,809: `Remove a counter from this creature` (no kind named) is a price the engine takes.
       // D451 - 2,809 -> 2,719: `Discard this card` is a price the engine takes from the hand (bloodrush and its kin).
-      'activated:nonManaCost': 2719,
+      // D452 - 2,719 -> 2,622: Channel is an ability word; its discard-self price is D451's.
+      'activated:nonManaCost': 2622,
       'activated:loyalty': 4635,
       'target:modalUnion': 505,
       // D291: "attacking or blocking creature" used to lose its first word to
@@ -520,7 +521,7 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // 1,800 lines — the exact mirror of `nonManaCost`'s fall above.
       // ⚠️ 29,933 → 31,058 in M6.4dw (D286): the discard and tap choosers'
       // 1,125 lines — the mirror of `nonManaCost`'s second fall.
-      payable: 36460, // D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
+      payable: 36557, // D452: the 97 Channel lines; D451: the 90 discard-self lines and the 15 reinforces; D448: the 155 unearth abilities; D447: the 26 any-kind remove-a-counter lines.
       // ⚠️ 11,911 → 11,938: the 27 lines D116 taught the parser to read.
       manaAbility: 11578,
       targeted: 12404, // D451: the reinforce clauses.
