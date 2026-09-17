@@ -1323,6 +1323,10 @@ export type ActivationCondition =
   | { readonly kind: 'handSize'; readonly cmp: 'atMost' | 'exactly' | 'atLeast'; readonly count: number }
   | { readonly kind: 'graveyardCards'; readonly count: number; readonly types: readonly string[] }
   | { readonly kind: 'selfIsCreature' }
+  /** D490 - `if you control a commander` (the free-cast conditions): a commander among the player's permanents. */
+  | { readonly kind: 'controlsCommander' }
+  /** D490 - `if an opponent controls a Plains and you control a Swamp` (the Legates): a predicate on some opponent's board and one on the player's. */
+  | { readonly kind: 'acrossControl'; readonly theirs: readonly PermanentPredicate[]; readonly yours: readonly PermanentPredicate[] }
   /**
    * D348 - A CONDITION ON WHAT THIS TURN DID: "if a creature died this turn", "if
    * an opponent lost life this turn", "if an artifact entered under your control

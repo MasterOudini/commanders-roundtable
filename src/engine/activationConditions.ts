@@ -115,6 +115,15 @@ export function activationConditionsHold(
       case 'selfIsCreature':
         if (!d(source).isCreature) return false;
         break;
+      // D490 - the free-cast conditions: a commander among the player's permanents; a predicate on some opponent's
+      // board and one on the player's (the Legate cycle).
+      case 'controlsCommander':
+        if (!mine().some((id) => state.cards[id]?.isCommander === true)) return false;
+        break;
+      case 'acrossControl':
+        if (!state.zones.battlefield.some((id) => { const inst = state.cards[id]; return inst !== undefined && inst.controller !== player && matchesAny(d(id), cond.theirs); })) return false;
+        if (!mine().some((id) => matchesAny(d(id), cond.yours))) return false;
+        break;
       case 'turnMemory': {
         // ⚠️ The record holds IDS (the reducer has no oracle): the types are asked HERE,
         // off each recorded card, which is why this case derives and the reducer does not.
@@ -194,6 +203,10 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return `if there are ${cond.count} or more ${cond.types.length ? cond.types.join(' ').toLowerCase() + ' ' : ''}cards in your graveyard`;
         case 'selfIsCreature':
           return 'if it is a creature';
+        case 'controlsCommander':
+          return 'if you control a commander';
+        case 'acrossControl':
+          return 'if an opponent controls the named permanent and you control yours';
       }
     })
     .join(' and only ');

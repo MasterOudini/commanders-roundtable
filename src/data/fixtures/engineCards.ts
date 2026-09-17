@@ -8249,6 +8249,15 @@ export const ATRAXI_WARDEN: CardData = F.ATRAXI_WARDEN as CardData;
 export const RIFTWING_CLOUDSKATE: CardData = F.RIFTWING_CLOUDSKATE as CardData;
 export const SHADE_OF_TROKAIR: CardData = F.SHADE_OF_TROKAIR as CardData;
 export const VISCERID_DEEPWALKER: CardData = F.VISCERID_DEEPWALKER as CardData;
+export const CHO_ARRIM_LEGATE: CardData = F.CHO_ARRIM_LEGATE as CardData;
+export const KYREN_LEGATE: CardData = F.KYREN_LEGATE as CardData;
+export const RUSHWOOD_LEGATE: CardData = F.RUSHWOOD_LEGATE as CardData;
+export const SAPRAZZAN_LEGATE: CardData = F.SAPRAZZAN_LEGATE as CardData;
+export const DEADLY_ROLLICK: CardData = F.DEADLY_ROLLICK as CardData;
+export const FIERCE_GUARDIANSHIP: CardData = F.FIERCE_GUARDIANSHIP as CardData;
+export const MASSACRE: CardData = F.MASSACRE as CardData;
+export const REFRESHING_RAIN: CardData = F.REFRESHING_RAIN as CardData;
+export const DEEPWOOD_LEGATE: CardData = F.DEEPWOOD_LEGATE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16715,6 +16724,15 @@ export const ENGINE_CARDS: CardData[] = [
   RIFTWING_CLOUDSKATE,
   SHADE_OF_TROKAIR,
   VISCERID_DEEPWALKER,
+  CHO_ARRIM_LEGATE,
+  KYREN_LEGATE,
+  RUSHWOOD_LEGATE,
+  SAPRAZZAN_LEGATE,
+  DEADLY_ROLLICK,
+  FIERCE_GUARDIANSHIP,
+  MASSACRE,
+  REFRESHING_RAIN,
+  DEEPWOOD_LEGATE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

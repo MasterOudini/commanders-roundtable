@@ -7,6 +7,7 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DEEPWOOD_LEGATE_SCRIPT } from './cards/deepwoodLegate';
 import { ATRAXI_WARDEN_SCRIPT } from './cards/atraxiWarden';
 import { RIFTWING_CLOUDSKATE_SCRIPT } from './cards/riftwingCloudskate';
 import { SHADE_OF_TROKAIR_SCRIPT } from './cards/shadeOfTrokair';
@@ -7579,6 +7580,7 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DEEPWOOD_LEGATE_SCRIPT,
   ATRAXI_WARDEN_SCRIPT,
   RIFTWING_CLOUDSKATE_SCRIPT,
   SHADE_OF_TROKAIR_SCRIPT,

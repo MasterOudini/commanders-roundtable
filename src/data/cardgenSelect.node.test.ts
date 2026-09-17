@@ -475,9 +475,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Safeguard', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt by target creature this turn.'],
   ['Songstitcher', 'a shield with no target the suite cannot prove (it must attack): Prevent all combat damage that would be dealt this turn by target attacking creature with flying.'],
   ['Cephalid Illusionist', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by target creature you control this turn.'],
-  ['Obscuring Haze', 'a spell with a line outside the vocabulary: If you control a commander, you may cast this spell without '],
   ['Shieldmage Elder', 'a shield with no target the suite cannot prove (it must attack): Prevent all damage target creature would deal this turn.'],
-  ["Sivvi's Ruse", 'a spell with a line outside the vocabulary: If an opponent controls a Mountain and you control a Plains,'],
   ['Soratami Cloud Chariot', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by target creature you control this turn.'],
   // D426 - the conjunction: the 53 the selector offered once `X and Y.` read as two clauses that the row maker
   // refused by reason (a filtered head's adjective 11, a payload outside both readers 11, a head outside the library 9,
@@ -1035,7 +1033,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // legendary creatures in graveyards) — a mana ability cannot be an
   // ActivatedDef (CR 605: it does not use the stack), so the parse gap is
   // the card's real blocker. The rest are standing classes.
-  ['Deadly Rollick', 'cast-time alternative cost'],
   ['About Face', 'until-end-of-turn power/toughness switch'],
   ['The Last Agni Kai', 'rule-changing (mana persistence)'],
   ["Animist's Awakening", 'ctx.random'],
@@ -2079,11 +2076,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lethargy Trap', 'cast-time alternative cost'],
   ['Mammoth Bellow', 'harmonize mechanic'],
   ['Manamorphose', 'script-raised prompt'],
-  ['Massacre', 'cast-time alternative cost'],
   ['Metrognome', 'discard-event discriminator'],
   ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
   ['Mindstab', 'suspend mechanic'],
-  ['Mogg Salvage', 'cast-time alternative cost'],
 
   // D278 (M6.4do) — the M/N/O/P residue; ZERO new classes, and the leanest
   // refusal count since D257 (11 of 25).
@@ -2162,7 +2157,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spiritualize', 'temporary game-wide trigger'],
   ["Sram's Expertise", 'free-cast permission'],
   ['Starfall Invocation', 'gift mechanic'],
-  ['Submerge', 'cast-time alternative cost'],
   ['Suit Up', 'until-end-of-turn type change with P/T set'],
   ["Sun's Bounty", 'recover mechanic'],
 
@@ -2261,7 +2255,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Diffusion lists "suspended card"; Premature Burial needs the turn a
   // permanent entered; Lunatic Pandora sacrifices itself BY NAME; Unwind
   // untaps "up to three lands" of the caster's choosing.
-  ['Fierce Guardianship', 'cast-time alternative cost'],
   ['Spinning Darkness', 'cast-time alternative cost'],
   ["Alchemist's Retrieval", 'cast-time alternative cost'],
   ['Swift Reckoning', 'cast-time alternative cost'],
@@ -2357,7 +2350,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // hand-activated abilities and the planeswalkers.
   ['Harbin, Vanguard Aviator', 'trigger head outside the library'],
   ['Wildfire Elemental', 'trigger head outside the library'],
-  ['Flawless Maneuver', 'alternative cost'],
   ['Invasion Tactics', 'trigger head outside the library'],
   ['Saradoc, Master of Buckland', 'trigger head outside the library'],
   ['Steeling Stance', 'forecast (hand-activated ability)'],

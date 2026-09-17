@@ -84,6 +84,13 @@ function acSingular(noun: string): string | null {
  * type, so the predicate is the adjectives before it - or the EMPTY predicate, every
  * permanent, when there are none (D168's reading of "Sacrifice a permanent").
  */
+/** D490 - a basic land type by name (`a Plains`, the Legates' boards), else the noun reader's predicates. */
+function acLandOrPredicates(noun: string): readonly PermanentPredicate[] | null {
+  const word = noun.trim();
+  if (/^(?:Plains|Island|Swamp|Mountain|Forest)$/.test(word)) return [{ supertypes: [], types: [], subtypes: [word], colors: [] }];
+  return acPredicates(word);
+}
+
 function acPredicates(singular: string): readonly PermanentPredicate[] | null {
   const m = /^(.*?)\s*permanent$/i.exec(singular.trim().replace(/^(?:a|an)\s+/i, ''));
   if (!m) return predicatesOf(singular);
@@ -233,6 +240,15 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
       const read = turnMemoryCondition(mm);
       if (read === null) unread = unread ?? c;
       else conditions.push(read);
+    }
+    // D490 - the free-cast conditions: a commander among your permanents; a land type (or any noun the reader knows)
+    // on some opponent's board and another on yours - the Legate cycle's two boards.
+    else if (/^if you control a commander$/i.test(c)) conditions.push({ kind: 'controlsCommander' });
+    else if ((mm = /^if an opponent controls (?:a|an) (.+?) and you control (?:a|an) (.+)$/i.exec(c))) {
+      const theirs = acLandOrPredicates(mm[1] ?? '');
+      const yours = acLandOrPredicates(mm[2] ?? '');
+      if (theirs === null || yours === null) unread = unread ?? c;
+      else conditions.push({ kind: 'acrossControl', theirs, yours });
     }
     else if ((mm = controlCount.exec(c))) {
       const count = acNumber(mm[1]);
@@ -1193,9 +1209,17 @@ export interface AlternativeCost {
    * printed `rather than pay` line.
    */
   readonly keyword?: 'evoke' | 'dash';
+  /**
+   * D490 - `If <condition>, you may cast this spell without paying its mana cost.`: an alternative cost of NOTHING
+   * under its conditions (mana null, no verb, no pitch). The offer and the handler already price a null mana at
+   * nothing and ask the conditions; the fuzz counts the casts by this flag.
+   */
+  readonly free?: true;
 }
 
 export const ALTERNATIVE_COST_LINE = /rather than pay (?:this spell's|its) mana cost\.$/;
+/** D490 - the conditional free cast's line, kept out of the effect text as the alternative-cost line is. */
+export const FREE_CAST_LINE = /you may cast this spell without paying its mana cost\.$/i;
 
 export function parseAlternativeCost(oracleText: string, parseCost: (raw: string, warn?: Warn) => ManaCost | null, selfName?: string): AlternativeCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
@@ -1220,6 +1244,30 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         exileFromHand: null,
         conditions: [],
         keyword: kwAlt[1] === 'Evoke' ? 'evoke' : 'dash',
+      };
+    }
+    // D490 - THE CONDITIONAL FREE CAST: `If <condition>, you may cast this spell without paying its mana cost.` - an
+    // alternative cost of nothing under the activation grammar's conditions (the Legates' two boards, `you control a
+    // commander`). The bare form with no condition has no printing and is refused; a condition the grammar cannot
+    // read refuses the line (D90).
+    const free = /^(?:(If [^,]+), )?(?:you|You) may cast this spell without paying its mana cost\.$/.exec(line.replace(/^[A-Z][a-z]+ [\u2014-] /, ''));
+    if (free) {
+      if (free[1] === undefined) return null;
+      const read = parseActivationConditions(`Activate only ${free[1].charAt(0).toLowerCase() + free[1].slice(1)}.`, selfName);
+      if (read.unread !== null || read.sorceryOnly || read.oncePerTurn || read.conditions.length === 0) return null;
+      return {
+        line,
+        costText: 'cast it without paying its mana cost',
+        mana: null,
+        lifeCost: 0,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: null,
+        exileFromGraveyardCost: null,
+        returnCost: null,
+        exileFromHand: null,
+        conditions: read.conditions,
+        free: true,
       };
     }
     if (!ALTERNATIVE_COST_LINE.test(line)) continue;

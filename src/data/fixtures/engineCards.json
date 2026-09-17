@@ -278962,6 +278962,309 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CHO_ARRIM_LEGATE": {
+    "scryfallId": "1427a3a1-24e1-4697-b5eb-1c0a24f89e75",
+    "oracleId": "780c9cb2-9d98-4789-87e0-cb81db477204",
+    "name": "Cho-Arrim Legate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cho-Arrim Legate",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "If an opponent controls a Swamp and you control a Plains, you may cast this spell without paying its mana cost.\nProtection from black",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "rk post",
+        "imageId": "1427a3a1-24e1-4697-b5eb-1c0a24f89e75"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Protection"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KYREN_LEGATE": {
+    "scryfallId": "6f0e9806-be8c-4b88-a4be-0111d1be81d9",
+    "oracleId": "41b46aa5-6091-4bc4-8d17-d2c6b5fe1c5e",
+    "name": "Kyren Legate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kyren Legate",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "If an opponent controls a Plains and you control a Mountain, you may cast this spell without paying its mana cost.\nHaste",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "6f0e9806-be8c-4b88-a4be-0111d1be81d9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUSHWOOD_LEGATE": {
+    "scryfallId": "827b9c99-87d7-493c-9dc3-0c6aa4a61b49",
+    "oracleId": "f3623759-bf3a-4846-9ef7-1b732ad4355f",
+    "name": "Rushwood Legate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rushwood Legate",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Dryad",
+        "oracleText": "If an opponent controls an Island and you control a Forest, you may cast this spell without paying its mana cost.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Romanoski",
+        "imageId": "827b9c99-87d7-493c-9dc3-0c6aa4a61b49"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "266",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAPRAZZAN_LEGATE": {
+    "scryfallId": "db9adf84-ee7e-472b-bd96-9abf853afa83",
+    "oracleId": "d20b62fc-e248-4c84-87ac-7319b92531d4",
+    "name": "Saprazzan Legate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saprazzan Legate",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Merfolk Soldier",
+        "oracleText": "If an opponent controls a Mountain and you control an Island, you may cast this spell without paying its mana cost.\nFlying",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Andrew Goldhawk",
+        "imageId": "db9adf84-ee7e-472b-bd96-9abf853afa83"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEADLY_ROLLICK": {
+    "scryfallId": "0e13f735-54fa-42b6-aea4-ced33811d7d4",
+    "oracleId": "0456ec64-2c81-4763-a352-8ff64a4c3d6b",
+    "name": "Deadly Rollick",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deadly Rollick",
+        "manaCost": "{3}{B}",
+        "typeLine": "Instant",
+        "oracleText": "If you control a commander, you may cast this spell without paying its mana cost.\nExile target creature.",
+        "flavorText": "Otrimi was disappointed at how quickly its new friend got tired and stopped playing.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Izzy",
+        "imageId": "0e13f735-54fa-42b6-aea4-ced33811d7d4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIERCE_GUARDIANSHIP": {
+    "scryfallId": "180679fa-b820-4793-8f2e-a2d8791192d5",
+    "oracleId": "d09c9cba-fdd2-479b-ad5d-d05181c3e3f9",
+    "name": "Fierce Guardianship",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fierce Guardianship",
+        "manaCost": "{2}{U}",
+        "typeLine": "Instant",
+        "oracleText": "If you control a commander, you may cast this spell without paying its mana cost.\nCounter target noncreature spell.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mike Burns",
+        "imageId": "180679fa-b820-4793-8f2e-a2d8791192d5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1823",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASSACRE": {
+    "scryfallId": "0be5f786-5eda-4236-8bc0-3ce86e893226",
+    "oracleId": "ce1866e9-28de-4bcc-9999-11958e6c13a6",
+    "name": "Massacre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Massacre",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "If an opponent controls a Plains and you control a Swamp, you may cast this spell without paying its mana cost.\nAll creatures get -2/-2 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0be5f786-5eda-4236-8bc0-3ce86e893226"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "NEM-58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REFRESHING_RAIN": {
+    "scryfallId": "c5e24850-bd9b-40ab-878f-b8a554da1956",
+    "oracleId": "c6f69168-71c2-41a2-ab95-cfd7baf0ba68",
+    "name": "Refreshing Rain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Refreshing Rain",
+        "manaCost": "{3}{G}",
+        "typeLine": "Instant",
+        "oracleText": "If an opponent controls a Swamp and you control a Forest, you may cast this spell without paying its mana cost.\nTarget player gains 6 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Don Hazeltine",
+        "imageId": "c5e24850-bd9b-40ab-878f-b8a554da1956"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "110",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEPWOOD_LEGATE": {
+    "scryfallId": "54f01925-7fd0-472d-91a4-3309e615f22f",
+    "oracleId": "414eb407-dd39-41d2-bf25-a7a77ff35cb4",
+    "name": "Deepwood Legate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deepwood Legate",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Shade",
+        "oracleText": "If an opponent controls a Forest and you control a Swamp, you may cast this spell without paying its mana cost.\n{B}: This creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "54f01925-7fd0-472d-91a4-3309e615f22f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

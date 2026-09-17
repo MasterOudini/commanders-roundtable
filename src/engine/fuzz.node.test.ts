@@ -214,6 +214,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // an available, affordable alternative.
   { names: ['Daze', 'Mistvein Borderpost', 'Snuff Out'], copiesPerSeat: 1,
     counterKeys: ['alternativeCasts'], rotHistory: 'D408' },
+  // D490 - the conditional free cast: two Cho-Arrim Legates a seat (`If an opponent controls a Swamp and you control
+  // a Plains, you may cast this spell without paying its mana cost` - the core deals a basic of each colour, so the
+  // condition holds once the lands are down, and the driver always elects an available, affordable alternative).
+  { names: ['Cho-Arrim Legate'], copiesPerSeat: 2,
+    counterKeys: ['freeCasts'], rotHistory: 'D490' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1077,6 +1082,13 @@ function answerFor(state: GameState, p: Picker): Intent | null {
  * and rarely spends there. Checked for a legal target first: a copier cast at a creature spell would be cancelled at
  * the targets question and picked again on the same board.
  */
+/** D490 - a cast for an alternative cost of nothing (`AlternativeCost.free`), read off the card's face. */
+function isFreeAlternative(state: GameState, obj: { readonly card: InstanceId | null; readonly faceIndex: number }): boolean {
+  const inst = obj.card === null ? undefined : state.cards[obj.card];
+  const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+  return card !== undefined && faceOf(card, obj.faceIndex).alternativeCost?.free === true;
+}
+
 function copyTargetOnStack(state: GameState, holder: PlayerId, id: InstanceId, faceIndex: number): boolean {
   const inst = state.cards[id];
   const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
@@ -1430,6 +1442,8 @@ interface Run {
   readonly suspends: number;
   /** D489 - spells the suspend tick cast without paying (`StackObject.suspended`, CR 702.62d). */
   readonly suspendCasts: number;
+  /** D490 - casts for an alternative cost of NOTHING (`AlternativeCost.free`, the conditional free cast). */
+  readonly freeCasts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1878,6 +1892,7 @@ function runOne(seed: number): Run {
     populates: game.log.filter((e) => e.body.t === 'Populated').length,
     suspends: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.suspend === true)).length,
     suspendCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.suspended === true).length,
+    freeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && isFreeAlternative(game.state, e.body.obj)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2158,6 +2173,7 @@ const TOTAL_KEYS = [
   'populates',
   'suspends',
   'suspendCasts',
+  'freeCasts',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2575,6 +2591,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.populates).toBeGreaterThan(0);
         // D489 - a suspend at gate size (Rift Sower, two a seat); the free cast two upkeeps later is reported.
         expect(totals.suspends).toBeGreaterThan(0);
+        // D490 - a conditional free cast at gate size (Cho-Arrim Legate, two a seat).
+        expect(totals.freeCasts).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2688,6 +2706,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.spellsCopied} spell copies · ` +
           `${totals.populates} populates · ` +
           `${totals.suspends}/${totals.suspendCasts} suspends/suspend casts · ` +
+          `${totals.freeCasts} free casts · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

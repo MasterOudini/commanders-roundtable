@@ -9129,6 +9129,18 @@ const WANTED = [
   'Shade of Trokair',
   'Viscerid Deepwalker',
   // D489 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D490 - the conditional free cast: the seam fixtures (the Legates and their kin).
+  'Cho-Arrim Legate',
+  'Kyren Legate',
+  'Rushwood Legate',
+  'Saprazzan Legate',
+  'Deadly Rollick',
+  'Fierce Guardianship',
+  'Massacre',
+  'Refreshing Rain',
+  // D490 - the conditional free cast: the row the seam made offerable (Deepwood Legate's pump).
+  'Deepwood Legate',
+  // D490 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
