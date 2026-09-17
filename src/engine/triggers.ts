@@ -1153,7 +1153,7 @@ export function collectTriggers(
             ...(item !== undefined ? { item } : {}),
             ...(player !== undefined && player !== null ? { player } : {}),
             // D476 - the head's own number (the damage this source dealt), read off the event as the trigger fires.
-            ...(def.memo ? { memo: def.memo(ctx, id, event.body) } : {}),
+            ...(def.memo ? { memo: def.memo(ctx, id, event.body, item) } : {}),
             // D474 - a token's trigger carries its printing: the instance may have ceased before the aim (CR 603.10).
             ...(card.isToken ? { lki: { printingId: card.printingId, faceIndex: card.faceIndex } } : {}),
           });
@@ -1244,6 +1244,8 @@ export function collectTriggers(
                 ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
                 ...(item !== undefined ? { item } : {}),
                 ...(player !== undefined && player !== null ? { player } : {}),
+                // D477 - a granted def's memo rides its firing as a present def's does (D476).
+                ...(def.memo ? { memo: def.memo(ctx, id, event.body, item) } : {}),
               });
             }
           }

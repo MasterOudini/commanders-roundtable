@@ -8810,6 +8810,35 @@ const WANTED = [
   'Elsha, Threefold Master',
   'Flayed Nim',
   // D476 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D477 - the number taken: the rows whose that-much payload reads the damage taken, the life moved or another creature's damage.
+  'Body of Knowledge',
+  'Abomination, Irradiated Brute',
+  'Vito, Thorn of the Dusk Rose',
+  'Vilis, Broker of Blood',
+  'Pollenbright Wings',
+  'Old Gnawbone',
+  'Sanguine Bond',
+  'Defiant Bloodlord',
+  'Hungering Hydra',
+  'Hornet Nest',
+  'Jackal Pup',
+  'Broodhatch Nantuko',
+  'Scepter of Celebration',
+  'Kami of the Honored Dead',
+  'Spitemare',
+  'Illusory Ambusher',
+  'Boros Reckoner',
+  'Saber Ants',
+  'Filthy Cur',
+  'Mogg Maniac',
+  'Shinka Gatekeeper',
+  'Ageless Entity',
+  'Sunbond',
+  'Coalhauler Swine',
+  'Wall of Hope',
+  'Light of Promise',
+  'Thrashing Mudspawn',
+  // D477 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

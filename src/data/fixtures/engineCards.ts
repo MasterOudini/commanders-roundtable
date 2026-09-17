@@ -7964,6 +7964,33 @@ export const FEAR_OF_FAILED_TESTS: CardData = F.FEAR_OF_FAILED_TESTS as CardData
 export const MINDSCOUR_DRAGON: CardData = F.MINDSCOUR_DRAGON as CardData;
 export const ELSHA_THREEFOLD_MASTER: CardData = F.ELSHA_THREEFOLD_MASTER as CardData;
 export const FLAYED_NIM: CardData = F.FLAYED_NIM as CardData;
+export const BODY_OF_KNOWLEDGE: CardData = F.BODY_OF_KNOWLEDGE as CardData;
+export const ABOMINATION_IRRADIATED_BRUTE: CardData = F.ABOMINATION_IRRADIATED_BRUTE as CardData;
+export const VITO_THORN_OF_THE_DUSK_ROSE: CardData = F.VITO_THORN_OF_THE_DUSK_ROSE as CardData;
+export const VILIS_BROKER_OF_BLOOD: CardData = F.VILIS_BROKER_OF_BLOOD as CardData;
+export const POLLENBRIGHT_WINGS: CardData = F.POLLENBRIGHT_WINGS as CardData;
+export const OLD_GNAWBONE: CardData = F.OLD_GNAWBONE as CardData;
+export const SANGUINE_BOND: CardData = F.SANGUINE_BOND as CardData;
+export const DEFIANT_BLOODLORD: CardData = F.DEFIANT_BLOODLORD as CardData;
+export const HUNGERING_HYDRA: CardData = F.HUNGERING_HYDRA as CardData;
+export const HORNET_NEST: CardData = F.HORNET_NEST as CardData;
+export const JACKAL_PUP: CardData = F.JACKAL_PUP as CardData;
+export const BROODHATCH_NANTUKO: CardData = F.BROODHATCH_NANTUKO as CardData;
+export const SCEPTER_OF_CELEBRATION: CardData = F.SCEPTER_OF_CELEBRATION as CardData;
+export const KAMI_OF_THE_HONORED_DEAD: CardData = F.KAMI_OF_THE_HONORED_DEAD as CardData;
+export const SPITEMARE: CardData = F.SPITEMARE as CardData;
+export const ILLUSORY_AMBUSHER: CardData = F.ILLUSORY_AMBUSHER as CardData;
+export const BOROS_RECKONER: CardData = F.BOROS_RECKONER as CardData;
+export const SABER_ANTS: CardData = F.SABER_ANTS as CardData;
+export const FILTHY_CUR: CardData = F.FILTHY_CUR as CardData;
+export const MOGG_MANIAC: CardData = F.MOGG_MANIAC as CardData;
+export const SHINKA_GATEKEEPER: CardData = F.SHINKA_GATEKEEPER as CardData;
+export const AGELESS_ENTITY: CardData = F.AGELESS_ENTITY as CardData;
+export const SUNBOND: CardData = F.SUNBOND as CardData;
+export const COALHAULER_SWINE: CardData = F.COALHAULER_SWINE as CardData;
+export const WALL_OF_HOPE: CardData = F.WALL_OF_HOPE as CardData;
+export const LIGHT_OF_PROMISE: CardData = F.LIGHT_OF_PROMISE as CardData;
+export const THRASHING_MUDSPAWN: CardData = F.THRASHING_MUDSPAWN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16138,6 +16165,33 @@ export const ENGINE_CARDS: CardData[] = [
   MINDSCOUR_DRAGON,
   ELSHA_THREEFOLD_MASTER,
   FLAYED_NIM,
+  BODY_OF_KNOWLEDGE,
+  ABOMINATION_IRRADIATED_BRUTE,
+  VITO_THORN_OF_THE_DUSK_ROSE,
+  VILIS_BROKER_OF_BLOOD,
+  POLLENBRIGHT_WINGS,
+  OLD_GNAWBONE,
+  SANGUINE_BOND,
+  DEFIANT_BLOODLORD,
+  HUNGERING_HYDRA,
+  HORNET_NEST,
+  JACKAL_PUP,
+  BROODHATCH_NANTUKO,
+  SCEPTER_OF_CELEBRATION,
+  KAMI_OF_THE_HONORED_DEAD,
+  SPITEMARE,
+  ILLUSORY_AMBUSHER,
+  BOROS_RECKONER,
+  SABER_ANTS,
+  FILTHY_CUR,
+  MOGG_MANIAC,
+  SHINKA_GATEKEEPER,
+  AGELESS_ENTITY,
+  SUNBOND,
+  COALHAULER_SWINE,
+  WALL_OF_HOPE,
+  LIGHT_OF_PROMISE,
+  THRASHING_MUDSPAWN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

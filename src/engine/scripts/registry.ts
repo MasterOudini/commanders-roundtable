@@ -7,6 +7,33 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BODY_OF_KNOWLEDGE_SCRIPT } from './cards/bodyOfKnowledge';
+import { ABOMINATION_IRRADIATED_BRUTE_SCRIPT } from './cards/abominationIrradiatedBrute';
+import { VITO_THORN_OF_THE_DUSK_ROSE_SCRIPT } from './cards/vitoThornOfTheDuskRose';
+import { VILIS_BROKER_OF_BLOOD_SCRIPT } from './cards/vilisBrokerOfBlood';
+import { POLLENBRIGHT_WINGS_SCRIPT } from './cards/pollenbrightWings';
+import { OLD_GNAWBONE_SCRIPT } from './cards/oldGnawbone';
+import { SANGUINE_BOND_SCRIPT } from './cards/sanguineBond';
+import { DEFIANT_BLOODLORD_SCRIPT } from './cards/defiantBloodlord';
+import { HUNGERING_HYDRA_SCRIPT } from './cards/hungeringHydra';
+import { HORNET_NEST_SCRIPT } from './cards/hornetNest';
+import { JACKAL_PUP_SCRIPT } from './cards/jackalPup';
+import { BROODHATCH_NANTUKO_SCRIPT } from './cards/broodhatchNantuko';
+import { SCEPTER_OF_CELEBRATION_SCRIPT } from './cards/scepterOfCelebration';
+import { KAMI_OF_THE_HONORED_DEAD_SCRIPT } from './cards/kamiOfTheHonoredDead';
+import { SPITEMARE_SCRIPT } from './cards/spitemare';
+import { ILLUSORY_AMBUSHER_SCRIPT } from './cards/illusoryAmbusher';
+import { BOROS_RECKONER_SCRIPT } from './cards/borosReckoner';
+import { SABER_ANTS_SCRIPT } from './cards/saberAnts';
+import { FILTHY_CUR_SCRIPT } from './cards/filthyCur';
+import { MOGG_MANIAC_SCRIPT } from './cards/moggManiac';
+import { SHINKA_GATEKEEPER_SCRIPT } from './cards/shinkaGatekeeper';
+import { AGELESS_ENTITY_SCRIPT } from './cards/agelessEntity';
+import { SUNBOND_SCRIPT } from './cards/sunbond';
+import { COALHAULER_SWINE_SCRIPT } from './cards/coalhaulerSwine';
+import { WALL_OF_HOPE_SCRIPT } from './cards/wallOfHope';
+import { LIGHT_OF_PROMISE_SCRIPT } from './cards/lightOfPromise';
+import { THRASHING_MUDSPAWN_SCRIPT } from './cards/thrashingMudspawn';
 import { PROFESSOR_HULK_SCRIPT } from './cards/professorHulk';
 import { GLINT_EYE_NEPHILIM_SCRIPT } from './cards/glintEyeNephilim';
 import { EXALTED_ANGEL_SCRIPT } from './cards/exaltedAngel';
@@ -7361,6 +7388,33 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BODY_OF_KNOWLEDGE_SCRIPT,
+  ABOMINATION_IRRADIATED_BRUTE_SCRIPT,
+  VITO_THORN_OF_THE_DUSK_ROSE_SCRIPT,
+  VILIS_BROKER_OF_BLOOD_SCRIPT,
+  POLLENBRIGHT_WINGS_SCRIPT,
+  OLD_GNAWBONE_SCRIPT,
+  SANGUINE_BOND_SCRIPT,
+  DEFIANT_BLOODLORD_SCRIPT,
+  HUNGERING_HYDRA_SCRIPT,
+  HORNET_NEST_SCRIPT,
+  JACKAL_PUP_SCRIPT,
+  BROODHATCH_NANTUKO_SCRIPT,
+  SCEPTER_OF_CELEBRATION_SCRIPT,
+  KAMI_OF_THE_HONORED_DEAD_SCRIPT,
+  SPITEMARE_SCRIPT,
+  ILLUSORY_AMBUSHER_SCRIPT,
+  BOROS_RECKONER_SCRIPT,
+  SABER_ANTS_SCRIPT,
+  FILTHY_CUR_SCRIPT,
+  MOGG_MANIAC_SCRIPT,
+  SHINKA_GATEKEEPER_SCRIPT,
+  AGELESS_ENTITY_SCRIPT,
+  SUNBOND_SCRIPT,
+  COALHAULER_SWINE_SCRIPT,
+  WALL_OF_HOPE_SCRIPT,
+  LIGHT_OF_PROMISE_SCRIPT,
+  THRASHING_MUDSPAWN_SCRIPT,
   PROFESSOR_HULK_SCRIPT,
   GLINT_EYE_NEPHILIM_SCRIPT,
   EXALTED_ANGEL_SCRIPT,

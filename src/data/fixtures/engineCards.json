@@ -269283,6 +269283,933 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BODY_OF_KNOWLEDGE": {
+    "scryfallId": "0295f53a-0529-4809-9f57-0c3f747ca449",
+    "oracleId": "7fc6a5c1-f0da-42f6-93d0-6d94467e2ac0",
+    "name": "Body of Knowledge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Body of Knowledge",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Avatar",
+        "oracleText": "Body of Knowledge's power and toughness are each equal to the number of cards in your hand.\nYou have no maximum hand size.\nWhenever this creature is dealt damage, draw that many cards.",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "*",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "0295f53a-0529-4809-9f57-0c3f747ca449"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "cmr",
+    "collectorNumber": "631",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABOMINATION_IRRADIATED_BRUTE": {
+    "scryfallId": "0b82c865-ae3e-43f0-9ac8-fabdd5539b36",
+    "oracleId": "e7436d37-c331-4524-b5d4-861e9d25bfc5",
+    "name": "Abomination, Irradiated Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abomination, Irradiated Brute",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Legendary Creature — Gamma Villain",
+        "oracleText": "Trample\nWhenever a Gamma or Villain you control deals combat damage to a player, put that many +1/+1 counters on Abomination.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "0b82c865-ae3e-43f0-9ac8-fabdd5539b36"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "511",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VITO_THORN_OF_THE_DUSK_ROSE": {
+    "scryfallId": "0e2c92c5-5f6f-4512-ae51-428b08a34fa2",
+    "oracleId": "7336a541-3ae9-4ab2-acb8-f574c0a5b3a9",
+    "name": "Vito, Thorn of the Dusk Rose",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vito, Thorn of the Dusk Rose",
+        "manaCost": "{2}{B}",
+        "typeLine": "Legendary Creature — Vampire Cleric",
+        "oracleText": "Whenever you gain life, target opponent loses that much life.\n{3}{B}{B}: Creatures you control gain lifelink until end of turn.",
+        "flavorText": "\"Through the blood of the wicked, we shall be redeemed. Let us pray.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "0e2c92c5-5f6f-4512-ae51-428b08a34fa2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "p30a",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILIS_BROKER_OF_BLOOD": {
+    "scryfallId": "1022bb8a-5cf1-4da9-9751-f20111be9288",
+    "oracleId": "7c209753-121b-4859-944b-4e33f885e777",
+    "name": "Vilis, Broker of Blood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vilis, Broker of Blood",
+        "manaCost": "{5}{B}{B}{B}",
+        "typeLine": "Legendary Creature — Demon",
+        "oracleText": "Flying\n{B}, Pay 2 life: Target creature gets -1/-1 until end of turn.\nWhenever you lose life, draw that many cards. (Damage causes loss of life.)",
+        "flavorText": "\"You can sign, or you can spend your life imagining what might have been yours.\"",
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "1022bb8a-5cf1-4da9-9751-f20111be9288"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "gn3",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POLLENBRIGHT_WINGS": {
+    "scryfallId": "1058765f-cf3f-4fd9-945c-f41f49ef1926",
+    "oracleId": "582c8030-1d41-4c63-8ed6-06aad398a96c",
+    "name": "Pollenbright Wings",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pollenbright Wings",
+        "manaCost": "{4}{G}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has flying.\nWhenever enchanted creature deals combat damage to a player, create that many 1/1 green Saproling creature tokens.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "1058765f-cf3f-4fd9-945c-f41f49ef1926"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pc2",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OLD_GNAWBONE": {
+    "scryfallId": "15214795-47ab-4676-91e0-7b1a27247a8d",
+    "oracleId": "dff3f4c7-f792-4ca3-9b0a-0738e70664d9",
+    "name": "Old Gnawbone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Old Gnawbone",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Legendary Creature — Dragon",
+        "oracleText": "Flying\nWhenever a creature you control deals combat damage to a player, create that many Treasure tokens.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "15214795-47ab-4676-91e0-7b1a27247a8d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Treasure"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "92758",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANGUINE_BOND": {
+    "scryfallId": "241a25c7-7205-46ee-8b08-845cdcc546bb",
+    "oracleId": "73089a39-a2f6-4aa2-a058-e6551475153d",
+    "name": "Sanguine Bond",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanguine Bond",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you gain life, target opponent loses that much life.",
+        "flavorText": "\"Blood is constant. Every drop I drink, someone must bleed.\"\n—Vradeen, vampire nocturnus",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "241a25c7-7205-46ee-8b08-845cdcc546bb"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "c17",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEFIANT_BLOODLORD": {
+    "scryfallId": "2467167e-b366-4ccd-84b9-05a6cacad572",
+    "oracleId": "7bf5196d-a16c-418f-943c-2128e40c55da",
+    "name": "Defiant Bloodlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Defiant Bloodlord",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nWhenever you gain life, target opponent loses that much life.",
+        "flavorText": "\"Despite their bravado, mortals are fragile. If Zendikar is to endure, its lords must save it.\"\n—Drana, Kalastria bloodchief",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ben Maier",
+        "imageId": "2467167e-b366-4ccd-84b9-05a6cacad572"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pbfz",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUNGERING_HYDRA": {
+    "scryfallId": "249b3f2b-0725-4079-b7fd-70fd8b6c41e9",
+    "oracleId": "d1dde190-8124-4590-9507-801ea4c8cde3",
+    "name": "Hungering Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hungering Hydra",
+        "manaCost": "{X}{G}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "This creature enters with X +1/+1 counters on it.\nThis creature can't be blocked by more than one creature.\nWhenever this creature is dealt damage, put that many +1/+1 counters on it. (It must survive the damage to get the counters.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daarken",
+        "imageId": "249b3f2b-0725-4079-b7fd-70fd8b6c41e9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "pm19",
+    "collectorNumber": "189s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORNET_NEST": {
+    "scryfallId": "27bf526c-d22a-4164-b26f-57c370f9feef",
+    "oracleId": "123d2b6e-114e-4767-860d-50790382ca4a",
+    "name": "Hornet Nest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hornet Nest",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Defender (This creature can't attack.)\nWhenever this creature is dealt damage, create that many 1/1 green Insect creature tokens with flying and deathtouch. (Any amount of damage a creature with deathtouch deals to a creature is enough to destroy it.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "27bf526c-d22a-4164-b26f-57c370f9feef"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JACKAL_PUP": {
+    "scryfallId": "3707ab74-9aec-4d30-86e0-ffa5f72d5b4f",
+    "oracleId": "993e41e6-0643-4a1f-8ada-b7a4aae486d9",
+    "name": "Jackal Pup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jackal Pup",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Jackal",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to you.",
+        "flavorText": "The first morning after acquiring her familiar, the wizard awoke with fleabites and mange.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Susan Van Camp",
+        "imageId": "3707ab74-9aec-4d30-86e0-ffa5f72d5b4f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROODHATCH_NANTUKO": {
+    "scryfallId": "38315ba3-57a0-4aa0-b1bc-4b1fcdd763d4",
+    "oracleId": "b0a54050-3493-4ff6-8eca-e43b92c1f3d3",
+    "name": "Broodhatch Nantuko",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Broodhatch Nantuko",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Insect Druid",
+        "oracleText": "Whenever this creature is dealt damage, you may create that many 1/1 green Insect creature tokens.\nMorph {2}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Keith Garletts",
+        "imageId": "38315ba3-57a0-4aa0-b1bc-4b1fcdd763d4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCEPTER_OF_CELEBRATION": {
+    "scryfallId": "404b786c-b64c-4935-b0d3-4dd7a2d14c37",
+    "oracleId": "c930b1f3-9bc3-4708-8d05-02295483c9d8",
+    "name": "Scepter of Celebration",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scepter of Celebration",
+        "manaCost": "{2}{G}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+0 and has trample.\nWhenever equipped creature deals combat damage to a player, create that many 1/1 green and white Citizen creature tokens.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Olena Richards",
+        "imageId": "404b786c-b64c-4935-b0d3-4dd7a2d14c37"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "ncc",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_THE_HONORED_DEAD": {
+    "scryfallId": "46e53299-f480-4769-bfc6-86fb19964280",
+    "oracleId": "be6d78c7-b7fb-46a9-99ea-f10d21c3da58",
+    "name": "Kami of the Honored Dead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of the Honored Dead",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhenever this creature is dealt damage, you gain that much life.\nSoulshift 6 (When this creature dies, you may return target Spirit card with mana value 6 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "46e53299-f480-4769-bfc6-86fb19964280"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Soulshift"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITEMARE": {
+    "scryfallId": "49a90d9e-fbd0-4e5b-ac66-a839edf87b8a",
+    "oracleId": "cf4d8b19-fd11-4200-9871-896772019f4c",
+    "name": "Spitemare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spitemare",
+        "manaCost": "{2}{R/W}{R/W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to any target.",
+        "flavorText": "\"I knew a creature carved from a dream of wild freedom. Any attempt to leash or exploit it failed, and at terrible cost.\"\n—Ashling",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "49a90d9e-fbd0-4e5b-ac66-a839edf87b8a"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "EVE-147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLUSORY_AMBUSHER": {
+    "scryfallId": "50a68135-b7e1-454e-8891-11f00cb79cd2",
+    "oracleId": "ad3add32-cb87-4cd4-8c36-a737a897a8c8",
+    "name": "Illusory Ambusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illusory Ambusher",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Cat Illusion",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhenever this creature is dealt damage, draw that many cards.",
+        "flavorText": "\"Violence is the food it craves. Feed it if you dare.\"\n—Doriel, mentor of Mistral Isle",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "50a68135-b7e1-454e-8891-11f00cb79cd2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOROS_RECKONER": {
+    "scryfallId": "55a2f767-5928-44c5-91b7-2300bade458f",
+    "oracleId": "5f079a75-899e-467d-b443-3b87ce2fb548",
+    "name": "Boros Reckoner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boros Reckoner",
+        "manaCost": "{R/W}{R/W}{R/W}",
+        "typeLine": "Creature — Minotaur Wizard",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to any target.\n{R/W}: This creature gains first strike until end of turn.",
+        "flavorText": "\"Imagine a thunderstorm that's also a tactical genius. That's him.\"\n—Dars Gostok, Firefist captain",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "55a2f767-5928-44c5-91b7-2300bade458f"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mkc",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SABER_ANTS": {
+    "scryfallId": "58f0a2f9-5c5e-4477-ae7e-a52cf5778962",
+    "oracleId": "9c3c9a22-e092-4845-b661-047590746498",
+    "name": "Saber Ants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saber Ants",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Whenever this creature is dealt damage, you may create that many 1/1 green Insect creature tokens.",
+        "flavorText": "They stay on the battlefield only long enough to consume the losers.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "58f0a2f9-5c5e-4477-ae7e-a52cf5778962"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MMQ-267",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FILTHY_CUR": {
+    "scryfallId": "634b2b46-b213-4eb0-81d8-0e9dd161b85f",
+    "oracleId": "4aa9764a-39ab-4d55-bc71-45f83035fb4c",
+    "name": "Filthy Cur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Filthy Cur",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Whenever this creature is dealt damage, you lose that much life.",
+        "flavorText": "Some things even fleas won't bite.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "634b2b46-b213-4eb0-81d8-0e9dd161b85f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGG_MANIAC": {
+    "scryfallId": "6f95224d-666f-4515-892a-2d711dfa6285",
+    "oracleId": "53b86704-4f16-498e-8c2c-e661cb85eb9c",
+    "name": "Mogg Maniac",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogg Maniac",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to target opponent or planeswalker.",
+        "flavorText": "Stand clear if he gets an itch.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "6f95224d-666f-4515-892a-2d711dfa6285"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "STH-94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHINKA_GATEKEEPER": {
+    "scryfallId": "8fdaf49b-9524-4824-807e-c40fcb381742",
+    "oracleId": "7792d3af-5c64-4d0a-a2b3-b903d787b0ab",
+    "name": "Shinka Gatekeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shinka Gatekeeper",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to you.",
+        "flavorText": "\"Understanding is not a virtue of the ogre. Do not seek to reason your way into Shinka Keep.\"\n—Kiku, Night's Flower",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "8fdaf49b-9524-4824-807e-c40fcb381742"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGELESS_ENTITY": {
+    "scryfallId": "8fefd7d1-8c70-4d54-be0a-f45833340670",
+    "oracleId": "2a93236d-f182-4826-8112-4048bb3cbaf9",
+    "name": "Ageless Entity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ageless Entity",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Whenever you gain life, put that many +1/+1 counters on this creature.",
+        "flavorText": "Tel-Jilad's sworn protectors are the trolls, yet more fearsome protectors were created by the Tangle itself.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "8fefd7d1-8c70-4d54-be0a-f45833340670"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNBOND": {
+    "scryfallId": "9f14bbff-8a3c-4aa0-a5aa-0dd6cb23b2a3",
+    "oracleId": "163ece8a-0479-4bb2-b559-581985d1898b",
+    "name": "Sunbond",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunbond",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"Whenever you gain life, put that many +1/+1 counters on this creature.\"",
+        "flavorText": "\"I was not chosen for my faith in the gods. Sometimes the gods must put their faith in us.\"\n—Elspeth",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "9f14bbff-8a3c-4aa0-a5aa-0dd6cb23b2a3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COALHAULER_SWINE": {
+    "scryfallId": "a9b5e55b-e888-4bd5-a6a9-d253f6e406a6",
+    "oracleId": "c00f082b-787f-4f96-8356-c10d35713bc4",
+    "name": "Coalhauler Swine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coalhauler Swine",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Boar Beast",
+        "oracleText": "Whenever this creature is dealt damage, it deals that much damage to each player.",
+        "flavorText": "Nothing stops industry in Ravnica—certainly not the safety of its workers.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "a9b5e55b-e888-4bd5-a6a9-d253f6e406a6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "516",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALL_OF_HOPE": {
+    "scryfallId": "b463b3e1-e314-4a65-a89e-0712f630b016",
+    "oracleId": "e43055c7-2245-4544-b0b4-ee30dc1ebf14",
+    "name": "Wall of Hope",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wall of Hope",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\nWhenever this creature is dealt damage, you gain that much life.",
+        "flavorText": "\"What cage would you rather be inside of than out?\"\n—Daru riddle",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Martin",
+        "imageId": "b463b3e1-e314-4a65-a89e-0712f630b016"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHT_OF_PROMISE": {
+    "scryfallId": "d5f80411-0a95-4e0a-b7a8-af23ddf385cc",
+    "oracleId": "64c54c9f-0550-41e2-a44a-5892a199f670",
+    "name": "Light of Promise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Light of Promise",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"Whenever you gain life, put that many +1/+1 counters on this creature.\"",
+        "flavorText": "The light washed over him, and in the wind he heard the roars of all the pridemates who had come before.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "d5f80411-0a95-4e0a-b7a8-af23ddf385cc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRASHING_MUDSPAWN": {
+    "scryfallId": "da84de0e-a4cd-4dff-8ee3-87c9debf0969",
+    "oracleId": "7f67b8e0-fbbd-48ef-989d-690d44b70304",
+    "name": "Thrashing Mudspawn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thrashing Mudspawn",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever this creature is dealt damage, you lose that much life.\nMorph {1}{B}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": "It just obeys you. It doesn't *like* you.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "da84de0e-a4cd-4dff-8ee3-87c9debf0969"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

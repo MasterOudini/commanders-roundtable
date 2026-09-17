@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(675);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(679);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(7);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -452,15 +452,15 @@ const POOL: Record<string, number> = {
   // D473 - the quoted token: the Eldrazi Spawn and Scion makers (+20 creatures, Awakening Zone) and six spells.
   // D474 - the token printings rowed like cards: their makers (+18 creatures, +3 artifacts, a land, an enchantment) and twelve spells.
   // D475 - the emblem: two walkers whose ultimate reads now, and the up-to-N / alternative-list clauses the suite stages (+19 creatures).
-  // D476 - the trigger's own number: 21 creatures whose damage trigger reads that much / that many.
-  creature: 6706,
+  // D477 - the number taken: 22 creatures, four Auras and an Equipment whose that-much payload reads the damage taken, the life moved or another creature's damage.
+  creature: 6728,
   instant: 1406,
   sorcery: 1055,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 662,
-  artifact: 635,
-  enchantment: 675,
+  artifact: 636,
+  enchantment: 679,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 7,
 };
