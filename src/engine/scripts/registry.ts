@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { HOMUNCULUS_HORDE_SCRIPT } from './cards/homunculusHorde';
+import { SPAWNWRITHE_SCRIPT } from './cards/spawnwrithe';
+import { POLYRAPTOR_SCRIPT } from './cards/polyraptor';
+import { MIST_SYNDICATE_NAGA_SCRIPT } from './cards/mistSyndicateNaga';
+import { EXTRAVAGANT_REPLICATION_SCRIPT } from './cards/extravagantReplication';
+import { MISHRAS_SELF_REPLICATOR_SCRIPT } from './cards/mishrasSelfReplicator';
+import { GIANT_ADEPHAGE_SCRIPT } from './cards/giantAdephage';
+import { SPROUTING_PHYTOHYDRA_SCRIPT } from './cards/sproutingPhytohydra';
+import { MYR_PROPAGATOR_SCRIPT } from './cards/myrPropagator';
+import { ELVISH_HYDROMANCER_SCRIPT } from './cards/elvishHydromancer';
 import { DIMIR_CUTPURSE_SCRIPT } from './cards/dimirCutpurse';
 import { PSYCHIC_SYMBIONT_SCRIPT } from './cards/psychicSymbiont';
 import { HOPELESS_NIGHTMARE_SCRIPT } from './cards/hopelessNightmare';
@@ -7565,6 +7575,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HOMUNCULUS_HORDE_SCRIPT,
+  SPAWNWRITHE_SCRIPT,
+  POLYRAPTOR_SCRIPT,
+  MIST_SYNDICATE_NAGA_SCRIPT,
+  EXTRAVAGANT_REPLICATION_SCRIPT,
+  MISHRAS_SELF_REPLICATOR_SCRIPT,
+  GIANT_ADEPHAGE_SCRIPT,
+  SPROUTING_PHYTOHYDRA_SCRIPT,
+  MYR_PROPAGATOR_SCRIPT,
+  ELVISH_HYDROMANCER_SCRIPT,
   DIMIR_CUTPURSE_SCRIPT,
   PSYCHIC_SYMBIONT_SCRIPT,
   HOPELESS_NIGHTMARE_SCRIPT,

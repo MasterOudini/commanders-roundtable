@@ -26,7 +26,7 @@ import type {
 } from './ids';
 import type { ManaPool, RestrictedMana, SpendRestriction } from './mana';
 import type { NarrationPart } from './narration';
-import type { Keyword } from './oracle';
+import type { CopyExceptions, Keyword } from './oracle';
 import type {
   Awaiting,
   DefenderRef,
@@ -230,6 +230,10 @@ export type EventBody =
       readonly controller: PlayerId;
       readonly owner: PlayerId;
       readonly turnNumber: number;
+      /** D485 - a token COPY (CR 707): the copied object's face, the object it copied (for the log and the gate), its exceptions. */
+      readonly faceIndex?: number;
+      readonly copyOf?: InstanceId;
+      readonly copyExceptions?: CopyExceptions;
     }
   /**
    * A token outside the battlefield ceases to exist (CR 704.5d).

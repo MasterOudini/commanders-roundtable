@@ -16,7 +16,7 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
@@ -1432,18 +1432,36 @@ export function effectResult(
        * reducer would overwrite the first with the second — one token, silently.
        */
       case 'createToken': {
-        if (!effect.token) break;
+        // D485 - CR 707: a token that is a COPY takes the copied object's copiable values - its printing, its face and
+        // the copy exceptions it already carries (707.3) - with this clause's own exceptions on top (707.9b); counters,
+        // damage and every other status stay behind. The source (`this creature`, `this card`) is copied wherever its
+        // card is; a face-down object copies as nothing (708.2) and the clause says so (D90).
+        const copyOf = effect.copy === undefined ? null : effect.copy.of === 'self' ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
+        const copied = copyOf === null ? undefined : state.cards[copyOf];
+        if (effect.copy !== undefined && (copied === undefined || copied.faceDown)) {
+          out.push(narrated(`${obj.label} — nothing to copy for “${effect.text}”.`, obj.controller, obj.identity));
+          break;
+        }
+        const printing = copied ? { oracleId: copied.oracleId, printingId: copied.printingId } : effect.token;
+        if (!printing) break;
+        const exceptions = copied ? mergeExceptions(copied.copyExceptions, effect.copy?.exceptions ?? null) : undefined;
         for (let n = 0; n < effect.amount; n++) {
           nextInstance++;
           out.push({
             t: 'TokenCreated',
             card: `c${nextInstance}`,
-            oracleId: effect.token.oracleId,
-            printingId: effect.token.printingId,
+            oracleId: printing.oracleId,
+            printingId: printing.printingId,
             controller,
             owner: controller,
             turnNumber: state.turn.turnNumber,
+            ...(copied ? { faceIndex: copied.faceIndex, copyOf: copied.id } : {}),
+            ...(exceptions !== undefined ? { copyExceptions: exceptions } : {}),
           });
+        }
+        if (copied) {
+          const name = derive(state, deps.oracle, deps.scripts, copied.id, cache).name;
+          out.push(narrated(`${obj.label} — ${effect.amount === 1 ? 'a token that is a copy' : `${effect.amount} tokens that are copies`} of ${name}.`, obj.controller, obj.identity));
         }
         break;
       }
@@ -1686,6 +1704,19 @@ export function resumeContinuation(state: GameState, deps: EngineDeps, events: E
     frame = result.events.some((e) => e.t === 'AwaitingSet' && e.awaiting !== null) ? undefined : frame.outer;
   }
   return advanced;
+}
+
+/** D485 - CR 707.9b: a copy of a copy keeps the exceptions it found and takes the new clause's on top. */
+function mergeExceptions(base: CopyExceptions | undefined, more: CopyExceptions | null): CopyExceptions | undefined {
+  if (base === undefined) return more ?? undefined;
+  if (more === null) return base;
+  return {
+    ...base,
+    ...more,
+    ...(base.addTypes !== undefined || more.addTypes !== undefined ? { addTypes: [...(base.addTypes ?? []), ...(more.addTypes ?? [])] } : {}),
+    ...(base.addSubtypes !== undefined || more.addSubtypes !== undefined ? { addSubtypes: [...(base.addSubtypes ?? []), ...(more.addSubtypes ?? [])] } : {}),
+    ...(base.keywords !== undefined || more.keywords !== undefined ? { keywords: [...(base.keywords ?? []), ...(more.keywords ?? [])] } : {}),
+  };
 }
 
 /**

@@ -38,6 +38,7 @@ import type {
   SearchSpec,
 } from '../engine/types/oracle';
 import { COUNTER_KINDS } from '../engine/types/oracle';
+import type { CopyExceptions } from '../engine/types/oracle';
 import type { ColorLetter } from './cardTypes';
 import { SELF_AIMED } from '../engine/types/oracle';
 import { predicatesOf } from './replacementParse';
@@ -399,6 +400,57 @@ function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | n
 // D471 - the keyword counters the engine reads (CR 122.1c) are printed as their words, two of them with a space.
 const COUNTER_KIND = String.raw`(?:\+1/\+1|-1/-1|shield|stun|flying|first strike|double strike|deathtouch|hexproof|indestructible|lifelink|menace|reach|trample|vigilance|shadow)`;
 const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
+/**
+ * D485 - THE TOKEN COPY (CR 707): `Create a token that's a copy of <the source | a target>(, except <exceptions>).`
+ * The source is `~` / `this creature` (a permanent's own line), `this card` (a line that runs from the graveyard or
+ * exile) or `this Aura`; the exceptions are a CLOSED grammar (`parseCopyExceptions`), and a word outside it refuses
+ * the whole sentence (D90: an exception the copy silently lacked would be a card half-working while looking whole).
+ * A tapped-and-attacking copy, a copy of an exiled or graveyard card and a copy of `that creature` under a head are
+ * not read here.
+ */
+const COPY_SELF = `(?:${SELF}|this card|this Aura)`;
+const TYPE_WORDS: ReadonlyMap<string, string> = new Map([['artifact', 'Artifact'], ['creature', 'Creature'], ['enchantment', 'Enchantment'], ['land', 'Land'], ['planeswalker', 'Planeswalker'], ['battle', 'Battle']]);
+function parseCopyExceptions(text: string): CopyExceptions | null {
+  let out: CopyExceptions = {};
+  for (const piece0 of text.split(/,? and (?=it|the token|the copy|its)|, (?=it|the token|the copy|its)/i)) {
+    const piece = piece0.trim();
+    if (/^(?:it|the token|the copy) (?:isn't|is not) legendary$/i.test(piece) || /^it's not legendary$/i.test(piece)) {
+      out = { ...out, notLegendary: true };
+      continue;
+    }
+    const add = /^(?:it's|the token is|the copy is) an? ((?:[A-Za-z]+ )*[A-Za-z]+) in addition to its other (?:creature )?types$/.exec(piece);
+    if (add) {
+      const types = [...(out.addTypes ?? [])];
+      const subs = [...(out.addSubtypes ?? [])];
+      for (const w of (add[1] ?? '').split(' ')) {
+        const type = TYPE_WORDS.get(w.toLowerCase());
+        if (type !== undefined) types.push(type);
+        else if (/^[A-Z]/.test(w)) subs.push(w);
+        else return null;
+      }
+      out = { ...out, ...(types.length > 0 ? { addTypes: types } : {}), ...(subs.length > 0 ? { addSubtypes: subs } : {}) };
+      continue;
+    }
+    const has = /^(?:it|the token|the copy) has ([a-z ]+)$/i.exec(piece);
+    if (has) {
+      const kws = [...(out.keywords ?? [])];
+      for (const w of (has[1] ?? '').split(/,? and |, /)) {
+        const k = GRANTABLE.get(w.trim().toLowerCase());
+        if (k === undefined) return null;
+        kws.push(k);
+      }
+      out = { ...out, keywords: kws };
+      continue;
+    }
+    const pt = /^(?:it's|the token is|the copy is) (\d+)\/(\d+)$/.exec(piece);
+    if (pt) {
+      out = { ...out, power: Number(pt[1]), toughness: Number(pt[2]) };
+      continue;
+    }
+    return null;
+  }
+  return out;
+}
 /** D434 - a mill's count: the words past seven the printed mills use. */
 const MILL_COUNT = '(?:a|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|twenty|\\d+)';
 
@@ -1844,6 +1896,21 @@ const RULES: readonly Rule[] = [
       return { ...BASE, amount: n, targetIndex: -1, self: true, look: { take, rest: 'random', filter: null, optional: false } };
     },
   },
+  // D485 - THE TOKEN COPY (CR 707), before the table's rule (which refuses `copy`): the source's or the target's
+  // copiable values are read at resolution, so `token` stays null and `copy` says whose.
+  {
+    kind: 'createToken',
+    re: new RegExp(`^creates? (${COUNT}) tokens? that(?:'s| is| are) (?:a )?cop(?:y|ies) of (?:${COPY_SELF}|${TARGET})(?:, except (?<exc>[^.]+))?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null || n < 1) return null;
+      const exc = m.groups?.['exc'];
+      const exceptions = exc === undefined ? null : parseCopyExceptions(exc);
+      if (exc !== undefined && exceptions === null) return null;
+      const self = new RegExp(`cop(?:y|ies) of ${COPY_SELF}(?:,|\\.)`, 'i').test(m[0] ?? '');
+      return self ? { ...BASE, amount: n, targetIndex: -1, self: true, copy: { of: 'self', exceptions } } : { ...BASE, amount: n, copy: { of: 'target', exceptions } };
+    },
+  },
   {
     kind: 'createToken',
     re: new RegExp(`^creates? (${COUNT}) .+ tokens?(?: with [^.]+)?\\.$`, 'i'),
@@ -1995,6 +2062,9 @@ const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrif
 // D470 - the counter put ON the referent (`Tap target creature an opponent controls and put a stun counter on it.`,
 // `Untap target creature. Put a +1/+1 counter on it.`): the referent stands where the target phrase would.
 const REFERENT_COUNTER = new RegExp(`^(?:then )?put ${COUNT} ${COUNTER_KIND} counters? on ${REFERENT}(?![a-z'])`, 'i');
+// D485 - the token COPY of the referent (`Exile target creature. Create a token that's a copy of it.`, `... copy of that
+// creature`): the referent stands where the target phrase would.
+const REFERENT_COPY = new RegExp(`^(?:then )?create ${COUNT} tokens? that(?:'s| is| are) (?:a )?cop(?:y|ies) of ${REFERENT}(?![a-z'])`, 'i');
 // D427 - a prevention shield ABOUT the referent: `Prevent all damage that would be dealt to it this turn.`
 // (Djeru's Resolve), `... to and dealt by that creature this turn.` (Foxfire, Energy Arc) - the referent
 // stands where the target clause would, mid-sentence.
@@ -2014,7 +2084,7 @@ function phraseOf(text: string): string | null {
 
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
-  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence)) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }
@@ -2038,7 +2108,9 @@ function kickedInsteadRewrite(sentence: string, previous: Clause | undefined): E
   const tok = /^create (a|an|one|two|three|four|five|six|seven|eight|nine|ten|twelve) of those tokens$/i.exec(inner);
   if (tok) {
     if (previous.spec.kind !== 'createToken' || previous.spec.ifKicked) return null;
-    return { ...previous.spec, amount: TOKEN_WORDS[(tok[1] ?? '').toLowerCase()] ?? 1, text: sentence, ifKicked: true, kickedInstead: true };
+    // D485 - a token COPY of a target (`create five of those tokens instead` after `Create a token that's a copy of target
+    // creature`) aims where the base aimed: a referent clause, not a second target the cast never declared.
+    return { ...previous.spec, amount: TOKEN_WORDS[(tok[1] ?? '').toLowerCase()] ?? 1, text: sentence, ifKicked: true, kickedInstead: true, ...(previous.spec.targetIndex !== -1 ? { referent: true } : {}) };
   }
   const dmg = /^it deals (\d+) damage$/i.exec(inner);
   if (dmg) {

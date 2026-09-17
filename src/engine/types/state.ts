@@ -38,6 +38,7 @@ import type {
   EffectSpec,
   DelayWhen,
   VerbPrice,
+  CopyExceptions,
 } from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
@@ -252,6 +253,12 @@ export interface CardInstance {
   readonly ptOverride: { readonly power: number; readonly toughness: number } | null;
   /** Tier-3 manual type-line override, applied at layer 4. */
   readonly typeOverride: string | null;
+  /**
+   * D485 - CR 707: this object is a COPY with exceptions (a token copy's `except it isn't legendary`), read at layer 1
+   * with the printing it copies (`oracleId` / `printingId` / `faceIndex` ARE the copied card's). Absent on every object
+   * that is not a copy with exceptions - a plain copy differs from its original only in being a token.
+   */
+  readonly copyExceptions?: CopyExceptions;
   /**
    * The colour named by "As this ~ enters, choose a color." (CR 614.12).
    *

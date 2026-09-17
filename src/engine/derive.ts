@@ -15,7 +15,7 @@ import { faceOf } from './oracle';
 import type { ScriptRegistry } from './scripts/registry';
 import type { MutableCharacteristics, ScriptCtx, StaticDef } from './scripts/api';
 import type { InstanceId } from './types/ids';
-import type { DerivedCharacteristics, Keyword, OracleDb, ParsedTypeLine } from './types/oracle';
+import type { CopyExceptions, DerivedCharacteristics, Keyword, OracleDb, ParsedTypeLine } from './types/oracle';
 import { NO_PROTECTION } from './types/oracle';
 import type { CardInstance, GameState } from './types/state';
 
@@ -255,6 +255,34 @@ const KEYWORD_COUNTERS: Readonly<Record<string, Keyword>> = {
   shadow: 'shadow',
 };
 
+/**
+ * D485 - CR 707.9b: a copy's exceptions over the printed characteristics it copied, at layer 1 with the printing
+ * (they are part of the copy effect, so counters and pumps still stack on top): the Legendary supertype dropped,
+ * types and subtypes added, keywords added, a P/T set.
+ */
+/** The printed order of card types (CR 205.2a's list), so `an artifact in addition to its other types` reads `Artifact Creature`. */
+const TYPE_ORDER = ['Artifact', 'Creature', 'Enchantment', 'Land', 'Planeswalker', 'Battle', 'Kindred', 'Tribal', 'Instant', 'Sorcery'];
+function inTypeOrder(types: readonly string[]): string[] {
+  return [...TYPE_ORDER.filter((x) => types.includes(x)), ...types.filter((x) => !TYPE_ORDER.includes(x))];
+}
+function withCopyExceptions(chars: MutableCharacteristics, x: CopyExceptions): MutableCharacteristics {
+  const t = chars.typeLine;
+  const typeLine: ParsedTypeLine = {
+    ...t,
+    supertypes: x.notLegendary ? t.supertypes.filter((s) => s !== 'Legendary') : t.supertypes,
+    types: x.addTypes ? inTypeOrder([...t.types, ...x.addTypes.filter((a) => !t.types.includes(a))]) : t.types,
+    subtypes: x.addSubtypes ? [...t.subtypes, ...x.addSubtypes.filter((a) => !t.subtypes.includes(a))] : t.subtypes,
+  };
+  const keywords = x.keywords ? new Set<Keyword>([...chars.keywords, ...x.keywords]) : chars.keywords;
+  return {
+    ...chars,
+    typeLine,
+    keywords,
+    ...(x.power !== undefined ? { power: x.power } : {}),
+    ...(x.toughness !== undefined ? { toughness: x.toughness } : {}),
+  };
+}
+
 function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics {
   // CR 708.2: a face-down permanent is a 2/2 creature with no name, no mana
   // cost and no abilities — a genuinely different object, not a hidden one.
@@ -308,7 +336,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     };
   }
   const face = faceOf(card, inst.faceIndex);
-  return {
+  const printed: MutableCharacteristics = {
     name: face.name,
     // D310 - changeling: every creature type, a characteristic-defining
     // ability applied in layer 1 (CR 702.73a, 604.3).
@@ -336,6 +364,8 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     // D372 - the printed mana abilities, a COPY: a layer-6 static may push a granted one.
     producesMana: [...face.producesMana],
   };
+  // D485 - a copy with exceptions (CR 707.9b) reads them here, beside the printing it copied.
+  return inst.copyExceptions === undefined ? printed : withCopyExceptions(printed, inst.copyExceptions);
 }
 
 /**

@@ -9082,6 +9082,23 @@ const WANTED = [
   'Basilica Bell-Haunt',
   'Spinewoods Armadillo',
   // D484 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D485 - the token copy: the seam test's spells (a copy of a creature you control, the kicked five, the artifact-in-addition exception).
+  'Cackling Counterpart',
+  'Rite of Replication',
+  "Saheeli's Artistry",
+  // D485 - the token copy: the rows whose payload creates a token that is a copy of a permanent (this creature, target creature you control ...).
+  "Sorcerer's Broom",
+  'Homunculus Horde',
+  'Spawnwrithe',
+  'Polyraptor',
+  'Mist-Syndicate Naga',
+  'Extravagant Replication',
+  "Mishra's Self-Replicator",
+  'Giant Adephage',
+  'Sprouting Phytohydra',
+  'Myr Propagator',
+  'Elvish Hydromancer',
+  // D485 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -583,6 +583,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
         isToken: true,
         summonedOnTurn: body.turnNumber,
         entries: 1,
+        // D485 - a token copy takes the copied object's face and carries its exceptions (CR 707).
+        ...(body.faceIndex !== undefined ? { faceIndex: body.faceIndex } : {}),
+        ...(body.copyExceptions !== undefined ? { copyExceptions: body.copyExceptions } : {}),
       };
       return {
         ...state,

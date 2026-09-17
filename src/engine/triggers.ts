@@ -1161,6 +1161,48 @@ export function collectTriggers(
       }
     }
   }
+  // D485 - A CREATED TOKEN ENTERS (CR 603.6a). `TokenCreated` IS the token's entry, but its own script's enters
+  // triggers are `CardsMoved` defs (a def declares one event kind), so a token copy of Wall of Omens never drew. The
+  // token's OWN defs are offered an ENTRY VIEW of the creation - the move every enters trigger matches (`to` the
+  // battlefield from elsewhere) - and nothing else sees the view: a watcher of others' entries listens to
+  // `TokenCreated` itself (Ajani's Welcome). The view is never applied or logged; its `from` is spelled exile, a zone
+  // no shipped matcher reads an entry from. Offered after the printed walk, before the granted one, so the firing
+  // order stays what it was for everything that fired before.
+  for (const event of applied) {
+    if (event.body.t !== 'TokenCreated') continue;
+    const id = event.body.card;
+    const card = after.cards[id];
+    if (!card || card.zone.kind !== 'battlefield') continue;
+    const script = scripts.get(card.oracleId);
+    if (!script) continue;
+    const view: EventBody = { t: 'CardsMoved', moves: [{ card: id, from: { kind: 'exile', player: card.owner }, to: { kind: 'battlefield', player: null } }] };
+    const ctx = ctxOf(false);
+    for (const def of script.triggers ?? []) {
+      if (def.event !== 'CardsMoved' || def.looksBack === true) continue;
+      if (!def.activeZones.includes('battlefield')) continue;
+      if (!hasAbilities(after, oracle, scripts, id)) continue;
+      if (!def.matches(ctx, id, view)) continue;
+      const items: readonly (InstanceId | undefined)[] = def.perItem ? def.perItem(ctx, id, view) : [undefined];
+      for (const item of items) {
+        const player = def.playerOf ? def.playerOf(ctx, id, view, item) : undefined;
+        if (def.playerOf && player === null) continue;
+        out.push({
+          id: `t${n++}`,
+          source: id,
+          controller: card.controller,
+          abilityRef: `${script.oracleId}#${def.abilityId}`,
+          label: def.label(ctx, id, view),
+          optional: def.optional,
+          specs: def.targets ?? [],
+          ...(def.modes && def.modes.length > 0 ? { modes: def.modes, modeChoice: def.modeChoice ?? { min: 1, max: 1 } } : {}),
+          ...(item !== undefined ? { item } : {}),
+          ...(player !== undefined && player !== null ? { player } : {}),
+          ...(def.memo ? { memo: def.memo(ctx, id, view, item) } : {}),
+          lki: { printingId: card.printingId, faceIndex: card.faceIndex },
+        });
+      }
+    }
+  }
   // ⚠️ D368 - THE GRANTED-TRIGGER SEAM, the other half of D367's carrier. A
   // permanent may HAVE a triggered ability because another permanent's layer-6
   // static installed it (`Enchanted creature has "Whenever this creature attacks,

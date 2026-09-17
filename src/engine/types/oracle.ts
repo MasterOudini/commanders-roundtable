@@ -1029,6 +1029,30 @@ export interface DelayWhen {
   readonly whose: 'next' | 'controller';
 }
 
+/**
+ * D485 - CR 707.9b: what a copy is `except`. Read at layer 1 beside the printing the copy took (`derive.ts`), and
+ * carried by the copy itself (707.3: a copy of a copy copies these too). A CLOSED set - exactly what the parser's
+ * exception grammar spells - so an exception the copy would silently lack never reads as understood (D90).
+ */
+export interface CopyExceptions {
+  readonly notLegendary?: true;
+  readonly addTypes?: readonly string[];
+  readonly addSubtypes?: readonly string[];
+  readonly keywords?: readonly Keyword[];
+  readonly power?: number;
+  readonly toughness?: number;
+}
+
+/**
+ * D485 - `createToken` only: the token is a COPY (CR 707) of the resolving object's source (`this creature`, `this
+ * card`) or of the clause's target, with these exceptions. The printing is read at RESOLUTION off the copied object
+ * (its copiable values), never at build time - which is why `token` is null beside it.
+ */
+export interface CopySpec {
+  readonly of: 'self' | 'target';
+  readonly exceptions: CopyExceptions | null;
+}
+
 export interface EffectSpec {
   readonly kind: EffectKind;
   /** Damage dealt, life gained/lost, cards drawn. 0 where it does not apply. */
@@ -1129,6 +1153,8 @@ export interface EffectSpec {
    * by the ANSWER handler against the post-choice state — emitting it here
    * would draw from under the cards the player has not placed yet (D195).
    */
+  /** D485 - `createToken` only: the token copies a permanent (CR 707). Absent on every token the table names. */
+  readonly copy?: CopySpec;
   readonly thenDraw: number;
   /**
    * D435 - `Draw N cards. If you do, discard M cards.` (a `discard` of M): the draw of N precedes the discard and

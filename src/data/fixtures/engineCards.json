@@ -277696,6 +277696,473 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CACKLING_COUNTERPART": {
+    "scryfallId": "02ad8a5a-9814-4fb5-90b1-95c0769be456",
+    "oracleId": "9e2adca5-f39c-4a09-bcce-8238ebac2c4a",
+    "name": "Cackling Counterpart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cackling Counterpart",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Create a token that's a copy of target creature you control.\nFlashback {5}{U}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "02ad8a5a-9814-4fb5-90b1-95c0769be456"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flashback"
+    ],
+    "setCode": "mm3",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RITE_OF_REPLICATION": {
+    "scryfallId": "006ebdeb-ae82-4de9-8f9e-f76f275ea811",
+    "oracleId": "fb60739e-1dc3-481d-a056-ad72e665c680",
+    "name": "Rite of Replication",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rite of Replication",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Kicker {5} (You may pay an additional {5} as you cast this spell.)\nCreate a token that's a copy of target creature. If this spell was kicked, create five of those tokens instead.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "006ebdeb-ae82-4de9-8f9e-f76f275ea811"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "C14-122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAHEELI_S_ARTISTRY": {
+    "scryfallId": "02e746ba-953b-417c-85fa-cd301bc05205",
+    "oracleId": "0038e74a-b950-47ff-8853-dba6a3b31091",
+    "name": "Saheeli's Artistry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saheeli's Artistry",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Choose one or both —\n• Create a token that's a copy of target artifact.\n• Create a token that's a copy of target creature, except it's an artifact in addition to its other types.",
+        "flavorText": "\"From the first touch, I know exactly what the metal wants to be.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "02e746ba-953b-417c-85fa-cd301bc05205"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "c18",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORCERER_S_BROOM": {
+    "scryfallId": "071e8f20-18b3-4bf5-a23a-adb42bf5819b",
+    "oracleId": "e73efb04-30ac-4484-b11b-e98f0353b9b6",
+    "name": "Sorcerer's Broom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sorcerer's Broom",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Spirit",
+        "oracleText": "Whenever you sacrifice another permanent, you may pay {3}. If you do, create a token that's a copy of this creature.",
+        "flavorText": "\"Reynald wished for an army to sweep away his enemies. The fae king smiled.\"\n—*Beyond the Great Henge*",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jung Park",
+        "imageId": "071e8f20-18b3-4bf5-a23a-adb42bf5819b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOMUNCULUS_HORDE": {
+    "scryfallId": "18dbb6ff-1262-44cc-8d36-153b2d3eace0",
+    "oracleId": "b3c69bf4-880f-4198-a67c-87d23d9c3d41",
+    "name": "Homunculus Horde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Homunculus Horde",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Homunculus",
+        "oracleText": "Whenever you draw your second card each turn, create a token that's a copy of this creature.",
+        "flavorText": "\"To whoever left their homunculus experiment unattended: you will not be penalized if you come forward and tell us how to make it stop.\"\n—Laboratory notice",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Filipe Pagliuso",
+        "imageId": "18dbb6ff-1262-44cc-8d36-153b2d3eace0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "308",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPAWNWRITHE": {
+    "scryfallId": "1acb4d61-f308-423f-8cf6-eb057b994d01",
+    "oracleId": "afc59d95-d85c-4ab8-b6c5-c78b608b53b7",
+    "name": "Spawnwrithe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spawnwrithe",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample\nWhenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+        "flavorText": "Its victims feel only an itchy, wriggling feeling just under their skin. By then, it's far too late.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daarken",
+        "imageId": "1acb4d61-f308-423f-8cf6-eb057b994d01"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POLYRAPTOR": {
+    "scryfallId": "345b9599-c4b6-4716-9e75-ba7c6df8785c",
+    "oracleId": "e47e3a40-f51f-41ed-8e7c-06200a2abc22",
+    "name": "Polyraptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Polyraptor",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Enrage — Whenever this creature is dealt damage, create a token that's a copy of this creature.",
+        "flavorText": "Imagination is a powerful source of magic, as dinosaurs are a powerful source of biting.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ben Millar",
+        "imageId": "345b9599-c4b6-4716-9e75-ba7c6df8785c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Enrage"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "2194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIST_SYNDICATE_NAGA": {
+    "scryfallId": "34935bfc-1f9c-4c03-8ead-a62730d99591",
+    "oracleId": "08109241-690f-4d09-ad2f-1cddab9b3c64",
+    "name": "Mist-Syndicate Naga",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mist-Syndicate Naga",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Snake Ninja",
+        "oracleText": "Ninjutsu {2}{U} ({2}{U}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "34935bfc-1f9c-4c03-8ead-a62730d99591"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Ninjutsu"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXTRAVAGANT_REPLICATION": {
+    "scryfallId": "447f3f85-cc95-410a-a76b-4e9708c0db66",
+    "oracleId": "3a646245-b8b7-4f91-a312-d5eea9a9e49a",
+    "name": "Extravagant Replication",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Extravagant Replication",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, create a token that's a copy of another target nonland permanent you control.",
+        "flavorText": "\"Just one aether tiger? What do I look like, a peasant?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pauline Voss",
+        "imageId": "447f3f85-cc95-410a-a76b-4e9708c0db66"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pncc",
+    "collectorNumber": "25p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISHRA_S_SELF_REPLICATOR": {
+    "scryfallId": "4ae1b89f-5377-4f48-b6aa-2ddbf2f55aaa",
+    "oracleId": "5546d127-a961-4e33-bbc9-06ee14b0cb04",
+    "name": "Mishra's Self-Replicator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mishra's Self-Replicator",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Assembly-Worker",
+        "oracleText": "Whenever you cast a historic spell, you may pay {1}. If you do, create a token that's a copy of this creature. (Artifacts, legendaries, and Sagas are historic.)",
+        "flavorText": "It has witnessed history's most significant events, one incarnation after another.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joseph Meehan",
+        "imageId": "4ae1b89f-5377-4f48-b6aa-2ddbf2f55aaa"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pdom",
+    "collectorNumber": "223s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_ADEPHAGE": {
+    "scryfallId": "4fe2d4dd-983a-41d5-addb-67e748b5e339",
+    "oracleId": "8e1d261d-b8d3-4fb1-922d-47789854b5b3",
+    "name": "Giant Adephage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Adephage",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Trample\nWhenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+        "flavorText": "\"To a creature like that, we must seem like, well, bugs.\"\n—Dars Gostok, Firefist captain",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christine Choi",
+        "imageId": "4fe2d4dd-983a-41d5-addb-67e748b5e339"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "c19",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPROUTING_PHYTOHYDRA": {
+    "scryfallId": "6a478eaa-2658-49db-965f-db25fc1d720e",
+    "oracleId": "66847507-f8bb-4266-bd6e-a91c0baf0000",
+    "name": "Sprouting Phytohydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sprouting Phytohydra",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Plant Hydra",
+        "oracleText": "Defender (This creature can't attack.)\nWhenever this creature is dealt damage, you may create a token that's a copy of this creature.",
+        "flavorText": "A hydra tender's problem isn't having enough defenses but enough pots.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "6a478eaa-2658-49db-965f-db25fc1d720e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "dis",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_PROPAGATOR": {
+    "scryfallId": "837e4b25-d70b-48d8-aaad-9622ad93e154",
+    "oracleId": "d071e2fc-3be8-4168-afa9-ba34edad18b9",
+    "name": "Myr Propagator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Propagator",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "{3}, {T}: Create a token that's a copy of this creature.",
+        "flavorText": "\"We will ingest and remake this world in our image, not unlike some admirable designs I have seen here.\"\n—Vorinclex, Voice of Hunger",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ryan Pancoast",
+        "imageId": "837e4b25-d70b-48d8-aaad-9622ad93e154"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_HYDROMANCER": {
+    "scryfallId": "90dc4122-4f7a-4d9f-8427-de36e3e8a913",
+    "oracleId": "9a708f82-a4a1-47f9-8ff3-65608269eebd",
+    "name": "Elvish Hydromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Hydromancer",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Wizard",
+        "oracleText": "Kicker {3}{U} (You may pay an additional {3}{U} as you cast this spell.)\nWhen this creature enters, if it was kicked, create a token that's a copy of target creature you control.",
+        "flavorText": "\"Water remembers every living thing that it has ever been a part of. We need only bring that recollection to the surface.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "90dc4122-4f7a-4d9f-8427-de36e3e8a913"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
