@@ -578,8 +578,8 @@ export type CountExpr =
 
 export interface BoardScope {
   readonly kind: 'creature' | 'permanent' | 'player';
-  /** Whose. `any` is every player's, which is what "each creature" means. */
-  readonly controller: 'you' | 'opponents' | 'any';
+  /** Whose. `any` is every player's, which is what "each creature" means. D482 - `target`: the player the effect aimed at. */
+  readonly controller: 'you' | 'opponents' | 'any' | 'target';
   /** `permanent` only: the card type the sentence names. */
   readonly type?: 'Creature' | 'Artifact' | 'Enchantment' | 'Land';
   /** `creature` only: a Tier-2 keyword the member must have, or must not. */

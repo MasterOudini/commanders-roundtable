@@ -738,6 +738,15 @@ export function effectResult(
         if (!effect.sacrifice) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         const filter: LookFilter = { predicates: effect.sacrifice.predicates, what: effect.sacrifice.what };
+        // D482 - THE PLAYER'S SACRIFICE: a `target` scope is the player the effect aimed at (`Target player sacrifices a
+        // creature of their choice`); the aim gone, nothing is asked (CR 608.2b).
+        const aimed = (effect.scopes ?? []).some((s) => s.kind === 'player' && s.controller === 'target');
+        if (aimed) {
+          const t = effect.targetIndex >= 0 ? obj.targets[effect.targetIndex] : undefined;
+          if (!t || t.kind !== 'player') break;
+          out.push(...queueAsks(state, deps, controller, 'sacrifice', [], effect.amount, filter, obj.label, cache, [t.id]));
+          break;
+        }
         out.push(...queueAsks(state, deps, controller, 'sacrifice', effect.scopes ?? [], effect.amount, filter, obj.label, cache));
         break;
       }
@@ -1587,8 +1596,10 @@ function queueAsks(
   filter: LookFilter | null,
   label: string,
   cache?: DeriveCache,
+  /** D482 - the players named outright (a `target` scope resolved to the aimed player), instead of the scopes' members. */
+  only?: readonly PlayerId[],
 ): EventBody[] {
-  const order = apnapPlayers(state, scopeMembers(state, deps, controller, scopes, cache).players);
+  const order = apnapPlayers(state, only ?? scopeMembers(state, deps, controller, scopes, cache).players);
   const chosen: { player: PlayerId; cards: InstanceId[] }[] = [];
   const remaining: PlayerId[] = [];
   let first: PlayerId | null = null;

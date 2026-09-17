@@ -573,6 +573,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Shefet Monitor', 'an asking payload under the cycle head (the cycling ability sits under the trigger; the settle answers the ask) (D478)'],
   ['Krosan Tusker', 'an asking payload under the cycle head (the cycling ability sits under the trigger; the settle answers the ask) (D478)'],
   ['Explore the Underdark', 'a sorcery whose second sentence takes the initiative (a hand SpellDef, not the wave; the dungeon is not in the engine) (D478)'],
+  // D482 - the player's sacrifice: the three the mirror offers that the wave cannot row.
+  ['Abyssal Gorestalker', 'a queued sacrifice of more than one under an ETB head (the suite stages one fodder per player) (D482)'],
+  ['Custodi Lich', 'trigger head not in the library: Whenever you become the monarch (D482)'],
+  ['Trial of Ambition', 'a filtered head no fixture satisfies: a Cartouche you control (D482)'],
   // D479 - the tribal target: the twenty-three the mirror offers that the wave cannot row.
   ["Alpha Kavu", "a tribal target with no vanilla fixture of its subtype (Kavu) (D479)"],
   ["Coastal Drake", "a tribal target with no vanilla fixture of its subtype (Kavu) (D479)"],

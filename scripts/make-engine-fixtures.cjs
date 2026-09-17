@@ -9011,6 +9011,21 @@ const WANTED = [
   'Rhox Brute',
   'Skeletal Snake',
   'Terrian, World Tyrant',
+  // D482 - the player's sacrifice: the seam test's edicts (a targeted queued sacrifice, a counted one).
+  'Cruel Edict',
+  'Barter in Blood',
+  // D482 - the player's sacrifice: the rows whose payload has a player sacrifice a permanent of their choice (Gatekeeper of Malakir, Sheoldred, Blighted Fen ...).
+  'Demon of Loathing',
+  'Blighted Fen',
+  'Gatekeeper of Malakir',
+  'Sheoldred, Whispering One',
+  'Destructive Urge',
+  'Ruthless Deathfang',
+  'Cabal Executioner',
+  // D482 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D482 - the player's sacrifice: the rows whose payload has a player sacrifice a permanent of their choice (Gatekeeper of Malakir, Sheoldred, Blighted Fen ...).
+  'Molder Slug',
+  // D482 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

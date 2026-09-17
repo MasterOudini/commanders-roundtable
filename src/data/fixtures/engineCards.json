@@ -275639,6 +275639,350 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CRUEL_EDICT": {
+    "scryfallId": "0c3d9c1d-a984-4971-810c-e493d0a55e5c",
+    "oracleId": "10c585c4-bf5b-4d8f-94a9-e9a5036a688f",
+    "name": "Cruel Edict",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cruel Edict",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target opponent sacrifices a creature of their choice.",
+        "flavorText": "\"Choose your next words carefully. They will be your last.\"\n—Phage the Untouchable",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "0c3d9c1d-a984-4971-810c-e493d0a55e5c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARTER_IN_BLOOD": {
+    "scryfallId": "0524b83f-a03f-4a1d-9613-b0daf8c64a9a",
+    "oracleId": "9167998d-5cac-47d7-99f2-f38122f7b8e7",
+    "name": "Barter in Blood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barter in Blood",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player sacrifices two creatures of their choice.",
+        "flavorText": "\"In the game of conquest, who cares about the pawns if the king yet reigns?\"\n—Geth, keeper of the Vault",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "0524b83f-a03f-4a1d-9613-b0daf8c64a9a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MRD-57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMON_OF_LOATHING": {
+    "scryfallId": "0827efbc-70a4-413d-bb73-41661c1a9830",
+    "oracleId": "2e55fc03-779c-4a71-beb7-aa0ade738c24",
+    "name": "Demon of Loathing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demon of Loathing",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying, trample\nWhenever this creature deals combat damage to a player, that player sacrifices a creature of their choice.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "0827efbc-70a4-413d-bb73-41661c1a9830"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "anb",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHTED_FEN": {
+    "scryfallId": "09994b67-4b83-4b23-834b-73bae87e8272",
+    "oracleId": "b8f3da11-7c8f-4846-98a6-204bfd8d572b",
+    "name": "Blighted Fen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blighted Fen",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{4}{B}, {T}, Sacrifice this land: Target opponent sacrifices a creature of their choice.",
+        "flavorText": "\"We came to a place where the skin of Zendikar was peeled back and its bones lay bare to the sky.\"\n—Greenweaver Mina",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jonas De Ro",
+        "imageId": "09994b67-4b83-4b23-834b-73bae87e8272"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "810",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATEKEEPER_OF_MALAKIR": {
+    "scryfallId": "0a625cc8-a09b-4bc2-a857-6c2283887916",
+    "oracleId": "6781f8ae-2a86-4e3d-bc43-48809c9d6c26",
+    "name": "Gatekeeper of Malakir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gatekeeper of Malakir",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "Kicker {B} (You may pay an additional {B} as you cast this spell.)\nWhen this creature enters, if it was kicked, target player sacrifices a creature of their choice.",
+        "flavorText": "\"You may enter the city—once the toll is paid.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0a625cc8-a09b-4bc2-a857-6c2283887916"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ZEN-89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHEOLDRED_WHISPERING_ONE": {
+    "scryfallId": "18206ae6-08e2-4ad2-bc0a-6626a89b9516",
+    "oracleId": "9218b56d-aaec-482f-99e9-d95d227bfe25",
+    "name": "Sheoldred, Whispering One",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sheoldred, Whispering One",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Legendary Creature — Phyrexian Praetor",
+        "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\nAt the beginning of your upkeep, return target creature card from your graveyard to the battlefield.\nAt the beginning of each opponent's upkeep, that player sacrifices a creature of their choice.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jana Schirmer & Johannes Voss",
+        "imageId": "18206ae6-08e2-4ad2-bc0a-6626a89b9516"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Landwalk",
+      "Swampwalk"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "211",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DESTRUCTIVE_URGE": {
+    "scryfallId": "479645b3-54af-4fbf-928e-2224540fe892",
+    "oracleId": "5ab62b09-1135-4d22-866b-3a0d64228bf9",
+    "name": "Destructive Urge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Destructive Urge",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhenever enchanted creature deals combat damage to a player, that player sacrifices a land of their choice.",
+        "flavorText": "Red sky at night, dragon's delight.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Robinson",
+        "imageId": "479645b3-54af-4fbf-928e-2224540fe892"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "usg",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUTHLESS_DEATHFANG": {
+    "scryfallId": "93d99f0d-f5d4-4480-ac5e-fe9ff808416e",
+    "oracleId": "69c22788-cb90-4100-a64d-891124082dd4",
+    "name": "Ruthless Deathfang",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruthless Deathfang",
+        "manaCost": "{4}{U}{B}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever you sacrifice a creature, target opponent sacrifices a creature of their choice.",
+        "flavorText": "\"Bring forth the dead, their skull-grins and rattle-bones. We will feast upon their wailing ghosts.\"\n—Silumgar, translated from Draconic",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "93d99f0d-f5d4-4480-ac5e-fe9ff808416e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABAL_EXECUTIONER": {
+    "scryfallId": "cd7727a7-0cdf-4fd5-82b4-e6587c10ca80",
+    "oracleId": "b7817579-df4d-41db-bb90-2aabac58f299",
+    "name": "Cabal Executioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabal Executioner",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player sacrifices a creature of their choice.\nMorph {3}{B}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "cd7727a7-0cdf-4fd5-82b4-e6587c10ca80"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "ons",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLDER_SLUG": {
+    "scryfallId": "44c76340-bcd4-42e9-8a2d-11766f8927c7",
+    "oracleId": "d7c8b636-b7ff-446d-aa51-516e2cfe2730",
+    "name": "Molder Slug",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molder Slug",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Slug Beast",
+        "oracleText": "At the beginning of each player's upkeep, that player sacrifices an artifact of their choice.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "44c76340-bcd4-42e9-8a2d-11766f8927c7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "psal",
+    "collectorNumber": "K37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

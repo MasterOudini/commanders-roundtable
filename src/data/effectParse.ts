@@ -1570,13 +1570,34 @@ const RULES: readonly Rule[] = [
   },
   {
     kind: 'sacrifice',
-    re: /^each (player|opponent) sacrifices (an? [A-Za-z ]+?) of their choice\.$/i,
+    // D482 - and a COUNT (`Each player sacrifices two creatures of their choice`), the noun read singular.
+    re: new RegExp(`^each (player|opponent) sacrifices (an|${COUNT}) ([A-Za-z ]+?) of their choice\\.$`, 'i'),
     build: (m) => {
-      const what = (m[2] ?? '').trim();
-      const predicates = predicatesOf(what.replace(/^an? /i, ''));
+      const n = (m[2] ?? '').toLowerCase() === 'an' ? 1 : num(m[2]);
+      if (n === null || n <= 0) return null;
+      const what = (m[3] ?? '').trim().replace(/s$/, '');
+      const predicates = predicatesOf(what);
       if (!predicates || predicates.length === 0) return null;
       const controller = (m[1] ?? '').toLowerCase() === 'opponent' ? 'opponents' : 'any';
-      return { ...BASE, amount: 1, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }], sacrifice: { predicates, what: what.replace(/^an? /i, '') } };
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }], sacrifice: { predicates, what } };
+    },
+  },
+  /**
+   * D482 - THE PLAYER'S SACRIFICE: `Target player sacrifices a creature of their choice.` (Chainer's Edict), `Target
+   * opponent sacrifices two creatures of their choice.` - the same queue over the ONE player the clause aims at (a `target`
+   * scope the resolution resolves to the aimed player). The `of their choice` is the rule's own (CR 701.17a) and a head's
+   * referent spells it `of target player's choice`; both are read. It asks, so it is the sentence's last (D195).
+   */
+  {
+    kind: 'sacrifice',
+    re: new RegExp(`^target (?:player|opponent) sacrifices (an|${COUNT}) ([A-Za-z ]+?)(?: of (?:their|target player's|that player's) choice)?\\.$`, 'i'),
+    build: (m) => {
+      const n = (m[1] ?? '').toLowerCase() === 'an' ? 1 : num(m[1]);
+      if (n === null || n <= 0) return null;
+      const what = (m[2] ?? '').trim().replace(/s$/, '');
+      const predicates = predicatesOf(what);
+      if (!predicates || predicates.length === 0) return null;
+      return { ...BASE, amount: n, scopes: [{ kind: 'player', controller: 'target' }], sacrifice: { predicates, what } };
     },
   },
   /**

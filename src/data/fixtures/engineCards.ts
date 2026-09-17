@@ -8152,6 +8152,16 @@ export const CABAL_EVANGEL: CardData = F.CABAL_EVANGEL as CardData;
 export const RHOX_BRUTE: CardData = F.RHOX_BRUTE as CardData;
 export const SKELETAL_SNAKE: CardData = F.SKELETAL_SNAKE as CardData;
 export const TERRIAN_WORLD_TYRANT: CardData = F.TERRIAN_WORLD_TYRANT as CardData;
+export const CRUEL_EDICT: CardData = F.CRUEL_EDICT as CardData;
+export const BARTER_IN_BLOOD: CardData = F.BARTER_IN_BLOOD as CardData;
+export const DEMON_OF_LOATHING: CardData = F.DEMON_OF_LOATHING as CardData;
+export const BLIGHTED_FEN: CardData = F.BLIGHTED_FEN as CardData;
+export const GATEKEEPER_OF_MALAKIR: CardData = F.GATEKEEPER_OF_MALAKIR as CardData;
+export const SHEOLDRED_WHISPERING_ONE: CardData = F.SHEOLDRED_WHISPERING_ONE as CardData;
+export const DESTRUCTIVE_URGE: CardData = F.DESTRUCTIVE_URGE as CardData;
+export const RUTHLESS_DEATHFANG: CardData = F.RUTHLESS_DEATHFANG as CardData;
+export const CABAL_EXECUTIONER: CardData = F.CABAL_EXECUTIONER as CardData;
+export const MOLDER_SLUG: CardData = F.MOLDER_SLUG as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16521,6 +16531,16 @@ export const ENGINE_CARDS: CardData[] = [
   RHOX_BRUTE,
   SKELETAL_SNAKE,
   TERRIAN_WORLD_TYRANT,
+  CRUEL_EDICT,
+  BARTER_IN_BLOOD,
+  DEMON_OF_LOATHING,
+  BLIGHTED_FEN,
+  GATEKEEPER_OF_MALAKIR,
+  SHEOLDRED_WHISPERING_ONE,
+  DESTRUCTIVE_URGE,
+  RUTHLESS_DEATHFANG,
+  CABAL_EXECUTIONER,
+  MOLDER_SLUG,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

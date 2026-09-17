@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MOLDER_SLUG_SCRIPT } from './cards/molderSlug';
+import { DEMON_OF_LOATHING_SCRIPT } from './cards/demonOfLoathing';
+import { BLIGHTED_FEN_SCRIPT } from './cards/blightedFen';
+import { GATEKEEPER_OF_MALAKIR_SCRIPT } from './cards/gatekeeperOfMalakir';
+import { SHEOLDRED_WHISPERING_ONE_SCRIPT } from './cards/sheoldredWhisperingOne';
+import { DESTRUCTIVE_URGE_SCRIPT } from './cards/destructiveUrge';
+import { RUTHLESS_DEATHFANG_SCRIPT } from './cards/ruthlessDeathfang';
+import { CABAL_EXECUTIONER_SCRIPT } from './cards/cabalExecutioner';
 import { CORPSES_OF_THE_LOST_SCRIPT } from './cards/corpsesOfTheLost';
 import { BIOGENIC_OOZE_SCRIPT } from './cards/biogenicOoze';
 import { AGENT_PHIL_COULSON_SCRIPT } from './cards/agentPhilCoulson';
@@ -7536,6 +7544,14 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MOLDER_SLUG_SCRIPT,
+  DEMON_OF_LOATHING_SCRIPT,
+  BLIGHTED_FEN_SCRIPT,
+  GATEKEEPER_OF_MALAKIR_SCRIPT,
+  SHEOLDRED_WHISPERING_ONE_SCRIPT,
+  DESTRUCTIVE_URGE_SCRIPT,
+  RUTHLESS_DEATHFANG_SCRIPT,
+  CABAL_EXECUTIONER_SCRIPT,
   CORPSES_OF_THE_LOST_SCRIPT,
   BIOGENIC_OOZE_SCRIPT,
   AGENT_PHIL_COULSON_SCRIPT,
