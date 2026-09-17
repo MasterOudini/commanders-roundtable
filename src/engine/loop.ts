@@ -774,6 +774,39 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
   if (!obj) return emitted([]);
   const events: EventBody[] = [];
 
+  // D487 - A COPY OF A SPELL (CR 707.10) resolves as the spell would: the face read off the copy's own printing (its
+  // colours the copy's where the clause set them), fizzle and the still-legal picks decided on it (608.2b), a shipped
+  // def or the vocabulary run over it with the copied spell's card as the source - and then it ceases to exist:
+  // nothing moves, the object just leaves the stack.
+  if (obj.copyOf !== undefined) {
+    const oracleCard = deps.oracle.byPrinting(obj.copyOf.printingId);
+    const printed = oracleCard ? faceOf(oracleCard, obj.copyOf.faceIndex) : null;
+    const face = printed !== null && obj.copyOf.colors !== undefined ? { ...printed, colors: obj.copyOf.colors } : printed;
+    const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs)) {
+      events.push({ t: 'SpellFizzled', stackId: obj.id });
+      events.push(narrated(`${obj.label} is countered on resolution — no legal targets.`, obj.controller, obj.identity));
+      return emitted(events);
+    }
+    events.push({ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller });
+    let rng: RngState | undefined;
+    const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? face?.targets ?? []);
+    if (spellDef && obj.source !== null) {
+      events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.source, obj));
+    } else if (face?.modal && face.effectMode === 'auto') {
+      const result = effectResult(state, deps, resolving, modalEffects(face.modal, obj.modes));
+      events.push(...result.events);
+      rng = result.rng;
+    } else if (face && face.effectMode === 'auto' && face.effects.length > 0) {
+      const result = effectResult(state, deps, resolving, face.effects);
+      events.push(...result.events);
+      rng = result.rng;
+    }
+    events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
+    return emitted(events, rng);
+  }
+
   if (obj.card !== null) {
     const card = state.cards[obj.card];
     if (!card) return emitted([{ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller }]);

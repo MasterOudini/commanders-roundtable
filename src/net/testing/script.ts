@@ -171,9 +171,12 @@ export function simplestIntent(
         // The board can change between choosing to cast and being asked (another
         // player responds, something dies). Abandoning is the terminating answer;
         // returning null here would be the wedge this case exists to remove.
+        // D487 - a copy keeps the original's targets instead (the empty answer): it cannot be cancelled.
         return targets
           ? { t: 'ChooseTargets', player: awaiting.player, targets }
-          : { t: 'CancelPendingCast', player: awaiting.player };
+          : awaiting.forKind === 'copy'
+            ? { t: 'ChooseTargets', player: awaiting.player, targets: [] }
+            : { t: 'CancelPendingCast', player: awaiting.player };
       }
       /** D391 - proliferate nothing: always legal. */
       case 'proliferateChoice':

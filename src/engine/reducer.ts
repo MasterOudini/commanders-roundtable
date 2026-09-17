@@ -1070,6 +1070,23 @@ function applyBody(state: GameState, body: EventBody): GameState {
       };
     }
 
+    // D487 - a copy of a spell goes on top of the stack as a spell that was never cast (CR 707.10): nothing is
+    // recorded as cast, no pending cast ends, and every other player is yet to see it.
+    case 'SpellCopied': {
+      const stackAdds = state.priority.stackAdds + 1;
+      return {
+        ...state,
+        stack: [...state.stack, body.obj],
+        priority: {
+          ...state.priority,
+          passedSinceLastAction: [],
+          stackAdds,
+          seenStackAdds: { ...state.priority.seenStackAdds, [body.obj.controller]: stackAdds },
+        },
+        counters: { ...state.counters, stack: Math.max(state.counters.stack, Number(body.obj.id.slice(1)) || 0) },
+      };
+    }
+
     case 'CommanderCastCountIncreased':
       return withCard(state, body.card, { commanderCastCount: body.to });
 

@@ -595,6 +595,8 @@ export type EffectKind =
   | 'exile'
   /** COUNTER A SPELL. The counters you put on a permanent are the two below. */
   | 'counter'
+  /** D487 - COPY A SPELL (CR 707.10): a stack object with the target spell's copiable values, `copy` its exceptions. */
+  | 'copySpell'
   | 'bounce'
   | 'pump'
   /**
@@ -1035,6 +1037,8 @@ export interface DelayWhen {
  * exception grammar spells - so an exception the copy would silently lack never reads as understood (D90).
  */
 export interface CopyExceptions {
+  /** D487 - `except that the copy is red` (Fork): the copy's colours are these instead of the copied object's. */
+  readonly colors?: readonly ColorLetter[];
   readonly notLegendary?: true;
   readonly addTypes?: readonly string[];
   readonly addSubtypes?: readonly string[];
@@ -1155,6 +1159,8 @@ export interface EffectSpec {
    */
   /** D485 - `createToken` only: the token copies a permanent (CR 707). Absent on every token the table names. */
   readonly copy?: CopySpec;
+  /** D487 - `copySpell` only: `You may choose new targets for the copy.` - its controller is asked once the copy exists. */
+  readonly newTargets?: true;
   readonly thenDraw: number;
   /**
    * D435 - `Draw N cards. If you do, discard M cards.` (a `discard` of M): the draw of N precedes the discard and

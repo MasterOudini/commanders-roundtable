@@ -18,6 +18,7 @@ import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
+import { modeSpecs } from './modes';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
@@ -447,6 +448,56 @@ export function effectResult(
           }
         }
         out.push(narrated(`${obj.label} counters ${victim.label}.`, obj.controller, obj.identity));
+        break;
+      }
+
+      // D487 - THE SPELL COPY (CR 707.10): a new stack object with the copied spell's copiable values - its printing
+      // and face (a copy's own where the target is itself a copy), its modes, its X and its kick - under this
+      // player's control, on top of the stack (707.10a); its targets the original's, and where the clause says so
+      // its controller may choose new ones (707.10c) - asked once the copy exists, the clauses after this one riding
+      // the question. An ability on the stack is no spell and a face-down spell copies as nothing (708.2): the clause
+      // says so (D90). The id is fresh past every copy this batch already made (`state` is the batch's snapshot).
+      case 'copySpell': {
+        if (aim?.kind !== 'stack') break;
+        const original = state.stack.find((s) => s.id === aim.id);
+        const originalCard = original === undefined || original.card === null ? undefined : state.cards[original.card];
+        const of = original === undefined ? undefined : original.copyOf ?? (originalCard ? { printingId: originalCard.printingId, faceIndex: original.faceIndex } : undefined);
+        if (original === undefined || original.kind !== 'spell' || original.faceDown || of === undefined) {
+          out.push(narrated(`${obj.label} — nothing to copy for “${effect.text}”.`, obj.controller, obj.identity));
+          break;
+        }
+        const colors = effect.copy?.exceptions?.colors ?? of.colors;
+        const made = out.filter((e) => e.t === 'SpellCopied').length;
+        const copy: StackObject = {
+          id: `s${state.counters.stack + 1 + made}`,
+          kind: 'spell',
+          controller,
+          card: null,
+          source: original.card ?? original.source,
+          abilityRef: null,
+          targets: original.targets,
+          ...(original.targetSlots !== undefined ? { targetSlots: original.targetSlots } : {}),
+          modes: original.modes,
+          xValue: original.xValue,
+          label: `${original.label} (copy)`,
+          identity: colors ?? original.identity,
+          taxApplied: 0,
+          isCommanderCast: false,
+          castFrom: null,
+          faceIndex: of.faceIndex,
+          ...(original.kicked !== undefined ? { kicked: original.kicked } : {}),
+          copyOf: { printingId: of.printingId, faceIndex: of.faceIndex, ...(colors !== undefined ? { colors } : {}) },
+        };
+        out.push({ t: 'SpellCopied', obj: copy, of: original.id });
+        out.push(narrated(`${obj.label} copies ${original.label}.`, obj.controller, obj.identity));
+        if (effect.newTargets === true && copy.targets.length > 0 && copy.source !== null) {
+          const oracleCard = deps.oracle.byPrinting(of.printingId);
+          const face = oracleCard === undefined ? undefined : faceOf(oracleCard, of.faceIndex);
+          const specs = face === undefined ? [] : face.modal ? modeSpecs(face.modal.modes, copy.modes) : face.targets;
+          if (specs.length > 0) {
+            out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseTargets', player: controller, stackId: copy.id, count: 0, source: copy.source, label: copy.label, specs, forKind: 'copy' } });
+          }
+        }
         break;
       }
 
@@ -1642,6 +1693,10 @@ function withContinuation(awaiting: Awaiting, continuation: EffectContinuation):
     case 'scryChoice':
     case 'proliferateChoice':
       if (awaiting.continuation === continuation) return awaiting;
+      return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
+    // D487 - a copy's new-targets question carries the clauses after the copying one; a cast's own prompt never does.
+    case 'chooseTargets':
+      if (awaiting.forKind !== 'copy' || awaiting.continuation === continuation) return awaiting;
       return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
     default:
       return awaiting;

@@ -1688,6 +1688,38 @@ function chooseTriggerTargets(
   };
 }
 
+/**
+ * D487 - THE COPY'S NEW TARGETS (CR 707.10c). The copy is on the stack with the original's targets; an empty answer
+ * keeps them, a full one replaces them - validated against the copied face's clauses exactly as a trigger's are, the
+ * copied spell's card the targeting source and the copy's own colours where the clause set them. The clauses after
+ * the copying one (the D484 continuation the question carried) run once the targets are settled.
+ */
+function chooseCopyTargets(
+  state: GameState,
+  intent: Extract<Intent, { t: 'ChooseTargets' }>,
+  deps: EngineDeps,
+  awaiting: Extract<Awaiting, { kind: 'chooseTargets' }>,
+): HandleResult {
+  if (awaiting.player !== intent.player) return reject('notYourTurn', 'That copy is not yours to aim.');
+  const copy = state.stack.find((o) => o.id === awaiting.stackId);
+  if (!copy || copy.copyOf === undefined) return reject('noPendingCast', 'That copy is no longer on the stack.');
+  const events: EventBody[] = [];
+  if (intent.targets.length === 0) {
+    events.push(narrated(`${copy.label} keeps its targets.`, copy.controller, copy.identity));
+  } else {
+    const printing = deps.oracle.byPrinting(copy.copyOf.printingId);
+    if (!printing) return reject('noSuchCard', 'That card is not in the game.');
+    const face = faceOf(printing, copy.copyOf.faceIndex);
+    const own = targetingSourceFor(state, deps, awaiting.source, intent.player) ?? { controller: intent.player, colors: face.colors };
+    const src = copy.copyOf.colors === undefined ? own : { ...own, colors: copy.copyOf.colors };
+    const verdict = validateTargets(awaiting.specs, src, awaiting.label, intent.targets, candidatesFromState(state, deps));
+    if (!verdict.ok) return reject('illegalTarget', verdict.message);
+    events.push({ t: 'StackTargetsSet', stackId: copy.id, targets: intent.targets, ...(verdict.assignment !== undefined ? { targetSlots: verdict.assignment } : {}) });
+  }
+  events.push({ t: 'AwaitingSet', awaiting: null });
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+}
+
 function chooseTargets(
   state: GameState,
   intent: Extract<Intent, { t: 'ChooseTargets' }>,
@@ -1700,6 +1732,10 @@ function chooseTargets(
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind === 'chooseTargets' && awaiting.forKind === 'trigger') {
     return chooseTriggerTargets(state, intent, deps, awaiting);
+  }
+  // D487 - a copy's new targets: its object is on the stack too, and an empty answer keeps the original's.
+  if (awaiting?.kind === 'chooseTargets' && awaiting.forKind === 'copy') {
+    return chooseCopyTargets(state, intent, deps, awaiting);
   }
 
   const pending = state.pendingCast;

@@ -556,7 +556,8 @@ export function candidatesFromState(
     // CAST (D155's rule; a modal DFC's back face is its own spell). An ability
     // has none, so a typed-spell clause refuses it, which is the CR answer.
     const spellCard = obj.card ? state.cards[obj.card] : null;
-    const spellOracle = spellCard ? deps.oracle.byPrinting(spellCard.printingId) : undefined;
+    // D487 - a COPY of a spell has no card: its printing and face are the copy's own (CR 707.10), its colours too.
+    const spellOracle = spellCard ? deps.oracle.byPrinting(spellCard.printingId) : obj.copyOf !== undefined ? deps.oracle.byPrinting(obj.copyOf.printingId) : undefined;
     out.push({
       choice: { kind: 'stack', id: obj.id },
       zone: 'stack',
@@ -580,7 +581,7 @@ export function candidatesFromState(
       // restricts on them (D294's `colorsAny`, found empty here by D295's
       // counter suites). From the face actually cast, like its types; an
       // ability has none.
-      colors: spellOracle ? faceOf(spellOracle, obj.faceIndex).colors : [],
+      colors: spellOracle ? (obj.copyOf?.colors ?? faceOf(spellOracle, obj.faceIndex).colors) : [],
       keywords: [],
       combat: { attacking: false, blocking: false },
       // ⚠️ A spell on the stack keeps its card types AND supertypes for "target

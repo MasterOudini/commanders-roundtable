@@ -642,9 +642,12 @@ export function simplestAnswer(
     // legal.
     case 'chooseTargets': {
       const picked = pickLegalTargets(state, awaiting);
+      // D487 - a copy short of a legal new set keeps the original's targets (the empty answer); it cannot be cancelled.
       return picked
         ? { t: 'ChooseTargets', player: awaiting.player, targets: picked }
-        : { t: 'CancelPendingCast', player: awaiting.player };
+        : awaiting.forKind === 'copy'
+          ? { t: 'ChooseTargets', player: awaiting.player, targets: [] }
+          : { t: 'CancelPendingCast', player: awaiting.player };
     }
     /**
      * ⚠️ DECLINE, which is what this function's own header promises ("decline,

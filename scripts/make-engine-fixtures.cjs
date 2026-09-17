@@ -9104,6 +9104,12 @@ const WANTED = [
   'Phyrexian Metamorph',
   'Vesuva',
   'Mirror Image',
+  // D487 - the spell copy: the seam's fixtures (Reverberate, Twincast, Fork).
+  'Reverberate',
+  'Twincast',
+  'Fork',
+  // D487 - the spell copy: the seam's fixtures (Reverberate, Twincast, Fork).
+  'Expansion // Explosion',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

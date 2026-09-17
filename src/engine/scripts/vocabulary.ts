@@ -43,6 +43,8 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
   'destroy',
   'exile',
   'counter',
+  // D487 - the spell copy aims at a spell on the stack.
+  'copySpell',
   'bounce',
   'pump',
   'tap',

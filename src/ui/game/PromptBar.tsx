@@ -118,8 +118,11 @@ function describe(
           ? 'Your commander changed zones — put it in the command zone?'
           : `${nameOf(seats, awaiting.player)} is deciding about their commander.`;
       case 'chooseTargets':
+        // D487 - a copy's new targets may be declined: the original's stay.
         return awaiting.player === viewer
-          ? 'Choose targets: drag the arrow onto each one.'
+          ? awaiting.forKind === 'copy'
+            ? `${awaiting.label}: drag the arrow onto new targets, or keep the original's.`
+            : 'Choose targets: drag the arrow onto each one.'
           : `${nameOf(seats, awaiting.player)} is choosing targets.`;
       // ⚠️ A viewer branch from the first line it was written on. Six kinds
       // shipped without one and read "You is ordering blockers." (D101); the
@@ -991,6 +994,17 @@ export function PromptBar() {
               No blocks
             </button>
           </>
+        )}
+
+        {mine('chooseTargets') && awaiting?.kind === 'chooseTargets' && awaiting.forKind === 'copy' && (
+          <button
+            type="button"
+            className={BTN_SMALL}
+            data-action="copy-keep-targets"
+            onClick={() => send({ t: 'ChooseTargets', player: viewer, targets: [] })}
+          >
+            Keep targets
+          </button>
         )}
 
         {mine('chooseCopy') && awaiting?.kind === 'chooseCopy' && (

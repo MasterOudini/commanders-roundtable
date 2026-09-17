@@ -745,6 +745,25 @@ const RULES: readonly Rule[] = [
   // D369 - "Sacrifice this creature." as a body the pay prompt decides (a row's sentence).
   { kind: 'sacrificeSelf', re: /^sacrifice (?:this (?:creature|permanent|artifact|enchantment|land|aura|equipment)|it|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'counter', re: new RegExp(`^counter ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D487 - THE SPELL COPY (CR 707.10): `Copy target instant or sorcery spell(, except that the copy is <colour>).
+  // (You may choose new targets for the copy.)` - a stack object with the copied spell's copiable values, its
+  // targets the original's unless the second sentence lets the controller choose new ones. Only an instant or
+  // sorcery may be named: a permanent spell's copy would resolve into a token (707.10a), which the engine does not
+  // make - `build` refuses a noun without the word.
+  {
+    kind: 'copySpell',
+    re: new RegExp(`^copy ${TARGET}(?:, except that the copy is (?<color>white|blue|black|red|green))?\\.(?<again> you may choose new targets for the copy\\.)?$`, 'i'),
+    build: (m) => {
+      if (!/\b(?:instant|sorcery)\b/i.test(m[0] ?? '')) return null;
+      const color = m.groups?.['color']?.toLowerCase();
+      const letter = color === undefined ? undefined : SHIELD_COLOR_LETTER[color];
+      return {
+        ...BASE,
+        copy: { of: 'target', exceptions: letter === undefined ? null : { colors: [letter] } },
+        ...(m.groups?.['again'] !== undefined ? { newTargets: true as const } : {}),
+      };
+    },
+  },
   {
     kind: 'bounce',
     re: new RegExp(`^return ${TARGET} to (?:its|their) owner(?:'|’)?s? hand\\.$`, 'i'),

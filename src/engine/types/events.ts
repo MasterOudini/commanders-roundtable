@@ -364,6 +364,8 @@ export type EventBody =
   | { readonly t: 'ModesChosen'; readonly modes: readonly number[] }
   | { readonly t: 'CastCancelled'; readonly stackId: StackId }
   | { readonly t: 'SpellCast'; readonly obj: StackObject }
+  /** D487 - a COPY of the spell `of`, put on top of the stack (CR 707.10): a spell that was never cast (nothing recorded, no cast trigger). */
+  | { readonly t: 'SpellCopied'; readonly obj: StackObject; readonly of: StackId }
   | { readonly t: 'AbilityPutOnStack'; readonly obj: StackObject }
   /**
    * Targets chosen for an object ALREADY on the stack — a triggered ability, and

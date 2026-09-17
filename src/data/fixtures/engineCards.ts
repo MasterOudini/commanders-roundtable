@@ -8230,6 +8230,10 @@ export const CLONE: CardData = F.CLONE as CardData;
 export const PHYREXIAN_METAMORPH: CardData = F.PHYREXIAN_METAMORPH as CardData;
 export const VESUVA: CardData = F.VESUVA as CardData;
 export const MIRROR_IMAGE: CardData = F.MIRROR_IMAGE as CardData;
+export const REVERBERATE: CardData = F.REVERBERATE as CardData;
+export const TWINCAST: CardData = F.TWINCAST as CardData;
+export const FORK: CardData = F.FORK as CardData;
+export const EXPANSION_EXPLOSION: CardData = F.EXPANSION_EXPLOSION as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16677,6 +16681,10 @@ export const ENGINE_CARDS: CardData[] = [
   PHYREXIAN_METAMORPH,
   VESUVA,
   MIRROR_IMAGE,
+  REVERBERATE,
+  TWINCAST,
+  FORK,
+  EXPANSION_EXPLOSION,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -234,6 +234,8 @@ export function answerAwaiting(
       // The board can change between choosing to cast and being asked. Cancelling
       // is the terminating answer; returning nothing here is the wedge this case
       // exists to remove.
+      // D487 - a copy's new targets: with none legal (or on a retry) the copy keeps the original's - the empty answer.
+      if (!targets && awaiting.forKind === 'copy') return act({ t: 'ChooseTargets', player: me, targets: [] }, 'keep the copy targets');
       return targets
         ? act({ t: 'ChooseTargets', player: me, targets }, `aim at ${targets.length}`)
         : act({ t: 'CancelPendingCast', player: me }, 'no legal targets — abandon the cast');

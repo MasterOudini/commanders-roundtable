@@ -278291,6 +278291,151 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "REVERBERATE": {
+    "scryfallId": "02bc4956-32b4-48cd-af04-4f0ad0f893d3",
+    "oracleId": "a1f55890-31c5-4ed4-a2cd-7a4a9f05f8ca",
+    "name": "Reverberate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reverberate",
+        "manaCost": "{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Copy target instant or sorcery spell. You may choose new targets for the copy.",
+        "flavorText": "\"I'm not indecisive. I just don't like to limit my options.\"\n—Maxti, pyromancer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "jD",
+        "imageId": "02bc4956-32b4-48cd-af04-4f0ad0f893d3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pd2",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWINCAST": {
+    "scryfallId": "07d65aee-242e-4255-b2a7-5a3a3b464b48",
+    "oracleId": "8f878efc-850f-43d2-a6fe-5ea8d1dd5afb",
+    "name": "Twincast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twincast",
+        "manaCost": "{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Copy target instant or sorcery spell. You may choose new targets for the copy.",
+        "flavorText": "Imitation is the most dangerous form of flattery.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "07d65aee-242e-4255-b2a7-5a3a3b464b48"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORK": {
+    "scryfallId": "0906c119-5a30-41e4-8c17-90bce4c68093",
+    "oracleId": "50c53ae0-51ba-4046-ac74-87c65e688032",
+    "name": "Fork",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fork",
+        "manaCost": "{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Copy target instant or sorcery spell, except that the copy is red. You may choose new targets for the copy.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Amy Weber",
+        "imageId": "0906c119-5a30-41e4-8c17-90bce4c68093"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "sum",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPANSION_EXPLOSION": {
+    "scryfallId": "42cacf46-6f84-4198-877b-1544cff2f837",
+    "oracleId": "af6f771f-5154-4fb3-8ed4-768d71eea568",
+    "name": "Expansion // Explosion",
+    "layout": "split",
+    "faces": [
+      {
+        "name": "Expansion",
+        "manaCost": "{U/R}{U/R}",
+        "typeLine": "Instant",
+        "oracleText": "Copy target instant or sorcery spell with mana value 4 or less. You may choose new targets for the copy.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Deruchenko Alexander",
+        "imageId": "42cacf46-6f84-4198-877b-1544cff2f837"
+      },
+      {
+        "name": "Explosion",
+        "manaCost": "{X}{U}{U}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Explosion deals X damage to any target. Target player draws X cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Deruchenko Alexander",
+        "imageId": "42cacf46-6f84-4198-877b-1544cff2f837"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "GRN-224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

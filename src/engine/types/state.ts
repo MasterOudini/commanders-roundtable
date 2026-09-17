@@ -449,6 +449,14 @@ export interface StackObject {
    * a `FaceIndexSet` after each move. See D155.
    */
   readonly faceIndex: number;
+  /**
+   * D487 - A COPY OF A SPELL (CR 707.10): the stack object is the copy's whole existence. No card (`card` is null,
+   * as an ability's; `source` is the copied spell's card - the damage the copy deals is attributed to it, and its
+   * targeting source reads off it); the copiable values are read off THIS printing and face at resolution, with
+   * `colors` the copy's own where the copying clause set them (Fork's red copy, 707.9b). A copy resolves as the
+   * spell would and then ceases to exist: nothing moves, the object just leaves the stack.
+   */
+  readonly copyOf?: { readonly printingId: PrintingId; readonly faceIndex: number; readonly colors?: readonly ColorLetter[] };
 }
 
 /**
@@ -864,8 +872,14 @@ export type Awaiting =
        * action). So `stackId` names a real object for a trigger and a
        * not-yet-existing one for the other two — read `forKind` before
        * reaching for it.
+       *
+       * D487 - `'copy'`: the new targets a COPY OF A SPELL may take (CR 707.10c), asked as the copying clause
+       * resolves. `stackId` names the copy, already on the stack; `source` the copied spell's card; `count` is 0 -
+       * an empty answer keeps the original's targets, a full one replaces them.
        */
-      readonly forKind: 'spell' | 'ability' | 'trigger';
+      readonly forKind: 'spell' | 'ability' | 'trigger' | 'copy';
+      /** D487 - the clauses after the copying one, run once the copy's targets are settled (the D484 continuation). */
+      readonly continuation?: EffectContinuation;
     }
   /**
    * CR 603.1 — a triggered ability that says "you may". The ability uses the

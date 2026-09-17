@@ -33,7 +33,7 @@ import {
 // mechanically; `createRegistry` throws on a duplicate oracleId, so a testing
 // script shadowing a shipped one cannot register twice silently.
 import { deps, makeSpec, ORACLE, simplestAnswer } from './testing/harness';
-import { candidatesFromState, legalTargetsFor } from './targets';
+import { candidatesFromState, legalTargetsFor, minimumLegalTargets } from './targets';
 import { targetingSourceFor } from './loop';
 import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
@@ -417,10 +417,21 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // target creature you control`) - a copy made whenever the driver aims it at a creature it controls.
   { names: ['Cackling Counterpart'], copiesPerSeat: 2,
     counterKeys: ['tokenCopiesMade'], rotHistory: 'D485' },
-  // D486 - the clone (CR 707.9): a Clone a seat ({3}{U}; `You may have this creature enter as a copy of any creature on
-  // the battlefield`) - the funnel holds its move and asks; the driver copies a random creature three times in four.
-  { names: ['Clone'], copiesPerSeat: 1,
-    counterKeys: ['clonesEntered'], rotHistory: 'D486' },
+  // D486 - the clone (CR 707.9): two Clones a seat ({3}{U}; `You may have this creature enter as a copy of any creature
+  // on the battlefield`) - the funnel holds its move and asks; the driver copies a random creature three times in four.
+  // D487 - two a seat: one read 4 clones over 60 seeds at D486 and 0 once the deal shifted under the spell-copy staple.
+  { names: ['Clone'], copiesPerSeat: 2,
+    counterKeys: ['clonesEntered'], rotHistory: 'D486, D487' },
+  // D487 - the spell copy (CR 707.10): two Expansion // Explosions a seat (Expansion is {U/R}{U/R}; `Copy target instant
+  // or sorcery spell with mana value 4 or less. You may choose new targets for the copy.`) - a copy made whenever the
+  // driver casts the half at a spell on the stack (its own, held priority after a cast, or another seat's); the copy's
+  // new targets asked, kept one time in three. Hybrid, because Reverberate's {R}{R} read 0 copies over 60 seeds: a
+  // second red source beside the core's one Mountain is rare (D403's lesson), and the half needs the mana OPEN while
+  // a spell is on the stack.
+  // Four a seat: two read 0 copies over 60 seeds even with the copy-first pick - a copier was in hand at 4% of the
+  // driver's stack decisions and an instant or sorcery on the stack at 16% (diag487), and the two never met.
+  { names: ['Expansion // Explosion'], copiesPerSeat: 4,
+    counterKeys: ['spellsCopied'], rotHistory: 'D487' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -980,14 +991,18 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // D445 - a RANDOM legal candidate per required pick (the harness takes the first, which is usually the
       // caster's own oldest permanent - a threaten aimed that way changes nothing). Short of a legal pick, the
       // cast is cancelled, as the harness would.
+      // D487 - a copy's new targets: one time in three the copy keeps the original's (the empty answer), else a random
+      // legal set; short of one, it keeps them - a copy is never cancelled.
+      const keep = awaiting.forKind === 'copy';
+      if (keep && p.below(3) === 0) return { t: 'ChooseTargets', player: awaiting.player, targets: [] };
       const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player, awaiting.lki);
-      if (!src) return simplestAnswer(awaiting, state);
+      if (!src) return keep ? { t: 'ChooseTargets', player: awaiting.player, targets: [] } : simplestAnswer(awaiting, state);
       const pool = candidatesFromState(state, deps(SCRIPTS));
       const picked: TargetChoice[] = [];
       for (const spec of awaiting.specs) {
         for (let i = 0; i < spec.min; i++) {
           const legal = legalTargetsFor(spec, src, pool).filter((c) => !picked.some((q) => q.kind === c.kind && q.id === c.id));
-          if (legal.length === 0) return { t: 'CancelPendingCast', player: awaiting.player };
+          if (legal.length === 0) return keep ? { t: 'ChooseTargets', player: awaiting.player, targets: [] } : { t: 'CancelPendingCast', player: awaiting.player };
           picked.push(legal[p.below(legal.length)] as TargetChoice);
         }
       }
@@ -1043,6 +1058,50 @@ function answerFor(state: GameState, p: Picker): Intent | null {
  * pick is empty, or no mana plan pays the remainder - a cast refused at its pay stage AFTER a targets
  * prompt would be answered forever (the harness's answer is not a cancel), so it is never started.
  */
+/**
+ * D487 - a COPY SPELL in hand with a spell on the stack it may copy (the face's `copySpell` clause, its target
+ * clause satisfiable now): the driver casts it before anything else, the way it kicks and plays lands. The uniform
+ * pick reached the copy 0 times over 60 seeds with two Reverberates and then two Expansions a seat - the spell to
+ * copy must be on the stack AND the mana open at the same priority, which the driver holds right after its own cast
+ * and rarely spends there. Checked for a legal target first: a copier cast at a creature spell would be cancelled at
+ * the targets question and picked again on the same board.
+ */
+function copyTargetOnStack(state: GameState, holder: PlayerId, id: InstanceId, faceIndex: number): boolean {
+  const inst = state.cards[id];
+  const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+  if (!card) return false;
+  const face = faceOf(card, faceIndex);
+  if (!face.effects.some((e) => e.kind === 'copySpell') || face.targets.length === 0) return false;
+  const src = targetingSourceFor(state, deps(SCRIPTS), id, holder) ?? { controller: holder, colors: face.colors };
+  return minimumLegalTargets(face.targets, src, candidatesFromState(state, deps(SCRIPTS))) !== null;
+}
+
+/**
+ * D487 - the other half of the copy fuel: with a payable copier in hand and an empty stack, the driver casts an
+ * instant or sorcery it can aim (not a copier itself) before anything else, so the next priority - its own, held
+ * after the cast - finds a spell to copy. Checked for a legal target: a cast cancelled at the targets question would
+ * be picked again on the same board.
+ */
+function copyableSpellToCast(state: GameState, holder: PlayerId, id: InstanceId, faceIndex: number): boolean {
+  const inst = state.cards[id];
+  const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+  if (!card) return false;
+  const face = faceOf(card, faceIndex);
+  if (face.isPermanent || face.isLand || face.effects.some((e) => e.kind === 'copySpell')) return false;
+  if (face.targets.length === 0) return true;
+  const src = targetingSourceFor(state, deps(SCRIPTS), id, holder) ?? { controller: holder, colors: face.colors };
+  return minimumLegalTargets(face.targets, src, candidatesFromState(state, deps(SCRIPTS))) !== null;
+}
+
+function holdsCopier(state: GameState, holder: PlayerId, usable: readonly LegalAction[]): boolean {
+  return usable.some((a) => {
+    if (a.t !== 'CastSpell' || !a.affordable) return false;
+    const inst = state.cards[a.card];
+    const card = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+    return card !== undefined && faceOf(card, a.faceIndex).effects.some((e) => e.kind === 'copySpell') && inst?.controller === holder;
+  });
+}
+
 function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAction, { t: 'CastSpell' }>): { convoke?: readonly InstanceId[]; improvise?: readonly InstanceId[]; delve?: readonly InstanceId[] } | null {
   if (!(action.convoke || action.improvise || action.delve)) return null;
   const inst = state.cards[action.card];
@@ -1121,7 +1180,11 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   // D445 - the land drop first: the uniform pick skipped most of them, and every three-mana canary starved (a seat
   // on one to three lands mid-game). A land is played whenever one can be; which land stays random.
   const lands = usable.filter((a) => a.t === 'PlayLand');
-  const chosen = lands.length > 0 ? p.pick(lands) : kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
+  // D487 - a copy spell with a spell on the stack to copy is cast first (see `copyTargetOnStack`).
+  const copiers = state.stack.length === 0 ? [] : usable.filter((a) => a.t === 'CastSpell' && copyTargetOnStack(state, holder, a.card, a.faceIndex));
+  // D487 - and with a payable copier in hand and nothing on the stack, an instant or sorcery to copy is cast first.
+  const copyable = state.stack.length === 0 && holdsCopier(state, holder, usable) ? usable.filter((a) => a.t === 'CastSpell' && a.affordable && copyableSpellToCast(state, holder, a.card, a.faceIndex)) : [];
+  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -1345,6 +1408,8 @@ interface Run {
   readonly tokenCopiesMade: number;
   /** D486 - permanents that entered AS A COPY of another (`CardMove.asCopyOf`, CR 707.9). */
   readonly clonesEntered: number;
+  /** D487 - copies of spells put on the stack (`SpellCopied`, CR 707.10). */
+  readonly spellsCopied: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1789,6 +1854,7 @@ function runOne(seed: number): Run {
     continuationsRun: game.log.filter((e) => e.body.t === 'ContinuationResumed').length,
     tokenCopiesMade: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.copyOf !== undefined).length,
     clonesEntered: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.asCopyOf !== undefined)).length,
+    spellsCopied: game.log.filter((e) => e.body.t === 'SpellCopied').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2065,6 +2131,7 @@ const TOTAL_KEYS = [
   'continuationsRun',
   'tokenCopiesMade',
   'clonesEntered',
+  'spellsCopied',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2476,6 +2543,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.tokenCopiesMade).toBeGreaterThan(0);
         // D486 - a permanent entered as a copy of another at gate size (Clone a seat).
         expect(totals.clonesEntered).toBeGreaterThan(0);
+        // D487 - a spell copied at gate size (Reverberate, two a seat).
+        expect(totals.spellsCopied).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2586,6 +2655,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.continuationsCarried}/${totals.continuationsRun} continuations carried/run · ` +
           `${totals.tokenCopiesMade} token copies · ` +
           `${totals.clonesEntered} clones · ` +
+          `${totals.spellsCopied} spell copies · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

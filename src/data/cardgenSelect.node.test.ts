@@ -775,6 +775,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D485 - the token copy: the one the wave cannot row.
   ["Sorcerer's Broom", 'a payment under a sacrifice head whose fire funds the price (the lands the suite reads are not the ones spent) (D485)'],
   ['Copy Catchers', 'a trigger head outside the library (Whenever you surveil) beside its token copy (D485)'],
+  // D487 - the spell copy: the three the seam made offerable and the wave cannot row.
+  ['Dualcaster Mage', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
+  ['Sigil Tracer', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
+  ['Uyo, Silent Prophet', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
   ['Goblin Piledriver', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +2/+0 until end of turn for each other attacking Goblin.)'],
   ['Grotag Bug-Catcher', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each creature in your party.)'],
   ['Hand That Feeds', 'trigger head not in the library (Whenever this creature attacks while there are four or more card types)'],
