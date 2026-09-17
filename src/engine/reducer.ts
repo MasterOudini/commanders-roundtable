@@ -307,6 +307,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     dashed: undefined,
     // D457 - a new object has exhausted nothing.
     exhausted: undefined,
+    // D489 - the suspend haste lasts while the permanent stays.
+    suspendHaste: undefined,
     // D453 - a new object is held by no Aura.
     controlledVia: undefined,
     // D411 - a new object owes no untap step.
@@ -548,6 +550,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
           // D449 - the keyword alternative the entering spell was cast for.
           ...(move.altKeyword === 'evoke' ? { evoked: true as const } : {}),
           ...(move.altKeyword === 'dash' ? { dashed: true as const } : {}),
+          // D489 - the exile that suspends marks the card; any move out of exile unmarks it; a suspend cast's entry
+          // carries the haste (CR 702.62).
+          ...(move.suspend ? { suspended: true as const } : {}),
+          ...(move.from.kind === 'exile' && card.suspended === true ? { suspended: undefined } : {}),
+          ...(move.suspendHaste ? { suspendHaste: true as const } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),

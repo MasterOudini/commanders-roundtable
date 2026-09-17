@@ -1984,6 +1984,11 @@ export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
 
+/** D489 - the suspend tick the special action arms (CR 702.62c): the exiled card itself. */
+export function suspendTickSpec(): EffectSpec {
+  return { ...BASE, kind: 'suspendTick', text: 'Remove a time counter from it.', targetIndex: -1, self: true };
+}
+
 export function selfRef(text: string, name: string): string {
   if (!name) return text;
   let out = text.split(name).join('~');

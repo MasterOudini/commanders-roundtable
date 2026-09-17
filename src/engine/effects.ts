@@ -18,6 +18,7 @@ import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
+import { suspendTickSpec } from '../data/effectParse';
 import { modeSpecs } from './modes';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
@@ -843,6 +844,52 @@ export function effectResult(
         break;
       }
 
+      // D489 - THE SUSPEND TICK (CR 702.62c/d): at the owner's upkeep a time counter comes off the exiled card; with
+      // the last gone the card is CAST without paying its mana cost - the free cast from exile: the card moves to the
+      // stack and a spell object goes on with nothing paid (`alternativePaid`; `suspended` for the haste the entry
+      // gives a creature, 702.62e), a cast like any other for the bus and the turn's memory. A card no longer
+      // suspended in exile (it left, or was cast some other way) ends the ticks; while counters remain the tick
+      // re-arms itself for the next upkeep. The id is fresh past every spell this batch already put on.
+      case 'suspendTick': {
+        if (!source) break;
+        const inst = state.cards[source];
+        if (!inst || inst.zone.kind !== 'exile' || inst.suspended !== true) break;
+        const oracleCard = deps.oracle.byPrinting(inst.printingId);
+        const face = oracleCard === undefined ? undefined : faceOf(oracleCard, 0);
+        if (oracleCard === undefined || face === undefined) break;
+        const had = inst.counters['time'] ?? 0;
+        if (had > 0) out.push({ t: 'CountersChanged', changes: [{ card: source, kind: 'time', delta: -1 }] });
+        if (had - 1 > 0) {
+          out.push({ t: 'DelayedTriggerArmed', trigger: suspendTick(state, source, inst.owner, face.name) });
+          out.push(narrated(`${face.name} — a time counter is removed (${had - 1} left).`, controller, oracleCard.colorIdentity));
+          break;
+        }
+        const made = out.filter((e) => e.t === 'SpellCast' || e.t === 'SpellCopied').length;
+        const spell: StackObject = {
+          id: `s${state.counters.stack + 1 + made}`,
+          kind: 'spell',
+          faceIndex: 0,
+          controller,
+          card: source,
+          source: null,
+          abilityRef: null,
+          targets: [],
+          modes: [],
+          xValue: null,
+          label: face.name,
+          identity: oracleCard.colorIdentity,
+          taxApplied: 0,
+          isCommanderCast: false,
+          castFrom: { kind: 'exile', player: inst.owner },
+          alternativePaid: true,
+          suspended: true,
+        };
+        out.push({ t: 'CardsMoved', moves: [{ card: source, from: { kind: 'exile', player: inst.owner }, to: { kind: 'stack', player: null } }] });
+        out.push({ t: 'SpellCast', obj: spell });
+        out.push(narrated(`${face.name} — the last time counter is removed: it is cast without paying its mana cost.`, controller, oracleCard.colorIdentity));
+        break;
+      }
+
       // D448 - unearth's delayed exile: the source, if it is still on the battlefield (it may have left for exile
       // already by the leave replacement - then nothing).
       case 'exileSelf': {
@@ -1656,6 +1703,24 @@ export function apnapPlayers(state: GameState, players: readonly PlayerId[]): Pl
  * chooser's own offer reads it), or every card in their hand. The host validates a pick against
  * exactly this list.
  */
+/**
+ * D489 - the suspend tick (CR 702.62c), a delayed trigger armed for the card owner's next upkeep (D402's shape - the
+ * fire runs its one clause over the card as the source); it re-arms itself while time counters remain. The id
+ * carries the turn, so each arming is its own entry.
+ */
+export function suspendTick(state: GameState, card: InstanceId, owner: PlayerId, name: string): DelayedTrigger {
+  return {
+    id: `${card}-suspend-${state.turn.turnNumber}`,
+    controller: owner,
+    source: card,
+    when: { step: 'upkeep', whose: 'controller' },
+    armedTurn: state.turn.turnNumber,
+    armedStep: state.turn.step,
+    effects: [suspendTickSpec()],
+    label: `${name} — suspend: remove a time counter`,
+  };
+}
+
 export function askCandidates(
   state: GameState,
   deps: EngineDeps,

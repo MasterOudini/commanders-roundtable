@@ -278683,6 +278683,285 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RIFT_SOWER": {
+    "scryfallId": "97dbd212-f1e8-429a-bf00-b2ea966d880e",
+    "oracleId": "f9deeea1-bf80-4832-aac3-373fc1f4b41d",
+    "name": "Rift Sower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rift Sower",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "{T}: Add one mana of any color.\nSuspend 2—{G} (Rather than cast this card from your hand, you may pay {G} and exile it with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "97dbd212-f1e8-429a-bf00-b2ea966d880e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KELDON_HALBERDIER": {
+    "scryfallId": "0740d140-65e8-46ab-aeac-8ec96f025fcb",
+    "oracleId": "a1472a2d-e6f7-4d65-8bb2-4ecfae2d2764",
+    "name": "Keldon Halberdier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keldon Halberdier",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "First strike\nSuspend 4—{R} (Rather than cast this card from your hand, you may pay {R} and exile it with four time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "0740d140-65e8-46ab-aeac-8ec96f025fcb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "First strike",
+      "Suspend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "IMA-135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOTUS_BLOOM": {
+    "scryfallId": "030b7ddc-dcf0-433a-b09e-27f117430e7b",
+    "oracleId": "04cf02dc-f053-414e-87d8-1537f25bcbf4",
+    "name": "Lotus Bloom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lotus Bloom",
+        "manaCost": "",
+        "typeLine": "Artifact",
+        "oracleText": "Suspend 3—{0} (Rather than cast this card from your hand, pay {0} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\n{T}, Sacrifice this artifact: Add three mana of any one color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Zug",
+        "imageId": "030b7ddc-dcf0-433a-b09e-27f117430e7b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "TSP-259",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DURKWOOD_BALOTH": {
+    "scryfallId": "5f638803-0985-40b9-9b59-a7de6dd48721",
+    "oracleId": "1732cd31-1393-426f-a2fe-9b6b3f27136b",
+    "name": "Durkwood Baloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Durkwood Baloth",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Suspend 5—{G} (Rather than cast this card from your hand, you may pay {G} and exile it with five time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "5f638803-0985-40b9-9b59-a7de6dd48721"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "IMA-160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATRAXI_WARDEN": {
+    "scryfallId": "03868f8d-1f1b-4892-abb0-be2b00fc2ba7",
+    "oracleId": "5f31a2d6-649a-40f4-89ce-95c635340e9e",
+    "name": "Atraxi Warden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Atraxi Warden",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Alien Eye",
+        "oracleText": "Flying\nWhen this creature enters, exile up to one target tapped creature.\nSuspend 5—{1}{W} (Rather than cast this card from your hand, you may pay {1}{W} and exile it with five time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "03868f8d-1f1b-4892-abb0-be2b00fc2ba7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Suspend"
+    ],
+    "setCode": "who",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIFTWING_CLOUDSKATE": {
+    "scryfallId": "1a2b228d-db4d-44a3-b208-6cf7a9f57da6",
+    "oracleId": "ae2e6ffd-fb93-4c47-88e7-e84460eefbe5",
+    "name": "Riftwing Cloudskate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riftwing Cloudskate",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "Flying\nWhen this creature enters, return target permanent to its owner's hand.\nSuspend 3—{1}{U} (Rather than cast this card from your hand, you may pay {1}{U} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "1a2b228d-db4d-44a3-b208-6cf7a9f57da6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Suspend"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADE_OF_TROKAIR": {
+    "scryfallId": "2b90d62c-5b3e-4830-bdc9-c3e342fc8389",
+    "oracleId": "61834b70-1b3e-49e6-aaf4-ee7d72155e51",
+    "name": "Shade of Trokair",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shade of Trokair",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Shade",
+        "oracleText": "{W}: This creature gets +1/+1 until end of turn.\nSuspend 3—{W} (Rather than cast this card from your hand, you may pay {W} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "William O'Connor",
+        "imageId": "2b90d62c-5b3e-4830-bdc9-c3e342fc8389"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "plc",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VISCERID_DEEPWALKER": {
+    "scryfallId": "bc8204d7-cf65-4965-a4f3-7487f6c4610e",
+    "oracleId": "9dea848b-d758-46d0-829d-b096061fd460",
+    "name": "Viscerid Deepwalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viscerid Deepwalker",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Homarid Warrior",
+        "oracleText": "{U}: This creature gets +1/+0 until end of turn.\nSuspend 4—{U} (Rather than cast this card from your hand, you may pay {U} and exile it with four time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "bc8204d7-cf65-4965-a4f3-7487f6c4610e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Suspend"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "TSP-91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

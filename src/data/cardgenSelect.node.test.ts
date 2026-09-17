@@ -788,6 +788,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nesting Dovehawk', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
   ['Vitu-Ghazi Guildmage', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
   ['Xavier Sal, Infested Captain', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  // D489 - suspend: the four the seam made offerable and the row maker refused.
+  ['Ith, High Arcanist', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by that creature this turn. (D489)'],
+  ['Nantuko Shaman', 'an intervening if the armed board already meets (not this wave): you control no tapped lands (D489)'],
+  ['Watcher of Hours', "trigger head not in the library (a tick in exile, D489): Whenever you remove a time counter from this card while it's exiled, surveil 1."],
+  ['Dinosaurs on a Spaceship', "trigger head not in the library (a tick in exile, D489): Whenever a time counter is removed from this card while it's exiled, create a 2/2 red and white Dinosaur creature token with flying and haste."],
   ['Goblin Piledriver', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +2/+0 until end of turn for each other attacking Goblin.)'],
   ['Grotag Bug-Catcher', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each creature in your party.)'],
   ['Hand That Feeds', 'trigger head not in the library (Whenever this creature attacks while there are four or more card types)'],

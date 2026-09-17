@@ -220,6 +220,10 @@ export interface CardInstance {
    * (`undefined` is admitted explicitly: the reset writes it, and the hash drops it.)
    */
   readonly kicked?: number | undefined;
+  /** D489 - suspended in exile (CR 702.62): the upkeep tick reads it; cleared by the move that takes the card out of exile. */
+  readonly suspended?: true | undefined;
+  /** D489 - entered from a suspend cast: a creature has haste while it stays (702.62e); cleared as it leaves the battlefield. */
+  readonly suspendHaste?: true | undefined;
   /**
    * D449 - the keyword alternative cost this permanent's spell was cast for: evoke (sacrificed as it enters,
    * by the keyword trigger) or dash (haste; returned to hand at the next end step). Cleared on entry like
@@ -422,6 +426,8 @@ export interface StackObject {
   readonly additionalPaid?: number;
   /** D408 - the spell was cast for its ALTERNATIVE cost (the mana cost replaced). */
   readonly alternativePaid?: true;
+  /** D489 - cast from exile by the suspend tick without paying its mana cost (CR 702.62d); the entry stamps `suspendHaste`. */
+  readonly suspended?: true;
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /

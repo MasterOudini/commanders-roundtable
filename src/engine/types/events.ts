@@ -59,6 +59,10 @@ export interface CardMove {
   readonly kicked?: number;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
   readonly altKeyword?: 'evoke' | 'dash';
+  /** D489 - the exile that SUSPENDS the card (CR 702.62a): the reducer marks it for the upkeep tick. */
+  readonly suspend?: true;
+  /** D489 - the entry from a suspend cast: a creature has haste while it stays (702.62e). */
+  readonly suspendHaste?: true;
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**

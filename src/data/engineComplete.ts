@@ -447,6 +447,15 @@ export function enchantSpecRuns(spec: TargetSpec): boolean {
 }
 
 /** D304 - the Enchant line of an Aura whose one target is a spec the engine enforces. */
+/**
+ * D489 - the engine RUNS a face's suspend (CR 702.62) only where the free cast the tick begins needs no question: no
+ * target, no mode, no X, no additional cost - a suspended Rift Bolt would have to be aimed, and the tick cannot ask.
+ * Asked by the accounting and by the Tier-3 disclosure alike (D134: one reader).
+ */
+export function suspendRuns(face: OracleFace): boolean {
+  return face.suspend !== null && face.targets.length === 0 && !face.modal && (face.manaCost === null || face.manaCost.xCount === 0) && face.additionalCost === null;
+}
+
 export function enchantLineRuns(line: string, face: OracleFace): boolean {
   if (!/^enchant\b/i.test(line)) return false;
   if (parseEnchant(line) === null) return false;
@@ -566,6 +575,8 @@ export function linesUnaccounted(
     // D307 - a Flashback line the engine RUNS (cast from the graveyard for
     // that cost, exiled on leaving the stack). Asked of the parser that read it.
     if (face.flashbackCost !== null && /^Flashback (?:\{[^}]+\})+$/.test(line)) continue;
+    // D489 - suspend: the engine's line only where the free cast needs no question (`suspendRuns`).
+    if (face.suspend !== null && /^Suspend \d+[—-](?:\{[^}]+\})+$/.test(line) && suspendRuns(face)) continue;
     // D422 - `This spell can't be countered.` the engine HONOURS (the counter funnel reads the face). Asked of the
     // parser that set the flag, never re-read here.
     if (face.cantBeCountered && line === "This spell can't be countered.") continue;

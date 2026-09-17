@@ -9118,6 +9118,17 @@ const WANTED = [
   "Trostani's Judgment",
   'Sundering Growth',
   "Horncaller's Chant",
+  // D489 - suspend: the seam fixtures (four suspend cards).
+  'Rift Sower',
+  'Keldon Halberdier',
+  'Lotus Bloom',
+  'Durkwood Baloth',
+  // D489 - suspend: the rows the seam made offerable (the other abilities of four suspend cards).
+  'Atraxi Warden',
+  'Riftwing Cloudskate',
+  'Shade of Trokair',
+  'Viscerid Deepwalker',
+  // D489 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

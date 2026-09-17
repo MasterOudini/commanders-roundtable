@@ -599,6 +599,8 @@ export type EffectKind =
   | 'copySpell'
   /** D488 - POPULATE (CR 701.31): a token that is a copy of a creature token the controller controls, their choice. */
   | 'populate'
+  /** D489 - the suspend tick (CR 702.62c/d): a time counter off the exiled card; with the last gone, the free cast. */
+  | 'suspendTick'
   | 'bounce'
   | 'pump'
   /**
@@ -1714,6 +1716,14 @@ export interface OracleFace {
    * "Flashback-<other cost>" stays null.
    */
   readonly flashbackCost: ManaCost | null;
+  /**
+   * D489 - `Suspend N—{cost}` on its own line (CR 702.62), or null: a special action from the hand any time the card
+   * could be cast - pay the cost, exile it with N time counters; at each of its owner's upkeeps one comes off, and
+   * with the last gone the card is cast without paying its mana cost (a creature has haste while it stays). The line
+   * is the engine's only for a face the free cast needs no question for (no target, no mode, no X, no additional
+   * cost) - the accounting says so.
+   */
+  readonly suspend: { readonly count: number; readonly cost: ManaCost } | null;
   /**
    * D422 - `This spell can't be countered.` printed on a SPELL face (CR 701.5a: countering it does nothing).
    * A permanent's line is its script's (`CardScript.cantBeCountered`, D336); a spell has no script, so the

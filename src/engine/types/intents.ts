@@ -104,6 +104,16 @@ export type Intent =
       readonly plan?: PaymentPlan;
     }
   /**
+   * D489 - SUSPEND (CR 702.62a): a special action from the hand, any time the card could be cast - the suspend cost
+   * paid (a plan, or the solver's), the card exiled with N time counters. No stack, nothing to respond to.
+   */
+  | {
+      readonly t: 'Suspend';
+      readonly player: PlayerId;
+      readonly card: InstanceId;
+      readonly plan?: PaymentPlan;
+    }
+  /**
    * Activating a non-mana ability of a permanent you control. Mana abilities go
    * through `TapForMana` instead and never use the stack (CR 605).
    *

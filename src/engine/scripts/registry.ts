@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ATRAXI_WARDEN_SCRIPT } from './cards/atraxiWarden';
+import { RIFTWING_CLOUDSKATE_SCRIPT } from './cards/riftwingCloudskate';
+import { SHADE_OF_TROKAIR_SCRIPT } from './cards/shadeOfTrokair';
+import { VISCERID_DEEPWALKER_SCRIPT } from './cards/visceridDeepwalker';
 import { HOMUNCULUS_HORDE_SCRIPT } from './cards/homunculusHorde';
 import { SPAWNWRITHE_SCRIPT } from './cards/spawnwrithe';
 import { POLYRAPTOR_SCRIPT } from './cards/polyraptor';
@@ -7575,6 +7579,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ATRAXI_WARDEN_SCRIPT,
+  RIFTWING_CLOUDSKATE_SCRIPT,
+  SHADE_OF_TROKAIR_SCRIPT,
+  VISCERID_DEEPWALKER_SCRIPT,
   HOMUNCULUS_HORDE_SCRIPT,
   SPAWNWRITHE_SCRIPT,
   POLYRAPTOR_SCRIPT,

@@ -42,7 +42,8 @@ import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { enchantSpecRuns, SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, unaccountedLines } from './engineComplete';
+import { enchantSpecRuns, SHIPPED_ACTIVATED_REFS, SHIPPED_SPELL_ORACLES, suspendRuns, unaccountedLines } from './engineComplete';
+import { parseFace } from './oracleParse';
 
 export interface Tier3Note {
   /** Short label, e.g. "Crew". */
@@ -383,6 +384,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'scavenge' && abilities.some((a) => a.scavenge !== undefined)) continue;
     // D448 - an Unearth the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'unearth' && abilities.some((a) => a.unearth !== undefined)) continue;
+    // D489 - a Suspend the engine runs (the free cast needs no question, `suspendRuns`) is no note either.
+    if (raw.trim().toLowerCase() === 'suspend' && suspendRuns(parseFace(card, faceIndex))) continue;
     // D451 - a Reinforce the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'reinforce' && abilities.some((a) => a.reinforce !== undefined)) continue;
     // D462 - a Ninjutsu the engine runs is no note either.

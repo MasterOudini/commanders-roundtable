@@ -571,6 +571,22 @@ export function parseAltCosts(oracleText: string): { convoke: boolean; improvise
   return out;
 }
 
+/**
+ * D489 - `Suspend N—{cost}` on its own line (reminder text aside), CR 702.62: the count of time counters and the
+ * cost the special action pays. A dash cost or a wording without a count stays null.
+ */
+export function parseSuspend(oracleText: string, warn: Warn = NOOP_WARN): { readonly count: number; readonly cost: ManaCost } | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Suspend (\d+)[—-]((?:\{[^}]+\})+)$/.exec(line);
+    if (!m) continue;
+    const cost = parseManaCost(m[2] ?? '', warn);
+    const count = Number(m[1]);
+    return cost === null || !Number.isFinite(count) || count < 1 ? null : { count, cost };
+  }
+  return null;
+}
+
 export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -1226,6 +1242,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     instantSpeed: typeLine.types.includes('Instant') || keywords.includes('flash'),
     wardCost,
     flashbackCost,
+    suspend: parseSuspend(face.oracleText, warn),
     cantBeCountered,
     kickerCost: kicked.kicker,
     multikickerCost: kicked.multikicker,

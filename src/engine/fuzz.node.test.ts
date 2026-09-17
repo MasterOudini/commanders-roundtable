@@ -437,6 +437,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // with other creature tokens about the driver is asked which (the D390 queue's question, its own verb).
   { names: ['Eyes in the Skies'], copiesPerSeat: 2,
     counterKeys: ['populates'], rotHistory: 'D488' },
+  // D489 - suspend (CR 702.62): two Rift Sowers a seat (`Suspend 2—{G}`; a 2/2 Elf Druid for {2}{G}) - the driver
+  // suspends when the offer is affordable, the tick fires at its next two upkeeps, and the free cast follows.
+  { names: ['Rift Sower'], copiesPerSeat: 2,
+    counterKeys: ['suspends'], rotHistory: 'D489' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1179,7 +1183,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   };
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'));
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'));
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
   // uniform pick over every usable action reached a kicked Ardent Soldier once in sixty seeds, and the kicked
   // ENTRY canary rotted to 0 over 500. The plain branch stays the early turns' (the kick unaffordable).
@@ -1226,6 +1230,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
+    case 'Suspend':
+      // D489 - the special action: pay the suspend cost, exile the card with its time counters.
+      return { t: 'Suspend', player: holder, card: chosen.card };
     case 'TapForMana':
       return {
         t: 'TapForMana',
@@ -1419,6 +1426,10 @@ interface Run {
   readonly spellsCopied: number;
   /** D488 - populates (the `Populated` marker beside each token copy, CR 701.31). */
   readonly populates: number;
+  /** D489 - cards suspended (the exile move that marks them, CR 702.62a). */
+  readonly suspends: number;
+  /** D489 - spells the suspend tick cast without paying (`StackObject.suspended`, CR 702.62d). */
+  readonly suspendCasts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1865,6 +1876,8 @@ function runOne(seed: number): Run {
     clonesEntered: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.asCopyOf !== undefined)).length,
     spellsCopied: game.log.filter((e) => e.body.t === 'SpellCopied').length,
     populates: game.log.filter((e) => e.body.t === 'Populated').length,
+    suspends: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.suspend === true)).length,
+    suspendCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.suspended === true).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2143,6 +2156,8 @@ const TOTAL_KEYS = [
   'clonesEntered',
   'spellsCopied',
   'populates',
+  'suspends',
+  'suspendCasts',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2558,6 +2573,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.spellsCopied).toBeGreaterThan(0);
         // D488 - a populate at gate size (Eyes in the Skies, two a seat: its own Bird is always there to copy).
         expect(totals.populates).toBeGreaterThan(0);
+        // D489 - a suspend at gate size (Rift Sower, two a seat); the free cast two upkeeps later is reported.
+        expect(totals.suspends).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2670,6 +2687,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.clonesEntered} clones · ` +
           `${totals.spellsCopied} spell copies · ` +
           `${totals.populates} populates · ` +
+          `${totals.suspends}/${totals.suspendCasts} suspends/suspend casts · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

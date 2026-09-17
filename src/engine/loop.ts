@@ -900,6 +900,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.kicked !== undefined && obj.kicked > 0 ? { kicked: obj.kicked } : {}),
           // D449 - and the keyword alternative cost it was cast for (evoke / dash).
           ...(obj.alternativePaid && face?.alternativeCost?.keyword !== undefined ? { altKeyword: face.alternativeCost.keyword } : {}),
+          // D489 - a suspend cast's entry: a creature has haste while it stays (CR 702.62e).
+          ...(obj.suspended ? { suspendHaste: true as const } : {}),
         },
       ],
     });

@@ -166,6 +166,14 @@ export type LegalAction =
       readonly costText: string;
       readonly label: string;
     }
+  | {
+      /** D489 - suspend a card from the hand for its suspend cost (a special action, CR 702.62a). */
+      readonly t: 'Suspend';
+      readonly card: InstanceId;
+      readonly affordable: boolean;
+      readonly costText: string;
+      readonly label: string;
+    }
   | { readonly t: 'PassPriority' };
 
 /** D309 - the cost of casting any card face down (CR 702.37a). */
@@ -242,6 +250,17 @@ export function legalActions(
           hasX: false,
           label: `${face.name} (face down)`,
           faceDown: true,
+        });
+      }
+      // D489 - SUSPEND (CR 702.62a): a special action from the hand, any time the card could be CAST (the timing, not
+      // the mana): the suspend cost paid, the card exiled with N time counters. Offered beside the cast, no stack.
+      if (faceIndex === 0 && face.suspend !== null && !face.isLand && (face.instantSpeed || sorcerySpeed)) {
+        out.push({
+          t: 'Suspend',
+          card: id,
+          affordable: affordable(context.solve, buildPaymentProblem(face.suspend.cost, 0, [], 0), OTHER_PURPOSE),
+          costText: face.suspend.cost.raw,
+          label: `Suspend ${face.name}`,
         });
       }
       if (face.isLand) {

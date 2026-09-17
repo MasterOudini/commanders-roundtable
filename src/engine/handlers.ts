@@ -48,7 +48,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -113,6 +113,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return payCast(state, intent, deps);
     case 'TurnFaceUp':
       return turnFaceUp(state, intent, deps);
+    case 'Suspend':
+      return suspend(state, intent, deps);
     case 'CancelPendingCast':
       return cancelPendingCast(state, intent.player);
     case 'TapForMana':
@@ -834,6 +836,60 @@ function prepareCast(
 // and it turns face up - no stack, nothing to respond to. A megamorph adds a
 // +1/+1 counter as it turns (CR 702.37e). The payment is the same staged plan a
 // cast pays with, checked by the same validator.
+/**
+ * D489 - SUSPEND (CR 702.62a): a special action from the hand, taken any time the card could be cast (the timing, not
+ * the mana - a sorcery-speed card on the player's own main phase with an empty stack, an instant any time they hold
+ * priority): the suspend cost is paid as the morph cost is (D309 - a plan, or the solver's), and the card goes to
+ * exile with N time counters and the mark the upkeep tick reads. The tick is a delayed trigger armed for the owner's
+ * next upkeep (D402's shape) carrying one `suspendTick` clause; it re-arms itself while counters remain.
+ */
+function suspend(state: GameState, intent: Extract<Intent, { t: 'Suspend' }>, deps: EngineDeps): HandleResult {
+  const card = state.cards[intent.card];
+  if (!card) return reject('noSuchCard', 'That card is not in the game.');
+  if (card.zone.kind !== 'hand' || card.zone.player !== intent.player) return reject('wrongZone', 'That card is not in your hand.');
+  const oracleCard = deps.oracle.byPrinting(card.printingId);
+  if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
+  const face = faceOf(oracleCard, 0);
+  if (face.suspend === null) return reject('notCastable', `${face.name} has no suspend cost.`);
+  if (state.priority.player !== intent.player || state.priority.awaiting !== null) {
+    return reject('notYourPriority', 'You do not have priority.');
+  }
+  if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
+  if (!face.instantSpeed && !canActAtSorcerySpeed(state, intent.player)) {
+    return reject('notCastable', `${face.name} could not be cast now, so it cannot be suspended now.`);
+  }
+  const problem = buildPaymentProblem(face.suspend.cost, 0, [], 0);
+  const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
+  // D397 - a special action (CR 702.62a), neither a spell nor an ability: restricted mana never pays it.
+  const chosen = intent.plan ?? suggestPayment(solve, problem, OTHER_PURPOSE);
+  if (!chosen) return reject('cannotAfford', `You cannot pay ${face.suspend.cost.raw} to suspend ${face.name}.`);
+  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
+  if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
+  if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+  const events: EventBody[] = [];
+  events.push(
+    ...payEvents(state, deps, intent.player, chosen, {
+      problem,
+      face,
+      tax: 0,
+      from: { kind: 'hand', player: intent.player },
+      identity: oracleCard.colorIdentity,
+    }, OTHER_PURPOSE),
+  );
+  events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'hand', player: intent.player }, to: { kind: 'exile', player: card.owner }, suspend: true }] });
+  events.push({ t: 'CountersChanged', changes: [{ card: intent.card, kind: 'time', delta: face.suspend.count }] });
+  events.push({ t: 'DelayedTriggerArmed', trigger: suspendTick(state, intent.card, card.owner, face.name) });
+  events.push(
+    narrated(
+      n`${who(state, intent.player)} ${vb(intent.player, 'suspends', 'suspend')} ${face.name} with ${String(face.suspend.count)} time counters.`,
+      intent.player,
+      oracleCard.colorIdentity,
+    ),
+  );
+  events.push(...retainPriority(intent.player, state.stack.length));
+  return accept(events);
+}
+
 function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' }>, deps: EngineDeps): HandleResult {
   const card = state.cards[intent.card];
   if (!card) return reject('noSuchCard', 'That card is not in the game.');

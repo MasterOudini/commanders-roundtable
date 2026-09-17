@@ -8241,6 +8241,14 @@ export const DRUID_S_DELIVERANCE: CardData = F.DRUID_S_DELIVERANCE as CardData;
 export const TROSTANI_S_JUDGMENT: CardData = F.TROSTANI_S_JUDGMENT as CardData;
 export const SUNDERING_GROWTH: CardData = F.SUNDERING_GROWTH as CardData;
 export const HORNCALLER_S_CHANT: CardData = F.HORNCALLER_S_CHANT as CardData;
+export const RIFT_SOWER: CardData = F.RIFT_SOWER as CardData;
+export const KELDON_HALBERDIER: CardData = F.KELDON_HALBERDIER as CardData;
+export const LOTUS_BLOOM: CardData = F.LOTUS_BLOOM as CardData;
+export const DURKWOOD_BALOTH: CardData = F.DURKWOOD_BALOTH as CardData;
+export const ATRAXI_WARDEN: CardData = F.ATRAXI_WARDEN as CardData;
+export const RIFTWING_CLOUDSKATE: CardData = F.RIFTWING_CLOUDSKATE as CardData;
+export const SHADE_OF_TROKAIR: CardData = F.SHADE_OF_TROKAIR as CardData;
+export const VISCERID_DEEPWALKER: CardData = F.VISCERID_DEEPWALKER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16699,6 +16707,14 @@ export const ENGINE_CARDS: CardData[] = [
   TROSTANI_S_JUDGMENT,
   SUNDERING_GROWTH,
   HORNCALLER_S_CHANT,
+  RIFT_SOWER,
+  KELDON_HALBERDIER,
+  LOTUS_BLOOM,
+  DURKWOOD_BALOTH,
+  ATRAXI_WARDEN,
+  RIFTWING_CLOUDSKATE,
+  SHADE_OF_TROKAIR,
+  VISCERID_DEEPWALKER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
