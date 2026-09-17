@@ -274881,6 +274881,764 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CORPSES_OF_THE_LOST": {
+    "scryfallId": "0881c6b6-105e-47cc-9c4b-e5753e044b3e",
+    "oracleId": "78bac92f-333f-4c43-bccf-03c3772ee99b",
+    "name": "Corpses of the Lost",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corpses of the Lost",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Skeletons you control get +1/+0 and have haste.\nWhen this enchantment enters, create a 2/2 black Skeleton Pirate creature token.\nAt the beginning of your end step, if you descended this turn, you may pay 1 life. If you do, return this enchantment to its owner's hand. (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Izzy",
+        "imageId": "0881c6b6-105e-47cc-9c4b-e5753e044b3e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plci",
+    "collectorNumber": "98p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIOGENIC_OOZE": {
+    "scryfallId": "0e850205-d010-49af-b68b-262360751b70",
+    "oracleId": "d2d84ba5-0d20-4ce3-8f1f-93cd9ef94f5f",
+    "name": "Biogenic Ooze",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Biogenic Ooze",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Ooze",
+        "oracleText": "When this creature enters, create a 2/2 green Ooze creature token.\nAt the beginning of your end step, put a +1/+1 counter on each Ooze you control.\n{1}{G}{G}{G}: Create a 2/2 green Ooze creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "James Bousema",
+        "imageId": "0e850205-d010-49af-b68b-262360751b70"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tmc",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGENT_PHIL_COULSON": {
+    "scryfallId": "1383e587-df58-4b45-9067-b9399e90b9ed",
+    "oracleId": "dae20bcd-dc24-4f9d-9400-a6f013b49f14",
+    "name": "Agent Phil Coulson",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agent Phil Coulson",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Spy Hero",
+        "oracleText": "Vigilance\n{T}: Put a +1/+1 counter on each other Hero you control.",
+        "flavorText": "\"The big guns are in flight. Agent 13, what's your status?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marc Aspinall",
+        "imageId": "1383e587-df58-4b45-9067-b9399e90b9ed"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OGRE_SLUMLORD": {
+    "scryfallId": "2373e57c-01bb-4d49-94ad-b9ff75335cb7",
+    "oracleId": "0a5e3748-2e58-4e53-9653-8af4e21cf223",
+    "name": "Ogre Slumlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ogre Slumlord",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Ogre Rogue",
+        "oracleText": "Whenever another nontoken creature dies, you may create a 1/1 black Rat creature token.\nRats you control have deathtouch.",
+        "flavorText": "\"His tenement is filled with the most vile, disgusting vermin. It's infested with rats, too.\"\n—Branko One-Ear",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "2373e57c-01bb-4d49-94ad-b9ff75335cb7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADELIZ_THE_CINDER_WIND": {
+    "scryfallId": "2622a06f-decc-4b8e-911c-ff106051bc36",
+    "oracleId": "850eb3c3-029b-49b0-91a9-6daeb1b3a9e8",
+    "name": "Adeliz, the Cinder Wind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adeliz, the Cinder Wind",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Legendary Creature — Human Wizard",
+        "oracleText": "Flying, haste\nWhenever you cast an instant or sorcery spell, Wizards you control get +1/+1 until end of turn.",
+        "flavorText": "The passionate intensity of the Ghitu tempered by the cool insight of Tolarian training.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "2622a06f-decc-4b8e-911c-ff106051bc36"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "pdom",
+    "collectorNumber": "190s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SETHRON_HURLOON_GENERAL": {
+    "scryfallId": "274cdb39-1454-4c9b-acd8-4f762a48e71f",
+    "oracleId": "561c1ce9-41e7-474a-9476-bb9a7d24f0d5",
+    "name": "Sethron, Hurloon General",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sethron, Hurloon General",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Legendary Creature — Minotaur Warrior",
+        "oracleText": "Whenever Sethron or another nontoken Minotaur you control enters, create a 2/3 red Minotaur creature token.\n{2}{B/R}: Minotaurs you control get +1/+0 and gain menace and haste until end of turn. ({B/R} can be paid with either {B} or {R}.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "274cdb39-1454-4c9b-acd8-4f762a48e71f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEBOP_WARTHOG_WARRIOR": {
+    "scryfallId": "371ba16d-73f7-450c-8b1f-c05012a4ca93",
+    "oracleId": "39c813e1-0e26-440a-b9bd-e781f7576b8b",
+    "name": "Bebop, Warthog Warrior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bebop, Warthog Warrior",
+        "manaCost": "{4}{B}",
+        "typeLine": "Legendary Creature — Boar Mutant Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nRhinos you control have menace.\nSwampcycling {2} ({2}, Discard this card: Search your library for a Swamp card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "April Prime",
+        "imageId": "371ba16d-73f7-450c-8b1f-c05012a4ca93"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Landcycling",
+      "Menace",
+      "Typecycling",
+      "Cycling",
+      "Swampcycling"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SESHIRO_THE_ANOINTED": {
+    "scryfallId": "3823e561-5a0a-4020-9322-a2b481499807",
+    "oracleId": "54fc373e-157f-4157-b7dd-74d689f4c0f9",
+    "name": "Seshiro the Anointed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seshiro the Anointed",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Creature — Snake Monk",
+        "oracleText": "Other Snake creatures you control get +2/+2.\nWhenever a Snake you control deals combat damage to a player, you may draw a card.",
+        "flavorText": "His family was the first to reach out to the human monks. He soon knew as many koans as he did blade strikes.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "3823e561-5a0a-4020-9322-a2b481499807"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARNO_DORIAN": {
+    "scryfallId": "41142b10-a493-499a-9fc5-043eeca5d1ee",
+    "oracleId": "ae90daea-6644-4235-bca6-b94ee9925f63",
+    "name": "Arno Dorian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arno Dorian",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Deathtouch\nOther Assassins you control get +2/+0.\nDisguise {B}{R} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": "\"The Creed is a warning. Ideals too easily give way to dogma. Dogma becomes fanaticism.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Narendra Bintara Adi",
+        "imageId": "41142b10-a493-499a-9fc5-043eeca5d1ee"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise",
+      "Deathtouch"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADOW_RITE_PRIEST": {
+    "scryfallId": "50e816ac-679c-4305-80f8-33278e9371c5",
+    "oracleId": "cf42a7e3-71ee-40b8-a6ca-0368c746e128",
+    "name": "Shadow-Rite Priest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shadow-Rite Priest",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Other Clerics you control get +1/+1.\n{3}{B}{B}, {T}, Sacrifice another Cleric: Search your library for a black creature card, put it onto the battlefield, then shuffle.",
+        "flavorText": "Backstabbing is common within demonic cults. So are front- and side-stabbing.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "50e816ac-679c-4305-80f8-33278e9371c5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pdmu",
+    "collectorNumber": "106s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRESTED_SUNMARE": {
+    "scryfallId": "668eae14-fead-4264-9e16-a63a7815c954",
+    "oracleId": "054fedbb-062e-491e-9a94-594fda33094f",
+    "name": "Crested Sunmare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crested Sunmare",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Horse",
+        "oracleText": "Other Horses you control have indestructible.\nAt the beginning of each end step, if you gained life this turn, create a 5/5 white Horse creature token.",
+        "flavorText": "\"It is evidence that some pure corner of the world must still exist.\"\n—Djeru, former Tah-crop initiate",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "668eae14-fead-4264-9e16-a63a7815c954"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "HOU-6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEMPALM_SORCERER": {
+    "scryfallId": "67bda65b-2e26-4531-9f6a-952df314c8f7",
+    "oracleId": "c3162232-b713-44be-b2af-29d801279ab2",
+    "name": "Gempalm Sorcerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gempalm Sorcerer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard Sorcerer",
+        "oracleText": "Cycling {2}{U} ({2}{U}, Discard this card: Draw a card.)\nWhen you cycle this card, Wizard creatures gain flying until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "67bda65b-2e26-4531-9f6a-952df314c8f7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINWU_WHITE_MAGE": {
+    "scryfallId": "6822144f-f0eb-4e10-a217-52cad36d2973",
+    "oracleId": "31ca9e12-8ad0-472e-8b2a-b7df26370d8c",
+    "name": "Minwu, White Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Minwu, White Mage",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "Vigilance, lifelink\nWhenever you gain life, put a +1/+1 counter on each Cleric you control.",
+        "flavorText": "\"I shall remain here and devote myself to the care of the wounded.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "6822144f-f0eb-4e10-a217-52cad36d2973"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Lifelink",
+      "Vigilance"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODSTOKE_HOWLER": {
+    "scryfallId": "743779d4-fee8-4b8d-a5ac-27f355e006e5",
+    "oracleId": "41fa3954-119b-4ff2-ad56-9105482f6b7c",
+    "name": "Bloodstoke Howler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodstoke Howler",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Morph {6}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, Beast creatures you control get +3/+0 until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "743779d4-fee8-4b8d-a5ac-27f355e006e5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "lgn",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOCTOR_SPECTRUM": {
+    "scryfallId": "7e91d0b2-b67b-473e-b028-0bcf2ca55971",
+    "oracleId": "fad80e75-8d08-4a0b-a05e-14f4c96947bf",
+    "name": "Doctor Spectrum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doctor Spectrum",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "Flying\nWhen Doctor Spectrum enters, choose one —\n• Create a 0/4 colorless Wall creature token with defender.\n• Put a +1/+1 counter on each other Hero you control.\n• Destroy target enchantment.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eglė Mosakaitė",
+        "imageId": "7e91d0b2-b67b-473e-b028-0bcf2ca55971"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "590",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZARDA_THE_POWER_PRINCESS": {
+    "scryfallId": "f99b7504-a743-4923-becf-37b5759487b8",
+    "oracleId": "c7b158b9-19f7-47b6-a97c-74023dfe73b9",
+    "name": "Zarda, the Power Princess",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zarda, the Power Princess",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Hero",
+        "oracleText": "Flying\nOther Heroes you control have exalted. (Whenever a creature you control attacks alone, it gets +1/+1 until end of turn for each instance of exalted among permanents you control.)",
+        "flavorText": "\"We Utopians don't just dream of a better world, we make the world better.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Darius Zablockis",
+        "imageId": "f99b7504-a743-4923-becf-37b5759487b8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "615",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARMORED_WARHORSE": {
+    "scryfallId": "52daf505-d436-4ea6-a157-4268af2ff7a8",
+    "oracleId": "29233aa4-3fa0-4074-ad0f-c8e7101052f3",
+    "name": "Armored Warhorse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Armored Warhorse",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Horse",
+        "oracleText": "",
+        "flavorText": "\"When we of the Northern Verge claim a mount, no peasant's nag will do. It must be as strong as our virtue, and must join us of its own will.\"\n—Sarlena, paladin of the Northern Verge",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "rk post",
+        "imageId": "52daf505-d436-4ea6-a157-4268af2ff7a8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUVIAN_BARBARIANS": {
+    "scryfallId": "46092f3f-7ef9-4967-b47b-40747a8cf37d",
+    "oracleId": "23720758-f572-45e3-9bec-f6d3b974d7f5",
+    "name": "Balduvian Barbarians",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balduvian Barbarians",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Human Barbarian",
+        "oracleText": "",
+        "flavorText": "\"From the snowy slopes of Kaelor,\nTo the canyons of Bandu,\nWe drink and fight and feast and die\nAs we were born to do.\"\n—Balduvian tavern song",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "46092f3f-7ef9-4967-b47b-40747a8cf37d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABAL_EVANGEL": {
+    "scryfallId": "d218d2a2-bb5d-4ea8-a131-341c574410b2",
+    "oracleId": "a4fed66f-ef3c-4547-8612-46e65d63ef1f",
+    "name": "Cabal Evangel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabal Evangel",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "",
+        "flavorText": "\"All hail the Demonlord Belzenlok, Evincar of the Stronghold, Scion of Darkness, Doom of Fools, Lord of the Wastes, Master of the Ebon Hand, Eternal Patriarch of the Cabal . . .\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "d218d2a2-bb5d-4ea8-a131-341c574410b2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RHOX_BRUTE": {
+    "scryfallId": "237de286-5bf0-4c8e-8504-2d01d3133b55",
+    "oracleId": "c497c4f2-62c5-44fc-b485-f8d40868d8dc",
+    "name": "Rhox Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rhox Brute",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Rhino Warrior",
+        "oracleText": "",
+        "flavorText": "\"In this new world, I have seen the once-devout rhoxes take up arms with the savages of Jund. I would be offended, but I see the wisdom in their choice.\"\n—Gernan, Dawnray archer",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "237de286-5bf0-4c8e-8504-2d01d3133b55"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKELETAL_SNAKE": {
+    "scryfallId": "42bd4896-4191-4479-be57-070753f8725c",
+    "oracleId": "7af786a0-0851-4f87-ad0d-36b40527700c",
+    "name": "Skeletal Snake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skeletal Snake",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Snake Skeleton",
+        "oracleText": "",
+        "flavorText": "They watched as the snake shed layer after layer until only cold bone remained.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Matson",
+        "imageId": "42bd4896-4191-4479-be57-070753f8725c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "por",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TERRIAN_WORLD_TYRANT": {
+    "scryfallId": "b44255cf-5264-4ead-9de0-20cc0f7cac6f",
+    "oracleId": "856245a6-c697-4f03-90be-77d8eb2d274e",
+    "name": "Terrian, World Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terrian, World Tyrant",
+        "manaCost": "{2}{G}{G}{G}",
+        "typeLine": "Legendary Creature — Dinosaur Ooze",
+        "oracleText": "",
+        "flavorText": "The Fang Druids call it the World Tyrant, for it has consumed entire ecosystems that it keeps suspended in its core. To look upon it is to see the world as it was eons ago.",
+        "power": "9",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "b44255cf-5264-4ead-9de0-20cc0f7cac6f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -282444,6 +283202,138 @@
     "cmc": 0,
     "keywords": [],
     "setCode": "tc15",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SKELETON_PIRATE_2_2_B_CREATURE_TOKEN": {
+    "scryfallId": "2ec83fe2-173b-4aa6-bfa1-892b092bd1f6",
+    "oracleId": "bcd4416c-d881-4088-a6cf-a8ef495900b9",
+    "name": "Skeleton Pirate",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Skeleton Pirate",
+        "manaCost": "",
+        "typeLine": "Token Creature — Skeleton Pirate",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Izzy",
+        "imageId": "2ec83fe2-173b-4aa6-bfa1-892b092bd1f6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tlci",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "OOZE_2_2_G_CREATURE_TOKEN": {
+    "scryfallId": "0260e0ae-bf09-430a-a449-c16219d84b63",
+    "oracleId": "48bf9588-91fa-4f4c-a93a-3bef29ac9c27",
+    "name": "Ooze",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ooze",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ooze",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "0260e0ae-bf09-430a-a449-c16219d84b63"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "trna",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "MINOTAUR_2_3_R_CREATURE_TOKEN": {
+    "scryfallId": "5d2a3833-ab5b-4f84-b39c-d0eeb7b474d3",
+    "oracleId": "6b8117bf-384f-4f5e-9e52-e01412ce24a9",
+    "name": "Minotaur",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Minotaur",
+        "manaCost": "",
+        "typeLine": "Token Creature — Minotaur",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "5d2a3833-ab5b-4f84-b39c-d0eeb7b474d3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tjou",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HORSE_5_5_W_CREATURE_TOKEN": {
+    "scryfallId": "f3dd4d92-6471-4f4b-9c70-cbd2196e8c7b",
+    "oracleId": "e8ca1b87-27c4-41a7-ba45-ee1873712019",
+    "name": "Horse",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Horse",
+        "manaCost": "",
+        "typeLine": "Token Creature — Horse",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "f3dd4d92-6471-4f4b-9c70-cbd2196e8c7b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "thou",
     "collectorNumber": "10",
     "commanderLegality": "not_legal",
     "singleImage": true

@@ -266,7 +266,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.
   ['Museum Nightwatch', 'a token outside TOKEN_TABLE: Detective|2/2|WU|Creature|'],
-  ['Arno Dorian', 'a subtype anthem outside the scope vocabulary: Other Assassins you control get +2/+0.'],
   ['Basilica Stalker', 'a trigger payload outside the vocabulary (a surveil beside a life gain): You gain 1 life and surveil 1.'],
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
   // (creature or artifact) the filtered-head reader does not split.
@@ -698,7 +697,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nomad Decoy', 'effect not a row kind: Tap two target creatures.'],
   ['Nucklavee', 'trigger payload not a pump: Return target red sorcery card from your graveyard to your h'],
   ['Nyx Weaver', 'cost: Exile this creature'],
-  ['Ogre Slumlord', 'a line that is neither an activated ability nor a library trigger: Rats you control have deathtouch.'],
   ['Olivia, Opulent Outlaw', 'trigger head not in the library: Whenever one or more outlaws you control deal combat damage to a playe'],
   ['Preacher of the Schism', 'trigger head not in the library: Whenever this creature attacks the player with the most life or tied f'],
   ['Purple Pentapus', 'a graveyard return beside another cost piece'],
@@ -707,7 +705,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sandstorm Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],
   ['Screams from Within', 'trigger payload not a pump: Return this card from your graveyard to the battlefield.'],
   ['Serum Tank', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this artifact or another artifact enters, put a cha'],
-  ['Seshiro the Anointed', 'a line that is neither an activated ability nor a library trigger: Other Snake creatures you control get +2/+2.'],
   ['Shipwreck Sifters', 'trigger head not in the library: Whenever you discard a Spirit card or a card with disturb, put a +1/+1'],
   ['Sidisi, Brood Tyrant', 'trigger head not in the library: Whenever one or more creature cards are put into your graveyard from y'],
   ['Silversmote Ghoul', 'trigger payload not a pump: Return this card from your graveyard to the battlefield tapp'],
@@ -956,7 +953,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ojutai, Soul of Winter', 'a trigger head outside the library (whenever a Dragon you control attacks) beside its untap skip'],
   // D410 - typecycling is the engine's own (CR 702.29b): the seven the selector offered once the typed
   // cycling lines read whose OTHER line the row maker refused, by reason.
-  ['Bebop, Warthog Warrior', 'a static outside the row shapes (Rhinos you control have menace - a subtype anthem) beside its typecycling'],
   ['Giant Koi', 'a keyword-worded activation (Waterbend {3}: ~ cannot be blocked this turn) beside its typecycling'],
   ['Fall to Earth', 'a spell line outside the vocabulary (exile target creature; each player gains 3 life - a per-player gain) beside its typecycling'],
   ['Step Through', 'a spell line outside the vocabulary (return two target creatures to their owners hands - a counted bounce) beside its typecycling'],
@@ -1907,7 +1903,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Profane Tutor', 'suspend mechanic'],
   ["Roamer's Routine", 'cast-time alternative cost'],
   ['Search for Tomorrow', 'suspend mechanic'],
-  ['Shadow-Rite Priest', 'scoped anthem beside a search'],
   ["Splinter's Technique", 'cast-time alternative cost'],
   ['The Masters of Evil', 'scoped anthem beside a search'],
   ['Magda, Brazen Outlaw', 'a leftover the probe reports differently from the printed line'],
@@ -2552,8 +2547,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // classifier widening that the row maker refused, by reason (none of them the condition itself).
   ['Valkyrie Harbinger', 'a token outside TOKEN_TABLE (a 4/4 white Angel with flying and vigilance) under the conditioned end-step head'],
   ['Canonized in Blood', 'a token outside TOKEN_TABLE (a 4/3 white and black Vampire Demon with flying) under the conditioned end-step head'],
-  ['Crested Sunmare', 'a scoped static over Horses (other Horses you control have indestructible) beside the conditioned end-step head - Horse is outside the scope list'],
-  ['Corpses of the Lost', 'a scoped anthem over Skeletons (Skeletons you control get +1/+0 and have haste) beside the conditioned end-step head - Skeleton is outside the scope list'],
 
   // D401 - the conditional statics: the nine the selector offered after the classifier admitted
   // them that the row maker refused (or the draft pulled), by reason.
@@ -2768,7 +2761,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // landed and these three did not, each for a SCOPE the suite cannot prove rather than a
   // shape the wave skipped.
   ["Rashel, Fist of Torm", 'a grant scoped to AURAS you control - every scope the generator reads is over creatures'],
-  ["Zarda, the Power Princess", 'a grant scoped to a subtype with no fixture (Hero) - a scope is proven on a member of it'],
   ["Righteous War", 'two scoped anthems over different colours: one board cannot carry both proofs'],
 
   // D372 (M6.4he) - THE GRANTED MANA ABILITY: of the twelve quoted mana grants, eleven landed and

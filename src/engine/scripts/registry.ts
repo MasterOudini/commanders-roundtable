@@ -7,6 +7,22 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CORPSES_OF_THE_LOST_SCRIPT } from './cards/corpsesOfTheLost';
+import { BIOGENIC_OOZE_SCRIPT } from './cards/biogenicOoze';
+import { AGENT_PHIL_COULSON_SCRIPT } from './cards/agentPhilCoulson';
+import { OGRE_SLUMLORD_SCRIPT } from './cards/ogreSlumlord';
+import { ADELIZ_THE_CINDER_WIND_SCRIPT } from './cards/adelizTheCinderWind';
+import { SETHRON_HURLOON_GENERAL_SCRIPT } from './cards/sethronHurloonGeneral';
+import { BEBOP_WARTHOG_WARRIOR_SCRIPT } from './cards/bebopWarthogWarrior';
+import { SESHIRO_THE_ANOINTED_SCRIPT } from './cards/seshiroTheAnointed';
+import { ARNO_DORIAN_SCRIPT } from './cards/arnoDorian';
+import { SHADOW_RITE_PRIEST_SCRIPT } from './cards/shadowRitePriest';
+import { CRESTED_SUNMARE_SCRIPT } from './cards/crestedSunmare';
+import { GEMPALM_SORCERER_SCRIPT } from './cards/gempalmSorcerer';
+import { MINWU_WHITE_MAGE_SCRIPT } from './cards/minwuWhiteMage';
+import { BLOODSTOKE_HOWLER_SCRIPT } from './cards/bloodstokeHowler';
+import { DOCTOR_SPECTRUM_SCRIPT } from './cards/doctorSpectrum';
+import { ZARDA_THE_POWER_PRINCESS_SCRIPT } from './cards/zardaThePowerPrincess';
 import { HAMLET_CAPTAIN_SCRIPT } from './cards/hamletCaptain';
 import { INDULGENT_ARISTOCRAT_SCRIPT } from './cards/indulgentAristocrat';
 import { CORDIAL_VAMPIRE_SCRIPT } from './cards/cordialVampire';
@@ -7520,6 +7536,22 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CORPSES_OF_THE_LOST_SCRIPT,
+  BIOGENIC_OOZE_SCRIPT,
+  AGENT_PHIL_COULSON_SCRIPT,
+  OGRE_SLUMLORD_SCRIPT,
+  ADELIZ_THE_CINDER_WIND_SCRIPT,
+  SETHRON_HURLOON_GENERAL_SCRIPT,
+  BEBOP_WARTHOG_WARRIOR_SCRIPT,
+  SESHIRO_THE_ANOINTED_SCRIPT,
+  ARNO_DORIAN_SCRIPT,
+  SHADOW_RITE_PRIEST_SCRIPT,
+  CRESTED_SUNMARE_SCRIPT,
+  GEMPALM_SORCERER_SCRIPT,
+  MINWU_WHITE_MAGE_SCRIPT,
+  BLOODSTOKE_HOWLER_SCRIPT,
+  DOCTOR_SPECTRUM_SCRIPT,
+  ZARDA_THE_POWER_PRINCESS_SCRIPT,
   HAMLET_CAPTAIN_SCRIPT,
   INDULGENT_ARISTOCRAT_SCRIPT,
   CORDIAL_VAMPIRE_SCRIPT,

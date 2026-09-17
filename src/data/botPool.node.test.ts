@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(682);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(683);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(8);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -456,14 +456,15 @@ const POOL: Record<string, number> = {
   // D478 - the search row restored: the Masques recruiters, the land tutors and the fetch lands (+47 creatures, +2 lands, +4 artifacts, +2 enchantments) and three sorceries the permanent noun reads.
   // D479 - the tribal target: the tribal pumps, regenerations, untaps and bounces aimed at a subtype (+48 creatures, +7 lands, +1 enchantment) and ten spells the target reads.
   // D480 - the tribal mass: the lords' mass counters and mass pumps over a subtype (+20 creatures, Huatli, Dinosaur Knight).
-  creature: 6843,
+  // D481 - the wider scope table: the lords over a subtype the table lacked (+15 creatures, Corpses of the Lost).
+  creature: 6858,
   instant: 1412,
   sorcery: 1062,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 671,
   artifact: 640,
-  enchantment: 682,
+  enchantment: 683,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 8,
 };

@@ -8987,6 +8987,30 @@ const WANTED = [
   'Blood-Chin Rager',
   // D480 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Frenzied Raptor',
+  // D481 - the wider scope table: the lords and tribal masses over a subtype whose fixture is the database's own vanilla (Wizards, Rats, Heroes, Clerics, Horses, Snakes ...).
+  'Corpses of the Lost',
+  'Biogenic Ooze',
+  'Agent Phil Coulson',
+  'Ogre Slumlord',
+  'Adeliz, the Cinder Wind',
+  'Sethron, Hurloon General',
+  'Bebop, Warthog Warrior',
+  'Seshiro the Anointed',
+  'Arno Dorian',
+  'Shadow-Rite Priest',
+  'Crested Sunmare',
+  'Gempalm Sorcerer',
+  'Minwu, White Mage',
+  'Bloodstoke Howler',
+  'Doctor Spectrum',
+  'Zarda, the Power Princess',
+  // D481 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Armored Warhorse',
+  'Balduvian Barbarians',
+  'Cabal Evangel',
+  'Rhox Brute',
+  'Skeletal Snake',
+  'Terrian, World Tyrant',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9359,6 +9383,11 @@ const WANTED_TOKENS = [
   // D479 - the tokens the wave's rows create (the port's token-pin step, missing until D479).
   { name: 'Merfolk', set: 'tdmu', cn: '5', key: 'MERFOLK_1_1_U_CREATURE_TOKEN' },
   { name: 'Elemental Shaman', set: 'tc15', cn: '10', key: 'ELEMENTAL_SHAMAN_3_1_R_CREATURE_TOKEN' },
+  // D481 - the tokens the wave's rows create (the port's token-pin step, missing until D481).
+  { name: 'Skeleton Pirate', set: 'tlci', cn: '8', key: 'SKELETON_PIRATE_2_2_B_CREATURE_TOKEN' },
+  { name: 'Ooze', set: 'trna', cn: '7', key: 'OOZE_2_2_G_CREATURE_TOKEN' },
+  { name: 'Minotaur', set: 'tjou', cn: '3', key: 'MINOTAUR_2_3_R_CREATURE_TOKEN' },
+  { name: 'Horse', set: 'thou', cn: '10', key: 'HORSE_5_5_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {
