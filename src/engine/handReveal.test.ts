@@ -58,8 +58,8 @@ describe('D416 - the hand reveal: the parser', () => {
     const c = parseEffects('Target opponent reveals their hand. You choose a creature card from it. Exile that card.', 'X', true);
     expect(c.effects[0]?.handChoice?.filter?.what).toBe('creature card');
     expect(parseEffects("Target opponent reveals their hand. You choose a nonland card from that player's graveyard or hand and exile it.", 'X', true).mode).not.toBe('auto');
-    // The ask stays last: a sentence after it leaves the card assisted.
-    expect(parseEffects('Target opponent reveals their hand. You choose a card from it. That player discards that card. Draw a card.', 'X', true).mode).not.toBe('auto');
+    // D484 - a sentence after the ask rides its question (the continuation).
+    expect(parseEffects('Target opponent reveals their hand. You choose a card from it. That player discards that card. Draw a card.', 'X', true).mode).toBe('auto');
   });
 });
 

@@ -394,6 +394,8 @@ export type EventBody =
    * rule), so the fuzz canary counts these instead.
    */
   | { readonly t: 'Proliferated'; readonly player: PlayerId; readonly permanents: readonly InstanceId[]; readonly players: readonly PlayerId[] }
+  /** D484 - a marker: the clauses a question carried (`EffectContinuation`) resume now, in the answer's batch; the events that follow are theirs. */
+  | { readonly t: 'ContinuationResumed'; readonly label: string; readonly clauses: number }
   /** D409 - a permanent has explored (CR 701.42c): the card revealed (null from an empty library), and whether it was a land. */
   | { readonly t: 'Explored'; readonly permanent: InstanceId; readonly controller: PlayerId; readonly card: InstanceId | null; readonly land: boolean }
   /** D412 - a permanent has connived (CR 701.50c): the card discarded (null when there was none), and whether it was nonland. */

@@ -48,7 +48,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, resumeContinuation } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -148,11 +148,11 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerChooseFromZone':
       return answerChooseFromZone(state, intent, deps);
     case 'AnswerOrderCards':
-      return answerOrderCards(state, intent);
+      return answerOrderCards(state, intent, deps);
     case 'AnswerScry':
       return answerScry(state, intent, deps);
     case 'AnswerProliferate':
-      return answerProliferate(state, intent);
+      return answerProliferate(state, intent, deps);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -3196,7 +3196,8 @@ function answerPayMana(
     };
     events.push(...effectResult(scratch, deps, obj, branch).events);
   }
-  return accept(events);
+  // D484 - the clauses after the payment, once the branch has landed (a branch that asked carries them on its question).
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
 }
 
 /**
@@ -3390,7 +3391,9 @@ function answerSearchLibrary(
       return reject('noSuchCard', 'You have not looked at your library yet.');
     }
     if (intent.declined) {
-      return accept([{ t: 'AwaitingSet', awaiting: null }]);
+      // D484 - declining the offer still runs what follows the search.
+      const declined: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }];
+      return accept(declined, resumeContinuation(state, deps, declined, awaiting.continuation));
     }
     const all = state.zones.library[intent.player] ?? [];
     return accept([
@@ -3439,7 +3442,7 @@ function answerSearchLibrary(
       player: intent.player,
       order: [...mixed.value, ...intent.cards],
     });
-    return accept(events, mixed.next);
+    return accept(events, resumeContinuation(state, deps, events, awaiting.continuation, mixed.next));
   }
   if (intent.cards.length > 0) {
     const to =
@@ -3467,12 +3470,12 @@ function answerSearchLibrary(
   if (stillThere.length > 0) events.push({ t: 'RevealCleared', cards: stillThere });
   events.push({ t: 'AwaitingSet', awaiting: null });
 
-  if (!awaiting.shuffle) return accept(events);
+  if (!awaiting.shuffle) return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
   // ⚠️ The SEEDED generator, the only randomness this engine has, and the shuffle is over what is
   // left after the move - shuffling the pre-move library would put the found card back.
   const shuffled = shuffle(state.rng, stillThere);
   events.push({ t: 'LibraryShuffled', player: intent.player, order: shuffled.value });
-  return accept(events, shuffled.next);
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation, shuffled.next));
 }
 
 /**
@@ -3525,6 +3528,8 @@ function cardMatchesSearch(
 function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards: readonly InstanceId[]): HandleResult {
   const pending = state.pendingAsks;
   if (pending === null) return reject('notAwaitingThat', 'No question is queued for that answer.');
+  // D484 - the clauses after the queue's sentence ride the question being answered: the next player's takes them on, the batch runs them.
+  const carried = state.priority.awaiting?.kind === 'chooseFromZone' ? state.priority.awaiting.continuation : undefined;
   const chosen = [...pending.chosen, { player, cards }];
   const remaining = [...pending.remaining];
   while (remaining.length > 0) {
@@ -3545,6 +3550,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
             count: pending.count,
             ...(pending.filter ? { filter: pending.filter } : {}),
             label: pending.label,
+            ...(carried !== undefined ? { continuation: carried } : {}),
           },
         },
       ]);
@@ -3552,7 +3558,8 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
     chosen.push({ player: next, cards: cands });
     remaining.shift();
   }
-  return accept([{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, pending.verb, chosen, pending.filter)]);
+  const batch: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, pending.verb, chosen, pending.filter)];
+  return accept(batch, resumeContinuation(state, deps, batch, carried));
 }
 
 function answerChooseFromZone(
@@ -3650,6 +3657,7 @@ function answerChooseFromZone(
             destination: awaiting.rest === 'topOrdered' ? 'top' : 'bottom',
             count: rest.length,
             label: awaiting.label,
+            ...(awaiting.continuation !== undefined ? { continuation: awaiting.continuation } : {}),
           },
         },
         { t: 'CardsMoved', moves: toHand },
@@ -3677,7 +3685,7 @@ function answerChooseFromZone(
         intent.player,
       ),
     ];
-    return mixed === null ? accept(events) : accept(events, mixed.next);
+    return accept(events, resumeContinuation(state, deps, events, awaiting.continuation, mixed === null ? undefined : mixed.next));
   }
 
   /**
@@ -3723,7 +3731,7 @@ function answerChooseFromZone(
     const stays = theirs.filter((c) => !intent.cards.includes(c));
     if (stays.length > 0) events.push({ t: 'RevealCleared', cards: stays });
     if (awaiting.loseLife !== undefined && awaiting.loseLife > 0) { const p = state.players[intent.player]; if (p) events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.loseLife, to: p.life - awaiting.loseLife }); }
-    return accept(events);
+    return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
   }
   const hand = state.zones.hand[intent.player] ?? [];
   for (const card of intent.cards) {
@@ -3761,7 +3769,8 @@ function answerChooseFromZone(
     for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
     events.push(...conniveAfterDiscard(scratch, deps, intent.player, awaiting.connive.permanent, intent.cards, awaiting.label, awaiting.connive.remaining));
   }
-  return accept(events);
+  // D484 - the clauses after the discard (forwarded onto the chain's next connive when one was raised).
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
 }
 
 /**
@@ -3781,6 +3790,7 @@ function answerChooseFromZone(
 function answerOrderCards(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerOrderCards' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'orderCards' || awaiting.player !== intent.player) {
@@ -3817,7 +3827,7 @@ function answerOrderCards(
     to: { kind: 'library' as const, player: intent.player },
     placement: awaiting.destination,
   }));
-  return accept([
+  const ordered: EventBody[] = [
     { t: 'AwaitingSet', awaiting: null },
     { t: 'CardsMoved', moves },
     { t: 'CardsRevealed', cards: [...shown], to: [] },
@@ -3825,7 +3835,9 @@ function answerOrderCards(
       n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} ${intent.cards.length} cards on the ${awaiting.destination} of ${their(intent.player)} library.`,
       intent.player,
     ),
-  ]);
+  ];
+  // D484 - the clauses after the look, once its leftovers are ordered.
+  return accept(ordered, resumeContinuation(state, deps, ordered, awaiting.continuation));
 }
 
 /**
@@ -3932,7 +3944,8 @@ function answerScry(
     events.push(...drawEvents(scratch, intent.player, awaiting.thenDraw));
   }
 
-  return accept(events);
+  // D484 - the clauses after the scry (forwarded onto the chain's next explore when one was raised).
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
 }
 
 /**
@@ -3947,6 +3960,7 @@ function answerScry(
 function answerProliferate(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerProliferate' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'proliferateChoice' || awaiting.player !== intent.player) {
@@ -3979,7 +3993,8 @@ function answerProliferate(
     ...intent.players.map((p) => ({ t: 'PoisonChanged' as const, player: p, delta: 1, to: (state.players[p]?.poison ?? 0) + 1 })),
     narrated(n`${who(state, intent.player)} ${vb(intent.player, 'proliferates', 'proliferate')}${summary}.`, intent.player),
   ];
-  return accept(events);
+  // D484 - the clauses after the proliferate.
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
 }
 
 function concede(state: GameState, player: PlayerId): HandleResult {

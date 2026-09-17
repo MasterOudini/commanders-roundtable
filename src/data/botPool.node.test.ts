@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1917);
-    expect.soft(r.spells.assisted).toBe(1961);
-    expect.soft(r.spells.autoAnyFace).toBe(1926);
+    expect.soft(r.spells.auto).toBe(1982);
+    expect.soft(r.spells.assisted).toBe(1896);
+    expect.soft(r.spells.autoAnyFace).toBe(1990);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(685);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(686);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(8);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -459,14 +459,15 @@ const POOL: Record<string, number> = {
   // D481 - the wider scope table: the lords over a subtype the table lacked (+15 creatures, Corpses of the Lost).
   // D482 - the player's sacrifice: the edicts (Cruel Edict, Chainer's Edict, Barter in Blood ...) and the rows whose payload has a player sacrifice.
   // D483 - the two-zone search: the planeswalker tutors (Elspeth's Devotee, Sorin's Guide, Teferi's Wavecaster ...) and the spells that search the graveyard too.
-  creature: 6878,
-  instant: 1418,
-  sorcery: 1078,
+  // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
+  creature: 6886,
+  instant: 1437,
+  sorcery: 1117,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 672,
-  artifact: 642,
-  enchantment: 685,
+  artifact: 644,
+  enchantment: 686,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 8,
 };

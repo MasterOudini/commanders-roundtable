@@ -15,9 +15,9 @@
  * is worse than not executing), and the refusals below are the ones the ctx
  * method cannot honour at resolution:
  *   - `mode !== 'auto'` - a clause the vocabulary does not understand;
- *   - a clause that ASKS (discard, scry, surveil, look at the top) - the
- *     executor stops at an `AwaitingSet`, and an ability's resolution has no
- *     continuation for the answer (that is the script-raised prompt seam);
+ *   - (until D484: a clause that ASKS before the last - the executor stopped at
+ *     an `AwaitingSet` with no continuation for the answer. The question carries
+ *     the clauses after it now, so an ask may stand anywhere);
  *   - RANDOMNESS ("at random") - `resolve` returns events alone, so an RNG
  *     advance made inside it would never be recorded and the game would not
  *     replay (`effects.ts` on `effectResult` vs `effectEvents`);
@@ -36,8 +36,6 @@ import { parseTargetClauses } from '../../data/targetParse';
 import { SELF_AIMED } from '../types/oracle';
 import type { EffectKind, EffectSpec, TargetSpec } from '../types/oracle';
 
-/** The kinds whose resolution stops and asks (`effectParse.ts`'s ASKS, one seam over). */
-const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional']);
 
 /** The kinds the executor resolves against an AIM; a self clause of one of these does nothing. */
 const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
@@ -100,14 +98,10 @@ export function vocabularyEffects(payload: string, name: string, opts: { readonl
   if (/\bat random\b/i.test(payload)) {
     throw new Error(`${name}: "${payload}" uses randomness, which a def's resolve cannot thread onto the event (the game would not replay).`);
   }
-  for (const [i, effect] of parsed.effects.entries()) {
-    // D349 - an ask is allowed as the LAST effect and nowhere else. `effectEvents` stops at the prompt, so
-    // a clause written after one would be dropped in silence (D344 refused every ask for that reason); with
-    // the ask last there is nothing to drop, which is D195's rule for spells and how a trigger has raised
-    // the discard since D285. Anywhere else it is still the continuation seam, and still a throw.
-    if (ASKS.has(effect.kind) && i !== parsed.effects.length - 1) {
-      throw new Error(`${name}: "${payload}" asks (${effect.kind}) before its last clause - a prompt with a clause after it would be dropped, which is the continuation seam.`);
-    }
+  // D349 allowed an ask as the LAST effect and nowhere else (`effectEvents` stopped at the prompt and dropped
+  // what followed); D484 - the question carries the clauses after it (`EffectContinuation`), so the ask may
+  // stand anywhere and nothing is refused for its place.
+  for (const effect of parsed.effects) {
     // D373 - a self clause of a SELF_AIMED kind is aimed at the source by the executor; the refusal
     // stays for the aimable kinds that have no subject without a target clause.
     if (effect.self && NEEDS_AIM.has(effect.kind) && !SELF_AIMED.has(effect.kind)) {

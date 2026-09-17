@@ -61,8 +61,8 @@ describe('the sentence', () => {
     expect(parseSentence('Each opponent sacrifices a creature of their choice with flying.', 'X', true).mode).not.toBe('auto');
     expect(parseSentence('Each player sacrifices a nontoken creature of their choice.', 'X', true).mode).not.toBe('auto');
     expect(ORACLE.byName("Vraska's Fall")?.faces[0]?.effectMode).not.toBe('auto');
-    // It ASKS, so a sentence after it lands assisted (D195's rule), never dropped.
-    expect(parseSentence('Each player sacrifices a creature of their choice. Draw a card.', 'X', true).mode).toBe('assisted');
+    // It ASKS, and a sentence after it rides the question (D484 - the continuation), never dropped.
+    expect(parseSentence('Each player sacrifices a creature of their choice. Draw a card.', 'X', true).mode).toBe('auto');
   });
 });
 

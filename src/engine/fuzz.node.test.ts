@@ -408,6 +408,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // you gain that much life` - the damage it dealt rides the trigger onto the stack as `memo`, the gain reads it).
   { names: ['Mourning Thrull'], copiesPerSeat: 2,
     counterKeys: ['memoTriggers'], rotHistory: 'D476' },
+  // D484 - the prompt continuation: a Vampiric Tutor a seat ({B}; `Search your library for a card, then shuffle and put
+  // that card on top. You lose 2 life.`) - the search always asks while the library holds a card, the question carries
+  // the life loss, and the driver's answer (it finds whenever it can) runs it.
+  { names: ['Vampiric Tutor'], copiesPerSeat: 3,
+    counterKeys: ['continuationsCarried', 'continuationsRun'], rotHistory: 'D484' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1320,6 +1325,9 @@ interface Run {
   readonly emblemsGiven: number;
   /** D476 - a triggered ability put on the stack carrying its own number (`obj.memo`, the damage its head's event dealt). */
   readonly memoTriggers: number;
+  /** D484 - questions raised carrying the clauses after them (`EffectContinuation`), and the answers that ran them. */
+  readonly continuationsCarried: number;
+  readonly continuationsRun: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1760,6 +1768,8 @@ function runOne(seed: number): Run {
     tokenTriggersFired: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && e.body.obj.source !== null && made.has(e.body.obj.source)).length; })(),
     emblemsGiven: game.log.filter((e) => e.body.t === 'EmblemCreated').length,
     memoTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && (e.body.obj.memo ?? 0) > 0).length,
+    continuationsCarried: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting !== null && 'continuation' in e.body.awaiting && e.body.awaiting.continuation !== undefined).length,
+    continuationsRun: game.log.filter((e) => e.body.t === 'ContinuationResumed').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2032,6 +2042,8 @@ const TOTAL_KEYS = [
   'tokenTriggersFired',
   'emblemsGiven',
   'memoTriggers',
+  'continuationsCarried',
+  'continuationsRun',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2436,6 +2448,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.spawnTokensSpent).toBeGreaterThan(0);
         // D476 - a trigger carried its own number onto the stack at gate size (Mourning Thrull 4 at 60 seeds, 12 at 150).
         expect(totals.memoTriggers).toBeGreaterThan(0);
+        // D484 - a question carried the clauses after it and its answer ran them at gate size (Vampiric Tutor a seat).
+        expect(totals.continuationsCarried).toBeGreaterThan(0);
+        expect(totals.continuationsRun).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2543,6 +2558,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.tokenTriggersFired} token triggers · ` +
           `${totals.emblemsGiven} emblems · ` +
           `${totals.memoTriggers} memo triggers · ` +
+          `${totals.continuationsCarried}/${totals.continuationsRun} continuations carried/run · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

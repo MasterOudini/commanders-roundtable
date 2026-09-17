@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DIMIR_CUTPURSE_SCRIPT } from './cards/dimirCutpurse';
+import { PSYCHIC_SYMBIONT_SCRIPT } from './cards/psychicSymbiont';
+import { HOPELESS_NIGHTMARE_SCRIPT } from './cards/hopelessNightmare';
+import { DAILY_BUGLE_NEWSPAPER_SCRIPT } from './cards/dailyBugleNewspaper';
+import { DROWNED_RUSALKA_SCRIPT } from './cards/drownedRusalka';
+import { PHYREXIAN_WAR_BEAST_SCRIPT } from './cards/phyrexianWarBeast';
+import { RIPTIDE_SURVIVOR_SCRIPT } from './cards/riptideSurvivor';
+import { COLLECTORS_VAULT_SCRIPT } from './cards/collectorsVault';
+import { SUNBLADE_SAMURAI_SCRIPT } from './cards/sunbladeSamurai';
+import { BASILICA_BELL_HAUNT_SCRIPT } from './cards/basilicaBellHaunt';
+import { SPINEWOODS_ARMADILLO_SCRIPT } from './cards/spinewoodsArmadillo';
 import { RAVEN_CLAN_WAR_AXE_SCRIPT } from './cards/ravenClanWarAxe';
 import { ELSPETHS_DEVOTEE_SCRIPT } from './cards/elspethsDevotee';
 import { DOMRIS_NODOROG_SCRIPT } from './cards/domrisNodorog';
@@ -5674,7 +5685,6 @@ import { ABYSSAL_HORROR_SCRIPT } from './cards/abyssalHorror';
 import { CORRUPT_COURT_OFFICIAL_SCRIPT } from './cards/corruptCourtOfficial';
 import { DEADBRIDGE_SHAMAN_SCRIPT } from './cards/deadbridgeShaman';
 import { DEMENTIA_BAT_SCRIPT } from './cards/dementiaBat';
-import { READ_THE_BONES_SCRIPT } from './cards/readTheBones';
 import { GILT_LEAF_SEER_SCRIPT } from './cards/giltLeafSeer';
 import { HALIMAR_DEPTHS_SCRIPT } from './cards/halimarDepths';
 import { INKFATHOM_DIVERS_SCRIPT } from './cards/inkfathomDivers';
@@ -5689,7 +5699,6 @@ import { JOIN_FORCES_SCRIPT } from './cards/joinForces';
 import { REINFORCEMENTS_SCRIPT } from './cards/reinforcements';
 import { DAUNTLESS_ONSLAUGHT_SCRIPT } from './cards/dauntlessOnslaught';
 import { UNCOMFORTABLE_CHILL_SCRIPT } from './cards/uncomfortableChill';
-import { UNHINGE_SCRIPT } from './cards/unhinge';
 import { UNHOLY_HUNGER_SCRIPT } from './cards/unholyHunger';
 import { WITCH_HUNTER_SCRIPT } from './cards/witchHunter';
 import { WITCHING_WELL_SCRIPT } from './cards/witchingWell';
@@ -6361,7 +6370,6 @@ import { RIPTIDE_CRAB_SCRIPT } from './cards/riptideCrab';
 import { RISE_OF_THE_DARK_REALMS_SCRIPT } from './cards/riseOfTheDarkRealms';
 import { RISHADAN_DOCKHAND_SCRIPT } from './cards/rishadanDockhand';
 import { RISHADAN_PORT_SCRIPT } from './cards/rishadanPort';
-import { RISKY_RESEARCH_SCRIPT } from './cards/riskyResearch';
 import { RISKY_SHORTCUT_SCRIPT } from './cards/riskyShortcut';
 import { RITE_OF_FLAME_SCRIPT } from './cards/riteOfFlame';
 import { RELIC_BARRIER_SCRIPT } from './cards/relicBarrier';
@@ -6547,7 +6555,6 @@ import { NOBLE_STEEDS_SCRIPT } from './cards/nobleSteeds';
 import { NOCTURNAL_RAID_SCRIPT } from './cards/nocturnalRaid';
 import { NOGGLE_ROBBER_SCRIPT } from './cards/noggleRobber';
 import { NORTH_POLE_GATES_SCRIPT } from './cards/northPoleGates';
-import { NOTION_RAIN_SCRIPT } from './cards/notionRain';
 import { NOXIOUS_REVIVAL_SCRIPT } from './cards/noxiousRevival';
 import { NURGLES_CONSCRIPTION_SCRIPT } from './cards/nurglesConscription';
 import { NYX_FLEECE_RAM_SCRIPT } from './cards/nyxFleeceRam';
@@ -6854,7 +6861,6 @@ import { DEVOUR_IN_SHADOW_SCRIPT } from './cards/devourInShadow';
 import { DIMIR_INFORMANT_SCRIPT } from './cards/dimirInformant';
 import { DINOTOMATON_SCRIPT } from './cards/dinotomaton';
 import { DIRE_TACTICS_SCRIPT } from './cards/direTactics';
-import { DIRESIGHT_SCRIPT } from './cards/diresight';
 import { DISARM_SCRIPT } from './cards/disarm';
 import { DISEMPOWER_SCRIPT } from './cards/disempower';
 import { DISORDER_SCRIPT } from './cards/disorder';
@@ -6869,7 +6875,6 @@ import { DELETE_SCRIPT } from './cards/delete';
 import { DELUGE_SCRIPT } from './cards/deluge';
 import { DELUGE_OF_DOOM_SCRIPT } from './cards/delugeOfDoom';
 import { DEMOLISH_SCRIPT } from './cards/demolish';
-import { DEMONS_DUE_SCRIPT } from './cards/demonsDue';
 import { DEPOPULATE_SCRIPT } from './cards/depopulate';
 import { DEPRESSURIZE_SCRIPT } from './cards/depressurize';
 import { DESECRATION_PLAGUE_SCRIPT } from './cards/desecrationPlague';
@@ -6895,7 +6900,6 @@ import { CREEPING_CORROSION_SCRIPT } from './cards/creepingCorrosion';
 import { CREEPING_MOLD_SCRIPT } from './cards/creepingMold';
 import { CRIMSON_MAGE_SCRIPT } from './cards/crimsonMage';
 import { CRUEL_BARGAIN_SCRIPT } from './cards/cruelBargain';
-import { CRUEL_TRUTHS_SCRIPT } from './cards/cruelTruths';
 import { CRUEL_WITNESS_SCRIPT } from './cards/cruelWitness';
 import { CRUMBLE_SCRIPT } from './cards/crumble';
 import { CRYPT_INCURSION_SCRIPT } from './cards/cryptIncursion';
@@ -7561,6 +7565,17 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIMIR_CUTPURSE_SCRIPT,
+  PSYCHIC_SYMBIONT_SCRIPT,
+  HOPELESS_NIGHTMARE_SCRIPT,
+  DAILY_BUGLE_NEWSPAPER_SCRIPT,
+  DROWNED_RUSALKA_SCRIPT,
+  PHYREXIAN_WAR_BEAST_SCRIPT,
+  RIPTIDE_SURVIVOR_SCRIPT,
+  COLLECTORS_VAULT_SCRIPT,
+  SUNBLADE_SAMURAI_SCRIPT,
+  BASILICA_BELL_HAUNT_SCRIPT,
+  SPINEWOODS_ARMADILLO_SCRIPT,
   RAVEN_CLAN_WAR_AXE_SCRIPT,
   ELSPETHS_DEVOTEE_SCRIPT,
   DOMRIS_NODOROG_SCRIPT,
@@ -13228,7 +13243,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   CORRUPT_COURT_OFFICIAL_SCRIPT,
   DEADBRIDGE_SHAMAN_SCRIPT,
   DEMENTIA_BAT_SCRIPT,
-  READ_THE_BONES_SCRIPT,
   GILT_LEAF_SEER_SCRIPT,
   HALIMAR_DEPTHS_SCRIPT,
   INKFATHOM_DIVERS_SCRIPT,
@@ -13243,7 +13257,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   REINFORCEMENTS_SCRIPT,
   DAUNTLESS_ONSLAUGHT_SCRIPT,
   UNCOMFORTABLE_CHILL_SCRIPT,
-  UNHINGE_SCRIPT,
   UNHOLY_HUNGER_SCRIPT,
   WITCH_HUNTER_SCRIPT,
   WITCHING_WELL_SCRIPT,
@@ -13914,7 +13927,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   RISE_OF_THE_DARK_REALMS_SCRIPT,
   RISHADAN_DOCKHAND_SCRIPT,
   RISHADAN_PORT_SCRIPT,
-  RISKY_RESEARCH_SCRIPT,
   RISKY_SHORTCUT_SCRIPT,
   RITE_OF_FLAME_SCRIPT,
   RELIC_BARRIER_SCRIPT,
@@ -14100,7 +14112,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NOCTURNAL_RAID_SCRIPT,
   NOGGLE_ROBBER_SCRIPT,
   NORTH_POLE_GATES_SCRIPT,
-  NOTION_RAIN_SCRIPT,
   NOXIOUS_REVIVAL_SCRIPT,
   NURGLES_CONSCRIPTION_SCRIPT,
   NYX_FLEECE_RAM_SCRIPT,
@@ -14407,7 +14418,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   DIMIR_INFORMANT_SCRIPT,
   DINOTOMATON_SCRIPT,
   DIRE_TACTICS_SCRIPT,
-  DIRESIGHT_SCRIPT,
   DISARM_SCRIPT,
   DISEMPOWER_SCRIPT,
   DISORDER_SCRIPT,
@@ -14422,7 +14432,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   DELUGE_SCRIPT,
   DELUGE_OF_DOOM_SCRIPT,
   DEMOLISH_SCRIPT,
-  DEMONS_DUE_SCRIPT,
   DEPOPULATE_SCRIPT,
   DEPRESSURIZE_SCRIPT,
   DESECRATION_PLAGUE_SCRIPT,
@@ -14448,7 +14457,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   CREEPING_MOLD_SCRIPT,
   CRIMSON_MAGE_SCRIPT,
   CRUEL_BARGAIN_SCRIPT,
-  CRUEL_TRUTHS_SCRIPT,
   CRUEL_WITNESS_SCRIPT,
   CRUMBLE_SCRIPT,
   CRYPT_INCURSION_SCRIPT,

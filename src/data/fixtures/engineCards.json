@@ -277088,6 +277088,614 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CONTENTIOUS_PLAN": {
+    "scryfallId": "8e30deb6-9e1f-4545-ae30-c30ba6c7b3a0",
+    "oracleId": "2fc6de19-9d04-422b-90bc-eee2f9f8c84c",
+    "name": "Contentious Plan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Contentious Plan",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)\nDraw a card.",
+        "flavorText": "Niv-Mizzet had perfected a plan, but he had no control over the mortal minds who had to agree to implement it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "8e30deb6-9e1f-4545-ae30-c30ba6c7b3a0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "war",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GETH_S_VERDICT": {
+    "scryfallId": "7a20b5a2-8613-49ed-b5cc-7cae9d0e0850",
+    "oracleId": "0f575f18-4606-4b85-9a90-07f8d8d46d06",
+    "name": "Geth's Verdict",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geth's Verdict",
+        "manaCost": "{B}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Target player sacrifices a creature of their choice and loses 1 life.",
+        "flavorText": "\"Everyone should owe you something.\"\n—Geth, Lord of the Vault",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Whit Brachna",
+        "imageId": "7a20b5a2-8613-49ed-b5cc-7cae9d0e0850"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "nph",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAMPIRIC_TUTOR": {
+    "scryfallId": "0a07cba3-2e8d-48ec-a6f8-4d2edfcd833d",
+    "oracleId": "ededbdae-d9dc-4206-9335-d7158f2d7700",
+    "name": "Vampiric Tutor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vampiric Tutor",
+        "manaCost": "{B}",
+        "typeLine": "Instant",
+        "oracleText": "Search your library for a card, then shuffle and put that card on top. You lose 2 life.",
+        "flavorText": "\"I write upon clean white parchment with a sharp quill and the blood of my students, divining their secrets.\"\n—Shauku, Endbringer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Gary Leach",
+        "imageId": "0a07cba3-2e8d-48ec-a6f8-4d2edfcd833d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "vis",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIND_RAVEL": {
+    "scryfallId": "1a9a0296-3690-45c7-98af-d546296ad9fe",
+    "oracleId": "8cd0fcac-800a-431c-aca9-804998704606",
+    "name": "Mind Ravel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mind Ravel",
+        "manaCost": "{2}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player discards a card.\nDraw a card at the beginning of the next turn's upkeep.",
+        "flavorText": "An end to reason, an end to order. Forget all that has been.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "1a9a0296-3690-45c7-98af-d546296ad9fe"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "5ed",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPT": {
+    "scryfallId": "1334bc87-f6b3-48b8-ae9c-a499df230b75",
+    "oracleId": "76347258-71d5-4874-adde-ff7aa932b808",
+    "name": "Disrupt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disrupt",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target instant or sorcery spell unless its controller pays {1}.\nDraw a card.",
+        "flavorText": "Oh, I'm sorry—did I break your concentration?",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "1334bc87-f6b3-48b8-ae9c-a499df230b75"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "WTH-37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPERIMENTAL_AUGURY": {
+    "scryfallId": "10c5ce00-c7c7-4616-9848-a5f2e0d27d9f",
+    "oracleId": "2ee08dcd-5558-45be-b619-8a550f3865ad",
+    "name": "Experimental Augury",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Experimental Augury",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Look at the top three cards of your library. Put one of them into your hand and the rest on the bottom of your library in any order. Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "10c5ce00-c7c7-4616-9848-a5f2e0d27d9f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Proliferate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ONE-49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASIC_CONJURATION": {
+    "scryfallId": "012f63c9-a5e8-4b83-8673-8020986dc10e",
+    "oracleId": "547ab16c-b8d1-4357-9219-7cabde80f5ba",
+    "name": "Basic Conjuration",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basic Conjuration",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Sorcery — Lesson",
+        "oracleText": "Look at the top six cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in a random order. You gain 3 life.",
+        "flavorText": "\"I made that! It's mine! Did you see that?\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "012f63c9-a5e8-4b83-8673-8020986dc10e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pstx",
+    "collectorNumber": "120p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIMIR_CUTPURSE": {
+    "scryfallId": "0f2b0b24-83bf-479b-baa4-3244a114852d",
+    "oracleId": "56c1a548-c80c-432b-bf92-d4ef6117b298",
+    "name": "Dimir Cutpurse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir Cutpurse",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player discards a card and you draw a card.",
+        "flavorText": "Other guilds demand tolls from those who travel their territories, but not House Dimir. It takes its share secretly, one coin purse at a time.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0f2b0b24-83bf-479b-baa4-3244a114852d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rav",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PSYCHIC_SYMBIONT": {
+    "scryfallId": "1145d817-9c84-4acd-977c-fe00325568fd",
+    "oracleId": "34439fb2-0272-4624-aa4c-9ea439b60489",
+    "name": "Psychic Symbiont",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Psychic Symbiont",
+        "manaCost": "{4}{U}{B}",
+        "typeLine": "Creature — Nightmare Horror",
+        "oracleText": "Flying\nWhen this creature enters, target opponent discards a card and you draw a card.",
+        "flavorText": "\"I turn around and see nothing, yet I know it is behind me. Its fingers rummage in my mind, crafting new ideas.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Robbie Trevino",
+        "imageId": "1145d817-9c84-4acd-977c-fe00325568fd"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "266",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOPELESS_NIGHTMARE": {
+    "scryfallId": "2c2ee817-9ca9-4f09-bc71-7994c19a9470",
+    "oracleId": "5e63b69c-d901-4a01-8dfa-88e044856239",
+    "name": "Hopeless Nightmare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hopeless Nightmare",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, each opponent discards a card and loses 2 life.\nWhen this enchantment is put into a graveyard from the battlefield, scry 2.\n{2}{B}: Sacrifice this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dominik Mayer",
+        "imageId": "2c2ee817-9ca9-4f09-bc71-7994c19a9470"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAILY_BUGLE_NEWSPAPER": {
+    "scryfallId": "46155477-758e-47a0-9fb9-dec7869978d9",
+    "oracleId": "d2a3f735-9523-4ddd-96a9-b0a5ecd39284",
+    "name": "Daily Bugle Newspaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daily Bugle Newspaper",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Draw a card, then discard a card. Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "\"How can the public be sure there wasn't any pineapple on there as well?\"\n—J. Jonah Jameson",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Smith",
+        "imageId": "46155477-758e-47a0-9fb9-dec7869978d9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "749",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROWNED_RUSALKA": {
+    "scryfallId": "68864836-799e-467d-97cc-38c89f71afcf",
+    "oracleId": "62e86e38-2f8d-4cee-aa7e-4519add79d4d",
+    "name": "Drowned Rusalka",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drowned Rusalka",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{U}, Sacrifice a creature: Discard a card, then draw a card.",
+        "flavorText": "Lurking below the current, she thirsts until others come to drink.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "68864836-799e-467d-97cc-38c89f71afcf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "gpt",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_WAR_BEAST": {
+    "scryfallId": "6c7576e2-1a95-453f-aab5-b08e21f28ba4",
+    "oracleId": "0c93c418-e10b-4a6d-bddb-3b786bb6a928",
+    "name": "Phyrexian War Beast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian War Beast",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Phyrexian Beast",
+        "oracleText": "When this creature leaves the battlefield, sacrifice a land and this creature deals 1 damage to you.",
+        "flavorText": "\"Knowing its origins, how could they have thought they could control it?\"\n—Sorine Relicbane, Soldevi heretic",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bill Sienkiewicz",
+        "imageId": "6c7576e2-1a95-453f-aab5-b08e21f28ba4"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "me1",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIPTIDE_SURVIVOR": {
+    "scryfallId": "7515187f-4821-400d-b78f-cec173df6b84",
+    "oracleId": "10a64ae9-919f-4c04-8c8a-cce12554502c",
+    "name": "Riptide Survivor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riptide Survivor",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Morph {1}{U}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, discard two cards, then draw three cards.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Thomas M. Baxa",
+        "imageId": "7515187f-4821-400d-b78f-cec173df6b84"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COLLECTOR_S_VAULT": {
+    "scryfallId": "967a4f27-8cd6-437d-8c05-8aedbc7ddc4b",
+    "oracleId": "f460ff80-8175-43f7-9810-540cf3817085",
+    "name": "Collector's Vault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Collector's Vault",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Draw a card, then discard a card. Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "Beluna makes a habit of \"liberating\" valuables from the world below, from priceless artifacts to historic buildings.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Artur Nakhodkin",
+        "imageId": "967a4f27-8cd6-437d-8c05-8aedbc7ddc4b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "244",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNBLADE_SAMURAI": {
+    "scryfallId": "9f1a7077-ea1f-4b8a-970a-027daf09e0bc",
+    "oracleId": "b767bd0a-a8fe-49d7-a3e7-4f9ac6a3280f",
+    "name": "Sunblade Samurai",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sunblade Samurai",
+        "manaCost": "{4}{W}",
+        "typeLine": "Enchantment Creature — Human Samurai",
+        "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nChannel — {2}, Discard this card: Search your library for a basic Plains card, reveal it, put it into your hand, then shuffle. You gain 2 life.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "9f1a7077-ea1f-4b8a-970a-027daf09e0bc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Channel"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "264",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASILICA_BELL_HAUNT": {
+    "scryfallId": "e72f4329-db6f-4284-b63e-55f22a0a0f6e",
+    "oracleId": "796dc53d-5a0d-4d19-9fa4-f474a9d96041",
+    "name": "Basilica Bell-Haunt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basilica Bell-Haunt",
+        "manaCost": "{W}{W}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "When this creature enters, each opponent discards a card and you gain 3 life.",
+        "flavorText": "You can hear their tolling only when your debt is due.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "e72f4329-db6f-4284-b63e-55f22a0a0f6e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINEWOODS_ARMADILLO": {
+    "scryfallId": "f79d63e7-a8c6-4750-91c9-c575a4d0561b",
+    "oracleId": "8c81f7b6-38e7-482b-afff-727074a23888",
+    "name": "Spinewoods Armadillo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spinewoods Armadillo",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Armadillo",
+        "oracleText": "Reach\nWard {3} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {3}.)\n{1}{G}, Discard this card: Search your library for a basic land card or a Desert card, reveal it, put it into your hand, then shuffle. You gain 3 life.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Iris Compiet",
+        "imageId": "f79d63e7-a8c6-4750-91c9-c575a4d0561b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Ward"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

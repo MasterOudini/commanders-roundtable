@@ -9061,6 +9061,27 @@ const WANTED = [
   'Teferi, Timebender',
   'Teferi, Timeless Voyager',
   "Vivien, Nature's Avenger",
+  // D484 - the prompt continuation: the seam test's spells (an ask before the last sentence).
+  'Contentious Plan',
+  "Geth's Verdict",
+  'Vampiric Tutor',
+  'Mind Ravel',
+  'Disrupt',
+  'Experimental Augury',
+  'Basic Conjuration',
+  // D484 - the prompt continuation: the rows whose payload asks before its last clause (Dimir Cutpurse, Psychic Symbiont, Hopeless Nightmare, Basilica Bell-Haunt, Sunblade Samurai, Spinewoods Armadillo ...).
+  'Dimir Cutpurse',
+  'Psychic Symbiont',
+  'Hopeless Nightmare',
+  'Daily Bugle Newspaper',
+  'Drowned Rusalka',
+  'Phyrexian War Beast',
+  'Riptide Survivor',
+  "Collector's Vault",
+  'Sunblade Samurai',
+  'Basilica Bell-Haunt',
+  'Spinewoods Armadillo',
+  // D484 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

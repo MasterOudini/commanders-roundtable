@@ -180,8 +180,11 @@ describe('D426 - the conjunction', () => {
     expect(parse('Exile target artifact and target creature.').mode).toBe('manual');
   });
 
-  test('an asking left half still lands assisted (D195)', () => {
-    expect(parse('Sacrifice a creature and draw a card.').mode).not.toBe('auto');
+  test('an asking left half carries the right half on its question (D484)', () => {
+    // D195 landed this assisted (the draw after the sacrifice's question was dropped); the continuation carries it.
+    const p = parse('Sacrifice a creature and draw a card.');
+    expect(p.mode).toBe('auto');
+    expect(p.effects.map((e) => e.kind)).toEqual(['sacrifice', 'draw']);
   });
 });
 

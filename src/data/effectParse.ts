@@ -2060,7 +2060,7 @@ function kickedInsteadRewrite(sentence: string, previous: Clause | undefined): E
  * each ` and ` / `, then ` from the left, and BOTH halves must read as one clause each - a half that is a noun
  * (`target creature and target land` - `Target land.` reads as nothing) leaves the sentence unread, as before.
  * Each half keeps its own text (the narration says what it did) and takes its targets in printed order
- * (`parseEffects` numbers them clause by clause). An asking left half still lands `assisted` by D195's rule.
+ * (`parseEffects` numbers them clause by clause). An asking left half carries the right half on its question (D484).
  */
 function conjunctionSplit(sentence: string, previous: Clause | undefined): Clause[] | null {
   const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
@@ -2628,23 +2628,18 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     return { effects, mode: 'assisted' };
   }
   /**
-   * ⚠️ **AN EFFECT THAT ASKS MUST BE LAST, OR THE CARD NEVER RUNS BY ITSELF
-   * (D195).** `effectEvents` stops emitting at an `AwaitingSet`, so anything
-   * after an asking effect in one resolution would be silently DROPPED —
-   * "Scry 1. Do X." would scry and never do X, which is half-execution in
-   * D90's exact sense while every sentence reads as understood. The
-   * scry-then-draw shapes are safe because the draw rides INSIDE the scry
-   * spec and the answer handler emits it; anything else lands `assisted`,
-   * where the player applies the parts by hand. (`lookAtTop` chains its own
-   * follow-ups through the answer, so it carries the same constraint.)
+   * D484 - THE PROMPT CONTINUATION. An asking effect (a discard, a look, a scry, a
+   * search, a payment, a queued sacrifice or return, a proliferate, an explore, a
+   * connive, the hand reveal) may stand ANYWHERE in the list now: the executor
+   * stops behind the question it raises and carries the clauses after it on the
+   * prompt (`EffectContinuation`), and every answer handler resumes them against
+   * the state the answer left. D195's rule - the ask must be LAST, or the card
+   * lands `assisted`, because `effectEvents` dropped what followed a question -
+   * was the wall every family still hit (`Search your library for a basic Plains
+   * card ... You gain 2 life`, `Each opponent discards a card and loses 2 life`,
+   * `Scry 1. ~ deals 1 damage to each opponent`, `Proliferate. Draw a card`).
+   * The scry-then-draw riders keep riding their spec; nothing else is special.
    */
-  // D390 - a queued sacrifice asks too (the first player with a real choice is prompted).
-  // D416 - the hand reveal asks too (the caster picks from the revealed hand; a trailing life loss rides the spec).
-  const ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'returnChoose', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
-  if (effects.slice(0, -1).some((e) => ASKS.has(e.kind))) {
-    warn('effect:partial');
-    return { effects, mode: 'assisted' };
-  }
   warn('effect:auto');
   return { effects, mode: 'auto' };
 }

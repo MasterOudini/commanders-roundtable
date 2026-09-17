@@ -112,15 +112,16 @@ describe('the library search (D357)', () => {
     expect(r.effects.some((e) => e.kind === 'search'), line).toBe(false);
   });
 
-  test('an effect that ASKS must be last, or the card never runs by itself', () => {
-    // D195's rule: `effectEvents` stops at an `AwaitingSet`, so a clause after the search would be
-    // silently dropped. The card lands `assisted` instead.
+  test('an effect that ASKS may stand before another (D484): the question carries the draw', () => {
+    // D195 landed this assisted: `effectEvents` stopped at the `AwaitingSet` and the draw after the
+    // search was dropped. The search prompt carries it now (`EffectContinuation`).
     const r = parseEffects(
       'Search your library for a basic land card, put it into your hand, then shuffle. Draw a card.',
       'Probe',
       true,
     );
-    expect(r.mode).toBe('assisted');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => e.kind)).toEqual(['search', 'draw']);
   });
 
   // ── the resolution, and the hazard ─────────────────────────────────────────

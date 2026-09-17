@@ -41,12 +41,12 @@ describe('the scry vocabulary (D195)', () => {
     expect(consider.effects[0]?.kind).toBe('surveil');
   });
 
-  test('an effect that asks must be LAST, or the card never runs by itself', () => {
-    // "Scry 1. Destroy target artifact." would scry and silently drop the
-    // destroy — half-execution while every sentence reads as understood.
-    // The guard lands it assisted instead.
+  test('an effect that asks may stand before another (D484): the question carries the destroy', () => {
+    // "Scry 1. Destroy target artifact." landed assisted under D195 - `effectEvents` dropped what
+    // followed a question. The continuation carries it now, so the card reads whole.
     const p = parseEffects('Scry 1.\nDestroy target artifact.', 'Test Card', true);
-    expect(p.mode).not.toBe('auto');
+    expect(p.mode).toBe('auto');
+    expect(p.effects.map((e) => e.kind)).toEqual(['scry', 'destroy']);
   });
 });
 

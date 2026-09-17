@@ -245,7 +245,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D431 - the caster's own sacrifice offered 6 more the row maker refuses (a queued sacrifice of two, a fodder the suite
   // cannot put, a search payload, a quoted grant) or that no row reaches (a spell whose ask is not last) - by reason.
   ['Lotus Field', 'a queued sacrifice of more than one: Sacrifice two lands.'],
-  ['Dredge', 'a spell whose ask is not last (the sacrifice before the draw; the generator rows no spell)'],
   ['Puppet Conjurer', 'a queued sacrifice with no fodder the suite can put: Homunculu'],
   // D470 - the stun counter is the engine's now (and the vocabulary puts it), and the mirror offered four the row maker
   // refused: a block proof beside a payload that taps the opponent's blocker, two multi-face layouts, a tap head the
@@ -579,6 +578,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Trial of Ambition', 'a filtered head no fixture satisfies: a Cartouche you control (D482)'],
   // D483 - the two-zone search: the one the mirror offers that the wave cannot row.
   ['The First Doctor', 'a filtered cast head outside the closed reader (a spell with cascade) beside its two-zone search (D483)'],
+  // D484 - the prompt continuation: the five the mirror offers that the wave cannot row.
+  ['Surtland Frostpyre', 'a scry beside a sweep in one payload (the suite answers no scry; the continuation runs it) (D484)'],
+  ['Greedy Freebooter', 'a scry beside a token in one payload (the suite answers no scry; the continuation runs it) (D484)'],
+  ['Keen Buccaneer', 'a self counter behind a loot in one payload (the row maker asks the vocabulary in its ~ form, the probe keyed the printed one) (D484)'],
+  ['Ninja of the Hand', 'an ability-word activated line (Power-up) beside its discard-then-draw head (D484)'],
+  ['Siren of the Silent Song', 'a mill beside a queued discard in one payload (the suite counts the graveyard delta of the mill alone) (D484)'],
   // D479 - the tribal target: the twenty-three the mirror offers that the wave cannot row.
   ["Alpha Kavu", "a tribal target with no vanilla fixture of its subtype (Kavu) (D479)"],
   ["Coastal Drake", "a tribal target with no vanilla fixture of its subtype (Kavu) (D479)"],
@@ -916,8 +921,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Syr Carah, the Bold', 'a trigger head outside the library (whenever ~ or an instant or sorcery spell you control deals damage to a player) beside its permission line'],
   // D416 - the hand reveal and choose reads: the 4 the selector offered once the reveal-and-choose sentences read
   // that the row maker refused, by reason (all four print a sentence after the ask).
-  ['Brainbite', 'a hand reveal followed by a second sentence (draw a card) - the ask must be last (the prompt CONTINUATION seam)'],
-  ['Render Speechless', 'a hand reveal followed by a second sentence (two counters on up to one target creature) - the ask must be last (the prompt CONTINUATION seam)'],
   ['The Torment of Gollum', 'a hand reveal followed by a second sentence (amass Orcs 2) - the ask must be last (the prompt CONTINUATION seam)'],
   ['Toll of the Invasion', 'a hand reveal followed by a second sentence (amass Zombies 1) - the ask must be last (the prompt CONTINUATION seam)'],
   // D415 - the verb price at resolution reads: the 18 the selector offered once `you may <verb>. If you do` and
@@ -1665,7 +1668,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
   // turn at a time and nothing can splice another in after it.
   ['Time Stretch', 'extra turns'],
-  ['Time Wipe', 'script-raised prompt'],
   ['Timetwister', 'ctx.random stub'],
   ["Titan's Revenge", 'clash mechanic'],
   ['Together as One', 'converge'],
@@ -2501,7 +2503,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Once Upon a Time', 'cast-time alternative cost (the first spell of the game is cast free)'],
   ["Visionary's Dance", 'hand-activated ability (channel-shaped: {2}, Discard this card)'],
   ['Creative Outburst', 'hand-activated ability (channel-shaped: {U/R}{U/R}, Discard this card)'],
-  ["Liliana's Spoils", 'two asks in one resolution (a targeted discard, then the look) - the prompt continuation seam'],
   // D390 - the player queue's wave: the four the selector offered that the row maker refused, by reason.
   ['Mindlash Sliver', 'a quoted grant of a queued discard (All Slivers have ...) - the grant generator, not the mainline row maker'],
   ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
@@ -2563,11 +2564,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D402 - the delayed trigger: the eleven spells the classifier offered once their cantrip line
   // (draw a card at the beginning of the next turn's upkeep) read, each refused for its OTHER line.
   ['Clairvoyance', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (look at target player hand)'],
-  ['Force Void', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (counter target spell unless its controller pays - the payment prompt on a spell row)'],
   ['Formation', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (banding)'],
   ['Jinx', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (a land becomes a basic land type of your choice)'],
   ['Jolt', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (you may tap or untap target permanent)'],
-  ['Mind Ravel', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (target player discards a card)'],
   ['Prophecy', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (reveal the top card of target opponent library, a land untaps)'],
   ['Soul Rend', 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (destroy target creature if it is white)'],
   ["Telim'Tor's Edict", 'a spell line outside the SpellDef vocabulary beside its delayed cantrip (exile target permanent you own or control)'],
@@ -2579,7 +2578,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fires of Victory', 'a spell line outside the row vocabulary beside its kicked clause (damage equal to the cards in hand)'],
   ['Jilt', 'a spell line outside the row vocabulary beside its kicked clause (a bounce and a kicked damage)'],
   ["Orim's Thunder", 'a spell line outside the row vocabulary beside its kicked clause (a destroy and a kicked damage equal to the mana value)'],
-  ['Spell Contortion', 'a multikicker spell (a counter unless pays, a draw for each time it was kicked) outside the row vocabulary'],
   ['Tribute to Urborg', 'a spell line outside the row vocabulary beside its kicked clause (-2/-2 and a kicked extra)'],
   ['Hunting Wilds', 'a spell line outside the row vocabulary beside its kicked clause (a search onto the battlefield, the kicked untap and animation)'],
   ['Molten Disaster', 'a spell line outside the row vocabulary beside its kicked clause (X damage to each creature without flying; split second if kicked)'],
@@ -2647,7 +2645,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thud', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power)"],
   ['Tormented Thoughts', "a spell line outside the row vocabulary beside its sacrifice cost (a discard equal to the sacrificed creature's power)"],
   ['Ultimate Nullification', 'a spell line outside the row vocabulary beside its sacrifice cost (exile all creatures and graveyards, then a library placement)'],
-  ['Renewal', 'a spell line outside the row vocabulary beside its sacrifice cost (a search onto the battlefield, then a draw)'],
   ["Sazacap's Brew", 'a gift line beside its discard cost (Gift a tapped Fish) outside the row vocabulary'],
   ['Sparkhunter Masticore', 'a vocabulary clause the suite has no fixture for (a battle clause) beside its discard cost'],
 
@@ -2714,14 +2711,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Whirlwind Denial', 'a per-item payment (one question per object)'],
   ['Calculated Dismissal', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Crush Dissent', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Disrupt', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Reasonable Doubt', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Runeboggle', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Withdraw', 'a second target clause carrying its own payment'],
   ["Don't Make a Sound", 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Offering to Asha', 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],
   ["Sage's Dousing", 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Stymied Hopes', 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],
   ['Silumgar Spell-Eater', 'a spell clause under a trigger head: the scaffold casts the opponent`s spell for an activa'],
   ['Illusionary Armor', 'a trigger head outside the row library (When enchanted creature becomes the target of a sp)'],
   ['Treacherous Blessing', 'a trigger head outside the row library (When this enchantment becomes the target of a spel)'],
@@ -2754,9 +2747,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Scatter Ray', 'a typed-spell COMPOUND clause the aim layer does not read'],
   ['Spectral Interference', 'a typed-spell COMPOUND clause the aim layer does not read'],
   ['Ghost-Lit Warder', 'ability-word activated: Channel — {3}{U}, Discard this'],
-  ['Condescend', 'an X payment price (the parser refuses one: D369)'],
   ['Mindswipe', 'an X payment price (the parser refuses one: D369)'],
-  ['Overrule', 'an X payment price (the parser refuses one: D369)'],
   ['Power Sink', 'an X payment price (the parser refuses one: D369)'],
   ['Rethink', 'an X payment price (the parser refuses one: D369)'],
   ['Spell Rupture', 'an X payment price (the parser refuses one: D369)'],

@@ -686,6 +686,35 @@ export interface PendingTrigger {
  * producer side is asserted in `awaitingProducers.node.test.ts`; the answering
  * side by `src/bot/awaiting.ts`'s exhaustive switch. See D125.
  */
+/**
+ * D484 - THE PROMPT CONTINUATION: the clauses of a resolution that come AFTER an asking effect, carried on the
+ * question and run when its answer lands. An asking effect stops the executor (the answer is a later intent -
+ * D136's shape, D137's first prompt), and until now everything after it was dropped, which is why D195 landed every
+ * card with an ask before its last sentence `assisted`. The prompt carries the rest instead: the specs themselves
+ * (public - they are the printed sentences), what the executor needs of the resolving object (it has left the stack
+ * by the time the answer comes; `payMana` snapshots the same fields), and a replay-stable id of its own so the ids
+ * a resumed clause derives (a delayed trigger's, a shield's) never collide with the resolution's. It is STATE - it
+ * rides `priority.awaiting`, hashed and replayed with it - so a replay resumes exactly where the game did. `outer`
+ * is the frame beyond this one: a payment's branch that asks carries the branch's rest here and the sentence after
+ * the payment there, and the funnel (`resumeContinuation`) runs them in that order.
+ */
+export interface EffectContinuation {
+  readonly effects: readonly EffectSpec[];
+  readonly id: StackId;
+  readonly kind: StackObject['kind'];
+  readonly controller: PlayerId;
+  readonly card: InstanceId | null;
+  readonly source: InstanceId | null;
+  readonly identity: readonly ColorLetter[];
+  readonly targets: readonly TargetChoice[];
+  readonly targetSlots?: readonly number[];
+  readonly label: string;
+  readonly xValue?: number;
+  readonly kicked?: number;
+  readonly memo?: number;
+  readonly outer?: EffectContinuation;
+}
+
 export type Awaiting =
   | { readonly kind: 'mulligan'; readonly players: readonly PlayerId[]; readonly submitted: readonly PlayerId[] }
   | { readonly kind: 'mulliganBottom'; readonly player: PlayerId; readonly count: number }
@@ -970,6 +999,8 @@ export type Awaiting =
        * (D137) and the answerer reads its own; the host re-validates every pick either way (D139).
        */
       readonly candidates?: readonly InstanceId[];
+      /** D484 - the clauses after the payment, run once the answer and its branch have landed. */
+      readonly continuation?: EffectContinuation;
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.
@@ -1013,6 +1044,8 @@ export type Awaiting =
       readonly qualifier: SearchQualifier | null;
       /** D483 - the searcher's graveyard is searched too (public; the answer may name a card there). */
       readonly graveyardToo?: boolean;
+      /** D484 - the clauses after the search, run once the answer has landed (declining the offer runs them too). */
+      readonly continuation?: EffectContinuation;
     }
   /**
    * CR 701.8a — a player choosing cards out of their own hand to discard.
@@ -1100,6 +1133,11 @@ export type Awaiting =
       readonly qualifier?: SearchQualifier | null;
       readonly then?: 'discard' | 'exile';
       readonly loseLife?: number;
+      /**
+       * D484 - the clauses after the asking clause, run once the answer has landed: after the whole batch of a
+       * player queue, after the ordering a look chains into, after the last connive of a chain.
+       */
+      readonly continuation?: EffectContinuation;
     }
   /**
    * "…in any order" — the player puts a known set of cards into a sequence.
@@ -1125,6 +1163,8 @@ export type Awaiting =
       readonly zone: 'library';
       /** Where the sequence is written once it is chosen. */
       readonly destination: 'top' | 'bottom';
+      /** D484 - the clauses after the look whose leftovers are being ordered. */
+      readonly continuation?: EffectContinuation;
       /** How many cards are being ordered — never which. */
       readonly count: number;
       readonly label: string;
@@ -1142,6 +1182,8 @@ export type Awaiting =
       readonly count: number;
       /** Surveil sends the rejects to the graveyard instead of the bottom. */
       readonly toGraveyard: boolean;
+      /** D484 - the clauses after the scry (or after the last explore of a chain), run once the answer has landed. */
+      readonly continuation?: EffectContinuation;
       /**
        * Cards drawn AFTER the choice resolves ("Scry 2, then draw a card") —
        * carried through the prompt because the draw must see the library AS
@@ -1157,7 +1199,7 @@ export type Awaiting =
    * counter. It ships NO ids - counters and poison are public, so the client lists what carries
    * one from its own view and the host checks every pick against the board as it stands.
    */
-  | { readonly kind: 'proliferateChoice'; readonly player: PlayerId; readonly label: string }
+  | { readonly kind: 'proliferateChoice'; readonly player: PlayerId; readonly label: string; readonly continuation?: EffectContinuation }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
 export interface PriorityState {

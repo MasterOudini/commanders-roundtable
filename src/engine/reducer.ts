@@ -978,6 +978,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Proliferated':
       return state;
 
+    // D484 - a marker; the resumed clauses' own events follow it.
+    case 'ContinuationResumed':
+      return state;
+
     // D396 - a bite's or a fight's marker: the damage beside it moves the state, this does not.
     case 'Fought':
       return state;

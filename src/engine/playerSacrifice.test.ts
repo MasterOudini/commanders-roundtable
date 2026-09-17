@@ -23,7 +23,8 @@ describe("D482 - the player's sacrifice", () => {
     const c = parseEffects('Each player sacrifices two creatures of their choice.', '~', true);
     expect(c.mode).toBe('auto');
     expect(c.effects[0]).toMatchObject({ kind: 'sacrifice', amount: 2, scopes: [{ kind: 'player', controller: 'any' }] });
-    expect(parseEffects('Target player sacrifices a creature of their choice. You gain 2 life.', '~', true).mode).toBe('assisted');
+    // D484 - the gain rides the queue's question (the continuation).
+    expect(parseEffects('Target player sacrifices a creature of their choice. You gain 2 life.', '~', true).mode).toBe('auto');
   });
 
   test('Cruel Edict asks the aimed opponent, who keeps the Giant', () => {

@@ -24,7 +24,7 @@ import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveChain } from './connive';
 import { countOf } from './count';
-import type { DelayedTrigger, GameState, PendingAsks, PreventionShield, ShieldSourceFilter, StackObject, TargetChoice } from './types/state';
+import type { Awaiting, DelayedTrigger, EffectContinuation, GameState, PendingAsks, PreventionShield, ShieldSourceFilter, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
 import { n, narrated, vb, who } from './narrate';
@@ -116,6 +116,8 @@ export function effectResult(
   obj: StackObject,
   effects: readonly EffectSpec[],
   cache?: DeriveCache,
+  /** D484 - the frame beyond these clauses, carried onto a question they raise (a resumed frame's `outer`). */
+  outer?: EffectContinuation,
 ): { events: EventBody[]; rng?: RngState } {
   const out: EventBody[] = [];
   // ⚠️ Threaded through the loop and returned ONCE at the end, never read from
@@ -198,6 +200,8 @@ export function effectResult(
 
   for (const step of steps) {
     const { aim, missing } = step;
+    // D484 - the events this step adds; a question among them stops the loop below.
+    const before = out.length;
     // D418 - `let`: a counted clause is rescaled below before its kind is switched on.
     let effect = step.effect;
     /**
@@ -1034,10 +1038,11 @@ export function effectResult(
        *
        * ⚠️ **ONE PROMPT PER RESOLUTION.** A second `AwaitingSet` in the same
        * batch would silently overwrite the first, so a spell with two discard
-       * clauses would ask about one and drop the other — half-execution. No card
-       * in this vocabulary can print two (each is a whole anchored sentence
-       * naming one target), and the guard is here so that stays true rather than
-       * being true by luck.
+       * clauses would ask about one and drop the other — half-execution. The
+       * guard is here so that stays true rather than being true by luck; since
+       * D484 the executor also STOPS behind the first question and carries the
+       * clauses after it on the prompt, so the second discard is asked when the
+       * first is answered (the continuation), never dropped.
        */
       /**
        * CR 400.7. The card goes to its OWNER — `aim.owner`, never the caster.
@@ -1464,6 +1469,25 @@ export function effectResult(
         break;
       }
     }
+    /**
+     * D484 - THE STOP. A question this clause raised carries the clauses after it (`EffectContinuation`): the
+     * executor ends here and the answer handler resumes through `resumeContinuation`, so nothing after a question
+     * runs before its answer and nothing is dropped - the wall D195 built its ask-last rule around. ONE question
+     * per batch is still the rule (a second `AwaitingSet` would overwrite the first); it is kept by stopping, and
+     * a second asking clause is simply the first of the continuation. A counted asking clause asks for its first
+     * pick only (no vocabulary rule prints one).
+     */
+    const asked = out.slice(before).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
+    if (asked < 0) continue;
+    const at = effects.indexOf(step.effect);
+    const rest = effects.slice(at + 1);
+    const carried = rest.length > 0 ? continuationOf(obj, at, rest, outer) : outer;
+    if (carried !== undefined) {
+      const k = before + asked;
+      const ev = out[k];
+      if (ev !== undefined && ev.t === 'AwaitingSet' && ev.awaiting !== null) out[k] = { t: 'AwaitingSet', awaiting: withContinuation(ev.awaiting, carried) };
+    }
+    break;
   }
   // ⚠️ `rng` is omitted entirely when nothing drew, not set to `state.rng`.
   // `log.ts` records `rngBefore`/`rngAfter` only when a batch carries one, and a
@@ -1555,6 +1579,113 @@ export function askCandidates(
     out.push(id);
   }
   return out;
+}
+
+/**
+ * D484 - the continuation of `obj`'s resolution from clause `at`: the clauses after it and what the executor reads
+ * of the object (`payMana` snapshots the same fields). Its own id keeps a resumed clause's derived ids (a delayed
+ * trigger's `-d<n>`, a shield's) apart from the resolution's, which numbered from zero too.
+ */
+function continuationOf(obj: StackObject, at: number, rest: readonly EffectSpec[], outer: EffectContinuation | undefined): EffectContinuation {
+  return {
+    effects: rest,
+    id: `${obj.id}-c${at}`,
+    kind: obj.kind,
+    controller: obj.controller,
+    card: obj.card,
+    source: obj.source,
+    identity: obj.identity,
+    targets: obj.targets,
+    ...(obj.targetSlots !== undefined ? { targetSlots: obj.targetSlots } : {}),
+    label: obj.label,
+    ...(obj.xValue !== null ? { xValue: obj.xValue } : {}),
+    ...(obj.kicked !== undefined ? { kicked: obj.kicked } : {}),
+    ...(obj.memo !== undefined ? { memo: obj.memo } : {}),
+    ...(outer !== undefined ? { outer } : {}),
+  };
+}
+
+/** The frame beyond `inner`'s last: a question raised inside a resumed frame keeps the frames the prompt already carried. */
+function chained(inner: EffectContinuation, outer: EffectContinuation): EffectContinuation {
+  return { ...inner, outer: inner.outer === undefined ? outer : chained(inner.outer, outer) };
+}
+
+/**
+ * The question with the continuation on it. Only the prompts the executor raises carry one; a prompt that already
+ * carries this very continuation (the search's reveal stage re-raises its own) is left alone, and one that carries
+ * another (a payment's branch that asked) keeps it and takes this one as the frame beyond.
+ */
+function withContinuation(awaiting: Awaiting, continuation: EffectContinuation): Awaiting {
+  switch (awaiting.kind) {
+    case 'payMana':
+    case 'searchLibrary':
+    case 'chooseFromZone':
+    case 'orderCards':
+    case 'scryChoice':
+    case 'proliferateChoice':
+      if (awaiting.continuation === continuation) return awaiting;
+      return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
+    default:
+      return awaiting;
+  }
+}
+
+/** The object a resumed frame resolves for - what the continuation kept of the one that has left the stack. */
+function continuationObject(c: EffectContinuation): StackObject {
+  return {
+    id: c.id,
+    kind: c.kind,
+    controller: c.controller,
+    card: c.card,
+    source: c.source,
+    abilityRef: null,
+    targets: c.targets,
+    ...(c.targetSlots !== undefined ? { targetSlots: c.targetSlots } : {}),
+    modes: [],
+    xValue: c.xValue ?? null,
+    label: c.label,
+    identity: c.identity,
+    taxApplied: 0,
+    isCommanderCast: false,
+    castFrom: null,
+    faceIndex: 0,
+    ...(c.kicked !== undefined ? { kicked: c.kicked } : {}),
+    ...(c.memo !== undefined ? { memo: c.memo } : {}),
+  };
+}
+
+/**
+ * D484 - THE ANSWER'S END, one funnel for every prompt the executor raises. The continuation the prompt carried is
+ * run against the state the answer's events leave (folded through the pure reducer, the way the scry's rider is
+ * emitted - D195 - with the RNG the answer advanced threaded in, so a shuffle before and a draw after never share
+ * numbers) and its events are appended; a frame that asks again carries what is left (the executor's stop); a
+ * frame that ends runs the frame beyond it. When the answer's own events raised the chain's NEXT question (the
+ * ordering after a look, the next player of a queue, the next explore or connive, the reveal stage of an optional
+ * search), the continuation is forwarded onto it untouched and nothing runs yet. Returns the RNG the accept carries.
+ */
+export function resumeContinuation(state: GameState, deps: EngineDeps, events: EventBody[], continuation: EffectContinuation | undefined, rng?: RngState): RngState | undefined {
+  let frame = continuation;
+  let folded = 0;
+  let scratch = state;
+  let advanced = rng;
+  while (frame !== undefined) {
+    const pending = events.slice(folded).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
+    if (pending >= 0) {
+      const k = folded + pending;
+      const ev = events[k];
+      if (ev !== undefined && ev.t === 'AwaitingSet' && ev.awaiting !== null) events[k] = { t: 'AwaitingSet', awaiting: withContinuation(ev.awaiting, frame) };
+      return advanced;
+    }
+    for (const body of events.slice(folded)) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+    folded = events.length;
+    if (advanced !== undefined) scratch = { ...scratch, rng: advanced };
+    events.push({ t: 'ContinuationResumed', label: frame.label, clauses: frame.effects.length });
+    const result = effectResult(scratch, deps, continuationObject(frame), frame.effects, undefined, frame.outer);
+    events.push(...result.events);
+    if (result.rng !== undefined) advanced = result.rng;
+    frame = result.events.some((e) => e.t === 'AwaitingSet' && e.awaiting !== null) ? undefined : frame.outer;
+  }
+  return advanced;
 }
 
 /**
