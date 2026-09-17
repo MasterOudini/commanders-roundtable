@@ -1,0 +1,104 @@
+// `Elvish Reclaimer` - every printed ability proven in its own game: the cost's mark, the pump
+// (or the token, the card, the life, the tap, the bounce), the end at cleanup, the replay
+// hash (D301). Generated from one table row.
+
+import { describe, expect, test } from 'vitest';
+import { replay, stateHash } from '../../log';
+import { createRegistry } from '../registryCore';
+import { ELVISH_RECLAIMER_SCRIPT } from './elvishReclaimer';
+import { advanceUntil, deps, holdEverywhere, must, nameOf, put, startedGame } from '../../testing/harness';
+import { derive } from '../../derive';
+import type { Game } from '../../game';
+import type { InstanceId } from '../../types/ids';
+
+const CARD = "Elvish Reclaimer";
+
+type Armed = { g: Game; self: InstanceId; no: InstanceId; life0: number; hand0: number; board0: number; p2life0: number; p2hand0: number; gy0: number; p2gy0: number; lib0: number; condOff: boolean; fodder0: InstanceId[] };
+
+function settle(g: Game): void {
+  advanceUntil(g, (s) => s.stack.length === 0 && s.pendingTriggers.length === 0, 20_000);
+}
+
+function pt(g: Game, id: InstanceId): [number | null, number | null] {
+  const d = deps(createRegistry([ELVISH_RECLAIMER_SCRIPT]));
+  const got = derive(g.state, d.oracle, d.scripts, id);
+  return [got.power, got.toughness];
+}
+
+function onBoard(g: Game): number {
+  return Object.values(g.state.cards).filter((c) => c.zone.kind === 'battlefield' && c.controller === 'p1').length;
+}
+
+function armed(which: number): Armed {
+  const g = startedGame({
+    players: 2,
+    decks: [["Elvish Reclaimer", "Forest", "Forest", "Forest", "Forest", "Forest"], ["Cyclops of One-Eyed Pass"]],
+    scripts: createRegistry([ELVISH_RECLAIMER_SCRIPT]),
+    options: { maxHandSize: null },
+  });
+  holdEverywhere(g);
+  const no = put(g, 'p2', "Cyclops of One-Eyed Pass");
+  const fodder0 = [put(g, 'p1', "Forest")];
+  settle(g);
+  const self = put(g, 'p1', CARD);
+  settle(g);
+  // p1's third-turn main phase: past summoning sickness (CR 302.6); the holds keep priority here.
+  advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
+  const life0 = g.state.players.p1?.life ?? 0;
+  const hand0 = (g.state.zones.hand.p1 ?? []).length;
+  const board0 = Object.values(g.state.cards).filter((c) => c.zone.kind === 'battlefield' && c.controller === 'p1').length;
+  const p2life0 = g.state.players.p2?.life ?? 0;
+  const p2hand0 = (g.state.zones.hand.p2 ?? []).length;
+  const gy0 = (g.state.zones.graveyard.p1 ?? []).length;
+  const p2gy0 = (g.state.zones.graveyard.p2 ?? []).length;
+  const lib0 = (g.state.zones.library.p1 ?? []).length;
+  let condOff = false;
+  if (which === 0) {
+    condOff = pt(g, self)[0] === 1 && pt(g, self)[1] === 2;
+    // D398 - stage two: the condition is met.
+    put(g, 'p1', "Forest", 'graveyard');
+    put(g, 'p1', "Forest", 'graveyard');
+    put(g, 'p1', "Forest", 'graveyard');
+    settle(g);
+    }
+  if (which === 1) {
+    must(g.submit({ t: 'ManualSetTapped', player: 'p1', cards: [self], tapped: false }));
+    settle(g);
+    must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: self, abilityIndex: 0, sacrifice: fodder0.slice(0, 1) }));
+    settle(g);
+    }
+  return { g, self, no, life0, hand0, board0, p2life0, p2hand0, gy0, p2gy0, lib0, condOff, fodder0 };
+}
+
+describe("Elvish Reclaimer", () => {
+  test("`Elvish Reclaimer` - as long as there are three or more land cards in your graveyard: absent while it is unmet, read once it holds", () => {
+    const { g, self, condOff } = armed(0);
+    expect(pt(g, self)).toEqual([3, 4]);
+    expect(condOff, 'the static is absent while the condition is unmet').toBe(true);
+  });
+
+  test("{2}, {T}, Sacrifice a land: the vocabulary resolves \"Search your library for a land card, put it onto the battlefield tapped, then shuffle.\"", () => {
+    const { g, self, board0, fodder0 } = armed(1);
+    advanceUntil(g, (s) => s.priority.awaiting?.kind === 'searchLibrary', 20_000);
+    { const stray = Object.keys(g.state.cards).find((id) => nameOf(g, id as InstanceId) === "Forest" && g.state.cards[id as InstanceId]?.zone.kind === 'hand');
+      if (stray) must(g.submit({ t: 'ManualMoveCard', player: 'p1', card: stray as InstanceId, to: { kind: 'library', player: 'p1' } }));
+      const lib = [...(g.state.zones.library.p1 ?? [])];
+      const found = lib.find((id) => nameOf(g, id) === "Forest");
+      expect(found, "Forest is not in the library for the search to find").toBeDefined();
+      must(g.submit({ t: 'AnswerSearchLibrary', player: 'p1', cards: [found as InstanceId], declined: false }));
+      settle(g);
+      expect(g.state.cards[found as InstanceId]?.zone).toEqual({ kind: "battlefield", player: 'p1' });
+      expect(g.state.cards[found as InstanceId]?.tapped, 'the card the search found arrives tapped').toBe(true);
+    }
+    expect(onBoard(g)).toBe(board0 + 1 - 1);
+    expect(g.state.cards[self]?.tapped).toBe(true);
+    for (const f of fodder0.slice(0, 1)) expect(g.state.cards[f]?.zone.kind).toBe('graveyard');
+  });
+
+  test('replays to the same hash', () => {
+    const { g } = armed(0);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+});

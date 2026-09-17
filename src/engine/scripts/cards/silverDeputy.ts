@@ -1,0 +1,56 @@
+// `Silver Deputy` - a etb trigger vocab, an activation vocab
+// until end of turn where it pumps (D194's carrier, D301). Generated from one table row.
+
+import { SILVER_DEPUTY } from '../../../data/fixtures/engineCards';
+import type { CardData } from '../../../data/cardTypes';
+import { vocabularyEffects, vocabularyTargets } from '../vocabulary';
+import type { CardScript } from '../api';
+import type { EventBody } from '../../types/events';
+
+function printed(card: CardData, expected: string): string {
+  const actual = card.faces[0]?.oracleText;
+  if (actual !== expected) {
+    throw new Error(
+      `${card.name} reads "${actual}" and its script was written for "${expected}". ` +
+        'Re-read the card before re-registering it (D90).',
+    );
+  }
+  return expected;
+}
+
+const PRINTED = printed(SILVER_DEPUTY, "When this creature enters, you may search your library for a basic land card or a Desert card, reveal it, then shuffle and put it on top.\n{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.");
+const LINES = PRINTED.split('\n');
+
+const VOCAB_L0 = vocabularyEffects("Search your library for a basic land card or a Desert card, reveal it, then shuffle and put it on top.", SILVER_DEPUTY.name);
+const VOCAB_T_L0 = vocabularyTargets("Search your library for a basic land card or a Desert card, reveal it, then shuffle and put it on top.");
+const VOCAB_A0 = vocabularyEffects("Target creature you control gets +1/+0 until end of turn.", SILVER_DEPUTY.name);
+const VOCAB_T_A0 = vocabularyTargets("Target creature you control gets +1/+0 until end of turn.");
+
+export const SILVER_DEPUTY_SCRIPT: CardScript = {
+  oracleId: SILVER_DEPUTY.oracleId,
+  name: SILVER_DEPUTY.name,
+  activated: [
+    {
+      ref: `${SILVER_DEPUTY.oracleId}#a0`,
+      text: LINES[1] as string,
+      resolve: (ctx, _self, obj): readonly EventBody[] => {
+        return ctx.vocabulary(obj, VOCAB_A0, VOCAB_T_A0);
+      },
+    },
+  ],
+  triggers: [
+    {
+      abilityId: 'etb-0',
+      text: LINES[0] as string,
+      event: 'CardsMoved',
+      activeZones: ['battlefield'],
+      optional: true,
+      matches: (_ctx, self, ev) =>
+        ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield'),
+      label: () => "Silver Deputy - Search your library for a basic land card or a Desert card, reveal it, then shuffle and put it on top.",
+      resolve: (ctx, _self, obj): readonly EventBody[] => {
+        return ctx.vocabulary(obj, VOCAB_L0, VOCAB_T_L0);
+      },
+    },
+  ],
+};

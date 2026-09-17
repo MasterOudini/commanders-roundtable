@@ -270210,6 +270210,1931 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RAMPART_ARCHITECT": {
+    "scryfallId": "027dc6b6-cf74-423d-a6b4-3d7feb05a809",
+    "oracleId": "b0edba6f-8f54-4dc4-b952-20b57a797d60",
+    "name": "Rampart Architect",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rampart Architect",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elephant Advisor",
+        "oracleText": "Whenever this creature enters or attacks, create a 1/3 white Wall creature token with defender.\nWhenever a creature you control with defender dies, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eelis Kyttanen",
+        "imageId": "027dc6b6-cf74-423d-a6b4-3d7feb05a809"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tdc",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_GRANGER": {
+    "scryfallId": "05414a41-b50c-49b6-9c27-f3170017d9b0",
+    "oracleId": "fac9ff8d-8342-4099-b224-d48a044bcc9a",
+    "name": "Yavimaya Granger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Granger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Echo {2}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Henry Van Der Linde",
+        "imageId": "05414a41-b50c-49b6-9c27-f3170017d9b0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Echo"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATHI_FIEND": {
+    "scryfallId": "07ca1184-ade0-4d6d-87f9-ad17f37679b3",
+    "oracleId": "b336d819-f299-4de3-9b23-51f83da59efb",
+    "name": "Rathi Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rathi Fiend",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Phyrexian Horror Mercenary",
+        "oracleText": "When this creature enters, each player loses 3 life.\n{3}, {T}: Search your library for a Mercenary permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "07ca1184-ade0-4d6d-87f9-ad17f37679b3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOG_GLIDER": {
+    "scryfallId": "086a5620-704b-47a9-9a5d-73e28631d6f8",
+    "oracleId": "6bff9d3a-a98d-4060-8409-4b81ce5aab15",
+    "name": "Bog Glider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bog Glider",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "Flying\n{T}, Sacrifice a land: Search your library for a Mercenary permanent card with mana value 2 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "086a5620-704b-47a9-9a5d-73e28631d6f8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_CAPTAIN": {
+    "scryfallId": "0e9d2e2a-c608-4787-bbd9-e1871f681b58",
+    "oracleId": "30255f36-2e26-4990-8b54-27f38130d45b",
+    "name": "Ramosian Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Captain",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "First strike\n{5}, {T}: Search your library for a Rebel permanent card with mana value 4 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "The Cho-Arrim believe in leading by example.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "0e9d2e2a-c608-4787-bbd9-e1871f681b58"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSHROUD_POACHER": {
+    "scryfallId": "0fb4e44e-656e-4294-a53b-1f7aa96fab31",
+    "oracleId": "4f5921c1-b932-4d6b-bb8e-01992578abdc",
+    "name": "Skyshroud Poacher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyshroud Poacher",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "{3}, {T}: Search your library for an Elf permanent card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"It's OK. They're just elves.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "0fb4e44e-656e-4294-a53b-1f7aa96fab31"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORERUNNER_OF_THE_LEGION": {
+    "scryfallId": "10718d37-63d4-44b7-9450-5d49cffce944",
+    "oracleId": "439537ca-53c1-47cb-9174-5872c3c46288",
+    "name": "Forerunner of the Legion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forerunner of the Legion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "When this creature enters, you may search your library for a Vampire card, reveal it, then shuffle and put that card on top.\nWhenever another Vampire you control enters, target creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "10718d37-63d4-44b7-9450-5d49cffce944"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMPASS_GNOME": {
+    "scryfallId": "10e1030e-2b95-4807-9111-e495a2fc8813",
+    "oracleId": "b64051c0-e791-4fcb-b79f-4287e1b06468",
+    "name": "Compass Gnome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Compass Gnome",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "When this creature enters, you may search your library for a basic land card or Cave card, reveal it, then shuffle and put that card on top.",
+        "flavorText": "\"I'm certain it's some kind of sophisticated navigational tool. If only I had any idea what it was telling me!\"\n—Colbo, Brazen Coalition surveyor",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Astruga",
+        "imageId": "10e1030e-2b95-4807-9111-e495a2fc8813"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREATER_TANUKI": {
+    "scryfallId": "12179355-93db-41c1-9e3c-d2ad2491a6d3",
+    "oracleId": "b2d19232-9a80-4ea2-9aa7-c47b4719106c",
+    "name": "Greater Tanuki",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greater Tanuki",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Enchantment Creature — Dog",
+        "oracleText": "Trample\nChannel — {2}{G}, Discard this card: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "The kami permit few mortals to dwell in Jukai Forest, but the clever, playful tanuki are welcomed as friends and guardians.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "12179355-93db-41c1-9e3c-d2ad2491a6d3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample",
+      "Channel"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "NEO-189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_SKY_MARSHAL": {
+    "scryfallId": "16638976-8a78-4233-8ebc-42ea9bb49e0a",
+    "oracleId": "52fcc5b6-6ada-457f-be76-fa674c74b4fd",
+    "name": "Ramosian Sky Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Sky Marshal",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "Flying\n{7}, {T}: Search your library for a Rebel permanent card with mana value 6 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "The Cho-Arrim fell from the sky onto Mercadia City like a vengeful rain.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "16638976-8a78-4233-8ebc-42ea9bb49e0a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "40",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COLOSSAL_RATTLEWURM": {
+    "scryfallId": "17a104d3-e4ac-44a0-9c6a-39965b1b9751",
+    "oracleId": "510659d6-69b4-4b04-8836-08b76213954e",
+    "name": "Colossal Rattlewurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Colossal Rattlewurm",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Colossal Rattlewurm has flash as long as you control a Desert.\nTrample\n{1}{G}, Exile this card from your graveyard: Search your library for a Desert card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "17a104d3-e4ac-44a0-9c6a-39965b1b9751"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIGHTSPEAKER": {
+    "scryfallId": "17ab3455-f464-41b0-ac63-d40d27abbfb1",
+    "oracleId": "0d16e52a-a7d0-4850-b49d-99f7978133e4",
+    "name": "Blightspeaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blightspeaker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rebel Cleric",
+        "oracleText": "{T}: Target player loses 1 life.\n{4}, {T}: Search your library for a Rebel permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "One croaked sermon spreads propaganda and plague.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "17ab3455-f464-41b0-ac63-d40d27abbfb1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHT_OF_THE_RELIQUARY": {
+    "scryfallId": "205df311-a72d-40f1-b2ea-9b30274bc9bd",
+    "oracleId": "393e5331-4456-4ba3-b410-bb630bb053db",
+    "name": "Knight of the Reliquary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knight of the Reliquary",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "This creature gets +1/+1 for each land card in your graveyard.\n{T}, Sacrifice a Forest or Plains: Search your library for a land card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"Knowledge of Bant's landscape and ruins is a weapon that the invaders can't comprehend.\"\n—Elspeth Tirel",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "205df311-a72d-40f1-b2ea-9b30274bc9bd"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ima",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RING_OF_THREE_WISHES": {
+    "scryfallId": "219ab03a-2b3b-4eef-8a42-2cbe793d2f33",
+    "oracleId": "677c3616-295f-493a-8b60-1e22b0224cfa",
+    "name": "Ring of Three Wishes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ring of Three Wishes",
+        "manaCost": "{5}",
+        "typeLine": "Artifact",
+        "oracleText": "This artifact enters with three wish counters on it.\n{5}, {T}, Remove a wish counter from this artifact: Search your library for a card, put that card into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Winters",
+        "imageId": "219ab03a-2b3b-4eef-8a42-2cbe793d2f33"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m14",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIRIT_OF_THE_ALDERGARD": {
+    "scryfallId": "220df551-3820-4910-a206-14501ba02e69",
+    "oracleId": "ff3bc67b-f435-4bb7-9c21-8d24d8808c1a",
+    "name": "Spirit of the Aldergard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spirit of the Aldergard",
+        "manaCost": "{3}{G}",
+        "typeLine": "Snow Creature — Bear Spirit",
+        "oracleText": "When this creature enters, search your library for a snow land card, reveal it, put it into your hand, then shuffle.\nThis creature gets +1/+0 for each other snow permanent you control.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "220df551-3820-4910-a206-14501ba02e69"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_SPIDER_NIMBLE_WEBBER": {
+    "scryfallId": "2b54d4a5-634f-4ae3-b592-0dc527f60d56",
+    "oracleId": "2d961997-4f5f-4ce2-b062-11411147e2f7",
+    "name": "Sun-Spider, Nimble Webber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun-Spider, Nimble Webber",
+        "manaCost": "{3}{W/U}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "During your turn, Sun-Spider has flying.\nWhen Sun-Spider enters, search your library for an Aura or Equipment card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "Breaking expectations and enjoying it.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "2b54d4a5-634f-4ae3-b592-0dc527f60d56"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "spm",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_SLAVER": {
+    "scryfallId": "2d293c51-714c-45b8-bfa4-fe35e8f3fbc1",
+    "oracleId": "e7989ef3-d2a5-41c6-944c-f969d850f557",
+    "name": "Cateran Slaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Slaver",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Horror Mercenary",
+        "oracleText": "Swampwalk (This creature can't be blocked as long as defending player controls a Swamp.)\n{5}, {T}: Search your library for a Mercenary permanent card with mana value 5 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "2d293c51-714c-45b8-bfa4-fe35e8f3fbc1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landwalk",
+      "Swampwalk"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLANAR_BRIDGE": {
+    "scryfallId": "30879758-841c-46a9-a0b6-179ac163f0ac",
+    "oracleId": "853c6cc0-ed2b-4d65-add1-2449ade8cf68",
+    "name": "Planar Bridge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Planar Bridge",
+        "manaCost": "{6}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "{8}, {T}: Search your library for a permanent card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"It is finished. Now the real work can begin.\"\n—Tezzeret",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chase Stone",
+        "imageId": "30879758-841c-46a9-a0b6-179ac163f0ac"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "2x2",
+    "collectorNumber": "313",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORERUNNER_OF_THE_HERALDS": {
+    "scryfallId": "30bc2bd2-adfc-490e-998a-303598e6a942",
+    "oracleId": "56e2bdcf-d1d8-4c56-af3a-388cd42353e6",
+    "name": "Forerunner of the Heralds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forerunner of the Heralds",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "When this creature enters, you may search your library for a Merfolk card, reveal it, then shuffle and put that card on top.\nWhenever another Merfolk you control enters, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "30bc2bd2-adfc-490e-998a-303598e6a942"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORPSE_CONNOISSEUR": {
+    "scryfallId": "34320bc2-12af-42a6-8139-d7479e6a3074",
+    "oracleId": "f39e2611-c837-4ad7-b3a8-1ee48b74777c",
+    "name": "Corpse Connoisseur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corpse Connoisseur",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Wizard",
+        "oracleText": "When this creature enters, you may search your library for a creature card, put that card into your graveyard, then shuffle.\nUnearth {3}{B} ({3}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Hyzer",
+        "imageId": "34320bc2-12af-42a6-8139-d7479e6a3074"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Unearth"
+    ],
+    "setCode": "ddk",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_KIDNAPPERS": {
+    "scryfallId": "3768bdc1-4055-423a-a1cc-69b4c620e3e6",
+    "oracleId": "938c4f2e-6dda-4ac4-b50c-40dc165b4eaa",
+    "name": "Cateran Kidnappers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Kidnappers",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "{3}, {T}: Search your library for a Mercenary permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "Recruits aren't always volunteers.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "3768bdc1-4055-423a-a1cc-69b4c620e3e6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_RECLAIMER": {
+    "scryfallId": "3826a901-7219-46d1-acae-07a981877149",
+    "oracleId": "94f01534-7bb3-4b1e-8f77-e84156408686",
+    "name": "Elvish Reclaimer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Reclaimer",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "This creature gets +2/+2 as long as there are three or more land cards in your graveyard.\n{2}, {T}, Sacrifice a land: Search your library for a land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "3826a901-7219-46d1-acae-07a981877149"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVER_DEPUTY": {
+    "scryfallId": "39d2c11d-1eb8-4768-bc61-fa8f20a69462",
+    "oracleId": "7bbede9a-8981-4435-9854-af61a18c6166",
+    "name": "Silver Deputy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silver Deputy",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Mercenary",
+        "oracleText": "When this creature enters, you may search your library for a basic land card or a Desert card, reveal it, then shuffle and put it on top.\n{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.",
+        "flavorText": "It couldn't comprehend the spirit of the law, so the Sterling Company settled for the letter.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Artur Nakhodkin",
+        "imageId": "39d2c11d-1eb8-4768-bc61-fa8f20a69462"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATHI_ASSASSIN": {
+    "scryfallId": "3e3597c3-3053-49f8-ab7e-a774e2fb082f",
+    "oracleId": "1ea0c775-fde0-4a21-b4c2-8bcec0e4f4f8",
+    "name": "Rathi Assassin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rathi Assassin",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Phyrexian Zombie Mercenary Assassin",
+        "oracleText": "{1}{B}{B}, {T}: Destroy target tapped nonblack creature.\n{3}, {T}: Search your library for a Mercenary permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dana Knutson",
+        "imageId": "3e3597c3-3053-49f8-ab7e-a774e2fb082f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLADIOLUS_AMICITIA": {
+    "scryfallId": "442957fc-045d-4db6-b82a-445f172d23e4",
+    "oracleId": "fb5a05d1-baa5-459d-a2e5-438f4a60b82f",
+    "name": "Gladiolus Amicitia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gladiolus Amicitia",
+        "manaCost": "{4}{R}{G}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "When Gladiolus Amicitia enters, search your library for a land card, put it onto the battlefield tapped, then shuffle.\nLandfall — Whenever a land you control enters, another target creature you control gets +2/+2 and gains trample until end of turn.",
+        "flavorText": "\"Guard the king with our lives—that's the way it's always been.\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Gal Or",
+        "imageId": "442957fc-045d-4db6-b82a-445f172d23e4"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAELSTROM_OF_THE_SPIRIT_DRAGON": {
+    "scryfallId": "48b89e6d-da58-465e-a9b1-69629da159f6",
+    "oracleId": "49e9fba7-8465-4bbb-95db-73a7e149f494",
+    "name": "Maelstrom of the Spirit Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maelstrom of the Spirit Dragon",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Dragon spell or an Omen spell.\n{4}, {T}, Sacrifice this land: Search your library for a Dragon card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cabrol",
+        "imageId": "48b89e6d-da58-465e-a9b1-69629da159f6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "326",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEFIANT_FALCON": {
+    "scryfallId": "4c80032b-daeb-4661-9a66-61abe9d12ddd",
+    "oracleId": "dc206e6a-e447-48d4-a91a-7c746320e2b4",
+    "name": "Defiant Falcon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Defiant Falcon",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Rebel Bird",
+        "oracleText": "Flying\n{4}, {T}: Search your library for a Rebel permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "4c80032b-daeb-4661-9a66-61abe9d12ddd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENCROACHING_DRAGONSTORM": {
+    "scryfallId": "4ddd4477-f8c9-4d05-9177-f8344ba8f40b",
+    "oracleId": "1e95c273-7fec-4f8d-8be9-e21ad4b93717",
+    "name": "Encroaching Dragonstorm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Encroaching Dragonstorm",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.\nWhen a Dragon you control enters, return this enchantment to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Marco Gorlei",
+        "imageId": "4ddd4477-f8c9-4d05-9177-f8344ba8f40b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMROU_SCOUT": {
+    "scryfallId": "54ada83d-c499-45c2-bf8b-788a439fd1c3",
+    "oracleId": "4c80112a-8ff5-4ca4-8737-b8d499d78982",
+    "name": "Amrou Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Amrou Scout",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kithkin Rebel Scout",
+        "oracleText": "{4}, {T}: Search your library for a Rebel permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "The people of Amrou were scattered by war and driven into hiding. Scouts maintain the beacon fires that signal \"return\" and \"home.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "54ada83d-c499-45c2-bf8b-788a439fd1c3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mma",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GATECREEPER_VINE": {
+    "scryfallId": "5dabcc2f-7536-44e3-a495-bbfc526fdc5d",
+    "oracleId": "0f539127-535f-4e0d-abaa-e884521098d2",
+    "name": "Gatecreeper Vine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gatecreeper Vine",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant",
+        "oracleText": "Defender\nWhen this creature enters, you may search your library for a basic land card or a Gate card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "Every inch of Ravnica is home to something.",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "5dabcc2f-7536-44e3-a495-bbfc526fdc5d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESCAPE_TUNNEL": {
+    "scryfallId": "5df90940-15ea-418c-8547-6c75d69ec6d3",
+    "oracleId": "0056fc91-4398-471c-b561-7ff99750ac8a",
+    "name": "Escape Tunnel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Escape Tunnel",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\n{T}, Sacrifice this land: Target creature with power 2 or less can't be blocked this turn.",
+        "flavorText": "\"I hear the sewers in Connecticut are really nice.\"\n—Michelangelo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aenami",
+        "imageId": "5df90940-15ea-418c-8547-6c75d69ec6d3"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATHI_INTIMIDATOR": {
+    "scryfallId": "6fc59fa5-144f-49e6-b6bd-2ba6d3f2eff2",
+    "oracleId": "a24f4198-2412-4b73-8e20-4ced3a826301",
+    "name": "Rathi Intimidator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rathi Intimidator",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Phyrexian Horror Mercenary",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\n{2}, {T}: Search your library for a Mercenary permanent card with mana value 2 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "6fc59fa5-144f-49e6-b6bd-2ba6d3f2eff2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTEN_MAN_INFERNO_INCARNATE": {
+    "scryfallId": "70d0edde-c5a5-406f-8933-bdda1abb5c05",
+    "oracleId": "c6fcf3c1-0626-4d53-92c0-caa22fa61e9a",
+    "name": "Molten Man, Inferno Incarnate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molten Man, Inferno Incarnate",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Elemental Villain",
+        "oracleText": "When Molten Man enters, search your library for a basic Mountain card, put it onto the battlefield tapped, then shuffle.\nMolten Man gets +1/+1 for each Mountain you control.\nWhen Molten Man leaves the battlefield, sacrifice a land.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "70d0edde-c5a5-406f-8933-bdda1abb5c05"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "om1",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_BRUTE": {
+    "scryfallId": "73b6ce76-0ed0-4994-ae2c-d8e51ae09920",
+    "oracleId": "f60d03ae-f45f-45b2-a0f7-108acb0a45db",
+    "name": "Cateran Brute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Brute",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Horror Mercenary",
+        "oracleText": "{2}, {T}: Search your library for a Mercenary permanent card with mana value 2 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "The Cateran guild prefers to call them \"public relations.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "73b6ce76-0ed0-4994-ae2c-d8e51ae09920"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FROM_BEYOND": {
+    "scryfallId": "8337191c-180c-41d8-9a03-dcbb887f0841",
+    "oracleId": "31b27775-196b-4022-bff5-25b34290ff7f",
+    "name": "From Beyond",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "From Beyond",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Devoid (This card has no color.)\nAt the beginning of your upkeep, create a 1/1 colorless Eldrazi Scion creature token. It has \"Sacrifice this token: Add {C}.\"\n{1}{G}, Sacrifice this enchantment: Search your library for an Eldrazi card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mathias Kollros",
+        "imageId": "8337191c-180c-41d8-9a03-dcbb887f0841"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Devoid"
+    ],
+    "setCode": "pbfz",
+    "collectorNumber": "167s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_COMMANDER": {
+    "scryfallId": "867f5d82-71c2-455f-ab16-5a32bba46986",
+    "oracleId": "05baf38c-677a-42e3-bb8c-a52a0a478984",
+    "name": "Ramosian Commander",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Commander",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "{6}, {T}: Search your library for a Rebel permanent card with mana value 5 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"Cho-Manno guides your spirit. I guide your sword.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Hampton",
+        "imageId": "867f5d82-71c2-455f-ab16-5a32bba46986"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPYARD_RECOMBINER": {
+    "scryfallId": "8945f5e0-c143-47ca-910e-32ad9ac34487",
+    "oracleId": "ecf09f2d-a886-4ec8-8ff6-fe15d87b1375",
+    "name": "Scrapyard Recombiner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapyard Recombiner",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Modular 2 (This creature enters with two +1/+1 counters on it. When it dies, you may put its +1/+1 counters on target artifact creature.)\n{T}, Sacrifice an artifact: Search your library for a Construct card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Simon Dominic",
+        "imageId": "8945f5e0-c143-47ca-910e-32ad9ac34487"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Modular"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WIGHT_OF_THE_RELIQUARY": {
+    "scryfallId": "915715f7-5487-47aa-ada5-de1bce282164",
+    "oracleId": "4507df69-6bf7-43d6-a609-c032b61835d5",
+    "name": "Wight of the Reliquary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wight of the Reliquary",
+        "manaCost": "{B}{G}",
+        "typeLine": "Creature — Zombie Knight",
+        "oracleText": "Vigilance\nThis creature gets +1/+1 for each creature card in your graveyard.\n{T}, Sacrifice another creature: Search your library for a land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "Her new demonic overlords prized her knowledge of Bant's landscape.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "915715f7-5487-47aa-ada5-de1bce282164"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "460",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGGCATCHER": {
+    "scryfallId": "9ba582d7-1dce-4664-8bd9-6b419596788c",
+    "oracleId": "4845dc21-7534-4896-b298-4d44cd7a3b27",
+    "name": "Moggcatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Moggcatcher",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "{3}, {T}: Search your library for a Goblin permanent card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"They're not worth much, but they're easy to catch.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "9ba582d7-1dce-4664-8bd9-6b419596788c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "nem",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORIZON_SPELLBOMB": {
+    "scryfallId": "9d93378e-1de2-4954-9458-dd3306f2996e",
+    "oracleId": "12080ea9-0800-4601-b553-6711dd9f9806",
+    "name": "Horizon Spellbomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horizon Spellbomb",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nWhen this artifact is put into a graveyard from the battlefield, you may pay {G}. If you do, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Franz Vohwinkel",
+        "imageId": "9d93378e-1de2-4954-9458-dd3306f2996e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_ENFORCER": {
+    "scryfallId": "9e9b6da8-39da-4fce-89cf-ea972f981331",
+    "oracleId": "a2f3139e-80f6-43fb-bdb7-d45d6eb2a652",
+    "name": "Cateran Enforcer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Enforcer",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Horror Mercenary",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\n{4}, {T}: Search your library for a Mercenary permanent card with mana value 4 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Ploog",
+        "imageId": "9e9b6da8-39da-4fce-89cf-ea972f981331"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Fear"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORIZON_SEEKER": {
+    "scryfallId": "a17f4b21-6478-407d-b567-2888349f3b66",
+    "oracleId": "e0610ab1-88d3-4502-84b7-3a08d0170167",
+    "name": "Horizon Seeker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horizon Seeker",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Boast — {1}{G}: Search your library for a basic land card, reveal it, put it into your hand, then shuffle. (Activate only if this creature attacked this turn and only once each turn.)",
+        "flavorText": "\"A five-day climb? Ha! I'll do it in two.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "a17f4b21-6478-407d-b567-2888349f3b66"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Boast"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISTRICT_GUIDE": {
+    "scryfallId": "a45462be-f8f8-4fef-a00b-741c58a3c15e",
+    "oracleId": "1eb4c001-1115-4b99-bbbf-703eb551a381",
+    "name": "District Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "District Guide",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "When this creature enters, you may search your library for a basic land card or Gate card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "a45462be-f8f8-4fef-a00b-741c58a3c15e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_PERSUADER": {
+    "scryfallId": "a98bdbf1-32a6-4d9b-8e57-5d3aca6b05bc",
+    "oracleId": "415e9484-0788-4c00-bb1f-19308511114b",
+    "name": "Cateran Persuader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Persuader",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "{1}, {T}: Search your library for a Mercenary permanent card with mana value 1 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "a98bdbf1-32a6-4d9b-8e57-5d3aca6b05bc"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCAMPERING_SURVEYOR": {
+    "scryfallId": "afcb2a90-d4c0-4c83-8ee7-2ac3a23b4402",
+    "oracleId": "63c8f510-eba8-4f00-9f80-fbbc74801a4a",
+    "name": "Scampering Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scampering Surveyor",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "When this creature enters, search your library for a basic land card or Cave card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "It knows the length, pitch, and orientation of every tunnel it has ever traversed.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Xavier Ribeiro",
+        "imageId": "afcb2a90-d4c0-4c83-8ee7-2ac3a23b4402"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "260",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEAHUNTER": {
+    "scryfallId": "b44356fd-25ca-433c-a3b3-e70e46afefac",
+    "oracleId": "59e1899f-a9e8-48aa-b3fb-0b7d9fd6859c",
+    "name": "Seahunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seahunter",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Mercenary",
+        "oracleText": "{3}, {T}: Search your library for a Merfolk permanent card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"They can't feel pain. They just wiggle 'cause they're scared.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "b44356fd-25ca-433c-a3b3-e70e46afefac"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "NEM-41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORERUNNER_OF_THE_COALITION": {
+    "scryfallId": "b499fc26-26b0-4b0f-9c62-5ed599baf41d",
+    "oracleId": "d6458cf6-eb1f-448b-8205-1b5d887ff2bf",
+    "name": "Forerunner of the Coalition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forerunner of the Coalition",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Pirate",
+        "oracleText": "When this creature enters, you may search your library for a Pirate card, reveal it, then shuffle and put that card on top.\nWhenever another Pirate you control enters, each opponent loses 1 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "James Ryman",
+        "imageId": "b499fc26-26b0-4b0f-9c62-5ed599baf41d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rix",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINESEEKER_CENTIPEDE": {
+    "scryfallId": "b50d697c-8358-429b-8f79-7ad9d01a5edd",
+    "oracleId": "dcfa0476-e88f-43b4-8011-d78a3de97f2a",
+    "name": "Spineseeker Centipede",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spineseeker Centipede",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "When this creature enters, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nDelirium — This creature gets +1/+2 and has vigilance as long as there are four or more card types among cards in your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "b50d697c-8358-429b-8f79-7ad9d01a5edd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGITEK_INFANTRY": {
+    "scryfallId": "b64dc6d7-dd01-4e66-9099-4c90865448df",
+    "oracleId": "563992ff-6fdf-45a0-afc2-7c73c2ec6f74",
+    "name": "Magitek Infantry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magitek Infantry",
+        "manaCost": "{W}",
+        "typeLine": "Artifact Creature — Robot Soldier",
+        "oracleText": "This creature gets +1/+0 as long as you control another artifact.\n{2}{W}: Search your library for a card named Magitek Infantry, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "These cybersoldiers were specifically engineered to excel in combat, and serve as the powerhouse of the imperial infantry.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Tyler Christopher",
+        "imageId": "b64dc6d7-dd01-4e66-9099-4c90865448df"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIFESPINNER": {
+    "scryfallId": "c6a83083-f7c6-4ddf-aee9-538a1778697d",
+    "oracleId": "0fb26acd-891d-471d-98d8-73c6f940052b",
+    "name": "Lifespinner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lifespinner",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{T}, Sacrifice three Spirits: Search your library for a legendary Spirit permanent card, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"The husk splits like a madman's smile And mystery steps forth.\"\n—Snow-Fur, kitsune poet",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Cara Mitten",
+        "imageId": "c6a83083-f7c6-4ddf-aee9-538a1778697d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_LIEUTENANT": {
+    "scryfallId": "debe840a-ebc9-43c4-9bf7-7eb292b65bf9",
+    "oracleId": "ddd2a87e-4020-4408-b4e6-a2120d485855",
+    "name": "Ramosian Lieutenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Lieutenant",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "{4}, {T}: Search your library for a Rebel permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "\"Give me your hand and I will give you victory.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alan Pollack",
+        "imageId": "debe840a-ebc9-43c4-9bf7-7eb292b65bf9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMINOUS_PARCEL": {
+    "scryfallId": "e1691374-e9f2-4a8b-abdb-0bb1dbc96715",
+    "oracleId": "be3c138b-045b-4b08-a12f-a5679d972051",
+    "name": "Ominous Parcel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ominous Parcel",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\n{5}, {T}, Sacrifice this artifact: It deals 4 damage to target creature.",
+        "flavorText": "The rest of Anhelo's assistant arrived over the following week.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "e1691374-e9f2-4a8b-abdb-0bb1dbc96715"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "241",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALPINE_GUIDE": {
+    "scryfallId": "e54423c1-ebea-4b5c-b563-1d14c104eb91",
+    "oracleId": "55b12241-2495-45e6-b618-3746d5521291",
+    "name": "Alpine Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alpine Guide",
+        "manaCost": "{2}{R}",
+        "typeLine": "Snow Creature — Human Scout",
+        "oracleText": "When this creature enters, you may search your library for a Mountain card, put that card onto the battlefield tapped, then shuffle.\nThis creature attacks each combat if able.\nWhen this creature leaves the battlefield, sacrifice a Mountain.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "e54423c1-ebea-4b5c-b563-1d14c104eb91"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CATERAN_OVERLORD": {
+    "scryfallId": "e8a1ffcb-40a7-423f-b28a-b5b4c1c9ffd0",
+    "oracleId": "c2223cdf-419d-4153-9551-705557461664",
+    "name": "Cateran Overlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cateran Overlord",
+        "manaCost": "{4}{B}{B}{B}",
+        "typeLine": "Creature — Horror Mercenary",
+        "oracleText": "Sacrifice a creature: Regenerate this creature.\n{6}, {T}: Search your library for a Mercenary permanent card with mana value 6 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "e8a1ffcb-40a7-423f-b28a-b5b4c1c9ffd0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "mmq",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMOSIAN_SERGEANT": {
+    "scryfallId": "ef2b036d-5721-4a6e-bf43-69148b90da10",
+    "oracleId": "9b0a14b9-977d-4e25-a519-eaddb0f94b6a",
+    "name": "Ramosian Sergeant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ramosian Sergeant",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Rebel",
+        "oracleText": "{3}, {T}: Search your library for a Rebel permanent card with mana value 2 or less, put it onto the battlefield, then shuffle.",
+        "flavorText": "Her commands are part rallying cry, part sermon, and wholly undeniable.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Don Hazeltine",
+        "imageId": "ef2b036d-5721-4a6e-bf43-69148b90da10"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILDREN_OF_KORLIS": {
+    "scryfallId": "1a6cbece-f9d8-4c40-b72b-dfdb86430ff2",
+    "oracleId": "d44a8f89-b9c0-4e8a-9179-baa0c448a3c9",
+    "name": "Children of Korlis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Children of Korlis",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Rebel Cleric",
+        "oracleText": "Sacrifice this creature: You gain life equal to the life you've lost this turn. (Damage causes loss of life.)",
+        "flavorText": "\"We have a proud history of self-sacrifice. But it is easy, in these bleak times, to find one among us who is eager to die for any cause.\"\n—Tavalus, acolyte of Korlis",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "1a6cbece-f9d8-4c40-b72b-dfdb86430ff2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGON_S_EYE_SENTRY": {
+    "scryfallId": "750880cd-59bf-4b67-a2d5-9b66e4d05665",
+    "oracleId": "661b23fc-78cd-44f7-ba53-0cb89ccca41f",
+    "name": "Dragon's Eye Sentry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragon's Eye Sentry",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Defender, first strike",
+        "flavorText": "Even the humblest guard of Ojutai's strongholds ponders the puzzles of the Great Teacher's lessons.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "750880cd-59bf-4b67-a2d5-9b66e4d05665"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "First strike",
+      "Defender"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KATAKI_WAR_S_WAGE": {
+    "scryfallId": "0ecc37b5-bb60-4195-93d2-ccdf44d4973b",
+    "oracleId": "27ffa6e9-c161-4f53-8b41-7fae5f199f41",
+    "name": "Kataki, War's Wage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kataki, War's Wage",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Spirit",
+        "oracleText": "All artifacts have \"At the beginning of your upkeep, sacrifice this artifact unless you pay {1}.\"",
+        "flavorText": "\"Before the war, we prayed to Kataki to sharpen our swords and harden our armor. Without his blessing our weapons are all but useless against the kami hordes.\"\n—Kenzo the Hardhearted",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Thompson",
+        "imageId": "0ecc37b5-bb60-4195-93d2-ccdf44d4973b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "SOK-14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -277673,6 +279598,41 @@
     "keywords": [],
     "setCode": "ta25",
     "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WALL_1_3_W_CREATURE_DEFENDER_TOKEN": {
+    "scryfallId": "9b154f90-cc26-4e45-b751-854e2017cd40",
+    "oracleId": "8b1d2b81-dc1f-402a-879f-529f4969a859",
+    "name": "Wall",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wall",
+        "manaCost": "",
+        "typeLine": "Token Creature — Wall",
+        "oracleText": "Defender",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gaboleps",
+        "imageId": "9b154f90-cc26-4e45-b751-854e2017cd40"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "ttdc",
+    "collectorNumber": "7",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

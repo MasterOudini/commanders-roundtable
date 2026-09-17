@@ -7,6 +7,61 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RAMPART_ARCHITECT_SCRIPT } from './cards/rampartArchitect';
+import { YAVIMAYA_GRANGER_SCRIPT } from './cards/yavimayaGranger';
+import { RATHI_FIEND_SCRIPT } from './cards/rathiFiend';
+import { BOG_GLIDER_SCRIPT } from './cards/bogGlider';
+import { RAMOSIAN_CAPTAIN_SCRIPT } from './cards/ramosianCaptain';
+import { SKYSHROUD_POACHER_SCRIPT } from './cards/skyshroudPoacher';
+import { FORERUNNER_OF_THE_LEGION_SCRIPT } from './cards/forerunnerOfTheLegion';
+import { COMPASS_GNOME_SCRIPT } from './cards/compassGnome';
+import { GREATER_TANUKI_SCRIPT } from './cards/greaterTanuki';
+import { RAMOSIAN_SKY_MARSHAL_SCRIPT } from './cards/ramosianSkyMarshal';
+import { COLOSSAL_RATTLEWURM_SCRIPT } from './cards/colossalRattlewurm';
+import { BLIGHTSPEAKER_SCRIPT } from './cards/blightspeaker';
+import { KNIGHT_OF_THE_RELIQUARY_SCRIPT } from './cards/knightOfTheReliquary';
+import { RING_OF_THREE_WISHES_SCRIPT } from './cards/ringOfThreeWishes';
+import { SPIRIT_OF_THE_ALDERGARD_SCRIPT } from './cards/spiritOfTheAldergard';
+import { SUN_SPIDER_NIMBLE_WEBBER_SCRIPT } from './cards/sunSpiderNimbleWebber';
+import { CATERAN_SLAVER_SCRIPT } from './cards/cateranSlaver';
+import { PLANAR_BRIDGE_SCRIPT } from './cards/planarBridge';
+import { FORERUNNER_OF_THE_HERALDS_SCRIPT } from './cards/forerunnerOfTheHeralds';
+import { CORPSE_CONNOISSEUR_SCRIPT } from './cards/corpseConnoisseur';
+import { CATERAN_KIDNAPPERS_SCRIPT } from './cards/cateranKidnappers';
+import { ELVISH_RECLAIMER_SCRIPT } from './cards/elvishReclaimer';
+import { SILVER_DEPUTY_SCRIPT } from './cards/silverDeputy';
+import { RATHI_ASSASSIN_SCRIPT } from './cards/rathiAssassin';
+import { GLADIOLUS_AMICITIA_SCRIPT } from './cards/gladiolusAmicitia';
+import { MAELSTROM_OF_THE_SPIRIT_DRAGON_SCRIPT } from './cards/maelstromOfTheSpiritDragon';
+import { DEFIANT_FALCON_SCRIPT } from './cards/defiantFalcon';
+import { ENCROACHING_DRAGONSTORM_SCRIPT } from './cards/encroachingDragonstorm';
+import { AMROU_SCOUT_SCRIPT } from './cards/amrouScout';
+import { GATECREEPER_VINE_SCRIPT } from './cards/gatecreeperVine';
+import { ESCAPE_TUNNEL_SCRIPT } from './cards/escapeTunnel';
+import { RATHI_INTIMIDATOR_SCRIPT } from './cards/rathiIntimidator';
+import { MOLTEN_MAN_INFERNO_INCARNATE_SCRIPT } from './cards/moltenManInfernoIncarnate';
+import { CATERAN_BRUTE_SCRIPT } from './cards/cateranBrute';
+import { FROM_BEYOND_SCRIPT } from './cards/fromBeyond';
+import { RAMOSIAN_COMMANDER_SCRIPT } from './cards/ramosianCommander';
+import { SCRAPYARD_RECOMBINER_SCRIPT } from './cards/scrapyardRecombiner';
+import { WIGHT_OF_THE_RELIQUARY_SCRIPT } from './cards/wightOfTheReliquary';
+import { MOGGCATCHER_SCRIPT } from './cards/moggcatcher';
+import { HORIZON_SPELLBOMB_SCRIPT } from './cards/horizonSpellbomb';
+import { CATERAN_ENFORCER_SCRIPT } from './cards/cateranEnforcer';
+import { HORIZON_SEEKER_SCRIPT } from './cards/horizonSeeker';
+import { DISTRICT_GUIDE_SCRIPT } from './cards/districtGuide';
+import { CATERAN_PERSUADER_SCRIPT } from './cards/cateranPersuader';
+import { SCAMPERING_SURVEYOR_SCRIPT } from './cards/scamperingSurveyor';
+import { SEAHUNTER_SCRIPT } from './cards/seahunter';
+import { FORERUNNER_OF_THE_COALITION_SCRIPT } from './cards/forerunnerOfTheCoalition';
+import { SPINESEEKER_CENTIPEDE_SCRIPT } from './cards/spineseekerCentipede';
+import { MAGITEK_INFANTRY_SCRIPT } from './cards/magitekInfantry';
+import { LIFESPINNER_SCRIPT } from './cards/lifespinner';
+import { RAMOSIAN_LIEUTENANT_SCRIPT } from './cards/ramosianLieutenant';
+import { OMINOUS_PARCEL_SCRIPT } from './cards/ominousParcel';
+import { ALPINE_GUIDE_SCRIPT } from './cards/alpineGuide';
+import { CATERAN_OVERLORD_SCRIPT } from './cards/cateranOverlord';
+import { RAMOSIAN_SERGEANT_SCRIPT } from './cards/ramosianSergeant';
 import { BODY_OF_KNOWLEDGE_SCRIPT } from './cards/bodyOfKnowledge';
 import { ABOMINATION_IRRADIATED_BRUTE_SCRIPT } from './cards/abominationIrradiatedBrute';
 import { VITO_THORN_OF_THE_DUSK_ROSE_SCRIPT } from './cards/vitoThornOfTheDuskRose';
@@ -7388,6 +7443,61 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RAMPART_ARCHITECT_SCRIPT,
+  YAVIMAYA_GRANGER_SCRIPT,
+  RATHI_FIEND_SCRIPT,
+  BOG_GLIDER_SCRIPT,
+  RAMOSIAN_CAPTAIN_SCRIPT,
+  SKYSHROUD_POACHER_SCRIPT,
+  FORERUNNER_OF_THE_LEGION_SCRIPT,
+  COMPASS_GNOME_SCRIPT,
+  GREATER_TANUKI_SCRIPT,
+  RAMOSIAN_SKY_MARSHAL_SCRIPT,
+  COLOSSAL_RATTLEWURM_SCRIPT,
+  BLIGHTSPEAKER_SCRIPT,
+  KNIGHT_OF_THE_RELIQUARY_SCRIPT,
+  RING_OF_THREE_WISHES_SCRIPT,
+  SPIRIT_OF_THE_ALDERGARD_SCRIPT,
+  SUN_SPIDER_NIMBLE_WEBBER_SCRIPT,
+  CATERAN_SLAVER_SCRIPT,
+  PLANAR_BRIDGE_SCRIPT,
+  FORERUNNER_OF_THE_HERALDS_SCRIPT,
+  CORPSE_CONNOISSEUR_SCRIPT,
+  CATERAN_KIDNAPPERS_SCRIPT,
+  ELVISH_RECLAIMER_SCRIPT,
+  SILVER_DEPUTY_SCRIPT,
+  RATHI_ASSASSIN_SCRIPT,
+  GLADIOLUS_AMICITIA_SCRIPT,
+  MAELSTROM_OF_THE_SPIRIT_DRAGON_SCRIPT,
+  DEFIANT_FALCON_SCRIPT,
+  ENCROACHING_DRAGONSTORM_SCRIPT,
+  AMROU_SCOUT_SCRIPT,
+  GATECREEPER_VINE_SCRIPT,
+  ESCAPE_TUNNEL_SCRIPT,
+  RATHI_INTIMIDATOR_SCRIPT,
+  MOLTEN_MAN_INFERNO_INCARNATE_SCRIPT,
+  CATERAN_BRUTE_SCRIPT,
+  FROM_BEYOND_SCRIPT,
+  RAMOSIAN_COMMANDER_SCRIPT,
+  SCRAPYARD_RECOMBINER_SCRIPT,
+  WIGHT_OF_THE_RELIQUARY_SCRIPT,
+  MOGGCATCHER_SCRIPT,
+  HORIZON_SPELLBOMB_SCRIPT,
+  CATERAN_ENFORCER_SCRIPT,
+  HORIZON_SEEKER_SCRIPT,
+  DISTRICT_GUIDE_SCRIPT,
+  CATERAN_PERSUADER_SCRIPT,
+  SCAMPERING_SURVEYOR_SCRIPT,
+  SEAHUNTER_SCRIPT,
+  FORERUNNER_OF_THE_COALITION_SCRIPT,
+  SPINESEEKER_CENTIPEDE_SCRIPT,
+  MAGITEK_INFANTRY_SCRIPT,
+  LIFESPINNER_SCRIPT,
+  RAMOSIAN_LIEUTENANT_SCRIPT,
+  OMINOUS_PARCEL_SCRIPT,
+  ALPINE_GUIDE_SCRIPT,
+  CATERAN_OVERLORD_SCRIPT,
+  RAMOSIAN_SERGEANT_SCRIPT,
   BODY_OF_KNOWLEDGE_SCRIPT,
   ABOMINATION_IRRADIATED_BRUTE_SCRIPT,
   VITO_THORN_OF_THE_DUSK_ROSE_SCRIPT,

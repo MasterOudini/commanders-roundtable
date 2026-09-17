@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(1882);
-    expect.soft(r.spells.assisted).toBe(1946);
-    expect.soft(r.spells.autoAnyFace).toBe(1891);
+    expect.soft(r.spells.auto).toBe(1885);
+    expect.soft(r.spells.assisted).toBe(1949);
+    expect.soft(r.spells.autoAnyFace).toBe(1894);
   });
 
   /**
@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(679);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(681);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(7);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -453,14 +453,15 @@ const POOL: Record<string, number> = {
   // D474 - the token printings rowed like cards: their makers (+18 creatures, +3 artifacts, a land, an enchantment) and twelve spells.
   // D475 - the emblem: two walkers whose ultimate reads now, and the up-to-N / alternative-list clauses the suite stages (+19 creatures).
   // D477 - the number taken: 22 creatures, four Auras and an Equipment whose that-much payload reads the damage taken, the life moved or another creature's damage.
-  creature: 6728,
+  // D478 - the search row restored: the Masques recruiters, the land tutors and the fetch lands (+47 creatures, +2 lands, +4 artifacts, +2 enchantments) and three sorceries the permanent noun reads.
+  creature: 6775,
   instant: 1406,
-  sorcery: 1055,
+  sorcery: 1058,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
-  land: 662,
-  artifact: 636,
-  enchantment: 679,
+  land: 664,
+  artifact: 640,
+  enchantment: 681,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 7,
 };

@@ -470,6 +470,26 @@ function distributeList(noun: string): string {
 }
 
 /**
+ * D478 - THE PERMANENT NOUN. `permanent` names no card type: a permanent card is one of the six types that go onto
+ * the battlefield (CR 110.4), so `Rebel permanent` becomes `Rebel artifact or Rebel creature or ...` - one alternative
+ * per permanent type - before the shared reader sees it. A Goblin tribal instant is a Goblin card and no permanent
+ * card, and the expansion says so; `nonland permanent` leaves the land out. Any other `non-` word stays refused.
+ */
+const PERMANENT_TYPES = ['artifact', 'creature', 'enchantment', 'land', 'planeswalker', 'battle'];
+function expandPermanent(noun: string): string {
+  return noun
+    .split(/\bor\b/)
+    .map((part) => {
+      const p = part.trim();
+      if (!/\bpermanent\b/i.test(p)) return p;
+      const nonland = /\bnonland\b/i.test(p);
+      const base = p.replace(/\bnonland \b/i, '');
+      return PERMANENT_TYPES.filter((t) => !(nonland && t === 'land')).map((t) => base.replace(/\bpermanent\b/i, t)).join(' or ');
+    })
+    .join(' or ');
+}
+
+/**
  * D359 - everything from `search your library for` to the end of the noun, shared by the two
  * destination shapes so that one reading of the noun serves both.
  *
@@ -484,7 +504,8 @@ const SEARCH_HEAD =
   // `a`/`an`, or a COUNT that makes failing to find explicit.
   String.raw`(?:(?:a|an)\b|up to (?<count>one|two|three|four)\b) ?` +
   // The noun, or nothing at all - `Search your library for a card` is a real, unrestricted line.
-  String.raw`(?<noun>[a-zA-Z][a-zA-Z, ]*?)? ?cards?` +
+  // D478 - or an alternative spelled with its own `card`: `a basic land card or Gate card`, `... cards and/or Gate cards`.
+  String.raw`(?<noun>[a-zA-Z][a-zA-Z, ]*?(?: cards? (?:or|and/or) (?:a |an )?[a-zA-Z][a-zA-Z ]*?)?)? ?cards?` +
   // A bound on the CARD rather than on its type line.
   String.raw`(?<qual> with mana value (?<mvn>\d+) or (?<mvop>less|greater)` +
   String.raw`| with mana value (?<mveq>\d+)` +
@@ -523,7 +544,12 @@ function searchNoun(
 ): { count: number; predicates: readonly PermanentPredicate[]; qualifier: SearchQualifier | null; label: string } | null {
   const count = g['count'] ? (COUNTS[g['count'].toLowerCase()] ?? 0) : 1;
   if (count < 1) return null;
-  const noun = (g['noun'] ?? '').trim();
+  const noun0 = (g['noun'] ?? '').trim();
+  // D478 - an alternative with its own `card` folds to the `or` list; `and/or` between alternatives means any mix,
+  // which is what an `up to N` search of an `or` list already is - and no qualifier may sit beside one (it binds all).
+  const alternative = /\bcards? (?:or|and\/or) (?:a |an )?/i.test(noun0);
+  if (alternative && (g['qual'] !== undefined || /\band\/or\b/i.test(noun0) && count < 2)) return null;
+  const noun = alternative ? noun0.replace(/\bcards? (?:or|and\/or) (?:a |an )?/gi, ' or ').replace(/\s+/g, ' ').trim() : noun0;
   // ⚠️ A BARE `a card` IS UNRESTRICTED, and the empty predicate says so: `cardMatchesSearch`
   // asks `every`, so a predicate with no supertype, type, subtype or colour admits any card.
   // That is the honest reading of the line, not a hole - `Demonic Tutor` really does find
@@ -534,7 +560,7 @@ function searchNoun(
     // alternatives and `predicatesOf` splits on `or` alone, so the commas become `or` first -
     // and the leading adjectives distribute, which is why each alternative is rebuilt with
     // every word that preceded the first comma.
-    : predicatesOf(distributeList(noun));
+    : predicatesOf(expandPermanent(distributeList(noun)));
   if (!predicates || predicates.length === 0) return null;
 
   let qualifier: SearchQualifier | null = null;
