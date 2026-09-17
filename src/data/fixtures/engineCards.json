@@ -274132,6 +274132,755 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "HAMLET_CAPTAIN": {
+    "scryfallId": "06e5d76a-0cec-40e0-b694-2b5c8484f6c0",
+    "oracleId": "1a60dc0f-e387-4d28-8ff0-c3f1883d0c5d",
+    "name": "Hamlet Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hamlet Captain",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks or blocks, other Humans you control get +1/+1 until end of turn.",
+        "flavorText": "\"I would fear this fight, bloodsucker, were I alone.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "06e5d76a-0cec-40e0-b694-2b5c8484f6c0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "inr",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INDULGENT_ARISTOCRAT": {
+    "scryfallId": "07015524-874f-4856-a5c1-3148bd126886",
+    "oracleId": "c7054a2d-2e7b-4487-8fc3-f6a47a716fd3",
+    "name": "Indulgent Aristocrat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Indulgent Aristocrat",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "Lifelink\n{2}, Sacrifice a creature: Put a +1/+1 counter on each Vampire you control.",
+        "flavorText": "\"If you're not surrounded by decadence, my question to you is—why not?\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anna Steinbauer",
+        "imageId": "07015524-874f-4856-a5c1-3148bd126886"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORDIAL_VAMPIRE": {
+    "scryfallId": "0d91e61d-e3bf-4ddc-9f01-18b1abe35a61",
+    "oracleId": "d61fb9e8-d05a-481a-a90f-5def300c9abb",
+    "name": "Cordial Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cordial Vampire",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever this creature or another creature dies, put a +1/+1 counter on each Vampire you control.",
+        "flavorText": "\"Please, come in! Hors d'oeuvres are on the table.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "0d91e61d-e3bf-4ddc-9f01-18b1abe35a61"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lcc",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VALIANT_VETERAN": {
+    "scryfallId": "18b1a4ee-437f-4a08-b176-8342d526143f",
+    "oracleId": "ba21f18e-ee65-4c10-92c9-b9fb41510eba",
+    "name": "Valiant Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Valiant Veteran",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Soldier",
+        "oracleText": "Other Soldiers you control get +1/+1.\n{3}{W}{W}, Exile this card from your graveyard: Put a +1/+1 counter on each Soldier you control.",
+        "flavorText": "\"Let them come. We will show them that Argivian steel is stronger than any Phyrexian metal.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "18b1a4ee-437f-4a08-b176-8342d526143f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dmu",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_LOOKOUT": {
+    "scryfallId": "23bbe84a-8857-467a-a4a1-e57086cc9501",
+    "oracleId": "e4ac0c25-cdfa-49a4-9b2c-b848f50c604d",
+    "name": "Goblin Lookout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Lookout",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "{T}, Sacrifice a Goblin: Goblin creatures get +2/+0 until end of turn.",
+        "flavorText": "\"Throw rocks at 'em! Throw spears at 'em! Throw Furt at 'em!\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "23bbe84a-8857-467a-a4a1-e57086cc9501"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lgn",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_GENERAL": {
+    "scryfallId": "23c9eef2-849f-4799-9829-bd845f8eaf6e",
+    "oracleId": "5fab0d9c-ccf7-4c6a-94b4-959be139dad8",
+    "name": "Goblin General",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin General",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Whenever this creature attacks, Goblin creatures you control get +1/+1 until end of turn.",
+        "flavorText": "Lead, follow, or run around like crazy.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Keith Parkinson",
+        "imageId": "23c9eef2-849f-4799-9829-bd845f8eaf6e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "vma",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PERIMETER_SERGEANT": {
+    "scryfallId": "2a174587-d964-48b3-8f69-fa576c1b8bba",
+    "oracleId": "6e1b21f9-c890-4d27-81d0-d38bf7493d33",
+    "name": "Perimeter Sergeant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Perimeter Sergeant",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature attacks, other Humans you control get +1/+0 until end of turn.",
+        "flavorText": "\"Get in there, soldier! I want a pelt on my wall before lunch!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Stepan Alekseev",
+        "imageId": "2a174587-d964-48b3-8f69-fa576c1b8bba"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BELLE_OF_THE_BRAWL": {
+    "scryfallId": "2c3c992a-70b5-4d3c-9a96-93c3365691ac",
+    "oracleId": "6bc4a078-4d30-452d-9e33-ff09f943903e",
+    "name": "Belle of the Brawl",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Belle of the Brawl",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever this creature attacks, other Knights you control get +1/+0 until end of turn.",
+        "flavorText": "Locthwain knights take pride in being the last ones standing in a fight or on a dance floor.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "2c3c992a-70b5-4d3c-9a96-93c3365691ac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STROMKIRK_CONDEMNED": {
+    "scryfallId": "3224bf43-e627-47de-a72a-6036317304ac",
+    "oracleId": "67b87332-44e1-4948-9269-5fc8f6107d0e",
+    "name": "Stromkirk Condemned",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stromkirk Condemned",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Vampire Horror",
+        "oracleText": "Discard a card: Vampires you control get +1/+1 until end of turn. Activate only once each turn.",
+        "flavorText": "\"Blood from the vein is the finest vintage to accompany a feast of the mind.\"\n—Runo Stromkirk",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "3224bf43-e627-47de-a72a-6036317304ac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pemn",
+    "collectorNumber": "106s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEMPALM_AVENGER": {
+    "scryfallId": "3267bf08-7585-4e2e-b472-97a357d264dc",
+    "oracleId": "cb9e6860-591f-4758-aaa3-14efa0a775f5",
+    "name": "Gempalm Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gempalm Avenger",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Cycling {2}{W} ({2}{W}, Discard this card: Draw a card.)\nWhen you cycle this card, Soldier creatures get +1/+1 and gain first strike until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tim Hildebrandt",
+        "imageId": "3267bf08-7585-4e2e-b472-97a357d264dc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "ddo",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THALIA_S_LIEUTENANT": {
+    "scryfallId": "3b619bda-12ff-4390-bda7-af0a44e5f955",
+    "oracleId": "91508175-fa1d-4c51-99d4-036a2de6abb0",
+    "name": "Thalia's Lieutenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thalia's Lieutenant",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, put a +1/+1 counter on each other Human you control.\nWhenever another Human you control enters, put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "3b619bda-12ff-4390-bda7-af0a44e5f955"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "SOI-43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EARTH_KING_S_LIEUTENANT": {
+    "scryfallId": "40073598-af10-41d9-8233-c94f9f46e566",
+    "oracleId": "9da9248d-1201-447f-b6c2-2b64af4f71c4",
+    "name": "Earth King's Lieutenant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Earth King's Lieutenant",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Human Soldier Ally",
+        "oracleText": "Trample\nWhen this creature enters, put a +1/+1 counter on each other Ally creature you control.\nWhenever another Ally you control enters, put a +1/+1 counter on this creature.",
+        "flavorText": "\"You know well the cost of war.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "40073598-af10-41d9-8233-c94f9f46e566"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "ptla",
+    "collectorNumber": "217s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEMPALM_STRIDER": {
+    "scryfallId": "41c73d74-6a36-4aa0-a340-4d376b080d37",
+    "oracleId": "48792146-e20c-4d93-83af-f746069fc6f1",
+    "name": "Gempalm Strider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gempalm Strider",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf",
+        "oracleText": "Cycling {2}{G}{G} ({2}{G}{G}, Discard this card: Draw a card.)\nWhen you cycle this card, Elf creatures get +2/+2 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tim Hildebrandt",
+        "imageId": "41c73d74-6a36-4aa0-a340-4d376b080d37"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "dd1",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREY_KEEPER": {
+    "scryfallId": "5c2d77ee-73d5-4eba-b188-4a0f298c1642",
+    "oracleId": "7223ef44-0bfb-4108-810d-134174ff26b0",
+    "name": "Drey Keeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drey Keeper",
+        "manaCost": "{3}{B}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, create two 1/1 green Squirrel creature tokens.\n{3}{B}: Squirrels you control get +1/+0 and gain menace until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "5c2d77ee-73d5-4eba-b188-4a0f298c1642"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "687",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EZURI_RENEGADE_LEADER": {
+    "scryfallId": "62de8fd4-e10f-426a-877d-052c7bd24587",
+    "oracleId": "6734497c-16f0-4c4b-ba24-337333511fc6",
+    "name": "Ezuri, Renegade Leader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ezuri, Renegade Leader",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Legendary Creature — Elf Warrior",
+        "oracleText": "{G}: Regenerate another target Elf.\n{2}{G}{G}{G}: Elf creatures you control get +3/+3 and gain trample until end of turn.",
+        "flavorText": "The infamous Ezuri commands the highest bounty the vedalken have ever placed upon an outlaw.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "62de8fd4-e10f-426a-877d-052c7bd24587"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERON_S_GRACE_CHAMPION": {
+    "scryfallId": "6448b2e2-01b2-4693-b41e-263909dc6a95",
+    "oracleId": "86b5a853-9035-4490-9d0f-7c719bedfd58",
+    "name": "Heron's Grace Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heron's Grace Champion",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flash\nLifelink\nWhen this creature enters, other Humans you control get +1/+1 and gain lifelink until end of turn.",
+        "flavorText": "Sigarda was the last uncorrupted archangel, but she would not have to fight alone.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "6448b2e2-01b2-4693-b41e-263909dc6a95"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Flash"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HUATLI_DINOSAUR_KNIGHT": {
+    "scryfallId": "6a5a6f7b-149d-46d3-9814-d38a302db17c",
+    "oracleId": "04aa210a-235f-4e07-87d1-0d28cdf6888b",
+    "name": "Huatli, Dinosaur Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Huatli, Dinosaur Knight",
+        "manaCost": "{4}{R}{W}",
+        "typeLine": "Legendary Planeswalker — Huatli",
+        "oracleText": "+2: Put two +1/+1 counters on up to one target Dinosaur you control.\n−3: Target Dinosaur you control deals damage equal to its power to target creature you don't control.\n−7: Dinosaurs you control get +4/+4 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Anna Steinbauer",
+        "imageId": "6a5a6f7b-149d-46d3-9814-d38a302db17c"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "285",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRREL_WRANGLER": {
+    "scryfallId": "7094be2a-454e-4e4d-a540-c5c80e37468a",
+    "oracleId": "4021b6b4-9b87-4dd5-a5df-79540bedbe87",
+    "name": "Squirrel Wrangler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squirrel Wrangler",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "{1}{G}, Sacrifice a land: Create two 1/1 green Squirrel creature tokens.\n{1}{G}, Sacrifice a land: Squirrel creatures get +1/+1 until end of turn.",
+        "flavorText": "\"Gnawed to death. Bad way to go.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "7094be2a-454e-4e4d-a540-c5c80e37468a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIOT_RINGLEADER": {
+    "scryfallId": "c043f30b-548f-4c31-a415-0e59c2841dcf",
+    "oracleId": "420d09b5-aced-4f71-914c-90d19f7476dc",
+    "name": "Riot Ringleader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riot Ringleader",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks, Human creatures you control get +1/+0 until end of turn.",
+        "flavorText": "\"So the vampires like hot blood, do they? Let's see how they handle ours.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "c043f30b-548f-4c31-a415-0e59c2841dcf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAZUUL_WARLORD": {
+    "scryfallId": "da42df13-eded-48e2-ad1a-ff74d718ce3c",
+    "oracleId": "78504edb-6536-4a11-ac1c-7d53684f2226",
+    "name": "Kazuul Warlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kazuul Warlord",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Minotaur Warrior Ally",
+        "oracleText": "Whenever this creature or another Ally you control enters, you may put a +1/+1 counter on each Ally creature you control.",
+        "flavorText": "On expeditions, minotaurs are worth their weight in gold. Fortunately for their paymasters, most minotaurs don't know how much they weigh.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "da42df13-eded-48e2-ad1a-ff74d718ce3c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "zen",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_CHIN_RAGER": {
+    "scryfallId": "e8e93684-a587-4510-b48b-ecf27ff695f4",
+    "oracleId": "a7036d08-6ee4-49b1-bbbf-c96a937afa15",
+    "name": "Blood-Chin Rager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood-Chin Rager",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature attacks, Warrior creatures you control gain menace until end of turn. (They can't be blocked except by two or more creatures.)",
+        "flavorText": "Kolaghan blades rarely stay clean for long.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "e8e93684-a587-4510-b48b-ecf27ff695f4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRENZIED_RAPTOR": {
+    "scryfallId": "5fb22ac0-3863-4165-8c93-f2ec1775474f",
+    "oracleId": "655c59d5-8666-476c-b494-411fa2e243a7",
+    "name": "Frenzied Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frenzied Raptor",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "",
+        "flavorText": "\"Though the road through Raugrin is lined with alarm crystals, some monsters seem to be adapting. We've had raptors feigning attacks on provision caravans, while others try to sneak through the lava curtain.\"\n—Dol, Lavabrink quartermaster",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "5fb22ac0-3863-4165-8c93-f2ec1775474f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

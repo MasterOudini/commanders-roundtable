@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { HAMLET_CAPTAIN_SCRIPT } from './cards/hamletCaptain';
+import { INDULGENT_ARISTOCRAT_SCRIPT } from './cards/indulgentAristocrat';
+import { CORDIAL_VAMPIRE_SCRIPT } from './cards/cordialVampire';
+import { VALIANT_VETERAN_SCRIPT } from './cards/valiantVeteran';
+import { GOBLIN_LOOKOUT_SCRIPT } from './cards/goblinLookout';
+import { GOBLIN_GENERAL_SCRIPT } from './cards/goblinGeneral';
+import { PERIMETER_SERGEANT_SCRIPT } from './cards/perimeterSergeant';
+import { BELLE_OF_THE_BRAWL_SCRIPT } from './cards/belleOfTheBrawl';
+import { STROMKIRK_CONDEMNED_SCRIPT } from './cards/stromkirkCondemned';
+import { GEMPALM_AVENGER_SCRIPT } from './cards/gempalmAvenger';
+import { THALIAS_LIEUTENANT_SCRIPT } from './cards/thaliasLieutenant';
+import { EARTH_KINGS_LIEUTENANT_SCRIPT } from './cards/earthKingsLieutenant';
+import { GEMPALM_STRIDER_SCRIPT } from './cards/gempalmStrider';
+import { DREY_KEEPER_SCRIPT } from './cards/dreyKeeper';
+import { EZURI_RENEGADE_LEADER_SCRIPT } from './cards/ezuriRenegadeLeader';
+import { HERONS_GRACE_CHAMPION_SCRIPT } from './cards/heronsGraceChampion';
+import { HUATLI_DINOSAUR_KNIGHT_SCRIPT } from './cards/huatliDinosaurKnight';
+import { SQUIRREL_WRANGLER_SCRIPT } from './cards/squirrelWrangler';
+import { RIOT_RINGLEADER_SCRIPT } from './cards/riotRingleader';
+import { KAZUUL_WARLORD_SCRIPT } from './cards/kazuulWarlord';
+import { BLOOD_CHIN_RAGER_SCRIPT } from './cards/bloodChinRager';
 import { MAD_AUNTIE_SCRIPT } from './cards/madAuntie';
 import { OTEPEC_HUNTMASTER_SCRIPT } from './cards/otepecHuntmaster';
 import { SNARLING_UNDORAK_SCRIPT } from './cards/snarlingUndorak';
@@ -7499,6 +7520,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HAMLET_CAPTAIN_SCRIPT,
+  INDULGENT_ARISTOCRAT_SCRIPT,
+  CORDIAL_VAMPIRE_SCRIPT,
+  VALIANT_VETERAN_SCRIPT,
+  GOBLIN_LOOKOUT_SCRIPT,
+  GOBLIN_GENERAL_SCRIPT,
+  PERIMETER_SERGEANT_SCRIPT,
+  BELLE_OF_THE_BRAWL_SCRIPT,
+  STROMKIRK_CONDEMNED_SCRIPT,
+  GEMPALM_AVENGER_SCRIPT,
+  THALIAS_LIEUTENANT_SCRIPT,
+  EARTH_KINGS_LIEUTENANT_SCRIPT,
+  GEMPALM_STRIDER_SCRIPT,
+  DREY_KEEPER_SCRIPT,
+  EZURI_RENEGADE_LEADER_SCRIPT,
+  HERONS_GRACE_CHAMPION_SCRIPT,
+  HUATLI_DINOSAUR_KNIGHT_SCRIPT,
+  SQUIRREL_WRANGLER_SCRIPT,
+  RIOT_RINGLEADER_SCRIPT,
+  KAZUUL_WARLORD_SCRIPT,
+  BLOOD_CHIN_RAGER_SCRIPT,
   MAD_AUNTIE_SCRIPT,
   OTEPEC_HUNTMASTER_SCRIPT,
   SNARLING_UNDORAK_SCRIPT,

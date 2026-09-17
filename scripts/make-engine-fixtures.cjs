@@ -8963,6 +8963,30 @@ const WANTED = [
   'Dwarven Trader',
   'Felhide Minotaur',
   'Loxodon Line Breaker',
+  // D480 - the tribal mass: the mass counters and mass pumps over a subtype (put a +1/+1 counter on each Vampire you control; other Humans you control get +1/+1 until end of turn).
+  'Hamlet Captain',
+  'Indulgent Aristocrat',
+  'Cordial Vampire',
+  'Valiant Veteran',
+  'Goblin Lookout',
+  'Goblin General',
+  'Perimeter Sergeant',
+  'Belle of the Brawl',
+  'Stromkirk Condemned',
+  'Gempalm Avenger',
+  "Thalia's Lieutenant",
+  "Earth King's Lieutenant",
+  'Gempalm Strider',
+  'Drey Keeper',
+  'Ezuri, Renegade Leader',
+  "Heron's Grace Champion",
+  'Huatli, Dinosaur Knight',
+  'Squirrel Wrangler',
+  'Riot Ringleader',
+  'Kazuul Warlord',
+  'Blood-Chin Rager',
+  // D480 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Frenzied Raptor',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
