@@ -744,6 +744,10 @@ const RULES: readonly Rule[] = [
   { kind: 'exile', re: new RegExp(`^exile ${TARGET} until (?:this (?:creature|enchantment|artifact|permanent|land)|~) leaves the battlefield\\.$`, 'i'), build: () => ({ ...BASE, untilLeaves: true }) },
   // D369 - "Sacrifice this creature." as a body the pay prompt decides (a row's sentence).
   { kind: 'sacrificeSelf', re: /^sacrifice (?:this (?:creature|permanent|artifact|enchantment|land|aura|equipment)|it|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D488 - POPULATE (CR 701.31): `Populate.` alone, or after `, then` (the conjunction split hands the executor the
+  // bare word). No aim: the controller chooses a creature token they control at resolution (the D390 queue's question
+  // with its own verb) and a token that is a copy of it is created; with none, nothing happens (701.31a).
+  { kind: 'populate', re: /^populate\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'counter', re: new RegExp(`^counter ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D487 - THE SPELL COPY (CR 707.10): `Copy target instant or sorcery spell(, except that the copy is <colour>).
   // (You may choose new targets for the copy.)` - a stack object with the copied spell's copiable values, its

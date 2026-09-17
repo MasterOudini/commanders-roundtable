@@ -549,8 +549,10 @@ export interface PendingAsks {
   /**
    * `sacrifice`: a permanent from the battlefield; `discard`: a card from the hand; D431 - `return`: a permanent
    * from the battlefield to its owner's hand (`Return a land you control to its owner's hand.` - the bounce lands).
+   * D488 - `populate`: a creature TOKEN from the battlefield, of which a token copy is created (CR 701.31) - the
+   * one verb that moves nothing.
    */
-  readonly verb: 'sacrifice' | 'discard' | 'return';
+  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate';
   /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
   readonly remaining: readonly PlayerId[];
   /** What the sentence asks of each player. */

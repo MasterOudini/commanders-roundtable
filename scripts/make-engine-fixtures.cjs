@@ -9110,6 +9110,14 @@ const WANTED = [
   'Fork',
   // D487 - the spell copy: the seam's fixtures (Reverberate, Twincast, Fork).
   'Expansion // Explosion',
+  // D488 - populate: the seam fixtures (the populate spells).
+  'Eyes in the Skies',
+  'Wake the Reflections',
+  'Rootborn Defenses',
+  "Druid's Deliverance",
+  "Trostani's Judgment",
+  'Sundering Growth',
+  "Horncaller's Chant",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

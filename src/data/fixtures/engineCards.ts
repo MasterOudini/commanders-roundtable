@@ -8234,6 +8234,13 @@ export const REVERBERATE: CardData = F.REVERBERATE as CardData;
 export const TWINCAST: CardData = F.TWINCAST as CardData;
 export const FORK: CardData = F.FORK as CardData;
 export const EXPANSION_EXPLOSION: CardData = F.EXPANSION_EXPLOSION as CardData;
+export const EYES_IN_THE_SKIES: CardData = F.EYES_IN_THE_SKIES as CardData;
+export const WAKE_THE_REFLECTIONS: CardData = F.WAKE_THE_REFLECTIONS as CardData;
+export const ROOTBORN_DEFENSES: CardData = F.ROOTBORN_DEFENSES as CardData;
+export const DRUID_S_DELIVERANCE: CardData = F.DRUID_S_DELIVERANCE as CardData;
+export const TROSTANI_S_JUDGMENT: CardData = F.TROSTANI_S_JUDGMENT as CardData;
+export const SUNDERING_GROWTH: CardData = F.SUNDERING_GROWTH as CardData;
+export const HORNCALLER_S_CHANT: CardData = F.HORNCALLER_S_CHANT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16685,6 +16692,13 @@ export const ENGINE_CARDS: CardData[] = [
   TWINCAST,
   FORK,
   EXPANSION_EXPLOSION,
+  EYES_IN_THE_SKIES,
+  WAKE_THE_REFLECTIONS,
+  ROOTBORN_DEFENSES,
+  DRUID_S_DELIVERANCE,
+  TROSTANI_S_JUDGMENT,
+  SUNDERING_GROWTH,
+  HORNCALLER_S_CHANT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

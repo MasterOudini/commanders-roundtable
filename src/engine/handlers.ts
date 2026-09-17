@@ -3655,7 +3655,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
     chosen.push({ player: next, cards: cands });
     remaining.shift();
   }
-  const batch: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, pending.verb, chosen, pending.filter)];
+  const batch: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, deps, pending.verb, chosen, pending.filter)];
   return accept(batch, resumeContinuation(state, deps, batch, carried));
 }
 

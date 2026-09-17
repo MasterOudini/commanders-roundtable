@@ -994,6 +994,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Proliferated':
       return state;
 
+    // D488 - a populate's marker: the `TokenCreated` beside it moves the state, this does not.
+    case 'Populated':
+      return state;
+
     // D484 - a marker; the resumed clauses' own events follow it.
     case 'ContinuationResumed':
       return state;

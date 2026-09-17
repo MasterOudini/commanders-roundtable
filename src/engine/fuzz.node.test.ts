@@ -432,6 +432,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // driver's stack decisions and an instant or sorcery on the stack at 16% (diag487), and the two never met.
   { names: ['Expansion // Explosion'], copiesPerSeat: 4,
     counterKeys: ['spellsCopied'], rotHistory: 'D487' },
+  // D488 - populate (CR 701.31): two Eyes in the Skies a seat ({3}{W}; `Create a 1/1 white Bird creature token with
+  // flying, then populate.`) - the populate copies the Bird the same resolution made (the batch is folded first), and
+  // with other creature tokens about the driver is asked which (the D390 queue's question, its own verb).
+  { names: ['Eyes in the Skies'], copiesPerSeat: 2,
+    counterKeys: ['populates'], rotHistory: 'D488' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -974,6 +979,8 @@ function answerFor(state: GameState, p: Picker): Intent | null {
                 const inst = state.cards[id];
                 if (!inst || inst.controller !== awaiting.player) return false;
                 if (!awaiting.filter) return true;
+                // D488 - a populate's noun names a TOKEN; the host refuses a card (a rejected answer spends the seed).
+                if (awaiting.filter.predicates.some((p) => p.token === true) && !inst.isToken) return false;
                 const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
                 return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
               })
@@ -1410,6 +1417,8 @@ interface Run {
   readonly clonesEntered: number;
   /** D487 - copies of spells put on the stack (`SpellCopied`, CR 707.10). */
   readonly spellsCopied: number;
+  /** D488 - populates (the `Populated` marker beside each token copy, CR 701.31). */
+  readonly populates: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1855,6 +1864,7 @@ function runOne(seed: number): Run {
     tokenCopiesMade: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.copyOf !== undefined).length,
     clonesEntered: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.asCopyOf !== undefined)).length,
     spellsCopied: game.log.filter((e) => e.body.t === 'SpellCopied').length,
+    populates: game.log.filter((e) => e.body.t === 'Populated').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2132,6 +2142,7 @@ const TOTAL_KEYS = [
   'tokenCopiesMade',
   'clonesEntered',
   'spellsCopied',
+  'populates',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2545,6 +2556,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.clonesEntered).toBeGreaterThan(0);
         // D487 - a spell copied at gate size (Reverberate, two a seat).
         expect(totals.spellsCopied).toBeGreaterThan(0);
+        // D488 - a populate at gate size (Eyes in the Skies, two a seat: its own Bird is always there to copy).
+        expect(totals.populates).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2656,6 +2669,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.tokenCopiesMade} token copies · ` +
           `${totals.clonesEntered} clones · ` +
           `${totals.spellsCopied} spell copies · ` +
+          `${totals.populates} populates · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

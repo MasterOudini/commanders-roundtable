@@ -150,6 +150,8 @@ export function simplestIntent(
               if (!face) return false;
               const types = parseTypeLine(face.typeLine);
               if (none.some((t) => types.types.includes(t))) return false;
+              // D488 - a populate's noun names a TOKEN; the view says which permanents are.
+              if (filter && filter.predicates.some((p) => p.token === true) && v.cards[id]?.isToken !== true) return false;
               return !filter || predicateAdmits({ typeLine: types, colors: face.colors }, filter.predicates);
             })
           : hand;

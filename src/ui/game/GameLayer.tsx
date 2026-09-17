@@ -124,6 +124,8 @@ export function GameLayer({
       const pool = (view.zones[zoneId('bf', viewer)] ?? []).filter((id) => {
         if (mode.chosen.includes(id)) return false;
         if (!filter) return true;
+        // D488 - a populate's noun names a TOKEN; the view says which permanents are.
+        if (filter.predicates.some((p) => p.token === true) && view.cards[id]?.isToken !== true) return false;
         const face = view.cards[id]?.card?.faces[0];
         return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
       });

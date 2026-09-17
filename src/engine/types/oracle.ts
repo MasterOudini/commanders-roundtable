@@ -597,6 +597,8 @@ export type EffectKind =
   | 'counter'
   /** D487 - COPY A SPELL (CR 707.10): a stack object with the target spell's copiable values, `copy` its exceptions. */
   | 'copySpell'
+  /** D488 - POPULATE (CR 701.31): a token that is a copy of a creature token the controller controls, their choice. */
+  | 'populate'
   | 'bounce'
   | 'pump'
   /**

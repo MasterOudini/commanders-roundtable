@@ -815,6 +815,34 @@ export function effectResult(
         break;
       }
 
+      // D488 - POPULATE (CR 701.31): a token that is a copy of a creature token the controller controls, the token
+      // their choice - the D390 queue's question with its own verb; forced with one candidate, nothing with none
+      // (701.31a). The batch so far is FOLDED first: `Create a token, then populate` copies the token this resolution
+      // just made, which D295's snapshot cannot see. The forced copy takes the executor's own next id (a later
+      // clause's token must not collide); a chosen copy takes the state's counter at the answer (`askBatch`).
+      case 'populate': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const filter: LookFilter = { predicates: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [], token: true }], what: 'creature token you control' };
+        const cands = askCandidates(now, deps, controller, 'populate', filter);
+        if (cands.length === 0) {
+          out.push(narrated(`${obj.label} — no creature token to populate.`, obj.controller, obj.identity));
+          break;
+        }
+        const one = cands.length === 1 ? cands[0] : undefined;
+        const copied = one === undefined ? undefined : now.cards[one];
+        if (copied !== undefined) {
+          nextInstance++;
+          out.push({ t: 'TokenCreated', card: `c${nextInstance}`, oracleId: copied.oracleId, printingId: copied.printingId, controller, owner: controller, turnNumber: state.turn.turnNumber, faceIndex: copied.faceIndex, copyOf: copied.id, ...(copied.copyExceptions !== undefined ? { copyExceptions: copied.copyExceptions } : {}) });
+          out.push({ t: 'Populated', player: controller, token: copied.id, copy: `c${nextInstance}` });
+          out.push(narrated(`${obj.label} — populate: a token that is a copy of ${derive(now, deps.oracle, deps.scripts, copied.id).name}.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push(...queueAsks(now, deps, controller, 'populate', [{ kind: 'player', controller: 'you' }], 1, filter, obj.label));
+        break;
+      }
+
       // D448 - unearth's delayed exile: the source, if it is still on the battlefield (it may have left for exile
       // already by the leave replacement - then nothing).
       case 'exileSelf': {
@@ -1632,7 +1660,7 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
@@ -1641,6 +1669,8 @@ export function askCandidates(
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
+    // D488 - a populate copies a TOKEN (CR 701.31): a card is never a candidate, whatever the noun says.
+    if (verb === 'populate' && !inst.isToken) continue;
     if (filter) {
       const d = derive(state, deps.oracle, deps.scripts, id, cache);
       if (!predicateAdmits({ typeLine: d.typeLine, colors: d.colors }, filter.predicates)) continue;
@@ -1779,7 +1809,28 @@ export function mergeExceptions(base: CopyExceptions | undefined, more: CopyExce
  * discards - are simultaneous, CR 101.4), carrying the reason a watcher reads (D377), and the log
  * says what each player gave up.
  */
-export function askBatch(state: GameState, verb: 'sacrifice' | 'discard' | 'return', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+  // D488 - a populate makes a token that is a copy of each chosen token (CR 701.31) and moves nothing; the copy's
+  // id is the state's next (the answer's batch is the first to allocate past it).
+  if (verb === 'populate') {
+    const out: EventBody[] = [];
+    let next = state.counters.instance;
+    for (const c of chosen) {
+      if (c.cards.length === 0) {
+        out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'has', 'have')} no creature token to populate.`, c.player));
+        continue;
+      }
+      for (const card of c.cards) {
+        const copied = state.cards[card];
+        if (!copied) continue;
+        next += 1;
+        out.push({ t: 'TokenCreated', card: `c${next}`, oracleId: copied.oracleId, printingId: copied.printingId, controller: c.player, owner: c.player, turnNumber: state.turn.turnNumber, faceIndex: copied.faceIndex, copyOf: copied.id, ...(copied.copyExceptions !== undefined ? { copyExceptions: copied.copyExceptions } : {}) });
+        out.push({ t: 'Populated', player: c.player, token: copied.id, copy: `c${next}` });
+        out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'populates', 'populate')}: a token that is a copy of ${derive(state, deps.oracle, deps.scripts, card).name}.`, c.player));
+      }
+    }
+    return out;
+  }
   // D431 - a RETURN goes to the owner's hand and carries no reason (a bounce never has).
   const moves = chosen.flatMap((c) =>
     c.cards.map((card) => ({
@@ -1808,7 +1859,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -1828,7 +1879,7 @@ function queueAsks(
     if (cands.length <= count) { chosen.push({ player: p, cards: cands }); continue; }
     first = p;
   }
-  if (first === null) return askBatch(state, verb, chosen, filter);
+  if (first === null) return askBatch(state, deps, verb, chosen, filter);
   const pending: PendingAsks = { verb, remaining, count, filter, label, chosen };
   return [
     { t: 'AsksQueued', pending },

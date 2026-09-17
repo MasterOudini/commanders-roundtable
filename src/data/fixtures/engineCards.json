@@ -278436,6 +278436,253 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "EYES_IN_THE_SKIES": {
+    "scryfallId": "077aafc3-d94c-4ac0-8b7e-aadbb114e4c7",
+    "oracleId": "9697cd05-474e-46f3-8bcc-d4b6fb2059a1",
+    "name": "Eyes in the Skies",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eyes in the Skies",
+        "manaCost": "{3}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Create a 1/1 white Bird creature token with flying, then populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"What root and branch cannot reach, our winged friends will attend to.\"\n—Zunak, Selesnya strategist",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Ryman",
+        "imageId": "077aafc3-d94c-4ac0-8b7e-aadbb114e4c7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAKE_THE_REFLECTIONS": {
+    "scryfallId": "3db0074c-95cf-4d15-8fe1-7282803ec757",
+    "oracleId": "211868ca-662b-4054-bf50-c9e16bb58c49",
+    "name": "Wake the Reflections",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wake the Reflections",
+        "manaCost": "{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"You see a bird, an oak, a packbeast. I see the potential for an army.\"\n—Lalia, Selesnya dryad",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "3db0074c-95cf-4d15-8fe1-7282803ec757"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOTBORN_DEFENSES": {
+    "scryfallId": "0748ebc9-5696-4540-bdc9-47148a38677e",
+    "oracleId": "04046ae4-5c51-434b-930c-f3b1d348bf4b",
+    "name": "Rootborn Defenses",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rootborn Defenses",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Populate. Creatures you control gain indestructible until end of turn. (To populate, create a token that's a copy of a creature token you control.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "0748ebc9-5696-4540-bdc9-47148a38677e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM3-21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRUID_S_DELIVERANCE": {
+    "scryfallId": "0f00a70e-b3a0-4279-a4d6-37f2d1a1880e",
+    "oracleId": "fde7645a-5f02-4d5f-b38c-8390f325899e",
+    "name": "Druid's Deliverance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Druid's Deliverance",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Prevent all combat damage that would be dealt to you this turn. Populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"So many oppose us, but we are the reed that bends without breaking.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "0f00a70e-b3a0-4279-a4d6-37f2d1a1880e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "mm3",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROSTANI_S_JUDGMENT": {
+    "scryfallId": "5b105835-8ca3-43fc-9724-29edde02f0bb",
+    "oracleId": "97cf544e-ffbf-4730-8cd2-4f1d5be933f2",
+    "name": "Trostani's Judgment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trostani's Judgment",
+        "manaCost": "{5}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Exile target creature, then populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"Some cannot be saved as they are, but all can serve the Worldsoul.\"\n—Trostani",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "5b105835-8ca3-43fc-9724-29edde02f0bb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "c19",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNDERING_GROWTH": {
+    "scryfallId": "14d5048e-cb76-48c4-8a95-70dcc14775f6",
+    "oracleId": "a2a380d8-4df7-4357-862c-ed3fb795db6c",
+    "name": "Sundering Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sundering Growth",
+        "manaCost": "{G/W}{G/W}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target artifact or enchantment, then populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"One day every pillar will be a tree and every hall a glade.\"\n—Trostani",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "14d5048e-cb76-48c4-8a95-70dcc14775f6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "223",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORNCALLER_S_CHANT": {
+    "scryfallId": "7b8d33ed-9ca2-41d1-ba35-fdeb5b88ad44",
+    "oracleId": "8c069834-ed89-4298-989b-e67036d56196",
+    "name": "Horncaller's Chant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horncaller's Chant",
+        "manaCost": "{7}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a 4/4 green Rhino creature token with trample, then populate. (Create a token that's a copy of a creature token you control.)",
+        "flavorText": "\"The Selesnya are gathering armies. Do you still believe they aren't preparing for war?\"\n—Teysa, to Isperia",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Velhagen",
+        "imageId": "7b8d33ed-9ca2-41d1-ba35-fdeb5b88ad44"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Populate"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

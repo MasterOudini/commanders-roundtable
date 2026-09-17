@@ -779,6 +779,15 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dualcaster Mage', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
   ['Sigil Tracer', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
   ['Uyo, Silent Prophet', 'a copy-spell body under a head: the suite cannot stage a spell on the stack to copy nor answer the copy new-targets question (D487)'],
+  // D488 - populate: the eight the seam made offerable and the wave cannot row.
+  ['Growing Ranks', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Life Finds a Way', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Selesnya Eulogist', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Song of the Worldsoul', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Muster the Departed', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Nesting Dovehawk', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Vitu-Ghazi Guildmage', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
+  ['Xavier Sal, Infested Captain', 'a populate under a head: the suite cannot stage a creature token to copy nor assert the copy (D488)'],
   ['Goblin Piledriver', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +2/+0 until end of turn for each other attacking Goblin.)'],
   ['Grotag Bug-Catcher', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each creature in your party.)'],
   ['Hand That Feeds', 'trigger head not in the library (Whenever this creature attacks while there are four or more card types)'],
@@ -1602,7 +1611,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // checks kinds and unenforced only), so the card was still offered.
   ['Suffer the Past', 'cast-time computed target count'],
   ['Summary Dismissal', 'ability countering'],
-  ['Sundering Growth', 'copy effect (populate)'],
   ['Sunfall', 'incubate mechanic'],
   ['Supernatural Stamina', 'quoted-ability temporary grant'],
   ['Suppress', 'delayed trigger'],
@@ -1735,7 +1743,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Tribal Unity', 'script-raised prompt'],
   ['Trick Shot', 'up-to-N targeting'],
   ["Trickster's Stratagem", 'library position placement'],
-  ["Trostani's Judgment", 'copy effect (populate)'],
   ['Truce', 'script-raised prompt'],
   ['Tundra Fumarole', 'mana-spent memory'],
 

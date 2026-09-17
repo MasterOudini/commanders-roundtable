@@ -607,6 +607,8 @@ export function simplestAnswer(
       const eligible = filter
         ? pool.filter((id) => {
             const inst = state.cards[id];
+            // D488 - a populate's noun names a TOKEN (the host refuses a card).
+            if (filter.predicates.some((p) => p.token === true) && inst?.isToken !== true) return false;
             const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
             return printing ? predicateAdmits(faceOf(printing, 0), filter.predicates) : false;
           })

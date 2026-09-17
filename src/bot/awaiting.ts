@@ -55,6 +55,8 @@ function myPermanents(view: PlayerView, me: PlayerId): CardView[] {
 }
 
 function admitsCard(filter: LookFilter, c: CardView): boolean {
+  // D488 - a populate's noun names a TOKEN; the view says which permanents are.
+  if (filter.predicates.some((p) => p.token === true) && !c.isToken) return false;
   const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
   return face ? predicateAdmits({ typeLine: parseTypeLine(face.typeLine), colors: face.colors }, filter.predicates) : false;
 }

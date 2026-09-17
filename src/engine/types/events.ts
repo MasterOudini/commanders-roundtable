@@ -402,13 +402,15 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
-  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' }
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's
    * rule), so the fuzz canary counts these instead.
    */
   | { readonly t: 'Proliferated'; readonly player: PlayerId; readonly permanents: readonly InstanceId[]; readonly players: readonly PlayerId[] }
+  /** D488 - a populate (CR 701.31): `copy` is the token just created as a copy of `token`. A marker beside the `TokenCreated`; the reducer ignores it. */
+  | { readonly t: 'Populated'; readonly player: PlayerId; readonly token: InstanceId; readonly copy: InstanceId }
   /** D484 - a marker: the clauses a question carried (`EffectContinuation`) resume now, in the answer's batch; the events that follow are theirs. */
   | { readonly t: 'ContinuationResumed'; readonly label: string; readonly clauses: number }
   /** D409 - a permanent has explored (CR 701.42c): the card revealed (null from an empty library), and whether it was a land. */
