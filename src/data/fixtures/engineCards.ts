@@ -7943,6 +7943,27 @@ export const TRUSTY_RETRIEVER: CardData = F.TRUSTY_RETRIEVER as CardData;
 export const OSSUARY_RATS: CardData = F.OSSUARY_RATS as CardData;
 export const TEMPEST_OWL: CardData = F.TEMPEST_OWL as CardData;
 export const CAPTAIN_AMERICA_S_MOTORCYCLE: CardData = F.CAPTAIN_AMERICA_S_MOTORCYCLE as CardData;
+export const PROFESSOR_HULK: CardData = F.PROFESSOR_HULK as CardData;
+export const GLINT_EYE_NEPHILIM: CardData = F.GLINT_EYE_NEPHILIM as CardData;
+export const EXALTED_ANGEL: CardData = F.EXALTED_ANGEL as CardData;
+export const COLD_EYED_SELKIE: CardData = F.COLD_EYED_SELKIE as CardData;
+export const MOURNING_THRULL: CardData = F.MOURNING_THRULL as CardData;
+export const OLIVIA_S_ATTENDANTS: CardData = F.OLIVIA_S_ATTENDANTS as CardData;
+export const RAPACIOUS_ONE: CardData = F.RAPACIOUS_ONE as CardData;
+export const APRIL_REPORTER_OF_THE_WEIRD: CardData = F.APRIL_REPORTER_OF_THE_WEIRD as CardData;
+export const EL_HAJJ_J: CardData = F.EL_HAJJ_J as CardData;
+export const ZEBRA_UNICORN: CardData = F.ZEBRA_UNICORN as CardData;
+export const LIVING_HIVE: CardData = F.LIVING_HIVE as CardData;
+export const KJELDORAN_GARGOYLE: CardData = F.KJELDORAN_GARGOYLE as CardData;
+export const WARRIOR_ANGEL: CardData = F.WARRIOR_ANGEL as CardData;
+export const TOWERING_WAVE_MYSTIC: CardData = F.TOWERING_WAVE_MYSTIC as CardData;
+export const CROSSTOWN_COURIER: CardData = F.CROSSTOWN_COURIER as CardData;
+export const EMBERWILDE_CALIPH: CardData = F.EMBERWILDE_CALIPH as CardData;
+export const HORNED_CHEETAH: CardData = F.HORNED_CHEETAH as CardData;
+export const FEAR_OF_FAILED_TESTS: CardData = F.FEAR_OF_FAILED_TESTS as CardData;
+export const MINDSCOUR_DRAGON: CardData = F.MINDSCOUR_DRAGON as CardData;
+export const ELSHA_THREEFOLD_MASTER: CardData = F.ELSHA_THREEFOLD_MASTER as CardData;
+export const FLAYED_NIM: CardData = F.FLAYED_NIM as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16096,6 +16117,27 @@ export const ENGINE_CARDS: CardData[] = [
   OSSUARY_RATS,
   TEMPEST_OWL,
   CAPTAIN_AMERICA_S_MOTORCYCLE,
+  PROFESSOR_HULK,
+  GLINT_EYE_NEPHILIM,
+  EXALTED_ANGEL,
+  COLD_EYED_SELKIE,
+  MOURNING_THRULL,
+  OLIVIA_S_ATTENDANTS,
+  RAPACIOUS_ONE,
+  APRIL_REPORTER_OF_THE_WEIRD,
+  EL_HAJJ_J,
+  ZEBRA_UNICORN,
+  LIVING_HIVE,
+  KJELDORAN_GARGOYLE,
+  WARRIOR_ANGEL,
+  TOWERING_WAVE_MYSTIC,
+  CROSSTOWN_COURIER,
+  EMBERWILDE_CALIPH,
+  HORNED_CHEETAH,
+  FEAR_OF_FAILED_TESTS,
+  MINDSCOUR_DRAGON,
+  ELSHA_THREEFOLD_MASTER,
+  FLAYED_NIM,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

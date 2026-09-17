@@ -268534,6 +268534,755 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PROFESSOR_HULK": {
+    "scryfallId": "010aea2b-dd25-4ac2-9b3f-cd3b18740d06",
+    "oracleId": "b8a627a1-d6d7-45d1-aeea-ff7b834cbb29",
+    "name": "Professor Hulk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Professor Hulk",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Creature — Gamma Scientist Hero",
+        "oracleText": "Trample\nWhenever Professor Hulk deals combat damage to a player, draw that many cards.",
+        "flavorText": "The power of the Hulk and the intelligence of Bruce Banner in one.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Leroy Steinmann",
+        "imageId": "010aea2b-dd25-4ac2-9b3f-cd3b18740d06"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "338",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLINT_EYE_NEPHILIM": {
+    "scryfallId": "08fc68fa-d6cf-4f6d-8f44-4d62c9cdd5c3",
+    "oracleId": "d6b6d965-1401-4566-adb3-90b03218af8d",
+    "name": "Glint-Eye Nephilim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glint-Eye Nephilim",
+        "manaCost": "{U}{B}{R}{G}",
+        "typeLine": "Creature — Nephilim",
+        "oracleText": "Whenever this creature deals combat damage to a player, draw that many cards.\n{1}, Discard a card: This creature gets +1/+1 until end of turn.",
+        "flavorText": "When it awoke, it shook the plane with the thunder of its craving.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R",
+          "U"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "08fc68fa-d6cf-4f6d-8f44-4d62c9cdd5c3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "gpt",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXALTED_ANGEL": {
+    "scryfallId": "0ab545ad-5690-48f4-8d5e-7a06cfe8fc7c",
+    "oracleId": "2f6e9ab8-6951-4c5f-bcde-0e96e0fe87f2",
+    "name": "Exalted Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exalted Angel",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhenever this creature deals damage, you gain that much life.\nMorph {2}{W}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)",
+        "flavorText": "\"She is a theme of honor and renown, . . . Whose present courage may beat down our foes.\"\n—William Shakespeare, *Troilus and Cressida*",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "0ab545ad-5690-48f4-8d5e-7a06cfe8fc7c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Morph"
+    ],
+    "setCode": "g06",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COLD_EYED_SELKIE": {
+    "scryfallId": "0c70d33b-b898-4f0e-a133-5f003ecca6d6",
+    "oracleId": "f33cd975-ab70-4209-a6d8-e0d727772bf2",
+    "name": "Cold-Eyed Selkie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cold-Eyed Selkie",
+        "manaCost": "{1}{G/U}{G/U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhenever this creature deals combat damage to a player, you may draw that many cards.",
+        "flavorText": "She follows the old tributaries built when merrows still shaped the tides.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "0c70d33b-b898-4f0e-a133-5f003ecca6d6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Landwalk",
+      "Islandwalk"
+    ],
+    "setCode": "ddt",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOURNING_THRULL": {
+    "scryfallId": "0e8be7f3-9d4f-4928-8e26-2856b2881697",
+    "oracleId": "0406a534-c69c-40bb-801f-228a662ac1a2",
+    "name": "Mourning Thrull",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mourning Thrull",
+        "manaCost": "{1}{W/B}",
+        "typeLine": "Creature — Thrull",
+        "oracleText": "({W/B} can be paid with either {W} or {B}.)\nFlying\nWhenever this creature deals damage, you gain that much life.",
+        "flavorText": "During their ascent to spirithood, patriarchs of Orzhova shed both flesh and emotion. This earthly slag is collected and formed into thrulls.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Dany Orizio",
+        "imageId": "0e8be7f3-9d4f-4928-8e26-2856b2881697"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OLIVIA_S_ATTENDANTS": {
+    "scryfallId": "25b68fbf-7fc7-4fd5-9bdf-f3ef846d4c22",
+    "oracleId": "6b384c3c-0d6b-4bba-b4c7-5af8b32bdf1c",
+    "name": "Olivia's Attendants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Olivia's Attendants",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Menace\nWhenever this creature deals damage, create that many Blood tokens. (They're artifacts with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\n{2}{R}: This creature deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christian Angel",
+        "imageId": "25b68fbf-7fc7-4fd5-9bdf-f3ef846d4c22"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "307",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAPACIOUS_ONE": {
+    "scryfallId": "2f8e2ef7-fabd-4ae9-8224-5acb3fd7d1ae",
+    "oracleId": "3af03c99-d215-477b-ba49-51f4e87907ff",
+    "name": "Rapacious One",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rapacious One",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Trample\nWhenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "2f8e2ef7-fabd-4ae9-8224-5acb3fd7d1ae"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APRIL_REPORTER_OF_THE_WEIRD": {
+    "scryfallId": "31aa943f-c9db-43dc-8a72-7ef56f9f5c8b",
+    "oracleId": "1c371003-e4f0-4d7c-b021-273176772f97",
+    "name": "April, Reporter of the Weird",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "April, Reporter of the Weird",
+        "manaCost": "{2}{U}",
+        "typeLine": "Legendary Creature — Human Detective",
+        "oracleText": "Whenever April deals combat damage to a player, draw that many cards, then discard a card.",
+        "flavorText": "\"Freelance reporting pays even worse than tutoring, but the satisfaction of uncovering the truth makes it all worth it! Also the free ringside tickets to cover intergalactic wrestling don't suck.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pauline Voss",
+        "imageId": "31aa943f-c9db-43dc-8a72-7ef56f9f5c8b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EL_HAJJ_J": {
+    "scryfallId": "320906ee-791a-41c0-9b28-9a287cdb3340",
+    "oracleId": "f92c9a5d-853f-4157-89ba-8d8c8033c533",
+    "name": "El-Hajjâj",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "El-Hajjâj",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever this creature deals damage, you gain that much life.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Amy Weber",
+        "imageId": "320906ee-791a-41c0-9b28-9a287cdb3340"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "4ed",
+    "collectorNumber": "134†",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZEBRA_UNICORN": {
+    "scryfallId": "32626cfc-c05e-4da0-9a5b-9d602c7bbb2e",
+    "oracleId": "2f91818f-a6fe-4472-b52b-ab574f790905",
+    "name": "Zebra Unicorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zebra Unicorn",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "Whenever this creature deals damage, you gain that much life.",
+        "flavorText": "\"I'll capture gentle zebras / for your steeds and fill the stable with every kind of unicorn.\"\n—\"Love Song of Night and Day\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Margaret Organ-Kean",
+        "imageId": "32626cfc-c05e-4da0-9a5b-9d602c7bbb2e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "MIR-290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIVING_HIVE": {
+    "scryfallId": "407dad3c-d721-412a-8b29-bc15be56d2fe",
+    "oracleId": "1aa5df06-a61d-47e8-b12d-34009854d088",
+    "name": "Living Hive",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Living Hive",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Elemental Insect",
+        "oracleText": "Trample\nWhenever this creature deals combat damage to a player, create that many 1/1 green Insect creature tokens.",
+        "flavorText": "In its center is a single red ant, a queen that regulates the hive's movements.",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "407dad3c-d721-412a-8b29-bc15be56d2fe"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KJELDORAN_GARGOYLE": {
+    "scryfallId": "484a4892-fba0-459d-9e72-e82f7e079d78",
+    "oracleId": "b82d1104-8a54-4745-ba8b-eeddcb657338",
+    "name": "Kjeldoran Gargoyle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kjeldoran Gargoyle",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Gargoyle",
+        "oracleText": "Flying, first strike\nWhenever this creature deals damage, you gain that much life.",
+        "flavorText": "The gargoyles were taken from the walls of flooded Kjeldoran cities and brought upland to guard the outposts of New Argive.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marcelo Vignali",
+        "imageId": "484a4892-fba0-459d-9e72-e82f7e079d78"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "First strike"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARRIOR_ANGEL": {
+    "scryfallId": "81d2c6e3-e556-4cc6-94b6-fdbc62d6853e",
+    "oracleId": "97140551-341a-40a1-93fe-0fcaa0c3be33",
+    "name": "Warrior Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warrior Angel",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel Warrior",
+        "oracleText": "Flying\nWhenever this creature deals damage, you gain that much life.",
+        "flavorText": "She represents not hope, but hope's desperate fury.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Brom",
+        "imageId": "81d2c6e3-e556-4cc6-94b6-fdbc62d6853e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sth",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOWERING_WAVE_MYSTIC": {
+    "scryfallId": "8203f709-0fac-41c1-a056-3fa1a2c1d127",
+    "oracleId": "121a1efa-03f2-4b5f-8e72-539de028457e",
+    "name": "Towering-Wave Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Towering-Wave Mystic",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Whenever this creature deals damage, target player mills that many cards.",
+        "flavorText": "Thassa's favor followed him to the Underworld. Even the waves of Nerono obeyed his will.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "8203f709-0fac-41c1-a056-3fa1a2c1d127"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROSSTOWN_COURIER": {
+    "scryfallId": "8c8875a3-9f56-4947-9655-aa5d95f06de0",
+    "oracleId": "82184f0a-54a1-4ae0-9b99-2b3450c6e544",
+    "name": "Crosstown Courier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crosstown Courier",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Vedalken",
+        "oracleText": "Whenever this creature deals combat damage to a player, that player mills that many cards.",
+        "flavorText": "Information travels quickly through Ravnica's network of messengers and thought agents.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "8c8875a3-9f56-4947-9655-aa5d95f06de0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBERWILDE_CALIPH": {
+    "scryfallId": "9598a9b4-15bb-4645-92ed-8eedef75dc24",
+    "oracleId": "8434bdb1-286b-484e-904e-946d074614e7",
+    "name": "Emberwilde Caliph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emberwilde Caliph",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying, trample\nThis creature attacks each combat if able.\nWhenever this creature deals damage, you lose that much life.",
+        "flavorText": "The fire breathes while the air burns.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Jennifer Law",
+        "imageId": "9598a9b4-15bb-4645-92ed-8eedef75dc24"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "262",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORNED_CHEETAH": {
+    "scryfallId": "a28ad983-ce91-40b6-a1ce-fe36ec7fbce8",
+    "oracleId": "a552edbe-bd5d-4281-8d9f-d03f4b10815d",
+    "name": "Horned Cheetah",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horned Cheetah",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever this creature deals damage, you gain that much life.",
+        "flavorText": "\"I think she wants us to eat it,\" said Squee, staring at the oily carcass the cheetah had dragged to their fire.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "John Matson",
+        "imageId": "a28ad983-ce91-40b6-a1ce-fe36ec7fbce8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEAR_OF_FAILED_TESTS": {
+    "scryfallId": "a87c39df-7636-454b-8485-a1cc9362fd84",
+    "oracleId": "34fd461b-a913-4a60-9477-ce2bd5c6fc5a",
+    "name": "Fear of Failed Tests",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fear of Failed Tests",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment Creature — Nightmare",
+        "oracleText": "Whenever this creature deals combat damage to a player, draw that many cards.",
+        "flavorText": "\"W-wait! What do you mean this quiz determines half our grade?\"\n—Zimone, muttering in her sleep",
+        "power": "2",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jana Heidersdorf",
+        "imageId": "a87c39df-7636-454b-8485-a1cc9362fd84"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "dsk",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINDSCOUR_DRAGON": {
+    "scryfallId": "c5708290-60ae-400c-b149-2a63153c2890",
+    "oracleId": "c5d326a9-c047-4f77-9f0c-b30daf268f15",
+    "name": "Mindscour Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mindscour Dragon",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to an opponent, target player mills four cards.",
+        "flavorText": "\"The bells may one day ring as an anthem of our own end.\"\n—Kyu, Sage-Eye mystic",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wesley Burt",
+        "imageId": "c5708290-60ae-400c-b149-2a63153c2890"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELSHA_THREEFOLD_MASTER": {
+    "scryfallId": "eee11606-5902-41d3-aec6-d6a3da01091b",
+    "oracleId": "d8ccbd72-6429-43cb-a0a9-ab56e97a2d53",
+    "name": "Elsha, Threefold Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elsha, Threefold Master",
+        "manaCost": "{U}{R}{W}",
+        "typeLine": "Legendary Creature — Djinn Monk",
+        "oracleText": "Trample\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever Elsha deals combat damage to a player, create that many 1/1 white Monk creature tokens with prowess.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "eee11606-5902-41d3-aec6-d6a3da01091b"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess",
+      "Trample"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAYED_NIM": {
+    "scryfallId": "fd2381b3-ebf8-4c65-8e89-e089c2e57145",
+    "oracleId": "857818d4-6cf0-4234-b9e0-d7181ba6b54f",
+    "name": "Flayed Nim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flayed Nim",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Skeleton",
+        "oracleText": "Whenever this creature deals combat damage to a creature, that creature's controller loses that much life.\n{2}{B}: Regenerate this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Trevor Hairsine",
+        "imageId": "fd2381b3-ebf8-4c65-8e89-e089c2e57145"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "mrd",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

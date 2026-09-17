@@ -32,6 +32,8 @@ export function countOf(
   cache: DeriveCache | undefined,
   /** D437 - the spell's announced X, off the resolving object; nothing announced counts as zero. */
   xValue = 0,
+  /** D476 - the trigger's own number (`obj.memo`): the damage its head's event dealt; a head with none counts zero. */
+  memo = 0,
 ): number {
   const d = (id: InstanceId) => derive(state, deps.oracle, deps.scripts, id, cache);
   switch (expr.kind) {
@@ -39,6 +41,8 @@ export function countOf(
       return Math.max(0, kicked);
     case 'spellX':
       return Math.max(0, xValue);
+    case 'memo':
+      return Math.max(0, memo);
     case 'cardsInHand':
       return (state.zones.hand[controller] ?? []).length;
     case 'players': {

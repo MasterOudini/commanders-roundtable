@@ -8787,6 +8787,29 @@ const WANTED = [
   'Tempest Owl',
   "Captain America's Motorcycle",
   // D475 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D476 - the trigger's own number: the creatures whose damage trigger reads that much / that many now.
+  'Professor Hulk',
+  'Glint-Eye Nephilim',
+  'Exalted Angel',
+  'Cold-Eyed Selkie',
+  'Mourning Thrull',
+  "Olivia's Attendants",
+  'Rapacious One',
+  'April, Reporter of the Weird',
+  'El-Hajjâj',
+  'Zebra Unicorn',
+  'Living Hive',
+  'Kjeldoran Gargoyle',
+  'Warrior Angel',
+  'Towering-Wave Mystic',
+  'Crosstown Courier',
+  'Emberwilde Caliph',
+  'Horned Cheetah',
+  'Fear of Failed Tests',
+  'Mindscour Dragon',
+  'Elsha, Threefold Master',
+  'Flayed Nim',
+  // D476 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

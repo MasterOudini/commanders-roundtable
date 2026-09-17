@@ -240,7 +240,7 @@ export function effectResult(
     if (effect.per) {
       // A permanent's trigger reads the kicks its spell announced off the permanent (CR 702.33c).
       // D437 - the spell's X rides the stack object (`xValue`, announced at the cast).
-      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache, obj.xValue ?? 0);
+      const count = countOf(state, deps, controller, effect.per, source ?? null, obj.kicked ?? (source ? state.cards[source]?.kicked : undefined) ?? 0, cache, obj.xValue ?? 0, obj.memo ?? 0);
       if (count === 0) {
         out.push(narrated(`${obj.label} counts nothing — “${effect.text}” does nothing.`, obj.controller, obj.identity));
         continue;

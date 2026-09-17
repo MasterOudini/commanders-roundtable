@@ -452,7 +452,8 @@ const POOL: Record<string, number> = {
   // D473 - the quoted token: the Eldrazi Spawn and Scion makers (+20 creatures, Awakening Zone) and six spells.
   // D474 - the token printings rowed like cards: their makers (+18 creatures, +3 artifacts, a land, an enchantment) and twelve spells.
   // D475 - the emblem: two walkers whose ultimate reads now, and the up-to-N / alternative-list clauses the suite stages (+19 creatures).
-  creature: 6685,
+  // D476 - the trigger's own number: 21 creatures whose damage trigger reads that much / that many.
+  creature: 6706,
   instant: 1406,
   sorcery: 1055,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the

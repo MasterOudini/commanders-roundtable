@@ -91,8 +91,9 @@ function rewriteSelf(text: string, opening: boolean): string {
  * The effect specs of a printed payload sentence, or a throw naming the card
  * and the sentence.
  */
-export function vocabularyEffects(payload: string, name: string): readonly EffectSpec[] {
-  const parsed = parseEffects(recipientAsSelf(payload), name, true);
+export function vocabularyEffects(payload: string, name: string, opts: { readonly memo?: boolean } = {}): readonly EffectSpec[] {
+  // D476 - a def under a head that memoises a number (the damage dealt) may read `that much` / `that many`.
+  const parsed = parseEffects(recipientAsSelf(payload), name, true, undefined, false, opts.memo === true);
   if (parsed.mode !== 'auto' || parsed.effects.length === 0) {
     throw new Error(`${name}: the vocabulary does not read "${payload}" whole (${parsed.mode}) - a row must not claim it (D90).`);
   }

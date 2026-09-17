@@ -27,7 +27,8 @@ describe('the tokens the shipped scripts create are fixtures (D445)', () => {
     const pinned = new Set(ENGINE_CARDS.map((c) => c.scryfallId));
     const table = TOKEN_TABLE as Record<string, { printingId: string; name: string } | undefined>;
     const TOKEN_REF = new RegExp('tokenRef' + String.fromCharCode(92) + '("([^"]+)"' + String.fromCharCode(92) + ')', 'g');
-    const re = new RegExp("vocabularyEffects\\(\\s*(\"(?:[^\"\\\\]|\\\\.)*\")", 'g');
+    // D476 - the call site's options ride too: a `{ memo: true }` payload reads `that many` tokens as its module does.
+    const re = new RegExp("vocabularyEffects\\(\\s*(\"(?:[^\"\\\\]|\\\\.)*\")([^)]*)\\)", 'g');
     const missing: string[] = [];
     let refs = 0;
     for (const f of readdirSync(dir)) {
@@ -43,7 +44,7 @@ describe('the tokens the shipped scripts create are fixtures (D445)', () => {
         const text = JSON.parse(m[1] as string) as string;
         if (!/token/i.test(text)) continue;
         const ids: string[] = [];
-        tokensOf(vocabularyEffects(text, f) as never, ids);
+        tokensOf(vocabularyEffects(text, f, { memo: /memo: true/.test(m[2] ?? '') }) as never, ids);
         for (const pid of ids) {
           refs++;
           if (!pinned.has(pid)) missing.push(f + ': ' + (Object.keys(table).find((k) => table[k]?.printingId === pid) ?? pid));

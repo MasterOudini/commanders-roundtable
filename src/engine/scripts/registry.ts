@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PROFESSOR_HULK_SCRIPT } from './cards/professorHulk';
+import { GLINT_EYE_NEPHILIM_SCRIPT } from './cards/glintEyeNephilim';
+import { EXALTED_ANGEL_SCRIPT } from './cards/exaltedAngel';
+import { COLD_EYED_SELKIE_SCRIPT } from './cards/coldEyedSelkie';
+import { MOURNING_THRULL_SCRIPT } from './cards/mourningThrull';
+import { OLIVIAS_ATTENDANTS_SCRIPT } from './cards/oliviasAttendants';
+import { RAPACIOUS_ONE_SCRIPT } from './cards/rapaciousOne';
+import { APRIL_REPORTER_OF_THE_WEIRD_SCRIPT } from './cards/aprilReporterOfTheWeird';
+import { EL_HAJJ_J_SCRIPT } from './cards/elHajjJ';
+import { ZEBRA_UNICORN_SCRIPT } from './cards/zebraUnicorn';
+import { LIVING_HIVE_SCRIPT } from './cards/livingHive';
+import { KJELDORAN_GARGOYLE_SCRIPT } from './cards/kjeldoranGargoyle';
+import { WARRIOR_ANGEL_SCRIPT } from './cards/warriorAngel';
+import { TOWERING_WAVE_MYSTIC_SCRIPT } from './cards/toweringWaveMystic';
+import { CROSSTOWN_COURIER_SCRIPT } from './cards/crosstownCourier';
+import { EMBERWILDE_CALIPH_SCRIPT } from './cards/emberwildeCaliph';
+import { HORNED_CHEETAH_SCRIPT } from './cards/hornedCheetah';
+import { FEAR_OF_FAILED_TESTS_SCRIPT } from './cards/fearOfFailedTests';
+import { MINDSCOUR_DRAGON_SCRIPT } from './cards/mindscourDragon';
+import { ELSHA_THREEFOLD_MASTER_SCRIPT } from './cards/elshaThreefoldMaster';
+import { FLAYED_NIM_SCRIPT } from './cards/flayedNim';
 import { DAILY_BUGLE_REPORTERS_SCRIPT } from './cards/dailyBugleReporters';
 import { REVEILLARK_SCRIPT } from './cards/reveillark';
 import { KROSAN_RESTORER_SCRIPT } from './cards/krosanRestorer';
@@ -7340,6 +7361,27 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PROFESSOR_HULK_SCRIPT,
+  GLINT_EYE_NEPHILIM_SCRIPT,
+  EXALTED_ANGEL_SCRIPT,
+  COLD_EYED_SELKIE_SCRIPT,
+  MOURNING_THRULL_SCRIPT,
+  OLIVIAS_ATTENDANTS_SCRIPT,
+  RAPACIOUS_ONE_SCRIPT,
+  APRIL_REPORTER_OF_THE_WEIRD_SCRIPT,
+  EL_HAJJ_J_SCRIPT,
+  ZEBRA_UNICORN_SCRIPT,
+  LIVING_HIVE_SCRIPT,
+  KJELDORAN_GARGOYLE_SCRIPT,
+  WARRIOR_ANGEL_SCRIPT,
+  TOWERING_WAVE_MYSTIC_SCRIPT,
+  CROSSTOWN_COURIER_SCRIPT,
+  EMBERWILDE_CALIPH_SCRIPT,
+  HORNED_CHEETAH_SCRIPT,
+  FEAR_OF_FAILED_TESTS_SCRIPT,
+  MINDSCOUR_DRAGON_SCRIPT,
+  ELSHA_THREEFOLD_MASTER_SCRIPT,
+  FLAYED_NIM_SCRIPT,
   DAILY_BUGLE_REPORTERS_SCRIPT,
   REVEILLARK_SCRIPT,
   KROSAN_RESTORER_SCRIPT,

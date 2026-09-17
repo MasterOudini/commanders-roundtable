@@ -404,6 +404,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // whose own landfall pump - the printing's line, rowed like a card - fires on the next land drop).
   { names: ['Chocobo Racetrack'], copiesPerSeat: 2,
     counterKeys: ['tokenTriggersFired'], rotHistory: 'D474' },
+  // D476 - the trigger's own number: a Mourning Thrull a seat ({1}{W/B} 1/1 flier; `Whenever this creature deals damage,
+  // you gain that much life` - the damage it dealt rides the trigger onto the stack as `memo`, the gain reads it).
+  { names: ['Mourning Thrull'], copiesPerSeat: 2,
+    counterKeys: ['memoTriggers'], rotHistory: 'D476' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1314,6 +1318,8 @@ interface Run {
   readonly tokenTriggersFired: number;
   /** D475 - the emblems given (CR 114): a walker's ultimate the driver reached. */
   readonly emblemsGiven: number;
+  /** D476 - a triggered ability put on the stack carrying its own number (`obj.memo`, the damage its head's event dealt). */
+  readonly memoTriggers: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1753,6 +1759,7 @@ function runOne(seed: number): Run {
     spawnTokensSpent: (() => { const spawn = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId) ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.source !== null && spawn.has(e.body.source)).length; })(),
     tokenTriggersFired: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && e.body.obj.source !== null && made.has(e.body.obj.source)).length; })(),
     emblemsGiven: game.log.filter((e) => e.body.t === 'EmblemCreated').length,
+    memoTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && (e.body.obj.memo ?? 0) > 0).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2024,6 +2031,7 @@ const TOTAL_KEYS = [
   'spawnTokensSpent',
   'tokenTriggersFired',
   'emblemsGiven',
+  'memoTriggers',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2426,6 +2434,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D473 - a quoted Eldrazi Spawn created and sacrificed for {C} at gate size (Nest Invader 2 / 2 at 60 seeds, 14 / 8 at 150).
         expect(totals.spawnTokensMade).toBeGreaterThan(0);
         expect(totals.spawnTokensSpent).toBeGreaterThan(0);
+        // D476 - a trigger carried its own number onto the stack at gate size (Mourning Thrull 4 at 60 seeds, 12 at 150).
+        expect(totals.memoTriggers).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2532,6 +2542,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.spawnTokensMade} Spawn made / ${totals.spawnTokensSpent} spent · ` +
           `${totals.tokenTriggersFired} token triggers · ` +
           `${totals.emblemsGiven} emblems · ` +
+          `${totals.memoTriggers} memo triggers · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

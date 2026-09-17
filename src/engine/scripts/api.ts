@@ -186,6 +186,13 @@ export interface TriggerDef {
    * questions are asked of the state BEFORE the event when this is set.
    */
   readonly looksBack?: boolean;
+  /**
+   * D476 - THE TRIGGER'S OWN NUMBER: a number read off the EVENT (and the state it matched against) as the trigger
+   * fires - the damage this source dealt in a `DamageDealt` batch - carried onto the stack object (`obj.memo`), where
+   * a payload counted `that much` / `that many` reads it (`CountExpr` kind `memo`). D440's keyword plumbing, opened
+   * to scripts. Absent for a head with no number.
+   */
+  readonly memo?: (ctx: ScriptCtx, self: InstanceId, ev: EventBody) => number;
   matches(ctx: ScriptCtx, self: InstanceId, ev: EventBody): boolean;
   label(ctx: ScriptCtx, self: InstanceId, ev: EventBody): string;
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];

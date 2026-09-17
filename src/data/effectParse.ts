@@ -2304,6 +2304,25 @@ const MULTIPLIABLE: ReadonlySet<EffectKind> = new Set(['gainLife', 'loseLife', '
 let SPELL_X = false;
 /** D473 - the token quotes `foldTokenQuotes` lifted out of the face, for the length of one parse (as `SPELL_X`). */
 let TOKEN_QUOTES: readonly string[] = [];
+/** D476 - the head's own number is on the stack object (`obj.memo`): `that much` / `that many` read as one, counted `memo`. */
+let HEAD_MEMO = false;
+function substituteThatMuch(base: string): string {
+  return base
+    .replace(/\bthat many cards\b/gi, 'a card')
+    .replace(/\bthat much life\b/gi, '1 life')
+    .replace(/\bthat much damage\b/gi, '1 damage')
+    .replace(/\bthat many \+1\/\+1 counters\b/gi, 'a +1/+1 counter')
+    .replace(/\bthat many -1\/-1 counters\b/gi, 'a -1/-1 counter')
+    .replace(/\b(create|creates) that many ([^.]*?tokens?)\b/i, (_m, verb: string, rest: string) => verb + ' a ' + rest.replace(/tokens\b/, 'token'));
+}
+function matchThatMuch(sentence: string): EffectSpec | null {
+  if (!HEAD_MEMO || !/\bthat (?:much|many)\b/i.test(sentence)) return null;
+  const base = substituteThatMuch(sentence);
+  if (/\bthat (?:much|many)\b/i.test(base)) return null;
+  const inner = matchRule(base);
+  if (!inner || !MULTIPLIABLE.has(inner.kind) || inner.per !== null) return null;
+  return { ...inner, text: sentence, per: { kind: 'memo' } };
+}
 function substituteX(base: string): string {
   return base
     .replace(/\bX cards\b/gi, 'a card')
@@ -2389,7 +2408,8 @@ function matchSentence(sentence: string): EffectSpec | null {
   if (counteredTo) return counteredTo;
   // D418 - a counted sentence after the plain rules: `for each <noun>` and `where X is the number of`.
   // D437 - and the spell's own X after those, while the face's cost carries one.
-  return matchRule(sentence) ?? matchCounted(sentence) ?? matchSpellX(sentence);
+  // D476 - and the head's own number after those, while the caller says the head memoises one.
+  return matchRule(sentence) ?? matchCounted(sentence) ?? matchSpellX(sentence) ?? matchThatMuch(sentence);
 }
 
 function matchRule(sentence: string): EffectSpec | null {
@@ -2448,13 +2468,17 @@ export function parseEffects(
   warn: Warn = NOOP_WARN,
   /** D437 - the face's mana cost carries {X}: a bare X in its text is the announced X. */
   xCost = false,
+  /** D476 - the head memoises a number (`obj.memo`): `that much` / `that many` in the payload reads as that count. */
+  memo = false,
 ): ParsedEffects {
   if (!isInstantOrSorcery || !oracleText) return { effects: [], mode: 'manual' };
   SPELL_X = xCost;
+  HEAD_MEMO = memo;
   try {
     return parseEffectsInner(oracleText, cardName, warn);
   } finally {
     SPELL_X = false;
+    HEAD_MEMO = false;
     TOKEN_QUOTES = [];
   }
 }

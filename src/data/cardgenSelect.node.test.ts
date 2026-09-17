@@ -360,7 +360,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // a spell, two loyalty faces) - each by the wide run's reason.
   ['Argoth, Sanctum of Nature', 'multi-face or unusual layout (a meld card)'],
   ['Drowner Initiate', 'a payment branch the suite cannot assert: mill (a graveyard count under a payment)'],
-  ['Mindscour Dragon', 'trigger head not in the library: Whenever this creature deals combat damage to an opponent, target player mills four cards.'],
   ['Scrabbling Skullcrab', 'trigger head not in the library: Eerie - Whenever an enchantment you control enters and whenever you fully unlock a Room, target player mills two cards.'],
   ['Screeching Sliver', "a quoted ability grant (the granted mill is not the card's own line): All Slivers have \"{T}: Target player mills a card.\""],
   ['Enigma Eidolon', 'trigger payload not a pump: Return this card from your graveyard to your hand.'],

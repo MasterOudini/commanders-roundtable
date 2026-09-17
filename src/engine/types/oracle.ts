@@ -569,6 +569,8 @@ export type CountExpr =
   | { readonly kind: 'kicked' }
   /** D437 - the spell's announced X (`{X}` in its mana cost, `xValue` on the stack object): `Draw X cards.`, `~ deals X damage`. */
   | { readonly kind: 'spellX' }
+  /** D476 - the trigger's own number (`obj.memo`): `you gain that much life`, `draw that many cards` under a damage head. */
+  | { readonly kind: 'memo' }
   | { readonly kind: 'diedThisTurn' }
   | { readonly kind: 'party' }
   | { readonly kind: 'players'; readonly who: 'opponents' | 'any' }
