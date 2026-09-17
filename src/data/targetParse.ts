@@ -585,6 +585,11 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^swamp${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Swamp'] } },
   { re: new RegExp(`^mountain${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Mountain'] } },
   { re: new RegExp(`^forest${s}\\b`, 'i'), kinds: ['land'], restrict: { subtypesAll: ['Forest'] } },
+  // D479 - THE TRIBAL TARGET: any other capitalised noun is a subtype (D298's rule), on a permanent card of the type
+  // written or of any type (CR 205.3d). The singular alone; never a word followed by another capitalised one (a name).
+  { re: new RegExp(`^[A-Z][a-z]*[a-rt-z]\\s+creature\\b(?!\\s+[A-Z])`), kinds: ['creature'], subtypeCard: true },
+  { re: new RegExp(`^[A-Z][a-z]*[a-rt-z]\\s+permanent\\b(?!\\s+[A-Z])`), kinds: ['permanent'], subtypeCard: true },
+  { re: new RegExp(`^[A-Z][a-z]*[a-rt-z]\\b(?!\\s+(?:[A-Z]|card|creature|permanent|spell|ability))`), kinds: ['permanent'], subtypeCard: true },
 ];
 
 /**

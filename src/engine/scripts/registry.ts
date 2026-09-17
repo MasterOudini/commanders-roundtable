@@ -7,6 +7,62 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MAD_AUNTIE_SCRIPT } from './cards/madAuntie';
+import { OTEPEC_HUNTMASTER_SCRIPT } from './cards/otepecHuntmaster';
+import { SNARLING_UNDORAK_SCRIPT } from './cards/snarlingUndorak';
+import { MERFOLK_SOVEREIGN_SCRIPT } from './cards/merfolkSovereign';
+import { KROSAN_WARCHIEF_SCRIPT } from './cards/krosanWarchief';
+import { BLACK_POPLAR_SHAMAN_SCRIPT } from './cards/blackPoplarShaman';
+import { DRUNAU_CORPSE_TRAWLER_SCRIPT } from './cards/drunauCorpseTrawler';
+import { DARU_ENCAMPMENT_SCRIPT } from './cards/daruEncampment';
+import { WIREWOOD_LODGE_SCRIPT } from './cards/wirewoodLodge';
+import { ELEPHANT_GRAVEYARD_SCRIPT } from './cards/elephantGraveyard';
+import { RIPTIDE_LABORATORY_SCRIPT } from './cards/riptideLaboratory';
+import { DAUGHTER_OF_THE_DEEP_SCRIPT } from './cards/daughterOfTheDeep';
+import { GOBLIN_BURROWS_SCRIPT } from './cards/goblinBurrows';
+import { VITAL_SPLICER_SCRIPT } from './cards/vitalSplicer';
+import { OLIVIAS_BLOODSWORN_SCRIPT } from './cards/oliviasBloodsworn';
+import { ICATIAN_LIEUTENANT_SCRIPT } from './cards/icatianLieutenant';
+import { VETERAN_CATHAR_SCRIPT } from './cards/veteranCathar';
+import { AQUATIC_INCURSION_SCRIPT } from './cards/aquaticIncursion';
+import { CONTESTED_CLIFFS_SCRIPT } from './cards/contestedCliffs';
+import { ZHALFIRIN_COMMANDER_SCRIPT } from './cards/zhalfirinCommander';
+import { SPECTRAL_SHEPHERD_SCRIPT } from './cards/spectralShepherd';
+import { KROSAN_GROUNDSHAKER_SCRIPT } from './cards/krosanGroundshaker';
+import { AIR_MARSHAL_SCRIPT } from './cards/airMarshal';
+import { GOBLIN_TASKMASTER_SCRIPT } from './cards/goblinTaskmaster';
+import { ALLY_ENCAMPMENT_SCRIPT } from './cards/allyEncampment';
+import { ANABA_ANCESTOR_SCRIPT } from './cards/anabaAncestor';
+import { KITSUNE_DIVINER_SCRIPT } from './cards/kitsuneDiviner';
+import { BONEKNITTER_SCRIPT } from './cards/boneknitter';
+import { EARTH_KINGDOM_PROTECTORS_SCRIPT } from './cards/earthKingdomProtectors';
+import { DWARVEN_LIEUTENANT_SCRIPT } from './cards/dwarvenLieutenant';
+import { SAFEWRIGHT_CAVALRY_SCRIPT } from './cards/safewrightCavalry';
+import { HEARTHCAGE_GIANT_SCRIPT } from './cards/hearthcageGiant';
+import { VENERABLE_KNIGHT_SCRIPT } from './cards/venerableKnight';
+import { INTREPID_PROVISIONER_SCRIPT } from './cards/intrepidProvisioner';
+import { MAJESTIC_HELIOPTERUS_SCRIPT } from './cards/majesticHeliopterus';
+import { DEEPCHANNEL_DUELIST_SCRIPT } from './cards/deepchannelDuelist';
+import { SANGUINE_GLORIFIER_SCRIPT } from './cards/sanguineGlorifier';
+import { CAPTAIN_STORM_COSMIUM_RAIDER_SCRIPT } from './cards/captainStormCosmiumRaider';
+import { SWIFT_WARDEN_SCRIPT } from './cards/swiftWarden';
+import { BURNING_YARD_TRAINER_SCRIPT } from './cards/burningYardTrainer';
+import { DEEPROOT_ELITE_SCRIPT } from './cards/deeprootElite';
+import { ARASHIN_FOREMOST_SCRIPT } from './cards/arashinForemost';
+import { AERONAUT_CAVALRY_SCRIPT } from './cards/aeronautCavalry';
+import { STROMKIRK_BLOODTHIEF_SCRIPT } from './cards/stromkirkBloodthief';
+import { VEDALKEN_AETHERMAGE_SCRIPT } from './cards/vedalkenAethermage';
+import { JADE_BEARER_SCRIPT } from './cards/jadeBearer';
+import { ADVOCATE_OF_THE_BEAST_SCRIPT } from './cards/advocateOfTheBeast';
+import { GARRISON_GRIFFIN_SCRIPT } from './cards/garrisonGriffin';
+import { TRIBUTARY_VAULTER_SCRIPT } from './cards/tributaryVaulter';
+import { BLACKLANCE_PARAGON_SCRIPT } from './cards/blacklanceParagon';
+import { STROMKIRK_MENTOR_SCRIPT } from './cards/stromkirkMentor';
+import { JADE_GUARDIAN_SCRIPT } from './cards/jadeGuardian';
+import { PATAGIA_TIGER_SCRIPT } from './cards/patagiaTiger';
+import { VINESHAPER_MYSTIC_SCRIPT } from './cards/vineshaperMystic';
+import { VORACIOUS_VAMPIRE_SCRIPT } from './cards/voraciousVampire';
+import { POISON_BLADE_MENTOR_SCRIPT } from './cards/poisonBladeMentor';
 import { RAMPART_ARCHITECT_SCRIPT } from './cards/rampartArchitect';
 import { YAVIMAYA_GRANGER_SCRIPT } from './cards/yavimayaGranger';
 import { RATHI_FIEND_SCRIPT } from './cards/rathiFiend';
@@ -7443,6 +7499,62 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MAD_AUNTIE_SCRIPT,
+  OTEPEC_HUNTMASTER_SCRIPT,
+  SNARLING_UNDORAK_SCRIPT,
+  MERFOLK_SOVEREIGN_SCRIPT,
+  KROSAN_WARCHIEF_SCRIPT,
+  BLACK_POPLAR_SHAMAN_SCRIPT,
+  DRUNAU_CORPSE_TRAWLER_SCRIPT,
+  DARU_ENCAMPMENT_SCRIPT,
+  WIREWOOD_LODGE_SCRIPT,
+  ELEPHANT_GRAVEYARD_SCRIPT,
+  RIPTIDE_LABORATORY_SCRIPT,
+  DAUGHTER_OF_THE_DEEP_SCRIPT,
+  GOBLIN_BURROWS_SCRIPT,
+  VITAL_SPLICER_SCRIPT,
+  OLIVIAS_BLOODSWORN_SCRIPT,
+  ICATIAN_LIEUTENANT_SCRIPT,
+  VETERAN_CATHAR_SCRIPT,
+  AQUATIC_INCURSION_SCRIPT,
+  CONTESTED_CLIFFS_SCRIPT,
+  ZHALFIRIN_COMMANDER_SCRIPT,
+  SPECTRAL_SHEPHERD_SCRIPT,
+  KROSAN_GROUNDSHAKER_SCRIPT,
+  AIR_MARSHAL_SCRIPT,
+  GOBLIN_TASKMASTER_SCRIPT,
+  ALLY_ENCAMPMENT_SCRIPT,
+  ANABA_ANCESTOR_SCRIPT,
+  KITSUNE_DIVINER_SCRIPT,
+  BONEKNITTER_SCRIPT,
+  EARTH_KINGDOM_PROTECTORS_SCRIPT,
+  DWARVEN_LIEUTENANT_SCRIPT,
+  SAFEWRIGHT_CAVALRY_SCRIPT,
+  HEARTHCAGE_GIANT_SCRIPT,
+  VENERABLE_KNIGHT_SCRIPT,
+  INTREPID_PROVISIONER_SCRIPT,
+  MAJESTIC_HELIOPTERUS_SCRIPT,
+  DEEPCHANNEL_DUELIST_SCRIPT,
+  SANGUINE_GLORIFIER_SCRIPT,
+  CAPTAIN_STORM_COSMIUM_RAIDER_SCRIPT,
+  SWIFT_WARDEN_SCRIPT,
+  BURNING_YARD_TRAINER_SCRIPT,
+  DEEPROOT_ELITE_SCRIPT,
+  ARASHIN_FOREMOST_SCRIPT,
+  AERONAUT_CAVALRY_SCRIPT,
+  STROMKIRK_BLOODTHIEF_SCRIPT,
+  VEDALKEN_AETHERMAGE_SCRIPT,
+  JADE_BEARER_SCRIPT,
+  ADVOCATE_OF_THE_BEAST_SCRIPT,
+  GARRISON_GRIFFIN_SCRIPT,
+  TRIBUTARY_VAULTER_SCRIPT,
+  BLACKLANCE_PARAGON_SCRIPT,
+  STROMKIRK_MENTOR_SCRIPT,
+  JADE_GUARDIAN_SCRIPT,
+  PATAGIA_TIGER_SCRIPT,
+  VINESHAPER_MYSTIC_SCRIPT,
+  VORACIOUS_VAMPIRE_SCRIPT,
+  POISON_BLADE_MENTOR_SCRIPT,
   RAMPART_ARCHITECT_SCRIPT,
   YAVIMAYA_GRANGER_SCRIPT,
   RATHI_FIEND_SCRIPT,

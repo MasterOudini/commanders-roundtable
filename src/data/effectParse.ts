@@ -58,6 +58,14 @@ const NOOP_WARN: Warn = () => undefined;
  * by `creature`.
  */
 const NOUNS = [
+  // D479 - THE TRIBAL TARGET: the marker `matchSentence` folds a capitalised subtype noun to (targetParse enforces the
+  // subtype through `restrict.subtypesAll`); longest first, before every printed noun.
+  '#sub# creature you control',
+  '#sub# permanent you control',
+  '#sub# you control',
+  '#sub# creature',
+  '#sub# permanent',
+  '#sub#',
   // ⚠️ D293: admitted only because `targetParse` now reads the same lists.
   'artifact, enchantment, or creature',
   'artifact, creature, or land',
@@ -2435,8 +2443,16 @@ function matchSentence(sentence: string): EffectSpec | null {
   // D418 - a counted sentence after the plain rules: `for each <noun>` and `where X is the number of`.
   // D437 - and the spell's own X after those, while the face's cost carries one.
   // D476 - and the head's own number after those, while the caller says the head memoises one.
-  return matchRule(sentence) ?? matchCounted(sentence) ?? matchSpellX(sentence) ?? matchThatMuch(sentence);
+  const plain = matchRule(sentence) ?? matchCounted(sentence) ?? matchSpellX(sentence) ?? matchThatMuch(sentence);
+  if (plain) return plain;
+  // D479 - THE TRIBAL TARGET: a capitalised subtype after `target` (the singular alone, never before another capitalised
+  // word) reads as the marker noun for the length of one match; the clause keeps its printed text.
+  if (!TRIBAL_TARGET.test(sentence)) return null;
+  const folded = sentence.replace(TRIBAL_TARGET, '$1#sub#$2');
+  const hit = matchRule(folded) ?? matchCounted(folded) ?? matchSpellX(folded) ?? matchThatMuch(folded);
+  return hit ? { ...hit, text: sentence } : null;
 }
+const TRIBAL_TARGET = /(\b[Tt]arget )[A-Z][a-z]*[a-rt-z](\b(?: (?:creature|permanent))?(?: (?:you control|an opponent controls|you don't control))?)(?!\s+(?:[A-Z]|card|spell|ability))/g;
 
 function matchRule(sentence: string): EffectSpec | null {
   for (const rule of RULES) {
