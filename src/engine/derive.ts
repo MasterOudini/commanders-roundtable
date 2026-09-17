@@ -546,6 +546,22 @@ function staticSourcesFor(
       out.push({ sourceId, def });
     }
   }
+  // D475 - an EMBLEM's statics apply from its owner's command zone (CR 114.1): a def that declares `command`
+  // among its active zones, read there. A commander in the command zone declares none. Placed after the
+  // battlefield - the emblem's timestamp (CR 613.7c) is its creation, which this order approximates.
+  for (const player of Object.keys(state.zones.command).sort()) {
+    for (const sourceId of state.zones.command[player as keyof typeof state.zones.command] ?? []) {
+      const source = state.cards[sourceId];
+      if (!source) continue;
+      const script = scripts.get(source.oracleId);
+      if (!script) continue;
+      for (const def of script.statics ?? []) {
+        if (def.layer !== layer) continue;
+        if (!def.activeZones.includes('command')) continue;
+        out.push({ sourceId, def });
+      }
+    }
+  }
   cache?.staticSources.set(layer, out);
   return out;
 }

@@ -241,6 +241,11 @@ export type EventBody =
    * union has to say so.
    */
   | { readonly t: 'TokensCeased'; readonly cards: readonly InstanceId[] }
+  /**
+   * D475 - a player gets an EMBLEM (CR 114): an object in the owner's command zone with the abilities of the
+   * emblem printing the card quotes. Created, never cast, never a permanent, never ceasing.
+   */
+  | { readonly t: 'EmblemCreated'; readonly card: InstanceId; readonly oracleId: OracleId; readonly printingId: PrintingId; readonly owner: PlayerId }
   | { readonly t: 'CardsRevealed'; readonly cards: readonly InstanceId[]; readonly to: readonly PlayerId[] }
   | { readonly t: 'RevealCleared'; readonly cards: readonly InstanceId[] }
   | { readonly t: 'PermanentsTapped'; readonly cards: readonly InstanceId[] }

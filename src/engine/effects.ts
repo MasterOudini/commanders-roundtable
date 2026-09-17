@@ -1433,6 +1433,14 @@ export function effectResult(
         break;
       }
 
+      case 'createEmblem': {
+        // D475 - the emblem goes to the controller's command zone (CR 114.1); the printing is the table's.
+        if (!effect.token) break;
+        nextInstance++;
+        out.push({ t: 'EmblemCreated', card: `c${nextInstance}`, oracleId: effect.token.oracleId, printingId: effect.token.printingId, owner: controller });
+        break;
+      }
+
       case 'putCounters':
       case 'removeCounters': {
         if (aim?.kind !== 'card' || effect.counterKind === null) break;

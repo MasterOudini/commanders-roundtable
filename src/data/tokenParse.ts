@@ -23,6 +23,7 @@
 
 import type { CardData, ColorLetter } from './cardTypes';
 import { scrub } from './targetParse';
+import { EMBLEM_TABLE } from './emblemTable';
 import { TOKEN_TABLE } from './tokenTable';
 
 /** What a card asks to be created. Everything is as PRINTED, so `*` survives. */
@@ -154,6 +155,8 @@ function abilitySet(text: string): string {
  */
 const QUOTED_SECOND_SENTENCE = /((?:creature|artifact|enchantment) tokens?)\. (?:It has|They have|Those tokens have|Each of those tokens has) ["“]([^"”]*)["”]/g;
 const QUOTED_WITH = /((?:creature|artifact|enchantment) tokens? with (?:[a-z][a-z-]*(?: [a-z-]+)?(?:, |,? and ))*)["“]([^"”]*)["”]/g;
+/** D475 - an EMBLEM's quote folds the same way: `You get an emblem with "Q"` -> `You get an emblem with #qN#.` */
+const QUOTED_EMBLEM = /(You get an emblem with )["“]([^"”]*)["”]/g;
 export function foldTokenQuotes(text: string): { readonly text: string; readonly quotes: readonly string[] } {
   const quotes: string[] = [];
   const mark = (q: string): string => {
@@ -162,7 +165,8 @@ export function foldTokenQuotes(text: string): { readonly text: string; readonly
   };
   const folded = text
     .replace(QUOTED_SECOND_SENTENCE, (_m, t: string, q: string) => `${t} with ${mark(q)}`)
-    .replace(QUOTED_WITH, (_m, t: string, q: string) => `${t}${mark(q)}`);
+    .replace(QUOTED_WITH, (_m, t: string, q: string) => `${t}${mark(q)}`)
+    .replace(QUOTED_EMBLEM, (_m, t: string, q: string) => `${t}${mark(q)}`);
   return { text: folded, quotes };
 }
 
@@ -430,6 +434,12 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
     for (const face of card.faces) {
       // D473 - the quoted tokens: the quotes lifted out first, read back beside the clause.
       const folded = foldTokenQuotes(face.oracleText ?? '');
+      // D475 - the EMBLEMS a card gives are objects the pool must hold too (a blank emblem is D133's blank token).
+      for (const m of folded.text.matchAll(/You get an emblem with #q(\d+)#\./g)) {
+        const q = folded.quotes[Number(m[1])];
+        const ref = q === undefined ? undefined : EMBLEM_TABLE[q];
+        if (ref) out.add(ref.printingId);
+      }
       for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {
         const spec = parseTokenClause(line.trim(), folded.quotes);
         if (!spec) continue;

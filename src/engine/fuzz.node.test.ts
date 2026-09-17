@@ -578,7 +578,8 @@ const FIXED_CORE = [
 const CORE_NAMES: ReadonlySet<string> = new Set([...FIXED_CORE, ...STAPLE_NAMES]);
 // D474 - a TOKEN printing's script (a Pest's dies trigger, a Rat's can't-block) is registered like any other and
 // never dealt: a token is not a library card, and a name shared with a card (`Wizard`) would deal the wrong thing.
-const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.filter((s) => ORACLE.byOracle(s.oracleId)?.layout !== 'token').map((s) => s.name)
+// D475 - nor an EMBLEM printing's (layout `other`): an object a card gives, never a card in a library.
+const SCRIPTED_SORTED: readonly string[] = SHIPPED_SCRIPTS.filter((s) => { const l = ORACLE.byOracle(s.oracleId)?.layout; return l !== 'token' && l !== 'other'; }).map((s) => s.name)
   .filter((n) => !CORE_NAMES.has(n))
   .sort();
 /**
@@ -1311,6 +1312,8 @@ interface Run {
   readonly spawnTokensSpent: number;
   /** D474 - a token printing's OWN triggered ability put on the stack (the printings rowed like cards). */
   readonly tokenTriggersFired: number;
+  /** D475 - the emblems given (CR 114): a walker's ultimate the driver reached. */
+  readonly emblemsGiven: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1749,6 +1752,7 @@ function runOne(seed: number): Run {
     spawnTokensMade: game.log.filter((e) => e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId)).length,
     spawnTokensSpent: (() => { const spawn = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' && SPAWN_ORACLES.has(e.body.oracleId) ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'ManaAdded' && e.body.source !== null && spawn.has(e.body.source)).length; })(),
     tokenTriggersFired: (() => { const made = new Set(game.log.flatMap((e) => (e.body.t === 'TokenCreated' ? [e.body.card] : []))); return game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.kind === 'triggered' && e.body.obj.source !== null && made.has(e.body.obj.source)).length; })(),
+    emblemsGiven: game.log.filter((e) => e.body.t === 'EmblemCreated').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2019,6 +2023,7 @@ const TOTAL_KEYS = [
   'spawnTokensMade',
   'spawnTokensSpent',
   'tokenTriggersFired',
+  'emblemsGiven',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2526,6 +2531,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.loyaltyActivations} loyalty activations · ` +
           `${totals.spawnTokensMade} Spawn made / ${totals.spawnTokensSpent} spent · ` +
           `${totals.tokenTriggersFired} token triggers · ` +
+          `${totals.emblemsGiven} emblems · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

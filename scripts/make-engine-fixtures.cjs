@@ -8744,6 +8744,49 @@ const WANTED = [
   // D474 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D474 - tier3.test's ability-word post: Sedgemoor Witch SHIPPED (a Pest maker), Mana-Charged Dragon (Join forces) took over.
   'Mana-Charged Dragon',
+  // D475 - the emblem: the seam test gives Gideon's emblem by hand (the anthem from the command zone) and Chandra's (the upkeep ping), and reads Gideon's own line.
+  'Gideon, Ally of Zendikar Emblem',
+  'Chandra, Awakened Inferno Emblem',
+  'Gideon, Ally of Zendikar',
+  // D475 - the emblem printings rowed like tokens (an object in the command zone; the fixture by name - an emblem record's name is its walker's).
+  'Ajani, Adversary of Tyrants Emblem',
+  'Chandra, Spark Hunter Emblem',
+  'Chandra, Torch of Defiance Emblem',
+  'Domri Rade Emblem',
+  "Elspeth, Sun's Champion Emblem",
+  'Garruk, Cursed Huntsman Emblem',
+  'Kiora, the Crashing Wave Emblem',
+  'Narset of the Ancient Way Emblem',
+  'Sorin, Lord of Innistrad Emblem',
+  'Tezzeret, Betrayer of Flesh Emblem',
+  'Venser, the Sojourner Emblem',
+  'Vivien Reid Emblem',
+  // D475 - the emblem: the walkers whose ultimate the vocabulary reads now, and the up-to-N and alternative-list clauses the suite stages.
+  'Daily Bugle Reporters',
+  'Reveillark',
+  'Krosan Restorer',
+  'Numot, the Devastator',
+  'Agonasaur Rex',
+  'Angelic Quartermaster',
+  'Scrap Compactor',
+  'Vivien Reid',
+  'Kitesail Cleric',
+  'Cho-Arrim Bruiser',
+  'Quakefoot Cyclops',
+  'Spawning Bed',
+  'Markov Warlord',
+  'Soul of Innistrad',
+  'Ajani, Adversary of Tyrants',
+  'Fire Shrine Keeper',
+  'Dreamcaller Siren',
+  'White Widow, Free Agent',
+  'Glarewielder',
+  'Tilling Treefolk',
+  'Trusty Retriever',
+  'Ossuary Rats',
+  'Tempest Owl',
+  "Captain America's Motorcycle",
+  // D475 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9109,6 +9152,8 @@ const WANTED_TOKENS = [
   { name: 'Warrior', set: 'tmom', cn: '15', key: 'WARRIOR_A2661EA2_TOKEN' },
   { name: 'Wizard', set: 'tsnc', cn: '5', key: 'WIZARD_7F3EDAF7_TOKEN' },
   { name: 'Wolf', set: 'tblc', cn: '35', key: 'WOLF_61EA0E0E_TOKEN' },
+  // D475 - the tokens the emblem rows create (Kiora's Kraken, Ajani's Cats).
+  { name: 'Kraken', set: 'ta25', cn: '6', key: 'KRAKEN_9_9_U_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

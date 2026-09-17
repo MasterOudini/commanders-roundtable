@@ -287,9 +287,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Soultether Golem', "a vanishing count the suite walk removes (1 against 1 upkeep ticks): the card dies at its controller's first upkeep before another creature enters"],
   // D449 - evoke and dash are the engine's now, and the mirror offered four the row maker refused: two up-to-two
   // clauses no fixture serves, a typed attack head outside the library, a token outside TOKEN_TABLE (the wide run's reason).
-  ['Glarewielder', "a vocabulary clause the suite has no fixture for: a counted clause (0..2): up to two target creatures can't block this turn."],
   ["Kolaghan, the Storm's Fury", 'trigger head not in the library: Whenever a Dragon you control attacks, creatures you control get +1/+0 until end of turn.'],
-  ['Reveillark', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2): return up to two target creature cards with power 2 or less from your graveyard to the battlefield.'],
   ['Riders of Rohan', 'a token outside TOKEN_TABLE: Human Knight|2/2|R|Creature|trample,haste'],
   // D448 - unearth is the engine's now, and the mirror offered three the row maker refused: an ability-word activated
   // line, a search-to-graveyard payload and a combat-damage head that also sacrifices (the wide run's reason).
@@ -552,7 +550,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // port named (damage equal to its power from a sacrificed source - the dead-source gap, D421, one shape over).
   ['City of Brass', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this land becomes tapped, it deals 1 damage to you.'],
   ['Aerie Ouphes', 'a self-sacrifice on a creature that returns (persist / undying)'],
-  ['Fire Shrine Keeper', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
   ['Flame Elemental', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Force of Nature', 'a payment branch the suite cannot assert: damageEach'],
   ['Ghitu Fire-Eater', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
@@ -563,7 +560,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Minion of Tevesh Szat', 'a payment branch the suite cannot assert: damageEach'],
   ['Minotaur Illusionist', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   ['Ominous Parcel', 'effect not a row kind: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.'],
-  ['Scrap Compactor', 'a vocabulary clause the suite has no fixture for: a clause whose alternatives differ'],
   ['Skarrgan Skybreaker', 'damage equal to its power from a sacrificed source (last known information): the executor deals 0 from the graveyard (D425)'],
   // D424 - the classifier reads as the row maker reads: the 184 the selector offered once the optional trigger, the
   // row kinds the vocabulary lacks, the attached keywords, the named self head and the activation restriction read,
@@ -581,7 +577,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bred for the Hunt', 'trigger head not in the library: Whenever a creature you control with a +1/+1 counter on it deals comba'],
   ["Chandra's Phoenix", 'trigger head not in the library: Whenever an opponent is dealt damage by a red instant or sorcery spell'],
   ['Charisma Bobblehead', 'effect not a row kind: Create X 1/1 white Soldier creature tokens, where X is the number of Bobbleheads you control.'],
-  ['Cho-Arrim Bruiser', 'a vocabulary clause the suite has no fixture for: a counted clause (0..2)'],
   ['Compost', 'a put-into-graveyard head from anywhere with a filter no zone can answer: a black card'],
   ['Corpse Cur', 'trigger payload not a pump: Return target creature card with infect from your graveyard '],
   ["Cosi's Trickster", 'trigger head not in the library: Whenever an opponent shuffles their library, you may put a +1/+1 count'],
@@ -650,7 +645,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Strength Bobblehead', 'effect not a row kind: Put X +1/+1 counters on target creature, where X is the number of Bobbleheads you control.'],
   ['Sunshot Militia', 'cost: a tap cost with no fixture the suite can put: artifacts and/or creatures'],
   ['Sylvan Echoes', 'trigger head not in the library: Whenever you clash and win, you may draw a card.'],
-  ['Tilling Treefolk', 'trigger payload not a pump: Return up to two target land cards from your graveyard to yo'],
   ['Tomebound Lich', 'trigger head not in the library: Whenever this creature enters or deals combat damage to a player, draw'],
   ['Unblinking Bleb', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another permanent is turned face u'],
   ['Urborg Mindsucker', 'effect not a row kind: Target opponent discards a card at random.'],
@@ -681,7 +675,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Kelpie Guide', 'activation condition: if you control eight or more lands'],
   ['Khalni Heart Expedition', 'trigger payload not a pump: Put a quest counter on this enchantment.'],
   ['Kheru Bloodsucker', 'a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control with toughness 4 or greater '],
-  ['Krosan Restorer', 'effect not a row kind: Untap up to three target lands.'],
   ['Kyscu Drake', 'cost: Sacrifice this creature and a creature named Spitting Drake'],
   ['Lullmage Mentor', 'trigger head not in the library: Whenever a spell or ability you control counters a spell, you may crea'],
   ['Merfolk Pupil', 'a graveyard activation whose payload reads the card on the battlefield: loot'],
@@ -772,7 +765,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mayhem Devil', 'trigger head not in the library (Whenever a player sacrifices a permanent, this creature deals 1 damage)'],
   ['Mischievous Chimera', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
   ['Mysterious Egg', 'trigger head not in the library (Whenever this creature mutates, put a +1/+1 counter on it.)'],
-  ['Ossuary Rats', 'a vocabulary clause the suite has no fixture for (a clause whose alternatives differ)'],
   ['Rampaging Classmate', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each other attacking creature.)'],
   ['Renegade Freighter', 'an attack head on a card with no creature body (vehicleAttacks)'],
   ['Saprazzan Raider', "trigger head not in the library (When this creature becomes blocked, return it to its owner's hand.)"],
@@ -931,7 +923,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Yuma, Proud Protector', 'a put-into-graveyard head from anywhere with a filter no zone can answer (a Desert card) beside its verb-price line'],
   // D414 - the another qualifier is enforced: the 23 the selector offered once `another target` read that the row
   // maker refused, by reason (seven combat-role clauses the suite cannot stage among them).
-  ['Angelic Quartermaster', 'a counted clause the suite has no fixture for (up to two other target creatures) beside its enters head'],
   ["Bessie, the Doctor's Roadster", 'a clause the suite has no fixture for (another target legendary creature) beside its attack head'],
   ['Flensing Raptor', 'a clause the suite has no fixture for (another target creature you control with toxic) beside its enters head'],
   ['Rime Tender', 'a clause the suite has no fixture for (another target snow permanent) beside its activation'],
@@ -2300,7 +2291,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // (21 table rows, 4 by hand); one activates from the graveyard, one triggers
   // on EXPEND, two are Rooms with doors, one is a forecast ability activated
   // from the hand, one exerts as a cost, one reads poison counters as it is cast.
-  ['Soul of Innistrad', 'graveyard-activated ability'],
   ['Trailtracker Scout', 'expend trigger'],
   ['Bottomless Pool // Locker Room', 'Room doors'],
   ['Grand Entryway // Elegant Rotunda', 'Room doors'],
@@ -2465,7 +2455,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D311 (M6.4ev) — the crew pool: the Vehicles whose other
   // lines the vocabulary does not read yet - their crew runs.
-  ['Captain America\'s Motorcycle', 'an enters trigger outside the vocabulary (its crew runs)'],
   ['Fire Nation Warship', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Rangers\' Aetherhive', 'a Vehicle line outside the vocabulary (its crew runs)'],
   ['Silent Submersible', 'a combat trigger outside the vocabulary (its crew runs)'],
@@ -2509,7 +2498,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
   ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
   // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
-  ['Agonasaur Rex', 'trigger head not in the library (when you cycle this card)'],
   ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
   ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
@@ -2517,8 +2505,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
-  ['Markov Warlord', 'a counted clause (up to two target creatures) the suite has no fixture for'],
-  ['Quakefoot Cyclops', 'a counted clause (up to two target creatures) the suite has no fixture for'],
   // D395 - the animate family: the four the selector offered after the seam that the row maker refused, by reason.
   ['Balduvian Conjurer', 'a target the suite has no fixture for (target snow land)'],
   ['Hostile Desert', 'an activation cost the engine cannot charge (exile a land card from your graveyard)'],
@@ -2592,8 +2578,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hunting Wilds', 'a spell line outside the row vocabulary beside its kicked clause (a search onto the battlefield, the kicked untap and animation)'],
   ['Molten Disaster', 'a spell line outside the row vocabulary beside its kicked clause (X damage to each creature without flying; split second if kicked)'],
   ['Protect the Negotiators', 'a spell line outside the row vocabulary beside its kicked clause (a counter unless pays; a kicked mass pump)'],
-  ['Kitesail Cleric', 'a counted clause (tap up to two target creatures) the suite has no fixture pair for, under a kicked enters head'],
-  ['Tempest Owl', 'a counted clause (tap up to three target permanents) the suite has no fixture set for, under a kicked enters head'],
   ['Keldon Strike Team', 'a static gated by the source entering this turn (as long as this creature entered this turn) the suite cannot stage as the broken state, beside its kicked enters head'],
   ['Roost of Drakes', 'a filtered cast head (whenever you cast a kicked spell) outside the closed reader - kicked is not an adjective the filter reads'],
   ['Tourach, Dread Cantor', 'a trigger payload the vocabulary refuses (target opponent discards two cards at random - randomness a def cannot thread) under a kicked enters head'],
@@ -2716,7 +2700,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spell Syphon', 'a computed payment price (pays N for each ...)'],
   ['Skywise Teachings', 'a payload outside both readers (Pay {1}{U}. If you do, create a 2/2 blue Djin)'],
   ['Eternal Taskmaster', 'a payload outside both readers (Pay {2}{B}. If you do, return target creature)'],
-  ['Numot, the Devastator', 'a payload outside both readers (Pay {2}{R}. If you do, destroy up to two targ)'],
   ['Veinwitch Coven', 'a payload outside both readers (Pay {B}. If you do, return target creature ca)'],
   ['Horizon Spellbomb', 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],
   ["Lifecrafter's Bestiary", 'a payload outside both readers (Pay {G}. If you do, draw a card.)'],

@@ -284,7 +284,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
     expect.soft(r.poolByType['enchantment'] ?? 0).toBe(675);
-    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(5);
+    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(7);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
 
@@ -451,16 +451,17 @@ const POOL: Record<string, number> = {
   // enchantments.
   // D473 - the quoted token: the Eldrazi Spawn and Scion makers (+20 creatures, Awakening Zone) and six spells.
   // D474 - the token printings rowed like cards: their makers (+18 creatures, +3 artifacts, a land, an enchantment) and twelve spells.
-  creature: 6666,
+  // D475 - the emblem: two walkers whose ultimate reads now, and the up-to-N / alternative-list clauses the suite stages (+19 creatures).
+  creature: 6685,
   instant: 1406,
   sorcery: 1055,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
-  land: 661,
-  artifact: 633,
+  land: 662,
+  artifact: 635,
   enchantment: 675,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
-  planeswalker: 5,
+  planeswalker: 7,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

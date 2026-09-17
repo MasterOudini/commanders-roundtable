@@ -282,6 +282,8 @@ export type Intent =
   // Tier 3 — manual tools. NOT enforced; every one is marked in the log.
   | { readonly t: 'ManualMoveCard'; readonly player: PlayerId; readonly card: InstanceId; readonly to: { readonly kind: 'library' | 'hand' | 'battlefield' | 'graveyard' | 'exile' | 'command'; readonly player: PlayerId }; readonly placement?: 'top' | 'bottom'; readonly faceDown?: boolean }
   | { readonly t: 'ManualCreateToken'; readonly player: PlayerId; readonly printingId: string; readonly count: number }
+  /** D475 - the manual emblem: the printing named, into the actor's command zone (the harness and the Tier-3 tool). */
+  | { readonly t: 'ManualCreateEmblem'; readonly player: PlayerId; readonly printingId: string }
   | { readonly t: 'ManualSetCounter'; readonly player: PlayerId; readonly card: InstanceId; readonly kind: string; readonly delta: number }
   | { readonly t: 'ManualSetLife'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }
   | { readonly t: 'ManualSetPoison'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }

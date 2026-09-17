@@ -7,6 +7,43 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DAILY_BUGLE_REPORTERS_SCRIPT } from './cards/dailyBugleReporters';
+import { REVEILLARK_SCRIPT } from './cards/reveillark';
+import { KROSAN_RESTORER_SCRIPT } from './cards/krosanRestorer';
+import { NUMOT_THE_DEVASTATOR_SCRIPT } from './cards/numotTheDevastator';
+import { AGONASAUR_REX_SCRIPT } from './cards/agonasaurRex';
+import { ANGELIC_QUARTERMASTER_SCRIPT } from './cards/angelicQuartermaster';
+import { SCRAP_COMPACTOR_SCRIPT } from './cards/scrapCompactor';
+import { VIVIEN_REID_SCRIPT } from './cards/vivienReid';
+import { KITESAIL_CLERIC_SCRIPT } from './cards/kitesailCleric';
+import { CHO_ARRIM_BRUISER_SCRIPT } from './cards/choArrimBruiser';
+import { QUAKEFOOT_CYCLOPS_SCRIPT } from './cards/quakefootCyclops';
+import { SPAWNING_BED_SCRIPT } from './cards/spawningBed';
+import { MARKOV_WARLORD_SCRIPT } from './cards/markovWarlord';
+import { SOUL_OF_INNISTRAD_SCRIPT } from './cards/soulOfInnistrad';
+import { AJANI_ADVERSARY_OF_TYRANTS_SCRIPT } from './cards/ajaniAdversaryOfTyrants';
+import { FIRE_SHRINE_KEEPER_SCRIPT } from './cards/fireShrineKeeper';
+import { DREAMCALLER_SIREN_SCRIPT } from './cards/dreamcallerSiren';
+import { WHITE_WIDOW_FREE_AGENT_SCRIPT } from './cards/whiteWidowFreeAgent';
+import { GLAREWIELDER_SCRIPT } from './cards/glarewielder';
+import { TILLING_TREEFOLK_SCRIPT } from './cards/tillingTreefolk';
+import { TRUSTY_RETRIEVER_SCRIPT } from './cards/trustyRetriever';
+import { OSSUARY_RATS_SCRIPT } from './cards/ossuaryRats';
+import { TEMPEST_OWL_SCRIPT } from './cards/tempestOwl';
+import { CAPTAIN_AMERICAS_MOTORCYCLE_SCRIPT } from './cards/captainAmericasMotorcycle';
+import { AJANI_ADVERSARY_OF_TYRANTS_EMBLEM1C97E5B2_SCRIPT } from './cards/ajaniAdversaryOfTyrantsEmblem1c97e5b2';
+import { CHANDRA_SPARK_HUNTER_EMBLEM343D2622_SCRIPT } from './cards/chandraSparkHunterEmblem343d2622';
+import { CHANDRA_TORCH_OF_DEFIANCE_EMBLEM3143984B_SCRIPT } from './cards/chandraTorchOfDefianceEmblem3143984b';
+import { DOMRI_RADE_EMBLEM1612F546_SCRIPT } from './cards/domriRadeEmblem1612f546';
+import { ELSPETH_SUNS_CHAMPION_EMBLEM177C37BD_SCRIPT } from './cards/elspethSunsChampionEmblem177c37bd';
+import { GARRUK_CURSED_HUNTSMAN_EMBLEMD6C65749_SCRIPT } from './cards/garrukCursedHuntsmanEmblemd6c65749';
+import { GIDEON_ALLY_OF_ZENDIKAR_EMBLEMCD8BE597_SCRIPT } from './cards/gideonAllyOfZendikarEmblemcd8be597';
+import { KIORA_THE_CRASHING_WAVE_EMBLEME45F7850_SCRIPT } from './cards/kioraTheCrashingWaveEmbleme45f7850';
+import { NARSET_OF_THE_ANCIENT_WAY_EMBLEM0E573150_SCRIPT } from './cards/narsetOfTheAncientWayEmblem0e573150';
+import { SORIN_LORD_OF_INNISTRAD_EMBLEM327DDAAF_SCRIPT } from './cards/sorinLordOfInnistradEmblem327ddaaf';
+import { TEZZERET_BETRAYER_OF_FLESH_EMBLEMBDB4FA32_SCRIPT } from './cards/tezzeretBetrayerOfFleshEmblembdb4fa32';
+import { VENSER_THE_SOJOURNER_EMBLEMC9AD6E7A_SCRIPT } from './cards/venserTheSojournerEmblemc9ad6e7a';
+import { VIVIEN_REID_EMBLEM1CF97003_SCRIPT } from './cards/vivienReidEmblem1cf97003';
 import { DIGSITE_ENGINEER_SCRIPT } from './cards/digsiteEngineer';
 import { SEDGEMOOR_WITCH_SCRIPT } from './cards/sedgemoorWitch';
 import { MAGES_ATTENDANT_SCRIPT } from './cards/magesAttendant';
@@ -7303,6 +7340,43 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DAILY_BUGLE_REPORTERS_SCRIPT,
+  REVEILLARK_SCRIPT,
+  KROSAN_RESTORER_SCRIPT,
+  NUMOT_THE_DEVASTATOR_SCRIPT,
+  AGONASAUR_REX_SCRIPT,
+  ANGELIC_QUARTERMASTER_SCRIPT,
+  SCRAP_COMPACTOR_SCRIPT,
+  VIVIEN_REID_SCRIPT,
+  KITESAIL_CLERIC_SCRIPT,
+  CHO_ARRIM_BRUISER_SCRIPT,
+  QUAKEFOOT_CYCLOPS_SCRIPT,
+  SPAWNING_BED_SCRIPT,
+  MARKOV_WARLORD_SCRIPT,
+  SOUL_OF_INNISTRAD_SCRIPT,
+  AJANI_ADVERSARY_OF_TYRANTS_SCRIPT,
+  FIRE_SHRINE_KEEPER_SCRIPT,
+  DREAMCALLER_SIREN_SCRIPT,
+  WHITE_WIDOW_FREE_AGENT_SCRIPT,
+  GLAREWIELDER_SCRIPT,
+  TILLING_TREEFOLK_SCRIPT,
+  TRUSTY_RETRIEVER_SCRIPT,
+  OSSUARY_RATS_SCRIPT,
+  TEMPEST_OWL_SCRIPT,
+  CAPTAIN_AMERICAS_MOTORCYCLE_SCRIPT,
+  AJANI_ADVERSARY_OF_TYRANTS_EMBLEM1C97E5B2_SCRIPT,
+  CHANDRA_SPARK_HUNTER_EMBLEM343D2622_SCRIPT,
+  CHANDRA_TORCH_OF_DEFIANCE_EMBLEM3143984B_SCRIPT,
+  DOMRI_RADE_EMBLEM1612F546_SCRIPT,
+  ELSPETH_SUNS_CHAMPION_EMBLEM177C37BD_SCRIPT,
+  GARRUK_CURSED_HUNTSMAN_EMBLEMD6C65749_SCRIPT,
+  GIDEON_ALLY_OF_ZENDIKAR_EMBLEMCD8BE597_SCRIPT,
+  KIORA_THE_CRASHING_WAVE_EMBLEME45F7850_SCRIPT,
+  NARSET_OF_THE_ANCIENT_WAY_EMBLEM0E573150_SCRIPT,
+  SORIN_LORD_OF_INNISTRAD_EMBLEM327DDAAF_SCRIPT,
+  TEZZERET_BETRAYER_OF_FLESH_EMBLEMBDB4FA32_SCRIPT,
+  VENSER_THE_SOJOURNER_EMBLEMC9AD6E7A_SCRIPT,
+  VIVIEN_REID_EMBLEM1CF97003_SCRIPT,
   DIGSITE_ENGINEER_SCRIPT,
   SEDGEMOOR_WITCH_SCRIPT,
   MAGES_ATTENDANT_SCRIPT,

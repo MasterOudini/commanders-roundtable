@@ -45,6 +45,7 @@ import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
+import { EMBLEM_TABLE } from './emblemTable';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
 import { ADDITIONAL_COST_LINE, ALTERNATIVE_COST_LINE, cyclingAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs } from './activatedParse';
@@ -1794,6 +1795,21 @@ const RULES: readonly Rule[] = [
       const token = TOKEN_TABLE[specKey(spec)];
       if (!token) return null;
       return { ...BASE, amount: spec.count, targetIndex: -1, self: true, token };
+    },
+  },
+  /**
+   * D475 - THE EMBLEM. `You get an emblem with "Q"`: the quote is lifted out by `foldTokenQuotes` (the mark rides
+   * in `TOKEN_QUOTES`), and the baked `EMBLEM_TABLE` names the emblem printing whose text is Q - baked only when
+   * that printing is engine-complete, so the emblem's abilities RUN from the command zone (D473's rule).
+   */
+  {
+    kind: 'createEmblem',
+    re: /^you get an emblem with #q(\d+)#\.$/i,
+    build: (m) => {
+      const q = TOKEN_QUOTES[Number(m[1])];
+      const token = q === undefined ? undefined : EMBLEM_TABLE[q];
+      if (!token) return null;
+      return { ...BASE, amount: 1, targetIndex: -1, self: true, token };
     },
   },
   searchRule(),

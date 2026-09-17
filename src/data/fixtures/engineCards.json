@@ -267269,6 +267269,1271 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GIDEON_ALLY_OF_ZENDIKAR_EMBLEM": {
+    "scryfallId": "cd8be597-f402-4fb0-9135-897c4a0946f6",
+    "oracleId": "a9b9c74d-551b-4939-bdd6-21afa2cf0931",
+    "name": "Gideon, Ally of Zendikar Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Gideon, Ally of Zendikar Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Gideon",
+        "oracleText": "Creatures you control get +1/+1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "cd8be597-f402-4fb0-9135-897c4a0946f6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tbfz",
+    "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CHANDRA_AWAKENED_INFERNO_EMBLEM": {
+    "scryfallId": "02347c41-407f-4388-9d9b-263ddf8b4e11",
+    "oracleId": "9b51a667-631b-4733-bfc1-0de2eab2b6ba",
+    "name": "Chandra, Awakened Inferno Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Chandra, Awakened Inferno Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "At the beginning of your upkeep, this emblem deals 1 damage to you.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Rahn",
+        "imageId": "02347c41-407f-4388-9d9b-263ddf8b4e11"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tcmm",
+    "collectorNumber": "78",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GIDEON_ALLY_OF_ZENDIKAR": {
+    "scryfallId": "05de38ac-84ef-4daa-b311-11c20ad680ee",
+    "oracleId": "51eae7ff-fed9-4afe-8053-7690379449dd",
+    "name": "Gideon, Ally of Zendikar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gideon, Ally of Zendikar",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Legendary Planeswalker — Gideon",
+        "oracleText": "+1: Until end of turn, Gideon becomes a 5/5 Human Soldier Ally creature with indestructible that's still a planeswalker. Prevent all damage that would be dealt to him this turn.\n0: Create a 2/2 white Knight Ally creature token.\n−4: You get an emblem with \"Creatures you control get +1/+1.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "05de38ac-84ef-4daa-b311-11c20ad680ee"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pbfz",
+    "collectorNumber": "29s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AJANI_ADVERSARY_OF_TYRANTS_EMBLEM": {
+    "scryfallId": "1c97e5b2-a024-4aa7-a9b8-45f441aad138",
+    "oracleId": "7c0edef3-5346-4001-87ae-11157be58031",
+    "name": "Ajani, Adversary of Tyrants Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Ajani, Adversary of Tyrants Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Ajani",
+        "oracleText": "At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Victor Adame Minguez",
+        "imageId": "1c97e5b2-a024-4aa7-a9b8-45f441aad138"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tm19",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CHANDRA_SPARK_HUNTER_EMBLEM": {
+    "scryfallId": "343d2622-a5a6-4195-ab41-c6bd17e334a2",
+    "oracleId": "99267d28-b231-446f-b2cc-236d3ed1ed80",
+    "name": "Chandra, Spark Hunter Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Chandra, Spark Hunter Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "Whenever an artifact you control enters, this emblem deals 3 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Devin Elle Kurtz",
+        "imageId": "343d2622-a5a6-4195-ab41-c6bd17e334a2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdft",
+    "collectorNumber": "13",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CHANDRA_TORCH_OF_DEFIANCE_EMBLEM": {
+    "scryfallId": "3143984b-9798-4062-9a91-8ee139c3448e",
+    "oracleId": "1c944fa3-ff6c-4638-a8cd-77d3ca68e599",
+    "name": "Chandra, Torch of Defiance Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Chandra, Torch of Defiance Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Chandra",
+        "oracleText": "Whenever you cast a spell, this emblem deals 5 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Magali Villeneuve",
+        "imageId": "3143984b-9798-4062-9a91-8ee139c3448e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tcmm",
+    "collectorNumber": "79",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DOMRI_RADE_EMBLEM": {
+    "scryfallId": "1612f546-1bdb-4861-966c-4eeb7d1e65e8",
+    "oracleId": "b7dc9439-d9bb-435a-8d3b-9e92bfae16ef",
+    "name": "Domri Rade Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Domri Rade Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Domri",
+        "oracleText": "Creatures you control have double strike, trample, hexproof, and haste.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tyler Jacobson",
+        "imageId": "1612f546-1bdb-4861-966c-4eeb7d1e65e8"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tgtc",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELSPETH_SUN_S_CHAMPION_EMBLEM": {
+    "scryfallId": "177c37bd-c53d-43b2-88c4-0b80d17a5744",
+    "oracleId": "2f12324a-e14e-4776-bc51-9fd42aaf3222",
+    "name": "Elspeth, Sun's Champion Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Elspeth, Sun's Champion Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Elspeth",
+        "oracleText": "Creatures you control get +2/+2 and have flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "177c37bd-c53d-43b2-88c4-0b80d17a5744"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tths",
+    "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GARRUK_CURSED_HUNTSMAN_EMBLEM": {
+    "scryfallId": "d6c65749-1774-4b36-891e-abf762c95cec",
+    "oracleId": "6a5090b1-5eb6-4709-8208-ff3678be5756",
+    "name": "Garruk, Cursed Huntsman Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Garruk, Cursed Huntsman Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "Creatures you control get +3/+3 and have trample.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "d6c65749-1774-4b36-891e-abf762c95cec"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "teld",
+    "collectorNumber": "19",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "KIORA_THE_CRASHING_WAVE_EMBLEM": {
+    "scryfallId": "e45f7850-2ebb-4530-9859-f87b4e0e27be",
+    "oracleId": "1a7523ff-8683-4187-bea7-edee70392791",
+    "name": "Kiora, the Crashing Wave Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Kiora, the Crashing Wave Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Kiora",
+        "oracleText": "At the beginning of your end step, create a 9/9 blue Kraken creature token.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Scott M. Fischer",
+        "imageId": "e45f7850-2ebb-4530-9859-f87b4e0e27be"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tbng",
+    "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "NARSET_OF_THE_ANCIENT_WAY_EMBLEM": {
+    "scryfallId": "0e573150-9f7e-4398-8997-aecb6057a020",
+    "oracleId": "4facff15-09ea-47ed-845c-a41abb49e089",
+    "name": "Narset of the Ancient Way Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Narset of the Ancient Way Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "Whenever you cast a noncreature spell, this emblem deals 2 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yongjae Choi",
+        "imageId": "0e573150-9f7e-4398-8997-aecb6057a020"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tiko",
+    "collectorNumber": "12",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SORIN_LORD_OF_INNISTRAD_EMBLEM": {
+    "scryfallId": "327ddaaf-b6a7-4c80-9b38-5ab68181b3d6",
+    "oracleId": "b34f4427-836d-4e8a-bb7c-1df41f0ea6b0",
+    "name": "Sorin, Lord of Innistrad Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Sorin, Lord of Innistrad Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Sorin",
+        "oracleText": "Creatures you control get +1/+0.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Michael Komarck",
+        "imageId": "327ddaaf-b6a7-4c80-9b38-5ab68181b3d6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdka",
+    "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "TEZZERET_BETRAYER_OF_FLESH_EMBLEM": {
+    "scryfallId": "bdb4fa32-18dd-4530-a529-5477e45413dd",
+    "oracleId": "064b0e1a-3423-49eb-97f0-7d8690e38d4e",
+    "name": "Tezzeret, Betrayer of Flesh Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Tezzeret, Betrayer of Flesh Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "Whenever an artifact you control becomes tapped, draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Bryan Sola",
+        "imageId": "bdb4fa32-18dd-4530-a529-5477e45413dd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tneo",
+    "collectorNumber": "19",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "VENSER_THE_SOJOURNER_EMBLEM": {
+    "scryfallId": "c9ad6e7a-8ad8-4a35-b6c9-151720d88af9",
+    "oracleId": "8808b6bf-8fca-494d-9dd3-6f95c9c6605a",
+    "name": "Venser, the Sojourner Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Venser, the Sojourner Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Venser",
+        "oracleText": "Whenever you cast a spell, exile target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "c9ad6e7a-8ad8-4a35-b6c9-151720d88af9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tddi",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "VIVIEN_REID_EMBLEM": {
+    "scryfallId": "1cf97003-eef0-4c01-aee1-8a8264d8ef95",
+    "oracleId": "de4fe6a3-0ea4-4745-9028-59e078331633",
+    "name": "Vivien Reid Emblem",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "Vivien Reid Emblem",
+        "manaCost": "",
+        "typeLine": "Emblem — Vivien",
+        "oracleText": "Creatures you control get +2/+2 and have vigilance, trample, and indestructible.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anna Steinbauer",
+        "imageId": "1cf97003-eef0-4c01-aee1-8a8264d8ef95"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tm19",
+    "collectorNumber": "17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "DAILY_BUGLE_REPORTERS": {
+    "scryfallId": "019ee8f5-43c1-492f-8c91-89c16bc3a5c3",
+    "oracleId": "2e677ded-7af3-4af0-81df-b70d6ee616ec",
+    "name": "Daily Bugle Reporters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daily Bugle Reporters",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "When this creature enters, choose one —\n• Puff Piece — Put a +1/+1 counter on each of up to two target creatures.\n• Investigative Journalism — Return target creature card with mana value 2 or less from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "019ee8f5-43c1-492f-8c91-89c16bc3a5c3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Puff Piece",
+      "Investigative Journalism"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "771",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REVEILLARK": {
+    "scryfallId": "06a4d2e0-1410-41f4-8070-2b0144c71e1d",
+    "oracleId": "1be13ede-98f8-497e-800c-03e5802932b3",
+    "name": "Reveillark",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reveillark",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature leaves the battlefield, return up to two target creature cards with power 2 or less from your graveyard to the battlefield.\nEvoke {5}{W} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "06a4d2e0-1410-41f4-8070-2b0144c71e1d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Evoke"
+    ],
+    "setCode": "mma",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_RESTORER": {
+    "scryfallId": "06f9f54d-b8c7-407d-bc25-dad4db833208",
+    "oracleId": "ea845951-0158-4646-acd9-3b0b28da40b1",
+    "name": "Krosan Restorer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Restorer",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "{T}: Untap target land.\nThreshold — {T}: Untap up to three target lands. Activate only if there are seven or more cards in your graveyard.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Clyde Caldwell",
+        "imageId": "06f9f54d-b8c7-407d-bc25-dad4db833208"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Threshold"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NUMOT_THE_DEVASTATOR": {
+    "scryfallId": "073438f2-0897-4226-b42a-4fd26d8f4e71",
+    "oracleId": "1c6d4322-1588-4fc2-a60a-5b5e724638c5",
+    "name": "Numot, the Devastator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Numot, the Devastator",
+        "manaCost": "{3}{U}{R}{W}",
+        "typeLine": "Legendary Creature — Dragon",
+        "oracleText": "Flying\nWhenever Numot deals combat damage to a player, you may pay {2}{R}. If you do, destroy up to two target lands.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Dan Dos Santos",
+        "imageId": "073438f2-0897-4226-b42a-4fd26d8f4e71"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ocmd",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGONASAUR_REX": {
+    "scryfallId": "0a3c0ef6-063d-4250-b65c-17da28ae4a27",
+    "oracleId": "1ad5766b-9ae3-437b-bd91-c4c988a8b095",
+    "name": "Agonasaur Rex",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agonasaur Rex",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\nCycling {2}{G} ({2}{G}, Discard this card: Draw a card.)\nWhen you cycle this card, put two +1/+1 counters on up to one target creature or Vehicle. It gains trample and indestructible until end of turn.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "0a3c0ef6-063d-4250-b65c-17da28ae4a27"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample",
+      "Cycling"
+    ],
+    "setCode": "pdft",
+    "collectorNumber": "151s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGELIC_QUARTERMASTER": {
+    "scryfallId": "10091a3b-829a-4086-90ed-88d7a6656c6b",
+    "oracleId": "14a555eb-9720-45b4-9eb5-77b739e1045c",
+    "name": "Angelic Quartermaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angelic Quartermaster",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel Soldier",
+        "oracleText": "Flying\nWhen this creature enters, put a +1/+1 counter on each of up to two other target creatures.",
+        "flavorText": "\"Stand strong. We will reclaim the dawn.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "PINDURSKI",
+        "imageId": "10091a3b-829a-4086-90ed-88d7a6656c6b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAP_COMPACTOR": {
+    "scryfallId": "12ccd555-60d4-49a1-b022-1e119344172a",
+    "oracleId": "7f113875-a411-463b-8b4d-91d1dee95c2a",
+    "name": "Scrap Compactor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrap Compactor",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}, Sacrifice this artifact: It deals 3 damage to target creature.\n{6}, {T}, Sacrifice this artifact: Destroy target creature or Vehicle.",
+        "flavorText": "From the screaming of Duskmourn's possessed metal came the happy cries of freed souls.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Viko Menezes",
+        "imageId": "12ccd555-60d4-49a1-b022-1e119344172a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "242",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIVIEN_REID": {
+    "scryfallId": "162a3a3b-257e-46c7-bb29-65627b00363d",
+    "oracleId": "b5f20a6d-8c3e-452f-9d98-4886f0fa052a",
+    "name": "Vivien Reid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vivien Reid",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Legendary Planeswalker — Vivien",
+        "oracleText": "+1: Look at the top four cards of your library. You may reveal a creature or land card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\n−3: Destroy target artifact, enchantment, or creature with flying.\n−8: You get an emblem with \"Creatures you control get +2/+2 and have vigilance, trample, and indestructible.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "162a3a3b-257e-46c7-bb29-65627b00363d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "421",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KITESAIL_CLERIC": {
+    "scryfallId": "16626f84-00d3-4ec9-b62c-19fff380cd3a",
+    "oracleId": "0b9bb0d7-4139-46b6-a058-2f79be64aef2",
+    "name": "Kitesail Cleric",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kitesail Cleric",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Kor Cleric",
+        "oracleText": "Kicker {2}{W} (You may pay an additional {2}{W} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, tap up to two target creatures.",
+        "flavorText": "Too flashy to ignore. Too fast to catch.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "PINDURSKI",
+        "imageId": "16626f84-00d3-4ec9-b62c-19fff380cd3a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHO_ARRIM_BRUISER": {
+    "scryfallId": "26e98f06-ad8d-4a93-8ae6-3da42b63b5b5",
+    "oracleId": "3db407ec-da4b-4b25-b613-e45c164ffe86",
+    "name": "Cho-Arrim Bruiser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cho-Arrim Bruiser",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Ogre Rebel",
+        "oracleText": "Whenever this creature attacks, you may tap up to two target creatures.",
+        "flavorText": "He doesn't know why the Cho-Arrim fight the Mercadians, but he's happy to bash heads for them anyway.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "26e98f06-ad8d-4a93-8ae6-3da42b63b5b5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUAKEFOOT_CYCLOPS": {
+    "scryfallId": "27573ee0-156a-4bf3-95eb-5e7b63c638e7",
+    "oracleId": "cbb6139f-827f-490b-b9b7-e8c3ef714d44",
+    "name": "Quakefoot Cyclops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quakefoot Cyclops",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Cyclops",
+        "oracleText": "When this creature enters, up to two target creatures can't block this turn.\nCycling {1}{R} ({1}{R}, Discard this card: Draw a card.)\nWhen you cycle this card, target creature can't block this turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "27573ee0-156a-4bf3-95eb-5e7b63c638e7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "mh1",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPAWNING_BED": {
+    "scryfallId": "2c1059b9-99da-47ce-a013-84ad755fda11",
+    "oracleId": "49e43de3-460b-4562-aef6-da43bd56debc",
+    "name": "Spawning Bed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spawning Bed",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{6}, {T}, Sacrifice this land: Create three 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Francisco Badilla",
+        "imageId": "2c1059b9-99da-47ce-a013-84ad755fda11"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "pio",
+    "collectorNumber": "277",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKOV_WARLORD": {
+    "scryfallId": "31127815-8423-40b8-884f-c3746a0d29a7",
+    "oracleId": "2279005d-5434-49ce-b16a-212759c5775a",
+    "name": "Markov Warlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Markov Warlord",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Vampire Warrior",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nWhen this creature enters, up to two target creatures can't block this turn.",
+        "flavorText": "\"What use is a stake or holy symbol in the hands of a coward?\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "31127815-8423-40b8-884f-c3746a0d29a7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "577",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_OF_INNISTRAD": {
+    "scryfallId": "31155467-5444-4a9b-a602-ec7cdad89e8b",
+    "oracleId": "b5ba8155-520b-4053-be31-2744b77fb862",
+    "name": "Soul of Innistrad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul of Innistrad",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Avatar",
+        "oracleText": "Deathtouch\n{3}{B}{B}: Return up to three target creature cards from your graveyard to your hand.\n{3}{B}{B}, Exile this card from your graveyard: Return up to three target creature cards from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "31155467-5444-4a9b-a602-ec7cdad89e8b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AJANI_ADVERSARY_OF_TYRANTS": {
+    "scryfallId": "4c565076-5db2-47ea-8ee0-4a4fd7bb353d",
+    "oracleId": "b25bea73-7444-4ee2-8022-611461506117",
+    "name": "Ajani, Adversary of Tyrants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ajani, Adversary of Tyrants",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Legendary Planeswalker — Ajani",
+        "oracleText": "+1: Put a +1/+1 counter on each of up to two target creatures.\n−2: Return target creature card with mana value 2 or less from your graveyard to the battlefield.\n−7: You get an emblem with \"At the beginning of your end step, create three 1/1 white Cat creature tokens with lifelink.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "4c565076-5db2-47ea-8ee0-4a4fd7bb353d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_SHRINE_KEEPER": {
+    "scryfallId": "54135905-9b15-4bf9-8f4d-4ea7a0c75b77",
+    "oracleId": "14537df5-e2c8-4906-99ac-742fb628fe08",
+    "name": "Fire Shrine Keeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Shrine Keeper",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Menace\n{7}{R}, {T}, Sacrifice this creature: It deals 3 damage to each of up to two target creatures.",
+        "flavorText": "Though grimed with the dust of centuries, the ancient shrine was not unguarded.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "54135905-9b15-4bf9-8f4d-4ea7a0c75b77"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMCALLER_SIREN": {
+    "scryfallId": "548c92c8-1ae1-48b4-8cbe-aa18f59c1efb",
+    "oracleId": "8ed7791d-6d75-4cd7-9428-c731f623b241",
+    "name": "Dreamcaller Siren",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamcaller Siren",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Siren Pirate",
+        "oracleText": "Flash\nFlying\nThis creature can block only creatures with flying.\nWhen this creature enters, if you control another Pirate, tap up to two target nonland permanents.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "548c92c8-1ae1-48b4-8cbe-aa18f59c1efb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "xln",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITE_WIDOW_FREE_AGENT": {
+    "scryfallId": "57da765f-7d87-42ac-9eb0-a49c296fbbf8",
+    "oracleId": "4f0c055f-f614-44b0-9374-c53541f89185",
+    "name": "White Widow, Free Agent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "White Widow, Free Agent",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Hero Villain",
+        "oracleText": "When White Widow enters, choose one —\n• Put a +1/+1 counter on each of up to two target creatures.\n• Return target artifact or enchantment card from your graveyard to your hand.",
+        "flavorText": "\"For years I wanted to be you, Natasha, but I make my own way now.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Julia Vasilyeva",
+        "imageId": "57da765f-7d87-42ac-9eb0-a49c296fbbf8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLAREWIELDER": {
+    "scryfallId": "59fdc845-7165-40f3-a082-21a502b3f0f6",
+    "oracleId": "9d3136da-3efa-4103-9d35-8da87d318544",
+    "name": "Glarewielder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glarewielder",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Elemental Shaman",
+        "oracleText": "Haste\nWhen this creature enters, up to two target creatures can't block this turn.\nEvoke {1}{R} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "59fdc845-7165-40f3-a082-21a502b3f0f6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Evoke",
+      "Haste"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TILLING_TREEFOLK": {
+    "scryfallId": "8e4a10d0-214d-4e7b-9683-c84034f8f6b7",
+    "oracleId": "8a011d0d-da29-4287-b50c-12746abfa38c",
+    "name": "Tilling Treefolk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tilling Treefolk",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Treefolk Druid",
+        "oracleText": "When this creature enters, you may return up to two target land cards from your graveyard to your hand.",
+        "flavorText": "He digs his roots into barren ground, searching for old seeds that never had the chance to sprout.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "rk post",
+        "imageId": "8e4a10d0-214d-4e7b-9683-c84034f8f6b7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUSTY_RETRIEVER": {
+    "scryfallId": "ab4eb490-acd0-4162-8e8a-7e7ff003d0f3",
+    "oracleId": "06a2a50d-f54f-4eb7-9cf8-ce37d802794a",
+    "name": "Trusty Retriever",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trusty Retriever",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "When this creature enters, choose one —\n• Put a +1/+1 counter on this creature.\n• Return target artifact or enchantment card from your graveyard to your hand.",
+        "flavorText": "Wipe away the slobber and it's as good as new, give or take a few bite marks.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "ab4eb490-acd0-4162-8e8a-7e7ff003d0f3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OSSUARY_RATS": {
+    "scryfallId": "c93dc52c-6f62-45cc-a5e2-95f794e04b94",
+    "oracleId": "a1380d07-f582-46dd-a63a-9806123ebcd3",
+    "name": "Ossuary Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ossuary Rats",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, it deals X damage to target creature or planeswalker an opponent controls, where X is the number of creature cards in your graveyard.",
+        "flavorText": "You know you've ventured too deep when the rats stop running and hold their ground.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "c93dc52c-6f62-45cc-a5e2-95f794e04b94"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPEST_OWL": {
+    "scryfallId": "d173dda8-de9f-4148-b5be-85d1a4c4faf6",
+    "oracleId": "dfd2bc6e-32c8-4027-9c0d-8a3050b8eeda",
+    "name": "Tempest Owl",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempest Owl",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Kicker {4}{U} (You may pay an additional {4}{U} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, tap up to three target permanents.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "d173dda8-de9f-4148-b5be-85d1a4c4faf6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Kicker",
+      "Flying"
+    ],
+    "setCode": "zen",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTAIN_AMERICA_S_MOTORCYCLE": {
+    "scryfallId": "efc25013-9477-4eb7-8b16-87e5685876ca",
+    "oracleId": "19e60344-57a8-41e0-8eca-87dbedf5a81a",
+    "name": "Captain America's Motorcycle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Captain America's Motorcycle",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flash\nWhen this Vehicle enters, target creature or Vehicle gets +2/+0 until end of turn.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Maxim Ruabtsev",
+        "imageId": "efc25013-9477-4eb7-8b16-87e5685876ca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Crew",
+      "Flash"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "681",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -274699,6 +275964,39 @@
     "keywords": [],
     "setCode": "tblc",
     "collectorNumber": "35",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "KRAKEN_9_9_U_CREATURE_TOKEN": {
+    "scryfallId": "622397a1-6513-44b9-928a-388be06d4022",
+    "oracleId": "cd0f813b-1f9f-484d-adab-bc8d16d2b867",
+    "name": "Kraken",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Kraken",
+        "manaCost": "",
+        "typeLine": "Token Creature — Kraken",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "622397a1-6513-44b9-928a-388be06d4022"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ta25",
+    "collectorNumber": "6",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

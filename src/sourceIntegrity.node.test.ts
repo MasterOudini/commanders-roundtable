@@ -109,14 +109,17 @@ describe('source integrity', () => {
   });
 
   /**
-   * ⚠️⚠️ **HOW MANY TEST FILES CI CANNOT CHECK.** Nine of them need the 86 MB
+   * ⚠️⚠️ **HOW MANY TEST FILES CI CANNOT CHECK.** Ten of them need the 86 MB
    * Scryfall database, are written with `describe.skipIf`, and therefore SKIP
    * on a machine without it — leaving the run GREEN. That is D128’s
    * green-over-nothing at the scale of a whole pipeline (D157).
    *
-   * ⚠️ Pinned so a TENTH cannot quietly join the set. Raising this number is the
+   * ⚠️ Pinned so an ELEVENTH cannot quietly join the set. Raising this number is the
    * moment to ask whether the new check should really be invisible to CI, or
    * whether it belongs on committed fixtures like the conformance corpus does.
+   * D475 - the tenth is `emblemTable.node.test.ts`: the emblem table baked off the
+   * database exactly as `tokenTable.node.test.ts` bakes the tokens; the COMMITTED
+   * table is what CI checks, the bake is what only a machine with the database can.
    */
   test('the set of database-gated tests has not grown unnoticed', () => {
     const isTest = /\.test\.ts$/;
@@ -124,7 +127,7 @@ describe('source integrity', () => {
     const gated = FILES.filter((f) => isTest.test(f) && dbGated.test(readFileSync(f, 'utf8'))).map((f) =>
       relative(process.cwd(), f),
     );
-    expect(gated).toHaveLength(9);
+    expect(gated).toHaveLength(10);
   });
 
   test('no source file contains a control character', () => {

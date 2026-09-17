@@ -700,6 +700,8 @@ export type EffectKind =
   | 'putCounters'
   | 'removeCounters'
   | 'createToken'
+  /** D475 - `You get an emblem with "..."`: the emblem printing on `token`, created in the controller's command zone (CR 114). */
+  | 'createEmblem'
   /**
    * CR 701.8. A player puts cards from their hand into their graveyard — and
    * unless the card says otherwise, THEY choose which (see D137).

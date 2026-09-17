@@ -189,7 +189,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   // measured reason: a second heuristic beside the first is precisely how a
   // disclosure starts lying, and this one would lie in the direction that
   // matters, telling a player to check something the app is in fact checking.
-  const isPermanent = isPermanentType(parseTypeLine(face.typeLine));
+  // D475 - an EMBLEM printing (CR 114.2: an object with abilities, never cast) reads as a permanent's text, so its
+  // lines earn the ability notes and never the spell's "Its effect".
+  const isPermanent = isPermanentType(parseTypeLine(face.typeLine)) || parseTypeLine(face.typeLine).types.includes('Emblem');
   const isSpellFace = parseTypeLine(face.typeLine).types.some((t) => t === 'Instant' || t === 'Sorcery');
   // D343 - a "Choose one -" face is read mode by mode, as oracleParse reads
   // it: the targeting note asks the modes' own clauses, and the effect note

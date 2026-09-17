@@ -123,6 +123,17 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       return accept(events);
     }
 
+    case 'ManualCreateEmblem': {
+      const printing = deps.oracle.byPrinting(intent.printingId);
+      if (!printing) return reject('noSuchToken', 'That emblem is not in the card database.');
+      const id: InstanceId = `c${state.counters.instance + 1}`;
+      return accept([
+        marker(actor, 'createEmblem', printing.name),
+        { t: 'EmblemCreated', card: id, oracleId: printing.oracleId, printingId: printing.printingId, owner: actor },
+        narrated(n`${me} ${vb(actor, 'gets', 'get')} an emblem: ${printing.name}.`, actor, printing.colorIdentity, true),
+      ]);
+    }
+
     case 'ManualSetCounter': {
       if (!state.cards[intent.card]) return reject('noSuchCard', 'That card is not in the game.');
       if (intent.delta === 0) return reject('invalidAmount', 'Choose how many counters to add or remove.');

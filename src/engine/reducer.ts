@@ -604,6 +604,21 @@ function applyBody(state: GameState, body: EventBody): GameState {
       };
     }
 
+    case 'EmblemCreated': {
+      // D475 - the emblem lives in its owner's command zone (CR 114.1); its abilities are its script's, read there.
+      const cards = { ...state.cards };
+      cards[body.card] = newInstance(body.card, body.oracleId, body.printingId, body.owner, { kind: 'command', player: body.owner });
+      return {
+        ...state,
+        cards,
+        zones: addToZone(state.zones, { kind: 'command', player: body.owner }, body.card),
+        counters: {
+          ...state.counters,
+          instance: Math.max(state.counters.instance, Number(body.card.slice(1)) || 0),
+        },
+      };
+    }
+
     case 'TokensCeased': {
       const cards = { ...state.cards };
       let zones = state.zones;
