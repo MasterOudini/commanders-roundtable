@@ -1011,6 +1011,8 @@ export type Awaiting =
       readonly optional: boolean;
       /** A bound on the card itself (mana value, printed name), printed and therefore public. */
       readonly qualifier: SearchQualifier | null;
+      /** D483 - the searcher's graveyard is searched too (public; the answer may name a card there). */
+      readonly graveyardToo?: boolean;
     }
   /**
    * CR 701.8a — a player choosing cards out of their own hand to discard.

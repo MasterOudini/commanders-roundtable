@@ -9026,6 +9026,41 @@ const WANTED = [
   // D482 - the player's sacrifice: the rows whose payload has a player sacrifice a permanent of their choice (Gatekeeper of Malakir, Sheoldred, Blighted Fen ...).
   'Molder Slug',
   // D482 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D483 - the two-zone search: the seam test's tutor and its named find.
+  "Elspeth's Devotee",
+  'Elspeth, Undaunted Hero',
+  // D483 - the two-zone search: the tutors that search the library and/or graveyard for a named card (Elspeth's Devotee, Sorin's Guide, Teferi's Wavecaster ...).
+  'Raven Clan War-Axe',
+  "Domri's Nodorog",
+  'Ethereal Elk',
+  "Sorin's Guide",
+  'Goldmane Griffin',
+  "Chandra's Firemaw",
+  "Ashiok's Forerunner",
+  "Yanling's Harbinger",
+  'Tower Winder',
+  "Gideon's Resolve",
+  "Rowan's Stalwarts",
+  'Niambi, Faithful Healer',
+  "Garruk's Warsteed",
+  "Teferi's Wavecaster",
+  'Visage of Bolas',
+  'Delivery Moogle',
+  // D483 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Ajani, Inspiring Leader',
+  'Ashiok, Sculptor of Fears',
+  "Chandra, Flame's Catalyst",
+  'Domri, City Smasher',
+  'Eivor, Battle-Ready',
+  'Garruk, Savage Herald',
+  'Gideon, Martial Paragon',
+  'Mu Yanling, Celestial Wind',
+  'Nicol Bolas, the Deceiver',
+  'Rowan, Fearless Sparkmage',
+  'Sorin, Vampire Lord',
+  'Teferi, Timebender',
+  'Teferi, Timeless Voyager',
+  "Vivien, Nature's Avenger",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

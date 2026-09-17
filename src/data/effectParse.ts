@@ -508,7 +508,8 @@ function expandPermanent(noun: string): string {
  * own commas are always followed by `reveal`, `put` or `then`.
  */
 const SEARCH_HEAD =
-  String.raw`^(?<may>you may )?search your library for ` +
+  // D483 - THE TWO-ZONE SEARCH: `search your library and/or graveyard for` - the searcher's graveyard beside the library.
+  String.raw`^(?<may>you may )?search your library(?<gy> and/or graveyard)? for ` +
   // `a`/`an`, or a COUNT that makes failing to find explicit.
   String.raw`(?:(?:a|an)\b|up to (?<count>one|two|three|four)\b) ?` +
   // The noun, or nothing at all - `Search your library for a card` is a real, unrestricted line.
@@ -597,10 +598,12 @@ function searchRule(): Rule {
       SEARCH_HEAD +
         // `put it` / `put them` / `put that card` / `put those cards`, with the comma optional
         // because some printings write `and put it` instead.
-        String.raw`(?:,| and) put (?:it|them|that card|those cards) ` +
+        // D483 - `, reveal it, and put it` joins with a comma AND an `and`.
+        String.raw`(?:,| and|, and) put (?:it|them|that card|those cards) ` +
         String.raw`(?<where>` + SEARCH_WHERE + String.raw`)` +
         // `, then shuffle` and `. Then shuffle.` are the same sentence to the two-sentence window.
-        String.raw`(?:[,.] ?then shuffle(?: your library)?| and shuffle(?: your library)?)?\.?$`,
+        // D483 - and the two-zone tail: `. If you search your library this way, shuffle` (the library counts as searched).
+        String.raw`(?:[,.] ?then shuffle(?: your library)?| and shuffle(?: your library)?|\. If you search your library this way, shuffle)?\.?$`,
       'i',
     ),
     build: (m) => {
@@ -623,6 +626,7 @@ function searchRule(): Rule {
           shuffle: /shuffle/i.test(m[0] ?? ''),
           optional: g['may'] !== undefined,
           qualifier: noun.qualifier,
+          ...(g['gy'] !== undefined ? { graveyardToo: true } : {}),
         },
       };
     },

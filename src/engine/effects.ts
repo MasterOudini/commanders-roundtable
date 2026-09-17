@@ -1190,8 +1190,8 @@ export function effectResult(
         const spec = effect.search;
         if (!spec) break;
         const lib = state.zones.library[controller] ?? [];
-        // An empty library asks nothing - there is no choice to make (D137's rule).
-        if (lib.length === 0) break;
+        // An empty library asks nothing - there is no choice to make (D137's rule). D483 - unless the graveyard is searched too.
+        if (lib.length === 0 && !(spec.graveyardToo === true && (state.zones.graveyard[controller] ?? []).length > 0)) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         // ⚠️ D359 - THE REVEAL WAITS FOR THE OFFER. `You may search your library` is asked
         // before anything is shown, because a player who looked and then declined would keep
@@ -1217,6 +1217,7 @@ export function effectResult(
             label: obj.label,
             optional: spec.optional,
             qualifier: spec.qualifier,
+            ...(spec.graveyardToo === true ? { graveyardToo: true } : {}),
           },
         });
         break;

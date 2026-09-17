@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RAVEN_CLAN_WAR_AXE_SCRIPT } from './cards/ravenClanWarAxe';
+import { ELSPETHS_DEVOTEE_SCRIPT } from './cards/elspethsDevotee';
+import { DOMRIS_NODOROG_SCRIPT } from './cards/domrisNodorog';
+import { ETHEREAL_ELK_SCRIPT } from './cards/etherealElk';
+import { SORINS_GUIDE_SCRIPT } from './cards/sorinsGuide';
+import { GOLDMANE_GRIFFIN_SCRIPT } from './cards/goldmaneGriffin';
+import { CHANDRAS_FIREMAW_SCRIPT } from './cards/chandrasFiremaw';
+import { ASHIOKS_FORERUNNER_SCRIPT } from './cards/ashioksForerunner';
+import { YANLINGS_HARBINGER_SCRIPT } from './cards/yanlingsHarbinger';
+import { TOWER_WINDER_SCRIPT } from './cards/towerWinder';
+import { GIDEONS_RESOLVE_SCRIPT } from './cards/gideonsResolve';
+import { ROWANS_STALWARTS_SCRIPT } from './cards/rowansStalwarts';
+import { NIAMBI_FAITHFUL_HEALER_SCRIPT } from './cards/niambiFaithfulHealer';
+import { GARRUKS_WARSTEED_SCRIPT } from './cards/garruksWarsteed';
+import { TEFERIS_WAVECASTER_SCRIPT } from './cards/teferisWavecaster';
+import { VISAGE_OF_BOLAS_SCRIPT } from './cards/visageOfBolas';
+import { DELIVERY_MOOGLE_SCRIPT } from './cards/deliveryMoogle';
 import { MOLDER_SLUG_SCRIPT } from './cards/molderSlug';
 import { DEMON_OF_LOATHING_SCRIPT } from './cards/demonOfLoathing';
 import { BLIGHTED_FEN_SCRIPT } from './cards/blightedFen';
@@ -7544,6 +7561,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RAVEN_CLAN_WAR_AXE_SCRIPT,
+  ELSPETHS_DEVOTEE_SCRIPT,
+  DOMRIS_NODOROG_SCRIPT,
+  ETHEREAL_ELK_SCRIPT,
+  SORINS_GUIDE_SCRIPT,
+  GOLDMANE_GRIFFIN_SCRIPT,
+  CHANDRAS_FIREMAW_SCRIPT,
+  ASHIOKS_FORERUNNER_SCRIPT,
+  YANLINGS_HARBINGER_SCRIPT,
+  TOWER_WINDER_SCRIPT,
+  GIDEONS_RESOLVE_SCRIPT,
+  ROWANS_STALWARTS_SCRIPT,
+  NIAMBI_FAITHFUL_HEALER_SCRIPT,
+  GARRUKS_WARSTEED_SCRIPT,
+  TEFERIS_WAVECASTER_SCRIPT,
+  VISAGE_OF_BOLAS_SCRIPT,
+  DELIVERY_MOOGLE_SCRIPT,
   MOLDER_SLUG_SCRIPT,
   DEMON_OF_LOATHING_SCRIPT,
   BLIGHTED_FEN_SCRIPT,

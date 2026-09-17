@@ -275983,6 +275983,1111 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ELSPETH_S_DEVOTEE": {
+    "scryfallId": "0f82064c-b335-454c-9be6-9fbcb21aa8e5",
+    "oracleId": "cacbdbcf-b5d2-40b3-bd8a-93636a248d3c",
+    "name": "Elspeth's Devotee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elspeth's Devotee",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, you may search your library and/or graveyard for a card named Elspeth, Undaunted Hero, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"For her, I would gladly die again.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "0f82064c-b335-454c-9be6-9fbcb21aa8e5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELSPETH_UNDAUNTED_HERO": {
+    "scryfallId": "bf9867e5-9d69-400c-a84f-3b085a4fd510",
+    "oracleId": "3f9a797b-85e7-474e-aefe-7e2ec08fc5b7",
+    "name": "Elspeth, Undaunted Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elspeth, Undaunted Hero",
+        "manaCost": "{2}{W}{W}{W}",
+        "typeLine": "Legendary Planeswalker — Elspeth",
+        "oracleText": "+2: Put a +1/+1 counter on each of up to two target creatures.\n−2: Search your library and/or graveyard for a card named Sunlit Hoplite and put it onto the battlefield. If you search your library this way, shuffle.\n−8: Until end of turn, creatures you control gain flying and get +X/+X, where X is your devotion to white.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "bf9867e5-9d69-400c-a84f-3b085a4fd510"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "thb",
+    "collectorNumber": "270",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVEN_CLAN_WAR_AXE": {
+    "scryfallId": "01de51d1-bbea-407c-b19e-dfef7fce1510",
+    "oracleId": "d306de95-a80e-4e85-b7d2-36c6ea769b15",
+    "name": "Raven Clan War-Axe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raven Clan War-Axe",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, you may search your library and/or graveyard for a card named Eivor, Battle-Ready, reveal it, and put it into your hand. If you search your library this way, shuffle.\nEquipped creature gets +2/+0 and has trample.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "01de51d1-bbea-407c-b19e-dfef7fce1510"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "297",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOMRI_S_NODOROG": {
+    "scryfallId": "1abe58d8-67d1-4719-8e84-27747dea3506",
+    "oracleId": "3992209a-0a28-449d-8ba5-f75e861a79b4",
+    "name": "Domri's Nodorog",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Domri's Nodorog",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample\nWhen this creature enters, you may search your library and/or graveyard for a card named Domri, City Smasher, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"Good girl.\"",
+        "power": "5",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "1abe58d8-67d1-4719-8e84-27747dea3506"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHEREAL_ELK": {
+    "scryfallId": "3f4d0ed2-3fc5-4cb0-b886-e30b21e76872",
+    "oracleId": "82d643ef-8380-4fdc-a88d-ed205324dbd9",
+    "name": "Ethereal Elk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ethereal Elk",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Elk Spirit",
+        "oracleText": "Trample\nWhen this creature enters, you may search your library and/or graveyard for a card named Vivien, Nature's Avenger, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "3f4d0ed2-3fc5-4cb0-b886-e30b21e76872"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "299",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORIN_S_GUIDE": {
+    "scryfallId": "416b000d-77d0-4c83-bbbd-d1107f746dde",
+    "oracleId": "36f5f161-b25e-48e4-b8f9-e6c36dfefe5b",
+    "name": "Sorin's Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sorin's Guide",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "When this creature enters, you may search your library and/or graveyard for a card named Sorin, Vampire Lord, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"My people serve the dragon Kolaghan, but I give my blood for a greater lord.\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "416b000d-77d0-4c83-bbbd-d1107f746dde"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "292",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLDMANE_GRIFFIN": {
+    "scryfallId": "67edcb9b-f56b-4a34-b4bd-d22ee929041a",
+    "oracleId": "e32573e8-91a8-438b-966f-1c6d098d54ae",
+    "name": "Goldmane Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goldmane Griffin",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying, vigilance\nWhen this creature enters, you may search your library and/or graveyard for a card named Ajani, Inspiring Leader, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "67edcb9b-f56b-4a34-b4bd-d22ee929041a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "283",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHANDRA_S_FIREMAW": {
+    "scryfallId": "76cf0b50-155f-4e65-9e48-88b378ad93a1",
+    "oracleId": "53b17c51-a216-484f-80df-3904284df0ea",
+    "name": "Chandra's Firemaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chandra's Firemaw",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Hellion",
+        "oracleText": "Haste\nWhen this creature enters, you may search your library and/or graveyard for a card named Chandra, Flame's Catalyst, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bryan Sola",
+        "imageId": "76cf0b50-155f-4e65-9e48-88b378ad93a1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "333",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHIOK_S_FORERUNNER": {
+    "scryfallId": "781bfbae-acd9-4583-88d2-d31978eef565",
+    "oracleId": "06d2a96c-4f4d-4a4a-ac48-6f0fbc9d0afd",
+    "name": "Ashiok's Forerunner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashiok's Forerunner",
+        "manaCost": "{3}{U}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Flash\nWhen this creature enters, you may search your library and/or graveyard for a card named Ashiok, Sculptor of Fears, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"Every dream is a doorway.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "781bfbae-acd9-4583-88d2-d31978eef565"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "277",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YANLING_S_HARBINGER": {
+    "scryfallId": "93aca389-6830-4297-97bc-e3a2a1a1d41a",
+    "oracleId": "c4bf4397-22e5-458d-b9d1-3f3a0a27e9e5",
+    "name": "Yanling's Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yanling's Harbinger",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, you may search your library and/or graveyard for a card named Mu Yanling, Celestial Wind, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "93aca389-6830-4297-97bc-e3a2a1a1d41a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "289",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOWER_WINDER": {
+    "scryfallId": "97bf6a6a-e377-4f42-84dd-baf6055c0fb1",
+    "oracleId": "c1aecc8a-db3a-4158-b1f1-bfe06d782482",
+    "name": "Tower Winder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tower Winder",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Reach, deathtouch\nWhen this creature enters, search your library and/or graveyard for a card named Command Tower, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "The tower guards eventually gave up, figuring it was better at the job anyway.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kekai Kotaki",
+        "imageId": "97bf6a6a-e377-4f42-84dd-baf6055c0fb1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Deathtouch"
+    ],
+    "setCode": "otc",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIDEON_S_RESOLVE": {
+    "scryfallId": "a30b8c40-39ac-423f-b7da-845a16cd1b63",
+    "oracleId": "71c5718f-580d-4993-8492-81b7a557d10c",
+    "name": "Gideon's Resolve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gideon's Resolve",
+        "manaCost": "{4}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, you may search your library and/or graveyard for a card named Gideon, Martial Paragon, reveal it, and put it into your hand. If you search your library this way, shuffle.\nCreatures you control get +1/+1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "a30b8c40-39ac-423f-b7da-845a16cd1b63"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROWAN_S_STALWARTS": {
+    "scryfallId": "b537c4e3-88d1-430d-b4c8-16e0716d1927",
+    "oracleId": "9171248e-045e-4ed4-aa06-eea3ae3d8df0",
+    "name": "Rowan's Stalwarts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rowan's Stalwarts",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, you may search your library and/or graveyard for a card named Rowan, Fearless Sparkmage, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "b537c4e3-88d1-430d-b4c8-16e0716d1927"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "307",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIAMBI_FAITHFUL_HEALER": {
+    "scryfallId": "c638677c-2b92-4d0c-b61c-598b5a843844",
+    "oracleId": "0c107664-a9fc-4684-8a1b-fa750401a6dd",
+    "name": "Niambi, Faithful Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Niambi, Faithful Healer",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "When Niambi enters, you may search your library and/or graveyard for a card named Teferi, Timebender, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"My father will be happy to see you.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Greg Opalinski",
+        "imageId": "c638677c-2b92-4d0c-b61c-598b5a843844"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "272",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARRUK_S_WARSTEED": {
+    "scryfallId": "d6099863-8d3d-44bf-8d3b-dc3602119617",
+    "oracleId": "d4911e00-eed1-4c8c-8779-8a3f9406ead7",
+    "name": "Garruk's Warsteed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Garruk's Warsteed",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Rhino",
+        "oracleText": "Vigilance\nWhen this creature enters, you may search your library and/or graveyard for a card named Garruk, Savage Herald, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "d6099863-8d3d-44bf-8d3b-dc3602119617"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "337",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEFERI_S_WAVECASTER": {
+    "scryfallId": "d67e4c42-a44f-456b-87e7-21ca56dc4630",
+    "oracleId": "b3f6e68e-9490-4719-8d2e-d1ec22a96132",
+    "name": "Teferi's Wavecaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Teferi's Wavecaster",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "Flash\nWhen this creature enters, you may search your library and/or graveyard for a card named Teferi, Timeless Voyager, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Miranda Meeks",
+        "imageId": "d67e4c42-a44f-456b-87e7-21ca56dc4630"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "327",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VISAGE_OF_BOLAS": {
+    "scryfallId": "f29bbfe2-d59f-4361-8ea4-6a8d1b909769",
+    "oracleId": "21bb3c03-c1c0-40ec-8df4-8d0054c3742b",
+    "name": "Visage of Bolas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Visage of Bolas",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, you may search your library and/or graveyard for a card named Nicol Bolas, the Deceiver, reveal it, and put it into your hand. If you search your library this way, shuffle.\n{T}: Add {U}, {B}, or {R}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "f29bbfe2-d59f-4361-8ea4-6a8d1b909769"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DELIVERY_MOOGLE": {
+    "scryfallId": "f58840dc-c641-4092-8b67-9c0d449af715",
+    "oracleId": "60043b87-6008-4cfa-9d8f-6ee6e3f70766",
+    "name": "Delivery Moogle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Delivery Moogle",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Moogle",
+        "oracleText": "Flying\nWhen this creature enters, search your library and/or graveyard for an artifact card with mana value 2 or less, reveal it, and put it into your hand. If you search your library this way, shuffle.",
+        "flavorText": "\"A new letter has arrived just for you, kupo!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Joseph Weston",
+        "imageId": "f58840dc-c641-4092-8b67-9c0d449af715"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AJANI_INSPIRING_LEADER": {
+    "scryfallId": "dba41e5f-66b8-4459-8a07-bbe893216f1e",
+    "oracleId": "15474e82-94b4-47e1-b91c-3deaf4dbffd6",
+    "name": "Ajani, Inspiring Leader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ajani, Inspiring Leader",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Legendary Planeswalker — Ajani",
+        "oracleText": "+2: You gain 2 life. Put two +1/+1 counters on up to one target creature.\n−3: Exile target creature. Its controller gains 2 life.\n−10: Creatures you control gain flying and double strike until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "dba41e5f-66b8-4459-8a07-bbe893216f1e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "282",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHIOK_SCULPTOR_OF_FEARS": {
+    "scryfallId": "36a5fc37-e7bd-41a9-88ac-74a3f14fea8b",
+    "oracleId": "ce79bbd2-edf0-4d5e-9aaf-717ec3960c48",
+    "name": "Ashiok, Sculptor of Fears",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashiok, Sculptor of Fears",
+        "manaCost": "{4}{U}{B}",
+        "typeLine": "Legendary Planeswalker — Ashiok",
+        "oracleText": "+2: Draw a card. Each player mills two cards.\n−5: Put target creature card from a graveyard onto the battlefield under your control.\n−11: Gain control of all creatures target opponent controls.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Daarken",
+        "imageId": "36a5fc37-e7bd-41a9-88ac-74a3f14fea8b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "274",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHANDRA_FLAME_S_CATALYST": {
+    "scryfallId": "1e49ce44-5286-4310-88c2-f8a1402b113b",
+    "oracleId": "7721e800-fba6-4ae7-855e-631b2ecc8d6b",
+    "name": "Chandra, Flame's Catalyst",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chandra, Flame's Catalyst",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Legendary Planeswalker — Chandra",
+        "oracleText": "+1: Chandra deals 3 damage to each opponent.\n−2: You may cast target red instant or sorcery card from your graveyard. If that spell would be put into your graveyard, exile it instead.\n−8: Discard your hand, then draw seven cards. Until end of turn, you may cast spells from your hand without paying their mana costs.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "1e49ce44-5286-4310-88c2-f8a1402b113b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "332",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOMRI_CITY_SMASHER": {
+    "scryfallId": "8fe16cdb-90df-4670-a084-55c505791d85",
+    "oracleId": "d8fe9672-0ead-4f47-abd8-e1ee133c5c60",
+    "name": "Domri, City Smasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Domri, City Smasher",
+        "manaCost": "{4}{R}{G}",
+        "typeLine": "Legendary Planeswalker — Domri",
+        "oracleText": "+2: Creatures you control get +1/+1 and gain haste until end of turn.\n−3: Domri deals 3 damage to any target.\n−8: Put three +1/+1 counters on each creature you control. Those creatures gain trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "8fe16cdb-90df-4670-a084-55c505791d85"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EIVOR_BATTLE_READY": {
+    "scryfallId": "4242961d-87e8-4dd2-bdea-5d765a5cf136",
+    "oracleId": "1b4a07bd-5345-4520-bd05-b5173e08135c",
+    "name": "Eivor, Battle-Ready",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eivor, Battle-Ready",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Legendary Creature — Human Assassin Warrior",
+        "oracleText": "Vigilance (Attacking doesn't cause this creature to tap.)\nHaste (This creature can attack as soon as it comes under your control.)\nWhenever Eivor attacks, it deals damage equal to the number of Equipment you control to each opponent.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "4242961d-87e8-4dd2-bdea-5d765a5cf136"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Haste"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "274",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARRUK_SAVAGE_HERALD": {
+    "scryfallId": "48133629-4a5b-4c91-b496-2ee94f6cbc4c",
+    "oracleId": "fc762e40-84c1-4762-82f7-a0fc4f6fd522",
+    "name": "Garruk, Savage Herald",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Garruk, Savage Herald",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Planeswalker — Garruk",
+        "oracleText": "+1: Reveal the top card of your library. If it's a creature card, put it into your hand. Otherwise, put it on the bottom of your library.\n−2: Target creature you control deals damage equal to its power to another target creature.\n−7: Until end of turn, creatures you control gain \"You may have this creature assign its combat damage as though it weren't blocked.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "48133629-4a5b-4c91-b496-2ee94f6cbc4c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "336",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIDEON_MARTIAL_PARAGON": {
+    "scryfallId": "2c057ca8-9811-4dc3-9b0e-f9f69f752d1d",
+    "oracleId": "4cbce730-7b70-41bd-b463-bfec46afe3b0",
+    "name": "Gideon, Martial Paragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gideon, Martial Paragon",
+        "manaCost": "{4}{W}",
+        "typeLine": "Legendary Planeswalker — Gideon",
+        "oracleText": "+2: Untap all creatures you control. Those creatures get +1/+1 until end of turn.\n0: Until end of turn, Gideon becomes a 5/5 Human Soldier creature with indestructible that's still a planeswalker. Prevent all damage that would be dealt to him this turn.\n−10: Creatures you control get +2/+2 until end of turn. Tap all creatures your opponents control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daarken",
+        "imageId": "2c057ca8-9811-4dc3-9b0e-f9f69f752d1d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "akh",
+    "collectorNumber": "270",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MU_YANLING_CELESTIAL_WIND": {
+    "scryfallId": "84ae9595-8e76-4d8c-a08c-00434be75672",
+    "oracleId": "5f39accf-62fd-407a-a147-781210569d33",
+    "name": "Mu Yanling, Celestial Wind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mu Yanling, Celestial Wind",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Planeswalker — Yanling",
+        "oracleText": "+1: Until your next turn, up to one target creature gets -5/-0.\n−3: Return up to two target creatures to their owners' hands.\n−7: Creatures you control with flying get +5/+5 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "84ae9595-8e76-4d8c-a08c-00434be75672"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "286",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NICOL_BOLAS_THE_DECEIVER": {
+    "scryfallId": "74239d78-1608-4b27-b2fd-8c7453f6b86b",
+    "oracleId": "524b00ea-0372-40f9-a6a1-76a8497a1ea6",
+    "name": "Nicol Bolas, the Deceiver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nicol Bolas, the Deceiver",
+        "manaCost": "{5}{U}{B}{R}",
+        "typeLine": "Legendary Planeswalker — Bolas",
+        "oracleText": "+3: Each opponent loses 3 life unless that player sacrifices a nonland permanent of their choice or discards a card.\n−3: Destroy target creature. Draw a card.\n−11: Nicol Bolas deals 7 damage to each opponent. You draw seven cards.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "74239d78-1608-4b27-b2fd-8c7453f6b86b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [],
+    "setCode": "hou",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROWAN_FEARLESS_SPARKMAGE": {
+    "scryfallId": "030f4058-54e5-4333-bd6c-2789c334bf12",
+    "oracleId": "cd83f886-c651-4ad7-82ca-2446c60c8f94",
+    "name": "Rowan, Fearless Sparkmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rowan, Fearless Sparkmage",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Legendary Planeswalker — Rowan",
+        "oracleText": "+1: Up to one target creature gets +3/+0 and gains first strike until end of turn.\n−2: Rowan deals 1 damage to each of up to two target creatures. Those creatures can't block this turn.\n−9: Gain control of all creatures until end of turn. Untap them. They gain haste until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "030f4058-54e5-4333-bd6c-2789c334bf12"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SORIN_VAMPIRE_LORD": {
+    "scryfallId": "bf20ea7b-e480-4b0e-b080-888f24d3c08d",
+    "oracleId": "753dcc18-3697-49c5-80c6-2d8dc8ee8c9a",
+    "name": "Sorin, Vampire Lord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sorin, Vampire Lord",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Legendary Planeswalker — Sorin",
+        "oracleText": "+1: Up to one target creature gets +2/+0 until end of turn.\n−2: Sorin deals 4 damage to any target. You gain 4 life.\n−8: Until end of turn, each Vampire you control gains \"{T}: Gain control of target creature.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "bf20ea7b-e480-4b0e-b080-888f24d3c08d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEFERI_TIMEBENDER": {
+    "scryfallId": "eb2b7388-ac6b-45c0-a5cc-da6450724b59",
+    "oracleId": "761bb894-d3f9-4248-af76-1559c502e342",
+    "name": "Teferi, Timebender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Teferi, Timebender",
+        "manaCost": "{4}{W}{U}",
+        "typeLine": "Legendary Planeswalker — Teferi",
+        "oracleText": "+2: Untap up to one target artifact or creature.\n−3: You gain 2 life and draw two cards.\n−9: Take an extra turn after this one.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "eb2b7388-ac6b-45c0-a5cc-da6450724b59"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "270",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEFERI_TIMELESS_VOYAGER": {
+    "scryfallId": "62d05287-ad7f-4de8-9f68-8f36c62fae72",
+    "oracleId": "7240037f-ddea-425e-9824-866e2bb0dc84",
+    "name": "Teferi, Timeless Voyager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Teferi, Timeless Voyager",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Planeswalker — Teferi",
+        "oracleText": "+1: Draw a card.\n−3: Put target creature on top of its owner's library.\n−8: Each creature target opponent controls phases out. Until the end of your next turn, they can't phase in. (Treat them and anything attached to them as though they don't exist.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "4",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "62d05287-ad7f-4de8-9f68-8f36c62fae72"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIVIEN_NATURE_S_AVENGER": {
+    "scryfallId": "f7ead409-3bce-47c8-ace7-498c38522369",
+    "oracleId": "5513b150-c08f-4f3e-8e41-fd7b43d00b78",
+    "name": "Vivien, Nature's Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vivien, Nature's Avenger",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Planeswalker — Vivien",
+        "oracleText": "+1: Put three +1/+1 counters on up to one target creature.\n−1: Reveal cards from the top of your library until you reveal a creature card. Put that card into your hand and the rest on the bottom of your library in a random order.\n−6: Target creature gets +10/+10 and gains trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "3",
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "f7ead409-3bce-47c8-ace7-498c38522369"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "298",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -953,6 +953,8 @@ export interface SearchSpec {
   readonly optional: boolean;
   /** A bound on the card itself - mana value, printed name. Null when the noun carries none. */
   readonly qualifier: SearchQualifier | null;
+  /** D483 - `search your library and/or graveyard`: the searcher's graveyard is searched beside the library. */
+  readonly graveyardToo?: boolean;
 }
 
 /**

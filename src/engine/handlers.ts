@@ -3409,8 +3409,10 @@ function answerSearchLibrary(
     return reject('noSuchCard', 'You named the same card twice.');
   }
   const lib = state.zones.library[intent.player] ?? [];
+  // D483 - a two-zone search names a card in the library OR the searcher's graveyard (public); it moves from where it is.
+  const gy = awaiting.graveyardToo === true ? (state.zones.graveyard[intent.player] ?? []) : [];
   for (const card of intent.cards) {
-    if (!lib.includes(card)) return reject('wrongZone', 'That card is not in your library.');
+    if (!lib.includes(card) && !gy.includes(card)) return reject('wrongZone', awaiting.graveyardToo === true ? 'That card is not in your library or graveyard.' : 'That card is not in your library.');
     if (!cardMatchesSearch(state, deps, card, awaiting.predicates, awaiting.qualifier)) {
       return reject('illegalTarget', `That card is not ${awaiting.what}.`);
     }
@@ -3450,7 +3452,7 @@ function answerSearchLibrary(
       t: 'CardsMoved',
       moves: intent.cards.map((card) => ({
         card,
-        from: { kind: 'library' as const, player: intent.player },
+        from: gy.includes(card) ? { kind: 'graveyard' as const, player: intent.player } : { kind: 'library' as const, player: intent.player },
         to,
       })),
     });
