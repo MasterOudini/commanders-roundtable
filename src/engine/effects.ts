@@ -1706,8 +1706,8 @@ export function resumeContinuation(state: GameState, deps: EngineDeps, events: E
   return advanced;
 }
 
-/** D485 - CR 707.9b: a copy of a copy keeps the exceptions it found and takes the new clause's on top. */
-function mergeExceptions(base: CopyExceptions | undefined, more: CopyExceptions | null): CopyExceptions | undefined {
+/** D485 - CR 707.9b: a copy of a copy keeps the exceptions it found and takes the new clause's on top. D486 - the clone's too. */
+export function mergeExceptions(base: CopyExceptions | undefined, more: CopyExceptions | null): CopyExceptions | undefined {
   if (base === undefined) return more ?? undefined;
   if (more === null) return base;
   return {

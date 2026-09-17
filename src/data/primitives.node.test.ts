@@ -319,8 +319,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 11467,
-      blocked: 20225,
+      complete: 11486,
+      blocked: 20206,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -342,8 +342,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 956,
-      counter: 1048,
+      layer6: 955,
+      counter: 1049,
       token: 833,
     });
   });
@@ -381,7 +381,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1791, 1797, 3106, 4641, 5874]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1791, 1797, 3105, 4641, 5874]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -469,7 +469,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 577, anthem: 116, restriction: 175, conditional: 88, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 576, anthem: 116, restriction: 175, conditional: 88, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
@@ -555,7 +555,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1791, 1797]);
-    expect.soft(r.complete).toBe(11467);
+    expect.soft(r.complete).toBe(11486);
   });
 });
 
@@ -707,7 +707,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       lifeGainLoss: 303,
       drawDiscard: 285,
       tokensAndCounters: 278,
-      copySpell: 214,
+      copySpell: 193,
       cantBeCountered: 18,
       gainControl: 66,
       wardHexproofGrant: 46,

@@ -258,7 +258,13 @@ export interface CardInstance {
    * with the printing it copies (`oracleId` / `printingId` / `faceIndex` ARE the copied card's). Absent on every object
    * that is not a copy with exceptions - a plain copy differs from its original only in being a token.
    */
-  readonly copyExceptions?: CopyExceptions;
+  readonly copyExceptions?: CopyExceptions | undefined;
+  /**
+   * D486 - a CLONE: the printed card this object is, while its identity fields carry the card it copies (CR 707.9 - it
+   * entered as a copy). Restored by the move that takes it off the battlefield (a copy effect on a permanent ends with
+   * the permanent, CR 707.4 / 400.7). Absent on every object that is not a copy of another card.
+   */
+  readonly original?: { readonly oracleId: OracleId; readonly printingId: PrintingId } | undefined;
   /**
    * The colour named by "As this ~ enters, choose a color." (CR 614.12).
    *
@@ -512,6 +518,12 @@ export interface PendingReplacement {
    * has already seen adds the loyalty a second time.
    */
   readonly queued: readonly EventBody[];
+  /**
+   * D486 - the question is a CLONE'S (`Awaiting.chooseCopy`), asked before this body's built-ins ran: the entering
+   * card, and what the face says of its copy. `siblings` and `rest` are empty for such a record; the answer rewrites
+   * the held move (`CardMove.asCopyOf`) and runs the body through the whole funnel from the start.
+   */
+  readonly copyChoice?: { readonly card: InstanceId; readonly exceptions: CopyExceptions | null; readonly tapped: boolean };
 }
 
 /**
@@ -767,6 +779,22 @@ export type Awaiting =
   | { readonly kind: 'orderAttackers'; readonly player: PlayerId; readonly blocker: InstanceId }
   | { readonly kind: 'orderTriggers'; readonly player: PlayerId; readonly triggers: readonly string[] }
   | { readonly kind: 'chooseLegendKeep'; readonly player: PlayerId; readonly name: string; readonly candidates: readonly InstanceId[] }
+  /**
+   * D486 - THE CLONE'S CHOICE (CR 707.9): as a permanent whose face says `You may have ~ enter as a copy of <noun>`
+   * enters, its controller names one of the candidates - permanents (or graveyard cards) the noun admits, all in
+   * public zones, so the ids ride the prompt as the legend rule's do - or declines and it enters as itself. The move
+   * is HELD while the question stands (`pendingReplacement.copyChoice`): the copy is decided before the object exists
+   * on the battlefield, so the copied card's own enters abilities are the ones that run.
+   */
+  | {
+      readonly kind: 'chooseCopy';
+      readonly player: PlayerId;
+      readonly source: InstanceId;
+      readonly candidates: readonly InstanceId[];
+      readonly optional: boolean;
+      readonly what: string;
+      readonly label: string;
+    }
   /**
    * CR 903.9a. A QUEUE, not a single card: a wrath can put both halves of a
    * partner pair into the graveyard at once, and asking about one while

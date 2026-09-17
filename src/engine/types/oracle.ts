@@ -14,7 +14,7 @@ import type { CardData, ColorLetter } from '../../data/cardTypes';
 // ⚠️ A TYPE-ONLY import, so the 400-entry generated table does not become an
 // engine dependency. The table itself is read in `effectParse.ts`, at ingest.
 import type { TokenRef } from '../../data/tokenTable';
-import type { EntersTapped, EntersTappedCondition, PermanentPredicate } from '../../data/replacementParse';
+import type { EntersAsCopy, EntersTapped, EntersTappedCondition, PermanentPredicate } from '../../data/replacementParse';
 import type { ManaCost } from './mana';
 import type { ManaPool, SpendRestriction } from './mana';
 import type { AbilityRef, InstanceId, OracleId, PrintingId } from './ids';
@@ -1828,6 +1828,12 @@ export interface OracleFace {
    * only the boolean would let it in untapped every time.
    */
   readonly entersTapped: EntersTapped | null;
+  /**
+   * D486 - `You may have ~ enter as a copy of <noun>` (CR 707.9): a replacement the funnel asks about as the permanent
+   * enters (`Awaiting.chooseCopy`), applied on the move itself (`CardMove.asCopyOf`). Null on every face that prints
+   * no such line, and on an instant or sorcery.
+   */
+  readonly entersAsCopy: EntersAsCopy | null;
   /**
    * "As this ~ enters, choose a color." (CR 614.12). See
    * `CardInstance.chosenColor` for why the colour and not the other two shapes

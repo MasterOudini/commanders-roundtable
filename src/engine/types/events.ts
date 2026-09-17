@@ -75,6 +75,15 @@ export interface CardMove {
    */
   readonly faceIndex?: number;
   /**
+   * D486 - the card enters AS A COPY of another (CR 707.9): its identity becomes the copied object's printing and face,
+   * with the exceptions the copy carries (its own and the copy effect's, 707.3 / 707.9b); the printed card is kept as
+   * `CardInstance.original` for the move that takes it off the battlefield. Decided before the move applies - the
+   * funnel holds the move and asks (`Awaiting.chooseCopy`) - so every built-in that reads the arriving face reads the
+   * copied one. `copyDeclined` marks a move whose clone's controller chose to enter as itself, so the funnel asks once.
+   */
+  readonly asCopyOf?: { readonly oracleId: OracleId; readonly printingId: PrintingId; readonly faceIndex: number; readonly copyExceptions?: CopyExceptions };
+  readonly copyDeclined?: true;
+  /**
    * WHY this card moved, when the rules know a reason a card can watch for.
    * `undefined` for every ordinary move - a destroy, a bounce, a draw, a token
    * ceasing, a reanimation, a search - and set only where a rule performed one

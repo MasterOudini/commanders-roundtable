@@ -63,7 +63,7 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // D463 - mobilize: the attack trigger, the tokens, the delayed sacrifice - all the table's.
 const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading', 'fabricate', 'mobilize']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
-import { parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
+import { parseEntersAsCopyLine, parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
 export interface Completeness {
   readonly complete: boolean;
@@ -520,6 +520,8 @@ export function linesUnaccounted(
     // eventually accept an `unless` the parser refused, and the engine would tap
     // a land whose condition nobody checked. See D134.
     if (face.entersTapped && parseEntersTappedLine(line, face.name)) continue;
+    // D486 - the clone's line, asked of the parser that set the face's field (the funnel asks and applies it).
+    if (face.entersAsCopy && parseEntersAsCopyLine(line, face.name)) continue;
     // ⚠️ Same rule, one clause along (D147): ASKED OF THE PARSER that set the
     // flag, never re-read here. `face.choosesColorOnEntry` is already the answer
     // to "is this the colour-choice clause", and it is deliberately narrow — a

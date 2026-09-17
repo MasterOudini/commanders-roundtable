@@ -20,7 +20,7 @@ import { STEP_ORDER } from './turn';
 import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
-import { isAskedCondition, predicateAdmits, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
+import { isAskedCondition, predicateAdmits, type EntersAsCopy, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
 import type { DerivedCharacteristics, Keyword, OracleCard, OracleDb } from './types/oracle';
 import {
   livingPlayers,
@@ -334,6 +334,15 @@ export function runReplacementFunnel(
     // why the batch is walked here rather than flat-mapped up front. A built-in
     // asks about the board ("do you control two other lands"), and the answer
     // changes as the batch is applied.
+    // D486 - a clone's move is held and asked about before this body's built-ins run (see `cloneChoiceFor`).
+    const clone = cloneChoiceFor(state, oracle, scripts, body);
+    if (clone !== null) {
+      return {
+        kind: 'ask',
+        settled,
+        pending: { event: body, player: clone.player, used: [], siblings: [], rest: [], queued: bodies.slice(i + 1), copyChoice: clone.copyChoice },
+      };
+    }
     const builtIn = applyReplacements(state, oracle, scripts, body);
     if (defs.length === 0) {
       settled.push(...builtIn);
@@ -606,8 +615,82 @@ function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]):
  * rule apart and the two of them disagreeing is how a modal DFC would enter with
  * the loyalty of one face and the tapped-ness of the other. D155.
  */
-function enteringFace(move: CardMove, card: CardInstance, printing: OracleCard) {
+function enteringFace(oracle: OracleDb, move: CardMove, card: CardInstance, printing: OracleCard) {
+  // D486 - a card entering AS A COPY arrives as the copied card's face (CR 707.9): every entry rule reads that one -
+  // the copied card's loyalty, its `enters tapped`, its entry choice - never the clone's own.
+  if (move.asCopyOf !== undefined) {
+    const copied = oracle.byPrinting(move.asCopyOf.printingId);
+    if (copied) return faceOf(copied, move.asCopyOf.faceIndex);
+  }
   return faceOf(printing, move.faceIndex ?? card.faceIndex);
+}
+
+/**
+ * D486 - what a clone may copy: the permanents (or graveyard cards) the face's noun admits, in the scope it names, the
+ * clone itself excluded. ONE reader for the funnel's question and the handler's check (D139). A battlefield object is
+ * asked by its DERIVED characteristics (an animated land is a creature; a face-down object is nothing to copy, CR
+ * 708.2); a graveyard card by its printed face.
+ */
+export function copyCandidates(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, controller: PlayerId, self: InstanceId, spec: EntersAsCopy): InstanceId[] {
+  const cache = makeDeriveCache(state);
+  const admits = (id: InstanceId): boolean => {
+    const inst = state.cards[id];
+    if (!inst || id === self) return false;
+    if (spec.scope === 'you' && inst.controller !== controller) return false;
+    if (spec.scope === 'opponent' && inst.controller === controller) return false;
+    if (inst.zone.kind === 'battlefield') {
+      if (inst.faceDown) return false;
+      return predicateAdmits(derive(state, oracle, scripts, id, cache), spec.predicates);
+    }
+    const printing = oracle.byPrinting(inst.printingId);
+    return printing !== undefined && predicateAdmits(faceOf(printing, inst.faceIndex), spec.predicates);
+  };
+  if (spec.zone === 'graveyard') return state.seating.flatMap((p) => (state.zones.graveyard[p] ?? []).filter(admits));
+  return state.zones.battlefield.filter(admits);
+}
+
+/**
+ * D486 - THE CLONE ASKS FIRST (CR 707.9). A move that puts a card whose face says `You may have ~ enter as a copy of
+ * <noun>` onto the battlefield is HELD before this body's built-ins run: the copy is decided before the object exists
+ * there, so the copied card's own entry rules and enters triggers are the ones that run. A move already decided (its
+ * `asCopyOf` set, or `copyDeclined`) is not asked again; a board with nothing the noun admits asks nothing and the card
+ * enters as itself (a question with no legal answer, D137); a seat out of the game is not asked.
+ */
+function cloneChoiceFor(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, body: EventBody): { player: PlayerId; copyChoice: NonNullable<PendingReplacement['copyChoice']> } | null {
+  if (body.t !== 'CardsMoved') return null;
+  for (const move of body.moves) {
+    if (move.to.kind !== 'battlefield' || move.from.kind === 'battlefield' || move.faceDown === true || move.asCopyOf !== undefined || move.copyDeclined === true) continue;
+    const card = state.cards[move.card];
+    if (!card) continue;
+    const printing = oracle.byPrinting(card.printingId);
+    if (!printing) continue;
+    const spec = faceOf(printing, move.faceIndex ?? card.faceIndex).entersAsCopy;
+    if (!spec) continue;
+    const controller = move.to.player ?? card.controller ?? card.owner;
+    const seat = state.players[controller];
+    if (!seat || seat.hasLost) continue;
+    if (copyCandidates(state, oracle, scripts, controller, move.card, spec).length === 0) continue;
+    return { player: controller, copyChoice: { card: move.card, exceptions: spec.exceptions, tapped: spec.tapped } };
+  }
+  return null;
+}
+
+/**
+ * D486 - the question a suspended funnel asks: the clone's choice when the record carries one (the candidates re-read
+ * off the board by the one reader), the CR 616 order otherwise.
+ */
+export function askPromptFor(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, pending: PendingReplacement): Awaiting {
+  const cc = pending.copyChoice;
+  if (cc !== undefined) {
+    const card = state.cards[cc.card];
+    const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+    const move = pending.event.t === 'CardsMoved' ? pending.event.moves.find((m) => m.card === cc.card) : undefined;
+    const face = card && printing ? faceOf(printing, move?.faceIndex ?? card.faceIndex) : undefined;
+    const spec = face?.entersAsCopy ?? null;
+    const candidates = card && spec ? copyCandidates(state, oracle, scripts, pending.player, cc.card, spec) : [];
+    return { kind: 'chooseCopy', player: pending.player, source: cc.card, candidates, optional: true, what: spec?.what ?? 'a permanent', label: face?.name ?? 'the permanent' };
+  }
+  return { kind: 'chooseReplacement', player: pending.player, options: replacementOptions(state, oracle, scripts, pending) };
 }
 
 function withEntryCounters(
@@ -635,7 +718,7 @@ function withEntryCounters(
       // `applyReplacements` runs on the state BEFORE its own event, so a card
       // entering as its back face has not had `faceIndex` written yet and never
       // could have. `enteringFace` reads it off the move instead.
-      const face = enteringFace(move, card, printing);
+      const face = enteringFace(oracle, move, card, printing);
       const { baseLoyalty, baseDefense } = face;
       if (baseLoyalty !== null && baseLoyalty > 0 && face.typeLine.types.includes('Planeswalker')) {
         changes.push({ card: move.card, kind: 'loyalty', delta: baseLoyalty });
@@ -714,7 +797,7 @@ function withEntersTapped(
       if (!card) continue;
       const printing = oracle.byPrinting(card.printingId);
       if (!printing) continue;
-      const face = enteringFace(move, card, printing);
+      const face = enteringFace(oracle, move, card, printing);
       // D444 - THE ENTRY CHOICES (CR 702.98 / 702.132): a creature entering with unleash or riot asks its controller
       // - a +1/+1 counter, or nothing / haste. The printed keywords, read the way `entersTapped` is: the object is
       // not on the battlefield yet, so there is nothing to derive. A seat out of the game is not asked.

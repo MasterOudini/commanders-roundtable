@@ -195,6 +195,12 @@ export function answerAwaiting(
         ? act({ t: 'OrderTriggers', player: me, order: [...awaiting.triggers] }, 'triggers in printed order')
         : wait('not my triggers');
 
+    // D486 - the clone copies the strongest candidate the view shows; with none worth it, itself.
+    case 'chooseCopy': {
+      if (awaiting.player !== me) return wait('not my copy');
+      const pick = orderedBy(view, (c) => awaiting.candidates.includes(c.instanceId), true)[0] ?? awaiting.candidates[0] ?? null;
+      return act({ t: 'AnswerChooseCopy', player: me, source: awaiting.source, card: pick }, pick ? `copy ${pick}` : 'enter as itself');
+    }
     case 'chooseLegendKeep': {
       if (awaiting.player !== me) return wait('not my legend');
       const keep = orderedBy(view, (c) => awaiting.candidates.includes(c.instanceId), true)[0]

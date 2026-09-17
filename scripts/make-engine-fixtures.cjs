@@ -9099,6 +9099,11 @@ const WANTED = [
   'Myr Propagator',
   'Elvish Hydromancer',
   // D485 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D486 - the clone: the seam test's clones (any creature, an artifact or creature with the artifact exception, a land entering tapped, a creature you control).
+  'Clone',
+  'Phyrexian Metamorph',
+  'Vesuva',
+  'Mirror Image',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

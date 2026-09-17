@@ -552,6 +552,19 @@ function applyBody(state: GameState, body: EventBody): GameState {
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),
           ...(move.until !== undefined ? { exiledUntil: move.until } : card.exiledUntil !== undefined ? { exiledUntil: undefined } : {}),
+          // D486 - entering AS A COPY (CR 707.9): the identity becomes the copied card's, the printed card kept for the
+          // move that takes it off the battlefield; a copy leaving the battlefield is its printed card again (707.4).
+          ...(move.asCopyOf !== undefined
+            ? {
+                oracleId: move.asCopyOf.oracleId,
+                printingId: move.asCopyOf.printingId,
+                faceIndex: move.asCopyOf.faceIndex,
+                original: card.original ?? { oracleId: card.oracleId, printingId: card.printingId },
+                copyExceptions: move.asCopyOf.copyExceptions,
+              }
+            : move.from.kind === 'battlefield' && move.to.kind !== 'battlefield' && card.original !== undefined
+              ? { oracleId: card.original.oracleId, printingId: card.original.printingId, original: undefined, copyExceptions: undefined }
+              : {}),
           // A reveal is about a card sitting in a hidden zone. Once it moves,
           // the reveal is meaningless and keeping it would leak the new zone.
           revealedTo: [],

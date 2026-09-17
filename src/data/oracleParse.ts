@@ -37,7 +37,7 @@ import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
+import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
 /**
  * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
@@ -1250,6 +1250,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     // ⚠️ Only a PERMANENT can enter the battlefield, so an instant whose text
     // somehow matched would be claiming a rule it can never reach.
     entersTapped: isPermanent ? parseEntersTapped(face.oracleText, face.name) : null,
+    // D486 - the clone's line, the same way.
+    entersAsCopy: isPermanent ? parseEntersAsCopy(face.oracleText, face.name) : null,
     choosesColorOnEntry: isPermanent && parseChoosesColorOnEntry(face.oracleText),
     // D465 - the creature-type clause, the same way.
     choosesTypeOnEntry: isPermanent && parseChoosesTypeOnEntry(face.oracleText),

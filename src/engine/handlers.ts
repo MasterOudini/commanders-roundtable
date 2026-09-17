@@ -6,7 +6,7 @@
 // has just been told "no". "notYourPriority" is a code for the client; "Ana has
 // priority — wait for her to pass" is the message.
 
-import { replacementOptions, resumeReplacementFunnel, revealAdmits } from './triggers';
+import { askPromptFor, resumeReplacementFunnel, revealAdmits, runReplacementFunnel } from './triggers';
 import {
   legalDefenders,
   needsFirstStrikeSubstep,
@@ -48,7 +48,7 @@ import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
 import { n, narrated, their, vb, who } from './narrate';
-import { askBatch, askCandidates, drawEvents, effectResult, resumeContinuation } from './effects';
+import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
@@ -127,6 +127,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return orderAttackers(state, intent);
     case 'ChooseLegendKeep':
       return chooseLegendKeep(state, intent);
+    case 'AnswerChooseCopy':
+      return answerChooseCopy(state, intent, deps);
     case 'CommanderZoneChoice':
       return commanderZoneChoice(state, intent);
     case 'OrderTriggers':
@@ -3063,7 +3065,66 @@ function answerChooseReplacement(
       said,
       ...result.settled,
       { t: 'ReplacementPending', pending: result.pending },
-      { t: 'AwaitingSet', awaiting: { kind: 'chooseReplacement', player: result.pending.player, options: replacementOptions(state, deps.oracle, deps.scripts, result.pending) } },
+      { t: 'AwaitingSet', awaiting: askPromptFor(state, deps.oracle, deps.scripts, result.pending) },
+    ],
+  };
+}
+
+/**
+ * D486 - THE CLONE'S ANSWER (CR 707.9). The held move is rewritten with the copied object's copiable values - its
+ * identity fields and the copy exceptions it already carries (707.3), the face's own on top (707.9b) - or marked
+ * declined, and the body runs through the whole funnel from its start, so every entry rule reads the arriving face as
+ * the copy's and the copied card's enters triggers are the ones that fire. The candidates are the prompt's (the one
+ * reader, re-read off the board as it stands - nothing can happen between the ask and the answer).
+ */
+function answerChooseCopy(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerChooseCopy' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const pending = state.pendingReplacement;
+  const awaiting = state.priority.awaiting;
+  if (!pending || pending.copyChoice === undefined || awaiting?.kind !== 'chooseCopy') {
+    return reject('noPendingChoice', 'Nothing is waiting on a copy choice.');
+  }
+  if (awaiting.player !== intent.player) return reject('notYourTurn', 'That choice belongs to another player.');
+  if (awaiting.source !== intent.source) return reject('notAwaitingThat', 'That is not the permanent you are being asked about.');
+  if (intent.card === null && !awaiting.optional) return reject('illegalTarget', 'A copy must be chosen.');
+  if (intent.card !== null && !awaiting.candidates.includes(intent.card)) return reject('illegalTarget', `That is not ${awaiting.what} the card can copy.`);
+  const held = pending.event;
+  if (held.t !== 'CardsMoved') return reject('noPendingChoice', 'The held event is not a move.');
+  const choice = pending.copyChoice;
+  const copied = intent.card === null ? undefined : state.cards[intent.card];
+  const exceptions = copied ? mergeExceptions(copied.copyExceptions, choice.exceptions) : undefined;
+  const moves = held.moves.map((m) =>
+    m.card !== choice.card
+      ? m
+      : copied
+        ? { ...m, asCopyOf: { oracleId: copied.oracleId, printingId: copied.printingId, faceIndex: copied.faceIndex, ...(exceptions !== undefined ? { copyExceptions: exceptions } : {}) } }
+        : { ...m, copyDeclined: true as const },
+  );
+  const rewritten: EventBody = { ...held, moves };
+  const said = narrated(
+    copied ? `${awaiting.label} enters as a copy of ${derive(state, deps.oracle, deps.scripts, copied.id).name}.` : `${awaiting.label} enters as itself.`,
+    intent.player,
+  );
+  const result = runReplacementFunnel(state, deps.oracle, deps.scripts, [rewritten, ...pending.queued]);
+  // The Vesuva form: the copy enters tapped. Appended after the move it belongs to; under a further question the
+  // move is still held and the tap would name a card not yet on the battlefield, so it is dropped there (no
+  // printed card meets both).
+  const tap: EventBody[] = copied && choice.tapped ? [{ t: 'PermanentsTapped', cards: [choice.card] }] : [];
+  if (result.kind === 'done') {
+    return { ok: true, funnelled: true, events: [{ t: 'ReplacementResolved' }, { t: 'AwaitingSet', awaiting: null }, said, ...result.events, ...tap] };
+  }
+  return {
+    ok: true,
+    funnelled: true,
+    events: [
+      { t: 'ReplacementResolved' },
+      said,
+      ...result.settled,
+      { t: 'ReplacementPending', pending: result.pending },
+      { t: 'AwaitingSet', awaiting: askPromptFor(state, deps.oracle, deps.scripts, result.pending) },
     ],
   };
 }

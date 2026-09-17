@@ -51,6 +51,10 @@ export function simplestIntent(
         const p = awaiting.players.find((x) => !awaiting.submitted.includes(x));
         return p === snapshot.you ? { t: 'DeclareBlockers', player: p, blocks: [] } : null;
       }
+      case 'chooseCopy': {
+        const pick = awaiting.candidates[0] ?? null;
+        return awaiting.player === snapshot.you ? { t: 'AnswerChooseCopy', player: awaiting.player, source: awaiting.source, card: pick } : null;
+      }
       case 'chooseLegendKeep': {
         const keep = awaiting.candidates[0];
         return awaiting.player === snapshot.you && keep

@@ -25,7 +25,8 @@
 // which is a prompt and is not built. Nothing here pretends to read them.
 
 import type { ColorLetter } from './cardTypes';
-import { selfRef } from './effectParse';
+import type { CopyExceptions } from '../engine/types/oracle';
+import { parseCopyExceptions, selfRef } from './effectParse';
 import { scrub } from './targetParse';
 
 /** A permanent this condition is looking for. Every named field must match. */
@@ -95,6 +96,24 @@ export type EntersTappedCondition =
 /** `unless: null` means unconditionally tapped. */
 export interface EntersTapped {
   readonly unless: EntersTappedCondition | null;
+}
+
+/**
+ * D486 - THE CLONE (CR 707.9): `You may have ~ enter as a copy of <noun>(, except <exceptions>).` The noun is what
+ * may be copied (its predicates, one reader with the search's and the sacrifice's; the scope - any player's, yours,
+ * an opponent's - and the zone - the battlefield, or a graveyard's cards), `tapped` the Vesuva form, the exceptions
+ * the token copy's closed grammar (D485). Every form printed is `You may`, so the choice may be declined and the
+ * permanent enters as itself. A second sentence on the line, a condition on the copy (`if you attacked this turn`,
+ * `with mana value less than or equal to`) or an exception outside the grammar refuses the line (D90).
+ */
+export interface EntersAsCopy {
+  readonly what: string;
+  readonly predicates: readonly PermanentPredicate[];
+  readonly scope: 'any' | 'you' | 'opponent';
+  readonly other: boolean;
+  readonly zone: 'battlefield' | 'graveyard';
+  readonly tapped: boolean;
+  readonly exceptions: CopyExceptions | null;
 }
 
 /**
@@ -408,6 +427,57 @@ export function parseEntersTapped(oracleText: string, cardName: string): EntersT
   if (!oracleText) return null;
   for (const line of oracleText.split('\n')) {
     const hit = parseEntersTappedLine(line, cardName);
+    if (hit) return hit;
+  }
+  return null;
+}
+
+/**
+ * D486 - THE CLONE'S LINE (CR 707.9): `You may have ~ enter (tapped )?as a copy of <noun>(, except <exceptions>).`
+ * The noun: `any <noun> on the battlefield` (any player's), `a|an <noun> you control`, `another <noun> you control`,
+ * `a <noun> an opponent controls`, `any <noun> card in a graveyard` - the noun itself read by `predicatesOf` (one
+ * reader with the search's and the sacrifice's: `artifact or creature`, `nonland permanent`, `Ally creature` ...).
+ * ⚠️ ANCHORED AT BOTH ENDS, like every line this module reads: a condition on the copy (`with mana value less than
+ * or equal to ...`, `that entered this turn`, `that was put there from the battlefield this turn`), a second sentence
+ * (`When you do, ...`) or an exception outside the token copy's grammar refuses the line whole (D90).
+ */
+const ENTERS_AS_COPY = /^you may have ~ enter(?: the battlefield)? (tapped )?as a copy of (any|a|an|another) (.+?)( on the battlefield| you control| an opponent controls| card in a graveyard)(?:, except (.+))?\.$/i;
+export function parseEntersAsCopyLine(line: string, cardName: string): EntersAsCopy | null {
+  const s = normalise(line, cardName);
+  const m = ENTERS_AS_COPY.exec(s);
+  if (!m) return null;
+  const article = (m[2] ?? '').toLowerCase();
+  const noun = m[3] ?? '';
+  const where = (m[4] ?? '').trim();
+  // `any ... on the battlefield` / `any ... card in a graveyard` are any player's; `a|an ... you control` yours;
+  // `another ... you control` yours and not itself; `a ... an opponent controls` an opponent's. The other pairings
+  // are not printed, and a pairing this table does not know is a line it does not read.
+  const scope: EntersAsCopy['scope'] | null =
+    article === 'any' && (where === 'on the battlefield' || where === 'card in a graveyard') ? 'any'
+      : (article === 'a' || article === 'an' || article === 'another') && where === 'you control' ? 'you'
+        : (article === 'a' || article === 'an') && where === 'an opponent controls' ? 'opponent'
+          : null;
+  if (scope === null) return null;
+  const predicates = predicatesOf(noun);
+  if (predicates === null) return null;
+  const exceptions = m[5] === undefined ? null : parseCopyExceptions(m[5]);
+  if (m[5] !== undefined && exceptions === null) return null;
+  return {
+    what: noun,
+    predicates,
+    scope,
+    other: article === 'another',
+    zone: where === 'card in a graveyard' ? 'graveyard' : 'battlefield',
+    tapped: m[1] !== undefined,
+    exceptions,
+  };
+}
+
+/** D486 - does this face enter as a copy of something? Read per LINE, as `parseEntersTapped` is. */
+export function parseEntersAsCopy(oracleText: string, cardName: string): EntersAsCopy | null {
+  if (!oracleText) return null;
+  for (const line of oracleText.split('\n')) {
+    const hit = parseEntersAsCopyLine(line, cardName);
     if (hit) return hit;
   }
   return null;

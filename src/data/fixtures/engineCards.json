@@ -278163,6 +278163,134 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CLONE": {
+    "scryfallId": "0782f78b-ff4d-4567-8606-d4f0ebb0a304",
+    "oracleId": "42226b87-0746-4ebf-9fd0-108d508462af",
+    "name": "Clone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clone",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "You may have this creature enter as a copy of any creature on the battlefield.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "0782f78b-ff4d-4567-8606-d4f0ebb0a304"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_METAMORPH": {
+    "scryfallId": "34dbcdfe-b48c-44cb-b232-b484f5116cd4",
+    "oracleId": "340bbe8b-e987-4c3e-ab4e-9dee63e57d4f",
+    "name": "Phyrexian Metamorph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Metamorph",
+        "manaCost": "{3}{U/P}",
+        "typeLine": "Artifact Creature — Phyrexian Shapeshifter",
+        "oracleText": "({U/P} can be paid with either {U} or 2 life.)\nYou may have this creature enter as a copy of any artifact or creature on the battlefield, except it's an artifact in addition to its other types.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jana Schirmer & Johannes Voss",
+        "imageId": "34dbcdfe-b48c-44cb-b232-b484f5116cd4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "NPH-42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VESUVA": {
+    "scryfallId": "0726f70a-c1c4-4edb-86fb-9be280d9ea73",
+    "oracleId": "4001b868-ada1-43f4-92e2-27ab0e80c913",
+    "name": "Vesuva",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vesuva",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "You may have this land enter tapped as a copy of any land on the battlefield.",
+        "flavorText": "It is everywhere you've ever been.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "0726f70a-c1c4-4edb-86fb-9be280d9ea73"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "289",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRROR_IMAGE": {
+    "scryfallId": "0b225f4f-b2a1-4c8f-961f-e69e541426ed",
+    "oracleId": "7275fb8c-571a-4c4c-889a-829419332e51",
+    "name": "Mirror Image",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mirror Image",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "You may have this creature enter as a copy of a creature you control.",
+        "flavorText": "The life of a shapeshifter is one of constant change.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "0b225f4f-b2a1-4c8f-961f-e69e541426ed"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M19-61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

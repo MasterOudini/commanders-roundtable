@@ -202,6 +202,8 @@ export type Intent =
 
   // prompts
   | { readonly t: 'ChooseLegendKeep'; readonly player: PlayerId; readonly keep: InstanceId }
+  /** D486 - the clone's choice: one of the prompt's candidates, or `null` to enter as itself (the printed `You may`). */
+  | { readonly t: 'AnswerChooseCopy'; readonly player: PlayerId; readonly source: InstanceId; readonly card: InstanceId | null }
   | { readonly t: 'CommanderZoneChoice'; readonly player: PlayerId; readonly toCommandZone: boolean; readonly always: boolean }
   | { readonly t: 'OrderTriggers'; readonly player: PlayerId; readonly order: readonly string[] }
   /**

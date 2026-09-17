@@ -629,6 +629,9 @@ export function simplestAnswer(
         player: awaiting.player,
         keep: awaiting.candidates[0] ?? NO_SUCH_ID,
       };
+    // D486 - the clone copies the first candidate.
+    case 'chooseCopy':
+      return { t: 'AnswerChooseCopy', player: awaiting.player, source: awaiting.source, card: awaiting.candidates[0] ?? null };
     case 'commanderZoneChoice':
       return { t: 'CommanderZoneChoice', player: awaiting.player, toCommandZone: true, always: false };
     // ⚠️ `targets: []` used to be the answer here and stopped being legal the

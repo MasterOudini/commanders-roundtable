@@ -9,7 +9,7 @@ import { apply } from './reducer';
 import { redactBatch } from './redact';
 import { newGame, type SetupSpec } from './setup';
 import { Projector } from './project';
-import { collectTriggers, replacementOptions, runReplacementFunnel } from './triggers';
+import { askPromptFor, collectTriggers, runReplacementFunnel } from './triggers';
 import { toViewEvents } from './viewEvents';
 import type { EventBody, EventCause, GameEvent } from './types/events';
 import type { PlayerId } from './types/ids';
@@ -209,18 +209,10 @@ export class Game {
         : [
             ...funnel.settled,
             { t: 'ReplacementPending', pending: funnel.pending } as const,
+            // D486 - the clone's choice when the record carries one, the CR 616 order otherwise (one builder).
             {
               t: 'AwaitingSet',
-              awaiting: {
-                kind: 'chooseReplacement',
-                player: funnel.pending.player,
-                options: replacementOptions(
-                  this.state,
-                  this.deps.oracle,
-                  this.deps.scripts,
-                  funnel.pending,
-                ),
-              },
+              awaiting: askPromptFor(this.state, this.deps.oracle, this.deps.scripts, funnel.pending),
             } as const,
           ];
 

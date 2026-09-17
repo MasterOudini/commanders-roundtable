@@ -410,7 +410,7 @@ const COUNT = '(?:a|one|two|three|four|five|six|seven|\\d+)';
  */
 const COPY_SELF = `(?:${SELF}|this card|this Aura)`;
 const TYPE_WORDS: ReadonlyMap<string, string> = new Map([['artifact', 'Artifact'], ['creature', 'Creature'], ['enchantment', 'Enchantment'], ['land', 'Land'], ['planeswalker', 'Planeswalker'], ['battle', 'Battle']]);
-function parseCopyExceptions(text: string): CopyExceptions | null {
+export function parseCopyExceptions(text: string): CopyExceptions | null {
   let out: CopyExceptions = {};
   for (const piece0 of text.split(/,? and (?=it|the token|the copy|its)|, (?=it|the token|the copy|its)/i)) {
     const piece = piece0.trim();

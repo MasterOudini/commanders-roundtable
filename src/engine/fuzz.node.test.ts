@@ -417,6 +417,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // target creature you control`) - a copy made whenever the driver aims it at a creature it controls.
   { names: ['Cackling Counterpart'], copiesPerSeat: 2,
     counterKeys: ['tokenCopiesMade'], rotHistory: 'D485' },
+  // D486 - the clone (CR 707.9): a Clone a seat ({3}{U}; `You may have this creature enter as a copy of any creature on
+  // the battlefield`) - the funnel holds its move and asks; the driver copies a random creature three times in four.
+  { names: ['Clone'], copiesPerSeat: 1,
+    counterKeys: ['clonesEntered'], rotHistory: 'D486' },
   { names: ['Bastion Inventor'], copiesPerSeat: 1,
     counterKeys: ['improvisedCasts'], rotHistory: 'D405' },
   // D395 - the animate family: a colourless artifact every seat can animate for {2}, so a base P/T
@@ -1022,6 +1026,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       if (modes.length < awaiting.min && awaiting.forKind !== 'trigger') return { t: 'CancelPendingCast', player: awaiting.player };
       return { t: 'ChooseModes', player: awaiting.player, modes };
     }
+    // D486 - the clone's choice: a random candidate, or (one time in four) itself - both branches are fuel.
+    case 'chooseCopy': {
+      const pick = awaiting.candidates.length > 0 && p.below(4) !== 0 ? (awaiting.candidates[p.below(awaiting.candidates.length)] ?? null) : null;
+      return { t: 'AnswerChooseCopy', player: awaiting.player, source: awaiting.source, card: pick };
+    }
     default:
       return simplestAnswer(awaiting, state);
   }
@@ -1334,6 +1343,8 @@ interface Run {
   readonly continuationsRun: number;
   /** D485 - tokens created as COPIES of a permanent (`TokenCreated.copyOf`, CR 707). */
   readonly tokenCopiesMade: number;
+  /** D486 - permanents that entered AS A COPY of another (`CardMove.asCopyOf`, CR 707.9). */
+  readonly clonesEntered: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1777,6 +1788,7 @@ function runOne(seed: number): Run {
     continuationsCarried: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting !== null && 'continuation' in e.body.awaiting && e.body.awaiting.continuation !== undefined).length,
     continuationsRun: game.log.filter((e) => e.body.t === 'ContinuationResumed').length,
     tokenCopiesMade: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.copyOf !== undefined).length,
+    clonesEntered: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.asCopyOf !== undefined)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2052,6 +2064,7 @@ const TOTAL_KEYS = [
   'continuationsCarried',
   'continuationsRun',
   'tokenCopiesMade',
+  'clonesEntered',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2461,6 +2474,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.continuationsRun).toBeGreaterThan(0);
         // D485 - a token copy of a permanent at gate size (Cackling Counterpart, two a seat).
         expect(totals.tokenCopiesMade).toBeGreaterThan(0);
+        // D486 - a permanent entered as a copy of another at gate size (Clone a seat).
+        expect(totals.clonesEntered).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2570,6 +2585,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.memoTriggers} memo triggers · ` +
           `${totals.continuationsCarried}/${totals.continuationsRun} continuations carried/run · ` +
           `${totals.tokenCopiesMade} token copies · ` +
+          `${totals.clonesEntered} clones · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

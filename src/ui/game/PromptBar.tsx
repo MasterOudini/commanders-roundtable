@@ -109,6 +109,10 @@ function describe(
         return awaiting.player === viewer
           ? `Legend rule: keep one ${awaiting.name}.`
           : `${nameOf(seats, awaiting.player)} is choosing which ${awaiting.name} to keep.`;
+      case 'chooseCopy':
+        return awaiting.player === viewer
+          ? `${awaiting.label}: enter as a copy of ${awaiting.what}?`
+          : `${nameOf(seats, awaiting.player)} is choosing what ${awaiting.label} copies.`;
       case 'commanderZoneChoice':
         return awaiting.player === viewer
           ? 'Your commander changed zones — put it in the command zone?'
@@ -987,6 +991,32 @@ export function PromptBar() {
               No blocks
             </button>
           </>
+        )}
+
+        {mine('chooseCopy') && awaiting?.kind === 'chooseCopy' && (
+          <div className="flex gap-1">
+            {awaiting.candidates.map((id, i) => (
+              <button
+                key={id}
+                type="button"
+                className={BTN_SMALL}
+                data-action="copy-candidate"
+                onClick={() => send({ t: 'AnswerChooseCopy', player: viewer, source: awaiting.source, card: id })}
+              >
+                Copy #{i + 1}
+              </button>
+            ))}
+            {awaiting.optional && (
+              <button
+                type="button"
+                className={BTN_SMALL}
+                data-action="copy-none"
+                onClick={() => send({ t: 'AnswerChooseCopy', player: viewer, source: awaiting.source, card: null })}
+              >
+                Enter as itself
+              </button>
+            )}
+          </div>
         )}
 
         {mine('chooseLegendKeep') && awaiting?.kind === 'chooseLegendKeep' && (

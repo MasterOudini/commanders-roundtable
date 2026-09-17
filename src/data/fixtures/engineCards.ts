@@ -8226,6 +8226,10 @@ export const GIANT_ADEPHAGE: CardData = F.GIANT_ADEPHAGE as CardData;
 export const SPROUTING_PHYTOHYDRA: CardData = F.SPROUTING_PHYTOHYDRA as CardData;
 export const MYR_PROPAGATOR: CardData = F.MYR_PROPAGATOR as CardData;
 export const ELVISH_HYDROMANCER: CardData = F.ELVISH_HYDROMANCER as CardData;
+export const CLONE: CardData = F.CLONE as CardData;
+export const PHYREXIAN_METAMORPH: CardData = F.PHYREXIAN_METAMORPH as CardData;
+export const VESUVA: CardData = F.VESUVA as CardData;
+export const MIRROR_IMAGE: CardData = F.MIRROR_IMAGE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16669,6 +16673,10 @@ export const ENGINE_CARDS: CardData[] = [
   SPROUTING_PHYTOHYDRA,
   MYR_PROPAGATOR,
   ELVISH_HYDROMANCER,
+  CLONE,
+  PHYREXIAN_METAMORPH,
+  VESUVA,
+  MIRROR_IMAGE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

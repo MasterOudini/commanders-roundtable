@@ -135,10 +135,12 @@ const PRODUCED = [...new Set(SITES.map((s) => s.kind))].sort();
 const NO_PRODUCER = ['orderAttackers', 'orderBlockers'] as const;
 
 describe('Awaiting — which prompts the engine can raise', () => {
-  test('the union is the twenty-four kinds this test knows about', () => {
+  test('the union is the twenty-five kinds this test knows about', () => {
     expect([...KINDS].sort()).toEqual(
       [
         'chooseColor',
+        // D486 - the clone's choice, raised by the replacement funnel as the permanent enters.
+        'chooseCopy',
         'chooseCreatureType',
         'chooseReplacement',
         'chooseFromZone',
@@ -166,10 +168,11 @@ describe('Awaiting — which prompts the engine can raise', () => {
     );
   });
 
-  test('twenty-two of the twenty-four have a producer, and the sites are real', () => {
+  test('twenty-three of the twenty-five have a producer, and the sites are real', () => {
     expect(PRODUCED).toEqual(
       [
         'chooseColor',
+        'chooseCopy',
         'chooseCreatureType',
         'chooseReplacement',
         'chooseFromZone',
