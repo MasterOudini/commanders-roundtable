@@ -9316,6 +9316,20 @@ const WANTED = [
   'Baleful Beholder',
   'Kykar, Zephyr Awakener',
   // D498 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D499 - the blocks-by predicates: the rows behind a negated colour or subtype, a subtype, a power bound; the flavour-named modes.
+  'Abomination',
+  'Arrogant Bloodlord',
+  'Deathgazer',
+  'Dread Specter',
+  'Dwarven Soldier',
+  'Rock Basilisk',
+  'Thicket Basilisk',
+  'Infernal Medusa',
+  'Inspiring Bard',
+  'Plundering Barbarian',
+  // D499 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Axebane Stag',
+  'Orcish Captain',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

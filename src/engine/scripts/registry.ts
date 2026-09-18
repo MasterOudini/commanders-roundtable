@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABOMINATION_SCRIPT } from './cards/abomination';
+import { ARROGANT_BLOODLORD_SCRIPT } from './cards/arrogantBloodlord';
+import { DEATHGAZER_SCRIPT } from './cards/deathgazer';
+import { DREAD_SPECTER_SCRIPT } from './cards/dreadSpecter';
+import { DWARVEN_SOLDIER_SCRIPT } from './cards/dwarvenSoldier';
+import { ROCK_BASILISK_SCRIPT } from './cards/rockBasilisk';
+import { THICKET_BASILISK_SCRIPT } from './cards/thicketBasilisk';
+import { INFERNAL_MEDUSA_SCRIPT } from './cards/infernalMedusa';
+import { INSPIRING_BARD_SCRIPT } from './cards/inspiringBard';
+import { PLUNDERING_BARBARIAN_SCRIPT } from './cards/plunderingBarbarian';
 import { CLERIC_OF_CHILL_DEPTHS_SCRIPT } from './cards/clericOfChillDepths';
 import { KNIGHT_OF_OLD_BENALIA_SCRIPT } from './cards/knightOfOldBenalia';
 import { LABYRINTH_MINOTAUR_SCRIPT } from './cards/labyrinthMinotaur';
@@ -7719,6 +7729,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABOMINATION_SCRIPT,
+  ARROGANT_BLOODLORD_SCRIPT,
+  DEATHGAZER_SCRIPT,
+  DREAD_SPECTER_SCRIPT,
+  DWARVEN_SOLDIER_SCRIPT,
+  ROCK_BASILISK_SCRIPT,
+  THICKET_BASILISK_SCRIPT,
+  INFERNAL_MEDUSA_SCRIPT,
+  INSPIRING_BARD_SCRIPT,
+  PLUNDERING_BARBARIAN_SCRIPT,
   CLERIC_OF_CHILL_DEPTHS_SCRIPT,
   KNIGHT_OF_OLD_BENALIA_SCRIPT,
   LABYRINTH_MINOTAUR_SCRIPT,

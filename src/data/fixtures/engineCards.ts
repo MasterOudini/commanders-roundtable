@@ -8418,6 +8418,18 @@ export const SIEGE_GANG_LIEUTENANT: CardData = F.SIEGE_GANG_LIEUTENANT as CardDa
 export const SURRAK_AND_GORECLAW: CardData = F.SURRAK_AND_GORECLAW as CardData;
 export const BALEFUL_BEHOLDER: CardData = F.BALEFUL_BEHOLDER as CardData;
 export const KYKAR_ZEPHYR_AWAKENER: CardData = F.KYKAR_ZEPHYR_AWAKENER as CardData;
+export const ABOMINATION: CardData = F.ABOMINATION as CardData;
+export const ARROGANT_BLOODLORD: CardData = F.ARROGANT_BLOODLORD as CardData;
+export const DEATHGAZER: CardData = F.DEATHGAZER as CardData;
+export const DREAD_SPECTER: CardData = F.DREAD_SPECTER as CardData;
+export const DWARVEN_SOLDIER: CardData = F.DWARVEN_SOLDIER as CardData;
+export const ROCK_BASILISK: CardData = F.ROCK_BASILISK as CardData;
+export const THICKET_BASILISK: CardData = F.THICKET_BASILISK as CardData;
+export const INFERNAL_MEDUSA: CardData = F.INFERNAL_MEDUSA as CardData;
+export const INSPIRING_BARD: CardData = F.INSPIRING_BARD as CardData;
+export const PLUNDERING_BARBARIAN: CardData = F.PLUNDERING_BARBARIAN as CardData;
+export const AXEBANE_STAG: CardData = F.AXEBANE_STAG as CardData;
+export const ORCISH_CAPTAIN: CardData = F.ORCISH_CAPTAIN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17057,6 +17069,18 @@ export const ENGINE_CARDS: CardData[] = [
   SURRAK_AND_GORECLAW,
   BALEFUL_BEHOLDER,
   KYKAR_ZEPHYR_AWAKENER,
+  ABOMINATION,
+  ARROGANT_BLOODLORD,
+  DEATHGAZER,
+  DREAD_SPECTER,
+  DWARVEN_SOLDIER,
+  ROCK_BASILISK,
+  THICKET_BASILISK,
+  INFERNAL_MEDUSA,
+  INSPIRING_BARD,
+  PLUNDERING_BARBARIAN,
+  AXEBANE_STAG,
+  ORCISH_CAPTAIN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

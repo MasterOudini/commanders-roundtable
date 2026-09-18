@@ -284707,6 +284707,406 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ABOMINATION": {
+    "scryfallId": "4fe42ef8-2126-4453-8509-563abcf9890d",
+    "oracleId": "2c57c4e9-0a46-45d6-92db-9203fb722b60",
+    "name": "Abomination",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abomination",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a green or white creature, destroy that creature at end of combat.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "4fe42ef8-2126-4453-8509-563abcf9890d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ren",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARROGANT_BLOODLORD": {
+    "scryfallId": "5ed08a7f-6682-46a4-89df-b9b418df3f1a",
+    "oracleId": "a35e1882-b878-49cf-a06c-be12a06d4977",
+    "name": "Arrogant Bloodlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arrogant Bloodlord",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature with power 1 or less, destroy this creature at end of combat.",
+        "flavorText": "\"I would rather take my own head than be thwarted by a presumptuous wretch with a shield and a dream.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "5ed08a7f-6682-46a4-89df-b9b418df3f1a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "roe",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHGAZER": {
+    "scryfallId": "1dcc58fb-0c13-449c-b3ae-d4e009ea11e4",
+    "oracleId": "0f772f35-6d98-4ac8-88e5-02539737078b",
+    "name": "Deathgazer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathgazer",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a nonblack creature, destroy that creature at end of combat.",
+        "flavorText": "Your entire life passes before its eyes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "1dcc58fb-0c13-449c-b3ae-d4e009ea11e4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "8ed",
+    "collectorNumber": "126★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAD_SPECTER": {
+    "scryfallId": "00c48e08-9a77-4ba2-8041-90998f7e3812",
+    "oracleId": "da21c21c-88d8-4a93-b2b4-6d7bb28959c9",
+    "name": "Dread Specter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dread Specter",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Specter",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a nonblack creature, destroy that creature at end of combat.",
+        "flavorText": "Whatever follows life is incurable.\n—Zhalfirin aphorism",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kathryn Rathke",
+        "imageId": "00c48e08-9a77-4ba2-8041-90998f7e3812"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_SOLDIER": {
+    "scryfallId": "0dfb3fa6-f4d7-4ed0-b2be-661d59d95800",
+    "oracleId": "88f9075c-ea96-4f8d-b0d1-e5e244e824c1",
+    "name": "Dwarven Soldier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Soldier",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "Whenever this creature blocks or becomes blocked by one or more Orcs, this creature gets +0/+2 until end of turn.",
+        "flavorText": "\"Let no one say we did not fight until the last . . . .\"\n—Headstone fragment from a mass grave found in the Crimson Peaks",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "0dfb3fa6-f4d7-4ed0-b2be-661d59d95800"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "me1",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROCK_BASILISK": {
+    "scryfallId": "79949237-dcce-4ac1-bdc6-7c6d8b5f5fde",
+    "oracleId": "6e7bb687-8243-4377-80b5-67ce6b65f9b7",
+    "name": "Rock Basilisk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rock Basilisk",
+        "manaCost": "{4}{R}{G}",
+        "typeLine": "Creature — Basilisk",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a non-Wall creature, destroy that creature at end of combat.",
+        "flavorText": "In the eastern reaches of Jamuraa are arrangements of massive stones. No one knows their origins—for certain.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Ian Miller",
+        "imageId": "79949237-dcce-4ac1-bdc6-7c6d8b5f5fde"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THICKET_BASILISK": {
+    "scryfallId": "01cd8fe8-c4af-4409-ad07-db95f3c28b4d",
+    "oracleId": "c4822813-cd81-465d-9fe8-3a4c2dcd31ef",
+    "name": "Thicket Basilisk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thicket Basilisk",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Basilisk",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a non-Wall creature, destroy that creature at end of combat.",
+        "flavorText": "Moss-covered statues littered the area, a macabre monument to the Basilisk's power.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "01cd8fe8-c4af-4409-ad07-db95f3c28b4d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ced",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INFERNAL_MEDUSA": {
+    "scryfallId": "26a5333f-2761-42b8-ae8b-1d360b109daf",
+    "oracleId": "2cf5ce1f-d5f6-44cd-96e5-87d990d7e770",
+    "name": "Infernal Medusa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Infernal Medusa",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Gorgon",
+        "oracleText": "Whenever this creature blocks a creature, destroy that creature at end of combat.\nWhenever this creature becomes blocked by a non-Wall creature, destroy that creature at end of combat.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anson Maddocks",
+        "imageId": "26a5333f-2761-42b8-ae8b-1d360b109daf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "leg",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSPIRING_BARD": {
+    "scryfallId": "0b33db66-d205-4164-b168-6084df562ebb",
+    "oracleId": "88443470-f696-4f9b-b34d-50be8f1d4bc2",
+    "name": "Inspiring Bard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inspiring Bard",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Bard",
+        "oracleText": "When this creature enters, choose one —\n• Bardic Inspiration — Target creature gets +2/+2 until end of turn.\n• Song of Rest — You gain 3 life.",
+        "flavorText": "\"Wake up, my friends! There are deeds to be done and treasures to be won!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Eelis Kyttanen",
+        "imageId": "0b33db66-d205-4164-b168-6084df562ebb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLUNDERING_BARBARIAN": {
+    "scryfallId": "d875881c-c285-47f1-8a37-e4a0239d47ec",
+    "oracleId": "da2d27f7-cced-4118-bddc-41712e37e916",
+    "name": "Plundering Barbarian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plundering Barbarian",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dwarf Barbarian",
+        "oracleText": "When this creature enters, choose one —\n• Smash the Chest — Destroy target artifact.\n• Pry It Open — Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "d875881c-c285-47f1-8a37-e4a0239d47ec"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "afr",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AXEBANE_STAG": {
+    "scryfallId": "bfce7c02-ccc3-44cd-8087-627eaa6a072e",
+    "oracleId": "a45d7135-c042-40d9-818c-74fa1c7af8ad",
+    "name": "Axebane Stag",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Axebane Stag",
+        "manaCost": "{6}{G}",
+        "typeLine": "Creature — Elk",
+        "oracleText": "",
+        "flavorText": "\"When the spires have burned and the cobblestones are dust, he will take his rightful place as king of the wilds.\"\n—Kirce, Axebane guardian",
+        "power": "6",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "bfce7c02-ccc3-44cd-8087-627eaa6a072e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCISH_CAPTAIN": {
+    "scryfallId": "95f3eb71-f158-44d8-ae22-bdef48e2f13b",
+    "oracleId": "76c06de7-39ff-4b80-8e54-20910372cffd",
+    "name": "Orcish Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orcish Captain",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "{1}: Flip a coin. If you win the flip, target Orc creature gets +2/+0 until end of turn. If you lose the flip, it gets -0/-2 until end of turn.",
+        "flavorText": "There's a chance to win every battle.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "95f3eb71-f158-44d8-ae22-bdef48e2f13b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "me2",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
