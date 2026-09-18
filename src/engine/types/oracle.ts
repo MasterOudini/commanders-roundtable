@@ -610,6 +610,20 @@ export type EffectKind =
   | 'castFromHand'
   /** D489 - the suspend tick (CR 702.62c/d): a time counter off the exiled card; with the last gone, the free cast. */
   | 'suspendTick'
+  /**
+   * D494 - THE PREVIOUS CLAUSE'S OBJECTS: a sentence about `it` / `that token` / `those cards` / `them` whose
+   * referent is what the clause before it produced (its targets, the tokens it created, the permanents it put onto
+   * the battlefield), resolved at execution. `grantObj` - `It gains haste (until end of turn).` (indefinite without
+   * the duration: `CardInstance.gained`, CR 611.2c); the rest are DELAYED (`... at the beginning of the next end
+   * step`): `sacrificeObj`, `exileObj`, `destroyObj`, `returnObj` (to the battlefield under its owner's control),
+   * `bounceObj` (to its owner's hand). Aimless at parse (`ofPrevious`); the delayed ones fire over the bound aims.
+   */
+  | 'grantObj'
+  | 'sacrificeObj'
+  | 'exileObj'
+  | 'destroyObj'
+  | 'returnObj'
+  | 'bounceObj'
   | 'bounce'
   | 'pump'
   /**
@@ -1221,6 +1235,15 @@ export interface EffectSpec {
    * other clause.
    */
   readonly referent?: true;
+  /**
+   * D494 - the clause is ABOUT THE PREVIOUS CLAUSE'S OBJECTS (`It gains haste.`, `Sacrifice it at the beginning of
+   * the next end step.`): aimless at parse, its aims are what the clause before it produced, read off the events it
+   * emitted (its targets, the tokens it created, the permanents it put onto the battlefield) as it runs. Absent on
+   * every other effect.
+   */
+  readonly ofPrevious?: true;
+  /** D494 - `grantObj` only: the keywords last while the object stays (no `until end of turn` printed). */
+  readonly indefinite?: true;
   /**
    * D396 - the clause's OTHER target (a bite's or a fight's object), a second index the clause
    * consumes in printed order after its subject. Absent on every one-operand clause.

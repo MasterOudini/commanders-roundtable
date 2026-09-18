@@ -2157,6 +2157,52 @@ function phraseOf(text: string): string | null {
   return PHRASE_SELF.test(text) ? '~' : null;
 }
 
+/**
+ * D494 - THE PREVIOUS CLAUSE'S OBJECTS. `It gains haste.` / `That token gains haste until end of turn.` / `They gain
+ * haste.` after a clause that CREATED a token, RETURNED a card to the battlefield or aimed at a permanent; `Sacrifice it
+ * / Exile it / Destroy it / Return that card to the battlefield under its owner's control / Return it to its owner's
+ * hand at the beginning of the next end step` (either order) after such a clause. The referent is not a printed target
+ * phrase D392 could substitute (a token has none; `that card` is not a permanent word) - it is WHAT THE CLAUSE BEFORE
+ * PRODUCED, which only the executor knows: the spec is aimless (`ofPrevious`) and the executor binds its aims to the
+ * previous clause's targets, the tokens it created and the permanents it put onto the battlefield, read off the
+ * events it emitted. A grant with no duration lasts while the object stays (`indefinite`, CR 611.2c). The delayed
+ * forms are armed with the bound aims and fire over them (`DelayedTrigger.aims`).
+ */
+const OBJ_REF = "(?:it|they|them|that (?:card|creature|permanent|token|artifact|enchantment|land)|those (?:cards|creatures|permanents|tokens))";
+const OBJ_WHEN = "(?<when>the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)";
+const OBJ_GRANT = new RegExp(`^(?:then )?${OBJ_REF} gains? (${KW})(?:, (${KW}))?(?:,? and (${KW}))?(?<eot> until end of turn)?\\.$`, 'i');
+const OBJ_DEST = "(?<dest> to the battlefield under (?:its|their) owner(?:'|’)s control| to (?:its|their) owner(?:'|’)s hands?)?";
+const OBJ_DELAY_TAIL = new RegExp(`^(?:then )?(?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST} at the beginning of ${OBJ_WHEN}\\.$`, 'i');
+const OBJ_DELAY_HEAD = new RegExp(`^at the beginning of ${OBJ_WHEN}, (?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST}\\.$`, 'i');
+const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate', 'returnFromGraveyard', 'control', 'exile', 'destroy', 'bounce', 'tap', 'untap', 'pump', 'putCounters', 'populate']);
+function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
+  const prev = previous?.spec;
+  if (!prev) return null;
+  // The clause before must PRODUCE objects: a target of its own, a token, a returned card, or the objects of the
+  // clause before it (a chain: `It gains haste. Sacrifice it at the beginning of the next end step.`).
+  if (!(prev.ofPrevious === true || prev.targetIndex !== -1 || OBJ_MAKERS.has(prev.kind))) return null;
+  if (prev.kind === 'search' || prev.kind === 'lookAtTop') return null;
+  const g = OBJ_GRANT.exec(sentence);
+  if (g) {
+    const kws = grantedKeywords(g[1], g[2], g[3]);
+    if (kws === null) return null;
+    return { ...BASE, kind: 'grantObj', text: sentence, targetIndex: -1, keywords: kws, ofPrevious: true, ...(g.groups?.['eot'] === undefined ? { indefinite: true as const } : {}) };
+  }
+  const d = OBJ_DELAY_TAIL.exec(sentence) ?? OBJ_DELAY_HEAD.exec(sentence);
+  if (!d) return null;
+  const verb = (d.groups?.['verb'] ?? '').toLowerCase();
+  const dest = (d.groups?.['dest'] ?? '').toLowerCase();
+  const kind: EffectKind | null =
+    verb === 'sacrifice' ? 'sacrificeObj'
+    : verb === 'exile' ? 'exileObj'
+    : verb === 'destroy' ? 'destroyObj'
+    : verb === 'return' && dest.includes('battlefield') ? 'returnObj'
+    : verb === 'return' && dest.includes('hand') ? 'bounceObj'
+    : null;
+  if (kind === null || (verb !== 'return' && dest !== '')) return null;
+  return { ...BASE, kind, text: sentence, targetIndex: -1, ofPrevious: true, delay: delayWhen(d.groups?.['when'] ?? '') };
+}
+
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
   if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
@@ -2254,8 +2300,12 @@ function clausesOf(text: string): Clause[] {
     }
     // D392 - a sentence no rule reads on its own may be about the clause before it.
     const previous = out[out.length - 1];
-    const referred = spec === null ? referentRewrite(raw[i] ?? '', previous) : null;
+    let referred = spec === null ? referentRewrite(raw[i] ?? '', previous) : null;
     if (referred) spec = referred;
+    // D494 - a sentence about THE PREVIOUS CLAUSE'S OBJECTS (`It gains haste.`, `Sacrifice it at the beginning of the
+    // next end step.`): the token it created, the card it returned, the permanent it exiled - bound as it runs.
+    const objects = spec === null ? objectsRewrite(raw[i] ?? '', previous) : null;
+    if (objects) { spec = objects; referred = objects; }
     // D423 - a kicked `instead` clause is read against the clause before it too.
     const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
     if (insteadK) spec = insteadK;

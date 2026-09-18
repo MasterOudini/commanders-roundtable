@@ -309,6 +309,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     exhausted: undefined,
     // D489 - the suspend haste lasts while the permanent stays.
     suspendHaste: undefined,
+    // D494 - a new object gained nothing (CR 611.2c ends with the object).
+    gained: undefined,
     // D453 - a new object is held by no Aura.
     controlledVia: undefined,
     // D411 - a new object owes no untap step.
@@ -1319,6 +1321,15 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return { ...state, playPermissions: [...state.playPermissions.filter((p) => p.card !== body.permission.card), body.permission] };
     case 'PlayPermissionsExpired':
       return { ...state, playPermissions: state.playPermissions.filter((p) => !body.cards.includes(p.card)) };
+    // D494 - keywords gained for as long as the permanent stays (CR 611.2c): on the instance, cleared as it leaves.
+    case 'KeywordsGained': {
+      const inst = state.cards[body.card];
+      if (!inst) return state;
+      const have = inst.gained ?? [];
+      const gained = [...have, ...body.keywords.filter((k) => !have.includes(k))];
+      return { ...state, cards: { ...state.cards, [body.card]: { ...inst, gained } } };
+    }
+
     case 'PtModifiedUntilEndOfTurn':
       return {
         ...state,

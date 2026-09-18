@@ -147,6 +147,8 @@ function computeDerived(
     if (mod.card !== inst.id || mod.keywords === undefined) continue;
     for (const k of mod.keywords) chars.keywords.add(k);
   }
+  // D494 - CR 611.2c: keywords gained for as long as the object stays (`It gains haste.`), at the same layer.
+  for (const k of inst.gained ?? []) chars.keywords.add(k);
   // D471 - CR 122.1c: a keyword counter gives the object that keyword. The counter kind is the printed word
   // (`first strike`), the keyword the engine's id; a kind outside the enforced list is inert, as before.
   for (const [kind, n] of Object.entries(inst.counters)) {

@@ -281030,6 +281030,285 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TURN_TO_MIST": {
+    "scryfallId": "160d3bf1-5f8b-431c-bb4e-a6874c69817a",
+    "oracleId": "631f04d6-5693-4414-a378-fd839c3b6f6d",
+    "name": "Turn to Mist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Turn to Mist",
+        "manaCost": "{1}{W/U}",
+        "typeLine": "Instant",
+        "oracleText": "Exile target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": "\"Did you expect me to dodge? How quaint.\"\n—Olka, mistmeadow witch",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "160d3bf1-5f8b-431c-bb4e-a6874c69817a"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "uma",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOIDWALK": {
+    "scryfallId": "611d0e10-e767-4e66-b1f1-02f1624fab2b",
+    "oracleId": "6706ebe4-4f96-4788-a934-f9b9aac5746f",
+    "name": "Voidwalk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Voidwalk",
+        "manaCost": "{3}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Exile target creature. Return it to the battlefield under its owner's control at the beginning of the next end step.\nCipher (Then you may exile this spell card encoded on a creature you control. Whenever that creature deals combat damage to a player, its controller may cast a copy of the encoded card without paying its mana cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "James Ryman",
+        "imageId": "611d0e10-e767-4e66-b1f1-02f1624fab2b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cipher"
+    ],
+    "setCode": "gtc",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCE_OF_RAGE": {
+    "scryfallId": "0aaa2d10-3725-4b3a-94fe-3c6648db9a2a",
+    "oracleId": "c019ed4d-33a3-48be-a38e-93e5d6161b1f",
+    "name": "Force of Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Force of Rage",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "If it's not your turn, you may exile a red card from your hand rather than pay this spell's mana cost.\nCreate two 3/1 red Elemental creature tokens with trample and haste. Sacrifice those tokens at the beginning of your next upkeep.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "0aaa2d10-3725-4b3a-94fe-3c6648db9a2a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVE_UPHEAVAL": {
+    "scryfallId": "32b25bb5-723d-4af0-8661-60178f00f92b",
+    "oracleId": "e5b43523-809a-4baf-b76d-9f59b82846b6",
+    "name": "Grave Upheaval",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grave Upheaval",
+        "manaCost": "{4}{B}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put target creature card from a graveyard onto the battlefield under your control. It gains haste.\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "32b25bb5-723d-4af0-8661-60178f00f92b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landcycling",
+      "Basic landcycling",
+      "Typecycling",
+      "Cycling"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLAVE_OF_BOLAS": {
+    "scryfallId": "28ea501c-019c-4762-9f03-f389fc9633da",
+    "oracleId": "07190a8b-2a59-45b3-9fbf-505161698a9c",
+    "name": "Slave of Bolas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slave of Bolas",
+        "manaCost": "{3}{U/R}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Gain control of target creature. Untap that creature. It gains haste until end of turn. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "Nicol Bolas doesn't distinguish between servants and victims.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "U"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "28ea501c-019c-4762-9f03-f389fc9633da"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "36180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOOD_FRENZY": {
+    "scryfallId": "06f39d83-e1ea-45c9-8181-2a2b6e5148da",
+    "oracleId": "8d3d5e87-8b12-4549-a46e-70a103dbcf44",
+    "name": "Blood Frenzy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blood Frenzy",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Cast this spell only before the combat damage step.\nTarget attacking or blocking creature gets +4/+0 until end of turn. Destroy that creature at the beginning of the next end step.",
+        "flavorText": "\"When Torahn bellows, none survive—not even the warrior whose horns he rides.\"\n—Talruum adage",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "06f39d83-e1ea-45c9-8181-2a2b6e5148da"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOLTEN_DUPLICATION": {
+    "scryfallId": "1083552e-8002-486d-b23c-93f2c317a6f9",
+    "oracleId": "92b91910-9b65-4421-8eef-a33793161089",
+    "name": "Molten Duplication",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Molten Duplication",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a token that's a copy of target artifact or creature you control, except it's an artifact in addition to its other types. It gains haste until end of turn. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "No one had seen this side of Angeline before, not even her.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "1083552e-8002-486d-b23c-93f2c317a6f9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pbig",
+    "collectorNumber": "14p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FERAL_LIGHTNING": {
+    "scryfallId": "2391265f-ef0c-463f-9371-5a0b71dbbb49",
+    "oracleId": "acd17fbf-645b-4c4d-b2c6-44127e3b743d",
+    "name": "Feral Lightning",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Feral Lightning",
+        "manaCost": "{3}{R}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create three 3/1 red Elemental creature tokens with haste. Exile them at the beginning of the next end step.",
+        "flavorText": "They moved like apes, but a thousand times swifter, prying into every corner, leaving pawprints of ash.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chippy",
+        "imageId": "2391265f-ef0c-463f-9371-5a0b71dbbb49"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "sok",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -288726,6 +289005,110 @@
     "keywords": [],
     "setCode": "thou",
     "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOBLIN_1_1_R_CREATURE_TOKEN": {
+    "scryfallId": "062043de-a199-408d-8d77-09531ad38b16",
+    "oracleId": "4465eff4-5851-4721-a248-866c686c2ab8",
+    "name": "Goblin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Goblin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Goblin",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "062043de-a199-408d-8d77-09531ad38b16"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "l12",
+    "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN": {
+    "scryfallId": "10cb10f5-e22a-4ccd-a1b0-c6f245b15f64",
+    "oracleId": "e2931f20-e58a-480d-bc07-4a18030a4f67",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "Trample, haste",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "10cb10f5-e22a-4ccd-a1b0-c6f245b15f64"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "tbfz",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN": {
+    "scryfallId": "e4a9051b-f964-43f9-877b-ea4f17620ecb",
+    "oracleId": "00b266f8-10db-4778-b865-4189b1ab4d30",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "Haste",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Matson",
+        "imageId": "e4a9051b-f964-43f9-877b-ea4f17620ecb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "tcmm",
+    "collectorNumber": "25",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

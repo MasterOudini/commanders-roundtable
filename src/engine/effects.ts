@@ -176,6 +176,12 @@ export function effectResult(
       steps.push({ effect, aim, missing: aim === null });
       continue;
     }
+    // D494 - a clause about THE PREVIOUS CLAUSE'S OBJECTS is planned aimless: its aims are read off what the clause
+    // before it emitted, as it runs (below).
+    if (effect.ofPrevious === true) {
+      steps.push({ effect, aim: null, missing: false });
+      continue;
+    }
     if (effect.self) {
       if (SELF_AIMED.has(effect.kind)) {
         // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),
@@ -200,12 +206,52 @@ export function effectResult(
     for (const aim of aims) steps.push({ effect, aim, missing: false });
   }
 
-  for (const step of steps) {
+  // D494 - what each clause PRODUCED, for a clause about the previous one's objects: the clause's card aims, and the
+  // tokens created and the permanents put onto the battlefield among the events it emitted (`start` to `end`).
+  const produced = new Map<number, { start: number; end: number; aims: InstanceId[]; objects?: readonly InstanceId[] }>();
+  const unbound = (e: EffectSpec): EffectSpec => { const rest: Record<string, unknown> = { ...e }; delete rest['ofPrevious']; return rest as unknown as EffectSpec; };
+  const objectsOf = (at: number): readonly InstanceId[] => {
+    const rec = produced.get(at);
+    if (!rec) return [];
+    if (rec.objects !== undefined) return rec.objects;
+    const seen = new Set<InstanceId>(rec.aims);
+    for (const ev of out.slice(rec.start, rec.end)) {
+      if (ev.t === 'TokenCreated') seen.add(ev.card);
+      if (ev.t === 'CardsMoved') for (const m of ev.moves) if (m.to.kind === 'battlefield') seen.add(m.card);
+    }
+    return [...seen];
+  };
+  for (let si = 0; si < steps.length; si++) {
+    const step = steps[si] as (typeof steps)[number];
     const { aim, missing } = step;
     // D484 - the events this step adds; a question among them stops the loop below.
     const before = out.length;
     // D418 - `let`: a counted clause is rescaled below before its kind is switched on.
     let effect = step.effect;
+    const at = effects.indexOf(step.effect);
+    // D494 - THE PREVIOUS CLAUSE'S OBJECTS, bound now: an immediate clause (a grant) runs once per object, spliced in
+    // as ordinary aimed steps; a delayed one is armed with the objects as its aims (below).
+    if (effect.ofPrevious === true) {
+      const objects = objectsOf(at - 1);
+      produced.set(at, { start: before, end: before, aims: [], objects });
+      if (objects.length === 0) {
+        out.push(narrated(`${obj.label} — nothing for “${effect.text}” to act on.`, obj.controller, obj.identity));
+        continue;
+      }
+      if (!effect.delay) {
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const spliced = objects
+          .map((id) => aimOf(now, { kind: 'card', id }))
+          .filter((a): a is Aim => a !== null)
+          .map((a) => ({ effect: unbound(effect), aim: a, missing: false }));
+        steps.splice(si + 1, 0, ...spliced);
+        continue;
+      }
+    }
+    if (at >= 0 && !produced.has(at)) produced.set(at, { start: before, end: before, aims: [] });
+    const rec = at >= 0 ? produced.get(at) : undefined;
+    if (rec && aim?.kind === 'card' && !rec.aims.includes(aim.id)) rec.aims.push(aim.id);
     /**
      * ⚠️ **A SKIPPED CLAUSE SAYS SO.** CR 608.2b is right that the spell still
      * resolves when only SOME of its targets are gone — only an all-illegal
@@ -258,6 +304,9 @@ export function effectResult(
     // carries the same spec with the delay cleared, the resolving object's id and this clause's
     // position for a replay-stable id, and the turn and step it was armed in.
     if (effect.delay) {
+      // D494 - a delayed clause about the previous clause's objects is armed WITH them: the fire runs it over those
+      // aims (`DelayedTrigger.aims`), the spec aimed at its first clause and no longer about a previous one.
+      const bound = effect.ofPrevious === true ? objectsOf(at) : undefined;
       const trigger: DelayedTrigger = {
         id: `${obj.id}-d${effects.indexOf(effect)}`,
         controller,
@@ -265,11 +314,13 @@ export function effectResult(
         when: effect.delay,
         armedTurn: state.turn.turnNumber,
         armedStep: state.turn.step,
-        effects: [{ ...effect, delay: null }],
+        effects: [bound !== undefined ? { ...unbound(effect), delay: null, targetIndex: 0 } : { ...effect, delay: null }],
         label: `${obj.label} — ${effect.text}`,
+        ...(bound !== undefined ? { aims: bound } : {}),
       };
       out.push({ t: 'DelayedTriggerArmed', trigger });
       out.push(narrated(`${obj.label} — “${effect.text}” will happen ${delayLabel(effect.delay)}.`, obj.controller, obj.identity));
+      if (rec) rec.end = out.length;
       continue;
     }
     switch (effect.kind) {
@@ -353,8 +404,10 @@ export function effectResult(
         break;
       }
 
-      case 'destroy': {
+      case 'destroy':
+      case 'destroyObj': {
         if (aim?.kind !== 'card') break;
+        if (effect.kind === 'destroyObj' && state.cards[aim.id]?.zone.kind !== 'battlefield') break;
         // ⚠️ Indestructible is a Tier-2 keyword the engine already knows, and
         // "destroy" is precisely the word it answers. Skipping the check would
         // make the app wrong about a keyword it advertises.
@@ -415,6 +468,38 @@ export function effectResult(
       case 'bounce': {
         if (aim?.kind !== 'card') break;
         out.push(moveTo(aim.id, 'hand', aim.owner));
+        break;
+      }
+
+      // D494 - THE PREVIOUS CLAUSE'S OBJECTS, acted on: the grant (until end of turn, or while the object stays), and
+      // the delayed sacrifice / exile / bounce / return of what a clause created, returned or aimed at. Each runs over
+      // one bound aim; an object that has left the zone the verb needs does nothing (it is a different object, or gone).
+      case 'grantObj': {
+        if (aim?.kind !== 'card' || effect.keywords.length === 0) break;
+        if (effect.indefinite === true) out.push({ t: 'KeywordsGained', card: aim.id, keywords: effect.keywords });
+        else out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, keywords: effect.keywords });
+        break;
+      }
+      case 'sacrificeObj': {
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push(moveTo(aim.id, 'graveyard', aim.owner, 'sacrifice'));
+        break;
+      }
+      case 'exileObj': {
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push(moveTo(aim.id, 'exile', aim.owner));
+        break;
+      }
+      case 'bounceObj': {
+        if (aim?.kind !== 'card' || state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push(moveTo(aim.id, 'hand', aim.owner));
+        break;
+      }
+      case 'returnObj': {
+        if (aim?.kind !== 'card') break;
+        const inst = state.cards[aim.id];
+        if (!inst || (inst.zone.kind !== 'exile' && inst.zone.kind !== 'graveyard')) break;
+        out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: inst.zone.kind, player: inst.zone.player }, to: { kind: 'battlefield', player: inst.owner } }] });
         break;
       }
 
@@ -1704,9 +1789,9 @@ export function effectResult(
      * a second asking clause is simply the first of the continuation. A counted asking clause asks for its first
      * pick only (no vocabulary rule prints one).
      */
+    if (rec) rec.end = out.length;
     const asked = out.slice(before).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
     if (asked < 0) continue;
-    const at = effects.indexOf(step.effect);
     const rest = effects.slice(at + 1);
     const carried = rest.length > 0 ? continuationOf(obj, at, rest, outer) : outer;
     if (carried !== undefined) {

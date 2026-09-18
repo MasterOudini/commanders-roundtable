@@ -8310,6 +8310,14 @@ export const VESSEL_OF_NASCENCY: CardData = F.VESSEL_OF_NASCENCY as CardData;
 export const VIVIEN_S_GRIZZLY: CardData = F.VIVIEN_S_GRIZZLY as CardData;
 export const WEB_OF_LIFE_AND_DESTINY: CardData = F.WEB_OF_LIFE_AND_DESTINY as CardData;
 export const ZOOLOGIST: CardData = F.ZOOLOGIST as CardData;
+export const TURN_TO_MIST: CardData = F.TURN_TO_MIST as CardData;
+export const VOIDWALK: CardData = F.VOIDWALK as CardData;
+export const FORCE_OF_RAGE: CardData = F.FORCE_OF_RAGE as CardData;
+export const GRAVE_UPHEAVAL: CardData = F.GRAVE_UPHEAVAL as CardData;
+export const SLAVE_OF_BOLAS: CardData = F.SLAVE_OF_BOLAS as CardData;
+export const BLOOD_FRENZY: CardData = F.BLOOD_FRENZY as CardData;
+export const MOLTEN_DUPLICATION: CardData = F.MOLTEN_DUPLICATION as CardData;
+export const FERAL_LIGHTNING: CardData = F.FERAL_LIGHTNING as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -8542,6 +8550,9 @@ export const SKELETON_PIRATE_2_2_B_CREATURE_TOKEN: CardData = F.SKELETON_PIRATE_
 export const OOZE_2_2_G_CREATURE_TOKEN: CardData = F.OOZE_2_2_G_CREATURE_TOKEN as CardData;
 export const MINOTAUR_2_3_R_CREATURE_TOKEN: CardData = F.MINOTAUR_2_3_R_CREATURE_TOKEN as CardData;
 export const HORSE_5_5_W_CREATURE_TOKEN: CardData = F.HORSE_5_5_W_CREATURE_TOKEN as CardData;
+export const GOBLIN_1_1_R_CREATURE_TOKEN: CardData = F.GOBLIN_1_1_R_CREATURE_TOKEN as CardData;
+export const ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN: CardData = F.ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN as CardData;
+export const ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN: CardData = F.ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -16837,6 +16848,14 @@ export const ENGINE_CARDS: CardData[] = [
   VIVIEN_S_GRIZZLY,
   WEB_OF_LIFE_AND_DESTINY,
   ZOOLOGIST,
+  TURN_TO_MIST,
+  VOIDWALK,
+  FORCE_OF_RAGE,
+  GRAVE_UPHEAVAL,
+  SLAVE_OF_BOLAS,
+  BLOOD_FRENZY,
+  MOLTEN_DUPLICATION,
+  FERAL_LIGHTNING,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -17069,4 +17088,7 @@ export const ENGINE_CARDS: CardData[] = [
   OOZE_2_2_G_CREATURE_TOKEN,
   MINOTAUR_2_3_R_CREATURE_TOKEN,
   HORSE_5_5_W_CREATURE_TOKEN,
+  GOBLIN_1_1_R_CREATURE_TOKEN,
+  ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN,
+  ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN,
 ];

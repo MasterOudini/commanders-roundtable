@@ -238,6 +238,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // public reveal); the driver answers a library look off the revealed run through the filter, as before.
   { names: ['Elvish Rejuvenator', 'Satyr Wayfinder'], copiesPerSeat: 2,
     counterKeys: ['looksToBattlefield', 'looksRevealed'], rotHistory: 'D493' },
+  // D494 - the previous clause's objects: two Forces of Rage a seat ({2}{R} instant, `Create two 3/1 red Elemental creature
+  // tokens with trample and haste. Sacrifice those tokens at the beginning of your next upkeep.` - the delayed clause armed
+  // with the tokens as its aims) and two Turns to Mist a seat ({1}{W/U} instant, the flicker: `Exile target creature. Return
+  // that card to the battlefield under its owner's control at the beginning of the next end step.`).
+  { names: ['Force of Rage', 'Turn to Mist'], copiesPerSeat: 2,
+    counterKeys: ['objectsBound', 'objectsActed'], rotHistory: 'D494' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1477,6 +1483,9 @@ interface Run {
   /** D493 - the look grammar: library looks whose picks go onto the battlefield, and looks revealed to every seat. */
   readonly looksToBattlefield: number;
   readonly looksRevealed: number;
+  /** D494 - delayed clauses armed with the previous clause's objects (`DelayedTrigger.aims`), and their fires that moved one. */
+  readonly objectsBound: number;
+  readonly objectsActed: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1931,6 +1940,8 @@ function runOne(seed: number): Run {
     onceTriggersFired: game.log.reduce((n, e) => n + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => t.oncePerTurn === true).length : 0), 0),
     looksToBattlefield: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.zone === 'library' && e.body.awaiting.to === 'battlefield').length,
     looksRevealed: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.to.length > 1 && e.body.cards.length > 1).length,
+    objectsBound: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && (e.body.trigger.aims?.length ?? 0) > 0).length,
+    objectsActed: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined && e.body.obj.targets.length > 0).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2217,6 +2228,8 @@ const TOTAL_KEYS = [
   'onceTriggersFired',
   'looksToBattlefield',
   'looksRevealed',
+  'objectsBound',
+  'objectsActed',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2642,6 +2655,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.onceTriggersFired).toBeGreaterThan(0);
         // D493 - a look onto the battlefield at gate size (Elvish Rejuvenator, two a seat).
         expect(totals.looksToBattlefield).toBeGreaterThan(0);
+        // D494 - a delayed clause bound to the previous clause's objects and fired at gate size (Force of Rage, Turn to Mist, two a seat).
+        expect(totals.objectsActed).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2759,6 +2774,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.freeGrantsAsked}/${totals.freeGrantCasts} free grants asked/cast · ` +
           `${totals.onceTriggersFired} once-per-turn triggers · ` +
           `${totals.looksToBattlefield}/${totals.looksRevealed} looks to the battlefield/revealed · ` +
+          `${totals.objectsBound}/${totals.objectsActed} objects bound/acted on · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

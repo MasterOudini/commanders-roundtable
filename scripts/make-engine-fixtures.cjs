@@ -9199,6 +9199,15 @@ const WANTED = [
   'Web of Life and Destiny',
   'Zoologist',
   // D493 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D494 - the previous clause objects: the seam fixtures.
+  'Turn to Mist',
+  'Voidwalk',
+  'Force of Rage',
+  'Grave Upheaval',
+  'Slave of Bolas',
+  'Blood Frenzy',
+  'Molten Duplication',
+  'Feral Lightning',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9576,6 +9585,10 @@ const WANTED_TOKENS = [
   { name: 'Ooze', set: 'trna', cn: '7', key: 'OOZE_2_2_G_CREATURE_TOKEN' },
   { name: 'Minotaur', set: 'tjou', cn: '3', key: 'MINOTAUR_2_3_R_CREATURE_TOKEN' },
   { name: 'Horse', set: 'thou', cn: '10', key: 'HORSE_5_5_W_CREATURE_TOKEN' },
+  // D494 - the previous clause objects: the tokens the seam test's spells create.
+  { name: 'Goblin', set: 'l12', cn: '1', key: 'GOBLIN_1_1_R_CREATURE_TOKEN' },
+  { name: 'Elemental', set: 'tbfz', cn: '9', key: 'ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN' },
+  { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN' },
 ];
 
 function constName(name) {

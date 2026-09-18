@@ -37,9 +37,11 @@ describe('the delayed trigger (D402)', () => {
     const token = parseEffects('Create a 1/1 white Spirit creature token with flying at the beginning of the next end step.', 'Transluminant', true);
     expect(token.mode).toBe('auto');
     expect(token.effects.map((e) => [e.kind, e.delay])).toEqual([['createToken', { step: 'end', whose: 'next' }]]);
-    // A referent names an object the fire does not carry across the wait: the whole spell stays assisted.
+    // D494 - a referent to the previous clause's OBJECTS is carried across the wait now: the token the clause before
+    // created is bound as the spell runs and the fire sacrifices it (`sacrificeObj`, `DelayedTrigger.aims`).
     const wave = parseEffects('Create a 5/5 blue Wall creature token with defender. Sacrifice it at the beginning of the next end step.', 'Tidal Wave', true);
-    expect(wave.mode).not.toBe('auto');
+    expect(wave.mode).toBe('auto');
+    expect(wave.effects.map((e) => [e.kind, e.ofPrevious === true, e.delay])).toEqual([['createToken', false, null], ['sacrificeObj', true, { step: 'end', whose: 'next' }]]);
     // A target cannot be re-checked at a step that begins turns later.
     const targeted = parseEffects("Destroy target creature at the beginning of the next turn's upkeep.", 'Test Card', true);
     expect(targeted.mode).not.toBe('auto');

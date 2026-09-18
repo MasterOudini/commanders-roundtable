@@ -225,6 +225,12 @@ export interface CardInstance {
   /** D489 - entered from a suspend cast: a creature has haste while it stays (702.62e); cleared as it leaves the battlefield. */
   readonly suspendHaste?: true | undefined;
   /**
+   * D494 - Tier-2 keywords the permanent GAINED for as long as it stays (CR 611.2c: `It gains haste.` with no duration
+   * printed - a resolving effect's grant lasts until the object leaves). Read at layer 6 in `derive.ts`; cleared as it
+   * leaves the battlefield (a new object gained nothing).
+   */
+  readonly gained?: readonly Keyword[] | undefined;
+  /**
    * D449 - the keyword alternative cost this permanent's spell was cast for: evoke (sacrificed as it enters,
    * by the keyword trigger) or dash (haste; returned to hand at the next end step). Cleared on entry like
    * `kicked`; absent on every older log.
@@ -646,6 +652,11 @@ export interface DelayedTrigger {
   /** The effects the fire runs, `delay` cleared, over no targets. */
   readonly effects: readonly EffectSpec[];
   readonly label: string;
+  /**
+   * D494 - the OBJECTS a delayed referent clause was bound to as it was armed (`Sacrifice it at the beginning of the
+   * next end step` - the token the clause before it created): the fire runs its effects over these as its targets.
+   */
+  readonly aims?: readonly InstanceId[];
 }
 
 /**
