@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2037);
-    expect.soft(r.spells.assisted).toBe(1900);
-    expect.soft(r.spells.autoAnyFace).toBe(2045);
+    expect.soft(r.spells.auto).toBe(2054);
+    expect.soft(r.spells.assisted).toBe(1883);
+    expect.soft(r.spells.autoAnyFace).toBe(2062);
   });
 
   /**
@@ -462,9 +462,9 @@ const POOL: Record<string, number> = {
   // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
-  creature: 7053,
-  instant: 1470,
-  sorcery: 1139,
+  creature: 7063,
+  instant: 1487,
+  sorcery: 1140,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 675,

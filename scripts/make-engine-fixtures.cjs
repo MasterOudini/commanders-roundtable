@@ -9330,6 +9330,18 @@ const WANTED = [
   // D499 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Axebane Stag',
   'Orcish Captain',
+  // D500 - the object verbs: the rows whose payload taps, regenerates or evades the object of the clause before it.
+  'Icehide Troll',
+  'Iron-Shield Elf',
+  'Kappa Cannoneer',
+  'Razzle-Dazzler',
+  'Unrooted Ancestor',
+  'Vanguard of the Rose',
+  'Duskworker',
+  'Immersturm Predator',
+  "Necromancer's Familiar",
+  'Prognostic Sphinx',
+  // D500 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -162,4 +162,91 @@ describe("D494 - the previous clause's objects", () => {
     expect(g.state.cards[model]?.zone.kind, 'the creature it copied stays').toBe('battlefield');
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
+
+  // D500 - THE OBJECT VERBS. An immediate `Untap those creatures.` / `Tap it.` / `Regenerate it.` / `It can't be blocked
+  // this turn.` / `Those creatures can't block this turn.` / `Those creatures don't untap during their controller's next
+  // untap step.` after a clause that produced objects reads as the plain kind, aimless (`ofPrevious`), spliced in per
+  // object as it runs; a SCOPED clause before it (`Creatures you control get +1/+1 until end of turn`) produces the
+  // permanents it reached, read off its events. The verbs act on permanents the clause before found on the battlefield:
+  // after a token maker, a return or a chain they are refused (the card stays assisted).
+  test('the object verbs: the readings, and the refusals after a token maker and a chain', () => {
+    expect(kinds('Creatures you control get +1/+1 until end of turn. Untap those creatures.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'massPump' }, { kind: 'untap', ofPrevious: true, delayed: false }] });
+    expect(kinds('Creatures you control get +2/+2 until end of turn. Untap them.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'massPump' }, { kind: 'untap', ofPrevious: true }] });
+    expect(kinds('Creatures you control get +1/+0 until end of turn. Those creatures can\'t block this turn.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'massPump' }, { kind: 'cantBlock', ofPrevious: true }] });
+    expect(kinds('~ gains indestructible until end of turn. Tap it.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'pump' }, { kind: 'tap', ofPrevious: true }] });
+    expect(kinds('~ gets +0/+2 until end of turn. Regenerate it.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'pump' }, { kind: 'regenerate', ofPrevious: true }] });
+    expect(kinds('Put a +1/+1 counter on ~. It can\'t be blocked this turn.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'putCounters' }, { kind: 'cantBeBlocked', ofPrevious: true }] });
+    expect(kinds('Tap up to two target creatures. Those creatures don\'t untap during their controllers\' next untap steps.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'tap' }, { kind: 'freeze', ofPrevious: true }] });
+    expect(kinds('Tap up to two target creatures. Those creatures don\'t untap during their controller\'s next untap step.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'tap' }, { kind: 'freeze', ofPrevious: true }] });
+    // Refused: the objects of a token maker or a chain are not on the battlefield in the state the verbs read.
+    expect(kinds('Create a 1/1 white Soldier creature token. Tap it.').mode, 'a token maker before').not.toBe('auto');
+    expect(kinds('Create two 1/1 white Soldier creature tokens. They can\'t be blocked this turn.').mode, 'a token maker before').not.toBe('auto');
+    expect(kinds('Create a 1/1 white Soldier creature token. It gains haste. Tap it.').mode, 'a chain before').not.toBe('auto');
+  });
+
+  test('a scoped pump then `Untap those creatures`: every creature the pump reached untaps, the opponent\'s stays tapped; the replay hash', () => {
+    const g = startedGame({ players: 2, decks: [['Grizzly Bears', 'Coral Eel'], ['Grizzly Bears']], scripts: createRegistry([entersWith('Grizzly Bears', 'Creatures you control get +1/+1 until end of turn. Untap those creatures.')]) });
+    holdEverywhere(g);
+    const eel = put(g, 'p1', 'Coral Eel');
+    const theirs = put(g, 'p2', 'Grizzly Bears');
+    const bears = put(g, 'p1', 'Grizzly Bears', 'hand');
+    main(g, 3);
+    // Tapped AFTER the untap steps on the way to turn 3, so the untap below is the clause's own.
+    must(g.submit({ t: 'ManualSetTapped', player: 'p1', cards: [eel], tapped: true }));
+    must(g.submit({ t: 'ManualSetTapped', player: 'p2', cards: [theirs], tapped: true }));
+    mana(g, 'p1', 'GG');
+    must(g.submit({ t: 'CastSpell', player: 'p1', card: bears, targets: [] }));
+    settle(g);
+    expect(chars(g, eel).power, 'the Eel was pumped').toBe(3);
+    expect(chars(g, bears).power, 'the Bears itself was pumped').toBe(3);
+    expect(g.state.cards[eel]?.tapped, 'the Eel untapped: the pump reached it').toBe(false);
+    expect(g.state.cards[theirs]?.tapped, "the opponent's Bears stays tapped: outside the scope").toBe(true);
+    expect(g.log.some((e) => e.body.t === 'PermanentsUntapped' && e.body.cards.includes(eel)), 'an untap event, as printed').toBe(true);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test("`Tap up to two target creatures. Those creatures don't untap during their controllers' next untap steps.`: both tapped, both skip one untap step; the replay hash", () => {
+    const g = startedGame({ players: 2, decks: [['Grizzly Bears'], ['Grizzly Bears', 'Coral Eel']], scripts: createRegistry([entersWith('Grizzly Bears', "Tap up to two target creatures. Those creatures don't untap during their controllers' next untap steps.")]) });
+    holdEverywhere(g);
+    const a = put(g, 'p2', 'Grizzly Bears');
+    const b = put(g, 'p2', 'Coral Eel');
+    const bears = put(g, 'p1', 'Grizzly Bears', 'hand');
+    main(g, 3);
+    mana(g, 'p1', 'GG');
+    must(g.submit({ t: 'CastSpell', player: 'p1', card: bears, targets: [] }));
+    advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets' || (s.stack.length === 0 && s.pendingTriggers.length === 0 && s.priority.awaiting === null), 20_000);
+    expect(g.state.priority.awaiting?.kind, 'the trigger asks for its targets').toBe('chooseTargets');
+    must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: a }, { kind: 'card', id: b }] }));
+    settle(g);
+    expect(g.state.cards[a]?.tapped, 'tapped').toBe(true);
+    expect(g.state.cards[b]?.tapped, 'tapped').toBe(true);
+    expect(g.state.cards[a]?.skipsUntap, 'the skip is set on each').toBe(true);
+    expect(g.state.cards[b]?.skipsUntap, 'the skip is set on each').toBe(true);
+    main(g, 4, 'p2');
+    expect(g.state.cards[a]?.tapped, "still tapped after the controller's next untap step").toBe(true);
+    expect(g.state.cards[b]?.tapped, "still tapped after the controller's next untap step").toBe(true);
+    main(g, 6, 'p2');
+    expect(g.state.cards[a]?.tapped, 'untapped the turn after').toBe(false);
+    expect(g.state.cards[b]?.tapped, 'untapped the turn after').toBe(false);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  test('`It can\'t be blocked this turn` after a counter on self, and `Regenerate it` after a self pump: the entry and the shield land on the source; the replay hash', () => {
+    const g = startedGame({ players: 2, decks: [['Grizzly Bears', 'Coral Eel'], ['Grizzly Bears']], scripts: createRegistry([entersWith('Grizzly Bears', "Put a +1/+1 counter on ~. It can't be blocked this turn."), entersWith('Coral Eel', '~ gets +0/+2 until end of turn. Regenerate it.')]) });
+    holdEverywhere(g);
+    const bears = put(g, 'p1', 'Grizzly Bears', 'hand');
+    const eel = put(g, 'p1', 'Coral Eel', 'hand');
+    main(g, 3);
+    mana(g, 'p1', 'GG');
+    must(g.submit({ t: 'CastSpell', player: 'p1', card: bears, targets: [] }));
+    settle(g);
+    expect(g.state.cards[bears]?.counters['+1/+1'], 'the counter came').toBe(1);
+    expect(g.state.untilEndOfTurn.some((m) => m.card === bears && m.cantBeBlocked === true), 'cannot be blocked this turn').toBe(true);
+    mana(g, 'p1', 'UU');
+    must(g.submit({ t: 'CastSpell', player: 'p1', card: eel, targets: [] }));
+    settle(g);
+    expect(chars(g, eel).toughness, 'the Eel was pumped').toBe(3);
+    expect(g.state.regenerationShields[eel] ?? 0, 'one shield on the Eel').toBe(1);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
 });

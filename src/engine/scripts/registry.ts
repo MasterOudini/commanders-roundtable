@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ICEHIDE_TROLL_SCRIPT } from './cards/icehideTroll';
+import { IRON_SHIELD_ELF_SCRIPT } from './cards/ironShieldElf';
+import { KAPPA_CANNONEER_SCRIPT } from './cards/kappaCannoneer';
+import { RAZZLE_DAZZLER_SCRIPT } from './cards/razzleDazzler';
+import { UNROOTED_ANCESTOR_SCRIPT } from './cards/unrootedAncestor';
+import { VANGUARD_OF_THE_ROSE_SCRIPT } from './cards/vanguardOfTheRose';
+import { DUSKWORKER_SCRIPT } from './cards/duskworker';
+import { IMMERSTURM_PREDATOR_SCRIPT } from './cards/immersturmPredator';
+import { NECROMANCERS_FAMILIAR_SCRIPT } from './cards/necromancersFamiliar';
+import { PROGNOSTIC_SPHINX_SCRIPT } from './cards/prognosticSphinx';
 import { ABOMINATION_SCRIPT } from './cards/abomination';
 import { ARROGANT_BLOODLORD_SCRIPT } from './cards/arrogantBloodlord';
 import { DEATHGAZER_SCRIPT } from './cards/deathgazer';
@@ -7729,6 +7739,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ICEHIDE_TROLL_SCRIPT,
+  IRON_SHIELD_ELF_SCRIPT,
+  KAPPA_CANNONEER_SCRIPT,
+  RAZZLE_DAZZLER_SCRIPT,
+  UNROOTED_ANCESTOR_SCRIPT,
+  VANGUARD_OF_THE_ROSE_SCRIPT,
+  DUSKWORKER_SCRIPT,
+  IMMERSTURM_PREDATOR_SCRIPT,
+  NECROMANCERS_FAMILIAR_SCRIPT,
+  PROGNOSTIC_SPHINX_SCRIPT,
   ABOMINATION_SCRIPT,
   ARROGANT_BLOODLORD_SCRIPT,
   DEATHGAZER_SCRIPT,

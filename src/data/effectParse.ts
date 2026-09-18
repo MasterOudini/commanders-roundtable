@@ -2177,14 +2177,24 @@ const OBJ_GRANT = new RegExp(`^(?:then )?${OBJ_REF} gains? (${KW})(?:, (${KW}))?
 const OBJ_DEST = "(?<dest> to the battlefield under (?:its|their) owner(?:'|’)s control| to (?:its|their) owner(?:'|’)s hands?)?";
 const OBJ_DELAY_TAIL = new RegExp(`^(?:then )?(?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST} at ${OBJ_WHEN}\\.$`, 'i');
 const OBJ_DELAY_HEAD = new RegExp(`^at ${OBJ_WHEN}, (?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST}\\.$`, 'i');
-const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate', 'returnFromGraveyard', 'control', 'exile', 'destroy', 'bounce', 'tap', 'untap', 'pump', 'putCounters', 'populate']);
+const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate', 'returnFromGraveyard', 'control', 'exile', 'destroy', 'bounce', 'tap', 'untap', 'pump', 'putCounters', 'populate', 'massPump', 'freeze', 'regenerate', 'cantBeBlocked', 'cantBlock']);
+// D500 - THE OBJECT VERBS, immediate: `Untap those creatures.` / `Tap it.` / `Regenerate it.` / `It can't be blocked this
+// turn.` / `Those creatures can't block this turn.` / `Those creatures don't untap during their controller's next untap
+// step.` after a clause that produced objects - the plain kinds themselves, planned aimless (`ofPrevious`) and spliced in
+// per object as they run (D494's path; the executor's `objectsOf` reads the scoped clause's permanents too).
+const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ_REF}\\.$`, 'i');
+const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
+// The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
+const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
 const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
   // The clause before must PRODUCE objects: a target of its own, a token, a returned card, or the objects of the
   // clause before it (a chain: `It gains haste. Sacrifice it at the beginning of the next end step.`).
-  if (!(prev.ofPrevious === true || prev.targetIndex !== -1 || OBJ_MAKERS.has(prev.kind))) return null;
+  // D500 - a SCOPED clause (`Creatures you control get +1/+1 until end of turn`, `Tap all creatures`) produces the
+  // permanents it reached: the executor reads them off the events it emitted.
+  if (!(prev.ofPrevious === true || prev.targetIndex !== -1 || OBJ_MAKERS.has(prev.kind) || (prev.scopes !== undefined && prev.scopes.length > 0))) return null;
   // D495 - a clause before that ASKS produces its objects only after the answer (a search, a look, a payment whose
   // body makes the token - `You may pay {1}{R}. If you do, create a token ... It gains haste.`): the executor would
   // bind the next clause to nothing, so the sentence is refused and the card stays assisted.
@@ -2194,6 +2204,21 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
     const kws = grantedKeywords(g[1], g[2], g[3]);
     if (kws === null) return null;
     return { ...BASE, kind: 'grantObj', text: sentence, targetIndex: -1, keywords: kws, ofPrevious: true, ...(g.groups?.['eot'] === undefined ? { indefinite: true as const } : {}) };
+  }
+  // D500 - the immediate object verbs: the plain kind, aimless until it runs. They act on permanents the clause before
+  // FOUND on the battlefield (its aims, the permanents a scoped clause reached): a token maker's or a return's objects
+  // are not in the state the verbs read, and a chain's origin is unknown here - refused, the card stays assisted.
+  const vl = OBJ_VERB_LEAD.exec(sentence);
+  const vs = vl ? null : OBJ_VERB_SUBJ.exec(sentence);
+  if ((vl || vs) && (OBJ_LATE.has(prev.kind) || prev.ofPrevious === true)) return null;
+  if (vl) {
+    const verb = (vl.groups?.['verb'] ?? '').toLowerCase() as 'untap' | 'tap' | 'regenerate';
+    return { ...BASE, kind: verb, text: sentence, targetIndex: -1, ofPrevious: true };
+  }
+  if (vs) {
+    const rest = (vs.groups?.['rest'] ?? '').toLowerCase();
+    const kind: EffectKind = rest.startsWith("can't be blocked") ? 'cantBeBlocked' : rest.startsWith("can't block") ? 'cantBlock' : 'freeze';
+    return { ...BASE, kind, text: sentence, targetIndex: -1, ofPrevious: true };
   }
   const d = OBJ_DELAY_TAIL.exec(sentence) ?? OBJ_DELAY_HEAD.exec(sentence);
   if (!d) return null;

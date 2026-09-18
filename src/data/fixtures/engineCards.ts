@@ -8430,6 +8430,16 @@ export const INSPIRING_BARD: CardData = F.INSPIRING_BARD as CardData;
 export const PLUNDERING_BARBARIAN: CardData = F.PLUNDERING_BARBARIAN as CardData;
 export const AXEBANE_STAG: CardData = F.AXEBANE_STAG as CardData;
 export const ORCISH_CAPTAIN: CardData = F.ORCISH_CAPTAIN as CardData;
+export const ICEHIDE_TROLL: CardData = F.ICEHIDE_TROLL as CardData;
+export const IRON_SHIELD_ELF: CardData = F.IRON_SHIELD_ELF as CardData;
+export const KAPPA_CANNONEER: CardData = F.KAPPA_CANNONEER as CardData;
+export const RAZZLE_DAZZLER: CardData = F.RAZZLE_DAZZLER as CardData;
+export const UNROOTED_ANCESTOR: CardData = F.UNROOTED_ANCESTOR as CardData;
+export const VANGUARD_OF_THE_ROSE: CardData = F.VANGUARD_OF_THE_ROSE as CardData;
+export const DUSKWORKER: CardData = F.DUSKWORKER as CardData;
+export const IMMERSTURM_PREDATOR: CardData = F.IMMERSTURM_PREDATOR as CardData;
+export const NECROMANCER_S_FAMILIAR: CardData = F.NECROMANCER_S_FAMILIAR as CardData;
+export const PROGNOSTIC_SPHINX: CardData = F.PROGNOSTIC_SPHINX as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17081,6 +17091,16 @@ export const ENGINE_CARDS: CardData[] = [
   PLUNDERING_BARBARIAN,
   AXEBANE_STAG,
   ORCISH_CAPTAIN,
+  ICEHIDE_TROLL,
+  IRON_SHIELD_ELF,
+  KAPPA_CANNONEER,
+  RAZZLE_DAZZLER,
+  UNROOTED_ANCESTOR,
+  VANGUARD_OF_THE_ROSE,
+  DUSKWORKER,
+  IMMERSTURM_PREDATOR,
+  NECROMANCER_S_FAMILIAR,
+  PROGNOSTIC_SPHINX,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

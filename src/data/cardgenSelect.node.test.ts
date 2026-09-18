@@ -526,7 +526,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ravenous Squirrel', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever you sacrifice an artifact or creature, put a +1/+1 '],
   ['Serum Sovereign', 'effect not a row kind: Draw a card, then scry 2.'],
   ['Slimefoot, the Stowaway', 'a filtered head no fixture satisfies: a Saproling you control'],
-  ['Snow Day', "a spell with a line outside the vocabulary: Tap up to two target creatures. Those creatures don't untap "],
   ['Syr Vondam, Sunstar Exemplar', 'trigger head not in the library: Whenever another creature you control dies or is put into exile, put a'],
   ['Trial of Knowledge', 'a filtered head no fixture satisfies: a Cartouche you control'],
   // D425 - the sacrificed self, the you scope and the opponent-or-planeswalker noun: the 21 the selector offered once
@@ -795,6 +794,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D500 - the object verbs: the rows the select offered and the row maker refused, by its own reasons.
+  ['Essence of Antiquity', 'an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Untap them. (D500)'],
+  ['Jeskai Ascendancy', 'an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Untap those creatures. (D500)'],
+  ['Popular Egotist', 'a sacrifice head beside a cost that sacrifices, with a payload the assert cannot carry: vocab (D500)'],
+  ['Dream Trawler', 'a late-entering row (a draw or step head) beside a head the suite fires by attacking on turn 3: summoning sick that turn (not this wave) (D500)'],
   // D499 - the blocks-by predicates: the rows the select offered and the row maker refused, by its own reasons.
   ['Cockatrice', 'a becomes-blocked head on a flier (the suite has no flying blocker) (D499)'],
   // D498 - the classifier catches up: the rows the select offered (the mirrors) and the row maker refused, by its own reasons.
@@ -909,7 +913,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Aurochs Herd', 'trigger payload not a pump (Search your library for an Aurochs card, reveal it, put it i)'],
   ['Bloodcrazed Hoplite', 'trigger head not in the library (Whenever a +1/+1 counter is put on this creature, remove a +1/+1 count)'],
   ['Dreadhorde Butcher', 'trigger head not in the library (Whenever this creature deals combat damage to a player or planeswalker)'],
-  ['Duskworker', 'trigger payload not a pump (Regenerate it.)'],
   ['Fallen Ideal', 'a leftover line not among the printed lines (Enchanted creature has flying and)'],
   ['Fireblade Charger', 'damage from a source that has died (last known information) (the executor deals 0 from the graveyard)'],
   ['Goblin Fireleaper', 'damage from a source that has died (last known information) (the executor deals 0 from the graveyard)'],
@@ -1176,7 +1179,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // onto the library top (Brainstorm's prompt); Breaking Point offers every
   // player a choice.
   ["Bontu's Last Reckoning", 'untap restriction'],
-  ['Boon of Erebos', 'regeneration'],
   ['Bounty of Skemfar', 'script-raised prompt'],
   ['Brainsurge', 'script-raised prompt'],
   ['Brawl', 'temporary keyword/ability grant'],
@@ -1252,7 +1254,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Defensive Maneuvers takes a creature type of the caster's choice at
   // resolution; Decision Paralysis adds a skip-untap rider to its up-to-N.
   ['Debt of Loyalty', 'regeneration'],
-  ['Decision Paralysis', 'up-to-N targeting'],
   ['Decompose', 'up-to-N targeting'],
   ['Defensive Maneuvers', 'script-raised prompt'],
   ['Defiling Tears', 'temporary non-keyword ability grant'],
@@ -1362,7 +1363,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // 'any' — a DOUBLE silent narrowing (probed); Geosurge's mana is
   // spend-restricted (The Grey Havens' pool-metadata gap); Fumble's
   // reattach-to-another is the caster's pick.
-  ['Frost Breath', 'up-to-N targeting'],
   ['Full Flowering', 'copy effect (populate)'],
   ['Fumble', 'script-raised prompt'],
   ["Galuf's Final Act", 'temporary non-keyword ability grant'],
@@ -1682,7 +1682,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Stream of Consciousness', 'up-to-N targeting'],
   ['Struggle for Sanity', 'opponent-chooses'],
   ['Sudden Setback', 'opponent-chooses'],
-  ['Sudden Storm', 'up-to-N targeting'],
   // D255 (M6.4cr) — Suffer the Past was PROBED: 'X target cards' parses
   // confident:FALSE with min 0 / max 99, a computed target COUNT. Worth
   // noting that select.cjs's filter does NOT screen on `confident` (it
@@ -2468,7 +2467,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Brand', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Essence Fracture', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Frostveil Ambush', 'a spell line outside the vocabulary (its cycling runs)'],
 
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
@@ -2547,7 +2545,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Grip of Desolation', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Nameless Inversion', 'a spell line outside the vocabulary (its changeling runs)'],
   ['Shields of Velis Vel', 'a spell line outside the vocabulary (its changeling runs)'],
-  ['Unnatural Endurance', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Witness the End', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Kozilek\'s Return', 'a spell line outside the vocabulary (its devoid runs)'],
   ['Ugin\'s Binding', 'a spell line outside the vocabulary (its devoid runs)'],
@@ -2686,7 +2683,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Organic Extinction', 'a spell line outside the row vocabulary beside its improvise (destroy all nonartifact creatures)'],
   ['Rite of Undoing', 'a spell line outside the row vocabulary beside its delve (two bounces, one of each side)'],
   ['Temporal Cleansing', 'a spell line outside the row vocabulary beside its convoke (a library placement the owner chooses)'],
-  ['Will of the Naga', 'a spell line outside the row vocabulary beside its delve (tap up to two, then a skip-untap rider)'],
   ['Bennie Bracks, Zoologist', 'an intervening if outside the closed reader (if you created a token this turn) under an each-end-step head, beside its convoke'],
   ['Conclave Phalanx', 'a board-sized life gain the suite cannot pin (1 life for each creature you control) under an enters head, beside its convoke'],
   ['Kasla, the Broken Halo', 'a filtered cast head outside the closed reader (whenever you cast a spell with convoke) beside its convoke'],

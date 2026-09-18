@@ -227,6 +227,9 @@ export function effectResult(
     for (const ev of out.slice(rec.start, rec.end)) {
       if (ev.t === 'TokenCreated') seen.add(ev.card);
       if (ev.t === 'CardsMoved') for (const m of ev.moves) if (m.to.kind === 'battlefield') seen.add(m.card);
+      // D500 - a scoped clause's permanents: the pump, the grant, the tap and the untap name each one they reached.
+      if (ev.t === 'PtModifiedUntilEndOfTurn' || ev.t === 'KeywordsGained' || ev.t === 'RegenerationShieldAdded') seen.add(ev.card);
+      if (ev.t === 'PermanentsTapped' || ev.t === 'PermanentsUntapped') for (const c of ev.cards) seen.add(c);
     }
     return [...seen];
   };
