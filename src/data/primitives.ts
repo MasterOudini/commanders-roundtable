@@ -917,10 +917,12 @@ function selfSubject(effect: string, line: string): string {
   let out = effect.replace(/\bthis (?:creature|permanent|artifact|enchantment|land)\b/g, '~');
   if (SELF_SACRIFICE_COST.test(line)) out = out.replace(/^it deals\b/i, '~ deals');
   if (SELF_SUBJECT_HEAD.test(line)) {
+    // D497 - `destroy it` / `sacrifice it` under a self head are the source's (the row maker's rewrite, the end-of-combat
+    // family: `sacrifice it at end of combat`); a counter `on it` reads the same before the delay tail.
     out = out
       .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
-      .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
-      .replace(/\bon it\.$/i, 'on ~.');
+      .replace(/^(return|regenerate|untap|tap|destroy|sacrifice) it\b/i, '$1 ~')
+      .replace(/\bon it(?=\.$| at end of combat\.$)/i, 'on ~');
   }
   return out;
 }

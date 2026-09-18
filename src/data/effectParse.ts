@@ -41,7 +41,7 @@ import type {
 import { COUNTER_KINDS } from '../engine/types/oracle';
 import type { CopyExceptions } from '../engine/types/oracle';
 import type { ColorLetter } from './cardTypes';
-import { SELF_AIMED } from '../engine/types/oracle';
+
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
@@ -740,6 +740,8 @@ const RULES: readonly Rule[] = [
     },
   },
   { kind: 'destroy', re: new RegExp(`^destroy ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D497 - the source destroying itself (`Destroy it at end of combat` - Ceremonial Guard, Cinder Wall): self-aimed.
+  { kind: 'destroy', re: /^destroy (?:this (?:creature|permanent|artifact|enchantment|land)|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'exile', re: new RegExp(`^exile ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D407 - THE LINKED EXILE (CR 610.3): the same aim, linked to the source until it leaves the battlefield.
   { kind: 'exile', re: new RegExp(`^exile ${TARGET} until (?:this (?:creature|enchantment|artifact|permanent|land)|~) leaves the battlefield\\.$`, 'i'), build: () => ({ ...BASE, untilLeaves: true }) },
@@ -2169,11 +2171,12 @@ function phraseOf(text: string): string | null {
  * forms are armed with the bound aims and fire over them (`DelayedTrigger.aims`).
  */
 const OBJ_REF = "(?:it|they|them|that (?:card|creature|permanent|token|artifact|enchantment|land)|those (?:cards|creatures|permanents|tokens))";
-const OBJ_WHEN = "(?<when>the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)";
+// D497 - `at end of combat` beside the `at the beginning of <step>` forms (the same delayed trigger, this combat's end).
+const OBJ_WHEN = "(?:the beginning of )?(?<when>the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)";
 const OBJ_GRANT = new RegExp(`^(?:then )?${OBJ_REF} gains? (${KW})(?:, (${KW}))?(?:,? and (${KW}))?(?<eot> until end of turn)?\\.$`, 'i');
 const OBJ_DEST = "(?<dest> to the battlefield under (?:its|their) owner(?:'|’)s control| to (?:its|their) owner(?:'|’)s hands?)?";
-const OBJ_DELAY_TAIL = new RegExp(`^(?:then )?(?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST} at the beginning of ${OBJ_WHEN}\\.$`, 'i');
-const OBJ_DELAY_HEAD = new RegExp(`^at the beginning of ${OBJ_WHEN}, (?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST}\\.$`, 'i');
+const OBJ_DELAY_TAIL = new RegExp(`^(?:then )?(?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST} at ${OBJ_WHEN}\\.$`, 'i');
+const OBJ_DELAY_HEAD = new RegExp(`^at ${OBJ_WHEN}, (?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST}\\.$`, 'i');
 const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate', 'returnFromGraveyard', 'control', 'exile', 'destroy', 'bounce', 'tap', 'untap', 'pump', 'putCounters', 'populate']);
 const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
@@ -2308,7 +2311,13 @@ function clausesOf(text: string): Clause[] {
     if (referred) spec = referred;
     // D494 - a sentence about THE PREVIOUS CLAUSE'S OBJECTS (`It gains haste.`, `Sacrifice it at the beginning of the
     // next end step.`): the token it created, the card it returned, the permanent it exiled - bound as it runs.
-    const objects = spec === null ? objectsRewrite(raw[i] ?? '', previous) : null;
+    // D497 - and it is asked FIRST when the sentence is a delayed move of `it`: read on its own, `Sacrifice it at the
+    // beginning of the next end step.` is the SOURCE's sacrifice (a self clause, D497's delayed form); after a clause
+    // that produced objects it is theirs (Tidal Wave's token). The rewrite refuses when the clause before produced none.
+    // ... and for a delayed move of `it` D392's referent read against the previous TARGET (`Exile it at the beginning
+    // of the next end step` after `Create a token that's a copy of target artifact` is the TOKEN's exile, not the
+    // artifact's - Cogwork Assembler, caught by its own suite at the gate).
+    const objects = (spec === null || (span === 1 && spec.delay !== null && (spec.self === true || referred !== null))) ? objectsRewrite(raw[i] ?? '', previous) : null;
     if (objects) { spec = objects; referred = objects; }
     // D423 - a kicked `instead` clause is read against the clause before it too.
     const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
@@ -2524,11 +2533,16 @@ function matchPayment(sentence: string): EffectSpec | null {
  * `the next turn's upkeep` and `the next upkeep` are the same step of the next turn; `your next
  * upkeep` waits for the controller's own; `the next end step` is the first end step to begin.
  */
-const DELAY_TAIL = /^(.+?) at the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step)\.$/i;
-const DELAY_HEAD = /^At the beginning of (the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step), (.+)$/i;
+// D497 - `at end of combat` joins the steps; and the inner effect may be aimed at the SOURCE (`Sacrifice it at end of
+// combat`, a bounce, a counter) or at ONE TARGET (`Destroy target creature at end of combat`): the executor arms the
+// delayed trigger WITH the aim (`DelayedTrigger.aims`, D494's carrier) and the fire runs over it - an object that has
+// left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
+const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
+const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
 const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
+  if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };
   return { step: p.includes('upkeep') ? 'upkeep' : 'end', whose: p.startsWith('your') ? 'controller' : 'next' };
 }
 function matchDelayed(sentence: string): EffectSpec | null {
@@ -2541,7 +2555,8 @@ function matchDelayed(sentence: string): EffectSpec | null {
   if (!inner) return null;
   // A SELF-aimed effect (a sacrifice of the source, a pump on it) names an object the fire may not find; a
   // draw or a life gain is aimed at the CONTROLLER and carries no such mark.
-  if (inner.targetIndex !== -1 || inner.referent || (inner.self && SELF_AIMED.has(inner.kind)) || inner.kind === 'sacrificeSelf' || inner.pay || inner.atRandom || DELAY_ASKS.has(inner.kind)) return null;
+  if (inner.referent || inner.pay || inner.atRandom || DELAY_ASKS.has(inner.kind) || inner.per || inner.otherTargetIndex !== undefined) return null;
+  if (inner.targetIndex !== -1 && (inner.targetIndex !== 0 || inner.scopes !== undefined)) return null;
   return { ...inner, text: sentence, delay: delayWhen((tail ? tail[2] : head?.[1]) ?? '') };
 }
 

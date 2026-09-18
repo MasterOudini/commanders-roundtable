@@ -50,6 +50,9 @@ describe("D494 - the previous clause's objects", () => {
     expect(kinds("Exile target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'exile' }, { kind: 'returnObj', ofPrevious: true, delayed: true }] });
     expect(kinds("Exile target creature. At the beginning of the next end step, return it to the battlefield under its owner's control.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'exile' }, { kind: 'returnObj', ofPrevious: true, delayed: true }] });
     expect(kinds("Create a 3/3 green Beast creature token. Return it to its owner's hand at the beginning of your next upkeep.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'createToken' }, { kind: 'bounceObj', ofPrevious: true, delayed: true }] });
+    // D497 - a delayed clause may be aimed at one target now, and D392's referent would read this one as the delayed
+    // `destroy` of the same target; the objects rewrite is asked first for a delayed move of a referent, so the reading
+    // stays the previous clause's objects (after a token maker the two differ: the token, not the creature it copied).
     expect(kinds('Target creature gets +4/+0 until end of turn. Destroy that creature at the beginning of the next end step.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'pump' }, { kind: 'destroyObj', ofPrevious: true, delayed: true }] });
     // Refused: a clause before that produces nothing; a keyword outside the grantable list; a bare `it` sentence the rules do not spell.
     expect(kinds('Draw a card. It gains haste.').effects.map((e) => e.kind), 'a draw produces no object').toEqual(['draw']);

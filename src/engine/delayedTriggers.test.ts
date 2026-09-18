@@ -42,9 +42,11 @@ describe('the delayed trigger (D402)', () => {
     const wave = parseEffects('Create a 5/5 blue Wall creature token with defender. Sacrifice it at the beginning of the next end step.', 'Tidal Wave', true);
     expect(wave.mode).toBe('auto');
     expect(wave.effects.map((e) => [e.kind, e.ofPrevious === true, e.delay])).toEqual([['createToken', false, null], ['sacrificeObj', true, { step: 'end', whose: 'next' }]]);
-    // A target cannot be re-checked at a step that begins turns later.
+    // D497 - a delayed clause aimed at one target is read now: the executor arms the entry WITH the pick (`aims`), and
+    // the fire runs over it (a target that has left the zone the verb needs does nothing - D494's rule).
     const targeted = parseEffects("Destroy target creature at the beginning of the next turn's upkeep.", 'Test Card', true);
-    expect(targeted.mode).not.toBe('auto');
+    expect(targeted.mode).toBe('auto');
+    expect(targeted.effects.map((e) => [e.kind, e.targetIndex, e.delay])).toEqual([['destroy', 0, { step: 'upkeep', whose: 'next' }]]);
   });
 
   test("a cantrip's draw waits for the next turn's upkeep, then happens once, and the game replays", () => {

@@ -108,6 +108,7 @@ export function effectEvents(
  */
 /** D402 - the delay, in words, for the narration. */
 function delayLabel(when: DelayWhen): string {
+  if (when.step === 'endCombat') return 'at end of combat';
   const step = when.step === 'upkeep' ? 'upkeep' : 'end step';
   return when.whose === 'controller' ? `at the beginning of your next ${step}` : `at the beginning of the next ${step}`;
 }
@@ -198,7 +199,11 @@ export function effectResult(
       continue;
     }
     const picks = picksFor(obj, effect.targetIndex);
-    const aims = picks.map((c) => aimOf(state, c)).filter((a): a is Aim => a !== null);
+    // D497 - a delayed fire's picks are the objects it was armed with (D494's aims): one that has left the battlefield
+    // since is a different object now, or gone - skipped, and the narration below says so. A return reads its own zones.
+    const aims = picks
+      .map((c) => aimOf(state, c))
+      .filter((a): a is Aim => a !== null && !(obj.delayedEffects !== undefined && a.kind === 'card' && effect.kind !== 'returnObj' && state.cards[a.id]?.zone.kind !== 'battlefield'));
     if (aims.length === 0) {
       if (!(effect.optional === true && picks.length === 0)) steps.push({ effect, aim: null, missing: true });
       continue;
@@ -310,9 +315,11 @@ export function effectResult(
     if (effect.delay) {
       // D494 - a delayed clause about the previous clause's objects is armed WITH them: the fire runs it over those
       // aims (`DelayedTrigger.aims`), the spec aimed at its first clause and no longer about a previous one.
-      const bound = effect.ofPrevious === true ? objectsOf(at) : undefined;
+      // D497 - a delayed clause aimed at ONE TARGET is armed with the pick it was aimed at (one entry per aim); a clause
+      // about the source (`Sacrifice it at end of combat`) keeps its `self` and finds the source as it fires.
+      const bound = effect.ofPrevious === true ? objectsOf(at) : !effect.self && aim?.kind === 'card' ? [aim.id] : undefined;
       const trigger: DelayedTrigger = {
-        id: `${obj.id}-d${effects.indexOf(effect)}`,
+        id: `${obj.id}-d${effects.indexOf(effect)}${bound !== undefined && effect.ofPrevious !== true && aim?.kind === 'card' ? `-${aim.id}` : ''}`,
         controller,
         source: source ?? null,
         when: effect.delay,

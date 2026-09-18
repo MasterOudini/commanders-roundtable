@@ -796,6 +796,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D497 - the end-of-combat step: the rows the select offered and the row maker refused, by its own reasons.
+  ['Abomination', 'a delayed item clause under a block head whose creature the combat kills first: Grizzly Bears (D497)'],
+  ['Arrogant Bloodlord', 'a blocks-by predicate outside the vocabulary: creature with power 1 or less (D497)'],
+  ['Cockatrice', 'a blocks-by predicate outside the vocabulary: non-Wall (D497)'],
+  ['Deathgazer', 'a blocks-by predicate outside the vocabulary: nonblack (D497)'],
+  ['Dread Specter', 'a blocks-by predicate outside the vocabulary: nonblack (D497)'],
+  ['Rock Basilisk', 'a blocks-by predicate outside the vocabulary: non-Wall (D497)'],
+  ['Sawtooth Ogre', 'a delayed damage on the item (the combat damage muddies the read): ~ deals 1 damage to target creature at end of combat. (D497)'],
+  ['Silent Assassin', 'a delayed targeted payload beside a clause with no fixture: vocab clause without a fixture: a combat-role clause (D497)'],
+  ['Thicket Basilisk', 'a blocks-by predicate outside the vocabulary: non-Wall (D497)'],
+  ['Vebulid', 'a delayed self clause under a block head the combat kills the card in (toughness 0) (D497)'],
   // D496 - the item referent: the rows the select offered and the row maker refused, by its own reasons.
   ['Angelic Exaltation', 'a counted payload under a head whose arm sizes the board (aCreatureAttacksAlone): Target creature gets +X/+X until end of turn, where X is the number (D496)'],
   ['Electropotence', 'an item referent beside another target clause: You may pay {2}{R}. If you do, target creature deals damage (D496)'],

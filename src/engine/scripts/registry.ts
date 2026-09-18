@@ -7,6 +7,29 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AETHER_MEMBRANE_SCRIPT } from './cards/aetherMembrane';
+import { BRACKWATER_ELEMENTAL_SCRIPT } from './cards/brackwaterElemental';
+import { CEREMONIAL_GUARD_SCRIPT } from './cards/ceremonialGuard';
+import { CINDER_WALL_SCRIPT } from './cards/cinderWall';
+import { CRAZED_ARMODON_SCRIPT } from './cards/crazedArmodon';
+import { CRUMBLING_COLOSSUS_SCRIPT } from './cards/crumblingColossus';
+import { FOG_ELEMENTAL_SCRIPT } from './cards/fogElemental';
+import { FROSTWEB_SPIDER_SCRIPT } from './cards/frostwebSpider';
+import { KAIJIN_OF_THE_VANISHING_TOUCH_SCRIPT } from './cards/kaijinOfTheVanishingTouch';
+import { MARDU_BLAZEBRINGER_SCRIPT } from './cards/marduBlazebringer';
+import { PHANTOM_WHELP_SCRIPT } from './cards/phantomWhelp';
+import { PYRIC_SALAMANDER_SCRIPT } from './cards/pyricSalamander';
+import { QUICKSILVER_BEHEMOTH_SCRIPT } from './cards/quicksilverBehemoth';
+import { RAKALITE_SCRIPT } from './cards/rakalite';
+import { RUNAWAY_CARRIAGE_SCRIPT } from './cards/runawayCarriage';
+import { SCRAPPY_BRUISER_SCRIPT } from './cards/scrappyBruiser';
+import { STOIC_EPHEMERA_SCRIPT } from './cards/stoicEphemera';
+import { TANGLE_ASP_SCRIPT } from './cards/tangleAsp';
+import { VENOMOUS_DRAGONFLY_SCRIPT } from './cards/venomousDragonfly';
+import { WALL_OF_JUNK_SCRIPT } from './cards/wallOfJunk';
+import { WALL_OF_TEARS_SCRIPT } from './cards/wallOfTears';
+import { WICKER_WARCRAWLER_SCRIPT } from './cards/wickerWarcrawler';
+import { WINDSCOUTER_SCRIPT } from './cards/windscouter';
 import { AGENTS_OF_SHIELD_SCRIPT } from './cards/agentsOfSHIELD';
 import { ASHMOUTH_HOUND_SCRIPT } from './cards/ashmouthHound';
 import { BATTLEGRACE_ANGEL_SCRIPT } from './cards/battlegraceAngel';
@@ -7676,6 +7699,29 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AETHER_MEMBRANE_SCRIPT,
+  BRACKWATER_ELEMENTAL_SCRIPT,
+  CEREMONIAL_GUARD_SCRIPT,
+  CINDER_WALL_SCRIPT,
+  CRAZED_ARMODON_SCRIPT,
+  CRUMBLING_COLOSSUS_SCRIPT,
+  FOG_ELEMENTAL_SCRIPT,
+  FROSTWEB_SPIDER_SCRIPT,
+  KAIJIN_OF_THE_VANISHING_TOUCH_SCRIPT,
+  MARDU_BLAZEBRINGER_SCRIPT,
+  PHANTOM_WHELP_SCRIPT,
+  PYRIC_SALAMANDER_SCRIPT,
+  QUICKSILVER_BEHEMOTH_SCRIPT,
+  RAKALITE_SCRIPT,
+  RUNAWAY_CARRIAGE_SCRIPT,
+  SCRAPPY_BRUISER_SCRIPT,
+  STOIC_EPHEMERA_SCRIPT,
+  TANGLE_ASP_SCRIPT,
+  VENOMOUS_DRAGONFLY_SCRIPT,
+  WALL_OF_JUNK_SCRIPT,
+  WALL_OF_TEARS_SCRIPT,
+  WICKER_WARCRAWLER_SCRIPT,
+  WINDSCOUTER_SCRIPT,
   AGENTS_OF_SHIELD_SCRIPT,
   ASHMOUTH_HOUND_SCRIPT,
   BATTLEGRACE_ANGEL_SCRIPT,

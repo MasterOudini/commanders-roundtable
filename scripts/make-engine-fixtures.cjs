@@ -9269,6 +9269,31 @@ const WANTED = [
   'Sylvan Basilisk',
   'Durable Handicraft',
   // D496 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D497 - the end-of-combat step: the rows whose delayed clause fires at end of combat.
+  'Aether Membrane',
+  'Brackwater Elemental',
+  'Ceremonial Guard',
+  'Cinder Wall',
+  'Crazed Armodon',
+  'Crumbling Colossus',
+  'Fog Elemental',
+  'Frostweb Spider',
+  'Kaijin of the Vanishing Touch',
+  'Mardu Blazebringer',
+  'Phantom Whelp',
+  'Pyric Salamander',
+  'Quicksilver Behemoth',
+  'Rakalite',
+  'Runaway Carriage',
+  'Scrappy Bruiser',
+  'Stoic Ephemera',
+  'Tangle Asp',
+  'Venomous Dragonfly',
+  'Wall of Junk',
+  'Wall of Tears',
+  'Wicker Warcrawler',
+  'Windscouter',
+  // D497 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

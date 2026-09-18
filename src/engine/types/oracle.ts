@@ -1044,7 +1044,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first
@@ -1054,7 +1054,8 @@ export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 
  * arming turn.
  */
 export interface DelayWhen {
-  readonly step: 'upkeep' | 'end';
+  /** D497 - `endCombat`: `at end of combat` (CR 603.7 too) - the first end-of-combat step to begin, this turn's when armed in combat. */
+  readonly step: 'upkeep' | 'end' | 'endCombat';
   readonly whose: 'next' | 'controller';
 }
 
