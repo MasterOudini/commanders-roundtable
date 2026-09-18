@@ -3841,6 +3841,12 @@ function answerChooseFromZone(
       if (awaiting.filter && !cardMatchesSearch(state, deps, card, awaiting.filter.predicates, null)) {
         return reject('illegalTarget', `That card is not ${awaiting.filter.what}.`);
       }
+      // D493 - the noun's negations (`noncreature, nonland`): the types the pick must lack.
+      if (awaiting.none !== undefined && awaiting.none.length > 0) {
+        const inst = state.cards[card];
+        const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+        if (printing && awaiting.none.some((t) => faceOf(printing, 0).typeLine.types.includes(t))) return reject('illegalTarget', `That card is not one the look admits.`);
+      }
     }
     const rest = shown.filter((id) => !unique.has(id));
     // D389 - "in a random order": the leftovers are shuffled HERE, off the seeded generator, and
@@ -3849,23 +3855,32 @@ function answerChooseFromZone(
     const mixed = awaiting.rest === 'random' ? shuffle(state.rng, rest) : null;
     const bottomed = mixed ? mixed.value : rest;
     const took = intent.cards.length === 0 ? 'nothing' : `${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}`;
+    // D493 - the picks go where the line sends them: the hand, or the battlefield (tapped when the line says so).
     const toHand = intent.cards.map((card) => ({
       card,
       from: { kind: 'library' as const, player: intent.player },
-      to: { kind: 'hand' as const, player: intent.player },
+      to: awaiting.to === 'battlefield' ? { kind: 'battlefield' as const, player: intent.player } : { kind: 'hand' as const, player: intent.player },
     }));
+    const tappedAfter: EventBody[] = awaiting.to === 'battlefield' && awaiting.tapped === true && intent.cards.length > 0 ? [{ t: 'PermanentsTapped', cards: [...intent.cards] }] : [];
     /**
      * ⚠️ The leftovers go to the BOTTOM, which is the FRONT of the array —
      * `drawFromTop` takes from the end, so "bottom" is index 0. A move that got
      * this backwards would put the cards the player just declined straight back
      * under their next draw.
      */
-    const toRest = bottomed.map((card) =>
+    // D493 - `top`: the leftovers stay where they are (no move at all); `hand`: they go into the hand.
+    const toRest = (awaiting.rest === 'top' ? [] : bottomed).map((card) =>
       awaiting.rest === 'graveyard'
         ? {
             card,
             from: { kind: 'library' as const, player: intent.player },
             to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player },
+          }
+        : awaiting.rest === 'hand'
+        ? {
+            card,
+            from: { kind: 'library' as const, player: intent.player },
+            to: { kind: 'hand' as const, player: intent.player },
           }
         : {
             card,
@@ -3901,6 +3916,7 @@ function answerChooseFromZone(
           },
         },
         { t: 'CardsMoved', moves: toHand },
+        ...tappedAfter,
         narrated(
           n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${took}.`,
           intent.player,
@@ -3913,10 +3929,15 @@ function answerChooseFromZone(
         ? 'into the graveyard'
         : awaiting.rest === 'random'
           ? 'on the bottom in a random order'
-          : 'on the bottom';
+          : awaiting.rest === 'top'
+            ? 'back on top'
+            : awaiting.rest === 'hand'
+              ? 'into the hand'
+              : 'on the bottom';
     const events: EventBody[] = [
       { t: 'AwaitingSet', awaiting: null },
-      { t: 'CardsMoved', moves: [...toHand, ...toRest] },
+      ...(toHand.length + toRest.length > 0 ? [{ t: 'CardsMoved' as const, moves: [...toHand, ...toRest] }] : []),
+      ...tappedAfter,
       // ⚠️ The reveal is CLEARED, or the player keeps seeing the cards that went
       // to the bottom for the rest of the game — `view.peek` reads `revealedTo`.
       { t: 'CardsRevealed', cards: [...shown], to: [] },

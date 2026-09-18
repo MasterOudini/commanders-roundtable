@@ -229,9 +229,10 @@ function describe(
         if (awaiting.zone === 'library') {
           // D389 - a filtered, optional look names what may be kept and says nothing is legal.
           const min = awaiting.min ?? awaiting.count;
+          // D493 - a look whose picks go onto the battlefield says so.
           return min < awaiting.count
-            ? `${awaiting.label}: click up to ${awaiting.count} ${awaiting.filter?.what ?? 'card'}${awaiting.count === 1 ? '' : 's'} to keep, then commit. Keeping nothing is legal.`
-            : `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} to keep.`;
+            ? `${awaiting.label}: click up to ${awaiting.count} ${awaiting.filter?.what ?? 'card'}${awaiting.count === 1 ? '' : 's'} to ${awaiting.to === 'battlefield' ? 'put onto the battlefield' : 'keep'}, then commit. Keeping nothing is legal.`
+            : `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} to ${awaiting.to === 'battlefield' ? 'put onto the battlefield' : 'keep'}.`;
         }
         return `${awaiting.label}: click ${awaiting.count} card${awaiting.count === 1 ? '' : 's'} in your hand to discard.`;
       case 'orderCards':

@@ -231,6 +231,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the case the rider suppresses (Morbid Opportunist alone read 1 firing over 60 seeds).
   { names: ['Ghoulish Procession', 'Irreverent Gremlin'], copiesPerSeat: 2,
     counterKeys: ['onceTriggersFired'], rotHistory: 'D492' },
+  // D493 - the look grammar: two Elvish Rejuvenators a seat ({2}{G} 3/3, `look at the top five cards of your library. You
+  // may put a land card from among them onto the battlefield tapped. Put the rest on the bottom of your library in a random
+  // order.` - the pick onto the battlefield, the new destination) and two Satyr Wayfinders ({1}{G} 1/1, `reveal the top four
+  // cards of your library. You may put a land card from among them into your hand. Put the rest into your graveyard.` - a
+  // public reveal); the driver answers a library look off the revealed run through the filter, as before.
+  { names: ['Elvish Rejuvenator', 'Satyr Wayfinder'], copiesPerSeat: 2,
+    counterKeys: ['looksToBattlefield', 'looksRevealed'], rotHistory: 'D493' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -990,8 +997,10 @@ function answerFor(state: GameState, p: Picker): Intent | null {
           ? (state.zones.library[awaiting.player] ?? []).filter((id) => {
               const inst = state.cards[id];
               if (!inst || !inst.revealedTo.includes(awaiting.player)) return false;
-              if (!awaiting.filter) return true;
               const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
+              // D493 - the look grammar's negations (`noncreature, nonland`): the types the pick must lack.
+              if (face && (awaiting.none ?? []).some((t) => face.typeLine.types.includes(t))) return false;
+              if (!awaiting.filter) return true;
               return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
             })
           : awaiting.zone === 'battlefield'
@@ -1465,6 +1474,9 @@ interface Run {
   readonly freeGrantCasts: number;
   /** D492 - once-per-turn triggers queued (`PendingTrigger.oncePerTurn`; the suppressed second match of a turn is never on the log). */
   readonly onceTriggersFired: number;
+  /** D493 - the look grammar: library looks whose picks go onto the battlefield, and looks revealed to every seat. */
+  readonly looksToBattlefield: number;
+  readonly looksRevealed: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1917,6 +1929,8 @@ function runOne(seed: number): Run {
     freeGrantsAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.castFree === true).length,
     freeGrantCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.freeCast === true).length,
     onceTriggersFired: game.log.reduce((n, e) => n + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => t.oncePerTurn === true).length : 0), 0),
+    looksToBattlefield: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.zone === 'library' && e.body.awaiting.to === 'battlefield').length,
+    looksRevealed: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.to.length > 1 && e.body.cards.length > 1).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2201,6 +2215,8 @@ const TOTAL_KEYS = [
   'freeGrantsAsked',
   'freeGrantCasts',
   'onceTriggersFired',
+  'looksToBattlefield',
+  'looksRevealed',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2622,8 +2638,10 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.freeCasts).toBeGreaterThan(0);
         // D491 - a cast granted from the hand at gate size (Sram's Expertise, two a seat).
         expect(totals.freeGrantCasts).toBeGreaterThan(0);
-        // D492 - a once-per-turn trigger queued at gate size (Morbid Opportunist, two a seat).
+        // D492 - a once-per-turn trigger queued at gate size (Ghoulish Procession and Irreverent Gremlin, two a seat).
         expect(totals.onceTriggersFired).toBeGreaterThan(0);
+        // D493 - a look onto the battlefield at gate size (Elvish Rejuvenator, two a seat).
+        expect(totals.looksToBattlefield).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2740,6 +2758,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.freeCasts} free casts · ` +
           `${totals.freeGrantsAsked}/${totals.freeGrantCasts} free grants asked/cast · ` +
           `${totals.onceTriggersFired} once-per-turn triggers · ` +
+          `${totals.looksToBattlefield}/${totals.looksRevealed} looks to the battlefield/revealed · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

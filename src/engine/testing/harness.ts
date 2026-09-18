@@ -607,7 +607,9 @@ export function simplestAnswer(
       // the eligible run, up to the count, is legal whether it is empty or full.
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.
       const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
-      const eligible = filter
+      // D493 - the look grammar's negations (`noncreature, nonland`): the types the pick must lack.
+      const lacks = awaiting.zone === 'library' ? (awaiting.none ?? []) : [];
+      const eligible = (filter
         ? pool.filter((id) => {
             const inst = state.cards[id];
             // D488 - a populate's noun names a TOKEN (the host refuses a card).
@@ -615,7 +617,13 @@ export function simplestAnswer(
             const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
             return printing ? predicateAdmits(faceOf(printing, 0), filter.predicates) : false;
           })
-        : pool;
+        : pool
+      ).filter((id) => {
+        if (lacks.length === 0) return true;
+        const inst = state.cards[id];
+        const printing = inst ? ORACLE.byPrinting(inst.printingId) : undefined;
+        return printing ? !lacks.some((t) => faceOf(printing, 0).typeLine.types.includes(t)) : false;
+      });
       return {
         t: 'AnswerChooseFromZone',
         player: awaiting.player,

@@ -796,6 +796,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D493 - the look grammar: the rows the select offered and the row maker refused, by its own reasons.
+  ['Fecund Greenshell', 'a filtered head outside the closed reader (a qualifier outside the keyword list: toughness greater than its power): Whenever this creature or another (D493)'],
+  ['Wandering Mind', 'a look with a negated noun the suite has no fixture for: Look at the top six cards of your library. You may reveal a (D493)'],
+  ["Explorer's Scope", 'an attack head on a card with no creature body: equippedCreatureAttacks (D493)'],
+  ["Nymris, Oona's Trickster", 'a filtered head outside the closed reader (an adjective outside the list: your): Whenever you cast your first spell during each opponent\'s tu (D493)'],
+  ["Raiders' Karve", 'an attack head on a card with no creature body: vehicleAttacks (D493)'],
+  ['Adéwalé, Breaker of Chains', 'a combat-damage head no attack-capable fixture satisfies: a Vehicle you control (D493)'],
   // D492 - the once-per-turn trigger: the rider cards the row maker refused, by its own reasons.
   ['Exemplar of Light', 'trigger head not in the library: Whenever you put one or more +1/+1 counters on this creature, draw a c (D492)'],
   ['Chance-Met Elves', 'trigger head not in the library: Whenever you scry, put a +1/+1 counter on this creature. This ability (D492)'],
@@ -1171,7 +1178,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Commander's Insight", 'game-history memory'],
   ['Commando Raid', 'temporary keyword/ability grant'],
   ['Commune with Lava', 'play-from-exile permission'],
-  ['Commune with the Gods', 'script-raised prompt'],
   ['Conduct Electricity', 'up-to-N targeting'],
   ['Contaminated Drink', 'rad counters'],
   ['Contest of Claws', 'discover mechanic'],
@@ -1340,7 +1346,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Goblin Game', 'physical item choice'],
   ['Graven Lore', 'mana-spent memory'],
   ['Gravkill', 'subtype list alternative'],
-  ['Grisly Salvage', 'script-raised prompt'],
   // D217 — Hoarder's Greed CLASHES (reveal + each player's top/bottom
   // choice + compare + a repeat loop, a NEW class); 'one or two target
   // creatures' still parses confident exactly-2 (the D212 hazard, so
@@ -1574,7 +1579,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sanity Gnawers', 'ctx.random'],
   ['Scarblade Elite', 'exile-from-graveyard cost'],
   // D244 (M6.4cg)
-  ['Scout the Borders', 'script-raised prompt'],
   ["Sea God's Revenge", 'plural-controller target qualifier unenforced'],
   ["Sea God's Scorn", 'list with and/or'],
   ["Sea Kings' Blessing", 'UEOT color change'],
@@ -2480,7 +2484,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Shattered Perception', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Snort', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Solstice Revelations', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Tracker\'s Instincts', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Traitor\'s Clutch', 'a spell line outside the vocabulary (its flashback runs)'],
 
   // D308 (M6.4es) — the keyword-trigger pool: the carriers whose other

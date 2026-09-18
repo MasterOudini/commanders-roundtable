@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { COILING_ORACLE_SCRIPT } from './cards/coilingOracle';
+import { DRYAD_GREENSEEKER_SCRIPT } from './cards/dryadGreenseeker';
+import { ELVISH_REJUVENATOR_SCRIPT } from './cards/elvishRejuvenator';
+import { SATYR_WAYFINDER_SCRIPT } from './cards/satyrWayfinder';
+import { CALL_OF_THE_WILD_SCRIPT } from './cards/callOfTheWild';
+import { FAERIE_SNOOP_SCRIPT } from './cards/faerieSnoop';
+import { FROST_AUGUR_SCRIPT } from './cards/frostAugur';
+import { INTO_THE_WILDS_SCRIPT } from './cards/intoTheWilds';
+import { MEMORIAL_TO_UNITY_SCRIPT } from './cards/memorialToUnity';
+import { NEUROK_FAMILIAR_SCRIPT } from './cards/neurokFamiliar';
+import { ORAZCA_PUZZLE_DOOR_SCRIPT } from './cards/orazcaPuzzleDoor';
+import { RISEN_REEF_SCRIPT } from './cards/risenReef';
+import { SKYWARD_EYE_PROPHETS_SCRIPT } from './cards/skywardEyeProphets';
+import { VESSEL_OF_NASCENCY_SCRIPT } from './cards/vesselOfNascency';
+import { VIVIENS_GRIZZLY_SCRIPT } from './cards/viviensGrizzly';
+import { WEB_OF_LIFE_AND_DESTINY_SCRIPT } from './cards/webOfLifeAndDestiny';
+import { ZOOLOGIST_SCRIPT } from './cards/zoologist';
 import { ACADEMY_WALL_SCRIPT } from './cards/academyWall';
 import { FLYING_OCTOBOT_SCRIPT } from './cards/flyingOctobot';
 import { GHOULISH_PROCESSION_SCRIPT } from './cards/ghoulishProcession';
@@ -7602,6 +7619,23 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  COILING_ORACLE_SCRIPT,
+  DRYAD_GREENSEEKER_SCRIPT,
+  ELVISH_REJUVENATOR_SCRIPT,
+  SATYR_WAYFINDER_SCRIPT,
+  CALL_OF_THE_WILD_SCRIPT,
+  FAERIE_SNOOP_SCRIPT,
+  FROST_AUGUR_SCRIPT,
+  INTO_THE_WILDS_SCRIPT,
+  MEMORIAL_TO_UNITY_SCRIPT,
+  NEUROK_FAMILIAR_SCRIPT,
+  ORAZCA_PUZZLE_DOOR_SCRIPT,
+  RISEN_REEF_SCRIPT,
+  SKYWARD_EYE_PROPHETS_SCRIPT,
+  VESSEL_OF_NASCENCY_SCRIPT,
+  VIVIENS_GRIZZLY_SCRIPT,
+  WEB_OF_LIFE_AND_DESTINY_SCRIPT,
+  ZOOLOGIST_SCRIPT,
   ACADEMY_WALL_SCRIPT,
   FLYING_OCTOBOT_SCRIPT,
   GHOULISH_PROCESSION_SCRIPT,

@@ -1161,7 +1161,14 @@ export type Awaiting =
        * Where the cards NOT chosen go — `library` prompts only, `null` for a
        * discard, where the unchosen simply stay in hand.
        */
-      readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random' | null;
+      readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random' | 'top' | 'hand' | null;
+      /**
+       * D493 - THE LOOK GRAMMAR: a library look whose picks go onto the battlefield (`tapped` when the line says so)
+       * instead of the hand; `rest` `top` leaves the leftovers where they are, `hand` puts them into the hand (the
+       * `Otherwise` branch of a one-card look). Absent on every older prompt.
+       */
+      readonly to?: 'battlefield';
+      readonly tapped?: true;
       /** This many at most; exactly this many unless `min` says fewer are allowed. */
       readonly count: number;
       /**

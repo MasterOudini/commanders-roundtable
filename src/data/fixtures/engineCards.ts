@@ -8290,6 +8290,26 @@ export const SUKI_COURAGEOUS_RESCUER: CardData = F.SUKI_COURAGEOUS_RESCUER as Ca
 export const THOPTER_SHOP: CardData = F.THOPTER_SHOP as CardData;
 export const TOLLS_OF_WAR: CardData = F.TOLLS_OF_WAR as CardData;
 export const CANOPY_SPIDER: CardData = F.CANOPY_SPIDER as CardData;
+export const GRISLY_SALVAGE: CardData = F.GRISLY_SALVAGE as CardData;
+export const COMMUNE_WITH_THE_GODS: CardData = F.COMMUNE_WITH_THE_GODS as CardData;
+export const ELVISH_REJUVENATOR: CardData = F.ELVISH_REJUVENATOR as CardData;
+export const COILING_ORACLE: CardData = F.COILING_ORACLE as CardData;
+export const SATYR_WAYFINDER: CardData = F.SATYR_WAYFINDER as CardData;
+export const WANDERING_MIND: CardData = F.WANDERING_MIND as CardData;
+export const DRYAD_GREENSEEKER: CardData = F.DRYAD_GREENSEEKER as CardData;
+export const CALL_OF_THE_WILD: CardData = F.CALL_OF_THE_WILD as CardData;
+export const FAERIE_SNOOP: CardData = F.FAERIE_SNOOP as CardData;
+export const FROST_AUGUR: CardData = F.FROST_AUGUR as CardData;
+export const INTO_THE_WILDS: CardData = F.INTO_THE_WILDS as CardData;
+export const MEMORIAL_TO_UNITY: CardData = F.MEMORIAL_TO_UNITY as CardData;
+export const NEUROK_FAMILIAR: CardData = F.NEUROK_FAMILIAR as CardData;
+export const ORAZCA_PUZZLE_DOOR: CardData = F.ORAZCA_PUZZLE_DOOR as CardData;
+export const RISEN_REEF: CardData = F.RISEN_REEF as CardData;
+export const SKYWARD_EYE_PROPHETS: CardData = F.SKYWARD_EYE_PROPHETS as CardData;
+export const VESSEL_OF_NASCENCY: CardData = F.VESSEL_OF_NASCENCY as CardData;
+export const VIVIEN_S_GRIZZLY: CardData = F.VIVIEN_S_GRIZZLY as CardData;
+export const WEB_OF_LIFE_AND_DESTINY: CardData = F.WEB_OF_LIFE_AND_DESTINY as CardData;
+export const ZOOLOGIST: CardData = F.ZOOLOGIST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16797,6 +16817,26 @@ export const ENGINE_CARDS: CardData[] = [
   THOPTER_SHOP,
   TOLLS_OF_WAR,
   CANOPY_SPIDER,
+  GRISLY_SALVAGE,
+  COMMUNE_WITH_THE_GODS,
+  ELVISH_REJUVENATOR,
+  COILING_ORACLE,
+  SATYR_WAYFINDER,
+  WANDERING_MIND,
+  DRYAD_GREENSEEKER,
+  CALL_OF_THE_WILD,
+  FAERIE_SNOOP,
+  FROST_AUGUR,
+  INTO_THE_WILDS,
+  MEMORIAL_TO_UNITY,
+  NEUROK_FAMILIAR,
+  ORAZCA_PUZZLE_DOOR,
+  RISEN_REEF,
+  SKYWARD_EYE_PROPHETS,
+  VESSEL_OF_NASCENCY,
+  VIVIEN_S_GRIZZLY,
+  WEB_OF_LIFE_AND_DESTINY,
+  ZOOLOGIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

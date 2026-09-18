@@ -1303,8 +1303,20 @@ export function effectResult(
         if (library.length === 0) break;
         // The TOP of a library is the END of the array (`drawFromTop`).
         const top = library.slice(Math.max(0, library.length - effect.amount));
-        out.push({ t: 'CardsRevealed', cards: top, to: [controller] });
+        // D493 - `Reveal the top N cards` is the same look made public: every seat sees the run.
+        out.push({ t: 'CardsRevealed', cards: top, to: look.reveal === true ? [...state.seating] : [controller] });
         const take = Math.min(look.take, top.length);
+        // D493 - what the noun admits among the revealed run (the negations and the filter, as the answer handler
+        // reads them): a MANDATORY filtered pick can take at most that many, and none when nothing is admitted.
+        const admits = (id: InstanceId): boolean => {
+          const inst = state.cards[id];
+          const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+          if (!printing) return false;
+          const face = faceOf(printing, 0);
+          if ((look.none ?? []).some((t) => face.typeLine.types.includes(t))) return false;
+          return look.filter === null || predicateAdmits(face, look.filter.predicates);
+        };
+        const admitted = look.filter !== null || (look.none ?? []).length > 0 ? top.filter(admits) : top;
         /**
          * ⚠️ **TAKE NOTHING IS A REAL FORM** (`Index`, D142): look at five and
          * put them back in an order of your choosing. It skips the pick prompt
@@ -1332,7 +1344,7 @@ export function effectResult(
         // D389 - a look with a FILTER or an OPTIONAL pick always asks: the top may hold nothing
         // the filter admits, and "you may" is the player's to decline. Only the plain form takes
         // a library too short to choose from whole (CR 701.8a's one-legal-answer rule, D141).
-        if (take >= top.length && !look.filter && !look.optional) {
+        if (take >= top.length && !look.filter && !look.optional && (look.none ?? []).length === 0) {
           out.push({
             t: 'CardsMoved',
             moves: top.map((card) => ({
@@ -1341,6 +1353,28 @@ export function effectResult(
               to: { kind: 'hand' as const, player: controller },
             })),
           });
+          break;
+        }
+        // D493 - THE ONE-CARD LOOK WITH NOTHING TO ASK: `Look at the top card. If it's a land card, put it onto the
+        // battlefield. Otherwise, put it into your hand.` - a mandatory pick over one card is no question (D141's
+        // one-legal-answer rule): the card goes where the line sends it, admitted or not.
+        if (top.length === 1 && !look.optional && (look.filter !== null || (look.none ?? []).length > 0)) {
+          const one = top[0] as InstanceId;
+          const owner = state.cards[one]?.owner ?? controller;
+          const where = admitted.length === 1 ? (look.to === 'battlefield' ? 'battlefield' : 'hand') : look.rest === 'hand' ? 'hand' : look.rest === 'graveyard' ? 'graveyard' : look.rest === 'bottom' ? 'bottom' : 'top';
+          if (where === 'top') {
+            out.push({ t: 'CardsRevealed', cards: top, to: [] });
+            out.push(narrated(`${obj.label} — the top card stays.`, obj.controller, obj.identity));
+            break;
+          }
+          out.push({
+            t: 'CardsMoved',
+            moves: [where === 'bottom'
+              ? { card: one, from: { kind: 'library' as const, player: controller }, to: { kind: 'library' as const, player: controller }, placement: 'bottom' as const }
+              : { card: one, from: { kind: 'library' as const, player: controller }, to: where === 'battlefield' ? { kind: 'battlefield' as const, player: controller } : where === 'graveyard' ? { kind: 'graveyard' as const, player: owner } : { kind: 'hand' as const, player: controller } }],
+          });
+          if (where === 'battlefield' && look.tapped === true) out.push({ t: 'PermanentsTapped', cards: [one] });
+          out.push({ t: 'CardsRevealed', cards: top, to: [] });
           break;
         }
         if (out.some((e) => e.t === 'AwaitingSet')) break;
@@ -1354,8 +1388,12 @@ export function effectResult(
             count: take,
             // D389 - the fewest the answer may name, and the bound on what it names. Both are
             // PRINTED on the card, so both ride the prompt; the revealed run does not (D141).
-            min: look.optional ? 0 : take,
+            // D493 - a mandatory filtered pick takes as many as the run admits, at most `take`.
+            min: look.optional ? 0 : Math.min(take, admitted.length),
             filter: look.filter,
+            ...((look.none ?? []).length > 0 ? { none: look.none } : {}),
+            ...(look.to === 'battlefield' ? { to: 'battlefield' as const } : {}),
+            ...(look.tapped === true ? { tapped: true as const } : {}),
             label: obj.label,
           },
         });

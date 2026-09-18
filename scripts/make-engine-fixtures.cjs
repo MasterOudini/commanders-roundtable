@@ -9176,6 +9176,29 @@ const WANTED = [
   'Tolls of War',
   // D492 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Canopy Spider',
+  // D493 - the look grammar: the seam fixtures.
+  'Grisly Salvage',
+  'Commune with the Gods',
+  'Elvish Rejuvenator',
+  'Coiling Oracle',
+  'Satyr Wayfinder',
+  'Wandering Mind',
+  'Dryad Greenseeker',
+  // D493 - the look grammar: the rows the seam made rowable.
+  'Call of the Wild',
+  'Faerie Snoop',
+  'Frost Augur',
+  'Into the Wilds',
+  'Memorial to Unity',
+  'Neurok Familiar',
+  'Orazca Puzzle-Door',
+  'Risen Reef',
+  'Skyward Eye Prophets',
+  'Vessel of Nascency',
+  "Vivien's Grizzly",
+  'Web of Life and Destiny',
+  'Zoologist',
+  // D493 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

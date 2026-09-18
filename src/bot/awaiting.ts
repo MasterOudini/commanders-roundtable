@@ -443,7 +443,13 @@ export function answerAwaiting(
       // "you may" lets the answer be shorter than the count, down to nothing.
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.
       const filter = awaiting.zone === 'hand' ? null : (awaiting.filter ?? null);
-      const eligible = filter ? pool.filter((c) => admitsCard(filter, c)) : pool;
+      // D493 - the look grammar's negations (`noncreature, nonland`): the types the pick must lack.
+      const lacks = awaiting.zone === 'library' ? (awaiting.none ?? []) : [];
+      const eligible = (filter ? pool.filter((c) => admitsCard(filter, c)) : pool).filter((c) => {
+        if (lacks.length === 0) return true;
+        const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
+        return face ? !lacks.some((t) => parseTypeLine(face.typeLine).types.includes(t)) : false;
+      });
       const min = awaiting.min ?? awaiting.count;
       const ordered =
         awaiting.zone === 'library' ? [...eligible].sort(worstFirst).reverse() : [...eligible].sort(worstFirst);

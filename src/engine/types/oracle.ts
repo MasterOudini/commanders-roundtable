@@ -318,7 +318,14 @@ export interface LookSpec {
    * graveyard has no order anybody chooses, and "the other" leaves one card,
    * so raising a prompt for either would be a question with one legal answer.
    */
-  readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random';
+  readonly rest: 'graveyard' | 'bottom' | 'bottomOrdered' | 'topOrdered' | 'random' | 'top' | 'hand';
+  /** D493 - the LOOK GRAMMAR: the taken cards go onto the battlefield (`tapped` when the line says so) instead of the hand. */
+  readonly to?: 'battlefield';
+  readonly tapped?: true;
+  /** D493 - `Reveal the top N cards`: the look is public (revealed to every seat, not the looker alone). */
+  readonly reveal?: true;
+  /** D493 - the noun's negations (`a noncreature, nonland card`): the types the pick must LACK (the hand reveal's reader). */
+  readonly none?: readonly string[];
 }
 
 export interface NumericRestriction {

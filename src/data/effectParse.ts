@@ -30,6 +30,7 @@ import type {
   EffectSpec,
   Keyword,
   LookFilter,
+  LookSpec,
   PaySpec,
   VerbPrice,
   CountExpr,
@@ -1751,6 +1752,25 @@ const RULES: readonly Rule[] = [
     build: () => ({ ...BASE }),
   },
   /**
+   * D493 - THE LOOK GRAMMAR. The look family measured 433 leftover lines in 288 shapes, and the shapes are ONE grammar:
+   * an OPEN (`Look at` / `Reveal the top N cards` - a reveal is the same look made public), a TAKE (what goes where:
+   * `you may reveal a <noun> card from among them and put it into your hand`, `you may put a <noun> card from among
+   * them into your hand` / `onto the battlefield( tapped)`, `put a <noun> card into your hand`, `put N of them into
+   * your hand`, and the one-card `if it's a <noun> card, (you may) (reveal it and) put it into your hand / onto the
+   * battelfield`), and a REST (`put the rest on the bottom of your library in a random order` / `in any order` / `into
+   * your graveyard`, the inline `and the rest ...`, the one-card `Otherwise, put it into your graveyard / hand`, or
+   * no rest sentence at all - the leftovers stay where they are). It comes BEFORE the six older look rules (which keep their
+   * readings - the grammar builds the same spec for every shape they read): `matchRule` stops at the first rule whose
+   * regex matches, so a refusal here is the window's refusal. The window must be consumed whole (a trailing sentence the grammar
+   * does not read refuses the window, and the shorter windows are tried next). A noun the reader cannot place
+   * refuses the sentence (D90); the negations (`noncreature, nonland`) are the hand reveal's `none`.
+   */
+  {
+    kind: 'lookAtTop',
+    re: new RegExp(`^(?<verb>look at|reveal) the top (?:(?<n>${COUNT}) cards|card) of your library\\.(?<body>(?: [^.]*\\.)+)$`, 'i'),
+    build: (m) => buildLookGrammar(m),
+  },
+  /**
    * M6.3n. `Forbidden Alchemy` and `Sleight of Hand` — look at the top N, keep
    * some, and the rest go somewhere. See D141.
    *
@@ -2298,6 +2318,95 @@ function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null 
   // D422 - a price of `{X}` is the spell's announced X, substituted as the prompt is raised (`obj.xValue`).
   if (mana && (cost === null || mana[0].includes('~'))) return null;
   return { cost, life: life ? Number(life[1]) : 0 };
+}
+
+/** D493 - the look grammar's pieces (see the rule): the TAKE sentence forms and the REST sentence forms. */
+const LOOK_NON: Readonly<Record<string, string>> = { nonland: 'Land', noncreature: 'Creature', nonartifact: 'Artifact', nonenchantment: 'Enchantment', noninstant: 'Instant', nonsorcery: 'Sorcery', nonplaneswalker: 'Planeswalker', nonbasic: 'Basic' };
+const LOOK_TAKE: readonly { readonly re: RegExp; readonly optional: boolean; readonly to: 'hand' | 'battlefield'; readonly one?: true; readonly counted?: true }[] = [
+  { re: new RegExp(`^you may reveal ${LOOK_NOUN} from among them and put (?:it|that card|them|the revealed cards?) into your hand\\.$`, 'i'), optional: true, to: 'hand' },
+  { re: new RegExp(`^you may put ${LOOK_NOUN} from among them into your hand\\.$`, 'i'), optional: true, to: 'hand' },
+  { re: new RegExp(`^you may put ${LOOK_NOUN} from among them onto the battlefield(?<tapped> tapped)?\\.$`, 'i'), optional: true, to: 'battlefield' },
+  { re: new RegExp(`^put ${LOOK_NOUN} (?:from among them )?into your hand(?<inline> and (?:the rest on the bottom of your library in (?:a random order|any order)|the rest into your graveyard|the other into your graveyard|the other on the bottom of your library))?\\.$`, 'i'), optional: false, to: 'hand' },
+  { re: new RegExp(`^put (?<take>${COUNT}) (?:of (?:them|those cards) )?into your hand(?<inline> and (?:the rest on the bottom of your library in (?:a random order|any order)|the rest into your graveyard|the other into your graveyard|the other on the bottom of your library))?\\.$`, 'i'), optional: false, to: 'hand', counted: true },
+  { re: new RegExp(`^if it's ${LOOK_NOUN}, (?<may>you may )?(?:reveal it and )?put it (?:into your hand|onto the battlefield(?<tapped> tapped)?)\\.$`, 'i'), optional: false, to: 'hand', one: true },
+];
+const LOOK_REST: readonly (readonly [RegExp, LookSpec['rest']])[] = [
+  [/^(?:then )?put the rest on the bottom of your library in a random order\.$/i, 'random'],
+  [/^(?:then )?put the rest on the bottom of your library in any order\.$/i, 'bottomOrdered'],
+  [/^(?:then )?put the rest into your graveyard\.$/i, 'graveyard'],
+  [/^otherwise, put (?:it|that card) into your graveyard\.$/i, 'graveyard'],
+  [/^otherwise, put (?:it|that card) into your hand\.$/i, 'hand'],
+  [/^if you don't put (?:the|that) card (?:into your hand|onto the battlefield)(?: this way)?, put it into your graveyard\.$/i, 'graveyard'],
+  [/^if you don't put (?:the|that) card (?:into your hand|onto the battlefield)(?: this way)?, put it on the bottom of your library\.$/i, 'bottom'],
+  [/^if you don't put (?:the|that) card (?:into your hand|onto the battlefield)(?: this way)?, put it into your hand\.$/i, 'hand'],
+];
+function buildLookGrammar(m: RegExpMatchArray): EffectFields | null {
+  const g = m.groups ?? {};
+  const n = g['n'] === undefined ? 1 : num(g['n']);
+  if (n === null || n < 1) return null;
+  const body = (g['body'] ?? '').trim();
+  const sentences = body.split(/(?<=\.)\s+(?=[A-Za-z])/).map((s) => s.trim()).filter((s) => s !== '');
+  const first = sentences[0];
+  if (first === undefined) return null;
+  let take: { readonly m: RegExpMatchArray; readonly form: (typeof LOOK_TAKE)[number] } | null = null;
+  for (const form of LOOK_TAKE) {
+    const hit = first.match(form.re);
+    if (hit) { take = { m: hit, form }; break; }
+  }
+  if (take === null) return null;
+  const tg = take.m.groups ?? {};
+  // The noun: the negations first (the hand reveal's reader), then the look's own reader over the rest.
+  let noun = (tg['noun'] ?? '').trim();
+  const none: string[] = [];
+  for (;;) {
+    const lead = noun.match(/^(non[a-z]+),?\s*/i);
+    const type = lead ? LOOK_NON[(lead[1] ?? '').toLowerCase()] : undefined;
+    if (!lead || type === undefined) break;
+    none.push(type);
+    noun = noun.slice(lead[0].length);
+  }
+  if (/\bnon[a-z]+/i.test(noun)) return null;
+  const filter = noun !== '' ? lookFilter({ noun: noun.replace(/,\s*(?:or\s+)?/g, ' or ').replace(/\s+/g, ' ').trim() }) : null;
+  if (noun !== '' && !filter) return null;
+  if (noun === '' && none.length === 0 && !take.form.counted) return null;
+  const count = take.form.counted ? num(tg['take'] ?? '') : 1;
+  if (count === null || count < 1) return null;
+  if (take.form.one) { if (n !== 1) return null; }
+  else if (n === 1) return null;
+  if (!take.form.one && filter === null && none.length === 0 && count >= n) return null;
+  const optional = take.form.one ? tg['may'] !== undefined : take.form.optional;
+  const to: 'hand' | 'battlefield' = take.form.one ? (/onto the battlefield/i.test(take.m[0] ?? '') ? 'battlefield' : 'hand') : take.form.to;
+  const tapped = tg['tapped'] !== undefined;
+  let rest: LookSpec['rest'] = 'top';
+  let used = 1;
+  const inline = tg['inline'];
+  if (inline !== undefined) {
+    rest = /random order/i.test(inline) ? 'random' : /any order/i.test(inline) ? 'bottomOrdered' : /graveyard/i.test(inline) ? 'graveyard' : 'bottom';
+  } else if (sentences.length >= 2) {
+    const second = sentences[1] ?? '';
+    for (const [re, where] of LOOK_REST) {
+      if (re.test(second)) { rest = where; used = 2; break; }
+    }
+  }
+  if (used !== sentences.length) return null;
+  // `the other` is singular: exactly one card may be left over (the rules above check the same arithmetic).
+  if (inline !== undefined && /the other/i.test(inline) && n - count !== 1) return null;
+  return {
+    ...BASE,
+    amount: n,
+    targetIndex: -1,
+    self: true,
+    look: {
+      take: count,
+      rest,
+      filter: filter ?? null,
+      optional,
+      ...(to === 'battlefield' ? { to: 'battlefield' as const } : {}),
+      ...(tapped ? { tapped: true as const } : {}),
+      ...((g['verb'] ?? '').toLowerCase() === 'reveal' ? { reveal: true as const } : {}),
+      ...(none.length > 0 ? { none } : {}),
+    },
+  };
 }
 
 function payBody(sentence: string): EffectSpec | null {
