@@ -5,6 +5,9 @@ import { planTargets } from '../../bot/targets';
 import { parseTypeLine } from '../../data/oracleParse';
 import { predicateAdmits } from '../../data/replacementParse';
 
+/** D491 - a chooser-verb additional cost the granted cast's answer cannot name (the host refuses the pick). */
+const FREE_CAST_UNPICKABLE = /^as an additional cost to cast this spell, (?:sacrifice|discard|tap|exile|return)/im;
+
 // Extracted so a measurement harness can reuse the same script the tests use.
 //
 // ⚠️ `planTargets` MOVED to `src/bot/targets.ts` and is imported rather than
@@ -142,13 +145,21 @@ export function simplestIntent(
         // D389 - a filtered look admits only what its noun names; the driver reads the face it
         // holds through the one reader, and an empty answer is legal when the pick is optional.
         // D390 - a queued sacrifice carries the printed noun too; a discard never does.
-        const filter = awaiting.zone === 'hand' && awaiting.owner === undefined ? null : (awaiting.filter ?? null);
+        // D491 - the from-hand free cast's pick carries the bound on the viewer's OWN hand: the noun, the negations,
+        // the mana-value ceiling, and a castable face (a nonland with a mana cost; no chooser-verb additional cost and
+        // no targeted instant or sorcery, which the view cannot price against the board - the host would refuse them).
+        const free = awaiting.castFree === true;
+        const filter = awaiting.zone === 'hand' && awaiting.owner === undefined && !free ? null : (awaiting.filter ?? null);
         const none = awaiting.none ?? [];
-        const eligible = filter || none.length > 0
+        const mv = free ? (awaiting.qualifier?.manaValue ?? null) : null;
+        const eligible = filter || none.length > 0 || free
           ? hand.filter((id) => {
-              const face = v.cards[id]?.card?.faces[0];
-              if (!face) return false;
+              const card = v.cards[id]?.card;
+              const face = card?.faces[0];
+              if (!card || !face) return false;
               const types = parseTypeLine(face.typeLine);
+              if (free && (face.manaCost === '' || types.types.includes('Land') || FREE_CAST_UNPICKABLE.test(face.oracleText) || ((types.types.includes('Instant') || types.types.includes('Sorcery')) && /\btarget\b/i.test(face.oracleText)))) return false;
+              if (mv !== null && ((mv.op === 'lte' && !(card.cmc <= mv.n)) || (mv.op === 'gte' && !(card.cmc >= mv.n)) || (mv.op === 'eq' && card.cmc !== mv.n))) return false;
               if (none.some((t) => types.types.includes(t))) return false;
               // D488 - a populate's noun names a TOKEN; the view says which permanents are.
               if (filter && filter.predicates.some((p) => p.token === true) && v.cards[id]?.isToken !== true) return false;

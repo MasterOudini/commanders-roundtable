@@ -428,6 +428,8 @@ export interface StackObject {
   readonly alternativePaid?: true;
   /** D489 - cast from exile by the suspend tick without paying its mana cost (CR 702.62d); the entry stamps `suspendHaste`. */
   readonly suspended?: true;
+  /** D491 - cast from the hand under a resolving effect's grant, without paying its mana cost. */
+  readonly freeCast?: true;
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -594,6 +596,14 @@ export interface PendingCast {
   /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */
   readonly alternative?: true;
   readonly exileFromHand?: readonly InstanceId[];
+  /**
+   * D491 - a cast GRANTED by a resolving effect (`You may cast ... from your hand without paying its mana cost`):
+   * nothing to pay (the problem carries no mana; the ward and the additional cost's price still ride it), begun
+   * with no priority of its own; `continuation` the granting effect's clauses after the grant, run once the cast
+   * completes or is backed out of (D484's shape).
+   */
+  readonly free?: true;
+  readonly continuation?: EffectContinuation;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
   readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
@@ -1190,6 +1200,13 @@ export type Awaiting =
       readonly qualifier?: SearchQualifier | null;
       readonly then?: 'discard' | 'exile';
       readonly loseLife?: number;
+      /**
+       * D491 - THE FROM-HAND FREE CAST: the pick is a card of the chooser's OWN hand the bound admits (`none`,
+       * `filter`, `qualifier` - D416's reader, plus castability), and the answer BEGINS ITS CAST without paying
+       * its mana cost (the cast's own questions follow: modes, targets; X is 0); an empty answer casts nothing.
+       * `min` is 0 on every such prompt. Absent on every older prompt.
+       */
+      readonly castFree?: true;
       /**
        * D484 - the clauses after the asking clause, run once the answer has landed: after the whole batch of a
        * player queue, after the ordering a look chains into, after the last connive of a chain.

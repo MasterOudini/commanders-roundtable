@@ -34,7 +34,7 @@ import {
   type CostVerbs,
 } from './legal';
 import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
-import { handChoiceAdmits } from './handChoice';
+import { freeCastAdmits, handChoiceAdmits } from './handChoice';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
@@ -74,7 +74,7 @@ import {
   type HandleResult,
   type Intent,
 } from './types/intents';
-import type { Awaiting, GameState, PendingCast, StackObject, TargetChoice } from './types/state';
+import type { Awaiting, EffectContinuation, GameState, PendingCast, StackObject, TargetChoice } from './types/state';
 
 const KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 
@@ -116,7 +116,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'Suspend':
       return suspend(state, intent, deps);
     case 'CancelPendingCast':
-      return cancelPendingCast(state, intent.player);
+      return cancelPendingCast(state, intent.player, deps);
     case 'TapForMana':
       return tapForMana(state, intent, deps);
     case 'DeclareAttackers':
@@ -405,6 +405,8 @@ interface CastSetup {
   readonly orPaid: boolean;
   /** D408 - the alternative cost was elected: the picks above pay ITS verb and pitch, its mana replaced the mana cost. */
   readonly alternative: boolean;
+  /** D491 - a cast GRANTED by a resolving effect: nothing to pay but the ward and the additional cost's price. */
+  readonly free?: true;
 }
 
 /** D406 - the picks a cast names for its additional cost's chooser verb. */
@@ -752,6 +754,9 @@ function prepareCast(
   alt: AltChoice = NO_ALT,
   picks: CastPicks = NO_PICKS,
   alternative = false,
+  // D491 - a cast granted by a resolving effect (`You may cast ... from your hand without paying its mana cost`):
+  // no mana cost, no timing of its own, no priority of its own (nobody holds it while a spell resolves).
+  free = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -780,7 +785,7 @@ function prepareCast(
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }
-  if ((faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
+  if (!free && (faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
     return {
       error: reject(
         'timingRestriction',
@@ -788,14 +793,16 @@ function prepareCast(
       ),
     };
   }
-  if (state.priority.player !== player) {
+  if (!free && state.priority.player !== player) {
     return { error: reject('notYourPriority', 'You do not have priority.') };
   }
   // D312 - the generic reductions the board grants, folded into the tax the
   // way the offer folds them (a face-down cast has no printed text to reduce).
-  const tax =
-    (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
-    (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
+  // D491 - a granted cast has no mana cost to reduce and no tax.
+  const tax = free
+    ? 0
+    : (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
+      (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
   const ward = wardTaxFor(state, deps, player, targets);
   // D408 - THE ALTERNATIVE COST elected: the mana cost is REPLACED by what the face's line names (its
   // mana, its life, its verb's picks, its pitch), under its condition; one alternative at a time (CR
@@ -805,8 +812,8 @@ function prepareCast(
   if (altCost && (faceDown || flashback)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
-  const cost = altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
-  if (cost === null && !altCost) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
+  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  if (cost === null && !altCost && !free) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked);
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
@@ -828,7 +835,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1105,6 +1112,74 @@ function castSpell(
     ...(modal !== null ? { modes: chosenModes } : {}),
     ...(intent.plan !== undefined ? { plan: intent.plan } : {}),
     setup,
+  });
+}
+
+/**
+ * D491 - THE FROM-HAND FREE CAST: a cast BEGUN BY AN ANSWER (`chooseFromZone` with `castFree`), not by a `CastSpell`
+ * intent. The granting spell is resolving and nobody holds priority, so the timing is the grant's (CR 601.2 under
+ * "you may cast"); the announcement's own questions still follow in their order (CR 601.2b/c - the modes, then the
+ * targets; X is 0 when a spell is cast without paying its mana cost, CR 107.3?/601.2b - so the X stage never
+ * asks), and the cast completes with nothing paid but the ward and the additional cost's price. The granting
+ * effect's remaining clauses ride the pending cast as its continuation (D484's shape) and run when the cast
+ * completes or is backed out of. The stack object carries `freeCast`.
+ */
+function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, continuation: EffectContinuation | undefined): HandleResult {
+  if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
+  const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, 0, NO_ALT, NO_PICKS, false, true);
+  if ('error' in setup) return setup.error;
+  const modal = setup.face.modal;
+  const spellSpecs = modal !== null ? [] : setup.face.targets;
+  const needsModes = modal !== null;
+  const needsTargets = spellSpecs.length > 0;
+  const xValue = setup.face.manaCost !== null && setup.face.manaCost.xCount > 0 ? 0 : null;
+  if (modal !== null && legalModesFor(state, deps, player, cardId, modal.modes).length < modal.min) {
+    return reject('illegalMode', `No mode of ${setup.face.name} has a legal target right now.`);
+  }
+  if (needsModes || needsTargets) {
+    const stackId = `s${state.counters.stack + 1}`;
+    const pending: PendingCast = {
+      player,
+      card: cardId,
+      from: setup.from,
+      stackId,
+      stage: needsModes ? 'modes' : 'targets',
+      kind: 'spell',
+      faceIndex: 0,
+      abilityRef: null,
+      modes: [],
+      targets: [],
+      xValue,
+      problem: setup.problem,
+      paidSoFar: EMPTY_POOL,
+      lifePaid: 0,
+      isCommanderCast: false,
+      taxApplied: 0,
+      ...(setup.orPaid ? { orPaid: true as const } : {}),
+      free: true,
+      ...(continuation !== undefined ? { continuation } : {}),
+    };
+    return accept([
+      { t: 'CardsMoved', moves: [{ card: cardId, from: setup.from, to: { kind: 'stack', player: null } }] },
+      { t: 'CastBegan', pending },
+      {
+        t: 'AwaitingSet',
+        awaiting:
+          modal !== null
+            ? modesAwaiting(player, stackId, cardId, setup.face.name, modal.modes, modal, legalModesFor(state, deps, player, cardId, modal.modes), 'spell')
+            : targetsAwaiting(player, stackId, cardId, setup.face.name, spellSpecs, 'spell'),
+      },
+    ]);
+  }
+  return completeCast(state, deps, {
+    player,
+    card: cardId,
+    faceIndex: 0,
+    xValue: 0,
+    targets: [],
+    setup,
+    lead: [{ t: 'AwaitingSet', awaiting: null }],
+    ...(continuation !== undefined ? { continuation } : {}),
   });
 }
 
@@ -1852,7 +1927,8 @@ function chooseTargets(
   // existed nothing ever supplied it a target.
   const ward = wardTaxFor(state, deps, intent.player, intent.targets);
   const base = buildPaymentProblem(
-    face.manaCost,
+    // D491 - a granted cast keeps paying nothing when the targets price the problem (the ward still rides it).
+    pending.free === true ? null : face.manaCost,
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
     [...ward.mana, ...kickerMana(face, pending.kicked ?? 0), ...additionalExtras(face, pending.orPaid === true).mana],
@@ -1894,7 +1970,7 @@ function payCast(
   return finishFromPending(state, deps, pending, face, oracleCard.colorIdentity, { plan: intent.plan });
 }
 
-function cancelPendingCast(state: GameState, player: PlayerId): HandleResult {
+function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps): HandleResult {
   const pending = state.pendingCast;
   if (!pending || pending.player !== player) {
     return reject('noPendingCast', 'You are not casting anything.');
@@ -1916,7 +1992,8 @@ function cancelPendingCast(state: GameState, player: PlayerId): HandleResult {
   events.push({ t: 'CastCancelled', stackId: pending.stackId });
   // Backing out also dismisses whatever the cast was asking for.
   events.push({ t: 'AwaitingSet', awaiting: null });
-  return accept(events);
+  // D491 - backing out of a granted cast still runs the granting effect's remaining clauses.
+  return accept(events, resumeContinuation(state, deps, events, pending.continuation));
 }
 
 interface CompleteArgs {
@@ -1931,6 +2008,10 @@ interface CompleteArgs {
   modes?: readonly number[];
   plan?: import('./types/mana').PaymentPlan;
   setup: CastSetup;
+  /** D491 - events before the cast's own (a granted cast dismisses the chooser it was answered from). */
+  lead?: readonly EventBody[];
+  /** D491 - the granting effect's remaining clauses, run once the cast is complete. */
+  continuation?: EffectContinuation;
 }
 
 function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): HandleResult {
@@ -1960,6 +2041,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
 
   const stackId = `s${state.counters.stack + 1}`;
   const events: EventBody[] = [
+    ...(args.lead ?? []),
     {
       t: 'CardsMoved',
       moves: [
@@ -2001,6 +2083,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
+    ...(setup.free ? { freeCast: true as const } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -2012,13 +2095,14 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   }
   events.push(
     narrated(
-      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}${altNote(setup.alt)}.`,
+      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}${altNote(setup.alt)}${setup.free ? ' without paying its mana cost' : ''}.`,
       args.player,
       setup.identity,
     ),
   );
   events.push(...retainPriority(args.player, state.stack.length + 1));
-  return accept(events);
+  // D491 - a granted cast's completion runs the granting effect's remaining clauses (D484's funnel).
+  return accept(events, resumeContinuation(state, deps, events, args.continuation));
 }
 
 /**
@@ -2470,6 +2554,7 @@ function finishFromPending(
     picks,
     orPaid: pending.orPaid === true,
     alternative: pending.alternative === true,
+    ...(pending.free === true ? { free: true as const } : {}),
     identity,
   };
   const events: EventBody[] = [...(opts.lead ?? [])];
@@ -2510,6 +2595,7 @@ function finishFromPending(
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),
+    ...(pending.free === true ? { freeCast: true as const } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {
@@ -2517,13 +2603,14 @@ function finishFromPending(
   }
   events.push(
     narrated(
-      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}${altNote(alt)}.`,
+      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}${altNote(alt)}${pending.free === true ? ' without paying its mana cost' : ''}.`,
       pending.player,
       identity,
     ),
   );
   events.push(...retainPriority(pending.player, state.stack.length + 1));
-  return accept(events);
+  // D491 - a granted cast's completion runs the granting effect's remaining clauses (D484's funnel).
+  return accept(events, resumeContinuation(state, deps, events, pending.continuation));
 }
 
 /**
@@ -3889,6 +3976,25 @@ function answerChooseFromZone(
   const hand = state.zones.hand[intent.player] ?? [];
   for (const card of intent.cards) {
     if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
+  }
+  // D491 - THE FROM-HAND FREE CAST: an empty answer casts nothing and the granting effect goes on; a pick the bound
+  // admits (D416's reader plus castability, `freeCastAdmits`) BEGINS ITS CAST with nothing to pay - the cast's own
+  // questions next, the granting effect's rest riding the pending cast.
+  if (awaiting.castFree === true) {
+    if (intent.cards.length === 0) {
+      const declined: EventBody[] = [
+        { t: 'AwaitingSet', awaiting: null },
+        narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player),
+      ];
+      return accept(declined, resumeContinuation(state, deps, declined, awaiting.continuation));
+    }
+    const pick = intent.cards[0];
+    if (pick === undefined) return reject('noSuchCard', 'Name the card to cast.');
+    const bound = { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null };
+    if (!freeCastAdmits(state, deps, pick, bound)) {
+      return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'a spell'} ${awaiting.label} lets you cast without paying its mana cost right now.`);
+    }
+    return beginGrantedCast(state, deps, intent.player, pick, awaiting.continuation);
   }
   // D390 - a discard inside a player queue is RECORDED, not applied: every player's discard happens
   // at once when the last has chosen (CR 101.4). A lone discard prompt keeps today's path below.

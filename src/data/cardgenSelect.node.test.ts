@@ -791,6 +791,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Nantuko Shaman', 'an intervening if the armed board already meets (not this wave): you control no tapped lands (D489)'],
   ['Watcher of Hours', "trigger head not in the library (a tick in exile, D489): Whenever you remove a time counter from this card while it's exiled, surveil 1."],
   ['Dinosaurs on a Spaceship', "trigger head not in the library (a tick in exile, D489): Whenever a time counter is removed from this card while it's exiled, create a 2/2 red and white Dinosaur creature token with flying and haste."],
+  // D491 - the from-hand free cast: the four the seam made offerable and the row maker refused.
+  ['Maelstrom Archangel', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
+  ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
+  ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
+  ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
   ['Goblin Piledriver', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +2/+0 until end of turn for each other attacking Goblin.)'],
   ['Grotag Bug-Catcher', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each creature in your party.)'],
   ['Hand That Feeds', 'trigger head not in the library (Whenever this creature attacks while there are four or more card types)'],
@@ -1016,7 +1021,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // widening past the parser — now with two named cards waiting on it.
   ['Brainstorm', 'script-raised prompt'],
   ['Chaos Warp', 'ctx.random'],
-  ['Electrodominance', 'script-raised prompt'],
   ['Day of Black Sun', 'temporary keyword/ability grant'],
   ['Stinging Study', 'script-raised prompt'],
   // ⚠️ Bedevil DRAINED in D199: the noun-list widening added its Oxford
@@ -1146,7 +1150,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // the carrier does not hold; Cracked Earth Technique animates a land
   // with counters and a delayed return.
   ['Counterintelligence', 'spell target parse (counted list)'],
-  ['Counterlash', 'play-from-exile permission'],
   ['Counterpoint', 'play-from-exile permission'],
   ['Cracked Earth Technique', 'land animation (type change)'],
   ['Crash Landing', 'temporary keyword/ability grant'],
@@ -1508,7 +1511,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Recross the Paths', 'clash mechanic'],
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
-  ['Reinterpret', 'script-raised prompt'],
   ['Release the Ants', 'clash mechanic'],
   ['Relentless Advance', 'amass mechanic'],
   // D239 (M6.4cb)
@@ -2155,7 +2157,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Snakeform', 'until-end-of-turn type change with P/T set'],
   ['SP//dr, Piloted by Peni', 'modified predicate'],
   ['Spiritualize', 'temporary game-wide trigger'],
-  ["Sram's Expertise", 'free-cast permission'],
   ['Starfall Invocation', 'gift mechanic'],
   ['Suit Up', 'until-end-of-turn type change with P/T set'],
   ["Sun's Bounty", 'recover mechanic'],
@@ -2192,7 +2193,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wheel of Fate', 'suspend mechanic'],
   ['Wild Ride', 'harmonize mechanic'],
   ['Winged Portent', 'cleave mechanic'],
-  ["Yahenni's Expertise", 'free-cast permission'],
   ['Zenith Festival', 'play-from-exile permission'],
   ['Zhalfirin Shapecraft', 'until-end-of-turn base P/T set'],
   ['Baleful Mastery', 'cast-time alternative cost'],
@@ -2526,7 +2526,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
   ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
-  ["Kari Zev's Expertise", 'a noun the target parser cannot place (creature or Vehicle) and a free cast from the hand'],
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],

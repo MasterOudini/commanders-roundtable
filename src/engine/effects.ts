@@ -16,7 +16,7 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { suspendTickSpec } from '../data/effectParse';
 import { modeSpecs } from './modes';
@@ -33,7 +33,7 @@ import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates } from './legal';
-import { handChoiceCandidates } from './handChoice';
+import { freeCastCandidates, handChoiceCandidates } from './handChoice';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
@@ -821,6 +821,51 @@ export function effectResult(
       // (701.31a). The batch so far is FOLDED first: `Create a token, then populate` copies the token this resolution
       // just made, which D295's snapshot cannot see. The forced copy takes the executor's own next id (a later
       // clause's token must not collide); a chosen copy takes the state's counter at the answer (`askBatch`).
+      // D491 - THE FROM-HAND FREE CAST: the bound resolved NOW (the spell's announced X; for the referent forms the
+      // face of the spell's first target, read off the state the spell resolved against - a countered spell has
+      // left the stack by this clause), the controller's hand asked through the one reader the answer handler asks;
+      // nothing admitted narrates and the spell goes on, else the chooser goes up with the grant on it and the
+      // ANSWER begins the cast (`handlers.ts`, `beginGrantedCast`) with the clauses after this one riding it.
+      case 'castFromHand': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const grant = effect.castFree;
+        if (grant === undefined) break;
+        const wantsRef = grant.bound?.kind === 'referent' || grant.sharesType;
+        const ref = wantsRef ? referentFace(state, deps, obj) : null;
+        if (wantsRef && ref === null) {
+          out.push(narrated(`${obj.label} — nothing to cast: the spell it names is not there to read.`, obj.controller, obj.identity));
+          break;
+        }
+        const n = grant.bound === null ? null : grant.bound.kind === 'n' ? grant.bound.n : grant.bound.kind === 'x' ? (obj.xValue ?? 0) : ref === null ? 0 : ref.manaValue;
+        const filter: LookFilter | null = grant.sharesType && ref !== null
+          ? { predicates: ref.types.map((t) => ({ supertypes: [], types: [t], subtypes: [], colors: [] })), what: `a spell that shares a card type with ${ref.name}` }
+          : grant.filter;
+        const qualifier: SearchQualifier | null = n === null ? null : { manaValue: { op: 'lte', n }, name: null };
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        if (freeCastCandidates(now, deps, controller, { none: grant.none, filter, qualifier }).length === 0) {
+          out.push(narrated(`${obj.label} — nothing in hand to cast without paying its mana cost.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: controller,
+            zone: 'hand',
+            rest: null,
+            count: 1,
+            min: 0,
+            ...(filter !== null ? { filter } : {}),
+            ...(grant.none.length > 0 ? { none: grant.none } : {}),
+            ...(qualifier !== null ? { qualifier } : {}),
+            label: obj.label,
+            castFree: true,
+          },
+        });
+        break;
+      }
+
       case 'populate': {
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         let now = state;
@@ -1854,6 +1899,30 @@ export function resumeContinuation(state: GameState, deps: EngineDeps, events: E
     frame = result.events.some((e) => e.t === 'AwaitingSet' && e.awaiting !== null) ? undefined : frame.outer;
   }
   return advanced;
+}
+
+/**
+ * D491 - the face of the spell's FIRST target (`it` - the spell the clause before countered or bounced), read off the
+ * state the spell resolved against: on the stack, the object's card (a copy's printing); on the battlefield, the
+ * permanent's card as printed. Null when the spell aimed at nothing the grant can read (a player).
+ */
+function referentFace(state: GameState, deps: EngineDeps, obj: StackObject): { readonly name: string; readonly manaValue: number; readonly types: readonly string[] } | null {
+  const aim = obj.targets[0];
+  if (aim === undefined || aim.kind === 'player') return null;
+  if (aim.kind === 'stack') {
+    const target = state.stack.find((s) => s.id === aim.id);
+    if (target === undefined) return null;
+    const inst = target.card === null ? undefined : state.cards[target.card];
+    const printing = target.copyOf !== undefined ? deps.oracle.byPrinting(target.copyOf.printingId) : inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+    if (printing === undefined) return null;
+    const face = faceOf(printing, target.copyOf?.faceIndex ?? target.faceIndex);
+    return { name: face.name, manaValue: printing.manaValue, types: face.typeLine.types };
+  }
+  const inst = state.cards[aim.id];
+  const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+  if (inst === undefined || printing === undefined) return null;
+  const face = faceOf(printing, inst.faceIndex);
+  return { name: face.name, manaValue: printing.manaValue, types: face.typeLine.types };
 }
 
 /** D485 - CR 707.9b: a copy of a copy keeps the exceptions it found and takes the new clause's on top. D486 - the clone's too. */

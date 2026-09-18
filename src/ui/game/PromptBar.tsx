@@ -213,7 +213,14 @@ function describe(
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`
             : awaiting.zone === 'battlefield'
               ? `${nameOf(seats, awaiting.player)} is choosing ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} to sacrifice.`
-              : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
+              : awaiting.castFree === true
+                ? `${nameOf(seats, awaiting.player)} may cast a spell from their hand without paying its mana cost.`
+                : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
+        }
+        // D491 - the from-hand free cast: the bar names the bound; the hand is the control, and "Cast nothing" is a button.
+        if (awaiting.castFree === true) {
+          const mv = awaiting.qualifier?.manaValue ?? null;
+          return `${awaiting.label}: click ${awaiting.filter?.what ?? 'a spell'}${mv ? ` with mana value ${mv.n} or less` : ''} in your hand to cast it without paying its mana cost, or cast nothing.`;
         }
         // D390 - a queued sacrifice: the veil is the control, the bar says what the noun admits.
         if (awaiting.zone === 'battlefield') {
@@ -820,6 +827,18 @@ export function PromptBar() {
               Don't search
             </button>
           </>
+        )}
+
+        {/* D491 - the from-hand free cast's decline: casting nothing is always legal. */}
+        {awaiting?.kind === 'chooseFromZone' && mine('chooseFromZone') && awaiting.castFree === true && (
+          <button
+            type="button"
+            className={BTN_GHOST}
+            data-action="cast-nothing"
+            onClick={() => send({ t: 'AnswerChooseFromZone', player: viewer, cards: [] })}
+          >
+            Cast nothing
+          </button>
         )}
 
         {mine('mulligan') && (

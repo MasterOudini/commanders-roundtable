@@ -6,6 +6,8 @@
 // qualifier for a mana-value bound.
 import { faceOf } from './oracle';
 import { predicateAdmits } from '../data/replacementParse';
+import { candidatesFromState, minimumLegalTargets } from './targets';
+import type { EngineDeps } from './loop';
 import type { InstanceId } from './types/ids';
 import type { GameState } from './types/state';
 import type { LookFilter, OracleDb, SearchQualifier } from './types/oracle';
@@ -36,4 +38,31 @@ export function handChoiceAdmits(state: GameState, oracle: OracleDb, card: Insta
 /** The cards of `owner`'s hand the bound admits, in hand order. */
 export function handChoiceCandidates(state: GameState, oracle: OracleDb, owner: string, bound: HandChoiceBound): readonly InstanceId[] {
   return (state.zones.hand[owner] ?? []).filter((id) => handChoiceAdmits(state, oracle, id, bound));
+}
+
+/**
+ * D491 - THE FROM-HAND FREE CAST's admission (`You may cast a spell ... from your hand without paying its mana
+ * cost`): the bound above on the card as printed, and CASTABILITY under the grant - a nonland front face with a
+ * mana cost (a land is played, never cast; a face with no cost cannot be cast at all, CR 601.2), no chooser-verb
+ * additional cost (the pick carries no picks - a life payment or an `or pay {M}` still rides the problem), and a
+ * legal set of targets on the board now for every one of its clauses (CR 601.2c - a cast that could not be
+ * announced is not offered, the way the cast offer is not). One reader for the executor (is there a choice at
+ * all?), the answer handler, the fuzz driver and the harness.
+ */
+export function freeCastAdmits(state: GameState, deps: EngineDeps, card: InstanceId, bound: HandChoiceBound): boolean {
+  if (!handChoiceAdmits(state, deps.oracle, card, bound)) return false;
+  const inst = state.cards[card];
+  const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+  if (!inst || !printing) return false;
+  const face = faceOf(printing, 0);
+  if (face.manaCost === null || face.isLand) return false;
+  const add = face.additionalCost;
+  if (add !== null && (add.sacrificeCost !== null || add.discardCost !== null || add.tapCost !== null || add.exileFromGraveyardCost !== null || add.returnCost !== null)) return false;
+  if (face.modal !== null || face.targets.length === 0) return true;
+  return minimumLegalTargets(face.targets, { controller: inst.zone.player ?? inst.owner, colors: face.colors }, candidatesFromState(state, deps)) !== null;
+}
+
+/** The cards of `player`'s own hand the grant admits, in hand order. */
+export function freeCastCandidates(state: GameState, deps: EngineDeps, player: string, bound: HandChoiceBound): readonly InstanceId[] {
+  return (state.zones.hand[player] ?? []).filter((id) => freeCastAdmits(state, deps, id, bound));
 }

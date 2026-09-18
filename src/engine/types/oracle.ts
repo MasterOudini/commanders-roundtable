@@ -599,6 +599,8 @@ export type EffectKind =
   | 'copySpell'
   /** D488 - POPULATE (CR 701.31): a token that is a copy of a creature token the controller controls, their choice. */
   | 'populate'
+  /** D491 - THE FROM-HAND FREE CAST (CR 601.2 / 118.9): `You may cast a spell ... from your hand without paying its mana cost.` - a hand chooser, then a cast begun by the answer. */
+  | 'castFromHand'
   /** D489 - the suspend tick (CR 702.62c/d): a time counter off the exiled card; with the last gone, the free cast. */
   | 'suspendTick'
   | 'bounce'
@@ -1165,6 +1167,19 @@ export interface EffectSpec {
   readonly copy?: CopySpec;
   /** D487 - `copySpell` only: `You may choose new targets for the copy.` - its controller is asked once the copy exists. */
   readonly newTargets?: true;
+  /**
+   * D491 - `castFromHand` only: the grant's bound. `none` the types the noun negates (`noncreature`), `filter` its
+   * predicates (`an instant or sorcery spell`, `a creature spell`, `a permanent spell`; null for `a spell`), `bound`
+   * the mana-value ceiling (`with mana value N or less`; `x` the spell's announced X; `referent` the mana value of
+   * the spell's first target - `with equal or lesser mana value`), `sharesType` the referent's card types
+   * (`that shares a card type with it`). Absent on every other effect.
+   */
+  readonly castFree?: {
+    readonly none: readonly string[];
+    readonly filter: LookFilter | null;
+    readonly bound: { readonly kind: 'n'; readonly n: number } | { readonly kind: 'x' } | { readonly kind: 'referent' } | null;
+    readonly sharesType: boolean;
+  };
   readonly thenDraw: number;
   /**
    * D435 - `Draw N cards. If you do, discard M cards.` (a `discard` of M): the draw of N precedes the discard and

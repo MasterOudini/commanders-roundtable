@@ -38,7 +38,7 @@ import { targetingSourceFor } from './loop';
 import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
-import { handChoiceCandidates } from './handChoice';
+import { freeCastCandidates, handChoiceCandidates } from './handChoice';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -219,6 +219,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // condition holds once the lands are down, and the driver always elects an available, affordable alternative).
   { names: ['Cho-Arrim Legate'], copiesPerSeat: 2,
     counterKeys: ['freeCasts'], rotHistory: 'D490' },
+  // D491 - the from-hand free cast: two Sram's Expertises a seat ({2}{W}{W}: three Servos, then `You may cast a spell
+  // with mana value 3 or less from your hand without paying its mana cost` - the chooser is asked whenever a cheap
+  // castable spell is in hand, and the driver answers it half the time).
+  { names: ["Sram's Expertise"], copiesPerSeat: 2,
+    counterKeys: ['freeGrantsAsked', 'freeGrantCasts'], rotHistory: 'D491' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -993,7 +998,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
                 const face = ORACLE.byPrinting(inst.printingId)?.faces[0];
                 return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
               })
-            : [...(state.zones.hand[awaiting.player] ?? [])];
+            // D491 - the from-hand free cast's pick: my own hand through the one reader the host asks (a card the
+            // host refuses spends the seed); the answer may be empty, and `want` below declines it half the time.
+            : awaiting.castFree === true
+              ? [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })]
+              : [...(state.zones.hand[awaiting.player] ?? [])];
       const min = awaiting.min ?? awaiting.count;
       const most = Math.min(awaiting.count, pool.length);
       const want = most > min ? min + p.below(most - min + 1) : most;
@@ -1444,6 +1453,9 @@ interface Run {
   readonly suspendCasts: number;
   /** D490 - casts for an alternative cost of NOTHING (`AlternativeCost.free`, the conditional free cast). */
   readonly freeCasts: number;
+  /** D491 - the from-hand free cast: the choosers raised (`chooseFromZone` with `castFree`) and the casts they began (`StackObject.freeCast`). */
+  readonly freeGrantsAsked: number;
+  readonly freeGrantCasts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1893,6 +1905,8 @@ function runOne(seed: number): Run {
     suspends: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.suspend === true)).length,
     suspendCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.suspended === true).length,
     freeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && isFreeAlternative(game.state, e.body.obj)).length,
+    freeGrantsAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.castFree === true).length,
+    freeGrantCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.freeCast === true).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2174,6 +2188,8 @@ const TOTAL_KEYS = [
   'suspends',
   'suspendCasts',
   'freeCasts',
+  'freeGrantsAsked',
+  'freeGrantCasts',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2593,6 +2609,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.suspends).toBeGreaterThan(0);
         // D490 - a conditional free cast at gate size (Cho-Arrim Legate, two a seat).
         expect(totals.freeCasts).toBeGreaterThan(0);
+        // D491 - a cast granted from the hand at gate size (Sram's Expertise, two a seat).
+        expect(totals.freeGrantCasts).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2707,6 +2725,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.populates} populates · ` +
           `${totals.suspends}/${totals.suspendCasts} suspends/suspend casts · ` +
           `${totals.freeCasts} free casts · ` +
+          `${totals.freeGrantsAsked}/${totals.freeGrantCasts} free grants asked/cast · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

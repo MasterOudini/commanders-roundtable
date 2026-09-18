@@ -24,6 +24,9 @@ import type { CardView, PlayerView } from '../view/types';
 import { parseTypeLine } from '../data/oracleParse';
 import { predicateAdmits } from '../data/replacementParse';
 import type { LookFilter } from '../engine/types/oracle';
+
+/** D491 - a chooser-verb additional cost the granted cast's answer cannot name (the host refuses the pick). */
+const FREE_CAST_UNPICKABLE = /^as an additional cost to cast this spell, (?:sacrifice|discard|tap|exile|return)/im;
 import { chooseAttacks, chooseBlocks, requiredAttacks } from './combat';
 import { planTargets } from './targets';
 import { act, fault, wait, type BotDecision, type BotPort } from './types';
@@ -404,6 +407,31 @@ export function answerAwaiting(
         const best = [...legal].sort(worstFirst).slice(0, awaiting.count).map((c) => c.instanceId);
         if (best.length < awaiting.count) return fault('noIntentForAwaiting', `asked for ${awaiting.count} cards of a revealed hand, ${legal.length} admitted`);
         return act({ t: 'AnswerChooseFromZone', player: me, cards: best }, `take ${best.length} from the revealed hand for ${awaiting.label}`);
+      }
+      // D491 - the from-hand free cast's pick: my own hand through the bound (D416's reader on the view) and a
+      // castable face - a nonland with a mana cost, no chooser-verb additional cost, no targeted instant or sorcery
+      // and no Aura (the view cannot ask the board what is legal, and a refused pick would spend the turn) - the most
+      // expensive first; nothing admitted casts nothing, which is always legal.
+      if (awaiting.castFree === true) {
+        const none = awaiting.none ?? [];
+        const mv = awaiting.qualifier?.manaValue ?? null;
+        const legal = myHand(view, me).filter((c) => {
+          const face = c.card?.faces[0];
+          if (!c.card || !face) return false;
+          const types = parseTypeLine(face.typeLine);
+          if (face.manaCost === '' || types.types.includes('Land') || types.subtypes.includes('Aura')) return false;
+          if (FREE_CAST_UNPICKABLE.test(face.oracleText)) return false;
+          if ((types.types.includes('Instant') || types.types.includes('Sorcery')) && /\btarget\b/i.test(face.oracleText)) return false;
+          if (none.some((t) => types.types.includes(t))) return false;
+          const value = c.card.cmc;
+          if (mv && ((mv.op === 'lte' && !(value <= mv.n)) || (mv.op === 'gte' && !(value >= mv.n)) || (mv.op === 'eq' && value !== mv.n))) return false;
+          return !awaiting.filter || admitsCard(awaiting.filter, c);
+        });
+        const best = [...legal].sort(worstFirst).slice(0, 1).map((c) => c.instanceId);
+        return act(
+          { t: 'AnswerChooseFromZone', player: me, cards: best },
+          best.length === 0 ? `cast nothing for ${awaiting.label}` : `cast a spell from hand without paying for ${awaiting.label}`,
+        );
       }
       const pool =
         awaiting.zone === 'library'

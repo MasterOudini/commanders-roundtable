@@ -8258,6 +8258,15 @@ export const FIERCE_GUARDIANSHIP: CardData = F.FIERCE_GUARDIANSHIP as CardData;
 export const MASSACRE: CardData = F.MASSACRE as CardData;
 export const REFRESHING_RAIN: CardData = F.REFRESHING_RAIN as CardData;
 export const DEEPWOOD_LEGATE: CardData = F.DEEPWOOD_LEGATE as CardData;
+export const SRAM_S_EXPERTISE: CardData = F.SRAM_S_EXPERTISE as CardData;
+export const KARI_ZEV_S_EXPERTISE: CardData = F.KARI_ZEV_S_EXPERTISE as CardData;
+export const YAHENNI_S_EXPERTISE: CardData = F.YAHENNI_S_EXPERTISE as CardData;
+export const BARAL_S_EXPERTISE: CardData = F.BARAL_S_EXPERTISE as CardData;
+export const RISHKAR_S_EXPERTISE: CardData = F.RISHKAR_S_EXPERTISE as CardData;
+export const COUNTERLASH: CardData = F.COUNTERLASH as CardData;
+export const REINTERPRET: CardData = F.REINTERPRET as CardData;
+export const ELECTRODOMINANCE: CardData = F.ELECTRODOMINANCE as CardData;
+export const PRESS_THE_ENEMY: CardData = F.PRESS_THE_ENEMY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -16733,6 +16742,15 @@ export const ENGINE_CARDS: CardData[] = [
   MASSACRE,
   REFRESHING_RAIN,
   DEEPWOOD_LEGATE,
+  SRAM_S_EXPERTISE,
+  KARI_ZEV_S_EXPERTISE,
+  YAHENNI_S_EXPERTISE,
+  BARAL_S_EXPERTISE,
+  RISHKAR_S_EXPERTISE,
+  COUNTERLASH,
+  REINTERPRET,
+  ELECTRODOMINANCE,
+  PRESS_THE_ENEMY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

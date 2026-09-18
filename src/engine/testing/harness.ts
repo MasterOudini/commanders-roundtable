@@ -21,7 +21,7 @@ import type { GameOptions, GameState, Step, TargetChoice } from '../types/state'
 import type { OracleDb } from '../types/oracle';
 import { candidatesFromState, minimumLegalTargets, type TargetingSource } from '../targets';
 import { faceOf } from '../oracle';
-import { handChoiceCandidates } from '../handChoice';
+import { freeCastCandidates, handChoiceCandidates } from '../handChoice';
 
 export const ORACLE: OracleDb = ingestOracle(ENGINE_CARDS).db;
 
@@ -599,7 +599,10 @@ export function simplestAnswer(
             )
           : awaiting.zone === 'battlefield'
             ? state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
-            : (state.zones.hand[awaiting.player] ?? []);
+            // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
+            : awaiting.castFree === true
+              ? freeCastCandidates(state, deps(), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })
+              : (state.zones.hand[awaiting.player] ?? []);
       // D389 - a filtered look admits only what its noun names, and "you may" takes nothing:
       // the eligible run, up to the count, is legal whether it is empty or full.
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.

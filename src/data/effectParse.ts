@@ -748,6 +748,33 @@ const RULES: readonly Rule[] = [
   // bare word). No aim: the controller chooses a creature token they control at resolution (the D390 queue's question
   // with its own verb) and a token that is a copy of it is created; with none, nothing happens (701.31a).
   { kind: 'populate', re: /^populate\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D491 - THE FROM-HAND FREE CAST: `You may cast a spell with mana value N or less from your hand without paying its
+  // mana cost.` and its kin - the noun (`an instant or sorcery spell`, `a creature spell`, `a noncreature spell`, `a
+  // permanent spell`, bare `a spell`), the bound (a number, the spell's X, the first target's mana value - `with equal
+  // or lesser mana value`), the type share (`that shares a card type with it`, the first target's types). A hand
+  // chooser at resolution, and the answer begins the cast (D491). Aimless: the clause asks its controller.
+  {
+    kind: 'castFromHand',
+    re: /^you may cast (?:a|an) (?<noun>instant or sorcery |creature |noncreature |permanent )?spell(?: with mana value (?<n>\d+) or less| with mana value (?<x>x) or less| with (?<eq>equal or lesser) mana value| that (?<shares>shares a card type with it))? from your hand without paying its mana cost\.$/i,
+    build: (m) => {
+      const noun = (m.groups?.['noun'] ?? '').trim().toLowerCase();
+      const pred = (types: readonly string[]): PermanentPredicate[] => types.map((t) => ({ supertypes: [], types: [t], subtypes: [], colors: [] }));
+      const filter: LookFilter | null =
+        noun === 'instant or sorcery' ? { predicates: pred(['Instant', 'Sorcery']), what: 'an instant or sorcery spell' }
+        : noun === 'creature' ? { predicates: pred(['Creature']), what: 'a creature spell' }
+        : noun === 'permanent' ? { predicates: pred(['Artifact', 'Creature', 'Enchantment', 'Planeswalker', 'Battle']), what: 'a permanent spell' }
+        : null;
+      const n = m.groups?.['n'];
+      const bound = n !== undefined ? { kind: 'n' as const, n: Number(n) } : m.groups?.['x'] !== undefined ? { kind: 'x' as const } : m.groups?.['eq'] !== undefined ? { kind: 'referent' as const } : null;
+      if (bound?.kind === 'x' && !SPELL_X) return null;
+      return {
+        ...BASE,
+        targetIndex: -1,
+        self: true,
+        castFree: { none: noun === 'noncreature' ? ['Creature'] : [], filter, bound, sharesType: m.groups?.['shares'] !== undefined },
+      };
+    },
+  },
   { kind: 'counter', re: new RegExp(`^counter ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D487 - THE SPELL COPY (CR 707.10): `Copy target instant or sorcery spell(, except that the copy is <colour>).
   // (You may choose new targets for the copy.)` - a stack object with the copied spell's copiable values, its

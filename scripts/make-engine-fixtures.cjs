@@ -9141,6 +9141,16 @@ const WANTED = [
   // D490 - the conditional free cast: the row the seam made offerable (Deepwood Legate's pump).
   'Deepwood Legate',
   // D490 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D491 - the from-hand free cast: the seam fixtures (the Expertise cycle and the referent grants).
+  "Sram's Expertise",
+  "Kari Zev's Expertise",
+  "Yahenni's Expertise",
+  "Baral's Expertise",
+  "Rishkar's Expertise",
+  'Counterlash',
+  'Reinterpret',
+  'Electrodominance',
+  'Press the Enemy',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

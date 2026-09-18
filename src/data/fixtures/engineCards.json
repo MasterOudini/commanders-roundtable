@@ -279265,6 +279265,305 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SRAM_S_EXPERTISE": {
+    "scryfallId": "3658c18f-e940-479d-a1aa-7ddb41337ef1",
+    "oracleId": "5cd17347-5558-46f9-b8bb-ae5deeb1f229",
+    "name": "Sram's Expertise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sram's Expertise",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create three 1/1 colorless Servo artifact creature tokens.\nYou may cast a spell with mana value 3 or less from your hand without paying its mana cost.",
+        "flavorText": "\"It's important to always have the right tool for the job. This one is for picking my teeth.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "3658c18f-e940-479d-a1aa-7ddb41337ef1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "paer",
+    "collectorNumber": "24s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARI_ZEV_S_EXPERTISE": {
+    "scryfallId": "47155b2a-d8e3-43be-bf72-1583745e6262",
+    "oracleId": "e0de0121-6185-45c5-9d88-a415b07347e0",
+    "name": "Kari Zev's Expertise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kari Zev's Expertise",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Gain control of target creature or Vehicle until end of turn. Untap it. It gains haste until end of turn.\nYou may cast a spell with mana value 2 or less from your hand without paying its mana cost.",
+        "flavorText": "\"I was made for this!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "47155b2a-d8e3-43be-bf72-1583745e6262"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "paer",
+    "collectorNumber": "88s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAHENNI_S_EXPERTISE": {
+    "scryfallId": "0f4ddbb7-b317-44dc-bb3d-52f52c0a8f96",
+    "oracleId": "692babfa-9b74-415e-a560-abae4ccb006b",
+    "name": "Yahenni's Expertise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yahenni's Expertise",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "All creatures get -3/-3 until end of turn.\nYou may cast a spell with mana value 3 or less from your hand without paying its mana cost.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "0f4ddbb7-b317-44dc-bb3d-52f52c0a8f96"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "paer",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARAL_S_EXPERTISE": {
+    "scryfallId": "0f3bb535-dd33-430d-aace-7cf73d437890",
+    "oracleId": "a1cdcb8c-1e12-4d39-aa4a-db678a80df9c",
+    "name": "Baral's Expertise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baral's Expertise",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Return up to three target artifacts and/or creatures to their owners' hands.\nYou may cast a spell with mana value 4 or less from your hand without paying its mana cost.",
+        "flavorText": "\"Get out of my way.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "0f3bb535-dd33-430d-aace-7cf73d437890"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "otc",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RISHKAR_S_EXPERTISE": {
+    "scryfallId": "4b5882ab-d9c7-4d85-98c4-7edfb19980b0",
+    "oracleId": "97407cd0-2bd2-4074-94d3-4ec3d243fa78",
+    "name": "Rishkar's Expertise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rishkar's Expertise",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw cards equal to the greatest power among creatures you control.\nYou may cast a spell with mana value 5 or less from your hand without paying its mana cost.",
+        "flavorText": "\"Control the Great Conduit? You might as well try to divert a river with your hands.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "4b5882ab-d9c7-4d85-98c4-7edfb19980b0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "nec",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COUNTERLASH": {
+    "scryfallId": "56ebc3c0-c2a7-4a4a-a371-72da7ceda772",
+    "oracleId": "16de96d0-a58e-42a7-9a13-45358542a246",
+    "name": "Counterlash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Counterlash",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. You may cast a spell that shares a card type with it from your hand without paying its mana cost.",
+        "flavorText": "\"Pathetic. Let me show you how it's done.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "56ebc3c0-c2a7-4a4a-a371-72da7ceda772"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "DKA-33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REINTERPRET": {
+    "scryfallId": "60c19928-4e54-445c-83b4-1ac124bfa3b0",
+    "oracleId": "e197104f-5382-4cb2-8afe-5ca0594629c2",
+    "name": "Reinterpret",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reinterpret",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. You may cast a spell with equal or lesser mana value from your hand without paying its mana cost.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Olena Richards",
+        "imageId": "60c19928-4e54-445c-83b4-1ac124bfa3b0"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "c21",
+    "collectorNumber": "400",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELECTRODOMINANCE": {
+    "scryfallId": "5c63877b-cdab-4ce4-a1c0-c088eb62a57a",
+    "oracleId": "4a59d86e-405d-4c70-b2a5-c64f5cecfd9e",
+    "name": "Electrodominance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Electrodominance",
+        "manaCost": "{X}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Electrodominance deals X damage to any target. You may cast a spell with mana value X or less from your hand without paying its mana cost.",
+        "flavorText": "\"Basically, we turn a bunch of little lightnings into one big lightning.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "5c63877b-cdab-4ce4-a1c0-c088eb62a57a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRESS_THE_ENEMY": {
+    "scryfallId": "158662c6-04ee-4a79-9199-d0ba68c18650",
+    "oracleId": "347a3622-4425-4ba4-821d-ef3d00beb058",
+    "name": "Press the Enemy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Press the Enemy",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Return target spell or nonland permanent an opponent controls to its owner's hand. You may cast an instant or sorcery spell with equal or lesser mana value from your hand without paying its mana cost.",
+        "flavorText": "\"I showed the blade reforged to him. He is not so mighty yet that he is above fear.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "158662c6-04ee-4a79-9199-d0ba68c18650"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "352",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
