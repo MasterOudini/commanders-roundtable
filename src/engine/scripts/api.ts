@@ -194,6 +194,13 @@ export interface TriggerDef {
    * the damage under `Whenever a creature you control deals combat damage to a player`), else undefined.
    */
   readonly memo?: (ctx: ScriptCtx, self: InstanceId, ev: EventBody, item?: InstanceId) => number;
+  /**
+   * D492 - THE ONCE-PER-TURN RIDER (`This ability triggers only once each turn.` / `Do this only once each turn.`):
+   * the def triggers at most once per turn per source. Enforced at the bus (`collectTriggers`): a second match this
+   * turn is not queued at all (CR 603.2 with the printed limit), the first is recorded on `TurnState.triggered` as
+   * its pending trigger is queued. The def's `text` keeps the rider sentence - the claim is the whole printed line.
+   */
+  readonly oncePerTurn?: true;
   matches(ctx: ScriptCtx, self: InstanceId, ev: EventBody): boolean;
   label(ctx: ScriptCtx, self: InstanceId, ev: EventBody): string;
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];

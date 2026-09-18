@@ -410,6 +410,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
           activations: {},
+          triggered: {},
           spellsCast: {},
           cardsDrawn: {},
           attacked: false,
@@ -888,6 +889,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           turnBasedActionsDone: false,
           cleanupNeedsRepeat: false,
           activations: {},
+          triggered: {},
           spellsCast: {},
           cardsDrawn: {},
           attacked: false,
@@ -1111,8 +1113,16 @@ function applyBody(state: GameState, body: EventBody): GameState {
         priority: { ...state.priority, passedSinceLastAction: [] },
       };
 
-    case 'PendingTriggersAdded':
-      return { ...state, pendingTriggers: [...state.pendingTriggers, ...body.triggers] };
+    case 'PendingTriggersAdded': {
+      // D492 - a once-per-turn trigger is RECORDED as it is queued (the printed limit reads at trigger time, CR 603.2).
+      let turn = state.turn;
+      for (const t of body.triggers) {
+        if (t.oncePerTurn !== true) continue;
+        const key = `${t.source}|${t.abilityRef}`;
+        turn = { ...turn, triggered: { ...turn.triggered, [key]: (turn.triggered[key] ?? 0) + 1 } };
+      }
+      return { ...state, turn, pendingTriggers: [...state.pendingTriggers, ...body.triggers] };
+    }
 
     case 'PendingTriggersCleared':
       return { ...state, pendingTriggers: state.pendingTriggers.filter((t) => !body.ids.includes(t.id)) };

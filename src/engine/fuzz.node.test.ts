@@ -224,6 +224,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // castable spell is in hand, and the driver answers it half the time).
   { names: ["Sram's Expertise"], copiesPerSeat: 2,
     counterKeys: ['freeGrantsAsked', 'freeGrantCasts'], rotHistory: 'D491' },
+  // D492 - the once-per-turn trigger: two Ghoulish Processions a seat ({1}{B} enchantment, `Whenever one or more nontoken
+  // creatures die, create a 2/2 black Zombie creature token with decayed. This ability triggers only once each turn.` - it
+  // never dies in combat, and creatures die every few turns at gate size) and two Irreverent Gremlins ({1}{R}, `Whenever
+  // another creature you control with power 2 or less enters, ...` - the core's Bears); the second match of a turn is
+  // the case the rider suppresses (Morbid Opportunist alone read 1 firing over 60 seeds).
+  { names: ['Ghoulish Procession', 'Irreverent Gremlin'], copiesPerSeat: 2,
+    counterKeys: ['onceTriggersFired'], rotHistory: 'D492' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1456,6 +1463,8 @@ interface Run {
   /** D491 - the from-hand free cast: the choosers raised (`chooseFromZone` with `castFree`) and the casts they began (`StackObject.freeCast`). */
   readonly freeGrantsAsked: number;
   readonly freeGrantCasts: number;
+  /** D492 - once-per-turn triggers queued (`PendingTrigger.oncePerTurn`; the suppressed second match of a turn is never on the log). */
+  readonly onceTriggersFired: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1907,6 +1916,7 @@ function runOne(seed: number): Run {
     freeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && isFreeAlternative(game.state, e.body.obj)).length,
     freeGrantsAsked: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.castFree === true).length,
     freeGrantCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.freeCast === true).length,
+    onceTriggersFired: game.log.reduce((n, e) => n + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => t.oncePerTurn === true).length : 0), 0),
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2190,6 +2200,7 @@ const TOTAL_KEYS = [
   'freeCasts',
   'freeGrantsAsked',
   'freeGrantCasts',
+  'onceTriggersFired',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2611,6 +2622,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.freeCasts).toBeGreaterThan(0);
         // D491 - a cast granted from the hand at gate size (Sram's Expertise, two a seat).
         expect(totals.freeGrantCasts).toBeGreaterThan(0);
+        // D492 - a once-per-turn trigger queued at gate size (Morbid Opportunist, two a seat).
+        expect(totals.onceTriggersFired).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2726,6 +2739,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.suspends}/${totals.suspendCasts} suspends/suspend casts · ` +
           `${totals.freeCasts} free casts · ` +
           `${totals.freeGrantsAsked}/${totals.freeGrantCasts} free grants asked/cast · ` +
+          `${totals.onceTriggersFired} once-per-turn triggers · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

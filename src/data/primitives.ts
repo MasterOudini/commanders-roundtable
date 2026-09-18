@@ -1057,6 +1057,13 @@ function rowMakerReads(text: string, cardName: string): boolean {
     payload = limit[1] ?? '';
     widened = true;
   }
+  // (5) D492 - the once-per-turn rider (`This ability triggers only once each turn.` / `Do this only once each turn.`):
+  // the row maker peels it (the def's `oncePerTurn`, enforced at the bus) and reads the payload before it.
+  const rider = trigger ? /^(.*\.) (?:This ability triggers only once each turn|Do this only once each turn)\.$/.exec(payload) : null;
+  if (rider) {
+    payload = rider[1] ?? '';
+    widened = true;
+  }
   // (1) the optional trigger.
   if (trigger && /^you may (?!pay )/i.test(payload) && !ROW_VERB_PRICE.test(payload)) {
     payload = payload.slice(8);

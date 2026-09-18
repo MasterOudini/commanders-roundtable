@@ -7,6 +7,28 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ACADEMY_WALL_SCRIPT } from './cards/academyWall';
+import { FLYING_OCTOBOT_SCRIPT } from './cards/flyingOctobot';
+import { GHOULISH_PROCESSION_SCRIPT } from './cards/ghoulishProcession';
+import { HOMICIDE_INVESTIGATOR_SCRIPT } from './cards/homicideInvestigator';
+import { IRREVERENT_GREMLIN_SCRIPT } from './cards/irreverentGremlin';
+import { MACH1_SWOOPING_SCOUNDREL_SCRIPT } from './cards/mach1SwoopingScoundrel';
+import { MARY_JANE_WATSON_SCRIPT } from './cards/maryJaneWatson';
+import { MECHAN_ASSEMBLER_SCRIPT } from './cards/mechanAssembler';
+import { MORBID_OPPORTUNIST_SCRIPT } from './cards/morbidOpportunist';
+import { NANOFORM_SENTINEL_SCRIPT } from './cards/nanoformSentinel';
+import { SENGIR_CONNOISSEUR_SCRIPT } from './cards/sengirConnoisseur';
+import { TOCASIAS_WELCOME_SCRIPT } from './cards/tocasiasWelcome';
+import { TOKKA_RAHZAR_UNSUPERVISED_SCRIPT } from './cards/tokkaRahzarUnsupervised';
+import { VRAAN_EXECUTIONER_THANE_SCRIPT } from './cards/vraanExecutionerThane';
+import { WELCOMING_VAMPIRE_SCRIPT } from './cards/welcomingVampire';
+import { WHISPERING_WIZARD_SCRIPT } from './cards/whisperingWizard';
+import { BASIM_IBN_ISHAQ_SCRIPT } from './cards/basimIbnIshaq';
+import { ELVISH_ARCHIVIST_SCRIPT } from './cards/elvishArchivist';
+import { INGENIOUS_SMITH_SCRIPT } from './cards/ingeniousSmith';
+import { SUKI_COURAGEOUS_RESCUER_SCRIPT } from './cards/sukiCourageousRescuer';
+import { THOPTER_SHOP_SCRIPT } from './cards/thopterShop';
+import { TOLLS_OF_WAR_SCRIPT } from './cards/tollsOfWar';
 import { DEEPWOOD_LEGATE_SCRIPT } from './cards/deepwoodLegate';
 import { ATRAXI_WARDEN_SCRIPT } from './cards/atraxiWarden';
 import { RIFTWING_CLOUDSKATE_SCRIPT } from './cards/riftwingCloudskate';
@@ -7580,6 +7602,28 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ACADEMY_WALL_SCRIPT,
+  FLYING_OCTOBOT_SCRIPT,
+  GHOULISH_PROCESSION_SCRIPT,
+  HOMICIDE_INVESTIGATOR_SCRIPT,
+  IRREVERENT_GREMLIN_SCRIPT,
+  MACH1_SWOOPING_SCOUNDREL_SCRIPT,
+  MARY_JANE_WATSON_SCRIPT,
+  MECHAN_ASSEMBLER_SCRIPT,
+  MORBID_OPPORTUNIST_SCRIPT,
+  NANOFORM_SENTINEL_SCRIPT,
+  SENGIR_CONNOISSEUR_SCRIPT,
+  TOCASIAS_WELCOME_SCRIPT,
+  TOKKA_RAHZAR_UNSUPERVISED_SCRIPT,
+  VRAAN_EXECUTIONER_THANE_SCRIPT,
+  WELCOMING_VAMPIRE_SCRIPT,
+  WHISPERING_WIZARD_SCRIPT,
+  BASIM_IBN_ISHAQ_SCRIPT,
+  ELVISH_ARCHIVIST_SCRIPT,
+  INGENIOUS_SMITH_SCRIPT,
+  SUKI_COURAGEOUS_RESCUER_SCRIPT,
+  THOPTER_SHOP_SCRIPT,
+  TOLLS_OF_WAR_SCRIPT,
   DEEPWOOD_LEGATE_SCRIPT,
   ATRAXI_WARDEN_SCRIPT,
   RIFTWING_CLOUDSKATE_SCRIPT,

@@ -9151,6 +9151,31 @@ const WANTED = [
   'Reinterpret',
   'Electrodominance',
   'Press the Enemy',
+  // D492 - the once-per-turn trigger: the rider cards the seam made rowable.
+  'Academy Wall',
+  'Flying Octobot',
+  'Ghoulish Procession',
+  'Homicide Investigator',
+  'Irreverent Gremlin',
+  'MACH-1, Swooping Scoundrel',
+  'Mary Jane Watson',
+  'Mechan Assembler',
+  'Morbid Opportunist',
+  'Nanoform Sentinel',
+  'Sengir Connoisseur',
+  "Tocasia's Welcome",
+  'Tokka & Rahzar, Unsupervised',
+  'Vraan, Executioner Thane',
+  'Welcoming Vampire',
+  'Whispering Wizard',
+  'Basim Ibn Ishaq',
+  'Elvish Archivist',
+  'Ingenious Smith',
+  'Suki, Courageous Rescuer',
+  'Thopter Shop',
+  'Tolls of War',
+  // D492 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Canopy Spider',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

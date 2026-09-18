@@ -279564,6 +279564,789 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ACADEMY_WALL": {
+    "scryfallId": "d2028115-f0de-4e8b-99bc-7369352e1e07",
+    "oracleId": "0cd77ee1-408c-4c51-ac87-24f4fc50083d",
+    "name": "Academy Wall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Academy Wall",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender\nWhenever you cast an instant or sorcery spell, you may draw a card. If you do, discard a card. This ability triggers only once each turn.",
+        "flavorText": "Once the Society of Mishra took control, the Tolarian Academy at Lat-Nam became a haven for dark research.",
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "d2028115-f0de-4e8b-99bc-7369352e1e07"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLYING_OCTOBOT": {
+    "scryfallId": "88de34bb-81bb-49b7-af33-3f064b38b9dd",
+    "oracleId": "5ef8925c-5f43-49ca-83f0-e2ca8e655600",
+    "name": "Flying Octobot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flying Octobot",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Robot Villain",
+        "oracleText": "Flying\nWhenever another Villain you control enters, put a +1/+1 counter on this creature. This ability triggers only once each turn.",
+        "flavorText": "\"How many helping hands do you need, Doc?\"\n—Spider-Man",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Tyler Christopher",
+        "imageId": "88de34bb-81bb-49b7-af33-3f064b38b9dd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "785",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOULISH_PROCESSION": {
+    "scryfallId": "363bd6a6-e8e4-4626-a43c-0b77339dd28b",
+    "oracleId": "39e20898-cf01-48dc-8972-7ac500c3fa79",
+    "name": "Ghoulish Procession",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghoulish Procession",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever one or more nontoken creatures die, create a 2/2 black Zombie creature token with decayed. This ability triggers only once each turn. (A creature with decayed can't block. When it attacks, sacrifice it at end of combat.)",
+        "flavorText": "It was a family reunion to die for.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "363bd6a6-e8e4-4626-a43c-0b77339dd28b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mid",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOMICIDE_INVESTIGATOR": {
+    "scryfallId": "21d6accd-167a-4b21-a488-44d54cdfa608",
+    "oracleId": "dc4d5602-47cb-47c8-8a43-3b840e12b79c",
+    "name": "Homicide Investigator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Homicide Investigator",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Detective",
+        "oracleText": "Whenever one or more nontoken creatures you control die, investigate. This ability triggers only once each turn. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+        "flavorText": "In her line of work, the dead are often better sources than the living.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jodie Muir",
+        "imageId": "21d6accd-167a-4b21-a488-44d54cdfa608"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Investigate"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRREVERENT_GREMLIN": {
+    "scryfallId": "8da254f5-53f2-41d2-a4f0-a90b3dd6209c",
+    "oracleId": "44594004-52e7-4ce6-8eb0-61f72fd9c73b",
+    "name": "Irreverent Gremlin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Irreverent Gremlin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Gremlin",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever another creature you control with power 2 or less enters, you may discard a card. If you do, draw a card. Do this only once each turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "8da254f5-53f2-41d2-a4f0-a90b3dd6209c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MACH_1_SWOOPING_SCOUNDREL": {
+    "scryfallId": "f3933900-a6f7-411c-be2a-96fe7c28f972",
+    "oracleId": "75810ce7-328c-4512-8e36-fd3badbd3997",
+    "name": "MACH-1, Swooping Scoundrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "MACH-1, Swooping Scoundrel",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Artifact Creature — Human Villain",
+        "oracleText": "Flying\nWhen MACH-1 enters and whenever you gain life, surveil 1. This ability triggers only once each turn. (To surveil 1, look at the top card of your library. You may put it into your graveyard.)",
+        "flavorText": "He's an ace pilot and fighter jet, all in one.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Fesbra",
+        "imageId": "f3933900-a6f7-411c-be2a-96fe7c28f972"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Surveil"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "662",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARY_JANE_WATSON": {
+    "scryfallId": "178345f7-8ccd-4e47-80f4-5bd31bab6655",
+    "oracleId": "6d44c87b-8945-4c39-b034-7690cf483992",
+    "name": "Mary Jane Watson",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mary Jane Watson",
+        "manaCost": "{1}{G/W}",
+        "typeLine": "Legendary Creature — Human Performer",
+        "oracleText": "Whenever a Spider you control enters, draw a card. This ability triggers only once each turn.",
+        "flavorText": "Charismatic and confident, Mary Jane was born for the limelight.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "178345f7-8ccd-4e47-80f4-5bd31bab6655"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "spm",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MECHAN_ASSEMBLER": {
+    "scryfallId": "3fd46726-095e-4eb2-a804-eeeb988eee1d",
+    "oracleId": "2c2ef1ed-2f93-48c5-bf86-e46318599aeb",
+    "name": "Mechan Assembler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mechan Assembler",
+        "manaCost": "{4}{U}",
+        "typeLine": "Artifact Creature — Robot Artificer",
+        "oracleText": "Whenever another artifact you control enters, create a 2/2 colorless Robot artifact creature token. This ability triggers only once each turn.",
+        "flavorText": "Every iteration brings it closer to understanding its own creation.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mirko Failoni",
+        "imageId": "3fd46726-095e-4eb2-a804-eeeb988eee1d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MORBID_OPPORTUNIST": {
+    "scryfallId": "08838865-a9b6-4323-96a2-0d3a7aba9d3d",
+    "oracleId": "322f44f0-e6da-4ee0-b474-e7d5e9a461c5",
+    "name": "Morbid Opportunist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Morbid Opportunist",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Whenever one or more other creatures die, draw a card. This ability triggers only once each turn.",
+        "flavorText": "On Innistrad, one person's windfall usually starts with another person lying face down in the mud.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "08838865-a9b6-4323-96a2-0d3a7aba9d3d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "soc",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NANOFORM_SENTINEL": {
+    "scryfallId": "3eeae8c3-7939-4c79-92f0-fbdb9c1b71d3",
+    "oracleId": "07155470-c5ab-41ae-ade3-bdc06d357379",
+    "name": "Nanoform Sentinel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nanoform Sentinel",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact Creature — Robot",
+        "oracleText": "Whenever this creature becomes tapped, untap another target permanent. This ability triggers only once each turn.",
+        "flavorText": "Cloudsculpting naturally led the Illvoi to other methods of reshaping matter.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tianxing Xu",
+        "imageId": "3eeae8c3-7939-4c79-92f0-fbdb9c1b71d3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SENGIR_CONNOISSEUR": {
+    "scryfallId": "7c9231f0-7733-46d9-b9c6-c6c5b7fe65dd",
+    "oracleId": "8a4d505e-b884-4b8b-93d5-495992f3858e",
+    "name": "Sengir Connoisseur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sengir Connoisseur",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nWhenever one or more other creatures die, put a +1/+1 counter on this creature. This ability triggers only once each turn.",
+        "flavorText": "\"We cannot afford to let the Phyrexians win. They taste terrible.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "7c9231f0-7733-46d9-b9c6-c6c5b7fe65dd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOCASIA_S_WELCOME": {
+    "scryfallId": "0ff5902d-c140-42e9-b426-767f82559846",
+    "oracleId": "25c983e0-a8c9-4784-91a4-8fe04c6df882",
+    "name": "Tocasia's Welcome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tocasia's Welcome",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever one or more creatures you control with mana value 3 or less enter, draw a card. This ability triggers only once each turn.",
+        "flavorText": "\"Your father was a dear friend to whom I owe much. He wanted me to look after you, to care for you should something happen to him.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "0ff5902d-c140-42e9-b426-767f82559846"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pbro",
+    "collectorNumber": "30p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOKKA_RAHZAR_UNSUPERVISED": {
+    "scryfallId": "8bc5a0ac-5979-43ce-8a65-98c5f09f4aa6",
+    "oracleId": "8d857d79-bdb2-4ca3-abd6-7db8f6b3bcfa",
+    "name": "Tokka & Rahzar, Unsupervised",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tokka & Rahzar, Unsupervised",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Turtle Wolf Mutant",
+        "oracleText": "First strike\nWhenever another nontoken creature you control leaves the battlefield, put a +1/+1 counter on Tokka & Rahzar and create a Treasure token. This ability triggers only once each turn.",
+        "flavorText": "\"They're not stupid. They're infants.\"\n—Professor Jordan Perry",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Narendra Bintara Adi",
+        "imageId": "8bc5a0ac-5979-43ce-8a65-98c5f09f4aa6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike",
+      "Treasure"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VRAAN_EXECUTIONER_THANE": {
+    "scryfallId": "013d279e-8350-4baf-9aa8-3c6f7b7ae444",
+    "oracleId": "b2f2645f-5f74-456a-bd02-83169d8b8a7e",
+    "name": "Vraan, Executioner Thane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vraan, Executioner Thane",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Creature — Phyrexian Vampire",
+        "oracleText": "Whenever one or more other creatures you control die, each opponent loses 2 life and you gain 2 life. This ability triggers only once each turn.",
+        "flavorText": "Do not fear death. Fear failure.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Shikee",
+        "imageId": "013d279e-8350-4baf-9aa8-3c6f7b7ae444"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "309",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WELCOMING_VAMPIRE": {
+    "scryfallId": "0825bced-f992-4c5d-810b-41d07e6f513d",
+    "oracleId": "605c1ee0-5e8a-4e0a-a99b-42a38873f822",
+    "name": "Welcoming Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Welcoming Vampire",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nWhenever one or more other creatures you control with power 2 or less enter, draw a card. This ability triggers only once each turn.",
+        "flavorText": "From the moment they arrived, wedding guests were met with a pageant of wealth and excess.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lorenzo Mastroianni",
+        "imageId": "0825bced-f992-4c5d-810b-41d07e6f513d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pvow",
+    "collectorNumber": "46★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHISPERING_WIZARD": {
+    "scryfallId": "54fb422d-71f2-44ed-9589-32630ab87050",
+    "oracleId": "321e101c-a426-4d18-be0b-c26c5348b70d",
+    "name": "Whispering Wizard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whispering Wizard",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you cast a noncreature spell, create a 1/1 white Spirit creature token with flying. This ability triggers only once each turn.",
+        "flavorText": "Ivold was aghast when his device revealed the full scope of the geist infestation.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "E. M. Gist",
+        "imageId": "54fb422d-71f2-44ed-9589-32630ab87050"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "vow",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASIM_IBN_ISHAQ": {
+    "scryfallId": "0e74cc38-108d-46d4-9d4b-43ed5653982a",
+    "oracleId": "8a70bde5-c514-4dcf-919a-48bdd1c17768",
+    "name": "Basim Ibn Ishaq",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basim Ibn Ishaq",
+        "manaCost": "{U}{B}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Whenever you cast a historic spell, draw a card. Basim Ibn Ishaq can't be blocked this turn. This ability triggers only once each turn. (Artifacts, legendaries, and Sagas are historic.)\nWhenever Basim Ibn Ishaq deals combat damage to a player, put a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Astri Lohne",
+        "imageId": "0e74cc38-108d-46d4-9d4b-43ed5653982a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_ARCHIVIST": {
+    "scryfallId": "0670dbf0-b150-4e8d-bb40-f768b2f06fe5",
+    "oracleId": "d7035db0-4bde-4ba3-9028-dd14191c8126",
+    "name": "Elvish Archivist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Archivist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Artificer",
+        "oracleText": "Whenever one or more artifacts you control enter, put two +1/+1 counters on this creature. This ability triggers only once each turn.\nWhenever one or more enchantments you control enter, draw a card. This ability triggers only once each turn.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "0670dbf0-b150-4e8d-bb40-f768b2f06fe5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "woe",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INGENIOUS_SMITH": {
+    "scryfallId": "2962e4d3-3f01-47d4-abe3-75658700c132",
+    "oracleId": "f3988b96-9e00-445c-b3e1-6b2df9b13dac",
+    "name": "Ingenious Smith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ingenious Smith",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, look at the top four cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\nWhenever one or more artifacts you control enter, put a +1/+1 counter on this creature. This ability triggers only once each turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Machira",
+        "imageId": "2962e4d3-3f01-47d4-abe3-75658700c132"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUKI_COURAGEOUS_RESCUER": {
+    "scryfallId": "33b97433-e16c-422e-a0ca-f6b1e98d8681",
+    "oracleId": "70ea1a9d-ec52-4c11-8c4d-0d957e5491ad",
+    "name": "Suki, Courageous Rescuer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Suki, Courageous Rescuer",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Ally",
+        "oracleText": "Other creatures you control get +1/+0.\nWhenever another permanent you control leaves the battlefield during your turn, create a 1/1 white Ally creature token. This ability triggers only once each turn.",
+        "flavorText": "\"I'm okay. Just finish the mission!\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tky",
+        "imageId": "33b97433-e16c-422e-a0ca-f6b1e98d8681"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOPTER_SHOP": {
+    "scryfallId": "69a7c3ff-0bd3-4269-80b8-0830acd2a644",
+    "oracleId": "b2f9e07b-64b7-40b3-9a5e-5f1d59b35af7",
+    "name": "Thopter Shop",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thopter Shop",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever one or more artifact creatures you control die, draw a card. This ability triggers only once each turn.\n{2}{W}, {T}: Create a 1/1 colorless Thopter artifact creature token with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Craig J Spearing",
+        "imageId": "69a7c3ff-0bd3-4269-80b8-0830acd2a644"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "105820",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOLLS_OF_WAR": {
+    "scryfallId": "d822b9ad-a787-4355-88c2-07ae2bd3a78e",
+    "oracleId": "5d1d9914-3ef2-45c5-b1cb-cb85d2f7394c",
+    "name": "Tolls of War",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tolls of War",
+        "manaCost": "{W}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, create a Clue token. (It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nWhenever you sacrifice a permanent during your turn, create a 1/1 white Ally creature token. This ability triggers only once each turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Jocelin Carmes",
+        "imageId": "d822b9ad-a787-4355-88c2-07ae2bd3a78e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANOPY_SPIDER": {
+    "scryfallId": "0ae7fabb-dcb6-4c21-87ee-2893b63814be",
+    "oracleId": "37f3733e-cc4e-4d84-b29b-d474f6e254a2",
+    "name": "Canopy Spider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Canopy Spider",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Reach (This creature can block creatures with flying.)",
+        "flavorText": "It keeps the upper reaches of the forest free of every menace . . . except for the spider itself.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "0ae7fabb-dcb6-4c21-87ee-2893b63814be"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "m20",
+    "collectorNumber": "339",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

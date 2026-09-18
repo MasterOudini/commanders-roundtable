@@ -1439,7 +1439,20 @@ export function collectTriggers(
       }
     }
   }
-  return out;
+  // D492 - THE ONCE-PER-TURN RIDER (`This ability triggers only once each turn.`): a printed def marked `oncePerTurn`
+  // triggers once per turn per source. A match already recorded this turn (`turn.triggered`, bumped as the pending
+  // trigger is queued) or earlier in this very collection (two creatures entering at once) is not queued at all; the
+  // one that is carries the mark the reducer records. Read off `after`: a batch that began a turn cleared the record.
+  const seen = new Set<string>();
+  return out.flatMap((t) => {
+    const script = scripts.get(t.abilityRef.slice(0, t.abilityRef.indexOf('#')));
+    const def = script?.triggers?.find((d) => `${script.oracleId}#${d.abilityId}` === t.abilityRef);
+    if (def?.oncePerTurn !== true) return [t];
+    const key = `${t.source}|${t.abilityRef}`;
+    if ((after.turn.triggered[key] ?? 0) >= 1 || seen.has(key)) return [];
+    seen.add(key);
+    return [{ ...t, oncePerTurn: true as const }];
+  });
 }
 
 function readonlyCtx(

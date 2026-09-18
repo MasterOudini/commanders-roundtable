@@ -107,6 +107,7 @@ export function emptyState(seed = 'unseeded'): GameState {
       turnBasedActionsDone: false,
       cleanupNeedsRepeat: false,
       activations: {},
+      triggered: {},
       spellsCast: {},
       cardsDrawn: {},
       attacked: false,

@@ -689,6 +689,8 @@ export interface PendingTrigger {
   readonly memo?: number;
   /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
   readonly delayed?: string;
+  /** D492 - a once-per-turn def's firing: recorded on `TurnState.triggered` as it is queued (the reducer). */
+  readonly oncePerTurn?: true;
   /**
    * One per printed target clause, copied from the `TriggerDef` when the bus
    * found it. Empty for the overwhelming majority of triggers.
@@ -1363,6 +1365,8 @@ export interface TurnState {
   readonly cleanupNeedsRepeat: boolean;
   /** D328 - CR 602.5b: how many times each `source|abilityRef` was activated this turn; cleared by `TurnBegan`. */
   readonly activations: Readonly<Record<string, number>>;
+  /** D492 - how many times each once-per-turn trigger (`source|abilityRef`) was queued this turn; cleared by `TurnBegan`. */
+  readonly triggered: Readonly<Record<string, number>>;
   /** D336 - the turn memory: spells each player has cast this turn ("your second spell each turn"); cleared by `TurnBegan`. */
   readonly spellsCast: Readonly<Record<PlayerId, number>>;
   /** D336 - the turn memory: cards each player has drawn this turn ("your second card each turn"); cleared by `TurnBegan`. */
