@@ -757,6 +757,16 @@ export type EffectKind =
   /** D448 - the source itself to exile, if it is still on the battlefield (unearth's delayed exile). */
   | 'exileSelf'
   /**
+   * D501 - THE SPELL'S OWN FATE. `Exile ~.` / `Shuffle ~ into its owner's library.` / `Put ~ on the bottom of its
+   * owner's library.` as a spell's own sentence: CR 608.2n replaced by the card's text - the resolving spell leaves the
+   * stack for exile, or its owner's library (shuffled in, or on the bottom), never the graveyard. The self kinds parse
+   * as any other; `resolveTop` reads them off the face and moves the card as it leaves the stack (the card is still on
+   * the stack while its clauses run, CR 608.2), so the executor leaves a source on the stack alone. On a permanent the
+   * same words are the source's own move from the battlefield, the executor's.
+   */
+  | 'shuffleSelf'
+  | 'bottomSelf'
+  /**
    * D390 - "Each player sacrifices a creature of their choice." / "Each opponent sacrifices a
    * permanent of their choice." - THE PLAYER QUEUE: every player in the spec's PLAYER scope
    * chooses in APNAP order, each seeing the choices before theirs, then the sacrifices happen at

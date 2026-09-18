@@ -747,6 +747,12 @@ const RULES: readonly Rule[] = [
   { kind: 'exile', re: new RegExp(`^exile ${TARGET} until (?:this (?:creature|enchantment|artifact|permanent|land)|~) leaves the battlefield\\.$`, 'i'), build: () => ({ ...BASE, untilLeaves: true }) },
   // D369 - "Sacrifice this creature." as a body the pay prompt decides (a row's sentence).
   { kind: 'sacrificeSelf', re: /^sacrifice (?:this (?:creature|permanent|artifact|enchantment|land|aura|equipment)|it|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D501 - THE SPELL'S OWN FATE: `Exile ~.` / `Shuffle ~ into its owner's library.` / `Put ~ on the bottom of its owner's
+  // library.` as a spell's own sentence (CR 608.2n replaced by its text - `resolveTop` moves the card as it leaves the
+  // stack); on a permanent the same words are the source's own move from the battlefield (the executor's).
+  { kind: 'exileSelf', re: /^(?:then )?exile (?:this (?:creature|permanent|artifact|enchantment|land)|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'shuffleSelf', re: /^(?:then )?shuffle (?:this (?:creature|permanent|artifact|enchantment|land)|~) into (?:its|your) owner(?:'|’)s library\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'bottomSelf', re: /^(?:then )?put (?:this (?:creature|permanent|artifact|enchantment|land)|~) on the bottom of (?:its|your) owner(?:'|’)s library\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D488 - POPULATE (CR 701.31): `Populate.` alone, or after `, then` (the conjunction split hands the executor the
   // bare word). No aim: the controller chooses a creature token they control at resolution (the D390 queue's question
   // with its own verb) and a token that is a copy of it is created; with none, nothing happens (701.31a).

@@ -8440,6 +8440,14 @@ export const DUSKWORKER: CardData = F.DUSKWORKER as CardData;
 export const IMMERSTURM_PREDATOR: CardData = F.IMMERSTURM_PREDATOR as CardData;
 export const NECROMANCER_S_FAMILIAR: CardData = F.NECROMANCER_S_FAMILIAR as CardData;
 export const PROGNOSTIC_SPHINX: CardData = F.PROGNOSTIC_SPHINX as CardData;
+export const RESTOCK: CardData = F.RESTOCK as CardData;
+export const FLOOD_OF_RECOLLECTION: CardData = F.FLOOD_OF_RECOLLECTION as CardData;
+export const TREASURED_FIND: CardData = F.TREASURED_FIND as CardData;
+export const VIVID_REVIVAL: CardData = F.VIVID_REVIVAL as CardData;
+export const BEACON_OF_DESTRUCTION: CardData = F.BEACON_OF_DESTRUCTION as CardData;
+export const BEACON_OF_CREATION: CardData = F.BEACON_OF_CREATION as CardData;
+export const SPELL_CRUMPLE: CardData = F.SPELL_CRUMPLE as CardData;
+export const MAGUS_OF_THE_BRIDGE: CardData = F.MAGUS_OF_THE_BRIDGE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17101,6 +17109,14 @@ export const ENGINE_CARDS: CardData[] = [
   IMMERSTURM_PREDATOR,
   NECROMANCER_S_FAMILIAR,
   PROGNOSTIC_SPHINX,
+  RESTOCK,
+  FLOOD_OF_RECOLLECTION,
+  TREASURED_FIND,
+  VIVID_REVIVAL,
+  BEACON_OF_DESTRUCTION,
+  BEACON_OF_CREATION,
+  SPELL_CRUMPLE,
+  MAGUS_OF_THE_BRIDGE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -244,6 +244,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // that card to the battlefield under its owner's control at the beginning of the next end step.`).
   { names: ['Force of Rage', 'Turn to Mist'], copiesPerSeat: 2,
     counterKeys: ['objectsBound', 'objectsActed'], rotHistory: 'D494' },
+  // D501 - the spell's own fate: two Treasured Finds a seat ({B}{G} sorcery, `Return target card from your graveyard to
+  // your hand. Exile Treasured Find.` - one graveyard card of any kind to aim at, two mana: the fuel) and two Beacons
+  // of Creation a seat ({3}{G} sorcery, `Create a 1/1 green Insect creature token for each Forest you control. Shuffle
+  // Beacon of Creation into its owner's library.` - no target, the shuffle form when four mana are there).
+  // ⚠️ The first fuel here was Restock ({3}{G}{G}, two graveyard targets) beside the Beacon, and over sixty seeds neither
+  // was ever cast (`spellFates` 0, canary501): a four- and a five-mana sorcery on a seat of four basics is no fuel.
+  { names: ['Treasured Find', 'Beacon of Creation'], copiesPerSeat: 2,
+    counterKeys: ['spellFates'], rotHistory: 'D501' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1486,6 +1494,8 @@ interface Run {
   /** D494 - delayed clauses armed with the previous clause's objects (`DelayedTrigger.aims`), and their fires that moved one. */
   readonly objectsBound: number;
   readonly objectsActed: number;
+  /** D501 - spells that left the stack by their own printed fate (exiled, shuffled in, put on the bottom of a library). */
+  readonly spellFates: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1942,6 +1952,7 @@ function runOne(seed: number): Run {
     looksRevealed: game.log.filter((e) => e.body.t === 'CardsRevealed' && e.body.to.length > 1 && e.body.cards.length > 1).length,
     objectsBound: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && (e.body.trigger.aims?.length ?? 0) > 0).length,
     objectsActed: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined && e.body.obj.targets.length > 0).length,
+    spellFates: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.fate !== undefined).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2230,6 +2241,7 @@ const TOTAL_KEYS = [
   'looksRevealed',
   'objectsBound',
   'objectsActed',
+  'spellFates',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2657,6 +2669,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.looksToBattlefield).toBeGreaterThan(0);
         // D494 - a delayed clause bound to the previous clause's objects and fired at gate size (Force of Rage, Turn to Mist, two a seat).
         expect(totals.objectsActed).toBeGreaterThan(0);
+        // D501 - a spell that left the stack by its own fate at gate size (Treasured Find's exile, Beacon of Creation's shuffle-in, two a seat).
+        expect(totals.spellFates).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2775,6 +2789,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.onceTriggersFired} once-per-turn triggers · ` +
           `${totals.looksToBattlefield}/${totals.looksRevealed} looks to the battlefield/revealed · ` +
           `${totals.objectsBound}/${totals.objectsActed} objects bound/acted on · ` +
+          `${totals.spellFates} spell fates · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

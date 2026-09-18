@@ -436,6 +436,8 @@ export type EventBody =
       readonly stackId: StackId;
       readonly card: InstanceId | null;
       readonly to: ZoneRef | null;
+      /** D501 - the spell left the stack by its own printed fate (`Exile ~.` and the library forms); a flashback's exile is not one. */
+      readonly fate?: 'exile' | 'shuffle' | 'bottom';
       /** What it was aimed at, so an assisted card can still be offered after it resolves. */
       readonly targets: readonly TargetChoice[];
       /**

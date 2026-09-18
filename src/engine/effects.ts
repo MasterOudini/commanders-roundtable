@@ -1044,6 +1044,27 @@ export function effectResult(
         break;
       }
 
+      // D501 - THE SPELL'S OWN FATE, for a PERMANENT source (`Shuffle ~ into its owner's library.` / `Put ~ on the bottom
+      // of its owner's library.` as a permanent's own clause): the card leaves the battlefield for its owner's library,
+      // the shuffle over the library it just joined (the events so far applied to a scratch state), the RNG advancing
+      // through the log. A source on the stack is the resolving spell, and `resolveTop` moves it as it leaves the stack
+      // (the card is still on the stack while its clauses run, CR 608.2) - nothing to do here.
+      case 'bottomSelf':
+      case 'shuffleSelf': {
+        if (!source) break;
+        const inst = state.cards[source];
+        if (!inst || inst.zone.kind !== 'battlefield') break;
+        out.push({ t: 'CardsMoved', moves: [{ card: source, from: { kind: 'battlefield', player: null }, to: { kind: 'library', player: inst.owner }, ...(effect.kind === 'bottomSelf' ? { placement: 'bottom' as const } : {}) }] });
+        if (effect.kind === 'shuffleSelf') {
+          let now = state;
+          for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+          const mixed = shuffle(rng ?? state.rng, now.zones.library[inst.owner] ?? []);
+          rng = mixed.next;
+          out.push({ t: 'LibraryShuffled', player: inst.owner, order: mixed.value });
+        }
+        break;
+      }
+
       case 'sacrificeSelf': {
         if (!source) break;
         const inst = state.cards[source];

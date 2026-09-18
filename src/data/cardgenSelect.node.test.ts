@@ -794,6 +794,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D501 - the spell's own fate: the rows the select offered and the row maker refused, by its own reasons.
+  ['Morgul-Knife Wound', 'a payment branch the suite cannot assert: exileSelf (D501)'],
+  ['The Balrog, Flame of Udûn', 'a filtered head outside the closed reader (an adjective outside the list: legendary): When a legendary creature an opponent controls dies, put ~ o (D501)'],
   // D500 - the object verbs: the rows the select offered and the row maker refused, by its own reasons.
   ['Essence of Antiquity', 'an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Untap them. (D500)'],
   ['Jeskai Ascendancy', 'an object verb after a clause whose objects the suite does not enumerate (a scoped clause; not this wave): Untap those creatures. (D500)'],

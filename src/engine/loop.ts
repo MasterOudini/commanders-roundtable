@@ -20,6 +20,7 @@ import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableBy
 import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
+import { apply } from './reducer';
 import { faceOf } from './oracle';
 import { n, narrated, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
@@ -31,8 +32,8 @@ import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, PrintingId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
-import type { RngState } from './rng';
-import type { ActivatedAbility, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
+import { shuffle, type RngState } from './rng';
+import type { ActivatedAbility, EffectSpec, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type GameState, type PendingTrigger, type StackObject } from './types/state';
 import { dashReturnSpec, unearthExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
@@ -836,13 +837,25 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       return emitted(events);
     }
 
+    // D501 - THE SPELL'S OWN FATE (CR 608.2n replaced by the spell's own text): `Exile ~.` / `Shuffle ~ into its owner's
+    // library.` / `Put ~ on the bottom of its owner's library.` among the resolving spell's clauses sends the card there
+    // instead of the graveyard as it leaves the stack. The vocabulary parses them as self kinds the executor leaves
+    // alone for a source on the stack; this is the one site that moves the card. Flashback still wins (CR 702.34a:
+    // exiled instead, whichever way it would leave); a fizzled spell never resolves and goes to the graveyard (above).
+    const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
+    const fate = spellDef === undefined && face !== null && !face.isPermanent && face.effectMode === 'auto' ? spellFateOf(face.modal ? modalEffects(face.modal, obj.modes) : face.effects) : undefined;
+    const ownFate = obj.castFrom?.kind === 'graveyard' ? undefined : fate;
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
       : obj.castFrom?.kind === 'graveyard'
         ? // D307 - flashback: exiled instead of put anywhere else (CR 702.34a).
           { kind: 'exile' as const, player: card.owner }
-        : { kind: 'graveyard' as const, player: card.owner };
-    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller });
+        : ownFate === 'exile'
+          ? { kind: 'exile' as const, player: card.owner }
+          : ownFate !== undefined
+            ? { kind: 'library' as const, player: card.owner }
+            : { kind: 'graveyard' as const, player: card.owner };
+    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}) });
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is
     // about to leave — and, concretely, a Bolt that had already been put into the
@@ -865,7 +878,6 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // carries the mirror rule — a scripted spell must never ALSO raise the
     // assisted offer, or the parsed half runs twice.
     let rng: RngState | undefined;
-    const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
     // D343 - CR 608.2b's OTHER HALF: the spell resolves and does not affect the
     // targets that are no longer legal for their clause. The vocabulary runs
     // over the picks that still are (a clause whose picks all went narrates,
@@ -897,6 +909,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           card: obj.card,
           from: { kind: 'stack', player: null },
           to,
+          // D501 - the bottom of the library, for the spell's own fate that says so.
+          ...(ownFate === 'bottom' ? { placement: 'bottom' as const } : {}),
           ...(obj.faceIndex === 0 ? {} : { faceIndex: obj.faceIndex }),
           // D309 - a face-down spell resolves into a face-down permanent (CR 708.4).
           ...(obj.faceDown ? { faceDown: true } : {}),
@@ -909,6 +923,18 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
         },
       ],
     });
+    // D501 - the shuffle the fate printed, over the library the card just joined (the events so far applied to a
+    // scratch state: a draw or a search before it has already moved cards); the RNG advances through the log.
+    if (ownFate === 'shuffle') {
+      let scratch = state;
+      for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+      const mixed = shuffle(rng ?? state.rng, scratch.zones.library[card.owner] ?? []);
+      rng = mixed.next;
+      events.push({ t: 'LibraryShuffled', player: card.owner, order: mixed.value });
+    }
+    if (ownFate !== undefined) {
+      events.push(narrated(ownFate === 'exile' ? `${obj.label} is exiled as it resolves.` : ownFate === 'shuffle' ? `${obj.label} is shuffled into its owner's library.` : `${obj.label} is put on the bottom of its owner's library.`, obj.controller, obj.identity));
+    }
     // D449 - DASH (CR 702.109a): a dashed permanent returns to its owner's hand at the beginning of the next
     // end step - a delayed trigger armed as the spell resolves, its one effect the self return (a source that
     // has left the battlefield by then is a subject that is gone, and the fire says so).
@@ -984,6 +1010,17 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
   }
 
   return emitted(resolveAbility(state, deps, obj, null));
+}
+
+/** D501 - the resolving spell's own fate among its clauses (the self kinds the vocabulary parses; `resolveTop` moves the card). */
+function spellFateOf(effects: readonly EffectSpec[]): 'exile' | 'shuffle' | 'bottom' | undefined {
+  for (const e of effects) {
+    if (e.self !== true) continue;
+    if (e.kind === 'exileSelf') return 'exile';
+    if (e.kind === 'shuffleSelf') return 'shuffle';
+    if (e.kind === 'bottomSelf') return 'bottom';
+  }
+  return undefined;
 }
 
 /** The `TriggerDef` behind a stack object, or undefined for anything else. */

@@ -9342,6 +9342,17 @@ const WANTED = [
   "Necromancer's Familiar",
   'Prognostic Sphinx',
   // D500 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D501 - the spell's own fate: the seven spells the seam completes (the seam tests cast four of them; two are fuzz staples).
+  'Restock',
+  'Flood of Recollection',
+  'Treasured Find',
+  'Vivid Revival',
+  'Beacon of Destruction',
+  'Beacon of Creation',
+  'Spell Crumple',
+  // D501 - the spell's own fate: the row whose trigger exiles the source itself (the seam's wave).
+  'Magus of the Bridge',
+  // D501 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
