@@ -169,7 +169,9 @@ const BOARD_COND =
   `(?:you control (?:${BOARD_NUM} or more |an? |another |other |no (?:other )?)${BOARD_NOUN}` +
   `|an opponent controls (?:an? |no )${BOARD_NOUN}` +
   `|(?:there are )?${BOARD_NUM} or more (?:(?:permanent|creature|land|artifact|instant and/or sorcery|instant or sorcery) )?cards (?:are )?in your graveyard` +
-  `|you have no cards in hand|you have ${BOARD_NUM} or (?:more|fewer|less) cards in hand|you have more cards in hand than each opponent)`;
+  `|you have no cards in hand|you have ${BOARD_NUM} or (?:more|fewer|less) cards in hand|you have more cards in hand than each opponent` +
+  // D498 - gen-cond's `commander` and `gyTypes` kinds (the Lieutenant heads, Delirium), rowed since D490 / D419.
+  `|you control your commander|there are ${BOARD_NUM} or more card types among cards in your graveyard)`;
 const ETB_IF_BOARD = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?When [^,]+? enters(?: the battlefield)?), if ${BOARD_COND}, `);
 const STEP_IF_BOARD = new RegExp(`^((?:[A-Z][a-z]+(?: \\d+)? — )?(?:At the beginning of your end step|At the beginning of (?:the|each) end step|At the beginning of combat on your turn|Whenever (?:this creature|~) attacks)), if ${BOARD_COND}, `);
 const ENTERS_WITH_IF_BOARD = new RegExp(`^((?:This creature|~|[A-Z][^,]*?) enters with (?:a|an|one|two|three|four|five|\\d+) \\+1/\\+1 counters? on it) if ${BOARD_COND}\\.$`);
@@ -664,11 +666,14 @@ const ONESHOT_SELF_HEADS = `(?:When ${ONESHOT_SELF_WORD} enters|Whenever ${ONESH
 const ONESHOT_OTHER_HEADS = '(?:Whenever another creature you control enters|Whenever a creature you control enters|Whenever you cast a noncreature spell|Whenever you cast an instant or sorcery spell|Whenever (?:~|[A-Z][a-z]+) or another Human you control enters|Whenever you attack|Whenever you gain life)';
 const ONESHOT_TRIGGER = new RegExp(`^${ONESHOT_SELF_HEADS}, (?:~|it|this creature) ${ONESHOT_PUMP}$`);
 const ONESHOT_TRIGGER_OTHER = new RegExp(`^${ONESHOT_OTHER_HEADS}, (?:~|this creature) ${ONESHOT_PUMP}$`);
+// D498 - the row maker's `mass` kind under the same heads (`When ~ enters, other creatures you control get +1/+1 until end
+// of turn` - Knight of Old Benalia): the controller's creatures, or the others, pumped until end of turn.
+const ONESHOT_MASS_TRIGGER = new RegExp(`^(?:${ONESHOT_SELF_HEADS}|${ONESHOT_OTHER_HEADS}), (?:[Cc]reatures you control|[Oo]ther creatures you control) (?:get ${ONESHOT_PT}|gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?|get ${ONESHOT_PT} and gain ${ONESHOT_KW}(?: and ${ONESHOT_KW})?) until end of turn\\.$`);
 
 /** Is this printed line a triggered one-shot self-pump a table row can emit (D302)? */
 export function oneShotTriggerShape(line: string, cardName: string): boolean {
   const text = selfRef(line, cardName).replace(/\s*\([^)]*\)\s*$/, '');
-  return ONESHOT_TRIGGER.test(text) || ONESHOT_TRIGGER_OTHER.test(text);
+  return ONESHOT_TRIGGER.test(text) || ONESHOT_TRIGGER_OTHER.test(text) || ONESHOT_MASS_TRIGGER.test(text);
 }
 
 /**
@@ -1055,9 +1060,11 @@ function rowRewriteThey(s: string): string {
  * meant). Each pair is the head and whether its `it` is the item.
  */
 const ROW_ITEM_HEADS: readonly (readonly [RegExp, boolean])[] = [
-  [/^(?:Alliance — )?Whenever (?:another creature you control|a creature you control|a creature) enters, /, true],
+  // D498 - the filtered forms the row maker's filtered-head reader admits ride the same heads (`another nontoken Dragon
+  // you control`, `a creature you control with power 5 or greater`, `becomes blocked by a white creature`).
+  [/^(?:Alliance — )?Whenever (?:another|a|an) (?:[a-z]+ )*?(?:creature|artifact|enchantment|[A-Z][a-z]+)(?: you control)?(?: with [^,]+?)? enters, /, true],
   [/^Whenever a creature you control attacks alone, /, true],
-  [/^Whenever (?:~|this creature) (?:blocks(?: a creature)?|becomes blocked(?: by a creature)?|blocks or becomes blocked(?: by (?:a|an|one or more) [^,]+?)?), /, false],
+  [/^Whenever (?:~|this creature) (?:blocks(?: (?:a|an) [^,]*?)?|becomes blocked(?: by (?:a|an) [^,]*?)?|blocks or becomes blocked(?: by (?:a|an|one or more) [^,]+?)?), /, false],
 ];
 const ROW_ITEM_REF = /\b(?:that creature|it)\b(?!'s)/i;
 const ROW_ITEM_VERB = /\b(destroy|exile|tap|untap|sacrifice|return|on|to|of)( )(it)\b(?!'s)/i;
@@ -1107,9 +1114,11 @@ function rowMakerReads(text: string, cardName: string): boolean {
     widened = true;
   }
   // (4) D428 - the referent player, under a head that names one; the referent word its head does not name stays.
-  if (trigger && ROW_PLAYER_REF.test(payload)) {
-    const pair = ROW_PLAYER_HEADS.find(([head]) => head.test(line));
-    if (!pair) return false;
+  // D498 - under a head that names NO player the payload is left as printed (the row maker's rule: `its controller's
+  // next untap step` inside a freeze is the vocabulary's own phrase, not a referent - Labyrinth Minotaur, Wall of Frost
+  // and fourteen more rows the row maker rowed while the classifier refused them here).
+  const pair = trigger && ROW_PLAYER_REF.test(payload) ? ROW_PLAYER_HEADS.find(([head]) => head.test(line)) : undefined;
+  if (pair) {
     payload = payload.replace(pair[1], (...m: string[]) => {
       const first = m.slice(1, -2).find((g) => g !== undefined && !/^'s$/.test(g)) ?? '';
       const pos = m.slice(1, -2).some((g) => g === "'s");
@@ -1231,6 +1240,15 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D424 - the row maker's readers the classifier lacked (see `rowMakerReads`): asked of a permanent's line
   // before the `optional` bucket below can file the trigger the row maker has emitted since D313.
   if (!spellFace && rowMakerReads(text, cardName)) return 'scriptable';
+  // D498 - a MODAL trigger the row maker rows (gen-modal, D343 / D371): the head line ending in `choose one —` is the
+  // head's own, and each bullet is a payload read as a trigger's (the vocabulary over the self forms; a flavour name
+  // before the mode stripped, CR 207.2c). The classifier reads the lines apart; the row maker refuses a head the
+  // library lacks or a mode it cannot stage, and the ledger holds the rest.
+  if (!spellFace && TRIGGER_HEAD.test(text) && /, choose (?:one|two|three|one or both|one or more|any number) —$/.test(text)) return 'scriptable';
+  if (!spellFace && /^• /.test(text)) {
+    const mode = text.slice(2).replace(/^[A-Z][A-Za-z' ]+ — /, '');
+    if (expressible(selfSubject(mode.charAt(0).toUpperCase() + mode.slice(1), 'Whenever ~ attacks, ' + mode), cardName)) return 'scriptable';
+  }
   // D429 - the row maker's static kinds (see `ROW_STATICS`).
   if (!spellFace && rowMakerStatic(text, cardName)) return 'scriptable';
 

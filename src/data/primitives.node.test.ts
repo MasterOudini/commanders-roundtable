@@ -267,7 +267,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
    */
   test('the classifier discriminates', () => {
     expect.soft(r.reach['scriptable'] ?? 0).toBeGreaterThan(100);
-    expect.soft(r.blocked).toBeGreaterThan(20_000);
+    // D498 - the blocked count crossed under 20,000 (19,996): the floor is a sanity bound, not a pin.
+    expect.soft(r.blocked).toBeGreaterThan(15_000);
     const residue = (r.reach['unclassified'] ?? 0) / r.blocked;
     // ⚠️ **45.1% → 49.5% IN D153, AND THE RISE WAS THE CORRECTION SHOWING**:
     // 1,898 of the lines the `optional` pre-filter had been swallowing are
@@ -319,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 11676,
-      blocked: 20016,
+      complete: 11696,
+      blocked: 19996,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -329,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1850,
+      scriptableToday: 1870,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -338,13 +339,13 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // `primitiveFor`.
       // D424 - the optional trigger is the row maker's (`rowMakerReads`): a `you may` over a payload the vocabulary
       // reads under a trigger head is `scriptable` now, and the bucket holds what waits on the yes/no AND a head - nothing.
-      optional: 7,
+      optional: 6,
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 949,
-      counter: 1036,
-      token: 813,
+      layer6: 947,
+      counter: 1032,
+      token: 809,
     });
   });
 
@@ -381,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1850, 1861, 3169, 4685, 5886]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1870, 1880, 3187, 4714, 5921]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -469,11 +470,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 568, anthem: 118, restriction: 175, conditional: 88, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 567, anthem: 117, restriction: 175, conditional: 88, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(417);
+    expect.soft(temporary).toBe(415);
   });
 
   /**
@@ -506,7 +507,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 299, permanent: 514 });
+    expect.soft(byOwner).toEqual({ spell: 299, permanent: 510 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -519,9 +520,9 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // the `optional` pre-filter had been hiding 199 token lines, so those cards
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
-      copy: 95,
+      copy: 92,
       predefined: 129,
-      withAbilities: 239,
+      withAbilities: 238,
       variable: 73,
       plain: 277,
       unclaimed: 0,
@@ -554,8 +555,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1850, 1861]);
-    expect.soft(r.complete).toBe(11676);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1870, 1880]);
+    expect.soft(r.complete).toBe(11696);
   });
 });
 
@@ -686,7 +687,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
 
   test('reads it', async () => {
     rr = await run();
-    expect.soft(rr.blocked).toBeGreaterThan(20_000);
+    expect.soft(rr.blocked).toBeGreaterThan(15_000);
   }, 600_000);
 
   /**
@@ -699,19 +700,19 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
       activatedCost: 1819,
-      triggeredShell: 1690,
-      damage: 564,
-      exile: 783,
-      staticShell: 522,
-      attackBlock: 676,
-      lifeGainLoss: 300,
-      drawDiscard: 263,
-      tokensAndCounters: 278,
+      triggeredShell: 1686,
+      damage: 554,
+      exile: 780,
+      staticShell: 519,
+      attackBlock: 669,
+      lifeGainLoss: 266,
+      drawDiscard: 242,
+      tokensAndCounters: 277,
       copySpell: 182,
       cantBeCountered: 18,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 2612,
+      other: 2570,
     });
   });
 

@@ -9294,6 +9294,28 @@ const WANTED = [
   'Wicker Warcrawler',
   'Windscouter',
   // D497 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D498 - the classifier catches up: the rows the row maker rowed while the classifier refused them.
+  'Cleric of Chill Depths',
+  'Knight of Old Benalia',
+  'Labyrinth Minotaur',
+  'Loyal Apprentice',
+  'Mighty Emergence',
+  'Miirym, Sentinel Wyrm',
+  'Necroduality',
+  'Ogre Leadfoot',
+  'Ondu Spiritdancer',
+  'Phyrexian Reaper',
+  'Serra Redeemer',
+  'Vertigo Spawn',
+  'Wall of Frost',
+  'Wartime Protestors',
+  'Wickerfolk Thresher',
+  'Zephyr Spirit',
+  'Siege-Gang Lieutenant',
+  'Surrak and Goreclaw',
+  'Baleful Beholder',
+  'Kykar, Zephyr Awakener',
+  // D498 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

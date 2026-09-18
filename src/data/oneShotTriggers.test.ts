@@ -25,8 +25,9 @@ describe('the triggered one-shot shape (D302)', () => {
     }
   });
 
-  test('a mass payload, a tail head and a static are not this shape', () => {
-    expect(oneShotTriggerShape('Whenever this creature attacks, creatures you control get +1/+1 until end of turn.', 'X')).toBe(false);
+  test('a mass payload under a library head is this shape since D498; a tail head and a static are not', () => {
+    // D498 - the row maker's `mass` kind under a library head (Knight of Old Benalia) is mirrored (`ONESHOT_MASS_TRIGGER`).
+    expect(oneShotTriggerShape('Whenever this creature attacks, creatures you control get +1/+1 until end of turn.', 'X')).toBe(true);
     expect(oneShotTriggerShape('Whenever this creature blocks a creature with flying, it gets +1/+1 until end of turn.', 'X')).toBe(false);
     expect(oneShotTriggerShape('Whenever you cycle or discard a card, this creature gets +1/+1 until end of turn.', 'X')).toBe(false);
     expect(oneShotTriggerShape('Creatures you control have haste.', 'X')).toBe(false);

@@ -7,6 +7,26 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CLERIC_OF_CHILL_DEPTHS_SCRIPT } from './cards/clericOfChillDepths';
+import { KNIGHT_OF_OLD_BENALIA_SCRIPT } from './cards/knightOfOldBenalia';
+import { LABYRINTH_MINOTAUR_SCRIPT } from './cards/labyrinthMinotaur';
+import { LOYAL_APPRENTICE_SCRIPT } from './cards/loyalApprentice';
+import { MIGHTY_EMERGENCE_SCRIPT } from './cards/mightyEmergence';
+import { MIIRYM_SENTINEL_WYRM_SCRIPT } from './cards/miirymSentinelWyrm';
+import { NECRODUALITY_SCRIPT } from './cards/necroduality';
+import { OGRE_LEADFOOT_SCRIPT } from './cards/ogreLeadfoot';
+import { ONDU_SPIRITDANCER_SCRIPT } from './cards/onduSpiritdancer';
+import { PHYREXIAN_REAPER_SCRIPT } from './cards/phyrexianReaper';
+import { SERRA_REDEEMER_SCRIPT } from './cards/serraRedeemer';
+import { VERTIGO_SPAWN_SCRIPT } from './cards/vertigoSpawn';
+import { WALL_OF_FROST_SCRIPT } from './cards/wallOfFrost';
+import { WARTIME_PROTESTORS_SCRIPT } from './cards/wartimeProtestors';
+import { WICKERFOLK_THRESHER_SCRIPT } from './cards/wickerfolkThresher';
+import { ZEPHYR_SPIRIT_SCRIPT } from './cards/zephyrSpirit';
+import { SIEGE_GANG_LIEUTENANT_SCRIPT } from './cards/siegeGangLieutenant';
+import { SURRAK_AND_GORECLAW_SCRIPT } from './cards/surrakAndGoreclaw';
+import { BALEFUL_BEHOLDER_SCRIPT } from './cards/balefulBeholder';
+import { KYKAR_ZEPHYR_AWAKENER_SCRIPT } from './cards/kykarZephyrAwakener';
 import { AETHER_MEMBRANE_SCRIPT } from './cards/aetherMembrane';
 import { BRACKWATER_ELEMENTAL_SCRIPT } from './cards/brackwaterElemental';
 import { CEREMONIAL_GUARD_SCRIPT } from './cards/ceremonialGuard';
@@ -7699,6 +7719,26 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CLERIC_OF_CHILL_DEPTHS_SCRIPT,
+  KNIGHT_OF_OLD_BENALIA_SCRIPT,
+  LABYRINTH_MINOTAUR_SCRIPT,
+  LOYAL_APPRENTICE_SCRIPT,
+  MIGHTY_EMERGENCE_SCRIPT,
+  MIIRYM_SENTINEL_WYRM_SCRIPT,
+  NECRODUALITY_SCRIPT,
+  OGRE_LEADFOOT_SCRIPT,
+  ONDU_SPIRITDANCER_SCRIPT,
+  PHYREXIAN_REAPER_SCRIPT,
+  SERRA_REDEEMER_SCRIPT,
+  VERTIGO_SPAWN_SCRIPT,
+  WALL_OF_FROST_SCRIPT,
+  WARTIME_PROTESTORS_SCRIPT,
+  WICKERFOLK_THRESHER_SCRIPT,
+  ZEPHYR_SPIRIT_SCRIPT,
+  SIEGE_GANG_LIEUTENANT_SCRIPT,
+  SURRAK_AND_GORECLAW_SCRIPT,
+  BALEFUL_BEHOLDER_SCRIPT,
+  KYKAR_ZEPHYR_AWAKENER_SCRIPT,
   AETHER_MEMBRANE_SCRIPT,
   BRACKWATER_ELEMENTAL_SCRIPT,
   CEREMONIAL_GUARD_SCRIPT,
