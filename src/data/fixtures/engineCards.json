@@ -281309,6 +281309,1196 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "APPRENTICE_NECROMANCER": {
+    "scryfallId": "18d86ad3-e0a1-43da-9dc1-a9028b719c99",
+    "oracleId": "d1a6aa5f-2ad6-4bc7-82f0-4262f66af730",
+    "name": "Apprentice Necromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apprentice Necromancer",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Wizard",
+        "oracleText": "{B}, {T}, Sacrifice this creature: Return target creature card from your graveyard to the battlefield. That creature gains haste. At the beginning of the next end step, sacrifice it.",
+        "flavorText": "A mage willing to dedicate his life to his craft.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "18d86ad3-e0a1-43da-9dc1-a9028b719c99"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "uma",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUVIAN_ATROCITY": {
+    "scryfallId": "365333c4-59a0-4365-b242-a67b6224c1b8",
+    "oracleId": "0dcd13ab-37f9-4d66-8227-1e72d920f297",
+    "name": "Balduvian Atrocity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balduvian Atrocity",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Phyrexian Berserker",
+        "oracleText": "Kicker {R} (You may pay an additional {R} as you cast this spell.)\nMenace\nWhen this creature enters, if it was kicked, return target creature card with mana value 3 or less from your graveyard to the battlefield. It gains haste. Sacrifice it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Jordana",
+        "imageId": "365333c4-59a0-4365-b242-a67b6224c1b8"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Menace",
+      "Kicker"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BALDUVIAN_DEAD": {
+    "scryfallId": "3c6d3187-6994-4d8e-aa7f-3829ef74a5e5",
+    "oracleId": "18d6b89a-3588-43d9-a247-4747a7d784fc",
+    "name": "Balduvian Dead",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Balduvian Dead",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "{2}{R}, Exile a creature card from your graveyard: Create a 3/1 black and red Graveborn creature token with haste. Sacrifice it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Kimble",
+        "imageId": "3c6d3187-6994-4d8e-aa7f-3829ef74a5e5"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cst",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODSKY_BERSERKER": {
+    "scryfallId": "a6308a53-de07-4ed9-80a1-3579843466c2",
+    "oracleId": "ed04f170-a4d9-4151-b4ae-1200d523dc6b",
+    "name": "Bloodsky Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodsky Berserker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "Whenever you cast your second spell each turn, put two +1/+1 counters on this creature. It gains menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"Who's next?!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "a6308a53-de07-4ed9-80a1-3579843466c2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COGWORK_ASSEMBLER": {
+    "scryfallId": "6bb7c162-4c29-481c-8157-a2bd04760225",
+    "oracleId": "01cebebb-050c-4b69-8a13-c569183a3cc3",
+    "name": "Cogwork Assembler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cogwork Assembler",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Assembly-Worker",
+        "oracleText": "{7}: Create a token that's a copy of target artifact. That token gains haste. Exile it at the beginning of the next end step.",
+        "flavorText": "Duplication is neither thievery nor flattery. It is efficiency.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joseph Meehan",
+        "imageId": "6bb7c162-4c29-481c-8157-a2bd04760225"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "761",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHKNELL_KAMI": {
+    "scryfallId": "09535c14-ae50-4528-b9db-7eacee14e3fa",
+    "oracleId": "4d324f8c-2139-4910-b3c3-731a2e820d6b",
+    "name": "Deathknell Kami",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathknell Kami",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\n{2}: This creature gets +1/+1 until end of turn. Sacrifice it at the beginning of the next end step.\nSoulshift 1 (When this creature dies, you may return target Spirit card with mana value 1 or less from your graveyard to your hand.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Puddnhead",
+        "imageId": "09535c14-ae50-4528-b9db-7eacee14e3fa"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Soulshift"
+    ],
+    "setCode": "sok",
+    "collectorNumber": "65",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGON_MASK": {
+    "scryfallId": "9aaa423f-2d4a-4a90-9922-1352e984d03a",
+    "oracleId": "fce29dd8-23b1-465c-a977-526f716dc8f6",
+    "name": "Dragon Mask",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragon Mask",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{3}, {T}: Target creature you control gets +2/+2 until end of turn. Return it to its owner's hand at the beginning of the next end step. (Return it only if it's on the battlefield.)",
+        "flavorText": "\"With no further options, I was forced to don the mask.\"\n—Rashida Scalebane",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Craig Hooper",
+        "imageId": "9aaa423f-2d4a-4a90-9922-1352e984d03a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "VIS-144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEARLESS_FLEDGLING": {
+    "scryfallId": "02d73eb7-4e76-48d4-90fa-fa972dc0fccb",
+    "oracleId": "75ae9b87-7137-47a0-b3e1-8915ccd0edf1",
+    "name": "Fearless Fledgling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fearless Fledgling",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Landfall — Whenever a land you control enters, put a +1/+1 counter on this creature. It gains flying until end of turn.",
+        "flavorText": "Griffins nest in precarious places, so fledglings often find themselves taking their first flights at surprising moments.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "02d73eb7-4e76-48d4-90fa-fa972dc0fccb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLICKERWISP": {
+    "scryfallId": "1065c4c7-c022-4aa1-a99b-13566cf1d3e7",
+    "oracleId": "b23a3d30-6b8e-4aad-890f-db0c3af43ace",
+    "name": "Flickerwisp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flickerwisp",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nWhen this creature enters, exile another target permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": "Its wings disturb more than air.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeremy Enecio",
+        "imageId": "1065c4c7-c022-4aa1-a99b-13566cf1d3e7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "td0",
+    "collectorNumber": "B4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALEPOWDER_MAGE": {
+    "scryfallId": "222b4c5a-2cd0-4851-9f2f-8685a658ebb4",
+    "oracleId": "b2457982-6c28-47e9-9b32-9db359eb0ac5",
+    "name": "Galepowder Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Galepowder Mage",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Kithkin Wizard",
+        "oracleText": "Flying\nWhenever this creature attacks, exile another target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeremy Jarvis",
+        "imageId": "222b4c5a-2cd0-4851-9f2f-8685a658ebb4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "694",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLIMMERPOINT_STAG": {
+    "scryfallId": "448f1348-081f-4bf7-8a52-71b1a6d59f93",
+    "oracleId": "9620c8a2-63a8-4151-b4fd-a15db191a7b0",
+    "name": "Glimmerpoint Stag",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glimmerpoint Stag",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Elk",
+        "oracleText": "Vigilance\nWhen this creature enters, exile another target permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Pancoast",
+        "imageId": "448f1348-081f-4bf7-8a52-71b1a6d59f93"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "td2",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMI_OF_INDUSTRY": {
+    "scryfallId": "d3d00e61-3007-43da-960b-823e9ead2acf",
+    "oracleId": "b308fa9a-3f69-4e59-9d4b-8007d9a2b1f1",
+    "name": "Kami of Industry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kami of Industry",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "When this creature enters, return target artifact card with mana value 3 or less from your graveyard to the battlefield. It gains haste. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "It takes many arms to arm an army.",
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "d3d00e61-3007-43da-960b-823e9ead2acf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIKI_JIKI_MIRROR_BREAKER": {
+    "scryfallId": "0e6fc996-17ba-4090-bf82-0c2eba93a81e",
+    "oracleId": "a34b7416-cfe3-4a1e-a8c1-a3056b747519",
+    "name": "Kiki-Jiki, Mirror Breaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kiki-Jiki, Mirror Breaker",
+        "manaCost": "{2}{R}{R}{R}",
+        "typeLine": "Legendary Creature — Goblin Shaman",
+        "oracleText": "Haste\n{T}: Create a token that's a copy of target nonlegendary creature you control, except it has haste. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "\"Wanna see a neat trick?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ishikawa Kenta",
+        "imageId": "0e6fc996-17ba-4090-bf82-0c2eba93a81e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOWLAND_OAF": {
+    "scryfallId": "02813ade-7d11-40ad-a290-02405e40532d",
+    "oracleId": "c14f973e-b2b0-4d22-87f6-c37f7eb92864",
+    "name": "Lowland Oaf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lowland Oaf",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Giant Warrior",
+        "oracleText": "{T}: Target Goblin creature you control gets +1/+0 and gains flying until end of turn. Sacrifice that creature at the beginning of the next end step.",
+        "flavorText": "\"I don't know why the little one was so mad. He said to put him down, and I put him down.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nic Klein",
+        "imageId": "02813ade-7d11-40ad-a290-02405e40532d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "62415",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MISTMEADOW_WITCH": {
+    "scryfallId": "01b1cd72-f8e8-4030-9449-7e0c978a1e82",
+    "oracleId": "38e274e2-bd04-48de-a1df-44f0ee987ba8",
+    "name": "Mistmeadow Witch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mistmeadow Witch",
+        "manaCost": "{1}{W/U}",
+        "typeLine": "Creature — Kithkin Wizard",
+        "oracleText": "{2}{W}{U}: Exile target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": "Olka collected the evening mist for years, studying its secrets. Once she learned its essence, she could vanish with a thought.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "01b1cd72-f8e8-4030-9449-7e0c978a1e82"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "cma",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGG_CANNON": {
+    "scryfallId": "5ee64a77-5308-45c7-b865-400820968c74",
+    "oracleId": "710a51e1-a305-49b5-a429-0ff1a10244fa",
+    "name": "Mogg Cannon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogg Cannon",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Target creature you control gets +1/+0 and gains flying until end of turn. Destroy that creature at the beginning of the next end step.",
+        "flavorText": "Moggs never volunteer for anything twice.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mike Raabe",
+        "imageId": "5ee64a77-5308-45c7-b865-400820968c74"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "298",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUSHROOM_WATCHDOGS": {
+    "scryfallId": "60d4ed9e-1a13-46bf-963a-22859318e011",
+    "oracleId": "82259c84-773d-4670-9b09-d73f5a3be7ea",
+    "name": "Mushroom Watchdogs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mushroom Watchdogs",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Sacrifice a Food: Put a +1/+1 counter on this creature. It gains vigilance until end of turn. Activate only as a sorcery.",
+        "flavorText": "\"They won't harm you—not unless I tell 'em to. Here, Grip! Fang! Heel!\"\n—Farmer Maggot",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alexander Ostrowski",
+        "imageId": "60d4ed9e-1a13-46bf-963a-22859318e011"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "631",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PACESETTER_PARAGON": {
+    "scryfallId": "7364b4dc-8cce-498d-a62e-eabc612b062a",
+    "oracleId": "1acb289f-fb7f-4d83-aaef-4e7b9462c593",
+    "name": "Pacesetter Paragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pacesetter Paragon",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Pilot",
+        "oracleText": "Exhaust — {2}{R}: Put a +1/+1 counter on this creature. It gains double strike until end of turn. (Activate each exhaust ability only once.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wonchun Choi",
+        "imageId": "7364b4dc-8cce-498d-a62e-eabc612b062a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROON_OF_THE_HIDDEN_REALM": {
+    "scryfallId": "0579dea8-3963-403c-b89d-204e007ce3ed",
+    "oracleId": "fd336830-4a11-42b8-9fc7-d7526f569124",
+    "name": "Roon of the Hidden Realm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roon of the Hidden Realm",
+        "manaCost": "{2}{G}{W}{U}",
+        "typeLine": "Legendary Creature — Rhino Soldier",
+        "oracleText": "Vigilance, trample\n{2}, {T}: Exile another target creature. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": "\"Time and space are just new battlefields to be mastered.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "0579dea8-3963-403c-b89d-204e007ce3ed"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance",
+      "Trample"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "535",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "S_H_I_E_L_D_FLYING_CAR": {
+    "scryfallId": "0912ea2d-88af-48b7-8262-89547e67ff64",
+    "oracleId": "12d51534-a98d-487b-9ba9-c10861dff992",
+    "name": "S.H.I.E.L.D. Flying Car",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "S.H.I.E.L.D. Flying Car",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flash\nFlying\nWhen this Vehicle enters, exile up to one target creature you control. Return that card to the battlefield under its owner's control at the beginning of the next end step.\nCrew 1",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Paulius Daščioras",
+        "imageId": "0912ea2d-88af-48b7-8262-89547e67ff64"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Crew",
+      "Flash"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "404",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYBIND": {
+    "scryfallId": "91e3117a-0955-47fc-81c0-7a662c8c487f",
+    "oracleId": "13d34f21-f0ce-4e59-ac3e-6635bf7292d3",
+    "name": "Skybind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skybind",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Constellation — Whenever this enchantment or another enchantment you control enters, exile target nonenchantment permanent. Return that card to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "91e3117a-0955-47fc-81c0-7a662c8c487f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Constellation"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSKIPPER_DUO": {
+    "scryfallId": "d6844bad-ffbe-4c6e-b438-08562eccea52",
+    "oracleId": "a50db36c-948b-4132-a5e5-84aab1f42612",
+    "name": "Skyskipper Duo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyskipper Duo",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Bird Frog",
+        "oracleText": "Flying\nWhen this creature enters, exile up to one other target creature you control. Return it to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": "\"I don't know how to swim!\" said the bird. \"That's okay! I don't know how to fly!\" laughed the frog.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mariah Tekulve",
+        "imageId": "d6844bad-ffbe-4c6e-b438-08562eccea52"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPLINTER_TWIN": {
+    "scryfallId": "2f8f22fb-7291-4517-9b15-e98501f2856b",
+    "oracleId": "2df3187b-4b91-4de9-9b26-d48a30700cec",
+    "name": "Splinter Twin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Splinter Twin",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: Create a token that's a copy of this creature, except it has haste. Exile that token at the beginning of the next end step.\"",
+        "flavorText": "\"I know just the person for that job.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Goran Josic",
+        "imageId": "2f8f22fb-7291-4517-9b15-e98501f2856b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "roe",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMSPLITTER": {
+    "scryfallId": "0190f7fa-d272-4b2d-b252-cc29a6301a53",
+    "oracleId": "4a9ae0d9-5ee7-4289-9333-ef0bcc3079ca",
+    "name": "Stormsplitter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormsplitter",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Otter Wizard",
+        "oracleText": "Haste\nWhenever you cast an instant or sorcery spell, create a token that's a copy of this creature. Exile that token at the beginning of the next end step.",
+        "flavorText": "\"We'll cover more ground if I split up.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "0190f7fa-d272-4b2d-b252-cc29a6301a53"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "pblb",
+    "collectorNumber": "154p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYNDICATE_TRAFFICKER": {
+    "scryfallId": "899fc19d-bd0c-4c3c-a7f0-90337c7fa186",
+    "oracleId": "2eb8397a-ba8b-497d-b1f5-a1b09c686597",
+    "name": "Syndicate Trafficker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Syndicate Trafficker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Aetherborn Rogue",
+        "oracleText": "{1}, Sacrifice an artifact: Put a +1/+1 counter on this creature. It gains indestructible until end of turn.",
+        "flavorText": "\"The price isn't negotiable, but I'm sure you'll agree it's fair.\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "899fc19d-bd0c-4c3c-a7f0-90337c7fa186"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pkld",
+    "collectorNumber": "101s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPESTRA_DAME_OF_GAMES": {
+    "scryfallId": "4ccb74c9-046a-4d6b-b8c2-641e2a238d52",
+    "oracleId": "12401ad1-b5c9-43dc-9389-04aaf5db8b26",
+    "name": "Tempestra, Dame of Games",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempestra, Dame of Games",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Creature — Elemental Illusion",
+        "oracleText": "{2}{R}, {T}, Sacrifice an artifact: Create a token that's a copy of another target creature you control, except it isn't legendary. It gains haste. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "\"The stakes have risen, my green friends. Now you are playing for the fate of the world!\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Hokyoung Kim",
+        "imageId": "4ccb74c9-046a-4d6b-b8c2-641e2a238d52"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tmc",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERCITY_NECROLISK": {
+    "scryfallId": "2571d168-38d4-46d7-afae-ffbd12bd2313",
+    "oracleId": "b3418d92-81de-4575-b8da-563be6b31b91",
+    "name": "Undercity Necrolisk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undercity Necrolisk",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Lizard",
+        "oracleText": "{1}, Sacrifice another creature: Put a +1/+1 counter on this creature. It gains menace until end of turn. Activate only as a sorcery. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "In its territory, living is an affront.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "2571d168-38d4-46d7-afae-ffbd12bd2313"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VITO_S_INQUISITOR": {
+    "scryfallId": "9030048a-b866-4a89-8d4a-aa55411463e4",
+    "oracleId": "03ee49c9-95a3-44f1-b010-f7c4b2f86a7c",
+    "name": "Vito's Inquisitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vito's Inquisitor",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "{B}, Sacrifice another creature or artifact: Put a +1/+1 counter on this creature. It gains menace until end of turn.",
+        "flavorText": "\"We usher in the Age of Everflowing Blood, when those who are fed upon will be fed, and those who feed will be satiated.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anna Pavleeva",
+        "imageId": "9030048a-b866-4a89-8d4a-aa55411463e4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENTHICORE": {
+    "scryfallId": "f240d225-9fbf-438a-93c3-5fef325035e8",
+    "oracleId": "68eb3566-c74d-42a6-89a6-b468677fc485",
+    "name": "Benthicore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benthicore",
+        "manaCost": "{6}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, create two 1/1 blue Merfolk Wizard creature tokens.\nTap two untapped Merfolk you control: Untap this creature. It gains shroud until end of turn. (It can't be the target of spells or abilities.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "f240d225-9fbf-438a-93c3-5fef325035e8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "lrw",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROVIKAN_ELEMENTALIST": {
+    "scryfallId": "bbedca18-a074-4441-b0a9-7b14fdb07412",
+    "oracleId": "43e6fc44-8b23-4bff-91da-936019efe84b",
+    "name": "Krovikan Elementalist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krovikan Elementalist",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{2}{R}: Target creature gets +1/+0 until end of turn.\n{U}{U}: Target creature you control gains flying until end of turn. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "\"The Elementalists' talents could be useful if turned to other purposes.\"\n—Zur the Enchanter",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "bbedca18-a074-4441-b0a9-7b14fdb07412"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ice",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARDU_MONUMENT": {
+    "scryfallId": "9bd0c794-77bc-4d4a-a769-3829e2ce4bdf",
+    "oracleId": "5f662383-1684-4bd3-be05-e696d301e26c",
+    "name": "Mardu Monument",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mardu Monument",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, search your library for a basic Mountain, Plains, or Swamp card, reveal it, put it into your hand, then shuffle.\n{2}{R}{W}{B}, {T}, Sacrifice this artifact: Create three 1/1 red Warrior creature tokens. They gain menace and haste until end of turn. Activate only as a sorcery. (A creature with menace can't be blocked except by two or more creatures.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Salvatorre Zee Yazzie",
+        "imageId": "9bd0c794-77bc-4d4a-a769-3829e2ce4bdf"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORTHION_HERO_OF_LAVABRINK": {
+    "scryfallId": "11ad2b1a-668e-4c7d-8158-b25897be22c8",
+    "oracleId": "31895957-5fa8-46dc-a76e-37bbdc6072ad",
+    "name": "Orthion, Hero of Lavabrink",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orthion, Hero of Lavabrink",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "{1}{R}, {T}: Create a token that's a copy of another target creature you control. It gains haste. Sacrifice it at the beginning of the next end step. Activate only as a sorcery.\n{6}{R}{R}{R}, {T}: Create five tokens that are copies of another target creature you control. They gain haste. Sacrifice them at the beginning of the next end step. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "11ad2b1a-668e-4c7d-8158-b25897be22c8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mom",
+    "collectorNumber": "379",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKDOS_GUILDMAGE": {
+    "scryfallId": "0e01fef8-5563-4dec-ab8e-e486e19e202c",
+    "oracleId": "650949ca-609b-46c5-bc6b-6f782cdcb6d2",
+    "name": "Rakdos Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakdos Guildmage",
+        "manaCost": "{B/R}{B/R}",
+        "typeLine": "Creature — Zombie Shaman",
+        "oracleText": "({B/R} can be paid with either {B} or {R}.)\n{3}{B}, Discard a card: Target creature gets -2/-2 until end of turn.\n{3}{R}: Create a 2/1 red Goblin creature token with haste. Exile it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Jeremy Jarvis",
+        "imageId": "0e01fef8-5563-4dec-ab8e-e486e19e202c"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dis",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_FIRE_CRYSTAL": {
+    "scryfallId": "58306c68-5de8-48f4-9ce5-ea69792af58c",
+    "oracleId": "57276db8-9d8d-4587-ae88-dfdc44343f17",
+    "name": "The Fire Crystal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Fire Crystal",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Legendary Artifact",
+        "oracleText": "Red spells you cast cost {1} less to cast.\nCreatures you control have haste.\n{4}{R}{R}, {T}: Create a token that's a copy of target creature you control. Sacrifice it at the beginning of the next end step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "TSUKKU",
+        "imageId": "58306c68-5de8-48f4-9ce5-ea69792af58c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "337",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOUCH_THE_SPIRIT_REALM": {
+    "scryfallId": "5d02afc8-0192-4e7d-9d10-60a4434ed8db",
+    "oracleId": "52f0dcbd-ccf3-4525-8e55-2d38b4991834",
+    "name": "Touch the Spirit Realm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Touch the Spirit Realm",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, exile up to one target artifact or creature until this enchantment leaves the battlefield.\nChannel — {1}{W}, Discard this card: Exile target artifact or creature. Return it to the battlefield under its owner's control at the beginning of the next end step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "5d02afc8-0192-4e7d-9d10-60a4434ed8db"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Channel"
+    ],
+    "setCode": "gdy",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -289109,6 +290299,41 @@
     ],
     "setCode": "tcmm",
     "collectorNumber": "25",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "GOBLIN_79707EF3_TOKEN": {
+    "scryfallId": "79707ef3-9ac8-4774-b34b-f227546ff4bd",
+    "oracleId": "fa8ea5cd-b390-41a1-9a2a-11af1bc6bfd0",
+    "name": "Goblin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Goblin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Goblin",
+        "oracleText": "Haste",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "79707ef3-9ac8-4774-b34b-f227546ff4bd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "trvr",
+    "collectorNumber": "9",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

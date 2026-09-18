@@ -214,7 +214,11 @@ export function effectResult(
     const rec = produced.get(at);
     if (!rec) return [];
     if (rec.objects !== undefined) return rec.objects;
-    const seen = new Set<InstanceId>(rec.aims);
+    // D495 - a token maker's objects are the tokens it made: `Create a token that's a copy of target creature ...
+    // Sacrifice it at the beginning of the next end step.` is about the copy, never the creature it copied (the
+    // clause's aim); the aims stand for every other clause (a target exiled, pumped, returned).
+    const maker = effects[at]?.kind === 'createToken' || effects[at]?.kind === 'populate';
+    const seen = new Set<InstanceId>(maker ? [] : rec.aims);
     for (const ev of out.slice(rec.start, rec.end)) {
       if (ev.t === 'TokenCreated') seen.add(ev.card);
       if (ev.t === 'CardsMoved') for (const m of ev.moves) if (m.to.kind === 'battlefield') seen.add(m.card);

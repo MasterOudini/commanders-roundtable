@@ -7,6 +7,41 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { APPRENTICE_NECROMANCER_SCRIPT } from './cards/apprenticeNecromancer';
+import { BALDUVIAN_ATROCITY_SCRIPT } from './cards/balduvianAtrocity';
+import { BALDUVIAN_DEAD_SCRIPT } from './cards/balduvianDead';
+import { BLOODSKY_BERSERKER_SCRIPT } from './cards/bloodskyBerserker';
+import { COGWORK_ASSEMBLER_SCRIPT } from './cards/cogworkAssembler';
+import { DEATHKNELL_KAMI_SCRIPT } from './cards/deathknellKami';
+import { DRAGON_MASK_SCRIPT } from './cards/dragonMask';
+import { FEARLESS_FLEDGLING_SCRIPT } from './cards/fearlessFledgling';
+import { FLICKERWISP_SCRIPT } from './cards/flickerwisp';
+import { GALEPOWDER_MAGE_SCRIPT } from './cards/galepowderMage';
+import { GLIMMERPOINT_STAG_SCRIPT } from './cards/glimmerpointStag';
+import { KAMI_OF_INDUSTRY_SCRIPT } from './cards/kamiOfIndustry';
+import { KIKI_JIKI_MIRROR_BREAKER_SCRIPT } from './cards/kikiJikiMirrorBreaker';
+import { LOWLAND_OAF_SCRIPT } from './cards/lowlandOaf';
+import { MISTMEADOW_WITCH_SCRIPT } from './cards/mistmeadowWitch';
+import { MOGG_CANNON_SCRIPT } from './cards/moggCannon';
+import { MUSHROOM_WATCHDOGS_SCRIPT } from './cards/mushroomWatchdogs';
+import { PACESETTER_PARAGON_SCRIPT } from './cards/pacesetterParagon';
+import { ROON_OF_THE_HIDDEN_REALM_SCRIPT } from './cards/roonOfTheHiddenRealm';
+import { S_HIELDFLYING_CAR_SCRIPT } from './cards/sHIELDFlyingCar';
+import { SKYBIND_SCRIPT } from './cards/skybind';
+import { SKYSKIPPER_DUO_SCRIPT } from './cards/skyskipperDuo';
+import { SPLINTER_TWIN_SCRIPT } from './cards/splinterTwin';
+import { STORMSPLITTER_SCRIPT } from './cards/stormsplitter';
+import { SYNDICATE_TRAFFICKER_SCRIPT } from './cards/syndicateTrafficker';
+import { TEMPESTRA_DAME_OF_GAMES_SCRIPT } from './cards/tempestraDameOfGames';
+import { UNDERCITY_NECROLISK_SCRIPT } from './cards/undercityNecrolisk';
+import { VITOS_INQUISITOR_SCRIPT } from './cards/vitosInquisitor';
+import { BENTHICORE_SCRIPT } from './cards/benthicore';
+import { KROVIKAN_ELEMENTALIST_SCRIPT } from './cards/krovikanElementalist';
+import { MARDU_MONUMENT_SCRIPT } from './cards/marduMonument';
+import { ORTHION_HERO_OF_LAVABRINK_SCRIPT } from './cards/orthionHeroOfLavabrink';
+import { RAKDOS_GUILDMAGE_SCRIPT } from './cards/rakdosGuildmage';
+import { THE_FIRE_CRYSTAL_SCRIPT } from './cards/theFireCrystal';
+import { TOUCH_THE_SPIRIT_REALM_SCRIPT } from './cards/touchTheSpiritRealm';
 import { COILING_ORACLE_SCRIPT } from './cards/coilingOracle';
 import { DRYAD_GREENSEEKER_SCRIPT } from './cards/dryadGreenseeker';
 import { ELVISH_REJUVENATOR_SCRIPT } from './cards/elvishRejuvenator';
@@ -7619,6 +7654,41 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  APPRENTICE_NECROMANCER_SCRIPT,
+  BALDUVIAN_ATROCITY_SCRIPT,
+  BALDUVIAN_DEAD_SCRIPT,
+  BLOODSKY_BERSERKER_SCRIPT,
+  COGWORK_ASSEMBLER_SCRIPT,
+  DEATHKNELL_KAMI_SCRIPT,
+  DRAGON_MASK_SCRIPT,
+  FEARLESS_FLEDGLING_SCRIPT,
+  FLICKERWISP_SCRIPT,
+  GALEPOWDER_MAGE_SCRIPT,
+  GLIMMERPOINT_STAG_SCRIPT,
+  KAMI_OF_INDUSTRY_SCRIPT,
+  KIKI_JIKI_MIRROR_BREAKER_SCRIPT,
+  LOWLAND_OAF_SCRIPT,
+  MISTMEADOW_WITCH_SCRIPT,
+  MOGG_CANNON_SCRIPT,
+  MUSHROOM_WATCHDOGS_SCRIPT,
+  PACESETTER_PARAGON_SCRIPT,
+  ROON_OF_THE_HIDDEN_REALM_SCRIPT,
+  S_HIELDFLYING_CAR_SCRIPT,
+  SKYBIND_SCRIPT,
+  SKYSKIPPER_DUO_SCRIPT,
+  SPLINTER_TWIN_SCRIPT,
+  STORMSPLITTER_SCRIPT,
+  SYNDICATE_TRAFFICKER_SCRIPT,
+  TEMPESTRA_DAME_OF_GAMES_SCRIPT,
+  UNDERCITY_NECROLISK_SCRIPT,
+  VITOS_INQUISITOR_SCRIPT,
+  BENTHICORE_SCRIPT,
+  KROVIKAN_ELEMENTALIST_SCRIPT,
+  MARDU_MONUMENT_SCRIPT,
+  ORTHION_HERO_OF_LAVABRINK_SCRIPT,
+  RAKDOS_GUILDMAGE_SCRIPT,
+  THE_FIRE_CRYSTAL_SCRIPT,
+  TOUCH_THE_SPIRIT_REALM_SCRIPT,
   COILING_ORACLE_SCRIPT,
   DRYAD_GREENSEEKER_SCRIPT,
   ELVISH_REJUVENATOR_SCRIPT,

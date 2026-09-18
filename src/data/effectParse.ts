@@ -2175,13 +2175,17 @@ const OBJ_DEST = "(?<dest> to the battlefield under (?:its|their) owner(?:'|’)
 const OBJ_DELAY_TAIL = new RegExp(`^(?:then )?(?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST} at the beginning of ${OBJ_WHEN}\\.$`, 'i');
 const OBJ_DELAY_HEAD = new RegExp(`^at the beginning of ${OBJ_WHEN}, (?<verb>sacrifice|exile|destroy|return) ${OBJ_REF}${OBJ_DEST}\\.$`, 'i');
 const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate', 'returnFromGraveyard', 'control', 'exile', 'destroy', 'bounce', 'tap', 'untap', 'pump', 'putCounters', 'populate']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
   // The clause before must PRODUCE objects: a target of its own, a token, a returned card, or the objects of the
   // clause before it (a chain: `It gains haste. Sacrifice it at the beginning of the next end step.`).
   if (!(prev.ofPrevious === true || prev.targetIndex !== -1 || OBJ_MAKERS.has(prev.kind))) return null;
-  if (prev.kind === 'search' || prev.kind === 'lookAtTop') return null;
+  // D495 - a clause before that ASKS produces its objects only after the answer (a search, a look, a payment whose
+  // body makes the token - `You may pay {1}{R}. If you do, create a token ... It gains haste.`): the executor would
+  // bind the next clause to nothing, so the sentence is refused and the card stays assisted.
+  if (OBJ_ASKS.has(prev.kind)) return null;
   const g = OBJ_GRANT.exec(sentence);
   if (g) {
     const kws = grantedKeywords(g[1], g[2], g[3]);

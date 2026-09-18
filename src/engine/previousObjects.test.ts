@@ -129,4 +129,34 @@ describe("D494 - the previous clause's objects", () => {
     expect(g.state.cards[goblin]?.gained, 'the grant ends with the object').toBeUndefined();
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
+
+  // D495 - THE OBJECT ROWS. A token maker's objects are the tokens it made, never the creature it copied: the copy of a
+  // target Bears gains haste and is sacrificed at the next end step, and the Bears it copied stays untouched. A clause
+  // before that ASKS (a payment whose body makes the token) produces its objects only after the answer: refused.
+  test("a copy of a target: the copy alone gains the keyword and goes at the end step, the creature it copied stays; the asking clause before refuses", () => {
+    expect(kinds("Create a token that's a copy of target creature you control. It gains haste. Sacrifice it at the beginning of the next end step.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'createToken' }, { kind: 'grantObj', ofPrevious: true, indefinite: true }, { kind: 'sacrificeObj', ofPrevious: true, delayed: true }] });
+    expect(kinds("You may pay {1}{R}. If you do, create a token that's a copy of target creature. It gains haste.").mode, 'the payment answers first: the objects are unknown at the clause').not.toBe('auto');
+    // The copied creature is a Coral Eel, not another Bears: a copy of the Bears would carry this very trigger and copy on.
+    const g = startedGame({ players: 2, decks: [['Grizzly Bears', 'Coral Eel'], ['Grizzly Bears']], scripts: createRegistry([entersWith('Grizzly Bears', "Create a token that's a copy of target creature you control. It gains haste. Sacrifice it at the beginning of the next end step.")]) });
+    holdEverywhere(g);
+    const model = put(g, 'p1', 'Coral Eel');
+    const bears = put(g, 'p1', 'Grizzly Bears', 'hand');
+    main(g, 3);
+    mana(g, 'p1', 'GG');
+    must(g.submit({ t: 'CastSpell', player: 'p1', card: bears, targets: [] }));
+    advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets' || (s.stack.length === 0 && s.pendingTriggers.length === 0 && s.priority.awaiting === null), 20_000);
+    if (g.state.priority.awaiting?.kind === 'chooseTargets') must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: model }] }));
+    settle(g);
+    const copy = tokensOf(g, 'p1')[0] as InstanceId;
+    expect(copy, 'the copy was made').toBeDefined();
+    expect(chars(g, copy).keywords.has('haste'), 'the copy gained haste').toBe(true);
+    expect(chars(g, model).keywords.has('haste'), 'the creature it copied did not').toBe(false);
+    const armedFor = g.state.delayedTriggers.find((d) => d.aims !== undefined);
+    expect(armedFor?.aims, 'armed with the copy alone').toEqual([copy]);
+    advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.step === 'end' && s.stack.length === 0 && s.pendingTriggers.length === 0 && s.priority.awaiting === null, 20_000);
+    settle(g);
+    expect(g.state.cards[copy]?.zone.kind, 'the copy is sacrificed at the end step').not.toBe('battlefield');
+    expect(g.state.cards[model]?.zone.kind, 'the creature it copied stays').toBe('battlefield');
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
 });

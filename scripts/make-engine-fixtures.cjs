@@ -9208,6 +9208,43 @@ const WANTED = [
   'Blood Frenzy',
   'Molten Duplication',
   'Feral Lightning',
+  // D495 - the object rows: the rows the generator learned to assert (D494 six kinds).
+  'Apprentice Necromancer',
+  'Balduvian Atrocity',
+  'Balduvian Dead',
+  'Bloodsky Berserker',
+  'Cogwork Assembler',
+  'Deathknell Kami',
+  'Dragon Mask',
+  'Fearless Fledgling',
+  'Flickerwisp',
+  'Galepowder Mage',
+  'Glimmerpoint Stag',
+  'Kami of Industry',
+  'Kiki-Jiki, Mirror Breaker',
+  'Lowland Oaf',
+  'Mistmeadow Witch',
+  'Mogg Cannon',
+  'Mushroom Watchdogs',
+  'Pacesetter Paragon',
+  'Roon of the Hidden Realm',
+  'S.H.I.E.L.D. Flying Car',
+  'Skybind',
+  'Skyskipper Duo',
+  'Splinter Twin',
+  'Stormsplitter',
+  'Syndicate Trafficker',
+  'Tempestra, Dame of Games',
+  'Undercity Necrolisk',
+  "Vito's Inquisitor",
+  'Benthicore',
+  'Krovikan Elementalist',
+  'Mardu Monument',
+  'Orthion, Hero of Lavabrink',
+  'Rakdos Guildmage',
+  'The Fire Crystal',
+  'Touch the Spirit Realm',
+  // D495 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9589,6 +9626,8 @@ const WANTED_TOKENS = [
   { name: 'Goblin', set: 'l12', cn: '1', key: 'GOBLIN_1_1_R_CREATURE_TOKEN' },
   { name: 'Elemental', set: 'tbfz', cn: '9', key: 'ELEMENTAL_3_1_R_CREATURE_HASTE_TRAMPLE_TOKEN' },
   { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN' },
+  // D495 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Goblin', set: 'trvr', cn: '9', key: 'GOBLIN_79707EF3_TOKEN' },
 ];
 
 function constName(name) {
