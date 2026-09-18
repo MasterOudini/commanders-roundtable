@@ -796,6 +796,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D496 - the item referent: the rows the select offered and the row maker refused, by its own reasons.
+  ['Angelic Exaltation', 'a counted payload under a head whose arm sizes the board (aCreatureAttacksAlone): Target creature gets +X/+X until end of turn, where X is the number (D496)'],
+  ['Electropotence', 'an item referent beside another target clause: You may pay {2}{R}. If you do, target creature deals damage (D496)'],
+  ['Thoughtweft Imbuer', 'a counted payload under a head whose arm sizes the board (aCreatureAttacksAlone): Target creature gets +X/+X until end of turn, where X is the number (D496)'],
+  ['Warstorm Surge', 'an item referent beside another target clause: Target creature deals damage equal to its power to any targe (D496)'],
+  ["Derelict Attic // Widow's Walk", 'multi-face or unusual layout (D496)'],
   // D495 - the object rows: the rows the select offered (D494 ledgered them for the generator) and the row maker still refused, by its own reasons.
   ['Felhide Spiritbinder', 'trigger payload not a pump: You may pay {1}{R}. If you do, create a token that\'s a copy (D495)'],
   ['Harried Dronesmith', 'a delayed object clause under a head the suite fires past turn 3 (not this wave): combatOnYourTurn (D495)'],

@@ -1043,6 +1043,36 @@ function rowRewriteThey(s: string): string {
     .replace(/\b([Tt])hem\b/g, (_m, t: string) => (t === 'T' ? 'Target' : 'target') + ' player')
     .replace(/\b([Tt])heir\b/g, (_m, t: string) => (t === 'T' ? 'Target' : 'target') + " player's");
 }
+/**
+ * D496 - THE TRIGGERING CREATURE, the row maker's `itemHeads196` mirrored: under a head whose event names ONE creature
+ * (the creature that entered, the creature this one blocks or is blocked by, the lone attacker), the payload's
+ * `that creature` - and `it` where the head's subject is another creature (an enters head, the lone attacker) - is its
+ * `target creature` clause, aimed by the def off the event (`perItem`) rather than asked. Under a self-subject block
+ * head `it` is the source (the `~` rewrite) and only `that creature` is the item. The FIRST mention only - a later
+ * one is D392's referent to the same target; a payload naming the source beside an `it` is refused (either could be
+ * meant). Each pair is the head and whether its `it` is the item.
+ */
+const ROW_ITEM_HEADS: readonly (readonly [RegExp, boolean])[] = [
+  [/^(?:Alliance — )?Whenever (?:another creature you control|a creature you control|a creature) enters, /, true],
+  [/^Whenever a creature you control attacks alone, /, true],
+  [/^Whenever (?:~|this creature) (?:blocks(?: a creature)?|becomes blocked(?: by a creature)?|blocks or becomes blocked(?: by (?:a|an|one or more) [^,]+?)?), /, false],
+];
+const ROW_ITEM_REF = /\b(?:that creature|it)\b(?!'s)/i;
+const ROW_ITEM_VERB = /\b(destroy|exile|tap|untap|sacrifice|return|on|to|of)( )(it)\b(?!'s)/i;
+function rowItemRewrite(line: string, payload: string): string | null {
+  const head = ROW_ITEM_HEADS.find(([re]) => re.test(line));
+  if (!head || !ROW_ITEM_REF.test(payload)) return null;
+  const selfy = /~|\bthis (?:creature|permanent|artifact|enchantment|land)\b/i.test(payload) || !head[1];
+  const first = payload.search(/\bthat creature\b/i);
+  const lead = /^It (?=gets|gains|has|can't|becomes|doesn't|loses|is|fights|deals)/.exec(payload);
+  const verb = ROW_ITEM_VERB.exec(payload);
+  let out: string;
+  if (first >= 0 && (!lead || first < lead.index) && (!verb || first < verb.index)) out = payload.slice(0, first) + 'target creature' + payload.slice(first + 'that creature'.length);
+  else if (lead && !selfy) out = 'Target creature ' + payload.slice(3);
+  else if (verb && !selfy && (!lead || verb.index < lead.index)) out = payload.replace(ROW_ITEM_VERB, (_m, v: string, sp: string) => v + sp + 'target creature');
+  else return null;
+  return out.charAt(0).toUpperCase() + out.slice(1);
+}
 function rowMakerReads(text: string, cardName: string): boolean {
   const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
   const trigger = TRIGGER_HEAD.test(line);
@@ -1089,6 +1119,14 @@ function rowMakerReads(text: string, cardName: string): boolean {
     widened = true;
   }
   payload = payload.charAt(0).toUpperCase() + payload.slice(1);
+  // (6) D496 - the referent creature, under a head that names one (its first mention as `target creature`).
+  if (trigger) {
+    const item = rowItemRewrite(line, payload);
+    if (item !== null) {
+      payload = item;
+      widened = true;
+    }
+  }
   const effect = selfSubject(payload, line);
   // (2) the row kinds; then the vocabulary over what (1) and (3) uncovered.
   if (ROW_PAYLOADS.some((re) => re.test(effect))) return true;

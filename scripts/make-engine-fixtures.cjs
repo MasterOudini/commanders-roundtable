@@ -9245,6 +9245,30 @@ const WANTED = [
   'The Fire Crystal',
   'Touch the Spirit Realm',
   // D495 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D496 - the item referent: the rows whose payload names the triggering creature.
+  'Agents of S.H.I.E.L.D.',
+  'Ashmouth Hound',
+  'Battlegrace Angel',
+  'Black Panther, Claws of Bast',
+  'Black Widow, Double Agent',
+  'Elven Warhounds',
+  'Flailing Drake',
+  'Good-Fortune Unicorn',
+  'Grasping Giant',
+  'In the Web of War',
+  'Inferno Elemental',
+  'Kolaghan Aspirant',
+  'Ogre Battledriver',
+  'Ornery Goblin',
+  'Peggy Carter, Secret Agent',
+  'Primal Forcemage',
+  'Quagmire Lamprey',
+  'Rafiq of the Many',
+  'Skewer Slinger',
+  'Somberwald Vigilante',
+  'Sylvan Basilisk',
+  'Durable Handicraft',
+  // D496 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

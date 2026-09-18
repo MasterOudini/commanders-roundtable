@@ -282499,6 +282499,755 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "AGENTS_OF_S_H_I_E_L_D": {
+    "scryfallId": "d9b5e156-0764-44e0-b0c7-de2561ea9e04",
+    "oracleId": "203b72d2-a273-49cc-bd10-2fbc07ed2fc8",
+    "name": "Agents of S.H.I.E.L.D.",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agents of S.H.I.E.L.D.",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Spy Hero",
+        "oracleText": "Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.",
+        "flavorText": "Behind every S.H.I.E.L.D. solo mission are dozens of intelligence operatives, logistics coordinators, and backup agents.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "d9b5e156-0764-44e0-b0c7-de2561ea9e04"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHMOUTH_HOUND": {
+    "scryfallId": "3c243559-fec8-4b18-b119-3cb0ec19eb9f",
+    "oracleId": "d40fd63b-f55d-49f6-b4e5-a8d00f22e8e1",
+    "name": "Ashmouth Hound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashmouth Hound",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Elemental Dog",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, this creature deals 1 damage to that creature.",
+        "flavorText": "Its fiery paws make it easy to track, which is very useful when you want to go in exactly the opposite direction.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "3c243559-fec8-4b18-b119-3cb0ec19eb9f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ddk",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATTLEGRACE_ANGEL": {
+    "scryfallId": "1cf72b23-a951-4e88-a52b-b3abe8f16bf4",
+    "oracleId": "40216d09-ae4d-4a41-b3f6-1a8035093045",
+    "name": "Battlegrace Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battlegrace Angel",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nExalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhenever a creature you control attacks alone, it gains lifelink until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "1cf72b23-a951-4e88-a52b-b3abe8f16bf4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Exalted"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACK_PANTHER_CLAWS_OF_BAST": {
+    "scryfallId": "4cb5a5ad-35fb-4e90-bc8b-d70a9d3bfba7",
+    "oracleId": "0a41221a-0cce-4aae-989a-24b70acca8db",
+    "name": "Black Panther, Claws of Bast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Black Panther, Claws of Bast",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Human Warrior Hero",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhenever a creature you control attacks alone, put a +1/+1 counter on it.",
+        "flavorText": "\"As guardian of Wakanda, I would not ask my people to risk danger in my stead.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "4cb5a5ad-35fb-4e90-bc8b-d70a9d3bfba7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "829",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACK_WIDOW_DOUBLE_AGENT": {
+    "scryfallId": "aa8dbbb9-36a5-48e0-9e30-aeed0fb5d522",
+    "oracleId": "e6c181f1-f4f7-4a96-b50c-717cf2a02098",
+    "name": "Black Widow, Double Agent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Black Widow, Double Agent",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Legendary Creature — Human Hero Villain",
+        "oracleText": "Deathtouch\nWhenever a creature you control attacks alone, it gains first strike and menace until end of turn. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"Careful, I bite.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Michael MacRae",
+        "imageId": "aa8dbbb9-36a5-48e0-9e30-aeed0fb5d522"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVEN_WARHOUNDS": {
+    "scryfallId": "29138c1e-11cb-488f-8e04-f5488e08a81e",
+    "oracleId": "ae997fee-2c1f-43c8-9dba-8b409d8e449e",
+    "name": "Elven Warhounds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elven Warhounds",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Whenever this creature becomes blocked by a creature, put that creature on top of its owner's library.",
+        "flavorText": "\"If a creature is dumb enough to love you for leashing it, why would you want to follow its lead?\"\n—Mirri of the *Weatherlight*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "29138c1e-11cb-488f-8e04-f5488e08a81e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAILING_DRAKE": {
+    "scryfallId": "43d246ac-1ca5-4c55-856c-4a83a4d638ab",
+    "oracleId": "93b6a170-a816-4556-aa27-a729231715e7",
+    "name": "Flailing Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flailing Drake",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhenever this creature blocks or becomes blocked by a creature, that creature gets +1/+1 until end of turn.",
+        "flavorText": "Too many choices will always distract a greedy beast.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "43d246ac-1ca5-4c55-856c-4a83a4d638ab"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tmp",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOOD_FORTUNE_UNICORN": {
+    "scryfallId": "49d68905-e13e-4751-b028-90c795c11cd5",
+    "oracleId": "1e0cdff3-3ec5-41fc-8053-f072bae156b3",
+    "name": "Good-Fortune Unicorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Good-Fortune Unicorn",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "Whenever another creature you control enters, put a +1/+1 counter on that creature.",
+        "flavorText": "Catching even a glimpse of one is the start of eight years of good luck.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Kee Lo",
+        "imageId": "49d68905-e13e-4751-b028-90c795c11cd5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRASPING_GIANT": {
+    "scryfallId": "a238aa9c-661e-449a-8f05-70b7954e544f",
+    "oracleId": "d601a28d-a02f-45eb-9dab-a3cf50a87ca4",
+    "name": "Grasping Giant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grasping Giant",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Giant",
+        "oracleText": "Vigilance\nWhenever this creature becomes blocked by a creature, exile that creature until this creature leaves the battlefield.",
+        "flavorText": "Mirinthes thought death was seconds away when the giant's fist closed around him. Two days later, he was praying for death's release.",
+        "power": "5",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jinho Bae",
+        "imageId": "a238aa9c-661e-449a-8f05-70b7954e544f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "288",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IN_THE_WEB_OF_WAR": {
+    "scryfallId": "3869f1f8-a00a-4eca-a8b0-aa4b571967ce",
+    "oracleId": "9629e6b7-75e1-4447-bf20-4d4a43d6f60a",
+    "name": "In the Web of War",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "In the Web of War",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control enters, it gets +2/+0 and gains haste until end of turn.",
+        "flavorText": "\"In desperation, Konda sent warriors to parley with the ogre-magi. No one knows whether they were slaughtered at Shinka or if they even reached its bloodstained walls.\"\n—*Observations of the Kami War*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "3869f1f8-a00a-4eca-a8b0-aa4b571967ce"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "BOK-108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INFERNO_ELEMENTAL": {
+    "scryfallId": "53f05a58-a801-483a-8648-8685a4eaa773",
+    "oracleId": "287cb63c-d52d-4871-83d1-792a41ae7adc",
+    "name": "Inferno Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inferno Elemental",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, this creature deals 3 damage to that creature.",
+        "flavorText": "\"Those who wish to invade our monastery, please take it up with my servant.\"\n—Chandra Nalaar",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "53f05a58-a801-483a-8648-8685a4eaa773"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "m10",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOLAGHAN_ASPIRANT": {
+    "scryfallId": "aa17972e-c16b-4dec-a108-1c3fb0138a4e",
+    "oracleId": "334178f6-cf4b-4ea6-a24f-c7375d1b38de",
+    "name": "Kolaghan Aspirant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kolaghan Aspirant",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature deals 1 damage to that creature.",
+        "flavorText": "She answers the call of the Crave, the desire for battle sated only by bloodshed.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "aa17972e-c16b-4dec-a108-1c3fb0138a4e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dtk",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OGRE_BATTLEDRIVER": {
+    "scryfallId": "180f4220-bd76-4a2f-b9e1-414729cd1db2",
+    "oracleId": "c834c4b5-c122-4c63-81c7-884ca4c0dc3b",
+    "name": "Ogre Battledriver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ogre Battledriver",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "Whenever another creature you control enters, that creature gets +2/+0 and gains haste until end of turn. (It can attack and {T} this turn.)",
+        "flavorText": "Ogres are driven by passion, rage, and another ogre standing behind them with a whip.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "180f4220-bd76-4a2f-b9e1-414729cd1db2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ddn",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORNERY_GOBLIN": {
+    "scryfallId": "2164e358-cbb4-4c3a-aea2-48f1891757df",
+    "oracleId": "cbd4e160-9eb1-42de-aee8-6f1d1398f633",
+    "name": "Ornery Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ornery Goblin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, this creature deals 1 damage to that creature.",
+        "flavorText": "\"Nobody ever listens to my complaints! Not even when I use the listening stick.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "2164e358-cbb4-4c3a-aea2-48f1891757df"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "353",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PEGGY_CARTER_SECRET_AGENT": {
+    "scryfallId": "1f98293e-9d94-4185-8546-8beaf281dfa3",
+    "oracleId": "2f3c6b8e-df89-4f0c-97bb-fbfcda5232b4",
+    "name": "Peggy Carter, Secret Agent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Peggy Carter, Secret Agent",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Spy Hero",
+        "oracleText": "Whenever a creature you control attacks alone, it gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "\"A lot of people told me I could never do this work. I've been proving those people wrong my whole life.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael MacRae",
+        "imageId": "1f98293e-9d94-4185-8546-8beaf281dfa3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "523",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRIMAL_FORCEMAGE": {
+    "scryfallId": "0503078a-c5a8-4292-a573-82d062870c7f",
+    "oracleId": "0daed54c-ced9-4910-b62f-693f25190607",
+    "name": "Primal Forcemage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Primal Forcemage",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "Whenever another creature you control enters, that creature gets +3/+3 until end of turn.",
+        "flavorText": "Their calls unheeded by the withered forests, nature shamans channeled the life force of their brethren.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "0503078a-c5a8-4292-a573-82d062870c7f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUAGMIRE_LAMPREY": {
+    "scryfallId": "3c91c44e-6bfc-4595-9cdb-17d73f912c09",
+    "oracleId": "f5b374d8-bf22-44f7-a18a-18c096a84640",
+    "name": "Quagmire Lamprey",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quagmire Lamprey",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "Whenever this creature becomes blocked by a creature, put a -1/-1 counter on that creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Glen Angus",
+        "imageId": "3c91c44e-6bfc-4595-9cdb-17d73f912c09"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAFIQ_OF_THE_MANY": {
+    "scryfallId": "12259d86-f610-47c7-bb81-0da9bb6a2795",
+    "oracleId": "c6e17443-2379-419d-8c32-13ea9bf52993",
+    "name": "Rafiq of the Many",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rafiq of the Many",
+        "manaCost": "{1}{G}{W}{U}",
+        "typeLine": "Legendary Creature — Human Knight",
+        "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nWhenever a creature you control attacks alone, it gains double strike until end of turn.",
+        "flavorText": "Many sigils, one purpose.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U",
+          "W"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "12259d86-f610-47c7-bb81-0da9bb6a2795"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exalted"
+    ],
+    "setCode": "2x2",
+    "collectorNumber": "268",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKEWER_SLINGER": {
+    "scryfallId": "e78e50ca-d27b-45db-91fa-7fef3cad16d0",
+    "oracleId": "2e8433a2-ad71-4d30-84fe-12b709197824",
+    "name": "Skewer Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skewer Slinger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Knight",
+        "oracleText": "Reach\nWhenever this creature blocks or becomes blocked by a creature, this creature deals 1 damage to that creature.",
+        "flavorText": "One way or another, dwarven meals end up in someone's stomach.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "e78e50ca-d27b-45db-91fa-7fef3cad16d0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOMBERWALD_VIGILANTE": {
+    "scryfallId": "45acf61c-0cc6-4f74-8c81-5ea4b8282e2a",
+    "oracleId": "31c77036-8627-476a-996b-2a6b005c9e12",
+    "name": "Somberwald Vigilante",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Somberwald Vigilante",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Whenever this creature becomes blocked by a creature, this creature deals 1 damage to that creature.",
+        "flavorText": "He has nothing left but his resentment.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Stanko",
+        "imageId": "45acf61c-0cc6-4f74-8c81-5ea4b8282e2a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ddl",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SYLVAN_BASILISK": {
+    "scryfallId": "65707330-6808-458b-9550-13f9abc438af",
+    "oracleId": "4f348e7a-fe13-4621-bd88-5d2fb5b597f2",
+    "name": "Sylvan Basilisk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sylvan Basilisk",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Basilisk",
+        "oracleText": "Whenever this creature becomes blocked by a creature, destroy that creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "65707330-6808-458b-9550-13f9abc438af"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "s99",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DURABLE_HANDICRAFT": {
+    "scryfallId": "28d5e2ff-dc8a-4ed5-989a-4b4b79591b3f",
+    "oracleId": "8b85a5d4-1cc3-412d-99e7-778af68d79a5",
+    "name": "Durable Handicraft",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Durable Handicraft",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control enters, you may pay {1}. If you do, put a +1/+1 counter on that creature.\n{5}{G}, Sacrifice this enchantment: Put a +1/+1 counter on each creature you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "28d5e2ff-dc8a-4ed5-989a-4b4b79591b3f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

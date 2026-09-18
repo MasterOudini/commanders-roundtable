@@ -7,6 +7,28 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AGENTS_OF_SHIELD_SCRIPT } from './cards/agentsOfSHIELD';
+import { ASHMOUTH_HOUND_SCRIPT } from './cards/ashmouthHound';
+import { BATTLEGRACE_ANGEL_SCRIPT } from './cards/battlegraceAngel';
+import { BLACK_PANTHER_CLAWS_OF_BAST_SCRIPT } from './cards/blackPantherClawsOfBast';
+import { BLACK_WIDOW_DOUBLE_AGENT_SCRIPT } from './cards/blackWidowDoubleAgent';
+import { ELVEN_WARHOUNDS_SCRIPT } from './cards/elvenWarhounds';
+import { FLAILING_DRAKE_SCRIPT } from './cards/flailingDrake';
+import { GOOD_FORTUNE_UNICORN_SCRIPT } from './cards/goodFortuneUnicorn';
+import { GRASPING_GIANT_SCRIPT } from './cards/graspingGiant';
+import { IN_THE_WEB_OF_WAR_SCRIPT } from './cards/inTheWebOfWar';
+import { INFERNO_ELEMENTAL_SCRIPT } from './cards/infernoElemental';
+import { KOLAGHAN_ASPIRANT_SCRIPT } from './cards/kolaghanAspirant';
+import { OGRE_BATTLEDRIVER_SCRIPT } from './cards/ogreBattledriver';
+import { ORNERY_GOBLIN_SCRIPT } from './cards/orneryGoblin';
+import { PEGGY_CARTER_SECRET_AGENT_SCRIPT } from './cards/peggyCarterSecretAgent';
+import { PRIMAL_FORCEMAGE_SCRIPT } from './cards/primalForcemage';
+import { QUAGMIRE_LAMPREY_SCRIPT } from './cards/quagmireLamprey';
+import { RAFIQ_OF_THE_MANY_SCRIPT } from './cards/rafiqOfTheMany';
+import { SKEWER_SLINGER_SCRIPT } from './cards/skewerSlinger';
+import { SOMBERWALD_VIGILANTE_SCRIPT } from './cards/somberwaldVigilante';
+import { SYLVAN_BASILISK_SCRIPT } from './cards/sylvanBasilisk';
+import { DURABLE_HANDICRAFT_SCRIPT } from './cards/durableHandicraft';
 import { APPRENTICE_NECROMANCER_SCRIPT } from './cards/apprenticeNecromancer';
 import { BALDUVIAN_ATROCITY_SCRIPT } from './cards/balduvianAtrocity';
 import { BALDUVIAN_DEAD_SCRIPT } from './cards/balduvianDead';
@@ -7654,6 +7676,28 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AGENTS_OF_SHIELD_SCRIPT,
+  ASHMOUTH_HOUND_SCRIPT,
+  BATTLEGRACE_ANGEL_SCRIPT,
+  BLACK_PANTHER_CLAWS_OF_BAST_SCRIPT,
+  BLACK_WIDOW_DOUBLE_AGENT_SCRIPT,
+  ELVEN_WARHOUNDS_SCRIPT,
+  FLAILING_DRAKE_SCRIPT,
+  GOOD_FORTUNE_UNICORN_SCRIPT,
+  GRASPING_GIANT_SCRIPT,
+  IN_THE_WEB_OF_WAR_SCRIPT,
+  INFERNO_ELEMENTAL_SCRIPT,
+  KOLAGHAN_ASPIRANT_SCRIPT,
+  OGRE_BATTLEDRIVER_SCRIPT,
+  ORNERY_GOBLIN_SCRIPT,
+  PEGGY_CARTER_SECRET_AGENT_SCRIPT,
+  PRIMAL_FORCEMAGE_SCRIPT,
+  QUAGMIRE_LAMPREY_SCRIPT,
+  RAFIQ_OF_THE_MANY_SCRIPT,
+  SKEWER_SLINGER_SCRIPT,
+  SOMBERWALD_VIGILANTE_SCRIPT,
+  SYLVAN_BASILISK_SCRIPT,
+  DURABLE_HANDICRAFT_SCRIPT,
   APPRENTICE_NECROMANCER_SCRIPT,
   BALDUVIAN_ATROCITY_SCRIPT,
   BALDUVIAN_DEAD_SCRIPT,
