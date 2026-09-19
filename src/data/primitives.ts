@@ -143,6 +143,13 @@ const TURN_COND =
 // D420 - the row maker's own list (`make-rows` TRUE_ABILITY_WORD), mirrored by hand: the words the classifier reads past.
 const TRUE_ABILITY_WORD = /^(?:Threshold|Hellbent|Metalcraft|Delirium|Ferocious|Formidable|Domain|Morbid|Fateful hour|Chroma|Radiance|Landfall|Constellation|Inspired|Heroic|Battalion|Raid|Revolt|Spell mastery|Adamant|Alliance|Coven|Pack tactics|Enrage|Converge|Magecraft|Addendum|Corrupted|Celebration|Valiant|Paradox|Survival|Flurry|Eerie|Undergrowth|Kinship|Lieutenant|Parley|Sweep|Grandeur|Strive|Cohort|Eminence|Fathomless descent|Max speed|Council's dilemma|Will of the council|Tempting offer|Join forces|Disappear|Skyswarm|Infusion|Descend \d+) — /;
 const ABILITY_WORD_PREFIX = /^[A-Z][a-z]+(?: \d+)? — /;
+// D503 - ANY word before a TRIGGER head is an ability word or a flavour word (CR 207.2c / 207.2d: no rules meaning of
+// its own - Opus, Repartee, Vivid, Void, Imprint, the Universes Beyond flavour words), and the printed trigger after it
+// is the whole meaning: the row maker asks the head library past it (`FLAVOR_WORD` in make-rows) and the def's text
+// stays the printed line. Any capitalisation, at most four words, only before When / Whenever / At.
+const FLAVOR_TRIGGER_WORD = /^[A-Z][A-Za-z'\-]*(?: [A-Za-z'\-]+){0,3} — (?=(?:When|Whenever|At) )/;
+// D503 - the loyalty cost the row maker charges in counters (D472): a signed number before the colon.
+const LOYALTY_COST = /^[+\u2212-]?\d+: /;
 // D403 - the kicked conditions the row maker reads (`gen-cond`'s `kicked` kind): the cast announced
 // a kick, which the permanent remembers. The `with its {M} kicker` form names ONE of two kickers
 // (`Kicker {M} and/or {M}`), a choice the cast does not carry, and stays unread.
@@ -1001,6 +1008,10 @@ const ROW_STATICS: readonly RegExp[] = [
   /^~ attacks each combat if able\.$/,
   /^~ doesn't untap during your untap step\.$/,
   /^~ can't be blocked by creatures with power (?:[1-9]|\d{2,}) or less\.$|^~ can't be blocked by creatures with power [0-5] or greater\.$/,
+  // D503 - THE BLOCKER PREDICATE the row maker reads (D466: filterlib's subject reader - the closed adjectives, a type, a
+  // subtype, a keyword qualifier or an either-of pair; the fixture the filter admits is the suite's, the Cyclops the
+  // exception's). `non-Wall creatures` - Flow of Maggots, rowed over the whole leftover while this file said layer 6.
+  /^~ can't be blocked (?:by|except by) (?:(?:white|blue|black|red|green|colorless|artifact|nonartifact|token|nontoken|non-[A-Z][a-z]+|non(?:white|blue|black|red|green)|[A-Z][a-z]+) )*(?:creatures|[A-Z][a-z]+s?)(?: (?:with|without) (?:flying|reach|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|defender|indestructible|flash|hexproof|shroud|fear|intimidate|skulk|shadow|horsemanship|infect|wither)(?: or (?:flying|reach|trample|vigilance|haste|lifelink|deathtouch|first strike|double strike|menace|defender|indestructible|flash|hexproof|shroud))?)?\.$/,
   /^Enchanted creature doesn't untap during its controller's untap step\.$/,
   /^~ can't be countered\.$/,
   // D430 - THE COUNTED STATIC: a self pump, an attached pump or a power-only CDA whose amount is a count the row
@@ -1082,6 +1093,17 @@ function rowItemRewrite(line: string, payload: string): string | null {
   else return null;
   return out.charAt(0).toUpperCase() + out.slice(1);
 }
+/** D503 - the raw line's quoted payload, read whole by the vocabulary under a head, a cost or a loyalty cost the row maker takes. */
+function quotedPayloadReads(raw: string, cardName: string): boolean {
+  const l = selfRef(raw, cardName).replace(/\s*\([^)]*\)\s*$/, '');
+  const trigger = TRIGGER_HEAD.test(l);
+  const colon = l.indexOf(': ');
+  const payload = trigger ? l.replace(TRIGGER_HEAD, '') : colon > 0 && (ONESHOT_COST.test(l) || LOYALTY_COST.test(l)) ? l.slice(colon + 2) : '';
+  if (payload === '' || !/"/.test(payload)) return false;
+  const p = payload.charAt(0).toUpperCase() + payload.slice(1);
+  return parseEffects(selfSubject(p, l), cardName, true).mode === 'auto';
+}
+
 function rowMakerReads(text: string, cardName: string): boolean {
   const line = selfRef(text, cardName).replace(/\s*\([^)]*\)\s*$/, '');
   const trigger = TRIGGER_HEAD.test(line);
@@ -1154,6 +1176,12 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   if (!spellFace && TRUE_ABILITY_WORD.test(text)) {
     const bare = text.replace(TRUE_ABILITY_WORD, '');
     if (primitiveFor({ ...line, text: bare }, cardName, spellFace) === 'scriptable') return 'scriptable';
+  }
+  // D503 - the flavour word before a trigger head (see `FLAVOR_TRIGGER_WORD`): the line past the word, raw and scrubbed
+  // alike; only a `scriptable` answer counts (D398's rule).
+  if (!spellFace && FLAVOR_TRIGGER_WORD.test(text)) {
+    const bare = text.replace(FLAVOR_TRIGGER_WORD, '');
+    if (primitiveFor({ ...line, text: bare, raw: line.raw.replace(FLAVOR_TRIGGER_WORD, '') }, cardName, spellFace) === 'scriptable') return 'scriptable';
   }
 
   // D304 - an Enchant line whose spec the engine enforces is the engine's own
@@ -1240,6 +1268,11 @@ export function primitiveFor(line: UnaccountedLine, cardName: string, spellFace 
   // D424 - the row maker's readers the classifier lacked (see `rowMakerReads`): asked of a permanent's line
   // before the `optional` bucket below can file the trigger the row maker has emitted since D313.
   if (!spellFace && rowMakerReads(text, cardName)) return 'scriptable';
+  // D503 - a QUOTED payload (`You get an emblem with "..."` under a loyalty cost - Domri Rade; `create a ... token with
+  // "..."` under a head - Prosperity Tycoon) is blanked by `scrub`, so every reader above sees the line end at the verb.
+  // The row maker reads the RAW payload through the vocabulary (D473's token table, D475's emblem table), so the raw
+  // line is asked here the way `rowMakerReads` asks the scrubbed one: the head or the cost it takes, the payload whole.
+  if (!spellFace && line.raw !== text && quotedPayloadReads(line.raw, cardName)) return 'scriptable';
   // D498 - a MODAL trigger the row maker rows (gen-modal, D343 / D371): the head line ending in `choose one —` is the
   // head's own, and each bullet is a payload read as a trigger's (the vocabulary over the self forms; a flavour name
   // before the mode stripped, CR 207.2c). The classifier reads the lines apart; the row maker refuses a head the

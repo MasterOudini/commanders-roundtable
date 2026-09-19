@@ -7,6 +7,38 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DWARVEN_PATROL_SCRIPT } from './cards/dwarvenPatrol';
+import { MOON_BLESSED_CLERIC_SCRIPT } from './cards/moonBlessedCleric';
+import { SQUALL_SEED_MERCENARY_SCRIPT } from './cards/squallSeedMercenary';
+import { SCREAMER_KILLER_SCRIPT } from './cards/screamerKiller';
+import { OWLBEAR_SCRIPT } from './cards/owlbear';
+import { LOKHUST_HEAVY_DESTROYER_SCRIPT } from './cards/lokhustHeavyDestroyer';
+import { SANGUINARY_PRIEST_SCRIPT } from './cards/sanguinaryPriest';
+import { CIRCLE_OF_THE_LAND_DRUID_SCRIPT } from './cards/circleOfTheLandDruid';
+import { DOMRI_RADE_SCRIPT } from './cards/domriRade';
+import { WHITE_DRAGON_SCRIPT } from './cards/whiteDragon';
+import { UNDERCITY_DIRE_RAT_SCRIPT } from './cards/undercityDireRat';
+import { SAGE_OF_THE_FALLS_SCRIPT } from './cards/sageOfTheFalls';
+import { MONK_OF_THE_OPEN_HAND_SCRIPT } from './cards/monkOfTheOpenHand';
+import { DEVOTED_PALADIN_SCRIPT } from './cards/devotedPaladin';
+import { THUNDERWOLF_CAVALRY_SCRIPT } from './cards/thunderwolfCavalry';
+import { ATALAN_JACKAL_SCRIPT } from './cards/atalanJackal';
+import { SKORPEKH_DESTROYER_SCRIPT } from './cards/skorpekhDestroyer';
+import { VROCK_SCRIPT } from './cards/vrock';
+import { RED_DRAGON_SCRIPT } from './cards/redDragon';
+import { AIR_CULT_ELEMENTAL_SCRIPT } from './cards/airCultElemental';
+import { PRIMARIS_CHAPLAIN_SCRIPT } from './cards/primarisChaplain';
+import { BLACK_DRAGON_SCRIPT } from './cards/blackDragon';
+import { FLAYED_ONE_SCRIPT } from './cards/flayedOne';
+import { FLOW_OF_MAGGOTS_SCRIPT } from './cards/flowOfMaggots';
+import { MYCONID_SPORE_TENDER_SCRIPT } from './cards/myconidSporeTender';
+import { VENOMCRAWLER_SCRIPT } from './cards/venomcrawler';
+import { VALOR_SINGER_SCRIPT } from './cards/valorSinger';
+import { KNIGHT_PALADIN_SCRIPT } from './cards/knightPaladin';
+import { NIGHT_SCYTHE_SCRIPT } from './cards/nightScythe';
+import { WINTER_ELADRIN_SCRIPT } from './cards/winterEladrin';
+import { PROSPERITY_TYCOON_SCRIPT } from './cards/prosperityTycoon';
+import { LORD_OF_CHANGE_SCRIPT } from './cards/lordOfChange';
 import { TEFERI_TIMEBENDER_SCRIPT } from './cards/teferiTimebender';
 import { MAGISTRATES_SCEPTER_SCRIPT } from './cards/magistratesScepter';
 import { MAGUS_OF_THE_BRIDGE_SCRIPT } from './cards/magusOfTheBridge';
@@ -7742,6 +7774,38 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DWARVEN_PATROL_SCRIPT,
+  MOON_BLESSED_CLERIC_SCRIPT,
+  SQUALL_SEED_MERCENARY_SCRIPT,
+  SCREAMER_KILLER_SCRIPT,
+  OWLBEAR_SCRIPT,
+  LOKHUST_HEAVY_DESTROYER_SCRIPT,
+  SANGUINARY_PRIEST_SCRIPT,
+  CIRCLE_OF_THE_LAND_DRUID_SCRIPT,
+  DOMRI_RADE_SCRIPT,
+  WHITE_DRAGON_SCRIPT,
+  UNDERCITY_DIRE_RAT_SCRIPT,
+  SAGE_OF_THE_FALLS_SCRIPT,
+  MONK_OF_THE_OPEN_HAND_SCRIPT,
+  DEVOTED_PALADIN_SCRIPT,
+  THUNDERWOLF_CAVALRY_SCRIPT,
+  ATALAN_JACKAL_SCRIPT,
+  SKORPEKH_DESTROYER_SCRIPT,
+  VROCK_SCRIPT,
+  RED_DRAGON_SCRIPT,
+  AIR_CULT_ELEMENTAL_SCRIPT,
+  PRIMARIS_CHAPLAIN_SCRIPT,
+  BLACK_DRAGON_SCRIPT,
+  FLAYED_ONE_SCRIPT,
+  FLOW_OF_MAGGOTS_SCRIPT,
+  MYCONID_SPORE_TENDER_SCRIPT,
+  VENOMCRAWLER_SCRIPT,
+  VALOR_SINGER_SCRIPT,
+  KNIGHT_PALADIN_SCRIPT,
+  NIGHT_SCYTHE_SCRIPT,
+  WINTER_ELADRIN_SCRIPT,
+  PROSPERITY_TYCOON_SCRIPT,
+  LORD_OF_CHANGE_SCRIPT,
   TEFERI_TIMEBENDER_SCRIPT,
   MAGISTRATES_SCEPTER_SCRIPT,
   MAGUS_OF_THE_BRIDGE_SCRIPT,

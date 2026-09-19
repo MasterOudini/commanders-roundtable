@@ -195,12 +195,12 @@ describe.skipIf(!HAVE_DB)('the token resolver, over the real database', () => {
       // leaves this sole-need population (primitives records the same move as token 958 -> 957).
       // D473 - the quoted tokens read whole (the Eldrazi Scion and Spawn makers): 22 cards leave the sole-need population.
       // D474 - the token printings rowed like cards: 26 more makers read whole and leave the sole-need population.
-      cards: 806,
-      lines: 837,
-      parsed: 205,
-      unique: 182,
+      cards: 796,
+      lines: 827,
+      parsed: 202,
+      unique: 179,
       noMatch: 23,
-      cardsFullyResolved: 171,
+      cardsFullyResolved: 168,
     });
   });
 

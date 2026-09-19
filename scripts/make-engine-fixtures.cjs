@@ -9366,6 +9366,43 @@ const WANTED = [
   // D502 - the extra turn: the rows whose payload takes an extra turn after this one (the seam's wave).
   "Magistrate's Scepter",
   // D502 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D503 - the flavour words: the rows whose trigger head sits behind an ability or flavour word (Opus, Repartee, Vivid, Void, the Universes Beyond words), and the rows the classifier lagged (Domri Rade, Flow of Maggots, Prosperity Tycoon).
+  'Dwarven Patrol',
+  'Moon-Blessed Cleric',
+  'Squall, SeeD Mercenary',
+  'Screamer-Killer',
+  'Owlbear',
+  'Lokhust Heavy Destroyer',
+  'Sanguinary Priest',
+  'Circle of the Land Druid',
+  'Domri Rade',
+  'White Dragon',
+  'Undercity Dire Rat',
+  'Sage of the Falls',
+  'Monk of the Open Hand',
+  'Devoted Paladin',
+  'Thunderwolf Cavalry',
+  'Atalan Jackal',
+  'Skorpekh Destroyer',
+  'Vrock',
+  'Red Dragon',
+  'Air-Cult Elemental',
+  'Primaris Chaplain',
+  'Black Dragon',
+  'Flayed One',
+  'Flow of Maggots',
+  'Myconid Spore Tender',
+  'Venomcrawler',
+  'Valor Singer',
+  'Knight Paladin',
+  'Night Scythe',
+  'Additive Evolution',
+  'Winter Eladrin',
+  'Prosperity Tycoon',
+  'Lord of Change',
+  // D503 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D503 - the flavour words: the rows whose trigger head sits behind an ability or flavour word (Opus, Repartee, Vivid, Void, the Universes Beyond words), and the rows the classifier lagged (Domri Rade, Flow of Maggots, Prosperity Tycoon).
+  // D503 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9749,6 +9786,33 @@ const WANTED_TOKENS = [
   { name: 'Elemental', set: 'tcmm', cn: '25', key: 'ELEMENTAL_3_1_R_CREATURE_HASTE_TOKEN' },
   // D495 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Goblin', set: 'trvr', cn: '9', key: 'GOBLIN_79707EF3_TOKEN' },
+  // D503 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Rhino Warrior', set: 'tsnc', cn: '11', key: 'RHINO_WARRIOR_4_4_G_CREATURE_TOKEN' },
+  { name: 'Thrull', set: 'tddc', cn: '3', key: 'THRULL_0_1_B_CREATURE_TOKEN' },
+  { name: 'Pirate', set: 'txln', cn: '4', key: 'PIRATE_2_2_B_CREATURE_MENACE_TOKEN' },
+  { name: 'Serf', set: 'tema', cn: '5', key: 'SERF_0_1_B_CREATURE_TOKEN' },
+  { name: 'Cat', set: 'plst', cn: 'TM21-11', key: 'CAT_2_2_G_CREATURE_TOKEN' },
+  { name: 'Necron Warrior', set: 't40k', cn: '14★', key: 'NECRON_WARRIOR_2_2_B_ARTIFACT_CREATURE_TOKEN' },
+  { name: 'Homunculus', set: 'tala', cn: '2', key: 'HOMUNCULUS_0_1_U_ARTIFACT_CREATURE_TOKEN' },
+  { name: 'Bird', set: 'tc19', cn: '1', key: 'BIRD_3_4_W_CREATURE_FLYING_TOKEN' },
+  { name: 'Treefolk', set: 'tecl', cn: '3', key: 'TREEFOLK_3_4_G_CREATURE_REACH_TOKEN' },
+  { name: 'Tyranid', set: 't40k', cn: '18', key: 'TYRANID_5_5_G_CREATURE_TOKEN' },
+  { name: 'Egg', set: 'sld', cn: '1398★', key: 'EGG_0_1_G_CREATURE_DEFENDER_TOKEN' },
+  { name: 'Monk', set: 'tdmu', cn: '14', key: 'MONK_1_1_R_CREATURE_PROWESS_TOKEN' },
+  { name: 'Zombie Warrior', set: 'twar', cn: '11', key: 'ZOMBIE_WARRIOR_4_4_B_CREATURE_VIGILANCE_TOKEN' },
+  { name: 'Spirit', set: 'tneo', cn: '9', key: 'SPIRIT_2_2_R_CREATURE_MENACE_TOKEN' },
+  { name: 'Crab', set: 'tmh2', cn: '2', key: 'CRAB_0_3_U_CREATURE_TOKEN' },
+  { name: 'Elf Warrior', set: 'tshm', cn: '12', key: 'ELF_WARRIOR_1_1_GW_CREATURE_TOKEN' },
+  { name: 'Cat', set: 'sld', cn: '1517', key: 'CAT_1_1_G_CREATURE_TOKEN' },
+  { name: 'Dog', set: 'tm21', cn: '19', key: 'DOG_1_1_W_CREATURE_TOKEN' },
+  { name: 'Ninja', set: 'tfdn', cn: '12', key: 'NINJA_2_1_U_CREATURE_TOKEN' },
+  { name: 'Dinosaur Egg', set: 'tlci', cn: '11', key: 'DINOSAUR_EGG_0_1_G_CREATURE_TOKEN' },
+  { name: 'Astartes Warrior', set: 't40k', cn: '1★', key: 'ASTARTES_WARRIOR_2_2_W_CREATURE_VIGILANCE_TOKEN' },
+  { name: 'Snake', set: 'tc15', cn: '21', key: 'SNAKE_1_1_GU_CREATURE_TOKEN' },
+  { name: 'Rhino', set: 'tmh1', cn: '13', key: 'RHINO_4_4_G_CREATURE_TRAMPLE_TOKEN' },
+  { name: 'Angel', set: 'tafr', cn: '1', key: 'ANGEL_3_3_W_CREATURE_FLYING_TOKEN' },
+  { name: 'Halfling', set: 'tltc', cn: '3', key: 'HALFLING_1_1_W_CREATURE_TOKEN' },
+  { name: 'Fractal', set: 'tdsc', cn: '20', key: 'FRACTAL_05386AE8_TOKEN' },
 ];
 
 function constName(name) {
