@@ -1049,6 +1049,27 @@ export function effectResult(
       // the shuffle over the library it just joined (the events so far applied to a scratch state), the RNG advancing
       // through the log. A source on the stack is the resolving spell, and `resolveTop` moves it as it leaves the stack
       // (the card is still on the stack while its clauses run, CR 608.2) - nothing to do here.
+      // D502 - THE EXTRA TURN (CR 500.7): one entry per turn granted, for the controller or the aimed player;
+      // `beginNextTurn` takes the newest first. Said out loud, because the turn order is about to bend.
+      case 'extraTurn': {
+        const taker = effect.self ? controller : aim?.kind === 'player' ? aim.id : null;
+        if (taker === null) break;
+        const count = Math.max(1, effect.amount);
+        for (let i = 0; i < count; i++) out.push({ t: 'ExtraTurnAdded', player: taker });
+        out.push(narrated(n`${who(state, taker)} will take ${count === 1 ? 'an extra turn' : `${count} extra turns`} after this one.`, taker, obj.identity));
+        break;
+      }
+      // D502 - `Skip the untap step of that turn.`: the extra turn the clause before it added (the newest of the
+      // controller's) skips its untap step; with none added, the clause says so.
+      case 'skipUntapThatTurn': {
+        if (!out.some((e) => e.t === 'ExtraTurnAdded' && e.player === controller)) {
+          out.push(narrated(`${obj.label} — no extra turn to skip the untap step of.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({ t: 'ExtraTurnUntapSkipped', player: controller });
+        break;
+      }
+
       case 'bottomSelf':
       case 'shuffleSelf': {
         if (!source) break;

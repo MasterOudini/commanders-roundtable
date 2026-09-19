@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2064);
-    expect.soft(r.spells.assisted).toBe(1945);
-    expect.soft(r.spells.autoAnyFace).toBe(2072);
+    expect.soft(r.spells.auto).toBe(2073);
+    expect.soft(r.spells.assisted).toBe(1948);
+    expect.soft(r.spells.autoAnyFace).toBe(2081);
   });
 
   /**
@@ -284,7 +284,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
     expect.soft(r.poolByType['enchantment'] ?? 0).toBe(705);
-    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(8);
+    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(9);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
 
@@ -464,14 +464,14 @@ const POOL: Record<string, number> = {
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
   creature: 7064,
   instant: 1491,
-  sorcery: 1146,
+  sorcery: 1155,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 675,
-  artifact: 656,
+  artifact: 657,
   enchantment: 705,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
-  planeswalker: 8,
+  planeswalker: 9,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

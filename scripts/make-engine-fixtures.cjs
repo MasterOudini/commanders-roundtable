@@ -9353,6 +9353,19 @@ const WANTED = [
   // D501 - the spell's own fate: the row whose trigger exiles the source itself (the seam's wave).
   'Magus of the Bridge',
   // D501 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D502 - the extra turn: the eight spells the seam completes and the fuzz staple (Savor the Moment).
+  'Temporal Manipulation',
+  'Capture of Jingzhou',
+  'Beacon of Tomorrows',
+  "Karn's Temporal Sundering",
+  'Time Warp',
+  'Time Stretch',
+  'Temporal Trespass',
+  'Rise of the Eldrazi',
+  'Savor the Moment',
+  // D502 - the extra turn: the rows whose payload takes an extra turn after this one (the seam's wave).
+  "Magistrate's Scepter",
+  // D502 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

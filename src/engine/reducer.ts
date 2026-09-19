@@ -407,6 +407,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         turn: {
           turnNumber: 0,
           activePlayer: first,
+          regular: first,
           phase: 'beginning',
           step: 'untap',
           turnBasedActionsDone: false,
@@ -430,6 +431,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
         pendingCast: null,
         pendingTriggers: [],
         delayedTriggers: [],
+        extraTurns: [],
         playPermissions: [],
         winners: [],
         gamePhase: 'lobby',
@@ -883,9 +885,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return {
         ...state,
         players,
+        // D502 - an extra turn is taken off the top of the stack; the regular succession remembers whose turn it
+        // interrupted (an extra turn inherits `regular`, a regular turn is its own).
+        ...(body.extra !== undefined ? { extraTurns: state.extraTurns.slice(0, -1) } : {}),
         turn: {
           turnNumber: body.turnNumber,
           activePlayer: body.activePlayer,
+          regular: body.extra !== undefined ? state.turn.regular : body.activePlayer,
+          ...(body.extra !== undefined ? { extra: body.extra } : {}),
           phase: 'beginning',
           step: 'untap',
           turnBasedActionsDone: false,
@@ -1316,6 +1323,17 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D402 - a delayed trigger armed: kept until its step begins (see `collectTriggers`).
     case 'DelayedTriggerArmed':
       return { ...state, delayedTriggers: [...state.delayedTriggers, body.trigger] };
+    // D502 - the extra turns: pushed as created (the newest is taken first), the newest of a player's marked to skip
+    // its untap step, a departed player's dropped off the top.
+    case 'ExtraTurnAdded':
+      return { ...state, extraTurns: [...state.extraTurns, { player: body.player }] };
+    case 'ExtraTurnUntapSkipped': {
+      const at = state.extraTurns.map((e) => e.player).lastIndexOf(body.player);
+      if (at < 0) return state;
+      return { ...state, extraTurns: state.extraTurns.map((e, i) => (i === at ? { ...e, skipUntap: true as const } : e)) };
+    }
+    case 'ExtraTurnDropped':
+      return { ...state, extraTurns: state.extraTurns.slice(0, -1) };
     // D417 - a play permission: one entry per card (a second grant for the same card replaces the first).
     case 'PlayPermissionGranted':
       return { ...state, playPermissions: [...state.playPermissions.filter((p) => p.card !== body.permission.card), body.permission] };

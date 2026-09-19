@@ -767,6 +767,15 @@ export type EffectKind =
   | 'shuffleSelf'
   | 'bottomSelf'
   /**
+   * D502 - THE EXTRA TURN (CR 500.7). `Take an extra turn after this one.` (the controller's; `two extra turns` is
+   * `amount` 2) / `Target player takes an extra turn after this one.` (the aimed player's): an entry on
+   * `GameState.extraTurns`, a STACK - the most recently created extra turn is taken first, and the regular
+   * succession resumes from the turn it interrupted. `skipUntapThatTurn` - `Skip the untap step of that turn.` right
+   * after it (Savor the Moment): the entry just added skips its untap step.
+   */
+  | 'extraTurn'
+  | 'skipUntapThatTurn'
+  /**
    * D390 - "Each player sacrifices a creature of their choice." / "Each opponent sacrifices a
    * permanent of their choice." - THE PLAYER QUEUE: every player in the spec's PLAYER scope
    * chooses in APNAP order, each seeing the choices before theirs, then the sacrifices happen at

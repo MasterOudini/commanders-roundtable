@@ -1373,9 +1373,25 @@ export interface TurnMemory {
   readonly toGraveyard: Readonly<Record<PlayerId, readonly InstanceId[]>>;
 }
 
+/**
+ * D502 - AN EXTRA TURN WAITING TO BE TAKEN (CR 500.7): whose it is, and whether it skips its untap step (Savor the
+ * Moment). `GameState.extraTurns` is a stack - the most recently created is taken first; `beginNextTurn` reads the top.
+ */
+export interface ExtraTurn {
+  readonly player: PlayerId;
+  readonly skipUntap?: true;
+}
+
 export interface TurnState {
   readonly turnNumber: number;
   readonly activePlayer: PlayerId;
+  /**
+   * D502 - the player whose REGULAR turn this is, or (for an extra turn) the one whose regular turn the extra turn
+   * interrupted: the succession resumes after this player (CR 500.7), never after the extra turn's taker.
+   */
+  readonly regular: PlayerId;
+  /** D502 - set while an extra turn is being taken: the entry the turn is. */
+  readonly extra?: ExtraTurn;
   readonly phase: Phase;
   readonly step: Step;
   readonly turnBasedActionsDone: boolean;
@@ -1568,6 +1584,11 @@ export interface GameState {
    * in the graveyard by then. Cleared by nothing but its own fire.
    */
   readonly delayedTriggers: readonly DelayedTrigger[];
+  /**
+   * D502 - THE EXTRA TURNS CREATED AND NOT YET TAKEN (CR 500.7), newest last: `beginNextTurn` takes the last one before
+   * the regular succession continues, and drops one whose player has left the game. Hashed with the state.
+   */
+  readonly extraTurns: readonly ExtraTurn[];
   /** D417 - the play permissions in force (a card in exile the player may play until its deadline). */
   readonly playPermissions: readonly PlayPermission[];
   readonly winners: readonly PlayerId[];

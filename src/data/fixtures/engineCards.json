@@ -285716,6 +285716,330 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TEMPORAL_MANIPULATION": {
+    "scryfallId": "0016ea50-4f77-4814-a505-8067ecb177cc",
+    "oracleId": "6b6ac99a-7548-4cad-9fe5-ea611618ab9e",
+    "name": "Temporal Manipulation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temporal Manipulation",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Take an extra turn after this one.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Frank Frazetta",
+        "imageId": "0016ea50-4f77-4814-a505-8067ecb177cc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTURE_OF_JINGZHOU": {
+    "scryfallId": "03cb8018-743e-4544-a1a6-e4f097a27d30",
+    "oracleId": "89aa65d9-2502-40b0-90b6-b25a8e9f6155",
+    "name": "Capture of Jingzhou",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Capture of Jingzhou",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Take an extra turn after this one.",
+        "flavorText": "The province of Jingzhou was the fulcrum of the three kingdoms. At separate times it was coveted and controlled by the Wu, the Shu, and the Wei.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jack Wei",
+        "imageId": "03cb8018-743e-4544-a1a6-e4f097a27d30"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "64420",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BEACON_OF_TOMORROWS": {
+    "scryfallId": "1bf05e3d-601a-481b-8880-24058a3442e9",
+    "oracleId": "85909caa-d2ad-4487-b9b7-6ac60a14b833",
+    "name": "Beacon of Tomorrows",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beacon of Tomorrows",
+        "manaCost": "{6}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player takes an extra turn after this one. Shuffle Beacon of Tomorrows into its owner's library.",
+        "flavorText": "To look into its light is to meet the gaze of history.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jeremy Jarvis",
+        "imageId": "1bf05e3d-601a-481b-8880-24058a3442e9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [],
+    "setCode": "dds",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARN_S_TEMPORAL_SUNDERING": {
+    "scryfallId": "3248e0c2-fe6b-4db9-8f61-be94ab68c8da",
+    "oracleId": "5afbd367-19c7-418f-994d-a7958fb1c4ae",
+    "name": "Karn's Temporal Sundering",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karn's Temporal Sundering",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Sorcery",
+        "oracleText": "(You may cast a legendary sorcery only if you control a legendary creature or planeswalker.)\nTarget player takes an extra turn after this one. Return up to one target nonland permanent to its owner's hand. Exile Karn's Temporal Sundering.",
+        "flavorText": "Centuries ago, a quest to harness time became a spiral into chaos.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Noah Bradley",
+        "imageId": "3248e0c2-fe6b-4db9-8f61-be94ab68c8da"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pdom",
+    "collectorNumber": "55s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIME_WARP": {
+    "scryfallId": "3447aeaf-3b26-442a-99d4-0a7ee76c8e76",
+    "oracleId": "dbd6a94b-62ff-4a10-9d52-bdd90b26e425",
+    "name": "Time Warp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Time Warp",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player takes an extra turn after this one.",
+        "flavorText": "\"Let's do it again!\"\n—Squee, goblin cabin hand",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "3447aeaf-3b26-442a-99d4-0a7ee76c8e76"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIME_STRETCH": {
+    "scryfallId": "37c94a65-26d4-43d4-9635-91365927da7c",
+    "oracleId": "72e56963-a9dd-44dc-a4d3-992b4d89dd28",
+    "name": "Time Stretch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Time Stretch",
+        "manaCost": "{8}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player takes two extra turns after this one.",
+        "flavorText": "\"Two more encores oughta do the trick!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mattias Lindström",
+        "imageId": "37c94a65-26d4-43d4-9635-91365927da7c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 10,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "2701",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPORAL_TRESPASS": {
+    "scryfallId": "39c42842-d844-4b3b-bef3-dc7da7d2efb8",
+    "oracleId": "c216b924-88ac-4853-9e95-0c345c09eeb6",
+    "name": "Temporal Trespass",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Temporal Trespass",
+        "manaCost": "{8}{U}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Delve (Each card you exile from your graveyard while casting this spell pays for {1}.)\nTake an extra turn after this one. Exile Temporal Trespass.",
+        "flavorText": "\"I do not wish to speak with you, but through you. You are the prophet. You've played your part.\"\n—Minerva",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "39c42842-d844-4b3b-bef3-dc7da7d2efb8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 11,
+    "keywords": [
+      "Delve"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RISE_OF_THE_ELDRAZI": {
+    "scryfallId": "4a4d851b-1fa9-4f5d-a8f6-6967b1ee5b50",
+    "oracleId": "982f70af-077f-40df-b2fe-7c80ebcc7712",
+    "name": "Rise of the Eldrazi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rise of the Eldrazi",
+        "manaCost": "{9}{C}{C}{C}",
+        "typeLine": "Sorcery",
+        "oracleText": "This spell can't be countered.\nDestroy target permanent. Target player draws four cards. Take an extra turn after this one.\nExile Rise of the Eldrazi.",
+        "flavorText": "And still the titans were not sated.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eli Minaya",
+        "imageId": "4a4d851b-1fa9-4f5d-a8f6-6967b1ee5b50"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 12,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "716",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVOR_THE_MOMENT": {
+    "scryfallId": "93a0d9ad-31bf-4561-a5b2-f44a12a2c2c2",
+    "oracleId": "d5b9b75d-4bf0-4328-9bb3-7b260a0c46af",
+    "name": "Savor the Moment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savor the Moment",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Take an extra turn after this one. Skip the untap step of that turn.",
+        "flavorText": "The merrow took a moment for herself. She never gave it back.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "93a0d9ad-31bf-4561-a5b2-f44a12a2c2c2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "shm",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGISTRATE_S_SCEPTER": {
+    "scryfallId": "d4785ed7-c948-4ad2-b24d-2f45806d9fcc",
+    "oracleId": "487485a6-cf79-48c0-bea9-0ec6b3ee253c",
+    "name": "Magistrate's Scepter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magistrate's Scepter",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{4}, {T}: Put a charge counter on this artifact.\n{T}, Remove three charge counters from this artifact: Take an extra turn after this one.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Rex",
+        "imageId": "d4785ed7-c948-4ad2-b24d-2f45806d9fcc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "304",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -37,6 +37,7 @@ import type {
   PendingReplacement,
   PendingTrigger,
   DelayedTrigger,
+  ExtraTurn,
   PlayPermission,
   Phase,
   PreventionShield,
@@ -341,7 +342,14 @@ export type EventBody =
   | { readonly t: 'CommanderZoneAlwaysSet'; readonly player: PlayerId; readonly value: boolean | null }
 
   // ── turn / priority ──────────────────────────────────────────────────────
-  | { readonly t: 'TurnBegan'; readonly turnNumber: number; readonly activePlayer: PlayerId }
+  /** D502 - `extra`: the turn is an extra turn (the entry taken off `GameState.extraTurns`). */
+  | { readonly t: 'TurnBegan'; readonly turnNumber: number; readonly activePlayer: PlayerId; readonly extra?: ExtraTurn }
+  /** D502 - an extra turn created for a player (CR 500.7), pushed on `GameState.extraTurns`. */
+  | { readonly t: 'ExtraTurnAdded'; readonly player: PlayerId }
+  /** D502 - the player's most recently created extra turn will skip its untap step (Savor the Moment). */
+  | { readonly t: 'ExtraTurnUntapSkipped'; readonly player: PlayerId }
+  /** D502 - the extra turn on top was a departed player's: dropped untaken. */
+  | { readonly t: 'ExtraTurnDropped'; readonly player: PlayerId }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }

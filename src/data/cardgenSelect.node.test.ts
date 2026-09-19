@@ -794,6 +794,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D502 - the extra turn: the rows the select offered and the row maker refused, by its own reasons.
+  ['Time Sieve', 'cost: Sacrifice five artifacts (D502)'],
+  ['Temporal Extortion', 'a spell with a line outside the vocabulary: When you cast this spell, any player may pay half their life (D502)'],
+  ['Temporal Mastery', 'a spell with a line outside the vocabulary: Take an extra turn after this one. Exile Temporal Mastery. (D502)'],
   // D501 - the spell's own fate: the rows the select offered and the row maker refused, by its own reasons.
   ['Morgul-Knife Wound', 'a payment branch the suite cannot assert: exileSelf (D501)'],
   ['The Balrog, Flame of Udûn', 'a filtered head outside the closed reader (an adjective outside the list: legendary): When a legendary creature an opponent controls dies, put ~ o (D501)'],
@@ -1762,7 +1766,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Time Stop', 'end the turn'],
   // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
   // turn at a time and nothing can splice another in after it.
-  ['Time Stretch', 'extra turns'],
   ['Timetwister', 'ctx.random stub'],
   ["Titan's Revenge", 'clash mechanic'],
   ['Together as One', 'converge'],

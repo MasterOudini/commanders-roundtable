@@ -102,6 +102,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     turn: {
       turnNumber: 0,
       activePlayer: '',
+      regular: '',
       phase: 'beginning',
       step: 'untap',
       turnBasedActionsDone: false,
@@ -130,6 +131,7 @@ export function emptyState(seed = 'unseeded'): GameState {
     preventionShields: [],
     pendingTriggers: [],
     delayedTriggers: [],
+    extraTurns: [],
     playPermissions: [],
     winners: [],
     monarch: null,

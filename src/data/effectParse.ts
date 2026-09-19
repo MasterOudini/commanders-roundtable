@@ -753,6 +753,12 @@ const RULES: readonly Rule[] = [
   { kind: 'exileSelf', re: /^(?:then )?exile (?:this (?:creature|permanent|artifact|enchantment|land)|~)\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'shuffleSelf', re: /^(?:then )?shuffle (?:this (?:creature|permanent|artifact|enchantment|land)|~) into (?:its|your) owner(?:'|’)s library\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'bottomSelf', re: /^(?:then )?put (?:this (?:creature|permanent|artifact|enchantment|land)|~) on the bottom of (?:its|your) owner(?:'|’)s library\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D502 - THE EXTRA TURN (CR 500.7): the controller's (`Take an extra turn after this one.`, `You take ...`, `two extra
+  // turns`) or the aimed player's (`Target player takes an extra turn after this one.`); `Skip the untap step of that
+  // turn.` right after it marks the turn just added (the clause loop refuses it anywhere else).
+  { kind: 'extraTurn', re: /^(?:you )?take (an extra turn|two extra turns) after this one\.$/i, build: (m) => ({ ...BASE, targetIndex: -1, self: true, amount: /^two/i.test(m[1] ?? '') ? 2 : 1 }) },
+  { kind: 'extraTurn', re: /^target player takes (an extra turn|two extra turns) after this one\.$/i, build: (m) => ({ ...BASE, amount: /^two/i.test(m[1] ?? '') ? 2 : 1 }) },
+  { kind: 'skipUntapThatTurn', re: /^skip the untap step of that turn\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D488 - POPULATE (CR 701.31): `Populate.` alone, or after `, then` (the conjunction split hands the executor the
   // bare word). No aim: the controller chooses a creature token they control at resolution (the D390 queue's question
   // with its own verb) and a token that is a copy of it is created; with none, nothing happens (701.31a).
@@ -2938,6 +2944,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D392 - a referent clause aims where the previous target went; with no target before it
     // there is nothing to point at, and the sentence stays unread.
     if (spec.referent && spec.targetIndex !== -1 && nextTarget === 0) continue;
+    // D502 - `Skip the untap step of that turn.` is about the extra turn the clause before it added; anywhere else
+    // there is no such turn, and the sentence stays unread.
+    if (spec.kind === 'skipUntapThatTurn' && effects[effects.length - 1]?.kind !== 'extraTurn') continue;
     understood++;
     // D299: an "up to N" / "any number of" clause may be declared with no target.
     const optional = OPTIONAL_COUNT.test(clause.text);

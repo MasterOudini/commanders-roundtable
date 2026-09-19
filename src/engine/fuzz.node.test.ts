@@ -252,6 +252,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // was ever cast (`spellFates` 0, canary501): a four- and a five-mana sorcery on a seat of four basics is no fuel.
   { names: ['Treasured Find', 'Beacon of Creation'], copiesPerSeat: 2,
     counterKeys: ['spellFates'], rotHistory: 'D501' },
+  // D502 - the extra turn: two Savors of the Moment a seat ({1}{U}{U} sorcery, `Take an extra turn after this one. Skip
+  // the untap step of that turn.` - no target, three mana: the extra turn taken on the seat's next turn, its untap
+  // step skipped).
+  { names: ['Savor the Moment'], copiesPerSeat: 2,
+    counterKeys: ['extraTurnsAdded', 'extraTurnsTaken'], rotHistory: 'D502' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1496,6 +1501,9 @@ interface Run {
   readonly objectsActed: number;
   /** D501 - spells that left the stack by their own printed fate (exiled, shuffled in, put on the bottom of a library). */
   readonly spellFates: number;
+  /** D502 - extra turns created (CR 500.7), and extra turns actually begun (`TurnBegan.extra`). */
+  readonly extraTurnsAdded: number;
+  readonly extraTurnsTaken: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1953,6 +1961,8 @@ function runOne(seed: number): Run {
     objectsBound: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && (e.body.trigger.aims?.length ?? 0) > 0).length,
     objectsActed: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.delayedEffects !== undefined && e.body.obj.targets.length > 0).length,
     spellFates: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.fate !== undefined).length,
+    extraTurnsAdded: game.log.filter((e) => e.body.t === 'ExtraTurnAdded').length,
+    extraTurnsTaken: game.log.filter((e) => e.body.t === 'TurnBegan' && e.body.extra !== undefined).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2242,6 +2252,8 @@ const TOTAL_KEYS = [
   'objectsBound',
   'objectsActed',
   'spellFates',
+  'extraTurnsAdded',
+  'extraTurnsTaken',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2671,6 +2683,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.objectsActed).toBeGreaterThan(0);
         // D501 - a spell that left the stack by its own fate at gate size (Treasured Find's exile, Beacon of Creation's shuffle-in, two a seat).
         expect(totals.spellFates).toBeGreaterThan(0);
+        // D502 - an extra turn created and taken at gate size (Savor the Moment, two a seat).
+        expect(totals.extraTurnsTaken).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2790,6 +2804,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.looksToBattlefield}/${totals.looksRevealed} looks to the battlefield/revealed · ` +
           `${totals.objectsBound}/${totals.objectsActed} objects bound/acted on · ` +
           `${totals.spellFates} spell fates · ` +
+          `${totals.extraTurnsAdded}/${totals.extraTurnsTaken} extra turns added/taken · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

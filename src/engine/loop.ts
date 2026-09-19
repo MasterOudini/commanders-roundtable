@@ -34,7 +34,7 @@ import type { AbilityRef, InstanceId, PlayerId, PrintingId } from './types/ids';
 import { EMPTY_POOL, poolTotal } from './types/mana';
 import { shuffle, type RngState } from './rng';
 import type { ActivatedAbility, EffectSpec, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
-import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type GameState, type PendingTrigger, type StackObject } from './types/state';
+import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type ExtraTurn, type GameState, type PendingTrigger, type StackObject } from './types/state';
 import { dashReturnSpec, unearthExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
 
@@ -359,6 +359,12 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
 
   switch (state.turn.step) {
     case 'untap': {
+      // D502 - an extra turn that skips its untap step (Savor the Moment, CR 500.7 / 614.10): nothing untaps and no
+      // permanent's own skip is spent - the step did not happen for them.
+      if (state.turn.extra?.skipUntap === true) {
+        events.push(narrated(n`Turn ${state.turn.turnNumber} — ${who(state, ap)} (an extra turn; its untap step is skipped).`, ap));
+        break;
+      }
       // D411 - a permanent that "doesn't untap during its controller's next untap step" sits this one out,
       // and the skip is spent by the STEP - tapped or not, the effect names the step, not the untap.
       const frozen = state.zones.battlefield.filter((id) => {
@@ -374,7 +380,7 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
         events.push({ t: 'UntapSkipSet', card: id, skip: false });
         events.push(narrated(`${derive(state, deps.oracle, deps.scripts, id).name} doesn't untap this turn.`, ap));
       }
-      events.push(narrated(n`Turn ${state.turn.turnNumber} — ${who(state, ap)}.`, ap));
+      events.push(narrated(state.turn.extra !== undefined ? n`Turn ${state.turn.turnNumber} — ${who(state, ap)} (an extra turn).` : n`Turn ${state.turn.turnNumber} — ${who(state, ap)}.`, ap));
       break;
     }
 
@@ -756,8 +762,23 @@ function cleanupActions(state: GameState): EventBody[] {
 function beginNextTurn(state: GameState): EventBody[] {
   const living = livingPlayers(state);
   if (living.length === 0) return [{ t: 'GameEnded', winners: [] }];
+  // D502 - THE EXTRA TURNS FIRST (CR 500.7): the most recently created is taken before the regular succession
+  // continues; one whose player has left the game is dropped untaken (CR 500.10). The regular succession resumes
+  // after `turn.regular` - the player whose regular turn the extra turn(s) interrupted - never after the taker.
+  const events: EventBody[] = [];
+  let pending = state.extraTurns;
+  while (pending.length > 0) {
+    const top = pending[pending.length - 1] as ExtraTurn;
+    if (living.includes(top.player)) {
+      events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: top.player, extra: top });
+      events.push({ t: 'StepBegan', phase: 'beginning', step: 'untap' });
+      return events;
+    }
+    events.push({ t: 'ExtraTurnDropped', player: top.player });
+    pending = pending.slice(0, -1);
+  }
   const order = state.seating;
-  const at = order.indexOf(state.turn.activePlayer);
+  const at = order.indexOf(state.turn.regular);
   let nextPlayer = living[0] as PlayerId;
   for (let i = 1; i <= order.length; i++) {
     const candidate = order[(at + i) % order.length];
@@ -766,10 +787,9 @@ function beginNextTurn(state: GameState): EventBody[] {
       break;
     }
   }
-  return [
-    { t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: nextPlayer },
-    { t: 'StepBegan', phase: 'beginning', step: 'untap' },
-  ];
+  events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: nextPlayer });
+  events.push({ t: 'StepBegan', phase: 'beginning', step: 'untap' });
+  return events;
 }
 
 // ── resolving the top of the stack ───────────────────────────────────────────

@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TEFERI_TIMEBENDER_SCRIPT } from './cards/teferiTimebender';
+import { MAGISTRATES_SCEPTER_SCRIPT } from './cards/magistratesScepter';
 import { MAGUS_OF_THE_BRIDGE_SCRIPT } from './cards/magusOfTheBridge';
 import { ICEHIDE_TROLL_SCRIPT } from './cards/icehideTroll';
 import { IRON_SHIELD_ELF_SCRIPT } from './cards/ironShieldElf';
@@ -7740,6 +7742,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TEFERI_TIMEBENDER_SCRIPT,
+  MAGISTRATES_SCEPTER_SCRIPT,
   MAGUS_OF_THE_BRIDGE_SCRIPT,
   ICEHIDE_TROLL_SCRIPT,
   IRON_SHIELD_ELF_SCRIPT,
