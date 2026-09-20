@@ -355,7 +355,9 @@ export type EventBody =
   /** D508 - a hand put's picks, named before the move that carries them (a marker; the move beside it moved the state). */
   | { readonly t: 'PutFromHand'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
   /** D505 - a mass verb walked its scope (a marker; the counters, taps or untaps beside it moved the state). */
-  | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap'; readonly members: number; readonly text: string }
+  | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap' | 'massCantBlock'; readonly members: number; readonly text: string }
+  /** D510 - a player's hand and graveyard went into their library and were shuffled, and they drew (a marker; the moves, the shuffle and the draws beside it moved the state). */
+  | { readonly t: 'WheelShuffled'; readonly player: PlayerId; readonly cards: number; readonly drew: number }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }
@@ -422,7 +424,7 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
-  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' }
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's

@@ -286,6 +286,13 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // `handPutClauses` counts the clauses, `handPuts` the cards, `handPutAsks` the questions.
   { names: ['Arboreal Grazer', 'Walking Atlas'], copiesPerSeat: 2,
     counterKeys: ['handPutClauses'], rotHistory: 'D508 D509' },
+  // D510 - the untap choice, the mass can't-block and the wheel: two Snaps a seat ({1}{U} instant, `Return target creature to
+  // its owner's hand. Untap up to two lands.` - the queue's untap verb asked of the caster), two Falters ({1}{R} instant,
+  // `Creatures without flying can't block this turn.` - the scope walked, no target) and two Timetwisters ({2}{U}
+  // sorcery, `Each player shuffles their hand and graveyard into their library, then draws seven cards.`).
+  // Timetwister ({2}{U}) over Time Reversal ({3}{U}{U}): the five-mana sorcery wheeled nobody over 60 seeds (canary510).
+  { names: ['Snap', 'Falter', 'Timetwister'], copiesPerSeat: 2,
+    counterKeys: ['untapChoices', 'massCantBlocks', 'wheels'], rotHistory: 'D510' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1549,6 +1556,12 @@ interface Run {
   readonly handPutAsks: number;
   /** D509 - hand-put clauses that ran (every `PutFromHand`, an empty one included - the executor names the clause it ran). */
   readonly handPutClauses: number;
+  /** D510 - untap choices resolved (an `AsksResolved` with the untap verb - the queue's fifth). */
+  readonly untapChoices: number;
+  /** D510 - mass can't-block walks (a `ScopeWalked` with verb massCantBlock). */
+  readonly massCantBlocks: number;
+  /** D510 - wheels into the library (a `WheelShuffled` per player). */
+  readonly wheels: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -2014,6 +2027,9 @@ function runOne(seed: number): Run {
     handPuts: game.log.reduce((n, e) => n + (e.body.t === 'PutFromHand' ? e.body.cards.length : 0), 0),
     handPutAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.zone === 'hand' && e.body.awaiting.to === 'battlefield').length,
     handPutClauses: game.log.filter((e) => e.body.t === 'PutFromHand').length,
+    untapChoices: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'untap').length,
+    massCantBlocks: game.log.filter((e) => e.body.t === 'ScopeWalked' && e.body.verb === 'massCantBlock').length,
+    wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2311,6 +2327,9 @@ const TOTAL_KEYS = [
   'handPuts',
   'handPutAsks',
   'handPutClauses',
+  'untapChoices',
+  'massCantBlocks',
+  'wheels',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2753,6 +2772,11 @@ function assertFloors(totals: Totals, seeds: number): void {
         // lands drawn together (2 over 3,000 seeds at D508, 0 at D509's first run); the executor's empty marker says the
         // clause ran and what it found.
         expect(totals.handPutClauses).toBeGreaterThan(0);
+        // D510 - the untap choice resolved, a mass can't-block walked and a wheel turned at gate size (Snap, Falter, Timetwister,
+        // two a seat; 4 / 6 / 16 over the first 60 seeds, canary510).
+        expect(totals.untapChoices).toBeGreaterThan(0);
+        expect(totals.massCantBlocks).toBeGreaterThan(0);
+        expect(totals.wheels).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2877,6 +2901,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.scopesWalked} scopes walked · ` +
           `${totals.referentSearches} referent searches · ` +
           `${totals.handPutClauses}/${totals.handPutAsks}/${totals.handPuts} hand-put clauses/asks/cards · ` +
+          `${totals.untapChoices} untap choices · ${totals.massCantBlocks} mass can't-blocks · ${totals.wheels} wheels · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

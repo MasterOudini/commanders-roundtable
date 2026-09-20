@@ -1796,6 +1796,53 @@ const RULES: readonly Rule[] = [
    * QUEUE's third verb (the bounce lands, the Invasion lairs' kin): the caster alone chooses a permanent the noun admits
    * and it goes to its owner's hand. The same reader names the noun; it ASKS, so it is the sentence's last.
    */
+  /**
+   * D510 - THE UNTAP CHOICE: `Untap up to N lands.` / `You untap up to six lands.` (Frantic Search, Snap, Rewind, Peregrine
+   * Drake, Cloud of Faeries, Treachery, Time Spiral) - the queue's fifth verb, the caster choosing up to N permanents the
+   * noun admits (any controller's - CR: any lands); it ASKS, so it is the sentence's last. The `you control` form is not
+   * printed on the shape and stays out (the candidates are any controller's).
+   */
+  {
+    kind: 'untapChoose',
+    re: new RegExp(`^(?:you )?untap up to (${COUNT}) (lands|creatures|permanents|artifacts)\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const noun = (m[2] ?? '').toLowerCase().replace(/s$/, '');
+      const predicates = predicatesOf(noun);
+      if (n === null || n <= 0 || !predicates || predicates.length === 0) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, untapChoose: { predicates, what: noun } };
+    },
+  },
+  /**
+   * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
+   * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral); the `you` form scopes the caster alone.
+   */
+  {
+    kind: 'wheelShuffle',
+    re: new RegExp(`^(each player shuffles their hand and graveyard into their library, then draws|shuffle your hand and graveyard into your library, then draw) (${COUNT}) cards?\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null || n <= 0) return null;
+      const each = /^each player/i.test(m[1] ?? '');
+      return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: each ? 'any' : 'you' }] };
+    },
+  },
+  /**
+   * D510 - THE MASS CAN'T-BLOCK: `Creatures (without flying | with flying) can't block this turn.` (Falter, Seismic Stomp,
+   * Tectonic Rift, Fire of Orthanc, Magmatic Chasm) - the can't-block rider over every creature the scope reaches (D505's
+   * walk, the keyword-absent form); the executor marks the walk.
+   */
+  {
+    kind: 'cantBlock',
+    re: /^(?:all )?creatures(?: (with|without) flying)? can't block this turn\.$/i,
+    build: (m) => {
+      const word = m[1] === undefined ? null : GRANTABLE.get('flying');
+      if (m[1] !== undefined && word === undefined) return null;
+      const scope: BoardScope = word ? { kind: 'creature', controller: 'any', keyword: word, keywordAbsent: (m[1] ?? '').toLowerCase() === 'without' } : { kind: 'creature', controller: 'any' };
+      // `self: true` plans the step aimless (the kind is not in SELF_AIMED); the executor walks the scope.
+      return { ...BASE, targetIndex: -1, self: true, scopes: [scope] };
+    },
+  },
   {
     kind: 'returnChoose',
     re: /^return (an? [A-Za-z ]+?) you control to its owner's hand\.$/i,
@@ -2316,7 +2363,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -2569,7 +2616,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -2736,7 +2783,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };

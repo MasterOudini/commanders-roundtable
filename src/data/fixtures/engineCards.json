@@ -286747,6 +286747,237 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FRANTIC_SEARCH": {
+    "scryfallId": "0eb00e3c-b67a-44c7-ae61-23ecf4d4971a",
+    "oracleId": "16e015b2-f8a3-4b1a-80be-58a8f5fb5e8c",
+    "name": "Frantic Search",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frantic Search",
+        "manaCost": "{2}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Draw two cards, then discard two cards. Untap up to three lands.",
+        "flavorText": "It took the banning of temporal manipulation at Tolaria West to teach its students the value of time.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mitchell Malloy",
+        "imageId": "0eb00e3c-b67a-44c7-ae61-23ecf4d4971a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNAP": {
+    "scryfallId": "1959f078-4b7b-4df2-a256-d43b2d97e853",
+    "oracleId": "ac914d98-221e-426c-8a50-342896b15f9e",
+    "name": "Snap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snap",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Return target creature to its owner's hand. Untap up to two lands.",
+        "flavorText": "It doesn't matter if the mind or body cracks first. They both have to go.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Véronique Meignaud",
+        "imageId": "1959f078-4b7b-4df2-a256-d43b2d97e853"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dds",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REWIND": {
+    "scryfallId": "0374cd0e-d06a-4976-9483-202015c845ff",
+    "oracleId": "bb27bfdf-fe8d-45bd-ad62-8118dce06eda",
+    "name": "Rewind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rewind",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. Untap up to four lands.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julie Dillon & Scott Okumura",
+        "imageId": "0374cd0e-d06a-4976-9483-202015c845ff"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "1368",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALTER": {
+    "scryfallId": "5a30309f-7e81-4e53-abb5-7cab084a10cd",
+    "oracleId": "d4b50749-a016-4aff-8d70-a1707cabf57b",
+    "name": "Falter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falter",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Creatures without flying can't block this turn.",
+        "flavorText": "Like a sleeping dragon, Shiv stirs and groans at times.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Raabe",
+        "imageId": "5a30309f-7e81-4e53-abb5-7cab084a10cd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "vma",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEISMIC_STOMP": {
+    "scryfallId": "4889cf72-3ae9-4880-81b8-4a14c0bfba2e",
+    "oracleId": "a1d02a70-2543-45c6-a9a1-c1941f2f68f3",
+    "name": "Seismic Stomp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seismic Stomp",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Creatures without flying can't block this turn.",
+        "flavorText": "\"It is not in me to tread lightly.\"\n—Ryda, geomancer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "4889cf72-3ae9-4880-81b8-4a14c0bfba2e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "EMA-146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIME_REVERSAL": {
+    "scryfallId": "1468c851-b20e-4c78-9fcb-45e60b7149db",
+    "oracleId": "9a63f6fc-dcf8-4529-a598-ca3d511f29e2",
+    "name": "Time Reversal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Time Reversal",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player shuffles their hand and graveyard into their library, then draws seven cards. Exile Time Reversal.",
+        "flavorText": "\"Optimists see the world as they wish it to be. Pessimists see the world as it is. Must these roles be mutually exclusive?\"\n—Evo Ragus",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "1468c851-b20e-4c78-9fcb-45e60b7149db"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m11",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIMETWISTER": {
+    "scryfallId": "01bda3d7-122a-48a0-bab3-676c4a557b74",
+    "oracleId": "c823e687-6311-4c99-974b-fd77d204141a",
+    "name": "Timetwister",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Timetwister",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Each player shuffles their hand and graveyard into their library, then draws seven cards. (Then put Timetwister into its owner's graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "01bda3d7-122a-48a0-bab3-676c4a557b74"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "2ed",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SAKURA_TRIBE_SCOUT": {
     "scryfallId": "437123f4-bd37-4872-a950-463eaf8a2217",
     "oracleId": "0c319f45-cb0f-4641-acd8-145768acb3fc",
@@ -291440,6 +291671,283 @@
     ],
     "setCode": "nph",
     "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUD_OF_FAERIES": {
+    "scryfallId": "03aff125-8962-4a0a-a2b4-e5d693b75400",
+    "oracleId": "adc1f3b4-cce7-42c9-a208-dbab1d1924f5",
+    "name": "Cloud of Faeries",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloud of Faeries",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie",
+        "oracleText": "Flying\nWhen this creature enters, untap up to two lands.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Iris Compiet",
+        "imageId": "03aff125-8962-4a0a-a2b4-e5d693b75400"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Cycling"
+    ],
+    "setCode": "moc",
+    "collectorNumber": "219",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREAT_WHALE": {
+    "scryfallId": "58a2acf1-dad8-4f93-a34e-891e5178a48f",
+    "oracleId": "c43ce30a-0346-479d-8dbc-56c3872ff82a",
+    "name": "Great Whale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Great Whale",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Whale",
+        "oracleText": "When this creature enters, untap up to seven lands.",
+        "flavorText": "\"As a great whale dies, it flips onto its back. And so an island is born.\"\n—Mariners' legend",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bob Eggleton",
+        "imageId": "58a2acf1-dad8-4f93-a34e-891e5178a48f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PEREGRINE_DRAKE": {
+    "scryfallId": "17a652f0-1e46-4022-8be8-b55bbd3cc40e",
+    "oracleId": "0bd67481-6bd9-48d6-92bd-8933b5ea1eae",
+    "name": "Peregrine Drake",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Peregrine Drake",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Drake",
+        "oracleText": "Flying\nWhen this creature enters, untap up to five lands.",
+        "flavorText": "That the Tolarian mists parted for the drakes was warning enough to stay away.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bob Eggleton",
+        "imageId": "17a652f0-1e46-4022-8be8-b55bbd3cc40e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pc2",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEISMIC_ELEMENTAL": {
+    "scryfallId": "998e5964-b758-413e-8360-4df4cb119f58",
+    "oracleId": "61ec78da-979c-45cf-8be6-12aa24dc833a",
+    "name": "Seismic Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seismic Elemental",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, creatures without flying can't block this turn.",
+        "flavorText": "\"Trying to stop it would be foolish. If you feel it coming—run!\"\n—Sergeant Ryda",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jasper Sandner",
+        "imageId": "998e5964-b758-413e-8360-4df4cb119f58"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "gnt",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TREACHERY": {
+    "scryfallId": "613694aa-b169-400d-8063-2b83d8303611",
+    "oracleId": "8ed57194-7508-4aef-9373-64f7e80612d8",
+    "name": "Treachery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Treachery",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, untap up to five lands.\nYou control enchanted creature.",
+        "flavorText": "\"The academy educates; I employ. It's a perfect arrangement.\"\n—Gatha, Tolarian renegade",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "613694aa-b169-400d-8063-2b83d8303611"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "uds",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PALINCHRON": {
+    "scryfallId": "5621db3f-a9e7-4350-9c6a-0ba04a628947",
+    "oracleId": "0023888e-7bec-43e0-8dee-d1a4eb94b372",
+    "name": "Palinchron",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Palinchron",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "Flying\nWhen this creature enters, untap up to seven lands.\n{2}{U}{U}: Return this creature to its owner's hand.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matthew D. Wilson",
+        "imageId": "5621db3f-a9e7-4350-9c6a-0ba04a628947"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ulg",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAMPION_OF_RHONAS": {
+    "scryfallId": "53fe5228-d114-47ce-929b-83119eb83fb5",
+    "oracleId": "517502e4-4588-4327-b2c0-451f4531fecc",
+    "name": "Champion of Rhonas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Champion of Rhonas",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Jackal Warrior",
+        "oracleText": "You may exert this creature as it attacks. When you do, you may put a creature card from your hand onto the battlefield. (An exerted creature won't untap during your next untap step.)",
+        "flavorText": "The only way to finish the Trial of Strength is with a basilisk scale in hand.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "53fe5228-d114-47ce-929b-83119eb83fb5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exert"
+    ],
+    "setCode": "pakh",
+    "collectorNumber": "159s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAFTED_GROWTH": {
+    "scryfallId": "e7a15010-1b70-4b4f-8b5d-cb2d764a1799",
+    "oracleId": "c4525b1c-5c3d-494e-b660-ba5a5a28f621",
+    "name": "Grafted Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grafted Growth",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nWhen this Aura enters, put a +1/+1 counter on target creature or Vehicle you control.\nEnchanted land has \"{T}: Add two mana of any one color.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Piotr Dura",
+        "imageId": "e7a15010-1b70-4b4f-8b5d-cb2d764a1799"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "188",
     "commanderLegality": "legal",
     "singleImage": true
   },

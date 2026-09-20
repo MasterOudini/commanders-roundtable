@@ -35,8 +35,11 @@ describe("the can't-block vocabulary (D394)", () => {
     expect(parseTargetClauses(wrap)).toHaveLength(1);
   });
 
-  test('the scoped form stays unread', () => {
-    expect(parseEffects("Creatures without flying can't block this turn.", 'Falter', true).mode).not.toBe('auto');
+  // D510 - the scoped form READS now (the mass can't-block: the rider over every creature the scope reaches, the
+  // keyword-absent form); the adjective form is the one still outside the scope reader.
+  test('the scoped form reads since D510; an adjective form stays unread', () => {
+    expect(parseEffects("Creatures without flying can't block this turn.", 'Falter', true).mode).toBe('auto');
+    expect(parseEffects("Nonartifact creatures can't block this turn.", 'Falter', true).mode).not.toBe('auto');
   });
 });
 

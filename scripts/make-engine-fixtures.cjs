@@ -9391,6 +9391,14 @@ const WANTED = [
   'Eerie Interlude',
   "Domri's Ambush",
   'Vandalblast',
+  // D510 - the untap choice, the mass can't-block and the wheel: the seam tests' spells and the fuzz staples (Snap, Falter, Time Reversal).
+  'Frantic Search',
+  'Snap',
+  'Rewind',
+  'Falter',
+  'Seismic Stomp',
+  'Time Reversal',
+  'Timetwister',
   'Sakura-Tribe Scout',
   'Patron of the Moon',
   'Walking Atlas',
@@ -9549,6 +9557,16 @@ const WANTED = [
   'Trade Routes',
   'Deceiver Exarch',
   // D509 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D510 - the untap choice, the mass can't-block and the wheel: the rows the select offered (Cloud of Faeries, Peregrine Drake, Great Whale, Palinchron, Treachery, Seismic Elemental) and the two the whole-leftover row maker rowed beside them (Champion of Rhonas, Grafted Growth).
+  'Cloud of Faeries',
+  'Great Whale',
+  'Peregrine Drake',
+  'Seismic Elemental',
+  'Treachery',
+  'Palinchron',
+  'Champion of Rhonas',
+  'Grafted Growth',
+  // D510 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

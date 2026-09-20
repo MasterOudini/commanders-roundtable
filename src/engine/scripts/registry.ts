@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CLOUD_OF_FAERIES_SCRIPT } from './cards/cloudOfFaeries';
+import { GREAT_WHALE_SCRIPT } from './cards/greatWhale';
+import { PEREGRINE_DRAKE_SCRIPT } from './cards/peregrineDrake';
+import { SEISMIC_ELEMENTAL_SCRIPT } from './cards/seismicElemental';
+import { TREACHERY_SCRIPT } from './cards/treachery';
+import { PALINCHRON_SCRIPT } from './cards/palinchron';
+import { CHAMPION_OF_RHONAS_SCRIPT } from './cards/championOfRhonas';
+import { GRAFTED_GROWTH_SCRIPT } from './cards/graftedGrowth';
 import { AETHERSHIELD_ARTIFICER_SCRIPT } from './cards/aethershieldArtificer';
 import { AINOK_SURVIVALIST_SCRIPT } from './cards/ainokSurvivalist';
 import { BASRIS_ACOLYTE_SCRIPT } from './cards/basrisAcolyte';
@@ -7859,6 +7867,14 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CLOUD_OF_FAERIES_SCRIPT,
+  GREAT_WHALE_SCRIPT,
+  PEREGRINE_DRAKE_SCRIPT,
+  SEISMIC_ELEMENTAL_SCRIPT,
+  TREACHERY_SCRIPT,
+  PALINCHRON_SCRIPT,
+  CHAMPION_OF_RHONAS_SCRIPT,
+  GRAFTED_GROWTH_SCRIPT,
   AETHERSHIELD_ARTIFICER_SCRIPT,
   AINOK_SURVIVALIST_SCRIPT,
   BASRIS_ACOLYTE_SCRIPT,

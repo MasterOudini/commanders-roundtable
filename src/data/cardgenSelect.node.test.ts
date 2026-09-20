@@ -791,6 +791,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D510 - the untap choice, the mass can't-block and the wheel: the rows the select offered and the row maker refused, by its own reasons.
+  ['Midnight Clock', 'trigger payload not a pump: Put an hour counter on this artifact. (D510)'],
   // D509 - the controller word on every target noun: the rows the select offered and the row maker refused, by its own reasons.
   ['Avalanche Caller', 'a vocabulary clause the suite has no fixture for: no fixture for Target snow land you control (D509)'],
   ['Dual Casting', 'a quoted body outside the vocabulary: Copy target instant or sorcery spell you control. You may ch (D509)'],
@@ -1681,7 +1683,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D240 (M6.4cc)
   ['Return to Dust', 'up-to-N targeting'],
   ['Reviving Vapors', 'script-raised prompt'],
-  ['Rewind', 'up-to-N targeting'],
   ['Ribbons of Night', 'mana-spent memory'],
   ['Riding the Dilu Horse', 'indefinite continuous effect'],
   ['Rise from the Grave', 'indefinite continuous effect'],
@@ -1718,7 +1719,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sleight of Mind', 'text-changing effect (CR 612)'],
   // D249 (M6.4cl)
   ['Slip On the Ring', 'the Ring mechanic'],
-  ['Snap', 'up-to-N targeting'],
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
   // D250 (M6.4cm)
@@ -1835,12 +1835,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // AND "without flying" (D197's keyword qualifier). It is ledgered under
   // up-to-N, which is still the heaviest class in this table.
   ['Time and Tide', 'phasing'],
-  ['Time Reversal', 'ctx.random stub'],
-  ['Time Spiral', 'ctx.random stub'],
   ['Time Stop', 'end the turn'],
   // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
   // turn at a time and nothing can splice another in after it.
-  ['Timetwister', 'ctx.random stub'],
   ["Titan's Revenge", 'clash mechanic'],
   ['Together as One', 'converge'],
 
@@ -2443,7 +2440,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Repeal', 'cast-time X in target qualifier'],
   ["Venser's Diffusion", 'unparseable list alternative (suspended card)'],
   ['Premature Burial', 'entry-turn memory'],
-  ['Unwind', 'script-raised prompt'],
   // ...and of the 29 cards the four D295 sentences made offerable in turn,
   // five: a becomes-targeted trigger, a delayed trigger ("this turn"), a cost
   // of HALF a life total, an exile-from-graveyard cost, a two-part sacrifice.
@@ -2577,7 +2573,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bulk Up', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Calibrated Blast', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Canopy Claws', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Echo of Eons', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ignite the Future', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Kaleidoscorch', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Krosan Reclamation', 'a spell line outside the vocabulary (its flashback runs)'],

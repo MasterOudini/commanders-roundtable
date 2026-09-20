@@ -3788,6 +3788,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
             zone: pending.verb === 'discard' ? 'hand' : 'battlefield',
             rest: null,
             count: pending.count,
+            ...(pending.optional === true ? { min: 0 } : {}),
             ...(pending.filter ? { filter: pending.filter } : {}),
             label: pending.label,
             ...(carried !== undefined ? { continuation: carried } : {}),
@@ -3957,6 +3958,7 @@ function answerChooseFromZone(
   if (awaiting.zone === 'battlefield') {
     // D431 - the queue's own verb (a return reads the same board as a sacrifice).
     const legal = askCandidates(state, deps, intent.player, state.pendingAsks?.verb ?? 'sacrifice', awaiting.filter ?? null);
+    // D510 - an `up to` choice (the untap verb) may name fewer than the count, down to none - `min` 0 rode the prompt.
     for (const card of intent.cards) {
       if (!legal.includes(card)) return reject('illegalTarget', `That is not ${awaiting.filter ? 'a ' + awaiting.filter.what : 'a permanent'} you control.`);
     }

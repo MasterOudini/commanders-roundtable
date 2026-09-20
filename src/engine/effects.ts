@@ -948,6 +948,40 @@ export function effectResult(
       }
 
       // D431 - the queue's return verb: the caster chooses a permanent the noun admits; it goes to its owner's hand.
+      // D510 - THE UNTAP CHOICE: the caster alone is asked (the queue's fifth verb), any controller's permanents the
+      // noun admits, up to N; a board with no more than N goes whole and unasked (the queue's rule, D390).
+      case 'untapChoose': {
+        if (!effect.untapChoose) break;
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const filter: LookFilter = { predicates: effect.untapChoose.predicates, what: effect.untapChoose.what };
+        out.push(...queueAsks(state, deps, controller, 'untap', [], effect.amount, filter, obj.label, cache, [controller], true));
+        break;
+      }
+      // D510 - THE WHEEL INTO THE LIBRARY: every player the scope names, in APNAP order - the hand and the graveyard into
+      // the library, one shuffle off the seeded generator (the RNG rides the batch), then N drawn; the marker per player.
+      case 'wheelShuffle': {
+        const players = effect.scopes && effect.scopes.length > 0 ? apnapPlayers(state, scopeMembers(state, deps, controller, effect.scopes, cache).players) : [controller];
+        for (const p of players) {
+          if (state.players[p]?.hasLost) continue;
+          let now = state;
+          for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+          const hand = now.zones.hand[p] ?? [];
+          const gy = now.zones.graveyard[p] ?? [];
+          const moves = [
+            ...hand.map((card) => ({ card, from: { kind: 'hand' as const, player: p }, to: { kind: 'library' as const, player: p } })),
+            ...gy.map((card) => ({ card, from: { kind: 'graveyard' as const, player: p }, to: { kind: 'library' as const, player: p } })),
+          ];
+          if (moves.length > 0) { out.push({ t: 'CardsMoved', moves }); now = apply(now, { seq: now.eventCount, body: out[out.length - 1] as EventBody, cause: { kind: 'system' } } as never); }
+          const mixed = shuffle(rng ?? state.rng, now.zones.library[p] ?? []);
+          rng = mixed.next;
+          out.push({ t: 'LibraryShuffled', player: p, order: mixed.value });
+          now = apply(now, { seq: now.eventCount, body: out[out.length - 1] as EventBody, cause: { kind: 'system' } } as never);
+          const drawn = drawEvents(now, p, effect.amount);
+          out.push(...drawn);
+          out.push({ t: 'WheelShuffled', player: p, cards: moves.length, drew: Math.min(effect.amount, (now.zones.library[p] ?? []).length) });
+        }
+        break;
+      }
       case 'returnChoose': {
         if (!effect.returnChoose) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
@@ -1202,6 +1236,16 @@ export function effectResult(
       }
 
       case 'cantBlock': {
+        // D510 - THE MASS FORM: `Creatures (without flying) can't block this turn.` - every creature the scope reaches
+        // (D505's walk, the keyword-absent form), the marker first.
+        if (effect.scopes !== undefined && effect.scopes.length > 0 && effect.targetIndex === -1) {
+          let now = state;
+          for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+          const members = scopeMembers(now, deps, controller, effect.scopes, now === state ? cache : undefined).cards.filter((id) => now.cards[id]?.zone.kind === 'battlefield');
+          out.push({ t: 'ScopeWalked', verb: 'massCantBlock', members: members.length, text: effect.text });
+          for (const id of members) out.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: 0, toughness: 0, cantBlock: true });
+          break;
+        }
         if (aim?.kind !== 'card') break;
         if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
         out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, cantBlock: true });
@@ -2063,7 +2107,7 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
@@ -2071,7 +2115,9 @@ export function askCandidates(
   const out: InstanceId[] = [];
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
-    if (!inst || inst.controller !== player) continue;
+    // D510 - an untap names ANY permanent the noun admits (`Untap up to four lands` - CR: any lands, an opponent's too);
+    // an untapped pick untaps nothing and is legal, so the candidates are every match, not the tapped ones alone.
+    if (!inst || (verb !== 'untap' && inst.controller !== player)) continue;
     // D488 - a populate copies a TOKEN (CR 701.31): a card is never a candidate, whatever the noun says.
     if (verb === 'populate' && !inst.isToken) continue;
     if (filter) {
@@ -2236,7 +2282,19 @@ export function mergeExceptions(base: CopyExceptions | undefined, more: CopyExce
  * discards - are simultaneous, CR 101.4), carrying the reason a watcher reads (D377), and the log
  * says what each player gave up.
  */
-export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+  // D510 - the untap verb: the picks untap in one event; a pick already untapped is a legal no-op.
+  if (verb === 'untap') {
+    const out: EventBody[] = [];
+    for (const c of chosen) {
+      if (c.cards.length > 0) out.push({ t: 'PermanentsUntapped', cards: [...c.cards] });
+      const k = c.cards.length;
+      out.push(k === 0
+        ? narrated(n`${who(state, c.player)} ${vb(c.player, 'untaps', 'untap')} nothing.`, c.player)
+        : narrated(n`${who(state, c.player)} ${vb(c.player, 'untaps', 'untap')} ${k === 1 ? `a ${filter?.what ?? 'permanent'}` : `${k} ${filter?.what ?? 'permanent'}s`}.`, c.player));
+    }
+    return out;
+  }
   // D488 - a populate makes a token that is a copy of each chosen token (CR 701.31) and moves nothing; the copy's
   // id is the state's next (the answer's batch is the first to allocate past it).
   if (verb === 'populate') {
@@ -2286,7 +2344,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -2294,6 +2352,7 @@ function queueAsks(
   cache?: DeriveCache,
   /** D482 - the players named outright (a `target` scope resolved to the aimed player), instead of the scopes' members. */
   only?: readonly PlayerId[],
+  optional?: true,
 ): EventBody[] {
   const order = apnapPlayers(state, only ?? scopeMembers(state, deps, controller, scopes, cache).players);
   const chosen: { player: PlayerId; cards: InstanceId[] }[] = [];
@@ -2307,12 +2366,13 @@ function queueAsks(
     first = p;
   }
   if (first === null) return askBatch(state, deps, verb, chosen, filter);
-  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen };
+  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen, ...(optional === true ? { optional: true as const } : {}) };
   return [
     { t: 'AsksQueued', pending },
     {
       t: 'AwaitingSet',
-      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(filter ? { filter } : {}), label },
+      // D510 - an `up to` choice carries `min` 0: the answer may name fewer, down to none.
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), label },
     },
   ];
 }

@@ -473,6 +473,12 @@ export function answerAwaiting(
         const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
         return face ? !lacks.some((t) => parseTypeLine(face.typeLine).types.includes(t)) : false;
       });
+      // D510 - an optional battlefield choice is the untap verb's (`Untap up to N lands` - the queue's only `up to`): the
+      // tapped ones, up to the count, and nothing when nothing is tapped - untapping an untapped land is a wasted pick.
+      if (awaiting.zone === 'battlefield' && awaiting.min === 0) {
+        const cards = eligible.filter((c) => c.tapped).slice(0, awaiting.count).map((c) => c.instanceId);
+        return act({ t: 'AnswerChooseFromZone', player: me, cards }, cards.length === 0 ? `untap nothing for ${awaiting.label}` : `untap ${cards.length} for ${awaiting.label}`);
+      }
       const min = awaiting.min ?? awaiting.count;
       const ordered =
         awaiting.zone === 'library' ? [...eligible].sort(worstFirst).reverse() : [...eligible].sort(worstFirst);

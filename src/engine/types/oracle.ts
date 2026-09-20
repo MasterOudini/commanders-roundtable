@@ -807,6 +807,19 @@ export type EffectKind =
    */
   | 'returnChoose'
   /**
+   * D510 - THE UNTAP CHOICE: `Untap up to N lands.` (Frantic Search, Snap, Rewind, Peregrine Drake) - the queue's fifth
+   * verb (`untap`): the caster chooses up to N permanents the noun admits, any controller's (CR: any lands), and they
+   * untap; the prompt carries `min` 0 (`up to`). The noun rides `untapChoose`.
+   */
+  | 'untapChoose'
+  /**
+   * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
+   * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral) - every player in APNAP order, one shuffle each off
+   * the seeded generator; `amount` is the draw. The `you` form (`Shuffle your hand and graveyard into your library,
+   * then draw N cards.`) scopes the caster alone.
+   */
+  | 'wheelShuffle'
+  /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
    * library, keep some on top in an order you choose, and put the rest on
    * the bottom (scry) or into your graveyard (surveil). The SECOND and
@@ -1181,6 +1194,8 @@ export interface EffectSpec {
   readonly sacrifice: SacrificeSpec | null;
   /** D431 - `returnChoose` only: the noun the queue offers. Absent on every other kind. */
   readonly returnChoose?: SacrificeSpec;
+  /** D510 - the untap choice's noun (`lands`, `creatures`, `permanents`) - the queue's `untap` verb reads it as its filter. */
+  readonly untapChoose?: SacrificeSpec;
   /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly handChoice: HandChoice | null;
   /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */

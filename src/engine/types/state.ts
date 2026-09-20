@@ -566,7 +566,9 @@ export interface PendingAsks {
    * D488 - `populate`: a creature TOKEN from the battlefield, of which a token copy is created (CR 701.31) - the
    * one verb that moves nothing.
    */
-  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate';
+  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap';
+  /** D510 - an `up to` choice: the answer may name fewer than `count`, down to none (the prompt carries `min` 0). */
+  readonly optional?: true;
   /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
   readonly remaining: readonly PlayerId[];
   /** What the sentence asks of each player. */

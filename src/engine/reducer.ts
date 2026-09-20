@@ -1340,6 +1340,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D508 - the hand put's marker: the move beside it moved the state.
     case 'PutFromHand':
       return state;
+    // D510 - the wheel's marker: the moves, the shuffle and the draws beside it moved the state.
+    case 'WheelShuffled':
+      return state;
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
       return state;

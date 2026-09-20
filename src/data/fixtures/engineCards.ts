@@ -8479,6 +8479,13 @@ export const LESSONS_FROM_LIFE: CardData = F.LESSONS_FROM_LIFE as CardData;
 export const EERIE_INTERLUDE: CardData = F.EERIE_INTERLUDE as CardData;
 export const DOMRI_S_AMBUSH: CardData = F.DOMRI_S_AMBUSH as CardData;
 export const VANDALBLAST: CardData = F.VANDALBLAST as CardData;
+export const FRANTIC_SEARCH: CardData = F.FRANTIC_SEARCH as CardData;
+export const SNAP: CardData = F.SNAP as CardData;
+export const REWIND: CardData = F.REWIND as CardData;
+export const FALTER: CardData = F.FALTER as CardData;
+export const SEISMIC_STOMP: CardData = F.SEISMIC_STOMP as CardData;
+export const TIME_REVERSAL: CardData = F.TIME_REVERSAL as CardData;
+export const TIMETWISTER: CardData = F.TIMETWISTER as CardData;
 export const SAKURA_TRIBE_SCOUT: CardData = F.SAKURA_TRIBE_SCOUT as CardData;
 export const PATRON_OF_THE_MOON: CardData = F.PATRON_OF_THE_MOON as CardData;
 export const WALKING_ATLAS: CardData = F.WALKING_ATLAS as CardData;
@@ -8616,6 +8623,14 @@ export const SKARRG_GUILDMAGE: CardData = F.SKARRG_GUILDMAGE as CardData;
 export const STINGMOGGIE: CardData = F.STINGMOGGIE as CardData;
 export const TRADE_ROUTES: CardData = F.TRADE_ROUTES as CardData;
 export const DECEIVER_EXARCH: CardData = F.DECEIVER_EXARCH as CardData;
+export const CLOUD_OF_FAERIES: CardData = F.CLOUD_OF_FAERIES as CardData;
+export const GREAT_WHALE: CardData = F.GREAT_WHALE as CardData;
+export const PEREGRINE_DRAKE: CardData = F.PEREGRINE_DRAKE as CardData;
+export const SEISMIC_ELEMENTAL: CardData = F.SEISMIC_ELEMENTAL as CardData;
+export const TREACHERY: CardData = F.TREACHERY as CardData;
+export const PALINCHRON: CardData = F.PALINCHRON as CardData;
+export const CHAMPION_OF_RHONAS: CardData = F.CHAMPION_OF_RHONAS as CardData;
+export const GRAFTED_GROWTH: CardData = F.GRAFTED_GROWTH as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17343,6 +17358,13 @@ export const ENGINE_CARDS: CardData[] = [
   EERIE_INTERLUDE,
   DOMRI_S_AMBUSH,
   VANDALBLAST,
+  FRANTIC_SEARCH,
+  SNAP,
+  REWIND,
+  FALTER,
+  SEISMIC_STOMP,
+  TIME_REVERSAL,
+  TIMETWISTER,
   SAKURA_TRIBE_SCOUT,
   PATRON_OF_THE_MOON,
   WALKING_ATLAS,
@@ -17480,6 +17502,14 @@ export const ENGINE_CARDS: CardData[] = [
   STINGMOGGIE,
   TRADE_ROUTES,
   DECEIVER_EXARCH,
+  CLOUD_OF_FAERIES,
+  GREAT_WHALE,
+  PEREGRINE_DRAKE,
+  SEISMIC_ELEMENTAL,
+  TREACHERY,
+  PALINCHRON,
+  CHAMPION_OF_RHONAS,
+  GRAFTED_GROWTH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
