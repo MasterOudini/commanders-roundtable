@@ -950,6 +950,14 @@ export function effectResult(
       // D431 - the queue's return verb: the caster chooses a permanent the noun admits; it goes to its owner's hand.
       // D510 - THE UNTAP CHOICE: the caster alone is asked (the queue's fifth verb), any controller's permanents the
       // noun admits, up to N; a board with no more than N goes whole and unasked (the queue's rule, D390).
+      // D511 - BOLSTER N: the caster alone (the queue's sixth verb); the candidates are computed, a tie asked, the only
+      // one unasked, none said.
+      case 'bolster': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        if (effect.amount <= 0) break;
+        out.push(...queueAsks(state, deps, controller, 'bolster', [], 1, null, obj.label, cache, [controller], undefined, effect.amount));
+        break;
+      }
       case 'untapChoose': {
         if (!effect.untapChoose) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
@@ -2107,11 +2115,13 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
   if (verb === 'discard') return [...(state.zones.hand[player] ?? [])];
+  // D511 - bolster's candidates are COMPUTED: the creatures the player controls whose toughness is the least among them.
+  if (verb === 'bolster') return leastToughnessCreatures(state, deps, player, cache);
   const out: InstanceId[] = [];
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
@@ -2282,7 +2292,34 @@ export function mergeExceptions(base: CopyExceptions | undefined, more: CopyExce
  * discards - are simultaneous, CR 101.4), carrying the reason a watcher reads (D377), and the log
  * says what each player gave up.
  */
-export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap', chosen: PendingAsks['chosen'], filter: LookFilter | null): EventBody[] {
+/** D511 - the creatures `player` controls whose toughness is the least among them (bolster's candidates, CR 701.37). */
+export function leastToughnessCreatures(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
+  const mine: { id: InstanceId; t: number }[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player) continue;
+    const d = derive(state, deps.oracle, deps.scripts, id, cache);
+    if (!d.typeLine.types.includes('Creature') || d.toughness === null) continue;
+    mine.push({ id, t: d.toughness });
+  }
+  if (mine.length === 0) return [];
+  const least = Math.min(...mine.map((m) => m.t));
+  return mine.filter((m) => m.t === least).map((m) => m.id);
+}
+
+export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster', chosen: PendingAsks['chosen'], filter: LookFilter | null, amount?: number): EventBody[] {
+  // D511 - the bolster verb: the chosen creature gets the counters; nothing chosen (no creature) is said.
+  if (verb === 'bolster') {
+    const out: EventBody[] = [];
+    for (const c of chosen) {
+      const card = c.cards[0];
+      if (card === undefined) { out.push({ t: 'Bolstered', player: c.player, card: null, amount: amount ?? 1 }); out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'controls', 'control')} no creature to bolster.`, c.player)); continue; }
+      out.push({ t: 'Bolstered', player: c.player, card, amount: amount ?? 1 });
+      out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: amount ?? 1 }] });
+      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'bolsters', 'bolster')} ${amount ?? 1}: ${derive(state, deps.oracle, deps.scripts, card).name} gets ${amount ?? 1} +1/+1 counter${(amount ?? 1) === 1 ? '' : 's'}.`, c.player));
+    }
+    return out;
+  }
   // D510 - the untap verb: the picks untap in one event; a pick already untapped is a legal no-op.
   if (verb === 'untap') {
     const out: EventBody[] = [];
@@ -2344,7 +2381,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -2353,6 +2390,7 @@ function queueAsks(
   /** D482 - the players named outright (a `target` scope resolved to the aimed player), instead of the scopes' members. */
   only?: readonly PlayerId[],
   optional?: true,
+  amount?: number,
 ): EventBody[] {
   const order = apnapPlayers(state, only ?? scopeMembers(state, deps, controller, scopes, cache).players);
   const chosen: { player: PlayerId; cards: InstanceId[] }[] = [];
@@ -2365,14 +2403,15 @@ function queueAsks(
     if (cands.length <= count) { chosen.push({ player: p, cards: cands }); continue; }
     first = p;
   }
-  if (first === null) return askBatch(state, deps, verb, chosen, filter);
-  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen, ...(optional === true ? { optional: true as const } : {}) };
+  if (first === null) return askBatch(state, deps, verb, chosen, filter, amount);
+  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen, ...(optional === true ? { optional: true as const } : {}), ...(amount !== undefined ? { amount } : {}) };
   return [
     { t: 'AsksQueued', pending },
     {
       t: 'AwaitingSet',
       // D510 - an `up to` choice carries `min` 0: the answer may name fewer, down to none.
-      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), label },
+      // D511 - bolster's prompt says how its candidates are computed (`pick`), never which they are (D137).
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), ...(verb === 'bolster' ? { pick: 'leastToughness' as const } : {}), label },
     },
   ];
 }

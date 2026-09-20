@@ -566,7 +566,9 @@ export interface PendingAsks {
    * D488 - `populate`: a creature TOKEN from the battlefield, of which a token copy is created (CR 701.31) - the
    * one verb that moves nothing.
    */
-  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap';
+  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster';
+  /** D511 - the bolster's count: how many +1/+1 counters the chosen creature gets. */
+  readonly amount?: number;
   /** D510 - an `up to` choice: the answer may name fewer than `count`, down to none (the prompt carries `min` 0). */
   readonly optional?: true;
   /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
@@ -1229,6 +1231,12 @@ export type Awaiting =
        * `min` is 0 on every such prompt. Absent on every older prompt.
        */
       readonly castFree?: true;
+      /**
+       * D511 - how the battlefield candidates are COMPUTED when the printed noun is not the rule: `leastToughness` is
+       * bolster's (the creatures the chooser controls whose toughness is the least among them). A printed rule, never
+       * ids (D137); the bot, the harness and the fuzz driver compute the same set off their view.
+       */
+      readonly pick?: 'leastToughness';
       /**
        * D484 - the clauses after the asking clause, run once the answer has landed: after the whole batch of a
        * player queue, after the ordering a look chains into, after the last connive of a chain.

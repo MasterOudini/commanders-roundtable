@@ -813,6 +813,12 @@ export type EffectKind =
    */
   | 'untapChoose'
   /**
+   * D511 - BOLSTER N (CR 701.37): a creature with the least toughness among creatures you control gets N +1/+1 counters;
+   * the queue's sixth verb (`bolster`) - the candidates are computed, a tie is asked, the only one goes unasked, none
+   * does nothing. `amount` is N.
+   */
+  | 'bolster'
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral) - every player in APNAP order, one shuffle each off
    * the seeded generator; `amount` is the draw. The `you` form (`Shuffle your hand and graveyard into your library,

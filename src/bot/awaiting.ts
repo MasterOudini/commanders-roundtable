@@ -473,6 +473,15 @@ export function answerAwaiting(
         const face = c.card?.faces[c.faceIndex] ?? c.card?.faces[0];
         return face ? !lacks.some((t) => parseTypeLine(face.typeLine).types.includes(t)) : false;
       });
+      // D511 - bolster's pick: the creatures I control whose toughness is the least among them (the prompt's rule), the
+      // most expensive first (the counters are worth more on a real body); the host refuses anything else.
+      if (awaiting.zone === 'battlefield' && awaiting.pick === 'leastToughness') {
+        const mine = myPermanents(view, me).filter((c) => c.toughness !== null && c.toughness !== undefined && parseTypeLine(c.card?.faces[c.faceIndex]?.typeLine ?? c.card?.faces[0]?.typeLine ?? '').types.includes('Creature'));
+        const least = Math.min(...mine.map((c) => c.toughness as number));
+        const cards = [...mine.filter((c) => c.toughness === least)].sort(worstFirst).slice(0, awaiting.count).map((c) => c.instanceId);
+        if (cards.length < (awaiting.min ?? awaiting.count)) return fault('noIntentForAwaiting', `asked to bolster among ${mine.length} creatures`);
+        return act({ t: 'AnswerChooseFromZone', player: me, cards }, `bolster ${cards.length} for ${awaiting.label}`);
+      }
       // D510 - an optional battlefield choice is the untap verb's (`Untap up to N lands` - the queue's only `up to`): the
       // tapped ones, up to the count, and nothing when nothing is tapped - untapping an untapped land is a wasted pick.
       if (awaiting.zone === 'battlefield' && awaiting.min === 0) {

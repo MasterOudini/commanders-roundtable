@@ -9399,6 +9399,11 @@ const WANTED = [
   'Seismic Stomp',
   'Time Reversal',
   'Timetwister',
+  // D511 - bolster: the seam tests' spells and the fuzz staples (Cached Defenses, Abzan Advantage).
+  'Cached Defenses',
+  'Abzan Advantage',
+  "Honor's Reward",
+  "Dromoka's Gift",
   'Sakura-Tribe Scout',
   'Patron of the Moon',
   'Walking Atlas',
@@ -9567,6 +9572,15 @@ const WANTED = [
   'Champion of Rhonas',
   'Grafted Growth',
   // D510 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D511 - bolster: the rows the select offered (Abzan Skycaptain, Aven Tactician, Dromoka Captain, Echoes of the Kin Tree, Sandcrafter Mage, Sandsteppe Mastodon, Sandsteppe Scavenger).
+  'Abzan Skycaptain',
+  'Aven Tactician',
+  'Dromoka Captain',
+  'Echoes of the Kin Tree',
+  'Sandcrafter Mage',
+  'Sandsteppe Mastodon',
+  'Sandsteppe Scavenger',
+  // D511 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

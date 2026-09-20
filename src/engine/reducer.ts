@@ -1343,6 +1343,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D510 - the wheel's marker: the moves, the shuffle and the draws beside it moved the state.
     case 'WheelShuffled':
       return state;
+    // D511 - the bolster's marker: the counters beside it moved the state.
+    case 'Bolstered':
+      return state;
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
       return state;

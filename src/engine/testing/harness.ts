@@ -22,6 +22,7 @@ import type { OracleDb } from '../types/oracle';
 import { candidatesFromState, minimumLegalTargets, type TargetingSource } from '../targets';
 import { faceOf } from '../oracle';
 import { freeCastCandidates, handChoiceCandidates } from '../handChoice';
+import { leastToughnessCreatures } from '../effects';
 
 export const ORACLE: OracleDb = ingestOracle(ENGINE_CARDS).db;
 
@@ -598,7 +599,8 @@ export function simplestAnswer(
               state.cards[id]?.revealedTo.includes(awaiting.player),
             )
           : awaiting.zone === 'battlefield'
-            ? state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
+            // D511 - a computed pick (bolster's least toughness) is the host's own set.
+            ? awaiting.pick === 'leastToughness' ? leastToughnessCreatures(state, deps(), awaiting.player) : state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
             // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
             : awaiting.castFree === true
               ? freeCastCandidates(state, deps(), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })

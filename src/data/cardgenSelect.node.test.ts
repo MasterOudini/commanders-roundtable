@@ -791,6 +791,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D511 - bolster: the rows the select offered and the row maker refused, by its own reasons.
+  ['Anafenza, Kin-Tree Spirit', 'a bolster under a head the staged creature would fire: anotherCreatureEnters (D511)'],
+  ['Dromoka, the Eternal', 'trigger head not in the library: Whenever a Dragon you control attacks, bolster 2. (D511)'],
   // D510 - the untap choice, the mass can't-block and the wheel: the rows the select offered and the row maker refused, by its own reasons.
   ['Midnight Clock', 'trigger payload not a pump: Put an hour counter on this artifact. (D510)'],
   // D509 - the controller word on every target noun: the rows the select offered and the row maker refused, by its own reasons.
@@ -1486,7 +1489,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Devastation is the LOSE direction of the temp-grant carrier (Day of
   // Black Sun's class); Hypothesizzle's may-discard rider and the
   // bolster tie are the script-prompt seam's 13th and 14th entries.
-  ["Honor's Reward", 'script-raised prompt'],
   ['Horses of the Bruinen', 'the Ring mechanic'],
   ['Hostile Takeover', 'until-end-of-turn base P/T set'],
   ['Hour of Devastation', 'temporary keyword/ability grant'],
@@ -1636,7 +1638,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Part Water', 'cast-time computed target count'],
   // D233 (M6.4bv)
   ['Pieces of the Puzzle', 'script-raised prompt'],
-  ['Pinion Feast', 'bolster tie choice'],
   ['Piracy', 'tap-permission grant'],
   // D234 (M6.4bw)
   ['Polymorph', 'ctx.random'],
@@ -2377,7 +2378,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // multi-sacrifice cost).
   ['Pitfall Trap', 'cast-time alternative cost'],
   ['Slingbow Trap', 'cast-time alternative cost'],
-  ['Enduring Victory', 'bolster tie choice'],
   ['Sandstone Deadfall', 'multi-sacrifice cost'],
   // ⚠️ `Lieutenant Kirtar` sacrifices ITSELF BY NAME ("Sacrifice Lieutenant
   // Kirtar:"); the cost reader prices "Sacrifice this creature" and not the

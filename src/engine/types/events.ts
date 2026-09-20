@@ -358,6 +358,8 @@ export type EventBody =
   | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap' | 'massCantBlock'; readonly members: number; readonly text: string }
   /** D510 - a player's hand and graveyard went into their library and were shuffled, and they drew (a marker; the moves, the shuffle and the draws beside it moved the state). */
   | { readonly t: 'WheelShuffled'; readonly player: PlayerId; readonly cards: number; readonly drew: number }
+  /** D511 - a bolster resolved: the creature that got the counters, or none (a marker; the counters beside it moved the state). */
+  | { readonly t: 'Bolstered'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }
@@ -424,7 +426,7 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
-  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' }
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's

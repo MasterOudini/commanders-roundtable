@@ -8486,6 +8486,10 @@ export const FALTER: CardData = F.FALTER as CardData;
 export const SEISMIC_STOMP: CardData = F.SEISMIC_STOMP as CardData;
 export const TIME_REVERSAL: CardData = F.TIME_REVERSAL as CardData;
 export const TIMETWISTER: CardData = F.TIMETWISTER as CardData;
+export const CACHED_DEFENSES: CardData = F.CACHED_DEFENSES as CardData;
+export const ABZAN_ADVANTAGE: CardData = F.ABZAN_ADVANTAGE as CardData;
+export const HONOR_S_REWARD: CardData = F.HONOR_S_REWARD as CardData;
+export const DROMOKA_S_GIFT: CardData = F.DROMOKA_S_GIFT as CardData;
 export const SAKURA_TRIBE_SCOUT: CardData = F.SAKURA_TRIBE_SCOUT as CardData;
 export const PATRON_OF_THE_MOON: CardData = F.PATRON_OF_THE_MOON as CardData;
 export const WALKING_ATLAS: CardData = F.WALKING_ATLAS as CardData;
@@ -8631,6 +8635,13 @@ export const TREACHERY: CardData = F.TREACHERY as CardData;
 export const PALINCHRON: CardData = F.PALINCHRON as CardData;
 export const CHAMPION_OF_RHONAS: CardData = F.CHAMPION_OF_RHONAS as CardData;
 export const GRAFTED_GROWTH: CardData = F.GRAFTED_GROWTH as CardData;
+export const ABZAN_SKYCAPTAIN: CardData = F.ABZAN_SKYCAPTAIN as CardData;
+export const AVEN_TACTICIAN: CardData = F.AVEN_TACTICIAN as CardData;
+export const DROMOKA_CAPTAIN: CardData = F.DROMOKA_CAPTAIN as CardData;
+export const ECHOES_OF_THE_KIN_TREE: CardData = F.ECHOES_OF_THE_KIN_TREE as CardData;
+export const SANDCRAFTER_MAGE: CardData = F.SANDCRAFTER_MAGE as CardData;
+export const SANDSTEPPE_MASTODON: CardData = F.SANDSTEPPE_MASTODON as CardData;
+export const SANDSTEPPE_SCAVENGER: CardData = F.SANDSTEPPE_SCAVENGER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17365,6 +17376,10 @@ export const ENGINE_CARDS: CardData[] = [
   SEISMIC_STOMP,
   TIME_REVERSAL,
   TIMETWISTER,
+  CACHED_DEFENSES,
+  ABZAN_ADVANTAGE,
+  HONOR_S_REWARD,
+  DROMOKA_S_GIFT,
   SAKURA_TRIBE_SCOUT,
   PATRON_OF_THE_MOON,
   WALKING_ATLAS,
@@ -17510,6 +17525,13 @@ export const ENGINE_CARDS: CardData[] = [
   PALINCHRON,
   CHAMPION_OF_RHONAS,
   GRAFTED_GROWTH,
+  ABZAN_SKYCAPTAIN,
+  AVEN_TACTICIAN,
+  DROMOKA_CAPTAIN,
+  ECHOES_OF_THE_KIN_TREE,
+  SANDCRAFTER_MAGE,
+  SANDSTEPPE_MASTODON,
+  SANDSTEPPE_SCAVENGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

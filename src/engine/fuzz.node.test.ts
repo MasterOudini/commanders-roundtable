@@ -39,6 +39,7 @@ import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
 import { freeCastCandidates, handChoiceCandidates } from './handChoice';
+import { leastToughnessCreatures } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -293,6 +294,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Timetwister ({2}{U}) over Time Reversal ({3}{U}{U}): the five-mana sorcery wheeled nobody over 60 seeds (canary510).
   { names: ['Snap', 'Falter', 'Timetwister'], copiesPerSeat: 2,
     counterKeys: ['untapChoices', 'massCantBlocks', 'wheels'], rotHistory: 'D510' },
+  // D511 - bolster (CR 701.37): two Cached Defenses ({2}{G} sorcery, `Bolster 3.`) and two Abzan Advantages ({1}{W} instant,
+  // `Target player sacrifices an enchantment. Bolster 1.`) a seat - the queue's bolster verb over the caster's least-toughness
+  // creature, asked on a tie; the marker `Bolstered` is written on every path (the null-card one too). 1 over 20 seeds with
+  // Cached Defenses alone; the two-mana instant is the fuel.
+  { names: ['Cached Defenses', 'Abzan Advantage'], copiesPerSeat: 2, counterKeys: ['bolsters'], rotHistory: 'D511' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1059,7 +1065,8 @@ function answerFor(state: GameState, p: Picker): Intent | null {
               return face ? predicateAdmits(face, awaiting.filter.predicates) : false;
             })
           : awaiting.zone === 'battlefield'
-            ? state.zones.battlefield.filter((id) => {
+            // D511 - a computed pick (bolster's least toughness) is the host's own set.
+            ? awaiting.pick === 'leastToughness' ? [...leastToughnessCreatures(state, deps(SCRIPTS), awaiting.player)] : state.zones.battlefield.filter((id) => {
                 // D390 - a queued sacrifice: my own permanents the printed noun admits.
                 const inst = state.cards[id];
                 if (!inst || inst.controller !== awaiting.player) return false;
@@ -1562,6 +1569,8 @@ interface Run {
   readonly massCantBlocks: number;
   /** D510 - wheels into the library (a `WheelShuffled` per player). */
   readonly wheels: number;
+  /** D511 - bolster clauses that ran (a `Bolstered` marker each - a chosen creature or none). */
+  readonly bolsters: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -2030,6 +2039,7 @@ function runOne(seed: number): Run {
     untapChoices: game.log.filter((e) => e.body.t === 'AsksResolved' && e.body.verb === 'untap').length,
     massCantBlocks: game.log.filter((e) => e.body.t === 'ScopeWalked' && e.body.verb === 'massCantBlock').length,
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
+    bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2330,6 +2340,7 @@ const TOTAL_KEYS = [
   'untapChoices',
   'massCantBlocks',
   'wheels',
+  'bolsters',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2777,6 +2788,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.untapChoices).toBeGreaterThan(0);
         expect(totals.massCantBlocks).toBeGreaterThan(0);
         expect(totals.wheels).toBeGreaterThan(0);
+        // D511 - a bolster ran at gate size (Cached Defenses and Abzan Advantage two a seat; 4 over the first 60 seeds, canary511 -
+        // the marker counts the unasked and the empty paths too).
+        expect(totals.bolsters).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2902,6 +2916,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.referentSearches} referent searches · ` +
           `${totals.handPutClauses}/${totals.handPutAsks}/${totals.handPuts} hand-put clauses/asks/cards · ` +
           `${totals.untapChoices} untap choices · ${totals.massCantBlocks} mass can't-blocks · ${totals.wheels} wheels · ` +
+          `${totals.bolsters} bolsters · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

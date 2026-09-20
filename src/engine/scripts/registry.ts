@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ABZAN_SKYCAPTAIN_SCRIPT } from './cards/abzanSkycaptain';
+import { AVEN_TACTICIAN_SCRIPT } from './cards/avenTactician';
+import { DROMOKA_CAPTAIN_SCRIPT } from './cards/dromokaCaptain';
+import { ECHOES_OF_THE_KIN_TREE_SCRIPT } from './cards/echoesOfTheKinTree';
+import { SANDCRAFTER_MAGE_SCRIPT } from './cards/sandcrafterMage';
+import { SANDSTEPPE_MASTODON_SCRIPT } from './cards/sandsteppeMastodon';
+import { SANDSTEPPE_SCAVENGER_SCRIPT } from './cards/sandsteppeScavenger';
 import { CLOUD_OF_FAERIES_SCRIPT } from './cards/cloudOfFaeries';
 import { GREAT_WHALE_SCRIPT } from './cards/greatWhale';
 import { PEREGRINE_DRAKE_SCRIPT } from './cards/peregrineDrake';
@@ -7867,6 +7874,13 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ABZAN_SKYCAPTAIN_SCRIPT,
+  AVEN_TACTICIAN_SCRIPT,
+  DROMOKA_CAPTAIN_SCRIPT,
+  ECHOES_OF_THE_KIN_TREE_SCRIPT,
+  SANDCRAFTER_MAGE_SCRIPT,
+  SANDSTEPPE_MASTODON_SCRIPT,
+  SANDSTEPPE_SCAVENGER_SCRIPT,
   CLOUD_OF_FAERIES_SCRIPT,
   GREAT_WHALE_SCRIPT,
   PEREGRINE_DRAKE_SCRIPT,
