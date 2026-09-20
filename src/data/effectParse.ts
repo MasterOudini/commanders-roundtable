@@ -379,6 +379,41 @@ function readScope(raw: string | undefined): BoardScope | null {
   return word === undefined ? null : { kind: 'creature', controller: 'any', keyword: word, keywordAbsent: kw[1] === 'without' };
 }
 
+/**
+ * D505 - THE WIDE SCOPE the mass verbs read: `each` / `all`, an optional `other`, an optional capitalised subtype, the
+ * noun (creatures; lands, artifacts, enchantments, permanents; `nonland permanents`; attacking creatures) and a
+ * controller phrase (`you control`, `your opponents control`, `you don't control`); the closed scope grammar above
+ * stands behind it. `target player controls` and `the chosen type` stay unread.
+ */
+function readWideScope(raw: string): BoardScope | null {
+  const s = raw.trim();
+  const ctl = (w: string | undefined): BoardScope['controller'] | null =>
+    w === undefined ? 'any' : /^you control$/i.test(w) ? 'you' : /^(?:your opponents control|you don't control)$/i.test(w) ? 'opponents' : null;
+  let m = /^(?:each|all) (other )?(?:([A-Z][a-z]+) )?creatures?(?: (you control|your opponents control|you don't control))?$/.exec(s);
+  if (m) {
+    const c = ctl(m[3]);
+    if (c === null) return null;
+    return { kind: 'creature', controller: c, ...(m[1] !== undefined ? { other: true as const } : {}), ...(m[2] !== undefined ? { subtype: m[2] } : {}) };
+  }
+  m = /^each (other )?([A-Z][a-z]+)(?: (you control|your opponents control|you don't control))?$/.exec(s);
+  if (m && !/^(?:Creature|Creatures|Permanent|Player|Opponent|Land|Artifact|Enchantment|Planeswalker|Battle)$/.test(m[2] ?? '')) {
+    const c = ctl(m[3]);
+    if (c === null) return null;
+    return { kind: 'creature', controller: c, subtype: m[2] as string, ...(m[1] !== undefined ? { other: true as const } : {}) };
+  }
+  m = /^all (other )?(nonland )?(lands|artifacts|enchantments|permanents)(?: (you control|your opponents control|you don't control))?$/i.exec(s);
+  if (m) {
+    const c = ctl(m[4]);
+    if (c === null) return null;
+    const t = (m[3] ?? '').toLowerCase();
+    const type = t === 'lands' ? 'Land' : t === 'artifacts' ? 'Artifact' : t === 'enchantments' ? 'Enchantment' : undefined;
+    if (type === 'Land' && m[2] !== undefined) return null;
+    return { kind: 'permanent', controller: c, ...(type !== undefined ? { type } : {}), ...(m[1] !== undefined ? { other: true as const } : {}), ...(m[2] !== undefined ? { nonland: true as const } : {}) };
+  }
+  if (/^(?:all )?attacking creatures$/i.test(s)) return { kind: 'creature', controller: 'any', attacking: true };
+  return readScope(s.toLowerCase());
+}
+
 function grantedKeywords(...raw: (string | undefined)[]): readonly Keyword[] | null {
   const out: Keyword[] = [];
   for (const r of raw) {
@@ -987,6 +1022,38 @@ const RULES: readonly Rule[] = [
       return Number.isFinite(p) && Number.isFinite(t) && kws !== null
         ? { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: -1, self: true }
         : null;
+    },
+  },
+  /**
+   * D505 - THE MASS VERBS OVER A SCOPE. `Put a +1/+1 counter on each creature you control.` / `Put a stun counter on
+   * each creature you don't control.` / `Tap all creatures your opponents control.` / `Untap all creatures you
+   * control.` / `Untap all lands you control.` - the wide scope (`readWideScope`), no target slot consumed, the
+   * executor walking the board. An X count and `target player controls` stay unread.
+   */
+  {
+    kind: 'massCounters',
+    re: new RegExp(`^(?:then )?put (${COUNT}) (${COUNTER_KIND}) counters? on ((?:each|all) (?!of )[^.]+?)\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf(m[2]);
+      const s = readWideScope(m[3] ?? '');
+      return n === null || kind === null || s === null || s.kind === 'player' ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'massTap',
+    re: /^(?:then )?tap ((?:all|each) (?!of )[^.]+?)\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'massUntap',
+    re: /^(?:then )?untap ((?:all|each) (?!of )[^.]+?)\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
     },
   },
   {

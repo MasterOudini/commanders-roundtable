@@ -594,6 +594,12 @@ export interface BoardScope {
   readonly keywordAbsent?: boolean;
   /** `creature` only: the member must be attacking right now. */
   readonly attacking?: boolean;
+  /** D505 - `other`: every member but the source itself (`each other creature you control`, `all other creatures`). */
+  readonly other?: true;
+  /** D505 - `creature` only: a subtype the member must have (`each Merfolk creature you control`, `each Fractal you control`). */
+  readonly subtype?: string;
+  /** D505 - `permanent` only: `nonland permanents`. */
+  readonly nonland?: true;
 }
 
 export type EffectKind =
@@ -633,6 +639,15 @@ export type EffectKind =
    * one entry per creature, all ending at cleanup.
    */
   | 'massPump'
+  /**
+   * D505 - THE MASS VERBS OVER A SCOPE: `Put a +1/+1 counter on each creature you control.` (`massCounters` - the
+   * counter kind and the count on every member), `Tap all creatures your opponents control.` (`massTap`), `Untap all
+   * creatures you control.` (`massUntap`). The scope names no target and consumes no slot; the executor walks the
+   * board (`scopeMembers`), and the members it reached ride the events for the object verbs after it (D500).
+   */
+  | 'massCounters'
+  | 'massTap'
+  | 'massUntap'
   /** D391 - CR 701.27a: one more counter of each kind on the permanents and players chosen. */
   | 'proliferate'
   | 'tap'

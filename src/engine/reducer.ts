@@ -1337,6 +1337,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D504 - the referent player's marker: the clause's own events beside it moved the state.
     case 'ReferentPlayerBound':
       return state;
+    // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
+    case 'ScopeWalked':
+      return state;
     // D417 - a play permission: one entry per card (a second grant for the same card replaces the first).
     case 'PlayPermissionGranted':
       return { ...state, playPermissions: [...state.playPermissions.filter((p) => p.card !== body.permission.card), body.permission] };

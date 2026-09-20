@@ -9372,6 +9372,10 @@ const WANTED = [
   'Dismal Failure',
   'Crib Swap',
   'Pongify',
+  // D505 - the mass verbs over a scope: the seam tests' spells and the fuzz staple (Vitalize - a fixture since D338 - and Bond of Discipline).
+  'Bond of Discipline',
+  "The Crystal's Chosen",
+  'Duty Beyond Death',
   // D502 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D503 - the flavour words: the rows whose trigger head sits behind an ability or flavour word (Opus, Repartee, Vivid, Void, the Universes Beyond words), and the rows the classifier lagged (Domri Rade, Flow of Maggots, Prosperity Tycoon).
   'Dwarven Patrol',
@@ -9413,6 +9417,17 @@ const WANTED = [
   // D504 - the previous object's controller: the rows whose payload is done by the controller of the object the clause before acted on (the seam's wave).
   'Zulaport Duelist',
   // D504 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D505 - the mass verbs over a scope: the rows whose payload puts a counter on each creature, taps or untaps all creatures of a scope (the seam's wave).
+  'Action News Crew',
+  'Archfiend of Ifnir',
+  'Greenbelt Radical',
+  'Roaring Slagwurm',
+  'Subjugator Angel',
+  'Village Bell-Ringer',
+  'Ultimecia, Temporal Threat',
+  'Veteran Beastrider',
+  'Mu Yanling',
+  // D505 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

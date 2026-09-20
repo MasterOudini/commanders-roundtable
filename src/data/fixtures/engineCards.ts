@@ -8464,6 +8464,9 @@ export const COUNTERMAND: CardData = F.COUNTERMAND as CardData;
 export const DISMAL_FAILURE: CardData = F.DISMAL_FAILURE as CardData;
 export const CRIB_SWAP: CardData = F.CRIB_SWAP as CardData;
 export const PONGIFY: CardData = F.PONGIFY as CardData;
+export const BOND_OF_DISCIPLINE: CardData = F.BOND_OF_DISCIPLINE as CardData;
+export const THE_CRYSTAL_S_CHOSEN: CardData = F.THE_CRYSTAL_S_CHOSEN as CardData;
+export const DUTY_BEYOND_DEATH: CardData = F.DUTY_BEYOND_DEATH as CardData;
 export const DWARVEN_PATROL: CardData = F.DWARVEN_PATROL as CardData;
 export const MOON_BLESSED_CLERIC: CardData = F.MOON_BLESSED_CLERIC as CardData;
 export const SQUALL_SEED_MERCENARY: CardData = F.SQUALL_SEED_MERCENARY as CardData;
@@ -8498,6 +8501,15 @@ export const WINTER_ELADRIN: CardData = F.WINTER_ELADRIN as CardData;
 export const PROSPERITY_TYCOON: CardData = F.PROSPERITY_TYCOON as CardData;
 export const LORD_OF_CHANGE: CardData = F.LORD_OF_CHANGE as CardData;
 export const ZULAPORT_DUELIST: CardData = F.ZULAPORT_DUELIST as CardData;
+export const ACTION_NEWS_CREW: CardData = F.ACTION_NEWS_CREW as CardData;
+export const ARCHFIEND_OF_IFNIR: CardData = F.ARCHFIEND_OF_IFNIR as CardData;
+export const GREENBELT_RADICAL: CardData = F.GREENBELT_RADICAL as CardData;
+export const ROARING_SLAGWURM: CardData = F.ROARING_SLAGWURM as CardData;
+export const SUBJUGATOR_ANGEL: CardData = F.SUBJUGATOR_ANGEL as CardData;
+export const VILLAGE_BELL_RINGER: CardData = F.VILLAGE_BELL_RINGER as CardData;
+export const ULTIMECIA_TEMPORAL_THREAT: CardData = F.ULTIMECIA_TEMPORAL_THREAT as CardData;
+export const VETERAN_BEASTRIDER: CardData = F.VETERAN_BEASTRIDER as CardData;
+export const MU_YANLING: CardData = F.MU_YANLING as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17209,6 +17221,9 @@ export const ENGINE_CARDS: CardData[] = [
   DISMAL_FAILURE,
   CRIB_SWAP,
   PONGIFY,
+  BOND_OF_DISCIPLINE,
+  THE_CRYSTAL_S_CHOSEN,
+  DUTY_BEYOND_DEATH,
   DWARVEN_PATROL,
   MOON_BLESSED_CLERIC,
   SQUALL_SEED_MERCENARY,
@@ -17243,6 +17258,15 @@ export const ENGINE_CARDS: CardData[] = [
   PROSPERITY_TYCOON,
   LORD_OF_CHANGE,
   ZULAPORT_DUELIST,
+  ACTION_NEWS_CREW,
+  ARCHFIEND_OF_IFNIR,
+  GREENBELT_RADICAL,
+  ROARING_SLAGWURM,
+  SUBJUGATOR_ANGEL,
+  VILLAGE_BELL_RINGER,
+  ULTIMECIA_TEMPORAL_THREAT,
+  VETERAN_BEASTRIDER,
+  MU_YANLING,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

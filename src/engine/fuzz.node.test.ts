@@ -262,6 +262,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the destroyed permanent's controller, bound as the clause runs).
   { names: ['Beast Within', 'Generous Gift'], copiesPerSeat: 2,
     counterKeys: ['referentPlayers'], rotHistory: 'D504' },
+  // D505 - the mass verbs over a scope: two Vitalizes and two Bonds of Discipline a seat ({G} instant `Untap all
+  // creatures you control.`; {4}{W} sorcery `Tap all creatures your opponents control. Creatures you control gain
+  // lifelink until end of turn.` - the scope walked, the marker counted).
+  { names: ['Vitalize', 'Bond of Discipline'], copiesPerSeat: 2,
+    counterKeys: ['scopesWalked'], rotHistory: 'D505' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1511,6 +1516,8 @@ interface Run {
   readonly extraTurnsTaken: number;
   /** D504 - clauses bound to the previous object's controller or owner (`ReferentPlayerBound`). */
   readonly referentPlayers: number;
+  /** D505 - mass verbs that walked a scope (`ScopeWalked`). */
+  readonly scopesWalked: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1971,6 +1978,7 @@ function runOne(seed: number): Run {
     extraTurnsAdded: game.log.filter((e) => e.body.t === 'ExtraTurnAdded').length,
     extraTurnsTaken: game.log.filter((e) => e.body.t === 'TurnBegan' && e.body.extra !== undefined).length,
     referentPlayers: game.log.filter((e) => e.body.t === 'ReferentPlayerBound').length,
+    scopesWalked: game.log.filter((e) => e.body.t === 'ScopeWalked').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2263,6 +2271,7 @@ const TOTAL_KEYS = [
   'extraTurnsAdded',
   'extraTurnsTaken',
   'referentPlayers',
+  'scopesWalked',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2696,6 +2705,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.extraTurnsTaken).toBeGreaterThan(0);
         // D504 - a clause bound to the previous object's controller at gate size (Beast Within, Generous Gift, two a seat).
         expect(totals.referentPlayers).toBeGreaterThan(0);
+        // D505 - a mass verb walked a scope at gate size (Vitalize, Bond of Discipline, two a seat).
+        expect(totals.scopesWalked).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2817,6 +2828,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.spellFates} spell fates · ` +
           `${totals.extraTurnsAdded}/${totals.extraTurnsTaken} extra turns added/taken · ` +
           `${totals.referentPlayers} referent players · ` +
+          `${totals.scopesWalked} scopes walked · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

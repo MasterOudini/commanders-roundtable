@@ -286242,6 +286242,105 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BOND_OF_DISCIPLINE": {
+    "scryfallId": "402d024d-f5c9-4a4b-bf4d-823ef2845e90",
+    "oracleId": "00e9957a-5684-4a07-954e-8161925fefe4",
+    "name": "Bond of Discipline",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bond of Discipline",
+        "manaCost": "{4}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Tap all creatures your opponents control. Creatures you control gain lifelink until end of turn.",
+        "flavorText": "\"We agree that order benefits everyone, but not until you enforce it.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "402d024d-f5c9-4a4b-bf4d-823ef2845e90"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "WAR-6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_CRYSTAL_S_CHOSEN": {
+    "scryfallId": "d4df4373-0ee6-44e3-81c6-0881c070014c",
+    "oracleId": "df4ef2f8-2591-4be3-b905-4f9ff9c538ea",
+    "name": "The Crystal's Chosen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Crystal's Chosen",
+        "manaCost": "{5}{W}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create four 1/1 colorless Hero creature tokens. Then put a +1/+1 counter on each creature you control.",
+        "flavorText": "Within the light, the will of the crystal surged through them. They decided to accept their destiny. And so began a journey to dispel the darkness and return light to the world ...",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kotetsu Kinoshita",
+        "imageId": "d4df4373-0ee6-44e3-81c6-0881c070014c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUTY_BEYOND_DEATH": {
+    "scryfallId": "2e92640d-768b-4357-905f-bea017d351cc",
+    "oracleId": "67e6ce99-4883-4713-9822-cb2334765b5b",
+    "name": "Duty Beyond Death",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duty Beyond Death",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "As an additional cost to cast this spell, sacrifice a creature.\nCreatures you control gain indestructible until end of turn. Put a +1/+1 counter on each creature you control. (Damage and effects that say \"destroy\" don't destroy those creatures.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Fang",
+        "imageId": "2e92640d-768b-4357-905f-bea017d351cc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "DWARVEN_PATROL": {
     "scryfallId": "03c08df5-f5e7-4498-ac80-25ccbe304b26",
     "oracleId": "4369adc8-d8e0-4d51-b2a9-7e4a8dfd9f8f",
@@ -287435,6 +287534,317 @@
     ],
     "setCode": "znr",
     "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACTION_NEWS_CREW": {
+    "scryfallId": "bc0f5ca8-47bd-4451-8fd1-a312ff7d31ec",
+    "oracleId": "a9d68cf5-3055-4ec9-9893-244bfd7046be",
+    "name": "Action News Crew",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Action News Crew",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "Vigilance\nChannel — {6}, Discard this card: Put a +1/+1 counter on each creature you control. Draw a card.",
+        "flavorText": "\"I just hope this isn't another wild turtle chase!\"\n—Vernon Fenwick",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gabriel Tanko",
+        "imageId": "bc0f5ca8-47bd-4451-8fd1-a312ff7d31ec"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Channel"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCHFIEND_OF_IFNIR": {
+    "scryfallId": "241a11fd-21af-4358-91f4-13f8c22d19d5",
+    "oracleId": "535e2af0-7b08-4026-b1bf-87626407dd42",
+    "name": "Archfiend of Ifnir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Archfiend of Ifnir",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nWhenever you cycle or discard another card, put a -1/-1 counter on each creature your opponents control.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "241a11fd-21af-4358-91f4-13f8c22d19d5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Cycling"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "64422",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREENBELT_RADICAL": {
+    "scryfallId": "88e62346-cc62-4938-970c-b56beeb79fa6",
+    "oracleId": "d0a4efc3-fa68-48f2-a6d0-2fff93e05c77",
+    "name": "Greenbelt Radical",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Greenbelt Radical",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Centaur Citizen",
+        "oracleText": "Disguise {5}{G}{G} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, put a +1/+1 counter on each creature you control. Creatures you control gain trample until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "88e62346-cc62-4938-970c-b56beeb79fa6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROARING_SLAGWURM": {
+    "scryfallId": "0338c6fe-54f6-4be0-a70d-b15e5403d842",
+    "oracleId": "856d8eb4-3834-49f8-9696-579948590fd0",
+    "name": "Roaring Slagwurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roaring Slagwurm",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Whenever this creature attacks, tap all artifacts.",
+        "flavorText": "Wurms compete for nesting grounds near the Radix. The young who hatch closest have the best chance for survival.",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Martin",
+        "imageId": "0338c6fe-54f6-4be0-a70d-b15e5403d842"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUBJUGATOR_ANGEL": {
+    "scryfallId": "071611fa-e78d-444e-b6ae-58c814543da5",
+    "oracleId": "88b1e06c-5899-4e83-8204-e2c32c0c6aff",
+    "name": "Subjugator Angel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Subjugator Angel",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, tap all creatures your opponents control.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "071611fa-e78d-444e-b6ae-58c814543da5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILLAGE_BELL_RINGER": {
+    "scryfallId": "3543ed04-9519-4d69-b2ab-cd6c0747d9fd",
+    "oracleId": "d7b50175-b473-452a-bb30-19a71c42e649",
+    "name": "Village Bell-Ringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Village Bell-Ringer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, untap all creatures you control.",
+        "flavorText": "\"Priests, hunters, slayers—to arms! The enemy approaches!\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "3543ed04-9519-4d69-b2ab-cd6c0747d9fd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "ddq",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ULTIMECIA_TEMPORAL_THREAT": {
+    "scryfallId": "166f9d06-c390-4cc8-ad33-3fd14e499527",
+    "oracleId": "5a8e7e35-e9ea-4808-8aa7-7580a23b9d9d",
+    "name": "Ultimecia, Temporal Threat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ultimecia, Temporal Threat",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Creature — Human Warlock",
+        "oracleText": "When Ultimecia enters, tap all creatures your opponents control.\nWhenever a creature you control deals combat damage to a player, draw a card.",
+        "flavorText": "\"Ultimecia is a fearful sorceress. Her heart is filled with anger and hate.\"\n—Edea Kramer",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bachzim",
+        "imageId": "166f9d06-c390-4cc8-ad33-3fd14e499527"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pmei",
+    "collectorNumber": "2025-11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VETERAN_BEASTRIDER": {
+    "scryfallId": "cab38f35-b60c-464c-a0b5-9d5f2dc6de7f",
+    "oracleId": "29f1484c-91b6-436a-a6be-3ab8b58c0fc1",
+    "name": "Veteran Beastrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Veteran Beastrider",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "At the beginning of your end step, untap each creature you control.\n{2}{G}{W}: Creatures you control get +1/+1 until end of turn.",
+        "flavorText": "\"Your enemies will underestimate you, but you must never underestimate yourself.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "cab38f35-b60c-464c-a0b5-9d5f2dc6de7f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "226",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MU_YANLING": {
+    "scryfallId": "06918f9a-e0fa-4a3d-aed9-3bee98f7a2b9",
+    "oracleId": "34e1477a-c0fb-4364-bb93-04a85c0c2517",
+    "name": "Mu Yanling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mu Yanling",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Planeswalker — Yanling",
+        "oracleText": "+2: Target creature can't be blocked this turn.\n−3: Draw two cards.\n−10: Tap all creatures your opponents control. You take an extra turn after this one.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "林玄泰",
+        "imageId": "06918f9a-e0fa-4a3d-aed9-3bee98f7a2b9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "pz2",
+    "collectorNumber": "70795",
     "commanderLegality": "legal",
     "singleImage": true
   },

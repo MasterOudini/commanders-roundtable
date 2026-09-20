@@ -16,7 +16,7 @@ import { shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import { SELF_AIMED, type BoardScope, type CopyExceptions, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
+import { SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { suspendTickSpec } from '../data/effectParse';
 import { modeSpecs } from './modes';
@@ -1865,6 +1865,31 @@ export function effectResult(
         break;
       }
 
+      // D505 - THE MASS VERBS OVER A SCOPE: every member the scope reaches (`scopeMembers`, the source left out of an
+      // `other` scope) gets the counters, is tapped or is untapped in ONE event, so the object verbs after the clause
+      // read the members off it (D500); the marker says how many. A scope that reaches nothing does nothing.
+      // The scope is walked over the state the clauses BEFORE it left (the tokens The Crystal's Chosen just made are
+      // creatures it controls), so the events so far are applied to a scratch state first - and the derive cache, keyed
+      // on the state the resolution began in, is set aside for it.
+      case 'massCounters':
+      case 'massTap':
+      case 'massUntap': {
+        if (effect.kind === 'massCounters' && (effect.counterKind === null || effect.amount === 0)) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const reached = scopeMembers(now, deps, controller, effect.scopes ?? [], now === state ? cache : undefined, source ?? null).cards;
+        const members = effect.kind === 'massCounters'
+          ? reached.filter((id) => now.cards[id]?.zone.kind === 'battlefield')
+          : effect.kind === 'massTap'
+            ? reached.filter((id) => now.cards[id]?.tapped !== true)
+            : reached.filter((id) => now.cards[id]?.tapped === true);
+        out.push({ t: 'ScopeWalked', verb: effect.kind, members: members.length, text: effect.text });
+        if (members.length === 0) break;
+        if (effect.kind === 'massCounters') out.push({ t: 'CountersChanged', changes: members.map((card) => ({ card, kind: effect.counterKind as CounterKind, delta: effect.amount })) });
+        else if (effect.kind === 'massTap') out.push({ t: 'PermanentsTapped', cards: members });
+        else out.push({ t: 'PermanentsUntapped', cards: members });
+        break;
+      }
       case 'putCounters':
       case 'removeCounters': {
         if (aim?.kind !== 'card' || effect.counterKind === null) break;
@@ -2250,6 +2275,8 @@ function scopeMembers(
   controller: PlayerId,
   scopes: readonly BoardScope[],
   cache?: DeriveCache,
+  /** D505 - the source an `other` scope leaves out. */
+  exclude?: InstanceId | null,
 ): { cards: InstanceId[]; players: PlayerId[] } {
   const cards: InstanceId[] = [];
   const players: PlayerId[] = [];
@@ -2274,6 +2301,10 @@ function scopeMembers(
       if (scope.kind === 'permanent' && scope.type !== undefined && !d.typeLine.types.includes(scope.type)) continue;
       if (scope.attacking === true && !attacking.has(id)) continue;
       if (scope.keyword !== undefined && d.keywords.has(scope.keyword) === (scope.keywordAbsent === true)) continue;
+      // D505 - `other` (not the source), a subtype, `nonland`.
+      if (scope.other === true && exclude !== undefined && exclude !== null && id === exclude) continue;
+      if (scope.subtype !== undefined && !d.typeLine.subtypes.includes(scope.subtype)) continue;
+      if (scope.nonland === true && d.typeLine.types.includes('Land')) continue;
       cards.push(id);
     }
   }

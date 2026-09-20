@@ -352,6 +352,8 @@ export type EventBody =
   | { readonly t: 'ExtraTurnDropped'; readonly player: PlayerId }
   /** D504 - a clause done by the previous object's controller (or owner) was bound to that player (a marker; the clause's own events follow). */
   | { readonly t: 'ReferentPlayerBound'; readonly player: PlayerId; readonly text: string }
+  /** D505 - a mass verb walked its scope (a marker; the counters, taps or untaps beside it moved the state). */
+  | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap'; readonly members: number; readonly text: string }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }

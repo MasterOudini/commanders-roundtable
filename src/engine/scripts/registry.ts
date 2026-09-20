@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ARCHFIEND_OF_IFNIR_SCRIPT } from './cards/archfiendOfIfnir';
+import { GREENBELT_RADICAL_SCRIPT } from './cards/greenbeltRadical';
+import { ROARING_SLAGWURM_SCRIPT } from './cards/roaringSlagwurm';
+import { SUBJUGATOR_ANGEL_SCRIPT } from './cards/subjugatorAngel';
+import { VILLAGE_BELL_RINGER_SCRIPT } from './cards/villageBellRinger';
+import { ULTIMECIA_TEMPORAL_THREAT_SCRIPT } from './cards/ultimeciaTemporalThreat';
+import { VETERAN_BEASTRIDER_SCRIPT } from './cards/veteranBeastrider';
+import { MU_YANLING_SCRIPT } from './cards/muYanling';
 import { AJANI_INSPIRING_LEADER_SCRIPT } from './cards/ajaniInspiringLeader';
 import { ZULAPORT_DUELIST_SCRIPT } from './cards/zulaportDuelist';
 import { DWARVEN_PATROL_SCRIPT } from './cards/dwarvenPatrol';
@@ -5924,7 +5932,6 @@ import { THORNSCAPE_APPRENTICE_SCRIPT } from './cards/thornscapeApprentice';
 import { THRAGTUSK_SCRIPT } from './cards/thragtusk';
 import { THUNDERSCAPE_APPRENTICE_SCRIPT } from './cards/thunderscapeApprentice';
 import { TINKERS_TOTE_SCRIPT } from './cards/tinkersTote';
-import { TO_ARMS_SCRIPT } from './cards/toArms';
 import { TOPPLE_THE_STATUE_SCRIPT } from './cards/toppleTheStatue';
 import { TRANQUIL_PATH_SCRIPT } from './cards/tranquilPath';
 import { SORCEROUS_SIGHT_SCRIPT } from './cards/sorcerousSight';
@@ -6112,7 +6119,6 @@ import { VIRTUES_RUIN_SCRIPT } from './cards/virtuesRuin';
 import { VIRTUOUS_VARIANT_SCRIPT } from './cards/virtuousVariant';
 import { VIRULENT_EMISSARY_SCRIPT } from './cards/virulentEmissary';
 import { VISCERA_SEER_SCRIPT } from './cards/visceraSeer';
-import { VITALIZE_SCRIPT } from './cards/vitalize';
 import { VITALIZING_CASCADE_SCRIPT } from './cards/vitalizingCascade';
 import { VITHIAN_RENEGADES_SCRIPT } from './cards/vithianRenegades';
 import { VITU_GHAZI_THE_CITY_TREE_SCRIPT } from './cards/vituGhaziTheCityTree';
@@ -6224,7 +6230,6 @@ import { THIRD_PATH_SAVANT_SCRIPT } from './cards/thirdPathSavant';
 import { THOPTER_ARCHITECT_SCRIPT } from './cards/thopterArchitect';
 import { THORNWIND_FAERIES_SCRIPT } from './cards/thornwindFaeries';
 import { THORNWOOD_FALLS_SCRIPT } from './cards/thornwoodFalls';
-import { THOUGHTWEFT_GAMBIT_SCRIPT } from './cards/thoughtweftGambit';
 import { THOUGHTWEFT_LIEUTENANT_SCRIPT } from './cards/thoughtweftLieutenant';
 import { THRAN_VIGIL_SCRIPT } from './cards/thranVigil';
 import { THRASHING_BRONTODON_SCRIPT } from './cards/thrashingBrontodon';
@@ -6813,7 +6818,6 @@ import { NATURES_RUIN_SCRIPT } from './cards/naturesRuin';
 import { NAUSEA_SCRIPT } from './cards/nausea';
 import { NEBELGAST_BEGUILER_SCRIPT } from './cards/nebelgastBeguiler';
 import { MOB_JUSTICE_SCRIPT } from './cards/mobJustice';
-import { MOBILIZE_SCRIPT } from './cards/mobilize';
 import { MOGG_RAIDER_SCRIPT } from './cards/moggRaider';
 import { MOLECULAR_MODIFIER_SCRIPT } from './cards/molecularModifier';
 import { MOLTEN_RAIN_SCRIPT } from './cards/moltenRain';
@@ -6852,7 +6856,6 @@ import { MERCADIAS_DOWNFALL_SCRIPT } from './cards/mercadiasDownfall';
 import { MESA_CAVALIER_SCRIPT } from './cards/mesaCavalier';
 import { MESSENGER_DRAKE_SCRIPT } from './cards/messengerDrake';
 import { MESSENGER_FALCONS_SCRIPT } from './cards/messengerFalcons';
-import { METAL_FATIGUE_SCRIPT } from './cards/metalFatigue';
 import { METICULOUS_ARCHIVE_SCRIPT } from './cards/meticulousArchive';
 import { METROPOLIS_ANGEL_SCRIPT } from './cards/metropolisAngel';
 import { MIGHT_OF_ALARA_SCRIPT } from './cards/mightOfAlara';
@@ -7056,7 +7059,6 @@ import { DONATE_SCRIPT } from './cards/donate';
 import { DOUBLE_TROUBLE_SCRIPT } from './cards/doubleTrouble';
 import { DRAG_DOWN_SCRIPT } from './cards/dragDown';
 import { DRAG_TO_THE_BOTTOM_SCRIPT } from './cards/dragToTheBottom';
-import { DRAMATIC_REVERSAL_SCRIPT } from './cards/dramaticReversal';
 import { DROWN_IN_SORROW_SCRIPT } from './cards/drownInSorrow';
 import { DRY_SPELL_SCRIPT } from './cards/drySpell';
 import { DWARVEN_CATAPULT_SCRIPT } from './cards/dwarvenCatapult';
@@ -7773,6 +7775,14 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARCHFIEND_OF_IFNIR_SCRIPT,
+  GREENBELT_RADICAL_SCRIPT,
+  ROARING_SLAGWURM_SCRIPT,
+  SUBJUGATOR_ANGEL_SCRIPT,
+  VILLAGE_BELL_RINGER_SCRIPT,
+  ULTIMECIA_TEMPORAL_THREAT_SCRIPT,
+  VETERAN_BEASTRIDER_SCRIPT,
+  MU_YANLING_SCRIPT,
   AJANI_INSPIRING_LEADER_SCRIPT,
   ZULAPORT_DUELIST_SCRIPT,
   DWARVEN_PATROL_SCRIPT,
@@ -13690,7 +13700,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   THRAGTUSK_SCRIPT,
   THUNDERSCAPE_APPRENTICE_SCRIPT,
   TINKERS_TOTE_SCRIPT,
-  TO_ARMS_SCRIPT,
   TOPPLE_THE_STATUE_SCRIPT,
   TRANQUIL_PATH_SCRIPT,
   SORCEROUS_SIGHT_SCRIPT,
@@ -13878,7 +13887,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VIRTUOUS_VARIANT_SCRIPT,
   VIRULENT_EMISSARY_SCRIPT,
   VISCERA_SEER_SCRIPT,
-  VITALIZE_SCRIPT,
   VITALIZING_CASCADE_SCRIPT,
   VITHIAN_RENEGADES_SCRIPT,
   VITU_GHAZI_THE_CITY_TREE_SCRIPT,
@@ -13990,7 +13998,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   THOPTER_ARCHITECT_SCRIPT,
   THORNWIND_FAERIES_SCRIPT,
   THORNWOOD_FALLS_SCRIPT,
-  THOUGHTWEFT_GAMBIT_SCRIPT,
   THOUGHTWEFT_LIEUTENANT_SCRIPT,
   THRAN_VIGIL_SCRIPT,
   THRASHING_BRONTODON_SCRIPT,
@@ -14578,7 +14585,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NAUSEA_SCRIPT,
   NEBELGAST_BEGUILER_SCRIPT,
   MOB_JUSTICE_SCRIPT,
-  MOBILIZE_SCRIPT,
   MOGG_RAIDER_SCRIPT,
   MOLECULAR_MODIFIER_SCRIPT,
   MOLTEN_RAIN_SCRIPT,
@@ -14617,7 +14623,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MESA_CAVALIER_SCRIPT,
   MESSENGER_DRAKE_SCRIPT,
   MESSENGER_FALCONS_SCRIPT,
-  METAL_FATIGUE_SCRIPT,
   METICULOUS_ARCHIVE_SCRIPT,
   METROPOLIS_ANGEL_SCRIPT,
   MIGHT_OF_ALARA_SCRIPT,
@@ -14821,7 +14826,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   DOUBLE_TROUBLE_SCRIPT,
   DRAG_DOWN_SCRIPT,
   DRAG_TO_THE_BOTTOM_SCRIPT,
-  DRAMATIC_REVERSAL_SCRIPT,
   DROWN_IN_SORROW_SCRIPT,
   DRY_SPELL_SCRIPT,
   DWARVEN_CATAPULT_SCRIPT,
