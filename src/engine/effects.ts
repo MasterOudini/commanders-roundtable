@@ -240,6 +240,8 @@ export function effectResult(
       // D500 - a scoped clause's permanents: the pump, the grant, the tap and the untap name each one they reached.
       if (ev.t === 'PtModifiedUntilEndOfTurn' || ev.t === 'KeywordsGained' || ev.t === 'RegenerationShieldAdded') seen.add(ev.card);
       if (ev.t === 'PermanentsTapped' || ev.t === 'PermanentsUntapped') for (const c of ev.cards) seen.add(c);
+      // D506 - a mass counter's members (D505's `massCounters` puts them in one event).
+      if (ev.t === 'CountersChanged') for (const c of ev.changes) seen.add(c.card);
     }
     return [...seen];
   };

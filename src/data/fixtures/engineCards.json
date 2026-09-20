@@ -287848,6 +287848,976 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BELEDROS_WITHERBLOOM": {
+    "scryfallId": "0057bac8-7600-422e-88ef-accf1d0bb4ef",
+    "oracleId": "90194ff1-db61-463f-b5a3-15cd85311d0e",
+    "name": "Beledros Witherbloom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beledros Witherbloom",
+        "manaCost": "{5}{B}{G}",
+        "typeLine": "Legendary Creature — Elder Dragon",
+        "oracleText": "Flying\nAt the beginning of each upkeep, create a 1/1 black and green Pest creature token with \"When this token dies, you gain 1 life.\"\nPay 10 life: Untap all lands you control. Activate only once each turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "0057bac8-7600-422e-88ef-accf1d0bb4ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pstx",
+    "collectorNumber": "163p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACID_SPEWER_DRAGON": {
+    "scryfallId": "aa8f58f1-4843-4926-b3c4-98898201c216",
+    "oracleId": "f4378682-359f-48b0-adb7-b996b8d972db",
+    "name": "Acid-Spewer Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Acid-Spewer Dragon",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, deathtouch\nMegamorph {5}{B}{B} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on each other Dragon creature you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "James Zapata",
+        "imageId": "aa8f58f1-4843-4926-b3c4-98898201c216"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Deathtouch",
+      "Flying",
+      "Megamorph"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BELLTOLL_DRAGON": {
+    "scryfallId": "68f9dd25-cbf0-4b00-ad7f-34afdbb7cb6c",
+    "oracleId": "d0e529e3-0f77-4a55-ba35-46591f48d960",
+    "name": "Belltoll Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Belltoll Dragon",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, hexproof\nMegamorph {5}{U}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on each other Dragon creature you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "68f9dd25-cbf0-4b00-ad7f-34afdbb7cb6c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Hexproof",
+      "Megamorph"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIOMATHEMATICIAN": {
+    "scryfallId": "b41a35ef-dae1-4534-a12a-d3951b285273",
+    "oracleId": "70868667-a843-4954-863f-990854188c53",
+    "name": "Biomathematician",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Biomathematician",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, create a 0/0 green and blue Fractal creature token. Put a +1/+1 counter on each Fractal you control.",
+        "flavorText": "\"I will reach infinity.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "b41a35ef-dae1-4534-a12a-d3951b285273"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHIMERIC_IDOL": {
+    "scryfallId": "063990db-559d-4bfa-83af-b73fdc4cb038",
+    "oracleId": "78b364b7-d180-484c-a1d9-9d7a4e8abb57",
+    "name": "Chimeric Idol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chimeric Idol",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{0}: Tap all lands you control. This artifact becomes a 3/3 Turtle artifact creature until end of turn.",
+        "flavorText": "After a chimeric idol attacked them, the Keldons smashed all unfamiliar statues.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mark Tedin",
+        "imageId": "063990db-559d-4bfa-83af-b73fdc4cb038"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "vma",
+    "collectorNumber": "264",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CITIZEN_V_HELMUT_ZEMO": {
+    "scryfallId": "4c2bdc18-9648-44a2-97dd-b0e03789d186",
+    "oracleId": "974fbeb0-77d6-4a29-aa91-226cb5b32233",
+    "name": "Citizen V, Helmut Zemo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Citizen V, Helmut Zemo",
+        "manaCost": "{2}{B}",
+        "typeLine": "Legendary Creature — Human Noble Villain",
+        "oracleText": "Lifelink\nWhenever you gain life, put a +1/+1 counter on each Villain you control.",
+        "flavorText": "\"I have always been the savior of the human race. I'm simply wearing a more acceptable mask.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Toni Infante",
+        "imageId": "4c2bdc18-9648-44a2-97dd-b0e03789d186"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "650",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COPPERHORN_SCOUT": {
+    "scryfallId": "4ee7f99e-7324-4d16-b163-8f1b2edb7b89",
+    "oracleId": "3d2ea1a3-72af-48bc-a8f1-98facc2eebd0",
+    "name": "Copperhorn Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Copperhorn Scout",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "Whenever this creature attacks, untap each other creature you control.",
+        "flavorText": "Fangren spur may sound louder, but Viridian resurgents claim that the horn of the vorrac creates a truer, more inspiring note.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Shelly Wan",
+        "imageId": "4ee7f99e-7324-4d16-b163-8f1b2edb7b89"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAVENGUL_RUNEBINDER": {
+    "scryfallId": "beca3e00-2c04-41be-98d1-59bc2b5f05e4",
+    "oracleId": "e91e7f62-0788-445e-ba93-2c9d233ec3ab",
+    "name": "Havengul Runebinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Havengul Runebinder",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{2}{U}, {T}, Exile a creature card from your graveyard: Create a 2/2 black Zombie creature token, then put a +1/+1 counter on each Zombie creature you control.",
+        "flavorText": "\"So many corpses, so little time.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bud Cook",
+        "imageId": "beca3e00-2c04-41be-98d1-59bc2b5f05e4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ddq",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERDCHASER_DRAGON": {
+    "scryfallId": "5fb84323-b6f7-43ea-baf1-3e29b33b680d",
+    "oracleId": "9c7073e9-c676-4629-814c-a96e7af905cf",
+    "name": "Herdchaser Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herdchaser Dragon",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, trample\nMegamorph {5}{G}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on each other Dragon creature you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "5fb84323-b6f7-43ea-baf1-3e29b33b680d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Trample",
+      "Megamorph"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIELDHIDE_DRAGON": {
+    "scryfallId": "c1b1b66e-dd06-41ef-9f1a-3672829ac377",
+    "oracleId": "4f5fee21-bf29-4873-baf4-04911c309d81",
+    "name": "Shieldhide Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shieldhide Dragon",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, lifelink\nMegamorph {5}{W}{W} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on each other Dragon creature you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Rallis",
+        "imageId": "c1b1b66e-dd06-41ef-9f1a-3672829ac377"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Lifelink",
+      "Megamorph"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "DTK-37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRIEKING_MOGG": {
+    "scryfallId": "0ce46919-d312-490c-8942-39fbb2d375bf",
+    "oracleId": "088a63d4-22d2-4061-8aef-2aa3fc348639",
+    "name": "Shrieking Mogg",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrieking Mogg",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin",
+        "oracleText": "Haste\nWhen this creature enters, tap all other creatures.",
+        "flavorText": "You have to admire its enthusiasm.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "0ce46919-d312-490c-8942-39fbb2d375bf"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILT_CRAWLER": {
+    "scryfallId": "f334e864-4e62-4bc3-9470-661be3d879e2",
+    "oracleId": "5ba1595a-6578-459d-96fe-fdfb84ac34d5",
+    "name": "Silt Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silt Crawler",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "When this creature enters, tap all lands you control.",
+        "flavorText": "If they could replenish the land instead of draining it, Jamuraa would be teeming with them.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "f334e864-4e62-4bc3-9470-661be3d879e2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pcy",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIDER_MAN_MILES_MORALES": {
+    "scryfallId": "61c17573-437e-4ffb-811f-8390d388d5a7",
+    "oracleId": "229ecaa1-b3c9-44a1-8e7a-857ea5b8b0df",
+    "name": "Spider-Man, Miles Morales",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spider-Man, Miles Morales",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Creature — Spider Human Hero",
+        "oracleText": "Vigilance, trample (Attacking doesn't cause this creature to tap. He can deal excess combat damage to the player he's attacking.)\nWhenever Spider-Man enters or attacks, put a +1/+1 counter on each other creature you control. Those creatures gain trample until end of turn.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "InHyuk Lee",
+        "imageId": "61c17573-437e-4ffb-811f-8390d388d5a7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Vigilance",
+      "Trample"
+    ],
+    "setCode": "spe",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMWING_DRAGON": {
+    "scryfallId": "6da2b004-97e5-41ab-98b0-3637cb32a35a",
+    "oracleId": "10796fe6-edf8-427b-986c-e7666a72ec8d",
+    "name": "Stormwing Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormwing Dragon",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, first strike\nMegamorph {5}{R}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, put a +1/+1 counter on each other Dragon creature you control.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "6da2b004-97e5-41ab-98b0-3637cb32a35a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "First strike",
+      "Megamorph"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDERMARE": {
+    "scryfallId": "59a9f3f5-c80f-47a4-bf84-b7262437017f",
+    "oracleId": "58fa33fd-02a4-4ec9-9226-82594cfec363",
+    "name": "Thundermare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thundermare",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Elemental Horse",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nWhen this creature enters, tap all other creatures.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bob Eggleton",
+        "imageId": "59a9f3f5-c80f-47a4-bf84-b7262437017f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "por",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIMBERMARE": {
+    "scryfallId": "2d604bac-58b7-4479-8ab8-2e0680746e0e",
+    "oracleId": "8e25e4f5-5676-480f-a52b-43ebb6f31537",
+    "name": "Timbermare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Timbermare",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental Horse",
+        "oracleText": "Haste\nEcho {5}{G} (At the beginning of your upkeep, if this came under your control since the beginning of your last upkeep, sacrifice it unless you pay its echo cost.)\nWhen this creature enters, tap all other creatures.",
+        "flavorText": "Only nature wreaks such lovely havoc.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Dos Santos",
+        "imageId": "2d604bac-58b7-4479-8ab8-2e0680746e0e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Echo"
+    ],
+    "setCode": "plc",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TROUBLESOME_SPIRIT": {
+    "scryfallId": "23d7e856-6852-4b97-ae0e-a4becdfc8166",
+    "oracleId": "601d9bc3-ca75-43de-beea-ab3f0a49f543",
+    "name": "Troublesome Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Troublesome Spirit",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nAt the beginning of your end step, tap all lands you control.",
+        "flavorText": "As erratic and turbulent as a summer squall.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "23d7e856-6852-4b97-ae0e-a4becdfc8166"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "pcy",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSTOPPABLE_PLAN": {
+    "scryfallId": "62a95aeb-b1b0-42cd-ad67-fd13717d3c6c",
+    "oracleId": "3f6f4c98-ed7e-4fb1-8bfe-4210a39f77f2",
+    "name": "Unstoppable Plan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unstoppable Plan",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your end step, untap all nonland permanents you control.",
+        "flavorText": "Jace knew that if he just had time to explain his plan, he would find support. Unfortunately, time was in short supply.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "62a95aeb-b1b0-42cd-ad67-fd13717d3c6c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "442",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILDERNESS_RECLAMATION": {
+    "scryfallId": "227e4706-54fe-4ae3-b27b-b328b3643dbf",
+    "oracleId": "6f856f99-4cb4-479d-958d-964220965ed6",
+    "name": "Wilderness Reclamation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wilderness Reclamation",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your end step, untap all lands you control.",
+        "flavorText": "\"Walls crack. Buildings fall. Always the wilds return.\"\n—Domri Rade",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "227e4706-54fe-4ae3-b27b-b328b3643dbf"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "458",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVENGER_OF_ZENDIKAR": {
+    "scryfallId": "03dea775-bbb3-4e9c-8514-0605b5ad2e8b",
+    "oracleId": "4ba5b3f6-503b-43e6-b66e-4f8c55cffed7",
+    "name": "Avenger of Zendikar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avenger of Zendikar",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "When this creature enters, create a 0/1 green Plant creature token for each land you control.\nLandfall — Whenever a land you control enters, you may put a +1/+1 counter on each Plant creature you control.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "03dea775-bbb3-4e9c-8514-0605b5ad2e8b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "422",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_GALVANIZER": {
+    "scryfallId": "e55ca835-b7f3-497c-b0bc-50a182cabecf",
+    "oracleId": "e070028e-468a-41e9-9ddd-a8cd01551266",
+    "name": "Myr Galvanizer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Galvanizer",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "Other Myr creatures you control get +1/+1.\n{1}, {T}: Untap each other Myr you control.",
+        "flavorText": "\"We can't quite determine what they're doing, but they seem to be doing it quite well.\"\n—Vedalken research notes",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "e55ca835-b7f3-497c-b0bc-50a182cabecf"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FELIDAR_RETREAT": {
+    "scryfallId": "34b3b925-743d-4f88-97d6-d0847c0d7d6a",
+    "oracleId": "16629f59-bae8-4c19-bf50-443eb0ed6856",
+    "name": "Felidar Retreat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Felidar Retreat",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, choose one —\n• Create a 2/2 white Cat Beast creature token.\n• Put a +1/+1 counter on each creature you control. Those creatures gain vigilance until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "34b3b925-743d-4f88-97d6-d0847c0d7d6a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESIX_FRACTAL_BLOOM": {
+    "scryfallId": "2e390f8e-1dd5-4383-83f5-45f20f18d410",
+    "oracleId": "9d22960b-babc-4cf3-b228-d32e13bc6014",
+    "name": "Esix, Fractal Bloom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Esix, Fractal Bloom",
+        "manaCost": "{4}{G}{U}",
+        "typeLine": "Legendary Creature — Fractal",
+        "oracleText": "Flying\nThe first time you would create one or more tokens during each of your turns, you may instead choose a creature other than Esix and create that many tokens that are copies of that creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Chase Stone",
+        "imageId": "2e390f8e-1dd5-4383-83f5-45f20f18d410"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUNECLAW_BEAR": {
+    "scryfallId": "1b8ef778-2acf-40f0-9a64-6415d2109093",
+    "oracleId": "ec49dfcf-d16d-4621-af4b-4a6f09043221",
+    "name": "Runeclaw Bear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Runeclaw Bear",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Bear",
+        "oracleText": "",
+        "flavorText": "\"Nature has grown tired of the impositions of men and will begin to outfit its creations with tools for bloody instruction.\"\n—Hadi Kasten, Calla Dale naturalist",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "1b8ef778-2acf-40f0-9a64-6415d2109093"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m11",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALED_NURTURER": {
+    "scryfallId": "0883ebd7-002b-48a4-9591-6042d9fe151f",
+    "oracleId": "13b96709-0e88-476b-9485-956e682bb818",
+    "name": "Scaled Nurturer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scaled Nurturer",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dragon Druid",
+        "oracleText": "{T}: Add {G}. When you spend this mana to cast a Dragon creature spell, you gain 2 life.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "0883ebd7-002b-48a4-9591-6042d9fe151f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "hbg",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCIENTIST_SUPREME_OF_A_I_M": {
+    "scryfallId": "0473a990-88c4-4921-a492-377d9171318a",
+    "oracleId": "c09c424b-6aba-4190-9f55-f0307d746386",
+    "name": "Scientist Supreme of A.I.M.",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scientist Supreme of A.I.M.",
+        "manaCost": "{U}{B}",
+        "typeLine": "Legendary Creature — Human Scientist Villain",
+        "oracleText": "Pay 2 life: Copy target activated or triggered ability you control from an artifact source. You may choose new targets for the copy. Activate only during your turn and only once each turn. (Mana abilities can't be targeted.)",
+        "flavorText": "\"A weapon to kill a god? A.I.M. can do that, if you have the money.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Gal Or",
+        "imageId": "0473a990-88c4-4921-a492-377d9171318a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLUMBERING_TRUDGE": {
+    "scryfallId": "3a925370-58ac-4181-9acc-db7b0e0abf17",
+    "oracleId": "d04bce9a-822b-4a52-8826-b503ef5f5b2e",
+    "name": "Slumbering Trudge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slumbering Trudge",
+        "manaCost": "{X}{G}",
+        "typeLine": "Creature — Plant Beast",
+        "oracleText": "This creature enters with a number of stun counters on it equal to three minus X. If X is 2 or less, it enters tapped. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+        "flavorText": "\"Yes, she is blocking the path. Are you volunteering to move her?\"\n—Tam, to Kirol",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "3a925370-58ac-4181-9acc-db7b0e0abf17"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GITHZERAI_MONK": {
+    "scryfallId": "43a088ea-c397-4bdd-8779-59561ff73ec2",
+    "oracleId": "d4d3cba8-562d-4208-ab0a-c82b4dd8e959",
+    "name": "Githzerai Monk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Githzerai Monk",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Gith Monk",
+        "oracleText": "Flash\nFlying\nPsychic Defense — When this creature enters, tap all creatures you don't control.",
+        "flavorText": "The githzerai dwell in the heart of Limbo, shaping the chaos of that plane with their powerful psionic abilities.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "43a088ea-c397-4bdd-8779-59561ff73ec2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Psychic Defense",
+      "Flash"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -296565,6 +297535,39 @@
     "keywords": [],
     "setCode": "tdsc",
     "collectorNumber": "20",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "CAT_BEAST_2_2_W_CREATURE_TOKEN": {
+    "scryfallId": "0537522a-1f4f-4a81-a678-6b280ebc29fc",
+    "oracleId": "8050907b-4007-4478-8ebd-25b8b2bf85c3",
+    "name": "Cat Beast",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Cat Beast",
+        "manaCost": "",
+        "typeLine": "Token Creature — Cat Beast",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Bayard Wu",
+        "imageId": "0537522a-1f4f-4a81-a678-6b280ebc29fc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tscd",
+    "collectorNumber": "4",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

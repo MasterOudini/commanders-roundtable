@@ -9428,6 +9428,38 @@ const WANTED = [
   'Veteran Beastrider',
   'Mu Yanling',
   // D505 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D506 - the witnesses the scopes lacked: the mass-verb rows over your own creatures, lands and subtypes, proven on a witness dealt on the row's own side.
+  'Beledros Witherbloom',
+  'Acid-Spewer Dragon',
+  'Belltoll Dragon',
+  'Biomathematician',
+  'Chimeric Idol',
+  'Citizen V, Helmut Zemo',
+  'Copperhorn Scout',
+  'Havengul Runebinder',
+  'Herdchaser Dragon',
+  'Shieldhide Dragon',
+  'Shrieking Mogg',
+  'Silt Crawler',
+  'Spider-Man, Miles Morales',
+  'Stormwing Dragon',
+  'Thundermare',
+  'Timbermare',
+  'Troublesome Spirit',
+  'Unstoppable Plan',
+  'Wilderness Reclamation',
+  'Avenger of Zendikar',
+  'Myr Galvanizer',
+  'Felidar Retreat',
+  // D506 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Esix, Fractal Bloom',
+  'Runeclaw Bear',
+  'Scaled Nurturer',
+  'Scientist Supreme of A.I.M.',
+  'Slumbering Trudge',
+  // D506 - the witnesses the scopes lacked: the mass-verb rows over your own creatures, lands and subtypes, proven on a witness dealt on the row's own side.
+  'Githzerai Monk',
+  // D506 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -9838,6 +9870,8 @@ const WANTED_TOKENS = [
   { name: 'Angel', set: 'tafr', cn: '1', key: 'ANGEL_3_3_W_CREATURE_FLYING_TOKEN' },
   { name: 'Halfling', set: 'tltc', cn: '3', key: 'HALFLING_1_1_W_CREATURE_TOKEN' },
   { name: 'Fractal', set: 'tdsc', cn: '20', key: 'FRACTAL_05386AE8_TOKEN' },
+  // D506 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Cat Beast', set: 'tscd', cn: '4', key: 'CAT_BEAST_2_2_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

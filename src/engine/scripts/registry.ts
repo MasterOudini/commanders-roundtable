@@ -7,6 +7,31 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GITHZERAI_MONK_SCRIPT } from './cards/githzeraiMonk';
+import { BELEDROS_WITHERBLOOM_SCRIPT } from './cards/beledrosWitherbloom';
+import { DOMRI_CITY_SMASHER_SCRIPT } from './cards/domriCitySmasher';
+import { ACID_SPEWER_DRAGON_SCRIPT } from './cards/acidSpewerDragon';
+import { ACTION_NEWS_CREW_SCRIPT } from './cards/actionNewsCrew';
+import { BELLTOLL_DRAGON_SCRIPT } from './cards/belltollDragon';
+import { BIOMATHEMATICIAN_SCRIPT } from './cards/biomathematician';
+import { CHIMERIC_IDOL_SCRIPT } from './cards/chimericIdol';
+import { CITIZEN_VHELMUT_ZEMO_SCRIPT } from './cards/citizenVHelmutZemo';
+import { COPPERHORN_SCOUT_SCRIPT } from './cards/copperhornScout';
+import { HAVENGUL_RUNEBINDER_SCRIPT } from './cards/havengulRunebinder';
+import { HERDCHASER_DRAGON_SCRIPT } from './cards/herdchaserDragon';
+import { SHIELDHIDE_DRAGON_SCRIPT } from './cards/shieldhideDragon';
+import { SHRIEKING_MOGG_SCRIPT } from './cards/shriekingMogg';
+import { SILT_CRAWLER_SCRIPT } from './cards/siltCrawler';
+import { SPIDER_MAN_MILES_MORALES_SCRIPT } from './cards/spiderManMilesMorales';
+import { STORMWING_DRAGON_SCRIPT } from './cards/stormwingDragon';
+import { THUNDERMARE_SCRIPT } from './cards/thundermare';
+import { TIMBERMARE_SCRIPT } from './cards/timbermare';
+import { TROUBLESOME_SPIRIT_SCRIPT } from './cards/troublesomeSpirit';
+import { UNSTOPPABLE_PLAN_SCRIPT } from './cards/unstoppablePlan';
+import { WILDERNESS_RECLAMATION_SCRIPT } from './cards/wildernessReclamation';
+import { AVENGER_OF_ZENDIKAR_SCRIPT } from './cards/avengerOfZendikar';
+import { MYR_GALVANIZER_SCRIPT } from './cards/myrGalvanizer';
+import { FELIDAR_RETREAT_SCRIPT } from './cards/felidarRetreat';
 import { ARCHFIEND_OF_IFNIR_SCRIPT } from './cards/archfiendOfIfnir';
 import { GREENBELT_RADICAL_SCRIPT } from './cards/greenbeltRadical';
 import { ROARING_SLAGWURM_SCRIPT } from './cards/roaringSlagwurm';
@@ -7775,6 +7800,31 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GITHZERAI_MONK_SCRIPT,
+  BELEDROS_WITHERBLOOM_SCRIPT,
+  DOMRI_CITY_SMASHER_SCRIPT,
+  ACID_SPEWER_DRAGON_SCRIPT,
+  ACTION_NEWS_CREW_SCRIPT,
+  BELLTOLL_DRAGON_SCRIPT,
+  BIOMATHEMATICIAN_SCRIPT,
+  CHIMERIC_IDOL_SCRIPT,
+  CITIZEN_VHELMUT_ZEMO_SCRIPT,
+  COPPERHORN_SCOUT_SCRIPT,
+  HAVENGUL_RUNEBINDER_SCRIPT,
+  HERDCHASER_DRAGON_SCRIPT,
+  SHIELDHIDE_DRAGON_SCRIPT,
+  SHRIEKING_MOGG_SCRIPT,
+  SILT_CRAWLER_SCRIPT,
+  SPIDER_MAN_MILES_MORALES_SCRIPT,
+  STORMWING_DRAGON_SCRIPT,
+  THUNDERMARE_SCRIPT,
+  TIMBERMARE_SCRIPT,
+  TROUBLESOME_SPIRIT_SCRIPT,
+  UNSTOPPABLE_PLAN_SCRIPT,
+  WILDERNESS_RECLAMATION_SCRIPT,
+  AVENGER_OF_ZENDIKAR_SCRIPT,
+  MYR_GALVANIZER_SCRIPT,
+  FELIDAR_RETREAT_SCRIPT,
   ARCHFIEND_OF_IFNIR_SCRIPT,
   GREENBELT_RADICAL_SCRIPT,
   ROARING_SLAGWURM_SCRIPT,
