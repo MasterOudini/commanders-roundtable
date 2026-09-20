@@ -8467,6 +8467,12 @@ export const PONGIFY: CardData = F.PONGIFY as CardData;
 export const BOND_OF_DISCIPLINE: CardData = F.BOND_OF_DISCIPLINE as CardData;
 export const THE_CRYSTAL_S_CHOSEN: CardData = F.THE_CRYSTAL_S_CHOSEN as CardData;
 export const DUTY_BEYOND_DEATH: CardData = F.DUTY_BEYOND_DEATH as CardData;
+export const PATH_TO_EXILE: CardData = F.PATH_TO_EXILE as CardData;
+export const ASSASSIN_S_TROPHY: CardData = F.ASSASSIN_S_TROPHY as CardData;
+export const ERODE: CardData = F.ERODE as CardData;
+export const CLEANSING_WILDFIRE: CardData = F.CLEANSING_WILDFIRE as CardData;
+export const GEOMANCER_S_GAMBIT: CardData = F.GEOMANCER_S_GAMBIT as CardData;
+export const PRICE_OF_FREEDOM: CardData = F.PRICE_OF_FREEDOM as CardData;
 export const DWARVEN_PATROL: CardData = F.DWARVEN_PATROL as CardData;
 export const MOON_BLESSED_CLERIC: CardData = F.MOON_BLESSED_CLERIC as CardData;
 export const SQUALL_SEED_MERCENARY: CardData = F.SQUALL_SEED_MERCENARY as CardData;
@@ -8538,6 +8544,12 @@ export const SCALED_NURTURER: CardData = F.SCALED_NURTURER as CardData;
 export const SCIENTIST_SUPREME_OF_A_I_M: CardData = F.SCIENTIST_SUPREME_OF_A_I_M as CardData;
 export const SLUMBERING_TRUDGE: CardData = F.SLUMBERING_TRUDGE as CardData;
 export const GITHZERAI_MONK: CardData = F.GITHZERAI_MONK as CardData;
+export const GHOST_QUARTER: CardData = F.GHOST_QUARTER as CardData;
+export const SANDWORM: CardData = F.SANDWORM as CardData;
+export const WHITE_ORCHID_PHANTOM: CardData = F.WHITE_ORCHID_PHANTOM as CardData;
+export const CARNIFEX_DEMON: CardData = F.CARNIFEX_DEMON as CardData;
+export const CHAOS_TERMINATOR_LORD: CardData = F.CHAOS_TERMINATOR_LORD as CardData;
+export const PLASMANCER: CardData = F.PLASMANCER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17253,6 +17265,12 @@ export const ENGINE_CARDS: CardData[] = [
   BOND_OF_DISCIPLINE,
   THE_CRYSTAL_S_CHOSEN,
   DUTY_BEYOND_DEATH,
+  PATH_TO_EXILE,
+  ASSASSIN_S_TROPHY,
+  ERODE,
+  CLEANSING_WILDFIRE,
+  GEOMANCER_S_GAMBIT,
+  PRICE_OF_FREEDOM,
   DWARVEN_PATROL,
   MOON_BLESSED_CLERIC,
   SQUALL_SEED_MERCENARY,
@@ -17324,6 +17342,12 @@ export const ENGINE_CARDS: CardData[] = [
   SCIENTIST_SUPREME_OF_A_I_M,
   SLUMBERING_TRUDGE,
   GITHZERAI_MONK,
+  GHOST_QUARTER,
+  SANDWORM,
+  WHITE_ORCHID_PHANTOM,
+  CARNIFEX_DEMON,
+  CHAOS_TERMINATOR_LORD,
+  PLASMANCER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

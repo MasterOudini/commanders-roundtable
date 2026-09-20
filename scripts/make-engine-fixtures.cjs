@@ -9376,6 +9376,13 @@ const WANTED = [
   'Bond of Discipline',
   "The Crystal's Chosen",
   'Duty Beyond Death',
+  // D507 - the referent search: the seam tests' spells and the fuzz staple (Path to Exile), and the spells the parser reads alone.
+  'Path to Exile',
+  "Assassin's Trophy",
+  'Erode',
+  'Cleansing Wildfire',
+  "Geomancer's Gambit",
+  'Price of Freedom',
   // D502 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D503 - the flavour words: the rows whose trigger head sits behind an ability or flavour word (Opus, Repartee, Vivid, Void, the Universes Beyond words), and the rows the classifier lagged (Domri Rade, Flow of Maggots, Prosperity Tycoon).
   'Dwarven Patrol',
@@ -9460,6 +9467,16 @@ const WANTED = [
   // D506 - the witnesses the scopes lacked: the mass-verb rows over your own creatures, lands and subtypes, proven on a witness dealt on the row's own side.
   'Githzerai Monk',
   // D506 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D507 - the referent search: the rows whose payload asks the previous object's controller to search for a basic land (Ghost Quarter, Sandworm, White Orchid Phantom).
+  'Ghost Quarter',
+  'Sandworm',
+  'White Orchid Phantom',
+  // D507 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D507 - the rows the whole-leftover row maker rowed beside the seam (Carnifex Demon, Chaos Terminator Lord, Plasmancer - their D503 payloads read now).
+  'Carnifex Demon',
+  'Chaos Terminator Lord',
+  'Plasmancer',
+  // D507 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

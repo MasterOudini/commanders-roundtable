@@ -157,7 +157,10 @@ export function effectResult(
    * clause ("up to one") the player declared no target for is not missing
    * anything — it was legal to choose none — and is skipped without a word.
    */
-  const steps: { effect: EffectSpec; aim: Aim | null; missing: boolean }[] = [];
+  // D507 - `at`: a step spliced in as a clause runs (D494's objects, D504's player) carries the index of the clause it
+  // came from, so a question it raises carries the clauses AFTER that one (the continuation) - a copy is not in
+  // `effects`, and `indexOf` said -1, which made the continuation the whole list again.
+  const steps: { effect: EffectSpec; aim: Aim | null; missing: boolean; at?: number }[] = [];
   for (let ei = 0; ei < effects.length; ei++) {
     const effect = effects[ei] as EffectSpec;
     // D423 - a kicked `instead` clause REPLACES the clause before it: the base is skipped on a kicked spell, and
@@ -252,7 +255,7 @@ export function effectResult(
     const before = out.length;
     // D418 - `let`: a counted clause is rescaled below before its kind is switched on.
     let effect = step.effect;
-    const at = effects.indexOf(step.effect);
+    const at = step.at ?? effects.indexOf(step.effect);
     // D504 - THE PREVIOUS OBJECT'S CONTROLLER, bound now: the players the clause before acted on the objects of, as
     // they were known then (one step per distinct player, spliced in as ordinary player-aimed steps; the marker says
     // who). Nothing known - the target gone before the clause before ran - and the clause says so (D90).
@@ -269,7 +272,7 @@ export function effectResult(
         continue;
       }
       for (const p of players) out.push({ t: 'ReferentPlayerBound', player: p, text: effect.text });
-      steps.splice(si + 1, 0, ...players.map((p) => ({ effect: unboundPlayer(effect), aim: { kind: 'player', id: p } as Aim, missing: false })));
+      steps.splice(si + 1, 0, ...players.map((p) => ({ effect: unboundPlayer(effect), aim: { kind: 'player', id: p } as Aim, missing: false, at })));
       continue;
     }
     // D494 - THE PREVIOUS CLAUSE'S OBJECTS, bound now: an immediate clause (a grant) runs once per object, spliced in
@@ -287,7 +290,7 @@ export function effectResult(
         const spliced = objects
           .map((id) => aimOf(now, { kind: 'card', id }))
           .filter((a): a is Aim => a !== null)
-          .map((a) => ({ effect: unbound(effect), aim: a, missing: false }));
+          .map((a) => ({ effect: unbound(effect), aim: a, missing: false, at }));
         steps.splice(si + 1, 0, ...spliced);
         continue;
       }
@@ -1584,9 +1587,12 @@ export function effectResult(
       case 'search': {
         const spec = effect.search;
         if (!spec) break;
-        const lib = state.zones.library[controller] ?? [];
+        // D507 - the aimed player's library (the previous object's controller - Path to Exile's referent search); the
+        // caster's otherwise. The answer path keys on `awaiting.player`, so the bound player answers and finds.
+        const searcher = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        const lib = state.zones.library[searcher] ?? [];
         // An empty library asks nothing - there is no choice to make (D137's rule). D483 - unless the graveyard is searched too.
-        if (lib.length === 0 && !(spec.graveyardToo === true && (state.zones.graveyard[controller] ?? []).length > 0)) break;
+        if (lib.length === 0 && !(spec.graveyardToo === true && (state.zones.graveyard[searcher] ?? []).length > 0)) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         // ⚠️ D359 - THE REVEAL WAITS FOR THE OFFER. `You may search your library` is asked
         // before anything is shown, because a player who looked and then declined would keep
@@ -1597,12 +1603,12 @@ export function effectResult(
         // ⚠️ The reveal is what lets the searcher see the candidates at all: their contents
         // are already in `cards` for anyone they are revealed to, and the projection turns
         // that into a SORTED list. The order never leaves the host.
-        if (!spec.optional) out.push({ t: 'CardsRevealed', cards: lib, to: [controller] });
+        if (!spec.optional) out.push({ t: 'CardsRevealed', cards: lib, to: [searcher] });
         out.push({
           t: 'AwaitingSet',
           awaiting: {
             kind: 'searchLibrary',
-            player: controller,
+            player: searcher,
             count: spec.count,
             what: spec.label,
             predicates: spec.predicates,

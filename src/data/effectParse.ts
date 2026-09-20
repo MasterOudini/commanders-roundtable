@@ -2323,7 +2323,7 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
  * it (CR 608.2h), or the countered spell's controller. A body that asks the caster, pays, scopes or waits stays unread.
  */
 const PLAYER_REF_LEAD = /^(?:then )?(?<who>its controller|its owner|that (?:creature|permanent|spell|card|artifact|enchantment|land)(?:'|’)s (?:controller|owner)) (?<rest>.+)$/i;
-const PLAYER_REF_KINDS: ReadonlySet<EffectKind> = new Set(['mill', 'discard', 'draw', 'loseLife', 'gainLife', 'createToken']);
+const PLAYER_REF_KINDS: ReadonlySet<EffectKind> = new Set(['mill', 'discard', 'draw', 'loseLife', 'gainLife', 'createToken', 'search']);
 function controllerRewrite(sentence: string, previous: Clause | undefined, before: readonly Clause[]): EffectSpec | null {
   const m = PLAYER_REF_LEAD.exec(sentence);
   if (!m) return null;
@@ -2341,7 +2341,13 @@ function controllerRewrite(sentence: string, previous: Clause | undefined, befor
     ? aimed
     : /^creates /i.test(rest) ? matchRule('Create ' + rest.slice(8))
       : /^gains /i.test(rest) ? matchRule('You gain ' + rest.slice(6))
-        : null;
+        // D507 - THE REFERENT SEARCH: `Its controller may search their library for a basic land card, put it onto the
+        // battlefield tapped, then shuffle.` (Path to Exile, Assassin's Trophy, Ghost Quarter) is the caster's own search
+        // sentence with its person changed; the executor asks the bound player, whose library the answer path reads
+        // (`awaiting.player`). The third-person form (`searches ... puts ... then shuffles`) is the same sentence.
+        : /^may search their library for /i.test(rest) ? matchRule('You may search your library for ' + rest.replace(/^may search their library for /i, ''))
+          : /^searches their library for /i.test(rest) ? matchRule('Search your library for ' + rest.replace(/^searches their library for /i, '').replace(/\b(?:puts|reveals|shuffles)\b/g, (v) => v.slice(0, -1)))
+            : null;
   if (!body || !PLAYER_REF_KINDS.has(body.kind) || body.pay !== null || body.delay !== null || body.thenDraw !== 0 || body.ifDrew !== undefined || body.atRandom || (body.scopes !== undefined && body.scopes.length > 0)) return null;
   return { ...body, text: sentence, targetIndex: -1, self: false, ofPreviousPlayer: who };
 }

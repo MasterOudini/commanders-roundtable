@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CARNIFEX_DEMON_SCRIPT } from './cards/carnifexDemon';
+import { CHAOS_TERMINATOR_LORD_SCRIPT } from './cards/chaosTerminatorLord';
+import { PLASMANCER_SCRIPT } from './cards/plasmancer';
+import { GHOST_QUARTER_SCRIPT } from './cards/ghostQuarter';
+import { SANDWORM_SCRIPT } from './cards/sandworm';
+import { WHITE_ORCHID_PHANTOM_SCRIPT } from './cards/whiteOrchidPhantom';
 import { GITHZERAI_MONK_SCRIPT } from './cards/githzeraiMonk';
 import { BELEDROS_WITHERBLOOM_SCRIPT } from './cards/beledrosWitherbloom';
 import { DOMRI_CITY_SMASHER_SCRIPT } from './cards/domriCitySmasher';
@@ -7800,6 +7806,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CARNIFEX_DEMON_SCRIPT,
+  CHAOS_TERMINATOR_LORD_SCRIPT,
+  PLASMANCER_SCRIPT,
+  GHOST_QUARTER_SCRIPT,
+  SANDWORM_SCRIPT,
+  WHITE_ORCHID_PHANTOM_SCRIPT,
   GITHZERAI_MONK_SCRIPT,
   BELEDROS_WITHERBLOOM_SCRIPT,
   DOMRI_CITY_SMASHER_SCRIPT,

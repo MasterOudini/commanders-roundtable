@@ -286341,6 +286341,206 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PATH_TO_EXILE": {
+    "scryfallId": "045ce37b-86d2-4e56-84af-b6625b53d13c",
+    "oracleId": "d683d985-9888-4d21-8b5f-69e69ce4a03b",
+    "name": "Path to Exile",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Path to Exile",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "045ce37b-86d2-4e56-84af-b6625b53d13c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "md1",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASSASSIN_S_TROPHY": {
+    "scryfallId": "06aeb042-1e20-48cc-9afb-6ffc336270ca",
+    "oracleId": "ac10d218-f9a6-4058-9cda-a15ca1b0b7b5",
+    "name": "Assassin's Trophy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Assassin's Trophy",
+        "manaCost": "{B}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target permanent an opponent controls. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.",
+        "flavorText": "A power vacuum for the Azorius. A keepsake for Vraska.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Ron Spears",
+        "imageId": "06aeb042-1e20-48cc-9afb-6ffc336270ca"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "102307",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ERODE": {
+    "scryfallId": "32e670da-7563-4f6a-a7db-4c126a440eb8",
+    "oracleId": "2e467fab-e808-44d3-99bf-e3621baeb7cb",
+    "name": "Erode",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Erode",
+        "manaCost": "{W}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target creature or planeswalker. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "\"Our lives are built upon our pasts. What happens, then, if we are cut off from them?\"\n—Augusta, dean of order",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Florian Herold",
+        "imageId": "32e670da-7563-4f6a-a7db-4c126a440eb8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sos",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLEANSING_WILDFIRE": {
+    "scryfallId": "492d77e5-acc6-41b8-8930-f39d69234919",
+    "oracleId": "993b92f4-4160-4171-9e67-90dc935030fe",
+    "name": "Cleansing Wildfire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cleansing Wildfire",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target land. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.\nDraw a card.",
+        "flavorText": "Every rebirth looks like a death.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "492d77e5-acc6-41b8-8930-f39d69234919"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEOMANCER_S_GAMBIT": {
+    "scryfallId": "23b67031-76b8-4511-a6dc-433d9450496e",
+    "oracleId": "33bb4aff-6476-4787-b3fe-028b1b1bd1bc",
+    "name": "Geomancer's Gambit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geomancer's Gambit",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target land. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.\nDraw a card.",
+        "flavorText": "Telepathy changes minds, necromancy changes lives, but geomancy changes the world.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Adam Paquette",
+        "imageId": "23b67031-76b8-4511-a6dc-433d9450496e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRICE_OF_FREEDOM": {
+    "scryfallId": "9fbe94e9-a71d-4a31-9210-c599abe08e3f",
+    "oracleId": "5e6faa98-cf55-430d-87ce-8085f68aa20a",
+    "name": "Price of Freedom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Price of Freedom",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery — Lesson",
+        "oracleText": "Destroy target artifact or land an opponent controls. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.\nDraw a card.",
+        "flavorText": "\"We're going to win a great victory against the Fire Nation today.\"\n—Jet",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kotakan",
+        "imageId": "9fbe94e9-a71d-4a31-9210-c599abe08e3f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "DWARVEN_PATROL": {
     "scryfallId": "03c08df5-f5e7-4498-ac80-25ccbe304b26",
     "oracleId": "4369adc8-d8e0-4d51-b2a9-7e4a8dfd9f8f",
@@ -288815,6 +289015,212 @@
     ],
     "setCode": "clb",
     "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOST_QUARTER": {
+    "scryfallId": "11af0af6-eaaa-4067-a4b5-3305ea90fb29",
+    "oracleId": "2ec4288e-34c6-4831-a2c0-ba1ca1d9d1dc",
+    "name": "Ghost Quarter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghost Quarter",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{T}, Sacrifice this land: Destroy target land. Its controller may search their library for a basic land card, put it onto the battlefield, then shuffle.",
+        "flavorText": "Deserted, but not uninhabited.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Peter Mohrbacher",
+        "imageId": "11af0af6-eaaa-4067-a4b5-3305ea90fb29"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "CM2-253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANDWORM": {
+    "scryfallId": "a6e021da-2397-4ad3-a07b-65c701df531a",
+    "oracleId": "e92185f8-579c-4645-9cb8-ef5deb9eebc8",
+    "name": "Sandworm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sandworm",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Worm",
+        "oracleText": "Haste\nWhen this creature enters, destroy target land. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Awanqi (Angela Wang)",
+        "imageId": "a6e021da-2397-4ad3-a07b-65c701df531a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITE_ORCHID_PHANTOM": {
+    "scryfallId": "0cd78907-a14d-44e4-b578-1b2eb1398589",
+    "oracleId": "6edd2a36-3d65-4bf9-bd82-b6d03a7e8fea",
+    "name": "White Orchid Phantom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "White Orchid Phantom",
+        "manaCost": "{W}{W}",
+        "typeLine": "Creature — Spirit Knight",
+        "oracleText": "Flying, first strike\nWhen this creature enters, destroy up to one target nonbasic land. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": "His oath required no service beyond death, but his honor demanded it.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "0cd78907-a14d-44e4-b578-1b2eb1398589"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "First strike"
+    ],
+    "setCode": "pmh3",
+    "collectorNumber": "47s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARNIFEX_DEMON": {
+    "scryfallId": "0d02db50-315a-4b15-b9bd-7feb20e3bae0",
+    "oracleId": "527e4eec-0983-46a9-a4f7-451080200aea",
+    "name": "Carnifex Demon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carnifex Demon",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Phyrexian Demon",
+        "oracleText": "Flying\nThis creature enters with two -1/-1 counters on it.\n{B}, Remove a -1/-1 counter from this creature: Put a -1/-1 counter on each other creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "0d02db50-315a-4b15-b9bd-7feb20e3bae0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ajmp",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAOS_TERMINATOR_LORD": {
+    "scryfallId": "38b1cb12-cd1c-45f5-a589-cdd4be14e185",
+    "oracleId": "e9dfab69-7618-4d90-8bb4-cf23581d1bad",
+    "name": "Chaos Terminator Lord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chaos Terminator Lord",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Astartes Warrior",
+        "oracleText": "Lord of Chaos — At the beginning of combat on your turn, another target creature you control gains double strike until end of turn.",
+        "flavorText": "\"Charge brothers! Death to the false Emperor!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Games Workshop",
+        "imageId": "38b1cb12-cd1c-45f5-a589-cdd4be14e185"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lord of Chaos"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "74★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLASMANCER": {
+    "scryfallId": "8deb5d3a-0762-4c4f-afef-fd86728914b4",
+    "oracleId": "b3ff8da4-f2cc-41c3-8950-9cc531854b78",
+    "name": "Plasmancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plasmancer",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Artifact Creature — Necron Wizard",
+        "oracleText": "Flying\nDynastic Advisor — When this creature enters, search your library for a basic Swamp card, reveal it, put it into your hand, then shuffle.",
+        "flavorText": "Masters of dimensional dissonance, singularity manipulation, and countless other technologies, plasmancers are terrifying to behold.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "8deb5d3a-0762-4c4f-afef-fd86728914b4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Dynastic Advisor"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "48",
     "commanderLegality": "legal",
     "singleImage": true
   },

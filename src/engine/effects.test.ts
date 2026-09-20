@@ -51,9 +51,11 @@ describe('the effect parser', () => {
    * stands on a second sentence the vocabulary still refuses: the search the referent player is asked (Path to
    * Exile's shape) - the same rule, the same reason.
    */
+  // D507 - the referent search (`Its controller may search their library for a basic land card ...`) reads now; the
+  // unread second sentence is a land put from the hand by the previous object's controller (no rule reads it).
   test('a card whose second sentence is not understood is assisted, never auto', () => {
     const parsed = parseEffects(
-      'Destroy target permanent. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.',
+      'Destroy target permanent. Its controller may put a land card from their hand onto the battlefield.',
       'Beast Within',
       true,
     );

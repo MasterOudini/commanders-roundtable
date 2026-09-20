@@ -267,6 +267,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // lifelink until end of turn.` - the scope walked, the marker counted).
   { names: ['Vitalize', 'Bond of Discipline'], copiesPerSeat: 2,
     counterKeys: ['scopesWalked'], rotHistory: 'D505' },
+  // D507 - the referent search: two Paths to Exile a seat ({W} instant, `Exile target creature. Its controller may search
+  // their library for a basic land card, put that card onto the battlefield tapped, then shuffle.` - the search asked of
+  // the exiled creature's controller, who accepts the offer and finds in their own library).
+  { names: ['Path to Exile'], copiesPerSeat: 2,
+    counterKeys: ['referentSearches'], rotHistory: 'D507' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1518,6 +1523,8 @@ interface Run {
   readonly referentPlayers: number;
   /** D505 - mass verbs that walked a scope (`ScopeWalked`). */
   readonly scopesWalked: number;
+  /** D507 - referent searches: a search bound to the previous object's controller (`ReferentPlayerBound` with a search text). */
+  readonly referentSearches: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1979,6 +1986,7 @@ function runOne(seed: number): Run {
     extraTurnsTaken: game.log.filter((e) => e.body.t === 'TurnBegan' && e.body.extra !== undefined).length,
     referentPlayers: game.log.filter((e) => e.body.t === 'ReferentPlayerBound').length,
     scopesWalked: game.log.filter((e) => e.body.t === 'ScopeWalked').length,
+    referentSearches: game.log.filter((e) => e.body.t === 'ReferentPlayerBound' && /search/i.test(e.body.text)).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2272,6 +2280,7 @@ const TOTAL_KEYS = [
   'extraTurnsTaken',
   'referentPlayers',
   'scopesWalked',
+  'referentSearches',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2707,6 +2716,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.referentPlayers).toBeGreaterThan(0);
         // D505 - a mass verb walked a scope at gate size (Vitalize, Bond of Discipline, two a seat).
         expect(totals.scopesWalked).toBeGreaterThan(0);
+        // D507 - a search asked of the previous object's controller at gate size (Path to Exile, two a seat; 7 over the first 60 seeds, canary507).
+        expect(totals.referentSearches).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2829,6 +2840,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.extraTurnsAdded}/${totals.extraTurnsTaken} extra turns added/taken · ` +
           `${totals.referentPlayers} referent players · ` +
           `${totals.scopesWalked} scopes walked · ` +
+          `${totals.referentSearches} referent searches · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +
