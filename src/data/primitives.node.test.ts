@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 11916,
-      blocked: 19776,
+      complete: 11959,
+      blocked: 19733,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1910,
+      scriptableToday: 1921,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -343,9 +343,9 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 925,
-      counter: 988,
-      token: 772,
+      layer6: 924,
+      counter: 978,
+      token: 770,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1910, 1924, 3220, 4704, 5858]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1921, 1935, 3229, 4703, 5856]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -470,11 +470,11 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       else split.unclaimed++;
       if (card.layer6Lines.some((t) => TEMPORARY.test(t))) temporary++;
     }
-    expect.soft(split).toEqual({ grant: 553, anthem: 113, restriction: 171, conditional: 88, unclaimed: 0 });
+    expect.soft(split).toEqual({ grant: 552, anthem: 113, restriction: 171, conditional: 88, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(397);
+    expect.soft(temporary).toBe(396);
   });
 
   /**
@@ -507,7 +507,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 276, permanent: 496 });
+    expect.soft(byOwner).toEqual({ spell: 274, permanent: 496 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -520,10 +520,10 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // the `optional` pre-filter had been hiding 199 token lines, so those cards
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
-      copy: 92,
+      copy: 91,
       predefined: 122,
       withAbilities: 226,
-      variable: 71,
+      variable: 70,
       plain: 261,
       unclaimed: 0,
     });
@@ -555,8 +555,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1910, 1924]);
-    expect.soft(r.complete).toBe(11916);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1921, 1935]);
+    expect.soft(r.complete).toBe(11959);
   });
 });
 
@@ -699,20 +699,20 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 1796,
-      triggeredShell: 1668,
+      activatedCost: 1781,
+      triggeredShell: 1654,
       damage: 544,
-      exile: 763,
-      staticShell: 518,
-      attackBlock: 664,
+      exile: 758,
+      staticShell: 517,
+      attackBlock: 663,
       lifeGainLoss: 263,
       drawDiscard: 228,
-      tokensAndCounters: 277,
-      copySpell: 182,
+      tokensAndCounters: 276,
+      copySpell: 180,
       cantBeCountered: 18,
       gainControl: 66,
       wardHexproofGrant: 46,
-      other: 2551,
+      other: 2546,
     });
   });
 

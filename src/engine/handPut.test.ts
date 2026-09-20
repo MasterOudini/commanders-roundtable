@@ -126,7 +126,8 @@ describe('D508 - the hand put', () => {
     settle(g);
     expect(g.state.cards[bears]?.zone.kind).toBe('battlefield');
     expect(asks(g), 'nothing admitted: no question').toBe(0);
-    expect(puts(g)).toEqual([]);
+    // D509 - the clause names itself with an empty marker (nothing put), so the fuzz can tell a clause that ran from one that never did.
+    expect(puts(g), 'the clause ran and put nothing').toEqual([0]);
     expect(g.state.cards[spell]?.zone.kind, 'the spell resolved').toBe('graveyard');
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });

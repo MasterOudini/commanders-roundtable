@@ -102,6 +102,8 @@ const NOUNS = [
   'artifact, creature, or planeswalker',
   'artifact, creature, or enchantment',
   'artifact or enchantment',
+  // D509 - the artifact-or-land list (Price of Freedom): the target parser reads the list per alternative (D407).
+  'artifact or land',
   'creature or planeswalker',
   // D425 - `target opponent or planeswalker` (Inferno Jet, Burning Sun's Avatar, Zealot of the God-Pharaoh): the
   // target parser has read it since D293 (kinds player + planeswalker, controller opponent); above `opponent`.
@@ -186,7 +188,14 @@ const ADJECTIVE =
 // out: the count is not known at parse time and the spec is left unconfident.
 // D414 - `another` and `up to one other` are count words the target parser reads (the spec carries `another`).
 const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)(?: other)?|two|three|any number of|another) )?';
-const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${QUALIFIER})`;
+// D509 - THE CONTROLLER WORD ON EVERY NOUN: `you control` / `an opponent controls` / `you don't control` after any noun
+// of the table (`target permanent an opponent controls` - Assassin's Trophy; `target artifact or land an opponent
+// controls` - Price of Freedom; `target artifact creature you control`; `target nonbasic land an opponent controls`),
+// admitted ONLY because `targetParse` reads the controller off every noun (D407, `readController`) and `specAdmits`
+// enforces it on every candidate, the stack included - D139's order: enforce first, then admit the wording. The D407
+// entries above that spell the word per noun stay (longest first); the qualifier still follows the noun.
+const CONTROLLER = "(?: (?:you control|an opponent controls|you don(?:'|’)t control))?";
+const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${CONTROLLER}${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 /**
  * D373 - THE SELF SUBJECT: the clause is about the resolving object's own source.

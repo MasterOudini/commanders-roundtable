@@ -286644,6 +286644,109 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "EERIE_INTERLUDE": {
+    "scryfallId": "4ba9f15f-00d2-4797-9228-91b320e85705",
+    "oracleId": "0634091a-a74c-4cea-b6d1-7324a725554a",
+    "name": "Eerie Interlude",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eerie Interlude",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Exile any number of target creatures you control. Return those cards to the battlefield under their owner's control at the beginning of the next end step.",
+        "flavorText": "The barrier between existence and oblivion is thinner than you know.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "4ba9f15f-00d2-4797-9228-91b320e85705"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "khc",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOMRI_S_AMBUSH": {
+    "scryfallId": "b0dcae59-e9be-45a8-8ed8-5b47309bb716",
+    "oracleId": "a481f910-59a8-48b0-a8e4-c24675e1a67d",
+    "name": "Domri's Ambush",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Domri's Ambush",
+        "manaCost": "{R}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put a +1/+1 counter on target creature you control. Then that creature deals damage equal to its power to target creature or planeswalker you don't control.",
+        "flavorText": "\"When civilization teeters on the brink, I'll be there to kick it the rest of the way.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "b0dcae59-e9be-45a8-8ed8-5b47309bb716"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "war",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VANDALBLAST": {
+    "scryfallId": "00576634-29da-4f9d-bcbb-07a2f80ceba5",
+    "oracleId": "3567c3c8-b3c7-45b7-935b-b1fdbc973720",
+    "name": "Vandalblast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vandalblast",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target artifact you don't control.\nOverload {4}{R} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+        "flavorText": "Our hero struck with a flash of steel, slicing the monster's claw and freeing the young girl from its grasp!",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kawasumi",
+        "imageId": "00576634-29da-4f9d-bcbb-07a2f80ceba5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Overload"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "404",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SAKURA_TRIBE_SCOUT": {
     "scryfallId": "437123f4-bd37-4872-a950-463eaf8a2217",
     "oracleId": "0c319f45-cb0f-4641-acd8-145768acb3fc",
@@ -290282,6 +290385,1061 @@
     ],
     "setCode": "potj",
     "collectorNumber": "271p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHERSHIELD_ARTIFICER": {
+    "scryfallId": "0fd33b41-e8f4-46e2-9a44-9cba5758a6fb",
+    "oracleId": "d2575513-72fa-49c7-be6b-9f6f85950f88",
+    "name": "Aethershield Artificer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aethershield Artificer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "At the beginning of combat on your turn, target artifact creature you control gets +2/+2 and gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+        "flavorText": "Most smiths shape metal, but some prefer more delicate materials.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Izzy",
+        "imageId": "0fd33b41-e8f4-46e2-9a44-9cba5758a6fb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AINOK_SURVIVALIST": {
+    "scryfallId": "0f4b5b18-569f-4f61-ad2f-966ba4fbabdc",
+    "oracleId": "7a5dae5f-29ab-4996-b236-c754de8769bc",
+    "name": "Ainok Survivalist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ainok Survivalist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Dog Shaman",
+        "oracleText": "Megamorph {1}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its megamorph cost and put a +1/+1 counter on it.)\nWhen this creature is turned face up, destroy target artifact or enchantment an opponent controls.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "0f4b5b18-569f-4f61-ad2f-966ba4fbabdc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Megamorph"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASRI_S_ACOLYTE": {
+    "scryfallId": "08d1dd97-2675-4953-ab95-d47d23abfe05",
+    "oracleId": "92c824da-2351-43bd-9fa0-d09709ad8205",
+    "name": "Basri's Acolyte",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basri's Acolyte",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Cat Cleric",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature enters, put a +1/+1 counter on each of up to two other target creatures you control.",
+        "flavorText": "Basri carries on his god's legacy, spreading her teachings throughout the Multiverse.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Leesha Hannigan",
+        "imageId": "08d1dd97-2675-4953-ab95-d47d23abfe05"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "m21",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRETAGARD_STRONGHOLD": {
+    "scryfallId": "24a0f2e2-cfd7-4374-a172-4357d5de47bb",
+    "oracleId": "c792229b-4a0f-48d5-93e5-60bd4cae9c42",
+    "name": "Bretagard Stronghold",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bretagard Stronghold",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {G}.\n{G}{W}{W}, {T}, Sacrifice this land: Put a +1/+1 counter on each of up to two target creatures you control. They gain vigilance and lifelink until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jung Park",
+        "imageId": "24a0f2e2-cfd7-4374-a172-4357d5de47bb"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "khm",
+    "collectorNumber": "253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORRIDOR_MONITOR": {
+    "scryfallId": "9347802a-0971-443c-867a-cb9400f18d5c",
+    "oracleId": "07b6ee55-a77e-4ba7-9ab7-8a8375c7acc9",
+    "name": "Corridor Monitor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corridor Monitor",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature enters, untap target artifact or creature you control.",
+        "flavorText": "Castle Vantress has no locks on its doors, but interlopers rarely make it past the foyer.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "9347802a-0971-443c-867a-cb9400f18d5c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMOLITION_FIELD": {
+    "scryfallId": "0c7e51b6-4898-4632-b39c-3ce438caa882",
+    "oracleId": "93953926-a644-49bb-9b5a-4c8f19114c7e",
+    "name": "Demolition Field",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demolition Field",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. That land's controller may search their library for a basic land card, put it onto the battlefield, then shuffle. You may search your library for a basic land card, put it onto the battlefield, then shuffle.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kamila Szutenberg",
+        "imageId": "0c7e51b6-4898-4632-b39c-3ce438caa882"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "687",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EARTH_KINGDOM_SOLDIER": {
+    "scryfallId": "2d543d35-945a-4ffa-beb7-7c5d4f894f79",
+    "oracleId": "4289f2d4-3db2-4dd1-9c18-af3f78309844",
+    "name": "Earth Kingdom Soldier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Earth Kingdom Soldier",
+        "manaCost": "{4}{G/W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Vigilance\nWhen this creature enters, put a +1/+1 counter on each of up to two target creatures you control.",
+        "flavorText": "Trained to be steady as the earth beneath their feet.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Rafater",
+        "imageId": "2d543d35-945a-4ffa-beb7-7c5d4f894f79"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FANG_GUARDIAN": {
+    "scryfallId": "6db483a7-c9f0-449d-be97-77dbd6d3a27a",
+    "oracleId": "1e0b9767-8e51-4021-a8fb-22259e2f5347",
+    "name": "Fang Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fang Guardian",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Ape Druid",
+        "oracleText": "Flash\nWhen this creature enters, another target creature or Vehicle you control gets +2/+2 until end of turn.",
+        "flavorText": "Though the Fang Druids desired peace, the Grand Prix's interference threatened to awaken old dangers on Muraganda.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "6db483a7-c9f0-449d-be97-77dbd6d3a27a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FELIDAR_SAVIOR": {
+    "scryfallId": "cd092b14-d72f-4de0-8f19-1338661b9e3b",
+    "oracleId": "2bee2508-cd5d-4c62-a205-12d8bbb3143d",
+    "name": "Felidar Savior",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Felidar Savior",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Cat Beast",
+        "oracleText": "Lifelink (Damage dealt by this creature also causes you to gain that much life.)\nWhen this creature enters, put a +1/+1 counter on each of up to two other target creatures you control.",
+        "flavorText": "Cut and bruised from his climb to the summit, Zahr wept with relief when he saw the felidar's horns appear.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "cd092b14-d72f-4de0-8f19-1338661b9e3b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRE_NATION_ENGINEER": {
+    "scryfallId": "5daba108-277d-46c8-ac35-7610f4786813",
+    "oracleId": "9a983666-376b-48a8-9f82-8d041d32ae93",
+    "name": "Fire Nation Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fire Nation Engineer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Raid — At the beginning of your end step, if you attacked this turn, put a +1/+1 counter on another target creature or Vehicle you control.",
+        "flavorText": "A lonely worker can find trouble making friends on an airship so massive.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Norikatsu Miyoshi",
+        "imageId": "5daba108-277d-46c8-ac35-7610f4786813"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Raid"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALLOWED_GROUND": {
+    "scryfallId": "3f4eb320-3080-4343-9112-6e16cc8245b3",
+    "oracleId": "ee8fd844-4551-4e44-9740-00d2e76eb337",
+    "name": "Hallowed Ground",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hallowed Ground",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "{W}{W}: Return target nonsnow land you control to its owner's hand.",
+        "flavorText": "\"On this site where Kjeld's blood was spilled, let none raise a fist or deny a beggar.\"\n—Halvor Arenson, Kjeldoran Priest",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Douglas Shuler",
+        "imageId": "3f4eb320-3080-4343-9112-6e16cc8245b3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ptc",
+    "collectorNumber": "ml29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOWLER_S_HEAVY": {
+    "scryfallId": "8bbd7758-59c7-4ae1-9af8-c3580f4aa958",
+    "oracleId": "8abeaa77-d455-47e7-bf60-aefb94ab83fb",
+    "name": "Howler's Heavy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Howler's Heavy",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Seal Pirate",
+        "oracleText": "Cycling {1}{U} ({1}{U}, Discard this card: Draw a card.)\nWhen you cycle this card, target creature or Vehicle an opponent controls gets -3/-0 until end of turn.",
+        "flavorText": "\"It takes a thick skin to ride among the Keelhaulers.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "8bbd7758-59c7-4ae1-9af8-c3580f4aa958"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cycling"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLANOWAR_LOAMSPEAKER": {
+    "scryfallId": "0dba8ffb-b7b1-411e-90c5-070b7a888e3f",
+    "oracleId": "08377424-619e-48ae-bc3c-fb199cd77cf9",
+    "name": "Llanowar Loamspeaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Llanowar Loamspeaker",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "{T}: Add one mana of any color.\n{T}: Target land you control becomes a 3/3 Elemental creature with haste until end of turn. It's still a land. Activate only as a sorcery.",
+        "flavorText": "Twigs broken underfoot in Llanowar tend to return the favor.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "0dba8ffb-b7b1-411e-90c5-070b7a888e3f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "blc",
+    "collectorNumber": "228",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAMBUNCTIOUS_MUTT": {
+    "scryfallId": "2c67db55-18c0-4c56-84b5-8a6bc6182bb8",
+    "oracleId": "48a53d6e-0320-4b9c-b692-6d0fc00e46cc",
+    "name": "Rambunctious Mutt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rambunctious Mutt",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "When this creature enters, destroy target artifact or enchantment an opponent controls.",
+        "flavorText": "Emphatic words with powerful gestures. Clearly this was playtime.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "2c67db55-18c0-4c56-84b5-8a6bc6182bb8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M21-30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RATS_OF_RATH": {
+    "scryfallId": "318c2cf5-6246-41e6-b391-7be39368ae65",
+    "oracleId": "75458175-eeb1-4a6b-93d9-c744c93b3759",
+    "name": "Rats of Rath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rats of Rath",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "{B}: Destroy target artifact, creature, or land you control.",
+        "flavorText": "\"These creatures offer new challenges in the scrutiny of entrails.\"\n—Oracle *en*-Vec",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Matson",
+        "imageId": "318c2cf5-6246-41e6-b391-7be39368ae65"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tpr",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAIBA_TRESPASSERS": {
+    "scryfallId": "c3dd7f1a-5d43-4218-a9d8-7cc4f6a18ecd",
+    "oracleId": "d5cdfa86-a234-4ddd-bfa0-4a3bc51eebce",
+    "name": "Saiba Trespassers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saiba Trespassers",
+        "manaCost": "{4}{U}",
+        "typeLine": "Artifact Creature — Moonfolk Rogue",
+        "oracleText": "Channel — {3}{U}, Discard this card: Tap up to two target creatures you don't control. Those creatures don't untap during their controller's next untap step.",
+        "flavorText": "One to clear the way, another to erase their trail.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Evyn Fong",
+        "imageId": "c3dd7f1a-5d43-4218-a9d8-7cc4f6a18ecd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Channel"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEVEN_TAIL_MENTOR": {
+    "scryfallId": "267efff1-cbe6-40b0-959e-72b81cbda1d0",
+    "oracleId": "301b8265-9e17-48c3-942d-b7243112b394",
+    "name": "Seven-Tail Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seven-Tail Mentor",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Fox Samurai",
+        "oracleText": "When this creature enters or dies, put a +1/+1 counter on target creature or Vehicle you control.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aogachou",
+        "imageId": "267efff1-cbe6-40b0-959e-72b81cbda1d0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "neo",
+    "collectorNumber": "313",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIMMERWING_CHIMERA": {
+    "scryfallId": "f3b54bea-f2c5-4000-9cbd-04c03a1d2ea2",
+    "oracleId": "21c768fa-4f1a-4a1a-abb9-e69e17426233",
+    "name": "Shimmerwing Chimera",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shimmerwing Chimera",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment Creature — Chimera",
+        "oracleText": "Flying\nAt the beginning of your upkeep, return up to one other target enchantment you control to its owner's hand.",
+        "flavorText": "It swims upon the winds and soars through the waves.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "f3b54bea-f2c5-4000-9cbd-04c03a1d2ea2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STENSIA_INNKEEPER": {
+    "scryfallId": "ee40c471-70c8-4171-a214-ce932c4c7e2e",
+    "oracleId": "8a7f446b-557a-41cc-b9ef-369e220a0eeb",
+    "name": "Stensia Innkeeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stensia Innkeeper",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "When this creature enters, tap target land an opponent controls. That land doesn't untap during its controller's next untap step.",
+        "flavorText": "\"The perils of the road, you say? Don't worry. You won't have to face those again.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "ee40c471-70c8-4171-a214-ce932c4c7e2e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "emn",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOUCHSTONE": {
+    "scryfallId": "923afe8a-e82c-4b93-bb42-8f5073acae13",
+    "oracleId": "92382bdb-84cf-4456-8ca1-8a19badae7ad",
+    "name": "Touchstone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Touchstone",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Tap target artifact you don't control.",
+        "flavorText": "\"One touch to the stone and the sidar's son turned me from stalwart to statue.\"\n—Karn, silver golem",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "George Pratt",
+        "imageId": "923afe8a-e82c-4b93-bb42-8f5073acae13"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_CREEPER": {
+    "scryfallId": "7a914416-effd-4eda-b609-2773c53a08ec",
+    "oracleId": "d5b7c283-357b-409f-9afc-985a3b89cc40",
+    "name": "Vengeful Creeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Creeper",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Plant Elemental",
+        "oracleText": "Disguise {5}{G} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, destroy target artifact or enchantment an opponent controls.",
+        "flavorText": "Seeking intact evidence in the Rubblebelt is a fool's errand.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Maria Poliakova",
+        "imageId": "7a914416-effd-4eda-b609-2773c53a08ec"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WELDFAST_ENGINEER": {
+    "scryfallId": "51464df6-557f-47e5-838e-2a30145511f0",
+    "oracleId": "74adb283-9bef-4a6f-9489-bcfcba53e8d7",
+    "name": "Weldfast Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weldfast Engineer",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "At the beginning of combat on your turn, target artifact creature you control gets +2/+0 until end of turn.",
+        "flavorText": "\"Let's err on the side of glorious mayhem.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Sara Winters",
+        "imageId": "51464df6-557f-47e5-838e-2a30145511f0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BAXTER_STOCKMAN": {
+    "scryfallId": "117b1341-2cf0-466e-b3a8-7e1afa42cd4c",
+    "oracleId": "e610bfd4-d064-410b-929c-1d9dd82828b1",
+    "name": "Baxter Stockman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baxter Stockman",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Legendary Creature — Human Scientist",
+        "oracleText": "When Baxter Stockman enters, create a 1/1 colorless Robot artifact creature token.\nAt the beginning of combat on your turn, target artifact creature you control gets +3/+0 and gains first strike and vigilance until end of turn.",
+        "flavorText": "\"You flatter me, Ms. O'Neil. I like that.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "117b1341-2cf0-466e-b3a8-7e1afa42cd4c"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLAN_GUILDMAGE": {
+    "scryfallId": "34a18415-015c-4d3f-8042-b156a673e125",
+    "oracleId": "838eeca8-02f9-44fa-8170-1426622adf30",
+    "name": "Clan Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clan Guildmage",
+        "manaCost": "{R}{G}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{1}{R}, {T}: Target creature can't block this turn.\n{2}{G}, {T}: Target land you control becomes a 4/4 Elemental creature with haste until end of turn. It's still a land.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "34a18415-015c-4d3f-8042-b156a673e125"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rna",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMOTEKH_THE_STORMLORD": {
+    "scryfallId": "1287e69f-5e92-48f4-80de-d43cb5be21ce",
+    "oracleId": "425fea06-76ec-4cd9-bd3b-750504fd7fd2",
+    "name": "Imotekh the Stormlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Imotekh the Stormlord",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Legendary Artifact Creature — Necron",
+        "oracleText": "Phaeron — Whenever one or more artifact cards leave your graveyard, create two 2/2 black Necron Warrior artifact creature tokens.\nGrand Strategist — At the beginning of combat on your turn, another target artifact creature you control gets +2/+2 and gains menace until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "JB Casacop",
+        "imageId": "1287e69f-5e92-48f4-80de-d43cb5be21ce"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Phaeron",
+      "Grand Strategist"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUKAI_PRESERVER": {
+    "scryfallId": "e66120a5-95a3-4d15-873c-cfba221a2299",
+    "oracleId": "a8ce90be-f0ab-4f8d-896a-cde8aaf24579",
+    "name": "Jukai Preserver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jukai Preserver",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment Creature — Human Druid",
+        "oracleText": "When this creature enters, put a +1/+1 counter on target creature you control.\nChannel — {2}{G}, Discard this card: Put a +1/+1 counter on each of up to two target creatures you control.",
+        "flavorText": "\"The kami grant you this boon, not I.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "e66120a5-95a3-4d15-873c-cfba221a2299"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Channel"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MURASA_ROOTGRAZER": {
+    "scryfallId": "e70b3b78-9bdc-449b-82a9-c2fc3dd7f120",
+    "oracleId": "ca7964a1-b4ce-412b-bcae-e0dfbb95389a",
+    "name": "Murasa Rootgrazer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Murasa Rootgrazer",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Vigilance\n{T}: You may put a basic land card from your hand onto the battlefield.\n{T}: Return target basic land you control to its owner's hand.",
+        "flavorText": "Few other creatures so closely embody Murasa's rapid cycles of growth.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "e70b3b78-9bdc-449b-82a9-c2fc3dd7f120"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKARRG_GUILDMAGE": {
+    "scryfallId": "00f206c0-a8a7-4ca0-b88f-4736c3dac588",
+    "oracleId": "7a49f3a1-abdb-4bf3-b5ed-f54349ab40fd",
+    "name": "Skarrg Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skarrg Guildmage",
+        "manaCost": "{R}{G}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{R}{G}: Creatures you control gain trample until end of turn.\n{1}{R}{G}: Target land you control becomes a 4/4 Elemental creature until end of turn. It's still a land.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "00f206c0-a8a7-4ca0-b88f-4736c3dac588"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "gtc",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STINGMOGGIE": {
+    "scryfallId": "27e0fdb4-187a-4178-a702-884bef9e029d",
+    "oracleId": "e868028f-4c6f-43d1-9cc6-6f3ce2df2ec3",
+    "name": "Stingmoggie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stingmoggie",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "This creature enters with two +1/+1 counters on it.\n{3}{R}, Remove a +1/+1 counter from this creature: Destroy target artifact or land.",
+        "flavorText": "A path vexed by the stingmoggie was probably the wrong path anyhow.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Omar Rayyan",
+        "imageId": "27e0fdb4-187a-4178-a702-884bef9e029d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRADE_ROUTES": {
+    "scryfallId": "047b93ed-c6d4-4ecc-8a25-e7b371f599c6",
+    "oracleId": "120fa67e-e5e0-4c23-9a78-d6171d357aee",
+    "name": "Trade Routes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trade Routes",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "{1}: Return target land you control to its owner's hand.\n{1}, Discard a land card: Draw a card.",
+        "flavorText": "The wise, the righteous, the mighty—the merchant feeds them all.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "047b93ed-c6d4-4ecc-8a25-e7b371f599c6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "108★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DECEIVER_EXARCH": {
+    "scryfallId": "1f123ad6-fe84-4fed-9c0f-6b41921e9c26",
+    "oracleId": "3c939ea6-68b7-4965-b1d3-af1d3dc79778",
+    "name": "Deceiver Exarch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deceiver Exarch",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Phyrexian Cleric",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, choose one —\n• Untap target permanent you control.\n• Tap target permanent an opponent controls.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Izzy",
+        "imageId": "1f123ad6-fe84-4fed-9c0f-6b41921e9c26"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "nph",
+    "collectorNumber": "33",
     "commanderLegality": "legal",
     "singleImage": true
   },

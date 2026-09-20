@@ -1491,7 +1491,9 @@ export function effectResult(
         const held = state.zones.hand[controller] ?? [];
         const bound = { none: [...(look.none ?? [])], filter: look.filter, qualifier: null };
         const admitted = held.filter((id) => handChoiceAdmits(state, deps.oracle, id, bound));
-        if (admitted.length === 0) break;
+        // D509 - nothing admitted: the clause still names itself (an empty marker - D505's `ScopeWalked` with no members), so
+        // the fuzz can tell a clause that ran from one that never did; the hand stays as it is and nothing is asked.
+        if (admitted.length === 0) { out.push({ t: 'PutFromHand', player: controller, cards: [] }); break; }
         const take = Math.min(look.take, admitted.length);
         if (!look.optional && admitted.length <= look.take) {
           out.push({ t: 'PutFromHand', player: controller, cards: admitted });

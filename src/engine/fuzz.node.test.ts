@@ -275,8 +275,17 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D508 - the hand put: two Swells of Growth a seat ({1}{G} instant, `Target creature gets +2/+2 until end of turn. You
   // may put a land card from your hand onto the battlefield.` - the pump on a creature the seat controls, then the
   // question over the hand; the driver puts the most expensive land it holds).
-  { names: ['Swell of Growth'], copiesPerSeat: 2,
-    counterKeys: ['handPuts'], rotHistory: 'D508' },
+  // ⚠️ D509 - a pump instant is thin fuel under a driver that picks a random legal action: 2 hand puts over the 3,000-seed
+  // gate at D508 and 0 at D509's first run (25 casts and activations for 1 question over 20 seeds - the ask needs the
+  // resolution to find a land in hand, and a random activation of Walking Atlas or a Swell with a target is rare).
+  // Arboreal Grazer ({G} 0/3, `When this creature enters, you may put a land card from your hand onto the battlefield
+  // tapped.` - its D508 row) is the fuel: a one-drop the driver casts, the question raised by the entry itself.
+  // ⚠️ D509 - and the FLOOR is the clause, not the put: the driver plays a land the moment it draws one, so a resolution
+  // finds a land in hand only when two were drawn together - 7 Grazer entries and 21 Atlas activations over 20 seeds put
+  // nothing. The executor names the clause it ran with an empty `PutFromHand` (D505's `ScopeWalked` with no members);
+  // `handPutClauses` counts the clauses, `handPuts` the cards, `handPutAsks` the questions.
+  { names: ['Arboreal Grazer', 'Walking Atlas'], copiesPerSeat: 2,
+    counterKeys: ['handPutClauses'], rotHistory: 'D508 D509' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1057,7 +1066,11 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             // host refuses spends the seed); the answer may be empty, and `want` below declines it half the time.
             : awaiting.castFree === true
               ? [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })]
-              : [...(state.zones.hand[awaiting.player] ?? [])];
+              // D509 - the hand put's pool (D508): the cards of the hand the printed noun admits (the host's reader); the whole hand
+              // offered a creature to a land put and the answer was refused - 2 hand puts over the 3,000-seed gate at D508, 0 at D509.
+              : awaiting.to === 'battlefield'
+                ? [...handChoiceCandidates(state, ORACLE, awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })]
+                : [...(state.zones.hand[awaiting.player] ?? [])];
       const min = awaiting.min ?? awaiting.count;
       const most = Math.min(awaiting.count, pool.length);
       const want = most > min ? min + p.below(most - min + 1) : most;
@@ -1532,6 +1545,10 @@ interface Run {
   readonly referentSearches: number;
   /** D508 - hand puts: cards put from a hand onto the battlefield by a put clause (`PutFromHand`). */
   readonly handPuts: number;
+  /** D509 - the hand put's questions raised (a `chooseFromZone` over a hand with `to: 'battlefield'`), beside the puts made. */
+  readonly handPutAsks: number;
+  /** D509 - hand-put clauses that ran (every `PutFromHand`, an empty one included - the executor names the clause it ran). */
+  readonly handPutClauses: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1995,6 +2012,8 @@ function runOne(seed: number): Run {
     scopesWalked: game.log.filter((e) => e.body.t === 'ScopeWalked').length,
     referentSearches: game.log.filter((e) => e.body.t === 'ReferentPlayerBound' && /search/i.test(e.body.text)).length,
     handPuts: game.log.reduce((n, e) => n + (e.body.t === 'PutFromHand' ? e.body.cards.length : 0), 0),
+    handPutAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.zone === 'hand' && e.body.awaiting.to === 'battlefield').length,
+    handPutClauses: game.log.filter((e) => e.body.t === 'PutFromHand').length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2290,6 +2309,8 @@ const TOTAL_KEYS = [
   'scopesWalked',
   'referentSearches',
   'handPuts',
+  'handPutAsks',
+  'handPutClauses',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2727,8 +2748,11 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.scopesWalked).toBeGreaterThan(0);
         // D507 - a search asked of the previous object's controller at gate size (Path to Exile, two a seat; 7 over the first 60 seeds, canary507).
         expect(totals.referentSearches).toBeGreaterThan(0);
-        // D508 - a card put from the hand onto the battlefield at gate size (Swell of Growth, two a seat; 2 over the first 60 seeds, canary508).
-        expect(totals.handPuts).toBeGreaterThan(0);
+        // D508 - a hand-put clause run at gate size (Arboreal Grazer, Walking Atlas, two a seat). D509 - the CLAUSE, not the
+        // put: the driver plays a land the moment it draws one, so a put with something to put is a coincidence of two
+        // lands drawn together (2 over 3,000 seeds at D508, 0 at D509's first run); the executor's empty marker says the
+        // clause ran and what it found.
+        expect(totals.handPutClauses).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2852,7 +2876,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.referentPlayers} referent players · ` +
           `${totals.scopesWalked} scopes walked · ` +
           `${totals.referentSearches} referent searches · ` +
-          `${totals.handPuts} hand puts · ` +
+          `${totals.handPutClauses}/${totals.handPutAsks}/${totals.handPuts} hand-put clauses/asks/cards · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +
