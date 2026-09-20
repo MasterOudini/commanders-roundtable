@@ -853,6 +853,16 @@ export type EffectKind =
    */
   | 'lookAtTop'
   /**
+   * D508 - THE HAND PUT: `You may put a land card from your hand onto the battlefield (tapped).` / `Put up to two land
+   * cards from your hand onto the battlefield tapped.` (Sakura-Tribe Scout, Elvish Piper, Growth Spiral, Burgeoning).
+   * The spec rides `look` (its `take`, `filter`, `none`, `optional`, `to: 'battlefield'`, `tapped`; `rest` is `hand` -
+   * the unchosen stay where they are): the question is `chooseFromZone` over the hand with `to: 'battlefield'`, the
+   * one hand prompt whose picks arrive as PERMANENTS (the entry funnel runs for them, as for a look's battlefield pick).
+   * Nothing the noun admits asks nothing; a mandatory put with no more admitted than it takes moves them unasked (CR
+   * 701.8a's one-legal-answer rule, D141); `up to N` and `any number of` are optional counts.
+   */
+  | 'putFromHand'
+  /**
    * CR 701.19 - search a library for a card matching a predicate, put it somewhere, and shuffle.
    * `Rampant Growth`, `Cultivate`, `Demonic Tutor`, every ramp land and every tutor.
    *

@@ -9383,6 +9383,14 @@ const WANTED = [
   'Cleansing Wildfire',
   "Geomancer's Gambit",
   'Price of Freedom',
+  // D508 - the hand put: the seam tests' spells (Growth Spiral, Swell of Growth, Lessons from Life - the fuzz staple is Swell of Growth) and the rows' own cards.
+  'Growth Spiral',
+  'Swell of Growth',
+  'Lessons from Life',
+  'Sakura-Tribe Scout',
+  'Patron of the Moon',
+  'Walking Atlas',
+  'Elvish Piper',
   // D502 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D503 - the flavour words: the rows whose trigger head sits behind an ability or flavour word (Opus, Repartee, Vivid, Void, the Universes Beyond words), and the rows the classifier lagged (Domri Rade, Flow of Maggots, Prosperity Tycoon).
   'Dwarven Patrol',
@@ -9477,6 +9485,33 @@ const WANTED = [
   'Chaos Terminator Lord',
   'Plasmancer',
   // D507 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D508 - the hand put: the rows whose payload puts a card from the hand onto the battlefield (Sakura-Tribe Scout, Elvish Piper, Quicksilver Amulet, Stoneforge Mystic ...).
+  'Stoneforge Mystic',
+  'Akul the Unrepentant',
+  'Arboreal Grazer',
+  'Copper Gnomes',
+  'Elvish Pioneer',
+  'Firebrand Ranger',
+  "Gaea's Touch",
+  'Ghalta, Stampede Tyrant',
+  'Gretchen Titchwillow',
+  'Krosan Wayfarer',
+  'Llanowar Scout',
+  'Loam Dweller',
+  'Master Transmuter',
+  'Norwood Priestess',
+  'On the Trail',
+  'Planebound Accomplice',
+  'Quicksilver Amulet',
+  'Root Elemental',
+  'Scaled Herbalist',
+  'Skyshroud Ranger',
+  'Terrain Generator',
+  'Warren Instigator',
+  'White Tiger, Amulet Keeper',
+  'Horizon of Progress',
+  // D508 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Jace Reawakened',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

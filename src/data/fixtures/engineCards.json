@@ -286541,6 +286541,240 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GROWTH_SPIRAL": {
+    "scryfallId": "1e10e2b4-9639-41ae-8b8e-253224d3d513",
+    "oracleId": "34bcc217-dd91-45a0-90d7-a94d02f1f317",
+    "name": "Growth Spiral",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Growth Spiral",
+        "manaCost": "{G}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Draw a card. You may put a land card from your hand onto the battlefield.",
+        "flavorText": "Hidden within the infinite, protean rooms of the House are strange pockets of power that only the bravest dare access.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "1e10e2b4-9639-41ae-8b8e-253224d3d513"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dsc",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWELL_OF_GROWTH": {
+    "scryfallId": "b06da6fe-57bf-437e-8589-7e57a5881801",
+    "oracleId": "e47e0b81-0f0c-4e52-bc58-16af19b0dfe0",
+    "name": "Swell of Growth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swell of Growth",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +2/+2 until end of turn. You may put a land card from your hand onto the battlefield.",
+        "flavorText": "\"Nissa is not the only one with a deep connection to Zendikar's primal elements.\"\n—Kiora",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "b06da6fe-57bf-437e-8589-7e57a5881801"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bfz",
+    "collectorNumber": "191",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LESSONS_FROM_LIFE": {
+    "scryfallId": "0f886117-aff3-4db7-9cf5-7cbe94c8cd02",
+    "oracleId": "51df0203-578d-47e1-a9f7-a13445f597d7",
+    "name": "Lessons from Life",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lessons from Life",
+        "manaCost": "{2}{G}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw three cards. You may put a land card from your hand onto the battlefield tapped.",
+        "flavorText": "\"Everyone's got their own strengths, Lita. You never know what cards they might play. Instead, focus on what you know and never doubt your choices.\"\n—Michelangelo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Kevin Sidharta",
+        "imageId": "0f886117-aff3-4db7-9cf5-7cbe94c8cd02"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAKURA_TRIBE_SCOUT": {
+    "scryfallId": "437123f4-bd37-4872-a950-463eaf8a2217",
+    "oracleId": "0c319f45-cb0f-4641-acd8-145768acb3fc",
+    "name": "Sakura-Tribe Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sakura-Tribe Scout",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Snake Shaman Scout",
+        "oracleText": "{T}: You may put a land card from your hand onto the battlefield.",
+        "flavorText": "\"Scouts of the Sakura Tribe spent two years wandering the forest to learn every leaf and tree. That knowledge was called upon during the Kami War to ensure the orochi's survival.\"\n—*The History of Kamigawa*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "437123f4-bd37-4872-a950-463eaf8a2217"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "SOK-144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATRON_OF_THE_MOON": {
+    "scryfallId": "5e5fcd6f-1653-44bf-a796-4c9ff9adf390",
+    "oracleId": "e514546a-ca03-48ba-90e1-7a0e145137f2",
+    "name": "Patron of the Moon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patron of the Moon",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Legendary Creature — Spirit",
+        "oracleText": "Moonfolk offering (You may cast this spell any time you could cast an instant by sacrificing a Moonfolk and paying the difference in mana costs between this and the sacrificed Moonfolk. Mana cost includes color.)\nFlying\n{1}: Put up to two land cards from your hand onto the battlefield tapped.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "5e5fcd6f-1653-44bf-a796-4c9ff9adf390"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Offering"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALKING_ATLAS": {
+    "scryfallId": "53515042-e729-4a7c-ac3b-36ef70dbbe8d",
+    "oracleId": "855a4837-7fc8-4b97-afbd-daa88e322c89",
+    "name": "Walking Atlas",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Walking Atlas",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{T}: You may put a land card from your hand onto the battlefield.",
+        "flavorText": "Crafted by lullmages and bound to the land, it alters itself to match the tumultuous terrain.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "53515042-e729-4a7c-ac3b-36ef70dbbe8d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "wwk",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_PIPER": {
+    "scryfallId": "1a8e47b9-6735-4e46-b3fd-ac69edc39745",
+    "oracleId": "872ef617-7cdb-4a7a-85f5-efc9e12bece5",
+    "name": "Elvish Piper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Piper",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Shaman",
+        "oracleText": "{G}, {T}: You may put a creature card from your hand onto the battlefield.",
+        "flavorText": "\"From Gaea grew the world, and the world was silent. From Gaea grew the world's elves, and the world was silent no more.\"\n—Elvish teaching",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "1a8e47b9-6735-4e46-b3fd-ac69edc39745"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "a25",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "DWARVEN_PATROL": {
     "scryfallId": "03c08df5-f5e7-4498-ac80-25ccbe304b26",
     "oracleId": "4369adc8-d8e0-4d51-b2a9-7e4a8dfd9f8f",
@@ -289221,6 +289455,833 @@
     ],
     "setCode": "40k",
     "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONEFORGE_MYSTIC": {
+    "scryfallId": "11130547-391b-4fe7-8821-ef9514f6073f",
+    "oracleId": "358789f9-7d87-411d-919e-d597da665cbd",
+    "name": "Stoneforge Mystic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stoneforge Mystic",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Kor Artificer",
+        "oracleText": "When this creature enters, you may search your library for an Equipment card, reveal it, put it into your hand, then shuffle.\n{1}{W}, {T}: You may put an Equipment card from your hand onto the battlefield.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "11130547-391b-4fe7-8821-ef9514f6073f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "spg",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKUL_THE_UNREPENTANT": {
+    "scryfallId": "29628336-ce0e-483b-a027-c307f9bc5f38",
+    "oracleId": "d6b56d6d-e2f6-47f5-a9d1-cd0e17f94a0d",
+    "name": "Akul the Unrepentant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akul the Unrepentant",
+        "manaCost": "{B}{B}{R}{R}",
+        "typeLine": "Legendary Creature — Scorpion Dragon Rogue",
+        "oracleText": "Flying, trample\nSacrifice three other creatures: You may put a creature card from your hand onto the battlefield. Activate only as a sorcery and only once each turn.",
+        "flavorText": "Crackling with rage and stolen thunder, he drives the Hellspurs to ever-greater heights of violence.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Kekai Kotaki",
+        "imageId": "29628336-ce0e-483b-a027-c307f9bc5f38"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Trample"
+    ],
+    "setCode": "potj",
+    "collectorNumber": "189s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARBOREAL_GRAZER": {
+    "scryfallId": "6d00ced6-7ba3-4d78-a680-9d3211704ca2",
+    "oracleId": "d18a0815-59d3-4667-b52b-9acda741215e",
+    "name": "Arboreal Grazer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arboreal Grazer",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Sloth Beast",
+        "oracleText": "Reach\nWhen this creature enters, you may put a land card from your hand onto the battlefield tapped.",
+        "flavorText": "\"We fight to stop a tyrant, but we also fight for the gentle creatures who have no concept of what befalls their world.\"\n—Vivien Reid",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "6d00ced6-7ba3-4d78-a680-9d3211704ca2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Reach"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COPPER_GNOMES": {
+    "scryfallId": "d5e326b7-6f6a-4249-a315-c5f017931c73",
+    "oracleId": "4fd6d9af-4d53-4e10-bc23-672454803099",
+    "name": "Copper Gnomes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Copper Gnomes",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Gnome",
+        "oracleText": "{4}, Sacrifice this creature: You may put an artifact card from your hand onto the battlefield.",
+        "flavorText": "Start with eleven gnomes and a room of parts, and come morning you'll have ten and a monster the likes of which you've never seen.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeff Laubenstein",
+        "imageId": "d5e326b7-6f6a-4249-a315-c5f017931c73"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "291",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELVISH_PIONEER": {
+    "scryfallId": "7e71fc2d-643b-4fad-89a8-624d330895d6",
+    "oracleId": "5f4138e9-5471-467f-a15e-89e9e7929f0c",
+    "name": "Elvish Pioneer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elvish Pioneer",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you may put a basic land card from your hand onto the battlefield tapped.",
+        "flavorText": "\"Destruction is the work of an afternoon. Creation is the work of a lifetime.\"\n—Kamahl, druid acolyte",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Rush",
+        "imageId": "7e71fc2d-643b-4fad-89a8-624d330895d6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ons",
+    "collectorNumber": "257",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREBRAND_RANGER": {
+    "scryfallId": "ee05211e-cf08-4dea-9740-ed06f8682153",
+    "oracleId": "4ceb49f3-a997-468d-9653-8ca5ceb2bcfb",
+    "name": "Firebrand Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firebrand Ranger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Soldier Ranger",
+        "oracleText": "{G}, {T}: You may put a basic land card from your hand onto the battlefield.",
+        "flavorText": "A skilled ranger can glance at the mud on your boots and tell where you last camped.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Quinton Hoover",
+        "imageId": "ee05211e-cf08-4dea-9740-ed06f8682153"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GAEA_S_TOUCH": {
+    "scryfallId": "0e1ae3d6-6d96-4db6-bbc4-cee91bae6cf7",
+    "oracleId": "ddd053ea-5b91-4def-a003-2e297a170d99",
+    "name": "Gaea's Touch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gaea's Touch",
+        "manaCost": "{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{0}: You may put a basic Forest card from your hand onto the battlefield. Activate only as a sorcery and only once each turn.\nSacrifice this enchantment: Add {G}{G}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Poole",
+        "imageId": "0e1ae3d6-6d96-4db6-bbc4-cee91bae6cf7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "drk",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHALTA_STAMPEDE_TYRANT": {
+    "scryfallId": "72e805e9-69be-45c1-aa04-f460641a0c1e",
+    "oracleId": "b8f16311-be5a-4648-b024-849a61dff0bc",
+    "name": "Ghalta, Stampede Tyrant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghalta, Stampede Tyrant",
+        "manaCost": "{5}{G}{G}{G}",
+        "typeLine": "Legendary Creature — Elder Dinosaur",
+        "oracleText": "Trample\nWhen Ghalta enters, put any number of creature cards from your hand onto the battlefield.",
+        "flavorText": "A thundering roar calls forth a primeval army.",
+        "power": "12",
+        "toughness": "12",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "72e805e9-69be-45c1-aa04-f460641a0c1e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRETCHEN_TITCHWILLOW": {
+    "scryfallId": "07c41d97-7c2f-4d8b-a35d-40d98329a728",
+    "oracleId": "cedeea30-b580-4ea7-bbc3-7358fed8ae61",
+    "name": "Gretchen Titchwillow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gretchen Titchwillow",
+        "manaCost": "{G}{U}",
+        "typeLine": "Legendary Creature — Halfling Druid",
+        "oracleText": "{2}{G}{U}: Draw a card. You may put a land card from your hand onto the battlefield.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Justine Mara Andersen",
+        "imageId": "07c41d97-7c2f-4d8b-a35d-40d98329a728"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "340",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROSAN_WAYFARER": {
+    "scryfallId": "5356e684-c2fc-465e-a16c-7300824d2a8d",
+    "oracleId": "1729317d-ccfb-4f27-84c6-20b36b2826c9",
+    "name": "Krosan Wayfarer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krosan Wayfarer",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Sacrifice this creature: You may put a land card from your hand onto the battlefield.",
+        "flavorText": "\"The Krosan Forest lives, and druids are its seeds.\"\n—Seton, centaur druid",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "5356e684-c2fc-465e-a16c-7300824d2a8d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "jud",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LLANOWAR_SCOUT": {
+    "scryfallId": "c8026d80-2e91-46f9-ae97-1f137848236c",
+    "oracleId": "3bdc9211-8eff-4b30-8d6f-d26f4087f77f",
+    "name": "Llanowar Scout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Llanowar Scout",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "{T}: You may put a land card from your hand onto the battlefield.",
+        "flavorText": "Llanowar elfhames occupy different heights within the great forest. Elves of the Loridalh and Kelfae hames can see neither earth nor sky.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "c8026d80-2e91-46f9-ae97-1f137848236c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "dom",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOAM_DWELLER": {
+    "scryfallId": "4f635b35-48c8-43e8-9d74-c01d3c0c74e1",
+    "oracleId": "a61f7653-4c55-472f-b37c-617b94d0fecd",
+    "name": "Loam Dweller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loam Dweller",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Whenever you cast a Spirit or Arcane spell, you may put a land card from your hand onto the battlefield tapped.",
+        "flavorText": "\"You know its mood by the plants that spring up around it. When it is placid, fields of lilies flow in its wake; when it is angry, every stem has a thorn.\"\n—Isao, Enlightened Bushi",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "4f635b35-48c8-43e8-9d74-c01d3c0c74e1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bok",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_TRANSMUTER": {
+    "scryfallId": "252482b2-aaa7-49f3-af8c-30923ca98994",
+    "oracleId": "da46786e-28df-4638-ab3d-121011d2f150",
+    "name": "Master Transmuter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Transmuter",
+        "manaCost": "{3}{U}",
+        "typeLine": "Artifact Creature — Human Artificer",
+        "oracleText": "{U}, {T}, Return an artifact you control to its owner's hand: You may put an artifact card from your hand onto the battlefield.",
+        "flavorText": "\"Wasted potential surrounds us. Lend me that bauble, and let me see what it can be made to be.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chippy",
+        "imageId": "252482b2-aaa7-49f3-af8c-30923ca98994"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "con",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NORWOOD_PRIESTESS": {
+    "scryfallId": "7afd472f-1ede-4e78-b44c-3298ee4c8694",
+    "oracleId": "902a7588-602c-456f-8250-c94f35e56d3a",
+    "name": "Norwood Priestess",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Norwood Priestess",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "{T}: You may put a green creature card from your hand onto the battlefield. Activate only during your turn, before attackers are declared.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Melissa A. Benson",
+        "imageId": "7afd472f-1ede-4e78-b44c-3298ee4c8694"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "p02",
+    "collectorNumber": "137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ON_THE_TRAIL": {
+    "scryfallId": "0d36eeb4-7c11-4c55-848a-182351e5e3eb",
+    "oracleId": "5a060788-a601-4c01-8341-73398b497a85",
+    "name": "On the Trail",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "On the Trail",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you draw your second card each turn, you may put a land card from your hand onto the battlefield tapped.",
+        "flavorText": "Where the victim's journey ends, the investigator's begins.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Erikas Perl",
+        "imageId": "0d36eeb4-7c11-4c55-848a-182351e5e3eb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mkc",
+    "collectorNumber": "349",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLANEBOUND_ACCOMPLICE": {
+    "scryfallId": "85fb9418-a22b-4f92-b494-f68c29bcb92a",
+    "oracleId": "01076e04-3106-4968-8ef4-b26fc3786699",
+    "name": "Planebound Accomplice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Planebound Accomplice",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{R}: You may put a planeswalker card from your hand onto the battlefield. Sacrifice it at the beginning of the next end step.",
+        "flavorText": "\"Told you I had friends.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "85fb9418-a22b-4f92-b494-f68c29bcb92a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICKSILVER_AMULET": {
+    "scryfallId": "04c0357a-e98d-4c49-83ad-d7a8ebe7e2d1",
+    "oracleId": "e1096a98-a631-43f5-97d8-325001d608b3",
+    "name": "Quicksilver Amulet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quicksilver Amulet",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "{4}, {T}: You may put a creature card from your hand onto the battlefield.",
+        "flavorText": "Those who examine the amulet too closely have been known to become part of its ornate carvings.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brad Rigney",
+        "imageId": "04c0357a-e98d-4c49-83ad-d7a8ebe7e2d1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "m12",
+    "collectorNumber": "214",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOT_ELEMENTAL": {
+    "scryfallId": "5161968e-b757-45b8-826f-98415291024d",
+    "oracleId": "182d38b4-48bb-4050-a19a-c0a6bb241bbd",
+    "name": "Root Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Root Elemental",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Morph {5}{G}{G} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, you may put a creature card from your hand onto the battlefield.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "5161968e-b757-45b8-826f-98415291024d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCALED_HERBALIST": {
+    "scryfallId": "6cb05274-5a94-44e3-889a-667cba1da033",
+    "oracleId": "6fd9ece7-366f-45c7-a8ea-edb4ca637a06",
+    "name": "Scaled Herbalist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scaled Herbalist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Lizard Druid",
+        "oracleText": "{T}: You may put a land card from your hand onto the battlefield.",
+        "flavorText": "\"I could help you, or I could eat you for lunch. I haven't decided yet.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "April Prime",
+        "imageId": "6cb05274-5a94-44e3-889a-667cba1da033"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "afr",
+    "collectorNumber": "204",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYSHROUD_RANGER": {
+    "scryfallId": "9a2fd9e5-1986-4998-b08c-80897b9b27e7",
+    "oracleId": "8f47a230-7500-4afb-97cd-dbd444c307c8",
+    "name": "Skyshroud Ranger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyshroud Ranger",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Elf Ranger",
+        "oracleText": "{T}: You may put a land card from your hand onto the battlefield. Activate only as a sorcery.",
+        "flavorText": "Not even the elves truly know the Skyshroud Forest. The rangers are merely the best equipped to handle its uncertainty.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "9a2fd9e5-1986-4998-b08c-80897b9b27e7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "297",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TERRAIN_GENERATOR": {
+    "scryfallId": "4bdd6634-6de1-4938-9038-317c15c8bfc7",
+    "oracleId": "a949c96c-362c-45a3-bd5c-ce5ce153ee9e",
+    "name": "Terrain Generator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terrain Generator",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: You may put a basic land card from your hand onto the battlefield tapped.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cristi Balanescu",
+        "imageId": "4bdd6634-6de1-4938-9038-317c15c8bfc7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "eos",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARREN_INSTIGATOR": {
+    "scryfallId": "3abab3d4-d525-41bf-85ee-fba7f999001f",
+    "oracleId": "47f75e25-8a52-4452-a3a8-bf1bd00942d1",
+    "name": "Warren Instigator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warren Instigator",
+        "manaCost": "{R}{R}",
+        "typeLine": "Creature — Goblin Berserker",
+        "oracleText": "Double strike\nWhenever this creature deals damage to an opponent, you may put a Goblin creature card from your hand onto the battlefield.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matteo Bassini",
+        "imageId": "3abab3d4-d525-41bf-85ee-fba7f999001f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITE_TIGER_AMULET_KEEPER": {
+    "scryfallId": "babf0f59-0199-4dba-a149-f62261115f5e",
+    "oracleId": "0fa01155-638d-44ed-8963-46b202b0e720",
+    "name": "White Tiger, Amulet Keeper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "White Tiger, Amulet Keeper",
+        "manaCost": "{1}{G}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "{3}{G}, Exile this card from your graveyard: Draw a card. You may put a land card from your hand onto the battlefield.",
+        "flavorText": "\"Now is the hour of light! This is the time . . . of the White Tiger!\"",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Taurin Clarke",
+        "imageId": "babf0f59-0199-4dba-a149-f62261115f5e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "736",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORIZON_OF_PROGRESS": {
+    "scryfallId": "5ae3a9c8-194e-421b-b77d-9c8784442651",
+    "oracleId": "59a82f57-fe2f-4834-a4ee-4b948eef1e12",
+    "name": "Horizon of Progress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horizon of Progress",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Pay 1 life: Add one mana of any type that a land you control could produce.\n{3}, {T}: You may put a land card from your hand onto the battlefield tapped.\n{1}, {T}, Sacrifice this land: Draw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Julian Kok Joon Wen",
+        "imageId": "5ae3a9c8-194e-421b-b77d-9c8784442651"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "m3c",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JACE_REAWAKENED": {
+    "scryfallId": "10fe09d9-2c3d-44cf-8d66-193ba9ddc8c6",
+    "oracleId": "cbd483b5-5554-43ed-a729-535d01b0d5d3",
+    "name": "Jace Reawakened",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jace Reawakened",
+        "manaCost": "{U}{U}",
+        "typeLine": "Legendary Planeswalker — Jace",
+        "oracleText": "You can't cast Jace Reawakened during your first, second, or third turns of the game.\n+1: Draw a card, then discard a card.\n+1: You may exile a nonland card with mana value 3 or less from your hand. If you do, it becomes plotted.\n−6: Until end of turn, whenever you cast a spell, copy it. You may choose new targets for the copy.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "3",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Cristi Balanescu",
+        "imageId": "10fe09d9-2c3d-44cf-8d66-193ba9ddc8c6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "potj",
+    "collectorNumber": "271p",
     "commanderLegality": "legal",
     "singleImage": true
   },

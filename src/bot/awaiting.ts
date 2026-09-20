@@ -408,6 +408,29 @@ export function answerAwaiting(
         if (best.length < awaiting.count) return fault('noIntentForAwaiting', `asked for ${awaiting.count} cards of a revealed hand, ${legal.length} admitted`);
         return act({ t: 'AnswerChooseFromZone', player: me, cards: best }, `take ${best.length} from the revealed hand for ${awaiting.label}`);
       }
+      // D508 - the hand put's pick: my own hand through the bound (D416's reader on the view), the most expensive
+      // first, up to the count; fewer than the prompt's least is a fault (the executor asks only with something
+      // admitted), and nothing admitted under `you may` puts nothing, which is always legal.
+      if (awaiting.zone === 'hand' && awaiting.to === 'battlefield') {
+        const none = awaiting.none ?? [];
+        const mv = awaiting.qualifier?.manaValue ?? null;
+        const legal = myHand(view, me).filter((c) => {
+          const face = c.card?.faces[0];
+          if (!c.card || !face) return false;
+          const types = parseTypeLine(face.typeLine);
+          if (none.some((t) => types.types.includes(t))) return false;
+          const value = c.card.cmc;
+          if (mv && ((mv.op === 'lte' && !(value <= mv.n)) || (mv.op === 'gte' && !(value >= mv.n)) || (mv.op === 'eq' && value !== mv.n))) return false;
+          return !awaiting.filter || admitsCard(awaiting.filter, c);
+        });
+        const best = [...legal].sort(worstFirst).slice(0, awaiting.count).map((c) => c.instanceId);
+        const least = awaiting.min ?? awaiting.count;
+        if (best.length < least) return fault('noIntentForAwaiting', `asked to put ${least} from hand onto the battlefield, ${legal.length} admitted`);
+        return act(
+          { t: 'AnswerChooseFromZone', player: me, cards: best },
+          best.length === 0 ? `put nothing onto the battlefield for ${awaiting.label}` : `put ${best.length} from hand onto the battlefield for ${awaiting.label}`,
+        );
+      }
       // D491 - the from-hand free cast's pick: my own hand through the bound (D416's reader on the view) and a
       // castable face - a nonland with a mana cost, no chooser-verb additional cost, no targeted instant or sorcery
       // and no Aura (the view cannot ask the board what is legal, and a refused pick would spend the turn) - the most

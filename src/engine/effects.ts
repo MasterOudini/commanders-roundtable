@@ -33,7 +33,7 @@ import { n, narrated, vb, who } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates } from './legal';
-import { freeCastCandidates, handChoiceCandidates } from './handChoice';
+import { freeCastCandidates, handChoiceAdmits, handChoiceCandidates } from './handChoice';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
@@ -1480,6 +1480,44 @@ export function effectResult(
        * and no prompt: the same "a question with one legal answer" rule the
        * discard case follows.
        */
+      // D508 - THE HAND PUT. What the noun admits in the hand (the negations and the filter, as the answer handler
+      // reads them - `handChoiceAdmits`): nothing admitted asks nothing (D141's rule - a question with no legal answer);
+      // a MANDATORY put with no more admitted than it takes moves them unasked (CR 701.8a); otherwise the prompt over
+      // the hand with `to: 'battlefield'`, `min` 0 when the line says `you may` / `up to`, the filter and the negations
+      // riding it (they are printed), never the candidates (the hand is the chooser's own; D137).
+      case 'putFromHand': {
+        const look = effect.look;
+        if (!look) break;
+        const held = state.zones.hand[controller] ?? [];
+        const bound = { none: [...(look.none ?? [])], filter: look.filter, qualifier: null };
+        const admitted = held.filter((id) => handChoiceAdmits(state, deps.oracle, id, bound));
+        if (admitted.length === 0) break;
+        const take = Math.min(look.take, admitted.length);
+        if (!look.optional && admitted.length <= look.take) {
+          out.push({ t: 'PutFromHand', player: controller, cards: admitted });
+          out.push({ t: 'CardsMoved', moves: admitted.map((card) => ({ card, from: { kind: 'hand' as const, player: controller }, to: { kind: 'battlefield' as const, player: controller } })) });
+          if (look.tapped === true) out.push({ t: 'PermanentsTapped', cards: admitted });
+          break;
+        }
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: {
+            kind: 'chooseFromZone',
+            player: controller,
+            zone: 'hand',
+            rest: null,
+            count: take,
+            min: look.optional ? 0 : take,
+            filter: look.filter,
+            ...(look.none !== undefined && look.none.length > 0 ? { none: look.none } : {}),
+            to: 'battlefield',
+            ...(look.tapped === true ? { tapped: true } : {}),
+            label: obj.label,
+          },
+        });
+        break;
+      }
       case 'lookAtTop': {
         const look = effect.look;
         if (!look) break;

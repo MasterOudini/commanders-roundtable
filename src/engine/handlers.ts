@@ -3998,6 +3998,25 @@ function answerChooseFromZone(
   for (const card of intent.cards) {
     if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
   }
+  // D508 - THE HAND PUT: the picks the printed noun admits (D416's reader - the negations, the filter) leave the hand
+  // for the battlefield under the chooser's control (tapped when the line says so), named first by the marker the
+  // fuzz counts; an empty answer puts nothing and the effect goes on. The move is an ordinary entry, so the entry
+  // funnel and the enters triggers run for the permanents as for a look's battlefield pick (D493).
+  if (awaiting.zone === 'hand' && awaiting.to === 'battlefield') {
+    const bound = { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null };
+    for (const card of intent.cards) {
+      if (!handChoiceAdmits(state, deps.oracle, card, bound)) return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'one the card lets you put onto the battlefield'}.`);
+    }
+    const events: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }];
+    if (intent.cards.length === 0) {
+      events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} nothing onto the battlefield for ${awaiting.label}.`, intent.player));
+    } else {
+      events.push({ t: 'PutFromHand', player: intent.player, cards: [...intent.cards] });
+      events.push({ t: 'CardsMoved', moves: intent.cards.map((card) => ({ card, from: { kind: 'hand' as const, player: intent.player }, to: { kind: 'battlefield' as const, player: intent.player } })) });
+      if (awaiting.tapped === true) events.push({ t: 'PermanentsTapped', cards: [...intent.cards] });
+    }
+    return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+  }
   // D491 - THE FROM-HAND FREE CAST: an empty answer casts nothing and the granting effect goes on; a pick the bound
   // admits (D416's reader plus castability, `freeCastAdmits`) BEGINS ITS CAST with nothing to pay - the cast's own
   // questions next, the granting effect's rest riding the pending cast.

@@ -1337,6 +1337,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D504 - the referent player's marker: the clause's own events beside it moved the state.
     case 'ReferentPlayerBound':
       return state;
+    // D508 - the hand put's marker: the move beside it moved the state.
+    case 'PutFromHand':
+      return state;
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
       return state;

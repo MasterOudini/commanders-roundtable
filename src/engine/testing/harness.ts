@@ -602,7 +602,10 @@ export function simplestAnswer(
             // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
             : awaiting.castFree === true
               ? freeCastCandidates(state, deps(), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })
-              : (state.zones.hand[awaiting.player] ?? []);
+              // D508 - the hand put's pick: the first card of my own hand the printed noun admits (the host's reader).
+              : awaiting.to === 'battlefield'
+                ? handChoiceCandidates(state, ORACLE, awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })
+                : (state.zones.hand[awaiting.player] ?? []);
       // D389 - a filtered look admits only what its noun names, and "you may" takes nothing:
       // the eligible run, up to the count, is legal whether it is empty or full.
       // D390 - a queued sacrifice carries the printed noun too; a discard never does.

@@ -792,6 +792,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D508 - the hand put: the rows the select offered and the row maker refused, by its own reasons.
+  ['Burgeoning', 'trigger head not in the library: Whenever an opponent plays a land, you may put a land card from your h (D508)'],
+  ['Nicanzil, Current Conductor', 'trigger head not in the library: Whenever a creature you control explores a land card, you may put a la (D508)'],
   // D506 - the witnesses the scopes lacked: the mass-verb rows still refused, by the row maker's and the generator's own reasons.
   ['Aragorn and Arwen, Wed', 'a counted payload under a head whose arm sizes the board (entersOrAttacks): You gain 1 life for each other creature you control. (D506)'],
   ['Iron Monger, Sadistic Tycoon', 'trigger head not in the library: Whenever a creature you control connives, put a +1/+1 counter on each (D506)'],

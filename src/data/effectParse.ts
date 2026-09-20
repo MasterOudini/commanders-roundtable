@@ -722,6 +722,47 @@ function searchRule(): Rule {
 }
 
 /**
+ * D508 - THE HAND PUT: `(You may) put <count> <noun> card(s) from your hand onto the battlefield (tapped).` - Sakura-Tribe
+ * Scout, Walking Atlas, Elvish Piper, Quicksilver Amulet, Growth Spiral, Burgeoning; the mandatory `Put up to two land
+ * cards ... tapped` (Patron of the Moon). The count is `a` / `an` / one..four (exact), `up to N` or `any number of`
+ * (optional, the player's to stop short); the noun is the look grammar's (its negations - `nonland`, `non-Saga` refused
+ * with every `non` the map lacks - then `lookFilter` over the rest; a bare `card` is unrestricted). The sentence must
+ * end there: `tapped and attacking`, `face down`, `for each free vote`, `blocking that creature` stay unread.
+ */
+function putFromHandRule(): Rule {
+  return {
+    kind: 'putFromHand',
+    re: /^(?<may>you may )?put (?<count>a|an|one|two|three|four|up to (?:one|two|three|four)|any number of) (?<noun>[a-z][a-z' ,\/-]*?)? ?cards? from your hand onto the battlefield(?<tapped> tapped)?\.$/i,
+    build: (m) => {
+      const g = m.groups ?? {};
+      const cw = (g['count'] ?? 'a').toLowerCase();
+      const upTo = cw.startsWith('up to ') || cw === 'any number of';
+      const take = cw === 'any number of' ? 99 : cw === 'a' || cw === 'an' ? 1 : (COUNTS[cw.replace(/^up to /, '')] ?? 0);
+      if (take < 1) return null;
+      let noun = (g['noun'] ?? '').trim();
+      const none: string[] = [];
+      for (;;) {
+        const lead = noun.match(/^(non[a-z]+),?\s*/i);
+        const type = lead ? LOOK_NON[(lead[1] ?? '').toLowerCase()] : undefined;
+        if (!lead || type === undefined) break;
+        none.push(type);
+        noun = noun.slice(lead[0].length);
+      }
+      if (/\bnon[a-z-]+/i.test(noun)) return null;
+      const filter = noun !== '' ? lookFilter({ noun: noun.replace(/,\s*(?:or\s+)?/g, ' or ').replace(/\s+/g, ' ').trim() }) : null;
+      if (noun !== '' && !filter) return null;
+      return {
+        ...BASE,
+        amount: take,
+        targetIndex: -1,
+        self: true,
+        look: { take, rest: 'hand', filter, optional: g['may'] !== undefined || upTo, to: 'battlefield', ...(g['tapped'] !== undefined ? { tapped: true } : {}), ...(none.length > 0 ? { none } : {}) },
+      };
+    },
+  };
+}
+
+/**
  * D359 - the tutor: `Search your library for a card, reveal it, then shuffle and put that card
  * on top.`
  *
@@ -2091,6 +2132,7 @@ const RULES: readonly Rule[] = [
   },
   searchRule(),
   searchTopRule(),
+  putFromHandRule(),
 ];
 
 /**
@@ -2265,7 +2307,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -2518,7 +2560,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -2685,7 +2727,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };

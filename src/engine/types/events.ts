@@ -352,6 +352,8 @@ export type EventBody =
   | { readonly t: 'ExtraTurnDropped'; readonly player: PlayerId }
   /** D504 - a clause done by the previous object's controller (or owner) was bound to that player (a marker; the clause's own events follow). */
   | { readonly t: 'ReferentPlayerBound'; readonly player: PlayerId; readonly text: string }
+  /** D508 - a hand put's picks, named before the move that carries them (a marker; the move beside it moved the state). */
+  | { readonly t: 'PutFromHand'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
   /** D505 - a mass verb walked its scope (a marker; the counters, taps or untaps beside it moved the state). */
   | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap'; readonly members: number; readonly text: string }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }

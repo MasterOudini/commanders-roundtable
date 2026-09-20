@@ -7,6 +7,33 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { STONEFORGE_MYSTIC_SCRIPT } from './cards/stoneforgeMystic';
+import { ELVISH_PIPER_SCRIPT } from './cards/elvishPiper';
+import { SAKURA_TRIBE_SCOUT_SCRIPT } from './cards/sakuraTribeScout';
+import { WALKING_ATLAS_SCRIPT } from './cards/walkingAtlas';
+import { AKUL_THE_UNREPENTANT_SCRIPT } from './cards/akulTheUnrepentant';
+import { ARBOREAL_GRAZER_SCRIPT } from './cards/arborealGrazer';
+import { COPPER_GNOMES_SCRIPT } from './cards/copperGnomes';
+import { ELVISH_PIONEER_SCRIPT } from './cards/elvishPioneer';
+import { FIREBRAND_RANGER_SCRIPT } from './cards/firebrandRanger';
+import { GAEAS_TOUCH_SCRIPT } from './cards/gaeasTouch';
+import { GHALTA_STAMPEDE_TYRANT_SCRIPT } from './cards/ghaltaStampedeTyrant';
+import { GRETCHEN_TITCHWILLOW_SCRIPT } from './cards/gretchenTitchwillow';
+import { KROSAN_WAYFARER_SCRIPT } from './cards/krosanWayfarer';
+import { LLANOWAR_SCOUT_SCRIPT } from './cards/llanowarScout';
+import { LOAM_DWELLER_SCRIPT } from './cards/loamDweller';
+import { MASTER_TRANSMUTER_SCRIPT } from './cards/masterTransmuter';
+import { NORWOOD_PRIESTESS_SCRIPT } from './cards/norwoodPriestess';
+import { ON_THE_TRAIL_SCRIPT } from './cards/onTheTrail';
+import { PLANEBOUND_ACCOMPLICE_SCRIPT } from './cards/planeboundAccomplice';
+import { QUICKSILVER_AMULET_SCRIPT } from './cards/quicksilverAmulet';
+import { ROOT_ELEMENTAL_SCRIPT } from './cards/rootElemental';
+import { SCALED_HERBALIST_SCRIPT } from './cards/scaledHerbalist';
+import { SKYSHROUD_RANGER_SCRIPT } from './cards/skyshroudRanger';
+import { TERRAIN_GENERATOR_SCRIPT } from './cards/terrainGenerator';
+import { WARREN_INSTIGATOR_SCRIPT } from './cards/warrenInstigator';
+import { WHITE_TIGER_AMULET_KEEPER_SCRIPT } from './cards/whiteTigerAmuletKeeper';
+import { HORIZON_OF_PROGRESS_SCRIPT } from './cards/horizonOfProgress';
 import { CARNIFEX_DEMON_SCRIPT } from './cards/carnifexDemon';
 import { CHAOS_TERMINATOR_LORD_SCRIPT } from './cards/chaosTerminatorLord';
 import { PLASMANCER_SCRIPT } from './cards/plasmancer';
@@ -7806,6 +7833,33 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  STONEFORGE_MYSTIC_SCRIPT,
+  ELVISH_PIPER_SCRIPT,
+  SAKURA_TRIBE_SCOUT_SCRIPT,
+  WALKING_ATLAS_SCRIPT,
+  AKUL_THE_UNREPENTANT_SCRIPT,
+  ARBOREAL_GRAZER_SCRIPT,
+  COPPER_GNOMES_SCRIPT,
+  ELVISH_PIONEER_SCRIPT,
+  FIREBRAND_RANGER_SCRIPT,
+  GAEAS_TOUCH_SCRIPT,
+  GHALTA_STAMPEDE_TYRANT_SCRIPT,
+  GRETCHEN_TITCHWILLOW_SCRIPT,
+  KROSAN_WAYFARER_SCRIPT,
+  LLANOWAR_SCOUT_SCRIPT,
+  LOAM_DWELLER_SCRIPT,
+  MASTER_TRANSMUTER_SCRIPT,
+  NORWOOD_PRIESTESS_SCRIPT,
+  ON_THE_TRAIL_SCRIPT,
+  PLANEBOUND_ACCOMPLICE_SCRIPT,
+  QUICKSILVER_AMULET_SCRIPT,
+  ROOT_ELEMENTAL_SCRIPT,
+  SCALED_HERBALIST_SCRIPT,
+  SKYSHROUD_RANGER_SCRIPT,
+  TERRAIN_GENERATOR_SCRIPT,
+  WARREN_INSTIGATOR_SCRIPT,
+  WHITE_TIGER_AMULET_KEEPER_SCRIPT,
+  HORIZON_OF_PROGRESS_SCRIPT,
   CARNIFEX_DEMON_SCRIPT,
   CHAOS_TERMINATOR_LORD_SCRIPT,
   PLASMANCER_SCRIPT,

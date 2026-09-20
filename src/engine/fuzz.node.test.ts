@@ -272,6 +272,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the exiled creature's controller, who accepts the offer and finds in their own library).
   { names: ['Path to Exile'], copiesPerSeat: 2,
     counterKeys: ['referentSearches'], rotHistory: 'D507' },
+  // D508 - the hand put: two Swells of Growth a seat ({1}{G} instant, `Target creature gets +2/+2 until end of turn. You
+  // may put a land card from your hand onto the battlefield.` - the pump on a creature the seat controls, then the
+  // question over the hand; the driver puts the most expensive land it holds).
+  { names: ['Swell of Growth'], copiesPerSeat: 2,
+    counterKeys: ['handPuts'], rotHistory: 'D508' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1525,6 +1530,8 @@ interface Run {
   readonly scopesWalked: number;
   /** D507 - referent searches: a search bound to the previous object's controller (`ReferentPlayerBound` with a search text). */
   readonly referentSearches: number;
+  /** D508 - hand puts: cards put from a hand onto the battlefield by a put clause (`PutFromHand`). */
+  readonly handPuts: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -1987,6 +1994,7 @@ function runOne(seed: number): Run {
     referentPlayers: game.log.filter((e) => e.body.t === 'ReferentPlayerBound').length,
     scopesWalked: game.log.filter((e) => e.body.t === 'ScopeWalked').length,
     referentSearches: game.log.filter((e) => e.body.t === 'ReferentPlayerBound' && /search/i.test(e.body.text)).length,
+    handPuts: game.log.reduce((n, e) => n + (e.body.t === 'PutFromHand' ? e.body.cards.length : 0), 0),
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2281,6 +2289,7 @@ const TOTAL_KEYS = [
   'referentPlayers',
   'scopesWalked',
   'referentSearches',
+  'handPuts',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2718,6 +2727,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.scopesWalked).toBeGreaterThan(0);
         // D507 - a search asked of the previous object's controller at gate size (Path to Exile, two a seat; 7 over the first 60 seeds, canary507).
         expect(totals.referentSearches).toBeGreaterThan(0);
+        // D508 - a card put from the hand onto the battlefield at gate size (Swell of Growth, two a seat; 2 over the first 60 seeds, canary508).
+        expect(totals.handPuts).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2841,6 +2852,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.referentPlayers} referent players · ` +
           `${totals.scopesWalked} scopes walked · ` +
           `${totals.referentSearches} referent searches · ` +
+          `${totals.handPuts} hand puts · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +
