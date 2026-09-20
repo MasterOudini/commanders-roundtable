@@ -8458,6 +8458,12 @@ export const TEMPORAL_TRESPASS: CardData = F.TEMPORAL_TRESPASS as CardData;
 export const RISE_OF_THE_ELDRAZI: CardData = F.RISE_OF_THE_ELDRAZI as CardData;
 export const SAVOR_THE_MOMENT: CardData = F.SAVOR_THE_MOMENT as CardData;
 export const MAGISTRATE_S_SCEPTER: CardData = F.MAGISTRATE_S_SCEPTER as CardData;
+export const BEAST_WITHIN: CardData = F.BEAST_WITHIN as CardData;
+export const GENEROUS_GIFT: CardData = F.GENEROUS_GIFT as CardData;
+export const COUNTERMAND: CardData = F.COUNTERMAND as CardData;
+export const DISMAL_FAILURE: CardData = F.DISMAL_FAILURE as CardData;
+export const CRIB_SWAP: CardData = F.CRIB_SWAP as CardData;
+export const PONGIFY: CardData = F.PONGIFY as CardData;
 export const DWARVEN_PATROL: CardData = F.DWARVEN_PATROL as CardData;
 export const MOON_BLESSED_CLERIC: CardData = F.MOON_BLESSED_CLERIC as CardData;
 export const SQUALL_SEED_MERCENARY: CardData = F.SQUALL_SEED_MERCENARY as CardData;
@@ -8491,6 +8497,7 @@ export const ADDITIVE_EVOLUTION: CardData = F.ADDITIVE_EVOLUTION as CardData;
 export const WINTER_ELADRIN: CardData = F.WINTER_ELADRIN as CardData;
 export const PROSPERITY_TYCOON: CardData = F.PROSPERITY_TYCOON as CardData;
 export const LORD_OF_CHANGE: CardData = F.LORD_OF_CHANGE as CardData;
+export const ZULAPORT_DUELIST: CardData = F.ZULAPORT_DUELIST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17196,6 +17203,12 @@ export const ENGINE_CARDS: CardData[] = [
   RISE_OF_THE_ELDRAZI,
   SAVOR_THE_MOMENT,
   MAGISTRATE_S_SCEPTER,
+  BEAST_WITHIN,
+  GENEROUS_GIFT,
+  COUNTERMAND,
+  DISMAL_FAILURE,
+  CRIB_SWAP,
+  PONGIFY,
   DWARVEN_PATROL,
   MOON_BLESSED_CLERIC,
   SQUALL_SEED_MERCENARY,
@@ -17229,6 +17242,7 @@ export const ENGINE_CARDS: CardData[] = [
   WINTER_ELADRIN,
   PROSPERITY_TYCOON,
   LORD_OF_CHANGE,
+  ZULAPORT_DUELIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

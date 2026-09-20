@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AJANI_INSPIRING_LEADER_SCRIPT } from './cards/ajaniInspiringLeader';
+import { ZULAPORT_DUELIST_SCRIPT } from './cards/zulaportDuelist';
 import { DWARVEN_PATROL_SCRIPT } from './cards/dwarvenPatrol';
 import { MOON_BLESSED_CLERIC_SCRIPT } from './cards/moonBlessedCleric';
 import { SQUALL_SEED_MERCENARY_SCRIPT } from './cards/squallSeedMercenary';
@@ -6806,7 +6808,6 @@ import { NAGA_ORACLE_SCRIPT } from './cards/nagaOracle';
 import { NANTUKO_DISCIPLE_SCRIPT } from './cards/nantukoDisciple';
 import { NATURAL_OBSOLESCENCE_SCRIPT } from './cards/naturalObsolescence';
 import { NATURAL_SPRING_SCRIPT } from './cards/naturalSpring';
-import { NATURES_CLAIM_SCRIPT } from './cards/naturesClaim';
 import { NATURES_RESURGENCE_SCRIPT } from './cards/naturesResurgence';
 import { NATURES_RUIN_SCRIPT } from './cards/naturesRuin';
 import { NAUSEA_SCRIPT } from './cards/nausea';
@@ -6837,7 +6838,6 @@ import { MIND_STONE_SCRIPT } from './cards/mindStone';
 import { MINIONS_MURMURS_SCRIPT } from './cards/minionsMurmurs';
 import { MINISTER_OF_IMPEDIMENTS_SCRIPT } from './cards/ministerOfImpediments';
 import { MINTSTROSITY_SCRIPT } from './cards/mintstrosity';
-import { MISFORTUNES_GAIN_SCRIPT } from './cards/misfortunesGain';
 import { MIST_RAVEN_SCRIPT } from './cards/mistRaven';
 import { MISTHIOSS_FURY_SCRIPT } from './cards/misthiossFury';
 import { MISTY_PALMS_OASIS_SCRIPT } from './cards/mistyPalmsOasis';
@@ -6871,7 +6871,6 @@ import { MARROW_SHARDS_SCRIPT } from './cards/marrowShards';
 import { MARSH_GAS_SCRIPT } from './cards/marshGas';
 import { MARTYRS_CRY_SCRIPT } from './cards/martyrsCry';
 import { MASS_CALCIFY_SCRIPT } from './cards/massCalcify';
-import { LAST_BREATH_SCRIPT } from './cards/lastBreath';
 import { LAVA_FLOW_SCRIPT } from './cards/lavaFlow';
 import { LAVALANCHE_SCRIPT } from './cards/lavalanche';
 import { LAY_BARE_SCRIPT } from './cards/layBare';
@@ -7774,6 +7773,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AJANI_INSPIRING_LEADER_SCRIPT,
+  ZULAPORT_DUELIST_SCRIPT,
   DWARVEN_PATROL_SCRIPT,
   MOON_BLESSED_CLERIC_SCRIPT,
   SQUALL_SEED_MERCENARY_SCRIPT,
@@ -14572,7 +14573,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NANTUKO_DISCIPLE_SCRIPT,
   NATURAL_OBSOLESCENCE_SCRIPT,
   NATURAL_SPRING_SCRIPT,
-  NATURES_CLAIM_SCRIPT,
   NATURES_RESURGENCE_SCRIPT,
   NATURES_RUIN_SCRIPT,
   NAUSEA_SCRIPT,
@@ -14603,7 +14603,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MINIONS_MURMURS_SCRIPT,
   MINISTER_OF_IMPEDIMENTS_SCRIPT,
   MINTSTROSITY_SCRIPT,
-  MISFORTUNES_GAIN_SCRIPT,
   MIST_RAVEN_SCRIPT,
   MISTHIOSS_FURY_SCRIPT,
   MISTY_PALMS_OASIS_SCRIPT,
@@ -14637,7 +14636,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MARSH_GAS_SCRIPT,
   MARTYRS_CRY_SCRIPT,
   MASS_CALCIFY_SCRIPT,
-  LAST_BREATH_SCRIPT,
   LAVA_FLOW_SCRIPT,
   LAVALANCHE_SCRIPT,
   LAY_BARE_SCRIPT,

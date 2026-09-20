@@ -792,6 +792,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D504 - the previous object's controller: the rows the select offered and the row maker refused, by its own reasons.
+  ['Commander Sofia Daguerre', 'trigger payload not a pump: Destroy up to one target legendary permanent. That permanent (D504)'],
+  ['Gallows at Willow Hill', 'a clause done by the previous object\'s controller on the opponent\'s side the suite cannot read (a token, a discard; not this wave): Its controller cre (D504)'],
+  ['Cavalier of Dawn', 'a clause done by the previous object\'s controller on the opponent\'s side the suite cannot read (a token, a discard; not this wave): Its controller cre (D504)'],
+  ['Ovinomancer', 'a clause done by the previous object\'s controller on the opponent\'s side the suite cannot read (a token, a discard; not this wave): That creature\'s co (D504)'],
   // D503 - the flavour words and the three mirrors: the rows the select offered and the row maker refused, by its own reasons.
   ['Additive Evolution', 'a counter on the token the clause before made (the object verb; not this wave): Create a 0/0 green and blue Fractal creature token. Put three +1/+1 co (D503)'],
   ['Canoptek Spyder', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another nontoken artifact creature or Vehicle you c (D503)'],

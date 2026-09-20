@@ -1334,6 +1334,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     }
     case 'ExtraTurnDropped':
       return { ...state, extraTurns: state.extraTurns.slice(0, -1) };
+    // D504 - the referent player's marker: the clause's own events beside it moved the state.
+    case 'ReferentPlayerBound':
+      return state;
     // D417 - a play permission: one entry per card (a second grant for the same card replaces the first).
     case 'PlayPermissionGranted':
       return { ...state, playPermissions: [...state.playPermissions.filter((p) => p.card !== body.permission.card), body.permission] };

@@ -2247,6 +2247,38 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
   return { ...BASE, kind, text: sentence, targetIndex: -1, ofPrevious: true, delay: delayWhen(d.groups?.['when'] ?? '') };
 }
 
+/**
+ * D504 - THE PREVIOUS OBJECT'S CONTROLLER. `Its controller creates a 3/3 green Beast creature token.` / `That creature's
+ * controller mills four cards.` / `Its owner ...` after a clause about an object (a target of its own, or the objects of
+ * the clause before it): the body is the player-aimed clause the vocabulary already reads (`Target player mills four
+ * cards.`), or the caster's own verb done by that player (`creates` / `gains`), planned aimless (`ofPreviousPlayer`);
+ * the executor binds it to the controller or owner the object was last known to have when the clause before acted on
+ * it (CR 608.2h), or the countered spell's controller. A body that asks the caster, pays, scopes or waits stays unread.
+ */
+const PLAYER_REF_LEAD = /^(?:then )?(?<who>its controller|its owner|that (?:creature|permanent|spell|card|artifact|enchantment|land)(?:'|’)s (?:controller|owner)) (?<rest>.+)$/i;
+const PLAYER_REF_KINDS: ReadonlySet<EffectKind> = new Set(['mill', 'discard', 'draw', 'loseLife', 'gainLife', 'createToken']);
+function controllerRewrite(sentence: string, previous: Clause | undefined, before: readonly Clause[]): EffectSpec | null {
+  const m = PLAYER_REF_LEAD.exec(sentence);
+  if (!m) return null;
+  // A rider that acts on nothing (`It can't be regenerated.` - Pongify) sits between the object clause and this one:
+  // the object is the clause before the rider's.
+  let k = before.length - 1;
+  while (k > 0 && before[k]?.spec?.kind === 'noop') k--;
+  const prev = k === before.length - 1 ? previous?.spec : before[k]?.spec;
+  if (!prev) return null;
+  if (!(prev.targetIndex !== -1 || prev.ofPrevious === true) || OBJ_ASKS.has(prev.kind)) return null;
+  const who = /owner/i.test(m.groups?.['who'] ?? '') ? 'owner' : 'controller';
+  const rest = m.groups?.['rest'] ?? '';
+  const aimed = matchRule('Target player ' + rest);
+  const body = aimed && aimed.targetIndex !== -1 && !aimed.self
+    ? aimed
+    : /^creates /i.test(rest) ? matchRule('Create ' + rest.slice(8))
+      : /^gains /i.test(rest) ? matchRule('You gain ' + rest.slice(6))
+        : null;
+  if (!body || !PLAYER_REF_KINDS.has(body.kind) || body.pay !== null || body.delay !== null || body.thenDraw !== 0 || body.ifDrew !== undefined || body.atRandom || (body.scopes !== undefined && body.scopes.length > 0)) return null;
+  return { ...body, text: sentence, targetIndex: -1, self: false, ofPreviousPlayer: who };
+}
+
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
   if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
@@ -2356,6 +2388,10 @@ function clausesOf(text: string): Clause[] {
     // artifact's - Cogwork Assembler, caught by its own suite at the gate).
     const objects = (spec === null || (span === 1 && spec.delay !== null && (spec.self === true || referred !== null))) ? objectsRewrite(raw[i] ?? '', previous) : null;
     if (objects) { spec = objects; referred = objects; }
+    // D504 - a sentence done by THE PREVIOUS CLAUSE'S OBJECT'S CONTROLLER (`Its controller creates ...`): bound to that
+    // player as it runs.
+    const byPlayer = spec === null ? controllerRewrite(raw[i] ?? '', previous, out) : null;
+    if (byPlayer) { spec = byPlayer; referred = byPlayer; }
     // D423 - a kicked `instead` clause is read against the clause before it too.
     const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
     if (insteadK) spec = insteadK;
@@ -2911,6 +2947,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !((ALTERNATIVE_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) || FREE_CAST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim())) && parseAlternativeCost(l, parseManaCost, cardName) !== null))
     // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
     .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
+    // D504 - a tribal instant's or sorcery's `Changeling` line (Crib Swap) is a characteristic the keywords carry, no
+    // clause of the spell either.
+    .filter((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim() !== 'Changeling')
     .join('\n');
   // D473 - THE QUOTED TOKEN: a token description's quote is the printing's own text, lifted out BEFORE
   // the self-reference rewrite and the scrub (either would change it), read back by the token rule.

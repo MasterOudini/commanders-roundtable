@@ -286040,6 +286040,208 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BEAST_WITHIN": {
+    "scryfallId": "0072db20-b134-47bd-9b5b-a19a131ee738",
+    "oracleId": "7735eeba-693b-47e2-bd51-414379cf1016",
+    "name": "Beast Within",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Beast Within",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+        "flavorText": "\"Do you recognize them? The Chagaskas. Your worst fears, my creativity.\"\n—Zellin",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Helge C. Balzer",
+        "imageId": "0072db20-b134-47bd-9b5b-a19a131ee738"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "who",
+    "collectorNumber": "819",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GENEROUS_GIFT": {
+    "scryfallId": "18c2efbd-fac9-471b-98e2-a162704b193c",
+    "oracleId": "fae37e28-e137-4177-b973-fa8b4dd8f409",
+    "name": "Generous Gift",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Generous Gift",
+        "manaCost": "{2}{W}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target permanent. Its controller creates a 3/3 green Elephant creature token.",
+        "flavorText": "The best presents are impossible to regift.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "18c2efbd-fac9-471b-98e2-a162704b193c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dmc",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COUNTERMAND": {
+    "scryfallId": "07815e32-0b64-4c2b-84e6-a72336c45cf5",
+    "oracleId": "43402a6c-9fba-4a80-90b3-14bac05c574b",
+    "name": "Countermand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Countermand",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. Its controller mills four cards.",
+        "flavorText": "The physical pain was nothing compared to the agony in his mind.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "07815e32-0b64-4c2b-84e6-a72336c45cf5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISMAL_FAILURE": {
+    "scryfallId": "35786a7a-faa6-457d-9b92-da560b93a43a",
+    "oracleId": "1feeb881-ebe6-4afb-ba31-3d116d8ab7a1",
+    "name": "Dismal Failure",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dismal Failure",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell. Its controller discards a card.",
+        "flavorText": "\"Two magi could trade spells all day and never crown a victor. The real battle is not one of power but of will. If your confidence breaks, so too shall you.\"\n—Venser",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "35786a7a-faa6-457d-9b92-da560b93a43a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plc",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRIB_SWAP": {
+    "scryfallId": "20aa5ffa-e393-47a1-8ebb-61d461e904ed",
+    "oracleId": "2987c385-011a-4032-a516-a46d1e9dc9e8",
+    "name": "Crib Swap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crib Swap",
+        "manaCost": "{2}{W}",
+        "typeLine": "Kindred Instant — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nExile target creature. Its controller creates a 1/1 colorless Shapeshifter creature token with changeling.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Brandon Dorman",
+        "imageId": "20aa5ffa-e393-47a1-8ebb-61d461e904ed"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1850",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PONGIFY": {
+    "scryfallId": "37ff06d0-d652-4694-a3f5-bf7385e9e850",
+    "oracleId": "05849bd6-8f38-4031-be2b-e2aa03beb8cc",
+    "name": "Pongify",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pongify",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target creature. It can't be regenerated. Its controller creates a 3/3 green Ape creature token.",
+        "flavorText": "Some spellcrafting mistakes go on to become spells of their own.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "37ff06d0-d652-4694-a3f5-bf7385e9e850"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "otc",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "DWARVEN_PATROL": {
     "scryfallId": "03c08df5-f5e7-4498-ac80-25ccbe304b26",
     "oracleId": "4369adc8-d8e0-4d51-b2a9-7e4a8dfd9f8f",
@@ -287197,6 +287399,42 @@
     ],
     "setCode": "40k",
     "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ZULAPORT_DUELIST": {
+    "scryfallId": "0b4c7268-60c6-4038-8ce9-d9d51bed4577",
+    "oracleId": "e8237d12-2860-4cc8-85a4-458e4c68e69a",
+    "name": "Zulaport Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zulaport Duelist",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Flash\nWhen this creature enters, up to one target creature gets -2/-0 until end of turn. Its controller mills two cards. (They put the top two cards of their library into their graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bryan Sola",
+        "imageId": "0b4c7268-60c6-4038-8ce9-d9d51bed4577"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flash",
+      "Mill"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "88",
     "commanderLegality": "legal",
     "singleImage": true
   },

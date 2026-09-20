@@ -47,10 +47,13 @@ describe('the effect parser', () => {
    * gives its controller a 3/3. Destroying the permanent alone would be a
    * strictly worse outcome than doing nothing, because the player has no way to
    * see what was skipped.
+   * D504 - Beast Within itself reads whole now (the previous object's controller creates the token), so the pin
+   * stands on a second sentence the vocabulary still refuses: the search the referent player is asked (Path to
+   * Exile's shape) - the same rule, the same reason.
    */
   test('a card whose second sentence is not understood is assisted, never auto', () => {
     const parsed = parseEffects(
-      'Destroy target permanent. Its controller creates a 3/3 green Beast creature token.',
+      'Destroy target permanent. Its controller may search their library for a basic land card, put it onto the battlefield tapped, then shuffle.',
       'Beast Within',
       true,
     );

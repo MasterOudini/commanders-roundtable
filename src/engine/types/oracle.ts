@@ -1262,6 +1262,13 @@ export interface EffectSpec {
    * every other effect.
    */
   readonly ofPrevious?: true;
+  /**
+   * D504 - the clause is done BY THE CONTROLLER (or the owner) OF THE PREVIOUS CLAUSE'S OBJECT (`Its controller
+   * creates a 3/3 green Beast creature token.`, `That creature's controller mills four cards.`, `Its owner ...`):
+   * aimless at parse, the executor binds it to that player as it runs - the controller as the object was last known
+   * when the clause before acted on it (CR 608.2h), a countered spell's the spell's own. Absent on every other effect.
+   */
+  readonly ofPreviousPlayer?: 'controller' | 'owner';
   /** D494 - `grantObj` only: the keywords last while the object stays (no `until end of turn` printed). */
   readonly indefinite?: true;
   /**

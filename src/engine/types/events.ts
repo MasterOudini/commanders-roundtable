@@ -350,6 +350,8 @@ export type EventBody =
   | { readonly t: 'ExtraTurnUntapSkipped'; readonly player: PlayerId }
   /** D502 - the extra turn on top was a departed player's: dropped untaken. */
   | { readonly t: 'ExtraTurnDropped'; readonly player: PlayerId }
+  /** D504 - a clause done by the previous object's controller (or owner) was bound to that player (a marker; the clause's own events follow). */
+  | { readonly t: 'ReferentPlayerBound'; readonly player: PlayerId; readonly text: string }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }

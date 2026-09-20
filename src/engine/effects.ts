@@ -183,6 +183,12 @@ export function effectResult(
       steps.push({ effect, aim: null, missing: false });
       continue;
     }
+    // D504 - a clause done by THE PREVIOUS CLAUSE'S OBJECT'S CONTROLLER (or owner) is planned aimless too: the player is
+    // read off the object the clause before acted on, as it runs (below).
+    if (effect.ofPreviousPlayer !== undefined) {
+      steps.push({ effect, aim: null, missing: false });
+      continue;
+    }
     if (effect.self) {
       if (SELF_AIMED.has(effect.kind)) {
         // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),
@@ -213,8 +219,12 @@ export function effectResult(
 
   // D494 - what each clause PRODUCED, for a clause about the previous one's objects: the clause's card aims, and the
   // tokens created and the permanents put onto the battlefield among the events it emitted (`start` to `end`).
-  const produced = new Map<number, { start: number; end: number; aims: InstanceId[]; objects?: readonly InstanceId[] }>();
+  // D504 - and the players its objects belonged to AS THE CLAUSE ACTED ON THEM (`known`: the aim's controller and owner
+  // before the move - CR 608.2h's last known information; a countered spell's controller), for a clause done by the
+  // previous object's controller.
+  const produced = new Map<number, { start: number; end: number; aims: InstanceId[]; objects?: readonly InstanceId[]; known?: { controller: PlayerId; owner: PlayerId }[] }>();
   const unbound = (e: EffectSpec): EffectSpec => { const rest: Record<string, unknown> = { ...e }; delete rest['ofPrevious']; return rest as unknown as EffectSpec; };
+  const unboundPlayer = (e: EffectSpec): EffectSpec => { const rest: Record<string, unknown> = { ...e }; delete rest['ofPreviousPlayer']; return rest as unknown as EffectSpec; };
   const objectsOf = (at: number): readonly InstanceId[] => {
     const rec = produced.get(at);
     if (!rec) return [];
@@ -241,6 +251,25 @@ export function effectResult(
     // D418 - `let`: a counted clause is rescaled below before its kind is switched on.
     let effect = step.effect;
     const at = effects.indexOf(step.effect);
+    // D504 - THE PREVIOUS OBJECT'S CONTROLLER, bound now: the players the clause before acted on the objects of, as
+    // they were known then (one step per distinct player, spliced in as ordinary player-aimed steps; the marker says
+    // who). Nothing known - the target gone before the clause before ran - and the clause says so (D90).
+    if (effect.ofPreviousPlayer !== undefined) {
+      const who = effect.ofPreviousPlayer;
+      // A rider that acted on nothing (`It can't be regenerated.`) between the object clause and this one is stepped over.
+      let from = at - 1;
+      while (from > 0 && (produced.get(from)?.known ?? []).length === 0 && effects[from]?.kind === 'noop') from--;
+      const known = produced.get(from)?.known ?? [];
+      produced.set(at, { start: before, end: before, aims: [], objects: [] });
+      const players = [...new Set(known.map((k) => k[who]))].filter((p) => state.players[p] !== undefined && !state.players[p]?.hasLost);
+      if (players.length === 0) {
+        out.push(narrated(`${obj.label} — nothing for “${effect.text}” to act on.`, obj.controller, obj.identity));
+        continue;
+      }
+      for (const p of players) out.push({ t: 'ReferentPlayerBound', player: p, text: effect.text });
+      steps.splice(si + 1, 0, ...players.map((p) => ({ effect: unboundPlayer(effect), aim: { kind: 'player', id: p } as Aim, missing: false })));
+      continue;
+    }
     // D494 - THE PREVIOUS CLAUSE'S OBJECTS, bound now: an immediate clause (a grant) runs once per object, spliced in
     // as ordinary aimed steps; a delayed one is armed with the objects as its aims (below).
     if (effect.ofPrevious === true) {
@@ -264,6 +293,13 @@ export function effectResult(
     if (at >= 0 && !produced.has(at)) produced.set(at, { start: before, end: before, aims: [] });
     const rec = at >= 0 ? produced.get(at) : undefined;
     if (rec && aim?.kind === 'card' && !rec.aims.includes(aim.id)) rec.aims.push(aim.id);
+    // D504 - the object's players as this step finds them (the planned aim's controller and owner; a stack object's
+    // controller), before the step moves it.
+    if (rec && aim?.kind === 'card') rec.known = [...(rec.known ?? []), { controller: aim.controller, owner: aim.owner }];
+    if (rec && aim?.kind === 'stack') {
+      const so = state.stack.find((s) => s.id === aim.id);
+      if (so) rec.known = [...(rec.known ?? []), { controller: so.controller, owner: so.controller }];
+    }
     /**
      * ⚠️ **A SKIPPED CLAUSE SAYS SO.** CR 608.2b is right that the spell still
      * resolves when only SOME of its targets are gone — only an all-illegal
@@ -1270,9 +1306,11 @@ export function effectResult(
       }
 
       case 'gainLife': {
-        const p = state.players[controller];
+        // D504 - the aimed player's life (the previous object's controller); the caster's otherwise.
+        const gainer = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        const p = state.players[gainer];
         if (!p) break;
-        out.push(lifeChanged(controller, effect.amount));
+        out.push(lifeChanged(gainer, effect.amount));
         break;
       }
 
@@ -1795,6 +1833,9 @@ export function effectResult(
         const printing = copied ? { oracleId: copied.oracleId, printingId: copied.printingId } : effect.token;
         if (!printing) break;
         const exceptions = copied ? mergeExceptions(copied.copyExceptions, effect.copy?.exceptions ?? null) : undefined;
+        // D504 - the aimed player creates the token (the previous object's controller - Beast Within's Beast is the
+        // destroyed permanent's controller's); the caster's otherwise.
+        const maker = !effect.self && aim?.kind === 'player' ? aim.id : controller;
         for (let n = 0; n < effect.amount; n++) {
           nextInstance++;
           out.push({
@@ -1802,8 +1843,8 @@ export function effectResult(
             card: `c${nextInstance}`,
             oracleId: printing.oracleId,
             printingId: printing.printingId,
-            controller,
-            owner: controller,
+            controller: maker,
+            owner: maker,
             turnNumber: state.turn.turnNumber,
             ...(copied ? { faceIndex: copied.faceIndex, copyOf: copied.id } : {}),
             ...(exceptions !== undefined ? { copyExceptions: exceptions } : {}),
