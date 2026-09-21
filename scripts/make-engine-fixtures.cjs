@@ -9589,6 +9589,20 @@ const WANTED = [
   'Aggravated Assault',
   'Hellkite Charger',
   // D512 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D513 - the first-time-each-turn head: the rows the whole-leftover row maker rowed (Emberheart Challenger, Aurelia, Attended Healer, Vanguard Seraph, Fear of Missing Out, Mouse Trapper, Cleric of Life's Bond, Seedglaive Mentor, Vengeful Warchief, Whiskerquill Scribe).
+  'Emberheart Challenger',
+  'Aurelia, the Warleader',
+  'Attended Healer',
+  'Vanguard Seraph',
+  'Fear of Missing Out',
+  'Mouse Trapper',
+  "Cleric of Life's Bond",
+  'Seedglaive Mentor',
+  'Vengeful Warchief',
+  'Whiskerquill Scribe',
+  // D513 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D513 - the first-time-each-turn head: the rows the whole-leftover row maker rowed (Emberheart Challenger, Aurelia, Attended Healer, Vanguard Seraph, Fear of Missing Out, Mouse Trapper, Cleric of Life's Bond, Seedglaive Mentor, Vengeful Warchief, Whiskerquill Scribe).
+  // D513 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

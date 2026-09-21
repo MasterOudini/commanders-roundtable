@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { EMBERHEART_CHALLENGER_SCRIPT } from './cards/emberheartChallenger';
+import { AURELIA_THE_WARLEADER_SCRIPT } from './cards/aureliaTheWarleader';
+import { ATTENDED_HEALER_SCRIPT } from './cards/attendedHealer';
+import { VANGUARD_SERAPH_SCRIPT } from './cards/vanguardSeraph';
+import { FEAR_OF_MISSING_OUT_SCRIPT } from './cards/fearOfMissingOut';
+import { MOUSE_TRAPPER_SCRIPT } from './cards/mouseTrapper';
+import { CLERIC_OF_LIFES_BOND_SCRIPT } from './cards/clericOfLifesBond';
+import { SEEDGLAIVE_MENTOR_SCRIPT } from './cards/seedglaiveMentor';
+import { VENGEFUL_WARCHIEF_SCRIPT } from './cards/vengefulWarchief';
+import { WHISKERQUILL_SCRIBE_SCRIPT } from './cards/whiskerquillScribe';
 import { AGGRAVATED_ASSAULT_SCRIPT } from './cards/aggravatedAssault';
 import { HELLKITE_CHARGER_SCRIPT } from './cards/hellkiteCharger';
 import { ABZAN_SKYCAPTAIN_SCRIPT } from './cards/abzanSkycaptain';
@@ -7876,6 +7886,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EMBERHEART_CHALLENGER_SCRIPT,
+  AURELIA_THE_WARLEADER_SCRIPT,
+  ATTENDED_HEALER_SCRIPT,
+  VANGUARD_SERAPH_SCRIPT,
+  FEAR_OF_MISSING_OUT_SCRIPT,
+  MOUSE_TRAPPER_SCRIPT,
+  CLERIC_OF_LIFES_BOND_SCRIPT,
+  SEEDGLAIVE_MENTOR_SCRIPT,
+  VENGEFUL_WARCHIEF_SCRIPT,
+  WHISKERQUILL_SCRIBE_SCRIPT,
   AGGRAVATED_ASSAULT_SCRIPT,
   HELLKITE_CHARGER_SCRIPT,
   ABZAN_SKYCAPTAIN_SCRIPT,

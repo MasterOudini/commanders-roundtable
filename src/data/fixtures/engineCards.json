@@ -292510,6 +292510,364 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "EMBERHEART_CHALLENGER": {
+    "scryfallId": "0035082e-bb86-4f95-be48-ffc87fe5286d",
+    "oracleId": "5b4b21ed-c24e-4038-83fb-bd7f3c3426cd",
+    "name": "Emberheart Challenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Emberheart Challenger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Mouse Warrior",
+        "oracleText": "Haste\nProwess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nValiant — Whenever this creature becomes the target of a spell or ability you control for the first time each turn, exile the top card of your library. Until end of turn, you may play that card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "0035082e-bb86-4f95-be48-ffc87fe5286d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prowess",
+      "Valiant",
+      "Haste"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AURELIA_THE_WARLEADER": {
+    "scryfallId": "1052bdb9-aa3c-4ec1-8f03-9fee90194518",
+    "oracleId": "0f5a3a09-2f07-4774-9e0f-e99d9a444166",
+    "name": "Aurelia, the Warleader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aurelia, the Warleader",
+        "manaCost": "{2}{R}{R}{W}{W}",
+        "typeLine": "Legendary Creature — Angel",
+        "oracleText": "Flying, vigilance, haste\nWhenever Aurelia attacks for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.",
+        "flavorText": "Where Razia was aloof and untouchable, Aurelia is on the frontlines, calling for war.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "1052bdb9-aa3c-4ec1-8f03-9fee90194518"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Vigilance",
+      "Haste"
+    ],
+    "setCode": "gk1",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ATTENDED_HEALER": {
+    "scryfallId": "1eae2fa8-032a-49d5-8e5f-de742cded9c2",
+    "oracleId": "9442a18b-9093-4a10-ab61-6962f5af3bb6",
+    "name": "Attended Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Attended Healer",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Kor Cleric",
+        "oracleText": "Whenever you gain life for the first time each turn, create a 1/1 white Cat creature token.\n{2}{W}: Another target Cleric gains lifelink until end of turn.",
+        "flavorText": "\"My cats have taught me more about the sacred than anything in some old ruin.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wisnu Tan",
+        "imageId": "1eae2fa8-032a-49d5-8e5f-de742cded9c2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VANGUARD_SERAPH": {
+    "scryfallId": "4329c861-fc16-4a96-9c03-25af6ac2adc8",
+    "oracleId": "3250466f-82a4-45e1-9722-ff247ddf8c15",
+    "name": "Vanguard Seraph",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vanguard Seraph",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Angel Warrior",
+        "oracleText": "Flying\nWhenever you gain life for the first time each turn, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+        "flavorText": "She guides expedition parties through the perilous floating ruins of Zendikar's ancient empires.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "4329c861-fc16-4a96-9c03-25af6ac2adc8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Surveil"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEAR_OF_MISSING_OUT": {
+    "scryfallId": "45b924a5-6533-4ca6-bd2e-32debdfb6c08",
+    "oracleId": "236ce592-1321-4a7c-b695-fd84496f8924",
+    "name": "Fear of Missing Out",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fear of Missing Out",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment Creature — Nightmare",
+        "oracleText": "When this creature enters, discard a card, then draw a card.\nDelirium — Whenever this creature attacks for the first time each turn, if there are four or more card types among cards in your graveyard, untap target creature. After this phase, there is an additional combat phase.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Cacho Rubione",
+        "imageId": "45b924a5-6533-4ca6-bd2e-32debdfb6c08"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Delirium"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "316",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOUSE_TRAPPER": {
+    "scryfallId": "8ba1bc5a-03e7-44ec-893e-44042cbc02ef",
+    "oracleId": "5b0a4530-6e19-41a2-9ea6-e4c8cf85b6c4",
+    "name": "Mouse Trapper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mouse Trapper",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Mouse Soldier",
+        "oracleText": "Flash\nValiant — Whenever this creature becomes the target of a spell or ability you control for the first time each turn, tap target creature an opponent controls.",
+        "flavorText": "\"I'm not here to hurt you, but I will stop you from hurting others.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "8ba1bc5a-03e7-44ec-893e-44042cbc02ef"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Valiant",
+      "Flash"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLERIC_OF_LIFE_S_BOND": {
+    "scryfallId": "953db280-6999-4b91-bc40-c6e7f7dd13ef",
+    "oracleId": "d7721c5e-b3c5-45c8-b757-935603dfe44b",
+    "name": "Cleric of Life's Bond",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cleric of Life's Bond",
+        "manaCost": "{W}{B}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Whenever another Cleric you control enters, you gain 1 life.\nWhenever you gain life for the first time each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"No gods. Only each other.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "953db280-6999-4b91-bc40-c6e7f7dd13ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEEDGLAIVE_MENTOR": {
+    "scryfallId": "d21c3e41-0636-49a3-8c9c-384c5e5c9c3e",
+    "oracleId": "f50bbe5e-a839-40e1-ba79-1e96f91bd218",
+    "name": "Seedglaive Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seedglaive Mentor",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Creature — Mouse Soldier",
+        "oracleText": "Vigilance, haste\nValiant — Whenever this creature becomes the target of a spell or ability you control for the first time each turn, put a +1/+1 counter on it.",
+        "flavorText": "\"Your riposte is good, yes. But how's your footwork?\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Vincent Christiaens",
+        "imageId": "d21c3e41-0636-49a3-8c9c-384c5e5c9c3e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Valiant",
+      "Haste"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENGEFUL_WARCHIEF": {
+    "scryfallId": "d405e1bc-bf58-4cce-8abe-57fb40ef0996",
+    "oracleId": "be3dd4f6-794d-4bce-b71e-4b3477d5d388",
+    "name": "Vengeful Warchief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vengeful Warchief",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "Whenever you lose life for the first time each turn, put a +1/+1 counter on this creature. (Damage causes loss of life.)",
+        "flavorText": "\"Try to steal from me and I'll add your skull to my collection.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "d405e1bc-bf58-4cce-8abe-57fb40ef0996"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "m20",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHISKERQUILL_SCRIBE": {
+    "scryfallId": "da653996-9bd4-40bd-afb4-48c7e070a269",
+    "oracleId": "cb1e1acc-3805-418b-bed1-65838ddb1d62",
+    "name": "Whiskerquill Scribe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whiskerquill Scribe",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Mouse Citizen",
+        "oracleText": "Valiant — Whenever this creature becomes the target of a spell or ability you control for the first time each turn, you may discard a card. If you do, draw a card.",
+        "flavorText": "\"Unneeded words are like dandelion seeds—cast adrift at the slightest whiff of scrutiny, only to find purchase and thrive where you least expect.\"\n—Myrtle, Valley scribe",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "da653996-9bd4-40bd-afb4-48c7e070a269"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Valiant"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

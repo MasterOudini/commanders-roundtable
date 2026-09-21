@@ -122,8 +122,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
     counterKeys: ['replacementChoices'], rotHistory: 'D148 D149 D164 D180' },
   // The only trigger that LOOKS BACK (CR 603.10a) — a dies trigger that
   // never fires leaves no trace at all.
-  { names: ['Onulet'], copiesPerSeat: 5,
-    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175' },
+  // D513 - five Doom Blades beside it: the pools' kill density has decayed as the scripted names grew (2 / 2 / 0 / 1 / 0 dies
+  // triggers over the 60-seed canaries of D510-D513, and 0 over D513's 500-seed gate - the floor's first red since D175), so the
+  // staple carries its own killer; the driver aims the Blade at a random nonblack creature and the colorless 2/2 is one
+  // (a Bolt would double-count: FIXED_CORE deals one a seat already, and the staple accounting is exact).
+  { names: ['Onulet', 'Doom Blade'], copiesPerSeat: 5,
+    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175 D513' },
   // The only permanents in Magic that ARRIVE with counters (CR 306.5b/310.6).
   { names: ['Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array'],
     copiesPerSeat: 1, counterKeys: ['enteredWithCounters'], rotHistory: 'D107 D176' },
@@ -303,7 +307,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
   // Relentless Assault alone was cast by nobody over 20 seeds (fuzz20-512).
-  { names: ['Seize the Day', 'Relentless Assault'], copiesPerSeat: 2, counterKeys: ['extraCombats', 'insertedPhases'], rotHistory: 'D512' },
+  // D513 - three a seat: two a seat read 2 clauses over the first 60 seeds at D512 and 0 at D513 (the rotation moved).
+  { names: ['Seize the Day', 'Relentless Assault'], copiesPerSeat: 3, counterKeys: ['extraCombats', 'insertedPhases'], rotHistory: 'D512 D513' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
