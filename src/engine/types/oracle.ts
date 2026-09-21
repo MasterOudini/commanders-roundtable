@@ -600,6 +600,8 @@ export interface BoardScope {
   readonly subtype?: string;
   /** D505 - `permanent` only: `nonland permanents`. */
   readonly nonland?: true;
+  /** D512 - `creature` only: the member attacked this turn (`all creatures that attacked this turn` - TurnMemory.attackerIds). */
+  readonly attackedThisTurn?: true;
 }
 
 export type EffectKind =
@@ -825,6 +827,14 @@ export type EffectKind =
    * then draw N cards.`) scopes the caster alone.
    */
   | 'wheelShuffle'
+  /**
+   * D512 - THE ADDITIONAL COMBAT PHASE (CR 500.8): `After this main phase, there is an additional combat phase followed
+   * by an additional main phase.` (Relentless Assault, Fury of the Horde, Seize the Day) and `After this (combat) phase,
+   * there is an additional combat phase.` (Aurelia, Hellkite Charger, Aggravated Assault's second half). `extraPhases`
+   * is what is added, `extraAfter` which phase it follows: `main` is the next main phase to end (this one, cast in a
+   * main phase), `current` the phase the clause resolves in.
+   */
+  | 'extraCombat'
   /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
    * library, keep some on top in an order you choose, and put the rest on
@@ -1202,6 +1212,12 @@ export interface EffectSpec {
   readonly returnChoose?: SacrificeSpec;
   /** D510 - the untap choice's noun (`lands`, `creatures`, `permanents`) - the queue's `untap` verb reads it as its filter. */
   readonly untapChoose?: SacrificeSpec;
+  /**
+   * D512 - `extraCombat`: the phases added (`combat`, or `combat` then `main`) and the phase they follow. On a `massUntap`
+   * the same fields are the rider of the compound `Untap all ... and after this phase, there is an additional combat phase.`
+   */
+  readonly extraPhases?: readonly ('combat' | 'main')[];
+  readonly extraAfter?: 'main' | 'current';
   /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly handChoice: HandChoice | null;
   /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */

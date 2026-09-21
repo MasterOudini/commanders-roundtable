@@ -711,6 +711,8 @@ function endStep(state: GameState, deps: EngineDeps): Emitted {
   const next = nextStep(state);
   if (!next) return emitted([...events, ...beginNextTurn(state)]);
 
+  // D512 - a phase end that consumed or walked the additional phases records the queue before the step begins.
+  if (next.queue) events.push({ t: 'ExtraPhasesConsumed', pending: next.queue.pending, inserted: next.queue.inserted, resume: next.queue.resume });
   events.push({ t: 'StepBegan', phase: next.phase, step: next.step });
   // D417 - `until your next end step`: the active player's permissions of that kind end as their end step begins.
   if (next.step === 'end') {

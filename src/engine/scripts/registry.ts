@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { AGGRAVATED_ASSAULT_SCRIPT } from './cards/aggravatedAssault';
+import { HELLKITE_CHARGER_SCRIPT } from './cards/hellkiteCharger';
 import { ABZAN_SKYCAPTAIN_SCRIPT } from './cards/abzanSkycaptain';
 import { AVEN_TACTICIAN_SCRIPT } from './cards/avenTactician';
 import { DROMOKA_CAPTAIN_SCRIPT } from './cards/dromokaCaptain';
@@ -7874,6 +7876,8 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  AGGRAVATED_ASSAULT_SCRIPT,
+  HELLKITE_CHARGER_SCRIPT,
   ABZAN_SKYCAPTAIN_SCRIPT,
   AVEN_TACTICIAN_SCRIPT,
   DROMOKA_CAPTAIN_SCRIPT,

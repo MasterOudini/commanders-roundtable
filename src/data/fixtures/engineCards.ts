@@ -8488,6 +8488,9 @@ export const TIME_REVERSAL: CardData = F.TIME_REVERSAL as CardData;
 export const TIMETWISTER: CardData = F.TIMETWISTER as CardData;
 export const CACHED_DEFENSES: CardData = F.CACHED_DEFENSES as CardData;
 export const ABZAN_ADVANTAGE: CardData = F.ABZAN_ADVANTAGE as CardData;
+export const RELENTLESS_ASSAULT: CardData = F.RELENTLESS_ASSAULT as CardData;
+export const SEIZE_THE_DAY: CardData = F.SEIZE_THE_DAY as CardData;
+export const FURY_OF_THE_HORDE: CardData = F.FURY_OF_THE_HORDE as CardData;
 export const HONOR_S_REWARD: CardData = F.HONOR_S_REWARD as CardData;
 export const DROMOKA_S_GIFT: CardData = F.DROMOKA_S_GIFT as CardData;
 export const SAKURA_TRIBE_SCOUT: CardData = F.SAKURA_TRIBE_SCOUT as CardData;
@@ -8642,6 +8645,8 @@ export const ECHOES_OF_THE_KIN_TREE: CardData = F.ECHOES_OF_THE_KIN_TREE as Card
 export const SANDCRAFTER_MAGE: CardData = F.SANDCRAFTER_MAGE as CardData;
 export const SANDSTEPPE_MASTODON: CardData = F.SANDSTEPPE_MASTODON as CardData;
 export const SANDSTEPPE_SCAVENGER: CardData = F.SANDSTEPPE_SCAVENGER as CardData;
+export const AGGRAVATED_ASSAULT: CardData = F.AGGRAVATED_ASSAULT as CardData;
+export const HELLKITE_CHARGER: CardData = F.HELLKITE_CHARGER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17378,6 +17383,9 @@ export const ENGINE_CARDS: CardData[] = [
   TIMETWISTER,
   CACHED_DEFENSES,
   ABZAN_ADVANTAGE,
+  RELENTLESS_ASSAULT,
+  SEIZE_THE_DAY,
+  FURY_OF_THE_HORDE,
   HONOR_S_REWARD,
   DROMOKA_S_GIFT,
   SAKURA_TRIBE_SCOUT,
@@ -17532,6 +17540,8 @@ export const ENGINE_CARDS: CardData[] = [
   SANDCRAFTER_MAGE,
   SANDSTEPPE_MASTODON,
   SANDSTEPPE_SCAVENGER,
+  AGGRAVATED_ASSAULT,
+  HELLKITE_CHARGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -299,6 +299,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // creature, asked on a tie; the marker `Bolstered` is written on every path (the null-card one too). 1 over 20 seeds with
   // Cached Defenses alone; the two-mana instant is the fuel.
   { names: ['Cached Defenses', 'Abzan Advantage'], copiesPerSeat: 2, counterKeys: ['bolsters'], rotHistory: 'D511' },
+  // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
+  // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
+  // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
+  // Relentless Assault alone was cast by nobody over 20 seeds (fuzz20-512).
+  { names: ['Seize the Day', 'Relentless Assault'], copiesPerSeat: 2, counterKeys: ['extraCombats', 'insertedPhases'], rotHistory: 'D512' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1571,6 +1576,10 @@ interface Run {
   readonly wheels: number;
   /** D511 - bolster clauses that ran (a `Bolstered` marker each - a chosen creature or none). */
   readonly bolsters: number;
+  /** D512 - additional-phase clauses that ran (an `ExtraPhasesAdded` each). */
+  readonly extraCombats: number;
+  /** D512 - inserted phases begun (an `ExtraPhasesConsumed` carrying a resume step each). */
+  readonly insertedPhases: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -2040,6 +2049,8 @@ function runOne(seed: number): Run {
     massCantBlocks: game.log.filter((e) => e.body.t === 'ScopeWalked' && e.body.verb === 'massCantBlock').length,
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
+    extraCombats: game.log.filter((e) => e.body.t === 'ExtraPhasesAdded').length,
+    insertedPhases: game.log.filter((e) => e.body.t === 'ExtraPhasesConsumed' && e.body.resume !== null).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2341,6 +2352,8 @@ const TOTAL_KEYS = [
   'massCantBlocks',
   'wheels',
   'bolsters',
+  'extraCombats',
+  'insertedPhases',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2791,6 +2804,10 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D511 - a bolster ran at gate size (Cached Defenses and Abzan Advantage two a seat; 4 over the first 60 seeds, canary511 -
         // the marker counts the unasked and the empty paths too).
         expect(totals.bolsters).toBeGreaterThan(0);
+        // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
+        // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
+        expect(totals.extraCombats).toBeGreaterThan(0);
+        expect(totals.insertedPhases).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2917,6 +2934,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.handPutClauses}/${totals.handPutAsks}/${totals.handPuts} hand-put clauses/asks/cards · ` +
           `${totals.untapChoices} untap choices · ${totals.massCantBlocks} mass can't-blocks · ${totals.wheels} wheels · ` +
           `${totals.bolsters} bolsters · ` +
+          `${totals.extraCombats}/${totals.insertedPhases} extra-combat clauses/inserted phases · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

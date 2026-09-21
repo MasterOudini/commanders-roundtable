@@ -1392,6 +1392,19 @@ export interface ExtraTurn {
   readonly skipUntap?: true;
 }
 
+/** D512 - a phase an effect adds to the turn (CR 500.8): a combat phase, or a main phase (a postcombat one, CR 505.1a). */
+export type ExtraPhaseKind = 'combat' | 'main';
+/**
+ * D512 - PHASES WAITING TO BE ADDED (CR 500.8): the phases go directly after the phase `after` names - the next main
+ * phase to end, or the current combat phase's end. Consumed by `nextStep` at that phase's end, the most recently
+ * created entry first; while the inserted phases run, `TurnState.insertedPhases` is what is left of them and
+ * `TurnState.resumeStep` the regular step the turn returns to afterwards.
+ */
+export interface ExtraPhases {
+  readonly after: 'main' | 'combat';
+  readonly phases: readonly ExtraPhaseKind[];
+}
+
 export interface TurnState {
   readonly turnNumber: number;
   readonly activePlayer: PlayerId;
@@ -1419,6 +1432,12 @@ export interface TurnState {
   readonly attacked: boolean;
   /** D348 - the turn record: what this turn has already done. */
   readonly memory: TurnMemory;
+  /** D512 - the phases effects added and no phase end has consumed yet (CR 500.8); cleared by `TurnBegan`. */
+  readonly extraPhases: readonly ExtraPhases[];
+  /** D512 - the inserted phases still to run, in order; empty outside an insertion. */
+  readonly insertedPhases: readonly ExtraPhaseKind[];
+  /** D512 - the regular step the turn resumes at once the inserted phases have run; null outside an insertion. */
+  readonly resumeStep: Step | null;
 }
 
 /** One rendered narration line. Mirrors `src/view/types.ts` `LogEntry`. */

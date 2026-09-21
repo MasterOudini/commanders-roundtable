@@ -113,6 +113,9 @@ export function emptyState(seed = 'unseeded'): GameState {
       cardsDrawn: {},
       attacked: false,
       memory: EMPTY_TURN_MEMORY,
+      extraPhases: [],
+      insertedPhases: [],
+      resumeStep: null,
     },
     priority: {
       player: null,

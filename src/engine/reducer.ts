@@ -418,6 +418,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
           cardsDrawn: {},
           attacked: false,
           memory: EMPTY_TURN_MEMORY,
+          extraPhases: [],
+          insertedPhases: [],
+          resumeStep: null,
         },
         priority: {
           player: null,
@@ -903,6 +906,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
           cardsDrawn: {},
           attacked: false,
           memory: EMPTY_TURN_MEMORY,
+          extraPhases: [],
+          insertedPhases: [],
+          resumeStep: null,
         },
         priority: { ...state.priority, passedSinceLastAction: [], player: null },
       };
@@ -1334,6 +1340,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
     }
     case 'ExtraTurnDropped':
       return { ...state, extraTurns: state.extraTurns.slice(0, -1) };
+    // D512 - the additional combat phase: an entry pending until its phase ends; the queue as `nextStep` left it.
+    case 'ExtraPhasesAdded':
+      return { ...state, turn: { ...state.turn, extraPhases: [...state.turn.extraPhases, { after: body.after, phases: body.phases }] } };
+    case 'ExtraPhasesConsumed':
+      return { ...state, turn: { ...state.turn, extraPhases: body.pending, insertedPhases: body.inserted, resumeStep: body.resume } };
     // D504 - the referent player's marker: the clause's own events beside it moved the state.
     case 'ReferentPlayerBound':
       return state;

@@ -287048,6 +287048,107 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RELENTLESS_ASSAULT": {
+    "scryfallId": "00fde52c-c764-433f-af24-fbb54504b243",
+    "oracleId": "dc1c0e8c-d0c1-445c-968f-7dec91e5d5fc",
+    "name": "Relentless Assault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relentless Assault",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Untap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase.",
+        "flavorText": "\"Mercy? Mercy is for the playground, not the battleground.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "00fde52c-c764-433f-af24-fbb54504b243"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEIZE_THE_DAY": {
+    "scryfallId": "0ee67808-abe3-4755-83a0-03681ad5f82f",
+    "oracleId": "2a6abd59-e448-46f1-9af8-bb9040645971",
+    "name": "Seize the Day",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seize the Day",
+        "manaCost": "{3}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Untap target creature. After this main phase, there is an additional combat phase followed by an additional main phase.\nFlashback {2}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "0ee67808-abe3-4755-83a0-03681ad5f82f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flashback"
+    ],
+    "setCode": "uma",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FURY_OF_THE_HORDE": {
+    "scryfallId": "52dd1712-6937-4630-b44c-952699307da4",
+    "oracleId": "c90e2db7-6973-4243-9645-265fd3bc8546",
+    "name": "Fury of the Horde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fury of the Horde",
+        "manaCost": "{5}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "You may exile two red cards from your hand rather than pay this spell's mana cost.\nUntap all creatures that attacked this turn. After this main phase, there is an additional combat phase followed by an additional main phase.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Stephen Tappin",
+        "imageId": "52dd1712-6937-4630-b44c-952699307da4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "ddn",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "HONOR_S_REWARD": {
     "scryfallId": "084c8b16-7aae-4d1f-87c2-6a150f11bb15",
     "oracleId": "87e6aabb-41f5-41d2-b662-cd09ad61a1c8",
@@ -292337,6 +292438,75 @@
     ],
     "setCode": "dtk",
     "collectorNumber": "200",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGGRAVATED_ASSAULT": {
+    "scryfallId": "01499449-5614-428f-8fc1-1fa74f7114ad",
+    "oracleId": "20129459-a386-41eb-899d-1aede3427300",
+    "name": "Aggravated Assault",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aggravated Assault",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "{3}{R}{R}: Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery.",
+        "flavorText": "\"The knights of Embereth fought with the fire of the Irencrag in their hearts. Though many fell, not a single one retreated.\"\n—*Last Stand of the Realm*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Maihope",
+        "imageId": "01499449-5614-428f-8fc1-1fa74f7114ad"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wot",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELLKITE_CHARGER": {
+    "scryfallId": "6836c646-83ff-4bf8-96dd-4cbdd6c7e861",
+    "oracleId": "d4f28a4b-d821-4132-bdec-4c528318f8e2",
+    "name": "Hellkite Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hellkite Charger",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\nWhenever this creature attacks, you may pay {5}{R}{R}. If you do, untap all attacking creatures and after this phase, there is an additional combat phase.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "6836c646-83ff-4bf8-96dd-4cbdd6c7e861"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "232",
     "commanderLegality": "legal",
     "singleImage": true
   },

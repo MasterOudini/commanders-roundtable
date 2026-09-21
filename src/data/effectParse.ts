@@ -420,6 +420,9 @@ function readWideScope(raw: string): BoardScope | null {
     return { kind: 'permanent', controller: c, ...(type !== undefined ? { type } : {}), ...(m[1] !== undefined ? { other: true as const } : {}), ...(m[2] !== undefined ? { nonland: true as const } : {}) };
   }
   if (/^(?:all )?attacking creatures$/i.test(s)) return { kind: 'creature', controller: 'any', attacking: true };
+  // D512 - `all creatures (you control) that attacked this turn`: the turn record's attackers.
+  m = /^(?:all |each )?creatures(?: (you control))? that attacked this turn$/i.exec(s);
+  if (m) return { kind: 'creature', controller: m[1] !== undefined ? 'you' : 'any', attackedThisTurn: true };
   return readScope(s.toLowerCase());
 }
 
@@ -843,6 +846,9 @@ const RULES: readonly Rule[] = [
   // turn.` right after it marks the turn just added (the clause loop refuses it anywhere else).
   { kind: 'extraTurn', re: /^(?:you )?take (an extra turn|two extra turns) after this one\.$/i, build: (m) => ({ ...BASE, targetIndex: -1, self: true, amount: /^two/i.test(m[1] ?? '') ? 2 : 1 }) },
   { kind: 'extraTurn', re: /^target player takes (an extra turn|two extra turns) after this one\.$/i, build: (m) => ({ ...BASE, amount: /^two/i.test(m[1] ?? '') ? 2 : 1 }) },
+  // D512 - THE ADDITIONAL COMBAT PHASE (CR 500.8): after this main phase (a combat then a main), or after this (combat) phase.
+  { kind: 'extraCombat', re: /^after this main phase, there is an additional combat phase followed by an additional main phase\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, extraPhases: ['combat', 'main'], extraAfter: 'main' }) },
+  { kind: 'extraCombat', re: /^after this (?:combat )?phase, there is an additional combat phase\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, extraPhases: ['combat'], extraAfter: 'current' }) },
   { kind: 'skipUntapThatTurn', re: /^skip the untap step of that turn\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D488 - POPULATE (CR 701.31): `Populate.` alone, or after `, then` (the conjunction split hands the executor the
   // bare word). No aim: the controller chooses a creature token they control at resolution (the D390 queue's question
@@ -1096,6 +1102,17 @@ const RULES: readonly Rule[] = [
     build: (m) => {
       const s = readWideScope(m[1] ?? '');
       return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  // D512 - `Untap all attacking creatures and after this phase, there is an additional combat phase.` (Hellkite Charger,
+  // Combat Celebrant): the mass untap with the additional combat phase riding it - ONE clause, so a payment body
+  // (`If you do, ...`) reads it whole. Before the plain form: that regex would take the tail for a scope and end the match.
+  {
+    kind: 'massUntap',
+    re: /^(?:then )?untap ((?:all|each) (?!of )[^.]+?) and after this (?:combat )?phase, there is an additional combat phase\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s], extraPhases: ['combat'], extraAfter: 'current' };
     },
   },
   {

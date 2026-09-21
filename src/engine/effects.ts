@@ -1142,6 +1142,13 @@ export function effectResult(
         out.push(narrated(n`${who(state, taker)} will take ${count === 1 ? 'an extra turn' : `${count} extra turns`} after this one.`, taker, obj.identity));
         break;
       }
+      // D512 - THE ADDITIONAL COMBAT PHASE (CR 500.8): the phases go after the next main phase to end (`main` - this
+      // one when the clause resolves in a main phase) or after the phase the clause resolves in (`current`: a combat
+      // phase, else the next main phase); `nextStep` inserts them at that phase's end.
+      case 'extraCombat': {
+        out.push(...extraPhaseEvents(state, effect, obj));
+        break;
+      }
       // D502 - `Skip the untap step of that turn.`: the extra turn the clause before it added (the newest of the
       // controller's) skips its untap step; with none added, the clause says so.
       case 'skipUntapThatTurn': {
@@ -1984,10 +1991,12 @@ export function effectResult(
             ? reached.filter((id) => now.cards[id]?.tapped !== true)
             : reached.filter((id) => now.cards[id]?.tapped === true);
         out.push({ t: 'ScopeWalked', verb: effect.kind, members: members.length, text: effect.text });
-        if (members.length === 0) break;
+        if (members.length === 0) { if (effect.kind === 'massUntap' && effect.extraPhases) out.push(...extraPhaseEvents(state, effect, obj)); break; }
         if (effect.kind === 'massCounters') out.push({ t: 'CountersChanged', changes: members.map((card) => ({ card, kind: effect.counterKind as CounterKind, delta: effect.amount })) });
         else if (effect.kind === 'massTap') out.push({ t: 'PermanentsTapped', cards: members });
         else out.push({ t: 'PermanentsUntapped', cards: members });
+        // D512 - the compound's rider: the additional combat phase after the untap (whatever the walk found).
+        if (effect.kind === 'massUntap' && effect.extraPhases) out.push(...extraPhaseEvents(state, effect, obj));
         break;
       }
       case 'putCounters':
@@ -2416,6 +2425,21 @@ function queueAsks(
   ];
 }
 
+/**
+ * D512 - THE ADDITIONAL COMBAT PHASE (CR 500.8): the phases go after the next main phase to end (`main` - this one when
+ * the clause resolves in a main phase) or after the phase the clause resolves in (`current`: a combat phase, else the
+ * next main phase); `nextStep` inserts them at that phase's end. Said out loud.
+ */
+function extraPhaseEvents(state: GameState, effect: EffectSpec, obj: StackObject): EventBody[] {
+  const phases = effect.extraPhases ?? ['combat'];
+  const after = effect.extraAfter === 'current' && state.turn.phase === 'combat' ? 'combat' : 'main';
+  const what = phases.includes('main') ? 'an additional combat phase followed by an additional main phase' : 'an additional combat phase';
+  return [
+    { t: 'ExtraPhasesAdded', after, phases },
+    narrated(`${obj.label} — ${what} after this ${after === 'combat' ? 'combat phase' : 'main phase'}.`, obj.controller, obj.identity),
+  ];
+}
+
 function scopeMembers(
   state: GameState,
   deps: EngineDeps,
@@ -2452,6 +2476,8 @@ function scopeMembers(
       if (scope.other === true && exclude !== undefined && exclude !== null && id === exclude) continue;
       if (scope.subtype !== undefined && !d.typeLine.subtypes.includes(scope.subtype)) continue;
       if (scope.nonland === true && d.typeLine.types.includes('Land')) continue;
+      // D512 - `creatures that attacked this turn`: the turn record's declared attackers.
+      if (scope.attackedThisTurn === true && !state.turn.memory.attackerIds.includes(id)) continue;
       cards.push(id);
     }
   }

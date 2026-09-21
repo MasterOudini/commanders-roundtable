@@ -1,6 +1,6 @@
 // Phase and step structure.
 
-import type { GameState, Phase, Step } from './types/state';
+import type { ExtraPhaseKind, ExtraPhases, GameState, Phase, Step } from './types/state';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { OracleDb } from './types/oracle';
 import type { ScriptRegistry } from './scripts/registry';
@@ -40,7 +40,11 @@ export function phaseOf(step: Step): Phase {
  * ordering is declared once, in a list you can read, instead of being computed
  * in two places that can disagree.
  */
-export function nextStep(state: GameState): { phase: Phase; step: Step } | null {
+export function nextStep(state: GameState): { phase: Phase; step: Step; queue?: PhaseQueue } | null {
+  // D512 - CR 500.8: at a phase end, the phases added after this kind of phase are inserted (the most recently
+  // created first), an insertion in progress continues, and once it is spent the regular sequence resumes.
+  const extra = extraPhaseStep(state);
+  if (extra) return extra;
   let i = (INDEX.get(state.turn.step) ?? 0) + 1;
   while (i < STEP_ORDER.length) {
     const candidate = STEP_ORDER[i];
@@ -64,6 +68,46 @@ export function nextStep(state: GameState): { phase: Phase; step: Step } | null 
       continue;
     }
     return candidate;
+  }
+  return null;
+}
+
+/** D512 - the phase queue as a phase end leaves it (`ExtraPhasesConsumed`). */
+export interface PhaseQueue {
+  readonly pending: readonly ExtraPhases[];
+  readonly inserted: readonly ExtraPhaseKind[];
+  readonly resume: Step | null;
+}
+
+/** D512 - the kind of phase a step ends, for the phases added after it: a main step ends a main phase, `endCombat` a combat. */
+function phaseEnding(step: Step): 'main' | 'combat' | null {
+  return step === 'precombatMain' || step === 'postcombatMain' ? 'main' : step === 'endCombat' ? 'combat' : null;
+}
+
+/**
+ * D512 - THE ADDITIONAL PHASES (CR 500.8). At the end of a main phase or a combat phase: every pending entry added
+ * after this kind of phase is prepended to the inserted queue in creation order (so the most recently created runs
+ * first); the queue's head begins - a combat at `beginCombat`, a main phase as a postcombat main (CR 505.1a) - and
+ * the regular step that would have followed is remembered once, at the first insertion; an inserted phase whose
+ * end finds the queue empty hands the turn back to that step. Null when nothing is pending or inserted here.
+ */
+function extraPhaseStep(state: GameState): { phase: Phase; step: Step; queue: PhaseQueue } | null {
+  const ending = phaseEnding(state.turn.step);
+  if (ending === null) return null;
+  const matching = state.turn.extraPhases.filter((p) => p.after === ending);
+  let inserted: readonly ExtraPhaseKind[] = state.turn.insertedPhases;
+  for (const p of matching) inserted = [...p.phases, ...inserted];
+  const pending = matching.length > 0 ? state.turn.extraPhases.filter((p) => p.after !== ending) : state.turn.extraPhases;
+  if (inserted.length > 0) {
+    const head = inserted[0] as ExtraPhaseKind;
+    const regular = STEP_ORDER[(INDEX.get(state.turn.step) ?? 0) + 1];
+    const resume = state.turn.resumeStep ?? (regular ? regular.step : null);
+    const queue = { pending, inserted: inserted.slice(1), resume };
+    return head === 'combat' ? { phase: 'combat', step: 'beginCombat', queue } : { phase: 'postcombatMain', step: 'postcombatMain', queue };
+  }
+  if (state.turn.resumeStep !== null) {
+    const step = state.turn.resumeStep;
+    return { phase: phaseOf(step), step, queue: { pending, inserted: [], resume: null } };
   }
   return null;
 }

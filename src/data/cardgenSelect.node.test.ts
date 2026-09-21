@@ -791,6 +791,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D512 - the additional combat phase: the rows the select offered and the row maker refused, by its own reasons.
+  ['Aurelia, the Warleader', 'trigger head not in the library: Whenever ~ attacks for the first time each turn, untap all creatures y (D512)'],
+  ['Éomer, Marshal of Rohan', 'a filtered head outside the closed reader (an adjective outside the list: attacking): Whenever one or more other attacking legendary creatures you (D512)'],
+  ['Raphael, Tag Team Tough', 'trigger head not in the library: Whenever ~ deals combat damage to a player for the first time each tur (D512)'],
+  ['Full Throttle', 'a spell with a line outside the vocabulary: After this main phase, there are two additional combat phase (D512)'],
   // D511 - bolster: the rows the select offered and the row maker refused, by its own reasons.
   ['Anafenza, Kin-Tree Spirit', 'a bolster under a head the staged creature would fire: anotherCreatureEnters (D511)'],
   ['Dromoka, the Eternal', 'trigger head not in the library: Whenever a Dragon you control attacks, bolster 2. (D511)'],
@@ -2586,7 +2591,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Rockalanche', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Ruthless Negotiation', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Saving Grasp', 'a spell line outside the vocabulary (its flashback runs)'],
-  ['Seize the Day', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Sever the Bloodline', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Shattered Perception', 'a spell line outside the vocabulary (its flashback runs)'],
   ['Snort', 'a spell line outside the vocabulary (its flashback runs)'],

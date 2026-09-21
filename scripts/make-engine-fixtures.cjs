@@ -9402,6 +9402,10 @@ const WANTED = [
   // D511 - bolster: the seam tests' spells and the fuzz staples (Cached Defenses, Abzan Advantage).
   'Cached Defenses',
   'Abzan Advantage',
+  // D512 - the additional combat phase: the seam tests' spells and the fuzz staple (Relentless Assault).
+  'Relentless Assault',
+  'Seize the Day',
+  'Fury of the Horde',
   "Honor's Reward",
   "Dromoka's Gift",
   'Sakura-Tribe Scout',
@@ -9581,6 +9585,10 @@ const WANTED = [
   'Sandsteppe Mastodon',
   'Sandsteppe Scavenger',
   // D511 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D512 - the additional combat phase: the rows the select offered (Aggravated Assault, Hellkite Charger).
+  'Aggravated Assault',
+  'Hellkite Charger',
+  // D512 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
