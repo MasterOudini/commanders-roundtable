@@ -287048,6 +287048,39 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TRIBUTE_TO_HUNGER": {
+    "scryfallId": "11f1b897-bb7d-4217-97a7-c89f2453c8fa",
+    "oracleId": "dc5a501c-e16c-4d4b-a510-70a14272473e",
+    "name": "Tribute to Hunger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tribute to Hunger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Target opponent sacrifices a creature of their choice. You gain life equal to that creature's toughness.",
+        "flavorText": "\"Secluded park. Dual puncture wounds. I told you these aren't random murders. Get the stakes ready.\"\n—Rem Karolus, monster slayer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "11f1b897-bb7d-4217-97a7-c89f2453c8fa"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "614",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SHELTERING_WORD": {
     "scryfallId": "93cd9be4-1ce4-4a7c-b2a6-98d3fde0a92b",
     "oracleId": "77aaaad5-7960-453d-b024-6dacbca3d606",
@@ -293166,6 +293199,146 @@
     "keywords": [],
     "setCode": "usg",
     "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOMGAPE": {
+    "scryfallId": "173fd1c6-ffd9-424f-ad65-90b193edbe00",
+    "oracleId": "ab94d8f7-f811-436a-9a22-9a12bd929e98",
+    "name": "Doomgape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doomgape",
+        "manaCost": "{4}{B/G}{B/G}{B/G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Trample\nAt the beginning of your upkeep, sacrifice a creature. You gain life equal to that creature's toughness.",
+        "flavorText": "It eats and eats until the juiciest morsel it can find is itself.",
+        "power": "10",
+        "toughness": "10",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Dave Allsop",
+        "imageId": "173fd1c6-ffd9-424f-ad65-90b193edbe00"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROPOLIS_REGENT": {
+    "scryfallId": "2b6009d3-4f70-492c-9860-8d33421936f8",
+    "oracleId": "33c3a6be-8cae-4de8-9d9b-43216d727e93",
+    "name": "Necropolis Regent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necropolis Regent",
+        "manaCost": "{3}{B}{B}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\nWhenever a creature you control deals combat damage to a player, put that many +1/+1 counters on it.",
+        "flavorText": "\"Jarad fancies himself king of the undercity, but he's merely king of rot.\"",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "2b6009d3-4f70-492c-9860-8d33421936f8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "c21",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUTH_WIND_AVATAR": {
+    "scryfallId": "ac182338-ab26-4f9e-87f9-be83c5cc7cd7",
+    "oracleId": "003e5dc6-8b26-4a0a-a50b-5f0806a7bacd",
+    "name": "South Wind Avatar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "South Wind Avatar",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Snake Spirit Avatar",
+        "oracleText": "Deathtouch\nWhenever another creature you control dies, you gain life equal to its toughness.\nWhenever you gain life, each opponent loses 1 life.",
+        "flavorText": "Snake-Eyes's gift takes others back to their worst memory. To the weak, it is a curse; to the wise, a second chance.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "InHyuk Lee",
+        "imageId": "ac182338-ab26-4f9e-87f9-be83c5cc7cd7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "269",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROPER_BURIAL": {
+    "scryfallId": "ae8a4756-d82b-4c6d-b652-5c3722d3edec",
+    "oracleId": "e5bf77c2-a9b2-4366-8412-e263160403c1",
+    "name": "Proper Burial",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Proper Burial",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control dies, you gain life equal to that creature's toughness.",
+        "flavorText": "Properly honored dead gain the peace of the grave and freedom from the call of the Ghost Quarter.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Luca Zontini",
+        "imageId": "ae8a4756-d82b-4c6d-b652-5c3722d3edec"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dis",
+    "collectorNumber": "16",
     "commanderLegality": "legal",
     "singleImage": true
   },

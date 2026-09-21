@@ -9402,6 +9402,8 @@ const WANTED = [
   // D511 - bolster: the seam tests' spells and the fuzz staples (Cached Defenses, Abzan Advantage).
   'Cached Defenses',
   'Abzan Advantage',
+  // D515 - the stat family's remainder: the seam test's spell (Tribute to Hunger - the ask's chosen creature).
+  'Tribute to Hunger',
   // D514 - the object's stat as last known: the seam test's spell and the fuzz staple (Sheltering Word).
   'Sheltering Word',
   'Heal the Scars',
@@ -9615,6 +9617,11 @@ const WANTED = [
   'Engulfing Slagwurm',
   'Angelic Chorus',
   // D514 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D515 - the stat family's remainder: the rows the whole-leftover row maker rowed and the generator built (Doomgape, Necropolis Regent, South Wind Avatar, Proper Burial).
+  'Doomgape',
+  'Necropolis Regent',
+  'South Wind Avatar',
+  'Proper Burial',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -8488,6 +8488,7 @@ export const TIME_REVERSAL: CardData = F.TIME_REVERSAL as CardData;
 export const TIMETWISTER: CardData = F.TIMETWISTER as CardData;
 export const CACHED_DEFENSES: CardData = F.CACHED_DEFENSES as CardData;
 export const ABZAN_ADVANTAGE: CardData = F.ABZAN_ADVANTAGE as CardData;
+export const TRIBUTE_TO_HUNGER: CardData = F.TRIBUTE_TO_HUNGER as CardData;
 export const SHELTERING_WORD: CardData = F.SHELTERING_WORD as CardData;
 export const HEAL_THE_SCARS: CardData = F.HEAL_THE_SCARS as CardData;
 export const RELENTLESS_ASSAULT: CardData = F.RELENTLESS_ASSAULT as CardData;
@@ -8666,6 +8667,10 @@ export const AMBUSCADE_SHAMAN: CardData = F.AMBUSCADE_SHAMAN as CardData;
 export const ORCHARD_WARDEN: CardData = F.ORCHARD_WARDEN as CardData;
 export const ENGULFING_SLAGWURM: CardData = F.ENGULFING_SLAGWURM as CardData;
 export const ANGELIC_CHORUS: CardData = F.ANGELIC_CHORUS as CardData;
+export const DOOMGAPE: CardData = F.DOOMGAPE as CardData;
+export const NECROPOLIS_REGENT: CardData = F.NECROPOLIS_REGENT as CardData;
+export const SOUTH_WIND_AVATAR: CardData = F.SOUTH_WIND_AVATAR as CardData;
+export const PROPER_BURIAL: CardData = F.PROPER_BURIAL as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17402,6 +17407,7 @@ export const ENGINE_CARDS: CardData[] = [
   TIMETWISTER,
   CACHED_DEFENSES,
   ABZAN_ADVANTAGE,
+  TRIBUTE_TO_HUNGER,
   SHELTERING_WORD,
   HEAL_THE_SCARS,
   RELENTLESS_ASSAULT,
@@ -17580,6 +17586,10 @@ export const ENGINE_CARDS: CardData[] = [
   ORCHARD_WARDEN,
   ENGULFING_SLAGWURM,
   ANGELIC_CHORUS,
+  DOOMGAPE,
+  NECROPOLIS_REGENT,
+  SOUTH_WIND_AVATAR,
+  PROPER_BURIAL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -112,7 +112,11 @@ export interface ScriptCtx {
    * randomness (a def's `resolve` cannot thread the RNG onto the event), and
    * a self clause of a kind that needs an aim.
    */
-  vocabulary(obj: StackObject, effects: readonly EffectSpec[], targets: readonly TargetSpec[]): readonly EventBody[];
+  /**
+   * D515 - `unchecked`: the object's picks are a REFERENT the head itself named (a dies head's creature, in the graveyard by
+   * the time the ability resolves - CR 608.2h's last known information), not targets: CR 608.2b's re-check is skipped.
+   */
+  vocabulary(obj: StackObject, effects: readonly EffectSpec[], targets: readonly TargetSpec[], unchecked?: boolean): readonly EventBody[];
 }
 
 export interface TriggerDef {

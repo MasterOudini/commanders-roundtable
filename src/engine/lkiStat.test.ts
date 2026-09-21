@@ -4,8 +4,8 @@
 // head through the row maker's rewrite. The amount is the creature's power or toughness as the executor finds it: on the
 // battlefield as the step runs (the clauses before it applied - a pump counts), or, once it has left, as it last was
 // before this resolution (CR 608.2h's last known information - the destroyed creature's toughness). A player phrase does
-// not match the creature-only rule, so `Target opponent sacrifices a creature ... that creature's toughness` stays unread
-// (the ask's chosen creature is a later seam). What is proven here: the readings; Sheltering Word on a Bears (+2, read
+// not match the creature-only rule, so `Target opponent sacrifices a creature ... that creature's toughness` is never aimed
+// at the opponent (D515 reads it as the resumed frame's previous object). What is proven here: the readings; Sheltering Word on a Bears (+2, read
 // live) and on a Bears carrying two +1/+1 counters (+4); the executor on a real stack object with the destroy-then-read
 // text (the Angel in the graveyard, the read last known, +4) and with the pump-then-read text (+7, read live); the replay
 // hash on the cast games.
@@ -23,7 +23,7 @@ const kinds = (text: string) => { const p = parseEffects(text, '~', true); retur
 const reads = (g: Game) => g.log.filter((e) => e.body.t === 'StatRead').map((e) => (e.body.t === 'StatRead' ? { stat: e.body.stat, value: e.body.value, lastKnown: e.body.lastKnown } : null));
 
 describe("D514 - the object's stat as last known", () => {
-  test('the readings: the possessive referent after a target clause, the aimed form; a player phrase and a clash stay unread', () => {
+  test('the readings: the possessive referent after a target clause, the aimed form; after an ask the read is about the previous objects (D515); a clash stays unread', () => {
     expect(kinds("Target creature you control gains hexproof until end of turn. You gain life equal to that creature's toughness.")).toEqual({
       mode: 'auto',
       effects: [{ kind: 'pump', targetIndex: 0 }, { kind: 'gainLifeStat', targetIndex: 0, stat: 'toughness' }],
@@ -31,7 +31,8 @@ describe("D514 - the object's stat as last known", () => {
     expect(kinds('Destroy target creature. You gain life equal to its toughness.')).toEqual({ mode: 'auto', effects: [{ kind: 'destroy', targetIndex: 0 }, { kind: 'gainLifeStat', targetIndex: 0, stat: 'toughness' }] });
     expect(kinds("Regenerate target creature. You gain life equal to that creature's toughness.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'regenerate' }, { kind: 'gainLifeStat', targetIndex: 0 }] });
     expect(kinds("You gain life equal to target creature's power.")).toEqual({ mode: 'auto', effects: [{ kind: 'gainLifeStat', targetIndex: 0, stat: 'power' }] });
-    expect(kinds("Target opponent sacrifices a creature of their choice. You gain life equal to that creature's toughness.").mode, 'the ask\'s creature is not the target opponent').not.toBe('auto');
+    // D515 - read since: the ask's chosen creature is the resumed frame's previous object (askedStat.test.ts), never the target opponent.
+    expect(kinds("Target opponent sacrifices a creature of their choice. You gain life equal to that creature's toughness.").effects.map((e) => e.targetIndex), 'the ask\'s creature is not the target opponent: the read is about the previous objects').toEqual([0, -1]);
     expect(kinds("Destroy target creature. Clash with an opponent. If you win, you gain life equal to that creature's toughness.").mode).not.toBe('auto');
   });
 

@@ -113,6 +113,15 @@ function delayLabel(when: DelayWhen): string {
   return when.whose === 'controller' ? `at the beginning of your next ${step}` : `at the beginning of the next ${step}`;
 }
 
+/**
+ * D515 - THE ASK'S CHOSEN OBJECTS: what an answered question moved (the sacrificed creatures), and their stats as the
+ * answer found them (the state before its moves - last known information), for the first clause of the resumed frame.
+ */
+export interface AnsweredObjects {
+  readonly objects: readonly InstanceId[];
+  readonly known: ReadonlyMap<InstanceId, { readonly power: number | null; readonly toughness: number | null }>;
+}
+
 export function effectResult(
   state: GameState,
   deps: EngineDeps,
@@ -121,6 +130,8 @@ export function effectResult(
   cache?: DeriveCache,
   /** D484 - the frame beyond these clauses, carried onto a question they raise (a resumed frame's `outer`). */
   outer?: EffectContinuation,
+  /** D515 - the answered question's objects, for a resumed frame's first clause about them. */
+  answered?: AnsweredObjects,
 ): { events: EventBody[]; rng?: RngState } {
   const out: EventBody[] = [];
   // ⚠️ Threaded through the loop and returned ONCE at the end, never read from
@@ -278,7 +289,8 @@ export function effectResult(
     // D494 - THE PREVIOUS CLAUSE'S OBJECTS, bound now: an immediate clause (a grant) runs once per object, spliced in
     // as ordinary aimed steps; a delayed one is armed with the objects as its aims (below).
     if (effect.ofPrevious === true) {
-      const objects = objectsOf(at - 1);
+      // D515 - a resumed frame's first clause about the previous objects: the answer's (the sacrificed creatures).
+      const objects = at === 0 && answered !== undefined ? answered.objects : objectsOf(at - 1);
       produced.set(at, { start: before, end: before, aims: [], objects });
       if (objects.length === 0) {
         out.push(narrated(`${obj.label} — nothing for “${effect.text}” to act on.`, obj.controller, obj.identity));
@@ -1378,9 +1390,17 @@ export function effectResult(
         let now = state;
         for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
         const live = now.cards[aim.id]?.zone.kind === 'battlefield';
-        const d = live ? derive(now, deps.oracle, deps.scripts, aim.id) : derive(state, deps.oracle, deps.scripts, aim.id, cache);
         const stat = effect.stat ?? 'toughness';
-        const value = stat === 'power' ? d.power : d.toughness;
+        // D515 - a departed aim's stat: the answer's record of it (a sacrificed creature), else the trigger's own number
+        // (a looks-back head's item, read at the bus against the board it left), else the state before this resolution.
+        const knownStat = !live ? answered?.known.get(aim.id) : undefined;
+        const value = live
+          ? (stat === 'power' ? derive(now, deps.oracle, deps.scripts, aim.id).power : derive(now, deps.oracle, deps.scripts, aim.id).toughness)
+          : knownStat !== undefined
+            ? knownStat[stat]
+            : obj.memo !== undefined
+              ? obj.memo
+              : (stat === 'power' ? derive(state, deps.oracle, deps.scripts, aim.id, cache).power : derive(state, deps.oracle, deps.scripts, aim.id, cache).toughness);
         if (value === null) {
           out.push(narrated(`${obj.label} — nothing to read for “${effect.text}” (no ${stat} to read).`, obj.controller, obj.identity));
           break;
@@ -2262,6 +2282,13 @@ export function resumeContinuation(state: GameState, deps: EngineDeps, events: E
   let folded = 0;
   let scratch = state;
   let advanced = rng;
+  // D515 - what the answer moved (the sacrificed creatures) and their stats as the answer found them (`state` is the
+  // board before the answer's moves): the resumed frame's first clause about the previous objects reads them.
+  const sacrificed = events.flatMap((e) => (e.t === 'CardsMoved' ? e.moves.filter((m) => m.reason === 'sacrifice' && m.from.kind === 'battlefield').map((m) => m.card) : []));
+  const answered: AnsweredObjects | undefined = sacrificed.length > 0
+    ? { objects: sacrificed, known: new Map(sacrificed.map((id) => { const d = derive(state, deps.oracle, deps.scripts, id); return [id, { power: d.power, toughness: d.toughness }] as const; })) }
+    : undefined;
+  let first = true;
   while (frame !== undefined) {
     const pending = events.slice(folded).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
     if (pending >= 0) {
@@ -2274,7 +2301,8 @@ export function resumeContinuation(state: GameState, deps: EngineDeps, events: E
     folded = events.length;
     if (advanced !== undefined) scratch = { ...scratch, rng: advanced };
     events.push({ t: 'ContinuationResumed', label: frame.label, clauses: frame.effects.length });
-    const result = effectResult(scratch, deps, continuationObject(frame), frame.effects, undefined, frame.outer);
+    const result = effectResult(scratch, deps, continuationObject(frame), frame.effects, undefined, frame.outer, first ? answered : undefined);
+    first = false;
     events.push(...result.events);
     if (result.rng !== undefined) advanced = result.rng;
     frame = result.events.some((e) => e.t === 'AwaitingSet' && e.awaiting !== null) ? undefined : frame.outer;

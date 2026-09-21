@@ -2419,6 +2419,12 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
   // D495 - a clause before that ASKS produces its objects only after the answer (a search, a look, a payment whose
   // body makes the token - `You may pay {1}{R}. If you do, create a token ... It gains haste.`): the executor would
   // bind the next clause to nothing, so the sentence is refused and the card stays assisted.
+  // D515 - the possessive stat referent after a QUEUED SACRIFICE: the sacrificed creature is the answer's object, which
+  // the resumed frame binds (`resumeContinuation` names it and its stat as the answer found it).
+  if (prev.kind === 'sacrifice' && REFERENT_STAT.test(sentence)) {
+    const stat = /power\.$/i.test(sentence) ? 'power' : 'toughness';
+    return { ...BASE, kind: 'gainLifeStat', text: sentence, targetIndex: -1, self: true, ofPrevious: true, stat };
+  }
   if (OBJ_ASKS.has(prev.kind)) return null;
   const g = OBJ_GRANT.exec(sentence);
   if (g) {

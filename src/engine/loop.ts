@@ -1168,7 +1168,9 @@ function scriptCtxFor(state: GameState, deps: EngineDeps): ScriptCtx {
     // this object's own targets, controller and source. `effectEvents` is the
     // narrow entry on purpose: `vocabularyEffects` refuses randomness, so no
     // RNG advance is dropped here.
-    vocabulary: (obj, effects, targets) => {
+    vocabulary: (obj, effects, targets, unchecked) => {
+      // D515 - a referent the head named (a dies head's creature, in the graveyard now) is not re-checked as a target.
+      if (unchecked === true) return effectEvents(state, deps, obj, effects, cache);
       const srcCard = obj.source ? state.cards[obj.source] : undefined;
       const srcPrinting = srcCard ? deps.oracle.byPrinting(srcCard.printingId) : undefined;
       const srcFace = srcCard && srcPrinting ? faceOf(srcPrinting, srcCard.faceIndex) : null;

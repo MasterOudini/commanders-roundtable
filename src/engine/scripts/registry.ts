@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DOOMGAPE_SCRIPT } from './cards/doomgape';
+import { NECROPOLIS_REGENT_SCRIPT } from './cards/necropolisRegent';
+import { SOUTH_WIND_AVATAR_SCRIPT } from './cards/southWindAvatar';
+import { PROPER_BURIAL_SCRIPT } from './cards/properBurial';
 import { BRIGHTMARE_SCRIPT } from './cards/brightmare';
 import { VERDANT_SUNS_AVATAR_SCRIPT } from './cards/verdantSunsAvatar';
 import { WOLVERINE_RIDERS_SCRIPT } from './cards/wolverineRiders';
@@ -7893,6 +7897,10 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DOOMGAPE_SCRIPT,
+  NECROPOLIS_REGENT_SCRIPT,
+  SOUTH_WIND_AVATAR_SCRIPT,
+  PROPER_BURIAL_SCRIPT,
   BRIGHTMARE_SCRIPT,
   VERDANT_SUNS_AVATAR_SCRIPT,
   WOLVERINE_RIDERS_SCRIPT,
