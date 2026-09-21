@@ -8488,6 +8488,8 @@ export const TIME_REVERSAL: CardData = F.TIME_REVERSAL as CardData;
 export const TIMETWISTER: CardData = F.TIMETWISTER as CardData;
 export const CACHED_DEFENSES: CardData = F.CACHED_DEFENSES as CardData;
 export const ABZAN_ADVANTAGE: CardData = F.ABZAN_ADVANTAGE as CardData;
+export const SHELTERING_WORD: CardData = F.SHELTERING_WORD as CardData;
+export const HEAL_THE_SCARS: CardData = F.HEAL_THE_SCARS as CardData;
 export const RELENTLESS_ASSAULT: CardData = F.RELENTLESS_ASSAULT as CardData;
 export const SEIZE_THE_DAY: CardData = F.SEIZE_THE_DAY as CardData;
 export const FURY_OF_THE_HORDE: CardData = F.FURY_OF_THE_HORDE as CardData;
@@ -8657,6 +8659,13 @@ export const CLERIC_OF_LIFE_S_BOND: CardData = F.CLERIC_OF_LIFE_S_BOND as CardDa
 export const SEEDGLAIVE_MENTOR: CardData = F.SEEDGLAIVE_MENTOR as CardData;
 export const VENGEFUL_WARCHIEF: CardData = F.VENGEFUL_WARCHIEF as CardData;
 export const WHISKERQUILL_SCRIBE: CardData = F.WHISKERQUILL_SCRIBE as CardData;
+export const BRIGHTMARE: CardData = F.BRIGHTMARE as CardData;
+export const VERDANT_SUN_S_AVATAR: CardData = F.VERDANT_SUN_S_AVATAR as CardData;
+export const WOLVERINE_RIDERS: CardData = F.WOLVERINE_RIDERS as CardData;
+export const AMBUSCADE_SHAMAN: CardData = F.AMBUSCADE_SHAMAN as CardData;
+export const ORCHARD_WARDEN: CardData = F.ORCHARD_WARDEN as CardData;
+export const ENGULFING_SLAGWURM: CardData = F.ENGULFING_SLAGWURM as CardData;
+export const ANGELIC_CHORUS: CardData = F.ANGELIC_CHORUS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17393,6 +17402,8 @@ export const ENGINE_CARDS: CardData[] = [
   TIMETWISTER,
   CACHED_DEFENSES,
   ABZAN_ADVANTAGE,
+  SHELTERING_WORD,
+  HEAL_THE_SCARS,
   RELENTLESS_ASSAULT,
   SEIZE_THE_DAY,
   FURY_OF_THE_HORDE,
@@ -17562,6 +17573,13 @@ export const ENGINE_CARDS: CardData[] = [
   SEEDGLAIVE_MENTOR,
   VENGEFUL_WARCHIEF,
   WHISKERQUILL_SCRIBE,
+  BRIGHTMARE,
+  VERDANT_SUN_S_AVATAR,
+  WOLVERINE_RIDERS,
+  AMBUSCADE_SHAMAN,
+  ORCHARD_WARDEN,
+  ENGULFING_SLAGWURM,
+  ANGELIC_CHORUS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

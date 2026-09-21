@@ -1369,6 +1369,29 @@ export function effectResult(
         break;
       }
 
+      // D514 - THE OBJECT'S STAT AS LAST KNOWN: the aimed creature's power or toughness as this step finds it - on the
+      // battlefield after the clauses before it (a pump counts), or, once it has left, as it last was before this
+      // resolution (CR 608.2h - the destroyed creature's toughness); a negative number is zero (CR 107.1b). A non-creature
+      // (a target that stopped being one) has no stat, and the clause says so.
+      case 'gainLifeStat': {
+        if (aim?.kind !== 'card') break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const live = now.cards[aim.id]?.zone.kind === 'battlefield';
+        const d = live ? derive(now, deps.oracle, deps.scripts, aim.id) : derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        const stat = effect.stat ?? 'toughness';
+        const value = stat === 'power' ? d.power : d.toughness;
+        if (value === null) {
+          out.push(narrated(`${obj.label} — nothing to read for “${effect.text}” (no ${stat} to read).`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({ t: 'StatRead', card: aim.id, stat, value, lastKnown: !live });
+        const p = state.players[controller];
+        if (!p) break;
+        if (value > 0) out.push(lifeChanged(controller, value));
+        else out.push(narrated(`${obj.label} — no life to gain (the ${stat} read ${value}).`, obj.controller, obj.identity));
+        break;
+      }
       case 'gainLife': {
         // D504 - the aimed player's life (the previous object's controller); the caster's otherwise.
         const gainer = !effect.self && aim?.kind === 'player' ? aim.id : controller;

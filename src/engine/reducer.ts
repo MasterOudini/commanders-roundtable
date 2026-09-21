@@ -1345,6 +1345,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return { ...state, turn: { ...state.turn, extraPhases: [...state.turn.extraPhases, { after: body.after, phases: body.phases }] } };
     case 'ExtraPhasesConsumed':
       return { ...state, turn: { ...state.turn, extraPhases: body.pending, insertedPhases: body.inserted, resumeStep: body.resume } };
+    // D514 - the stat read's marker: the life change beside it moved the state.
+    case 'StatRead':
+      return state;
     // D504 - the referent player's marker: the clause's own events beside it moved the state.
     case 'ReferentPlayerBound':
       return state;

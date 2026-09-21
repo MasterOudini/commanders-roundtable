@@ -787,6 +787,21 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D514 - the object's stat as last known: the cards of the family the row maker refused, by its own reasons.
+  ['Proper Burial', 'trigger payload not a pump: You gain life equal to that creature\'s toughness. (D514)'],
+  ['South Wind Avatar', 'trigger payload not a pump: You gain life equal to its toughness. (D514)'],
+  ['Grim Feast', 'trigger payload not a pump: You gain life equal to its toughness. (D514)'],
+  ['Ikra Shidiqi, the Usurper', 'trigger payload not a pump: You gain life equal to that creature\'s toughness. (D514)'],
+  ['Doomgape', 'trigger payload not a pump: Sacrifice a creature. You gain life equal to that creature\'s (D514)'],
+  ["Trostani, Selesnya's Voice", 'a vocabulary effect the suite cannot assert: populate (D514)'],
+  ['Righteous Valkyrie', 'a condition outside the closed vocabulary: you have at least 7 life more than your starting life tot (D514)'],
+  ['Death Watch', 'trigger payload not a pump: Its controller loses life equal to its power and you gain li (D514)'],
+  ['Noxious Gearhulk', 'trigger payload not a pump: Destroy another target creature. If a creature is destroyed (D514)'],
+  ['Paladin of Atonement', 'trigger payload not a pump: If you lost life last turn, put a +1/+1 counter on ~. (D514)'],
+  ['Abattoir Ghoul', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creatur (D514)'],
+  ['Garruk, Apex Predator', 'a vocabulary clause the suite has no fixture for: a battle clause (D514)'],
+  ['Tribute to Hunger', 'the ask\'s chosen creature is the referent (Target opponent sacrifices a creature of their choice. You gain life equal to that creature\'s toughness.) - (D514)'],
+  ['Consuming Vapors', 'the ask\'s chosen creature is the referent beside rebound (not this wave) (D514)'],
   // D513 - the first-time-each-turn head: the cards of the family the row maker refused, by its own reasons.
   ['Whiskervale Forerunner', 'trigger payload not a pump: Look at the top five cards of your library. You may reveal a (D513)'],
   ['Jetting Glasskite', 'trigger payload not a pump: Counter that spell or ability. (D513)'],
@@ -1483,7 +1498,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Hearts on Fire waits with Fancy Footwork); Heartwood Shard is
   // Granite Shard's cycle-mate; Heaven's Gate is Chaoslace's class with
   // the up-to hazard on top.
-  ['Heal the Scars', 'regeneration'],
   ['Hearts on Fire', 'spell target parse (numeric disjunction)'],
   ['Heartwood Shard', 'alternative activation cost'],
   ['Heated Argument', 'script-raised prompt'],

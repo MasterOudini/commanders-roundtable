@@ -9402,6 +9402,9 @@ const WANTED = [
   // D511 - bolster: the seam tests' spells and the fuzz staples (Cached Defenses, Abzan Advantage).
   'Cached Defenses',
   'Abzan Advantage',
+  // D514 - the object's stat as last known: the seam test's spell and the fuzz staple (Sheltering Word).
+  'Sheltering Word',
+  'Heal the Scars',
   // D512 - the additional combat phase: the seam tests' spells and the fuzz staple (Relentless Assault).
   'Relentless Assault',
   'Seize the Day',
@@ -9603,6 +9606,15 @@ const WANTED = [
   // D513 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D513 - the first-time-each-turn head: the rows the whole-leftover row maker rowed (Emberheart Challenger, Aurelia, Attended Healer, Vanguard Seraph, Fear of Missing Out, Mouse Trapper, Cleric of Life's Bond, Seedglaive Mentor, Vengeful Warchief, Whiskerquill Scribe).
   // D513 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D514 - the object's stat as last known: the rows the whole-leftover row maker rowed (Brightmare, Verdant Sun's Avatar, Wolverine Riders, Ambuscade Shaman, Orchard Warden, Engulfing Slagwurm, Angelic Chorus).
+  'Brightmare',
+  "Verdant Sun's Avatar",
+  'Wolverine Riders',
+  'Ambuscade Shaman',
+  'Orchard Warden',
+  'Engulfing Slagwurm',
+  'Angelic Chorus',
+  // D514 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

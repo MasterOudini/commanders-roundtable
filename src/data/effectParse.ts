@@ -1443,6 +1443,15 @@ const RULES: readonly Rule[] = [
       return { ...BASE, amount: n, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller }] };
     },
   },
+  // D514 - THE OBJECT'S STAT AS LAST KNOWN: the aimed form; the possessive referents (`its`, `that creature's`) reach it
+  // through `referentRewrite`, and an item head's rewrite (the wave's tooling) turns `its toughness` into this form too.
+  {
+    kind: 'gainLifeStat',
+    // the phrase is a creature's (never `target opponent`'s, which the general macro admits and the referent would hand it).
+    // `Gain life equal to ...` is the optional trigger's form (`you may gain life ...` with the may peeled by the row maker).
+    re: new RegExp(`^(?:you )?gain life equal to (${COUNTED}target ${ADJECTIVE}creature${CONTROLLER}${QUALIFIER})'s (power|toughness)\\.$`, 'i'),
+    build: (m) => ({ ...BASE, stat: (m[2] ?? 'toughness').toLowerCase() === 'power' ? 'power' : 'toughness' }),
+  },
   {
     kind: 'gainLife',
     re: new RegExp(`^you gain (${NUM}) life\\.$`, 'i'),
@@ -2350,6 +2359,10 @@ const REFERENT_COUNTER = new RegExp(`^(?:then )?put ${COUNT} ${COUNTER_KIND} cou
 // D485 - the token COPY of the referent (`Exile target creature. Create a token that's a copy of it.`, `... copy of that
 // creature`): the referent stands where the target phrase would.
 const REFERENT_COPY = new RegExp(`^(?:then )?create ${COUNT} tokens? that(?:'s| is| are) (?:a )?cop(?:y|ies) of ${REFERENT}(?![a-z'])`, 'i');
+// D514 - the POSSESSIVE referent: `You gain life equal to its toughness.` / `... that creature's toughness.` names the
+// previous clause's object as the owner of the stat; the phrase goes in with an apostrophe-s.
+const REFERENT_STAT = /^(?:you )?gain life equal to (?:its|that (?:creature|permanent)'s) (?:power|toughness)\.$/i;
+const REFERENT_POSSESSIVE = /\b(?:its|that (?:creature|permanent)'s)\b/i;
 // D427 - a prevention shield ABOUT the referent: `Prevent all damage that would be dealt to it this turn.`
 // (Djeru's Resolve), `... to and dealt by that creature this turn.` (Foxfire, Energy Arc) - the referent
 // stands where the target clause would, mid-sentence.
@@ -2483,6 +2496,11 @@ function controllerRewrite(sentence: string, previous: Clause | undefined, befor
 
 function referentRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!previous?.spec || previous.phrase === null) return null;
+  // D514 - the possessive form: the previous phrase owns the stat (a player phrase does not match the aimed rule).
+  if (REFERENT_STAT.test(sentence)) {
+    const hit = matchSentence(sentence.replace(REFERENT_POSSESSIVE, previous.phrase + "'s"));
+    return hit ? { ...hit, text: sentence, referent: true } : null;
+  }
   if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;

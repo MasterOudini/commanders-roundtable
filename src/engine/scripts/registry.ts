@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BRIGHTMARE_SCRIPT } from './cards/brightmare';
+import { VERDANT_SUNS_AVATAR_SCRIPT } from './cards/verdantSunsAvatar';
+import { WOLVERINE_RIDERS_SCRIPT } from './cards/wolverineRiders';
+import { AMBUSCADE_SHAMAN_SCRIPT } from './cards/ambuscadeShaman';
+import { ORCHARD_WARDEN_SCRIPT } from './cards/orchardWarden';
+import { ENGULFING_SLAGWURM_SCRIPT } from './cards/engulfingSlagwurm';
+import { ANGELIC_CHORUS_SCRIPT } from './cards/angelicChorus';
 import { EMBERHEART_CHALLENGER_SCRIPT } from './cards/emberheartChallenger';
 import { AURELIA_THE_WARLEADER_SCRIPT } from './cards/aureliaTheWarleader';
 import { ATTENDED_HEALER_SCRIPT } from './cards/attendedHealer';
@@ -7886,6 +7893,13 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRIGHTMARE_SCRIPT,
+  VERDANT_SUNS_AVATAR_SCRIPT,
+  WOLVERINE_RIDERS_SCRIPT,
+  AMBUSCADE_SHAMAN_SCRIPT,
+  ORCHARD_WARDEN_SCRIPT,
+  ENGULFING_SLAGWURM_SCRIPT,
+  ANGELIC_CHORUS_SCRIPT,
   EMBERHEART_CHALLENGER_SCRIPT,
   AURELIA_THE_WARLEADER_SCRIPT,
   ATTENDED_HEALER_SCRIPT,

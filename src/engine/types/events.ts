@@ -353,6 +353,8 @@ export type EventBody =
   /** D512 - phases added after the named phase (CR 500.8), pushed on `TurnState.extraPhases`. */
   | { readonly t: 'ExtraPhasesAdded'; readonly after: 'main' | 'combat'; readonly phases: readonly ExtraPhaseKind[] }
   /** D512 - the phase queue as `nextStep` left it at a phase end: what is still pending, what is inserted, where the turn resumes. */
+  /** D514 - a creature's stat read for an amount: on the battlefield, or as last known (it had left before the read). */
+  | { readonly t: 'StatRead'; readonly card: InstanceId; readonly stat: 'power' | 'toughness'; readonly value: number; readonly lastKnown: boolean }
   | { readonly t: 'ExtraPhasesConsumed'; readonly pending: readonly ExtraPhases[]; readonly inserted: readonly ExtraPhaseKind[]; readonly resume: Step | null }
   /** D502 - the extra turn on top was a departed player's: dropped untaken. */
   | { readonly t: 'ExtraTurnDropped'; readonly player: PlayerId }

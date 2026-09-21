@@ -126,8 +126,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // triggers over the 60-seed canaries of D510-D513, and 0 over D513's 500-seed gate - the floor's first red since D175), so the
   // staple carries its own killer; the driver aims the Blade at a random nonblack creature and the colorless 2/2 is one
   // (a Bolt would double-count: FIXED_CORE deals one a seat already, and the staple accounting is exact).
-  { names: ['Onulet', 'Doom Blade'], copiesPerSeat: 5,
-    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175 D513' },
+  // D514 - eight a seat: five read 11 over D513's 500-seed gate but 0 over the next 60-seed canary (the rotation moved again).
+  { names: ['Onulet', 'Doom Blade'], copiesPerSeat: 8,
+    counterKeys: ['diesTriggers'], rotHistory: 'D158 D175 D513 D514' },
   // The only permanents in Magic that ARRIVE with counters (CR 306.5b/310.6).
   { names: ['Grist, the Hunger Tide', 'Invasion of Gobakhan // Lightshield Array'],
     copiesPerSeat: 1, counterKeys: ['enteredWithCounters'], rotHistory: 'D107 D176' },
@@ -309,6 +310,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Relentless Assault alone was cast by nobody over 20 seeds (fuzz20-512).
   // D513 - three a seat: two a seat read 2 clauses over the first 60 seeds at D512 and 0 at D513 (the rotation moved).
   { names: ['Seize the Day', 'Relentless Assault'], copiesPerSeat: 3, counterKeys: ['extraCombats', 'insertedPhases'], rotHistory: 'D512 D513' },
+  // D514 - the object's stat as last known: two Sheltering Words a seat ({1}{G} instant, `Target creature you control gains
+  // hexproof until end of turn. You gain life equal to that creature's toughness.`) - the read on the battlefield; the
+  // last-known read (a destroyed creature's toughness) has no cheap spell and is the executor test's.
+  { names: ['Sheltering Word'], copiesPerSeat: 3, counterKeys: ['statReads'], rotHistory: 'D514' },
   // D409 - explore (CR 701.42): Merfolk Branchwalker explores as it enters - a {1}{G} 2/1 every seat can cast;
   // the driver keeps the revealed card on top (the scry answer it already gives).
   { names: ['Merfolk Branchwalker'], copiesPerSeat: 1,
@@ -1585,6 +1590,9 @@ interface Run {
   readonly extraCombats: number;
   /** D512 - inserted phases begun (an `ExtraPhasesConsumed` carrying a resume step each). */
   readonly insertedPhases: number;
+  /** D514 - stat reads for an amount (a `StatRead` each), and the ones read as last known among them. */
+  readonly statReads: number;
+  readonly lastKnownReads: number;
   /** D409 - permanents that explored (the `Explored` marker, CR 701.42c). */
   readonly explores: number;
   /** D410 - cycling discards whose card carries a TYPED cycling (the search, not the draw). */
@@ -2056,6 +2064,8 @@ function runOne(seed: number): Run {
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     extraCombats: game.log.filter((e) => e.body.t === 'ExtraPhasesAdded').length,
     insertedPhases: game.log.filter((e) => e.body.t === 'ExtraPhasesConsumed' && e.body.resume !== null).length,
+    statReads: game.log.filter((e) => e.body.t === 'StatRead').length,
+    lastKnownReads: game.log.filter((e) => e.body.t === 'StatRead' && e.body.lastKnown).length,
     handActivations: game.log.filter((e, i) => {
       const b = e.body;
       if (b.t !== 'AbilityPutOnStack') return false;
@@ -2359,6 +2369,8 @@ const TOTAL_KEYS = [
   'bolsters',
   'extraCombats',
   'insertedPhases',
+  'statReads',
+  'lastKnownReads',
   'explores',
   'typecyclings',
   'untapSkips',
@@ -2813,6 +2825,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);
         expect(totals.insertedPhases).toBeGreaterThan(0);
+        // D514 - a creature's stat was read for an amount at gate size (Sheltering Word three a seat; 7 over the first 60 seeds,
+        // fuzz60-514b). The last-known read has no cheap spell in the pools and is the executor test's (lkiStat.test.ts).
+        expect(totals.statReads).toBeGreaterThan(0);
         // D449 - an evoked and a dashed entry at gate size (Mulldrifter 9, Zurgo Bellstriker 44 at 150 seeds).
         expect(totals.evokedCasts).toBeGreaterThan(0);
         expect(totals.dashedCasts).toBeGreaterThan(0);
@@ -2940,6 +2955,7 @@ describe('replay-equivalence fuzzer — THE GATE', () => {
           `${totals.untapChoices} untap choices · ${totals.massCantBlocks} mass can't-blocks · ${totals.wheels} wheels · ` +
           `${totals.bolsters} bolsters · ` +
           `${totals.extraCombats}/${totals.insertedPhases} extra-combat clauses/inserted phases · ` +
+          `${totals.statReads}/${totals.lastKnownReads} stat reads/last known · ` +
           `${totals.explores} explores · ` +
           `${totals.typecyclings} typecyclings · ` +
           `${totals.untapSkips} untap skips · ` +

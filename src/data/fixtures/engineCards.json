@@ -287048,6 +287048,74 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SHELTERING_WORD": {
+    "scryfallId": "93cd9be4-1ce4-4a7c-b2a6-98d3fde0a92b",
+    "oracleId": "77aaaad5-7960-453d-b024-6dacbca3d606",
+    "name": "Sheltering Word",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sheltering Word",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature you control gains hexproof until end of turn. You gain life equal to that creature's toughness. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "93cd9be4-1ce4-4a7c-b2a6-98d3fde0a92b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "avr",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEAL_THE_SCARS": {
+    "scryfallId": "b802a7fe-9c8b-4bc3-95d8-4a5dafcf2c75",
+    "oracleId": "cc65a99f-ac7f-4ded-bb00-a5daf51e4bcd",
+    "name": "Heal the Scars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Heal the Scars",
+        "manaCost": "{3}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Regenerate target creature. You gain life equal to that creature's toughness.",
+        "flavorText": "Elvish battle-magic has evolved two specialties: inflicting wounds that scar, and healing wounds without scarring. Politics determines the recipients of each.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Carl Frank",
+        "imageId": "b802a7fe-9c8b-4bc3-95d8-4a5dafcf2c75"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "RELENTLESS_ASSAULT": {
     "scryfallId": "00fde52c-c764-433f-af24-fbb54504b243",
     "oracleId": "dc1c0e8c-d0c1-445c-968f-7dec91e5d5fc",
@@ -292865,6 +292933,239 @@
     ],
     "setCode": "blb",
     "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIGHTMARE": {
+    "scryfallId": "0fc18921-59f5-413f-a221-dc47d31b2ec8",
+    "oracleId": "32025108-0dba-40bd-88db-5fcc48e3d054",
+    "name": "Brightmare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brightmare",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "When this creature enters, tap up to one target creature. You gain life equal to that creature's power.",
+        "flavorText": "A ray of hope in the darkest night.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "0fc18921-59f5-413f-a221-dc47d31b2ec8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "jmp",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VERDANT_SUN_S_AVATAR": {
+    "scryfallId": "1bff425c-9f92-4f6e-a48d-e6257b48f169",
+    "oracleId": "6ee71432-a44d-495e-86ea-d495d891c331",
+    "name": "Verdant Sun's Avatar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Verdant Sun's Avatar",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Dinosaur Avatar",
+        "oracleText": "Whenever this creature or another creature you control enters, you gain life equal to that creature's toughness.",
+        "flavorText": "\"Ixalli's fertile rays enliven us all. Each of us is a testament to the sun's strength and love.\"\n—Chitlati, Lightning Rider",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Izzy",
+        "imageId": "1bff425c-9f92-4f6e-a48d-e6257b48f169"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "pxln",
+    "collectorNumber": "213p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOLVERINE_RIDERS": {
+    "scryfallId": "575d407c-c37e-4664-b2e3-217dfd5a78a2",
+    "oracleId": "09070db6-01f6-4a8a-b167-a7825e6959f4",
+    "name": "Wolverine Riders",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wolverine Riders",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "At the beginning of each upkeep, create a 1/1 green Elf Warrior creature token.\nWhenever another Elf you control enters, you gain life equal to its toughness.",
+        "flavorText": "\"We'll break their lines. The rest of you, follow!\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "575d407c-c37e-4664-b2e3-217dfd5a78a2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "743",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMBUSCADE_SHAMAN": {
+    "scryfallId": "5b9a91f8-5f9f-46a2-bd80-1ca014591de9",
+    "oracleId": "96e1d890-4ebb-4c79-8df9-24e3adaf4d9b",
+    "name": "Ambuscade Shaman",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ambuscade Shaman",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Orc Shaman",
+        "oracleText": "Whenever this creature or another creature you control enters, that creature gets +2/+2 until end of turn.\nDash {3}{B} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "5b9a91f8-5f9f-46a2-bd80-1ca014591de9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCHARD_WARDEN": {
+    "scryfallId": "7a4e2c5c-26ad-4b13-934b-e545038b6729",
+    "oracleId": "8afc6147-80b4-4296-a5aa-ce892cefb1a7",
+    "name": "Orchard Warden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orchard Warden",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Creature — Treefolk Shaman",
+        "oracleText": "Whenever another Treefolk creature you control enters, you may gain life equal to that creature's toughness.",
+        "flavorText": "\"After the Rising, a treefolk's mind is as limber and green as its limbs, and is at its most receptive to our teachings.\"",
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rebecca Guay",
+        "imageId": "7a4e2c5c-26ad-4b13-934b-e545038b6729"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "mor",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENGULFING_SLAGWURM": {
+    "scryfallId": "8aeabc4a-7b4f-4e3d-bcc7-423bb703563a",
+    "oracleId": "0340cfcb-fc96-40d2-8175-31a0093615bb",
+    "name": "Engulfing Slagwurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Engulfing Slagwurm",
+        "manaCost": "{5}{G}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, destroy that creature. You gain life equal to that creature's toughness.",
+        "flavorText": "Its teeth exist only for decoration.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "8aeabc4a-7b4f-4e3d-bcc7-423bb703563a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "som",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGELIC_CHORUS": {
+    "scryfallId": "907bf221-a1bf-41ab-9b7e-e5a64c385642",
+    "oracleId": "e66b12ff-45da-46dc-9148-bd8ea9b7fde0",
+    "name": "Angelic Chorus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angelic Chorus",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control enters, you gain life equal to its toughness.",
+        "flavorText": "The very young and the very old know best the song the angels sing.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "907bf221-a1bf-41ab-9b7e-e5a64c385642"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "3",
     "commanderLegality": "legal",
     "singleImage": true
   },

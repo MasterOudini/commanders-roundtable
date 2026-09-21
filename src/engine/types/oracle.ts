@@ -836,6 +836,13 @@ export type EffectKind =
    */
   | 'extraCombat'
   /**
+   * D514 - THE OBJECT'S STAT AS LAST KNOWN: `You gain life equal to that creature's toughness.` (Sheltering Word, Angelic
+   * Chorus, Heal the Scars, Engulfing Slagwurm) - aimed at the creature the sentence is about (the item under a head, the
+   * previous clause's target through the referent), the amount its power or toughness (`stat`) as the executor finds it:
+   * on the battlefield as the step runs, or as it last was before this resolution once it has left (CR 608.2h).
+   */
+  | 'gainLifeStat'
+  /**
    * CR 701.18 / 701.42 — scry and surveil: look at the top N of your own
    * library, keep some on top in an order you choose, and put the rest on
    * the bottom (scry) or into your graveyard (surveil). The SECOND and
@@ -1218,6 +1225,8 @@ export interface EffectSpec {
    */
   readonly extraPhases?: readonly ('combat' | 'main')[];
   readonly extraAfter?: 'main' | 'current';
+  /** D514 - `gainLifeStat` only: which stat of the creature the amount is. */
+  readonly stat?: 'power' | 'toughness';
   /** D416 - `revealHandChoose` only: what the caster may choose and what becomes of it. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly handChoice: HandChoice | null;
   /** D417 - `exileTopPlay` only: how many off the top, and how long they may be played. REQUIRED (D355/D356's rule), null elsewhere. */
