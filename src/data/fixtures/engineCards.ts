@@ -8740,6 +8740,18 @@ export const STATIC_PRISON: CardData = F.STATIC_PRISON as CardData;
 export const AETHER_INSPECTOR: CardData = F.AETHER_INSPECTOR as CardData;
 export const AETHER_HERDER: CardData = F.AETHER_HERDER as CardData;
 export const SOLSTICE_ZEALOT: CardData = F.SOLSTICE_ZEALOT as CardData;
+export const RELENTLESS_ADVANCE: CardData = F.RELENTLESS_ADVANCE as CardData;
+export const LAZOTEP_REAVER: CardData = F.LAZOTEP_REAVER as CardData;
+export const DUNLAND_CREBAIN: CardData = F.DUNLAND_CREBAIN as CardData;
+export const AVEN_ETERNAL: CardData = F.AVEN_ETERNAL as CardData;
+export const SWARMING_OF_MORIA: CardData = F.SWARMING_OF_MORIA as CardData;
+export const ANGRATH_CAPTAIN_OF_CHAOS: CardData = F.ANGRATH_CAPTAIN_OF_CHAOS as CardData;
+export const SARUMAN_THE_WHITE: CardData = F.SARUMAN_THE_WHITE as CardData;
+export const GRIM_INITIATE: CardData = F.GRIM_INITIATE as CardData;
+export const WARBEAST_OF_GORGOROTH: CardData = F.WARBEAST_OF_GORGOROTH as CardData;
+export const INVADING_MANTICORE: CardData = F.INVADING_MANTICORE as CardData;
+export const EASTERLING_VANGUARD: CardData = F.EASTERLING_VANGUARD as CardData;
+export const HERALD_OF_THE_DREADHORDE: CardData = F.HERALD_OF_THE_DREADHORDE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9003,6 +9015,9 @@ export const ANGEL_3_3_W_CREATURE_FLYING_TOKEN: CardData = F.ANGEL_3_3_W_CREATUR
 export const HALFLING_1_1_W_CREATURE_TOKEN: CardData = F.HALFLING_1_1_W_CREATURE_TOKEN as CardData;
 export const FRACTAL_05386AE8_TOKEN: CardData = F.FRACTAL_05386AE8_TOKEN as CardData;
 export const CAT_BEAST_2_2_W_CREATURE_TOKEN: CardData = F.CAT_BEAST_2_2_W_CREATURE_TOKEN as CardData;
+export const ZOMBIE_ARMY_TOKEN: CardData = F.ZOMBIE_ARMY_TOKEN as CardData;
+export const ORC_ARMY_TOKEN: CardData = F.ORC_ARMY_TOKEN as CardData;
+export const SLIVER_ARMY_TOKEN: CardData = F.SLIVER_ARMY_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -17728,6 +17743,18 @@ export const ENGINE_CARDS: CardData[] = [
   AETHER_INSPECTOR,
   AETHER_HERDER,
   SOLSTICE_ZEALOT,
+  RELENTLESS_ADVANCE,
+  LAZOTEP_REAVER,
+  DUNLAND_CREBAIN,
+  AVEN_ETERNAL,
+  SWARMING_OF_MORIA,
+  ANGRATH_CAPTAIN_OF_CHAOS,
+  SARUMAN_THE_WHITE,
+  GRIM_INITIATE,
+  WARBEAST_OF_GORGOROTH,
+  INVADING_MANTICORE,
+  EASTERLING_VANGUARD,
+  HERALD_OF_THE_DREADHORDE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -17991,4 +18018,7 @@ export const ENGINE_CARDS: CardData[] = [
   HALFLING_1_1_W_CREATURE_TOKEN,
   FRACTAL_05386AE8_TOKEN,
   CAT_BEAST_2_2_W_CREATURE_TOKEN,
+  ZOMBIE_ARMY_TOKEN,
+  ORC_ARMY_TOKEN,
+  SLIVER_ARMY_TOKEN,
 ];

@@ -370,6 +370,8 @@ export type EventBody =
   | { readonly t: 'WheelShuffled'; readonly player: PlayerId; readonly cards: number; readonly drew: number }
   /** D511 - a bolster resolved: the creature that got the counters, or none (a marker; the counters beside it moved the state). */
   | { readonly t: 'Bolstered'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number }
+  /** D520 - an amass resolved: the Army creature token that got the counters, or none (a marker; the counters and the subtype beside it moved the state). */
+  | { readonly t: 'Amassed'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number; readonly subtype: string }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }
@@ -436,7 +438,7 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
-  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' }
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's
@@ -454,6 +456,8 @@ export type EventBody =
   | { readonly t: 'ColorChosen'; readonly card: InstanceId; readonly color: ColorLetter }
   /** D465 - the creature type named as a permanent enters (CR 614.12), remembered on the object. */
   | { readonly t: 'CreatureTypeChosen'; readonly card: InstanceId; readonly creatureType: string }
+  /** D520 - an amass made the Army the chosen subtype in addition to its other types (CR 701.47a), remembered on the object. */
+  | { readonly t: 'CreatureSubtypeAdded'; readonly card: InstanceId; readonly subtype: string }
   /** D437 - `targetSlots`: the clause each target answers (D299's assignment), recorded for a triggered ability's prompt too. */
   | { readonly t: 'StackTargetsSet'; readonly stackId: StackId; readonly targets: readonly TargetChoice[]; readonly targetSlots?: readonly number[] }
   /** D343 - the modes a triggered ability already on the stack chose (CR 603.3c). */

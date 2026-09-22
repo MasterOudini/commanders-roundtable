@@ -46,7 +46,7 @@ import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
-import { foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
+import { amassArmyKey, amassSubtype, foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
 import { EMBLEM_TABLE } from './emblemTable';
 import { TOKEN_TABLE } from './tokenTable';
 import { parseCostReductionLine } from './costParse';
@@ -1860,6 +1860,25 @@ const RULES: readonly Rule[] = [
     },
   },
   /**
+   * D520 - AMASS [SUBTYPE] N (CR 701.47): `Amass Zombies 2.` / `Amass Orcs 1.` - if you control no Army creature token,
+   * create a 0/0 black [subtype] Army creature token; choose an Army creature token you control; put N +1/+1 counters on
+   * it; it becomes the subtype in addition to its other types. The Army is the table's (`<Subtype> Army|0/0|B|Creature|`,
+   * seeded by the builder from the keyword line), refused when the table lacks it (`Amass Goblins`); `Amass X` and the
+   * `, then` forms stay unread. It ASKS (when several Armies), so it is the sentence's last.
+   */
+  {
+    kind: 'amass',
+    re: new RegExp(`^amass ([A-Za-z]+) (${COUNT})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[2]);
+      if (n === null || n <= 0) return null;
+      const key = amassArmyKey(m[1] ?? '');
+      const token = key === null ? undefined : TOKEN_TABLE[key];
+      if (!token) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true, token, subtype: amassSubtype(m[1] ?? '') };
+    },
+  },
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral); the `you` form scopes the caster alone.
    */
@@ -2413,7 +2432,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -2677,7 +2696,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -2849,7 +2868,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };

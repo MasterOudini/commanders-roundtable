@@ -311,6 +311,12 @@ export interface CardInstance {
    * the changeling list), or null while nothing has been chosen. Cleared with the colour.
    */
   readonly chosenType: string | null;
+  /**
+   * D520 - the creature subtypes an amass ADDED (CR 701.47a: "that Army becomes the chosen subtype in addition to its
+   * other types" - the Orc on the Zombie Army): a battlefield fact `derive` reads at layer 4 with no duration, cleared
+   * when the object leaves like the chosen type.
+   */
+  readonly addedSubtypes: readonly string[];
   /** Players who may see this card even though its zone is hidden. */
   readonly revealedTo: readonly PlayerId[];
   readonly phasedOut: boolean;
@@ -571,9 +577,11 @@ export interface PendingAsks {
    * D488 - `populate`: a creature TOKEN from the battlefield, of which a token copy is created (CR 701.31) - the
    * one verb that moves nothing.
    */
-  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster';
-  /** D511 - the bolster's count: how many +1/+1 counters the chosen creature gets. */
+  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass';
+  /** D511 - the bolster's count: how many +1/+1 counters the chosen creature gets; D520 - the amass's too. */
   readonly amount?: number;
+  /** D520 - the amass's subtype (`Zombie`, `Orc`): the chosen Army becomes it in addition to its other types. */
+  readonly subtype?: string;
   /** D510 - an `up to` choice: the answer may name fewer than `count`, down to none (the prompt carries `min` 0). */
   readonly optional?: true;
   /** The players still to be asked, in APNAP order; the one being asked is `priority.awaiting`. */
@@ -1243,9 +1251,10 @@ export type Awaiting =
       /**
        * D511 - how the battlefield candidates are COMPUTED when the printed noun is not the rule: `leastToughness` is
        * bolster's (the creatures the chooser controls whose toughness is the least among them). A printed rule, never
-       * ids (D137); the bot, the harness and the fuzz driver compute the same set off their view.
+       * ids (D137); the bot, the harness and the fuzz driver compute the same set off their view. D520 - `army` is
+       * amass's (the Army creature tokens the chooser controls).
        */
-      readonly pick?: 'leastToughness';
+      readonly pick?: 'leastToughness' | 'army';
       /**
        * D484 - the clauses after the asking clause, run once the answer has landed: after the whole batch of a
        * player queue, after the ordering a look chains into, after the last connive of a chain.

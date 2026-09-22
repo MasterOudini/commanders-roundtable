@@ -9697,6 +9697,22 @@ const WANTED = [
   'Aether Herder',
   'Solstice Zealot',
   // D519 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D520 - AMASS: the seam's own cards (Relentless Advance, Lazotep Reaver, Dunland Crebain, Aven Eternal - amass.test.ts and the fuzz staples).
+  'Relentless Advance',
+  'Lazotep Reaver',
+  'Dunland Crebain',
+  'Aven Eternal',
+  // D520 - AMASS: Swarming of Moria (a Treasure, then Amass Orcs 2 - the scratch state's Army read past the Treasure; amass.test.ts).
+  'Swarming of Moria',
+  // D520 - AMASS: the rows the whole-leftover row maker rowed once the keyword was the engine's (the enters amasses, the sole-line spells, the dies heads).
+  'Angrath, Captain of Chaos',
+  'Saruman the White',
+  'Grim Initiate',
+  'Warbeast of Gorgoroth',
+  'Invading Manticore',
+  'Easterling Vanguard',
+  'Herald of the Dreadhorde',
+  // D520 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10109,6 +10125,10 @@ const WANTED_TOKENS = [
   { name: 'Fractal', set: 'tdsc', cn: '20', key: 'FRACTAL_05386AE8_TOKEN' },
   // D506 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Cat Beast', set: 'tscd', cn: '4', key: 'CAT_BEAST_2_2_W_CREATURE_TOKEN' },
+  // D520 - AMASS (CR 701.47a): the Armies the keyword makes, pinned to the printings TOKEN_TABLE names (seeded from the keyword line - no card prints the description).
+  { name: 'Zombie Army', set: 'twar', cn: '10', key: 'ZOMBIE_ARMY_TOKEN' },
+  { name: 'Orc Army', set: 'tltr', cn: '5', key: 'ORC_ARMY_TOKEN' },
+  { name: 'Sliver Army', set: 'tcmm', cn: '68', key: 'SLIVER_ARMY_TOKEN' },
 ];
 
 function constName(name) {

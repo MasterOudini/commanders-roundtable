@@ -295672,6 +295672,433 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RELENTLESS_ADVANCE": {
+    "scryfallId": "4258e242-91c6-4b30-86ec-7759705aa97c",
+    "oracleId": "f54573d1-9950-46c3-b8f1-cd6f081d62ad",
+    "name": "Relentless Advance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relentless Advance",
+        "manaCost": "{3}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Amass Zombies 3. (Put three +1/+1 counters on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "They approach in formation, every movement efficient and sure. They halt, listen, and then press on in silent unison.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stanton Feng",
+        "imageId": "4258e242-91c6-4b30-86ec-7759705aa97c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "war",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAZOTEP_REAVER": {
+    "scryfallId": "594bbe43-a8aa-42aa-bc49-cb4f3bc05cad",
+    "oracleId": "85643f9b-49ea-434b-9f27-c1431064345e",
+    "name": "Lazotep Reaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lazotep Reaver",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Beast",
+        "oracleText": "When this creature enters, amass Zombies 1. (Put a +1/+1 counter on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "Despite their many forms, the Eternals worked in chilling harmony, unburdened by instinct or emotion.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "594bbe43-a8aa-42aa-bc49-cb4f3bc05cad"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "war",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUNLAND_CREBAIN": {
+    "scryfallId": "695c05ab-e46e-46c7-bd2e-ef0b2307e449",
+    "oracleId": "9dd755a5-0bef-4bde-92fa-14ef2a1a1410",
+    "name": "Dunland Crebain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dunland Crebain",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Bird Horror",
+        "oracleText": "Flying\nWhen this creature enters, amass Orcs 2. (Put two +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+        "flavorText": "\"What's that, Strider? It don't look like a cloud.\"\n—Sam",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alexander Ostrowski",
+        "imageId": "695c05ab-e46e-46c7-bd2e-ef0b2307e449"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Amass"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_ETERNAL": {
+    "scryfallId": "fe479484-a827-4d3c-8e35-e905e4f6664a",
+    "oracleId": "ba7aad10-6897-4e85-a976-1bf9282de5de",
+    "name": "Aven Eternal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Eternal",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Zombie Bird Warrior",
+        "oracleText": "Flying\nWhen this creature enters, amass Zombies 1. (Put a +1/+1 counter on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "\"I've never seen the firemane angels so anxious.\"\n—Tajic",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "fe479484-a827-4d3c-8e35-e905e4f6664a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Amass"
+    ],
+    "setCode": "war",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SWARMING_OF_MORIA": {
+    "scryfallId": "0a1bd073-4351-4c56-9b07-4430d0d83084",
+    "oracleId": "c96402dc-1509-4136-bbfd-c86a85e3ee6f",
+    "name": "Swarming of Moria",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Swarming of Moria",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nAmass Orcs 2. (Put two +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pavel Kolomeyets",
+        "imageId": "0a1bd073-4351-4c56-9b07-4430d0d83084"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Amass",
+      "Treasure"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGRATH_CAPTAIN_OF_CHAOS": {
+    "scryfallId": "129851e1-8dca-4a90-8615-5ea642b61e71",
+    "oracleId": "de08f5d4-8868-4d0f-8c0e-d0d3a2105581",
+    "name": "Angrath, Captain of Chaos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angrath, Captain of Chaos",
+        "manaCost": "{2}{B/R}{B/R}",
+        "typeLine": "Legendary Planeswalker — Angrath",
+        "oracleText": "Creatures you control have menace.\n−2: Amass Zombies 2. (Put two +1/+1 counters on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "129851e1-8dca-4a90-8615-5ea642b61e71"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "527",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARUMAN_THE_WHITE": {
+    "scryfallId": "1bfccbab-29fa-4e92-8919-6cd4815fb655",
+    "oracleId": "8ba24644-8dff-4f1e-a96a-7361baf46b5a",
+    "name": "Saruman the White",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saruman the White",
+        "manaCost": "{4}{U}",
+        "typeLine": "Legendary Creature — Avatar Wizard",
+        "oracleText": "Ward {2}\nWhenever you cast your second spell each turn, amass Orcs 2. (Put two +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+        "flavorText": "\"Sauron's victory is at hand; and there will be rich reward for those who aided it.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "1bfccbab-29fa-4e92-8919-6cd4815fb655"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Amass",
+      "Ward"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIM_INITIATE": {
+    "scryfallId": "29b6ec9d-3861-48bf-a198-dc7efba5d89c",
+    "oracleId": "96264dde-c0b6-4912-afc4-18757f938a4d",
+    "name": "Grim Initiate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grim Initiate",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "First strike\nWhen this creature dies, amass Zombies 1. (Put a +1/+1 counter on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "Beneath each gleaming mineral shell rots a once-proud warrior of Amonkhet.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "29b6ec9d-3861-48bf-a198-dc7efba5d89c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Amass",
+      "First strike"
+    ],
+    "setCode": "war",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WARBEAST_OF_GORGOROTH": {
+    "scryfallId": "5eeecb9e-fbde-429b-b3da-18a4dbadf6de",
+    "oracleId": "7ca52e15-5a55-4d79-b0bf-0e2dc515ae6a",
+    "name": "Warbeast of Gorgoroth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Warbeast of Gorgoroth",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever this creature or another creature you control with power 4 or greater dies, amass Orcs 2. (Put two +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+        "flavorText": "Drums rolled, fires leaped, and great engines drawn by beasts crawled across the field.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Oleg Shekhovtsov",
+        "imageId": "5eeecb9e-fbde-429b-b3da-18a4dbadf6de"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INVADING_MANTICORE": {
+    "scryfallId": "674e408b-f052-451c-9bf9-ac6f98753a9d",
+    "oracleId": "6e4bf4ee-317e-4c31-b121-6efbc6ae4fcf",
+    "name": "Invading Manticore",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Invading Manticore",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Zombie Manticore",
+        "oracleText": "When this creature enters, amass Zombies 2. (Put two +1/+1 counters on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "\"Fall back! You are no match for this.\"\n—Samut",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "674e408b-f052-451c-9bf9-ac6f98753a9d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "war",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EASTERLING_VANGUARD": {
+    "scryfallId": "6a7d1982-d87d-418f-8cfa-740fae6bf3fd",
+    "oracleId": "149887fa-6b2d-495e-b3e0-b2ac7d3dc838",
+    "name": "Easterling Vanguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Easterling Vanguard",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature dies, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+        "flavorText": "An army of Easterlings charged forth, while from the hills poured Orcs innumerable.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "6a7d1982-d87d-418f-8cfa-740fae6bf3fd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "534",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERALD_OF_THE_DREADHORDE": {
+    "scryfallId": "d7ae9cb7-a3af-4224-89a5-a72f4d09dacf",
+    "oracleId": "9cdbe247-9dd3-4894-8e65-43d879c19321",
+    "name": "Herald of the Dreadhorde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herald of the Dreadhorde",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "When this creature dies, amass Zombies 2. (Put two +1/+1 counters on an Army you control. It's also a Zombie. If you don't control an Army, create a 0/0 black Zombie Army creature token first.)",
+        "flavorText": "Amonkhet's dead flowed into a new world in service to their God-Pharaoh.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "d7ae9cb7-a3af-4224-89a5-a72f4d09dacf"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "war",
+    "collectorNumber": "93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -304422,6 +304849,105 @@
     "keywords": [],
     "setCode": "tscd",
     "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ZOMBIE_ARMY_TOKEN": {
+    "scryfallId": "12742d1f-eb2e-4262-88e2-403c9ae6c431",
+    "oracleId": "8bf1137a-163c-446f-8d34-168a7705df4e",
+    "name": "Zombie Army",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Zombie Army",
+        "manaCost": "",
+        "typeLine": "Token Creature — Zombie Army",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "12742d1f-eb2e-4262-88e2-403c9ae6c431"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "twar",
+    "collectorNumber": "10",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ORC_ARMY_TOKEN": {
+    "scryfallId": "2f8b43e8-dd89-452e-b572-8559e19fdea2",
+    "oracleId": "620159f8-eb7f-4756-a136-8ad9728adbad",
+    "name": "Orc Army",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Orc Army",
+        "manaCost": "",
+        "typeLine": "Token Creature — Orc Army",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Veli Nyström",
+        "imageId": "2f8b43e8-dd89-452e-b572-8559e19fdea2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tltr",
+    "collectorNumber": "5",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SLIVER_ARMY_TOKEN": {
+    "scryfallId": "b9821f26-04b4-460b-880e-5052122b21ae",
+    "oracleId": "5118bcdd-9f89-4a19-b18a-2257b3b0be0d",
+    "name": "Sliver Army",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Sliver Army",
+        "manaCost": "",
+        "typeLine": "Token Creature — Sliver Army",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "b9821f26-04b4-460b-880e-5052122b21ae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tcmm",
+    "collectorNumber": "68",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

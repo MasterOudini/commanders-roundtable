@@ -175,6 +175,12 @@ function computeDerived(
     }
     if (mod.colors !== undefined) chars.colors = [...mod.colors];
   }
+  // D520 - the subtypes an amass added (CR 701.47a - the Orc on the Zombie Army): layer 4, no duration.
+  if (inst.addedSubtypes.length > 0) {
+    const subtypes = [...chars.typeLine.subtypes];
+    for (const t of inst.addedSubtypes) if (!subtypes.includes(t)) subtypes.push(t);
+    chars.typeLine = { ...chars.typeLine, subtypes };
+  }
   applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
   applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 

@@ -3807,7 +3807,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
             count: pending.count,
             ...(pending.optional === true ? { min: 0 } : {}),
             ...(pending.filter ? { filter: pending.filter } : {}),
-            ...(pending.verb === 'bolster' ? { pick: 'leastToughness' as const } : {}),
+            ...(pending.verb === 'bolster' ? { pick: 'leastToughness' as const } : pending.verb === 'amass' ? { pick: 'army' as const } : {}),
             label: pending.label,
             ...(carried !== undefined ? { continuation: carried } : {}),
           },
@@ -3817,7 +3817,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
     chosen.push({ player: next, cards: cands });
     remaining.shift();
   }
-  const batch: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, deps, pending.verb, chosen, pending.filter, pending.amount)];
+  const batch: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }, { t: 'AsksResolved', verb: pending.verb }, ...askBatch(state, deps, pending.verb, chosen, pending.filter, pending.amount, pending.subtype)];
   return accept(batch, resumeContinuation(state, deps, batch, carried));
 }
 

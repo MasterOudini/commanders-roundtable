@@ -414,6 +414,23 @@ export function resolveToken(spec: TokenSpec, candidates: readonly CardData[]): 
  * the existing `printingsOf`, then matches exactly among them.
  */
 /**
+ * D520 - AMASS (CR 701.47a): the keyword names its subtype in the plural (`amass Zombies 2`, `amass Orcs 1`, `amass
+ * Slivers 2`); the Army it makes is the `0/0 black <Subtype> Army creature token`, a description no card prints, so
+ * the table's builder seeds it from every amass line and the parser, the pool and the table read ONE spelling of it.
+ */
+export function amassSubtype(plural: string): string {
+  return plural.replace(/s$/i, '');
+}
+export function amassArmyClause(plural: string): string {
+  return `Create a 0/0 black ${amassSubtype(plural)} Army creature token.`;
+}
+/** The baked key of the Army an amass makes, or null when the clause is unreadable. */
+export function amassArmyKey(plural: string): string | null {
+  const spec = parseTokenClause(amassArmyClause(plural));
+  return spec ? specKey(spec) : null;
+}
+
+/**
  * Every token PRINTING a set of cards can create, from the baked table.
  *
  * ⚠️ **A GAME MUST CARRY THE TOKENS ITS DECKS CAN MAKE, OR A CREATED TOKEN IS A
@@ -438,6 +455,12 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
       for (const m of folded.text.matchAll(/You get an emblem with #q(\d+)#\./g)) {
         const q = folded.quotes[Number(m[1])];
         const ref = q === undefined ? undefined : EMBLEM_TABLE[q];
+        if (ref) out.add(ref.printingId);
+      }
+      // D520 - the Army an amass makes (CR 701.47a) is a token the pool must hold too; the description is the keyword's.
+      for (const m of folded.text.matchAll(/\bamass ([A-Za-z]+) /gi)) {
+        const key = amassArmyKey(m[1] ?? '');
+        const ref = key === null ? undefined : TOKEN_TABLE[key];
         if (ref) out.add(ref.printingId);
       }
       for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {

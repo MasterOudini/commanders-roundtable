@@ -23,7 +23,7 @@ import { createInterface } from 'node:readline';
 import { describe, expect, test } from 'vitest';
 import type { CardData } from './cardTypes';
 import { engineCompleteness } from './engineComplete';
-import { foldTokenQuotes, parseTokenClause, resolveToken, specKey } from './tokenParse';
+import { amassArmyClause, foldTokenQuotes, parseTokenClause, resolveToken, specKey } from './tokenParse';
 import { TOKEN_TABLE, type TokenRef } from './tokenTable';
 
 const DATA_DIR = process.env.CRT_DATA_DIR ?? join(homedir(), '.commanders-roundtable');
@@ -67,6 +67,8 @@ async function build(): Promise<Record<string, TokenRef>> {
       for (const l of folded.text.split(/\n|(?<=\.)\s+/)) {
         if (/\btokens?\b/i.test(l)) clauses.add(JSON.stringify([l.trim(), /#q\d+#/.test(l) ? folded.quotes : []]));
       }
+      // D520 - the Army an amass makes: no card prints its description, so the keyword line seeds it (CR 701.47a).
+      for (const m of folded.text.matchAll(/\bamass ([A-Za-z]+) /gi)) clauses.add(JSON.stringify([amassArmyClause(m[1] ?? ''), []]));
     }
   }
 

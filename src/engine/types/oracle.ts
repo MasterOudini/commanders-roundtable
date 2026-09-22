@@ -823,6 +823,13 @@ export type EffectKind =
    */
   | 'bolster'
   /**
+   * D520 - AMASS [SUBTYPE] N (CR 701.47): if you control no Army creature token, create a 0/0 black [subtype] Army
+   * creature token; choose an Army creature token you control (the queue's seventh verb - asked among several, the only
+   * one unasked); put N +1/+1 counters on it; it becomes the subtype in addition to its other types. `amount` is N,
+   * `token` the table's Army, `subtype` the singular the Army becomes.
+   */
+  | 'amass'
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral) - every player in APNAP order, one shuffle each off
    * the seeded generator; `amount` is the draw. The `you` form (`Shuffle your hand and graveyard into your library,
@@ -1203,6 +1210,8 @@ export interface EffectSpec {
    * spell executes depend on which tokens happened to be in the game's pool.
    */
   readonly token: TokenRef | null;
+  /** D520 - `amass` only: the creature subtype the chosen Army becomes (`Zombie`, `Orc`, `Sliver`). */
+  readonly subtype?: string;
   /** `lookAtTop` only: how many to keep and where the rest go (D141). */
   readonly look: LookSpec | null;
   /** `searchLibrary` only: what may be found, how many, and where it goes (D357). */

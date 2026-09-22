@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ANGRATH_CAPTAIN_OF_CHAOS_SCRIPT } from './cards/angrathCaptainOfChaos';
+import { SARUMAN_THE_WHITE_SCRIPT } from './cards/sarumanTheWhite';
+import { GRIM_INITIATE_SCRIPT } from './cards/grimInitiate';
+import { LAZOTEP_REAVER_SCRIPT } from './cards/lazotepReaver';
+import { WARBEAST_OF_GORGOROTH_SCRIPT } from './cards/warbeastOfGorgoroth';
+import { INVADING_MANTICORE_SCRIPT } from './cards/invadingManticore';
+import { DUNLAND_CREBAIN_SCRIPT } from './cards/dunlandCrebain';
+import { EASTERLING_VANGUARD_SCRIPT } from './cards/easterlingVanguard';
+import { HERALD_OF_THE_DREADHORDE_SCRIPT } from './cards/heraldOfTheDreadhorde';
+import { AVEN_ETERNAL_SCRIPT } from './cards/avenEternal';
 import { BRISTLING_HYDRA_SCRIPT } from './cards/bristlingHydra';
 import { SAGE_OF_SHAILAS_CLAIM_SCRIPT } from './cards/sageOfShailasClaim';
 import { DECOCTION_MODULE_SCRIPT } from './cards/decoctionModule';
@@ -7965,6 +7975,16 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ANGRATH_CAPTAIN_OF_CHAOS_SCRIPT,
+  SARUMAN_THE_WHITE_SCRIPT,
+  GRIM_INITIATE_SCRIPT,
+  LAZOTEP_REAVER_SCRIPT,
+  WARBEAST_OF_GORGOROTH_SCRIPT,
+  INVADING_MANTICORE_SCRIPT,
+  DUNLAND_CREBAIN_SCRIPT,
+  EASTERLING_VANGUARD_SCRIPT,
+  HERALD_OF_THE_DREADHORDE_SCRIPT,
+  AVEN_ETERNAL_SCRIPT,
   BRISTLING_HYDRA_SCRIPT,
   SAGE_OF_SHAILAS_CLAIM_SCRIPT,
   DECOCTION_MODULE_SCRIPT,

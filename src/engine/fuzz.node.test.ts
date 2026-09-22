@@ -39,7 +39,7 @@ import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
 import { freeCastCandidates, handChoiceCandidates } from './handChoice';
-import { leastToughnessCreatures } from './effects';
+import { armyTokens, leastToughnessCreatures } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -307,6 +307,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D519 - ENERGY (CR 122.1): the enters gain (Sage of Shaila's Claim, Bristling Hydra), the activation the offer withholds
   // short of the counters (the Hydra's `Pay {E}{E}{E}`), the attack prompt with an energy price (Aether Chaser's Servo).
   { names: ["Sage of Shaila's Claim", 'Bristling Hydra', 'Aether Chaser'], copiesPerSeat: 3, counterKeys: ['energyGained', 'energyPaid'], rotHistory: 'D519' },
+  // D520 - AMASS (CR 701.47): Relentless Advance ({3}{U} sorcery, `Amass Zombies 3.`), Lazotep Reaver ({1}{B} 1/2, `When this
+  // creature enters, amass Zombies 1.`) and Dunland Crebain ({2}{B} 1/1 flying, `... amass Orcs 2.` - the Orc onto a Zombie
+  // Army) two a seat: the Army token made and grown, the subtype added, the tie asked when a copy effect made a second.
+  { names: ['Relentless Advance', 'Lazotep Reaver', 'Dunland Crebain'], copiesPerSeat: 2, counterKeys: ['amasses'], rotHistory: 'D520' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1084,7 +1088,7 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             })
           : awaiting.zone === 'battlefield'
             // D511 - a computed pick (bolster's least toughness) is the host's own set.
-            ? awaiting.pick === 'leastToughness' ? [...leastToughnessCreatures(state, deps(SCRIPTS), awaiting.player)] : state.zones.battlefield.filter((id) => {
+            ? awaiting.pick === 'leastToughness' ? [...leastToughnessCreatures(state, deps(SCRIPTS), awaiting.player)] : awaiting.pick === 'army' ? [...armyTokens(state, deps(SCRIPTS), awaiting.player)] : state.zones.battlefield.filter((id) => {
                 // D390 - a queued sacrifice: my own permanents the printed noun admits.
                 const inst = state.cards[id];
                 if (!inst || inst.controller !== awaiting.player) return false;
@@ -1589,6 +1593,8 @@ interface Run {
   readonly wheels: number;
   /** D511 - bolster clauses that ran (a `Bolstered` marker each - a chosen creature or none). */
   readonly bolsters: number;
+  /** D520 - amass clauses that ran (an `Amassed` marker each - the Army that got the counters, or none). */
+  readonly amasses: number;
   /** D519 - energy counters gained (`EnergyChanged` with a positive delta) and paid (a negative one). */
   readonly energyGained: number;
   readonly energyPaid: number;
@@ -2068,6 +2074,7 @@ function runOne(seed: number): Run {
     massCantBlocks: game.log.filter((e) => e.body.t === 'ScopeWalked' && e.body.verb === 'massCantBlock').length,
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
+    amasses: game.log.filter((e) => e.body.t === 'Amassed').length,
     energyGained: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta > 0).length,
     energyPaid: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta < 0).length,
     extraCombats: game.log.filter((e) => e.body.t === 'ExtraPhasesAdded').length,
@@ -2375,6 +2382,7 @@ const TOTAL_KEYS = [
   'massCantBlocks',
   'wheels',
   'bolsters',
+  'amasses',
   'energyGained',
   'energyPaid',
   'extraCombats',
@@ -2835,6 +2843,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // seat; the canary519 figures in the decision).
         expect(totals.energyGained).toBeGreaterThan(0);
         expect(totals.energyPaid).toBeGreaterThan(0);
+        // D520 - an amass ran at gate size (Relentless Advance, Lazotep Reaver and Dunland Crebain two a seat; the canary520
+        // figures in the decision).
+        expect(totals.amasses).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

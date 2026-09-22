@@ -299,6 +299,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     chosenColor: null,
     // D465 - the chosen creature type is a battlefield fact too; a permanent that leaves and re-enters is asked again.
     chosenType: null,
+    addedSubtypes: [],
     faceIndex: 0,
     // D403 - a permanent remembers its kick only from the spell it entered as.
     kicked: undefined,
@@ -1061,6 +1062,13 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'CreatureTypeChosen':
       return withCard(state, body.card, { chosenType: body.creatureType });
 
+    // D520 - the amass's subtype joins the Army's own, once (a repeat is a no-op).
+    case 'CreatureSubtypeAdded': {
+      const cur = state.cards[body.card];
+      if (!cur || cur.addedSubtypes.includes(body.subtype)) return state;
+      return withCard(state, body.card, { addedSubtypes: [...cur.addedSubtypes, body.subtype] });
+    }
+
     case 'StackTargetsSet':
       return {
         ...state,
@@ -1365,6 +1373,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D511 - the bolster's marker: the counters beside it moved the state.
     case 'Bolstered':
       return state;
+    // D520 - the amass marker: the counters and the subtype beside it moved the state.
+    case 'Amassed':
+      return state;
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
       return state;
@@ -1514,6 +1525,7 @@ function newInstance(
     typeOverride: null,
     chosenColor: null,
     chosenType: null,
+    addedSubtypes: [],
     revealedTo: [],
     phasedOut: false,
   };

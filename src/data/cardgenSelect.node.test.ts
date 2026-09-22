@@ -726,7 +726,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D422 - the counterspell family reads: the 11 the selector offered once the uncounterable line was the face's own,
   // that the row maker refused, by reason (spells whose OTHER line the vocabulary does not read - the generator rows no
   // spell; the conditional uncounterables - Spell mastery, an X of 5 or more - stay properties the face does not carry).
-  ['Commence the Endgame', 'a spell line outside the vocabulary (draw two, then amass Zombies X - the amass mechanic) beside its uncounterable line'],
   ['Fry', 'a spell line outside the vocabulary (5 damage to target creature or planeswalker that is white or blue - a colour qualifier on the target) beside its uncounterable line'],
   ['Martyr of Frost', 'an activated cost outside the reader (Reveal X blue cards from your hand)'],
   ['Obliterate', 'a spell line outside the vocabulary (destroy all artifacts, creatures, and lands - a three-type sweep that cannot be regenerated) beside its uncounterable line'],
@@ -780,6 +779,42 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D520 - amass: the family's rows the wave refused, by its own reasons.
+  ['Sauron, the Dark Lord', 'a line that is neither an activated ability nor a library trigger: Ward—Sacrifice a legendary artifact or legendary creature. (D520)'],
+  ['Gríma Wormtongue', 'a line that is neither an activated ability nor a library trigger: Your opponents can\'t gain life. (D520)'],
+  ['Dreadhorde Invasion', 'trigger head not in the library: Whenever a Zombie token you control with power 6 or greater attacks, i (D520)'],
+  ['Book of Mazarbul', 'multi-face or unusual layout (D520)'],
+  ['Shagrat, Loot Bearer', 'trigger payload not a pump: Attach up to one target Equipment to it. Then amass Orcs X, (D520)'],
+  ['Gleaming Overseer', 'a line that is neither an activated ability nor a library trigger: Zombie tokens you control have hexproof and menace. (D520)'],
+  ['Orcish Bowmasters', 'trigger head not in the library: When this creature enters and whenever an opponent draws a card except (D520)'],
+  ['Sauron, Lord of the Rings', 'trigger payload not a pump: Amass Orcs 5, mill five cards, then return a creature card f (D520)'],
+  ['Corsairs of Umbar', 'effect not a row kind: Target Goblin, Orc, or Pirate can\'t be blocked this turn. (D520)'],
+  ['The Mouth of Sauron', 'trigger payload not a pump: Target player mills three cards. Then amass Orcs X, where X (D520)'],
+  ['Warg Rider', 'a line that is neither an activated ability nor a library trigger: Other Orcs and Goblins you control have menace. (D520)'],
+  ['Mindless Conscription', 'trigger head not in the library: When this enchantment enters and whenever you draw your third card eac (D520)'],
+  ['Lazotep Sliver', 'a scoped continuous body outside the vocabulary: have afflict 2. (D520)'],
+  ['Surrounded by Orcs', 'the amassed Army\'s power as X (`Amass Orcs 3, then target player mills X cards, where X is the amassed Army\'s power`) (D520)'],
+  ['Commence the Endgame', 'the counted amass under a `, then` compound (`Draw two cards, then amass Zombies X, where X is the number of cards in your hand`) beside its uncounter (D520)'],
+  ['Fall of Cair Andros', 'trigger head not in the library: Whenever a creature an opponent controls is dealt excess noncombat dam (D520)'],
+  ['Vizier of the Scorpion', 'a line that is neither an activated ability nor a library trigger: Zombie tokens you control have deathtouch. (D520)'],
+  ['Assault on Osgiliath', 'the spell\'s X on the amass and a `, then` mass grant (`Amass Orcs X, then Goblins and Orcs you control gain double strike and haste until end of turn` (D520)'],
+  ['Lazotep Chancellor', 'trigger payload not a pump: You may pay {1}. If you do, amass Zombies 2. (D520)'],
+  ['Lazotep Plating', 'a player-and-permanents hexproof grant beside the amass (`You and permanents you control gain hexproof until end of turn`) (D520)'],
+  ['Barad-dûr', 'cost: an X on an activated line (D520)'],
+  ['Moria Scavenger', 'effect not a row kind: Draw a card. If the discarded card was a creature card, amass Orcs 1. (D520)'],
+  ['Foray of Orcs', 'a reflexive trigger on the amass (`Amass Orcs 2. When you do, ~ deals X damage to target creature an opponent controls, where X is the amassed Army\'s (D520)'],
+  ['Enter the God-Eternals', 'damage with a life gain equal to it and a mill beside the amass (`~ deals 4 damage to target creature and you gain life equal to the damage dealt this (D520)'],
+  ['Gothmog, Morgul Lieutenant', 'a line that is neither an activated ability nor a library trigger: Creature tokens you control have deathtouch. (D520)'],
+  ['Grishnákh, Brash Instigator', 'trigger payload not a pump: Amass Orcs 2. When you do, until end of turn, gain control o (D520)'],
+  ['Saruman, the White Hand', 'trigger payload not a pump: Amass Orcs X, where X is that spell\'s mana value. (D520)'],
+  ['Orcish Medicine', 'a keyword choice on a target (`your choice of lifelink or indestructible`) beside the amass (D520)'],
+  ['Summons of Saruman', 'the spell\'s X on the amass, a mill of X and a free cast from among the milled (`You may cast an instant or sorcery spell with mana value X or less fro (D520)'],
+  ['Treason of Isengard', 'a graveyard-to-library-top put of an up-to-one target instant or sorcery card beside the amass (D520)'],
+  ['Dreadhorde Twins', 'a line that is neither an activated ability nor a library trigger: Zombie tokens you control have trample. (D520)'],
+  ['March from the Black Gate', 'trigger head not in the library: When this enchantment enters and whenever an Army you control attacks, (D520)'],
+  ['Invade the City', 'the counted amass (`Amass Zombies X, where X is the number of instant and sorcery cards in your graveyard`) (D520)'],
+  ['Widespread Brutality', 'the amassed Army as a damage source (`Amass Zombies 2, then the Army you amassed deals damage equal to its power to each non-Army creature`) (D520)'],
+  ['Eternal Skylord', 'a line that is neither an activated ability nor a library trigger: Zombie tokens you control have flying. (D520)'],
   // D519 - energy: the family's rows the wave refused, by its own reasons.
   ['Aethertorch Renegade', 'cost: Pay eight {E} (D519)'],
   ['Aether Spike', 'a spell with a line outside the vocabulary: Choose target spell. You get {E}{E} (two energy counters (D519)'],
@@ -1230,8 +1265,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Syr Carah, the Bold', 'a trigger head outside the library (whenever ~ or an instant or sorcery spell you control deals damage to a player) beside its permission line'],
   // D416 - the hand reveal and choose reads: the 4 the selector offered once the reveal-and-choose sentences read
   // that the row maker refused, by reason (all four print a sentence after the ask).
-  ['The Torment of Gollum', 'a hand reveal followed by a second sentence (amass Orcs 2) - the ask must be last (the prompt CONTINUATION seam)'],
-  ['Toll of the Invasion', 'a hand reveal followed by a second sentence (amass Zombies 1) - the ask must be last (the prompt CONTINUATION seam)'],
   // D415 - the verb price at resolution reads: the 18 the selector offered once `you may <verb>. If you do` and
   // `unless you <verb>` read that the row maker refused, by reason (seven payment branches the suite cannot assert among them).
   ['Akki Ronin', 'a trigger head outside the library (whenever a Samurai or Warrior you control attacks alone) beside its verb-price line'],
@@ -1374,7 +1407,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Birthday Escape', 'the Ring mechanic'],
   ['Blatant Thievery', 'cast-time computed target count'],
   ['Blazing Hope', 'computed target threshold'],
-  ['Bleeding Edge', 'amass mechanic'],
   ['Blot Out', 'opponent-chooses'],
   // D201 — Bontu's wrath rider needs a skip-untap carrier the state does
   // not hold; Boon of Erebos REGENERATES (the engine has no regeneration —
@@ -1559,7 +1591,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flashback', 'play-from-exile permission'],
   ['Flatline', 'until-end-of-turn base P/T set'],
   ['Fold into Aether', 'opponent-chooses'],
-  ['Foray of Orcs', 'amass mechanic'],
   ["Fortune's Favor", 'opponent-chooses'],
   ['Fractalize', 'until-end-of-turn base P/T set'],
   // D215 — Full Flowering populates (CR 707 copy machinery, a NEW class);
@@ -1632,7 +1663,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // confident with the EXACT-value qualifier silently dropped (D139
   // built or-less/or-greater only), the numeric family's fourth hole.
   ['Interpret the Signs', 'script-raised prompt'],
-  ['Invade the City', 'amass mechanic'],
   ["Isildur's Fateful Strike", 'cast-permission condition'],
   ['Isolate', 'spell target parse (numeric exact)'],
   ['Isolation at Orthanc', 'library position placement'],
@@ -1789,7 +1819,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
   ['Release the Ants', 'clash mechanic'],
-  ['Relentless Advance', 'amass mechanic'],
   // D239 (M6.4cb)
   ['Relentless Pursuit', 'script-raised prompt'],
   ["Relic's Roar", 'until-end-of-turn base P/T set'],
@@ -2138,7 +2167,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Batch-mates `Whirlwind` and `Windstorm` read the SAME keyword
   // RESOLVE-side and land fine. Same word, two fates, and the difference is
   // only whether it sits in a target noun.
-  ['Widespread Brutality', 'amass mechanic'],
   ['Wild Magic Surge', 'ctx.random'],
   ['Winds of Change', 'ctx.random'],
   ['Winter Blast', 'cast-time computed target count'],
@@ -2266,7 +2294,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dark Dabbling', 'regeneration'],
   ['Dash Hopes', 'opponent-chooses'],
   ['Death Spark', 'graveyard-order condition'],
-  ['Deceive the Messenger', 'amass mechanic'],
   ['Devastation Tide', 'miracle mechanic'],
   ['Disrupting Shoal', 'cast-time alternative cost'],
   ['Distract the Guards', 'freerunning mechanic'],
@@ -2356,7 +2383,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // effectParse's grantable list, so it files with the temporary grants.
   // ⚠️ Olórin's Searing Light makes each OPPONENT pick among tied greatest
   // powers: opponent-chooses.
-  ['Mordor Muster', 'amass mechanic'],
   ['Muddle the Mixture', 'transmute mechanic'],
   ['Nighthaze', 'temporary keyword/ability grant'],
   ['Niveous Wisps', 'UEOT color change'],
@@ -2404,7 +2430,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Rishkar's Expertise", 'free-cast permission'],
   ["Roilmage's Trick", 'converge (cast-time mana-color memory)'],
   ['Sadistic Slash', 'mayhem mechanic'],
-  ["Saruman's Trickery", 'amass mechanic'],
   ['Scrollshift', 'up-to-N targeting'],
   ['Searing Barrage', 'mana-spent memory'],
   ['Send to Sleep', 'up-to-N targeting'],
@@ -2438,11 +2463,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // resolution (script-raised prompt); Tidal Bore is refused for its
   // alternative cost first.
   ['Surgical Suite // Hospital Room', 'room mechanic'],
-  ['Swarming of Moria', 'amass mechanic'],
   ['Sylvan Bounty', 'cycling mechanic'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Tidal Bore', 'cast-time alternative cost'],
-  ['Treason of Isengard', 'amass mechanic'],
   ['Twisted Image', 'until-end-of-turn power/toughness switch'],
   ['Twitch', 'script-raised prompt'],
 
@@ -2531,7 +2554,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Run Out of Town', 'opponent-chooses'],
   ['Vanish from Sight', 'opponent-chooses'],
   ['Suspend Aggression', 'play-from-exile permission'],
-  ['Callous Dismissal', 'amass mechanic'],
   ['Soothing of Sméagol', 'the Ring mechanic'],
   ['Radiant Purge', 'list with adjective alternative'],
   ["Liliana's Defeat", 'list with adjective alternative'],
@@ -2890,7 +2912,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fumarole', 'a spell line outside the row vocabulary beside its life cost (destroy target creature AND target land - two targets of two kinds)'],
   ['Grab the Prize', 'a spell line outside the row vocabulary beside its discard cost (draw two, a Treasure if the discarded card was not a land - a discard referent)'],
   ['Hellish Sideswipe', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy target creature or Vehicle, then a sacrificed-permanent referent)'],
-  ['Honor the God-Pharaoh', 'a spell line outside the row vocabulary beside its discard cost (draw two, amass Zombies 1)'],
   ['Ichor Explosion', "a spell line outside the row vocabulary beside its sacrifice cost (all creatures get -X/-X, X the sacrificed creature's power)"],
   ['Infernal Plunge', 'a spell line outside the row vocabulary beside its sacrifice cost (Add {R}{R}{R} - a mana spell)'],
   ["Life's Legacy", "a spell line outside the row vocabulary beside its sacrifice cost (draw cards equal to the sacrificed creature's power)"],
@@ -2973,7 +2994,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cut the Tethers', 'a per-item payment (one question per object)'],
   ['Whirlwind Denial', 'a per-item payment (one question per object)'],
   ['Calculated Dismissal', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Crush Dissent', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Reasonable Doubt', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Withdraw', 'a second target clause carrying its own payment'],
   ["Don't Make a Sound", 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],

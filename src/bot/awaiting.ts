@@ -485,6 +485,14 @@ export function answerAwaiting(
         if (cards.length < (awaiting.min ?? awaiting.count)) return fault('noIntentForAwaiting', `asked to bolster among ${mine.length} creatures`);
         return act({ t: 'AnswerChooseFromZone', player: me, cards }, `bolster ${cards.length} for ${awaiting.label}`);
       }
+      // D520 - amass's pick: the Army creature tokens I control (the prompt's rule), the biggest first (the counters stack
+      // where the body already is); the host refuses anything else.
+      if (awaiting.zone === 'battlefield' && awaiting.pick === 'army') {
+        const armies = myPermanents(view, me).filter((c) => c.isToken && parseTypeLine(c.card?.faces[c.faceIndex]?.typeLine ?? c.card?.faces[0]?.typeLine ?? '').subtypes.includes('Army'));
+        const cards = [...armies].sort((a, b) => (b.power ?? 0) - (a.power ?? 0)).slice(0, awaiting.count).map((c) => c.instanceId);
+        if (cards.length < (awaiting.min ?? awaiting.count)) return fault('noIntentForAwaiting', `asked to amass among ${armies.length} Armies`);
+        return act({ t: 'AnswerChooseFromZone', player: me, cards }, `amass onto ${cards.length} for ${awaiting.label}`);
+      }
       // D510 - an optional battlefield choice is the untap verb's (`Untap up to N lands` - the queue's only `up to`): the
       // tapped ones, up to the count, and nothing when nothing is tapped - untapping an untapped land is a wasted pick.
       if (awaiting.zone === 'battlefield' && awaiting.min === 0) {

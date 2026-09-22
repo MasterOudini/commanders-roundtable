@@ -996,6 +996,24 @@ export function effectResult(
         out.push(...queueAsks(state, deps, controller, 'bolster', [], 1, null, obj.label, cache, [controller], undefined, effect.amount));
         break;
       }
+      // D520 - AMASS (CR 701.47a): the Army creature tokens the controller has are read off the state the clauses before
+      // this one left (D505's scratch); none - the table's 0/0 Army token is created first and is the one candidate.
+      // The queue's seventh verb: several Armies are asked (`pick: 'army'`), the only one goes unasked; the batch puts
+      // the counters and adds the subtype.
+      case 'amass': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        if (effect.amount <= 0 || !effect.token || effect.subtype === undefined) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        if (armyTokens(now, deps, controller, now === state ? cache : undefined).length === 0) {
+          nextInstance++;
+          const made: EventBody = { t: 'TokenCreated', card: `c${nextInstance}`, oracleId: effect.token.oracleId, printingId: effect.token.printingId, controller, owner: controller, turnNumber: state.turn.turnNumber };
+          out.push(made);
+          now = apply(now, { seq: now.eventCount, body: made, cause: { kind: 'system' } } as never);
+        }
+        out.push(...queueAsks(now, deps, controller, 'amass', [], 1, null, obj.label, now === state ? cache : undefined, [controller], undefined, effect.amount, effect.subtype));
+        break;
+      }
       case 'untapChoose': {
         if (!effect.untapChoose) break;
         if (out.some((e) => e.t === 'AwaitingSet')) break;
@@ -2200,13 +2218,15 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
   if (verb === 'discard') return [...(state.zones.hand[player] ?? [])];
   // D511 - bolster's candidates are COMPUTED: the creatures the player controls whose toughness is the least among them.
   if (verb === 'bolster') return leastToughnessCreatures(state, deps, player, cache);
+  // D520 - amass's candidates are COMPUTED too: the Army creature tokens the player controls (CR 701.47a).
+  if (verb === 'amass') return armyTokens(state, deps, player, cache);
   const out: InstanceId[] = [];
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
@@ -2400,7 +2420,19 @@ export function leastToughnessCreatures(state: GameState, deps: EngineDeps, play
   return mine.filter((m) => m.t === least).map((m) => m.id);
 }
 
-export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster', chosen: PendingAsks['chosen'], filter: LookFilter | null, amount?: number): EventBody[] {
+/** D520 - the Army creature tokens `player` controls (amass's candidates, CR 701.47a). */
+export function armyTokens(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player || !inst.isToken) continue;
+    const d = derive(state, deps.oracle, deps.scripts, id, cache);
+    if (d.typeLine.types.includes('Creature') && d.typeLine.subtypes.includes('Army')) out.push(id);
+  }
+  return out;
+}
+
+export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass', chosen: PendingAsks['chosen'], filter: LookFilter | null, amount?: number, subtype?: string): EventBody[] {
   // D511 - the bolster verb: the chosen creature gets the counters; nothing chosen (no creature) is said.
   if (verb === 'bolster') {
     const out: EventBody[] = [];
@@ -2410,6 +2442,23 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
       out.push({ t: 'Bolstered', player: c.player, card, amount: amount ?? 1 });
       out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: amount ?? 1 }] });
       out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'bolsters', 'bolster')} ${amount ?? 1}: ${derive(state, deps.oracle, deps.scripts, card).name} gets ${amount ?? 1} +1/+1 counter${(amount ?? 1) === 1 ? '' : 's'}.`, c.player));
+    }
+    return out;
+  }
+  // D520 - the amass verb: the chosen Army gets the counters and becomes the subtype (once, said); no Army is said too.
+  if (verb === 'amass') {
+    const out: EventBody[] = [];
+    const k = amount ?? 1;
+    const sub = subtype ?? '';
+    for (const c of chosen) {
+      const card = c.cards[0];
+      if (card === undefined) { out.push({ t: 'Amassed', player: c.player, card: null, amount: k, subtype: sub }); out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'controls', 'control')} no Army to amass.`, c.player)); continue; }
+      const d = derive(state, deps.oracle, deps.scripts, card);
+      const becomes = sub !== '' && !d.typeLine.subtypes.includes(sub);
+      out.push({ t: 'Amassed', player: c.player, card, amount: k, subtype: sub });
+      out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: k }] });
+      if (becomes) out.push({ t: 'CreatureSubtypeAdded', card, subtype: sub });
+      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'amasses', 'amass')} ${sub}s ${k}: ${d.name} gets ${k} +1/+1 counter${k === 1 ? '' : 's'}${becomes ? ` and is ${/^[aeiou]/i.test(sub) ? 'an' : 'a'} ${sub} too` : ''}.`, c.player));
     }
     return out;
   }
@@ -2474,7 +2523,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -2484,6 +2533,8 @@ function queueAsks(
   only?: readonly PlayerId[],
   optional?: true,
   amount?: number,
+  /** D520 - the amass's subtype, carried on the queue to the batch. */
+  subtype?: string,
 ): EventBody[] {
   const order = apnapPlayers(state, only ?? scopeMembers(state, deps, controller, scopes, cache).players);
   const chosen: { player: PlayerId; cards: InstanceId[] }[] = [];
@@ -2496,15 +2547,15 @@ function queueAsks(
     if (cands.length <= count) { chosen.push({ player: p, cards: cands }); continue; }
     first = p;
   }
-  if (first === null) return askBatch(state, deps, verb, chosen, filter, amount);
-  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen, ...(optional === true ? { optional: true as const } : {}), ...(amount !== undefined ? { amount } : {}) };
+  if (first === null) return askBatch(state, deps, verb, chosen, filter, amount, subtype);
+  const pending: PendingAsks = { verb, remaining, count, filter, label, chosen, ...(optional === true ? { optional: true as const } : {}), ...(amount !== undefined ? { amount } : {}), ...(subtype !== undefined ? { subtype } : {}) };
   return [
     { t: 'AsksQueued', pending },
     {
       t: 'AwaitingSet',
       // D510 - an `up to` choice carries `min` 0: the answer may name fewer, down to none.
       // D511 - bolster's prompt says how its candidates are computed (`pick`), never which they are (D137).
-      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), ...(verb === 'bolster' ? { pick: 'leastToughness' as const } : {}), label },
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), ...(verb === 'bolster' ? { pick: 'leastToughness' as const } : verb === 'amass' ? { pick: 'army' as const } : {}), label },
     },
   ];
 }
