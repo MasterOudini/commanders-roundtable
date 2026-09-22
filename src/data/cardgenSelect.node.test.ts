@@ -787,13 +787,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D516 - the item under a filtered head and the card that died: the family's remainder, by its own reason.
+  ['Stalking Vengeance', 'a payload acting on a creature that died (a card in the graveyard; not this wave): Target creature deals damage equal to its power to any target (D516)'],
   // D515 - the stat family's remainder: the cards the wave refused, by its own reasons.
-  ['Patron of the Vein', 'a payload acting on a creature that died (a card in the graveyard; not this wave): Exile it and put a +1/+1 counter on each Vampire you control (D515)'],
-  ['Impostor Syndrome', 'an item referent under a FILTERED head (a nontoken creature - the filter\'s fixture, not the item head\'s; not this wave): Create a token that\'s a copy (D515)'],
-  ['Exsanguinator Cavalry', 'an item referent under a FILTERED head (a Knight you control; not this wave): Put a +1/+1 counter on that creature and create a Blood token (D515)'],
-  ['Rakish Heir', 'an item referent under a FILTERED head (a Vampire you control; not this wave): Put a +1/+1 counter on it (D515)'],
-  ['Aveline de Grandpré', 'an item referent under a FILTERED head (a creature you control with deathtouch; not this wave): Put that many +1/+1 counters on that creature (D515)'],
-  ['White Widow, Yelena Belova', 'an item referent under a FILTERED head (a creature you control with deathtouch; not this wave): Put a +1/+1 counter on it (D515)'],
   ['Consuming Vapors', 'the ask\'s chosen creature reads now, beside a Rebound line outside the vocabulary (D515)'],
   // D514 - the object's stat as last known: the cards of the family the row maker refused, by its own reasons.
   ['Grim Feast', 'trigger payload not a pump: You gain life equal to its toughness. (D514)'],

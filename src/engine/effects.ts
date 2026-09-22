@@ -527,6 +527,20 @@ export function effectResult(
           });
           break;
         }
+        // D516 - THE CARD THAT DIED, acted on: a looks-back head's item (D515's unchecked referent) is the card in its
+        // owner's graveyard - CR 400.7d, the trigger finds the card in the public zone it went to - and is exiled from
+        // THERE (`moveTo` hardcodes the battlefield; the reducer would leave the graveyard holding it). A card that has
+        // left the graveyard since is a new object (CR 400.7): nothing is exiled, and the line says so. Every other aim
+        // this case reaches is on the battlefield (CR 608.2b's re-check, the delayed fire's filter).
+        const zone = state.cards[aim.id]?.zone.kind;
+        if (zone === 'graveyard') {
+          out.push({ t: 'CardsMoved', moves: [{ card: aim.id, from: { kind: 'graveyard', player: aim.owner }, to: { kind: 'exile', player: aim.owner } }] });
+          break;
+        }
+        if (zone !== 'battlefield') {
+          out.push(narrated(`${obj.label} — “${effect.text}” finds a card that has moved on: nothing is exiled.`, obj.controller, obj.identity));
+          break;
+        }
         // Exile is not destruction: indestructible does not save it (CR 701.10a).
         out.push(moveTo(aim.id, 'exile', aim.owner));
         break;

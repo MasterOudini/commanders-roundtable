@@ -8671,6 +8671,13 @@ export const DOOMGAPE: CardData = F.DOOMGAPE as CardData;
 export const NECROPOLIS_REGENT: CardData = F.NECROPOLIS_REGENT as CardData;
 export const SOUTH_WIND_AVATAR: CardData = F.SOUTH_WIND_AVATAR as CardData;
 export const PROPER_BURIAL: CardData = F.PROPER_BURIAL as CardData;
+export const IMPOSTOR_SYNDROME: CardData = F.IMPOSTOR_SYNDROME as CardData;
+export const PATRON_OF_THE_VEIN: CardData = F.PATRON_OF_THE_VEIN as CardData;
+export const EXSANGUINATOR_CAVALRY: CardData = F.EXSANGUINATOR_CAVALRY as CardData;
+export const RAKISH_HEIR: CardData = F.RAKISH_HEIR as CardData;
+export const AVELINE_DE_GRANDPR: CardData = F.AVELINE_DE_GRANDPR as CardData;
+export const WHITE_WIDOW_YELENA_BELOVA: CardData = F.WHITE_WIDOW_YELENA_BELOVA as CardData;
+export const ANKLE_BITER: CardData = F.ANKLE_BITER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17590,6 +17597,13 @@ export const ENGINE_CARDS: CardData[] = [
   NECROPOLIS_REGENT,
   SOUTH_WIND_AVATAR,
   PROPER_BURIAL,
+  IMPOSTOR_SYNDROME,
+  PATRON_OF_THE_VEIN,
+  EXSANGUINATOR_CAVALRY,
+  RAKISH_HEIR,
+  AVELINE_DE_GRANDPR,
+  WHITE_WIDOW_YELENA_BELOVA,
+  ANKLE_BITER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

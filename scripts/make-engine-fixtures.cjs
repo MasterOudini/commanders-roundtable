@@ -9622,6 +9622,15 @@ const WANTED = [
   'Necropolis Regent',
   'South Wind Avatar',
   'Proper Burial',
+  // D516 - the item under a filtered head and the card that died: the rows the whole-leftover row maker rowed (Impostor Syndrome, Patron of the Vein, Exsanguinator Cavalry, Rakish Heir, Aveline de Grandpre, White Widow).
+  'Impostor Syndrome',
+  'Patron of the Vein',
+  'Exsanguinator Cavalry',
+  'Rakish Heir',
+  'Aveline de Grandpré',
+  'White Widow, Yelena Belova',
+  // D516 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Ankle Biter',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

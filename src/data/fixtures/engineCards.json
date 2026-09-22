@@ -293342,6 +293342,250 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "IMPOSTOR_SYNDROME": {
+    "scryfallId": "08da9f92-0e25-4f39-aaa4-d8974af81a41",
+    "oracleId": "7be47440-b627-411e-a28f-d5a92e5e2fb7",
+    "name": "Impostor Syndrome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Impostor Syndrome",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a nontoken creature you control deals combat damage to a player, create a token that's a copy of it, except it isn't legendary.",
+        "flavorText": "\"I'm the real Spider-Man!\"\n\"No, *I'm* the real Spider-Man!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Javier Charro",
+        "imageId": "08da9f92-0e25-4f39-aaa4-d8974af81a41"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "spm",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PATRON_OF_THE_VEIN": {
+    "scryfallId": "0a403dbd-c127-4e3f-892f-f0950d92228a",
+    "oracleId": "8dbc8fdb-36ce-4f30-b679-9c2029fcd9c6",
+    "name": "Patron of the Vein",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Patron of the Vein",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Vampire Shaman",
+        "oracleText": "Flying\nWhen this creature enters, destroy target creature an opponent controls.\nWhenever a creature an opponent controls dies, exile it and put a +1/+1 counter on each Vampire you control.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tommy Arnold",
+        "imageId": "0a403dbd-c127-4e3f-892f-f0950d92228a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "voc",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXSANGUINATOR_CAVALRY": {
+    "scryfallId": "0b359cc1-5518-4ef7-9f5c-4eaca6fb4674",
+    "oracleId": "a867be6f-46ce-4a12-a827-9429bd94243f",
+    "name": "Exsanguinator Cavalry",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exsanguinator Cavalry",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Knight",
+        "oracleText": "Menace, lifelink\nWhenever a Knight you control deals combat damage to a player, put a +1/+1 counter on that creature and create a Blood token. (It's an artifact with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "0b359cc1-5518-4ef7-9f5c-4eaca6fb4674"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Menace"
+    ],
+    "setCode": "moc",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKISH_HEIR": {
+    "scryfallId": "0da15652-8207-4be1-b821-3fb3dad66e37",
+    "oracleId": "3318c391-7aa1-4550-88a0-b29d8dca28b7",
+    "name": "Rakish Heir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakish Heir",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Whenever a Vampire you control deals combat damage to a player, put a +1/+1 counter on it.",
+        "flavorText": "\"If you're not having fun, what's the point of living forever?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "0da15652-8207-4be1-b821-3fb3dad66e37"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "voc",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVELINE_DE_GRANDPR": {
+    "scryfallId": "1dba9494-1443-4043-8cb9-3b3f18cd6676",
+    "oracleId": "5c8c4d53-f364-40da-989b-cfe1e3f79b7d",
+    "name": "Aveline de Grandpré",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aveline de Grandpré",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Deathtouch\nWhenever a creature you control with deathtouch deals combat damage to a player, put that many +1/+1 counters on that creature.\nDisguise {B}{G} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Luisa J. Preissler",
+        "imageId": "1dba9494-1443-4043-8cb9-3b3f18cd6676"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Disguise",
+      "Deathtouch"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHITE_WIDOW_YELENA_BELOVA": {
+    "scryfallId": "7dd6db74-1dba-4b66-8e54-9f876f16357c",
+    "oracleId": "7aff7cb6-aa56-47ae-8813-75d850917320",
+    "name": "White Widow, Yelena Belova",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "White Widow, Yelena Belova",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Creature — Human Assassin Villain",
+        "oracleText": "Deathtouch\nWhenever a creature you control with deathtouch deals combat damage to a player, put a +1/+1 counter on it.",
+        "flavorText": "\"Assassinations only happen to important people. It's a compliment!\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Smirtouille",
+        "imageId": "7dd6db74-1dba-4b66-8e54-9f876f16357c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "676",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANKLE_BITER": {
+    "scryfallId": "424972d6-3b2c-449b-b786-749a77020fa1",
+    "oracleId": "ee8f16ba-cbf0-4286-b26c-d78dd35bee17",
+    "name": "Ankle Biter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ankle Biter",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Deathtouch",
+        "flavorText": "\"Little tip, newcomer. Give your boots a shake in the morning before you put them on.\"\n—Annie Flash, to Kellan",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Monztre",
+        "imageId": "424972d6-3b2c-449b-b786-749a77020fa1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

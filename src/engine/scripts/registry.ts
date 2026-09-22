@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { IMPOSTOR_SYNDROME_SCRIPT } from './cards/impostorSyndrome';
+import { PATRON_OF_THE_VEIN_SCRIPT } from './cards/patronOfTheVein';
+import { EXSANGUINATOR_CAVALRY_SCRIPT } from './cards/exsanguinatorCavalry';
+import { RAKISH_HEIR_SCRIPT } from './cards/rakishHeir';
+import { AVELINE_DE_GRANDPR_SCRIPT } from './cards/avelineDeGrandpr';
+import { WHITE_WIDOW_YELENA_BELOVA_SCRIPT } from './cards/whiteWidowYelenaBelova';
 import { DOOMGAPE_SCRIPT } from './cards/doomgape';
 import { NECROPOLIS_REGENT_SCRIPT } from './cards/necropolisRegent';
 import { SOUTH_WIND_AVATAR_SCRIPT } from './cards/southWindAvatar';
@@ -7897,6 +7903,12 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  IMPOSTOR_SYNDROME_SCRIPT,
+  PATRON_OF_THE_VEIN_SCRIPT,
+  EXSANGUINATOR_CAVALRY_SCRIPT,
+  RAKISH_HEIR_SCRIPT,
+  AVELINE_DE_GRANDPR_SCRIPT,
+  WHITE_WIDOW_YELENA_BELOVA_SCRIPT,
   DOOMGAPE_SCRIPT,
   NECROPOLIS_REGENT_SCRIPT,
   SOUTH_WIND_AVATAR_SCRIPT,
