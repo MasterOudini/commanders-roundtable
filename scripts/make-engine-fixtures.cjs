@@ -9650,6 +9650,15 @@ const WANTED = [
   'Chromatic Lantern',
   'Joiner Adept',
   "Bootleggers' Stash",
+  // D518 - the granted offer's costs: the rows the row maker rowed once a quoted grant's self sacrifice, fodder sacrifice and discard were admitted.
+  'Mortarpod',
+  'Lunarch Mantle',
+  'Compulsory Rest',
+  'Clan Crafter',
+  'Chamber of Manipulation',
+  'Firewake Sliver',
+  'Street Urchin',
+  'Immobilizing Ink',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

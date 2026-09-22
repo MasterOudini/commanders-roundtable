@@ -294191,6 +294191,279 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "MORTARPOD": {
+    "scryfallId": "01ef59a9-df91-4ebd-a09b-59e42e07b073",
+    "oracleId": "77248a76-373c-48fc-939f-aa378ab57f7c",
+    "name": "Mortarpod",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mortarpod",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +0/+1 and has \"Sacrifice this creature: This creature deals 1 damage to any target.\"\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "01ef59a9-df91-4ebd-a09b-59e42e07b073"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Living weapon"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MM2-222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LUNARCH_MANTLE": {
+    "scryfallId": "0d63c045-5563-4ecd-804b-d4a77209501f",
+    "oracleId": "0da104ae-c46c-4106-919f-d975721d42d9",
+    "name": "Lunarch Mantle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lunarch Mantle",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has \"{1}, Sacrifice a permanent: This creature gains flying until end of turn.\"",
+        "flavorText": "\"A boon from the angels should never be cast aside.\"\n—Manfried Ulmach, Chief Inquisitor",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "0d63c045-5563-4ecd-804b-d4a77209501f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "a25",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMPULSORY_REST": {
+    "scryfallId": "11cb3a5b-beee-4f53-a6b5-e9b5603546fa",
+    "oracleId": "020225db-5623-49c2-8cdf-1ec2a05b8b0a",
+    "name": "Compulsory Rest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Compulsory Rest",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\nEnchanted creature has \"{2}, Sacrifice this creature: You gain 2 life.\"",
+        "flavorText": "The pain of death is nothing compared to the pain of failure.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "11cb3a5b-beee-4f53-a6b5-e9b5603546fa"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLAN_CRAFTER": {
+    "scryfallId": "19ef54f6-c7d0-42ac-86f1-80457cb3241e",
+    "oracleId": "6ebd4b3f-246e-475f-8cec-838eaaf597e2",
+    "name": "Clan Crafter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clan Crafter",
+        "manaCost": "{1}{U}",
+        "typeLine": "Legendary Enchantment — Background",
+        "oracleText": "Commander creatures you own have \"{2}, Sacrifice an artifact: Put a +1/+1 counter on this creature and draw a card.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "19ef54f6-c7d0-42ac-86f1-80457cb3241e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "614",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAMBER_OF_MANIPULATION": {
+    "scryfallId": "50496069-0f55-4dfe-8b1e-7fc4f649f2f1",
+    "oracleId": "010e0d5c-e751-4f67-b305-8a598cc1f0de",
+    "name": "Chamber of Manipulation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chamber of Manipulation",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}, Discard a card: Gain control of target creature until end of turn.\"",
+        "flavorText": "Politics is just a subtle form of mind control—and cephalids are master politicians.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "50496069-0f55-4dfe-8b1e-7fc4f649f2f1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREWAKE_SLIVER": {
+    "scryfallId": "5d3f5a0d-029e-44fd-b3e6-c70176b5b4ac",
+    "oracleId": "b5a3c09d-e822-4e26-b569-7f5830a39e6a",
+    "name": "Firewake Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Firewake Sliver",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have haste.\nAll Slivers have \"{1}, Sacrifice this permanent: Target Sliver creature gets +2/+2 until end of turn.\"",
+        "flavorText": "\"They are here, and they are hungry. And what they do not eat, they burn. Yavimaya is lost. We must leave now for Skyshroud.\"\n—Edahlis, greenseeker",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "5d3f5a0d-029e-44fd-b3e6-c70176b5b4ac"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tsp",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STREET_URCHIN": {
+    "scryfallId": "c393ffd7-18e6-4399-ba6f-5e211c669113",
+    "oracleId": "f52759f9-7aa5-4493-8fe3-7be9ec340dde",
+    "name": "Street Urchin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Street Urchin",
+        "manaCost": "{1}{R}",
+        "typeLine": "Legendary Enchantment — Background",
+        "oracleText": "Commander creatures you own have \"{1}, Sacrifice another creature or an artifact: This creature deals 1 damage to any target.\"",
+        "flavorText": "Your harsh upbringing on the streets of the city left you crafty, resilient, and wise beyond your years.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Julie Dillon",
+        "imageId": "c393ffd7-18e6-4399-ba6f-5e211c669113"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "510",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IMMOBILIZING_INK": {
+    "scryfallId": "ee6e2d96-dd9e-45f6-b412-78562f2ada40",
+    "oracleId": "154e865f-1aab-4d72-9e84-44e5316bbf3c",
+    "name": "Immobilizing Ink",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Immobilizing Ink",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature doesn't untap during its controller's untap step.\nEnchanted creature has \"{1}, Discard a card: Untap this creature.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "ee6e2d96-dd9e-45f6-b412-78562f2ada40"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

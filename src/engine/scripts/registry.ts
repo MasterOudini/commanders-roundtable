@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MORTARPOD_SCRIPT } from './cards/mortarpod';
+import { LUNARCH_MANTLE_SCRIPT } from './cards/lunarchMantle';
+import { COMPULSORY_REST_SCRIPT } from './cards/compulsoryRest';
+import { CLAN_CRAFTER_SCRIPT } from './cards/clanCrafter';
+import { CHAMBER_OF_MANIPULATION_SCRIPT } from './cards/chamberOfManipulation';
+import { FIREWAKE_SLIVER_SCRIPT } from './cards/firewakeSliver';
+import { STREET_URCHIN_SCRIPT } from './cards/streetUrchin';
+import { IMMOBILIZING_INK_SCRIPT } from './cards/immobilizingInk';
 import { ZOMBIE_MASTER_SCRIPT } from './cards/zombieMaster';
 import { CONSTRICTING_SLIVER_SCRIPT } from './cards/constrictingSliver';
 import { LAVABELLY_SLIVER_SCRIPT } from './cards/lavabellySliver';
@@ -7921,6 +7929,14 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MORTARPOD_SCRIPT,
+  LUNARCH_MANTLE_SCRIPT,
+  COMPULSORY_REST_SCRIPT,
+  CLAN_CRAFTER_SCRIPT,
+  CHAMBER_OF_MANIPULATION_SCRIPT,
+  FIREWAKE_SLIVER_SCRIPT,
+  STREET_URCHIN_SCRIPT,
+  IMMOBILIZING_INK_SCRIPT,
   ZOMBIE_MASTER_SCRIPT,
   CONSTRICTING_SLIVER_SCRIPT,
   LAVABELLY_SLIVER_SCRIPT,

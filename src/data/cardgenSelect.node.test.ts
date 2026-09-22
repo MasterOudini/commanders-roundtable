@@ -435,11 +435,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Fear of Infinity', 'trigger head not in the library: Whenever an enchantment you control enters and whenever you fully unlo'],
   ['Goblin Dirigible', 'a payment branch the suite cannot assert: untap'],
   ['Goblin War Wagon', 'a payment branch the suite cannot assert: untap'],
-  ['Immobilizing Ink', 'a leftover line not among the printed lines: Enchanted creature has'],
   ['Park Heights Maverick', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature deals combat damage to a player or di'],
   ['Plumes of Peace', 'ability-word activated line: Forecast — {W}{U}, Reveal this card from'],
   ['Rot Farm Skeleton', 'cost: Mill four cards'],
-  ['Sinking Feeling', 'a leftover line not among the printed lines: Enchanted creature has'],
   ['Spectral Prison', 'trigger head not in the library: When enchanted creature becomes the target of a spell, sacrifice this '],
   ['Stirge', 'ability-word activated line: Blood Drain — {1}{B}, Pay 1 life, Sacrif'],
   ['Surrak, Elusive Hunter', 'trigger head not in the library: Whenever a creature you control or a creature spell you control become'],
@@ -589,7 +587,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Blinkmoth Nexus", "a tribal target with no vanilla fixture of its subtype (Blinkmoth) (D479)"],
   ["Isao, Enlightened Bushi", "a tribal target with no vanilla fixture of its subtype (Samurai) (D479)"],
   ["Greenside Watcher", "a tribal target on a land subtype the suite has no still fixture for (Gate - every Gate enters tapped) (D479)"],
-  ["Firewake Sliver", "a quoted Sliver grant with a tribal target and a sacrifice price (the grant vocabulary reads no subtype target) (D479)"],
   ["Thraben Exorcism", "an instant whose target list carries a keyword-qualified alternative (creature with disturb) - a hand SpellDef (D479)"],
   ["Tivadar of Thorn", "a filtered head no fixture satisfies (Tivadar) (D479)"],
   ["Balthor the Stout", "a tribal anthem outside the static vocabulary (Other Barbarian creatures get +1/+1) beside its tribal pump (D479)"],
@@ -783,12 +780,17 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D518 - the granted offer's costs: the family's rows the wave refused, by its own reasons.
+  ['Cautery Sliver', 'a quoted body outside the vocabulary: Prevent the next 1 damage that would be dealt to target play (D518)'],
+  ['Animal Boneyard', 'a quoted body outside the vocabulary: You gain life equal to the sacrificed creature\'s toughness. (D518)'],
+  ['Sinking Feeling', 'a quoted cost the host cannot pay the suite way: {1}, Put a -1/-1 counter on this creature (D518)'],
+  ['Mindlash Sliver', 'a quoted body outside the vocabulary: Each player discards a card. (D518)'],
+  ['Mindwhip Sliver', 'a quoted body outside the vocabulary: Target player discards a card at random. Activate only as a (D518)'],
   // D517 - the scoped quoted grants: the family's rows the wave refused, by its own reasons.
   ['Far Traveler', 'trigger payload not a pump: Exile up to one target tapped creature you control, then ret (D517)'],
   ['Haunted One', 'trigger payload not a pump: ~ and other creatures you control that share a creature type (D517)'],
   ['Shameless Charlatan', 'a quoted body outside the vocabulary: ~ becomes a copy of another target creature. (D517)'],
   ['Popular Entertainer', 'trigger payload not a pump: Goad target creature that player controls. (D517)'],
-  ['Clan Crafter', 'a quoted cost the host cannot pay the suite way: {2}, Sacrifice an artifact (D517)'],
   ['Passionate Archaeologist', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D517)'],
   ['Noble Heritage', 'trigger head not in the library: When ~ enters and at the beginning of your upkeep, each player may (D517)'],
   ['Inspiring Leader', 'a quoted grant that is not an activated ability: Creature tokens you control get +2/+2. (D517)'],
@@ -807,14 +809,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Acolyte of Bahamut', 'a quoted grant that is not an activated ability: The first Dragon spell you cast each turn costs {2 (D517)'],
   ['Master Chef', 'a leftover line not among the printed lines: Commander creatures you own have (D517)'],
   ['Agent of the Shadow Thieves', 'trigger head not in the library: Whenever ~ attacks a player, if no opponent has more life than that (D517)'],
-  ['Street Urchin', 'a quoted cost the host cannot pay the suite way: {1}, Sacrifice another creature or an artifact (D517)'],
   ['Frenetic Sliver', 'a quoted body outside the vocabulary: If this permanent is on the battlefield, flip a coin. If you (D517)'],
   ['Plague Sliver', 'a granted step head the row\'s own card also carries (two fires): At the beginning of your upkeep, th (D517)'],
   ['Opaline Sliver', 'trigger head not in the library: Whenever ~ becomes the target of a spell an opponent controls, you (D517)'],
   ['Mistform Sliver', 'a quoted body outside the vocabulary: ~ becomes the creature type of your choice in addition to it (D517)'],
   ['Dementia Sliver', 'a quoted body outside the vocabulary: Choose a card name. Target opponent reveals a card at random (D517)'],
   ['Mesmeric Sliver', 'trigger payload not a pump: Fateseal 1. (D517)'],
-  ['Mindwhip Sliver', 'a quoted cost the host cannot pay the suite way: {2}, Sacrifice this permanent (D517)'],
   ['Spiteful Sliver', 'a granted damage-taken head under a scope (the block recipe is the row card\'s; not this wave): isDea (D517)'],
   ['Taunting Sliver', 'trigger payload not a pump: Goad target creature an opponent controls. (D517)'],
   ['Regal Sliver', 'trigger payload not a pump: Slivers you control get +1/+1 until end of turn if you\'re th (D517)'],
@@ -2710,7 +2710,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Visionary's Dance", 'hand-activated ability (channel-shaped: {2}, Discard this card)'],
   ['Creative Outburst', 'hand-activated ability (channel-shaped: {U/R}{U/R}, Discard this card)'],
   // D390 - the player queue's wave: the four the selector offered that the row maker refused, by reason.
-  ['Mindlash Sliver', 'a quoted grant of a queued discard (All Slivers have ...) - the grant generator, not the mainline row maker'],
   ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
   // D391 - proliferate: the four the selector offered after the wave that the row maker refused, by reason.
@@ -2720,7 +2719,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
   ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
-  ['Chamber of Manipulation', 'a quoted grant of a threaten (Enchanted land has ...) - the grant generator, not the mainline row maker'],
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
   ['Intimidator Initiate', 'a paid trigger payload (Pay {1}. If you do, target creature can not block this turn.) - the head arm takes one pump'],
@@ -3074,10 +3072,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D384 (M6.4hq) - the quoted grant: the cards the classifier widening made offerable that the row
   // maker refused, each with the reason it gave.
   ['Wrench', 'a grant line beside a second line this generator does not emit: Equipped creature gets +1/+1 and has vigilance and | {2}, Sacrifice this Equipme'],
-  ['Compulsory Rest', 'a grant line beside a second line this generator does not emit: Enchanted creature can\'t attack or block. | Enchanted creature has'],
   ['Sticky Fingers', 'a grant line beside a second line this generator does not emit: Enchanted creature has menace and | When enchanted creature dies, draw a card.'],
   ['Deconstruction Hammer', 'a BY-NAME sacrifice cost the engine does not charge: {3}, {T}, Sacrifice Deconstruction Hammer'],
-  ['Lunarch Mantle', 'a CHOSEN sacrifice cost the scaffold does not stage: {1}, Sacrifice a permanent'],
   ['Consecrated by Blood', 'a CHOSEN sacrifice cost the scaffold does not stage: Sacrifice two other creatures'],
   ['Quilled Sliver', 'a combat-role clause the scaffold cannot aim at: target attacking or blocking creature'],
   ['Ninja\'s Kunai', 'a BY-NAME sacrifice cost the engine does not charge: {1}, {T}, Sacrifice Ninja\'s Kunai'],

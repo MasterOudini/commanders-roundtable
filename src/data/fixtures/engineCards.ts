@@ -8696,6 +8696,14 @@ export const MAGUS_OF_THE_TABERNACLE: CardData = F.MAGUS_OF_THE_TABERNACLE as Ca
 export const CHROMATIC_LANTERN: CardData = F.CHROMATIC_LANTERN as CardData;
 export const JOINER_ADEPT: CardData = F.JOINER_ADEPT as CardData;
 export const BOOTLEGGERS_STASH: CardData = F.BOOTLEGGERS_STASH as CardData;
+export const MORTARPOD: CardData = F.MORTARPOD as CardData;
+export const LUNARCH_MANTLE: CardData = F.LUNARCH_MANTLE as CardData;
+export const COMPULSORY_REST: CardData = F.COMPULSORY_REST as CardData;
+export const CLAN_CRAFTER: CardData = F.CLAN_CRAFTER as CardData;
+export const CHAMBER_OF_MANIPULATION: CardData = F.CHAMBER_OF_MANIPULATION as CardData;
+export const FIREWAKE_SLIVER: CardData = F.FIREWAKE_SLIVER as CardData;
+export const STREET_URCHIN: CardData = F.STREET_URCHIN as CardData;
+export const IMMOBILIZING_INK: CardData = F.IMMOBILIZING_INK as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17640,6 +17648,14 @@ export const ENGINE_CARDS: CardData[] = [
   CHROMATIC_LANTERN,
   JOINER_ADEPT,
   BOOTLEGGERS_STASH,
+  MORTARPOD,
+  LUNARCH_MANTLE,
+  COMPULSORY_REST,
+  CLAN_CRAFTER,
+  CHAMBER_OF_MANIPULATION,
+  FIREWAKE_SLIVER,
+  STREET_URCHIN,
+  IMMOBILIZING_INK,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
