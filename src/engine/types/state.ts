@@ -146,6 +146,15 @@ export interface PlayerState {
    * `Pay {E}` (an activated cost, a payment prompt's price) subtracts; the plate shows it while any is held.
    */
   readonly energy: number;
+  /**
+   * D521 - THE RING TEMPTS YOU (CR 701.54): how many times the Ring has tempted this player this game (0 at setup),
+   * and their Ring-bearer - a creature they control, or null (a temptation with no creature still counts; the bearer
+   * stops being one when another creature is chosen, when it leaves the battlefield or when another player gains
+   * control of it - the reducer clears it, the invariant checks it). The Ring emblem's abilities are gated on the
+   * count; the plate shows it (D122).
+   */
+  readonly ringTempts: number;
+  readonly ringBearer: InstanceId | null;
   readonly pool: ManaPool;
   /**
    * D364 - of the mana in `pool`, how much came from a SNOW SOURCE (CR 107.4s).
@@ -577,7 +586,7 @@ export interface PendingAsks {
    * D488 - `populate`: a creature TOKEN from the battlefield, of which a token copy is created (CR 701.31) - the
    * one verb that moves nothing.
    */
-  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass';
+  readonly verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' | 'ringBearer';
   /** D511 - the bolster's count: how many +1/+1 counters the chosen creature gets; D520 - the amass's too. */
   readonly amount?: number;
   /** D520 - the amass's subtype (`Zombie`, `Orc`): the chosen Army becomes it in addition to its other types. */
@@ -1254,7 +1263,7 @@ export type Awaiting =
        * ids (D137); the bot, the harness and the fuzz driver compute the same set off their view. D520 - `army` is
        * amass's (the Army creature tokens the chooser controls).
        */
-      readonly pick?: 'leastToughness' | 'army';
+      readonly pick?: 'leastToughness' | 'army' | 'ringBearer';
       /**
        * D484 - the clauses after the asking clause, run once the answer has landed: after the whole batch of a
        * player queue, after the ordering a look chains into, after the last connive of a chain.

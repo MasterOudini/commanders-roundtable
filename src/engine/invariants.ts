@@ -115,6 +115,13 @@ export function checkInvariants(state: GameState): string[] {
     if (player.poison < 0) problems.push(`${p} has negative poison`);
     // D519 - energy is never paid below zero: the activation, the offer and the prompt all refuse first.
     if (player.energy < 0) problems.push(`${p} has negative energy`);
+    // D521 - the Ring-bearer is on the battlefield under the seat that chose it, or none (the reducer clears it on a
+    // leave or a control change).
+    if (player.ringTempts < 0) problems.push(`${p} has a negative Ring count`);
+    if (player.ringBearer !== null) {
+      const bearer = state.cards[player.ringBearer];
+      if (!bearer || bearer.zone.kind !== 'battlefield' || bearer.controller !== p) problems.push(`${p}'s Ring-bearer is not on the battlefield under their control`);
+    }
     for (const [k, v] of Object.entries(player.pool)) {
       if (v < 0) problems.push(`${p} has a negative ${k} in their mana pool`);
     }

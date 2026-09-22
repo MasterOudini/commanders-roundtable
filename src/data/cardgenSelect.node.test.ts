@@ -779,6 +779,40 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D521 - the Ring tempts you: the family's rows the wave refused, by its own reasons.
+  ['Faramir, Field Commander', 'an intervening if outside the closed reader: a creature died under your control this turn (D521)'],
+  ['Witch-king of Angmar', 'trigger head not in the library: Whenever one or more creatures deal combat damage to you, each opponen (D521)'],
+  ['Slip On the Ring', 'a flicker under your control (`Exile target creature you own, then return it to the battlefield under your control`) beside the temptation (D521)'],
+  ['Rangers of Ithilien', 'a condition outside the closed vocabulary: you control this creature. Then the Ring tempts you (D521)'],
+  ['Breaking of the Fellowship', 'a creature dealing damage equal to its power to another target creature its controller controls (a bite between an opponent\'s own) beside the temptati (D521)'],
+  ['Sméagol, Helpful Guide', 'an intervening if outside the closed reader: a creature died under your control this turn (D521)'],
+  ['Gandalf, Friend of the Shire', 'a line that is neither an activated ability nor a library trigger: You may cast sorcery spells as though they had flash. (D521)'],
+  ['Aragorn, Company Leader', 'trigger payload not a pump: If you chose a creature other than ~ as your Ring-bearer, pu (D521)'],
+  ['There and Back Again', 'multi-face or unusual layout (D521)'],
+  ['Nazgûl', 'a line that is neither an activated ability nor a library trigger: A deck can have up to nine cards named ~. (D521)'],
+  ['Samwise the Stouthearted', 'a filtered head no fixture satisfies: Samwise (D521)'],
+  ['Scroll of Isildur', 'multi-face or unusual layout (D521)'],
+  ["Gollum's Bite", 'a graveyard activation on an instant (`{3}{B}, Exile this card from your graveyard: The Ring tempts you. Activate only as a sorcery`) (D521)'],
+  ['The Ring Goes South', 'the temptation before a reveal-until-X-lands (`where X is the number of legendary creatures you control`) - the ask is not the sentence\'s last (D521)'],
+  ['Boromir, Warden of the Tower', 'trigger payload not a pump: If no mana was spent to cast it, counter that spell. (D521)'],
+  ['Sauron, the Necromancer', 'trigger payload not a pump: Exile target creature card from your graveyard. Create a tap (D521)'],
+  ['Lord of the Nazgûl', 'a line that is neither an activated ability nor a library trigger: Wraiths you control have protection from Ring-bearers. (D521)'],
+  ['Ringwraiths', 'trigger payload not a pump: Target creature an opponent controls gets -3/-3 until end of (D521)'],
+  ['Elrond, Lord of Rivendell', 'trigger payload not a pump: Scry 1. If this is the second time this ability has resolved (D521)'],
+  ['War of the Last Alliance', 'multi-face or unusual layout (D521)'],
+  ['Frodo, Adventurous Hobbit', 'a line that is neither an activated ability nor a library trigger: Partner with Sam, Loyal Attendant (D521)'],
+  ['Call of the Ring', 'trigger head not in the library: Whenever you choose a creature as your Ring-bearer, you may pay 2 life (D521)'],
+  ['Ringsight', 'the temptation before a search for a card sharing a color with a legendary creature you control - the ask is not the sentence\'s last (D521)'],
+  ['Frodo Baggins', 'a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ or another legendary creature you control enters, (D521)'],
+  ['Galadriel of Lothlórien', 'trigger payload not a pump: If you chose a creature other than Galadriel as your Ring-be (D521)'],
+  ['In the Darkness Bind Them', 'multi-face or unusual layout (D521)'],
+  ['Galadriel, Elven-Queen', 'an intervening if outside the closed reader: another Elf entered the battlefield under your control this (D521)'],
+  ['Dúnedain Rangers', 'an intervening if outside the closed reader: you don\'t control a Ring-bearer (D521)'],
+  ['One Ring to Rule Them All', 'multi-face or unusual layout (D521)'],
+  ["Sauron's Ransom", 'an opponent\'s pile split (`separate them into a face-down pile and a face-up pile`) beside the temptation (D521)'],
+  ['Glorious Gale', 'a conditional temptation after a counter (`If it was a legendary spell, the Ring tempts you`) (D521)'],
+  ['Dreadful as the Storm', 'a base power and toughness set (`has base power and toughness 5/5 until end of turn`) beside the temptation (D521)'],
+  ['Horses of the Bruinen', 'an up-to-two bounce beside a scry and the temptation (an ask after an ask) (D521)'],
   // D520 - amass: the family's rows the wave refused, by its own reasons.
   ['Sauron, the Dark Lord', 'a line that is neither an activated ability nor a library trigger: Ward—Sacrifice a legendary artifact or legendary creature. (D520)'],
   ['Gríma Wormtongue', 'a line that is neither an activated ability nor a library trigger: Your opponents can\'t gain life. (D520)'],
@@ -1404,7 +1438,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Birthday Escape needs the Ring (no tempted-by-the-Ring concept
   // anywhere); Bleeding Edge needs AMASS (counter + type change + a
   // conditional token in one word).
-  ['Birthday Escape', 'the Ring mechanic'],
   ['Blatant Thievery', 'cast-time computed target count'],
   ['Blazing Hope', 'computed target threshold'],
   ['Blot Out', 'opponent-chooses'],
@@ -1419,7 +1452,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bounty of Skemfar', 'script-raised prompt'],
   ['Brainsurge', 'script-raised prompt'],
   ['Brawl', 'temporary keyword/ability grant'],
-  ['Breaking of the Fellowship', 'the Ring mechanic'],
   ['Breaking Point', 'script-raised prompt'],
   ['Brilliant Ultimatum', 'opponent-chooses'],
   ['Broken Dam', 'spell target parse (counted list)'],
@@ -1442,7 +1474,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Chaoslace', 'UEOT color change'],
   ['Chaotic Transformation', 'up-to-N targeting'],
   ['Chronostutter', 'library position placement'],
-  ['Claim the Precious', 'the Ring mechanic'],
   // D204 — Coalition Victory WINS the game (no win event; a win is not
   // "every opponent loses" until the reasons enum says so); Contaminated
   // Drink pays in RAD counters (no rad concept anywhere); Contest of Claws
@@ -1520,7 +1551,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dominate', 'computed target threshold'],
   ['Dragonclaw Strike', 'up-to-N targeting'],
   ['Drain Power', 'opponent-chooses'],
-  ['Dreadful as the Storm', 'the Ring mechanic'],
   ['Dream Cache', 'script-raised prompt'],
   ['Dream Harvest', 'play-from-exile permission'],
   ["Dryad's Caress", 'mana-spent memory'],
@@ -1615,7 +1645,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // TargetSpec machinery, not a compound row; Graven Lore scries by the
   // {S} spent (Firespout's mana-spent memory).
   ['Glistening Dawn', 'incubate mechanic'],
-  ['Glorious Gale', 'the Ring mechanic'],
   ['Goblin Game', 'physical item choice'],
   ['Graven Lore', 'mana-spent memory'],
   ['Gravkill', 'subtype list alternative'],
@@ -1638,7 +1667,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Devastation is the LOSE direction of the temp-grant carrier (Day of
   // Black Sun's class); Hypothesizzle's may-discard rider and the
   // bolster tie are the script-prompt seam's 13th and 14th entries.
-  ['Horses of the Bruinen', 'the Ring mechanic'],
   ['Hostile Takeover', 'until-end-of-turn base P/T set'],
   ['Hour of Devastation', 'temporary keyword/ability grant'],
   ['Humble', 'until-end-of-turn base P/T set'],
@@ -1808,7 +1836,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Radiant Flames', 'converge (cast-time mana-color memory)'],
   ['Radiant Strike', 'list with adjective alternative'],
   // D237 (M6.4bz)
-  ["Ranger's Firebrand", 'the Ring mechanic'],
   ["Rats' Feast", 'cast-time computed target count'],
   // D238 (M6.4ca)
   ['Ray of Ruin', 'subtype list alternative'],
@@ -1866,7 +1893,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sleep', 'untap restriction'],
   ['Sleight of Mind', 'text-changing effect (CR 612)'],
   // D249 (M6.4cl)
-  ['Slip On the Ring', 'the Ring mechanic'],
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
   // D250 (M6.4cm)
@@ -1949,7 +1975,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // is letting a player name FEWER targets than the maximum.
   ['Temporary Truce', 'up-to-N targeting'],
   ['Tempted by the Oriq', 'up-to-N targeting'],
-  ['The Black Breath', 'the Ring'],
   ['The Lost and the Damned', 'cast-zone discriminator'],
 
   // D259 (M6.4cv) — ONE new class, found by a PROBE rather than by a test.
@@ -1959,7 +1984,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // LAND be untapped by a card that forbids it (Angelic Page, verbatim).
   // Befoul holds the negated-COLOUR direction (D199) and Devout Decree the
   // positive colour one (D208); nobody had probed a negated TYPE.
-  ['The Ring Goes South', 'the Ring'],
   ['Thoughtlace', 'indefinite color change'],
 
   // D260 (M6.4cw) — the most refusal-heavy batch since D238, and the reason
@@ -2327,7 +2351,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Garbage Fire', 'draft-matters'],
   ['Ghostfire', 'color-defining static'],
   ['Gluttonous Guest', 'sacrifice-event discriminator'],
-  ["Gollum's Bite", 'the Ring mechanic'],
   ['Grim Harvest', 'recover mechanic'],
 
   // D276 (M6.4dm) — the G/H/I/J residue; ONE new class.
@@ -2554,7 +2577,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Run Out of Town', 'opponent-chooses'],
   ['Vanish from Sight', 'opponent-chooses'],
   ['Suspend Aggression', 'play-from-exile permission'],
-  ['Soothing of Sméagol', 'the Ring mechanic'],
   ['Radiant Purge', 'list with adjective alternative'],
   ["Liliana's Defeat", 'list with adjective alternative'],
   ['Ohran Yeti', 'snow activation cost'],

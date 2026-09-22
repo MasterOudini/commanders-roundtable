@@ -25,6 +25,7 @@ import type { CardData, ColorLetter } from './cardTypes';
 import { scrub } from './targetParse';
 import { EMBLEM_TABLE } from './emblemTable';
 import { TOKEN_TABLE } from './tokenTable';
+import type { TokenRef } from './tokenTable';
 
 /** What a card asks to be created. Everything is as PRINTED, so `*` survives. */
 export interface TokenSpec {
@@ -431,6 +432,13 @@ export function amassArmyKey(plural: string): string | null {
 }
 
 /**
+ * D521 - THE RING (CR 701.54c): the emblem the first temptation gives - ONE printing (tltr H13, "The Ring // The Ring
+ * Tempts You"; its emblem face carries the four abilities the count unlocks). No card prints it as a description, so
+ * it is spelled here, where the pool and the executor read it; the fixtures pin the same printing by name.
+ */
+export const RING_EMBLEM: TokenRef = { oracleId: '98737456-ac2a-420d-aa0e-778ba3a22cec', printingId: '7215460e-8c06-47d0-94e5-d1832d0218af', name: 'The Ring' };
+
+/**
  * Every token PRINTING a set of cards can create, from the baked table.
  *
  * ⚠️ **A GAME MUST CARRY THE TOKENS ITS DECKS CAN MAKE, OR A CREATED TOKEN IS A
@@ -463,6 +471,8 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
         const ref = key === null ? undefined : TOKEN_TABLE[key];
         if (ref) out.add(ref.printingId);
       }
+      // D521 - the Ring emblem the first temptation gives: the pool must hold it (D133) for every card the Ring tempts.
+      if (/\bthe Ring tempts you\b/i.test(folded.text)) out.add(RING_EMBLEM.printingId);
       for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {
         const spec = parseTokenClause(line.trim(), folded.quotes);
         if (!spec) continue;

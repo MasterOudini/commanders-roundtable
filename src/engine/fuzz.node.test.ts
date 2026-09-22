@@ -39,7 +39,7 @@ import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
 import { freeCastCandidates, handChoiceCandidates } from './handChoice';
-import { armyTokens, leastToughnessCreatures } from './effects';
+import { armyTokens, leastToughnessCreatures, ringBearerCandidates } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
 import type { GameEvent } from './types/events';
@@ -311,6 +311,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // creature enters, amass Zombies 1.`) and Dunland Crebain ({2}{B} 1/1 flying, `... amass Orcs 2.` - the Orc onto a Zombie
   // Army) two a seat: the Army token made and grown, the subtype added, the tie asked when a copy effect made a second.
   { names: ['Relentless Advance', 'Lazotep Reaver', 'Dunland Crebain'], copiesPerSeat: 2, counterKeys: ['amasses'], rotHistory: 'D520' },
+  // D521 - THE RING TEMPTS YOU (CR 701.54): Claim the Precious ({2}{B} sorcery, `Destroy target creature. The Ring tempts
+  // you.`), Birthday Escape ({U} sorcery, `Draw a card. The Ring tempts you.`), Took Reaper ({B} 1/1, dies: tempts) and
+  // Relentless Rohirrim ({3}{R} 3/2, enters: tempts) two a seat: the bearer chosen, the emblem given, its abilities as
+  // the count climbs (the loot on attack, the blocker's sacrifice, the drain).
+  { names: ['Claim the Precious', 'Birthday Escape', 'Took Reaper', 'Relentless Rohirrim'], copiesPerSeat: 2, counterKeys: ['ringTempts', 'ringAbilities'], rotHistory: 'D521' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1088,7 +1093,7 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             })
           : awaiting.zone === 'battlefield'
             // D511 - a computed pick (bolster's least toughness) is the host's own set.
-            ? awaiting.pick === 'leastToughness' ? [...leastToughnessCreatures(state, deps(SCRIPTS), awaiting.player)] : awaiting.pick === 'army' ? [...armyTokens(state, deps(SCRIPTS), awaiting.player)] : state.zones.battlefield.filter((id) => {
+            ? awaiting.pick === 'leastToughness' ? [...leastToughnessCreatures(state, deps(SCRIPTS), awaiting.player)] : awaiting.pick === 'army' ? [...armyTokens(state, deps(SCRIPTS), awaiting.player)] : awaiting.pick === 'ringBearer' ? [...ringBearerCandidates(state, deps(SCRIPTS), awaiting.player)] : state.zones.battlefield.filter((id) => {
                 // D390 - a queued sacrifice: my own permanents the printed noun admits.
                 const inst = state.cards[id];
                 if (!inst || inst.controller !== awaiting.player) return false;
@@ -1595,6 +1600,9 @@ interface Run {
   readonly bolsters: number;
   /** D520 - amass clauses that ran (an `Amassed` marker each - the Army that got the counters, or none). */
   readonly amasses: number;
+  /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
+  readonly ringTempts: number;
+  readonly ringAbilities: number;
   /** D519 - energy counters gained (`EnergyChanged` with a positive delta) and paid (a negative one). */
   readonly energyGained: number;
   readonly energyPaid: number;
@@ -2075,6 +2083,8 @@ function runOne(seed: number): Run {
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     amasses: game.log.filter((e) => e.body.t === 'Amassed').length,
+    ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
+    ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
     energyGained: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta > 0).length,
     energyPaid: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta < 0).length,
     extraCombats: game.log.filter((e) => e.body.t === 'ExtraPhasesAdded').length,
@@ -2383,6 +2393,8 @@ const TOTAL_KEYS = [
   'wheels',
   'bolsters',
   'amasses',
+  'ringTempts',
+  'ringAbilities',
   'energyGained',
   'energyPaid',
   'extraCombats',
@@ -2846,6 +2858,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D520 - an amass ran at gate size (Relentless Advance, Lazotep Reaver and Dunland Crebain two a seat; the canary520
         // figures in the decision).
         expect(totals.amasses).toBeGreaterThan(0);
+        // D521 - the Ring tempted a player at gate size (Claim the Precious, Birthday Escape, Took Reaper and Relentless
+        // Rohirrim two a seat; the canary521 figures in the decision); the emblem's abilities are counted, not floored.
+        expect(totals.ringTempts).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

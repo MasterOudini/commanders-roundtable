@@ -296099,6 +296099,515 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "THE_RING_THE_RING_TEMPTS_YOU": {
+    "scryfallId": "7215460e-8c06-47d0-94e5-d1832d0218af",
+    "oracleId": "98737456-ac2a-420d-aa0e-778ba3a22cec",
+    "name": "The Ring // The Ring Tempts You",
+    "layout": "other",
+    "faces": [
+      {
+        "name": "The Ring",
+        "manaCost": "",
+        "typeLine": "Emblem",
+        "oracleText": "Your Ring-bearer is legendary and can't be blocked by creatures with greater power.\nWhenever your Ring-bearer attacks, draw a card, then discard a card.\nWhenever your Ring-bearer becomes blocked by a creature, that creature's controller sacrifices it at end of combat.\nWhenever your Ring-bearer deals combat damage to a player, each opponent loses 3 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Viko Menezes",
+        "imageId": "7215460e-8c06-47d0-94e5-d1832d0218af-0"
+      },
+      {
+        "name": "The Ring Tempts You",
+        "manaCost": "",
+        "typeLine": "Card",
+        "oracleText": "As the Ring tempts you, you get an emblem named The Ring if you don't have one. Then your emblem gains its next ability and you choose a creature you control to become or remain your Ring-bearer.\n• The Ring can tempt you even if you don't control a creature.\n• The Ring gains its abilities in order from top to bottom. Once it gains an ability, it has that ability for the rest of the game.\n• Each time the Ring tempts you, you must choose a creature if you control one.\n• Each player can have only one emblem named The Ring and only one Ring-bearer at a time.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Viko Menezes",
+        "imageId": "7215460e-8c06-47d0-94e5-d1832d0218af-1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tltr",
+    "collectorNumber": "H13",
+    "commanderLegality": "not_legal",
+    "singleImage": false
+  },
+  "CLAIM_THE_PRECIOUS": {
+    "scryfallId": "121c12c4-83ea-463e-8fdf-30718968a2bd",
+    "oracleId": "8b0a0991-2327-45ea-b47f-c31db367fa1d",
+    "name": "Claim the Precious",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Claim the Precious",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target creature. The Ring tempts you.",
+        "flavorText": "\"I think it is a sad story, and it might have happened to others, even to some Hobbits that I have known.\"\n—Gandalf",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Artur Treffner",
+        "imageId": "121c12c4-83ea-463e-8fdf-30718968a2bd"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIRTHDAY_ESCAPE": {
+    "scryfallId": "42db2313-b13d-4292-bef2-bf86f989d32f",
+    "oracleId": "4f958678-2a32-4a30-8fe7-47df9ada6b2f",
+    "name": "Birthday Escape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Birthday Escape",
+        "manaCost": "{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw a card. The Ring tempts you.",
+        "flavorText": "As Bilbo finished his speech, he slipped the ring on his finger, and he was never seen by any Hobbit in Hobbiton again.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "42db2313-b13d-4292-bef2-bf86f989d32f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOOK_REAPER": {
+    "scryfallId": "1da7fc15-f894-496e-ba18-a02d42e9bedc",
+    "oracleId": "bfd8daa9-029f-41aa-a947-cdfde3f4d6b6",
+    "name": "Took Reaper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Took Reaper",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Halfling Peasant",
+        "oracleText": "When this creature dies, the Ring tempts you.",
+        "flavorText": "The Tooks came, a hundred strong, from Tuckborough and the Green Hills.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tatiana Veryayskaya",
+        "imageId": "1da7fc15-f894-496e-ba18-a02d42e9bedc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RELENTLESS_ROHIRRIM": {
+    "scryfallId": "21b7606a-6a4c-4bf0-b311-1883383161d2",
+    "oracleId": "1212cc74-ff66-479e-8e1b-504446e1c6d9",
+    "name": "Relentless Rohirrim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relentless Rohirrim",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, the Ring tempts you.",
+        "flavorText": "\"The Orcs are in the Deep! Helm! Helm! Forth Helmingas!\"\n—Gamling the Old",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Di Giovanni",
+        "imageId": "21b7606a-6a4c-4bf0-b311-1883383161d2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRRORMERE_GUARDIAN": {
+    "scryfallId": "8315d7cc-fc2c-45b1-8340-11ff2af3beb5",
+    "oracleId": "97c188c4-3f27-428e-a4f6-4213f44898fc",
+    "name": "Mirrormere Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mirrormere Guardian",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "When this creature dies, the Ring tempts you.",
+        "flavorText": "\"But still the sunken stars appear\nIn dark and windless Mirrormere;\nThere lies his crown in water deep,\nTill Durin wakes again from sleep.\"\n—Gimli's song",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Anton Solovianchyk",
+        "imageId": "8315d7cc-fc2c-45b1-8340-11ff2af3beb5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHORTCUT_TO_MUSHROOMS": {
+    "scryfallId": "13bc14f9-c90c-499d-9024-3182d78e0a88",
+    "oracleId": "2dc6637a-0b51-462b-9f18-571146bb4558",
+    "name": "Shortcut to Mushrooms",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shortcut to Mushrooms",
+        "manaCost": "{1}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, the Ring tempts you.\nAt the beginning of your end step, if a permanent you controlled left the battlefield this turn, put a +1/+1 counter on target creature you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jonas De Ro",
+        "imageId": "13bc14f9-c90c-499d-9024-3182d78e0a88"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STALWARTS_OF_OSGILIATH": {
+    "scryfallId": "2acb8240-8e0e-4adf-a884-4986c116e704",
+    "oracleId": "d41b2a4f-e137-4e61-99eb-6261ab3edd03",
+    "name": "Stalwarts of Osgiliath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stalwarts of Osgiliath",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, the Ring tempts you.\nWhenever you draw your second card each turn, put a +1/+1 counter on this creature.",
+        "flavorText": "\"The Enemy must pay dearly for the crossing of the River.\"\n—Denethor",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lixin Yin",
+        "imageId": "2acb8240-8e0e-4adf-a884-4986c116e704"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROHIRRIM_LANCER": {
+    "scryfallId": "2f506f9f-4c0d-44e8-9f81-8403d808d0e4",
+    "oracleId": "504fac88-1674-4157-becb-0204ab8844bf",
+    "name": "Rohirrim Lancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rohirrim Lancer",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature dies, the Ring tempts you.",
+        "flavorText": "\"Dire deeds awake, dark is it eastward. Let horse be bridled, horn be sounded!\"\n—Théoden",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anastasia Balakchina",
+        "imageId": "2f506f9f-4c0d-44e8-9f81-8403d808d0e4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLLUM_PATIENT_PLOTTER": {
+    "scryfallId": "3581ef56-4649-43f4-829c-af28278833a2",
+    "oracleId": "c4545884-35b7-47cf-939e-3d5d3fe555a4",
+    "name": "Gollum, Patient Plotter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gollum, Patient Plotter",
+        "manaCost": "{1}{B}",
+        "typeLine": "Legendary Creature — Halfling Horror",
+        "oracleText": "When Gollum leaves the battlefield, the Ring tempts you.\n{B}, Sacrifice a creature: Return this card from your graveyard to your hand. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "3581ef56-4649-43f4-829c-af28278833a2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "450",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BILBO_RETIRED_BURGLAR": {
+    "scryfallId": "4f60ac5b-b16b-451d-8ae6-4ee8e375a198",
+    "oracleId": "2e7e3be5-04dd-4ff4-b121-3e65b3e00699",
+    "name": "Bilbo, Retired Burglar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bilbo, Retired Burglar",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Legendary Creature — Halfling Rogue",
+        "oracleText": "When Bilbo enters or leaves the battlefield, the Ring tempts you.\nWhenever Bilbo deals combat damage to a player, create a Treasure token.",
+        "flavorText": "\"I don't know half of you half as well as I should like; and I like less than half of you half as well as you deserve.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Anna Pavleeva",
+        "imageId": "4f60ac5b-b16b-451d-8ae6-4ee8e375a198"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "647",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INHERITED_ENVELOPE": {
+    "scryfallId": "53336c6d-8222-4f1f-8953-6f734ffd897f",
+    "oracleId": "2f1ae834-f6b8-458c-ac0d-3510ddb85193",
+    "name": "Inherited Envelope",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inherited Envelope",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, the Ring tempts you.\n{T}: Add one mana of any color.",
+        "flavorText": "\"Keep it secret, and keep it safe!\"\n—Gandalf",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ramazan Kazaliev",
+        "imageId": "53336c6d-8222-4f1f-8953-6f734ffd897f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "693",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIERY_INSCRIPTION": {
+    "scryfallId": "8c321159-43e5-40fc-9f0c-4ecc4f6cfd20",
+    "oracleId": "111889d4-bcca-4b1f-ad48-3077e2f5136f",
+    "name": "Fiery Inscription",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fiery Inscription",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, the Ring tempts you.\nWhenever you cast an instant or sorcery spell, this enchantment deals 2 damage to each opponent.",
+        "flavorText": "Ash nazg durbatulûk, ash nazg gimbatul, ash nazg thrakatulûk agh burzum-ishi krimpatul.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Di Giovanni",
+        "imageId": "8c321159-43e5-40fc-9f0c-4ecc4f6cfd20"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URUK_HAI_BERSERKER": {
+    "scryfallId": "936421a0-2c2a-4410-941d-4e6b88166bd1",
+    "oracleId": "0e353a41-b523-4c22-9bda-d10460ba99c7",
+    "name": "Uruk-hai Berserker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Uruk-hai Berserker",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Orc Berserker",
+        "oracleText": "When this creature enters, the Ring tempts you.",
+        "flavorText": "\"What of the dawn? We are the Uruk-hai; we do not stop the fight for night or day, for fair weather or for storm. We come to kill, by sun or moon. What of the dawn?\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Victor Harmatiuk",
+        "imageId": "936421a0-2c2a-4410-941d-4e6b88166bd1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ENRAGED_HUORN": {
+    "scryfallId": "a9b48836-6d37-46eb-8c41-a3eeecc72ae1",
+    "oracleId": "8a7dbf4e-f121-40c5-a688-3398e04c1311",
+    "name": "Enraged Huorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Enraged Huorn",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Trample\nWhen this creature enters, the Ring tempts you.",
+        "flavorText": "\"They stand watching endlessly over the trees. It is difficult to see them moving, but they can move very quickly if they are angry.\"\n—Merry",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "a9b48836-6d37-46eb-8c41-a3eeecc72ae1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "162",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

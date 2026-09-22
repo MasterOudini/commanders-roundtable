@@ -19,6 +19,7 @@ import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { suspendTickSpec } from '../data/effectParse';
+import { RING_EMBLEM } from '../data/tokenParse';
 import { modeSpecs } from './modes';
 import { faceOf } from './oracle';
 import { apply } from './reducer';
@@ -1012,6 +1013,16 @@ export function effectResult(
           now = apply(now, { seq: now.eventCount, body: made, cause: { kind: 'system' } } as never);
         }
         out.push(...queueAsks(now, deps, controller, 'amass', [], 1, null, obj.label, now === state ? cache : undefined, [controller], undefined, effect.amount, effect.subtype));
+        break;
+      }
+      // D521 - THE RING TEMPTS YOU (CR 701.54): the creatures the controller has are read off the state the clauses before
+      // this one left (the Wraith In the Darkness Bind Them just made is a candidate); the queue's eighth verb - several
+      // are asked (`pick: 'ringBearer'`), the only one goes unasked, none still counts; the batch records the temptation.
+      case 'ringTempt': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        out.push(...queueAsks(now, deps, controller, 'ringBearer', [], 1, null, obj.label, now === state ? cache : undefined, [controller]));
         break;
       }
       case 'untapChoose': {
@@ -2218,7 +2229,7 @@ export function askCandidates(
   state: GameState,
   deps: EngineDeps,
   player: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' | 'ringBearer',
   filter: LookFilter | null,
   cache?: DeriveCache,
 ): InstanceId[] {
@@ -2227,6 +2238,8 @@ export function askCandidates(
   if (verb === 'bolster') return leastToughnessCreatures(state, deps, player, cache);
   // D520 - amass's candidates are COMPUTED too: the Army creature tokens the player controls (CR 701.47a).
   if (verb === 'amass') return armyTokens(state, deps, player, cache);
+  // D521 - the Ring-bearer's candidates: every creature the player controls (CR 701.54a).
+  if (verb === 'ringBearer') return ringBearerCandidates(state, deps, player, cache);
   const out: InstanceId[] = [];
   for (const id of state.zones.battlefield) {
     const inst = state.cards[id];
@@ -2432,7 +2445,18 @@ export function armyTokens(state: GameState, deps: EngineDeps, player: PlayerId,
   return out;
 }
 
-export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass', chosen: PendingAsks['chosen'], filter: LookFilter | null, amount?: number, subtype?: string): EventBody[] {
+/** D521 - the creatures `player` controls (the Ring-bearer candidates, CR 701.54a). */
+export function ringBearerCandidates(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
+  const out: InstanceId[] = [];
+  for (const id of state.zones.battlefield) {
+    const inst = state.cards[id];
+    if (!inst || inst.controller !== player || inst.phasedOut) continue;
+    if (derive(state, deps.oracle, deps.scripts, id, cache).typeLine.types.includes('Creature')) out.push(id);
+  }
+  return out;
+}
+
+export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' | 'ringBearer', chosen: PendingAsks['chosen'], filter: LookFilter | null, amount?: number, subtype?: string): EventBody[] {
   // D511 - the bolster verb: the chosen creature gets the counters; nothing chosen (no creature) is said.
   if (verb === 'bolster') {
     const out: EventBody[] = [];
@@ -2459,6 +2483,26 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
       out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: k }] });
       if (becomes) out.push({ t: 'CreatureSubtypeAdded', card, subtype: sub });
       out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'amasses', 'amass')} ${sub}s ${k}: ${d.name} gets ${k} +1/+1 counter${k === 1 ? '' : 's'}${becomes ? ` and is ${/^[aeiou]/i.test(sub) ? 'an' : 'a'} ${sub} too` : ''}.`, c.player));
+    }
+    return out;
+  }
+  // D521 - the Ring-bearer verb: the temptation is recorded with the creature chosen (or none), the emblem arrives with
+  // the first, said either way.
+  if (verb === 'ringBearer') {
+    const out: EventBody[] = [];
+    let nextId = state.counters.instance;
+    for (const c of chosen) {
+      const seat = state.players[c.player];
+      if (!seat) continue;
+      const times = seat.ringTempts + 1;
+      const bearer = c.cards[0] ?? null;
+      out.push({ t: 'RingTempted', player: c.player, times, bearer });
+      if (times === 1) {
+        const printing = deps.oracle.byPrinting(RING_EMBLEM.printingId);
+        if (printing) { nextId++; out.push({ t: 'EmblemCreated', card: `c${nextId}`, oracleId: printing.oracleId, printingId: printing.printingId, owner: c.player }); }
+      }
+      const name = bearer === null ? null : derive(state, deps.oracle, deps.scripts, bearer).name;
+      out.push(narrated(n`The Ring tempts ${who(state, c.player)} (${times === 1 ? 'the first time' : `${times} times now`}): ${name === null ? `${who(state, c.player)} ${vb(c.player, 'controls', 'control')} no creature to bear it` : `${name} is the Ring-bearer`}.`, c.player));
     }
     return out;
   }
@@ -2523,7 +2567,7 @@ function queueAsks(
   state: GameState,
   deps: EngineDeps,
   controller: PlayerId,
-  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass',
+  verb: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' | 'ringBearer',
   scopes: readonly BoardScope[],
   count: number,
   filter: LookFilter | null,
@@ -2555,7 +2599,7 @@ function queueAsks(
       t: 'AwaitingSet',
       // D510 - an `up to` choice carries `min` 0: the answer may name fewer, down to none.
       // D511 - bolster's prompt says how its candidates are computed (`pick`), never which they are (D137).
-      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), ...(verb === 'bolster' ? { pick: 'leastToughness' as const } : verb === 'amass' ? { pick: 'army' as const } : {}), label },
+      awaiting: { kind: 'chooseFromZone', player: first, zone: verb === 'discard' ? 'hand' : 'battlefield', rest: null, count, ...(optional === true ? { min: 0 } : {}), ...(filter ? { filter } : {}), ...(verb === 'bolster' ? { pick: 'leastToughness' as const } : verb === 'amass' ? { pick: 'army' as const } : verb === 'ringBearer' ? { pick: 'ringBearer' as const } : {}), label },
     },
   ];
 }

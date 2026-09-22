@@ -69,6 +69,20 @@ export function apply(state: GameState, event: GameEvent): GameState {
   };
 }
 
+/**
+ * D521 - the Ring-bearer stops being one when it leaves the battlefield or when another player gains control of it
+ * (CR 701.54a): every seat whose bearer is among `cards` loses it, except the seat `stillUnder` names.
+ */
+function withoutRingBearers(state: GameState, cards: readonly InstanceId[], stillUnder?: PlayerId): GameState {
+  if (cards.length === 0) return state;
+  let out = state;
+  for (const [p, seat] of Object.entries(state.players)) {
+    if (seat.ringBearer === null || !cards.includes(seat.ringBearer) || stillUnder === p) continue;
+    out = withPlayer(out, p, { ringBearer: null });
+  }
+  return out;
+}
+
 function withPlayer(state: GameState, id: PlayerId, patch: Partial<PlayerState>): GameState {
   const player = state.players[id];
   if (!player) return state;
@@ -373,6 +387,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           life: body.options.startingLife,
           poison: 0,
           energy: 0,
+          ringTempts: 0,
+          ringBearer: null,
           pool: EMPTY_POOL,
           poolSnow: EMPTY_POOL,
           poolRestricted: [],
@@ -599,7 +615,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
       const movedOut = new Set(body.moves.filter((m) => m.from.kind === 'exile').map((m) => m.card));
       const playPermissions = movedOut.size > 0 && state.playPermissions.some((p) => movedOut.has(p.card)) ? state.playPermissions.filter((p) => !movedOut.has(p.card)) : state.playPermissions;
       // D348 - the turn record, read off the instances BEFORE this batch applied.
-      return { ...state, zones, cards, regenerationShields, playPermissions, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } };
+      // D521 - a Ring-bearer that left the battlefield is a new object: no seat keeps it.
+      return withoutRingBearers({ ...state, zones, cards, regenerationShields, playPermissions, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } }, body.moves.filter((m) => m.from.kind === 'battlefield' && m.to.kind !== 'battlefield').map((m) => m.card));
     }
 
     case 'TokenCreated': {
@@ -768,13 +785,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return withCard(state, body.card, { faceIndex: body.faceIndex });
 
     case 'ControlChanged':
-      return withCard(state, body.card, { controller: body.controller });
+      // D521 - another player gaining control of a Ring-bearer ends its bearing (CR 701.54a).
+      return withoutRingBearers(withCard(state, body.card, { controller: body.controller }), [body.card], body.controller);
 
     // D453 - the control Auras: taken with the memory (and CR 302.6's sickness), given back without it.
     case 'ControlTakenByAura':
-      return withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo } });
+      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo } }), [body.card], body.controller);
     case 'ControlReverted':
-      return withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined });
+      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller);
 
     case 'PtOverrideSet':
       return withCard(state, body.card, { ptOverride: body.override });
@@ -818,6 +836,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D519 - energy counters: the event carries the total, exactly as poison does.
     case 'EnergyChanged':
       return withPlayer(state, body.player, { energy: body.to });
+    // D521 - the Ring tempted a player: the count and the bearer the event carries (null when no creature was held).
+    case 'RingTempted':
+      return withPlayer(state, body.player, { ringTempts: body.times, ringBearer: body.bearer });
 
     case 'MonarchChanged':
       return { ...state, monarch: body.player };

@@ -1879,6 +1879,14 @@ const RULES: readonly Rule[] = [
     },
   },
   /**
+   * D521 - THE RING TEMPTS YOU (CR 701.54): `The Ring tempts you.` (a spell's last sentence, an enters or dies payload,
+   * a `Then` form) - the caster chooses a creature they control as their Ring-bearer (the queue's eighth verb: asked
+   * among several, the only one unasked, none still counts), the count rises, the Ring emblem arrives with the first.
+   * It ASKS, so it is the sentence's last; the executor reads the candidates off the scratch state (a token the clause
+   * before made is one).
+   */
+  { kind: 'ringTempt', re: /^(?:then )?the Ring tempts you\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral); the `you` form scopes the caster alone.
    */
@@ -2432,7 +2440,7 @@ const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
-const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass']);
+const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
 function objectsRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   const prev = previous?.spec;
   if (!prev) return null;
@@ -2696,7 +2704,7 @@ function readVerbPrice(raw: string): VerbPrice | null {
   if (!read || read.lifeCost > 0) return null;
   return { costText: price, sacrificeSelf: false, sacrificeCost: read.sacrificeCost, discardCost: read.discardCost, tapCost: read.tapCost, exileFromGraveyardCost: read.exileFromGraveyardCost, returnCost: read.returnCost };
 }
-const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass']);
+const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 
 function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
@@ -2868,7 +2876,7 @@ function matchPayment(sentence: string): EffectSpec | null {
 // left the zone the verb needs does nothing (D494's rule). Asks, payments and referents stay refused.
 const DELAY_TAIL = /^(.+?) at (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat)\.$/i;
 const DELAY_HEAD = /^At (?:the beginning of )?(the next turn(?:'|’)s upkeep|the next upkeep|your next upkeep|the next end step|your next end step|end of combat), (.+)$/i;
-const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass']);
+const DELAY_ASKS: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster', 'amass', 'ringTempt']);
 function delayWhen(phrase: string): DelayWhen {
   const p = phrase.toLowerCase();
   if (p === 'end of combat') return { step: 'endCombat', whose: 'next' };

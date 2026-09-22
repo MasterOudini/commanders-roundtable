@@ -830,6 +830,12 @@ export type EffectKind =
    */
   | 'amass'
   /**
+   * D521 - THE RING TEMPTS YOU (CR 701.54): the caster chooses a creature they control as their Ring-bearer (the queue's
+   * eighth verb - asked among several, the only one unasked, none still counts), the seat's count rises and the Ring
+   * emblem arrives with the first temptation; the emblem's abilities unlock on the count.
+   */
+  | 'ringTempt'
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral) - every player in APNAP order, one shuffle each off
    * the seeded generator; `amount` is the draw. The `you` form (`Shuffle your hand and graveyard into your library,

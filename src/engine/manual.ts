@@ -13,6 +13,7 @@
 // guessed the player would be wrong more often than the player is.
 
 import { derive } from './derive';
+import { RING_EMBLEM } from '../data/tokenParse';
 import { effectResult } from './effects';
 import { faceOf } from './oracle';
 import { shuffle } from './rng';
@@ -196,6 +197,20 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
           true,
         ),
       ]);
+    }
+
+    // D521 - the Ring tempts a player by hand (CR 701.54): the count rises, the Ring-bearer stays (or none), the
+    // emblem arrives with the first temptation - the game's own asks choose the bearer.
+    case 'ManualRingTempt': {
+      const target = state.players[intent.target];
+      if (!target) return reject('noSuchPlayer', 'That player is not in this game.');
+      const kept = target.ringBearer !== null && state.cards[target.ringBearer]?.zone.kind === 'battlefield' && state.cards[target.ringBearer]?.controller === intent.target ? target.ringBearer : null;
+      const times = target.ringTempts + 1;
+      const events: EventBody[] = [marker(actor, 'ring', `${intent.target} tempted ${times}`), { t: 'RingTempted', player: intent.target, times, bearer: kept }];
+      const printing = times === 1 ? deps.oracle.byPrinting(RING_EMBLEM.printingId) : undefined;
+      if (printing) events.push({ t: 'EmblemCreated', card: `c${state.counters.instance + 1}`, oracleId: printing.oracleId, printingId: printing.printingId, owner: intent.target });
+      events.push(narrated(n`${me} ${vb(actor, 'lets', 'let')} the Ring tempt ${whoElse(state, actor, intent.target)} (${times}).`, actor, [], true));
+      return accept(events);
     }
 
     case 'ManualAddMana': {

@@ -181,6 +181,12 @@ function computeDerived(
     for (const t of inst.addedSubtypes) if (!subtypes.includes(t)) subtypes.push(t);
     chars.typeLine = { ...chars.typeLine, subtypes };
   }
+  // D521 - the Ring-bearer is legendary once the Ring has tempted its controller (CR 701.54d, the emblem's first
+  // ability): a supertype at layer 4, read off the seat rather than the emblem so the object and the count cannot
+  // disagree.
+  if (inst.zone.kind === 'battlefield' && state.players[inst.controller]?.ringBearer === inst.id && (state.players[inst.controller]?.ringTempts ?? 0) >= 1 && !chars.typeLine.supertypes.includes('Legendary')) {
+    chars.typeLine = { ...chars.typeLine, supertypes: [...chars.typeLine.supertypes, 'Legendary'] };
+  }
   applyStatics(state, oracle, scripts, inst, chars, 'type', cache);
   applyStatics(state, oracle, scripts, inst, chars, 'color', cache);
 

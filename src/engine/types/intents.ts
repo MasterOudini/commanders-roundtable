@@ -301,6 +301,8 @@ export type Intent =
   | { readonly t: 'ManualSetPoison'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }
   /** D519 - the Tier-3 tool for energy counters (CR 122.1): a resource the engine tracks must be adjustable by hand. */
   | { readonly t: 'ManualSetEnergy'; readonly player: PlayerId; readonly target: PlayerId; readonly delta: number }
+  /** D521 - the Tier-3 tool for the Ring (CR 701.54): the count the emblem is gated on must be adjustable by hand. */
+  | { readonly t: 'ManualRingTempt'; readonly player: PlayerId; readonly target: PlayerId }
   | { readonly t: 'ManualAddMana'; readonly player: PlayerId; readonly target: PlayerId; readonly symbol: 'W' | 'U' | 'B' | 'R' | 'G' | 'C'; readonly amount: number }
   | { readonly t: 'ManualEmptyPool'; readonly player: PlayerId; readonly target: PlayerId }
   | { readonly t: 'ManualSetTapped'; readonly player: PlayerId; readonly cards: readonly InstanceId[]; readonly tapped: boolean }

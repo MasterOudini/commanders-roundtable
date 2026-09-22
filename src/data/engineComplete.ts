@@ -47,6 +47,7 @@ function modesOf(d: object): readonly ModeDecl[] {
   return Array.isArray(modes) ? (modes as readonly ModeDecl[]) : [];
 }
 import { SHIPPED_SCRIPTS } from '../engine/scripts/registry';
+import { RING_EMBLEM } from './tokenParse';
 import { protectionFullyRead } from '../engine/protection';
 import { exertForm, parseFace, parseProtection, parseWard, parseWardLife, readUpkeepPrice } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
@@ -151,18 +152,26 @@ export interface LineClaims {
   readonly activated: ReadonlySet<string>;
   /** D443 - the script fires on `Exerted`: the bare `You may exert this creature as it attacks.` line is its. */
   readonly exert: boolean;
+  /** D521 - the Ring emblem's script ships: its first line (the bearer's supertype and evasion) is the engine's, keyed on the seat. */
+  readonly ring: boolean;
 }
 
+/** D521 - the Ring emblem's first printed line, implemented by `derive.ts` (the supertype) and `combat.ts` (the block restriction). */
+const RING_ENGINE_LINE = "Your Ring-bearer is legendary and can't be blocked by creatures with greater power.";
+
 export function lineClaims(scripts: readonly CardScript[]): ReadonlyMap<string, LineClaims> {
-  const out = new Map<string, { sentences: Set<string>; activated: Set<string>; exert: boolean }>();
+  const out = new Map<string, { sentences: Set<string>; activated: Set<string>; exert: boolean; ring: boolean }>();
   const entry = (oracleId: string) => {
-    const got = out.get(oracleId) ?? { sentences: new Set<string>(), activated: new Set<string>(), exert: false };
+    const got = out.get(oracleId) ?? { sentences: new Set<string>(), activated: new Set<string>(), exert: false, ring: false };
     out.set(oracleId, got);
     return got;
   };
   for (const s of scripts) {
     // D443 - a trigger on `Exerted` makes the bare exert permission the engine's (`canExert` asks the same).
     if ((s.triggers ?? []).some((t) => t.event === 'Exerted')) entry(s.oracleId).exert = true;
+    // D521 - the Ring emblem: its first line is the ENGINE's (derive.ts's supertype, combat.ts's block restriction, both
+    // keyed on the seat); the script claims the three triggers by their text.
+    if (s.oracleId === RING_EMBLEM.oracleId) entry(s.oracleId).ring = true;
     const defs = [
       ...(s.triggers ?? []),
       ...(s.statics ?? []),
@@ -547,6 +556,8 @@ export function linesUnaccounted(
     // D443 - the bare exert permission is the engine's when the script fires on exerts (the reflexive form is a
     // trigger line the def claims by its text). Asked of the parser that set the flag.
     if (face.exertsOnAttack && claims?.exert === true && exertForm(line, face.name.split(',')[0] ?? face.name) === 'bare') continue;
+    // D521 - the Ring emblem's first line is the engine's when its script ships (see `lineClaims`).
+    if (claims?.ring === true && line === RING_ENGINE_LINE) continue;
     // D304 - an Enchant line the engine RUNS (see `enchantLineRuns`).
     if (enchantLineRuns(line, face)) continue;
     // D305 - an Equip line the engine RUNS: `activatedParse` synthesized the
@@ -650,6 +661,9 @@ export function linesUnaccounted(
 export function unaccountedLines(card: CardData, faceIndex: number): readonly UnaccountedLine[] {
   const raw = card.faces[faceIndex] ?? card.faces[0];
   if (!raw) return [];
+  // D521 - a keyword's rules helper (the Ring's `The Ring Tempts You` half, type `Card`): no face a player casts or
+  // turns; its text is the rule the engine implements, not a card's abilities.
+  if (card.layout === 'other' && raw.typeLine === 'Card') return [];
   return linesUnaccounted(
     raw.oracleText ?? '',
     parseFace(card, faceIndex),
@@ -662,6 +676,8 @@ export function unaccountedLines(card: CardData, faceIndex: number): readonly Un
 export function faceCompleteness(card: CardData, faceIndex: number): Completeness {
   const raw = card.faces[faceIndex];
   if (!raw) return { complete: false, leftover: ['(no such face)'] };
+  // D521 - the keyword's rules helper face (see `unaccountedLines`): complete, because it is nothing a player runs.
+  if (card.layout === 'other' && raw.typeLine === 'Card') return COMPLETE;
   const face = parseFace(card, faceIndex);
 
   // ⚠️ A CLAUSE THE PARSER COULD NOT READ IS FREE AIM — `kinds: []` with

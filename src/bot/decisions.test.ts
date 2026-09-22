@@ -57,8 +57,8 @@ function board(myLife = 40, theirLife = 40): PlayerView {
     me: ME,
     seatOrder: [ME, FOE],
     seats: {
-      [ME]: { playerId: ME, name: 'Me', life: myLife, cmdDamage: {}, poison: 0, energy: 0, manaPool: {}, lost: false },
-      [FOE]: { playerId: FOE, name: 'Foe', life: theirLife, cmdDamage: {}, poison: 0, energy: 0, manaPool: {}, lost: false },
+      [ME]: { playerId: ME, name: 'Me', life: myLife, cmdDamage: {}, poison: 0, energy: 0, ringTempts: 0, ringBearer: null, manaPool: {}, lost: false },
+      [FOE]: { playerId: FOE, name: 'Foe', life: theirLife, cmdDamage: {}, poison: 0, energy: 0, ringTempts: 0, ringBearer: null, manaPool: {}, lost: false },
     },
     cards: {},
     zones: {},
@@ -157,7 +157,7 @@ describe('reading the position', () => {
   test('a third player with a board is not cancelled out by a dead one', () => {
     const view = board();
     view.seatOrder = [ME, FOE, 'p3'];
-    view.seats['p3'] = { playerId: 'p3', name: 'Third', life: 40, cmdDamage: {}, poison: 0, energy: 0, manaPool: {}, lost: false } as never;
+    view.seats['p3'] = { playerId: 'p3', name: 'Third', life: 40, cmdDamage: {}, poison: 0, energy: 0, ringTempts: 0, ringBearer: null, manaPool: {}, lost: false } as never;
     put(view, 'p3', fx.AKROMA_ANGEL_OF_WRATH);
     const withThreat = scorePosition(view, ME);
     view.seats['p3'] = { ...(view.seats['p3'] as object), lost: true } as never;

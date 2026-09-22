@@ -196,6 +196,9 @@ export interface SeatView {
   poison: number;
   /** D519 - energy counters (CR 122.1), shown on the plate while any are held; the payment prompt names its price. */
   energy: number;
+  /** D521 - the Ring's temptations (CR 701.54): the count that gates the emblem, and the Ring-bearer, shown on the plate. */
+  ringTempts: number;
+  ringBearer: InstanceId | null;
   manaPool: Record<ManaSymbol, number>;
   /**
    * Colour identity of this seat's commander. Drives the nameplate's gradient

@@ -3807,7 +3807,7 @@ function advanceAsks(state: GameState, deps: EngineDeps, player: PlayerId, cards
             count: pending.count,
             ...(pending.optional === true ? { min: 0 } : {}),
             ...(pending.filter ? { filter: pending.filter } : {}),
-            ...(pending.verb === 'bolster' ? { pick: 'leastToughness' as const } : pending.verb === 'amass' ? { pick: 'army' as const } : {}),
+            ...(pending.verb === 'bolster' ? { pick: 'leastToughness' as const } : pending.verb === 'amass' ? { pick: 'army' as const } : pending.verb === 'ringBearer' ? { pick: 'ringBearer' as const } : {}),
             label: pending.label,
             ...(carried !== undefined ? { continuation: carried } : {}),
           },

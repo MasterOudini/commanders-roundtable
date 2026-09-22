@@ -129,6 +129,9 @@ const ENFORCED_WARD = /\bward\s*(?:\{[^}]+\}|[—–-]\s*pay\s+\d+\s+life\b)/i;
 export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   const face: CardFace | undefined = card.faces[faceIndex] ?? card.faces[0];
   if (!face) return [];
+  // D521 - a keyword's rules helper (the Ring's `The Ring Tempts You` half, type `Card`) is no face a player casts or
+  // turns; its text is the rule the engine implements. Nothing to disclose (the same skip as `unaccountedLines`).
+  if (card.layout === 'other' && face.typeLine === 'Card') return [];
   const text = face.oracleText ?? '';
   const notes: Tier3Note[] = [];
   const seen = new Set<string>();

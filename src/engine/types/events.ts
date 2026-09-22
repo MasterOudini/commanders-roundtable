@@ -296,6 +296,8 @@ export type EventBody =
   | { readonly t: 'PoisonChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   /** D519 - energy counters gained or paid (CR 122.1): `to` is the player's total after, the reducer applies it. */
   | { readonly t: 'EnergyChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
+  /** D521 - the Ring tempted a player (CR 701.54): `times` is their count after, `bearer` the creature chosen (null when none). */
+  | { readonly t: 'RingTempted'; readonly player: PlayerId; readonly times: number; readonly bearer: InstanceId | null }
   /** D332 - CR 724: the crown moves to `player`. */
   | { readonly t: 'MonarchChanged'; readonly player: PlayerId }
   /**
@@ -438,7 +440,7 @@ export type EventBody =
   | { readonly t: 'AsksQueued'; readonly pending: PendingAsks }
   /** D390 - the last player answered; the batch of sacrifices or discards follows this event. */
   // D431 - the queue's verb rides the resolution, so a counter can tell a return from a sacrifice.
-  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' }
+  | { readonly t: 'AsksResolved'; readonly verb?: 'sacrifice' | 'discard' | 'return' | 'populate' | 'untap' | 'bolster' | 'amass' | 'ringBearer' }
   /**
    * D391 - a proliferate answer, recorded before its counter changes. The reducer ignores it; it
    * exists because the replay hash cannot tell a proliferated counter from any other (D364's

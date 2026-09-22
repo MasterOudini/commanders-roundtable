@@ -93,6 +93,8 @@ function seat(id: string) {
     cmdDamage: {},
     poison: 0,
     energy: 0,
+    ringTempts: 0,
+    ringBearer: null,
     manaPool: {},
     lost: false,
   };

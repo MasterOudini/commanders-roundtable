@@ -9713,6 +9713,24 @@ const WANTED = [
   'Easterling Vanguard',
   'Herald of the Dreadhorde',
   // D520 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D521 - THE RING TEMPTS YOU: the Ring emblem (tltr H13, the printing RING_EMBLEM names) and the seam's own cards (ring.test.ts and the fuzz staples).
+  'The Ring // The Ring Tempts You',
+  'Claim the Precious',
+  'Birthday Escape',
+  'Took Reaper',
+  'Relentless Rohirrim',
+  'Mirrormere Guardian',
+  // D521 - THE RING TEMPTS YOU: the rows the whole-leftover row maker rowed once the temptation was the engine's (the enters and dies temptations, the leaves heads, the artifacts and enchantments that tempt).
+  'Shortcut to Mushrooms',
+  'Stalwarts of Osgiliath',
+  'Rohirrim Lancer',
+  'Gollum, Patient Plotter',
+  'Bilbo, Retired Burglar',
+  'Inherited Envelope',
+  'Fiery Inscription',
+  'Uruk-hai Berserker',
+  'Enraged Huorn',
+  // D521 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

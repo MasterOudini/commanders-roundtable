@@ -130,6 +130,22 @@ export function ManualToolsDrawer({ tokens }: { tokens: readonly CardData[] }) {
         ))}
       </div>
 
+      {/* D521 - the Ring tempts a player by hand (CR 701.54): the count gates the emblem, so the wrench can raise it. */}
+      <p className={`mt-3 ${LABEL}`}>The Ring</p>
+      <div className="mt-1 flex flex-wrap gap-1">
+        {seats.map((seat) => (
+          <button
+            key={seat.id}
+            type="button"
+            className={BTN_GHOST_SMALL}
+            data-tool={`ring-tempt-${seat.id}`}
+            onClick={() => send({ t: 'ManualRingTempt', player: viewer, target: seat.id })}
+          >
+            💍 {seat.name}
+          </button>
+        ))}
+      </div>
+
       <p className={`mt-3 ${LABEL}`}>Mana</p>
       <div className="mt-1 flex gap-1">
         {(['W', 'U', 'B', 'R', 'G', 'C'] as const).map((symbol) => (

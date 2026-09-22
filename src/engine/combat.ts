@@ -200,7 +200,9 @@ export type BlockRejection =
   | 'unleashed'
   // D399 - "can't be blocked this turn": the ATTACKER carries the evasion with an END, on the
   // same list (CR 509.1b, CR 514.2).
-  | 'cantBeBlockedThisTurn';
+  | 'cantBeBlockedThisTurn'
+  /** D521 - the Ring-bearer can't be blocked by creatures with greater power (CR 701.54d, the emblem's first ability). */
+  | 'ringBearer';
 
 /**
  * Per-pair blocking legality. The whole Tier-2 evasion surface, in one place.
@@ -260,6 +262,9 @@ export function canBlock(
   // a shadow creature can only block shadow.
   if (ac.keywords.has('shadow') !== bc.keywords.has('shadow')) return 'shadow';
   if (ac.keywords.has('skulk') && (bc.power ?? 0) > (ac.power ?? 0)) return 'skulk';
+  // D521 - the Ring-bearer (CR 701.54d): can't be blocked by creatures with greater power once the Ring has tempted its
+  // controller; read off the seat, like the supertype.
+  if (state.players[a.controller]?.ringBearer === attacker && (state.players[a.controller]?.ringTempts ?? 0) >= 1 && (bc.power ?? 0) > (ac.power ?? 0)) return 'ringBearer';
   if (ac.keywords.has('horsemanship') && !bc.keywords.has('horsemanship')) return 'horsemanship';
   if (ac.landwalk.length > 0 && defenderControlsLandType(deps, defendingPlayer, ac.landwalk)) {
     return 'landwalk';
@@ -392,6 +397,9 @@ function blockRejectionText(
       return `${bn} can't block this turn.`;
     case 'unleashed':
       return `${bn} can't block while it has a +1/+1 counter on it (unleash).`;
+    // D521 - the Ring-bearer's evasion (CR 701.54d): the blocker's power is the reason, and the Ring is named.
+    case 'ringBearer':
+      return `${an} is a Ring-bearer — ${bn} has too much power to block it.`;
     case 'cantBeBlockedThisTurn':
       return `${an} can't be blocked this turn.`;
   }

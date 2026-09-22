@@ -119,6 +119,19 @@ export function PlayerPlate({
         </span>
       )}
 
+      {/* D521 - the Ring's temptations (CR 701.54): the count gates the emblem's abilities, so it is READABLE here
+          (D122), with the Ring-bearer named. Shown only once the Ring has tempted the player. */}
+      {seat.ringTempts > 0 && (
+        <span
+          className="crt-num rounded px-1 text-xs tabular-nums text-crt-dim"
+          style={{ boxShadow: 'inset 0 0 0 1px currentColor' }}
+          title={`the Ring has tempted ${seat.name} ${seat.ringTempts} time${seat.ringTempts === 1 ? '' : 's'}${seat.ringBearer !== null ? ` - Ring-bearer: ${view.cards[seat.ringBearer]?.card?.name ?? 'a creature'}` : ' - no Ring-bearer'}`}
+          data-ring={player}
+        >
+          💍 {seat.ringTempts}
+        </span>
+      )}
+
       <div className="ml-auto flex items-center gap-2">
         <ManaPool pool={seat.manaPool} />
       </div>

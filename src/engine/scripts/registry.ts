@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SHORTCUT_TO_MUSHROOMS_SCRIPT } from './cards/shortcutToMushrooms';
+import { TOOK_REAPER_SCRIPT } from './cards/tookReaper';
+import { RELENTLESS_ROHIRRIM_SCRIPT } from './cards/relentlessRohirrim';
+import { STALWARTS_OF_OSGILIATH_SCRIPT } from './cards/stalwartsOfOsgiliath';
+import { ROHIRRIM_LANCER_SCRIPT } from './cards/rohirrimLancer';
+import { GOLLUM_PATIENT_PLOTTER_SCRIPT } from './cards/gollumPatientPlotter';
+import { BILBO_RETIRED_BURGLAR_SCRIPT } from './cards/bilboRetiredBurglar';
+import { INHERITED_ENVELOPE_SCRIPT } from './cards/inheritedEnvelope';
+import { MIRRORMERE_GUARDIAN_SCRIPT } from './cards/mirrormereGuardian';
+import { FIERY_INSCRIPTION_SCRIPT } from './cards/fieryInscription';
+import { URUK_HAI_BERSERKER_SCRIPT } from './cards/urukHaiBerserker';
+import { ENRAGED_HUORN_SCRIPT } from './cards/enragedHuorn';
 import { ANGRATH_CAPTAIN_OF_CHAOS_SCRIPT } from './cards/angrathCaptainOfChaos';
 import { SARUMAN_THE_WHITE_SCRIPT } from './cards/sarumanTheWhite';
 import { GRIM_INITIATE_SCRIPT } from './cards/grimInitiate';
@@ -7956,6 +7968,7 @@ import { WALL_OF_BLOSSOMS_SCRIPT } from './cards/wallOfBlossoms';
 import { WALL_OF_OMENS_SCRIPT } from './cards/wallOfOmens';
 import { BALEFUL_STRIX_SCRIPT } from './cards/balefulStrix';
 import { ONULET_SCRIPT } from './cards/onulet';
+import { THE_RING_SCRIPT } from './cards/theRing';
 
 /**
  * **THE CARD SCRIPTS THE APP SHIPS.** Empty today; M6.4 fills it.
@@ -7975,6 +7988,18 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SHORTCUT_TO_MUSHROOMS_SCRIPT,
+  TOOK_REAPER_SCRIPT,
+  RELENTLESS_ROHIRRIM_SCRIPT,
+  STALWARTS_OF_OSGILIATH_SCRIPT,
+  ROHIRRIM_LANCER_SCRIPT,
+  GOLLUM_PATIENT_PLOTTER_SCRIPT,
+  BILBO_RETIRED_BURGLAR_SCRIPT,
+  INHERITED_ENVELOPE_SCRIPT,
+  MIRRORMERE_GUARDIAN_SCRIPT,
+  FIERY_INSCRIPTION_SCRIPT,
+  URUK_HAI_BERSERKER_SCRIPT,
+  ENRAGED_HUORN_SCRIPT,
   ANGRATH_CAPTAIN_OF_CHAOS_SCRIPT,
   SARUMAN_THE_WHITE_SCRIPT,
   GRIM_INITIATE_SCRIPT,
@@ -15926,6 +15951,7 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   WALL_OF_OMENS_SCRIPT,
   BALEFUL_STRIX_SCRIPT,
   ONULET_SCRIPT,
+  THE_RING_SCRIPT,
 ];
 
 /**
