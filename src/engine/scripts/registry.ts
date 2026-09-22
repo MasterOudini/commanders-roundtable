@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ZOMBIE_MASTER_SCRIPT } from './cards/zombieMaster';
+import { CONSTRICTING_SLIVER_SCRIPT } from './cards/constrictingSliver';
+import { LAVABELLY_SLIVER_SCRIPT } from './cards/lavabellySliver';
+import { CRYPT_SLIVER_SCRIPT } from './cards/cryptSliver';
+import { HARMONIC_SLIVER_SCRIPT } from './cards/harmonicSliver';
+import { SCREECHING_SLIVER_SCRIPT } from './cards/screechingSliver';
+import { DORMANT_SLIVER_SCRIPT } from './cards/dormantSliver';
+import { CAPRICIOUS_SLIVER_SCRIPT } from './cards/capriciousSliver';
+import { CANDLEKEEP_SAGE_SCRIPT } from './cards/candlekeepSage';
+import { THE_TABERNACLE_AT_PENDRELL_VALE_SCRIPT } from './cards/theTabernacleAtPendrellVale';
+import { VILE_CONSUMPTION_SCRIPT } from './cards/vileConsumption';
+import { FLAMING_FIST_SCRIPT } from './cards/flamingFist';
+import { PENDRELL_MISTS_SCRIPT } from './cards/pendrellMists';
+import { POULTICE_SLIVER_SCRIPT } from './cards/poulticeSliver';
+import { MAGUS_OF_THE_TABERNACLE_SCRIPT } from './cards/magusOfTheTabernacle';
+import { CHROMATIC_LANTERN_SCRIPT } from './cards/chromaticLantern';
+import { JOINER_ADEPT_SCRIPT } from './cards/joinerAdept';
+import { BOOTLEGGERS_STASH_SCRIPT } from './cards/bootleggersStash';
 import { IMPOSTOR_SYNDROME_SCRIPT } from './cards/impostorSyndrome';
 import { PATRON_OF_THE_VEIN_SCRIPT } from './cards/patronOfTheVein';
 import { EXSANGUINATOR_CAVALRY_SCRIPT } from './cards/exsanguinatorCavalry';
@@ -7903,6 +7921,24 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ZOMBIE_MASTER_SCRIPT,
+  CONSTRICTING_SLIVER_SCRIPT,
+  LAVABELLY_SLIVER_SCRIPT,
+  CRYPT_SLIVER_SCRIPT,
+  HARMONIC_SLIVER_SCRIPT,
+  SCREECHING_SLIVER_SCRIPT,
+  DORMANT_SLIVER_SCRIPT,
+  CAPRICIOUS_SLIVER_SCRIPT,
+  CANDLEKEEP_SAGE_SCRIPT,
+  THE_TABERNACLE_AT_PENDRELL_VALE_SCRIPT,
+  VILE_CONSUMPTION_SCRIPT,
+  FLAMING_FIST_SCRIPT,
+  PENDRELL_MISTS_SCRIPT,
+  POULTICE_SLIVER_SCRIPT,
+  MAGUS_OF_THE_TABERNACLE_SCRIPT,
+  CHROMATIC_LANTERN_SCRIPT,
+  JOINER_ADEPT_SCRIPT,
+  BOOTLEGGERS_STASH_SCRIPT,
   IMPOSTOR_SYNDROME_SCRIPT,
   PATRON_OF_THE_VEIN_SCRIPT,
   EXSANGUINATOR_CAVALRY_SCRIPT,

@@ -293586,6 +293586,611 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ZOMBIE_MASTER": {
+    "scryfallId": "011d7fe2-4dc1-47a5-b875-636744fa9909",
+    "oracleId": "5446c92f-ff22-4e9b-a2f6-e64c8560c1e0",
+    "name": "Zombie Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Zombie Master",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Other Zombie creatures have swampwalk. (They can't be blocked as long as defending player controls a Swamp.)\nOther Zombies have \"{B}: Regenerate this permanent.\"",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jeff A. Menges",
+        "imageId": "011d7fe2-4dc1-47a5-b875-636744fa9909"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "4bb",
+    "collectorNumber": "174",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSTRICTING_SLIVER": {
+    "scryfallId": "0348837a-7d77-4419-b329-137f1dd0aff4",
+    "oracleId": "fd26f893-6f45-44df-aa4e-c919fc118aff",
+    "name": "Constricting Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Constricting Sliver",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"When this creature enters, you may exile target creature an opponent controls until this creature leaves the battlefield.\"",
+        "flavorText": "Slivers are often seen toying with enemies they capture, not out of cruelty, but to fully learn their physical capabilities.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0348837a-7d77-4419-b329-137f1dd0aff4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "sld",
+    "collectorNumber": "611",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVABELLY_SLIVER": {
+    "scryfallId": "0d495127-497e-47f1-bdb5-e2e5e98756f0",
+    "oracleId": "334f673e-7cfa-432c-93aa-41adfbb99113",
+    "name": "Lavabelly Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lavabelly Sliver",
+        "manaCost": "{1}{R}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"When this creature enters, it deals 1 damage to target player or planeswalker and you gain 1 life.\"",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Mark Behm",
+        "imageId": "0d495127-497e-47f1-bdb5-e2e5e98756f0"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "701",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYPT_SLIVER": {
+    "scryfallId": "1005a2ee-3e2b-4741-8efd-358fd26340b4",
+    "oracleId": "b0bc2d60-20d0-4ca2-be86-65b297226ac7",
+    "name": "Crypt Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crypt Sliver",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{T}: Regenerate target Sliver.\"",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "1005a2ee-3e2b-4741-8efd-358fd26340b4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Regenerate"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "D29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HARMONIC_SLIVER": {
+    "scryfallId": "1228d068-a5cb-4fd5-9e6a-5dc6ac9376a4",
+    "oracleId": "1c06c093-18ab-49e6-a82d-38e826d25016",
+    "name": "Harmonic Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Harmonic Sliver",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"When this permanent enters, destroy target artifact or enchantment.\"",
+        "flavorText": "\"Since the last sliver arrived, even our mightiest relics splinter into shards as soon as we bring them against the hive.\"\n—Llanach, Skyshroud ranger",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Luca Zontini",
+        "imageId": "1228d068-a5cb-4fd5-9e6a-5dc6ac9376a4"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "924",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCREECHING_SLIVER": {
+    "scryfallId": "313e71da-ce72-4976-8286-f4495ea56485",
+    "oracleId": "88485575-e491-4ab7-a020-e52dd92ae085",
+    "name": "Screeching Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Screeching Sliver",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{T}: Target player mills a card.\"",
+        "flavorText": "\"What wears down my people most, I think, is not the danger, but the endless screeching outside our camp.\"\n—Merrik Aidar, Benalish patrol",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Stuart Griffin",
+        "imageId": "313e71da-ce72-4976-8286-f4495ea56485"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DORMANT_SLIVER": {
+    "scryfallId": "3d646252-6d42-4000-bfc1-ad12f2386b99",
+    "oracleId": "2bc3d5b2-076f-4e01-87be-28d7eb70a2db",
+    "name": "Dormant Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dormant Sliver",
+        "manaCost": "{2}{G}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Sliver creatures have defender.\nAll Slivers have \"When this permanent enters, draw a card.\"",
+        "flavorText": "\"It triggers the hive's period of aetheric fertility—a time when even feeding is a lower priority than reproduction.\"\n—Rukarumel, field journal",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "3d646252-6d42-4000-bfc1-ad12f2386b99"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tsr",
+    "collectorNumber": "250",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPRICIOUS_SLIVER": {
+    "scryfallId": "48938cd4-9158-4eb8-acb7-21ce7a11cfa7",
+    "oracleId": "1f59b3d9-1535-4e13-a0a1-0f839fe90ac6",
+    "name": "Capricious Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Capricious Sliver",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"Whenever this creature deals combat damage to a player, exile the top card of your library. You may play that card this turn.\"",
+        "flavorText": "They hunt on pure instinct, driven by the will of the hive mind with no time wasted on independent thought.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "48938cd4-9158-4eb8-acb7-21ce7a11cfa7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "cmm",
+    "collectorNumber": "734",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANDLEKEEP_SAGE": {
+    "scryfallId": "59fcbcce-bcce-4806-9c73-e4a82a630b76",
+    "oracleId": "f9516b60-36dd-4f8a-bebb-ac1bc0961f07",
+    "name": "Candlekeep Sage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Candlekeep Sage",
+        "manaCost": "{2}{U}",
+        "typeLine": "Legendary Enchantment — Background",
+        "oracleText": "Commander creatures you own have \"When this creature enters or leaves the battlefield, draw a card.\"",
+        "flavorText": "You love the smell of dusty tomes, the flicker of candles during late-night reading, and the old texts that bring to life the scholars who have come before.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "59fcbcce-bcce-4806-9c73-e4a82a630b76"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "482",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_TABERNACLE_AT_PENDRELL_VALE": {
+    "scryfallId": "64bc9b1d-5818-4d9e-b771-e49af4ff9a5c",
+    "oracleId": "69b409b3-fa16-4c79-8b46-215a7036ed46",
+    "name": "The Tabernacle at Pendrell Vale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Tabernacle at Pendrell Vale",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "All creatures have \"At the beginning of your upkeep, destroy this creature unless you pay {1}.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nicola Leonard",
+        "imageId": "64bc9b1d-5818-4d9e-b771-e49af4ff9a5c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "leg",
+    "collectorNumber": "307",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VILE_CONSUMPTION": {
+    "scryfallId": "7f7e5716-77f3-45d2-a40a-f5bf500f6ad7",
+    "oracleId": "b6a005db-e7e2-4b88-bc8a-c257bcc31cf5",
+    "name": "Vile Consumption",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vile Consumption",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "All creatures have \"At the beginning of your upkeep, sacrifice this creature unless you pay 1 life.\"",
+        "flavorText": "The plague moved faster than an army and was far more deadly.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "7f7e5716-77f3-45d2-a40a-f5bf500f6ad7"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "285",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMING_FIST": {
+    "scryfallId": "80415872-e35d-4798-a021-b4690d9f78a0",
+    "oracleId": "cdaefc96-4560-43bb-9514-bf87657bd481",
+    "name": "Flaming Fist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flaming Fist",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Enchantment — Background",
+        "oracleText": "Commander creatures you own have \"Whenever this creature attacks, it gains double strike until end of turn.\"",
+        "flavorText": "You carry the security of Baldur's Gate on your shoulders, and you welcome the weight of responsibility.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "80415872-e35d-4798-a021-b4690d9f78a0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "474",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PENDRELL_MISTS": {
+    "scryfallId": "b902b972-3a93-4e4e-aa77-02ada81e6b95",
+    "oracleId": "b18b8415-a0b1-459d-8c6b-896381184935",
+    "name": "Pendrell Mists",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pendrell Mists",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "All creatures have \"At the beginning of your upkeep, sacrifice this creature unless you pay {1}.\"",
+        "flavorText": "As insubstantial—and as insistent—as appetite.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Andrew Robinson",
+        "imageId": "b902b972-3a93-4e4e-aa77-02ada81e6b95"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POULTICE_SLIVER": {
+    "scryfallId": "bc6db2cf-5171-4791-82b4-c9fac37902a3",
+    "oracleId": "6be3cf35-f774-4afb-8c1f-5c9b616a2b3f",
+    "name": "Poultice Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Poultice Sliver",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "All Slivers have \"{2}, {T}: Regenerate target Sliver.\" (The next time that Sliver would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+        "flavorText": "\"Its broad claw suggests a chitinous shield, but in fact it conceals glands that secrete a remarkably swift healing agent.\"\n—Rukarumel, field journal",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "bc6db2cf-5171-4791-82b4-c9fac37902a3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Heal",
+      "Regenerate"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGUS_OF_THE_TABERNACLE": {
+    "scryfallId": "dd520f8c-93fb-4cf3-8dd5-d05abbd86c74",
+    "oracleId": "8ab4d31e-7187-4ba1-97cb-1a0a11ab28bf",
+    "name": "Magus of the Tabernacle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Magus of the Tabernacle",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "All creatures have \"At the beginning of your upkeep, sacrifice this creature unless you pay {1}.\"",
+        "flavorText": "The Tabernacle's disciples channel the emanations from Pendrell Vale, spreading its paradoxical demand to be both worshipped and left alone.",
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "dd520f8c-93fb-4cf3-8dd5-d05abbd86c74"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plc",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHROMATIC_LANTERN": {
+    "scryfallId": "07a2d789-02ca-4d04-917d-b00a93126718",
+    "oracleId": "539f5396-d99a-417d-a84c-dff7930b5900",
+    "name": "Chromatic Lantern",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chromatic Lantern",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Lands you control have \"{T}: Add one mana of any color.\"\n{T}: Add one mana of any color.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Álvarez",
+        "imageId": "07a2d789-02ca-4d04-917d-b00a93126718"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plg25",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOINER_ADEPT": {
+    "scryfallId": "61751365-3acf-4eb8-b1f9-358ebccccf94",
+    "oracleId": "139b098c-d4be-4dca-9bde-9eb8ea97c7bf",
+    "name": "Joiner Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Joiner Adept",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "Lands you control have \"{T}: Add one mana of any color.\"",
+        "flavorText": "A talented apprentice makes all things. The master makes all things possible.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "61751365-3acf-4eb8-b1f9-358ebccccf94"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "271",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOOTLEGGERS_STASH": {
+    "scryfallId": "03721e08-2c5b-4eb7-97de-705f13066bfe",
+    "oracleId": "d1deba03-b26a-4a0d-b242-24bb3a3f9ea6",
+    "name": "Bootleggers' Stash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bootleggers' Stash",
+        "manaCost": "{5}{G}",
+        "typeLine": "Artifact",
+        "oracleText": "Lands you control have \"{T}: Create a Treasure token.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dominik Mayer",
+        "imageId": "03721e08-2c5b-4eb7-97de-705f13066bfe"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "99705",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

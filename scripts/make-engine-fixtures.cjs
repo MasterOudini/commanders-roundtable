@@ -9631,6 +9631,25 @@ const WANTED = [
   'White Widow, Yelena Belova',
   // D516 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Ankle Biter',
+  // D517 - the scoped quoted grants: the rows the whole-leftover row maker rowed (the Slivers, the Backgrounds, the Tabernacles, the land grants).
+  'Zombie Master',
+  'Constricting Sliver',
+  'Lavabelly Sliver',
+  'Crypt Sliver',
+  'Harmonic Sliver',
+  'Screeching Sliver',
+  'Dormant Sliver',
+  'Capricious Sliver',
+  'Candlekeep Sage',
+  'The Tabernacle at Pendrell Vale',
+  'Vile Consumption',
+  'Flaming Fist',
+  'Pendrell Mists',
+  'Poultice Sliver',
+  'Magus of the Tabernacle',
+  'Chromatic Lantern',
+  'Joiner Adept',
+  "Bootleggers' Stash",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
