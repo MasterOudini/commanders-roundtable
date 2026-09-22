@@ -104,6 +104,32 @@ export function ManualToolsDrawer({ tokens }: { tokens: readonly CardData[] }) {
         ))}
       </div>
 
+      {/* D519 - energy counters (CR 122.1): the engine charges them now, so the wrench can set them too. */}
+      <p className={`mt-3 ${LABEL}`}>Energy</p>
+      <div className="mt-1 flex flex-wrap gap-1">
+        {seats.map((seat) => (
+          <div key={seat.id} className="flex items-center gap-0.5">
+            <span className="text-[11px] text-crt-dim">{seat.name}</span>
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-tool={`energy-down-${seat.id}`}
+              onClick={() => send({ t: 'ManualSetEnergy', player: viewer, target: seat.id, delta: -1 })}
+            >
+              −1
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-tool={`energy-up-${seat.id}`}
+              onClick={() => send({ t: 'ManualSetEnergy', player: viewer, target: seat.id, delta: +1 })}
+            >
+              +1
+            </button>
+          </div>
+        ))}
+      </div>
+
       <p className={`mt-3 ${LABEL}`}>Mana</p>
       <div className="mt-1 flex gap-1">
         {(['W', 'U', 'B', 'R', 'G', 'C'] as const).map((symbol) => (

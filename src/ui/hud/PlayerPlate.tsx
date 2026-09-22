@@ -106,6 +106,19 @@ export function PlayerPlate({
         </span>
       )}
 
+      {/* D519 - energy counters (CR 122.1): a resource the engine now tracks and charges, so it has to be
+          READABLE where it is spent (D122). Shown only while any is held, for the poison chip's reason. */}
+      {seat.energy > 0 && (
+        <span
+          className="crt-num rounded px-1 text-xs tabular-nums text-crt-dim"
+          style={{ boxShadow: 'inset 0 0 0 1px currentColor' }}
+          title={`${seat.energy} energy`}
+          data-energy={player}
+        >
+          ⚡ {seat.energy}
+        </span>
+      )}
+
       <div className="ml-auto flex items-center gap-2">
         <ManaPool pool={seat.manaPool} />
       </div>

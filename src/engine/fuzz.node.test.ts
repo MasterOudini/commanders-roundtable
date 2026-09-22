@@ -304,6 +304,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // creature, asked on a tie; the marker `Bolstered` is written on every path (the null-card one too). 1 over 20 seeds with
   // Cached Defenses alone; the two-mana instant is the fuel.
   { names: ['Cached Defenses', 'Abzan Advantage'], copiesPerSeat: 2, counterKeys: ['bolsters'], rotHistory: 'D511' },
+  // D519 - ENERGY (CR 122.1): the enters gain (Sage of Shaila's Claim, Bristling Hydra), the activation the offer withholds
+  // short of the counters (the Hydra's `Pay {E}{E}{E}`), the attack prompt with an energy price (Aether Chaser's Servo).
+  { names: ["Sage of Shaila's Claim", 'Bristling Hydra', 'Aether Chaser'], copiesPerSeat: 3, counterKeys: ['energyGained', 'energyPaid'], rotHistory: 'D519' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1586,6 +1589,9 @@ interface Run {
   readonly wheels: number;
   /** D511 - bolster clauses that ran (a `Bolstered` marker each - a chosen creature or none). */
   readonly bolsters: number;
+  /** D519 - energy counters gained (`EnergyChanged` with a positive delta) and paid (a negative one). */
+  readonly energyGained: number;
+  readonly energyPaid: number;
   /** D512 - additional-phase clauses that ran (an `ExtraPhasesAdded` each). */
   readonly extraCombats: number;
   /** D512 - inserted phases begun (an `ExtraPhasesConsumed` carrying a resume step each). */
@@ -2062,6 +2068,8 @@ function runOne(seed: number): Run {
     massCantBlocks: game.log.filter((e) => e.body.t === 'ScopeWalked' && e.body.verb === 'massCantBlock').length,
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
+    energyGained: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta > 0).length,
+    energyPaid: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta < 0).length,
     extraCombats: game.log.filter((e) => e.body.t === 'ExtraPhasesAdded').length,
     insertedPhases: game.log.filter((e) => e.body.t === 'ExtraPhasesConsumed' && e.body.resume !== null).length,
     statReads: game.log.filter((e) => e.body.t === 'StatRead').length,
@@ -2367,6 +2375,8 @@ const TOTAL_KEYS = [
   'massCantBlocks',
   'wheels',
   'bolsters',
+  'energyGained',
+  'energyPaid',
   'extraCombats',
   'insertedPhases',
   'statReads',
@@ -2821,6 +2831,10 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D511 - a bolster ran at gate size (Cached Defenses and Abzan Advantage two a seat; 4 over the first 60 seeds, canary511 -
         // the marker counts the unasked and the empty paths too).
         expect(totals.bolsters).toBeGreaterThan(0);
+        // D519 - energy was gained and paid at gate size (Sage of Shaila's Claim, Bristling Hydra and Aether Chaser three a
+        // seat; the canary519 figures in the decision).
+        expect(totals.energyGained).toBeGreaterThan(0);
+        expect(totals.energyPaid).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

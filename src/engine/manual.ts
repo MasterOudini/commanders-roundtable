@@ -181,6 +181,23 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       ]);
     }
 
+    // D519 - energy counters, the poison tool's shape: never below zero.
+    case 'ManualSetEnergy': {
+      const target = state.players[intent.target];
+      if (!target) return reject('noSuchPlayer', 'That player is not in this game.');
+      const to = Math.max(0, target.energy + intent.delta);
+      return accept([
+        marker(actor, 'energy', `${intent.target} ${intent.delta > 0 ? '+' : ''}${intent.delta}`),
+        { t: 'EnergyChanged', player: intent.target, delta: to - target.energy, to },
+        narrated(
+          n`${me} ${vb(actor, 'sets', 'set')} ${whoElse(state, actor, intent.target)} to ${to} energy.`,
+          actor,
+          [],
+          true,
+        ),
+      ]);
+    }
+
     case 'ManualAddMana': {
       if (!state.players[intent.target]) return reject('noSuchPlayer', 'That player is not in this game.');
       if (intent.amount < 1 || intent.amount > 100) {

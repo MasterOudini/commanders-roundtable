@@ -113,6 +113,8 @@ export function checkInvariants(state: GameState): string[] {
     }
     if (!Number.isInteger(player.life)) problems.push(`${p} has non-integer life ${player.life}`);
     if (player.poison < 0) problems.push(`${p} has negative poison`);
+    // D519 - energy is never paid below zero: the activation, the offer and the prompt all refuse first.
+    if (player.energy < 0) problems.push(`${p} has negative energy`);
     for (const [k, v] of Object.entries(player.pool)) {
       if (v < 0) problems.push(`${p} has a negative ${k} in their mana pool`);
     }

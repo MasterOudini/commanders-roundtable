@@ -1572,6 +1572,10 @@ function activateAbility(
     ability.lifeCost +
     (ability.lifeCostCommanderColors ? (state.players[intent.player]?.identity.length ?? 0) : 0);
   const problem = buildPaymentProblem(ability.manaCost, 0, [], 0, lifeToPay);
+  // D519 - an energy cost (CR 122.1) is charged in the cost batch; short of the counters the activation is refused here.
+  if (ability.energyCost > (state.players[intent.player]?.energy ?? 0)) {
+    return reject('cannotAfford', `You do not have ${ability.energyCost} energy to pay for ${face.name}.`);
+  }
   const needsTargets = abilitySpecs.length > 0 && intent.targets === undefined;
 
   const pending: PendingCast = {
@@ -1581,6 +1585,7 @@ function activateAbility(
     // lose it (D168); an `Awaiting` blocks every intent in the gap, so the
     // validated choice cannot go stale either.
     ...(ability.sacrificeCost && intent.sacrifice ? { sacrifice: [...intent.sacrifice] } : {}),
+    ...(ability.energyCost > 0 ? { energy: ability.energyCost } : {}),
     ...(ability.discardCost && intent.discard ? { discard: [...intent.discard] } : {}),
     ...(ability.tapCost && intent.tap ? { tap: [...intent.tap] } : {}),
     ...(ability.exileFromGraveyardCost && intent.exileFromGraveyard ? { exileFromGraveyard: [...intent.exileFromGraveyard] } : {}),
@@ -2152,6 +2157,12 @@ function finishAbility(
   // CR 602.2b — the tap is part of the COST, so it is paid now, in this batch.
   if (ability.requiresTap) events.push({ t: 'PermanentsTapped', cards: [pending.card] });
   if (ability.requiresUntap) events.push({ t: 'PermanentsUntapped', cards: [pending.card] });
+  // D519 - the energy cost (CR 122.1), paid in the same batch as the tap: the counters the activation was refused without.
+  if (pending.energy !== undefined && pending.energy > 0) {
+    const held = state.players[pending.player]?.energy ?? 0;
+    if (held < pending.energy) return reject('cannotAfford', `You no longer have ${pending.energy} energy to pay for ${face.name}.`);
+    events.push({ t: 'EnergyChanged', player: pending.player, delta: -pending.energy, to: held - pending.energy });
+  }
   // ⚠️ THE SELF-SACRIFICE IS A COST TOO (CR 602.2b, D159) — paid here, before
   // the ability is on the stack, so the source is already in its owner's
   // graveyard when anything can respond. The move goes through the ordinary
@@ -3400,6 +3411,12 @@ function answerPayMana(
     if (awaiting.life > 0 && (!seat || seat.life < awaiting.life)) {
       return reject('cannotAfford', `You do not have ${awaiting.life} life to pay.`);
     }
+    // D519 - the energy price (CR 122.1): charged from the counters held, refused short of them.
+    const energyAsked = awaiting.energy ?? 0;
+    if (energyAsked > 0 && (!seat || seat.energy < energyAsked)) {
+      return reject('cannotAfford', `You do not have ${energyAsked} energy to pay.`);
+    }
+    if (energyAsked > 0 && seat) events.push({ t: 'EnergyChanged', player: intent.player, delta: -energyAsked, to: seat.energy - energyAsked });
     const problem = buildPaymentProblem(awaiting.cost, 0, [], 0, awaiting.life);
     // D397 - a payment prompt is neither a spell nor an ability: restricted mana never pays it.
     const chosen = intent.plan ?? suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, intent.player), problem, OTHER_PURPOSE);

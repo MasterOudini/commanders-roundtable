@@ -333,7 +333,10 @@ export function answerAwaiting(
       // upkeep until the age counters outgrow the card; a plain tax keeps D126's three.
       const keeps = awaiting.ifNotPaid.some((e) => e.kind === 'sacrificeSelf');
       const worth = keeps && awaiting.source !== null ? (view.cards[awaiting.source]?.card?.cmc ?? 0) : 0;
-      const pay = life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3 || (keeps && mv <= worth));
+      // D519 - an energy price is paid only from energy held (the host refuses otherwise); counters are cheap, so a
+      // benefit is always taken and a tax kept to the mana rule.
+      const energyOk = (view.seats[me]?.energy ?? 0) >= (awaiting.energy ?? 0);
+      const pay = energyOk && life - awaiting.life >= ENTERS_LIFE_FLOOR && (benefit || mv <= 3 || (keeps && mv <= worth));
       return act({ t: 'AnswerPayMana', player: me, pay }, pay ? `pay for ${awaiting.label}` : `decline to pay for ${awaiting.label}`);
     }
     case 'entersChoice': {

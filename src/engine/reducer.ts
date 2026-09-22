@@ -371,6 +371,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
           seat: p.seat,
           life: body.options.startingLife,
           poison: 0,
+          energy: 0,
           pool: EMPTY_POOL,
           poolSnow: EMPTY_POOL,
           poolRestricted: [],
@@ -812,6 +813,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'PoisonChanged':
       return withPlayer(state, body.player, { poison: body.to });
+
+    // D519 - energy counters: the event carries the total, exactly as poison does.
+    case 'EnergyChanged':
+      return withPlayer(state, body.player, { energy: body.to });
 
     case 'MonarchChanged':
       return { ...state, monarch: body.player };

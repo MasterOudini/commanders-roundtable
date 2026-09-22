@@ -141,6 +141,11 @@ export interface PlayerState {
   readonly seat: number;
   readonly life: number;
   readonly poison: number;
+  /**
+   * D519 - ENERGY COUNTERS (CR 122.1, 118.13): a resource on the player, never below zero. `You get {E}{E}` adds,
+   * `Pay {E}` (an activated cost, a payment prompt's price) subtracts; the plate shows it while any is held.
+   */
+  readonly energy: number;
   readonly pool: ManaPool;
   /**
    * D364 - of the mana in `pool`, how much came from a SNOW SOURCE (CR 107.4s).
@@ -625,6 +630,8 @@ export interface PendingCast {
    * untouched.
    */
   readonly sacrifice?: readonly InstanceId[];
+  /** D519 - the energy counters a `Pay {E}` cost charges in `finishAbility`'s cost batch; absent when none. */
+  readonly energy?: number;
   /** The cards a "Discard N" cost chose (D286); charged in the cost batch. */
   readonly discard?: readonly InstanceId[];
   /** The permanents a "Tap N untapped …" cost chose (D286); tapped in the cost batch. */
@@ -1062,6 +1069,8 @@ export type Awaiting =
       readonly player: PlayerId;
       readonly cost: ManaCost | null;
       readonly life: number;
+      /** D519 - the energy counters the price asks (CR 122.1); absent when none, so every older prompt is byte-identical. */
+      readonly energy?: number;
       readonly label: string;
       readonly controller: PlayerId;
       readonly source: InstanceId | null;

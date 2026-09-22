@@ -638,7 +638,8 @@ export function legalActions(
         // a full payment PLAN per ability took the 40-source solver benchmark
         // from under 1 ms to 1.3 ms, and legalActions runs on every priority
         // grant — the plan is only ever needed once, when the player commits.
-        affordable: affordable(context.solve, problem, abilityPurpose(d.typeLine, d.colors)),
+        // D519 - an energy cost is affordable from the counters held (CR 122.1), beside the mana and the life.
+        affordable: affordable(context.solve, problem, abilityPurpose(d.typeLine, d.colors)) && (state.players[player]?.energy ?? 0) >= ability.energyCost,
         requiresTap: ability.requiresTap,
         costText: ability.costText,
         effectText: ability.effectText,

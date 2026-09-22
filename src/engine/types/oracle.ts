@@ -728,6 +728,8 @@ export type EffectKind =
    */
   | 'mill'
   | 'gainLife'
+  /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
+  | 'gainEnergy'
   | 'loseLife'
   /**
    * D295 - a sentence about the TARGET'S CONTROLLER ("Its controller loses 2
@@ -1104,6 +1106,8 @@ export interface PaySpec {
   /** The mana, printed; `null` when the price is life alone or a verb (D415). Never carries X. */
   readonly cost: ManaCost | null;
   readonly life: number;
+  /** D519 - the ENERGY in the price (`you may pay {E}{E}`): counters, never mana. REQUIRED (D355/D356's rule), 0 elsewhere. */
+  readonly energy: number;
   /** D415 - the chooser-verb price; REQUIRED (D355/D356's rule), null when the price is mana and/or life. */
   readonly verbs: VerbPrice | null;
   readonly who: 'controller' | 'targetController' | 'targetPlayer';
@@ -1556,6 +1560,8 @@ export interface ActivatedAbility {
   readonly requiresUntap: boolean;
   /** `Pay 3 life`. 0 when there is none. */
   readonly lifeCost: number;
+  /** D519 - `Pay {E}{E}`: energy counters the activation charges (CR 122.1, 118.13). 0 when there is none. */
+  readonly energyCost: number;
   /**
    * `Pay life equal to the number of colors in your commanders' color
    * identity` — War Room's exact phrase, and only that phrase (D90). The

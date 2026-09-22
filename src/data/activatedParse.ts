@@ -487,6 +487,7 @@ export function parseActivatedAbilities(
         requiresUntap: false,
         lifeCost: 0,
         lifeCostCommanderColors: false,
+        energyCost: 0,
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
@@ -532,6 +533,7 @@ export function parseActivatedAbilities(
         requiresUntap: false,
         lifeCost: 0,
         lifeCostCommanderColors: false,
+        energyCost: 0,
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
@@ -577,6 +579,7 @@ export function parseActivatedAbilities(
           requiresUntap: false,
           lifeCost: 0,
           lifeCostCommanderColors: false,
+          energyCost: 0,
           sacrificesSelf: false,
           sacrificeCost: null,
           discardCost: null,
@@ -617,6 +620,7 @@ export function parseActivatedAbilities(
           requiresUntap: false,
           lifeCost: 0,
           lifeCostCommanderColors: false,
+          energyCost: 0,
           sacrificesSelf: false,
           sacrificeCost: null,
           discardCost: null,
@@ -657,6 +661,7 @@ export function parseActivatedAbilities(
           requiresUntap: false,
           lifeCost: 0,
           lifeCostCommanderColors: false,
+          energyCost: 0,
           sacrificesSelf: false,
           sacrificeCost: null,
           discardCost: null,
@@ -699,6 +704,7 @@ export function parseActivatedAbilities(
           requiresUntap: false,
           lifeCost: 0,
           lifeCostCommanderColors: false,
+          energyCost: 0,
           sacrificesSelf: false,
           sacrificeCost: null,
           discardCost: null,
@@ -737,6 +743,7 @@ export function parseActivatedAbilities(
         requiresUntap: false,
         lifeCost: 0,
         lifeCostCommanderColors: false,
+        energyCost: 0,
         sacrificesSelf: false,
         sacrificeCost: null,
         discardCost: null,
@@ -773,6 +780,8 @@ export function parseActivatedAbilities(
     let requiresUntap = false;
     let lifeCost = 0;
     let lifeCostCommanderColors = false;
+    // D519 - `Pay {E}{E}`: energy counters, one per symbol (CR 122.1).
+    let energyCost = 0;
     let sacrificesSelf = false;
     let sacrificeCost: ActivatedAbility['sacrificeCost'] = null;
     let discardCost: ActivatedAbility['discardCost'] = null;
@@ -805,6 +814,11 @@ export function parseActivatedAbilities(
       }
       if (MANA_ONLY_RE.test(part)) {
         manaSymbols.push(part);
+        continue;
+      }
+      const energy = part.trim().match(/^pay ((?:\{E\})+)$/i);
+      if (energy) {
+        energyCost += (energy[1] ?? '').split('{E}').length - 1;
         continue;
       }
       const life = part.match(LIFE_RE);
@@ -1066,6 +1080,7 @@ export function parseActivatedAbilities(
       requiresUntap,
       lifeCost,
       lifeCostCommanderColors,
+      energyCost,
       sacrificesSelf,
       sacrificeCost,
       discardCost,
@@ -1154,6 +1169,8 @@ export function readCostVerbs(costText: string, parseCost: (raw: string, warn?: 
   if (a.discardCost?.atRandom) return null;
   const verbs = [a.sacrificeCost, a.discardCost, a.tapCost, a.exileFromGraveyardCost, a.returnCost].filter((x) => x !== null).length;
   if (verbs + (a.lifeCost > 0 ? 1 : 0) !== 1) return null;
+  // D519 - an energy price is not a verb price (the prompt reads it as `energy`, D519).
+  if (a.energyCost > 0) return null;
   // A tap cost with a power floor is crew's shape, not a cast cost.
   if (a.tapCost && a.tapCost.powerAtLeast !== undefined) return null;
   return { costText, lifeCost: a.lifeCost, sacrificeCost: a.sacrificeCost, discardCost: a.discardCost, tapCost: a.tapCost, exileFromGraveyardCost: a.exileFromGraveyardCost, returnCost: a.returnCost };

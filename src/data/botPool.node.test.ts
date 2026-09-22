@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(729);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(731);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(13);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -462,14 +462,14 @@ const POOL: Record<string, number> = {
   // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
-  creature: 7224,
+  creature: 7255,
   instant: 1548,
   sorcery: 1201,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 681,
-  artifact: 665,
-  enchantment: 729,
+  artifact: 668,
+  enchantment: 731,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 13,
 };

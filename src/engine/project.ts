@@ -274,6 +274,7 @@ export class Projector {
         life: player.life,
         cmdDamage: commanderDamageByPlayer(state, p),
         poison: player.poison,
+        energy: player.energy,
         manaPool: player.pool as Record<ManaSymbol, number>,
         identity: player.identity as ColorLetter[],
         lost: player.hasLost,
@@ -456,6 +457,7 @@ function sameSeatView(a: SeatView, b: SeatView): boolean {
     a.name === b.name &&
     a.life === b.life &&
     a.poison === b.poison &&
+    a.energy === b.energy &&
     a.lost === b.lost &&
     sameIds(a.identity, b.identity) &&
     sameCounters(a.cmdDamage as Record<string, number>, b.cmdDamage as Record<string, number>) &&

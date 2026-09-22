@@ -294,6 +294,8 @@ export type EventBody =
   // ── players ──────────────────────────────────────────────────────────────
   | { readonly t: 'LifeChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   | { readonly t: 'PoisonChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
+  /** D519 - energy counters gained or paid (CR 122.1): `to` is the player's total after, the reducer applies it. */
+  | { readonly t: 'EnergyChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   /** D332 - CR 724: the crown moves to `player`. */
   | { readonly t: 'MonarchChanged'; readonly player: PlayerId }
   /**

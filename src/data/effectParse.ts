@@ -1452,6 +1452,12 @@ const RULES: readonly Rule[] = [
     re: new RegExp(`^(?:you )?gain life equal to (${COUNTED}target ${ADJECTIVE}creature${CONTROLLER}${QUALIFIER})'s (power|toughness)\\.$`, 'i'),
     build: (m) => ({ ...BASE, stat: (m[2] ?? 'toughness').toLowerCase() === 'power' ? 'power' : 'toughness' }),
   },
+  // D519 - ENERGY: `You get {E}{E}.` - one counter per symbol printed (CR 122.1).
+  {
+    kind: 'gainEnergy',
+    re: /^you get ((?:\{E\})+)\.$/i,
+    build: (m) => ({ ...BASE, amount: (m[1] ?? '').split('{E}').length - 1, targetIndex: -1, self: true }),
+  },
   {
     kind: 'gainLife',
     re: new RegExp(`^you gain (${NUM}) life\\.$`, 'i'),
@@ -2673,13 +2679,18 @@ function readVerbPrice(raw: string): VerbPrice | null {
 }
 const PAY_BODY_REFUSED: ReadonlySet<EffectKind> = new Set(['discard', 'lookAtTop', 'scry', 'surveil', 'search', 'payOptional', 'sacrifice', 'proliferate', 'explore', 'connive', 'revealHandChoose', 'putFromHand', 'untapChoose', 'wheelShuffle', 'bolster']);
 
-function readPrice(raw: string): { cost: PaySpec['cost']; life: number } | null {
+function readPrice(raw: string): { cost: PaySpec['cost']; life: number; energy: number } | null {
   const life = raw.match(/(\d+) life$/i);
+  // D519 - `{E}` is ENERGY, not mana: counted out of the symbols before the mana parser sees them (which read
+  // `{E}{E}` as an empty cost - a free price). A price mixing energy and mana is not printed; refused if it were.
+  const energy = (raw.match(/\{E\}/g) ?? []).length;
+  if (energy > 0 && /\{(?!E\})[^}]*\}/.test(raw)) return null;
+  if (energy > 0) return { cost: null, life: life ? Number(life[1]) : 0, energy };
   const mana = raw.match(/^(?:\{[^}]+\})+/);
   const cost = mana ? parseManaCost(mana[0]) : null;
   // D422 - a price of `{X}` is the spell's announced X, substituted as the prompt is raised (`obj.xValue`).
   if (mana && (cost === null || mana[0].includes('~'))) return null;
-  return { cost, life: life ? Number(life[1]) : 0 };
+  return { cost, life: life ? Number(life[1]) : 0, energy: 0 };
 }
 
 /** D493 - the look grammar's pieces (see the rule): the TAKE sentence forms and the REST sentence forms. */
@@ -2788,21 +2799,21 @@ function matchPayment(sentence: string): EffectSpec | null {
     const inner = payBody(u[1] ?? '');
     if (!price || !inner) return null;
     const who = /^its controller$/i.test(u[2] ?? '') ? 'targetController' : /^(?:that player|target player|they)$/i.test(u[2] ?? '') ? 'targetPlayer' : 'controller';
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who, ifPaid: [], ifNotPaid: [inner] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, energy: price.energy, verbs: null, who, ifPaid: [], ifNotPaid: [inner] } };
   }
   const tm = sentence.match(TARGET_MAY_PAY_RE);
   if (tm) {
     const price = readPrice(tm[1] ?? '');
     const inner = payBody(tm[2] ?? '');
     if (!price || !inner) return null;
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who: 'targetPlayer', ifPaid: [], ifNotPaid: [inner] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, energy: price.energy, verbs: null, who: 'targetPlayer', ifPaid: [], ifNotPaid: [inner] } };
   }
   const m = sentence.match(MAY_PAY_RE);
   if (m) {
     const price = readPrice(m[1] ?? '');
     const inner = payBody(m[2] ?? '');
     if (!price || !inner) return null;
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, verbs: null, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: price.cost, life: price.life, energy: price.energy, verbs: null, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   // D415 - the verb prices, after the mana forms (`pay` is not a verb lead, so neither shadows the other).
   const uv = sentence.match(UNLESS_VERB_RE);
@@ -2810,14 +2821,14 @@ function matchPayment(sentence: string): EffectSpec | null {
     const verbs = readVerbPrice(uv[2] ?? '');
     const inner = payBody(uv[1] ?? '');
     if (!verbs || !inner) return null;
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [inner] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [inner] } };
   }
   const mv = sentence.match(MAY_VERB_RE);
   if (mv) {
     const verbs = readVerbPrice(mv[1] ?? '');
     const inner = payBody(mv[2] ?? '');
     if (!verbs || !inner) return null;
-    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, verbs, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
+    return { ...BASE, kind: 'payOptional', text: sentence, targetIndex: inner.targetIndex, self: inner.self, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [inner], ifNotPaid: [] } };
   }
   return null;
 }

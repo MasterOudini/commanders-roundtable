@@ -7,6 +7,42 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BRISTLING_HYDRA_SCRIPT } from './cards/bristlingHydra';
+import { SAGE_OF_SHAILAS_CLAIM_SCRIPT } from './cards/sageOfShailasClaim';
+import { DECOCTION_MODULE_SCRIPT } from './cards/decoctionModule';
+import { MINISTER_OF_INQUIRIES_SCRIPT } from './cards/ministerOfInquiries';
+import { SCRAPPER_CHAMPION_SCRIPT } from './cards/scrapperChampion';
+import { LATHNU_HELLION_SCRIPT } from './cards/lathnuHellion';
+import { CONSULATE_TURRET_SCRIPT } from './cards/consulateTurret';
+import { SHIPWRECK_MORAY_SCRIPT } from './cards/shipwreckMoray';
+import { AETHER_CHASER_SCRIPT } from './cards/aetherChaser';
+import { DYNAVOLT_TOWER_SCRIPT } from './cards/dynavoltTower';
+import { THRIVING_SKYCLAW_SCRIPT } from './cards/thrivingSkyclaw';
+import { ROGUE_REFINER_SCRIPT } from './cards/rogueRefiner';
+import { CONSULS_SHIELDGUARD_SCRIPT } from './cards/consulsShieldguard';
+import { THRIVING_RATS_SCRIPT } from './cards/thrivingRats';
+import { THRIVING_RHINO_SCRIPT } from './cards/thrivingRhino';
+import { CONDUIT_GOBLIN_SCRIPT } from './cards/conduitGoblin';
+import { THRIVING_TURTLE_SCRIPT } from './cards/thrivingTurtle';
+import { EDDYTRAIL_HAWK_SCRIPT } from './cards/eddytrailHawk';
+import { TEMPEST_HARVESTER_SCRIPT } from './cards/tempestHarvester';
+import { WHIRLER_VIRTUOSO_SCRIPT } from './cards/whirlerVirtuoso';
+import { GONTIS_MACHINATIONS_SCRIPT } from './cards/gontisMachinations';
+import { SMELTED_CHARGEBUG_SCRIPT } from './cards/smeltedChargebug';
+import { SHIELDED_AETHER_THIEF_SCRIPT } from './cards/shieldedAetherThief';
+import { AETHER_THEORIST_SCRIPT } from './cards/aetherTheorist';
+import { AETHER_SWOOPER_SCRIPT } from './cards/aetherSwooper';
+import { THRIVING_IBEX_SCRIPT } from './cards/thrivingIbex';
+import { INSPIRED_INVENTOR_SCRIPT } from './cards/inspiredInventor';
+import { AETHER_POISONER_SCRIPT } from './cards/aetherPoisoner';
+import { LONGTUSK_CUB_SCRIPT } from './cards/longtuskCub';
+import { MAXIMUS_KNIGHT_APPARENT_SCRIPT } from './cards/maximusKnightApparent';
+import { SPONTANEOUS_ARTIST_SCRIPT } from './cards/spontaneousArtist';
+import { THRIVING_GRUBS_SCRIPT } from './cards/thrivingGrubs';
+import { STATIC_PRISON_SCRIPT } from './cards/staticPrison';
+import { AETHER_INSPECTOR_SCRIPT } from './cards/aetherInspector';
+import { AETHER_HERDER_SCRIPT } from './cards/aetherHerder';
+import { SOLSTICE_ZEALOT_SCRIPT } from './cards/solsticeZealot';
 import { MORTARPOD_SCRIPT } from './cards/mortarpod';
 import { LUNARCH_MANTLE_SCRIPT } from './cards/lunarchMantle';
 import { COMPULSORY_REST_SCRIPT } from './cards/compulsoryRest';
@@ -7929,6 +7965,42 @@ import { ONULET_SCRIPT } from './cards/onulet';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRISTLING_HYDRA_SCRIPT,
+  SAGE_OF_SHAILAS_CLAIM_SCRIPT,
+  DECOCTION_MODULE_SCRIPT,
+  MINISTER_OF_INQUIRIES_SCRIPT,
+  SCRAPPER_CHAMPION_SCRIPT,
+  LATHNU_HELLION_SCRIPT,
+  CONSULATE_TURRET_SCRIPT,
+  SHIPWRECK_MORAY_SCRIPT,
+  AETHER_CHASER_SCRIPT,
+  DYNAVOLT_TOWER_SCRIPT,
+  THRIVING_SKYCLAW_SCRIPT,
+  ROGUE_REFINER_SCRIPT,
+  CONSULS_SHIELDGUARD_SCRIPT,
+  THRIVING_RATS_SCRIPT,
+  THRIVING_RHINO_SCRIPT,
+  CONDUIT_GOBLIN_SCRIPT,
+  THRIVING_TURTLE_SCRIPT,
+  EDDYTRAIL_HAWK_SCRIPT,
+  TEMPEST_HARVESTER_SCRIPT,
+  WHIRLER_VIRTUOSO_SCRIPT,
+  GONTIS_MACHINATIONS_SCRIPT,
+  SMELTED_CHARGEBUG_SCRIPT,
+  SHIELDED_AETHER_THIEF_SCRIPT,
+  AETHER_THEORIST_SCRIPT,
+  AETHER_SWOOPER_SCRIPT,
+  THRIVING_IBEX_SCRIPT,
+  INSPIRED_INVENTOR_SCRIPT,
+  AETHER_POISONER_SCRIPT,
+  LONGTUSK_CUB_SCRIPT,
+  MAXIMUS_KNIGHT_APPARENT_SCRIPT,
+  SPONTANEOUS_ARTIST_SCRIPT,
+  THRIVING_GRUBS_SCRIPT,
+  STATIC_PRISON_SCRIPT,
+  AETHER_INSPECTOR_SCRIPT,
+  AETHER_HERDER_SCRIPT,
+  SOLSTICE_ZEALOT_SCRIPT,
   MORTARPOD_SCRIPT,
   LUNARCH_MANTLE_SCRIPT,
   COMPULSORY_REST_SCRIPT,

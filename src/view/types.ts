@@ -194,6 +194,8 @@ export interface SeatView {
    * be visible before it fires.
    */
   poison: number;
+  /** D519 - energy counters (CR 122.1), shown on the plate while any are held; the payment prompt names its price. */
+  energy: number;
   manaPool: Record<ManaSymbol, number>;
   /**
    * Colour identity of this seat's commander. Drives the nameplate's gradient

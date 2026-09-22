@@ -92,6 +92,7 @@ function seat(id: string) {
     life: 40,
     cmdDamage: {},
     poison: 0,
+    energy: 0,
     manaPool: {},
     lost: false,
   };

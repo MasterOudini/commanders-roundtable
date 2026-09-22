@@ -294464,6 +294464,1214 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BRISTLING_HYDRA": {
+    "scryfallId": "095ac316-dd28-4e2d-83f9-6e2d05a499a6",
+    "oracleId": "b3b23c58-0b7a-4fe4-a8e8-5320a7605724",
+    "name": "Bristling Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bristling Hydra",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "When this creature enters, you get {E}{E}{E} (three energy counters).\nPay {E}{E}{E}: Put a +1/+1 counter on this creature. It gains hexproof until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "095ac316-dd28-4e2d-83f9-6e2d05a499a6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pkld",
+    "collectorNumber": "147s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAGE_OF_SHAILA_S_CLAIM": {
+    "scryfallId": "0987d29a-2043-4341-89d5-5e34bb6507e2",
+    "oracleId": "a0b413cc-b16f-4112-8061-2ccded7f481d",
+    "name": "Sage of Shaila's Claim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sage of Shaila's Claim",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Druid",
+        "oracleText": "When this creature enters, you get {E}{E}{E} (three energy counters).",
+        "flavorText": "Even now, Shaila's descendants proudly occupy the greenway that she refused to relinquish to the Consulate.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "0987d29a-2043-4341-89d5-5e34bb6507e2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DECOCTION_MODULE": {
+    "scryfallId": "0e63512b-32a4-495a-8f8d-273e74505995",
+    "oracleId": "1daba4f6-2a7d-426a-97d1-0298a7100c45",
+    "name": "Decoction Module",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Decoction Module",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever a creature you control enters, you get {E} (an energy counter).\n{4}, {T}: Return target creature you control to its owner's hand.",
+        "flavorText": "Progress leads to inspiration.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aaron Miller",
+        "imageId": "0e63512b-32a4-495a-8f8d-273e74505995"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "drc",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINISTER_OF_INQUIRIES": {
+    "scryfallId": "0e6c31d1-6e2a-41b3-aa4f-d30a7cd997d2",
+    "oracleId": "99894900-771f-4fca-bebf-9f23ec4654c2",
+    "name": "Minister of Inquiries",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Minister of Inquiries",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Vedalken Advisor",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\n{T}, Pay {E}: Target player mills three cards.",
+        "flavorText": "\"This research violates Consulate law.\"",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "0e6c31d1-6e2a-41b3-aa4f-d30a7cd997d2"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCRAPPER_CHAMPION": {
+    "scryfallId": "117ef25c-e9cf-4801-a753-2c329c2a8bdb",
+    "oracleId": "4fa99dc1-c2d2-4b21-8511-e3d86626609d",
+    "name": "Scrapper Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scrapper Champion",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Double strike (This creature deals both first-strike and regular combat damage.)\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "117ef25c-e9cf-4801-a753-2c329c2a8bdb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Double strike"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LATHNU_HELLION": {
+    "scryfallId": "14050179-84af-46f6-89be-338f8e7131cc",
+    "oracleId": "6dd71453-63ec-4f4c-87d2-34d207398b9a",
+    "name": "Lathnu Hellion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lathnu Hellion",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Hellion",
+        "oracleText": "Haste\nWhen this creature enters, you get {E}{E} (two energy counters).\nAt the beginning of your end step, sacrifice this creature unless you pay {E}{E}.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "14050179-84af-46f6-89be-338f8e7131cc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSULATE_TURRET": {
+    "scryfallId": "1b67f56e-f35f-4b10-8ec1-baa1a348d3c2",
+    "oracleId": "14d71432-c2e6-4c81-92ef-cf98e1fcf5f8",
+    "name": "Consulate Turret",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Consulate Turret",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: You get {E} (an energy counter).\n{T}, Pay {E}{E}{E}: This artifact deals 2 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Eric Deschamps",
+        "imageId": "1b67f56e-f35f-4b10-8ec1-baa1a348d3c2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIPWRECK_MORAY": {
+    "scryfallId": "284c6de3-4e09-40d9-afdb-89ff08e1844b",
+    "oracleId": "6c0b07c4-bb7c-4100-81e5-b0ee95d18625",
+    "name": "Shipwreck Moray",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shipwreck Moray",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "When this creature enters, you get {E}{E}{E}{E} (four energy counters).\nPay {E}: This creature gets +2/-2 until end of turn.",
+        "flavorText": "Shipwrecks do wonders for the local fauna, providing both shelter and aether.",
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "284c6de3-4e09-40d9-afdb-89ff08e1844b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_CHASER": {
+    "scryfallId": "290cde84-d97a-4737-aff2-c443a4e43f7d",
+    "oracleId": "8aab0b55-2779-43c7-a3ee-151b8e5c72f3",
+    "name": "Aether Chaser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Chaser",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "First strike\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "290cde84-d97a-4737-aff2-c443a4e43f7d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DYNAVOLT_TOWER": {
+    "scryfallId": "341efd3c-b6c8-4c14-bdef-d00a32383d78",
+    "oracleId": "59f56dd9-cc82-4f0d-a522-0d8ed274fa40",
+    "name": "Dynavolt Tower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dynavolt Tower",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you cast an instant or sorcery spell, you get {E}{E} (two energy counters).\n{T}, Pay {E}{E}{E}{E}{E}: This artifact deals 3 damage to any target.",
+        "flavorText": "\"I like that Tezzeret. He has vision the other judges don't. He sees the potential in what we're making here.\"\n—Faiz, inventor",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Titus Lunter",
+        "imageId": "341efd3c-b6c8-4c14-bdef-d00a32383d78"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pkld",
+    "collectorNumber": "208s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_SKYCLAW": {
+    "scryfallId": "465857f2-df08-4f7b-b4fe-b16831ac0eb1",
+    "oracleId": "d268143f-27f0-4f14-8cd3-481923aaff6d",
+    "name": "Thriving Skyclaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Skyclaw",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Cat Dragon",
+        "oracleText": "Flying\nWhen this creature enters, you get {E}{E}{E} (three energy counters).\nWhenever this creature attacks, you may pay {E}{E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": "As wild as unbound aether, and just as dangerous.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "465857f2-df08-4f7b-b4fe-b16831ac0eb1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROGUE_REFINER": {
+    "scryfallId": "4d2f716f-97b3-49dd-b52c-0030d20b1c7f",
+    "oracleId": "b2f09e41-0a91-4fb6-8804-874b3a5166b0",
+    "name": "Rogue Refiner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rogue Refiner",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, draw a card and you get {E}{E} (two energy counters).",
+        "flavorText": "\"It's natural, it's all around us, and it's there for the taking. Just try and tell me what I'm doing is wrong.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "4d2f716f-97b3-49dd-b52c-0030d20b1c7f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "drc",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSUL_S_SHIELDGUARD": {
+    "scryfallId": "52b66d65-1981-4abf-b27f-e9a1b2800110",
+    "oracleId": "c1a3eeef-7ea5-4d58-9e6f-91bbf1c2cc8c",
+    "name": "Consul's Shieldguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Consul's Shieldguard",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Dwarf Soldier",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}. If you do, another target attacking creature gains indestructible until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "52b66d65-1981-4abf-b27f-e9a1b2800110"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_RATS": {
+    "scryfallId": "52ba911b-6a52-4430-8f61-63bdae25c16a",
+    "oracleId": "0bb8500a-bc29-43f1-ab22-2b8adeb9c99d",
+    "name": "Thriving Rats",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Rats",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": "In Ghirapur, even the lowliest residents live in lavish surroundings.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tom Babbey",
+        "imageId": "52ba911b-6a52-4430-8f61-63bdae25c16a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_RHINO": {
+    "scryfallId": "5acf10ec-f2dd-4569-909b-ac52a9ed6adf",
+    "oracleId": "d8841f3a-f3ff-42ca-89a8-0cc1c3ca6a6c",
+    "name": "Thriving Rhino",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Rhino",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Rhino",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": "As unpredictable as aether, and just as hard to contain.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "5acf10ec-f2dd-4569-909b-ac52a9ed6adf"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "171",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONDUIT_GOBLIN": {
+    "scryfallId": "5c9ad04d-c4d4-4d06-93bb-a881be733717",
+    "oracleId": "0d3a38ff-4b75-4e97-9d8f-c54f441f8208",
+    "name": "Conduit Goblin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conduit Goblin",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nAt the beginning of combat on your turn, you may pay {E}. If you do, another target creature you control gets +1/+0 and gains haste until end of turn.",
+        "flavorText": "Warned against wearing metal in a lightning storm, Smurt took it as a challenge.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Bruno Biazotto",
+        "imageId": "5c9ad04d-c4d4-4d06-93bb-a881be733717"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_TURTLE": {
+    "scryfallId": "5d6e23d4-3306-40d6-9138-9c189af1ea0e",
+    "oracleId": "85dda096-48b2-414e-8c4d-4ffa6e5dac11",
+    "name": "Thriving Turtle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Turtle",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jeff Simpson",
+        "imageId": "5d6e23d4-3306-40d6-9138-9c189af1ea0e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EDDYTRAIL_HAWK": {
+    "scryfallId": "6176ef6b-3876-41c2-86a8-d4f3bc2cdae1",
+    "oracleId": "748729bf-bfa0-4cbf-b643-ed5d7d007081",
+    "name": "Eddytrail Hawk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eddytrail Hawk",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}. If you do, another target attacking creature gains flying until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "James Paick",
+        "imageId": "6176ef6b-3876-41c2-86a8-d4f3bc2cdae1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPEST_HARVESTER": {
+    "scryfallId": "62a3fc3f-f5cd-45f1-a3d5-d90c9dd4f6c7",
+    "oracleId": "5c0ffe37-16ce-4788-a434-58b6fc34bd9c",
+    "name": "Tempest Harvester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempest Harvester",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\n{T}, Pay {E}: Draw a card, then discard a card.",
+        "flavorText": "\"The Golden City was a trinket compared to the power that lies beneath the waves.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Runa I. Rosenberger",
+        "imageId": "62a3fc3f-f5cd-45f1-a3d5-d90c9dd4f6c7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHIRLER_VIRTUOSO": {
+    "scryfallId": "634c5d10-f71b-4673-b1d7-059f47717da9",
+    "oracleId": "f82da236-e567-4221-a0bc-439a0c7e2b03",
+    "name": "Whirler Virtuoso",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whirler Virtuoso",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Creature — Vedalken Artificer",
+        "oracleText": "When this creature enters, you get {E}{E}{E} (three energy counters).\nPay {E}{E}{E}: Create a 1/1 colorless Thopter artifact creature token with flying.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "634c5d10-f71b-4673-b1d7-059f47717da9"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GONTI_S_MACHINATIONS": {
+    "scryfallId": "6c97f5a9-6e04-45c3-aa8d-dcf0fd81d5b9",
+    "oracleId": "4e6238d8-bd6a-4952-a7dd-9c41a78a2cba",
+    "name": "Gonti's Machinations",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gonti's Machinations",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you lose life for the first time each turn, you get {E}. (You get an energy counter. Damage causes loss of life.)\nPay {E}{E}, Sacrifice this enchantment: Each opponent loses 3 life. You gain life equal to the life lost this way.",
+        "flavorText": "\"I am confident that all our enterprises can benefit from this little revolution.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daarken",
+        "imageId": "6c97f5a9-6e04-45c3-aa8d-dcf0fd81d5b9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMELTED_CHARGEBUG": {
+    "scryfallId": "7dad40bf-2cd0-47f5-a878-9a289d1d58d0",
+    "oracleId": "8bc30bd5-554e-4fcf-9dec-c7634921858a",
+    "name": "Smelted Chargebug",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smelted Chargebug",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact Creature — Insect",
+        "oracleText": "Menace\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}. If you do, another target attacking creature gets +1/+0 and gains menace until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jonas De Ro",
+        "imageId": "7dad40bf-2cd0-47f5-a878-9a289d1d58d0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIELDED_AETHER_THIEF": {
+    "scryfallId": "8075899c-15de-4e3d-82bd-82310c1fa56a",
+    "oracleId": "514df71a-138f-460f-a03c-bd1af8e146e2",
+    "name": "Shielded Aether Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shielded Aether Thief",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Vedalken Rogue",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhenever this creature blocks, you get {E} (an energy counter).\n{T}, Pay {E}{E}{E}: Draw a card.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "8075899c-15de-4e3d-82bd-82310c1fa56a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "64",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_THEORIST": {
+    "scryfallId": "882b5580-ee23-4d65-a2b3-82475d6faf8e",
+    "oracleId": "b07ef53e-46db-457e-a5a2-846bb9805b70",
+    "name": "Aether Theorist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Theorist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Vedalken Rogue",
+        "oracleText": "When this creature enters, you get {E}{E}{E} (three energy counters).\n{T}, Pay {E}: Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "882b5580-ee23-4d65-a2b3-82475d6faf8e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_SWOOPER": {
+    "scryfallId": "8c34dbe3-3a66-40b3-a5c2-c2d6acb47773",
+    "oracleId": "f7ed301a-dce7-49d0-a68a-d3a099201f65",
+    "name": "Aether Swooper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Swooper",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Vedalken Artificer",
+        "oracleText": "Flying\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "James Ryman",
+        "imageId": "8c34dbe3-3a66-40b3-a5c2-c2d6acb47773"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "aer",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_IBEX": {
+    "scryfallId": "8edc7c57-9298-4fad-a0c2-4b75b944e2ce",
+    "oracleId": "3f523026-beda-4549-96c0-e92108170261",
+    "name": "Thriving Ibex",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Ibex",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Goat",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": "Textiles at the Inventors' Fair feature threads from every corner of Kaladesh.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "8edc7c57-9298-4fad-a0c2-4b75b944e2ce"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSPIRED_INVENTOR": {
+    "scryfallId": "9143fc7c-f4eb-4f06-97b9-f912237a055f",
+    "oracleId": "126679aa-f150-4949-8566-12d223af3960",
+    "name": "Inspired Inventor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inspired Inventor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, choose one —\n• You get {E}{E}{E} (three energy counters).\n• Put a +1/+1 counter on target creature.\n• Create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Valle",
+        "imageId": "9143fc7c-f4eb-4f06-97b9-f912237a055f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_POISONER": {
+    "scryfallId": "9503d214-7268-4617-b1a8-51b6d520a029",
+    "oracleId": "73757d44-7889-416b-94d2-e730e601ace3",
+    "name": "Aether Poisoner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Poisoner",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Deathtouch (Any amount of damage this deals to a creature is enough to destroy it.)\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "9503d214-7268-4617-b1a8-51b6d520a029"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LONGTUSK_CUB": {
+    "scryfallId": "9b23c10f-0a01-4c2c-a5fd-f3d69bf54601",
+    "oracleId": "d2e78392-096a-4bd0-be19-9c54dfb8451f",
+    "name": "Longtusk Cub",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Longtusk Cub",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Whenever this creature deals combat damage to a player, you get {E}{E} (two energy counters).\nPay {E}{E}: Put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "9b23c10f-0a01-4c2c-a5fd-f3d69bf54601"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "klr",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAXIMUS_KNIGHT_APPARENT": {
+    "scryfallId": "b2caf8e8-f98f-484f-b233-54ccf71ff9b9",
+    "oracleId": "23f0d43c-f84d-48cf-8ee7-bfda6e0f7e29",
+    "name": "Maximus, Knight Apparent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maximus, Knight Apparent",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Human Knight",
+        "oracleText": "Trample\nWhen Maximus enters, you may search your library for an Equipment card with mana value 2, reveal it, put it into your hand, then shuffle.\n{1}, Sacrifice an artifact: You get {E}{E} (two energy counters).",
+        "flavorText": "\"It is a knight's duty to better this fallen world.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ryan Valle",
+        "imageId": "b2caf8e8-f98f-484f-b233-54ccf71ff9b9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "2449",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPONTANEOUS_ARTIST": {
+    "scryfallId": "b8bbeb22-5e50-4b90-b756-9d420f9cfe7f",
+    "oracleId": "c0602911-7d44-4a7a-a04c-837036ed3b82",
+    "name": "Spontaneous Artist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spontaneous Artist",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, you get {E} (an energy counter).\nPay {E}: Target creature gains haste until end of turn.",
+        "flavorText": "Graffiti of the \"leaking spire\" symbol is found wherever the renegades have been.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "b8bbeb22-5e50-4b90-b756-9d420f9cfe7f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THRIVING_GRUBS": {
+    "scryfallId": "bbc3184a-eeda-4f22-92de-257c20cff6e2",
+    "oracleId": "30ec09e4-82bf-4a6b-b6c8-ff267447e0a9",
+    "name": "Thriving Grubs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thriving Grubs",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Gremlin",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, put a +1/+1 counter on it.",
+        "flavorText": "Some passengers ride without tickets.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "bbc3184a-eeda-4f22-92de-257c20cff6e2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "kld",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STATIC_PRISON": {
+    "scryfallId": "dd16222e-349c-4a2b-a7c8-8eb35a8ab332",
+    "oracleId": "b1bc8e58-ea4f-46a9-b833-d780cf6758b3",
+    "name": "Static Prison",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Static Prison",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield. You get {E}{E} (two energy counters).\nAt the beginning of your first main phase, sacrifice this enchantment unless you pay {E}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "dd16222e-349c-4a2b-a7c8-8eb35a8ab332"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_INSPECTOR": {
+    "scryfallId": "e0ae3458-4231-478f-9209-50ab70cf1eea",
+    "oracleId": "9373a176-a5e9-4fdc-906b-bc6aef657e5b",
+    "name": "Aether Inspector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Inspector",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "Vigilance\nWhen this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "e0ae3458-4231-478f-9209-50ab70cf1eea"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHER_HERDER": {
+    "scryfallId": "e8744a31-451b-4349-8f62-e2392a72a154",
+    "oracleId": "be89a032-8ade-4048-b95d-76e958dca330",
+    "name": "Aether Herder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aether Herder",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Artificer Druid",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\nWhenever this creature attacks, you may pay {E}{E}. If you do, create a 1/1 colorless Servo artifact creature token.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "e8744a31-451b-4349-8f62-e2392a72a154"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLSTICE_ZEALOT": {
+    "scryfallId": "f10539e3-d4bc-4f71-a00f-8e94bb97509d",
+    "oracleId": "1ec63280-ae5b-4892-8854-de2d8127ea83",
+    "name": "Solstice Zealot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Solstice Zealot",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Rhino Cleric",
+        "oracleText": "When this creature enters, you get {E}{E} (two energy counters).\n{T}, Pay {E}: Tap target creature.",
+        "flavorText": "\"Embrace the light, or succumb to the shadows.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "f10539e3-d4bc-4f71-a00f-8e94bb97509d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

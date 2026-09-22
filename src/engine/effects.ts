@@ -150,6 +150,14 @@ export function effectResult(
     lifeLedger.set(player, to);
     return { t: 'LifeChanged', player, delta, to };
   };
+  // D519 - the energy ledger, the life ledger's shape: two gains in one resolution carry running totals.
+  const energyLedger = new Map<PlayerId, number>();
+  const energyOf = (id: PlayerId): number => energyLedger.get(id) ?? state.players[id]?.energy ?? 0;
+  const energyChanged = (player: PlayerId, delta: number): EventBody => {
+    const to = energyOf(player) + delta;
+    energyLedger.set(player, to);
+    return { t: 'EnergyChanged', player, delta, to };
+  };
   const dealt = (damages: readonly ResolvedDamage[]): EventBody => {
     for (const d of damages) if (d.target.kind === 'player' && d.applyAs !== 'poison') lifeLedger.set(d.target.id, lifeOf(d.target.id) - d.amount);
     return { t: 'DamageDealt', damages };
@@ -843,6 +851,8 @@ export function effectResult(
         const can =
           !!seat &&
           seat.life >= pay.life &&
+          // D519 - an energy price is payable from the counters held (CR 122.1); none held is not a question (D369).
+          seat.energy >= pay.energy &&
           (payCost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null) &&
           (verbCandidates === null || verbCandidates.length > 0);
         if (!can) {
@@ -858,6 +868,8 @@ export function effectResult(
             player: payer,
             cost: payCost,
             life: pay.life,
+            // D519 - the energy price rides only when there is one, so every older prompt is byte-identical.
+            ...(pay.energy > 0 ? { energy: pay.energy } : {}),
             label: obj.label,
             controller: obj.controller,
             source: obj.source,
@@ -1424,6 +1436,13 @@ export function effectResult(
         if (!p) break;
         if (value > 0) out.push(lifeChanged(controller, value));
         else out.push(narrated(`${obj.label} — no life to gain (the ${stat} read ${value}).`, obj.controller, obj.identity));
+        break;
+      }
+      // D519 - `You get {E}{E}.`: the caster's energy counters (CR 122.1), said.
+      case 'gainEnergy': {
+        if (!state.players[controller]) break;
+        out.push(energyChanged(controller, effect.amount));
+        out.push(narrated(n`${who(state, controller)} ${vb(controller, 'gets', 'get')} ${String(effect.amount)} energy.`, controller));
         break;
       }
       case 'gainLife': {

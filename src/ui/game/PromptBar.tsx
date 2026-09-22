@@ -132,7 +132,7 @@ function describe(
         return awaiting.player === viewer
           ? awaiting.verbs
             ? `${awaiting.label}: ${awaiting.verbs.costText}?`
-            : `${awaiting.label}: pay ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${awaiting.life} life` : ''}?`
+            : `${awaiting.label}: pay ${awaiting.cost?.raw ?? ''}${awaiting.life > 0 ? ` and ${awaiting.life} life` : ''}${(awaiting.energy ?? 0) > 0 ? ` ${awaiting.energy} energy` : ''}?`
           : `${nameOf(seats, awaiting.player)} is deciding whether to pay for ${awaiting.label}.`;
       case 'optionalTrigger':
         return awaiting.player === viewer
@@ -715,7 +715,7 @@ export function PromptBar() {
                 send({ t: 'AnswerPayMana', player: viewer, pay: true, ...(preview.plan ? { plan: preview.plan } : {}) });
               }}
             >
-              Pay {awaiting.cost?.raw ?? ''}{awaiting.life > 0 ? ` + ${awaiting.life} life` : ''}
+              Pay {awaiting.cost?.raw ?? ''}{awaiting.life > 0 ? ` + ${awaiting.life} life` : ''}{(awaiting.energy ?? 0) > 0 ? ` ${awaiting.energy} energy` : ''}
             </button>
             <button
               type="button"
