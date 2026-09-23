@@ -8798,6 +8798,9 @@ export const SCROLL_OF_AVACYN: CardData = F.SCROLL_OF_AVACYN as CardData;
 export const TRAGIC_BANSHEE: CardData = F.TRAGIC_BANSHEE as CardData;
 export const SLAUGHTERHOUSE_BOUNCER: CardData = F.SLAUGHTERHOUSE_BOUNCER as CardData;
 export const SLIMY_PIPER: CardData = F.SLIMY_PIPER as CardData;
+export const BLOODBRAID_ELF: CardData = F.BLOODBRAID_ELF as CardData;
+export const ARDENT_PLEA: CardData = F.ARDENT_PLEA as CardData;
+export const APEX_DEVASTATOR: CardData = F.APEX_DEVASTATOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17847,6 +17850,9 @@ export const ENGINE_CARDS: CardData[] = [
   TRAGIC_BANSHEE,
   SLAUGHTERHOUSE_BOUNCER,
   SLIMY_PIPER,
+  BLOODBRAID_ELF,
+  ARDENT_PLEA,
+  APEX_DEVASTATOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

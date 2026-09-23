@@ -603,7 +603,7 @@ export function simplestAnswer(
             ? awaiting.pick === 'leastToughness' ? leastToughnessCreatures(state, deps(), awaiting.player) : state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
             // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
             : awaiting.castFree === true
-              ? freeCastCandidates(state, deps(), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })
+              ? freeCastCandidates(state, deps(), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null }, awaiting.pool)
               // D508 - the hand put's pick: the first card of my own hand the printed noun admits (the host's reader).
               : awaiting.to === 'battlefield'
                 ? handChoiceCandidates(state, ORACLE, awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })

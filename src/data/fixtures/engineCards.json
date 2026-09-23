@@ -297652,6 +297652,117 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLOODBRAID_ELF": {
+    "scryfallId": "0893ba16-13d9-43d5-b5fd-74262744c270",
+    "oracleId": "3f0c9466-5ab9-4205-a84f-b4b27b5a678e",
+    "name": "Bloodbraid Elf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodbraid Elf",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Elf Berserker",
+        "oracleText": "Haste (This creature can attack and {T} as soon as it comes under your control.)\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "0893ba16-13d9-43d5-b5fd-74262744c270"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Cascade"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "102293",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARDENT_PLEA": {
+    "scryfallId": "013e68be-daf9-409b-aab8-caf51f1cada3",
+    "oracleId": "49a8ca54-30d3-42d3-b122-334d24805e1b",
+    "name": "Ardent Plea",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ardent Plea",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Exalted (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.)\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Chippy",
+        "imageId": "013e68be-daf9-409b-aab8-caf51f1cada3"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exalted",
+      "Cascade"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ARB-1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "APEX_DEVASTATOR": {
+    "scryfallId": "8fa281e1-5c48-4bba-b8e9-88c6f5f53abb",
+    "oracleId": "b4d6747c-3516-4e71-be30-af007c6b1dc4",
+    "name": "Apex Devastator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Apex Devastator",
+        "manaCost": "{8}{G}{G}",
+        "typeLine": "Creature — Chimera Hydra",
+        "oracleText": "Cascade, cascade, cascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Multiple instances of cascade each trigger separately.)",
+        "flavorText": null,
+        "power": "10",
+        "toughness": "10",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "8fa281e1-5c48-4bba-b8e9-88c6f5f53abb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 10,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "217",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

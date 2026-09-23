@@ -23,6 +23,8 @@ import type { InstanceId, PlayerId } from './types/ids';
 import type { Keyword, ModeDecl, TargetSpec } from './types/oracle';
 import type { DefenderRef, DelayedTrigger, StackObject } from './types/state';
 import { faceOf } from './oracle';
+import { narrated } from './narrate';
+import { shuffle, type RngState } from './rng';
 
 export interface KeywordTrigger {
   /**
@@ -68,6 +70,17 @@ export interface KeywordTrigger {
   modes?(ctx: ScriptCtx, self: InstanceId): readonly ModeDecl[];
   readonly modeChoice?: { readonly min: number; readonly max: number };
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
+  /**
+   * D525 - the entry fires off the SPELL ON THE STACK (cascade), not a permanent: the bus asks the cast card of a
+   * `SpellCast` event - its DERIVED keywords, CR 613's silence - instead of walking the battlefield.
+   */
+  readonly fromStack?: true;
+  /**
+   * D525 - a resolution that CONSUMES RANDOMNESS (cascade's bottoming in a random order) takes the generator and hands
+   * back the advanced one beside its events; the loop records it as `rngAfter` (the replay rule `effects.ts` states).
+   * `resolve` stays the narrow entry for a caller that cannot thread it - the loop never is.
+   */
+  resolveRandom?(ctx: ScriptCtx, self: InstanceId, obj: StackObject, rng: RngState): { readonly events: readonly EventBody[]; readonly rng: RngState };
 }
 
 const nameOf = (ctx: ScriptCtx, id: InstanceId): string => {
@@ -84,6 +97,83 @@ export function keywordAmount(ctx: ScriptCtx, id: InstanceId, keyword: string): 
   const m = new RegExp(`\\b${keyword} (\\d+)\\b`, 'i').exec(text);
   const n = m ? Number(m[1]) : 1;
   return Number.isInteger(n) && n > 0 ? n : 1;
+}
+
+/**
+ * D525 - how many times the printed keyword line says `cascade` (Apex Devastator: four - CR 702.85b, each its own
+ * trigger); 1 for a keyword the line does not print (a granted one). Only a KEYWORD line counts: `Whenever you cast a
+ * spell with cascade` is a sentence, not a printing of the ability.
+ */
+function cascadeCount(ctx: ScriptCtx, id: InstanceId): number {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  const text = card && printing ? faceOf(printing, card.faceIndex).oracleText : '';
+  let n = 0;
+  for (const raw of text.split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)/g, '').trim().toLowerCase();
+    if (/^cascade(?:, cascade)*$/.test(line)) n += line.split('cascade').length - 1;
+  }
+  return n > 0 ? n : 1;
+}
+
+/** D525 - a spell's mana value AS CAST: the printed value with X as chosen (CR 202.3b), read at the firing. */
+function spellManaValue(ctx: ScriptCtx, obj: StackObject): number {
+  if (obj.card === null) return 0;
+  const card = ctx.state.cards[obj.card];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  if (!card || !printing) return 0;
+  const face = faceOf(printing, obj.faceIndex);
+  return printing.manaValue + (obj.xValue ?? 0) * (face.manaCost?.xCount ?? 0);
+}
+
+/**
+ * D525 - CASCADE resolves (CR 702.85a): the controller's library from the top, each card to exile, until a nonland
+ * card whose mana value is less than the memo (the spell's, as cast); the cards that were not it go to the bottom in a
+ * random order NOW (the generator advances through `rng`), and the one that was waits on the controller: a play
+ * permission for this turn and the free-cast chooser over a POOL of one (`handlers.ts` casts it, or bottoms it too).
+ */
+function cascadeResolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject, rng: RngState): { readonly events: readonly EventBody[]; readonly rng: RngState } {
+  const state = ctx.state;
+  const player = obj.controller;
+  const bound = obj.memo ?? 0;
+  const lib = state.zones.library[player] ?? [];
+  const exiled: InstanceId[] = [];
+  let hit: InstanceId | null = null;
+  // The library is bottom-first: the last entry is the top.
+  for (let i = lib.length - 1; i >= 0; i--) {
+    const id = lib[i];
+    if (id === undefined) break;
+    exiled.push(id);
+    const inst = state.cards[id];
+    const printing = inst ? ctx.oracle.byPrinting(inst.printingId) : undefined;
+    if (!inst || !printing) continue;
+    if (!faceOf(printing, 0).isLand && printing.manaValue < bound) {
+      hit = id;
+      break;
+    }
+  }
+  const label = `${nameOf(ctx, self)} - cascade`;
+  const out: EventBody[] = [];
+  if (exiled.length === 0) {
+    out.push(narrated(`${label}: the library is empty.`, player));
+    return { events: out, rng };
+  }
+  const ownerOf = (card: InstanceId): PlayerId => state.cards[card]?.owner ?? player;
+  out.push({ t: 'CardsMoved', moves: exiled.map((card) => ({ card, from: { kind: 'library' as const, player }, to: { kind: 'exile' as const, player: ownerOf(card) } })) });
+  const rest = exiled.filter((card) => card !== hit);
+  const mixed = shuffle(rng, rest);
+  if (mixed.value.length > 0) {
+    out.push({ t: 'CardsMoved', moves: mixed.value.map((card) => ({ card, from: { kind: 'exile' as const, player: ownerOf(card) }, to: { kind: 'library' as const, player }, placement: 'bottom' as const })) });
+  }
+  const n = exiled.length;
+  if (hit === null) {
+    out.push(narrated(`${label}: ${n} card${n === 1 ? '' : 's'} exiled and put on the bottom of the library in a random order - no nonland card with a lesser mana value among them.`, player));
+    return { events: out, rng: mixed.next };
+  }
+  out.push({ t: 'PlayPermissionGranted', permission: { card: hit, player, until: 'thisTurn', grantedTurn: state.turn.turnNumber } });
+  out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player, zone: 'exile', rest: null, count: 1, min: 0, label, castFree: true, pool: [hit] } });
+  out.push(narrated(`${label}: ${n} card${n === 1 ? '' : 's'} exiled; ${nameOf(ctx, hit)} may be cast without paying its mana cost.`, player));
+  return { events: out, rng: mixed.next };
 }
 
 const onBattlefield = (ctx: ScriptCtx, id: InstanceId): boolean => ctx.state.cards[id]?.zone.kind === 'battlefield';
@@ -676,6 +766,24 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
         }
         return out;
       },
+    },
+  ],
+  [
+    'cascade',
+    {
+      // D525 - CR 702.85a: when you cast this spell, exile cards from the top of your library until you exile a nonland
+      // card whose mana value is less than this spell's; you may cast it without paying its mana cost; the exiled cards
+      // go to the bottom in a random order. The entry fires off the SPELL on the stack (`fromStack`), once per printing
+      // of the word (`cascadeCount`), and resolves BEFORE the spell - the trigger goes on above it. The mana value is
+      // the spell's AS CAST, taken at the firing (`memo`): the spell may have left the stack by the resolution.
+      event: 'SpellCast',
+      fromStack: true,
+      matches: (_ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.card === self && ev.obj.copyOf === undefined,
+      perItem: (ctx, self) => Array.from({ length: cascadeCount(ctx, self) }, () => self),
+      memo: (ctx, _self, ev) => (ev.t === 'SpellCast' ? spellManaValue(ctx, ev.obj) : 0),
+      label: (ctx, self) => `${nameOf(ctx, self)} - cascade`,
+      resolve: (ctx, self, obj) => cascadeResolve(ctx, self, obj, ctx.state.rng).events,
+      resolveRandom: (ctx, self, obj, rng) => cascadeResolve(ctx, self, obj, rng),
     },
   ],
 ]);

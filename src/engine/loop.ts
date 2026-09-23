@@ -15,7 +15,7 @@
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult } from './effects';
-import { keywordTargetSpecs, keywordTriggerDef } from './keywordTriggers';
+import { keywordTargetSpecs, keywordTriggerDef, keywordTriggerEntry } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
@@ -1028,10 +1028,12 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       };
       return emitted([{ t: 'AwaitingSet', awaiting }]);
     }
-    return emitted(resolveAbility(state, deps, obj, false));
+    const declined = resolveAbility(state, deps, obj, false);
+    return emitted(declined.events, declined.rng);
   }
 
-  return emitted(resolveAbility(state, deps, obj, null));
+  const resolved = resolveAbility(state, deps, obj, null);
+  return emitted(resolved.events, resolved.rng);
 }
 
 /** D501 - the resolving spell's own fate among its clauses (the self kinds the vocabulary parses; `resolveTop` moves the card). */
@@ -1200,7 +1202,9 @@ export function resolveAbility(
   deps: EngineDeps,
   obj: StackObject,
   answer: boolean | null,
-): EventBody[] {
+): { readonly events: EventBody[]; readonly rng?: RngState } {
+  // D525 - the generator a resolution consumed (cascade's random bottoming), recorded as `rngAfter` by every caller.
+  let rng: RngState | undefined;
   const events: EventBody[] = [
     { t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller },
   ];
@@ -1208,9 +1212,11 @@ export function resolveAbility(
 
   // D402 - a DELAYED trigger runs the effects it carried onto the stack, over no targets (CR 603.7).
   if (obj.delayedEffects) {
-    events.push(...effectResult(state, deps, obj, obj.delayedEffects).events);
+    // D525 - the executor's generator is kept: a delayed clause that drew from it used to replay to a different board.
+    const delayed = effectResult(state, deps, obj, obj.delayedEffects);
+    events.push(...delayed.events);
     events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
-    return events;
+    return delayed.rng === undefined ? { events } : { events, rng: delayed.rng };
   }
 
   // ⚠️ CR 608.2b — AN ABILITY WHOSE EVERY TARGET IS ILLEGAL DOES NOT RESOLVE.
@@ -1256,10 +1262,16 @@ export function resolveAbility(
         obj.controller,
       ),
     );
-    return events;
+    return { events };
   }
 
-  if (answer !== false && def && obj.source) {
+  // D525 - a keyword entry that consumes randomness (cascade) hands the advanced generator back beside its events.
+  const entry = obj.abilityRef?.includes('#kw:') ? keywordTriggerEntry(obj.abilityRef) : undefined;
+  if (answer !== false && entry?.resolveRandom && obj.source) {
+    const drawn = entry.resolveRandom(scriptCtxFor(state, deps), obj.source, obj, state.rng);
+    events.push(...drawn.events);
+    rng = drawn.rng;
+  } else if (answer !== false && def && obj.source) {
     events.push(...def.resolve(scriptCtxFor(state, deps), obj.source, obj));
   }
 
@@ -1355,7 +1367,7 @@ export function resolveAbility(
     );
   }
   events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
-  return events;
+  return rng === undefined ? { events } : { events, rng };
 }
 
 /**

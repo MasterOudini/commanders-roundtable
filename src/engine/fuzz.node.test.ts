@@ -326,6 +326,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // `Return target creature card from your graveyard to your hand. If you control an artifact, draw a card.`) two a seat:
   // the board decides which reading runs, and the log says which either way.
   { names: ['For the Family', 'Resourceful Return'], copiesPerSeat: 2, counterKeys: ['gatedClauses'], rotHistory: 'D523' },
+  // D525 - CASCADE: two Bloodbraid Elves ({2}{R}{G} 3/2 haste, cascade) and two Ardent Pleas ({1}{W}{U} exalted,
+  // cascade) a seat - the keyword trigger off the spell on the stack; the driver answers the exiled candidate's
+  // chooser through the same pool the host admits, and declines it half the time.
+  { names: ['Bloodbraid Elf', 'Ardent Plea'], copiesPerSeat: 2, counterKeys: ['cascades', 'cascadeCasts'], rotHistory: 'D525' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1116,7 +1120,7 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             // D491 - the from-hand free cast's pick: my own hand through the one reader the host asks (a card the
             // host refuses spends the seed); the answer may be empty, and `want` below declines it half the time.
             : awaiting.castFree === true
-              ? [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null })]
+              ? [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null }, awaiting.pool)]
               // D509 - the hand put's pool (D508): the cards of the hand the printed noun admits (the host's reader); the whole hand
               // offered a creature to a land put and the answer was refused - 2 hand puts over the 3,000-seed gate at D508, 0 at D509.
               : awaiting.to === 'battlefield'
@@ -1612,6 +1616,9 @@ interface Run {
   readonly amasses: number;
   /** D523 - gated clauses that were ASKED (the executor says so either way: replaced, or did nothing). */
   readonly gatedClauses: number;
+  /** D525 - cascade: the triggers queued off a cast spell, and the exiled candidates cast without paying (`freeCast` from exile). */
+  readonly cascades: number;
+  readonly cascadeCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2098,6 +2105,8 @@ function runOne(seed: number): Run {
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     amasses: game.log.filter((e) => e.body.t === 'Amassed').length,
     gatedClauses: game.log.filter((e) => e.body.t === 'Narrated' && /(?:is replaced|does nothing: if )/.test(e.body.text)).length,
+    cascades: game.log.reduce((n, e) => n + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => t.abilityRef.endsWith('#kw:cascade')).length : 0), 0),
+    cascadeCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.freeCast === true && e.body.obj.castFrom?.kind === 'exile').length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2410,6 +2419,8 @@ const TOTAL_KEYS = [
   'bolsters',
   'amasses',
   'gatedClauses',
+  'cascades',
+  'cascadeCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2885,6 +2896,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D523 - a gated clause was asked at gate size (For the Family and Resourceful Return two a seat; the canary523
         // figures in the decision).
         expect(totals.gatedClauses).toBeGreaterThan(0);
+        // D525 - a cascade at gate size (Bloodbraid Elf and Ardent Plea, two a seat).
+        expect(totals.cascades).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

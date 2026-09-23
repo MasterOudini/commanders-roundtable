@@ -779,6 +779,24 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D525 - cascade: the keyword is the engine's now; what stays is every line that GRANTS it to spells, watches for it, or rides it.
+  ['Quandrix, the Proof', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Instant and sorcery sp (D525)'],
+  ['The First Sliver', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Sliver spells you cast (D525)'],
+  ['Wild-Magic Sorcerer', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`The first spell you ca (D525)'],
+  ['Averna, the Chaos Bloom', 'a rider on the cascade itself (`As you cascade, you may put a land card from among`) (D525)'],
+  ['Rain of Riches', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`The first spell you ca (D525)'],
+  ['Abaddon the Despoiler', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Mark of Chaos Ascendan (D525)'],
+  ['Flamekin Herald', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Commander spells you c (D525)'],
+  ['Smoldering Stagecoach', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Whenever this Vehicle (D525)'],
+  ['Aurora Phoenix', 'a head that watches for a cast spell with cascade (`Whenever you cast a spell with cascade, return thi`) (D525)'],
+  ['Maelstrom Nexus', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`The first spell you ca (D525)'],
+  ['Wildsear, Scouring Maw', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Enchantment spells you (D525)'],
+  ['Yidris, Maelstrom Wielder', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Whenever Yidris deals (D525)'],
+  ['Bloodbraid Marauder', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Delirium — This spell (D525)'],
+  ['TARDIS', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Whenever this Vehicle (D525)'],
+  ['Dark Apostle', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Gift of Chaos — {3}, { (D525)'],
+  ['Imoti, Celebrant of Bounty', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Spells you cast with m (D525)'],
+  ['Sloppity Bilepiper', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Jolly Gutpipes — {2}, (D525)'],
   // D524 - the gate inside a payload: the gates the suite can now ARM left these behind - a fact only the CAST can remember, a coin flip, and a gate whose own recipe fires the row trigger.
   ['Boompile', 'a coin flip beside the gate (`you win the flip`) (D524)'],
   ['Bottle of Suleiman', 'a coin flip beside the gate (`you win the flip`) (D524)'],
@@ -3491,7 +3509,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
     // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
     // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
-    expect.soft(all.length).toBe(17);
+    expect.soft(all.length).toBe(30);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

@@ -79,6 +79,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   fabricate: 'fabricate',
   // D463 - mobilize N: the attack trigger that makes N Warriors tapped and attacking, sacrificed at the next end step.
   mobilize: 'mobilize',
+  // D525 - cascade: the cast trigger the keyword table runs off the spell on the stack.
+  cascade: 'cascade',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

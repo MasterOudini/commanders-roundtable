@@ -110,6 +110,10 @@ export const TIER2_KEYWORDS = [
   'fabricate',
   // D463 - MOBILIZE (CR 702.179 - N Warrior tokens tapped and attacking as it attacks, sacrificed at the next end step).
   'mobilize',
+  // D525 - CASCADE (CR 702.85): a keyword that IS a cast trigger - exile from the top of the library until a nonland
+  // card with a lesser mana value, which may be cast for nothing; the rest to the bottom in a random order. Run from
+  // the keyword table off the SPELL on the stack (`fromStack`), once per printing of the word (Apex Devastator's four).
+  'cascade',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

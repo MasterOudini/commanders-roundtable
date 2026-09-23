@@ -366,7 +366,8 @@ function isKeywordLine(line: string, face: OracleFace): boolean {
     const kw = triggerKeywordOf(part);
     if (kw !== null) fired.set(kw, (fired.get(kw) ?? 0) + 1);
   }
-  for (const n of fired.values()) if (n > 1) return false;
+  // D525 - cascade's entry reads how many times the line prints the word (`cascadeCount`), so twice IS twice there.
+  for (const [kw, n] of fired) if (n > 1 && kw !== 'cascade') return false;
   return true;
 }
 

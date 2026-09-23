@@ -1197,7 +1197,8 @@ export type Awaiting =
        * for the mirror of the hand's reason: every client already holds the board. `filter` is
        * the printed noun (D389's), asked of the DERIVED permanent by the host.
        */
-      readonly zone: 'hand' | 'library' | 'battlefield';
+      // D525 - `exile` for a pick drawn from a POOL of exiled cards (cascade's candidate; `pool` below).
+      readonly zone: 'hand' | 'library' | 'battlefield' | 'exile';
       /**
        * Where the cards NOT chosen go — `library` prompts only, `null` for a
        * discard, where the unchosen simply stay in hand.
@@ -1257,6 +1258,12 @@ export type Awaiting =
        * `min` is 0 on every such prompt. Absent on every older prompt.
        */
       readonly castFree?: true;
+      /**
+       * D525 - THE POOL: the cards the pick is drawn from when they are not a zone's whole contents - cascade's one
+       * exiled candidate (`zone: 'exile'`). PUBLIC ids (exile is public), so the client, the bot and the fuzz driver
+       * read the same list the host admits. Absent on every older prompt.
+       */
+      readonly pool?: readonly InstanceId[];
       /**
        * D511 - how the battlefield candidates are COMPUTED when the printed noun is not the rule: `leastToughness` is
        * bolster's (the creatures the chooser controls whose toughness is the least among them). A printed rule, never

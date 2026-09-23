@@ -109,7 +109,7 @@ const NAMED: Readonly<Record<string, string>> = {
   delve: 'exile the cards yourself',
   suspend: 'use counters and cast it when they run out',
   madness: 'cast it from the graveyard with the manual tools',
-  cascade: 'reveal and cast with the manual tools',
+  // D525 - cascade is the engine's now (CR 702.85): no note.
   storm: 'copy the spell yourself',
   // D391 - proliferate is the engine's now (CR 701.27a): no note.
   changeling: 'it is not treated as every creature type',

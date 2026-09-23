@@ -214,11 +214,13 @@ function describe(
             : awaiting.zone === 'battlefield'
               ? `${nameOf(seats, awaiting.player)} is choosing ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} to sacrifice.`
               : awaiting.castFree === true
-                ? `${nameOf(seats, awaiting.player)} may cast a spell from their hand without paying its mana cost.`
+                ? `${nameOf(seats, awaiting.player)} may cast ${awaiting.pool !== undefined ? 'the card cascade exiled' : 'a spell from their hand'} without paying its mana cost.`
                 : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
         }
         // D491 - the from-hand free cast: the bar names the bound; the hand is the control, and "Cast nothing" is a button.
         if (awaiting.castFree === true) {
+          // D525 - cascade's candidate sits in exile: the two buttons are the control.
+          if (awaiting.pool !== undefined) return `${awaiting.label}: cast the exiled card without paying its mana cost, or cast nothing.`;
           const mv = awaiting.qualifier?.manaValue ?? null;
           return `${awaiting.label}: click ${awaiting.filter?.what ?? 'a spell'}${mv ? ` with mana value ${mv.n} or less` : ''} in your hand to cast it without paying its mana cost, or cast nothing.`;
         }
@@ -828,6 +830,18 @@ export function PromptBar() {
               Don't search
             </button>
           </>
+        )}
+
+        {/* D525 - cascade's candidate: casting it is a button too (the card sits in exile, not in the hand). */}
+        {awaiting?.kind === 'chooseFromZone' && mine('chooseFromZone') && awaiting.castFree === true && awaiting.pool !== undefined && awaiting.pool.length === 1 && (
+          <button
+            type="button"
+            className={BTN}
+            data-action="cast-pool"
+            onClick={() => send({ t: 'AnswerChooseFromZone', player: viewer, cards: [...(awaiting.pool ?? [])] })}
+          >
+            Cast it
+          </button>
         )}
 
         {/* D491 - the from-hand free cast's decline: casting nothing is always legal. */}

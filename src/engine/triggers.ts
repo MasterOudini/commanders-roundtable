@@ -1390,6 +1390,33 @@ export function collectTriggers(
       const look = kt.looksBack === true;
       const state = look ? before : after;
       const ctx = ctxOf(look);
+      // D525 - an entry that fires off the SPELL ON THE STACK (cascade): the cast card alone is asked, off the state
+      // after the cast (the card is on the stack), through its DERIVED keywords and CR 613's silence as a permanent
+      // would be; one firing per item the entry names (a keyword line that prints `cascade` four times fires four).
+      if (kt.fromStack === true) {
+        if (event.body.t !== 'SpellCast' || event.body.obj.card === null) continue;
+        const id = event.body.obj.card;
+        const card = state.cards[id];
+        if (!card || card.zone.kind !== 'stack') continue;
+        if (!hasAbilities(state, oracle, scripts, id)) continue;
+        if (!ctx.derive(id).keywords.has(kt.keyword ?? (keyword as Keyword))) continue;
+        if (!kt.matches(ctx, id, event.body)) continue;
+        const items: readonly (InstanceId | undefined)[] = kt.perItem ? kt.perItem(ctx, id, event.body) : [undefined];
+        for (const item of items) {
+          out.push({
+            id: `t${n++}`,
+            source: id,
+            controller: card.controller,
+            abilityRef: `${card.oracleId}#kw:${keyword}`,
+            label: kt.label(ctx, id),
+            optional: kt.optional === true,
+            specs: kt.targets ? kt.targets(ctx, id) : [],
+            ...(item !== undefined ? { item } : {}),
+            ...(kt.memo ? { memo: kt.memo(ctx, id, event.body) } : {}),
+          });
+        }
+        continue;
+      }
       for (const id of idsOf(look)) {
         const card = state.cards[id];
         if (!card || card.zone.kind !== 'battlefield') continue;

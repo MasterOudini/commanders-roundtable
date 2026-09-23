@@ -3161,11 +3161,16 @@ function answerOptionalTrigger(
   if (!obj || obj.id !== awaiting.stackId) {
     return reject('noSuchCard', 'That trigger is no longer on top of the stack.');
   }
-  return accept([
-    { t: 'AwaitingSet', awaiting: null },
-    { t: 'OptionalTriggerAnswered', stackId: obj.id, player: intent.player, accept: intent.accept },
-    ...resolveAbility(state, deps, obj, intent.accept),
-  ]);
+  // D525 - the resolution's generator (cascade's random bottoming) rides the accept as `rngAfter`.
+  const resolved = resolveAbility(state, deps, obj, intent.accept);
+  return accept(
+    [
+      { t: 'AwaitingSet', awaiting: null },
+      { t: 'OptionalTriggerAnswered', stackId: obj.id, player: intent.player, accept: intent.accept },
+      ...resolved.events,
+    ],
+    resolved.rng,
+  );
 }
 
 /**
@@ -4014,9 +4019,10 @@ function answerChooseFromZone(
     if (awaiting.loseLife !== undefined && awaiting.loseLife > 0) { const p = state.players[intent.player]; if (p) events.push({ t: 'LifeChanged', player: intent.player, delta: -awaiting.loseLife, to: p.life - awaiting.loseLife }); }
     return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
   }
-  const hand = state.zones.hand[intent.player] ?? [];
+  // D525 - a prompt with a POOL (cascade's exiled candidate) is answered from the pool, not the hand.
+  const hand = awaiting.pool !== undefined ? [...awaiting.pool] : (state.zones.hand[intent.player] ?? []);
   for (const card of intent.cards) {
-    if (!hand.includes(card)) return reject('wrongZone', 'That card is not in your hand.');
+    if (!hand.includes(card)) return reject('wrongZone', awaiting.pool !== undefined ? 'That card is not one you may cast.' : 'That card is not in your hand.');
   }
   // D508 - THE HAND PUT: the picks the printed noun admits (D416's reader - the negations, the filter) leave the hand
   // for the battlefield under the chooser's control (tapped when the line says so), named first by the marker the
@@ -4042,10 +4048,14 @@ function answerChooseFromZone(
   // questions next, the granting effect's rest riding the pending cast.
   if (awaiting.castFree === true) {
     if (intent.cards.length === 0) {
-      const declined: EventBody[] = [
-        { t: 'AwaitingSet', awaiting: null },
-        narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player),
-      ];
+      const declined: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }];
+      // D525 - cascade's declined candidate goes to the bottom of the library with the rest, its permission gone.
+      if (awaiting.pool !== undefined && awaiting.pool.length > 0) {
+        const still = awaiting.pool.filter((card) => state.cards[card]?.zone.kind === 'exile');
+        if (still.length > 0) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
+        declined.push({ t: 'PlayPermissionsExpired', cards: [...awaiting.pool] });
+      }
+      declined.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player));
       return accept(declined, resumeContinuation(state, deps, declined, awaiting.continuation));
     }
     const pick = intent.cards[0];

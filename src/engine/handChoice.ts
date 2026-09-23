@@ -62,7 +62,7 @@ export function freeCastAdmits(state: GameState, deps: EngineDeps, card: Instanc
   return minimumLegalTargets(face.targets, { controller: inst.zone.player ?? inst.owner, colors: face.colors }, candidatesFromState(state, deps)) !== null;
 }
 
-/** The cards of `player`'s own hand the grant admits, in hand order. */
-export function freeCastCandidates(state: GameState, deps: EngineDeps, player: string, bound: HandChoiceBound): readonly InstanceId[] {
-  return (state.zones.hand[player] ?? []).filter((id) => freeCastAdmits(state, deps, id, bound));
+/** The cards of `player`'s own hand the grant admits, in hand order - or of the prompt's POOL (D525, cascade's candidate). */
+export function freeCastCandidates(state: GameState, deps: EngineDeps, player: string, bound: HandChoiceBound, pool?: readonly InstanceId[]): readonly InstanceId[] {
+  return (pool ?? state.zones.hand[player] ?? []).filter((id) => freeCastAdmits(state, deps, id, bound));
 }

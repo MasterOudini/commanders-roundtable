@@ -441,7 +441,9 @@ export function answerAwaiting(
       if (awaiting.castFree === true) {
         const none = awaiting.none ?? [];
         const mv = awaiting.qualifier?.manaValue ?? null;
-        const legal = myHand(view, me).filter((c) => {
+        // D525 - a prompt with a POOL (cascade's exiled candidate) is read from the pool, not the hand.
+        const offered = awaiting.pool !== undefined ? awaiting.pool.map((id) => view.cards[id]).filter((c): c is CardView => c !== undefined) : myHand(view, me);
+        const legal = offered.filter((c) => {
           const face = c.card?.faces[0];
           if (!c.card || !face) return false;
           const types = parseTypeLine(face.typeLine);
