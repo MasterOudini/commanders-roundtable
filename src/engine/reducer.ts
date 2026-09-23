@@ -1404,6 +1404,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
       return state;
+    // D527 - a clash's verdict: a marker; the placements beside it moved the state.
+    case 'Clashed':
+      return state;
     // D526 - a manifest dread's marker: the moves beside it moved the state.
     case 'ManifestedDread':
       return state;

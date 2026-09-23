@@ -35,6 +35,7 @@ import {
 } from './legal';
 import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
 import { freeCastAdmits, handChoiceAdmits } from './handChoice';
+import { clashBegin, clashFinish, clashOpponentStep } from './clash';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
@@ -141,6 +142,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerChooseReplacement(state, intent, deps);
     case 'AnswerChooseColor':
       return answerChooseColor(state, intent);
+    case 'AnswerChoosePlayer':
+      return answerChoosePlayer(state, intent, deps);
     case 'AnswerChooseCreatureType':
       return answerChooseCreatureType(state, intent, deps);
     case 'AnswerEntersChoice':
@@ -3327,6 +3330,24 @@ function answerChooseCopy(
   };
 }
 
+/** D527 - the player chosen at resolution (a clash's opponent): the pick must be a candidate, and the clash begins with it. */
+function answerChoosePlayer(state: GameState, intent: Extract<Intent, { t: 'AnswerChoosePlayer' }>, deps: EngineDeps): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'choosePlayer') return reject('noPendingChoice', 'Nothing is waiting for a player.');
+  if (awaiting.player !== intent.player) return reject('notYourTurn', 'That choice is not yours to make.');
+  if (!awaiting.candidates.includes(intent.chosen)) return reject('illegalTarget', 'That player is not one you may choose.');
+  const events: EventBody[] = [
+    { t: 'AwaitingSet', awaiting: null },
+    narrated(n`${who(state, intent.player)} ${vb(intent.player, 'chooses', 'choose')} ${who(state, intent.chosen)} for ${awaiting.label}.`, intent.player),
+  ];
+  let scratch = state;
+  for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+  events.push(...clashBegin(scratch, deps, intent.player, intent.chosen, awaiting.label));
+  const decided = events.find((e) => e.t === 'Clashed');
+  const carried = decided !== undefined && decided.t === 'Clashed' && awaiting.continuation !== undefined ? { ...awaiting.continuation, clash: decided.won ? ('won' as const) : ('lost' as const) } : awaiting.continuation;
+  return accept(events, resumeContinuation(state, deps, events, carried));
+}
+
 function answerChooseColor(
   state: GameState,
   intent: Extract<Intent, { t: 'AnswerChooseColor' }>,
@@ -4265,6 +4286,19 @@ function answerScry(
       let scratch = state;
       for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
       events.push(...exploreChain(scratch, deps, intent.player, awaiting.explore.permanent, awaiting.label, awaiting.explore.remaining));
+    }
+  }
+  // D527 - a clash's placement (CR 701.10): after yours, the opponent reveals and chooses; after theirs, the clash is
+  // decided and its verdict rides the continuation (`If you win`). A clasher with no card asks nothing.
+  if (awaiting.clash) {
+    let scratch = state;
+    for (const body of events) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+    if (awaiting.clash.stage === 'you') events.push(...clashOpponentStep(scratch, deps, awaiting.clash, awaiting.label));
+    else events.push(...clashFinish(scratch, awaiting.clash, awaiting.label));
+    const decided = events.find((e) => e.t === 'Clashed');
+    if (decided !== undefined && decided.t === 'Clashed') {
+      const carried = awaiting.continuation === undefined ? undefined : { ...awaiting.continuation, clash: decided.won ? ('won' as const) : ('lost' as const) };
+      return accept(events, resumeContinuation(state, deps, events, carried));
     }
   }
   if (awaiting.thenDraw > 0) {

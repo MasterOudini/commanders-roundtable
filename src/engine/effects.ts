@@ -26,12 +26,13 @@ import { activationConditionsHold, describeActivationConditions } from './activa
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
+import { clashBegin, clashOpponents } from './clash';
 import { conniveChain } from './connive';
 import { countOf } from './count';
 import type { Awaiting, DelayedTrigger, EffectContinuation, GameState, PendingAsks, PreventionShield, ShieldSourceFilter, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
-import { n, narrated, vb, who } from './narrate';
+import { n, narrated, vb, who, whose } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates } from './legal';
@@ -173,9 +174,18 @@ export function effectResult(
   // so far are applied to a scratch state first - D505 scope walk shape, and the derive cache belongs to the state
   // the resolution began in, so it is set aside when the scratch differs.
   const gateHolds = (gate: NonNullable<EffectSpec['gate']>): boolean => {
+    // D527 - `if you win` is the clash's own verdict: the one this resolution decided (an event in the batch) or the one
+    // its continuation carried (`obj.clash`); the board conditions beside it are asked as before.
+    if (gate.some((c) => c.kind === 'clashWon')) {
+      const decided = [...out].reverse().find((e): e is Extract<EventBody, { t: 'Clashed' }> => e.t === 'Clashed' && e.player === controller);
+      const won = decided !== undefined ? decided.won : obj.clash === 'won';
+      if (!won) return false;
+    }
+    const rest = gate.filter((c) => c.kind !== 'clashWon');
+    if (rest.length === 0) return true;
     let now = state;
     for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
-    return activationConditionsHold(now, deps.oracle, deps.scripts, controller, source ?? obj.card ?? state.zones.battlefield[0] ?? ("c0" as InstanceId), gate, now === state ? cache : undefined);
+    return activationConditionsHold(now, deps.oracle, deps.scripts, controller, source ?? obj.card ?? state.zones.battlefield[0] ?? ("c0" as InstanceId), rest, now === state ? cache : undefined);
   };
 
   /**
@@ -1505,6 +1515,42 @@ export function effectResult(
         });
         break;
       }
+      // D527 - CLASH (CR 701.10): you and an opponent each reveal the top card of your library, each puts it on the top
+      // or bottom (a scry prompt apiece, chained - `clash.ts`), and the higher mana value wins; `If you win` reads the
+      // verdict. One opponent is forced; more ask (`choosePlayer`); none narrates.
+      case 'clash': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const rivals = clashOpponents(now, controller);
+        if (rivals.length === 0) {
+          out.push(narrated(`${obj.label} — no opponent to clash with.`, obj.controller, obj.identity));
+          break;
+        }
+        if (rivals.length === 1) {
+          out.push(...clashBegin(now, deps, controller, rivals[0] as PlayerId, obj.label));
+          break;
+        }
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'choosePlayer', player: controller, candidates: rivals, purpose: 'clash', label: obj.label } });
+        break;
+      }
+      // D527 - `Return ~ to its owner's hand`: the source wherever it is - a permanent, or the spell's own card in the
+      // graveyard once a clash's answers resumed its clauses (the spell resolved; CR 608.2m put it there, the rider brings
+      // it back). A source still on the stack is the loop's own fate (`spellFateOf`), left alone here.
+      case 'returnSelf': {
+        if (!source) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const at = now.cards[source];
+        if (!at || at.zone.kind === 'stack') break;
+        if (at.zone.kind !== 'battlefield' && at.zone.kind !== 'graveyard') {
+          out.push(narrated(`${obj.label} — nothing to return: the card is not on the battlefield or in a graveyard.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({ t: 'CardsMoved', moves: [{ card: source, from: { kind: at.zone.kind, player: at.zone.player }, to: { kind: 'hand' as const, player: at.owner } }] });
+        out.push(narrated(n`${obj.label} returns to ${whose(state, at.owner)} hand.`, at.owner));
+        break;
+      }
       case 'mill': {
         // D434 - the top N of a library into its graveyard (CR 701.13): the aimed player's, every member of a player
         // scope in APNAP order, or the caster's own. A short library mills what it has; nothing is lost or asked.
@@ -2363,6 +2409,8 @@ function continuationOf(obj: StackObject, at: number, rest: readonly EffectSpec[
     ...(obj.xValue !== null ? { xValue: obj.xValue } : {}),
     ...(obj.kicked !== undefined ? { kicked: obj.kicked } : {}),
     ...(obj.memo !== undefined ? { memo: obj.memo } : {}),
+    // D527 - a clash verdict already on the object rides on (a frame within a frame).
+    ...(obj.clash !== undefined ? { clash: obj.clash } : {}),
     ...(outer !== undefined ? { outer } : {}),
   };
 }
@@ -2385,6 +2433,8 @@ function withContinuation(awaiting: Awaiting, continuation: EffectContinuation):
     case 'orderCards':
     case 'scryChoice':
     case 'proliferateChoice':
+    // D527 - the player choice a clash raises carries the clauses after the clashing one.
+    case 'choosePlayer':
       if (awaiting.continuation === continuation) return awaiting;
       return { ...awaiting, continuation: awaiting.continuation === undefined ? continuation : chained(awaiting.continuation, continuation) };
     // D487 - a copy's new-targets question carries the clauses after the copying one; a cast's own prompt never does.
@@ -2417,6 +2467,8 @@ function continuationObject(c: EffectContinuation): StackObject {
     faceIndex: 0,
     ...(c.kicked !== undefined ? { kicked: c.kicked } : {}),
     ...(c.memo !== undefined ? { memo: c.memo } : {}),
+    // D527 - the clash verdict the continuation carried, for `If you win`.
+    ...(c.clash !== undefined ? { clash: c.clash } : {}),
   };
 }
 

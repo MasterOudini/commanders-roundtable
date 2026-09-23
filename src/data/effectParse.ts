@@ -1250,6 +1250,10 @@ const RULES: readonly Rule[] = [
       return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true };
     },
   },
+  // D527 - `Return ~ to its owner's hand` is read as `returnSelf` FIRST: the executor case knows a source in the graveyard
+  // (the spell's own card once a clash's answers resumed its clauses) and the loop knows the hand fate; the self bounce
+  // below stays for a reader that asks it by kind.
+  { kind: 'returnSelf', re: /^(?:then )?return (?:this (?:creature|permanent|artifact|enchantment|land|card)|~) to its owner(?:'|’)s hand\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'bounce', re: new RegExp(`^return ${SELF} to its owner(?:'|’)?s? hand\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'untap', re: new RegExp(`^untap ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D373 - CR 701.19, the verb itself: on the source, and on a target ("Regenerate target creature.").
@@ -1448,6 +1452,16 @@ const RULES: readonly Rule[] = [
     kind: 'putFromHand',
     re: /^manifest a card from your hand\.$/i,
     build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true, look: { filter: null, optional: false, take: 1, rest: 'top', to: 'battlefield', faceDown: true } }),
+  },
+  /**
+   * D527 - CLASH (CR 701.10): `Clash with an opponent.` - an ask (two placements); `If you win, ...` after it is D523's
+   * gate over the verdict. `Return ~ to its owner's hand.` - the source back to hand: a permanent, or the spell's own
+   * card once the clash's answers resumed its clauses (the loop's hand fate while it is still on the stack).
+   */
+  {
+    kind: 'clash',
+    re: /^clash with an opponent\.$/i,
+    build: () => ({ ...BASE, targetIndex: -1, self: true }),
   },
   /**
    * D434 - the mill: `Mill three cards.` (the caster's own library), `Target player mills two cards.` (aimed at the

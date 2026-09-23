@@ -381,6 +381,9 @@ export function simplestAnswer(
       };
     case 'chooseColor':
       return { t: 'AnswerChooseColor', player: awaiting.player, color: 'W' };
+    // D527 - the first candidate, always (a clash's opponent): reproducible, and legal on any board.
+    case 'choosePlayer':
+      return { t: 'AnswerChoosePlayer', player: awaiting.player, chosen: awaiting.candidates[0] as PlayerId };
     /**
      * D465 - BEAR, ALWAYS, for the same reason white is: any catalogued type is legal on any board, and
      * a fixed answer keeps the fuzzer reproducible. Bear rather than Human because Grizzly Bears is the

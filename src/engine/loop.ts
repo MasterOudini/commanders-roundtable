@@ -874,6 +874,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           { kind: 'exile' as const, player: card.owner }
         : ownFate === 'exile'
           ? { kind: 'exile' as const, player: card.owner }
+          : ownFate === 'hand'
+            ? { kind: 'hand' as const, player: card.owner }
           : ownFate !== undefined
             ? { kind: 'library' as const, player: card.owner }
             : { kind: 'graveyard' as const, player: card.owner };
@@ -955,7 +957,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push({ t: 'LibraryShuffled', player: card.owner, order: mixed.value });
     }
     if (ownFate !== undefined) {
-      events.push(narrated(ownFate === 'exile' ? `${obj.label} is exiled as it resolves.` : ownFate === 'shuffle' ? `${obj.label} is shuffled into its owner's library.` : `${obj.label} is put on the bottom of its owner's library.`, obj.controller, obj.identity));
+      events.push(narrated(ownFate === 'exile' ? `${obj.label} is exiled as it resolves.` : ownFate === 'shuffle' ? `${obj.label} is shuffled into its owner's library.` : ownFate === 'hand' ? `${obj.label} returns to its owner's hand as it resolves.` : `${obj.label} is put on the bottom of its owner's library.`, obj.controller, obj.identity));
     }
     // D449 - DASH (CR 702.109a): a dashed permanent returns to its owner's hand at the beginning of the next
     // end step - a delayed trigger armed as the spell resolves, its one effect the self return (a source that
@@ -1037,12 +1039,17 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 }
 
 /** D501 - the resolving spell's own fate among its clauses (the self kinds the vocabulary parses; `resolveTop` moves the card). */
-function spellFateOf(effects: readonly EffectSpec[]): 'exile' | 'shuffle' | 'bottom' | undefined {
+function spellFateOf(effects: readonly EffectSpec[]): 'exile' | 'shuffle' | 'bottom' | 'hand' | undefined {
   for (const e of effects) {
     if (e.self !== true) continue;
+    // D527 - a self clause behind a gate (`If you win, return ~ to its owner's hand.`) is the executor's to decide,
+    // from the graveyard once the clash's answers resumed it - never the spell's own fate as it resolves.
+    if (e.gate !== undefined) continue;
     if (e.kind === 'exileSelf') return 'exile';
     if (e.kind === 'shuffleSelf') return 'shuffle';
     if (e.kind === 'bottomSelf') return 'bottom';
+    // D527 - `Return ~ to its owner's hand` on a spell, ungated: the hand instead of the graveyard.
+    if (e.kind === 'returnSelf') return 'hand';
   }
   return undefined;
 }

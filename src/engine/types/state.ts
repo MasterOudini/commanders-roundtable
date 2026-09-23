@@ -461,6 +461,8 @@ export interface StackObject {
   readonly suspended?: true;
   /** D491 - cast from the hand under a resolving effect's grant, without paying its mana cost. */
   readonly freeCast?: true;
+  /** D527 - a resumed frame's clash verdict, from its continuation. */
+  readonly clash?: 'won' | 'lost';
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -707,6 +709,18 @@ export interface PlayPermission {
   readonly grantedTurn: number;
 }
 
+/**
+ * D527 - a clash in progress (CR 701.10), carried on the placement prompts: whose placement this is, the two players, your
+ * revealed mana value, and the opponent's once revealed. -1 is an empty library (nothing revealed, nothing won).
+ */
+export interface ClashState {
+  readonly stage: 'you' | 'opponent';
+  readonly you: PlayerId;
+  readonly opponent: PlayerId;
+  readonly yourMv: number;
+  readonly theirMv?: number;
+}
+
 export interface PendingTrigger {
   readonly id: string;
   readonly source: InstanceId;
@@ -803,6 +817,8 @@ export interface EffectContinuation {
   readonly xValue?: number;
   readonly kicked?: number;
   readonly memo?: number;
+  /** D527 - the clash decided before this frame resumed (CR 701.10): what `If you win` reads. */
+  readonly clash?: 'won' | 'lost';
   readonly outer?: EffectContinuation;
 }
 
@@ -1027,6 +1043,18 @@ export type Awaiting =
       readonly player: PlayerId;
       readonly source: InstanceId;
       readonly label: string;
+    }
+  /**
+   * D527 - a PLAYER chosen at resolution (`Clash with an opponent` with more than one): the candidates ride the prompt
+   * (players are public); the answer carries the clauses after the choosing one.
+   */
+  | {
+      readonly kind: 'choosePlayer';
+      readonly player: PlayerId;
+      readonly candidates: readonly PlayerId[];
+      readonly purpose: 'clash';
+      readonly label: string;
+      readonly continuation?: EffectContinuation;
     }
   /**
    * D465 - the creature-type twin: a fact, remembered on `CardInstance.chosenType`. No options
@@ -1337,6 +1365,8 @@ export type Awaiting =
       readonly thenDraw: number;
       /** D409 - an explore's question (CR 701.42): the exploring permanent, and how many explores wait behind this one. */
       readonly explore?: { readonly permanent: InstanceId; readonly remaining: number };
+      /** D527 - a clash's placement (CR 701.10): the clash so far; the answer chains the opponent's prompt or decides it. */
+      readonly clash?: ClashState;
       readonly label: string;
     }
   /**

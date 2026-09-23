@@ -779,6 +779,30 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D527 - clash: the two placements and the verdict are the engine's now; what stays is the heads that watch for a clash, the defending-player form, the Otherwise half and the riders beside it.
+  ['Mana Clash', 'the row maker: a spell with a line outside the vocabulary: You and target opponent each flip a coin. Mana Clash deals 1'],
+  ['Recross the Paths', 'the row maker: a spell with a line outside the vocabulary: Reveal cards from the top of your library until you reveal a (D527)'],
+  ['Entangling Trap', 'a head that watches for a clash (`Whenever you clash, tap target creature an opponen`) outside the library (D527)'],
+  ["Hoarder's Greed", 'a clash that repeats on a win (`You lose 2 life and draw two cards, then clash wit`) (D527)'],
+  ['Whirlpool Whelm', 'an `instead` rider with a may and a referent to the bounced card (`Clash with an opponent, then return target creatur`) (D527)'],
+  ['Scattering Stroke', 'the row maker: a spell with a line outside the vocabulary: Counter target spell. Clash with an opponent. If you win, at (D527)'],
+  ['Gilt-Leaf Ambush', 'the row maker: a spell with a line outside the vocabulary: Create two 1/1 green Elf Warrior creature tokens. Clash with (D527)'],
+  ['Pollen Lullaby', 'the row maker: a spell with a line outside the vocabulary: Prevent all combat damage that would be dealt this turn. Cla (D527)'],
+  ['Captivating Glance', 'the `Otherwise` half of the verdict (`At the beginning of your end step, clash with an o`): a gate on the negation the parser does not read (D527)'],
+  ['Redeem the Lost', 'the row maker: a spell with a line outside the vocabulary: Target creature you control gains protection from the color (D527)'],
+  ['Pulling Teeth', 'the `Otherwise` half of the verdict (`Clash with an opponent. If you win, target player `): a gate on the negation the parser does not read (D527)'],
+  ['Broken Ambitions', 'the row maker: a spell with a line outside the vocabulary: Counter target spell unless its controller pays {X}. Clash w (D527)'],
+  ['Lash Out', 'the row maker: a spell with a line outside the vocabulary: Lash Out deals 3 damage to target creature. Clash with an op (D527)'],
+  ['Revive the Fallen', 'the row maker: a spell with a line outside the vocabulary: Return target creature card from a graveyard to its owner\'s (D527)'],
+  ['Marvo, Deep Operative', 'a clash with the DEFENDING player (the head\'s player, not a chosen opponent) - not this wave (D527)'],
+  ['Woodland Guidance', 'the row maker: a spell with a line outside the vocabulary: Return target card from your graveyard to your hand. Clash w (D527)'],
+  ['Sentry Oak', 'the row maker: trigger payload not a pump: Clash with an opponent. If you win, this creature gets +2/+0 (D527)'],
+  ['Rebellion of the Flamekin', 'a head that watches for a clash (`Whenever you clash, you may pay {1}. If you do, cr`) outside the library (D527)'],
+  ['Weed Strangle', 'the row maker: a spell with a line outside the vocabulary: Destroy target creature. Clash with an opponent. If you win, (D527)'],
+  ['Spring Cleaning', 'the row maker: a spell with a line outside the vocabulary: Destroy target enchantment. Clash with an opponent. If you w (D527)'],
+  ['Fire Juggler', 'the row maker: trigger payload not a pump: Clash with an opponent. If you win, this creature deals 4 da (D527)'],
+  ["Nath's Elite", 'the row maker: a line that is neither an activated ability nor a library trigger: All creatures able to block this creature do so. (D527)'],
+  ['Fistful of Force', 'the row maker: a spell with a line outside the vocabulary: Target creature gets +2/+2 until end of turn. Clash with an (D527)'],
   // D526 - manifest: the top card face down as a 2/2 and the dread are the engine's now; what stays is the rider on the card the clause MADE, the repeats, the piles and the heads.
   ['Wildcall', 'a rider on the manifested card (`Manifest the top card of your library, then put X +1/+1 coun`): a referent to a card the clause MADE, which the vocab (D526)'],
   ['Cloudform', 'the row maker: trigger payload not a pump: ~ becomes an Aura with enchant creature. Manifest the top ca (D526)'],
@@ -1879,7 +1903,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hellish Rebuke', 'temporary game-wide trigger'],
   ['Hex Magic', 'play-from-exile permission'],
   ['High Tide', 'temporary game-wide trigger'],
-  ["Hoarder's Greed", 'clash mechanic'],
   // D218 — Honor's Reward BOLSTERS (the least-toughness tie is the
   // caster's pick — Defensive Maneuvers' precedent); Hour of
   // Devastation is the LOSE direction of the temp-grant carrier (Day of
@@ -1927,7 +1950,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // modal (Essence Filter's shape); Leeching Bite's mid-sentence
   // 'Another target' is D204's PROBED negative; Lost in Space hands
   // the top-or-bottom pick to the card's OWNER.
-  ['Lash Out', 'clash mechanic'],
   ['Lava Storm', 'script-raised prompt'],
   ['Lay Down Arms', 'computed target threshold'],
   ['Lethal Exploit', 'modified predicate'],
@@ -2059,16 +2081,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ray of Ruin', 'subtype list alternative'],
   ['Reach of Shadows', 'color target qualifier unenforced'],
   ['Reality Ripple', 'phasing'],
-  ['Recross the Paths', 'clash mechanic'],
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
-  ['Release the Ants', 'clash mechanic'],
   // D239 (M6.4cb)
   ['Relentless Pursuit', 'script-raised prompt'],
   ["Relic's Roar", 'until-end-of-turn base P/T set'],
   ['Reminisce', 'ctx.random'],
   ['Repel Calamity', 'spell target parse (numeric disjunction)'],
-  ['Research the Deep', 'clash mechanic'],
   ['Resolute Strike', 'script-raised prompt'],
   ['Restore', 'spell target parse (graveyard noun)'],
   ['Retraced Image', 'script-raised prompt'],
@@ -2123,7 +2142,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spinning Wheel Kick', 'cast-time computed target count'],
   ['Spirit en-Dal', 'ability-word activated cost'],
   ['Spoils of the Hunt', 'mana-spent memory'],
-  ['Spring Cleaning', 'clash mechanic'],
   // D252 (M6.4co)
   ['Square Up', 'until-end-of-turn base P/T set'],
   // D253 (M6.4cp) — Step Right Up opens an ATTRACTION DECK, a zone this
@@ -2226,7 +2244,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Time Stop', 'end the turn'],
   // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
   // turn at a time and nothing can splice another in after it.
-  ["Titan's Revenge", 'clash mechanic'],
   ['Together as One', 'converge'],
 
   // D261 (M6.4cx) — ONE new class, and it is the same missing piece seen from
@@ -2384,7 +2401,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Warriors' Lesson", 'quoted-ability temporary grant'],
   ['Wash Out', 'script-raised prompt'],
   ['Wavebreak Hippocamp', 'once-per-turn trigger memory'],
-  ['Weed Strangle', 'clash mechanic'],
   ['West Coast Expansion', 'script-raised prompt'],
 
   // D269 (M6.4df) — ZERO new classes, and the batch where the
@@ -3553,7 +3569,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
     // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
     // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
-    expect.soft(all.length).toBe(24);
+    expect.soft(all.length).toBe(25);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

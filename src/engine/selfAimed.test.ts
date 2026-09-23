@@ -159,7 +159,7 @@ describe('D373 - the self subject in the vocabulary', () => {
     expect(parseEffects('This creature gets +2/+2 and gains trample until end of turn.', 'X', true).effects[0]).toMatchObject({ kind: 'pump', self: true, keywords: ['trample'] });
     expect(parseEffects('~ gains flying until end of turn.', 'X', true).effects[0]).toMatchObject({ kind: 'pump', self: true, keywords: ['flying'] });
     expect(parseEffects('Put a +1/+1 counter on this creature.', 'X', true).effects[0]).toMatchObject({ kind: 'putCounters', self: true, amount: 1, counterKind: '+1/+1' });
-    expect(parseEffects("Return this permanent to its owner's hand.", 'X', true).effects[0]).toMatchObject({ kind: 'bounce', self: true });
+    expect(parseEffects("Return this permanent to its owner's hand.", 'X', true).effects[0]).toMatchObject({ kind: 'returnSelf', self: true });
     expect(parseEffects('Untap this creature.', 'X', true).effects[0]).toMatchObject({ kind: 'untap', self: true });
     expect(parseEffects('Regenerate this creature.', 'X', true).effects[0]).toMatchObject({ kind: 'regenerate', self: true, targetIndex: -1 });
     expect(parseEffects('Regenerate target creature.', 'X', true).effects[0]).toMatchObject({ kind: 'regenerate', self: false, targetIndex: 0 });

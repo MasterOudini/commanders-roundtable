@@ -9793,6 +9793,17 @@ const WANTED = [
   'Ingenuity Engine',
   'Bashful Beastie',
   // D526 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D527 - CLASH: the seam's own fixtures (Release the Ants and Research the Deep, the fuzz staples; Hill Giant, the gate arm's higher mana value - clash.test.ts).
+  'Release the Ants',
+  'Research the Deep',
+  // D527 - CLASH: the rows the whole-leftover row maker rowed once the vocabulary read a clash and its gated verdict (the enters heads with a +1/+1 counter, the dies head that returns the card, the attack head).
+  'Oaken Brawler',
+  'Springjack Knight',
+  'Paperfin Rascal',
+  'Adder-Staff Boggart',
+  'Bog Hoodlums',
+  'Ringskipper',
+  // D527 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

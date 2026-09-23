@@ -334,6 +334,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // face down, one into the graveyard - the driver answers the look) a seat; a manifested creature card is offered face
   // up for its mana cost, which the driver takes when it can afford it (`TurnFaceUp` is a usable action).
   { names: ['Soul Summons', 'Manifest Dread'], copiesPerSeat: 2, counterKeys: ['manifests', 'manifestDreads'], rotHistory: 'D526' },
+  // D527 - CLASH: two Release the Ants and two Research the Deeps a seat - each clashes with an opponent (two placement
+  // prompts, the harness's scry answer keeps the card on top) and returns itself to hand on a win (D523's gate over the
+  // verdict); in a four-seat game the caster is asked which opponent (the first candidate).
+  { names: ['Release the Ants', 'Research the Deep'], copiesPerSeat: 2, counterKeys: ['clashes', 'clashWins'], rotHistory: 'D527' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1627,6 +1631,9 @@ interface Run {
   readonly manifests: number;
   readonly manifestDreads: number;
   readonly manifestFlips: number;
+  /** D527 - clash: the clashes decided (`Clashed`), and the ones the clasher won. */
+  readonly clashes: number;
+  readonly clashWins: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2118,6 +2125,8 @@ function runOne(seed: number): Run {
     manifests: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.manifested === true).length : 0), 0),
     manifestDreads: game.log.filter((e) => e.body.t === 'ManifestedDread').length,
     manifestFlips: game.log.filter((e) => e.body.t === 'FaceDownSet' && e.body.faceDown === false && (ORACLE.byPrinting(game.state.cards[e.body.card]?.printingId ?? '')?.faces[0]?.morphCost ?? null) === null).length,
+    clashes: game.log.filter((e) => e.body.t === 'Clashed').length,
+    clashWins: game.log.filter((e) => e.body.t === 'Clashed' && e.body.won === true).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2435,6 +2444,8 @@ const TOTAL_KEYS = [
   'manifests',
   'manifestDreads',
   'manifestFlips',
+  'clashes',
+  'clashWins',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2914,6 +2925,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.cascades).toBeGreaterThan(0);
         // D526 - a manifest at gate size (Soul Summons and Manifest Dread, two a seat).
         expect(totals.manifests).toBeGreaterThan(0);
+        // D527 - a clash at gate size (Release the Ants and Research the Deep, two a seat).
+        expect(totals.clashes).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

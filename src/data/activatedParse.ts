@@ -260,6 +260,8 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
     else if (/^if you(?:'re| are) the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'you' });
     else if (/^if an opponent is the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'opponent' });
     else if (/^if there is no monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'none' });
+    // D527 - the clash's verdict (CR 701.10), asked of the resolution itself: `If you win, ...` / `If you won, ...`.
+    else if (/^if you (?:win|won)$/i.test(c)) conditions.push({ kind: 'clashWon' });
     else if ((mm = /^if an opponent controls (?:a|an) (.+?) and you control (?:a|an) (.+)$/i.exec(c))) {
       const theirs = acLandOrPredicates(mm[1] ?? '');
       const yours = acLandOrPredicates(mm[2] ?? '');

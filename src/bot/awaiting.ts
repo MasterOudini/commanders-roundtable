@@ -588,6 +588,13 @@ export function answerAwaiting(
       return act({ t: 'AnswerChooseReplacement', player: me, key: first.key }, 'order a replacement');
     }
 
+    // D527 - the player to choose (a clash's opponent): the first candidate; a choice that is not mine waits.
+    case 'choosePlayer': {
+      if (awaiting.player !== me) return wait('not my choice');
+      const pick = awaiting.candidates[0];
+      if (pick === undefined) return fault('noIntentForAwaiting', 'no player to choose');
+      return act({ t: 'AnswerChoosePlayer', player: me, chosen: pick }, 'choose an opponent to clash with');
+    }
     case 'chooseColor': {
       const seat = view.seats[me];
       return act(

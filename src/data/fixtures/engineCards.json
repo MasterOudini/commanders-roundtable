@@ -298407,6 +298407,287 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RELEASE_THE_ANTS": {
+    "scryfallId": "1b6f1afb-2451-4611-ac3e-3513a4651719",
+    "oracleId": "b420e429-9dec-4993-a45f-3458795e5cbe",
+    "name": "Release the Ants",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Release the Ants",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Release the Ants deals 1 damage to any target. Clash with an opponent. If you win, return Release the Ants to its owner's hand. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "1b6f1afb-2451-4611-ac3e-3513a4651719"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESEARCH_THE_DEEP": {
+    "scryfallId": "927bab71-a208-4ff2-b6c9-51b63468db38",
+    "oracleId": "02f35851-c1be-4162-a6f8-7897325555a7",
+    "name": "Research the Deep",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Research the Deep",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw a card. Clash with an opponent. If you win, return Research the Deep to its owner's hand. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Eric Fortune",
+        "imageId": "927bab71-a208-4ff2-b6c9-51b63468db38"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OAKEN_BRAWLER": {
+    "scryfallId": "3b262304-ae03-4bc8-a6b9-4a7415ae40a6",
+    "oracleId": "819351c6-b0d6-42dc-9bd9-d1a3851aad7c",
+    "name": "Oaken Brawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Oaken Brawler",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Treefolk Warrior",
+        "oracleText": "When this creature enters, clash with an opponent. If you win, put a +1/+1 counter on this creature. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "3b262304-ae03-4bc8-a6b9-4a7415ae40a6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "LRW-33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRINGJACK_KNIGHT": {
+    "scryfallId": "75fa0c72-427b-4797-b5b1-15f07fc5fa07",
+    "oracleId": "97b0b719-d948-4671-97ba-1b2be8cc55e4",
+    "name": "Springjack Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Springjack Knight",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Kithkin Knight",
+        "oracleText": "Whenever this creature attacks, clash with an opponent. If you win, target creature gains double strike until end of turn. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "75fa0c72-427b-4797-b5b1-15f07fc5fa07"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PAPERFIN_RASCAL": {
+    "scryfallId": "a439c0ca-0cb2-4293-825e-1a72159953b9",
+    "oracleId": "bdec1d22-2f89-424b-b48f-46c9158943af",
+    "name": "Paperfin Rascal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Paperfin Rascal",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Rogue",
+        "oracleText": "When this creature enters, clash with an opponent. If you win, put a +1/+1 counter on this creature. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "a439c0ca-0cb2-4293-825e-1a72159953b9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADDER_STAFF_BOGGART": {
+    "scryfallId": "d116839f-6a3a-4a2e-a3ab-ea177c012746",
+    "oracleId": "c95e75fb-2bf2-431c-b7ca-d84236bffe5c",
+    "name": "Adder-Staff Boggart",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adder-Staff Boggart",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "When this creature enters, clash with an opponent. If you win, put a +1/+1 counter on this creature. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "d116839f-6a3a-4a2e-a3ab-ea177c012746"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOG_HOODLUMS": {
+    "scryfallId": "f2459953-a4b5-4a9c-85ed-928b684d7240",
+    "oracleId": "c48ce36d-46c3-4432-8711-1b10f12efc90",
+    "name": "Bog Hoodlums",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bog Hoodlums",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "This creature can't block.\nWhen this creature enters, clash with an opponent. If you win, put a +1/+1 counter on this creature. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Brandon Dorman",
+        "imageId": "f2459953-a4b5-4a9c-85ed-928b684d7240"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Clash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RINGSKIPPER": {
+    "scryfallId": "72d3ae1f-5442-4725-a16a-502f13359a85",
+    "oracleId": "8e353b5f-0692-430e-9558-59818275b13b",
+    "name": "Ringskipper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ringskipper",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flying\nWhen this creature dies, clash with an opponent. If you win, return this card to its owner's hand. (Each clashing player reveals the top card of their library, then puts that card on their choice of the top or bottom. A player wins if their card had a greater mana value.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "72d3ae1f-5442-4725-a16a-502f13359a85"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Clash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "81",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

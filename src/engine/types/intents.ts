@@ -247,6 +247,8 @@ export type Intent =
   /** CR 616.1 — which applicable replacement effect applies next. See D148. */
   | { readonly t: 'AnswerChooseReplacement'; readonly player: PlayerId; readonly key: string }
   | { readonly t: 'AnswerChooseColor'; readonly player: PlayerId; readonly color: ColorLetter }
+  /** D527 - the player chosen at resolution (a clash's opponent among several). */
+  | { readonly t: 'AnswerChoosePlayer'; readonly player: PlayerId; readonly chosen: PlayerId }
   /** D465 - the creature-type twin of the colour answer; a name outside the oracle catalogue is refused. */
   | { readonly t: 'AnswerChooseCreatureType'; readonly player: PlayerId; readonly creatureType: string }
   /** D441 - `reveal` names the hand card a reveal land's price shows (with `pay: true`); absent for a life price. */

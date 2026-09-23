@@ -741,6 +741,13 @@ export type EffectKind =
    */
   | 'manifest'
   | 'manifestDread'
+  /**
+   * D527 - CLASH (CR 701.10): you and an opponent each reveal the top card of your library and put it on top or on
+   * the bottom; the higher mana value wins. `returnSelf`: `Return ~ to its owner's hand` - the source, or the spell's
+   * own card once it has resolved (its hand fate when it is still on the stack).
+   */
+  | 'clash'
+  | 'returnSelf'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1526,6 +1533,8 @@ export type ActivationCondition =
    * nobody's). Read off `state.monarch`, so a gated clause and an `Activate only if` line ask the same question.
    */
   | { readonly kind: 'monarch'; readonly who: 'you' | 'opponent' | 'none' }
+  /** D527 - `if you win` (a clash, CR 701.10): the resolution's own verdict, never the board - `gateHolds` alone answers it. */
+  | { readonly kind: 'clashWon' }
   /** D490 - `if an opponent controls a Plains and you control a Swamp` (the Legates): a predicate on some opponent's board and one on the player's. */
   | { readonly kind: 'acrossControl'; readonly theirs: readonly PermanentPredicate[]; readonly yours: readonly PermanentPredicate[] }
   /**

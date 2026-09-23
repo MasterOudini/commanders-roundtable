@@ -56,7 +56,7 @@ const endOfCombat = (g: Game, turn: number) => { advanceUntil(g, (s) => s.turn.t
 describe('D497 - the end-of-combat step, and a delayed clause aimed at the source or a target', () => {
   test('the readings: the source forms, the targeted form, the step; the refusals stand', () => {
     expect(kinds('Sacrifice it at end of combat.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'sacrificeSelf', self: true, delay: { step: 'endCombat', whose: 'next' } }] });
-    expect(kinds("Return ~ to its owner's hand at end of combat.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'bounce', self: true, delay: { step: 'endCombat', whose: 'next' } }] });
+    expect(kinds("Return ~ to its owner's hand at end of combat.")).toMatchObject({ mode: 'auto', effects: [{ kind: 'returnSelf', self: true, delay: { step: 'endCombat', whose: 'next' } }] });
     expect(kinds('Put a -1/-1 counter on ~ at end of combat.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'putCounters', self: true, delay: { step: 'endCombat', whose: 'next' } }] });
     expect(kinds('Destroy ~ at end of combat.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'destroy', self: true, delay: { step: 'endCombat', whose: 'next' } }] });
     expect(kinds('Destroy target creature at end of combat.')).toMatchObject({ mode: 'auto', effects: [{ kind: 'destroy', self: false, targetIndex: 0, delay: { step: 'endCombat', whose: 'next' } }] });

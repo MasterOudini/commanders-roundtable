@@ -150,6 +150,10 @@ function describe(
         return awaiting.player === viewer
           ? `${awaiting.label} — choose ${awaiting.min === awaiting.max ? awaiting.min : `${awaiting.min} to ${awaiting.max}`} mode${awaiting.max === 1 ? '' : 's'}.`
           : `${nameOf(seats, awaiting.player)} is choosing a mode for ${awaiting.label}.`;
+      case 'choosePlayer':
+        return awaiting.player === viewer
+          ? `${awaiting.label} — choose an opponent to clash with.`
+          : `${nameOf(seats, awaiting.player)} is choosing an opponent for ${awaiting.label}.`;
       case 'chooseColor':
         return awaiting.player === viewer
           ? `${awaiting.label} — name a colour.`
@@ -622,6 +626,22 @@ export function PromptBar() {
           >
             {mode.chosen.length === 0 ? 'Proliferate nothing' : `Proliferate ${mode.chosen.length}`}
           </button>
+        )}
+        {/* D527 - the player to choose at resolution (a clash's opponent): one button a candidate. */}
+        {awaiting?.kind === 'choosePlayer' && mine('choosePlayer') && (
+          <>
+            {awaiting.candidates.map((p) => (
+              <button
+                key={p}
+                type="button"
+                className={BTN}
+                data-action={`choose-player-${p}`}
+                onClick={() => send({ t: 'AnswerChoosePlayer', player: viewer, chosen: p })}
+              >
+                {nameOf(seats, p)}
+              </button>
+            ))}
+          </>
         )}
         {awaiting?.kind === 'chooseColor' && mine('chooseColor') && (
           <>

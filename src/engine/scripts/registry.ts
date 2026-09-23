@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { OAKEN_BRAWLER_SCRIPT } from './cards/oakenBrawler';
+import { SPRINGJACK_KNIGHT_SCRIPT } from './cards/springjackKnight';
+import { PAPERFIN_RASCAL_SCRIPT } from './cards/paperfinRascal';
+import { ADDER_STAFF_BOGGART_SCRIPT } from './cards/adderStaffBoggart';
+import { BOG_HOODLUMS_SCRIPT } from './cards/bogHoodlums';
+import { RINGSKIPPER_SCRIPT } from './cards/ringskipper';
 import { KATHARI_REMNANT_SCRIPT } from './cards/kathariRemnant';
 import { SULTAI_EMISSARY_SCRIPT } from './cards/sultaiEmissary';
 import { ETHERIUM_HORN_SORCERER_SCRIPT } from './cards/etheriumHornSorcerer';
@@ -8027,6 +8033,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  OAKEN_BRAWLER_SCRIPT,
+  SPRINGJACK_KNIGHT_SCRIPT,
+  PAPERFIN_RASCAL_SCRIPT,
+  ADDER_STAFF_BOGGART_SCRIPT,
+  BOG_HOODLUMS_SCRIPT,
+  RINGSKIPPER_SCRIPT,
   KATHARI_REMNANT_SCRIPT,
   SULTAI_EMISSARY_SCRIPT,
   ETHERIUM_HORN_SORCERER_SCRIPT,

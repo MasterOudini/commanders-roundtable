@@ -120,6 +120,9 @@ export function activationConditionsHold(
       case 'controlsCommander':
         if (!mine().some((id) => state.cards[id]?.isCommander === true)) return false;
         break;
+      // D527 - the clash verdict lives on the resolution, not the board: `gateHolds` answers it first and never asks here.
+      case 'clashWon':
+        return false;
       // D523 - the crown (CR 724): who wears it, off `state.monarch` (D522's own field).
       case 'monarch':
         if (cond.who === 'you' ? state.monarch !== player : cond.who === 'opponent' ? state.monarch === null || state.monarch === player : state.monarch !== null) return false;
@@ -209,6 +212,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if it is a creature';
         case 'controlsCommander':
           return 'if you control a commander';
+        case 'clashWon':
+          return 'if you win the clash';
         case 'monarch':
           return cond.who === 'you' ? "if you're the monarch" : cond.who === 'opponent' ? 'if an opponent is the monarch' : 'if there is no monarch';
         case 'acrossControl':

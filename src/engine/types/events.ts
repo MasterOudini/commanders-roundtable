@@ -379,6 +379,8 @@ export type EventBody =
   | { readonly t: 'Bolstered'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number }
   /** D520 - an amass resolved: the Army creature token that got the counters, or none (a marker; the counters and the subtype beside it moved the state). */
   | { readonly t: 'Amassed'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number; readonly subtype: string }
+  /** D527 - a clash decided (CR 701.10): the two mana values and whether the clasher won (-1 is nothing revealed). */
+  | { readonly t: 'Clashed'; readonly player: PlayerId; readonly opponent: PlayerId; readonly won: boolean; readonly yourMv: number; readonly theirMv: number }
   /** D526 - a manifest dread resolved for this player (CR 701.34e): the card put face down, or null with a library too short. */
   | { readonly t: 'ManifestedDread'; readonly player: PlayerId; readonly card: InstanceId | null }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
@@ -478,7 +480,7 @@ export type EventBody =
       readonly card: InstanceId | null;
       readonly to: ZoneRef | null;
       /** D501 - the spell left the stack by its own printed fate (`Exile ~.` and the library forms); a flashback's exile is not one. */
-      readonly fate?: 'exile' | 'shuffle' | 'bottom';
+      readonly fate?: 'exile' | 'shuffle' | 'bottom' | 'hand';
       /** What it was aimed at, so an assisted card can still be offered after it resolves. */
       readonly targets: readonly TargetChoice[];
       /**

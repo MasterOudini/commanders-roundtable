@@ -8819,6 +8819,14 @@ export const UNSETTLING_TWINS: CardData = F.UNSETTLING_TWINS as CardData;
 export const INNOCUOUS_RAT: CardData = F.INNOCUOUS_RAT as CardData;
 export const INGENUITY_ENGINE: CardData = F.INGENUITY_ENGINE as CardData;
 export const BASHFUL_BEASTIE: CardData = F.BASHFUL_BEASTIE as CardData;
+export const RELEASE_THE_ANTS: CardData = F.RELEASE_THE_ANTS as CardData;
+export const RESEARCH_THE_DEEP: CardData = F.RESEARCH_THE_DEEP as CardData;
+export const OAKEN_BRAWLER: CardData = F.OAKEN_BRAWLER as CardData;
+export const SPRINGJACK_KNIGHT: CardData = F.SPRINGJACK_KNIGHT as CardData;
+export const PAPERFIN_RASCAL: CardData = F.PAPERFIN_RASCAL as CardData;
+export const ADDER_STAFF_BOGGART: CardData = F.ADDER_STAFF_BOGGART as CardData;
+export const BOG_HOODLUMS: CardData = F.BOG_HOODLUMS as CardData;
+export const RINGSKIPPER: CardData = F.RINGSKIPPER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17889,6 +17897,14 @@ export const ENGINE_CARDS: CardData[] = [
   INNOCUOUS_RAT,
   INGENUITY_ENGINE,
   BASHFUL_BEASTIE,
+  RELEASE_THE_ANTS,
+  RESEARCH_THE_DEEP,
+  OAKEN_BRAWLER,
+  SPRINGJACK_KNIGHT,
+  PAPERFIN_RASCAL,
+  ADDER_STAFF_BOGGART,
+  BOG_HOODLUMS,
+  RINGSKIPPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
