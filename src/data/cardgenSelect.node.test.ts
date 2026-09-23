@@ -779,6 +779,47 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D524 - the gate inside a payload: the gates the suite can now ARM left these behind - a fact only the CAST can remember, a coin flip, and a gate whose own recipe fires the row trigger.
+  ['Boompile', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Bottle of Suleiman', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Creepy Doll', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Crooked Scales', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Desperate Gambit', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Fickle Efreet', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Fighting Chance', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Flame Discharge', 'a CAST-TIME fact the gate cannot ask at resolution (`you controlled a modified creature as you cast this spell`): the cast has to remember it, as the (D524)'],
+  ['Frenetic Efreet', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Game of Chaos', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Goblin Archaeologist', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Goblin Artisans', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Goblin Bangchuckers', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Goblin Festival', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Goblin Kaboomist', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Goblin Kites', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Goblin Lyre', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Goblin Psychopath', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Impulsive Maneuvers', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Invert Polarity', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Mijae Djinn', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Mogg Assassin', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Molten Birth', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Molten Sentry', 'a coin flip beside the gate (`the coin comes up heads`) (D524)'],
+  ['Orcish Captain', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ["Puppet's Verdict", 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Scoria Wurm', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Scute Swarm', 'a payload gate whose recipe fires the row\'s own trigger (the permanents the gate needs are the very enters the head watches) (D524) (D524)'],
+  ['Skittish Valesk', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Skyclaw Thrash', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ["Sorcerer's Strongbox", 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Stitch in Time', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Tavern Swindler', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Tide of War', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Two-Headed Giant', 'a coin flip beside the gate (`both coins come up heads`) (D524)'],
+  ['Viashino Sandswimmer', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Wild Wurm', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
+  ['Winter Sky', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Wirefly Hive', 'a coin flip beside the gate (`you win the flip`) (D524)'],
+  ['Ydwen Efreet', 'a coin flip beside the gate (`you lose the flip`) (D524)'],
   // D523 - the gated clause: the riders whose CONDITION the closed union still does not read (the cast-time facts, the predicates just outside it).
   ["Sevinne's Reclamation", 'a cast-time fact outside the union (`this spell was cast from a graveyard`) (D523)'],
   ['Molten-Core Maestro', 'a cast-time fact outside the union (`five or more mana was spent to cast that spell`) (D523)'],
@@ -849,7 +890,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Crown of Gondor', 'equipped creature attacks without an Equip line the engine charges (D522)'],
   ['Fealty to the Realm', 'a line that is neither an activated ability nor a library trigger: The monarch controls enchanted creature. (D522)'],
   ['Keeper of Keys', 'trigger payload not a pump: Creatures you control can\'t be blocked this turn. (D522)'],
-  ['Court of Grace', 'trigger payload not a pump: Create a 1/1 white Spirit creature token with flying. If you (D522)'],
   ['Queen Marchesa', 'a token outside TOKEN_TABLE: Assassin|1/1|B|Creature|deathtouch,haste (D522)'],
   ["Marchesa's Decree", 'trigger head not in the library: Whenever a creature attacks you or a planeswalker you control, that cr (D522)'],
   ['Forth Eorlingas!', 'the spell\'s X on the token count and a combat-damage reflexive head (`Whenever one or more creatures you control deal combat damage to one or more pla (D522)'],
@@ -864,7 +904,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Court of Bounty', 'trigger payload not a pump: Put a land card from your hand onto the battlefield. If you\' (D522)'],
   ['Emberwilde Captain', 'trigger head not in the library: Whenever an opponent attacks you while you\'re the monarch, this creatu (D522)'],
   ['Okoye, Mighty and Adored', 'trigger payload not a pump: Put a +1/+1 counter on target creature. Whenever that creatu (D522)'],
-  ['Aragorn, King of Gondor', 'trigger payload not a pump: Up to one target creature can\'t block this turn. If you\'re t (D522)'],
   ['Oath of Eorl', 'multi-face or unusual layout (D522)'],
   ['Protector of the Crown', 'a line that is neither an activated ability nor a library trigger: All damage that would be dealt to you is dealt to this creature instea (D522)'],
   ['Regal Behemoth', 'trigger head not in the library: Whenever you tap a land for mana while you\'re the monarch, add an addi (D522)'],
@@ -3452,7 +3491,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
     // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
     // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
-    expect.soft(all.length).toBe(25);
+    expect.soft(all.length).toBe(17);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

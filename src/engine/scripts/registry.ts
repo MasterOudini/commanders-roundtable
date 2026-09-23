@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { COURT_OF_GRACE_SCRIPT } from './cards/courtOfGrace';
+import { GANGRENOUS_ZOMBIES_SCRIPT } from './cards/gangrenousZombies';
+import { ZIMONE_QUANDRIX_PRODIGY_SCRIPT } from './cards/zimoneQuandrixProdigy';
+import { SCREECHING_SILCAW_SCRIPT } from './cards/screechingSilcaw';
+import { ARAGORN_KING_OF_GONDOR_SCRIPT } from './cards/aragornKingOfGondor';
+import { SCROLL_OF_AVACYN_SCRIPT } from './cards/scrollOfAvacyn';
+import { TRAGIC_BANSHEE_SCRIPT } from './cards/tragicBanshee';
+import { SLAUGHTERHOUSE_BOUNCER_SCRIPT } from './cards/slaughterhouseBouncer';
+import { SLIMY_PIPER_SCRIPT } from './cards/slimyPiper';
 import { CONVALESCENCE_SCRIPT } from './cards/convalescence';
 import { SOUL_SWALLOWER_SCRIPT } from './cards/soulSwallower';
 import { GARRULOUS_SYCOPHANT_SCRIPT } from './cards/garrulousSycophant';
@@ -8004,6 +8013,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  COURT_OF_GRACE_SCRIPT,
+  GANGRENOUS_ZOMBIES_SCRIPT,
+  ZIMONE_QUANDRIX_PRODIGY_SCRIPT,
+  SCREECHING_SILCAW_SCRIPT,
+  ARAGORN_KING_OF_GONDOR_SCRIPT,
+  SCROLL_OF_AVACYN_SCRIPT,
+  TRAGIC_BANSHEE_SCRIPT,
+  SLAUGHTERHOUSE_BOUNCER_SCRIPT,
+  SLIMY_PIPER_SCRIPT,
   CONVALESCENCE_SCRIPT,
   SOUL_SWALLOWER_SCRIPT,
   GARRULOUS_SYCOPHANT_SCRIPT,
