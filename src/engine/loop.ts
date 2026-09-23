@@ -430,6 +430,18 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
       break;
     }
 
+    // D528 - CR 714.2b: as the precombat main phase begins (right after the draw step), the active player puts a lore
+    // counter on each Saga they control - one batch, as the entry funnel puts its own; the chapter whose number the
+    // count reaches triggers off the change. A phased-out Saga is not there to count.
+    case 'precombatMain': {
+      const sagas = state.zones.battlefield.filter((id) => {
+        const card = state.cards[id];
+        return !!card && card.controller === ap && !card.phasedOut && derive(state, deps.oracle, deps.scripts, id).typeLine.subtypes.includes('Saga');
+      });
+      if (sagas.length > 0) events.push({ t: 'CountersChanged', changes: sagas.map((id) => ({ card: id, kind: 'lore', delta: 1 })) });
+      break;
+    }
+
     case 'beginCombat':
       events.push({ t: 'CombatBegan' });
       break;

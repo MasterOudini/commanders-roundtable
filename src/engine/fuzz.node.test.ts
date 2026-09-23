@@ -338,6 +338,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // prompts, the harness's scry answer keeps the card on top) and returns itself to hand on a win (D523's gate over the
   // verdict); in a four-seat game the caster is asked which opponent (the first candidate).
   { names: ['Release the Ants', 'Research the Deep'], copiesPerSeat: 2, counterKeys: ['clashes', 'clashWins'], rotHistory: 'D527' },
+  // D528 - SAGAS: two Origins of the Hulk and two Births of Meletis a seat - each enters with a lore counter (chapter I),
+  // gets one as its controller's precombat main begins (II, III) and is sacrificed once the final chapter has resolved.
+  { names: ['Origin of the Hulk', 'The Birth of Meletis'], copiesPerSeat: 2, counterKeys: ['chaptersFired', 'sagasSacrificed'], rotHistory: 'D528' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1634,6 +1637,10 @@ interface Run {
   /** D527 - clash: the clashes decided (`Clashed`), and the ones the clasher won. */
   readonly clashes: number;
   readonly clashWins: number;
+  /** D528 - sagas: the lore counters put, the chapter abilities that went on the stack, the Sagas sacrificed after their last. */
+  readonly loreCounters: number;
+  readonly chaptersFired: number;
+  readonly sagasSacrificed: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2127,6 +2134,9 @@ function runOne(seed: number): Run {
     manifestFlips: game.log.filter((e) => e.body.t === 'FaceDownSet' && e.body.faceDown === false && (ORACLE.byPrinting(game.state.cards[e.body.card]?.printingId ?? '')?.faces[0]?.morphCost ?? null) === null).length,
     clashes: game.log.filter((e) => e.body.t === 'Clashed').length,
     clashWins: game.log.filter((e) => e.body.t === 'Clashed' && e.body.won === true).length,
+    loreCounters: game.log.reduce((n, e) => n + (e.body.t === 'CountersChanged' ? e.body.changes.filter((c) => c.kind === 'lore' && c.delta > 0).reduce((m, c) => m + c.delta, 0) : 0), 0),
+    chaptersFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').includes('#chapter-')).length,
+    sagasSacrificed: game.log.filter((e) => e.body.t === 'SagaSacrificed').length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2446,6 +2456,9 @@ const TOTAL_KEYS = [
   'manifestFlips',
   'clashes',
   'clashWins',
+  'loreCounters',
+  'chaptersFired',
+  'sagasSacrificed',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2927,6 +2940,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.manifests).toBeGreaterThan(0);
         // D527 - a clash at gate size (Release the Ants and Research the Deep, two a seat).
         expect(totals.clashes).toBeGreaterThan(0);
+        // D528 - a chapter ability at gate size (Origin of the Hulk and The Birth of Meletis, two a seat).
+        expect(totals.chaptersFired).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

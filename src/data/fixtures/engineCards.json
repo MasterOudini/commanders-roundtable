@@ -298688,6 +298688,377 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ORIGIN_OF_THE_HULK": {
+    "scryfallId": "8e93e473-b08a-43da-aa12-f86818e24a10",
+    "oracleId": "7398c8b2-373a-41c7-ac6c-7329f5944462",
+    "name": "Origin of the Hulk",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Origin of the Hulk",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Create a 1/1 green and white Citizen creature token.\nII — Put two +1/+1 counters on target creature you control.\nIII — Target creature you control gets +3/+3 and gains trample until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Serena Malyon",
+        "imageId": "8e93e473-b08a-43da-aa12-f86818e24a10"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "728",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_BIRTH_OF_MELETIS": {
+    "scryfallId": "a4ae9620-233f-4161-a3cf-159336e65d29",
+    "oracleId": "1ae54fe7-b1d3-4c13-a8ef-f502cf3eb1a0",
+    "name": "The Birth of Meletis",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "The Birth of Meletis",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Search your library for a basic Plains card, reveal it, put it into your hand, then shuffle.\nII — Create a 0/4 colorless Wall artifact creature token with defender.\nIII — You gain 2 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "a4ae9620-233f-4161-a3cf-159336e65d29"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "THB-5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMON_ANIMA": {
+    "scryfallId": "aa4f6703-21f8-4c29-ad5a-5afb54188ade",
+    "oracleId": "0990e57f-279e-4348-a049-e06187cc38d4",
+    "name": "Summon: Anima",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Summon: Anima",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Enchantment Creature — Saga Horror",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI, II, III — Pain — You draw a card and you lose 1 life.\nIV — Oblivion — Each opponent sacrifices a creature of their choice and loses 3 life.\nMenace",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Esuthio",
+        "imageId": "aa4f6703-21f8-4c29-ad5a-5afb54188ade"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Menace"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMON_CHOCO_MOG": {
+    "scryfallId": "00546117-018a-4286-bc20-b5446c5be56f",
+    "oracleId": "8b4bfdc5-8c0a-40c3-abbf-ada4a536dc34",
+    "name": "Summon: Choco/Mog",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Summon: Choco/Mog",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment Creature — Saga Bird Moogle",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI, II, III, IV — Stampede! — Other creatures you control get +1/+0 until end of turn.",
+        "flavorText": "\"Wark? Kupo!\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Madeline Boni",
+        "imageId": "00546117-018a-4286-bc20-b5446c5be56f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOOK_OF_MAZARBUL": {
+    "scryfallId": "04dcef75-6f98-4233-ae32-6fe41724c8e0",
+    "oracleId": "4598c221-b111-4bde-b4dc-673186c4efe6",
+    "name": "Book of Mazarbul",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Book of Mazarbul",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)\nII — Amass Orcs 2.\nIII — Creatures you control get +1/+0 and gain menace until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "04dcef75-6f98-4233-ae32-6fe41724c8e0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Amass"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HISTORY_OF_BENALIA": {
+    "scryfallId": "2072dd4e-3fd2-4c04-8859-7d9f59315e4b",
+    "oracleId": "c15bb7eb-aaaa-4468-9641-8f706d6137e8",
+    "name": "History of Benalia",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "History of Benalia",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI, II — Create a 2/2 white Knight creature token with vigilance.\nIII — Knights you control get +2/+1 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "2072dd4e-3fd2-4c04-8859-7d9f59315e4b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ybro",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAR_OF_THE_LAST_ALLIANCE": {
+    "scryfallId": "3214a1e1-3520-4d59-89bb-14a1336ef999",
+    "oracleId": "e376702a-f56e-4e47-aa8c-3f80384d12a9",
+    "name": "War of the Last Alliance",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "War of the Last Alliance",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI, II — Search your library for a legendary creature card, reveal it, put it into your hand, then shuffle.\nIII — Creatures you control gain double strike until end of turn. The Ring tempts you.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alexander Forssberg",
+        "imageId": "3214a1e1-3520-4d59-89bb-14a1336ef999"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "487",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMON_FAT_CHOCOBO": {
+    "scryfallId": "32eb192b-de6b-4814-8077-628d343d014e",
+    "oracleId": "b5d2f8e7-89d3-4015-ab99-ba4d66918e37",
+    "name": "Summon: Fat Chocobo",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Summon: Fat Chocobo",
+        "manaCost": "{4}{G}",
+        "typeLine": "Enchantment Creature — Saga Bird",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI — Wark — Create a 2/2 green Bird creature token with \"Whenever a land you control enters, this token gets +1/+0 until end of turn.\"\nII, III, IV — Kerplunk — Creatures you control gain trample until end of turn.",
+        "flavorText": "A pleasingly plump summon.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Joseph Weston",
+        "imageId": "32eb192b-de6b-4814-8077-628d343d014e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "fin",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BINDING_THE_OLD_GODS": {
+    "scryfallId": "41802f18-7d46-431a-acb3-dbcc82eb415a",
+    "oracleId": "4050e5b3-07c2-461c-9852-a2c081c0198d",
+    "name": "Binding the Old Gods",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Binding the Old Gods",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Destroy target nonland permanent an opponent controls.\nII — Search your library for a Forest card, put it onto the battlefield tapped, then shuffle.\nIII — Creatures you control gain deathtouch until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "41802f18-7d46-431a-acb3-dbcc82eb415a"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ecc",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMON_IXION": {
+    "scryfallId": "92c0bfc2-ba98-48b6-82a4-95a2321c8df4",
+    "oracleId": "1ccb8122-9135-4b8d-b1d1-18997fd7e9d2",
+    "name": "Summon: Ixion",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Summon: Ixion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment Creature — Saga Unicorn",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Aerospark — Exile target creature an opponent controls until this Saga leaves the battlefield.\nII, III — Put a +1/+1 counter on each of up to two target creatures you control. You gain 2 life.\nFirst strike",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Yoshiya",
+        "imageId": "92c0bfc2-ba98-48b6-82a4-95a2321c8df4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "fic",
+    "collectorNumber": "195",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FOUNDING_OF_OMASHU": {
+    "scryfallId": "c4c603c9-f2ed-419b-8704-6fe306f158fa",
+    "oracleId": "ea58fb10-3d70-4c25-b317-615dfb20a48d",
+    "name": "Founding of Omashu",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Founding of Omashu",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Create two 1/1 white Ally creature tokens.\nII — You may discard a card. If you do, draw a card.\nIII — Creatures you control get +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dee Nguyen",
+        "imageId": "c4c603c9-f2ed-419b-8704-6fe306f158fa"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tle",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -307537,6 +307908,37 @@
     "keywords": [],
     "setCode": "tcmm",
     "collectorNumber": "68",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN": {
+    "scryfallId": "dbdd5d53-65e7-42c3-a325-791f11335e62",
+    "oracleId": "a6108a42-15fd-4e24-80d0-eadd19bc9afc",
+    "name": "Wall",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Wall",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Wall",
+        "oracleText": "Defender",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "dbdd5d53-65e7-42c3-a325-791f11335e62"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "tthb",
+    "collectorNumber": "14",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

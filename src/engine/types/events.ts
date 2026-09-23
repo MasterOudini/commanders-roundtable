@@ -193,6 +193,8 @@ export type SbaAction =
    * with nothing for anyone to decide.
    */
   | { readonly t: 'worldRule'; readonly card: InstanceId }
+  /** D528 - CR 714.4: a Saga whose lore count reached its final chapter, with no chapter ability of its own pending or on the stack. */
+  | { readonly t: 'sagaSacrificed'; readonly card: InstanceId }
   /** D407 - CR 610.3c: a card exiled "until <source> leaves the battlefield" returns, its source gone or a new object. */
   | { readonly t: 'linkedExileReturns'; readonly card: InstanceId }
   | { readonly t: 'tokenCeasesToExist'; readonly card: InstanceId }
@@ -381,6 +383,8 @@ export type EventBody =
   | { readonly t: 'Amassed'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number; readonly subtype: string }
   /** D527 - a clash decided (CR 701.10): the two mana values and whether the clasher won (-1 is nothing revealed). */
   | { readonly t: 'Clashed'; readonly player: PlayerId; readonly opponent: PlayerId; readonly won: boolean; readonly yourMv: number; readonly theirMv: number }
+  /** D528 - CR 714.4: the Saga's final chapter told, the state-based actions sacrificed it (the marker for the heads and the fuzz). */
+  | { readonly t: 'SagaSacrificed'; readonly card: InstanceId; readonly controller: PlayerId }
   /** D526 - a manifest dread resolved for this player (CR 701.34e): the card put face down, or null with a library too short. */
   | { readonly t: 'ManifestedDread'; readonly player: PlayerId; readonly card: InstanceId | null }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }

@@ -740,6 +740,9 @@ function withEntryCounters(
         const n = Number(/\bfading (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
         if (n > 0) changes.push({ card: move.card, kind: 'fade', delta: n });
       }
+      // D528 - CR 714.2a: a Saga enters with a lore counter; its first chapter triggers off this very change (the
+      // chapter defs read the count before and after on `CountersChanged`).
+      if (face.typeLine.subtypes.includes('Saga')) changes.push({ card: move.card, kind: 'lore', delta: 1 });
     }
   }
   if (changes.length === 0) return [...events];

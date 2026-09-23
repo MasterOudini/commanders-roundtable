@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SUMMON_CHOCO_MOG_SCRIPT } from './cards/summonChocoMog';
+import { HISTORY_OF_BENALIA_SCRIPT } from './cards/historyOfBenalia';
+import { WAR_OF_THE_LAST_ALLIANCE_SCRIPT } from './cards/warOfTheLastAlliance';
+import { SUMMON_FAT_CHOCOBO_SCRIPT } from './cards/summonFatChocobo';
+import { BINDING_THE_OLD_GODS_SCRIPT } from './cards/bindingTheOldGods';
+import { ORIGIN_OF_THE_HULK_SCRIPT } from './cards/originOfTheHulk';
+import { SUMMON_IXION_SCRIPT } from './cards/summonIxion';
+import { THE_BIRTH_OF_MELETIS_SCRIPT } from './cards/theBirthOfMeletis';
+import { SUMMON_ANIMA_SCRIPT } from './cards/summonAnima';
+import { FOUNDING_OF_OMASHU_SCRIPT } from './cards/foundingOfOmashu';
 import { OAKEN_BRAWLER_SCRIPT } from './cards/oakenBrawler';
 import { SPRINGJACK_KNIGHT_SCRIPT } from './cards/springjackKnight';
 import { PAPERFIN_RASCAL_SCRIPT } from './cards/paperfinRascal';
@@ -8033,6 +8043,16 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SUMMON_CHOCO_MOG_SCRIPT,
+  HISTORY_OF_BENALIA_SCRIPT,
+  WAR_OF_THE_LAST_ALLIANCE_SCRIPT,
+  SUMMON_FAT_CHOCOBO_SCRIPT,
+  BINDING_THE_OLD_GODS_SCRIPT,
+  ORIGIN_OF_THE_HULK_SCRIPT,
+  SUMMON_IXION_SCRIPT,
+  THE_BIRTH_OF_MELETIS_SCRIPT,
+  SUMMON_ANIMA_SCRIPT,
+  FOUNDING_OF_OMASHU_SCRIPT,
   OAKEN_BRAWLER_SCRIPT,
   SPRINGJACK_KNIGHT_SCRIPT,
   PAPERFIN_RASCAL_SCRIPT,

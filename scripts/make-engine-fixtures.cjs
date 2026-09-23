@@ -9804,6 +9804,22 @@ const WANTED = [
   'Bog Hoodlums',
   'Ringskipper',
   // D527 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D528 - SAGAS: the seam's proof and staple cards (Origin of the Hulk - three chapters, a token, counters, a pump; The Birth of Meletis - a search, a Wall, life; Summon: Anima - a shared chapter I, II, III and a fourth).
+  'Origin of the Hulk',
+  'The Birth of Meletis',
+  'Summon: Anima',
+  // D528 - SAGAS: the rows the whole-leftover row maker rowed once the chapter line was a head (CR 714 - a lore counter at the entry and each own precombat main, the chapter told as the count reaches it, the sacrifice after the final one).
+  'Summon: Choco/Mog',
+  'Book of Mazarbul',
+  'History of Benalia',
+  'War of the Last Alliance',
+  'Summon: Fat Chocobo',
+  'Binding the Old Gods',
+  'Summon: Ixion',
+  'Founding of Omashu',
+  // D528 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D528 - SAGAS: the rows the whole-leftover row maker rowed once the chapter line was a head (CR 714 - a lore counter at the entry and each own precombat main, the chapter told as the count reaches it, the sacrifice after the final one).
+  // D528 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10220,6 +10236,8 @@ const WANTED_TOKENS = [
   { name: 'Zombie Army', set: 'twar', cn: '10', key: 'ZOMBIE_ARMY_TOKEN' },
   { name: 'Orc Army', set: 'tltr', cn: '5', key: 'ORC_ARMY_TOKEN' },
   { name: 'Sliver Army', set: 'tcmm', cn: '68', key: 'SLIVER_ARMY_TOKEN' },
+  // D528 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Wall', set: 'tthb', cn: '14', key: 'WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN' },
 ];
 
 function constName(name) {

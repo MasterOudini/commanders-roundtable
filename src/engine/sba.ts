@@ -139,6 +139,21 @@ export function checkStateBasedActions(
         continue;
       }
     }
+    // D528 - CR 714.4: a Saga whose lore count has reached its final chapter number, and which is not the source of a
+    // chapter ability pending or on the stack, is sacrificed - a sacrifice, so indestructible does not save it. The
+    // final chapter is the printed lines; the pending check is the abilityRef the generator names.
+    if (d.typeLine.subtypes.includes('Saga')) {
+      const final = sagaFinalChapter(oracle, card);
+      const lore = card.counters['lore'] ?? 0;
+      if (final > 0 && lore >= final && !chapterPending(state, id)) {
+        actions.push({ t: 'sagaSacrificed', card: id });
+        events.push({ t: 'SagaSacrificed', card: id, controller: card.controller });
+        events.push(narrated(n`${d.name}: its final chapter told, it is sacrificed.`, card.controller));
+        moves.push({ card: id, from: battlefield, to: graveyard });
+        doomed.add(id);
+        continue;
+      }
+    }
 
     // 5 — illegal attachments. An Aura falls off (704.5m); Equipment merely
     // unattaches (704.5n), which is a genuinely different outcome and a common
@@ -431,6 +446,27 @@ function enchantAdmits(
   const auraTypeLine = printing ? faceOf(printing, aura.faceIndex).typeLine : undefined;
   if (protectedFrom(host.protection, { colors: auraColors, typeLine: auraTypeLine })) return false;
   return specAdmits(spec, { controller: aura.controller, colors: auraColors, typeLine: auraTypeLine }, host);
+}
+
+const ROMAN: Readonly<Record<string, number>> = { I: 1, II: 2, III: 3, IV: 4, V: 5 };
+
+/** D528 - CR 714.1: the highest chapter number printed on the Saga (`III — ...`; `I, II — ...` names two), 0 for none. */
+export function sagaFinalChapter(oracle: OracleDb, card: NonNullable<GameState['cards'][InstanceId]>): number {
+  const printing = oracle.byPrinting(card.printingId);
+  const text = printing ? faceOf(printing, card.faceIndex).oracleText : '';
+  let max = 0;
+  for (const line of text.split('\n')) {
+    const m = /^((?:I|II|III|IV|V)(?:, (?:I|II|III|IV|V))*) — /.exec(line);
+    if (!m) continue;
+    for (const r of (m[1] ?? '').split(', ')) max = Math.max(max, ROMAN[r] ?? 0);
+  }
+  return max;
+}
+
+/** D528 - CR 714.4: a chapter ability of this Saga has triggered and not yet left the stack (pending, or on it). */
+function chapterPending(state: GameState, id: InstanceId): boolean {
+  const isChapter = (ref: string | null) => ref !== null && ref.includes('#chapter-');
+  return state.pendingTriggers.some((t) => t.source === id && isChapter(t.abilityRef)) || state.stack.some((o) => o.source === id && isChapter(o.abilityRef));
 }
 
 export function checkGameOver(state: GameState): EventBody[] {

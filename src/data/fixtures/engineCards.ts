@@ -8827,6 +8827,17 @@ export const PAPERFIN_RASCAL: CardData = F.PAPERFIN_RASCAL as CardData;
 export const ADDER_STAFF_BOGGART: CardData = F.ADDER_STAFF_BOGGART as CardData;
 export const BOG_HOODLUMS: CardData = F.BOG_HOODLUMS as CardData;
 export const RINGSKIPPER: CardData = F.RINGSKIPPER as CardData;
+export const ORIGIN_OF_THE_HULK: CardData = F.ORIGIN_OF_THE_HULK as CardData;
+export const THE_BIRTH_OF_MELETIS: CardData = F.THE_BIRTH_OF_MELETIS as CardData;
+export const SUMMON_ANIMA: CardData = F.SUMMON_ANIMA as CardData;
+export const SUMMON_CHOCO_MOG: CardData = F.SUMMON_CHOCO_MOG as CardData;
+export const BOOK_OF_MAZARBUL: CardData = F.BOOK_OF_MAZARBUL as CardData;
+export const HISTORY_OF_BENALIA: CardData = F.HISTORY_OF_BENALIA as CardData;
+export const WAR_OF_THE_LAST_ALLIANCE: CardData = F.WAR_OF_THE_LAST_ALLIANCE as CardData;
+export const SUMMON_FAT_CHOCOBO: CardData = F.SUMMON_FAT_CHOCOBO as CardData;
+export const BINDING_THE_OLD_GODS: CardData = F.BINDING_THE_OLD_GODS as CardData;
+export const SUMMON_IXION: CardData = F.SUMMON_IXION as CardData;
+export const FOUNDING_OF_OMASHU: CardData = F.FOUNDING_OF_OMASHU as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9093,6 +9104,7 @@ export const CAT_BEAST_2_2_W_CREATURE_TOKEN: CardData = F.CAT_BEAST_2_2_W_CREATU
 export const ZOMBIE_ARMY_TOKEN: CardData = F.ZOMBIE_ARMY_TOKEN as CardData;
 export const ORC_ARMY_TOKEN: CardData = F.ORC_ARMY_TOKEN as CardData;
 export const SLIVER_ARMY_TOKEN: CardData = F.SLIVER_ARMY_TOKEN as CardData;
+export const WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN: CardData = F.WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -17905,6 +17917,17 @@ export const ENGINE_CARDS: CardData[] = [
   ADDER_STAFF_BOGGART,
   BOG_HOODLUMS,
   RINGSKIPPER,
+  ORIGIN_OF_THE_HULK,
+  THE_BIRTH_OF_MELETIS,
+  SUMMON_ANIMA,
+  SUMMON_CHOCO_MOG,
+  BOOK_OF_MAZARBUL,
+  HISTORY_OF_BENALIA,
+  WAR_OF_THE_LAST_ALLIANCE,
+  SUMMON_FAT_CHOCOBO,
+  BINDING_THE_OLD_GODS,
+  SUMMON_IXION,
+  FOUNDING_OF_OMASHU,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -18171,4 +18194,5 @@ export const ENGINE_CARDS: CardData[] = [
   ZOMBIE_ARMY_TOKEN,
   ORC_ARMY_TOKEN,
   SLIVER_ARMY_TOKEN,
+  WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN,
 ];
