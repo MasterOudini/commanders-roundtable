@@ -1458,6 +1458,53 @@ export function effectResult(
         break;
       }
 
+      // D526 - MANIFEST (CR 701.34a): the top N cards of a library onto the battlefield FACE DOWN as 2/2 creatures,
+      // under the manifesting player's control - the aimed player's own (`Its controller manifests ...`), the caster's
+      // off the referent player's library (`that player's library`, the head's player), or the caster's own. The move
+      // carries `manifested`, so a creature card may be turned face up for its mana cost (701.34c). A short library
+      // manifests what it has; nothing is asked.
+      case 'manifest': {
+        const manifester = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        const libraryOwner = effect.libraryOf === 'player' ? (obj.player ?? manifester) : manifester;
+        const library = afterLibraryMoves(state, out).zones.library[libraryOwner] ?? [];
+        const take = Math.min(effect.amount, library.length);
+        if (take <= 0) {
+          out.push(narrated(`${obj.label} — the library is empty; nothing to manifest.`, obj.controller, obj.identity));
+          break;
+        }
+        const ids = library.slice(library.length - take).reverse();
+        out.push({ t: 'CardsMoved', moves: ids.map((card) => ({ card, from: { kind: 'library' as const, player: libraryOwner }, to: { kind: 'battlefield' as const, player: manifester }, faceDown: true, manifested: true as const })) });
+        out.push(narrated(n`${who(state, manifester)} ${vb(manifester, 'manifests', 'manifest')} the top ${take === 1 ? 'card' : `${take} cards`} of ${libraryOwner === manifester ? 'the' : `${who(state, libraryOwner)}'s`} library.`, manifester));
+        break;
+      }
+      // D526 - MANIFEST DREAD (CR 701.34e): look at the top two cards of the library, put one onto the battlefield face
+      // down as a 2/2 (manifested) and the other into the graveyard. Two cards ask (the pick is the player's); one card
+      // is no question - it is manifested and the marker says so; none narrates. The answer path moves the pick face
+      // down and marks the dread (`handlers.ts`), for the `Whenever you manifest dread` heads and the fuzz.
+      case 'manifestDread': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        const dreader = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        const library = afterLibraryMoves(state, out).zones.library[dreader] ?? [];
+        if (library.length === 0) {
+          out.push({ t: 'ManifestedDread', player: dreader, card: null });
+          out.push(narrated(`${obj.label} — the library is empty; nothing to manifest.`, obj.controller, obj.identity));
+          break;
+        }
+        const top = library.slice(Math.max(0, library.length - 2));
+        if (top.length === 1) {
+          const one = top[0] as InstanceId;
+          out.push({ t: 'CardsMoved', moves: [{ card: one, from: { kind: 'library' as const, player: dreader }, to: { kind: 'battlefield' as const, player: dreader }, faceDown: true, manifested: true as const }] });
+          out.push({ t: 'ManifestedDread', player: dreader, card: one });
+          out.push(narrated(n`${who(state, dreader)} ${vb(dreader, 'manifests', 'manifest')} dread: the last card of the library, face down.`, dreader));
+          break;
+        }
+        out.push({ t: 'CardsRevealed', cards: top, to: [dreader] });
+        out.push({
+          t: 'AwaitingSet',
+          awaiting: { kind: 'chooseFromZone', player: dreader, zone: 'library', rest: 'graveyard', count: 1, min: 1, to: 'battlefield', faceDown: true, label: obj.label },
+        });
+        break;
+      }
       case 'mill': {
         // D434 - the top N of a library into its graveyard (CR 701.13): the aimed player's, every member of a player
         // scope in APNAP order, or the caster's own. A short library mills what it has; nothing is lost or asked.
@@ -1698,7 +1745,7 @@ export function effectResult(
         const take = Math.min(look.take, admitted.length);
         if (!look.optional && admitted.length <= look.take) {
           out.push({ t: 'PutFromHand', player: controller, cards: admitted });
-          out.push({ t: 'CardsMoved', moves: admitted.map((card) => ({ card, from: { kind: 'hand' as const, player: controller }, to: { kind: 'battlefield' as const, player: controller } })) });
+          out.push({ t: 'CardsMoved', moves: admitted.map((card) => ({ card, from: { kind: 'hand' as const, player: controller }, to: { kind: 'battlefield' as const, player: controller }, ...(look.faceDown === true ? { faceDown: true, manifested: true as const } : {}) })) });
           if (look.tapped === true) out.push({ t: 'PermanentsTapped', cards: admitted });
           break;
         }
@@ -1716,6 +1763,8 @@ export function effectResult(
             ...(look.none !== undefined && look.none.length > 0 ? { none: look.none } : {}),
             to: 'battlefield',
             ...(look.tapped === true ? { tapped: true } : {}),
+            // D526 - a manifest from the hand: the pick enters face down, manifested.
+            ...(look.faceDown === true ? { faceDown: true as const } : {}),
             label: obj.label,
           },
         });

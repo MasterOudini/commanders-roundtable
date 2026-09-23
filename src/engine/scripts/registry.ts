@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KATHARI_REMNANT_SCRIPT } from './cards/kathariRemnant';
+import { SULTAI_EMISSARY_SCRIPT } from './cards/sultaiEmissary';
+import { ETHERIUM_HORN_SORCERER_SCRIPT } from './cards/etheriumHornSorcerer';
+import { STORMCALLERS_BOON_SCRIPT } from './cards/stormcallersBoon';
+import { METEORIC_MACE_SCRIPT } from './cards/meteoricMace';
+import { SOUL_STRIKE_TECHNIQUE_SCRIPT } from './cards/soulStrikeTechnique';
+import { MAELSTROM_WANDERER_SCRIPT } from './cards/maelstromWanderer';
+import { SCROLL_OF_FATE_SCRIPT } from './cards/scrollOfFate';
+import { QARSI_HIGH_PRIEST_SCRIPT } from './cards/qarsiHighPriest';
+import { OROCHI_SOUL_REAVER_SCRIPT } from './cards/orochiSoulReaver';
+import { UNSETTLING_TWINS_SCRIPT } from './cards/unsettlingTwins';
+import { INNOCUOUS_RAT_SCRIPT } from './cards/innocuousRat';
+import { INGENUITY_ENGINE_SCRIPT } from './cards/ingenuityEngine';
+import { BASHFUL_BEASTIE_SCRIPT } from './cards/bashfulBeastie';
 import { COURT_OF_GRACE_SCRIPT } from './cards/courtOfGrace';
 import { GANGRENOUS_ZOMBIES_SCRIPT } from './cards/gangrenousZombies';
 import { ZIMONE_QUANDRIX_PRODIGY_SCRIPT } from './cards/zimoneQuandrixProdigy';
@@ -8013,6 +8027,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KATHARI_REMNANT_SCRIPT,
+  SULTAI_EMISSARY_SCRIPT,
+  ETHERIUM_HORN_SORCERER_SCRIPT,
+  STORMCALLERS_BOON_SCRIPT,
+  METEORIC_MACE_SCRIPT,
+  SOUL_STRIKE_TECHNIQUE_SCRIPT,
+  MAELSTROM_WANDERER_SCRIPT,
+  SCROLL_OF_FATE_SCRIPT,
+  QARSI_HIGH_PRIEST_SCRIPT,
+  OROCHI_SOUL_REAVER_SCRIPT,
+  UNSETTLING_TWINS_SCRIPT,
+  INNOCUOUS_RAT_SCRIPT,
+  INGENUITY_ENGINE_SCRIPT,
+  BASHFUL_BEASTIE_SCRIPT,
   COURT_OF_GRACE_SCRIPT,
   GANGRENOUS_ZOMBIES_SCRIPT,
   ZIMONE_QUANDRIX_PRODIGY_SCRIPT,

@@ -680,13 +680,15 @@ export function legalActions(
     const card = cardFor(state, oracle, id);
     if (!card) continue;
     const face = faceOf(card, inst.faceIndex);
-    if (face.morphCost === null) continue;
+    // D526 - a MANIFESTED creature card turns face up for its mana cost (CR 701.34c); a morph cost serves too.
+    const flipCost = face.morphCost ?? (inst.manifested === true && face.typeLine.types.includes('Creature') ? face.manaCost : null);
+    if (flipCost === null) continue;
     out.push({
       t: 'TurnFaceUp',
       card: id,
       // D397 - a special action, neither a spell nor an ability: restricted mana never pays it.
-      affordable: affordable(context.solve, buildPaymentProblem(face.morphCost, 0, [], 0), OTHER_PURPOSE),
-      costText: face.morphCostText ?? '',
+      affordable: affordable(context.solve, buildPaymentProblem(flipCost, 0, [], 0), OTHER_PURPOSE),
+      costText: face.morphCost !== null ? (face.morphCostText ?? '') : (face.manaCost?.raw ?? ''),
       label: `Turn ${face.name} face up`,
     });
   }

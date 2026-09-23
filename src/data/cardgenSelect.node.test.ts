@@ -779,6 +779,55 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D526 - manifest: the top card face down as a 2/2 and the dread are the engine's now; what stays is the rider on the card the clause MADE, the repeats, the piles and the heads.
+  ['Wildcall', 'a rider on the manifested card (`Manifest the top card of your library, then put X +1/+1 coun`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Cloudform', 'the row maker: trigger payload not a pump: ~ becomes an Aura with enchant creature. Manifest the top ca (D526)'],
+  ['Fierce Invocation', 'a rider on the manifested card (`Manifest the top card of your library, then put two +1/+1 co`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Arbiter of the Ideal', 'the row maker: trigger payload not a pump: Reveal the top card of your library. If it\'s an artifact, cr (D526)'],
+  ['Rageform', 'the row maker: trigger payload not a pump: ~ becomes an Aura with enchant creature. Manifest the top ca (D526)'],
+  ['Dissection Tools', 'a rider on the manifested card (`When this Equipment enters, manifest dread, then attach this`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Kozilek, the Broken Reality', 'a counted manifest (`When you cast this spell, up to two target players`) (D526)'],
+  ['Ticket Booth // Tunnel of Hate', 'the row maker: multi-face or unusual layout (D526)'],
+  ['Thieving Amalgam', 'the row maker: a player referent payload the vocabulary does not read: You manifest the top card of target player\'s library. (D526)'],
+  ['Under the Skin', 'the row maker: a spell with a line outside the vocabulary: Manifest dread. (Look at the top two cards of your library. (D526)'],
+  ['Hauntwoods Shrieker', 'a manifest line under a shape the row maker never reached (`Whenever this creature attacks, manifest dread.`) (D526)'],
+  ['Experimental Lab // Staff Room', 'a rider on the manifested card (`When you unlock this door, manifest dread, then put two +1/+`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Mastery of the Unseen', 'the row maker: a board-sized life gain the suite cannot pin: You gain 1 life for each creature you control. (D526)'],
+  ['Formless Nurturing', 'a rider on the manifested card (`Manifest the top card of your library, then put a +1/+1 coun`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Ghastly Conscription', 'a manifest of a shuffled pile (`Exile all creature cards from target player\'s grav`) (D526)'],
+  ['Jeskai Infiltrator', 'a manifest of a shuffled pile (`When this creature deals combat damage to a player`) (D526)'],
+  ['The Kami War // O-Kagachi Made Manifest', 'a name, not the verb (`O-Kagachi Made Manifest is all colors`) (D526)'],
+  ['Conductive Machete', 'a rider on the manifested card (`When this Equipment enters, manifest dread, then attach this`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Primordial Mist', 'the row maker: cost: Exile a face-down permanent you control face up (D526)'],
+  ['Whisperwood Elemental', 'the row maker: a leftover line not among the printed lines: Sacrifice this creature: Until end of turn, face-u (D526)'],
+  ['Moldering Gym // Weight Room', 'a rider on the manifested card (`When you unlock this door, manifest dread, then put three +1`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Temur War Shaman', 'the row maker: trigger payload not a pump: If it\'s a creature, you may have it fight target creature yo (D526)'],
+  ['Underwater Tunnel // Slimy Aquarium', 'a rider on the manifested card (`When you unlock this door, manifest dread, then put a +1/+1 `): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Zimone, Mystery Unraveler', 'the face-up verb (`turn a permanent you control face up`) outside the vocabulary (D526)'],
+  ['Defiant Survivor', 'the row maker: trigger payload not a pump: If this creature is tapped, manifest dread. (D526)'],
+  ["Valgavoth's Onslaught", 'a dread repeated (`Manifest dread X times, then put X +1/+1 counters `): one ask per dread, chained - not this wave (D526)'],
+  ['Lightform', 'the row maker: trigger payload not a pump: ~ becomes an Aura with enchant creature. Manifest the top ca (D526)'],
+  ['Unidentified Hovership', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): When this Vehicle leaves the battlefield, the exiled c (D526)'],
+  ["Ugin's Mastery", 'the row maker: trigger head not in the library: Whenever you attack with creatures with total power 6 or greater, you (D526)'],
+  ['Glitch Interpreter', 'the row maker: an intervening if outside the closed reader: you control no face-down permanents (D526)'],
+  ['Abhorrent Oculus', 'the row maker: a line that is neither an activated ability nor a library trigger: As an additional cost to cast this spell, exile six cards from your (D526)'],
+  ['They Came from the Pipes', 'a dread repeated (`When this enchantment enters, manifest dread twice`): one ask per dread, chained - not this wave (D526)'],
+  ['Growing Dread', 'the row maker: trigger head not in the library: Whenever you turn a permanent face up, put a +1/+1 counter on it. (D526)'],
+  ['Write into Being', 'a rider on the manifested card (`Look at the top two cards of your library. Manifest one of t`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Turn Inside Out', 'the row maker: a spell with a line outside the vocabulary: Target creature gets +3/+0 until end of turn. When it dies t (D526)'],
+  ['Paranormal Analyst', 'a head that watches for a manifest dread (`Whenever you manifest dread`) outside the library (D526)'],
+  ['Qarsi Deceiver', 'a spend restriction naming the manifest flip (`pay a mana cost to turn a manifested creature face up`) (D526)'],
+  ['Arashin War Beast', 'the row maker: trigger head not in the library: Whenever this creature deals combat damage to one or more blocking cre (D526)'],
+  ['Threats Around Every Corner', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: face-down): Whenever a face-down permanent you control enters (D526)'],
+  ['Curator Beastie', 'the row maker: a line that is neither an activated ability nor a library trigger: Colorless creatures you control enter with two additional +1/+1 coun (D526)'],
+  ['Guardian of the Forgotten', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: modified): Whenever a modified creature you control dies, man (D526)'],
+  ['Omarthis, Ghostfire Initiate', 'a counted manifest (`When Omarthis dies, manifest a number of cards fro`) (D526)'],
+  ['Stay Hidden, Stay Silent', 'the row maker: effect not a row kind: Shuffle enchanted creature into its owner\'s library, then manifest dread. (D526)'],
+  ['Cryptic Pursuit', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: or): Whenever you cast an instant or sorcery spell from your (D526)'],
+  ['Fear of Impostors', 'the row maker: a vocabulary effect the suite cannot assert: counter (D526)'],
+  ["Killer's Mask", 'a rider on the manifested card (`When this Equipment enters, manifest dread, then attach this`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Cursed Windbreaker', 'a rider on the manifested card (`When this Equipment enters, manifest dread, then attach this`): a referent to a card the clause MADE, which the vocab (D526)'],
+  ['Disturbing Mirth', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): When you sacrifice this enchantment, manifest dread. (D526)'],
   // D525 - cascade: the keyword is the engine's now; what stays is every line that GRANTS it to spells, watches for it, or rides it.
   ['Quandrix, the Proof', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Instant and sorcery sp (D525)'],
   ['The First Sliver', 'a static or effect that GRANTS cascade to spells - a spell keyword the derive does not carry for a spell it is not printed on (`Sliver spells you cast (D525)'],
@@ -1750,7 +1799,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Epic Experiment', 'play-from-exile permission'],
   ["Ertai's Trickery", 'kicker memory'],
   ['Essence Filter', 'script-raised prompt'],
-  ['Ethereal Ambush', 'face-down (morph family)'],
   ['Eureka', 'opponent-chooses'],
   ['Exert Influence', 'converge (cast-time mana-color memory)'],
   ['Exhaustion', 'untap restriction'],
@@ -2011,7 +2059,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ray of Ruin', 'subtype list alternative'],
   ['Reach of Shadows', 'color target qualifier unenforced'],
   ['Reality Ripple', 'phasing'],
-  ['Reality Shift', 'face-down (morph family)'],
   ['Recross the Paths', 'clash mechanic'],
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
@@ -2066,7 +2113,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Soul Diviner', 'remove-counter cost'],
   ['Soul Sear', 'temporary keyword/ability grant'],
   // D250 (M6.4cm)
-  ['Soul Summons', 'face-down (morph family)'],
   ['Spell Blast', 'spell target parse (numeric exact)'],
   ['Spell Snare', 'spell target parse (numeric exact)'],
   ['Spellshift', 'script-raised prompt'],
@@ -2281,7 +2327,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Unlucky Drop', 'script-raised prompt'],
   ['Unravel', 'mana-spent memory'],
   ['Unsubstantiate', 'mixed stack/permanent noun list'],
-  ['Unwanted Remake', 'face-down (morph)'],
 
   // D265 (M6.4db) — ZERO new classes, and one refusal is the THIRD witness
   // for the aim layer's most dangerous shape.
@@ -2752,7 +2797,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ohran Yeti', 'snow activation cost'],
   ['Null Brooch', 'discard-hand cost'],
   ['Unexplained Absence', 'cloak mechanic'],
-  ['Unnerving Grasp', 'manifest dread mechanic'],
   ['Excise the Imperfect', 'incubate mechanic'],
   ['Airbending Lesson', 'airbend mechanic'],
   ['Squirming Emergence', 'spell target parse (computed numeric bound)'],
@@ -3509,7 +3553,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
     // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
     // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
-    expect.soft(all.length).toBe(30);
+    expect.soft(all.length).toBe(24);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

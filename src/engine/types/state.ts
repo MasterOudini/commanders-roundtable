@@ -239,6 +239,11 @@ export interface CardInstance {
   /** D489 - entered from a suspend cast: a creature has haste while it stays (702.62e); cleared as it leaves the battlefield. */
   readonly suspendHaste?: true | undefined;
   /**
+   * D526 - MANIFESTED (CR 701.34): entered face down off a manifest; a creature card may be turned face up for its
+   * mana cost while it stays (its morph cost too, if it prints one). Cleared as it leaves the battlefield.
+   */
+  readonly manifested?: true | undefined;
+  /**
    * D494 - Tier-2 keywords the permanent GAINED for as long as it stays (CR 611.2c: `It gains haste.` with no duration
    * printed - a resolving effect's grant lasts until the object leaves). Read at layer 6 in `derive.ts`; cleared as it
    * leaves the battlefield (a new object gained nothing).
@@ -1211,6 +1216,8 @@ export type Awaiting =
        */
       readonly to?: 'battlefield';
       readonly tapped?: true;
+      /** D526 - the battlefield picks enter FACE DOWN as manifested 2/2 creatures (manifest dread; a manifest from the hand). */
+      readonly faceDown?: true;
       /** This many at most; exactly this many unless `min` says fewer are allowed. */
       readonly count: number;
       /**

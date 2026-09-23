@@ -9772,6 +9772,27 @@ const WANTED = [
   'Bloodbraid Elf',
   'Ardent Plea',
   'Apex Devastator',
+  // D526 - MANIFEST: the seam's own fixtures (Soul Summons and Manifest Dread, the fuzz staples; Reality Shift, Ethereal Ambush - manifest.test.ts).
+  'Soul Summons',
+  'Manifest Dread',
+  'Reality Shift',
+  'Ethereal Ambush',
+  // D526 - MANIFEST: the rows the whole-leftover row maker rowed once the vocabulary read a manifest and a manifest dread (the dies and enters heads, the sacrifice-cost activation, the referent library), and the six rows the cascade keyword unlocked (their other lines already read).
+  'Kathari Remnant',
+  'Sultai Emissary',
+  'Etherium-Horn Sorcerer',
+  "Stormcaller's Boon",
+  'Meteoric Mace',
+  'Soul-Strike Technique',
+  'Maelstrom Wanderer',
+  'Scroll of Fate',
+  'Qarsi High Priest',
+  'Orochi Soul-Reaver',
+  'Unsettling Twins',
+  'Innocuous Rat',
+  'Ingenuity Engine',
+  'Bashful Beastie',
+  // D526 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

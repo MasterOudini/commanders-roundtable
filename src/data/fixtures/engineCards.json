@@ -297763,6 +297763,650 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SOUL_SUMMONS": {
+    "scryfallId": "0fcc772e-da73-4a60-ab9b-8b558ac320ec",
+    "oracleId": "0f5b79ca-9f80-420b-a6c5-bb2a9a95c7e7",
+    "name": "Soul Summons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul Summons",
+        "manaCost": "{1}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Manifest the top card of your library. (Put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "Ugin's magic reaches beyond the dragons. The clans have adapted it for war.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "0fcc772e-da73-4a60-ab9b-8b558ac320ec"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "FRF-26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANIFEST_DREAD": {
+    "scryfallId": "a649265b-6c32-49e7-b6cb-6086c40d26e8",
+    "oracleId": "df5a66d1-61f6-44d9-b464-3ee739e78dce",
+    "name": "Manifest Dread",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Manifest Dread",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Manifest dread. (Look at the top two cards of your library. Put one onto the battlefield face down as a 2/2 creature and the other into your graveyard. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "\"That's why I never travel without a flamethrower.\"\n—Rip, spawn hunter",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "a649265b-6c32-49e7-b6cb-6086c40d26e8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest",
+      "Manifest dread"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REALITY_SHIFT": {
+    "scryfallId": "0850a187-ba95-46f2-aa81-397b45460bbc",
+    "oracleId": "70dc830e-d05b-4fc7-88dd-879e140b3fbf",
+    "name": "Reality Shift",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reality Shift",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "0850a187-ba95-46f2-aa81-397b45460bbc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHEREAL_AMBUSH": {
+    "scryfallId": "825d3f4d-eba3-4c45-8846-03b246e93f6c",
+    "oracleId": "c0604afb-eae2-41c8-b390-dbc0f7e025ed",
+    "name": "Ethereal Ambush",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ethereal Ambush",
+        "manaCost": "{3}{G}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Manifest the top two cards of your library. (To manifest a card, put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "The energies of the Temur lands are readily unleashed upon intruders.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "825d3f4d-eba3-4c45-8846-03b246e93f6c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KATHARI_REMNANT": {
+    "scryfallId": "0f4fa5b2-0d16-4149-993c-364dc4d2c962",
+    "oracleId": "bbf07946-33d0-48fe-85af-022e9b0b834c",
+    "name": "Kathari Remnant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kathari Remnant",
+        "manaCost": "{2}{U}{B}",
+        "typeLine": "Creature — Bird Skeleton",
+        "oracleText": "Flying\n{B}: Regenerate this creature.\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Anthony S. Waters",
+        "imageId": "0f4fa5b2-0d16-4149-993c-364dc4d2c962"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cascade",
+      "Flying",
+      "Regenerate"
+    ],
+    "setCode": "pc2",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SULTAI_EMISSARY": {
+    "scryfallId": "12421e1c-5144-4391-abf2-a2fb864920e9",
+    "oracleId": "0274f286-46a1-4028-878a-88c2146a895c",
+    "name": "Sultai Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sultai Emissary",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Warrior",
+        "oracleText": "When this creature dies, manifest the top card of your library. (Put that card onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "To the Sultai, Ugin's power was just one more resource to be exploited.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "12421e1c-5144-4391-abf2-a2fb864920e9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHERIUM_HORN_SORCERER": {
+    "scryfallId": "130db905-d2e4-4be9-a4ae-a8aae01a3147",
+    "oracleId": "01afb7a1-6427-4bb6-935a-613e9bda9de3",
+    "name": "Etherium-Horn Sorcerer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Etherium-Horn Sorcerer",
+        "manaCost": "{4}{U}{R}",
+        "typeLine": "Artifact Creature — Minotaur Wizard Sorcerer",
+        "oracleText": "{1}{U}{R}: Return this creature to its owner's hand.\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Franz Vohwinkel",
+        "imageId": "130db905-d2e4-4be9-a4ae-a8aae01a3147"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMCALLER_S_BOON": {
+    "scryfallId": "15931d65-9b4e-4506-8f1d-714d06f9c2f3",
+    "oracleId": "28ebe75a-cddd-469b-be8a-286776b83388",
+    "name": "Stormcaller's Boon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormcaller's Boon",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Sacrifice this enchantment: Creatures you control gain flying until end of turn.\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Brandon Kitkouski",
+        "imageId": "15931d65-9b4e-4506-8f1d-714d06f9c2f3"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "METEORIC_MACE": {
+    "scryfallId": "28cb7e94-01df-4e80-9b24-bc303a27ffd6",
+    "oracleId": "c6a607f2-4228-4bcc-84ed-37bd362d7542",
+    "name": "Meteoric Mace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Meteoric Mace",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +4/+0 and has trample.\nEquip {4}\nCascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "28cb7e94-01df-4e80-9b24-bc303a27ffd6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Equip",
+      "Cascade"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUL_STRIKE_TECHNIQUE": {
+    "scryfallId": "34ba18f5-b894-47db-b49c-f2c4368ab769",
+    "oracleId": "2a6b32cd-a0f5-4e3e-9069-b525d485f84f",
+    "name": "Soul-Strike Technique",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soul-Strike Technique",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has vigilance.\nWhen enchanted creature dies, manifest the top card of your library. (Put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "34ba18f5-b894-47db-b49c-f2c4368ab769"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest",
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MH1-30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAELSTROM_WANDERER": {
+    "scryfallId": "4178d93f-72fa-43a1-b6aa-35f1b4a597a7",
+    "oracleId": "ad9b7fbc-61c8-43ee-a65c-99206fd1e4df",
+    "name": "Maelstrom Wanderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maelstrom Wanderer",
+        "manaCost": "{5}{G}{U}{R}",
+        "typeLine": "Legendary Creature — Elemental",
+        "oracleText": "Creatures you control have haste.\nCascade, cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Then do it again.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "U"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "4178d93f-72fa-43a1-b6aa-35f1b4a597a7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "583",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCROLL_OF_FATE": {
+    "scryfallId": "476d509f-efc0-4138-8dce-23fa6321279c",
+    "oracleId": "c15c13d2-8db9-4801-a1f0-f087f2551c92",
+    "name": "Scroll of Fate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scroll of Fate",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Manifest a card from your hand. (Put that card onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "\"Our stories define our reality.\"\n—Ugin",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Piotr Dura",
+        "imageId": "476d509f-efc0-4138-8dce-23fa6321279c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "dsc",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QARSI_HIGH_PRIEST": {
+    "scryfallId": "58c1bdbc-2bf4-4036-bf83-669c27458c6e",
+    "oracleId": "3bcb5ad4-818e-4f10-aaff-188d713b160b",
+    "name": "Qarsi High Priest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Qarsi High Priest",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{1}{B}, {T}, Sacrifice another creature: Manifest the top card of your library. (Put that card onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "\"Hear me, nameless, and obey.\"",
+        "power": "0",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "58c1bdbc-2bf4-4036-bf83-669c27458c6e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Manifest"
+    ],
+    "setCode": "frf",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OROCHI_SOUL_REAVER": {
+    "scryfallId": "5ba1d8a7-2249-4c74-adb7-d13a9b347571",
+    "oracleId": "6d9ab641-ba99-4b27-a84e-8c2ae57a2fc1",
+    "name": "Orochi Soul-Reaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orochi Soul-Reaver",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Snake Ninja Rogue",
+        "oracleText": "Ninjutsu {3}{B} ({3}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand tapped and attacking.)\nWhenever one or more creatures you control deal combat damage to a player, create a Treasure token and manifest the top card of that player's library. (Put it onto the battlefield face down as a 2/2 creature. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "5ba1d8a7-2249-4c74-adb7-d13a9b347571"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Manifest",
+      "Treasure",
+      "Ninjutsu"
+    ],
+    "setCode": "otc",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSETTLING_TWINS": {
+    "scryfallId": "85da2e65-4e22-48b6-98ad-6969684d69e1",
+    "oracleId": "b0b2ca8c-cb5a-45f8-ae7c-63ad9ebb4afd",
+    "name": "Unsettling Twins",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unsettling Twins",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human",
+        "oracleText": "When this creature enters, manifest dread. (Look at the top two cards of your library. Put one onto the battlefield face down as a 2/2 creature and the other into your graveyard. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "\"Come play with us.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lauren K. Cannon",
+        "imageId": "85da2e65-4e22-48b6-98ad-6969684d69e1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Manifest",
+      "Manifest dread"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INNOCUOUS_RAT": {
+    "scryfallId": "94edbbc5-5673-4753-bfad-4432c4b7dca4",
+    "oracleId": "114725ef-ac81-4d13-9153-0a303c3ce9c4",
+    "name": "Innocuous Rat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Innocuous Rat",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat",
+        "oracleText": "When this creature dies, manifest dread. (Look at the top two cards of your library. Put one onto the battlefield face down as a 2/2 creature and the other into your graveyard. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "94edbbc5-5673-4753-bfad-4432c4b7dca4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Manifest",
+      "Manifest dread"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "103",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INGENUITY_ENGINE": {
+    "scryfallId": "ac255db4-9c46-4971-bf89-f9014602999c",
+    "oracleId": "d1da2c33-2be4-4065-8e5c-613a069d2013",
+    "name": "Ingenuity Engine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ingenuity Engine",
+        "manaCost": "{7}",
+        "typeLine": "Artifact",
+        "oracleText": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)\n{1}, {T}, Sacrifice an artifact: Return target artifact you control to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Yeong-Hao Han",
+        "imageId": "ac255db4-9c46-4971-bf89-f9014602999c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 7,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "317",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASHFUL_BEASTIE": {
+    "scryfallId": "c20fa7ee-a4c2-4eb0-9467-195f3b894fa0",
+    "oracleId": "e7aeabd9-a72c-47ee-b275-b025d7142766",
+    "name": "Bashful Beastie",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bashful Beastie",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "When this creature dies, manifest dread. (Look at the top two cards of your library. Put one onto the battlefield face down as a 2/2 creature and the other into your graveyard. Turn it face up any time for its mana cost if it's a creature card.)",
+        "flavorText": "No one knows what hides beneath the beasties' masks.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "c20fa7ee-a4c2-4eb0-9467-195f3b894fa0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Manifest",
+      "Manifest dread"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

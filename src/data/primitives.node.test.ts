@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 12192,
-      blocked: 19500,
+      complete: 12214,
+      blocked: 19478,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1919,
+      scriptableToday: 1915,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -345,7 +345,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 912,
       counter: 967,
-      token: 761,
+      token: 760,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1919, 1934, 3225, 4689, 5825]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1915, 1930, 3221, 4687, 5822]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -507,7 +507,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     }
     // ⚠️ THE SPELLS are the only part that could move `complete` — and every one
     // of them still needs the resolver.
-    expect.soft(byOwner).toEqual({ spell: 271, permanent: 490 });
+    expect.soft(byOwner).toEqual({ spell: 271, permanent: 489 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -521,7 +521,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // were being counted as blocked on a yes/no. Same row, read honestly.
     expect.soft(byKind).toEqual({
       copy: 88,
-      predefined: 121,
+      predefined: 120,
       withAbilities: 224,
       variable: 70,
       plain: 258,
@@ -555,8 +555,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1919, 1934]);
-    expect.soft(r.complete).toBe(12192);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1915, 1930]);
+    expect.soft(r.complete).toBe(12214);
   });
 });
 
@@ -699,15 +699,15 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
    */
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
-      activatedCost: 1775,
-      triggeredShell: 1560,
+      activatedCost: 1773,
+      triggeredShell: 1545,
       damage: 539,
       exile: 756,
       staticShell: 517,
-      attackBlock: 647,
+      attackBlock: 644,
       lifeGainLoss: 254,
       drawDiscard: 225,
-      tokensAndCounters: 276,
+      tokensAndCounters: 275,
       copySpell: 180,
       cantBeCountered: 18,
       gainControl: 66,

@@ -58,6 +58,8 @@ export interface CardMove {
   readonly to: ZoneRef;
   readonly placement?: ZonePlacement;
   readonly faceDown?: boolean;
+  /** D526 - the entry is a MANIFEST (CR 701.34): face down, and the permanent remembers it for the turn face up. */
+  readonly manifested?: true;
   /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
   readonly kicked?: number;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
@@ -377,6 +379,8 @@ export type EventBody =
   | { readonly t: 'Bolstered'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number }
   /** D520 - an amass resolved: the Army creature token that got the counters, or none (a marker; the counters and the subtype beside it moved the state). */
   | { readonly t: 'Amassed'; readonly player: PlayerId; readonly card: InstanceId | null; readonly amount: number; readonly subtype: string }
+  /** D526 - a manifest dread resolved for this player (CR 701.34e): the card put face down, or null with a library too short. */
+  | { readonly t: 'ManifestedDread'; readonly player: PlayerId; readonly card: InstanceId | null }
   | { readonly t: 'StepBegan'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'StepEnded'; readonly phase: Phase; readonly step: Step }
   | { readonly t: 'TurnBasedActionsDone' }

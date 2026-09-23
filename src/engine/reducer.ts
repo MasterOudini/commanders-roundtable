@@ -334,6 +334,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     riotHaste: undefined,
     // D448 - a new object was not unearthed.
     unearthed: undefined,
+    // D526 - a new object was not manifested.
+    manifested: undefined,
   };
 }
 
@@ -568,6 +570,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...base,
           zone: move.to,
           faceDown: move.faceDown ?? false,
+          // D526 - the manifest's mark rides the entry, after the reset.
+          ...(move.manifested === true ? { manifested: true as const } : {}),
           // ⚠️ AFTER `base`, which carries `clearBattlefieldFields`'s reset to 0.
           // Absent — every ordinary card — this changes nothing at all. See D155.
           ...(move.faceIndex === undefined ? {} : { faceIndex: move.faceIndex }),
@@ -1399,6 +1403,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return state;
     // D505 - the mass verb's marker: the counters, taps or untaps beside it moved the state.
     case 'ScopeWalked':
+      return state;
+    // D526 - a manifest dread's marker: the moves beside it moved the state.
+    case 'ManifestedDread':
       return state;
     // D417 - a play permission: one entry per card (a second grant for the same card replaces the first).
     case 'PlayPermissionGranted':

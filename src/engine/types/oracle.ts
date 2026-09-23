@@ -330,6 +330,8 @@ export interface LookSpec {
   readonly reveal?: true;
   /** D493 - the noun's negations (`a noncreature, nonland card`): the types the pick must LACK (the hand reveal's reader). */
   readonly none?: readonly string[];
+  /** D526 - the taken cards enter the battlefield FACE DOWN as manifested 2/2 creatures (manifest dread's pick, a manifest from the hand). */
+  readonly faceDown?: true;
 }
 
 export interface NumericRestriction {
@@ -731,6 +733,14 @@ export type EffectKind =
    * member of a player scope in APNAP order. Fewer than N mills what is there; no loss, no prompt.
    */
   | 'mill'
+  /**
+   * D526 - MANIFEST (CR 701.34a): the top N cards of a library onto the battlefield FACE DOWN as 2/2 creatures, the
+   * permanent marked `manifested` (a creature card turns face up for its mana cost, 701.34c); `libraryOf` names the
+   * head's player's library. `manifestDread` (701.34e): look at the top two, one face down, the other into the
+   * graveyard - a look whose pick enters face down (`LookSpec.faceDown`), an ask.
+   */
+  | 'manifest'
+  | 'manifestDread'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1381,6 +1391,8 @@ export interface EffectSpec {
    * when the clause before acted on it (CR 608.2h), a countered spell's the spell's own. Absent on every other effect.
    */
   readonly ofPreviousPlayer?: 'controller' | 'owner';
+  /** D526 - the library a manifest reads is the stack object's referent player's (`the top card of that player's library`, D428's `player`). */
+  readonly libraryOf?: 'player';
   /** D494 - `grantObj` only: the keywords last while the object stays (no `until end of turn` printed). */
   readonly indefinite?: true;
   /**

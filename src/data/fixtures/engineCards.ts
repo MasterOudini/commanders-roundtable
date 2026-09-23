@@ -8801,6 +8801,24 @@ export const SLIMY_PIPER: CardData = F.SLIMY_PIPER as CardData;
 export const BLOODBRAID_ELF: CardData = F.BLOODBRAID_ELF as CardData;
 export const ARDENT_PLEA: CardData = F.ARDENT_PLEA as CardData;
 export const APEX_DEVASTATOR: CardData = F.APEX_DEVASTATOR as CardData;
+export const SOUL_SUMMONS: CardData = F.SOUL_SUMMONS as CardData;
+export const MANIFEST_DREAD: CardData = F.MANIFEST_DREAD as CardData;
+export const REALITY_SHIFT: CardData = F.REALITY_SHIFT as CardData;
+export const ETHEREAL_AMBUSH: CardData = F.ETHEREAL_AMBUSH as CardData;
+export const KATHARI_REMNANT: CardData = F.KATHARI_REMNANT as CardData;
+export const SULTAI_EMISSARY: CardData = F.SULTAI_EMISSARY as CardData;
+export const ETHERIUM_HORN_SORCERER: CardData = F.ETHERIUM_HORN_SORCERER as CardData;
+export const STORMCALLER_S_BOON: CardData = F.STORMCALLER_S_BOON as CardData;
+export const METEORIC_MACE: CardData = F.METEORIC_MACE as CardData;
+export const SOUL_STRIKE_TECHNIQUE: CardData = F.SOUL_STRIKE_TECHNIQUE as CardData;
+export const MAELSTROM_WANDERER: CardData = F.MAELSTROM_WANDERER as CardData;
+export const SCROLL_OF_FATE: CardData = F.SCROLL_OF_FATE as CardData;
+export const QARSI_HIGH_PRIEST: CardData = F.QARSI_HIGH_PRIEST as CardData;
+export const OROCHI_SOUL_REAVER: CardData = F.OROCHI_SOUL_REAVER as CardData;
+export const UNSETTLING_TWINS: CardData = F.UNSETTLING_TWINS as CardData;
+export const INNOCUOUS_RAT: CardData = F.INNOCUOUS_RAT as CardData;
+export const INGENUITY_ENGINE: CardData = F.INGENUITY_ENGINE as CardData;
+export const BASHFUL_BEASTIE: CardData = F.BASHFUL_BEASTIE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17853,6 +17871,24 @@ export const ENGINE_CARDS: CardData[] = [
   BLOODBRAID_ELF,
   ARDENT_PLEA,
   APEX_DEVASTATOR,
+  SOUL_SUMMONS,
+  MANIFEST_DREAD,
+  REALITY_SHIFT,
+  ETHEREAL_AMBUSH,
+  KATHARI_REMNANT,
+  SULTAI_EMISSARY,
+  ETHERIUM_HORN_SORCERER,
+  STORMCALLER_S_BOON,
+  METEORIC_MACE,
+  SOUL_STRIKE_TECHNIQUE,
+  MAELSTROM_WANDERER,
+  SCROLL_OF_FATE,
+  QARSI_HIGH_PRIEST,
+  OROCHI_SOUL_REAVER,
+  UNSETTLING_TWINS,
+  INNOCUOUS_RAT,
+  INGENUITY_ENGINE,
+  BASHFUL_BEASTIE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

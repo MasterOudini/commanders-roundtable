@@ -1414,6 +1414,42 @@ const RULES: readonly Rule[] = [
     },
   },
   /**
+   * D526 - MANIFEST (CR 701.34a): the top card (or N cards) of your library onto the battlefield face down as a 2/2
+   * creature; `that player's library` reads the head's player (the damaged player - Orochi Soul-Reaver); `manifest
+   * dread` (701.34e) looks at the top two, one face down, the other into the graveyard - an ask; `manifest a card from
+   * your hand` is the hand put (D508) entering face down. `Its controller manifests ...` is the player-reference
+   * rewrite below. The riders on the manifested card (`then put a +1/+1 counter on it`) are a referent to a card the
+   * clause MADE, which the vocabulary does not bind yet - those stay unread.
+   */
+  {
+    kind: 'manifest',
+    re: /^manifest the top card of your library\.$/i,
+    build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true }),
+  },
+  {
+    kind: 'manifest',
+    re: new RegExp(`^manifest the top (${COUNT}) cards of your library\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null || n < 2 ? null : { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  {
+    kind: 'manifest',
+    re: /^manifest the top card of that player's library\.$/i,
+    build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true, libraryOf: 'player' }),
+  },
+  {
+    kind: 'manifestDread',
+    re: /^manifest dread\.$/i,
+    build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true, look: { filter: null, optional: false, take: 1, rest: 'graveyard', to: 'battlefield', faceDown: true } }),
+  },
+  {
+    kind: 'putFromHand',
+    re: /^manifest a card from your hand\.$/i,
+    build: () => ({ ...BASE, amount: 1, targetIndex: -1, self: true, look: { filter: null, optional: false, take: 1, rest: 'top', to: 'battlefield', faceDown: true } }),
+  },
+  /**
    * D434 - the mill: `Mill three cards.` (the caster's own library), `Target player mills two cards.` (aimed at the
    * player), `Each player mills four cards.` (a player scope, APNAP). The top N into the graveyard; fewer if the
    * library is short. Nothing asks.
@@ -2513,7 +2549,7 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
  * it (CR 608.2h), or the countered spell's controller. A body that asks the caster, pays, scopes or waits stays unread.
  */
 const PLAYER_REF_LEAD = /^(?:then )?(?<who>its controller|its owner|that (?:creature|permanent|spell|card|artifact|enchantment|land)(?:'|’)s (?:controller|owner)) (?<rest>.+)$/i;
-const PLAYER_REF_KINDS: ReadonlySet<EffectKind> = new Set(['mill', 'discard', 'draw', 'loseLife', 'gainLife', 'createToken', 'search']);
+const PLAYER_REF_KINDS: ReadonlySet<EffectKind> = new Set(['mill', 'discard', 'draw', 'loseLife', 'gainLife', 'createToken', 'search', 'manifest', 'manifestDread']);
 function controllerRewrite(sentence: string, previous: Clause | undefined, before: readonly Clause[]): EffectSpec | null {
   const m = PLAYER_REF_LEAD.exec(sentence);
   if (!m) return null;
@@ -2537,7 +2573,11 @@ function controllerRewrite(sentence: string, previous: Clause | undefined, befor
         // (`awaiting.player`). The third-person form (`searches ... puts ... then shuffles`) is the same sentence.
         : /^may search their library for /i.test(rest) ? matchRule('You may search your library for ' + rest.replace(/^may search their library for /i, ''))
           : /^searches their library for /i.test(rest) ? matchRule('Search your library for ' + rest.replace(/^searches their library for /i, '').replace(/\b(?:puts|reveals|shuffles)\b/g, (v) => v.slice(0, -1)))
-            : null;
+            // D526 - `Its controller manifests the top card of their library.` / `... manifests dread.` (Reality Shift, Unwanted
+            // Remake): the caster's own sentence with its person changed; the executor manifests for the bound player.
+            : /^manifests the top card of their library\.$/i.test(rest) ? matchRule('Manifest the top card of your library.')
+              : /^manifests dread\.$/i.test(rest) ? matchRule('Manifest dread.')
+                : null;
   if (!body || !PLAYER_REF_KINDS.has(body.kind) || body.pay !== null || body.delay !== null || body.thenDraw !== 0 || body.ifDrew !== undefined || body.atRandom || (body.scopes !== undefined && body.scopes.length > 0)) return null;
   return { ...body, text: sentence, targetIndex: -1, self: false, ofPreviousPlayer: who };
 }

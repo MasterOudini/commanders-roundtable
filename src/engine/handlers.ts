@@ -907,16 +907,18 @@ function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' 
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
   const face = faceOf(oracleCard, card.faceIndex);
-  if (face.morphCost === null) return reject('notCastable', `${face.name} has no morph cost the engine can charge.`);
+  // D526 - a MANIFESTED creature card turns face up for its mana cost (CR 701.34c); a morph cost serves too (702.37).
+  const flipCost = face.morphCost ?? (card.manifested === true && face.typeLine.types.includes('Creature') ? face.manaCost : null);
+  if (flipCost === null) return reject('notCastable', `${face.name} has no cost the engine can charge to turn it face up.`);
   if (state.priority.player !== intent.player || state.priority.awaiting !== null) {
     return reject('notYourPriority', 'You do not have priority.');
   }
   if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
-  const problem = buildPaymentProblem(face.morphCost, 0, [], 0);
+  const problem = buildPaymentProblem(flipCost, 0, [], 0);
   const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
   // D397 - a special action (CR 708.7), neither a spell nor an ability: restricted mana never pays it.
   const chosen = intent.plan ?? suggestPayment(solve, problem, OTHER_PURPOSE);
-  if (!chosen) return reject('cannotAfford', `You cannot pay ${face.morphCostText ?? 'the morph cost'} to turn ${face.name} face up.`);
+  if (!chosen) return reject('cannotAfford', `You cannot pay ${face.morphCost !== null ? (face.morphCostText ?? 'the morph cost') : (face.manaCost?.raw ?? 'the mana cost')} to turn ${face.name} face up.`);
   const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
   if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
   if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
@@ -931,7 +933,8 @@ function turnFaceUp(state: GameState, intent: Extract<Intent, { t: 'TurnFaceUp' 
     }, OTHER_PURPOSE),
   );
   events.push({ t: 'FaceDownSet', card: intent.card, faceDown: false });
-  if (face.megamorph) events.push({ t: 'CountersChanged', changes: [{ card: intent.card, kind: '+1/+1', delta: 1 }] });
+  // D526 - the megamorph counter is the MORPH cost's (CR 702.37a): a manifested card flipped for its mana cost gets none.
+  if (face.megamorph && face.morphCost !== null && flipCost === face.morphCost) events.push({ t: 'CountersChanged', changes: [{ card: intent.card, kind: '+1/+1', delta: 1 }] });
   events.push(
     narrated(
       n`${who(state, intent.player)} ${vb(intent.player, 'turns', 'turn')} ${face.name} face up.`,
@@ -3880,11 +3883,15 @@ function answerChooseFromZone(
     const bottomed = mixed ? mixed.value : rest;
     const took = intent.cards.length === 0 ? 'nothing' : `${intent.cards.length} card${intent.cards.length === 1 ? '' : 's'}`;
     // D493 - the picks go where the line sends them: the hand, or the battlefield (tapped when the line says so).
+    // D526 - a manifest dread's pick enters face down, manifested (CR 701.34e); the marker names the dread.
+    const manifests = awaiting.to === 'battlefield' && awaiting.faceDown === true;
     const toHand = intent.cards.map((card) => ({
       card,
       from: { kind: 'library' as const, player: intent.player },
       to: awaiting.to === 'battlefield' ? { kind: 'battlefield' as const, player: intent.player } : { kind: 'hand' as const, player: intent.player },
+      ...(manifests ? { faceDown: true, manifested: true as const } : {}),
     }));
+    const dreadMarks: EventBody[] = manifests ? intent.cards.map((card) => ({ t: 'ManifestedDread' as const, player: intent.player, card })) : [];
     const tappedAfter: EventBody[] = awaiting.to === 'battlefield' && awaiting.tapped === true && intent.cards.length > 0 ? [{ t: 'PermanentsTapped', cards: [...intent.cards] }] : [];
     /**
      * ⚠️ The leftovers go to the BOTTOM, which is the FRONT of the array —
@@ -3941,6 +3948,7 @@ function answerChooseFromZone(
         },
         { t: 'CardsMoved', moves: toHand },
         ...tappedAfter,
+        ...dreadMarks,
         narrated(
           n`${who(state, intent.player)} ${vb(intent.player, 'takes', 'take')} ${took}.`,
           intent.player,
@@ -3962,6 +3970,7 @@ function answerChooseFromZone(
       { t: 'AwaitingSet', awaiting: null },
       ...(toHand.length + toRest.length > 0 ? [{ t: 'CardsMoved' as const, moves: [...toHand, ...toRest] }] : []),
       ...tappedAfter,
+      ...dreadMarks,
       // ⚠️ The reveal is CLEARED, or the player keeps seeing the cards that went
       // to the bottom for the rest of the game — `view.peek` reads `revealedTo`.
       { t: 'CardsRevealed', cards: [...shown], to: [] },
@@ -4038,7 +4047,7 @@ function answerChooseFromZone(
       events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} nothing onto the battlefield for ${awaiting.label}.`, intent.player));
     } else {
       events.push({ t: 'PutFromHand', player: intent.player, cards: [...intent.cards] });
-      events.push({ t: 'CardsMoved', moves: intent.cards.map((card) => ({ card, from: { kind: 'hand' as const, player: intent.player }, to: { kind: 'battlefield' as const, player: intent.player } })) });
+      events.push({ t: 'CardsMoved', moves: intent.cards.map((card) => ({ card, from: { kind: 'hand' as const, player: intent.player }, to: { kind: 'battlefield' as const, player: intent.player }, ...(awaiting.faceDown === true ? { faceDown: true, manifested: true as const } : {}) })) });
       if (awaiting.tapped === true) events.push({ t: 'PermanentsTapped', cards: [...intent.cards] });
     }
     return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
