@@ -132,6 +132,20 @@ export function PlayerPlate({
         </span>
       )}
 
+      {/* D522 - the crown (CR 724): the engine has drawn the monarch a card at their end step and moved the crown on
+          combat damage since D332, with nothing on screen saying who wears it. D122: a rule the engine enforces is a
+          rule the player can see. */}
+      {seat.isMonarch && (
+        <span
+          className="crt-num rounded px-1 text-xs tabular-nums text-crt-dim"
+          style={{ boxShadow: 'inset 0 0 0 1px currentColor' }}
+          title={`${seat.name} is the monarch — draws a card at their end step; combat damage takes the crown`}
+          data-monarch={player}
+        >
+          👑
+        </span>
+      )}
+
       <div className="ml-auto flex items-center gap-2">
         <ManaPool pool={seat.manaPool} />
       </div>

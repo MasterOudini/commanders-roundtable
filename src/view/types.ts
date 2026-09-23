@@ -199,6 +199,8 @@ export interface SeatView {
   /** D521 - the Ring's temptations (CR 701.54): the count that gates the emblem, and the Ring-bearer, shown on the plate. */
   ringTempts: number;
   ringBearer: InstanceId | null;
+  /** D522 - CR 724: this seat wears the crown (the end-step draw and the combat steal are the engine's since D332). */
+  isMonarch: boolean;
   manaPool: Record<ManaSymbol, number>;
   /**
    * Colour identity of this seat's commander. Drives the nameplate's gradient

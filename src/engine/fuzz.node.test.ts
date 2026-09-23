@@ -316,6 +316,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // Relentless Rohirrim ({3}{R} 3/2, enters: tempts) two a seat: the bearer chosen, the emblem given, its abilities as
   // the count climbs (the loot on attack, the blocker's sacrifice, the drain).
   { names: ['Claim the Precious', 'Birthday Escape', 'Took Reaper', 'Relentless Rohirrim'], copiesPerSeat: 2, counterKeys: ['ringTempts', 'ringAbilities'], rotHistory: 'D521' },
+  // D522 - THE MONARCH (CR 724): Grave Venerations ({3}{B} enchantment, `When this enchantment enters, you become the
+  // monarch.` and an end-step return gated on wearing it), Garrulous Sycophant ({2}{B} 1/4, the end-step drain gated on
+  // the crown) and Throne Warden ({1}{W} 2/2, the counter gated on it) two a seat: the crown handed out by a payload,
+  // read by an intervening if, and taken back by D332's combat steal.
+  { names: ['Grave Venerations', 'Thorn of the Black Rose', 'Garrulous Sycophant', 'Throne Warden'], copiesPerSeat: 2, counterKeys: ['crownings'], rotHistory: 'D522' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1600,6 +1605,8 @@ interface Run {
   readonly bolsters: number;
   /** D520 - amass clauses that ran (an `Amassed` marker each - the Army that got the counters, or none). */
   readonly amasses: number;
+  /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
+  readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
   readonly ringTempts: number;
   readonly ringAbilities: number;
@@ -2083,6 +2090,7 @@ function runOne(seed: number): Run {
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     amasses: game.log.filter((e) => e.body.t === 'Amassed').length,
+    crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
     energyGained: game.log.filter((e) => e.body.t === 'EnergyChanged' && e.body.delta > 0).length,
@@ -2393,6 +2401,7 @@ const TOTAL_KEYS = [
   'wheels',
   'bolsters',
   'amasses',
+  'crownings',
   'ringTempts',
   'ringAbilities',
   'energyGained',
@@ -2861,6 +2870,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D521 - the Ring tempted a player at gate size (Claim the Precious, Birthday Escape, Took Reaper and Relentless
         // Rohirrim two a seat; the canary521 figures in the decision); the emblem's abilities are counted, not floored.
         expect(totals.ringTempts).toBeGreaterThan(0);
+        // D522 - the crown moved at gate size (Grave Venerations, Garrulous Sycophant and Throne Warden two a seat, and
+        // D332's combat steal over any of them; the canary522 figures in the decision).
+        expect(totals.crownings).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

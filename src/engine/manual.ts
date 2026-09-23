@@ -213,6 +213,25 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       return accept(events);
     }
 
+    // D522 - the crown by hand (CR 724): the named seat wears it, `null` takes it off the table. A crown that does not
+    // move says so and moves nothing (the payload's own rule).
+    case 'ManualSetMonarch': {
+      if (intent.target !== null && !state.players[intent.target]) return reject('noSuchPlayer', 'That player is not in this game.');
+      if (state.monarch === intent.target) return reject('invalidAmount', intent.target === null ? 'Nobody is the monarch.' : 'That player is already the monarch.');
+      return accept([
+        marker(actor, 'monarch', intent.target === null ? 'none' : intent.target),
+        { t: 'MonarchChanged', player: intent.target },
+        narrated(
+          intent.target === null
+            ? n`${me} ${vb(actor, 'takes', 'take')} the crown off the table.`
+            : n`${me} ${vb(actor, 'crowns', 'crown')} ${whoElse(state, actor, intent.target)}.`,
+          actor,
+          [],
+          true,
+        ),
+      ]);
+    }
+
     case 'ManualAddMana': {
       if (!state.players[intent.target]) return reject('noSuchPlayer', 'That player is not in this game.');
       if (intent.amount < 1 || intent.amount > 100) {

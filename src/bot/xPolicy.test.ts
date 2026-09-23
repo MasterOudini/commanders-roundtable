@@ -21,7 +21,7 @@ function card(id: string, data: typeof BLAZE, over: Partial<PlayerView['cards'][
 function view(): PlayerView {
   return {
     you: ME,
-    seats: Object.fromEntries([ME, FOE].map((id) => [id, { playerId: id, name: id, life: 40, cmdDamage: {}, poison: 0, energy: 0, ringTempts: 0, ringBearer: null, manaPool: {}, lost: false }])),
+    seats: Object.fromEntries([ME, FOE].map((id) => [id, { playerId: id, name: id, life: 40, cmdDamage: {}, poison: 0, energy: 0, ringTempts: 0, ringBearer: null, isMonarch: false, manaPool: {}, lost: false }])),
     seating: [ME, FOE],
     cards: { h1: card('h1', BLAZE), l1: card('l1', MOUNTAIN), l2: card('l2', MOUNTAIN), l3: card('l3', MOUNTAIN) },
     zones: { [`hand:${ME}`]: ['h1'], [`bf:${ME}`]: ['l1', 'l2', 'l3'], [`bf:${FOE}`]: [] },

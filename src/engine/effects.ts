@@ -1018,6 +1018,22 @@ export function effectResult(
       // D521 - THE RING TEMPTS YOU (CR 701.54): the creatures the controller has are read off the state the clauses before
       // this one left (the Wraith In the Darkness Bind Them just made is a candidate); the queue's eighth verb - several
       // are asked (`pick: 'ringBearer'`), the only one goes unasked, none still counts; the batch records the temptation.
+      // D522 - THE MONARCH (CR 724.2): the named player takes the crown, the previous monarch loses it; a player who
+      // already wears it becomes nothing (no state moves, so no event and no trigger). The draw and the steal are the
+      // engine's own (D332).
+      case 'becomeMonarch': {
+        const crowned = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        if (!state.players[crowned] || state.players[crowned]?.hasLost === true) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        if (now.monarch === crowned) {
+          out.push(narrated(n`${who(state, crowned)} ${vb(crowned, 'is', 'are')} the monarch already.`, crowned));
+          break;
+        }
+        out.push({ t: 'MonarchChanged', player: crowned });
+        out.push(narrated(n`${who(state, crowned)} ${vb(crowned, 'becomes', 'become')} the monarch.`, crowned));
+        break;
+      }
       case 'ringTempt': {
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         let now = state;

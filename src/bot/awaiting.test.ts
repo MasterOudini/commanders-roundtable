@@ -95,6 +95,7 @@ function seat(id: string) {
     energy: 0,
     ringTempts: 0,
     ringBearer: null,
+    isMonarch: false,
     manaPool: {},
     lost: false,
   };

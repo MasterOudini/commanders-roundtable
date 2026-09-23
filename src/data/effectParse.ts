@@ -1887,6 +1887,14 @@ const RULES: readonly Rule[] = [
    */
   { kind: 'ringTempt', re: /^(?:then )?the Ring tempts you\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   /**
+   * D522 - THE MONARCH (CR 724.2): `You become the monarch.` (the enters payload 32 leftover rows print, the saga
+   * chapter, the graveyard activation) and `Target opponent | player becomes the monarch.` The crown itself is D332's
+   * (the end-step draw, the combat-damage steal); this is the sentence that hands it over. `You can't become the
+   * monarch this turn.` beside it (Jared Carthalion) stays unread - a turn restriction is not this clause.
+   */
+  { kind: 'becomeMonarch', re: /^(?:then )?you become the monarch\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  { kind: 'becomeMonarch', re: /^(?:then )?target (?:player|opponent) becomes the monarch\.$/i, build: () => ({ ...BASE }) },
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral); the `you` form scopes the caster alone.
    */

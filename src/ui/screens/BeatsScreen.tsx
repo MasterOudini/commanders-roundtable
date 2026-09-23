@@ -161,6 +161,7 @@ function beatView(card: CardData, zone: 'lib' | 'bf' | 'stack'): PlayerView {
         energy: 0,
         ringTempts: 0,
         ringBearer: null,
+        isMonarch: false,
         manaPool: { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 },
         identity: card.colorIdentity,
         lost: false,

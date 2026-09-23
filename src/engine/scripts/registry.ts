@@ -7,6 +7,22 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CONVALESCENCE_SCRIPT } from './cards/convalescence';
+import { SOUL_SWALLOWER_SCRIPT } from './cards/soulSwallower';
+import { GARRULOUS_SYCOPHANT_SCRIPT } from './cards/garrulousSycophant';
+import { SCUTE_MOB_SCRIPT } from './cards/scuteMob';
+import { THRONE_WARDEN_SCRIPT } from './cards/throneWarden';
+import { DRAGONMASTER_OUTCAST_SCRIPT } from './cards/dragonmasterOutcast';
+import { DENETHOR_STONE_SEER_SCRIPT } from './cards/denethorStoneSeer';
+import { SKYLINE_DESPOT_SCRIPT } from './cards/skylineDespot';
+import { EMERIA_THE_SKY_RUIN_SCRIPT } from './cards/emeriaTheSkyRuin';
+import { CONVALESCENT_CARE_SCRIPT } from './cards/convalescentCare';
+import { OMER_KING_OF_ROHAN_SCRIPT } from './cards/omerKingOfRohan';
+import { COMPLEX_AUTOMATON_SCRIPT } from './cards/complexAutomaton';
+import { GRAVE_VENERATIONS_SCRIPT } from './cards/graveVenerations';
+import { BLOODHALL_OOZE_SCRIPT } from './cards/bloodhallOoze';
+import { MIRROR_SIGIL_SERGEANT_SCRIPT } from './cards/mirrorSigilSergeant';
+import { GIXIAN_SKULLFLAYER_SCRIPT } from './cards/gixianSkullflayer';
 import { SHORTCUT_TO_MUSHROOMS_SCRIPT } from './cards/shortcutToMushrooms';
 import { TOOK_REAPER_SCRIPT } from './cards/tookReaper';
 import { RELENTLESS_ROHIRRIM_SCRIPT } from './cards/relentlessRohirrim';
@@ -7988,6 +8004,22 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CONVALESCENCE_SCRIPT,
+  SOUL_SWALLOWER_SCRIPT,
+  GARRULOUS_SYCOPHANT_SCRIPT,
+  SCUTE_MOB_SCRIPT,
+  THRONE_WARDEN_SCRIPT,
+  DRAGONMASTER_OUTCAST_SCRIPT,
+  DENETHOR_STONE_SEER_SCRIPT,
+  SKYLINE_DESPOT_SCRIPT,
+  EMERIA_THE_SKY_RUIN_SCRIPT,
+  CONVALESCENT_CARE_SCRIPT,
+  OMER_KING_OF_ROHAN_SCRIPT,
+  COMPLEX_AUTOMATON_SCRIPT,
+  GRAVE_VENERATIONS_SCRIPT,
+  BLOODHALL_OOZE_SCRIPT,
+  MIRROR_SIGIL_SERGEANT_SCRIPT,
+  GIXIAN_SKULLFLAYER_SCRIPT,
   SHORTCUT_TO_MUSHROOMS_SCRIPT,
   TOOK_REAPER_SCRIPT,
   RELENTLESS_ROHIRRIM_SCRIPT,

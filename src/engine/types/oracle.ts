@@ -836,6 +836,13 @@ export type EffectKind =
    */
   | 'ringTempt'
   /**
+   * D522 - THE MONARCH (CR 724.2): `You become the monarch.` / `Target opponent becomes the monarch.` - the named
+   * player takes the crown and the previous monarch loses it; a player who is already the monarch becomes nothing
+   * (no state moves, so no event). The crown's own rules - the end-step draw and the combat-damage steal - are the
+   * engine's since D332; this kind is the sentence that hands it over. `self` names the controller, otherwise the aim.
+   */
+  | 'becomeMonarch'
+  /**
    * D510 - THE WHEEL INTO THE LIBRARY: `Each player shuffles their hand and graveyard into their library, then draws N
    * cards.` (Timetwister, Time Reversal, Echo of Eons, Time Spiral) - every player in APNAP order, one shuffle each off
    * the seeded generator; `amount` is the draw. The `you` form (`Shuffle your hand and graveyard into your library,

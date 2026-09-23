@@ -9731,6 +9731,29 @@ const WANTED = [
   'Uruk-hai Berserker',
   'Enraged Huorn',
   // D521 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D522 - THE MONARCH PAYLOAD: the seam's own cards (Feast of Succession crowns the caster, Jared Carthalion aims the crown at an opponent - monarch.test.ts).
+  'Feast of Succession',
+  'Jared Carthalion, True Heir',
+  // D522 - THE MONARCH PAYLOAD: the rows the whole-leftover row maker rowed once  was a vocabulary kind (the enters crownings, the sagas, the aimed forms).
+  "Inventors' Fair",
+  'Convalescence',
+  'Soul Swallower',
+  'Garrulous Sycophant',
+  'Scute Mob',
+  'Throne Warden',
+  'Dragonmaster Outcast',
+  'Denethor, Stone Seer',
+  'Skyline Despot',
+  'Emeria, the Sky Ruin',
+  'Convalescent Care',
+  'Thopter Spy Network',
+  'Éomer, King of Rohan',
+  'Complex Automaton',
+  'Grave Venerations',
+  'Bloodhall Ooze',
+  'Mirror-Sigil Sergeant',
+  'Gixian Skullflayer',
+  // D522 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

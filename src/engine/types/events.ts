@@ -298,8 +298,11 @@ export type EventBody =
   | { readonly t: 'EnergyChanged'; readonly player: PlayerId; readonly delta: number; readonly to: number }
   /** D521 - the Ring tempted a player (CR 701.54): `times` is their count after, `bearer` the creature chosen (null when none). */
   | { readonly t: 'RingTempted'; readonly player: PlayerId; readonly times: number; readonly bearer: InstanceId | null }
-  /** D332 - CR 724: the crown moves to `player`. */
-  | { readonly t: 'MonarchChanged'; readonly player: PlayerId }
+  /**
+   * D332 - CR 724: the crown moves to `player`. D522 - `null` is the Tier-3 wrench taking it off the table entirely:
+   * no rule ever does that (the crown only moves), but a table setting a board up by hand has to be able to.
+   */
+  | { readonly t: 'MonarchChanged'; readonly player: PlayerId | null }
   /**
    * D364 - `snow` says the SOURCE was a snow permanent (CR 107.4s), so the mana
    * this adds can pay `{S}`. REQUIRED on purpose: an optional flag a new emitter
