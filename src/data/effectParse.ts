@@ -46,6 +46,7 @@ import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
+import { parseGateCondition } from './activatedParse';
 import { amassArmyKey, amassSubtype, foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
 import { EMBLEM_TABLE } from './emblemTable';
 import { TOKEN_TABLE } from './tokenTable';
@@ -2563,6 +2564,31 @@ function referentRewrite(sentence: string, previous: Clause | undefined): Effect
  * does not carry and stays unread; so does a referent the vocabulary has no phrase for (`that player`).
  */
 const KICKED_INSTEAD = /^If this spell was kicked, (?:instead )?(.+?)(?: instead)?\.$/i;
+/**
+ * D523 - THE GATED CLAUSE: `If <condition>, <clause>.` / `Then if <condition>, <clause>.` / `If <condition>,
+ * <clause> instead.` The condition is the engine's own closed union (`parseGateCondition` - the reader `Activate
+ * only if ...` uses, so a card's gate and its activation restriction can never read the same words two ways), asked
+ * at RESOLUTION over the board the clauses before it left. The clause is read whole where the vocabulary has a rule
+ * for it, else against the sentence before it (a referent: `that creature gets +4/+4 until end of turn instead`).
+ * With `instead` it REPLACES the clause before it when the gate holds (D423's kicked rider, one condition wider).
+ * An intervening `if` on a TRIGGER head is not this shape (D398 reads that one, and its condition gates the whole
+ * ability); a condition outside the union leaves the line unread (D90).
+ */
+const GATED_CLAUSE = /^(?:Then )?[Ii]f ([^,]{3,70}?), (.+?)( instead)?\.$/;
+function gatedClauseRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
+  const m = GATED_CLAUSE.exec(sentence);
+  if (!m) return null;
+  const cond = parseGateCondition(m[1] ?? '');
+  if (!cond) return null;
+  const inner = (m[2] ?? '').trim() + '.';
+  const instead = m[3] !== undefined;
+  const whole = matchSentence(inner);
+  const spec = whole ?? referentRewrite(inner, previous);
+  if (!spec || spec.pay !== null || spec.delay !== null || spec.gate !== undefined) return null;
+  // An `instead` clause needs a clause to replace.
+  if (instead && !previous?.spec) return null;
+  return { ...spec, text: sentence, gate: [cond], ...(instead ? { gateInstead: true as const } : {}) };
+}
 const TOKEN_WORDS: Readonly<Record<string, number>> = { a: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, twelve: 12 };
 function kickedInsteadRewrite(sentence: string, previous: Clause | undefined): EffectSpec | null {
   if (!/\binstead\b/i.test(sentence)) return null;
@@ -2662,6 +2688,9 @@ function clausesOf(text: string): Clause[] {
     // D423 - a kicked `instead` clause is read against the clause before it too.
     const insteadK = spec === null ? kickedInsteadRewrite(raw[i] ?? '', previous) : null;
     if (insteadK) spec = insteadK;
+    // D523 - a clause gated on a board condition is read against the clause before it too.
+    const gated = spec === null ? gatedClauseRewrite(raw[i] ?? '', previous) : null;
+    if (gated) spec = gated;
     // D426 - a sentence no rule reads whole may be TWO clauses joined by `and` (or `, then`).
     const joined2 = spec === null ? conjunctionSplit(raw[i] ?? '', previous) : null;
     if (joined2) {

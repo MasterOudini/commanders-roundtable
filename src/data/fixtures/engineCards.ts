@@ -8787,6 +8787,8 @@ export const GRAVE_VENERATIONS: CardData = F.GRAVE_VENERATIONS as CardData;
 export const BLOODHALL_OOZE: CardData = F.BLOODHALL_OOZE as CardData;
 export const MIRROR_SIGIL_SERGEANT: CardData = F.MIRROR_SIGIL_SERGEANT as CardData;
 export const GIXIAN_SKULLFLAYER: CardData = F.GIXIAN_SKULLFLAYER as CardData;
+export const FOR_THE_FAMILY: CardData = F.FOR_THE_FAMILY as CardData;
+export const RESOURCEFUL_RETURN: CardData = F.RESOURCEFUL_RETURN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17825,6 +17827,8 @@ export const ENGINE_CARDS: CardData[] = [
   BLOODHALL_OOZE,
   MIRROR_SIGIL_SERGEANT,
   GIXIAN_SKULLFLAYER,
+  FOR_THE_FAMILY,
+  RESOURCEFUL_RETURN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

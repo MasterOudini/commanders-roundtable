@@ -120,6 +120,10 @@ export function activationConditionsHold(
       case 'controlsCommander':
         if (!mine().some((id) => state.cards[id]?.isCommander === true)) return false;
         break;
+      // D523 - the crown (CR 724): who wears it, off `state.monarch` (D522's own field).
+      case 'monarch':
+        if (cond.who === 'you' ? state.monarch !== player : cond.who === 'opponent' ? state.monarch === null || state.monarch === player : state.monarch !== null) return false;
+        break;
       case 'acrossControl':
         if (!state.zones.battlefield.some((id) => { const inst = state.cards[id]; return inst !== undefined && inst.controller !== player && matchesAny(d(id), cond.theirs); })) return false;
         if (!mine().some((id) => matchesAny(d(id), cond.yours))) return false;
@@ -205,6 +209,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if it is a creature';
         case 'controlsCommander':
           return 'if you control a commander';
+        case 'monarch':
+          return cond.who === 'you' ? "if you're the monarch" : cond.who === 'opponent' ? 'if an opponent is the monarch' : 'if there is no monarch';
         case 'acrossControl':
           return 'if an opponent controls the named permanent and you control yours';
       }

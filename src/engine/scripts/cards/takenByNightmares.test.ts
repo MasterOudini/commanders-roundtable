@@ -60,7 +60,10 @@ describe('Taken by Nightmares', () => {
 
   test('the suppression predicate holds (D187)', () => {
     const text = TAKEN_BY_NIGHTMARES.faces[0]?.oracleText ?? '';
-    expect(parseEffects(text, TAKEN_BY_NIGHTMARES.name, true).mode).not.toBe('auto');
+    // D523 - THE GATED CLAUSE reads this card whole now (`If you control <a noun>, <clause>.`): the predicate D187
+    // wrote here was "the parser cannot, so the script must" - and the second half still holds, because a shipped
+    // SPELL def outranks the vocabulary in `loop.ts`. The card runs ONCE, from the script below.
+    expect(parseEffects(text, TAKEN_BY_NIGHTMARES.name, true).mode).toBe('auto');
     expect(SHIPPED_REGISTRY.spell(TAKEN_BY_NIGHTMARES.oracleId)).toBeDefined();
   });
 

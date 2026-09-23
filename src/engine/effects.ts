@@ -22,6 +22,7 @@ import { suspendTickSpec } from '../data/effectParse';
 import { RING_EMBLEM } from '../data/tokenParse';
 import { modeSpecs } from './modes';
 import { faceOf } from './oracle';
+import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
@@ -168,6 +169,14 @@ export function effectResult(
   // D382 - one resolving object may put up more than one shield; the id must be
   // stable across a replay, so it is the object's own id and a sequence.
   let shieldSeq = 0;
+  // D523 - THE GATED CLAUSE asks its condition over the board the clauses BEFORE it left (CR 608.2), so the events
+  // so far are applied to a scratch state first - D505 scope walk shape, and the derive cache belongs to the state
+  // the resolution began in, so it is set aside when the scratch differs.
+  const gateHolds = (gate: NonNullable<EffectSpec['gate']>): boolean => {
+    let now = state;
+    for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+    return activationConditionsHold(now, deps.oracle, deps.scripts, controller, source ?? obj.card ?? state.zones.battlefield[0] ?? ("c0" as InstanceId), gate, now === state ? cache : undefined);
+  };
 
   /**
    * D299 — ONE STEP PER (CLAUSE, PICK). A counted clause ("destroy up to two
@@ -188,6 +197,12 @@ export function effectResult(
     const next = effects[ei + 1];
     if (next?.kickedInstead && (obj.kicked ?? 0) > 0) {
       out.push(narrated(`${obj.label} was kicked — “${effect.text}” is replaced.`, obj.controller, obj.identity));
+      continue;
+    }
+    // D523 - a gated `instead` clause REPLACES the clause before it when its condition holds over the board the
+    // clauses so far have left (the same scratch state the gate itself is asked on).
+    if (next?.gateInstead && next.gate && gateHolds(next.gate)) {
+      out.push(narrated(`${obj.label} — “${effect.text}” is replaced.`, obj.controller, obj.identity));
       continue;
     }
     // D432 - a payment whose PAYER is the target player but whose body names no target (Smothering Tithe's Treasure,
@@ -356,6 +371,12 @@ export function effectResult(
     // the narration says so rather than saying nothing (D90's other direction is silence).
     if (effect.ifKicked && !((obj.kicked ?? 0) > 0)) {
       out.push(narrated(`${obj.label} was not kicked — “${effect.text}” does nothing.`, obj.controller, obj.identity));
+      continue;
+    }
+    // D523 - THE GATED CLAUSE: the condition is asked HERE, over the board the clauses before it left (CR 608.2:
+    // a resolving object reads the game as it finds it), and an unmet gate does nothing and says so (D90).
+    if (effect.gate && !gateHolds(effect.gate)) {
+      out.push(narrated(`${obj.label} — “${effect.text}” does nothing: ${describeActivationConditions(effect.gate)} is not so.`, obj.controller, obj.identity));
       continue;
     }
     // D418 - THE COUNT EXPRESSION (CR 608.2h): `for each <noun>` / `where X is the number of <nouns>`

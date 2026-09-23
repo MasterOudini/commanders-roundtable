@@ -297276,6 +297276,72 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FOR_THE_FAMILY": {
+    "scryfallId": "052be93c-1970-4d05-a3d1-e87a6e51c423",
+    "oracleId": "f6abd7e5-8c52-4b36-98c5-a4df8b5b6863",
+    "name": "For the Family",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "For the Family",
+        "manaCost": "{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +2/+2 until end of turn. If you control four or more creatures, that creature gets +4/+4 until end of turn instead.",
+        "flavorText": "The Cabaretti cultivate an image of harmless hedonism, happy for the other families to underestimate their formidable firepower.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "052be93c-1970-4d05-a3d1-e87a6e51c423"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESOURCEFUL_RETURN": {
+    "scryfallId": "32f57d0b-ab6a-4074-885d-678659729b8a",
+    "oracleId": "952ef791-5c89-4965-9f34-0228acb18bc4",
+    "name": "Resourceful Return",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resourceful Return",
+        "manaCost": "{1}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Return target creature card from your graveyard to your hand. If you control an artifact, draw a card.",
+        "flavorText": "When the salvage team brought in the shattered gearhulk, a wave of excitement swept through the renegade foundry.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Titus Lunter",
+        "imageId": "32f57d0b-ab6a-4074-885d-678659729b8a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "aer",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -9754,6 +9754,9 @@ const WANTED = [
   'Mirror-Sigil Sergeant',
   'Gixian Skullflayer',
   // D522 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D523 - THE GATED CLAUSE: the seam's own spells (For the Family's instead form, Resourceful Return's plain one - gatedClause.test.ts).
+  'For the Family',
+  'Resourceful Return',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

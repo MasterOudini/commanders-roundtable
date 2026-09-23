@@ -1281,6 +1281,17 @@ export interface EffectSpec {
    */
   readonly ifKicked: boolean;
   /**
+   * D523 - THE GATED CLAUSE: the conditions that must hold when this clause resolves, or null. `If you control four
+   * or more creatures, ...` / `Then if you're the monarch, ...` - the engine's own `ActivationCondition` union, asked
+   * at RESOLUTION over the board the clauses before it left. An unmet gate says so and does nothing (D90).
+   */
+  readonly gate?: readonly ActivationCondition[];
+  /**
+   * D523 - `If <condition>, <clause> instead.`: with the gate met this clause REPLACES the clause before it (D423's
+   * shape for the kicked rider, one condition wider).
+   */
+  readonly gateInstead?: true;
+  /**
    * D423 - `If this spell was kicked, <clause> instead.`: this effect REPLACES the effect before it when the
    * spell was kicked (the executor skips the base then, and this one when it was not). Always beside
    * `ifKicked: true`. REQUIRED (D355/D356's rule), `false` on every other effect.
@@ -1494,6 +1505,11 @@ export type ActivationCondition =
   | { readonly kind: 'selfIsCreature' }
   /** D490 - `if you control a commander` (the free-cast conditions): a commander among the player's permanents. */
   | { readonly kind: 'controlsCommander' }
+  /**
+   * D523 - the crown (CR 724), the condition half of D522's payload: `if you're the monarch` (and an opponent's, and
+   * nobody's). Read off `state.monarch`, so a gated clause and an `Activate only if` line ask the same question.
+   */
+  | { readonly kind: 'monarch'; readonly who: 'you' | 'opponent' | 'none' }
   /** D490 - `if an opponent controls a Plains and you control a Swamp` (the Legates): a predicate on some opponent's board and one on the player's. */
   | { readonly kind: 'acrossControl'; readonly theirs: readonly PermanentPredicate[]; readonly yours: readonly PermanentPredicate[] }
   /**

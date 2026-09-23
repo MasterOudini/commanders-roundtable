@@ -321,6 +321,11 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the crown) and Throne Warden ({1}{W} 2/2, the counter gated on it) two a seat: the crown handed out by a payload,
   // read by an intervening if, and taken back by D332's combat steal.
   { names: ['Grave Venerations', 'Thorn of the Black Rose', 'Garrulous Sycophant', 'Throne Warden'], copiesPerSeat: 2, counterKeys: ['crownings'], rotHistory: 'D522' },
+  // D523 - THE GATED CLAUSE: For the Family ({G} instant, `Target creature gets +2/+2 until end of turn. If you control
+  // four or more creatures, that creature gets +4/+4 until end of turn instead.`) and Resourceful Return ({1}{B} sorcery,
+  // `Return target creature card from your graveyard to your hand. If you control an artifact, draw a card.`) two a seat:
+  // the board decides which reading runs, and the log says which either way.
+  { names: ['For the Family', 'Resourceful Return'], copiesPerSeat: 2, counterKeys: ['gatedClauses'], rotHistory: 'D523' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1605,6 +1610,8 @@ interface Run {
   readonly bolsters: number;
   /** D520 - amass clauses that ran (an `Amassed` marker each - the Army that got the counters, or none). */
   readonly amasses: number;
+  /** D523 - gated clauses that were ASKED (the executor says so either way: replaced, or did nothing). */
+  readonly gatedClauses: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2090,6 +2097,7 @@ function runOne(seed: number): Run {
     wheels: game.log.filter((e) => e.body.t === 'WheelShuffled').length,
     bolsters: game.log.filter((e) => e.body.t === 'Bolstered').length,
     amasses: game.log.filter((e) => e.body.t === 'Amassed').length,
+    gatedClauses: game.log.filter((e) => e.body.t === 'Narrated' && /(?:is replaced|does nothing: if )/.test(e.body.text)).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2401,6 +2409,7 @@ const TOTAL_KEYS = [
   'wheels',
   'bolsters',
   'amasses',
+  'gatedClauses',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2873,6 +2882,9 @@ function assertFloors(totals: Totals, seeds: number): void {
         // D522 - the crown moved at gate size (Grave Venerations, Garrulous Sycophant and Throne Warden two a seat, and
         // D332's combat steal over any of them; the canary522 figures in the decision).
         expect(totals.crownings).toBeGreaterThan(0);
+        // D523 - a gated clause was asked at gate size (For the Family and Resourceful Return two a seat; the canary523
+        // figures in the decision).
+        expect(totals.gatedClauses).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

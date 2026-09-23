@@ -201,6 +201,18 @@ function turnMemoryCondition(mm: RegExpExecArray): ActivationCondition | null {
   return null;
 }
 
+/**
+ * D523 - ONE condition phrase, for a GATED CLAUSE (`If you control four or more creatures, <clause>.`). The same
+ * closed union `Activate only if ...` reads, asked of a bare phrase rather than a whole line - so a card's gate and
+ * its activation restriction can never read the same words two ways. A phrase outside the union returns null and the
+ * clause stays unread (D90).
+ */
+export function parseGateCondition(phrase: string): ActivationCondition | null {
+  const read = parseActivationConditions('Activate only if ' + phrase.trim().replace(/[.]$/, '') + '.');
+  if (read.unread !== null || read.sorceryOnly || read.oncePerTurn || read.conditions.length !== 1) return null;
+  return read.conditions[0] ?? null;
+}
+
 export function parseActivationConditions(text: string, selfName?: string): ActivationRead {
   const m = ACTIVATE_ONLY_RE.exec(text);
   if (!m) return { conditions: [], sorceryOnly: false, oncePerTurn: false, unread: null };
@@ -244,6 +256,10 @@ export function parseActivationConditions(text: string, selfName?: string): Acti
     // D490 - the free-cast conditions: a commander among your permanents; a land type (or any noun the reader knows)
     // on some opponent's board and another on yours - the Legate cycle's two boards.
     else if (/^if you control a commander$/i.test(c)) conditions.push({ kind: 'controlsCommander' });
+    // D523 - the crown, asked the same way a gated clause asks it.
+    else if (/^if you(?:'re| are) the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'you' });
+    else if (/^if an opponent is the monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'opponent' });
+    else if (/^if there is no monarch$/i.test(c)) conditions.push({ kind: 'monarch', who: 'none' });
     else if ((mm = /^if an opponent controls (?:a|an) (.+?) and you control (?:a|an) (.+)$/i.exec(c))) {
       const theirs = acLandOrPredicates(mm[1] ?? '');
       const yours = acLandOrPredicates(mm[2] ?? '');

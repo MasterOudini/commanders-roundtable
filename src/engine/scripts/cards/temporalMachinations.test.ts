@@ -61,7 +61,10 @@ describe('Temporal Machinations', () => {
 
   test('the suppression predicate holds (D187)', () => {
     const text = TEMPORAL_MACHINATIONS.faces[0]?.oracleText ?? '';
-    expect(parseEffects(text, TEMPORAL_MACHINATIONS.name, true).mode).not.toBe('auto');
+    // D523 - THE GATED CLAUSE reads this card whole now (`If you control <a noun>, <clause>.`): the predicate D187
+    // wrote here was "the parser cannot, so the script must" - and the second half still holds, because a shipped
+    // SPELL def outranks the vocabulary in `loop.ts`. The card runs ONCE, from the script below.
+    expect(parseEffects(text, TEMPORAL_MACHINATIONS.name, true).mode).toBe('auto');
     expect(SHIPPED_REGISTRY.spell(TEMPORAL_MACHINATIONS.oracleId)).toBeDefined();
   });
 
