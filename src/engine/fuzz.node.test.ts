@@ -345,6 +345,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // names the first candidates) and two Thornscape Battlemages (kicker {R} and/or {W} - the driver names both when both
   // are payable, else the second) a seat.
   { names: ['Final Flourish', 'Thornscape Battlemage'], copiesPerSeat: 2, counterKeys: ['kickerVerbCasts', 'secondKickerCasts'], rotHistory: 'D530' },
+  // D531 - CONTROL WITH A DURATION AND THE EXCHANGE: two Political Trickeries (the exchange of two lands) and two Sowers
+  // of Temptation (a creature held for as long as Sower stays) a seat.
+  { names: ['Political Trickery', 'Sower of Temptation'], copiesPerSeat: 2, counterKeys: ['controlGained', 'controlHeld'], rotHistory: 'D531' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1671,6 +1674,9 @@ interface Run {
   /** D530 - the casts kicked by a kicker that is not only mana, and the casts kicked with a second kicker. */
   readonly kickerVerbCasts: number;
   readonly secondKickerCasts: number;
+  /** D531 - the controls taken for good or exchanged (`ControlGained`), and the controls a source holds (`ControlTakenBySource`). */
+  readonly controlGained: number;
+  readonly controlHeld: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2169,6 +2175,8 @@ function runOne(seed: number): Run {
     sagasSacrificed: game.log.filter((e) => e.body.t === 'SagaSacrificed').length,
     kickerVerbCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0 && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.kickerVerb ?? null) !== null).length,
     secondKickerCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kickedWith ?? []).includes(1)).length,
+    controlGained: game.log.filter((e) => e.body.t === 'ControlGained').length,
+    controlHeld: game.log.filter((e) => e.body.t === 'ControlTakenBySource').length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2493,6 +2501,8 @@ const TOTAL_KEYS = [
   'sagasSacrificed',
   'kickerVerbCasts',
   'secondKickerCasts',
+  'controlGained',
+  'controlHeld',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2978,6 +2988,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.chaptersFired).toBeGreaterThan(0);
         // D530 - a kick D530 opened at gate size (Final Flourish and Thornscape Battlemage, two a seat).
         expect(totals.kickerVerbCasts + totals.secondKickerCasts).toBeGreaterThan(0);
+        // D531 - a control D531 opened at gate size (Political Trickery and Sower of Temptation, two a seat).
+        expect(totals.controlGained + totals.controlHeld).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

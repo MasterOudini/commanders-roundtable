@@ -1,0 +1,46 @@
+// `Dragonlord Silumgar` - a etb trigger vocab
+// until end of turn where it pumps (D194's carrier, D301). Generated from one table row.
+
+import { DRAGONLORD_SILUMGAR } from '../../../data/fixtures/engineCards';
+import type { CardData } from '../../../data/cardTypes';
+import { vocabularyEffects, vocabularyTargets } from '../vocabulary';
+import type { CardScript } from '../api';
+import type { EventBody } from '../../types/events';
+
+function printed(card: CardData, expected: string): string {
+  const actual = card.faces[0]?.oracleText;
+  if (actual !== expected) {
+    throw new Error(
+      `${card.name} reads "${actual}" and its script was written for "${expected}". ` +
+        'Re-read the card before re-registering it (D90).',
+    );
+  }
+  return expected;
+}
+
+const PRINTED = printed(DRAGONLORD_SILUMGAR, "Flying, deathtouch\nWhen Dragonlord Silumgar enters, gain control of target creature or planeswalker for as long as you control Dragonlord Silumgar.");
+const LINES = PRINTED.split('\n');
+
+const VOCAB_L1 = vocabularyEffects("Gain control of target creature or planeswalker for as long as you control ~.", DRAGONLORD_SILUMGAR.name);
+const VOCAB_T_L1 = vocabularyTargets("Gain control of target creature or planeswalker for as long as you control ~.");
+
+export const DRAGONLORD_SILUMGAR_SCRIPT: CardScript = {
+  oracleId: DRAGONLORD_SILUMGAR.oracleId,
+  name: DRAGONLORD_SILUMGAR.name,
+  triggers: [
+    {
+      abilityId: 'etb-1',
+      text: LINES[1] as string,
+      event: 'CardsMoved',
+      activeZones: ['battlefield'],
+      optional: false,
+      targets: VOCAB_T_L1,
+      matches: (_ctx, self, ev) =>
+        ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield'),
+      label: () => "Dragonlord Silumgar - Gain control of target creature or planeswalker for as long as you control ~.",
+      resolve: (ctx, _self, obj): readonly EventBody[] => {
+        return ctx.vocabulary(obj, VOCAB_L1, VOCAB_T_L1);
+      },
+    },
+  ],
+};

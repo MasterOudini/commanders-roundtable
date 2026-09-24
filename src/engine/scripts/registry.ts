@@ -7,6 +7,21 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KEIGA_THE_TIDE_STAR_SCRIPT } from './cards/keigaTheTideStar';
+import { CHROMESHELL_CRAB_SCRIPT } from './cards/chromeshellCrab';
+import { PIPER_OF_THE_SWARM_SCRIPT } from './cards/piperOfTheSwarm';
+import { SOWER_OF_TEMPTATION_SCRIPT } from './cards/sowerOfTemptation';
+import { EYES_EVERYWHERE_SCRIPT } from './cards/eyesEverywhere';
+import { PHYREXIAN_INFILTRATOR_SCRIPT } from './cards/phyrexianInfiltrator';
+import { DRAGONLORD_SILUMGAR_SCRIPT } from './cards/dragonlordSilumgar';
+import { SLIVER_OVERLORD_SCRIPT } from './cards/sliverOverlord';
+import { MIND_FLAYER_SCRIPT } from './cards/mindFlayer';
+import { ALADDIN_SCRIPT } from './cards/aladdin';
+import { AVARICE_TOTEM_SCRIPT } from './cards/avariceTotem';
+import { ROIL_ELEMENTAL_SCRIPT } from './cards/roilElemental';
+import { MASTER_THIEF_SCRIPT } from './cards/masterThief';
+import { VEDALKEN_PLOTTER_SCRIPT } from './cards/vedalkenPlotter';
+import { JACE_INGENIOUS_MIND_MAGE_SCRIPT } from './cards/jaceIngeniousMindMage';
 import { ARCHANGEL_OF_WRATH_SCRIPT } from './cards/archangelOfWrath';
 import { THORNSCAPE_BATTLEMAGE_SCRIPT } from './cards/thornscapeBattlemage';
 import { PHYREXIAN_SCUTA_SCRIPT } from './cards/phyrexianScuta';
@@ -7191,7 +7206,6 @@ import { INSPIRED_ULTIMATUM_SCRIPT } from './cards/inspiredUltimatum';
 import { INUNDATE_SCRIPT } from './cards/inundate';
 import { INVIGORATING_FALLS_SCRIPT } from './cards/invigoratingFalls';
 import { INVINCIBLE_HYMN_SCRIPT } from './cards/invincibleHymn';
-import { INVOKE_THE_WINDS_SCRIPT } from './cards/invokeTheWinds';
 import { IONIZE_SCRIPT } from './cards/ionize';
 import { IRE_OF_KAMINARI_SCRIPT } from './cards/ireOfKaminari';
 import { IRIDIAN_MAELSTROM_SCRIPT } from './cards/iridianMaelstrom';
@@ -8060,6 +8074,21 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KEIGA_THE_TIDE_STAR_SCRIPT,
+  CHROMESHELL_CRAB_SCRIPT,
+  PIPER_OF_THE_SWARM_SCRIPT,
+  SOWER_OF_TEMPTATION_SCRIPT,
+  EYES_EVERYWHERE_SCRIPT,
+  PHYREXIAN_INFILTRATOR_SCRIPT,
+  DRAGONLORD_SILUMGAR_SCRIPT,
+  SLIVER_OVERLORD_SCRIPT,
+  MIND_FLAYER_SCRIPT,
+  ALADDIN_SCRIPT,
+  AVARICE_TOTEM_SCRIPT,
+  ROIL_ELEMENTAL_SCRIPT,
+  MASTER_THIEF_SCRIPT,
+  VEDALKEN_PLOTTER_SCRIPT,
+  JACE_INGENIOUS_MIND_MAGE_SCRIPT,
   ARCHANGEL_OF_WRATH_SCRIPT,
   THORNSCAPE_BATTLEMAGE_SCRIPT,
   PHYREXIAN_SCUTA_SCRIPT,
@@ -15243,7 +15272,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   INUNDATE_SCRIPT,
   INVIGORATING_FALLS_SCRIPT,
   INVINCIBLE_HYMN_SCRIPT,
-  INVOKE_THE_WINDS_SCRIPT,
   IONIZE_SCRIPT,
   IRE_OF_KAMINARI_SCRIPT,
   IRIDIAN_MAELSTROM_SCRIPT,

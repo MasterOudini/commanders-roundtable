@@ -41,8 +41,11 @@ describe('the threaten vocabulary (D393)', () => {
     expect(hijack.mode).toBe('auto');
   });
 
-  test('a permanent control change and the compound form stay unread', () => {
-    expect(parseEffects('Gain control of target creature.', 'Test Card', true).mode).not.toBe('auto');
+  // D531 - the permanent control change reads now (no end, `controlFor: 'indefinite'`); the compound form stays unread.
+  test('a permanent control change reads with no end (D531); the compound form stays unread', () => {
+    const permanent = parseEffects('Gain control of target creature.', 'Test Card', true);
+    expect(permanent.mode).toBe('auto');
+    expect(permanent.effects[0]).toMatchObject({ kind: 'control', controlFor: 'indefinite' });
     expect(parseEffects('Untap target creature and gain control of it until end of turn.', 'Threaten', true).mode).not.toBe('auto');
   });
 });

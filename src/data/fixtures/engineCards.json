@@ -299705,6 +299705,555 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "KEIGA_THE_TIDE_STAR": {
+    "scryfallId": "040f57ef-cea4-4935-9207-b3108e175ed5",
+    "oracleId": "521b1598-58c6-47a0-a7b3-021d70bf2b05",
+    "name": "Keiga, the Tide Star",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keiga, the Tide Star",
+        "manaCost": "{5}{U}",
+        "typeLine": "Legendary Creature — Dragon Spirit",
+        "oracleText": "Flying\nWhen Keiga dies, gain control of target creature.",
+        "flavorText": "The pull of the tide star holds eternal sway.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "040f57ef-cea4-4935-9207-b3108e175ed5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOWER_OF_TEMPTATION": {
+    "scryfallId": "0d4a3eb3-8b28-49f7-a06c-eae26da6026b",
+    "oracleId": "5881aac2-4f31-45cb-bdb5-64a29ec23316",
+    "name": "Sower of Temptation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sower of Temptation",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flying\nWhen this creature enters, gain control of target creature for as long as this creature remains on the battlefield.",
+        "flavorText": "One glamer leads him far from home. The next washes away his memory that home was ever anywhere but at her side.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "0d4a3eb3-8b28-49f7-a06c-eae26da6026b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_THIEF": {
+    "scryfallId": "703f57d5-d8bb-4fb6-9dc9-71a5b4308f04",
+    "oracleId": "a32b8502-7427-48a5-a880-14516ff2fe77",
+    "name": "Master Thief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master Thief",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, gain control of target artifact for as long as you control this creature.",
+        "flavorText": "Possession is ten-tenths of the law.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "703f57d5-d8bb-4fb6-9dc9-71a5b4308f04"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "znc",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POLITICAL_TRICKERY": {
+    "scryfallId": "05b5c8a2-7713-47c1-b426-c4ced59aeb49",
+    "oracleId": "e0eaa43f-1c46-4299-9ecd-5f4a32d292cd",
+    "name": "Political Trickery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Political Trickery",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Exchange control of target land you control and target land an opponent controls. (This effect lasts indefinitely.)",
+        "flavorText": "\"Politics is a game—move a stone here, move a stone there—except sometimes the stones bleed.\"\n—Shauku, Endbringer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "05b5c8a2-7713-47c1-b426-c4ced59aeb49"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wc97",
+    "collectorNumber": "jk81sb",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_INFILTRATOR": {
+    "scryfallId": "224b8254-553d-4d88-8163-1f15e1244bd2",
+    "oracleId": "f444a0f8-32d8-4748-af58-51a1a8ed72b4",
+    "name": "Phyrexian Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Infiltrator",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Phyrexian Minion",
+        "oracleText": "{2}{U}{U}: Exchange control of this creature and target creature. (This effect lasts indefinitely.)",
+        "flavorText": "\"It is Yawgmoth's will incarnate: an efficient machine that replaces inefficient flesh.\"\n—Tsabo Tavoc",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "224b8254-553d-4d88-8163-1f15e1244bd2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHROMESHELL_CRAB": {
+    "scryfallId": "0527784a-14cc-478b-8465-45b54d514fac",
+    "oracleId": "8cbac2e8-5755-433b-9f42-7fd5c214aab3",
+    "name": "Chromeshell Crab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chromeshell Crab",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Crab Beast",
+        "oracleText": "Morph {4}{U} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)\nWhen this creature is turned face up, you may exchange control of target creature you control and target creature an opponent controls.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "0527784a-14cc-478b-8465-45b54d514fac"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Morph"
+    ],
+    "setCode": "cmd",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIPER_OF_THE_SWARM": {
+    "scryfallId": "0a7962fe-b715-4981-86c3-223bad9b1899",
+    "oracleId": "a6c5c5ea-0bd0-4d5a-bd3f-6217f14c9939",
+    "name": "Piper of the Swarm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Piper of the Swarm",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "Rats you control have menace.\n{1}{B}, {T}: Create a 1/1 black Rat creature token.\n{2}{B}{B}, {T}, Sacrifice three Rats: Gain control of target creature.",
+        "flavorText": "\"If it has ears, it will dance to my tune.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Irina Nordsol",
+        "imageId": "0a7962fe-b715-4981-86c3-223bad9b1899"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eld",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EYES_EVERYWHERE": {
+    "scryfallId": "1fdbf073-3ee6-402b-bd40-4781f40a6cae",
+    "oracleId": "7d0a1ae5-cd93-4789-9666-fc7bbbc6b613",
+    "name": "Eyes Everywhere",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eyes Everywhere",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, scry 1.\n{5}{U}: Exchange control of this enchantment and target nonland permanent. Activate only as a sorcery.",
+        "flavorText": "\"They've got eyes inside my head!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "1fdbf073-3ee6-402b-bd40-4781f40a6cae"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGONLORD_SILUMGAR": {
+    "scryfallId": "2eae504d-d4a9-440f-8ceb-df967cc50494",
+    "oracleId": "44581d4f-746b-43b8-a34d-16dc383ab70e",
+    "name": "Dragonlord Silumgar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragonlord Silumgar",
+        "manaCost": "{4}{U}{B}",
+        "typeLine": "Legendary Creature — Elder Dragon",
+        "oracleText": "Flying, deathtouch\nWhen Dragonlord Silumgar enters, gain control of target creature or planeswalker for as long as you control Dragonlord Silumgar.",
+        "flavorText": "Silumgar never passes up an opportunity to add to his opulence.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "2eae504d-d4a9-440f-8ceb-df967cc50494"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Deathtouch",
+      "Flying"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLIVER_OVERLORD": {
+    "scryfallId": "2ffd66b5-08fe-416b-a680-2d98e9286b77",
+    "oracleId": "762d864b-69bc-43ac-af2f-e18186010169",
+    "name": "Sliver Overlord",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sliver Overlord",
+        "manaCost": "{W}{U}{B}{R}{G}",
+        "typeLine": "Legendary Creature — Sliver Mutant",
+        "oracleText": "{3}: Search your library for a Sliver card, reveal that card, put it into your hand, then shuffle.\n{3}: Gain control of target Sliver. (This effect lasts indefinitely.)",
+        "flavorText": "The end of evolution.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G",
+          "R",
+          "U",
+          "W"
+        ],
+        "artist": "Tony Szczudlo",
+        "imageId": "2ffd66b5-08fe-416b-a680-2d98e9286b77"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G",
+      "R",
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "h09",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIND_FLAYER": {
+    "scryfallId": "3e824ef4-9057-4800-aa7d-6ab5ecca18fc",
+    "oracleId": "8dd473c7-afd9-40f1-bb8e-0a00f4687318",
+    "name": "Mind Flayer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mind Flayer",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "Dominate Monster — When this creature enters, gain control of target creature for as long as you control this creature.",
+        "flavorText": "\"Shed your thoughts and let my will flow through you.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daarken",
+        "imageId": "3e824ef4-9057-4800-aa7d-6ab5ecca18fc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "pafr",
+    "collectorNumber": "63s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALADDIN": {
+    "scryfallId": "462094ff-5ec8-4a9b-8ab1-012c5f7d85ca",
+    "oracleId": "9a410f83-ed92-4b55-834a-c7cec8f5d1e2",
+    "name": "Aladdin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aladdin",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{1}{R}{R}, {T}: Gain control of target artifact for as long as you control this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Julie Baroh",
+        "imageId": "462094ff-5ec8-4a9b-8ab1-012c5f7d85ca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "me4",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVARICE_TOTEM": {
+    "scryfallId": "53a5cfa8-4091-445c-8641-64402cca7d2d",
+    "oracleId": "c4698dcc-baa0-44c5-a283-22f9dfe150f5",
+    "name": "Avarice Totem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Avarice Totem",
+        "manaCost": "{1}",
+        "typeLine": "Artifact",
+        "oracleText": "{5}: Exchange control of this artifact and target nonland permanent.",
+        "flavorText": "Souls and steel, the essence of Mirrodin. Memnarch lacks one but has an abundance of the other.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ben Thompson",
+        "imageId": "53a5cfa8-4091-445c-8641-64402cca7d2d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROIL_ELEMENTAL": {
+    "scryfallId": "61514906-0041-49b7-8990-0643dd3431f0",
+    "oracleId": "7e0d2965-bbcd-4214-b1b6-c0d2601ce078",
+    "name": "Roil Elemental",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roil Elemental",
+        "manaCost": "{3}{U}{U}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\nLandfall — Whenever a land you control enters, you may gain control of target creature for as long as you control this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Bastien Grivet",
+        "imageId": "61514906-0041-49b7-8990-0643dd3431f0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Landfall",
+      "Flying"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VEDALKEN_PLOTTER": {
+    "scryfallId": "85bba39e-73bd-48e5-97ce-4b4661bab71b",
+    "oracleId": "3f85b92d-7212-4fc7-a5e8-6350e1acfdd3",
+    "name": "Vedalken Plotter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vedalken Plotter",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Vedalken Wizard",
+        "oracleText": "When this creature enters, exchange control of target land you control and target land an opponent controls.",
+        "flavorText": "\"Fair? At what point in our negotiations did you convince yourself my goal was to be fair?\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "85bba39e-73bd-48e5-97ce-4b4661bab71b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "cmd",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JACE_INGENIOUS_MIND_MAGE": {
+    "scryfallId": "e3b274f6-833f-430f-ac1a-d1d1d5b03e71",
+    "oracleId": "fe0fcb4e-92fd-4e64-99d1-043092ea21e3",
+    "name": "Jace, Ingenious Mind-Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jace, Ingenious Mind-Mage",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Legendary Planeswalker — Jace",
+        "oracleText": "+1: Draw a card.\n+1: Untap all creatures you control.\n−9: Gain control of up to three target creatures.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "e3b274f6-833f-430f-ac1a-d1d1d5b03e71"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

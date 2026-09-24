@@ -9843,6 +9843,25 @@ const WANTED = [
   'Sunscape Battlemage',
   'Thunderscape Battlemage',
   // D530 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D531 - CONTROL WITH A DURATION AND THE EXCHANGE: the seam's proof cards (Keiga - control with no end; Sower of Temptation - while the source stays; Master Thief - while you control the source; Political Trickery - the exchange; Phyrexian Infiltrator - the exchange with the source).
+  'Keiga, the Tide Star',
+  'Sower of Temptation',
+  'Master Thief',
+  'Political Trickery',
+  'Phyrexian Infiltrator',
+  // D531 - CONTROL WITH A DURATION AND THE EXCHANGE: the rows the whole-leftover row maker rowed once control for good, control held while the source holds and the exchange were the engine's (CR 611.2b, 701.10).
+  'Chromeshell Crab',
+  'Piper of the Swarm',
+  'Eyes Everywhere',
+  'Dragonlord Silumgar',
+  'Sliver Overlord',
+  'Mind Flayer',
+  'Aladdin',
+  'Avarice Totem',
+  'Roil Elemental',
+  'Vedalken Plotter',
+  'Jace, Ingenious Mind-Mage',
+  // D531 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

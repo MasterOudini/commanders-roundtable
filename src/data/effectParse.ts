@@ -256,6 +256,7 @@ const BASE: EffectFields = {
   pay: null,
   cantBeBlocked: false,
   exileScope: null,
+  controlFor: null,
   sacrifice: null,
   handChoice: null,
   exilePlay: null,
@@ -1294,6 +1295,19 @@ const RULES: readonly Rule[] = [
   // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
   // creature.") is a different family and stays unread until it is measured and built.
   { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D531 - control with NO end, and for as long as the SOURCE holds (CR 611.2b); the exchange (CR 701.10) - its
+  // subject the source (`this creature`) or a first target, its object a second target (a fight's shape, D396).
+  { kind: 'control', re: new RegExp(`^(?:you )?gain control of ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE, controlFor: 'indefinite' as const }) },
+  { kind: 'control', re: new RegExp(`^(?:you )?gain control of ${TARGET} for as long as you control ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, controlFor: 'whileControlled' as const }) },
+  { kind: 'control', re: new RegExp(`^(?:you )?gain control of ${TARGET} for as long as ${SELF} remains on the battlefield\\.$`, 'i'), build: () => ({ ...BASE, controlFor: 'whileOnBattlefield' as const }) },
+  {
+    kind: 'exchangeControl',
+    re: new RegExp(`^(?:you may )?exchange control of (${SELF}|${TARGET}) and (${TARGET})\\.$`, 'i'),
+    build: (m) => {
+      const self = new RegExp(`^${SELF}$`, 'i').test(m[1] ?? '');
+      return { ...BASE, ...(self ? { targetIndex: -1, self: true } : {}), otherTargetIndex: 0 };
+    },
+  },
   // D394 - "can't block this turn": a restriction WITH AN END (CR 509.1b), on the until-end-of-turn
   // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
   // are a different reader and stay unread until they are measured.
@@ -3261,6 +3275,11 @@ function withSelfName(spec: EffectSpec, cardName: string): EffectSpec {
   return { ...spec, search: { ...search, qualifier: { ...search.qualifier, name: cardName } } };
 }
 
+/** D531 - `(two energy counters)` / `(one energy counter)` / `(energy counters)`: reminder text with no rules meaning (CR 207.2). */
+export function withoutEnergyReminder(text: string): string {
+  return text.replace(/ ?\((?:(?:an?|one|two|three|four|five|six|seven|eight|nine|ten|that many|X) )?energy counters?\)/gi, '');
+}
+
 export function parseEffects(
   oracleText: string,
   cardName: string,
@@ -3310,7 +3329,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
   // the self-reference rewrite and the scrub (either would change it), read back by the token rule.
   const folded = foldTokenQuotes(priced);
   TOKEN_QUOTES = folded.quotes;
-  const clean = scrub(selfRef(folded.text, cardName))
+  // D531 - the energy reminder printed INSIDE its sentence (`You get {E}{E} (two energy counters).`) is removed, not
+  // blanked: the scrub's spaces would stand between the symbols and the period, and no sentence rule reads that.
+  const clean = scrub(selfRef(withoutEnergyReminder(folded.text), cardName))
     .split('\n')
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
     // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.

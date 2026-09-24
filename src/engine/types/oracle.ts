@@ -748,6 +748,8 @@ export type EffectKind =
    */
   | 'clash'
   | 'returnSelf'
+  /** D531 - `Exchange control of target A and target B.` (CR 701.10): each to the other's controller. */
+  | 'exchangeControl'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1169,7 +1171,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first
@@ -1260,6 +1262,12 @@ export interface EffectSpec {
   readonly cantBeBlocked: boolean;
   /** D413 - `exileIfDies` only: whom the sentence names. REQUIRED (D355/D356's rule), null elsewhere. */
   readonly exileScope: 'target' | 'damaged' | 'all' | 'opponents' | null;
+  /**
+   * D531 - `control` only: the duration the sentence prints - none (`indefinite`), for as long as you control the
+   * source (`whileControlled`), for as long as the source remains on the battlefield (`whileOnBattlefield`); null is
+   * D393's `until end of turn`. REQUIRED (D355/D356's rule), null elsewhere.
+   */
+  readonly controlFor: 'indefinite' | 'whileControlled' | 'whileOnBattlefield' | null;
   /** D390 - `sacrifice` only; `null` on every other kind. REQUIRED (D355/D356's rule). */
   readonly sacrifice: SacrificeSpec | null;
   /** D431 - `returnChoose` only: the noun the queue offers. Absent on every other kind. */

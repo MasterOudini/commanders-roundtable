@@ -289,6 +289,10 @@ export type EventBody =
   | { readonly t: 'ControlTakenByAura'; readonly card: InstanceId; readonly controller: PlayerId; readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId }
   /** D453 - the Aura no longer holds it: control goes back and the memory is cleared. */
   | { readonly t: 'ControlReverted'; readonly card: InstanceId; readonly controller: PlayerId }
+  /** D531 - control with no end (CR 611.2b) or one side of an exchange (CR 701.10): the new controller, with CR 302.6's sickness. */
+  | { readonly t: 'ControlGained'; readonly card: InstanceId; readonly controller: PlayerId }
+  /** D531 - control for as long as the SOURCE holds: the memory the state-based sweep reads (D453's, with a mode and the taker). */
+  | { readonly t: 'ControlTakenBySource'; readonly card: InstanceId; readonly controller: PlayerId; readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId; readonly mode: 'whileControlled' | 'whileOnBattlefield' }
   | {
       readonly t: 'PtOverrideSet';
       readonly card: InstanceId;

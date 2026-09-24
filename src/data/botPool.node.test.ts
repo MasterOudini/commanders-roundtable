@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2257);
-    expect.soft(r.spells.assisted).toBe(1869);
-    expect.soft(r.spells.autoAnyFace).toBe(2264);
+    expect.soft(r.spells.auto).toBe(2270);
+    expect.soft(r.spells.assisted).toBe(1870);
+    expect.soft(r.spells.autoAnyFace).toBe(2277);
   });
 
   /**
@@ -283,8 +283,8 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(746);
-    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(14);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(747);
+    expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(15);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
 
@@ -462,16 +462,16 @@ const POOL: Record<string, number> = {
   // D484 - the prompt continuation: the spells whose ask precedes their last sentence (Vampiric Tutor, Disrupt, Geth's Verdict, Contentious Plan ...).
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
-  creature: 7337,
-  instant: 1577,
-  sorcery: 1227,
+  creature: 7350,
+  instant: 1581,
+  sorcery: 1234,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 682,
-  artifact: 673,
-  enchantment: 746,
+  artifact: 674,
+  enchantment: 747,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
-  planeswalker: 14,
+  planeswalker: 15,
 };
 
 function render(deck: { commander: string; main: readonly string[]; why: readonly string[] }): string {

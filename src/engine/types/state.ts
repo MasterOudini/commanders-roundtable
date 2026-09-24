@@ -263,7 +263,8 @@ export interface CardInstance {
    * stamp (a new object is a new Aura, CR 400.7) and the controller it goes back to when the Aura no longer holds
    * it. Set and cleared by the state-based built-in in `sba.ts`; cleared with the battlefield fields.
    */
-  readonly controlledVia?: { readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId } | undefined;
+  // D531 - and a control effect's duration tied to its SOURCE: `mode` (absent: D453's Aura, attached) and `by` (the taker).
+  readonly controlledVia?: { readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId; readonly mode?: 'whileControlled' | 'whileOnBattlefield'; readonly by?: PlayerId } | undefined;
   /**
    * D407 - THE ENTRY STAMP (CR 400.7): how many times this card has entered the battlefield, counted
    * by the reducer on every entry (a token is born at 1). A permanent that leaves and returns is a

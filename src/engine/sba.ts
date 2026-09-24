@@ -205,12 +205,15 @@ export function checkStateBasedActions(
     if (!card || doomed.has(id)) continue;
     if (card.controlledVia !== undefined) {
       const src = state.cards[card.controlledVia.source];
-      const holds = src !== undefined && src.zone.kind === 'battlefield' && !doomed.has(src.id) && src.attachedTo === id && (src.entries ?? 0) === card.controlledVia.entry;
+      // D531 - the mode: D453's Aura holds while attached; a source's duration while it stays (`whileOnBattlefield`) or
+      // while its taker still controls it (`whileControlled`) - the same object either way (the entry stamp, CR 400.7).
+      const mode = card.controlledVia.mode;
+      const holds = src !== undefined && src.zone.kind === 'battlefield' && !doomed.has(src.id) && (src.entries ?? 0) === card.controlledVia.entry && (mode === undefined ? src.attachedTo === id : mode === 'whileControlled' ? src.controller === card.controlledVia.by : true);
       if (!holds) {
         actions.push({ t: 'controlReverts', card: id });
         events.push({ t: 'ControlReverted', card: id, controller: card.controlledVia.revertTo });
         events.push(narrated(`${derive(state, oracle, scripts, id, cache).name} goes back to ${who(state, card.controlledVia.revertTo)}.`, card.controlledVia.revertTo));
-      } else if (src.controller !== card.controller) {
+      } else if (mode === undefined && src.controller !== card.controller) {
         // The Aura itself changed hands: the permanent follows its Aura, the way back unchanged.
         actions.push({ t: 'controlTakenByAura', card: id, source: src.id });
         events.push({ t: 'ControlTakenByAura', card: id, controller: src.controller, source: src.id, entry: src.entries ?? 0, revertTo: card.controlledVia.revertTo });

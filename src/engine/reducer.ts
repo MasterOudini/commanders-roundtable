@@ -798,6 +798,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D453 - the control Auras: taken with the memory (and CR 302.6's sickness), given back without it.
     case 'ControlTakenByAura':
       return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo } }), [body.card], body.controller);
+    // D531 - control with no end: the new controller and the sickness, no memory (a control effect of any older kind ends).
+    case 'ControlGained':
+      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller);
+    // D531 - control for as long as the source holds: D453's memory with the mode and the taker.
+    case 'ControlTakenBySource':
+      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo, mode: body.mode, by: body.controller } }), [body.card], body.controller);
     case 'ControlReverted':
       return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller);
 

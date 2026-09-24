@@ -1439,8 +1439,47 @@ export function effectResult(
         const taken = state.cards[aim.id];
         if (!taken || taken.zone.kind !== 'battlefield' || taken.controller === obj.controller) break;
         const d = derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        // D531 - control with no end: the taker's from now on.
+        if (effect.controlFor === 'indefinite') {
+          out.push({ t: 'ControlGained', card: aim.id, controller: obj.controller });
+          out.push(narrated(`${obj.label}: ${d.name} changes control.`, obj.controller));
+          break;
+        }
+        // D531 - for as long as the SOURCE holds: a source already gone (or no longer the taker's) ends the duration
+        // before the effect begins, and nothing changes (CR 611.2b).
+        if (effect.controlFor === 'whileControlled' || effect.controlFor === 'whileOnBattlefield') {
+          const src = obj.source !== null ? state.cards[obj.source] : undefined;
+          if (!src || src.zone.kind !== 'battlefield' || (effect.controlFor === 'whileControlled' && src.controller !== obj.controller)) {
+            out.push(narrated(`${obj.label}: the source is gone, so ${d.name} does not change control.`, obj.controller));
+            break;
+          }
+          out.push({ t: 'ControlTakenBySource', card: aim.id, controller: obj.controller, source: src.id, entry: src.entries ?? 0, revertTo: taken.controller, mode: effect.controlFor });
+          out.push(narrated(`${obj.label}: ${d.name} changes control for as long as ${effect.controlFor === 'whileControlled' ? 'its taker controls the source' : 'the source remains on the battlefield'}.`, obj.controller));
+          break;
+        }
         out.push({ t: 'ControlChangedUntilEndOfTurn', card: aim.id, controller: obj.controller, revertTo: taken.controller });
         out.push(narrated(`${obj.label}: ${d.name} changes control until end of turn.`, obj.controller));
+        break;
+      }
+
+      // D531 - THE EXCHANGE (CR 701.10): both still on the battlefield and under different controllers, each goes to
+      // the other's controller; one gone, or both one player's, and nothing moves (701.10c) - the step says so.
+      case 'exchangeControl': {
+        if (aim?.kind !== 'card' || effect.otherTargetIndex === undefined) break;
+        const otherAim = picksFor(obj, effect.otherTargetIndex)
+          .map((c) => aimOf(state, c))
+          .find((a): a is Aim => a !== null && a.kind === 'card');
+        const a = state.cards[aim.id];
+        const b = otherAim && otherAim.kind === 'card' ? state.cards[otherAim.id] : undefined;
+        if (!a || !b || a.zone.kind !== 'battlefield' || b.zone.kind !== 'battlefield' || a.id === b.id || a.controller === b.controller) {
+          out.push(narrated(`${obj.label}: nothing to exchange - the two are not both on the battlefield under different controllers.`, obj.controller));
+          break;
+        }
+        const da = derive(state, deps.oracle, deps.scripts, a.id, cache);
+        const db = derive(state, deps.oracle, deps.scripts, b.id, cache);
+        out.push({ t: 'ControlGained', card: a.id, controller: b.controller });
+        out.push({ t: 'ControlGained', card: b.id, controller: a.controller });
+        out.push(narrated(`${obj.label}: ${da.name} and ${db.name} exchange control.`, obj.controller));
         break;
       }
 
