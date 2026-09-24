@@ -9820,6 +9820,19 @@ const WANTED = [
   // D528 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   // D528 - SAGAS: the rows the whole-leftover row maker rowed once the chapter line was a head (CR 714 - a lore counter at the entry and each own precombat main, the chapter told as the count reaches it, the sacrifice after the final one).
   // D528 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D529 - THE KICK COUNTED: the rows the whole-leftover row maker rowed once the kicked enters-with read its keyword and the multikicker count read the kicks (CR 702.33).
+  'Enclave Elite',
+  'Gnarlid Pack',
+  'Kavu Titan',
+  'Apex Hawks',
+  'Flametongue Yearling',
+  'Duskwalker',
+  'Benalish Lancer',
+  'Faerie Squadron',
+  'Pouncing Kavu',
+  'Pouncing Wurm',
+  'Quag Vampires',
+  // D529 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

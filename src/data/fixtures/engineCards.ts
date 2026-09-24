@@ -8838,6 +8838,17 @@ export const SUMMON_FAT_CHOCOBO: CardData = F.SUMMON_FAT_CHOCOBO as CardData;
 export const BINDING_THE_OLD_GODS: CardData = F.BINDING_THE_OLD_GODS as CardData;
 export const SUMMON_IXION: CardData = F.SUMMON_IXION as CardData;
 export const FOUNDING_OF_OMASHU: CardData = F.FOUNDING_OF_OMASHU as CardData;
+export const ENCLAVE_ELITE: CardData = F.ENCLAVE_ELITE as CardData;
+export const GNARLID_PACK: CardData = F.GNARLID_PACK as CardData;
+export const KAVU_TITAN: CardData = F.KAVU_TITAN as CardData;
+export const APEX_HAWKS: CardData = F.APEX_HAWKS as CardData;
+export const FLAMETONGUE_YEARLING: CardData = F.FLAMETONGUE_YEARLING as CardData;
+export const DUSKWALKER: CardData = F.DUSKWALKER as CardData;
+export const BENALISH_LANCER: CardData = F.BENALISH_LANCER as CardData;
+export const FAERIE_SQUADRON: CardData = F.FAERIE_SQUADRON as CardData;
+export const POUNCING_KAVU: CardData = F.POUNCING_KAVU as CardData;
+export const POUNCING_WURM: CardData = F.POUNCING_WURM as CardData;
+export const QUAG_VAMPIRES: CardData = F.QUAG_VAMPIRES as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17928,6 +17939,17 @@ export const ENGINE_CARDS: CardData[] = [
   BINDING_THE_OLD_GODS,
   SUMMON_IXION,
   FOUNDING_OF_OMASHU,
+  ENCLAVE_ELITE,
+  GNARLID_PACK,
+  KAVU_TITAN,
+  APEX_HAWKS,
+  FLAMETONGUE_YEARLING,
+  DUSKWALKER,
+  BENALISH_LANCER,
+  FAERIE_SQUADRON,
+  POUNCING_KAVU,
+  POUNCING_WURM,
+  QUAG_VAMPIRES,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

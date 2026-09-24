@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SKITTER_OF_LIZARDS_SCRIPT } from './cards/skitterOfLizards';
+import { ENCLAVE_ELITE_SCRIPT } from './cards/enclaveElite';
+import { GNARLID_PACK_SCRIPT } from './cards/gnarlidPack';
+import { KAVU_TITAN_SCRIPT } from './cards/kavuTitan';
+import { APEX_HAWKS_SCRIPT } from './cards/apexHawks';
+import { FLAMETONGUE_YEARLING_SCRIPT } from './cards/flametongueYearling';
+import { DUSKWALKER_SCRIPT } from './cards/duskwalker';
+import { BENALISH_LANCER_SCRIPT } from './cards/benalishLancer';
+import { FAERIE_SQUADRON_SCRIPT } from './cards/faerieSquadron';
+import { POUNCING_KAVU_SCRIPT } from './cards/pouncingKavu';
+import { POUNCING_WURM_SCRIPT } from './cards/pouncingWurm';
+import { QUAG_VAMPIRES_SCRIPT } from './cards/quagVampires';
 import { SUMMON_CHOCO_MOG_SCRIPT } from './cards/summonChocoMog';
 import { HISTORY_OF_BENALIA_SCRIPT } from './cards/historyOfBenalia';
 import { WAR_OF_THE_LAST_ALLIANCE_SCRIPT } from './cards/warOfTheLastAlliance';
@@ -8043,6 +8055,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SKITTER_OF_LIZARDS_SCRIPT,
+  ENCLAVE_ELITE_SCRIPT,
+  GNARLID_PACK_SCRIPT,
+  KAVU_TITAN_SCRIPT,
+  APEX_HAWKS_SCRIPT,
+  FLAMETONGUE_YEARLING_SCRIPT,
+  DUSKWALKER_SCRIPT,
+  BENALISH_LANCER_SCRIPT,
+  FAERIE_SQUADRON_SCRIPT,
+  POUNCING_KAVU_SCRIPT,
+  POUNCING_WURM_SCRIPT,
+  QUAG_VAMPIRES_SCRIPT,
   SUMMON_CHOCO_MOG_SCRIPT,
   HISTORY_OF_BENALIA_SCRIPT,
   WAR_OF_THE_LAST_ALLIANCE_SCRIPT,
