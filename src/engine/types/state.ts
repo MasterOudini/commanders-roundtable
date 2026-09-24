@@ -234,6 +234,8 @@ export interface CardInstance {
    * (`undefined` is admitted explicitly: the reset writes it, and the hash drops it.)
    */
   readonly kicked?: number | undefined;
+  /** D530 - which of a two-kicker face's costs its spell was kicked with (0 the first, 1 the second); cleared on entry like `kicked`. */
+  readonly kickedWith?: readonly number[] | undefined;
   /** D489 - suspended in exile (CR 702.62): the upkeep tick reads it; cleared by the move that takes the card out of exile. */
   readonly suspended?: true | undefined;
   /** D489 - entered from a suspend cast: a creature has haste while it stays (702.62e); cleared as it leaves the battlefield. */
@@ -435,6 +437,8 @@ export interface StackObject {
    * permanent the spell becomes (`CardMove.kicked`, `CardInstance.kicked`).
    */
   readonly kicked?: number;
+  /** D530 - a two-kicker face: which kicker costs the cast paid (0 the first, 1 the second), onto the permanent too. */
+  readonly kickedWith?: readonly number[];
   /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
   readonly exhaust?: true;
   /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */
@@ -630,6 +634,8 @@ export interface PendingCast {
   readonly faceDown?: true;
   /** D403 - the kicker count the cast was announced with (CR 702.33), carried to the `StackObject`. */
   readonly kicked?: number;
+  /** D530 - which of a two-kicker face's costs, carried to the `StackObject`. */
+  readonly kickedWith?: readonly number[];
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
   readonly orPaid?: true;
   /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */

@@ -9833,6 +9833,16 @@ const WANTED = [
   'Pouncing Wurm',
   'Quag Vampires',
   // D529 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D530 - THE KICKER'S OTHER COSTS: the seam's proof cards (Final Flourish - a kicker paid by a sacrifice; Thornscape Battlemage - two kicker costs; Dwarven Landslide - a mana piece beside the verb; Phyrexian Scuta - a kicker paid in life).
+  'Final Flourish',
+  'Thornscape Battlemage',
+  'Dwarven Landslide',
+  'Phyrexian Scuta',
+  // D530 - THE KICKER'S OTHER COSTS: the rows the whole-leftover row maker rowed once a two-kicker face and a kicker paid in life were the engine's (the named-kicker and kicked-twice conditions, CR 702.33).
+  'Archangel of Wrath',
+  'Sunscape Battlemage',
+  'Thunderscape Battlemage',
+  // D530 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

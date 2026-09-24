@@ -693,6 +693,7 @@ export function effectResult(
           castFrom: null,
           faceIndex: of.faceIndex,
           ...(original.kicked !== undefined ? { kicked: original.kicked } : {}),
+          ...(original.kickedWith !== undefined ? { kickedWith: original.kickedWith } : {}),
           copyOf: { printingId: of.printingId, faceIndex: of.faceIndex, ...(colors !== undefined ? { colors } : {}) },
         };
         out.push({ t: 'SpellCopied', obj: copy, of: original.id });

@@ -62,6 +62,8 @@ export interface CardMove {
   readonly manifested?: true;
   /** D403 - the kicker count the resolving spell was cast with, onto the permanent it becomes. */
   readonly kicked?: number;
+  /** D530 - and which of a two-kicker face's costs it was kicked with. */
+  readonly kickedWith?: readonly number[];
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
   readonly altKeyword?: 'evoke' | 'dash';
   /** D489 - the exile that SUSPENDS the card (CR 702.62a): the reducer marks it for the upkeep tick. */

@@ -407,7 +407,7 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // D403 - a Kicker / Multikicker the engine charges (a mana cost, read by parseKicker) is no note.
     if (
       (raw.trim().toLowerCase() === 'kicker' || raw.trim().toLowerCase() === 'multikicker') &&
-      (parseKicker(card.faces[faceIndex]?.oracleText ?? '').kicker !== null || parseKicker(card.faces[faceIndex]?.oracleText ?? '').multikicker !== null)
+      (parseKicker(card.faces[faceIndex]?.oracleText ?? '').kicker !== null || parseKicker(card.faces[faceIndex]?.oracleText ?? '').multikicker !== null || parseKicker(card.faces[faceIndex]?.oracleText ?? '').kickerVerb !== null)
     ) {
       continue;
     }

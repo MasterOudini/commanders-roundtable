@@ -596,6 +596,10 @@ export function linesUnaccounted(
     // the cost is read off the face, the payment adds it, the stack object remembers it.
     if (face.kickerCost !== null && /^Kicker (?:\{[^}]+\})+$/.test(line)) continue;
     if (face.multikickerCost !== null && /^Multikicker (?:\{[^}]+\})+$/.test(line)) continue;
+    // D530 - the two-kicker line and the kicker paid by a cost that is not only mana, the engine CHARGES at cast time
+    // (`CastSpell.kicked` / `kickedWith`; the verb as D406's picks). Asked of the parser that read them.
+    if (face.kickerCost2 !== null && /^Kicker (?:\{[^}]+\})+ and\/or (?:\{[^}]+\})+$/.test(line)) continue;
+    if (face.kickerVerb !== null && face.kickerVerb.line === line) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /
     // `improvise` / `delve`): the cast names what it taps or exiles, the payment takes it off the cost.
     if (

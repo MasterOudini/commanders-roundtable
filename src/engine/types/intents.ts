@@ -62,6 +62,11 @@ export type Intent =
        */
       readonly kicked?: number;
       /**
+       * D530 - a face with TWO kicker costs (`Kicker {A} and/or {B}`): which it pays - 0 the first printed, 1 the
+       * second; `kicked` names how many. Absent: the first `kicked` of them in order.
+       */
+      readonly kickedWith?: readonly number[];
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

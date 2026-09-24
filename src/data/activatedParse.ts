@@ -1159,6 +1159,11 @@ export interface AdditionalCost {
   readonly orPay: ManaCost | null;
 }
 
+/** D530 - the kicker paid by a cost that is not only mana (`Kicker—Sacrifice a creature.`): the additional cost's shape plus the mana piece. */
+export interface KickerVerb extends AdditionalCost {
+  readonly mana: ManaCost | null;
+}
+
 /** D406 / D415 - ONE chooser verb or a life payment, read by the activation grammar: the additional cost's price and the payment prompt's verb price share it. */
 export interface CostVerbPrice {
   /** The cost text the grammar read (`sacrifice a creature`). */

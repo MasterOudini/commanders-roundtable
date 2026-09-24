@@ -341,6 +341,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D528 - SAGAS: two Origins of the Hulk and two Births of Meletis a seat - each enters with a lore counter (chapter I),
   // gets one as its controller's precombat main begins (II, III) and is sacrificed once the final chapter has resolved.
   { names: ['Origin of the Hulk', 'The Birth of Meletis'], copiesPerSeat: 2, counterKeys: ['chaptersFired', 'sagasSacrificed'], rotHistory: 'D528' },
+  // D530 - THE KICKER'S OTHER COSTS: two Final Flourishes (kicked by sacrificing an artifact or creature - the driver
+  // names the first candidates) and two Thornscape Battlemages (kicker {R} and/or {W} - the driver names both when both
+  // are payable, else the second) a seat.
+  { names: ['Final Flourish', 'Thornscape Battlemage'], copiesPerSeat: 2, counterKeys: ['kickerVerbCasts', 'secondKickerCasts'], rotHistory: 'D530' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -634,8 +638,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // controller's upkeep, which makes Cindering Cutthroat's `an opponent lost life this turn`
   // hold for that whole turn; Ajani's Mantra's upkeep gain does the same for Courier Bat's
   // `you gained life this turn`. Four each; the floor is over the union of the two counters.
-  { names: ['Cindering Cutthroat', "Drana's Emissary", 'Courier Bat'], copiesPerSeat: 4,
-    counterKeys: ['thisTurnEntersWith', 'thisTurnTriggers'], rotHistory: 'D398' },
+  // D530 - ROTTED to 0 over 500 seeds (3, 4, 3 at the three gates before) once the kicker staples reshaped the
+  // pools: five a seat.
+  { names: ['Cindering Cutthroat', "Drana's Emissary", 'Courier Bat'], copiesPerSeat: 5,
+    counterKeys: ['thisTurnEntersWith', 'thisTurnTriggers'], rotHistory: 'D398, D530' },
   // D372 - the GRANTED MANA ABILITY: a production a layer-6 static pushed onto a recipient
   // that prints none. Cryptolith Rite makes every creature its controller has a source, so
   // the solver auto-taps granted mana whenever a creature stands and a spell is cast.
@@ -1307,6 +1313,24 @@ function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAct
 }
 
 /** D406 - the picks a cast's additional cost takes: the first candidates the offer lists, exactly the count. */
+/**
+ * D530 - the kick the driver names (D443: kicked exactly when payable, never on a coin): both kickers of a two-kicker
+ * face when both are payable, else its second alone, else the first; a verb kicker with the first candidates of its
+ * verb (the offer's own list, the host re-validating).
+ */
+function kickOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  if (a.kickerBothAffordable === true) return { kicked: 2, kickedWith: [0, 1] };
+  if (a.kickerSecondAffordable === true) return { kicked: 1, kickedWith: [1] };
+  if (a.kicker && a.kickerAffordable === true) return { kicked: 1 };
+  if (a.kickerVerbAffordable === true) {
+    const n = a.kickerPickCount ?? 0;
+    const picked = (a.kickerPickCandidates ?? []).slice(0, n);
+    const verb = a.kickerPickVerb;
+    return { kicked: 1, ...(verb !== undefined && n > 0 ? { [verb]: picked } : {}) };
+  }
+  return {};
+}
+
 function castPicksOf(action: Extract<LegalAction, { t: 'CastSpell' }>): { sacrifice?: readonly InstanceId[]; discard?: readonly InstanceId[]; tap?: readonly InstanceId[]; exileFromGraveyard?: readonly InstanceId[]; returnToHand?: readonly InstanceId[] } {
   const first = (ids: readonly InstanceId[] | undefined, n: number | undefined): readonly InstanceId[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
   const sacrifice = first(action.sacrificeCandidates, action.sacrificeCount);
@@ -1342,6 +1366,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
   // uniform pick over every usable action reached a kicked Ardent Soldier once in sixty seeds, and the kicked
   // ENTRY canary rotted to 0 over 500. The plain branch stays the early turns' (the kick unaffordable).
+  // D530 - the first-priority list stays the MANA kicker's (D443): a verb kicker cast the moment it was payable
+  // sacrificed a creature every time and rotted the D398 floor to 0 over 500 seeds; the new kicks ride the ordinary
+  // pick, `kickOf` naming them whenever the card is chosen.
   const kickable = usable.filter((a) => a.t === 'CastSpell' && a.kicker !== undefined && a.kickerAffordable === true);
   // D445 - the land drop first: the uniform pick skipped most of them, and every three-mana canary starved (a seat
   // on one to three lands mid-game). A land is played whenever one can be; which land stays random.
@@ -1381,7 +1408,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...(chosen.kicker && chosen.kickerAffordable === true ? { kicked: 1 } : {}), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1641,6 +1668,9 @@ interface Run {
   readonly loreCounters: number;
   readonly chaptersFired: number;
   readonly sagasSacrificed: number;
+  /** D530 - the casts kicked by a kicker that is not only mana, and the casts kicked with a second kicker. */
+  readonly kickerVerbCasts: number;
+  readonly secondKickerCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2137,6 +2167,8 @@ function runOne(seed: number): Run {
     loreCounters: game.log.reduce((n, e) => n + (e.body.t === 'CountersChanged' ? e.body.changes.filter((c) => c.kind === 'lore' && c.delta > 0).reduce((m, c) => m + c.delta, 0) : 0), 0),
     chaptersFired: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').includes('#chapter-')).length,
     sagasSacrificed: game.log.filter((e) => e.body.t === 'SagaSacrificed').length,
+    kickerVerbCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kicked ?? 0) > 0 && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.kickerVerb ?? null) !== null).length,
+    secondKickerCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.kickedWith ?? []).includes(1)).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2459,6 +2491,8 @@ const TOTAL_KEYS = [
   'loreCounters',
   'chaptersFired',
   'sagasSacrificed',
+  'kickerVerbCasts',
+  'secondKickerCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2942,6 +2976,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.clashes).toBeGreaterThan(0);
         // D528 - a chapter ability at gate size (Origin of the Hulk and The Birth of Meletis, two a seat).
         expect(totals.chaptersFired).toBeGreaterThan(0);
+        // D530 - a kick D530 opened at gate size (Final Flourish and Thornscape Battlemage, two a seat).
+        expect(totals.kickerVerbCasts + totals.secondKickerCasts).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

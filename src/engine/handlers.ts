@@ -401,6 +401,8 @@ interface CastSetup {
   readonly faceDown?: boolean;
   /** D403 - the kicker count the cast announced (0 when unkicked), priced into `problem`. */
   readonly kicked: number;
+  /** D530 - a two-kicker face: which costs the kick pays (empty for every other face). */
+  readonly kickedWith: readonly number[];
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -433,8 +435,15 @@ const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly disca
  * offer's own candidates (`castCostCandidates`, D139: one list); no picks with `or pay {M}` printed
  * takes the mana instead (`orPaid`); a face with no such cost takes no picks at all.
  */
-function additionalCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, picks: CastPicks): { orPaid: boolean } | { error: HandleResult } {
-  const add = face.additionalCost;
+// D530 - the kicker paid by a cost that is not only mana: charged as the additional cost is, when the cast is kicked.
+function kickVerbOf(face: ReturnType<typeof faceOf>, kicked: number): NonNullable<ReturnType<typeof faceOf>['kickerVerb']> | null {
+  return kicked > 0 ? face.kickerVerb : null;
+}
+
+function additionalCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, picks: CastPicks, kickVerb: ReturnType<typeof kickVerbOf> = null): { orPaid: boolean } | { error: HandleResult } {
+  // D530 - a kicked verb kicker takes the picks; a face that prints both takes none of this (never printed together).
+  if (kickVerb !== null && face.additionalCost !== null) return { error: reject('notCastable', `${face.name}'s kicker and its additional cost both take picks - the app charges one.`) };
+  const add = face.additionalCost ?? kickVerb;
   if (!add) return picksCount(picks) > 0 ? { error: reject('notCastable', `${face.name} has no additional cost the app charges.`) } : { orPaid: false };
   return costPicksProblem(state, deps, player, cardId, face.name, add, picks);
 }
@@ -467,8 +476,9 @@ function costPicksProblem(state: GameState, deps: EngineDeps, player: PlayerId, 
 }
 
 /** D406 - what the additional cost adds to the payment problem: the `or pay {M}` mana when taken, the life otherwise. */
-function additionalExtras(face: ReturnType<typeof faceOf>, orPaid: boolean): { readonly mana: ManaCost[]; readonly life: number } {
-  const add = face.additionalCost;
+function additionalExtras(face: ReturnType<typeof faceOf>, orPaid: boolean, kickVerb: ReturnType<typeof kickVerbOf> = null): { readonly mana: ManaCost[]; readonly life: number } {
+  // D530 - the verb kicker's life rides the problem as the additional cost's does (its mana is the kicker's, `kickerMana`).
+  const add = face.additionalCost ?? kickVerb;
   if (!add) return { mana: [], life: 0 };
   return { mana: orPaid && add.orPay ? [add.orPay] : [], life: orPaid ? 0 : add.lifeCost };
 }
@@ -681,17 +691,33 @@ function altNote(alt: AltChoice): string {
  * take (`kickProblem`). Read by every rebuild of the problem, so the X and targets stages price
  * the same kick the announcement did (D53: one payment previewed, the same one charged).
  */
-function kickerMana(face: ReturnType<typeof faceOf>, kicked: number): ManaCost[] {
+function kickerMana(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): ManaCost[] {
   if (kicked <= 0) return [];
   if (face.multikickerCost !== null) return Array.from({ length: kicked }, () => face.multikickerCost as ManaCost);
+  // D530 - a two-kicker face pays the costs the cast named; a verb kicker its mana piece (the verb is the picks').
+  if (face.kickerCost2 !== null) return kickersOf(kicked, kickedWith).map((i) => (i === 0 ? face.kickerCost : face.kickerCost2) as ManaCost);
+  if (face.kickerVerb !== null) return face.kickerVerb.mana !== null ? [face.kickerVerb.mana] : [];
   return face.kickerCost !== null ? [face.kickerCost] : [];
 }
+/** D530 - the kicker costs a two-kicker cast pays: the ones it named, else the first `kicked` in order. */
+function kickersOf(kicked: number, kickedWith: readonly number[]): readonly number[] {
+  if (kickedWith.length > 0) return kickedWith;
+  return kicked >= 2 ? [0, 1] : kicked === 1 ? [0] : [];
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
-function kickProblem(face: ReturnType<typeof faceOf>, kicked: number): string | null {
+function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
-  if (kicked === 0) return null;
+  if (kickedWith.length > 0 && face.kickerCost2 === null) return `${face.name} has one kicker - there is none to name.`;
+  if (kicked === 0) return kickedWith.length > 0 ? 'An unkicked cast names no kicker.' : null;
   if (face.multikickerCost !== null) return null;
-  if (face.kickerCost === null) return `${face.name} has no kicker the app can charge.`;
+  // D530 - two kickers: each at most once, the count and the named costs agreeing (CR 702.33c).
+  if (face.kickerCost2 !== null) {
+    if (kicked > 2) return `${face.name} has two kickers - it can be kicked twice at most.`;
+    const w = kickersOf(kicked, kickedWith);
+    if (w.length !== kicked || new Set(w).size !== w.length || w.some((i) => i !== 0 && i !== 1)) return `Name ${kicked} of ${face.name}'s two kickers, each once.`;
+    return null;
+  }
+  if (face.kickerCost === null && face.kickerVerb === null) return `${face.name} has no kicker the app can charge.`;
   return kicked === 1 ? null : `${face.name} can be kicked once.`;
 }
 
@@ -760,6 +786,8 @@ function prepareCast(
   // D491 - a cast granted by a resolving effect (`You may cast ... from your hand without paying its mana cost`):
   // no mana cost, no timing of its own, no priority of its own (nobody holds it while a spell resolves).
   free = false,
+  // D530 - a two-kicker face: which of its kickers the cast pays.
+  kickedWith0: readonly number[] = [],
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -818,8 +846,11 @@ function prepareCast(
   const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
   if (cost === null && !altCost && !free) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
-  const kickWhy = faceDown ? (kicked > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked);
+  const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
+  // D530 - the named kickers of a two-kicker cast, normalised (empty for every other face).
+  const kickedWith = !faceDown && face.kickerCost2 !== null && kicked > 0 ? kickersOf(kicked, kickedWith0) : [];
+  const kickVerb = faceDown ? null : kickVerbOf(face, kicked);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };
@@ -827,18 +858,18 @@ function prepareCast(
   // mana alternative) rides the problem, the picks are paid in the cost batch at completion.
   // With the alternative elected the picks pay ITS verb (an additional cost with a verb never prints beside one).
   const verbPicks: CastPicks = { ...picks, exileFromHand: [] };
-  const addr = altCost ? { orPaid: false } : additionalCostProblem(state, deps, player, cardId, face, verbPicks);
+  const addr = altCost ? { orPaid: false } : additionalCostProblem(state, deps, player, cardId, face, verbPicks, kickVerb);
   if ('error' in addr) return addr;
   const altr = altCost ? costPicksProblem(state, deps, player, cardId, face.name, altCost.alt, verbPicks) : { orPaid: false };
   if ('error' in altr) return altr;
-  const extras0 = additionalExtras(face, addr.orPaid);
+  const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked), ...extras.mana], tax, ward.life + extras.life);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -979,6 +1010,8 @@ function castSpell(
     { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [] },
     picksOf(intent),
     intent.alternative === true,
+    false,
+    intent.kickedWith ?? [],
   );
   if ('error' in setup) return setup.error;
 
@@ -1055,6 +1088,7 @@ function castSpell(
       isCommanderCast: setup.from.kind === 'command',
       taxApplied: setup.tax,
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
+      ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
       ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
       ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
@@ -1207,11 +1241,11 @@ function chooseX(
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
   // D403 - the kick announced with the cast stays in the problem X resizes.
-  const xExtras = additionalExtras(face, pending.orPaid === true);
+  const xExtras = additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0));
   // D437 - a flashback cast keeps paying its FLASHBACK cost when X resizes the problem (D307): the printed cost was
   // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
   const xCost = pending.from.kind === 'graveyard' && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
-  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life);
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...xExtras.mana], pending.taxApplied, xExtras.life);
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -1942,9 +1976,9 @@ function chooseTargets(
     pending.free === true ? null : face.manaCost,
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0), ...additionalExtras(face, pending.orPaid === true).mana],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0)).mana],
     pending.taxApplied,
-    ward.life + additionalExtras(face, pending.orPaid === true).life,
+    ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0)).life,
   );
   // D405 - the alternatives the cast named stay in the problem the targets reprice.
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
@@ -2091,6 +2125,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     castFrom: setup.from,
     ...(setup.faceDown ? { faceDown: true as const } : {}),
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
+    ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
@@ -2567,6 +2602,7 @@ function finishFromPending(
     tax: pending.taxApplied,
     from: pending.from,
     kicked: pending.kicked ?? 0,
+    kickedWith: pending.kickedWith ?? [],
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2609,6 +2645,7 @@ function finishFromPending(
     isCommanderCast: pending.isCommanderCast,
     castFrom: pending.from,
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
+    ...(pending.kickedWith !== undefined && pending.kickedWith.length > 0 ? { kickedWith: pending.kickedWith } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),

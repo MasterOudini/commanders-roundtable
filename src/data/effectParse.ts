@@ -3314,7 +3314,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .split('\n')
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
     // D405 - a Convoke / Improvise / Delve line is a way to pay the cost, no clause of the spell.
-    .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(l.trim()))
+    // D530 - and the two other kicker lines (`Kicker {A} and/or {B}`, `Kicker—<cost>.`): costs the cast pays, no clause of the
+    // spell (the accounting still refuses a Kicker— line whose cost the grammar cannot read).
+    .filter((l) => !/^(?:Cycling|Flashback|Kicker|Multikicker) (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^(?:Convoke|Improvise|Delve)(?:, (?:convoke|improvise|delve))*$/.test(l.trim()) && !/^Kicker (?:\{[^}]+\})+ and\/or (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^Kicker—.+\.\s*$/.test(l.trim()))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
     .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.

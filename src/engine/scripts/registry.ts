@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ARCHANGEL_OF_WRATH_SCRIPT } from './cards/archangelOfWrath';
+import { THORNSCAPE_BATTLEMAGE_SCRIPT } from './cards/thornscapeBattlemage';
+import { PHYREXIAN_SCUTA_SCRIPT } from './cards/phyrexianScuta';
+import { SUNSCAPE_BATTLEMAGE_SCRIPT } from './cards/sunscapeBattlemage';
+import { THUNDERSCAPE_BATTLEMAGE_SCRIPT } from './cards/thunderscapeBattlemage';
 import { SKITTER_OF_LIZARDS_SCRIPT } from './cards/skitterOfLizards';
 import { ENCLAVE_ELITE_SCRIPT } from './cards/enclaveElite';
 import { GNARLID_PACK_SCRIPT } from './cards/gnarlidPack';
@@ -8055,6 +8060,11 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ARCHANGEL_OF_WRATH_SCRIPT,
+  THORNSCAPE_BATTLEMAGE_SCRIPT,
+  PHYREXIAN_SCUTA_SCRIPT,
+  SUNSCAPE_BATTLEMAGE_SCRIPT,
+  THUNDERSCAPE_BATTLEMAGE_SCRIPT,
   SKITTER_OF_LIZARDS_SCRIPT,
   ENCLAVE_ELITE_SCRIPT,
   GNARLID_PACK_SCRIPT,

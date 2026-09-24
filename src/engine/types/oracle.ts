@@ -1954,6 +1954,10 @@ export interface OracleFace {
    */
   readonly kickerCost: ManaCost | null;
   readonly multikickerCost: ManaCost | null;
+  /** D530 - the SECOND kicker of `Kicker {A} and/or {B}` (`kickerCost` holds the first); the cast names which (`kickedWith`). */
+  readonly kickerCost2: ManaCost | null;
+  /** D530 - `Kicker—<cost>.`: a kicker that is not only mana - its mana piece and ONE chooser verb or life payment, charged as D406's additional cost when kicked. */
+  readonly kickerVerb: import('../../data/activatedParse').KickerVerb | null;
   /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard

@@ -34,7 +34,7 @@ import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords'
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets } from './targetParse';
-import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost } from './activatedParse';
+import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
@@ -540,18 +540,47 @@ export function parseWard(oracleText: string, warn: Warn = NOOP_WARN): ManaCost 
  * D307 - "Flashback {N}" on its own line (reminder text aside), read as a mana
  * cost. A dash cost ("Flashback-Pay 3 life.") is null: the engine cannot pay it.
  */
-/** D403 - `Kicker {M}` / `Multikicker {M}` on its own line (reminder text aside), as a mana cost. */
-export function parseKicker(oracleText: string, warn: Warn = NOOP_WARN): { kicker: ManaCost | null; multikicker: ManaCost | null } {
+/**
+ * D403 - `Kicker {M}` / `Multikicker {M}` on its own line (reminder text aside), as a mana cost.
+ * D530 - and the two other kicker forms (CR 702.33): `Kicker {A} and/or {B}` - two kicker costs, `kicker` the first
+ * and `kicker2` the second, the cast naming which it pays (`CastSpell.kickedWith`); `Kicker—<cost>.` - a kicker that is
+ * not only mana, read by the additional cost's grammar (a leading mana piece, then ONE chooser verb or a life payment)
+ * into `kickerVerb`, the cast's picks paying it when kicked (D406's shape). A form the grammar cannot read stays null (D90).
+ */
+export function parseKicker(oracleText: string, warn: Warn = NOOP_WARN): { kicker: ManaCost | null; multikicker: ManaCost | null; kicker2: ManaCost | null; kickerVerb: KickerVerb | null } {
   let kicker: ManaCost | null = null;
   let multikicker: ManaCost | null = null;
+  let kicker2: ManaCost | null = null;
+  let kickerVerb: KickerVerb | null = null;
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const k = /^Kicker ((?:\{[^}]+\})+)$/.exec(line);
     if (k) kicker = parseManaCost(k[1] ?? '', warn);
     const m = /^Multikicker ((?:\{[^}]+\})+)$/.exec(line);
     if (m) multikicker = parseManaCost(m[1] ?? '', warn);
+    const two = /^Kicker ((?:\{[^}]+\})+) and\/or ((?:\{[^}]+\})+)$/.exec(line);
+    if (two) {
+      kicker = parseManaCost(two[1] ?? '', warn);
+      kicker2 = parseManaCost(two[2] ?? '', warn);
+    }
+    const dash = /^Kicker—(.+)\.$/.exec(line);
+    if (dash) kickerVerb = readKickerVerb(line, dash[1] ?? '', warn);
   }
-  return { kicker, multikicker };
+  return { kicker, multikicker, kicker2, kickerVerb };
+}
+
+/** D530 - `Kicker—[{M}, ]<one chooser verb or a life payment>.`: the mana piece and the verb the additional cost reads. */
+function readKickerVerb(line: string, costText: string, warn: Warn): KickerVerb | null {
+  const pieces = costText.split(', ');
+  const manaPieces = pieces.filter((p) => /^(?:\{[^}]+\})+$/.test(p));
+  const verbPieces = pieces.filter((p) => !/^(?:\{[^}]+\})+$/.test(p));
+  if (manaPieces.length > 1 || verbPieces.length !== 1) return null;
+  const mana = manaPieces.length === 1 ? parseManaCost(manaPieces[0] ?? '', warn) : null;
+  const verbText = verbPieces[0] ?? '';
+  const lower = verbText.charAt(0).toLowerCase() + verbText.slice(1);
+  const verbs = readCostVerbs(lower, parseManaCost);
+  if (!verbs) return null;
+  return { line, ...verbs, mana, orPay: null };
 }
 
 /**
@@ -1246,6 +1275,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     cantBeCountered,
     kickerCost: kicked.kicker,
     multikickerCost: kicked.multikicker,
+    kickerCost2: kicked.kicker2,
+    kickerVerb: kicked.kickerVerb,
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,

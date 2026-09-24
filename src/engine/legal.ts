@@ -46,6 +46,15 @@ export type LegalAction =
       readonly kicker?: 'once' | 'many';
       /** D443 - the kicked cast (base + one kick) is payable now; the fuzz driver kicks exactly when it is. */
       readonly kickerAffordable?: boolean;
+      /** D530 - a two-kicker face: the cast kicked with its SECOND kicker alone, and with both, is payable now. */
+      readonly kickerSecondAffordable?: boolean;
+      readonly kickerBothAffordable?: boolean;
+      /** D530 - a kicker paid by a cost that is not only mana: its text, and whether the kicked cast is payable with the picks it names. */
+      readonly kickerVerbText?: string;
+      readonly kickerVerbAffordable?: boolean;
+      readonly kickerPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand';
+      readonly kickerPickCount?: number;
+      readonly kickerPickCandidates?: readonly InstanceId[];
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -1009,6 +1018,7 @@ function castAction(
     ...(face.convoke ? { convoke: true as const } : {}),
     ...(face.improvise ? { improvise: true as const } : {}),
     ...(face.delve ? { delve: true as const } : {}),
+    ...kickerOffer(state, oracle, scripts, ctx, caster, id, face, cost, tax),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
@@ -1021,6 +1031,29 @@ function castAction(
  * and whether they reach the count. The card being cast is never a candidate (a spell in hand cannot
  * pay its own discard). Read by the offer and by the host's validation alike (D139: one list).
  */
+/**
+ * D530 - the kicker forms D403 left out: the SECOND kicker of a two-kicker face (alone, and both together) and the
+ * kicker paid by a cost that is not only mana (its picks: the first candidates of its verb, the host re-validating),
+ * each priced by the same solver as the base cast. Not the UI's kick toggle (`kicker`), which stays the mana kicker's.
+ */
+function kickerOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace, cost: ManaCost, tax: number): Record<string, unknown> {
+  const payable = (extra: readonly ManaCost[], life: number): boolean => affordable(ctx.solve, buildPaymentProblem(cost, 0, extra, tax, life), spellPurpose(face, false));
+  if (face.kickerCost2 !== null && face.kickerCost !== null) {
+    return { kickerSecondAffordable: payable([face.kickerCost2], 0), kickerBothAffordable: payable([face.kickerCost, face.kickerCost2], 0) };
+  }
+  const kv = face.kickerVerb;
+  if (kv === null || face.additionalCost !== null) return {};
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const chooser = castCostCandidates(state, deriveOf, caster, id, kv);
+  const f = chooser.fields;
+  const pick = kv.sacrificeCost ? { verb: 'sacrifice', n: 'sacrifice' } : kv.discardCost ? { verb: 'discard', n: 'discard' } : kv.tapCost ? { verb: 'tap', n: 'tap' } : kv.exileFromGraveyardCost ? { verb: 'exileFromGraveyard', n: 'exileFromGraveyard' } : kv.returnCost ? { verb: 'returnToHand', n: 'return' } : null;
+  return {
+    kickerVerbText: kv.costText,
+    kickerVerbAffordable: chooser.enough && payable(kv.mana !== null ? [kv.mana] : [], kv.lifeCost),
+    ...(pick ? { kickerPickVerb: pick.verb, kickerPickCount: f[pick.n + 'Count'] as number, kickerPickCandidates: f[pick.n + 'Candidates'] as readonly InstanceId[] } : {}),
+  };
+}
+
 /**
  * D408 - the alternative cost's offer fields: elected by the player, so it rides beside the mana cost.
  * The pick verb is read off the candidate fields the shared function returns (one verb at most).
