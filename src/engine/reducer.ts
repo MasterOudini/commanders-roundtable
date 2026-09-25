@@ -1477,11 +1477,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'ControlChangedUntilEndOfTurn': {
       const card = state.cards[body.card];
       if (!card) return state;
-      return {
+      // D535 - another player gained control of it: a Ring-bearer stops being one (CR 701.54a), as on every control event.
+      return withoutRingBearers({
         ...state,
         cards: { ...state.cards, [body.card]: { ...card, controller: body.controller, summonedOnTurn: state.turn.turnNumber } },
         untilEndOfTurn: [...state.untilEndOfTurn, { card: body.card, power: 0, toughness: 0, controlRevert: body.revertTo }],
-      };
+      }, [body.card], body.controller);
     }
 
     // D330 - CR 701.19: a regeneration shield on the permanent, spent by the

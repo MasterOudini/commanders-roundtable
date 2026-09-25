@@ -403,6 +403,8 @@ interface CastSetup {
   readonly kicked: number;
   /** D530 - a two-kicker face: which costs the kick pays (empty for every other face). */
   readonly kickedWith: readonly number[];
+  /** D535 - the buyback was paid (CR 702.27), priced into `problem`; the stack object remembers it. */
+  readonly buyback: boolean;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -436,8 +438,9 @@ const picksOf = (p: { readonly sacrifice?: readonly InstanceId[]; readonly disca
  * takes the mana instead (`orPaid`); a face with no such cost takes no picks at all.
  */
 // D530 - the kicker paid by a cost that is not only mana: charged as the additional cost is, when the cast is kicked.
-function kickVerbOf(face: ReturnType<typeof faceOf>, kicked: number): NonNullable<ReturnType<typeof faceOf>['kickerVerb']> | null {
-  return kicked > 0 ? face.kickerVerb : null;
+// D535 - and a buyback paid by one, when the cast buys the spell back (the two are never printed together).
+function kickVerbOf(face: ReturnType<typeof faceOf>, kicked: number, buyback = false): NonNullable<ReturnType<typeof faceOf>['kickerVerb']> | null {
+  return kicked > 0 && face.kickerVerb !== null ? face.kickerVerb : buyback ? face.buybackVerb : null;
 }
 
 function additionalCostProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, picks: CastPicks, kickVerb: ReturnType<typeof kickVerbOf> = null): { orPaid: boolean } | { error: HandleResult } {
@@ -704,6 +707,36 @@ function kickersOf(kicked: number, kickedWith: readonly number[]): readonly numb
   if (kickedWith.length > 0) return kickedWith;
   return kicked >= 2 ? [0, 1] : kicked === 1 ? [0] : [];
 }
+/**
+ * D535 - the cost a STAGED cast keeps paying when X or its targets reprice the problem: what `prepareCast` charged - nothing
+ * for a granted cast (D491), the alternative cost's mana (D408; its life is `stagedCastLife`), {3} face down (D309), the
+ * flashback cost from the graveyard (D307). The targets stage had repriced every one of them at the printed cost.
+ */
+function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly free?: true; readonly alternative?: true; readonly faceDown?: true; readonly from: ZoneRef }): ManaCost | null {
+  if (pending.free === true) return null;
+  if (pending.alternative === true && face.alternativeCost !== null) return face.alternativeCost.mana;
+  if (pending.faceDown === true) return MORPH_CAST_COST;
+  if (pending.from.kind === 'graveyard' && face.flashbackCost !== null) return face.flashbackCost;
+  return face.manaCost;
+}
+/** D535 - the life an elected alternative cost adds to a staged cast's problem (`prepareCast` adds the same). */
+function stagedCastLife(face: ReturnType<typeof faceOf>, pending: { readonly alternative?: true }): number {
+  return pending.alternative === true && face.alternativeCost !== null ? face.alternativeCost.lifeCost : 0;
+}
+/** D535 - BUYBACK (CR 702.27): the mana a bought-back cast adds - the buyback cost, or a verb buyback's mana piece. */
+function buybackMana(face: ReturnType<typeof faceOf>, buyback: boolean): ManaCost[] {
+  if (!buyback) return [];
+  if (face.buybackCost !== null) return [face.buybackCost];
+  return face.buybackVerb?.mana ? [face.buybackVerb.mana] : [];
+}
+/** D535 - why a buyback cannot be announced on this cast, or null when it can. */
+function buybackProblem(face: ReturnType<typeof faceOf>, buyback: boolean, kicked: number, faceDown: boolean): string | null {
+  if (!buyback) return null;
+  if (faceDown) return 'A face-down spell cannot be bought back.';
+  if (face.buybackCost === null && face.buybackVerb === null) return `${face.name} has no buyback the app can charge.`;
+  if (face.buybackVerb !== null && (face.additionalCost !== null || (kicked > 0 && face.kickerVerb !== null))) return `${face.name}'s buyback and another cost both take picks - the app charges one.`;
+  return null;
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
 function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
@@ -788,6 +821,8 @@ function prepareCast(
   free = false,
   // D530 - a two-kicker face: which of its kickers the cast pays.
   kickedWith0: readonly number[] = [],
+  // D535 - the buyback is paid (CR 702.27).
+  buyback = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -850,7 +885,10 @@ function prepareCast(
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
   // D530 - the named kickers of a two-kicker cast, normalised (empty for every other face).
   const kickedWith = !faceDown && face.kickerCost2 !== null && kicked > 0 ? kickersOf(kicked, kickedWith0) : [];
-  const kickVerb = faceDown ? null : kickVerbOf(face, kicked);
+  // D535 - a buyback is priced with the kick: the announcement names it, the problem carries the cost.
+  const buyWhy = buybackProblem(face, buyback, kicked, faceDown);
+  if (buyWhy) return { error: reject('notCastable', buyWhy) };
+  const kickVerb = faceDown ? null : kickVerbOf(face, kicked, buyback);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };
@@ -864,12 +902,12 @@ function prepareCast(
   if ('error' in altr) return altr;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...extras.mana], tax, ward.life + extras.life);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1012,6 +1050,7 @@ function castSpell(
     intent.alternative === true,
     false,
     intent.kickedWith ?? [],
+    intent.buyback === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -1089,6 +1128,7 @@ function castSpell(
       taxApplied: setup.tax,
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
+      ...(setup.buyback ? { buyback: true as const } : {}),
       ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
       ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
       ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
@@ -1241,11 +1281,12 @@ function chooseX(
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
   // D403 - the kick announced with the cast stays in the problem X resizes.
-  const xExtras = additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0));
+  const xExtras = additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true));
   // D437 - a flashback cast keeps paying its FLASHBACK cost when X resizes the problem (D307): the printed cost was
   // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
-  const xCost = pending.from.kind === 'graveyard' && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
-  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...xExtras.mana], pending.taxApplied, xExtras.life);
+  // D535 - and every other cost the cast chose (`stagedCastCost`).
+  const xCost = stagedCastCost(face, pending);
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -1973,12 +2014,13 @@ function chooseTargets(
   const ward = wardTaxFor(state, deps, intent.player, intent.targets);
   const base = buildPaymentProblem(
     // D491 - a granted cast keeps paying nothing when the targets price the problem (the ward still rides it).
-    pending.free === true ? null : face.manaCost,
+    // D535 - and a flashback, alternative or face-down cast keeps paying what it chose (`stagedCastCost`).
+    stagedCastCost(face, pending),
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0)).mana],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
     pending.taxApplied,
-    ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0)).life,
+    ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).life + stagedCastLife(face, pending),
   );
   // D405 - the alternatives the cast named stay in the problem the targets reprice.
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
@@ -2126,6 +2168,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.faceDown ? { faceDown: true as const } : {}),
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
+    ...(setup.buyback ? { buyback: true as const } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
@@ -2603,6 +2646,7 @@ function finishFromPending(
     from: pending.from,
     kicked: pending.kicked ?? 0,
     kickedWith: pending.kickedWith ?? [],
+    buyback: pending.buyback === true,
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2646,6 +2690,7 @@ function finishFromPending(
     castFrom: pending.from,
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
     ...(pending.kickedWith !== undefined && pending.kickedWith.length > 0 ? { kickedWith: pending.kickedWith } : {}),
+    ...(pending.buyback === true ? { buyback: true as const } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),

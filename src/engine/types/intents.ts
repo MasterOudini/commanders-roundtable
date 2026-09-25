@@ -67,6 +67,11 @@ export type Intent =
        */
       readonly kickedWith?: readonly number[];
       /**
+       * D535 - BUYBACK (CR 702.27): the buyback cost is paid (`Buyback {M}`, or `Buyback—<cost>.` with the picks of its
+       * verb). The host adds it to the payment, and the spell goes to its owner's hand as it resolves.
+       */
+      readonly buyback?: boolean;
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

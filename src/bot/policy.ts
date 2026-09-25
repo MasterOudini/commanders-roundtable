@@ -233,7 +233,10 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
       const kicked = cast.kicker ? kickedTry : null;
       const plainMana = cast.orPay !== undefined || picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}) : null;
       const plainPicks = picks !== null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, picks) : null;
-      const plain = kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
+      // D535 - a mana buyback is paid whenever the bought-back cast has a plan (the card comes back to cast again); the
+      // cast without it is the fallback. A verb buyback is not weighed (it spends a land or cards).
+      const boughtTry = cast.buyback === 'mana' && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}, false, true) : null;
+      const plain = boughtTry?.plan ? boughtTry : kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
       // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
       // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
       const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, x, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
@@ -261,6 +264,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         targets,
         ...(cast.hasX ? { xValue } : {}),
         ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
+        ...(preview.bought ? { buyback: true as const } : {}),
         ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
         ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
         ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
@@ -272,7 +276,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.alternative ? { alternative: true as const } : {}),
         ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       },
-      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
+      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${preview.bought ? ' (bought back)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );
   }
 

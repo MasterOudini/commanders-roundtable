@@ -9902,6 +9902,10 @@ const WANTED = [
   'Wild Wurm',
   'Skyclaw Thrash',
   // D534 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D535 - BUYBACK: the seam's proof cards (Searing Touch - a mana buyback on a ping; Constant Mists - a verb buyback, sacrifice a land; Forbid - a discard buyback, read).
+  'Searing Touch',
+  'Constant Mists',
+  'Forbid',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

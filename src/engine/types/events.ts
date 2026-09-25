@@ -491,6 +491,8 @@ export type EventBody =
       readonly to: ZoneRef | null;
       /** D501 - the spell left the stack by its own printed fate (`Exile ~.` and the library forms); a flashback's exile is not one. */
       readonly fate?: 'exile' | 'shuffle' | 'bottom' | 'hand';
+      /** D535 - the spell was cast with its buyback paid and went to its owner's hand as it resolved (CR 702.27). */
+      readonly buyback?: true;
       /** What it was aimed at, so an assisted card can still be offered after it resolves. */
       readonly targets: readonly TargetChoice[];
       /**

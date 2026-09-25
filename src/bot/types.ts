@@ -52,6 +52,8 @@ export interface BotPort {
     costPicks?: CostPicks,
     /** D408 - the alternative cost elected (its mana replaces the mana cost). */
     alternative?: boolean,
+    /** D535 - the buyback paid (CR 702.27). */
+    buyback?: boolean,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

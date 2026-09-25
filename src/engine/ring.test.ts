@@ -204,4 +204,27 @@ describe('D521 - the Ring tempts you', () => {
     expect(life(g, 'p1')).toBe(40);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
+
+  // D535 - the threaten event cleared no Ring-bearer (the gate's seed 405: the invariant saw a bearer under another player).
+  test('a threatened Ring-bearer is no bearer, and is none again when control returns at cleanup (CR 701.54a); the replay hash', () => {
+    const g = startedGame({ players: 2, scripts: RING, decks: [['Birthday Escape', 'Grizzly Bears'], ['Threaten', 'Grizzly Bears']] });
+    holdEverywhere(g);
+    const bears = put(g, 'p1', 'Grizzly Bears', 'battlefield');
+    main(g, 3);
+    castNoTarget(g, 'p1', 'Birthday Escape', 'U');
+    settle(g);
+    expect(seat(g, 'p1').ringBearer).toBe(bears);
+    main(g, 4, 'p2');
+    const threaten = put(g, 'p2', 'Threaten', 'hand');
+    mana(g, 'p2', 'RCC');
+    must(g.submit({ t: 'CastSpell', player: 'p2', card: threaten, targets: [{ kind: 'card', id: bears }] }));
+    settle(g);
+    expect(g.state.cards[bears]?.controller, 'threatened').toBe('p2');
+    expect(seat(g, 'p1').ringBearer, 'another player gained control of it').toBeNull();
+    main(g, 5);
+    expect(g.state.cards[bears]?.controller, 'back at cleanup').toBe('p1');
+    expect(seat(g, 'p1').ringBearer, 'and a bearer no more').toBeNull();
+    expect(seat(g, 'p1').ringTempts).toBe(1);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
 });

@@ -55,6 +55,15 @@ export type LegalAction =
       readonly kickerPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand';
       readonly kickerPickCount?: number;
       readonly kickerPickCandidates?: readonly InstanceId[];
+      /** D535 - BUYBACK (CR 702.27): the face's buyback the cast may pay (`CastSpell.buyback`) - a mana cost, or a verb. */
+      readonly buyback?: 'mana' | 'verb';
+      /** D535 - the bought-back cast is payable now (a verb: with the first candidates the offer names). */
+      readonly buybackAffordable?: boolean;
+      readonly buybackCost?: string;
+      readonly buybackVerbText?: string;
+      readonly buybackPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand';
+      readonly buybackPickCount?: number;
+      readonly buybackPickCandidates?: readonly InstanceId[];
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -1019,6 +1028,7 @@ function castAction(
     ...(face.improvise ? { improvise: true as const } : {}),
     ...(face.delve ? { delve: true as const } : {}),
     ...kickerOffer(state, oracle, scripts, ctx, caster, id, face, cost, tax),
+    ...buybackOffer(state, oracle, scripts, ctx, caster, id, face, cost, tax),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
@@ -1051,6 +1061,28 @@ function kickerOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry
     kickerVerbText: kv.costText,
     kickerVerbAffordable: chooser.enough && payable(kv.mana !== null ? [kv.mana] : [], kv.lifeCost),
     ...(pick ? { kickerPickVerb: pick.verb, kickerPickCount: f[pick.n + 'Count'] as number, kickerPickCandidates: f[pick.n + 'Candidates'] as readonly InstanceId[] } : {}),
+  };
+}
+
+/**
+ * D535 - BUYBACK (CR 702.27): the face's buyback offered beside the cast - a mana cost, or a verb (D530's verb kicker's
+ * shape: the first candidates of its verb, the host re-validating) - and whether the bought-back cast is payable now,
+ * priced by the same solver as the base cast.
+ */
+function buybackOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace, cost: ManaCost, tax: number): Record<string, unknown> {
+  const payable = (extra: readonly ManaCost[], life: number): boolean => affordable(ctx.solve, buildPaymentProblem(cost, 0, extra, tax, life), spellPurpose(face, false));
+  if (face.buybackCost !== null) return { buyback: 'mana', buybackCost: face.buybackCost.raw, buybackAffordable: payable([face.buybackCost], 0) };
+  const bv = face.buybackVerb;
+  if (bv === null || face.additionalCost !== null || face.kickerVerb !== null) return {};
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const chooser = castCostCandidates(state, deriveOf, caster, id, bv);
+  const f = chooser.fields;
+  const pick = bv.sacrificeCost ? { verb: 'sacrifice', n: 'sacrifice' } : bv.discardCost ? { verb: 'discard', n: 'discard' } : bv.tapCost ? { verb: 'tap', n: 'tap' } : bv.exileFromGraveyardCost ? { verb: 'exileFromGraveyard', n: 'exileFromGraveyard' } : bv.returnCost ? { verb: 'returnToHand', n: 'return' } : null;
+  return {
+    buyback: 'verb',
+    buybackVerbText: bv.costText,
+    buybackAffordable: chooser.enough && payable(bv.mana !== null ? [bv.mana] : [], bv.lifeCost),
+    ...(pick ? { buybackPickVerb: pick.verb, buybackPickCount: f[pick.n + 'Count'] as number, buybackPickCandidates: f[pick.n + 'Candidates'] as readonly InstanceId[] } : {}),
   };
 }
 

@@ -85,6 +85,8 @@ export type TableMode =
       readonly targets: readonly TargetChoice[];
       /** D403 - the kicker count the player announced in the review (0 unkicked). */
       readonly kicked?: number;
+      /** D535 - the buyback the player announced in the review (a mana buyback's toggle). */
+      readonly buyback?: boolean;
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */

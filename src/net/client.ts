@@ -93,6 +93,9 @@ export interface CastPreview {
   /** D403 - the kicker cost the face prints (once, or any number of times), and the count this preview priced. */
   readonly kicker: { readonly cost: string; readonly many: boolean } | null;
   readonly kicked: number;
+  /** D535 - the buyback mana cost the face prints (CR 702.27), and whether this preview priced it. */
+  readonly buyback: { readonly cost: string } | null;
+  readonly bought: boolean;
   /**
    * D405 - the alternatives the face prints (convoke / improvise / delve) and what this preview
    * priced: `alt` is what the cast will tap or exile (empty lists when the player asked for none),
@@ -466,7 +469,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -484,6 +487,9 @@ export class ClientSession {
     // D403 - the kick the player announced, priced with the ward (the host prices the same count).
     const kickCost = face.multikickerCost ?? face.kickerCost;
     const kickMana = kicked > 0 && kickCost ? Array.from({ length: face.multikickerCost ? kicked : 1 }, () => kickCost) : [];
+    // D535 - the buyback the player announced (the host prices the same cost; a verb buyback's mana piece and life too).
+    const buyMana = buyback && face.buybackCost ? [face.buybackCost] : buyback && face.buybackVerb?.mana ? [face.buybackVerb.mana] : [];
+    const buyLife = buyback && face.buybackCost === null && face.buybackVerb ? face.buybackVerb.lifeCost : 0;
     // D406 - the additional cost: the life rides the problem; with no pick named and `or pay {M}` printed,
     // the mana stands in (the host prices the same way, D53).
     const add = face.additionalCost;
@@ -493,7 +499,7 @@ export class ClientSession {
     const orPaid = altc === null && add !== null && add.orPay !== null && picksCount(costPicks) === 0;
     const addMana = orPaid && add?.orPay ? [add.orPay] : [];
     const addLife = (add && !orPaid ? add.lifeCost : 0) + (altc ? altc.lifeCost : 0);
-    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...addMana], action.tax, ward.life + addLife);
+    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...addMana], action.tax, ward.life + addLife + buyLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
@@ -520,6 +526,8 @@ export class ClientSession {
       lifePaid: plan?.lifePaid ?? 0,
       kicker: kickCost ? { cost: kickCost.raw, many: face.multikickerCost !== null } : null,
       kicked: kickCost ? kicked : 0,
+      buyback: face.buybackCost ? { cost: face.buybackCost.raw } : null,
+      bought: buyback && (face.buybackCost !== null || face.buybackVerb !== null),
       keywords,
       alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
       altAvailable,

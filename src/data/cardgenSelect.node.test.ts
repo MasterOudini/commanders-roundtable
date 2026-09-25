@@ -778,6 +778,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D535 - buyback: the Buyback line is the engine's now (charged at cast, the resolved spell back to its owner's hand); what stays is a buyback spell whose other sentence the vocabulary does not read.
+  ['Worthy Cause', 'a spell with a line outside the vocabulary: You gain life equal to the sacrificed creature\'s toughness. - the additional cost\'s creature read after it is gone (last known information) (D535)'],
+  ['Verdant Touch', 'a spell with a line outside the vocabulary: Target land becomes a 2/2 creature that\'s still a land. - an animated land with no duration (D535)'],
+  ['Whim of Volrath', 'a spell with a line outside the vocabulary: Change the text of target permanent by replacing all instances of one color word with another - a text change (D535)'],
   // D534 - coin flip: the caster's flip and its won and lost branches are the engine's now; what stays is a flip by another player or by each player, several flips, a head that watches flips, and every flip line whose card the row maker refuses for another line.
   ["Puppet's Verdict", 'the row maker: a spell with a line outside the vocabulary: Flip a coin. If you win the flip, destroy all creatures with (D534)'],
   ['Chaotic Strike', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat after blockers are declar (D534)'],
@@ -961,7 +965,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Flayer of Loyalties', 'the row maker: trigger payload not a pump: Gain control of target creature until end of turn. Untap tha (D531)'],
   ['Aura Thief', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Nicol Bolas, Planeswalker', 'the row maker: effect not a row kind: ~ deals 7 damage to target player or planeswalker. That player or that planeswalker\'s controller discards seven (D531)'],
-  ['Evangelize', 'the row maker: a spell with a line outside the vocabulary: Buyback {2}{W}{W} (You may pay an additional {2}{W}{W} as yo (D531)'],
+  ['Evangelize', 'a spell with a line outside the vocabulary: Gain control of target creature of an opponent\'s choice they control. - its Buyback line is the engine\'s (D535)'],
   ['Grip of Phyresis', 'the row maker: a spell with a line outside the vocabulary: Gain control of target Equipment, then create a 0/0 black Ph (D531)'],
   ['Captivating Vampire', 'the row maker: effect not a row kind: Gain control of target creature. It becomes a Vampire in addition to its other types. (D531)'],
   ['Dack Fayden', 'the row maker: effect not a row kind: You get an emblem with "Whenever you cast a spell that targets one or more permanents, gain control of those per (D531)'],

@@ -1982,6 +1982,13 @@ export interface OracleFace {
   /** D530 - `Kicker—<cost>.`: a kicker that is not only mana - its mana piece and ONE chooser verb or life payment, charged as D406's additional cost when kicked. */
   readonly kickerVerb: import('../../data/activatedParse').KickerVerb | null;
   /**
+   * D535 - BUYBACK (CR 702.27): `Buyback {M}` on an instant or sorcery - an optional additional cost the cast may pay
+   * (`CastSpell.buyback`); paid, the spell goes to its owner's hand instead of the graveyard as it resolves.
+   */
+  readonly buybackCost: ManaCost | null;
+  /** D535 - `Buyback—<cost>.`: a buyback that is not only mana, read and charged as D530's verb kicker is. */
+  readonly buybackVerb: import('../../data/activatedParse').KickerVerb | null;
+  /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard
    * (`CastSpell.convoke` / `improvise` / `delve`). Read off the keyword line at ingest.

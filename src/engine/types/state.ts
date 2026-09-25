@@ -442,6 +442,8 @@ export interface StackObject {
   readonly kicked?: number;
   /** D530 - a two-kicker face: which kicker costs the cast paid (0 the first, 1 the second), onto the permanent too. */
   readonly kickedWith?: readonly number[];
+  /** D535 - BUYBACK (CR 702.27): the buyback cost was paid - the spell goes to its owner's hand as it resolves. */
+  readonly buyback?: true;
   /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
   readonly exhaust?: true;
   /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */
@@ -641,6 +643,8 @@ export interface PendingCast {
   readonly kicked?: number;
   /** D530 - which of a two-kicker face's costs, carried to the `StackObject`. */
   readonly kickedWith?: readonly number[];
+  /** D535 - the buyback the cast was announced with (CR 702.27), priced at every stage and carried to the `StackObject`. */
+  readonly buyback?: true;
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
   readonly orPaid?: true;
   /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */

@@ -8903,6 +8903,9 @@ export const TAVERN_SWINDLER: CardData = F.TAVERN_SWINDLER as CardData;
 export const THE_GOLD_SAUCER: CardData = F.THE_GOLD_SAUCER as CardData;
 export const WILD_WURM: CardData = F.WILD_WURM as CardData;
 export const SKYCLAW_THRASH: CardData = F.SKYCLAW_THRASH as CardData;
+export const SEARING_TOUCH: CardData = F.SEARING_TOUCH as CardData;
+export const CONSTANT_MISTS: CardData = F.CONSTANT_MISTS as CardData;
+export const FORBID: CardData = F.FORBID as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18058,6 +18061,9 @@ export const ENGINE_CARDS: CardData[] = [
   THE_GOLD_SAUCER,
   WILD_WURM,
   SKYCLAW_THRASH,
+  SEARING_TOUCH,
+  CONSTANT_MISTS,
+  FORBID,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

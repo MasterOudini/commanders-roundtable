@@ -24,7 +24,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true) : null),
     [mode],
   );
 
@@ -48,6 +48,8 @@ export function PaymentReview() {
       ...(preview.hasX ? { xValue: mode.xValue } : {}),
       // D403 - the kick the review priced is the kick the host charges (D53).
       ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
+      // D535 - and the buyback it priced.
+      ...(preview.bought ? { buyback: true } : {}),
       // D405 - what the review priced is what the host taps and exiles (D53).
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -132,6 +134,22 @@ export function PaymentReview() {
             }
           >
             {preview.kicker.many ? 'Change…' : preview.kicked > 0 ? 'Unkick' : 'Kick'}
+          </button>
+        </div>
+      )}
+
+      {preview.buyback && (
+        <div className="mt-2 flex items-center gap-2" data-payment-buyback="">
+          <span className="text-xs text-crt-dim">
+            {preview.bought ? 'Buyback paid - it returns to your hand as it resolves' : 'No buyback'} ({preview.buyback.cost})
+          </span>
+          <button
+            type="button"
+            className={BTN_GHOST_SMALL}
+            data-payment="set-buyback"
+            onClick={() => setMode({ ...mode, buyback: !preview.bought })}
+          >
+            {preview.bought ? 'Skip buyback' : 'Buy back'}
           </button>
         </div>
       )}

@@ -600,6 +600,10 @@ export function linesUnaccounted(
     // (`CastSpell.kicked` / `kickedWith`; the verb as D406's picks). Asked of the parser that read them.
     if (face.kickerCost2 !== null && /^Kicker (?:\{[^}]+\})+ and\/or (?:\{[^}]+\})+$/.test(line)) continue;
     if (face.kickerVerb !== null && face.kickerVerb.line === line) continue;
+    // D535 - a Buyback line the engine CHARGES at cast time (`CastSpell.buyback`) and honours as the spell resolves (its
+    // owner's hand instead of the graveyard). Asked of the parser that read it.
+    if (face.buybackCost !== null && /^Buyback (?:\{[^}]+\})+$/.test(line)) continue;
+    if (face.buybackVerb !== null && face.buybackVerb.line === line) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /
     // `improvise` / `delve`): the cast names what it taps or exiles, the payment takes it off the cost.
     if (

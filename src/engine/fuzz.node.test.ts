@@ -352,6 +352,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Fleecemane Lion', 'Sinuous Vermin'], copiesPerSeat: 2, counterKeys: ['monstrosities'], rotHistory: 'D533' },
   // D534 - COIN FLIP: two Winter Skies a seat (a flip, and a branch either way).
   { names: ['Winter Sky'], copiesPerSeat: 2, counterKeys: ['rulesFlips'], rotHistory: 'D534' },
+  // D535 - BUYBACK: two Searing Touches a seat (a one-mana ping, bought back for {4} more).
+  { names: ['Searing Touch'], copiesPerSeat: 2, counterKeys: ['buybackCasts', 'buybackReturns'], rotHistory: 'D535' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1338,6 +1340,16 @@ function kickOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unk
   return {};
 }
 
+/** D535 - the buyback the driver pays: whenever the offer says the bought-back cast is payable (a verb: its first candidates). */
+function buyOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  if (a.buyback === undefined || a.buybackAffordable !== true) return {};
+  if (a.buyback === 'mana') return { buyback: true };
+  const n = a.buybackPickCount ?? 0;
+  const picked = (a.buybackPickCandidates ?? []).slice(0, n);
+  const verb = a.buybackPickVerb;
+  return { buyback: true, ...(verb !== undefined && n > 0 ? { [verb]: picked } : {}) };
+}
+
 function castPicksOf(action: Extract<LegalAction, { t: 'CastSpell' }>): { sacrifice?: readonly InstanceId[]; discard?: readonly InstanceId[]; tap?: readonly InstanceId[]; exileFromGraveyard?: readonly InstanceId[]; returnToHand?: readonly InstanceId[] } {
   const first = (ids: readonly InstanceId[] | undefined, n: number | undefined): readonly InstanceId[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
   const sacrifice = first(action.sacrificeCandidates, action.sacrificeCount);
@@ -1369,7 +1381,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   };
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'));
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
+    // D535 - a mana-buyback spell waits in hand until it can be cast bought back.
+    .filter((a) => !(a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable !== true));
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
   // uniform pick over every usable action reached a kicked Ardent Soldier once in sixty seeds, and the kicked
   // ENTRY canary rotted to 0 over 500. The plain branch stays the early turns' (the kick unaffordable).
@@ -1377,6 +1391,8 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   // sacrificed a creature every time and rotted the D398 floor to 0 over 500 seeds; the new kicks ride the ordinary
   // pick, `kickOf` naming them whenever the card is chosen.
   const kickable = usable.filter((a) => a.t === 'CastSpell' && a.kicker !== undefined && a.kickerAffordable === true);
+  // D535 - and a spell whose MANA buyback is payable is cast now, bought back (0 over 60 seeds on the ordinary pick).
+  const buyable = usable.filter((a) => a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable === true);
   // D445 - the land drop first: the uniform pick skipped most of them, and every three-mana canary starved (a seat
   // on one to three lands mid-game). A land is played whenever one can be; which land stays random.
   const lands = usable.filter((a) => a.t === 'PlayLand');
@@ -1384,7 +1400,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const copiers = state.stack.length === 0 ? [] : usable.filter((a) => a.t === 'CastSpell' && copyTargetOnStack(state, holder, a.card, a.faceIndex));
   // D487 - and with a payable copier in hand and nothing on the stack, an instant or sorcery to copy is cast first.
   const copyable = state.stack.length === 0 && holdsCopier(state, holder, usable) ? usable.filter((a) => a.t === 'CastSpell' && a.affordable && copyableSpellToCast(state, holder, a.card, a.faceIndex)) : [];
-  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : p.pick(usable);
+  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : buyable.length > 0 ? p.pick(buyable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -1415,7 +1431,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1685,6 +1701,9 @@ interface Run {
   readonly monstrosities: number;
   /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
   readonly rulesFlips: number;
+  /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
+  readonly buybackCasts: number;
+  readonly buybackReturns: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2187,6 +2206,8 @@ function runOne(seed: number): Run {
     controlHeld: game.log.filter((e) => e.body.t === 'ControlTakenBySource').length,
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
     rulesFlips: game.log.filter((e) => e.body.t === 'CoinFlipped' && !(e.cause.kind === 'intent' && e.cause.intent === 'FlipCoin')).length,
+    buybackCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.buyback === true).length,
+    buybackReturns: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.buyback === true).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2515,6 +2536,8 @@ const TOTAL_KEYS = [
   'controlHeld',
   'monstrosities',
   'rulesFlips',
+  'buybackCasts',
+  'buybackReturns',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -3006,6 +3029,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.monstrosities).toBeGreaterThan(0);
         // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
         expect(totals.rulesFlips).toBeGreaterThan(0);
+        // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).
+        expect(totals.buybackReturns).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

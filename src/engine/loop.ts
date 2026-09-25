@@ -879,6 +879,9 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
     const fate = spellDef === undefined && face !== null && !face.isPermanent && face.effectMode === 'auto' ? spellFateOf(face.modal ? modalEffects(face.modal, obj.modes) : face.effects) : undefined;
     const ownFate = obj.castFrom?.kind === 'graveyard' ? undefined : fate;
+    // D535 - BUYBACK (CR 702.27): paid, the spell goes to its owner's hand instead of the graveyard as it resolves - only
+    // where it would go to the graveyard (flashback's exile and the spell's own fate are not the graveyard).
+    const bought = obj.buyback === true && face !== null && !face.isPermanent && obj.castFrom?.kind !== 'graveyard' && ownFate === undefined;
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
       : obj.castFrom?.kind === 'graveyard'
@@ -890,8 +893,10 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
             ? { kind: 'hand' as const, player: card.owner }
           : ownFate !== undefined
             ? { kind: 'library' as const, player: card.owner }
-            : { kind: 'graveyard' as const, player: card.owner };
-    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}) });
+            : bought
+              ? { kind: 'hand' as const, player: card.owner }
+              : { kind: 'graveyard' as const, player: card.owner };
+    events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}), ...(bought ? { buyback: true as const } : {}) });
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is
     // about to leave — and, concretely, a Bolt that had already been put into the
@@ -972,6 +977,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     if (ownFate !== undefined) {
       events.push(narrated(ownFate === 'exile' ? `${obj.label} is exiled as it resolves.` : ownFate === 'shuffle' ? `${obj.label} is shuffled into its owner's library.` : ownFate === 'hand' ? `${obj.label} returns to its owner's hand as it resolves.` : `${obj.label} is put on the bottom of its owner's library.`, obj.controller, obj.identity));
     }
+    if (bought) events.push(narrated(`${obj.label} returns to its owner's hand - its buyback was paid.`, obj.controller, obj.identity));
     // D449 - DASH (CR 702.109a): a dashed permanent returns to its owner's hand at the beginning of the next
     // end step - a delayed trigger armed as the spell resolves, its one effect the self return (a source that
     // has left the battlefield by then is a subject that is gone, and the fire says so).
