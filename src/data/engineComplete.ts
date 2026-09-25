@@ -276,6 +276,8 @@ function clauseAccounted(raw: string, face: OracleFace): boolean {
   if (/[.;:]/.test(s)) return false;
 
   const kw = canonicalKeyword(s);
+  // D536 - a permanent spell's storm copies would be tokens the engine does not make (CR 707.10a): not the engine's line.
+  if (kw === 'storm' && face.isPermanent) return false;
   if (kw !== null) return face.keywords.includes(kw);
 
   // D338 - a NUMBERED keyword the engine runs from its keyword-trigger table

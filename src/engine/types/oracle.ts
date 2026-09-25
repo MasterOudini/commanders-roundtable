@@ -114,6 +114,9 @@ export const TIER2_KEYWORDS = [
   // card with a lesser mana value, which may be cast for nothing; the rest to the bottom in a random order. Run from
   // the keyword table off the SPELL on the stack (`fromStack`), once per printing of the word (Apex Devastator's four).
   'cascade',
+  // D536 - STORM (CR 702.40a): a cast trigger that copies the spell for each spell cast before it this turn, run from the
+  // keyword table off the SPELL on the stack as cascade is.
+  'storm',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -1355,6 +1358,11 @@ export interface EffectSpec {
   readonly copy?: CopySpec;
   /** D487 - `copySpell` only: `You may choose new targets for the copy.` - its controller is asked once the copy exists. */
   readonly newTargets?: true;
+  /**
+   * D536 - `copySpell` only: STORM's copy of its own spell (CR 702.40a) - no target, so the trigger never fizzles; the
+   * spell off the stack by this id, or - gone (countered in response) - this snapshot as cast (its last known information).
+   */
+  readonly copyFrom?: import('./state').StackObject;
   /**
    * D491 - `castFromHand` only: the grant's bound. `none` the types the noun negates (`noncreature`), `filter` its
    * predicates (`an instant or sorcery spell`, `a creature spell`, `a permanent spell`; null for `a spell`), `bound`

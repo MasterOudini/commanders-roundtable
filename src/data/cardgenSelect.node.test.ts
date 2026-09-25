@@ -778,6 +778,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D536 - storm: the Storm line is the engine's now on an instant or a sorcery (the keyword table's cast trigger, the copies with new targets); what stays is a storm spell whose other sentence the vocabulary does not read, and a permanent spell's storm (its copies would be tokens).
+  ['Galvanic Relay', 'a spell with a line outside the vocabulary: Exile the top card of your library. During your next turn, you may play that card. - a play permission during the next turn (D536)'],
   // D535 - buyback: the Buyback line is the engine's now (charged at cast, the resolved spell back to its owner's hand); what stays is a buyback spell whose other sentence the vocabulary does not read.
   ['Worthy Cause', 'a spell with a line outside the vocabulary: You gain life equal to the sacrificed creature\'s toughness. - the additional cost\'s creature read after it is gone (last known information) (D535)'],
   ['Verdant Touch', 'a spell with a line outside the vocabulary: Target land becomes a 2/2 creature that\'s still a land. - an animated land with no duration (D535)'],
@@ -1024,7 +1026,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Bucknard's Everfull Purse", 'the row maker: effect not a row kind: Roll a d4 and create a number of Treasure tokens equal to the result. The player to your right gains control of (D531)'],
   ["Blue Sun's Twilight", 'a control line under a shape the row maker never reached (`Gain control of target creature with mana value X or less. I`) (D531)'],
   ['Magus of the Unseen', 'the row maker: effect not a row kind: Untap target artifact an opponent controls and gain control of it until end of turn. It gains haste until end of (D531)'],
-  ['Spreading Insurrection', 'the row maker: a spell with a line outside the vocabulary: Gain control of target creature you don\'t control until end (D531)'],
   ['Awaken the Sleeper', 'the row maker: a spell with a line outside the vocabulary: Gain control of target creature until end of turn. Untap tha (D531)'],
   ['Merieke Ri Berit', 'the row maker: effect not a row kind: Gain control of target creature for as long as you control ~. When ~ leaves the battlefield or becomes untapped, (D531)'],
   ['Hithlain Rope', 'the row maker: a line that is neither an activated ability nor a library trigger: ~ can\'t be sacrificed. (D531)'],
@@ -4242,7 +4243,11 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // CONTINUOUS prevention line is the SEAM (scriptableToday 1,290 -> 1,321 before the wave), the 26
     // rows are the WAVE (-> 1,295), and the six that stay are in the ledger above by name - four the
     // row maker refused for a fixture it cannot stage, two a prevention line beside an attached static.
-    expect.soft(all.length).toBe(25);
+    // D536 - DOWN BY SEVEN, which is what a seam does when it COMPLETES cards the select was offering: the Cascade line
+    // left the spell text and seven cascade SPELLS (Deny Reality, Violent Outburst, Forceful Denial, Bituminous Blast,
+    // Natural Reclamation, Demonic Dread, Captured Sunlight) run with no script at all; the one storm spell the seam made
+    // offerable (Galvanic Relay) is in the ledger above by name.
+    expect.soft(all.length).toBe(18);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

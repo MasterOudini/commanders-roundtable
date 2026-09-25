@@ -354,6 +354,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Winter Sky'], copiesPerSeat: 2, counterKeys: ['rulesFlips'], rotHistory: 'D534' },
   // D535 - BUYBACK: two Searing Touches a seat (a one-mana ping, bought back for {4} more).
   { names: ['Searing Touch'], copiesPerSeat: 2, counterKeys: ['buybackCasts', 'buybackReturns'], rotHistory: 'D535' },
+  // D536 - STORM: two Grapeshots a seat (a ping, copied for each spell cast before it this turn).
+  { names: ['Grapeshot'], copiesPerSeat: 2, counterKeys: ['stormTriggers', 'stormCopies'], rotHistory: 'D536' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1704,6 +1706,9 @@ interface Run {
   /** D535 - the spells cast with their buyback paid, and the ones that went back to hand as they resolved. */
   readonly buybackCasts: number;
   readonly buybackReturns: number;
+  /** D536 - the storm triggers put on the stack, and the copies of a storm spell they made. */
+  readonly stormTriggers: number;
+  readonly stormCopies: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2208,6 +2213,8 @@ function runOne(seed: number): Run {
     rulesFlips: game.log.filter((e) => e.body.t === 'CoinFlipped' && !(e.cause.kind === 'intent' && e.cause.intent === 'FlipCoin')).length,
     buybackCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.buyback === true).length,
     buybackReturns: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.buyback === true).length,
+    stormTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:storm')).length,
+    stormCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('storm') ?? false)).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2538,6 +2545,8 @@ const TOTAL_KEYS = [
   'rulesFlips',
   'buybackCasts',
   'buybackReturns',
+  'stormTriggers',
+  'stormCopies',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -3031,6 +3040,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.rulesFlips).toBeGreaterThan(0);
         // D535 - a bought-back spell back in its owner's hand at gate size (Searing Touch, two a seat).
         expect(totals.buybackReturns).toBeGreaterThan(0);
+        // D536 - a storm trigger at gate size (Grapeshot, two a seat).
+        expect(totals.stormTriggers).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

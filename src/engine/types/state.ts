@@ -762,6 +762,8 @@ export interface PendingTrigger {
   readonly memo?: number;
   /** D402 - the delayed trigger this pending one fires (its `effects` ride onto the stack object). */
   readonly delayed?: string;
+  /** D536 - a keyword trigger's own effects (storm's copies), riding onto the stack object as `delayedEffects` (D402's path). */
+  readonly effects?: readonly EffectSpec[];
   /** D492 - a once-per-turn def's firing: recorded on `TurnState.triggered` as it is queued (the reducer). */
   readonly oncePerTurn?: true;
   /**

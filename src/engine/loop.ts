@@ -283,6 +283,8 @@ export function stackPendingTriggers(
       ...(trigger.memo !== undefined ? { memo: trigger.memo } : {}),
       // D402 - a delayed trigger's effects ride onto the stack; the armed entry leaves the list as it goes on.
       ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
+      // D536 - a keyword trigger's own effects (storm's copies) ride the same way.
+      ...(trigger.effects !== undefined ? { delayedEffects: trigger.effects } : {}),
       // D494 - the objects a delayed referent clause was bound to ride as its targets (every one answering clause 0).
       ...(trigger.delayed !== undefined && (state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims?.length ?? 0) > 0
         ? (() => { const aims = state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims ?? []; return { targets: aims.map((id) => ({ kind: 'card' as const, id })), targetSlots: aims.map(() => 0) }; })()

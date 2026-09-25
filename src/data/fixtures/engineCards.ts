@@ -8906,6 +8906,10 @@ export const SKYCLAW_THRASH: CardData = F.SKYCLAW_THRASH as CardData;
 export const SEARING_TOUCH: CardData = F.SEARING_TOUCH as CardData;
 export const CONSTANT_MISTS: CardData = F.CONSTANT_MISTS as CardData;
 export const FORBID: CardData = F.FORBID as CardData;
+export const GRAPESHOT: CardData = F.GRAPESHOT as CardData;
+export const TENDRILS_OF_AGONY: CardData = F.TENDRILS_OF_AGONY as CardData;
+export const VIOLENT_OUTBURST: CardData = F.VIOLENT_OUTBURST as CardData;
+export const TEMPEST_TECHNIQUE: CardData = F.TEMPEST_TECHNIQUE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18064,6 +18068,10 @@ export const ENGINE_CARDS: CardData[] = [
   SEARING_TOUCH,
   CONSTANT_MISTS,
   FORBID,
+  GRAPESHOT,
+  TENDRILS_OF_AGONY,
+  VIOLENT_OUTBURST,
+  TEMPEST_TECHNIQUE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

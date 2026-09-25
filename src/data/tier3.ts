@@ -110,6 +110,8 @@ const NAMED: Readonly<Record<string, string>> = {
   suspend: 'use counters and cast it when they run out',
   madness: 'cast it from the graveyard with the manual tools',
   // D525 - cascade is the engine's now (CR 702.85): no note.
+  // D536 - an instant's or a sorcery's storm is the engine's now (CR 702.40): no note there; a permanent spell's copies
+  // would be tokens the engine does not make, so its storm keeps the note.
   storm: 'copy the spell yourself',
   // D391 - proliferate is the engine's now (CR 701.27a): no note.
   changeling: 'it is not treated as every creature type',
@@ -397,6 +399,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
     if (raw.trim().toLowerCase() === 'flashback' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) && parseFlashback(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
+    // D536 - an instant's or a sorcery's Storm the engine runs (the keyword table's cast trigger) is no note.
+    if (raw.trim().toLowerCase() === 'storm' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? ''))) continue;
     // D405 - a Convoke / Improvise / Delve the engine charges (read by parseAltCosts) is no note.
     if (
       (raw.trim().toLowerCase() === 'convoke' || raw.trim().toLowerCase() === 'improvise' || raw.trim().toLowerCase() === 'delve') &&

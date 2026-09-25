@@ -301422,6 +301422,149 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GRAPESHOT": {
+    "scryfallId": "4ee33cb6-768e-44a0-b6f4-b8638aa84330",
+    "oracleId": "ebd2d760-5ad8-4027-b124-171822f3edfe",
+    "name": "Grapeshot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grapeshot",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Grapeshot deals 1 damage to any target.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+        "flavorText": "Mages often seek to emulate the powerful relics lost to time and apocalypse.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "4ee33cb6-768e-44a0-b6f4-b8638aa84330"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Storm"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TENDRILS_OF_AGONY": {
+    "scryfallId": "0559352e-95c1-403b-bd8f-d0679717cfa2",
+    "oracleId": "78db3190-59bc-4033-95bc-32d8ed872b6a",
+    "name": "Tendrils of Agony",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tendrils of Agony",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player loses 2 life and you gain 2 life.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0559352e-95c1-403b-bd8f-d0679717cfa2"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Storm"
+    ],
+    "setCode": "scg",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIOLENT_OUTBURST": {
+    "scryfallId": "1b58856a-f88e-4625-8636-62b5c717b956",
+    "oracleId": "c0f69063-9079-4e7a-98dc-c29da8171d33",
+    "name": "Violent Outburst",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Violent Outburst",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order.)\nCreatures you control get +1/+0 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Richard Whitters",
+        "imageId": "1b58856a-f88e-4625-8636-62b5c717b956"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Cascade"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEMPEST_TECHNIQUE": {
+    "scryfallId": "5d5ee7cc-4854-4b52-ba9b-64d5a401fca1",
+    "oracleId": "e86bd848-d712-47c5-a82b-8fd5ce1de76a",
+    "name": "Tempest Technique",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tempest Technique",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Storm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies. Copies become tokens.)\nEnchant creature you control\nEnchanted creature gets +1/+1 for each enchantment you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "5d5ee7cc-4854-4b52-ba9b-64d5a401fca1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Storm",
+      "Enchant"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

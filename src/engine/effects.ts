@@ -673,8 +673,10 @@ export function effectResult(
       // the question. An ability on the stack is no spell and a face-down spell copies as nothing (708.2): the clause
       // says so (D90). The id is fresh past every copy this batch already made (`state` is the batch's snapshot).
       case 'copySpell': {
-        if (aim?.kind !== 'stack') break;
-        const original = state.stack.find((s) => s.id === aim.id);
+        // D536 - storm copies its own spell (`copyFrom`): no aim; the spell off the stack, or - gone - its snapshot as cast.
+        const stormOf = effect.copyFrom;
+        if (aim?.kind !== 'stack' && stormOf === undefined) break;
+        const original = stormOf !== undefined ? (state.stack.find((s) => s.id === stormOf.id) ?? stormOf) : aim?.kind === 'stack' ? state.stack.find((s) => s.id === aim.id) : undefined;
         const originalCard = original === undefined || original.card === null ? undefined : state.cards[original.card];
         const of = original === undefined ? undefined : original.copyOf ?? (originalCard ? { printingId: originalCard.printingId, faceIndex: original.faceIndex } : undefined);
         if (original === undefined || original.kind !== 'spell' || original.faceDown || of === undefined) {

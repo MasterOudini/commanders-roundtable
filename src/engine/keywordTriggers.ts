@@ -16,11 +16,11 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { mobilizeSacrificeSpec } from '../data/effectParse';
+import { mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import type { Keyword, ModeDecl, TargetSpec } from './types/oracle';
+import type { EffectSpec, Keyword, ModeDecl, TargetSpec } from './types/oracle';
 import type { DefenderRef, DelayedTrigger, StackObject } from './types/state';
 import { faceOf } from './oracle';
 import { narrated } from './narrate';
@@ -75,6 +75,11 @@ export interface KeywordTrigger {
    * `SpellCast` event - its DERIVED keywords, CR 613's silence - instead of walking the battlefield.
    */
   readonly fromStack?: true;
+  /**
+   * D536 - the entry's own EFFECTS (storm's copies): carried onto the stack object as `delayedEffects` and run by the
+   * vocabulary's executor at resolution (D402's path), so a clause that asks (a copy's new targets) rides the continuation.
+   */
+  effects?(ctx: ScriptCtx, self: InstanceId, ev: EventBody): readonly EffectSpec[];
   /**
    * D525 - a resolution that CONSUMES RANDOMNESS (cascade's bottoming in a random order) takes the generator and hands
    * back the advanced one beside its events; the loop records it as `rngAfter` (the replay rule `effects.ts` states).
@@ -786,7 +791,41 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       resolveRandom: (ctx, self, obj, rng) => cascadeResolve(ctx, self, obj, rng),
     },
   ],
+  [
+    'storm',
+    {
+      // D536 - CR 702.40a: when you cast this spell, copy it for each other spell cast before it this turn; you may choose
+      // new targets for any of the copies. The entry fires off the SPELL on the stack (`fromStack`, cascade's shape); the
+      // count is taken at the firing (`stormCount` - a spell cast in response adds no copy), and the copies are the
+      // entry's own effects (`stormCopySpec` - D487's copy aimed at the spell itself), run as the stack object's effects
+      // so each copy's question rides the continuation to the next. `resolve` is never reached (the effects run first).
+      event: 'SpellCast',
+      fromStack: true,
+      // A permanent spell's copies would be tokens the engine does not make (CR 707.10a): an instant or sorcery alone.
+      matches: (ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.card === self && ev.obj.copyOf === undefined && !isPermanentSpell(ctx, self),
+      memo: (ctx) => stormCount(ctx),
+      effects: (ctx, _self, ev) => (ev.t === 'SpellCast' ? Array.from({ length: stormCount(ctx) }, () => stormCopySpec(ev.obj)) : []),
+      label: (ctx, self) => `${nameOf(ctx, self)} - storm`,
+      resolve: () => [],
+    },
+  ],
 ]);
+
+/**
+ * D536 - the storm count (CR 702.40a): every spell cast this turn, by every player, before this one - read off the state
+ * after the cast, so the spell's own cast is taken off (the turn's tally counts it by then).
+ */
+/** D536 - the cast card is a permanent spell (its face): storm copies only an instant or a sorcery here. */
+function isPermanentSpell(ctx: ScriptCtx, id: InstanceId): boolean {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card !== undefined && printing !== undefined && faceOf(printing, card.faceIndex).isPermanent;
+}
+
+function stormCount(ctx: ScriptCtx): number {
+  const cast = Object.values(ctx.state.turn.spellsCast).reduce((a, b) => a + b, 0);
+  return Math.max(0, cast - 1);
+}
 
 /** D439 - the printed echo / cumulative upkeep price of one permanent, read at resolution (the one reader). */
 function upkeepPriceOf(ctx: ScriptCtx, id: InstanceId, keyword: 'echo' | 'cumulativeUpkeep'): UpkeepPrice | null {

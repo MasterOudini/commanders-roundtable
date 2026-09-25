@@ -1416,6 +1416,8 @@ export function collectTriggers(
             specs: kt.targets ? kt.targets(ctx, id) : [],
             ...(item !== undefined ? { item } : {}),
             ...(kt.memo ? { memo: kt.memo(ctx, id, event.body) } : {}),
+            // D536 - the entry's own effects (storm's copies), onto the stack object as its `delayedEffects`.
+            ...(kt.effects ? { effects: kt.effects(ctx, id, event.body) } : {}),
           });
         }
         continue;

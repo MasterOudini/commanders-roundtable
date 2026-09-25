@@ -2393,6 +2393,11 @@ export function dashReturnSpec(): EffectSpec {
   return { ...BASE, kind: 'bounce', text: "Return it to its owner's hand.", targetIndex: -1, self: true };
 }
 
+/** D536 - storm's copy of its own spell (CR 702.40a): no target, the spell as cast riding along for its last known information. */
+export function stormCopySpec(of: import('../engine/types/state').StackObject): EffectSpec {
+  return { ...BASE, kind: 'copySpell', text: 'Copy it.', targetIndex: -1, self: true, copy: { of: 'self', exceptions: null }, newTargets: true, copyFrom: of };
+}
+
 /** D463 - the delayed sacrifice mobilize arms on each Warrior (CR 702.179a): the token itself, if it is still there. */
 export function mobilizeSacrificeSpec(): EffectSpec {
   return { ...BASE, kind: 'sacrificeSelf', text: 'Sacrifice it.', targetIndex: -1, self: true };
@@ -3394,6 +3399,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.
     .filter((l) => !/^Devoid$/i.test(l.trim()))
+    // D536 - a Storm or a Cascade line is a cast trigger the keyword table runs off the spell on the stack (D525, D536),
+    // no clause of the spell either.
+    .filter((l) => !/^(?:Storm|Cascade(?:, cascade)*)$/i.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   if (clauses.length === 0) return { effects: [], mode: 'manual' };

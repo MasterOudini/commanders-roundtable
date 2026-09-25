@@ -9906,6 +9906,12 @@ const WANTED = [
   'Searing Touch',
   'Constant Mists',
   'Forbid',
+  // D536 - STORM: the seam's proof cards (Grapeshot - a storm ping with new targets; Tendrils of Agony - a storm drain; Violent Outburst - a cascade spell, its line read at last).
+  'Grapeshot',
+  'Tendrils of Agony',
+  'Violent Outburst',
+  // D536 - storm on a PERMANENT spell (an Aura): no trigger, the line not the engine's - the proof card.
+  'Tempest Technique',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
