@@ -2447,6 +2447,11 @@ export function mobilizeSacrificeSpec(): EffectSpec {
 }
 
 /** D448 - the delayed exile unearth arms (CR 702.84c): the source itself, if it is still on the battlefield. */
+/** D547 - WARP's delayed exile (the next end step): the permanent itself, the move marked for the later cast from exile. */
+export function warpExileSpec(): EffectSpec {
+  return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true, warp: true };
+}
+
 export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }

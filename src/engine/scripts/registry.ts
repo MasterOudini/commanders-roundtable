@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { EUSOCIAL_ENGINEERING_SCRIPT } from './cards/eusocialEngineering';
+import { MECHANOZOA_SCRIPT } from './cards/mechanozoa';
+import { NOVA_HELLKITE_SCRIPT } from './cards/novaHellkite';
+import { STARWINDER_SCRIPT } from './cards/starwinder';
+import { KNIGHT_LUMINARY_SCRIPT } from './cards/knightLuminary';
+import { MEMORIAL_TEAM_LEADER_SCRIPT } from './cards/memorialTeamLeader';
+import { CODECRACKER_HOUND_SCRIPT } from './cards/codecrackerHound';
+import { ALL_FATES_STALKER_SCRIPT } from './cards/allFatesStalker';
+import { STARBREACH_WHALE_SCRIPT } from './cards/starbreachWhale';
+import { WEFTBLADE_ENHANCER_SCRIPT } from './cards/weftbladeEnhancer';
+import { SINISTER_CRYOLOGIST_SCRIPT } from './cards/sinisterCryologist';
+import { GERMINATING_WURM_SCRIPT } from './cards/germinatingWurm';
 import { TIMELESS_WITNESS_SCRIPT } from './cards/timelessWitness';
 import { ANGEL_OF_SANCTIONS_SCRIPT } from './cards/angelOfSanctions';
 import { TRUEHEART_DUELIST_SCRIPT } from './cards/trueheartDuelist';
@@ -8172,6 +8184,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EUSOCIAL_ENGINEERING_SCRIPT,
+  MECHANOZOA_SCRIPT,
+  NOVA_HELLKITE_SCRIPT,
+  STARWINDER_SCRIPT,
+  KNIGHT_LUMINARY_SCRIPT,
+  MEMORIAL_TEAM_LEADER_SCRIPT,
+  CODECRACKER_HOUND_SCRIPT,
+  ALL_FATES_STALKER_SCRIPT,
+  STARBREACH_WHALE_SCRIPT,
+  WEFTBLADE_ENHANCER_SCRIPT,
+  SINISTER_CRYOLOGIST_SCRIPT,
+  GERMINATING_WURM_SCRIPT,
   TIMELESS_WITNESS_SCRIPT,
   ANGEL_OF_SANCTIONS_SCRIPT,
   TRUEHEART_DUELIST_SCRIPT,

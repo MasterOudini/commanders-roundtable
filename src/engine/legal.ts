@@ -214,6 +214,12 @@ export const FORETELL_COST = parseManaCost('{2}');
  * D540 - a card FORETOLD on an earlier turn, in its owner's exile: castable from there for its foretell cost (CR
  * 702.143a). The offer and the host ask this one predicate (D139).
  */
+/** D547 - a WARPED card in its owner's exile, exiled on an earlier turn: castable from there for its mana cost. */
+export function castsWarped(state: GameState, id: InstanceId, player: PlayerId): boolean {
+  const inst = state.cards[id];
+  return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.warpedTurn !== undefined && inst.warpedTurn < state.turn.turnNumber;
+}
+
 export function castsForetold(state: GameState, id: InstanceId, face: OracleFace, player: PlayerId): boolean {
   const inst = state.cards[id];
   return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.foretoldTurn !== undefined && inst.foretoldTurn < state.turn.turnNumber && face.foretellCost !== null;
@@ -353,6 +359,16 @@ export function legalActions(
       const action = castAction(state, oracle, scripts, perm.card, faceIndex, { kind: 'exile', player: inst.zone.player ?? player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
+  }
+
+  // D547 - A WARPED CARD: in its owner's exile, exiled by its warp on an earlier turn - offered at its own speed for its
+  // mana cost (the warp cost is the hand's alone; a card with a play permission is the loop's above, offered once).
+  for (const id of state.zones.exile[player] ?? []) {
+    if (state.playPermissions.some((perm) => perm.card === id && perm.player === player)) continue;
+    const card = cardFor(state, oracle, id);
+    if (!card || !castsWarped(state, id, player)) continue;
+    const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
+    if (action) out.push(action);
   }
 
   // D540 - A FORETOLD CARD (CR 702.143a): in its owner's exile, foretold on an earlier turn - offered at its own speed
@@ -1084,7 +1100,8 @@ function castAction(
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
     // D540 - a foretold cast is the alternative cost already (one at a time, CR 118.9).
-    ...(foretold ? { foretold: true as const } : alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax)),
+    // D547 - a warp is cast from the hand alone: the later cast from exile is offered for the mana cost only.
+    ...(foretold ? { foretold: true as const } : from.kind !== 'hand' && face.alternativeCost?.keyword === 'warp' ? {} : alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax)),
   };
 }
 

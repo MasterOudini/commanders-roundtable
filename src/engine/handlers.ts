@@ -23,6 +23,7 @@ import {
   canActAtSorcerySpeed,
   castableFaces,
   castsForetold,
+  castsWarped,
   FORETELL_COST,
   discardCandidatesFor,
   exileFromGraveyardCandidatesFor,
@@ -867,7 +868,9 @@ function prepareCast(
   // the madness cost, the timing and the priority the trigger's (a resolution asks; nobody holds priority).
   const madnessCast = madness && !faceDown && !free && from.kind === 'exile' && card.madnessExiled === true && card.owner === player && face.madnessCost !== null;
   if (madness && !madnessCast) return { error: reject('notCastable', `${face.name} cannot be cast for its madness cost now.`) };
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast) {
+  // D547 - a WARPED card: exile is a place to cast from for its owner on a turn after its warp exiled it, for its mana cost.
+  const warped = from.kind === 'exile' && !faceDown && !free && castsWarped(state, cardId, player);
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast && !warped) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
@@ -898,6 +901,8 @@ function prepareCast(
   // 118.9: not beside a flashback or a face-down cast).
   const altCost = alternative ? alternativeCostProblem(state, deps, player, cardId, face, picks.exileFromHand) : null;
   if (altCost && 'error' in altCost) return altCost;
+  // D547 - the warp cost is paid casting from the hand alone.
+  if (altCost && face.alternativeCost?.keyword === 'warp' && from.kind !== 'hand') return { error: reject('notCastable', `${face.name}'s warp cost is paid only casting it from your hand.`) };
   if (altCost && (faceDown || flashback || foretold || madnessCast)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.

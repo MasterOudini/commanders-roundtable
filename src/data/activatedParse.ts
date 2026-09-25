@@ -1299,7 +1299,9 @@ export interface AlternativeCost {
    * marks the permanent (`CardInstance.evoked` / `dashed`) and the engine runs the rider. Absent for a
    * printed `rather than pay` line.
    */
-  readonly keyword?: 'evoke' | 'dash';
+  // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
+  // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
+  readonly keyword?: 'evoke' | 'dash' | 'warp';
   /**
    * D490 - `If <condition>, you may cast this spell without paying its mana cost.`: an alternative cost of NOTHING
    * under its conditions (mana null, no verb, no pitch). The offer and the handler already price a null mana at
@@ -1318,7 +1320,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
     // D449 - THE KEYWORD ALTERNATIVE COSTS: `Evoke {cost}` and `Dash {cost}` on their own line (reminder text
     // aside) are "you may pay {cost} rather than pay this spell's mana cost" with a rider the engine runs off
     // the mark the cast leaves. One alternative cost per face: a printed line found first wins.
-    const kwAlt = /^(Evoke|Dash) ((?:\{[^}]+\})+)$/.exec(line);
+    const kwAlt = /^(Evoke|Dash|Warp) ((?:\{[^}]+\})+)$/.exec(line);
     if (kwAlt) {
       const kwMana = parseCost(kwAlt[2] ?? '');
       if (kwMana === null) return null;
@@ -1334,7 +1336,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         returnCost: null,
         exileFromHand: null,
         conditions: [],
-        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : 'dash',
+        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : 'dash',
       };
     }
     // D490 - THE CONDITIONAL FREE CAST: `If <condition>, you may cast this spell without paying its mana cost.` - an

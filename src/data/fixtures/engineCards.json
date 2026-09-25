@@ -304881,6 +304881,498 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BYGONE_COLOSSUS": {
+    "scryfallId": "4bb8f2ef-4398-4a07-9130-5005356a3b4a",
+    "oracleId": "1bd584d5-4e11-428c-b51e-462e4292b07f",
+    "name": "Bygone Colossus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bygone Colossus",
+        "manaCost": "{9}",
+        "typeLine": "Artifact Creature — Robot Giant",
+        "oracleText": "Warp {3} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "The Edge is littered with the vestiges of civilizations annihilated by the Eldrazi.",
+        "power": "9",
+        "toughness": "9",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Maxime Minard",
+        "imageId": "4bb8f2ef-4398-4a07-9130-5005356a3b4a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 9,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "235",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RED_TIGER_MECHAN": {
+    "scryfallId": "b7b2fa48-cd2d-42ea-afd8-8cbd7a1bcdab",
+    "oracleId": "94c9aea7-564d-4fc8-ae14-7b22cba18b95",
+    "name": "Red Tiger Mechan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Red Tiger Mechan",
+        "manaCost": "{3}{R}",
+        "typeLine": "Artifact Creature — Robot Cat",
+        "oracleText": "Haste\nWarp {1}{R} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "While the Kavaron tiger has been extinct for centuries, its renowned ferocity endures.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "b7b2fa48-cd2d-42ea-afd8-8cbd7a1bcdab"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EUSOCIAL_ENGINEERING": {
+    "scryfallId": "011bd7d8-6d60-482a-91b7-d3f0aad13b71",
+    "oracleId": "2f3f5a1c-8b88-4080-bd80-14db4d6c8c50",
+    "name": "Eusocial Engineering",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eusocial Engineering",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "Landfall — Whenever a land you control enters, create a 2/2 colorless Robot artifact creature token.\nWarp {1}{G} (You may cast this card from your hand for its warp cost. Exile this enchantment at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "A harmonious production for a better world.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Francisco Badilla",
+        "imageId": "011bd7d8-6d60-482a-91b7-d3f0aad13b71"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Warp",
+      "Landfall"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MECHANOZOA": {
+    "scryfallId": "0cb8d8ce-329a-4a97-b3d8-796703ebcb37",
+    "oracleId": "1aeb43f7-4d8a-4648-9c13-fd101081b448",
+    "name": "Mechanozoa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mechanozoa",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Artifact Creature — Robot Jellyfish",
+        "oracleText": "When this creature enters, tap target artifact or creature an opponent controls and put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)\nWarp {2}{U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daarken",
+        "imageId": "0cb8d8ce-329a-4a97-b3d8-796703ebcb37"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOVA_HELLKITE": {
+    "scryfallId": "23adc472-acee-4642-8306-00505eb82e0f",
+    "oracleId": "9635d79e-62ec-4d80-ae37-2793489cc13b",
+    "name": "Nova Hellkite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nova Hellkite",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\nWhen this creature enters, it deals 1 damage to target creature an opponent controls.\nWarp {2}{R} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "23adc472-acee-4642-8306-00505eb82e0f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste",
+      "Warp"
+    ],
+    "setCode": "peoe",
+    "collectorNumber": "148s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARWINDER": {
+    "scryfallId": "27d1a010-5790-4b35-9fdc-0e366eed021d",
+    "oracleId": "face2dc0-37ba-4efe-b900-b5521567c943",
+    "name": "Starwinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starwinder",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Leviathan",
+        "oracleText": "Whenever a creature you control deals combat damage to a player, you may draw that many cards.\nWarp {2}{U}{U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Devin Elle Kurtz",
+        "imageId": "27d1a010-5790-4b35-9fdc-0e366eed021d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHT_LUMINARY": {
+    "scryfallId": "34334971-c1b7-4506-a6dd-77f66b3ae4e7",
+    "oracleId": "11809d9b-30f3-49d5-9119-e45b4de044c8",
+    "name": "Knight Luminary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knight Luminary",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, create a 1/1 white Human Soldier creature token.\nWarp {1}{W} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "\"I thank you that I do not shine alone.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "34334971-c1b7-4506-a6dd-77f66b3ae4e7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "23",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEMORIAL_TEAM_LEADER": {
+    "scryfallId": "3ddc240a-62df-4773-98d7-48a9adaf1846",
+    "oracleId": "c71d3775-0c71-4e37-979d-35e319f357f0",
+    "name": "Memorial Team Leader",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Memorial Team Leader",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Kavu Soldier",
+        "oracleText": "During your turn, other creatures you control get +1/+0.\nWarp {1}{R} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "Recover the treasures in Kavaron's memorial vaults—by any means necessary.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "3ddc240a-62df-4773-98d7-48a9adaf1846"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CODECRACKER_HOUND": {
+    "scryfallId": "6723b891-6013-4ec6-b439-2233d270dc48",
+    "oracleId": "ae791b61-5825-4987-a8c2-80813758d3f7",
+    "name": "Codecracker Hound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Codecracker Hound",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "When this creature enters, look at the top two cards of your library. Put one into your hand and the other into your graveyard.\nWarp {2}{U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "Even across the Edge, a dog is still a dog.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "6723b891-6013-4ec6-b439-2233d270dc48"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALL_FATES_STALKER": {
+    "scryfallId": "82ae4f7b-8122-4af6-8079-888eabf1a11e",
+    "oracleId": "da9ec010-8b42-4927-b602-4e96bced4e99",
+    "name": "All-Fates Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "All-Fates Stalker",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Drix Assassin",
+        "oracleText": "When this creature enters, exile up to one target non-Assassin creature until this creature leaves the battlefield.\nWarp {1}{W} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "\"You again?\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "82ae4f7b-8122-4af6-8079-888eabf1a11e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARBREACH_WHALE": {
+    "scryfallId": "8a1a0476-7145-4493-97e5-4fc05c85e476",
+    "oracleId": "076865e9-ee10-4a87-9180-4274202d37c1",
+    "name": "Starbreach Whale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starbreach Whale",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Whale",
+        "oracleText": "Flying\nWhen this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\nWarp {1}{U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "8a1a0476-7145-4493-97e5-4fc05c85e476"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Surveil",
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WEFTBLADE_ENHANCER": {
+    "scryfallId": "8d72b00c-5043-4630-949a-fc17eeb962bc",
+    "oracleId": "4d8ee903-17b3-43c9-9637-ee596955a9f4",
+    "name": "Weftblade Enhancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Weftblade Enhancer",
+        "manaCost": "{5}{W}",
+        "typeLine": "Creature — Drix Artificer",
+        "oracleText": "When this creature enters, put a +1/+1 counter on each of up to two target creatures.\nWarp {2}{W} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": "His people watched the Eldrazi rise and the Fomori fall. Never will they watch again.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nathaniel Himawan",
+        "imageId": "8d72b00c-5043-4630-949a-fc17eeb962bc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SINISTER_CRYOLOGIST": {
+    "scryfallId": "e8fbe740-05ec-4ced-bb9d-3084c8c2b631",
+    "oracleId": "be3038ff-b39e-4d2e-97ee-85de074ccfd3",
+    "name": "Sinister Cryologist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sinister Cryologist",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Jellyfish Wizard",
+        "oracleText": "When this creature enters, target creature an opponent controls gets -3/-0 until end of turn.\nWarp {U} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "e8fbe740-05ec-4ced-bb9d-3084c8c2b631"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GERMINATING_WURM": {
+    "scryfallId": "fcde173a-6314-4904-bddd-68b2ab1e4867",
+    "oracleId": "8735c62d-1508-4bdc-a5d0-f7c68d892a5e",
+    "name": "Germinating Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Germinating Wurm",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Plant Wurm",
+        "oracleText": "When this creature enters, you gain 2 life.\nWarp {1}{G} (You may cast this card from your hand for its warp cost. Exile this creature at the beginning of the next end step, then you may cast it from exile on a later turn.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Monztre",
+        "imageId": "fcde173a-6314-4904-bddd-68b2ab1e4867"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Warp"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

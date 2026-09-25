@@ -35,7 +35,7 @@ import { EMPTY_POOL, poolTotal } from './types/mana';
 import { shuffle, type RngState } from './rng';
 import type { ActivatedAbility, EffectSpec, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type ExtraTurn, type GameState, type PendingTrigger, type StackObject } from './types/state';
-import { dashReturnSpec, unearthExileSpec } from '../data/effectParse';
+import { dashReturnSpec, unearthExileSpec, warpExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
 
 export interface EngineDeps {
@@ -1007,6 +1007,22 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       };
       events.push({ t: 'DelayedTriggerArmed', trigger });
       events.push(narrated(n`${face.name} was dashed: it has haste, and it returns to hand at the beginning of the next end step.`, obj.controller, obj.identity));
+    }
+    // D547 - WARP: a warped permanent is exiled at the beginning of the next end step (a delayed trigger armed as the spell
+    // resolves, dash's shape) - the exile marks the card, and its owner may cast it from exile on a later turn.
+    if (obj.alternativePaid && face?.alternativeCost?.keyword === 'warp') {
+      const trigger: DelayedTrigger = {
+        id: `${obj.id}-warp`,
+        controller: obj.controller,
+        source: obj.card,
+        when: { step: 'end', whose: 'next' },
+        armedTurn: state.turn.turnNumber,
+        armedStep: state.turn.step,
+        effects: [warpExileSpec()],
+        label: `${face.name} — warp: exile it`,
+      };
+      events.push({ t: 'DelayedTriggerArmed', trigger });
+      events.push(narrated(n`${face.name} was warped: it is exiled at the beginning of the next end step, and may be cast from exile on a later turn.`, obj.controller, obj.identity));
     }
     // CR 303.4g — an Aura SPELL enters attached to the object it targeted.
     // ⚠️ This was MISSING: the resolved Aura sat unattached for exactly one

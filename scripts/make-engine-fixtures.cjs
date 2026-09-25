@@ -10029,6 +10029,23 @@ const WANTED = [
   'Angel of Sanctions',
   'Trueheart Duelist',
   // D546 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D547 - WARP's proof fixtures: Bygone Colossus (Warp {3}) and Red Tiger Mechan (Warp {1}{R}).
+  'Bygone Colossus',
+  'Red Tiger Mechan',
+  // D547 - WARP: the rows the whole-leftover row maker rowed once the Warp line was the engine's (the cast from hand, the end-step exile, the later cast from exile).
+  'Eusocial Engineering',
+  'Mechanozoa',
+  'Nova Hellkite',
+  'Starwinder',
+  'Knight Luminary',
+  'Memorial Team Leader',
+  'Codecracker Hound',
+  'All-Fates Stalker',
+  'Starbreach Whale',
+  'Weftblade Enhancer',
+  'Sinister Cryologist',
+  'Germinating Wurm',
+  // D547 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

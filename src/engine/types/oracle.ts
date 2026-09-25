@@ -1366,6 +1366,8 @@ export interface EffectSpec {
    * has already left (610.3b). REQUIRED (D355/D356's rule), `false` on every other effect.
    */
   readonly untilLeaves: boolean;
+  /** D547 - `exileSelf` only: the WARP's end-step exile - the move marks the card (`CardMove.warpedTurn`) for its later cast. */
+  readonly warp?: true;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape

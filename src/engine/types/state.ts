@@ -248,6 +248,11 @@ export interface CardInstance {
    * by the move that takes it out of exile.
    */
   readonly foretoldTurn?: number | undefined;
+  /**
+   * D547 - WARPED: the turn the warp's end-step exile put the card there; castable from exile by its owner, for its
+   * mana cost, on a later turn. Cleared by the move that takes it out of exile.
+   */
+  readonly warpedTurn?: number | undefined;
   /** D541 - exiled by its own discard (CR 702.35a): the madness trigger's card; cleared by the move that takes it out of exile. */
   readonly madnessExiled?: true | undefined;
   /**

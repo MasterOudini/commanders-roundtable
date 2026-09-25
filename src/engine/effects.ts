@@ -1286,7 +1286,8 @@ export function effectResult(
         if (!source) break;
         const gone = state.cards[source];
         if (!gone || gone.zone.kind !== 'battlefield') break;
-        out.push(moveTo(source, 'exile', gone.owner));
+        // D547 - a warp's exile marks the card with this turn: its owner may cast it from exile on a later turn.
+        out.push(effect.warp === true ? { t: 'CardsMoved', moves: [{ card: source, from: { kind: 'battlefield', player: null }, to: { kind: 'exile', player: gone.owner }, warpedTurn: state.turn.turnNumber }] } : moveTo(source, 'exile', gone.owner));
         break;
       }
 
