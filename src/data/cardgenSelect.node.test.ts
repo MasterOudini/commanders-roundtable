@@ -778,6 +778,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D545 - exploit: the Exploit line is the engine's now (the enters offer to sacrifice a creature, the sacrifice tagged for the `exploits a creature` head); what stays is an exploit card the row maker refuses for another line.
+  ['Graf Reaver', 'the row maker: a vocabulary clause the suite has no fixture for: a battle clause (D545)'],
+  ['Skull Skaab', 'the row maker: trigger head not in the library: Whenever a creature you control exploits a nontoken creature, create a 2/2 black Zombie creature token with decayed. (D545)'],
+  ['Silumgar Sorcerer', 'the row maker: a vocabulary effect the suite cannot assert: counter (D545)'],
+  ['Stitched Assistant', 'the row maker: trigger payload not a pump: Scry 1, then draw a card. (D545)'],
   // D544 - partner with: the Partner with line is the engine's now (the enters trigger, the named search asked of the target player); what stays is a partner-with card refused for another line.
   ['Jenny Flint', 'the row maker: a sacrifice head no fixture the suite can sacrifice satisfies: a Clue or Food (D544)'],
   ['Ley Weaver', 'the row maker: a vocabulary clause the suite has no fixture for: a counted clause (2..2) (D544)'],
@@ -1114,7 +1119,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Empress Galina', 'the row maker: a vocabulary clause the suite has no fixture for: no fixture for target legendary permanent (D531)'],
   ['Spinal Embrace', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat. (D531)'],
   ['Press into Service', 'the row maker: a spell with a line outside the vocabulary: Support 2. (Put a +1/+1 counter on each of up to two target (D531)'],
-  ['Infernal Captor', 'the row maker: a line that is neither an activated ability nor a library trigger: Exploit (D531)'],
   ['Edea, Possessed Sorceress', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control but don\'t own dies, ret (D531)'],
   ['Pumpkin Bombs', 'the row maker: effect not a row kind: Draw three cards, then put a fuse counter on this artifact. It deals damage equal to the number of fuse counters (D531)'],
   ['Contested Game Ball', 'the row maker: trigger head not in the library: Whenever you\'re dealt combat damage, the attacking player gains contro (D531)'],

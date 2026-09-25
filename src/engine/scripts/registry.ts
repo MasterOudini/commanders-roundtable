@@ -7,6 +7,19 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FELL_STINGER_SCRIPT } from './cards/fellStinger';
+import { QARSI_SADIST_SCRIPT } from './cards/qarsiSadist';
+import { RAKSHASA_GRAVECALLER_SCRIPT } from './cards/rakshasaGravecaller';
+import { LOATHSOME_CURATOR_SCRIPT } from './cards/loathsomeCurator';
+import { ROT_TIDE_GARGANTUA_SCRIPT } from './cards/rotTideGargantua';
+import { REPOSITORY_SKAAB_SCRIPT } from './cards/repositorySkaab';
+import { MINISTER_OF_PAIN_SCRIPT } from './cards/ministerOfPain';
+import { SIDISI_UNDEAD_VIZIER_SCRIPT } from './cards/sidisiUndeadVizier';
+import { SILUMGAR_BUTCHER_SCRIPT } from './cards/silumgarButcher';
+import { GURMAG_DROWNER_SCRIPT } from './cards/gurmagDrowner';
+import { INFERNAL_CAPTOR_SCRIPT } from './cards/infernalCaptor';
+import { VULTUROUS_AVEN_SCRIPT } from './cards/vulturousAven';
+import { SIDISIS_FAITHFUL_SCRIPT } from './cards/sidisisFaithful';
 import { PIPPIN_WARDEN_OF_ISENGARD_SCRIPT } from './cards/pippinWardenOfIsengard';
 import { BLARING_RECRUITER_SCRIPT } from './cards/blaringRecruiter';
 import { PROUD_MENTOR_SCRIPT } from './cards/proudMentor';
@@ -8156,6 +8169,19 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FELL_STINGER_SCRIPT,
+  QARSI_SADIST_SCRIPT,
+  RAKSHASA_GRAVECALLER_SCRIPT,
+  LOATHSOME_CURATOR_SCRIPT,
+  ROT_TIDE_GARGANTUA_SCRIPT,
+  REPOSITORY_SKAAB_SCRIPT,
+  MINISTER_OF_PAIN_SCRIPT,
+  SIDISI_UNDEAD_VIZIER_SCRIPT,
+  SILUMGAR_BUTCHER_SCRIPT,
+  GURMAG_DROWNER_SCRIPT,
+  INFERNAL_CAPTOR_SCRIPT,
+  VULTUROUS_AVEN_SCRIPT,
+  SIDISIS_FAITHFUL_SCRIPT,
   PIPPIN_WARDEN_OF_ISENGARD_SCRIPT,
   BLARING_RECRUITER_SCRIPT,
   PROUD_MENTOR_SCRIPT,

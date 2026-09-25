@@ -2920,6 +2920,17 @@ const MAY_VERB_RE = new RegExp(String.raw`^(?:then )?you may (${VERB_LEAD} .+?)\
 const UNLESS_VERB_RE = new RegExp(String.raw`^(.+?) unless you (${VERB_LEAD} [^.]+)\.$`, 'i');
 const SELF_PRICE_RE = /^sacrifice (?:it|~|this (?:creature|permanent|artifact|enchantment|land))$/i;
 
+/**
+ * D545 - EXPLOIT (CR 702.110a): "When this creature enters, you may sacrifice a creature." The keyword table's entry
+ * resolves this spec: D415's verb price with nothing after it, offered to the controller; the exploiter itself is a
+ * candidate (no `another`). `exploit` asks the answer to tag the sacrifice with the source (`CardMove.exploitedBy`).
+ */
+export function exploitSpec(): EffectSpec {
+  const verbs = readVerbPrice('sacrifice a creature');
+  if (!verbs) throw new Error('the exploit price does not read');
+  return { ...BASE, kind: 'payOptional', text: 'You may sacrifice a creature.', targetIndex: -1, self: true, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [], exploit: true } };
+}
+
 function readVerbPrice(raw: string): VerbPrice | null {
   const price = raw.trim();
   if (SELF_PRICE_RE.test(price)) {

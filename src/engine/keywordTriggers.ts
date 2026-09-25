@@ -16,7 +16,7 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
+import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -843,6 +843,20 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       effects: (ctx, self) => { const s = partnerWithOf(ctx, self); return s ? [s] : []; },
       label: (ctx, self) => `${nameOf(ctx, self)} - partner with`,
       resolve: () => [],
+    },
+  ],
+  [
+    'exploit',
+    {
+      // D545 - EXPLOIT (CR 702.110a): "When this creature enters, you may sacrifice a creature." The price is the
+      // vocabulary's own verb price (`exploitSpec`, D415's prompt) with nothing after it, run through the vocabulary as
+      // extort's is; the answer tags the sacrifice with this source (`CardMove.exploitedBy`) for the `When ~ exploits a
+      // creature` head (CR 702.110b - it looks back, so it fires when the exploiter sacrificed itself). Resolving with the
+      // exploiter gone, the sacrifice is still offered (the ruling), and the head has no source to fire from.
+      event: 'CardsMoved',
+      matches: (_ctx, self, ev) => enteredThisEvent(self, ev),
+      label: (ctx, self) => `${nameOf(ctx, self)} - exploit`,
+      resolve: (ctx, _self, obj) => ctx.vocabulary(obj, [exploitSpec()], []),
     },
   ],
 ]);

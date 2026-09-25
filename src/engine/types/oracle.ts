@@ -117,6 +117,11 @@ export const TIER2_KEYWORDS = [
   // D536 - STORM (CR 702.40a): a cast trigger that copies the spell for each spell cast before it this turn, run from the
   // keyword table off the SPELL on the stack as cascade is.
   'storm',
+  // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
+  // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
+  // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
+  // (CR 702.110b), which looks back - it fires when the exploiter sacrificed itself.
+  'exploit',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -1180,6 +1185,8 @@ export interface PaySpec {
   readonly who: 'controller' | 'targetController' | 'targetPlayer';
   readonly ifPaid: readonly EffectSpec[];
   readonly ifNotPaid: readonly EffectSpec[];
+  /** D545 - the price is an EXPLOIT's sacrifice (CR 702.110a): the answer tags the move with the exploiter. */
+  readonly exploit?: true;
 }
 
 /**

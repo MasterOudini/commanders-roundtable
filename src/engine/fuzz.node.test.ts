@@ -1735,6 +1735,8 @@ interface Run {
   readonly madnessCasts: number;
   /** D544 - the partner-with triggers put on the stack (a permanent with `Partner with <name>` entered). */
   readonly partnerWithTriggers: number;
+  /** D545 - the sacrifices an exploit paid (a move tagged `exploitedBy`). */
+  readonly exploitSacrifices: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2250,6 +2252,7 @@ function runOne(seed: number): Run {
     madnessExiles: game.log.reduce((k, e) => k + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.madness === true).length : 0), 0),
     madnessCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.madnessCost ?? null) !== null).length,
     partnerWithTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:partnerWith')).length,
+    exploitSacrifices: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.exploitedBy !== undefined).length : 0), 0),
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2591,6 +2594,7 @@ const TOTAL_KEYS = [
   'madnessExiles',
   'madnessCasts',
   'partnerWithTriggers',
+  'exploitSacrifices',
   'crownings',
   'ringTempts',
   'ringAbilities',

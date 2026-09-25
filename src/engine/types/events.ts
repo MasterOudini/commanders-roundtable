@@ -74,6 +74,12 @@ export interface CardMove {
   readonly foretoldTurn?: number;
   /** D541 - the discard MADNESS sent to exile instead of the graveyard (CR 702.35a): the reducer marks the card, the trigger reads it. */
   readonly madness?: true;
+  /**
+   * D545 - the sacrifice an EXPLOIT paid (CR 702.110b): the exploiter. Its `When ~ exploits a creature` head reads it and
+   * LOOKS BACK - the exploiter may be the creature sacrificed; an exploiter gone before its trigger resolved fires nothing
+   * (it is not on the battlefield in the state before the sacrifice).
+   */
+  readonly exploitedBy?: InstanceId;
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**

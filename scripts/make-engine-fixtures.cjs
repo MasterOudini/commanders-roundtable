@@ -10005,6 +10005,22 @@ const WANTED = [
   'Kamber, the Plunderer',
   'Silvar, Devourer of the Free',
   // D544 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D545 - EXPLOIT's proof fixture: Vulturous Aven (Flying, Exploit, When this creature exploits a creature, you draw two cards and you lose 2 life).
+  'Vulturous Aven',
+  // D545 - EXPLOIT: the rows the whole-leftover row maker rowed once the Exploit line was the engine's and its exploits head the row maker's and the generator's.
+  'Fell Stinger',
+  'Qarsi Sadist',
+  'Rakshasa Gravecaller',
+  'Loathsome Curator',
+  'Rot-Tide Gargantua',
+  'Repository Skaab',
+  'Minister of Pain',
+  'Sidisi, Undead Vizier',
+  'Silumgar Butcher',
+  'Gurmag Drowner',
+  'Infernal Captor',
+  "Sidisi's Faithful",
+  // D545 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

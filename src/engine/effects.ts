@@ -927,6 +927,8 @@ export function effectResult(
             ifNotPaid: pay.ifNotPaid,
             ...(pay.verbs ? { verbs: pay.verbs } : {}),
             ...(pay.verbs && shipCandidates && verbCandidates ? { candidates: verbCandidates } : {}),
+            // D545 - an exploit's sacrifice: the answer tags the move (absent elsewhere - every older prompt byte-identical).
+            ...(pay.exploit === true ? { exploit: true as const } : {}),
           },
         });
         break;

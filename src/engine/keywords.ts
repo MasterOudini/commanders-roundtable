@@ -83,6 +83,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   cascade: 'cascade',
   // D536 - storm: the cast trigger that copies the spell for each spell cast before it this turn.
   storm: 'storm',
+  // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
+  exploit: 'exploit',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

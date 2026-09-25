@@ -3584,7 +3584,9 @@ function answerPayMana(
     // D415 - a VERB price: the picks ARE the payment, checked against the board as it stands now.
     const charged = verbPriceEvents(state, deps, intent.player, awaiting, awaiting.verbs, intent.picks ?? []);
     if ('error' in charged) return charged.error;
-    events.push(...charged.events);
+    // D545 - an EXPLOIT's sacrifice carries its exploiter (CR 702.110b): the move the `exploits a creature` head reads.
+    const exploiter = awaiting.exploit === true ? awaiting.source : null;
+    events.push(...(exploiter === null ? charged.events : charged.events.map((e) => (e.t === 'CardsMoved' ? { ...e, moves: e.moves.map((m) => ({ ...m, exploitedBy: exploiter })) } : e))));
     events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'pays', 'pay')} for ${awaiting.label}: ${awaiting.verbs.costText}.`, intent.player));
   } else if (intent.pay) {
     const seat = state.players[intent.player];

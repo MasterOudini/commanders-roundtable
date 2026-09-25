@@ -304244,6 +304244,465 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "VULTUROUS_AVEN": {
+    "scryfallId": "b2fb0cc9-aebd-4bbf-8735-add3b753c118",
+    "oracleId": "83c0c648-f000-470d-bcc3-9ec81257d0cd",
+    "name": "Vulturous Aven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vulturous Aven",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Bird Shaman",
+        "oracleText": "Flying\nExploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, you draw two cards and you lose 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "b2fb0cc9-aebd-4bbf-8735-add3b753c118"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "126",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FELL_STINGER": {
+    "scryfallId": "020a6903-350b-4b12-8fbc-5da40f77cb77",
+    "oracleId": "18dd694f-e239-4603-85fd-b34b028ff6a4",
+    "name": "Fell Stinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fell Stinger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Scorpion",
+        "oracleText": "Deathtouch\nExploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, target player draws two cards and loses 2 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lars Grant-West",
+        "imageId": "020a6903-350b-4b12-8fbc-5da40f77cb77"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exploit",
+      "Deathtouch"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "VOW-112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QARSI_SADIST": {
+    "scryfallId": "068c44b9-0ba8-4275-b73d-18ad366f4b45",
+    "oracleId": "69e15fd8-9531-4392-8b85-b539c138ea91",
+    "name": "Qarsi Sadist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Qarsi Sadist",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, target opponent loses 2 life and you gain 2 life.",
+        "flavorText": "Dying for the greater good still hurts.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "068c44b9-0ba8-4275-b73d-18ad366f4b45"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKSHASA_GRAVECALLER": {
+    "scryfallId": "0bf584fd-b13b-4f86-9c9a-fa6514255aba",
+    "oracleId": "1b57e9f8-68af-4f83-9062-6d715857dcef",
+    "name": "Rakshasa Gravecaller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakshasa Gravecaller",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, create two 2/2 black Zombie creature tokens.",
+        "flavorText": "Debts to rakshasa linger beyond death.",
+        "power": "3",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "0bf584fd-b13b-4f86-9c9a-fa6514255aba"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOATHSOME_CURATOR": {
+    "scryfallId": "11a59a6f-6ef0-4acc-8358-a4e2cebdb7d5",
+    "oracleId": "8a20707f-9764-4236-9aa9-858a2419f012",
+    "name": "Loathsome Curator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loathsome Curator",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Gorgon Wizard",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nMenace\nWhen this creature exploits a creature, destroy target creature you don't control with mana value 3 or less.",
+        "flavorText": "She collects only the choicest of deaths.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "11a59a6f-6ef0-4acc-8358-a4e2cebdb7d5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Menace",
+      "Exploit"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROT_TIDE_GARGANTUA": {
+    "scryfallId": "1eafefd0-3a9e-400e-8c75-0825aeb2ded1",
+    "oracleId": "69c54156-255b-40d9-9c63-4cb9099aa859",
+    "name": "Rot-Tide Gargantua",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rot-Tide Gargantua",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Zombie Kraken",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, each opponent sacrifices a creature of their choice.",
+        "flavorText": "Now that it doesn't need to breathe, its hunting ground extends well beyond the sea.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "1eafefd0-3a9e-400e-8c75-0825aeb2ded1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REPOSITORY_SKAAB": {
+    "scryfallId": "3106775c-31a0-4b53-b357-6beabe0eea64",
+    "oracleId": "7932ddef-b274-4f56-be7f-72e82d17fc59",
+    "name": "Repository Skaab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Repository Skaab",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "Created to capture the spark of genius for later use.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Olivier Bernard",
+        "imageId": "3106775c-31a0-4b53-b357-6beabe0eea64"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "340",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MINISTER_OF_PAIN": {
+    "scryfallId": "3cf4c637-82c3-41fa-b484-31e7dcf475a9",
+    "oracleId": "5d5b63a4-c9d9-4971-9d4e-2eab86f251e2",
+    "name": "Minister of Pain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Minister of Pain",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, creatures your opponents control get -1/-1 until end of turn.",
+        "flavorText": "Draconic words need not be shouted. A whisper will suffice.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Izzy",
+        "imageId": "3cf4c637-82c3-41fa-b484-31e7dcf475a9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIDISI_UNDEAD_VIZIER": {
+    "scryfallId": "3f7e2a33-9b0f-4be3-a8d9-0fb36f9ac98a",
+    "oracleId": "3406db41-6b95-48fc-b58e-4476220fd34d",
+    "name": "Sidisi, Undead Vizier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sidisi, Undead Vizier",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Legendary Creature — Zombie Snake",
+        "oracleText": "Deathtouch\nExploit (When this creature enters, you may sacrifice a creature.)\nWhen Sidisi exploits a creature, you may search your library for a card, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Min Yum",
+        "imageId": "3f7e2a33-9b0f-4be3-a8d9-0fb36f9ac98a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Exploit",
+      "Deathtouch"
+    ],
+    "setCode": "pdtk",
+    "collectorNumber": "120s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILUMGAR_BUTCHER": {
+    "scryfallId": "40cb67f7-b4e1-423b-8f55-d44ed383e778",
+    "oracleId": "77216efa-4f34-4534-9df3-918f0b888ce1",
+    "name": "Silumgar Butcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silumgar Butcher",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Djinn",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, target creature gets -3/-3 until end of turn.",
+        "flavorText": "Silumgar takes pride in the diversity of his sibsig.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "40cb67f7-b4e1-423b-8f55-d44ed383e778"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GURMAG_DROWNER": {
+    "scryfallId": "5087a664-6ed7-43a1-8851-71bbee204eb1",
+    "oracleId": "9839f80b-d28b-49c7-a31a-40c245af2edc",
+    "name": "Gurmag Drowner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gurmag Drowner",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Snake Wizard",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, look at the top four cards of your library. Put one of them into your hand and the rest into your graveyard.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lake Hurwitz",
+        "imageId": "5087a664-6ed7-43a1-8851-71bbee204eb1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INFERNAL_CAPTOR": {
+    "scryfallId": "6b30243d-511b-47b8-bbed-0395d3de903d",
+    "oracleId": "2f0dec6c-797f-4dc3-9994-066c00cbf1a4",
+    "name": "Infernal Captor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Infernal Captor",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Devil Rogue",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, gain control of target artifact or creature until end of turn. Untap that permanent. It gains haste until end of turn.",
+        "flavorText": "Possession is nine-tenths of the law. His fist is the other tenth.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "6b30243d-511b-47b8-bbed-0395d3de903d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIDISI_S_FAITHFUL": {
+    "scryfallId": "d02daad9-701f-40d4-ad0b-44a3cbd32c3f",
+    "oracleId": "45de1caf-46c2-4acc-8be2-08e1840a3b98",
+    "name": "Sidisi's Faithful",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sidisi's Faithful",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Snake Wizard",
+        "oracleText": "Exploit (When this creature enters, you may sacrifice a creature.)\nWhen this creature exploits a creature, return target creature to its owner's hand.",
+        "flavorText": "\"I tire of your prattle, and your face.\"",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "d02daad9-701f-40d4-ad0b-44a3cbd32c3f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Exploit"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

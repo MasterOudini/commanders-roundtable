@@ -1175,6 +1175,8 @@ export type Awaiting =
       readonly candidates?: readonly InstanceId[];
       /** D484 - the clauses after the payment, run once the answer and its branch have landed. */
       readonly continuation?: EffectContinuation;
+      /** D545 - an EXPLOIT's sacrifice (CR 702.110a): the answer tags the sacrificed move with the source (`CardMove.exploitedBy`). */
+      readonly exploit?: true;
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.
