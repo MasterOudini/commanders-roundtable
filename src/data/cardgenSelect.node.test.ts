@@ -778,6 +778,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D543 - double counters: `Double the number of ... counters on ...` is the engine's now (the vocabulary's verb); what stays is a doubling card the row maker refuses for another line.
+  ['Sisterhood of Karn', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D543)'],
+  ['Sazh Katzroy', 'the row maker: a doubling of the previous clause\'s object (not this wave): Double the number of +1/+1 counters on t (D543)'],
+  ['She-Hulk, Attorney-at-Law', 'the row maker: a line that is neither an activated ability nor a library trigger: Power-up — {6}{G/W}: Put a +1/+1 counter on ~. Then double the number of +1/+1 counters on each creature you control. (D543)'],
   // D542 - the pairing keywords: a Partner, Friends forever, Background or Doctor pairing line is the engine's now (deck construction the validator enforces); what stays is a partner commander the row maker refuses for another line.
   ['Miara, Thorn of the Glade', 'the row maker: two payment prompts on one row (the payer lands are shared) (D542)'],
   ['Splinter, the Mentor', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ or another nontoken creature you control leaves the battlefield, create a Mutagen token. (D542)'],

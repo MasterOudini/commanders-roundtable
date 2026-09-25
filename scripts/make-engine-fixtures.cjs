@@ -9975,6 +9975,18 @@ const WANTED = [
   'Wilson, Refined Grizzly',
   'Ganax, Astral Hunter',
   // D542 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D543 - double counters: the proofs' put-then-double spells.
+  'Growth Curve',
+  'Invigorating Surge',
+  // D543 - DOUBLE COUNTERS: the rows the row maker rowed once the doubling verb read and the generator learned to seed and assert it.
+  'Kalonian Hydra',
+  'Gilder Bairn',
+  'Deepglow Skate',
+  'Bristly Bill, Spine Sower',
+  'Mossborn Hydra',
+  'Dragonsguard Elite',
+  'Vorel of the Hull Clade',
+  // D543 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

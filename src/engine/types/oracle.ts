@@ -663,6 +663,13 @@ export type EffectKind =
   | 'massCounters'
   | 'massTap'
   | 'massUntap'
+  /**
+   * D543 - DOUBLE COUNTERS: `Double the number of +1/+1 counters on <target | ~ | it | each creature you control>.` and
+   * `... each kind of counter on ...` (`everyKind`) - the count read off each object as the clause runs (after the
+   * clauses before it), that many more put, a counter per kind. A scope walks the board (`scopes`), a self clause is the
+   * source, a referent is the previous clause's target.
+   */
+  | 'doubleCounters'
   /** D391 - CR 701.27a: one more counter of each kind on the permanents and players chosen. */
   | 'proliferate'
   | 'tap'
@@ -1465,6 +1472,8 @@ export interface EffectSpec {
    * is absent, so every spec shipped before D383 means exactly what it meant.
    */
   readonly scopes?: readonly BoardScope[];
+  /** D543 - `doubleCounters`: every kind of counter on the object (`each kind of counter`), not the one `counterKind` names. */
+  readonly everyKind?: true;
   /** D383 - `gainLifePer`: what the life gain counts. A CLOSED list. */
   readonly perCount?: 'creaturesYouControl' | 'cardsInYourGraveyard' | 'creatureCardsInYourGraveyard';
   /** D382 - `prevent`: how much (a number) or all of it this turn. */

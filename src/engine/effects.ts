@@ -2404,6 +2404,27 @@ export function effectResult(
         if (effect.kind === 'massUntap' && effect.extraPhases) out.push(...extraPhaseEvents(state, effect, obj));
         break;
       }
+      // D543 - DOUBLE COUNTERS: the objects (a scope walked, the source, the target or the referent bound in its place),
+      // read off the state the clauses BEFORE it left (`Put a +1/+1 counter on target creature, then double ...` doubles
+      // the counter just put) - each gets as many more of the kind (every kind, for `each kind of counter`) as it holds.
+      case 'doubleCounters': {
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const cards = effect.scopes !== undefined && effect.scopes.length > 0
+          ? scopeMembers(now, deps, controller, effect.scopes, now === state ? cache : undefined, source ?? null).cards
+          : effect.self ? (source ? [source] : []) : aim?.kind === 'card' ? [aim.id] : [];
+        const changes: { card: InstanceId; kind: string; delta: number }[] = [];
+        for (const id of cards) {
+          const inst = now.cards[id];
+          if (!inst || inst.zone.kind !== 'battlefield') continue;
+          for (const [kind, n] of Object.entries(inst.counters)) {
+            if (n <= 0 || (effect.everyKind !== true && kind !== effect.counterKind)) continue;
+            changes.push({ card: id, kind, delta: n });
+          }
+        }
+        if (changes.length > 0) out.push({ t: 'CountersChanged', changes });
+        break;
+      }
       case 'putCounters':
       case 'removeCounters': {
         if (aim?.kind !== 'card' || effect.counterKind === null) break;

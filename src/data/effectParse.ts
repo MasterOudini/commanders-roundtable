@@ -233,6 +233,13 @@ function num(raw: string | undefined): number | null {
 /** `kind` comes from the rule; `text` is the sentence. The rest is built here. */
 type EffectFields = Omit<EffectSpec, 'text' | 'kind'>;
 
+/** D543 - a `doubleCounters` spec: the counter kind named, or every kind (`each kind of counter`). */
+function doubleSpec(kindText: string | undefined, every: string | undefined, extra: Partial<EffectFields>): EffectFields | null {
+  if (every !== undefined) return { ...BASE, everyKind: true, ...extra };
+  const kind = counterKindOf(kindText ?? '');
+  return kind === null ? null : { ...BASE, counterKind: kind, ...extra };
+}
+
 interface Rule {
   readonly kind: EffectKind;
   readonly re: RegExp;
@@ -1096,6 +1103,30 @@ const RULES: readonly Rule[] = [
       const kind = counterKindOf(m[2]);
       const s = readWideScope(m[3] ?? '');
       return n === null || kind === null || s === null || s.kind === 'player' ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  /**
+   * D543 - DOUBLE COUNTERS: `Double the number of +1/+1 counters on target creature.` - the count on the object read
+   * as the clause runs, that many more put; `each kind of counter` (`everyKind`) doubles every kind the object carries.
+   * On a target, on the source (`~`, `this creature`), over a wide scope (`each creature you control`); the referent
+   * (`... on it`) is the previous clause's target phrase (`REFERENT_DOUBLE`, D392's rewrite).
+   */
+  {
+    kind: 'doubleCounters',
+    re: new RegExp(`^(?:then )?double the number of (?:(${COUNTER_KIND}) counters|(each kind of counter)) on ${TARGET}\\.$`, 'i'),
+    build: (m) => doubleSpec(m[1], m[2], {}),
+  },
+  {
+    kind: 'doubleCounters',
+    re: new RegExp(`^(?:then )?double the number of (?:(${COUNTER_KIND}) counters|(each kind of counter)) on ${SELF}\\.$`, 'i'),
+    build: (m) => doubleSpec(m[1], m[2], { targetIndex: -1, self: true }),
+  },
+  {
+    kind: 'doubleCounters',
+    re: new RegExp(`^(?:then )?double the number of (?:(${COUNTER_KIND}) counters|(each kind of counter)) on ((?:each|all) (?!of )[^.]+?)\\.$`, 'i'),
+    build: (m) => {
+      const s = readWideScope(m[3] ?? '');
+      return s === null || s.kind === 'player' ? null : doubleSpec(m[1], m[2], { targetIndex: -1, self: true, scopes: [s] });
     },
   },
   {
@@ -2526,6 +2557,9 @@ const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrif
 // D470 - the counter put ON the referent (`Tap target creature an opponent controls and put a stun counter on it.`,
 // `Untap target creature. Put a +1/+1 counter on it.`): the referent stands where the target phrase would.
 const REFERENT_COUNTER = new RegExp(`^(?:then )?put ${COUNT} ${COUNTER_KIND} counters? on ${REFERENT}(?![a-z'])`, 'i');
+// D543 - the counters DOUBLED on the referent (`Put a +1/+1 counter on target creature, then double the number of +1/+1
+// counters on it.`): the referent stands where the target phrase would.
+const REFERENT_DOUBLE = new RegExp(`^(?:then )?double the number of (?:${COUNTER_KIND} counters|each kind of counter) on ${REFERENT}(?![a-z'])`, 'i');
 // D485 - the token COPY of the referent (`Exile target creature. Create a token that's a copy of it.`, `... copy of that
 // creature`): the referent stands where the target phrase would.
 const REFERENT_COPY = new RegExp(`^(?:then )?create ${COUNT} tokens? that(?:'s| is| are) (?:a )?cop(?:y|ies) of ${REFERENT}(?![a-z'])`, 'i');
@@ -2681,7 +2715,7 @@ function referentRewrite(sentence: string, previous: Clause | undefined): Effect
     const hit = matchSentence(sentence.replace(REFERENT_POSSESSIVE, previous.phrase + "'s"));
     return hit ? { ...hit, text: sentence, referent: true } : null;
   }
-  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_DOUBLE.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }

@@ -303363,6 +303363,332 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GROWTH_CURVE": {
+    "scryfallId": "1675a445-86ae-413b-b95a-a1c254a7f252",
+    "oracleId": "1efd6082-15a8-4322-892d-02d01e381e2a",
+    "name": "Growth Curve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Growth Curve",
+        "manaCost": "{G}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Put a +1/+1 counter on target creature you control, then double the number of +1/+1 counters on that creature.",
+        "flavorText": "\"There is no force stronger or more daunting than that of exponential growth.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "1675a445-86ae-413b-b95a-a1c254a7f252"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "sos",
+    "collectorNumber": "193",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INVIGORATING_SURGE": {
+    "scryfallId": "472ff365-4c52-42be-9024-c3569014e25d",
+    "oracleId": "5daac63a-1534-4194-8cb7-506508e364f4",
+    "name": "Invigorating Surge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Invigorating Surge",
+        "manaCost": "{2}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Put a +1/+1 counter on target creature you control, then double the number of +1/+1 counters on that creature.",
+        "flavorText": "For hydras, most problems can be solved with the addition of a few extra heads.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "472ff365-4c52-42be-9024-c3569014e25d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "673",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KALONIAN_HYDRA": {
+    "scryfallId": "0a9997a4-f063-41e9-8485-7cb75a08b22f",
+    "oracleId": "7bd36106-04fe-481f-b16e-e076dcbb183b",
+    "name": "Kalonian Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kalonian Hydra",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "Trample\nThis creature enters with four +1/+1 counters on it.\nWhenever this creature attacks, double the number of +1/+1 counters on each creature you control.",
+        "flavorText": "Incluso los báloths le temen cuando es su hora de comer.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "0a9997a4-f063-41e9-8485-7cb75a08b22f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample",
+      "Double"
+    ],
+    "setCode": "p30a",
+    "collectorNumber": "21",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILDER_BAIRN": {
+    "scryfallId": "0ca006ff-3a95-4821-bdb2-2d80e64b4abf",
+    "oracleId": "a4441c7d-e22a-4e19-8365-34d52da9fe86",
+    "name": "Gilder Bairn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gilder Bairn",
+        "manaCost": "{1}{G/U}{G/U}",
+        "typeLine": "Creature — Ouphe",
+        "oracleText": "{2}{G/U}, {Q}: Double the number of each kind of counter on target permanent. ({Q} is the untap symbol.)",
+        "flavorText": "Do the glowing trinkets show it the way home, or do they set a twisted path for someone else to follow?",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "0ca006ff-3a95-4821-bdb2-2d80e64b4abf"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEEPGLOW_SKATE": {
+    "scryfallId": "0f7c787f-2134-4cfd-901f-d5e45e62de1e",
+    "oracleId": "debce64a-18bd-42f5-9e85-158c2242e9e9",
+    "name": "Deepglow Skate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deepglow Skate",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Fish",
+        "oracleText": "When this creature enters, double the number of each kind of counter on any number of target permanents.",
+        "flavorText": "Its graceful glide paints the ocean floor with strokes of luminescence.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "0f7c787f-2134-4cfd-901f-d5e45e62de1e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRISTLY_BILL_SPINE_SOWER": {
+    "scryfallId": "26df2161-e168-4ea4-8848-fae9cebf160c",
+    "oracleId": "d3b2d8a2-d3bc-448c-9cf6-6bead6010c28",
+    "name": "Bristly Bill, Spine Sower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bristly Bill, Spine Sower",
+        "manaCost": "{1}{G}",
+        "typeLine": "Legendary Creature — Plant Druid",
+        "oracleText": "Landfall — Whenever a land you control enters, put a +1/+1 counter on target creature.\n{3}{G}{G}: Double the number of +1/+1 counters on each creature you control.",
+        "flavorText": "\"Wake up, little ones. There's a new day ahead.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daniel Zrom",
+        "imageId": "26df2161-e168-4ea4-8848-fae9cebf160c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Double",
+      "Landfall"
+    ],
+    "setCode": "potj",
+    "collectorNumber": "157p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOSSBORN_HYDRA": {
+    "scryfallId": "2be84175-062c-439f-abad-c57cd9eb490f",
+    "oracleId": "84122d81-9634-4d3f-85a5-f6cf4303691a",
+    "name": "Mossborn Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mossborn Hydra",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elemental Hydra",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)\nThis creature enters with a +1/+1 counter on it.\nLandfall — Whenever a land you control enters, double the number of +1/+1 counters on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Monztre",
+        "imageId": "2be84175-062c-439f-abad-c57cd9eb490f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Trample",
+      "Double",
+      "Landfall"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "337",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRAGONSGUARD_ELITE": {
+    "scryfallId": "3461665c-52b9-4f7c-9a0b-b6e214e38356",
+    "oracleId": "9bc966b3-1b6e-4bea-ab1d-321bc03d2bc7",
+    "name": "Dragonsguard Elite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dragonsguard Elite",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Magecraft — Whenever you cast or copy an instant or sorcery spell, put a +1/+1 counter on this creature.\n{4}{G}{G}: Double the number of +1/+1 counters on this creature.",
+        "flavorText": "\"The Founder Dragons brought the Blood Age to an end. It is an honor to serve them.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daarken",
+        "imageId": "3461665c-52b9-4f7c-9a0b-b6e214e38356"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Magecraft",
+      "Double"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "90130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VOREL_OF_THE_HULL_CLADE": {
+    "scryfallId": "3afa434f-3080-496f-a53a-4439f80e9f8c",
+    "oracleId": "3001f971-c4db-4176-89b5-e7f4a8890c0f",
+    "name": "Vorel of the Hull Clade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vorel of the Hull Clade",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Legendary Creature — Human Merfolk",
+        "oracleText": "{G}{U}, {T}: Double the number of each kind of counter on target artifact, creature, or land.",
+        "flavorText": "\"I used to hurl rocks and eat scraps of meat burned over a fire. Look at what I've become and tell me Simic does not hold infinite possibility.\"",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Mike Bierek",
+        "imageId": "3afa434f-3080-496f-a53a-4439f80e9f8c"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "gk2",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

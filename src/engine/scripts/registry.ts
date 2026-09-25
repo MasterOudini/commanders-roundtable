@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KALONIAN_HYDRA_SCRIPT } from './cards/kalonianHydra';
+import { GILDER_BAIRN_SCRIPT } from './cards/gilderBairn';
+import { DEEPGLOW_SKATE_SCRIPT } from './cards/deepglowSkate';
+import { BRISTLY_BILL_SPINE_SOWER_SCRIPT } from './cards/bristlyBillSpineSower';
+import { MOSSBORN_HYDRA_SCRIPT } from './cards/mossbornHydra';
+import { DRAGONSGUARD_ELITE_SCRIPT } from './cards/dragonsguardElite';
+import { VOREL_OF_THE_HULL_CLADE_SCRIPT } from './cards/vorelOfTheHullClade';
 import { BRUSE_TARL_BOORISH_HERDER_SCRIPT } from './cards/bruseTarlBoorishHerder';
 import { ERINIS_GLOOM_STALKER_SCRIPT } from './cards/erinisGloomStalker';
 import { ISHAI_OJUTAI_DRAGONSPEAKER_SCRIPT } from './cards/ishaiOjutaiDragonspeaker';
@@ -8135,6 +8142,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KALONIAN_HYDRA_SCRIPT,
+  GILDER_BAIRN_SCRIPT,
+  DEEPGLOW_SKATE_SCRIPT,
+  BRISTLY_BILL_SPINE_SOWER_SCRIPT,
+  MOSSBORN_HYDRA_SCRIPT,
+  DRAGONSGUARD_ELITE_SCRIPT,
+  VOREL_OF_THE_HULL_CLADE_SCRIPT,
   BRUSE_TARL_BOORISH_HERDER_SCRIPT,
   ERINIS_GLOOM_STALKER_SCRIPT,
   ISHAI_OJUTAI_DRAGONSPEAKER_SCRIPT,
