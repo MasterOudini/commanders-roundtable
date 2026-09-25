@@ -606,6 +606,8 @@ export function linesUnaccounted(
     // owner's hand instead of the graveyard). Asked of the parser that read it.
     if (face.buybackCost !== null && /^Buyback (?:\{[^}]+\})+$/.test(line)) continue;
     if (face.buybackVerb !== null && face.buybackVerb.line === line) continue;
+    // D537 - a Retrace / Jump-start line the engine OFFERS (a graveyard cast, its discard charged as the additional cost).
+    if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /
     // `improvise` / `delve`): the cast names what it taps or exiles, the payment takes it off the cost.
     if (

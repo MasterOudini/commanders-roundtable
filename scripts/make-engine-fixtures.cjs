@@ -9912,6 +9912,10 @@ const WANTED = [
   'Violent Outburst',
   // D536 - storm on a PERMANENT spell (an Aura): no trigger, the line not the engine's - the proof card.
   'Tempest Technique',
+  // D537 - RETRACE and JUMP-START: the seam's proof cards (Flame Jab - retrace, a land discarded; Chemister's Insight - jump-start, a draw; Direct Current - jump-start, a ping that can fizzle).
+  'Flame Jab',
+  "Chemister's Insight",
+  'Direct Current',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

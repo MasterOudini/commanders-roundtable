@@ -587,6 +587,26 @@ export function parseBuyback(oracleText: string, warn: Warn = NOOP_WARN): { buyb
   return { buyback, buybackVerb };
 }
 
+/**
+ * D537 - RETRACE (CR 702.81) and JUMP-START (CR 702.133) on a line of their own (reminder text aside): the graveyard
+ * cast and its discard, read by the verb-kicker grammar (a land card for retrace, any card for jump-start). The verb
+ * keeps the keyword line as its `line`, so the accounting asks the parser that read it.
+ */
+export function parseGraveyardCast(oracleText: string, warn: Warn = NOOP_WARN): { kind: 'retrace' | 'jumpStart'; verb: KickerVerb } | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (line === 'Retrace') {
+      const verb = readKickerVerb(line, 'Discard a land card', warn);
+      return verb ? { kind: 'retrace', verb } : null;
+    }
+    if (line === 'Jump-start') {
+      const verb = readKickerVerb(line, 'Discard a card', warn);
+      return verb ? { kind: 'jumpStart', verb } : null;
+    }
+  }
+  return null;
+}
+
 /** D530 - `Kicker—[{M}, ]<one chooser verb or a life payment>.`: the mana piece and the verb the additional cost reads. */
 function readKickerVerb(line: string, costText: string, warn: Warn): KickerVerb | null {
   const pieces = costText.split(', ');
@@ -1210,6 +1230,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const kicked = parseKicker(face.oracleText, warn);
   // D535 - buyback is an instant or sorcery keyword (CR 702.27a: it returns the spell as it resolves).
   const bought = isPermanent ? { buyback: null, buybackVerb: null } : parseBuyback(face.oracleText, warn);
+  // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
+  const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   const altCosts = parseAltCosts(face.oracleText);
   const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
   // D408 - an alternative cost never beside an additional cost with a chooser verb (one set of pick fields).
@@ -1299,6 +1321,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     kickerVerb: kicked.kickerVerb,
     buybackCost: bought.buyback,
     buybackVerb: bought.buybackVerb,
+    graveyardCast,
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,

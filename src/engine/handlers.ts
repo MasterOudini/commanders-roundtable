@@ -842,9 +842,11 @@ function prepareCast(
   // D307 - FLASHBACK: the graveyard is a place to cast from when the face
   // prints a flashback cost the engine can pay (CR 702.34a).
   const flashback = from.kind === 'graveyard' && face.flashbackCost !== null;
+  // D537 - RETRACE / JUMP-START: the graveyard too, for the mana cost and a discard (the verb below charges it).
+  const graveyardCast = from.kind === 'graveyard' && !flashback && !faceDown ? face.graveyardCast : null;
   // D417 - a PLAY PERMISSION: exile is a place to cast from while the player holds one for the card.
   const permitted = from.kind === 'exile' && state.playPermissions.some((p) => p.card === cardId && p.player === player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && !permitted) {
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
@@ -888,7 +890,8 @@ function prepareCast(
   // D535 - a buyback is priced with the kick: the announcement names it, the problem carries the cost.
   const buyWhy = buybackProblem(face, buyback, kicked, faceDown);
   if (buyWhy) return { error: reject('notCastable', buyWhy) };
-  const kickVerb = faceDown ? null : kickVerbOf(face, kicked, buyback);
+  // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
+  const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };

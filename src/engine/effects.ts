@@ -21,7 +21,7 @@ import { predicateAdmits } from '../data/replacementParse';
 import { suspendTickSpec } from '../data/effectParse';
 import { RING_EMBLEM } from '../data/tokenParse';
 import { modeSpecs } from './modes';
-import { faceOf } from './oracle';
+import { exiledAsItLeaves, faceOf } from './oracle';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
@@ -659,7 +659,10 @@ export function effectResult(
           } else if (vc && to === 'hand') {
             out.push({ t: 'CardsMoved', moves: [{ card: victim.card, from: { kind: 'stack', player: null }, to: { kind: 'hand', player: vc.owner } }] });
           } else if (vc) {
-            out.push(moveFromStack(victim.card, to === 'exile' || victim.castFrom?.kind === 'graveyard' ? 'exile' : 'graveyard', vc.owner));
+            // D537 - a spell cast from the graveyard is exiled as it is countered unless it was retraced (`exiledAsItLeaves`).
+            const vPrinting = deps.oracle.byPrinting(vc.printingId);
+            const vFace = vPrinting ? faceOf(vPrinting, victim.faceIndex) : null;
+            out.push(moveFromStack(victim.card, to === 'exile' || exiledAsItLeaves(victim.castFrom, vFace) ? 'exile' : 'graveyard', vc.owner));
           }
         }
         out.push(narrated(`${obj.label} counters ${victim.label}.`, obj.controller, obj.identity));

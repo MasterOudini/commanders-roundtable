@@ -8910,6 +8910,9 @@ export const GRAPESHOT: CardData = F.GRAPESHOT as CardData;
 export const TENDRILS_OF_AGONY: CardData = F.TENDRILS_OF_AGONY as CardData;
 export const VIOLENT_OUTBURST: CardData = F.VIOLENT_OUTBURST as CardData;
 export const TEMPEST_TECHNIQUE: CardData = F.TEMPEST_TECHNIQUE as CardData;
+export const FLAME_JAB: CardData = F.FLAME_JAB as CardData;
+export const CHEMISTER_S_INSIGHT: CardData = F.CHEMISTER_S_INSIGHT as CardData;
+export const DIRECT_CURRENT: CardData = F.DIRECT_CURRENT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18072,6 +18075,9 @@ export const ENGINE_CARDS: CardData[] = [
   TENDRILS_OF_AGONY,
   VIOLENT_OUTBURST,
   TEMPEST_TECHNIQUE,
+  FLAME_JAB,
+  CHEMISTER_S_INSIGHT,
+  DIRECT_CURRENT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

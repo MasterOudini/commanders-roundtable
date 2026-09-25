@@ -119,6 +119,16 @@ export function createOracleDb(cards: readonly CardData[]): OracleDb {
 export const EMPTY_ORACLE: OracleDb = new MapOracleDb([]);
 
 /** The face a card is currently showing, defaulting to the front. */
+/**
+ * D537 - does a spell cast from its owner's graveyard go to EXILE as it leaves the stack, whichever way (resolving,
+ * fizzling, countered)? Flashback (CR 702.34a) and jump-start (CR 702.133a) say so; retrace does not (CR 702.81a - the
+ * card goes where it would). A face with a flashback cost is flashback's whatever else it prints.
+ */
+export function exiledAsItLeaves(castFrom: { readonly kind: string } | null | undefined, face: OracleCard['faces'][number] | null | undefined): boolean {
+  if (castFrom?.kind !== 'graveyard') return false;
+  return !(face !== null && face !== undefined && face.flashbackCost === null && face.graveyardCast?.kind === 'retrace');
+}
+
 export function faceOf(card: OracleCard, faceIndex: number): OracleCard['faces'][number] {
   const face = card.faces[faceIndex] ?? card.faces[0];
   if (!face) throw new Error(`card ${card.printingId} has no faces`);

@@ -355,7 +355,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D535 - BUYBACK: two Searing Touches a seat (a one-mana ping, bought back for {4} more).
   { names: ['Searing Touch'], copiesPerSeat: 2, counterKeys: ['buybackCasts', 'buybackReturns'], rotHistory: 'D535' },
   // D536 - STORM: two Grapeshots a seat (a ping, copied for each spell cast before it this turn).
-  { names: ['Grapeshot'], copiesPerSeat: 2, counterKeys: ['stormTriggers', 'stormCopies'], rotHistory: 'D536' },
+  { names: ['Grapeshot'], copiesPerSeat: 2, counterKeys: ['stormTriggers', 'stormCopies'], rotHistory: 'D536, D537' },
+  // D537 - no retrace or jump-start staple: two Flame Jabs and a Direct Current a seat moved every seed's game (the 60-seed
+  // canary lost its buyback returns and D398's floor, 8,396 accepted intents -> 7,255) and still cast no retrace - the
+  // graveyard casts are the proofs' (retrace.test.ts); the fuzz counts them where the pool deals them, with no floor.
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1395,6 +1398,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const kickable = usable.filter((a) => a.t === 'CastSpell' && a.kicker !== undefined && a.kickerAffordable === true);
   // D535 - and a spell whose MANA buyback is payable is cast now, bought back (0 over 60 seeds on the ordinary pick).
   const buyable = usable.filter((a) => a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable === true);
+  // D537 - a STORM spell is cast now once a spell has been cast this turn (D536's gate: 17 triggers, no copy over 500).
+  const castThisTurn = Object.values(state.turn.spellsCast).reduce((n, k) => n + k, 0);
+  const stormable = castThisTurn === 0 ? [] : usable.filter((a) => a.t === 'CastSpell' && (ORACLE.byPrinting(state.cards[a.card]?.printingId ?? '')?.faces[a.faceIndex]?.keywords.includes('storm') ?? false));
   // D445 - the land drop first: the uniform pick skipped most of them, and every three-mana canary starved (a seat
   // on one to three lands mid-game). A land is played whenever one can be; which land stays random.
   const lands = usable.filter((a) => a.t === 'PlayLand');
@@ -1402,7 +1408,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   const copiers = state.stack.length === 0 ? [] : usable.filter((a) => a.t === 'CastSpell' && copyTargetOnStack(state, holder, a.card, a.faceIndex));
   // D487 - and with a payable copier in hand and nothing on the stack, an instant or sorcery to copy is cast first.
   const copyable = state.stack.length === 0 && holdsCopier(state, holder, usable) ? usable.filter((a) => a.t === 'CastSpell' && a.affordable && copyableSpellToCast(state, holder, a.card, a.faceIndex)) : [];
-  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : buyable.length > 0 ? p.pick(buyable) : p.pick(usable);
+  const chosen = lands.length > 0 ? p.pick(lands) : copiers.length > 0 ? p.pick(copiers) : copyable.length > 0 ? p.pick(copyable) : kickable.length > 0 ? p.pick(kickable) : buyable.length > 0 ? p.pick(buyable) : stormable.length > 0 ? p.pick(stormable) : p.pick(usable);
   if (!chosen) return { t: 'PassPriority', player: holder };
   switch (chosen.t) {
     case 'PlayLand':
@@ -1709,6 +1715,9 @@ interface Run {
   /** D536 - the storm triggers put on the stack, and the copies of a storm spell they made. */
   readonly stormTriggers: number;
   readonly stormCopies: number;
+  /** D537 - the spells cast from the graveyard by retrace, and by jump-start. */
+  readonly retraceCasts: number;
+  readonly jumpStartCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2215,6 +2224,8 @@ function runOne(seed: number): Run {
     buybackReturns: game.log.filter((e) => e.body.t === 'StackResolved' && e.body.buyback === true).length,
     stormTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:storm')).length,
     stormCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('storm') ?? false)).length,
+    retraceCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.graveyardCast?.kind === 'retrace').length,
+    jumpStartCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.graveyardCast?.kind === 'jumpStart').length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2547,6 +2558,8 @@ const TOTAL_KEYS = [
   'buybackReturns',
   'stormTriggers',
   'stormCopies',
+  'retraceCasts',
+  'jumpStartCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -3042,6 +3055,7 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.buybackReturns).toBeGreaterThan(0);
         // D536 - a storm trigger at gate size (Grapeshot, two a seat).
         expect(totals.stormTriggers).toBeGreaterThan(0);
+        // D537 - a retrace cast at gate size (Flame Jab, two a seat).
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

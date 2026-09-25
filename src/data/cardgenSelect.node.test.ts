@@ -778,6 +778,14 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D537 - retrace and jump-start: the keyword line is the engine's now (a graveyard cast for the mana cost and a discard); what stays is a retrace or jump-start spell whose other sentence the vocabulary does not read.
+  ['Reality Scramble', 'a spell with a line outside the vocabulary: Put target permanent you own on the bottom of your library. Reveal cards from the top of your library until you reveal a card that shares a card type - a reveal-until by a shared type (D537)'],
+  ['Beacon Bolt', 'a spell with a line outside the vocabulary: Beacon Bolt deals damage to target creature equal to the total number of instant and sorcery cards you own in exile and in your graveyard - a count over two zones (D537)'],
+  ['Risk Factor', 'a spell with a line outside the vocabulary: Target opponent may have Risk Factor deal 4 damage to them. If that player doesn\'t, you draw three cards - an opponent\'s punisher choice (D537)'],
+  ['Decaying Time Loop', 'a spell with a line outside the vocabulary: Discard all the cards in your hand, then draw that many cards - a that-many draw after a discard (D537)'],
+  ['Glamerdye', 'a spell with a line outside the vocabulary: Change the text of target spell or permanent by replacing all instances of one color word with another - a text change (D537)'],
+  ['Start the TARDIS', 'a spell with a line outside the vocabulary: You may planeswalk - the planar die (D537)'],
+  ['Sonic Assault', 'a spell with a line outside the vocabulary: Sonic Assault deals 2 damage to that creature\'s controller - the target\'s controller as a referent (D537)'],
   // D536 - storm: the Storm line is the engine's now on an instant or a sorcery (the keyword table's cast trigger, the copies with new targets); what stays is a storm spell whose other sentence the vocabulary does not read, and a permanent spell's storm (its copies would be tokens).
   ['Galvanic Relay', 'a spell with a line outside the vocabulary: Exile the top card of your library. During your next turn, you may play that card. - a play permission during the next turn (D536)'],
   // D535 - buyback: the Buyback line is the engine's now (charged at cast, the resolved spell back to its owner's hand); what stays is a buyback spell whose other sentence the vocabulary does not read.

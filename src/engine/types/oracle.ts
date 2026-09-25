@@ -1997,6 +1997,12 @@ export interface OracleFace {
   /** D535 - `Buyback—<cost>.`: a buyback that is not only mana, read and charged as D530's verb kicker is. */
   readonly buybackVerb: import('../../data/activatedParse').KickerVerb | null;
   /**
+   * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
+   * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.
+   * A jump-start spell is exiled as it leaves the stack (flashback's rule); a retrace spell goes to the graveyard.
+   */
+  readonly graveyardCast: { readonly kind: 'retrace' | 'jumpStart'; readonly verb: import('../../data/activatedParse').KickerVerb } | null;
+  /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard
    * (`CastSpell.convoke` / `improvise` / `delve`). Read off the keyword line at ingest.

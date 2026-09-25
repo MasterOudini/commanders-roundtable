@@ -292,11 +292,12 @@ export function legalActions(
 
   // ⚠️ D307 - FLASHBACK: a card in your graveyard with a flashback cost is
   // castable from there for that cost (CR 702.34a), at its own speed.
+  // D537 - and a RETRACE or JUMP-START card for its mana cost and a discard (the offer carries the discard candidates).
   for (const id of state.zones.graveyard[player] ?? []) {
     const card = cardFor(state, oracle, id);
     if (!card) continue;
     for (const faceIndex of castableFaces(card)) {
-      if (faceOf(card, faceIndex).flashbackCost === null) continue;
+      if (faceOf(card, faceIndex).flashbackCost === null && faceOf(card, faceIndex).graveyardCast === null) continue;
       const action = castAction(state, oracle, scripts, id, faceIndex, { kind: 'graveyard', player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
@@ -993,12 +994,16 @@ function castAction(
     castReduction(state, oracle, scripts, from.player ?? inst.controller, face, ctx.cache);
   const hasX = face.manaCost.xCount > 0;
   // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
-  const cost = from.kind === 'graveyard' ? face.flashbackCost : face.manaCost;
+  // D537 - a retrace or jump-start cast pays the mana cost (and its discard, the additional cost below).
+  const graveyardCast = from.kind === 'graveyard' && face.flashbackCost === null ? face.graveyardCast : null;
+  const cost = from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
   if (cost === null) return null;
   // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
   // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless
   // the printed `or pay {M}` stands in - then the mana is priced into the affordability instead.
-  const add = face.additionalCost;
+  // D537 - a retrace or jump-start cast's discard is its additional cost (one set of picks: never printed beside another).
+  if (graveyardCast !== null && face.additionalCost !== null) return null;
+  const add = face.additionalCost ?? graveyardCast?.verb ?? null;
   const caster = from.player ?? inst.controller;
   const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
   const chooser = add ? castCostCandidates(state, deriveOf, caster, id, add) : null;

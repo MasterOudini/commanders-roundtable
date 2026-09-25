@@ -21,7 +21,7 @@ import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
 import { apply } from './reducer';
-import { faceOf } from './oracle';
+import { exiledAsItLeaves, faceOf } from './oracle';
 import { n, narrated, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
 import { orderTriggersApnap } from './triggers';
@@ -862,7 +862,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push({ t: 'SpellFizzled', stackId: obj.id });
       // D307 - a spell cast by flashback leaves the stack to EXILE, whichever
       // way it leaves (CR 702.34a).
-      const fizzleTo = obj.castFrom?.kind === 'graveyard' ? { kind: 'exile' as const, player: card.owner } : { kind: 'graveyard' as const, player: card.owner };
+      // D537 - and a jump-start spell as a flashback one; a retrace spell goes to the graveyard (`exiledAsItLeaves`).
+      const fizzleTo = exiledAsItLeaves(obj.castFrom, face) ? { kind: 'exile' as const, player: card.owner } : { kind: 'graveyard' as const, player: card.owner };
       events.push({
         t: 'CardsMoved',
         moves: [{ card: obj.card, from: { kind: 'stack', player: null }, to: fizzleTo }],
@@ -880,14 +881,14 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // exiled instead, whichever way it would leave); a fizzled spell never resolves and goes to the graveyard (above).
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
     const fate = spellDef === undefined && face !== null && !face.isPermanent && face.effectMode === 'auto' ? spellFateOf(face.modal ? modalEffects(face.modal, obj.modes) : face.effects) : undefined;
-    const ownFate = obj.castFrom?.kind === 'graveyard' ? undefined : fate;
+    const ownFate = exiledAsItLeaves(obj.castFrom, face) ? undefined : fate;
     // D535 - BUYBACK (CR 702.27): paid, the spell goes to its owner's hand instead of the graveyard as it resolves - only
     // where it would go to the graveyard (flashback's exile and the spell's own fate are not the graveyard).
     const bought = obj.buyback === true && face !== null && !face.isPermanent && obj.castFrom?.kind !== 'graveyard' && ownFate === undefined;
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
-      : obj.castFrom?.kind === 'graveyard'
-        ? // D307 - flashback: exiled instead of put anywhere else (CR 702.34a).
+      : exiledAsItLeaves(obj.castFrom, face)
+        ? // D307 - flashback: exiled instead of put anywhere else (CR 702.34a). D537 - jump-start too; retrace is not.
           { kind: 'exile' as const, player: card.owner }
         : ownFate === 'exile'
           ? { kind: 'exile' as const, player: card.owner }

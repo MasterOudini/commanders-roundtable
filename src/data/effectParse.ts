@@ -3385,6 +3385,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
   TOKEN_QUOTES = folded.quotes;
   // D531 - the energy reminder printed INSIDE its sentence (`You get {E}{E} (two energy counters).`) is removed, not
   // blanked: the scrub's spaces would stand between the symbols and the period, and no sentence rule reads that.
+  // D537 - the printed lines before the engine's own keyword and cost lines leave (a spell made of nothing else reads whole).
+  const printedLines = scrub(selfRef(withoutEnergyReminder(folded.text), cardName)).split('\n').filter((l) => l.trim() !== '').length;
   const clean = scrub(selfRef(withoutEnergyReminder(folded.text), cardName))
     .split('\n')
     // D403 - a Kicker / Multikicker line is a cost the cast announces, no clause of the spell.
@@ -3395,6 +3397,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D535 - a Buyback line (`Buyback {M}`, `Buyback—<cost>.`) is a cost the cast announces, no clause of the spell either
     // (the accounting still refuses a Buyback— line whose cost the grammar cannot read).
     .filter((l) => !/^Buyback (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^Buyback—.+\.\s*$/.test(l.trim()))
+    // D537 - a Retrace or Jump-start line is a graveyard cast the engine offers, no clause of the spell either.
+    .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
     .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.
@@ -3404,7 +3408,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^(?:Storm|Cascade(?:, cascade)*)$/i.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
-  if (clauses.length === 0) return { effects: [], mode: 'manual' };
+  // D537 - a SPELL whose every printed line was a keyword or a cost the engine runs (Throes of Chaos: Cascade and Retrace,
+  // nothing else) has nothing left unread and no clause of its own: the engine runs it whole - an effect list of none.
+  if (clauses.length === 0) return { effects: [], mode: printedLines > 0 && clean.trim() === '' ? 'auto' : 'manual' };
 
   const effects: EffectSpec[] = [];
   let understood = 0;

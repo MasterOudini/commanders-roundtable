@@ -301565,6 +301565,113 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FLAME_JAB": {
+    "scryfallId": "06c2b6b2-485e-41e6-b106-4f6f402e0ec3",
+    "oracleId": "05eccdee-84f8-42d5-b79c-36d081656915",
+    "name": "Flame Jab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flame Jab",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Flame Jab deals 1 damage to any target.\nRetrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)",
+        "flavorText": "\"Fire's out. Should be safe now.\"\n—Gnarltrunk",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "rk post",
+        "imageId": "06c2b6b2-485e-41e6-b106-4f6f402e0ec3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Retrace"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHEMISTER_S_INSIGHT": {
+    "scryfallId": "089720bb-f4ce-422f-bb28-6a7a71c32223",
+    "oracleId": "a2cb30d7-c0a9-4f79-bc19-fc88c4986725",
+    "name": "Chemister's Insight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chemister's Insight",
+        "manaCost": "{3}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Draw two cards.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+        "flavorText": "\"My specialty is theoretical universal limits and ways to circumvent them.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "089720bb-f4ce-422f-bb28-6a7a71c32223"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Jump",
+      "Jump-start"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRECT_CURRENT": {
+    "scryfallId": "166b0d75-824c-4c04-833b-7f7c69569a18",
+    "oracleId": "54e34440-c890-4a07-83c6-63a2f7a65639",
+    "name": "Direct Current",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Direct Current",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Direct Current deals 2 damage to any target.\nJump-start (You may cast this card from your graveyard by discarding a card in addition to paying its other costs. Then exile this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "166b0d75-824c-4c04-833b-7f7c69569a18"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Jump",
+      "Jump-start"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
