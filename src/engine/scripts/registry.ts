@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { VIASHINO_SANDSWIMMER_SCRIPT } from './cards/viashinoSandswimmer';
+import { SCORIA_WURM_SCRIPT } from './cards/scoriaWurm';
+import { TAVERN_SWINDLER_SCRIPT } from './cards/tavernSwindler';
+import { THE_GOLD_SAUCER_SCRIPT } from './cards/theGoldSaucer';
+import { WILD_WURM_SCRIPT } from './cards/wildWurm';
+import { SKYCLAW_THRASH_SCRIPT } from './cards/skyclawThrash';
 import { FLEECEMANE_LION_SCRIPT } from './cards/fleecemaneLion';
 import { FLEETFEATHER_COCKATRICE_SCRIPT } from './cards/fleetfeatherCockatrice';
 import { RAVENOUS_LEUCROCOTA_SCRIPT } from './cards/ravenousLeucrocota';
@@ -8091,6 +8097,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  VIASHINO_SANDSWIMMER_SCRIPT,
+  SCORIA_WURM_SCRIPT,
+  TAVERN_SWINDLER_SCRIPT,
+  THE_GOLD_SAUCER_SCRIPT,
+  WILD_WURM_SCRIPT,
+  SKYCLAW_THRASH_SCRIPT,
   FLEECEMANE_LION_SCRIPT,
   FLEETFEATHER_COCKATRICE_SCRIPT,
   RAVENOUS_LEUCROCOTA_SCRIPT,

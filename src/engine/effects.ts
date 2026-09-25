@@ -12,7 +12,7 @@
 // `effectParse.ts` for why half-executing is the failure that matters.
 
 import { derive, type DeriveCache } from './derive';
-import { shuffle, type RngState } from './rng';
+import { flipCoin, shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
 import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -181,7 +181,15 @@ export function effectResult(
       const won = decided !== undefined ? decided.won : obj.clash === 'won';
       if (!won) return false;
     }
-    const rest = gate.filter((c) => c.kind !== 'clashWon');
+    // D534 - `if you win / lose the flip` is the flip's own verdict: the one this resolution made (a `CoinFlipped` in the
+    // batch) or the one its continuation carried (`obj.flip`); no flip at all, and neither branch holds.
+    if (gate.some((c) => c.kind === 'flipWon' || c.kind === 'flipLost')) {
+      const flipped = [...out].reverse().find((e): e is Extract<EventBody, { t: 'CoinFlipped' }> => e.t === 'CoinFlipped' && e.player === controller);
+      const verdict = flipped !== undefined ? (flipped.heads ? 'won' : 'lost') : obj.flip;
+      if (gate.some((c) => c.kind === 'flipWon') && verdict !== 'won') return false;
+      if (gate.some((c) => c.kind === 'flipLost') && verdict !== 'lost') return false;
+    }
+    const rest = gate.filter((c) => c.kind !== 'clashWon' && c.kind !== 'flipWon' && c.kind !== 'flipLost');
     if (rest.length === 0) return true;
     let now = state;
     for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
@@ -1487,6 +1495,16 @@ export function effectResult(
       // other target - for good. One already that player's, or gone, changes nothing, and the step says so.
       // D533 - MONSTROSITY (CR 701.37a): the source (a SELF_AIMED step - gone, and the plan says so), not yet monstrous,
       // gets the counters and the mark; a monstrous one gets nothing, and the step says so.
+      // D534 - FLIP A COIN (CR 705): the game's RNG decides (the draw rides `rngAfter`, so the replay repeats it). The
+      // flipper calls heads (705.2), so the manual tool's own `CoinFlipped` marker carries the verdict: won on heads.
+      case 'flipCoin': {
+        const flip = flipCoin(rng ?? state.rng);
+        rng = flip.next;
+        out.push({ t: 'CoinFlipped', player: controller, heads: flip.value });
+        out.push(narrated(n`${who(state, controller)} ${vb(controller, flip.value ? 'wins' : 'loses', flip.value ? 'win' : 'lose')} the flip.`, controller, obj.identity));
+        break;
+      }
+
       case 'monstrosity': {
         if (aim?.kind !== 'card' || effect.amount <= 0) break;
         const monster = state.cards[aim.id];
@@ -2373,7 +2391,9 @@ export function effectResult(
     const asked = out.slice(before).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
     if (asked < 0) continue;
     const rest = effects.slice(at + 1);
-    const carried = rest.length > 0 ? continuationOf(obj, at, rest, outer) : outer;
+    // D534 - the flip this resolution made rides the continuation (a frame that resumes after an ask still reads it).
+    const flippedNow = [...out].reverse().find((e): e is Extract<EventBody, { t: 'CoinFlipped' }> => e.t === 'CoinFlipped' && e.player === controller);
+    const carried = rest.length > 0 ? continuationOf(flippedNow !== undefined ? { ...obj, flip: flippedNow.heads ? 'won' : 'lost' } : obj, at, rest, outer) : outer;
     if (carried !== undefined) {
       const k = before + asked;
       const ev = out[k];
@@ -2523,6 +2543,8 @@ function continuationOf(obj: StackObject, at: number, rest: readonly EffectSpec[
     ...(obj.memo !== undefined ? { memo: obj.memo } : {}),
     // D527 - a clash verdict already on the object rides on (a frame within a frame).
     ...(obj.clash !== undefined ? { clash: obj.clash } : {}),
+    // D534 - a flip verdict already on the object rides on.
+    ...(obj.flip !== undefined ? { flip: obj.flip } : {}),
     ...(outer !== undefined ? { outer } : {}),
   };
 }
@@ -2581,6 +2603,8 @@ function continuationObject(c: EffectContinuation): StackObject {
     ...(c.memo !== undefined ? { memo: c.memo } : {}),
     // D527 - the clash verdict the continuation carried, for `If you win`.
     ...(c.clash !== undefined ? { clash: c.clash } : {}),
+    // D534 - the flip verdict the continuation carried, for `If you win / lose the flip`.
+    ...(c.flip !== undefined ? { flip: c.flip } : {}),
   };
 }
 

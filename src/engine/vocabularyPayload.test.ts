@@ -143,7 +143,8 @@ describe('D344 - the vocabulary payload on a trigger', () => {
 
 describe('D344 - the helpers refuse what the ctx cannot run, at module load', () => {
   test('a sentence the vocabulary does not read whole', () => {
-    expect(() => vocabularyEffects('Flip a coin.', 'X')).toThrow(/whole/);
+    // D534 - a coin flip reads now; a die roll does not.
+    expect(() => vocabularyEffects('Roll a six-sided die.', 'X')).toThrow(/whole/);
   });
 
   test('a clause that asks is read anywhere (D484): the question carries the clauses after it', () => {

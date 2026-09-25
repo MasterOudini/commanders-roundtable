@@ -350,6 +350,8 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Political Trickery', 'Sower of Temptation'], copiesPerSeat: 2, counterKeys: ['controlGained', 'controlHeld'], rotHistory: 'D531' },
   // D533 - MONSTROSITY: two Fleecemane Lions and two Sinuous Vermin a seat (the cheapest Monstrosity activations rowed).
   { names: ['Fleecemane Lion', 'Sinuous Vermin'], copiesPerSeat: 2, counterKeys: ['monstrosities'], rotHistory: 'D533' },
+  // D534 - COIN FLIP: two Winter Skies a seat (a flip, and a branch either way).
+  { names: ['Winter Sky'], copiesPerSeat: 2, counterKeys: ['rulesFlips'], rotHistory: 'D534' },
   // D512 - the additional combat phase (CR 500.8): two Seize the Days ({2}{R} sorcery, `Untap target creature. After this main
   // phase, there is an additional combat phase followed by an additional main phase.`) and two Relentless Assaults ({2}{R}{R},
   // the attacked-this-turn untap) a seat - the clause queues the phases, the phase end inserts them, the turn resumes after.
@@ -1681,6 +1683,8 @@ interface Run {
   readonly controlHeld: number;
   /** D533 - the permanents that became monstrous (`BecameMonstrous`). */
   readonly monstrosities: number;
+  /** D534 - the coin flips a resolution made (`CoinFlipped` not caused by the manual tool's `FlipCoin` intent). */
+  readonly rulesFlips: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2182,6 +2186,7 @@ function runOne(seed: number): Run {
     controlGained: game.log.filter((e) => e.body.t === 'ControlGained').length,
     controlHeld: game.log.filter((e) => e.body.t === 'ControlTakenBySource').length,
     monstrosities: game.log.filter((e) => e.body.t === 'BecameMonstrous').length,
+    rulesFlips: game.log.filter((e) => e.body.t === 'CoinFlipped' && !(e.cause.kind === 'intent' && e.cause.intent === 'FlipCoin')).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2509,6 +2514,7 @@ const TOTAL_KEYS = [
   'controlGained',
   'controlHeld',
   'monstrosities',
+  'rulesFlips',
   'crownings',
   'ringTempts',
   'ringAbilities',
@@ -2998,6 +3004,8 @@ function assertFloors(totals: Totals, seeds: number): void {
         expect(totals.controlGained + totals.controlHeld).toBeGreaterThan(0);
         // D533 - a permanent became monstrous at gate size (Fleecemane Lion and Sinuous Vermin, two a seat).
         expect(totals.monstrosities).toBeGreaterThan(0);
+        // D534 - a rules coin flip at gate size (Winter Sky, two a seat).
+        expect(totals.rulesFlips).toBeGreaterThan(0);
         // D512 - an additional combat phase was queued and an inserted phase begun at gate size (Seize the Day and Relentless
         // Assault two a seat; 2 clauses / 3 inserted phases over the first 60 seeds, canary512).
         expect(totals.extraCombats).toBeGreaterThan(0);

@@ -9891,6 +9891,17 @@ const WANTED = [
   'Splitting Slime',
   'Gluttonous Cyclops',
   // D533 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D534 - COIN FLIP: the seam's proof cards (Winter Sky - a flip with both branches; Stitch in Time - the extra turn on a win; Viashino Sandswimmer - an activated flip).
+  'Winter Sky',
+  'Stitch in Time',
+  'Viashino Sandswimmer',
+  // D534 - COIN FLIP: the rows the whole-leftover row maker rowed once a flip and its won and lost branches were the engine's (CR 705).
+  'Scoria Wurm',
+  'Tavern Swindler',
+  'The Gold Saucer',
+  'Wild Wurm',
+  'Skyclaw Thrash',
+  // D534 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

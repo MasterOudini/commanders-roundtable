@@ -122,6 +122,9 @@ export function activationConditionsHold(
         break;
       // D527 - the clash verdict lives on the resolution, not the board: `gateHolds` answers it first and never asks here.
       case 'clashWon':
+      // D534 - the flip's verdict lives on the resolution too: `gateHolds` answers it first and never asks here.
+      case 'flipWon':
+      case 'flipLost':
         return false;
       // D523 - the crown (CR 724): who wears it, off `state.monarch` (D522's own field).
       case 'monarch':
@@ -214,6 +217,10 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if you control a commander';
         case 'clashWon':
           return 'if you win the clash';
+        case 'flipWon':
+          return 'if you win the flip';
+        case 'flipLost':
+          return 'if you lose the flip';
         case 'monarch':
           return cond.who === 'you' ? "if you're the monarch" : cond.who === 'opponent' ? 'if an opponent is the monarch' : 'if there is no monarch';
         case 'acrossControl':

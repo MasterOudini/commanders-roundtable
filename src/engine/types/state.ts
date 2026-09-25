@@ -470,6 +470,8 @@ export interface StackObject {
   readonly freeCast?: true;
   /** D527 - a resumed frame's clash verdict, from its continuation. */
   readonly clash?: 'won' | 'lost';
+  /** D534 - the coin flip made before this frame resumed (CR 705): what `If you win / lose the flip` reads. */
+  readonly flip?: 'won' | 'lost';
   /**
    * The ITEM a per-item fan-out firing is about (D190), carried from
    * `PendingTrigger.item` so `resolve` can read which drawn card / dealer /
@@ -828,6 +830,8 @@ export interface EffectContinuation {
   readonly memo?: number;
   /** D527 - the clash decided before this frame resumed (CR 701.10): what `If you win` reads. */
   readonly clash?: 'won' | 'lost';
+  /** D534 - the coin flip made before this frame resumed (CR 705): what `If you win / lose the flip` reads. */
+  readonly flip?: 'won' | 'lost';
   readonly outer?: EffectContinuation;
 }
 

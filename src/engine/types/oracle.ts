@@ -758,6 +758,8 @@ export type EffectKind =
   | 'monstrosity'
   /** D533 - `Adapt N.` (CR 701.46): the source, with no +1/+1 counters on it, gets N of them. */
   | 'adapt'
+  /** D534 - `Flip a coin.` (CR 705): the RNG decides; `CoinFlipped` carries the verdict the flip gates read. */
+  | 'flipCoin'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1553,6 +1555,9 @@ export type ActivationCondition =
   | { readonly kind: 'monarch'; readonly who: 'you' | 'opponent' | 'none' }
   /** D527 - `if you win` (a clash, CR 701.10): the resolution's own verdict, never the board - `gateHolds` alone answers it. */
   | { readonly kind: 'clashWon' }
+  /** D534 - `if you win the flip` / `if you lose the flip`: the coin flip's verdict, asked of the resolution itself. */
+  | { readonly kind: 'flipWon' }
+  | { readonly kind: 'flipLost' }
   /** D490 - `if an opponent controls a Plains and you control a Swamp` (the Legates): a predicate on some opponent's board and one on the player's. */
   | { readonly kind: 'acrossControl'; readonly theirs: readonly PermanentPredicate[]; readonly yours: readonly PermanentPredicate[] }
   /**

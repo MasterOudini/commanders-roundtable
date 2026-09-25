@@ -301051,6 +301051,272 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WINTER_SKY": {
+    "scryfallId": "af1035f3-3027-4a41-834c-55222b13c2bc",
+    "oracleId": "fb150d6a-5f81-4fd8-92b2-22a9615bfd4f",
+    "name": "Winter Sky",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Winter Sky",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Flip a coin. If you win the flip, Winter Sky deals 1 damage to each creature and each player. If you lose the flip, each player draws a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mike Kimble",
+        "imageId": "af1035f3-3027-4a41-834c-55222b13c2bc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "hml",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STITCH_IN_TIME": {
+    "scryfallId": "336c02e8-2672-42f5-8510-46963c875a9b",
+    "oracleId": "59b2a90e-542f-4fb0-b290-ac79dc2892a4",
+    "name": "Stitch in Time",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stitch in Time",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Flip a coin. If you win the flip, take an extra turn after this one.",
+        "flavorText": "Quyzl was told by his mentor to \"make more time\" for his studies.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Jon Foster",
+        "imageId": "336c02e8-2672-42f5-8510-46963c875a9b"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "rvr",
+    "collectorNumber": "384z",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VIASHINO_SANDSWIMMER": {
+    "scryfallId": "0790607f-51b7-40ff-80f9-4f7f5cd2d63c",
+    "oracleId": "1d82f01a-29be-4756-8745-e2c04bf77c61",
+    "name": "Viashino Sandswimmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viashino Sandswimmer",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "{R}: Flip a coin. If you win the flip, return this creature to its owner's hand. If you lose the flip, sacrifice this creature.",
+        "flavorText": "Few swim in a place of such thirst.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "0790607f-51b7-40ff-80f9-4f7f5cd2d63c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCORIA_WURM": {
+    "scryfallId": "406f7fef-00f0-4ca5-ada4-c4a760e68467",
+    "oracleId": "ee45c80c-699c-4e37-97e6-1859c6601c99",
+    "name": "Scoria Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scoria Wurm",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "At the beginning of your upkeep, flip a coin. If you lose the flip, return this creature to its owner's hand.",
+        "flavorText": "Late at night, ululations echo from deep under Shiv, as the wurms sing of times older than humanity.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Firchow",
+        "imageId": "406f7fef-00f0-4ca5-ada4-c4a760e68467"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "10e",
+    "collectorNumber": "227",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAVERN_SWINDLER": {
+    "scryfallId": "47240ed3-f256-45fb-ab38-7b07e672d2ed",
+    "oracleId": "81674138-08d0-4126-9e6d-27f6e7dd2403",
+    "name": "Tavern Swindler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tavern Swindler",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{T}, Pay 3 life: Flip a coin. If you win the flip, you gain 6 life.",
+        "flavorText": "Rakdos cultists are her best customers. They never flinch at pain and are seldom good at math.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "47240ed3-f256-45fb-ab38-7b07e672d2ed"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "rtr",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_GOLD_SAUCER": {
+    "scryfallId": "5363c881-443d-43df-afd8-f81e1a1741a2",
+    "oracleId": "93e38650-ce22-4ab9-b79d-cc7b6477c075",
+    "name": "The Gold Saucer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Gold Saucer",
+        "manaCost": "",
+        "typeLine": "Land — Town",
+        "oracleText": "{T}: Add {C}.\n{2}, {T}: Flip a coin. If you win the flip, create a Treasure token.\n{3}, {T}, Sacrifice two artifacts: Draw a card.",
+        "flavorText": "After relaxing at Costa del Sol, stop by the Gold Saucer. It's a rich and exciting place to play!",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony Devine",
+        "imageId": "5363c881-443d-43df-afd8-f81e1a1741a2"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILD_WURM": {
+    "scryfallId": "e5a1b213-cba0-4eca-b058-93f4fde717c8",
+    "oracleId": "ba14d185-9432-4a67-8bfb-544c2cebe71d",
+    "name": "Wild Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild Wurm",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "When this creature enters, flip a coin. If you lose the flip, return this creature to its owner's hand.",
+        "flavorText": "Wurm heads appear\nWild wurm near\nWurm tails you see\nWild wurm flee",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Elliott",
+        "imageId": "e5a1b213-cba0-4eca-b058-93f4fde717c8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "212",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYCLAW_THRASH": {
+    "scryfallId": "fafde9c4-57c0-4ae5-a4db-38aae434ddcd",
+    "oracleId": "5d11cdb2-5a44-4e0e-b357-bb1be59f68fb",
+    "name": "Skyclaw Thrash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyclaw Thrash",
+        "manaCost": "{3}{U}{R}",
+        "typeLine": "Artifact Creature — Lizard Warrior",
+        "oracleText": "Whenever this creature attacks, flip a coin. If you win the flip, this creature gets +1/+1 and gains flying until end of turn.",
+        "flavorText": "Their newfound wings shined elegantly and functioned partially.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "fafde9c4-57c0-4ae5-a4db-38aae434ddcd"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "arb",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

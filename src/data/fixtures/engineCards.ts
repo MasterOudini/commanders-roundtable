@@ -8895,6 +8895,14 @@ export const SKITTERING_CRUSTACEAN: CardData = F.SKITTERING_CRUSTACEAN as CardDa
 export const AEROMUNCULUS: CardData = F.AEROMUNCULUS as CardData;
 export const SPLITTING_SLIME: CardData = F.SPLITTING_SLIME as CardData;
 export const GLUTTONOUS_CYCLOPS: CardData = F.GLUTTONOUS_CYCLOPS as CardData;
+export const WINTER_SKY: CardData = F.WINTER_SKY as CardData;
+export const STITCH_IN_TIME: CardData = F.STITCH_IN_TIME as CardData;
+export const VIASHINO_SANDSWIMMER: CardData = F.VIASHINO_SANDSWIMMER as CardData;
+export const SCORIA_WURM: CardData = F.SCORIA_WURM as CardData;
+export const TAVERN_SWINDLER: CardData = F.TAVERN_SWINDLER as CardData;
+export const THE_GOLD_SAUCER: CardData = F.THE_GOLD_SAUCER as CardData;
+export const WILD_WURM: CardData = F.WILD_WURM as CardData;
+export const SKYCLAW_THRASH: CardData = F.SKYCLAW_THRASH as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18042,6 +18050,14 @@ export const ENGINE_CARDS: CardData[] = [
   AEROMUNCULUS,
   SPLITTING_SLIME,
   GLUTTONOUS_CYCLOPS,
+  WINTER_SKY,
+  STITCH_IN_TIME,
+  VIASHINO_SANDSWIMMER,
+  SCORIA_WURM,
+  TAVERN_SWINDLER,
+  THE_GOLD_SAUCER,
+  WILD_WURM,
+  SKYCLAW_THRASH,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

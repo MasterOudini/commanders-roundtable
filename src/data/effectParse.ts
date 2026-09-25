@@ -1937,6 +1937,8 @@ const RULES: readonly Rule[] = [
    * +1/+1 counters, the caster choosing among a tie (the queue's sixth verb); `Bolster X` and the `, then` forms stay
    * unread. It ASKS (when several tie), so it is the sentence's last.
    */
+  // D534 - FLIP A COIN (CR 705): the caster's flip; the verdict rides the `CoinFlipped` marker for the gated clauses after it.
+  { kind: 'flipCoin', re: /^(?:you )?flip a coin\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   /**
    * D533 - MONSTROSITY N (CR 701.37): `Monstrosity 3.` - the source, if it is not monstrous yet, gets N +1/+1 counters and
    * becomes monstrous; a monstrous one gets nothing. `Monstrosity X` (the activation's X) stays unread.
