@@ -8920,6 +8920,14 @@ export const GNARLED_PROFESSOR: CardData = F.GNARLED_PROFESSOR as CardData;
 export const OVERGROWN_ARCH: CardData = F.OVERGROWN_ARCH as CardData;
 export const POET_S_QUILL: CardData = F.POET_S_QUILL as CardData;
 export const PROFESSOR_OF_SYMBOLOGY: CardData = F.PROFESSOR_OF_SYMBOLOGY as CardData;
+export const BEHOLD_THE_MULTIVERSE: CardData = F.BEHOLD_THE_MULTIVERSE as CardData;
+export const DEMON_BOLT: CardData = F.DEMON_BOLT as CardData;
+export const AUGURY_RAVEN: CardData = F.AUGURY_RAVEN as CardData;
+export const DOOMSKAR: CardData = F.DOOMSKAR as CardData;
+export const SARULF_S_PACKMATE: CardData = F.SARULF_S_PACKMATE as CardData;
+export const DOOMSKAR_ORACLE: CardData = F.DOOMSKAR_ORACLE as CardData;
+export const DOOMSKAR_TITAN: CardData = F.DOOMSKAR_TITAN as CardData;
+export const SHEPHERD_OF_THE_COSMOS: CardData = F.SHEPHERD_OF_THE_COSMOS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18092,6 +18100,14 @@ export const ENGINE_CARDS: CardData[] = [
   OVERGROWN_ARCH,
   POET_S_QUILL,
   PROFESSOR_OF_SYMBOLOGY,
+  BEHOLD_THE_MULTIVERSE,
+  DEMON_BOLT,
+  AUGURY_RAVEN,
+  DOOMSKAR,
+  SARULF_S_PACKMATE,
+  DOOMSKAR_ORACLE,
+  DOOMSKAR_TITAN,
+  SHEPHERD_OF_THE_COSMOS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

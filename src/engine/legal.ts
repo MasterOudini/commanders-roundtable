@@ -42,6 +42,8 @@ export type LegalAction =
       readonly label: string;
       /** D309 - the face-down (morph) cast: a 2/2 for {3}. */
       readonly faceDown?: true;
+      /** D540 - the cast of a FORETOLD card from exile, for its foretell cost (CR 702.143a). */
+      readonly foretold?: true;
       /** D403 - the face has a kicker the cast may announce (`CastSpell.kicked`), or a multikicker. */
       readonly kicker?: 'once' | 'many';
       /** D443 - the kicked cast (base + one kick) is payable now; the fuzz driver kicks exactly when it is. */
@@ -192,10 +194,30 @@ export type LegalAction =
       readonly costText: string;
       readonly label: string;
     }
+  | {
+      /** D540 - foretell a card from the hand for {2} (a special action on the player's own turn, CR 702.143a). */
+      readonly t: 'Foretell';
+      readonly card: InstanceId;
+      readonly affordable: boolean;
+      readonly costText: string;
+      readonly label: string;
+    }
   | { readonly t: 'PassPriority' };
 
 /** D309 - the cost of casting any card face down (CR 702.37a). */
 const MORPH_CAST_COST = parseManaCost('{3}');
+
+/** D540 - the cost of the foretell action (CR 702.143a): {2}, paid as a special action's mana is (restricted mana never). */
+export const FORETELL_COST = parseManaCost('{2}');
+
+/**
+ * D540 - a card FORETOLD on an earlier turn, in its owner's exile: castable from there for its foretell cost (CR
+ * 702.143a). The offer and the host ask this one predicate (D139).
+ */
+export function castsForetold(state: GameState, id: InstanceId, face: OracleFace, player: PlayerId): boolean {
+  const inst = state.cards[id];
+  return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.foretoldTurn !== undefined && inst.foretoldTurn < state.turn.turnNumber && face.foretellCost !== null;
+}
 
 /**
  * Which faces of a card can be cast or played independently.
@@ -281,6 +303,17 @@ export function legalActions(
           label: `Suspend ${face.name}`,
         });
       }
+      // D540 - FORETELL (CR 702.143a): a special action from the hand any time the player holds priority during their
+      // own turn (no timing of the card's own) - {2}, the card exiled face down. Offered beside the cast, no stack.
+      if (faceIndex === 0 && face.foretellCost !== null && !face.isLand && state.turn.activePlayer === player && !state.pendingCast) {
+        out.push({
+          t: 'Foretell',
+          card: id,
+          affordable: affordable(context.solve, buildPaymentProblem(FORETELL_COST, 0, [], 0), OTHER_PURPOSE),
+          costText: '{2}',
+          label: `Foretell ${face.name}`,
+        });
+      }
       if (face.isLand) {
         if (canLand) out.push({ t: 'PlayLand', card: id, faceIndex, label: face.name });
         continue;
@@ -320,6 +353,16 @@ export function legalActions(
       const action = castAction(state, oracle, scripts, perm.card, faceIndex, { kind: 'exile', player: inst.zone.player ?? player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
+  }
+
+  // D540 - A FORETOLD CARD (CR 702.143a): in its owner's exile, foretold on an earlier turn - offered at its own speed
+  // for its foretell cost (a card the player also holds a play permission for is the loop's above, offered once).
+  for (const id of state.zones.exile[player] ?? []) {
+    if (state.playPermissions.some((perm) => perm.card === id && perm.player === player)) continue;
+    const card = cardFor(state, oracle, id);
+    if (!card || !castsForetold(state, id, faceOf(card, 0), player)) continue;
+    const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
+    if (action) out.push(action);
   }
 
   // The command zone. A commander is castable from here at sorcery speed (or
@@ -996,7 +1039,9 @@ function castAction(
   // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
   // D537 - a retrace or jump-start cast pays the mana cost (and its discard, the additional cost below).
   const graveyardCast = from.kind === 'graveyard' && face.flashbackCost === null ? face.graveyardCast : null;
-  const cost = from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
+  // D540 - a FORETOLD card in exile is cast for its foretell cost (CR 702.143a), an alternative cost.
+  const foretold = from.kind === 'exile' && castsForetold(state, id, face, from.player ?? inst.owner);
+  const cost = foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
   if (cost === null) return null;
   // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
   // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless
@@ -1037,7 +1082,8 @@ function castAction(
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
-    ...alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax),
+    // D540 - a foretold cast is the alternative cost already (one at a time, CR 118.9).
+    ...(foretold ? { foretold: true as const } : alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax)),
   };
 }
 

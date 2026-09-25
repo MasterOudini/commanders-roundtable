@@ -124,6 +124,16 @@ export type Intent =
       readonly plan?: PaymentPlan;
     }
   /**
+   * D540 - FORETELL (CR 702.143a): a special action from the hand any time the player holds priority during their own
+   * turn - {2} paid (a plan, or the solver's), the card exiled face down. No stack, nothing to respond to.
+   */
+  | {
+      readonly t: 'Foretell';
+      readonly player: PlayerId;
+      readonly card: InstanceId;
+      readonly plan?: PaymentPlan;
+    }
+  /**
    * Activating a non-mana ability of a permanent you control. Mana abilities go
    * through `TapForMana` instead and never use the stack (CR 605).
    *

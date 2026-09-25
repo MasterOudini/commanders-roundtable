@@ -243,6 +243,12 @@ export interface CardInstance {
   /** D489 - entered from a suspend cast: a creature has haste while it stays (702.62e); cleared as it leaves the battlefield. */
   readonly suspendHaste?: true | undefined;
   /**
+   * D540 - FORETOLD (CR 702.143a): the turn the card was exiled face down from its owner's hand by the foretell action;
+   * castable from exile for its foretell cost once that turn has ended, its owner may look at it (`project.ts`). Cleared
+   * by the move that takes it out of exile.
+   */
+  readonly foretoldTurn?: number | undefined;
+  /**
    * D526 - MANIFESTED (CR 701.34): entered face down off a manifest; a creature card may be turned face up for its
    * mana cost while it stays (its morph cost too, if it prints one). Cleared as it leaves the battlefield.
    */
@@ -645,6 +651,8 @@ export interface PendingCast {
   readonly kickedWith?: readonly number[];
   /** D535 - the buyback the cast was announced with (CR 702.27), priced at every stage and carried to the `StackObject`. */
   readonly buyback?: true;
+  /** D540 - a FORETOLD cast (CR 702.143a): the turn the card was foretold - the foretell cost priced at every stage, the mark restored on a back-out. */
+  readonly foretold?: number;
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
   readonly orPaid?: true;
   /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */

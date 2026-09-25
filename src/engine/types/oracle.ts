@@ -2007,6 +2007,12 @@ export interface OracleFace {
   /** D538 - REBOUND (CR 702.88a): cast from the hand, exiled as it resolves and offered free at the controller's next upkeep. */
   readonly rebound: boolean;
   /**
+   * D540 - FORETELL (CR 702.143a): the foretell cost the face prints (`Foretell {M}`). On its owner's turn a special action
+   * pays {2} and exiles the card from the hand face down; once that turn has ended it may be cast from exile for this
+   * cost instead of its mana cost - an alternative cost (one at a time, CR 118.9).
+   */
+  readonly foretellCost: ManaCost | null;
+  /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard
    * (`CastSpell.convoke` / `improvise` / `delve`). Read off the keyword line at ingest.

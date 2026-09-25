@@ -370,7 +370,9 @@ export class Projector {
       case 'exile':
         // A face-down exiled card is genuinely hidden; its controller sees it
         // through `revealedTo`, which is checked above.
-        return !inst.faceDown;
+        // D540 - a FORETOLD card's owner may look at it while it stays in exile (CR 702.143a): the foretold state's own
+        // permission, so a back-out's return is seen as the foretell's exile was.
+        return !inst.faceDown || (inst.foretoldTurn !== undefined && inst.owner === this.viewer);
       case 'battlefield':
         // A face-down permanent is a PUBLIC OBJECT with a hidden identity. Its
         // controller knows what it is; everyone else sees a 2/2.

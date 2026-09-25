@@ -9927,6 +9927,17 @@ const WANTED = [
   "Poet's Quill",
   'Professor of Symbology',
   // D539 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D540 - foretell: the proofs' instants, a foretold creature and a foretold sorcery.
+  'Behold the Multiverse',
+  'Demon Bolt',
+  'Augury Raven',
+  'Doomskar',
+  // D540 - FORETELL: the rows the whole-leftover row maker rowed once foretell - the special action and the cast from exile, CR 702.143a - was the engine's.
+  "Sarulf's Packmate",
+  'Doomskar Oracle',
+  'Doomskar Titan',
+  'Shepherd of the Cosmos',
+  // D540 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

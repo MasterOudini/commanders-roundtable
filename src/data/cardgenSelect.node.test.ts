@@ -778,6 +778,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D540 - foretell: the Foretell line is the engine's now (the special action, the cast from exile); what stays is a foretell spell whose other sentence the vocabulary does not read, and a permanent the row maker refuses for another line.
+  ['Battle Mammoth', 'the row maker: trigger head not in the library: Whenever a permanent you control becomes the target of a spell or ability an opponent controls, you may draw a card. (D540)'],
+  ['Sozin\'s Comet', 'a spell with a line outside the vocabulary: Each creature you control gains firebending 5 until end of turn - a firebending grant (D540)'],
+  ['Lifestream\'s Blessing', 'a spell with a line outside the vocabulary: Draw X cards, where X is the greatest power among creatures you controlled as you cast this spell. If this spell was cast from exile, you gain twice X life - a count fixed at the cast, and a cast-from-exile gate (D540)'],
+  ['Spectral Deluge', 'a spell with a line outside the vocabulary: Return each creature your opponents control with toughness X or less to its owner\'s hand, where X is the number of Islands you control - a mass bounce under a counted toughness (D540)'],
+  ['Poison the Cup', 'a spell with a line outside the vocabulary: Destroy target creature. If this spell was foretold, scry 2 - a foretold gate (D540)'],
+  ['Tales of the Ancestors', 'a spell with a line outside the vocabulary: Each player with fewer cards in hand than the player with the most cards in hand draws cards equal to the difference - a per-player count against the most (D540)'],
   // D539 - learn: `Learn.` is the engine's now (the optional rummage - no cards outside the game); what stays is a learn card the row maker refuses for another line, and Retriever Phoenix's `if you would learn` replacement.
   ['Dream Strix', 'the row maker: trigger head not in the library: When this creature becomes the target of a spell, sacrifice it. (D539)'],
   ['Sparring Regimen', 'the row maker: a combat-role clause under a head whose declaration is not self attacking (the co-attacker rides an attack head alone) - Whenever you attack, put a +1/+1 counter on target attacking creature (D539)'],

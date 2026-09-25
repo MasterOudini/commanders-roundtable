@@ -301921,6 +301921,289 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BEHOLD_THE_MULTIVERSE": {
+    "scryfallId": "27855a38-a682-4f97-ad22-ac625e86faec",
+    "oracleId": "d7d2f701-77df-4169-bf98-0d51d6886e9b",
+    "name": "Behold the Multiverse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Behold the Multiverse",
+        "manaCost": "{3}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Scry 2, then draw two cards.\nForetell {1}{U} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": "Countless worlds unfolded before Niko, every one in need of heroes.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "27855a38-a682-4f97-ad22-ac625e86faec"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Foretell",
+      "Scry"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMON_BOLT": {
+    "scryfallId": "3c43bf24-399e-407a-a563-bb04f93a0497",
+    "oracleId": "6e786f0b-e2cb-40ee-96bc-81945a0b35a3",
+    "name": "Demon Bolt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demon Bolt",
+        "manaCost": "{2}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Demon Bolt deals 4 damage to target creature or planeswalker.\nForetell {R} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": "\"Burn them from the sky.\"\n—Varragoth",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Campbell White",
+        "imageId": "3c43bf24-399e-407a-a563-bb04f93a0497"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Foretell"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "787",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AUGURY_RAVEN": {
+    "scryfallId": "a9947cfd-91d6-479e-a7f6-2a2050f020f3",
+    "oracleId": "ee05fc58-1356-4b2f-b9ce-bda8cc716aee",
+    "name": "Augury Raven",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Augury Raven",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nForetell {1}{U} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": "Some ravens collect shiny baubles; others hoard omens and secrets.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "a9947cfd-91d6-479e-a7f6-2a2050f020f3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Foretell"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOMSKAR": {
+    "scryfallId": "11224400-f8c7-4d8e-9793-49436255aeef",
+    "oracleId": "38ece0fa-2c94-4eae-b6ab-74b783862f3e",
+    "name": "Doomskar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doomskar",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy all creatures.\nForetell {1}{W}{W} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": "The realms crashed together, with Bretagard at the center of the calamity.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Piotr Dura",
+        "imageId": "11224400-f8c7-4d8e-9793-49436255aeef"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Foretell"
+    ],
+    "setCode": "pkhm",
+    "collectorNumber": "9p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARULF_S_PACKMATE": {
+    "scryfallId": "6061113e-7dd8-4739-b4dd-55bb7f9e39a2",
+    "oracleId": "f32caf11-abc1-4cae-a311-10210176ea3a",
+    "name": "Sarulf's Packmate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sarulf's Packmate",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "When this creature enters, draw a card.\nForetell {1}{G} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "6061113e-7dd8-4739-b4dd-55bb7f9e39a2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Foretell"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOMSKAR_ORACLE": {
+    "scryfallId": "6dae01c8-15bb-44ad-a2c6-9bcf7a9e8c17",
+    "oracleId": "c1d8e97b-f34b-4e52-9795-a4433f26725a",
+    "name": "Doomskar Oracle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doomskar Oracle",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever you cast your second spell each turn, you gain 2 life.\nForetell {W} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": "\"Giants and monsters loom on the horizon, and the elves plan to murder our gods!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Taylor Ingvarsson",
+        "imageId": "6dae01c8-15bb-44ad-a2c6-9bcf7a9e8c17"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Foretell"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOOMSKAR_TITAN": {
+    "scryfallId": "a4e125e4-103f-4a68-b85f-1382646da71e",
+    "oracleId": "86692047-813f-47b1-9f4e-c8b9d5b17b1c",
+    "name": "Doomskar Titan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doomskar Titan",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Giant Berserker",
+        "oracleText": "When this creature enters, creatures you control get +1/+0 and gain haste until end of turn.\nForetell {4}{R} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "a4e125e4-103f-4a68-b85f-1382646da71e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Foretell"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHEPHERD_OF_THE_COSMOS": {
+    "scryfallId": "ce33c84e-008c-48d8-a8e8-77cd19cc4f1f",
+    "oracleId": "2c5aa155-646c-47f6-ba5c-6e1b41fd4bb2",
+    "name": "Shepherd of the Cosmos",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shepherd of the Cosmos",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel Warrior",
+        "oracleText": "Flying\nWhen this creature enters, return target permanent card with mana value 2 or less from your graveyard to the battlefield.\nForetell {3}{W} (During your turn, you may pay {2} and exile this card from your hand face down. Cast it on a later turn for its foretell cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "ce33c84e-008c-48d8-a8e8-77cd19cc4f1f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Foretell"
+    ],
+    "setCode": "khm",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

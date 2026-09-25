@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SARULFS_PACKMATE_SCRIPT } from './cards/sarulfsPackmate';
+import { DOOMSKAR_ORACLE_SCRIPT } from './cards/doomskarOracle';
+import { DOOMSKAR_TITAN_SCRIPT } from './cards/doomskarTitan';
+import { SHEPHERD_OF_THE_COSMOS_SCRIPT } from './cards/shepherdOfTheCosmos';
 import { EYETWITCH_SCRIPT } from './cards/eyetwitch';
 import { GNARLED_PROFESSOR_SCRIPT } from './cards/gnarledProfessor';
 import { OVERGROWN_ARCH_SCRIPT } from './cards/overgrownArch';
@@ -8102,6 +8106,10 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SARULFS_PACKMATE_SCRIPT,
+  DOOMSKAR_ORACLE_SCRIPT,
+  DOOMSKAR_TITAN_SCRIPT,
+  SHEPHERD_OF_THE_COSMOS_SCRIPT,
   EYETWITCH_SCRIPT,
   GNARLED_PROFESSOR_SCRIPT,
   OVERGROWN_ARCH_SCRIPT,

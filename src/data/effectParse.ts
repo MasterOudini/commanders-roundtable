@@ -3406,6 +3406,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.
     .filter((l) => !/^Rebound$/.test(l.trim()))
+    // D540 - a Foretell line is a special action from the hand and a cast from exile the engine prices, no clause of the
+    // spell either.
+    .filter((l) => !/^Foretell (?:\{[^}]+\})+$/.test(l.trim()))
     // D539 - LEARN (CR 701.48a) with no cards outside the game: the rummage or nothing, D415's optional verb price.
     .map((l) => (/^learn\.$/i.test(l.trim()) ? 'You may discard a card. If you do, draw a card.' : l))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.

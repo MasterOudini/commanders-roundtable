@@ -70,6 +70,8 @@ export interface CardMove {
   readonly suspend?: true;
   /** D489 - the entry from a suspend cast: a creature has haste while it stays (702.62e). */
   readonly suspendHaste?: true;
+  /** D540 - the exile that FORETELLS the card (CR 702.143a), or a back-out's return to it: the turn it was foretold, onto the card. */
+  readonly foretoldTurn?: number;
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**

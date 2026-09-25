@@ -598,6 +598,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.suspend ? { suspended: true as const } : {}),
           ...(move.from.kind === 'exile' && card.suspended === true ? { suspended: undefined } : {}),
           ...(move.suspendHaste ? { suspendHaste: true as const } : {}),
+          // D540 - the exile that foretells marks the card with its turn; any other move of a foretold card unmarks it.
+          ...(move.foretoldTurn !== undefined ? { foretoldTurn: move.foretoldTurn } : card.foretoldTurn !== undefined ? { foretoldTurn: undefined } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),

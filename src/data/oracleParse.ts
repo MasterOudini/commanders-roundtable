@@ -663,6 +663,16 @@ export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): Mana
   return null;
 }
 
+/** D540 - "Foretell {M}" on its own line (reminder text aside), as a mana cost (CR 702.143a). */
+export function parseForetell(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Foretell ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
 /**
  * D309 - "Morph {N}" / "Megamorph {N}" on its own line (reminder text aside),
  * as a mana cost; a dash cost ("Morph—Discard a card.") is null.
@@ -1325,6 +1335,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     buybackVerb: bought.buybackVerb,
     graveyardCast,
     rebound,
+    foretellCost: parseForetell(face.oracleText, warn),
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,

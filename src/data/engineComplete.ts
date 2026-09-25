@@ -610,6 +610,9 @@ export function linesUnaccounted(
     if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
     // D538 - a Rebound line the engine RUNS (the resolution's exile, the upkeep's free cast), asked of the parser's flag.
     if (face.rebound && line === 'Rebound') continue;
+    // D540 - a Foretell line the engine RUNS (the special action from the hand, the cast from exile for that cost), asked
+    // of the parser that read it.
+    if (face.foretellCost !== null && /^Foretell (?:\{[^}]+\})+$/.test(line)) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /
     // `improvise` / `delve`): the cast names what it taps or exiles, the payment takes it off the cost.
     if (

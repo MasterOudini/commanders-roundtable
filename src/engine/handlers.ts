@@ -22,6 +22,8 @@ import {
   NINJUTSU_STEPS,
   canActAtSorcerySpeed,
   castableFaces,
+  castsForetold,
+  FORETELL_COST,
   discardCandidatesFor,
   exileFromGraveyardCandidatesFor,
   sacrificeCandidatesFor,
@@ -116,6 +118,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return turnFaceUp(state, intent, deps);
     case 'Suspend':
       return suspend(state, intent, deps);
+    case 'Foretell':
+      return foretell(state, intent, deps);
     case 'CancelPendingCast':
       return cancelPendingCast(state, intent.player, deps);
     case 'TapForMana':
@@ -414,6 +418,8 @@ interface CastSetup {
   readonly alternative: boolean;
   /** D491 - a cast GRANTED by a resolving effect: nothing to pay but the ward and the additional cost's price. */
   readonly free?: true;
+  /** D540 - a FORETOLD cast from exile (CR 702.143a): the turn the card was foretold; its foretell cost priced into `problem`. */
+  readonly foretold?: number;
 }
 
 /** D406 - the picks a cast names for its additional cost's chooser verb. */
@@ -712,10 +718,12 @@ function kickersOf(kicked: number, kickedWith: readonly number[]): readonly numb
  * for a granted cast (D491), the alternative cost's mana (D408; its life is `stagedCastLife`), {3} face down (D309), the
  * flashback cost from the graveyard (D307). The targets stage had repriced every one of them at the printed cost.
  */
-function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly free?: true; readonly alternative?: true; readonly faceDown?: true; readonly from: ZoneRef }): ManaCost | null {
+function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly free?: true; readonly alternative?: true; readonly faceDown?: true; readonly foretold?: number; readonly from: ZoneRef }): ManaCost | null {
   if (pending.free === true) return null;
   if (pending.alternative === true && face.alternativeCost !== null) return face.alternativeCost.mana;
   if (pending.faceDown === true) return MORPH_CAST_COST;
+  // D540 - a foretold cast keeps paying its foretell cost.
+  if (pending.foretold !== undefined && face.foretellCost !== null) return face.foretellCost;
   if (pending.from.kind === 'graveyard' && face.flashbackCost !== null) return face.flashbackCost;
   return face.manaCost;
 }
@@ -846,7 +854,10 @@ function prepareCast(
   const graveyardCast = from.kind === 'graveyard' && !flashback && !faceDown ? face.graveyardCast : null;
   // D417 - a PLAY PERMISSION: exile is a place to cast from while the player holds one for the card.
   const permitted = from.kind === 'exile' && state.playPermissions.some((p) => p.card === cardId && p.player === player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted) {
+  // D540 - a FORETOLD card: exile is a place to cast from for its owner once the turn it was foretold has ended
+  // (CR 702.143a), for its foretell cost (`castsForetold`, the offer's own predicate).
+  const foretold = from.kind === 'exile' && !faceDown && !free && castsForetold(state, cardId, face, player);
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
@@ -877,10 +888,11 @@ function prepareCast(
   // 118.9: not beside a flashback or a face-down cast).
   const altCost = alternative ? alternativeCostProblem(state, deps, player, cardId, face, picks.exileFromHand) : null;
   if (altCost && 'error' in altCost) return altCost;
-  if (altCost && (faceDown || flashback)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
+  if (altCost && (faceDown || flashback || foretold)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
-  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  // D540 - a foretold cast pays the FORETELL cost instead of the mana cost.
+  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
   if (cost === null && !altCost && !free) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
@@ -910,7 +922,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -968,6 +980,43 @@ function suspend(state: GameState, intent: Extract<Intent, { t: 'Suspend' }>, de
       oracleCard.colorIdentity,
     ),
   );
+  events.push(...retainPriority(intent.player, state.stack.length));
+  return accept(events);
+}
+
+/**
+ * D540 - FORETELL (CR 702.143a): a special action from the hand, any time the player holds priority during their OWN
+ * turn (a spell on the stack is no bar - the card's own timing is the cast's, not this): {2} paid as suspend's cost is
+ * (D489 - a plan, or the solver's), and the card goes to exile FACE DOWN, marked with the turn. Its owner may look at
+ * it (`project.ts`); the table learns only that a card was foretold - the narration names none and shows no colour.
+ * Once that turn has ended the card may be cast from exile for its foretell cost (`prepareCast`, `castsForetold`).
+ */
+function foretell(state: GameState, intent: Extract<Intent, { t: 'Foretell' }>, deps: EngineDeps): HandleResult {
+  const card = state.cards[intent.card];
+  if (!card) return reject('noSuchCard', 'That card is not in the game.');
+  if (card.zone.kind !== 'hand' || card.zone.player !== intent.player) return reject('wrongZone', 'That card is not in your hand.');
+  const oracleCard = deps.oracle.byPrinting(card.printingId);
+  if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
+  const face = faceOf(oracleCard, 0);
+  if (face.foretellCost === null || face.isLand) return reject('notCastable', `${face.name} has no foretell cost.`);
+  if (state.priority.player !== intent.player || state.priority.awaiting !== null) {
+    return reject('notYourPriority', 'You do not have priority.');
+  }
+  if (state.turn.activePlayer !== intent.player) return reject('timingRestriction', "A card is foretold only during its owner's own turn.");
+  if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
+  const problem = buildPaymentProblem(FORETELL_COST, 0, [], 0);
+  const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
+  // D397 - a special action (CR 116.2h), neither a spell nor an ability: restricted mana never pays it.
+  const chosen = intent.plan ?? suggestPayment(solve, problem, OTHER_PURPOSE);
+  if (!chosen) return reject('cannotAfford', `You cannot pay {2} to foretell ${face.name}.`);
+  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
+  if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
+  if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+  const events: EventBody[] = [];
+  events.push(...payEvents(state, deps, intent.player, chosen, { problem }, OTHER_PURPOSE));
+  events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'hand', player: intent.player }, to: { kind: 'exile', player: card.owner }, faceDown: true, foretoldTurn: state.turn.turnNumber }] });
+  // The table learns that a card was foretold, never which: no name, no colour.
+  events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'foretells', 'foretell')} a card.`, intent.player, []));
   events.push(...retainPriority(intent.player, state.stack.length));
   return accept(events);
 }
@@ -1132,6 +1181,7 @@ function castSpell(
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(setup.buyback ? { buyback: true as const } : {}),
+      ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
       ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
       ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
       ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
@@ -2076,7 +2126,8 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
   if (pending.kind === 'spell') {
     events.push({
       t: 'CardsMoved',
-      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.from }],
+      // D540 - a foretold card backed out of goes back as it was: face down, foretold on the turn it was.
+      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}) }],
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });

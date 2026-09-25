@@ -1386,7 +1386,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   };
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend' && a.t !== 'Foretell') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
     // D535 - a mana-buyback spell waits in hand until it can be cast bought back.
     .filter((a) => !(a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable !== true));
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
@@ -1446,6 +1446,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
     case 'Suspend':
       // D489 - the special action: pay the suspend cost, exile the card with its time counters.
       return { t: 'Suspend', player: holder, card: chosen.card };
+    case 'Foretell':
+      // D540 - the special action: pay {2}, exile the card face down (cast from exile on a later turn).
+      return { t: 'Foretell', player: holder, card: chosen.card };
     case 'TapForMana':
       return {
         t: 'TapForMana',
@@ -1721,6 +1724,9 @@ interface Run {
   /** D538 - the rebound triggers armed, and the spells cast from exile by their rebound. */
   readonly reboundArms: number;
   readonly reboundCasts: number;
+  /** D540 - the cards foretold (exiled face down from the hand), and the spells cast from exile whose face foretells. */
+  readonly foretells: number;
+  readonly foretoldCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2231,6 +2237,8 @@ function runOne(seed: number): Run {
     jumpStartCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.graveyardCast?.kind === 'jumpStart').length,
     reboundArms: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && e.body.trigger.id.includes('-rebound-')).length,
     reboundCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.rebound ?? false)).length,
+    foretells: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.foretoldTurn !== undefined && m.from.kind === 'hand')).length,
+    foretoldCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.foretellCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2567,6 +2575,8 @@ const TOTAL_KEYS = [
   'jumpStartCasts',
   'reboundArms',
   'reboundCasts',
+  'foretells',
+  'foretoldCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',
