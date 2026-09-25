@@ -51,6 +51,7 @@ import { RING_EMBLEM } from './tokenParse';
 import { protectionFullyRead } from '../engine/protection';
 import { exertForm, parseFace, parseProtection, parseWard, parseWardLife, readUpkeepPrice } from './oracleParse';
 import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
+import { isPairingKeywordLine } from './validate';
 import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 
 /** D338 - the keyword-trigger keywords printed WITH a number the engine reads (`keywordAmount`). */
@@ -613,6 +614,9 @@ export function linesUnaccounted(
     // D540 - a Foretell line the engine RUNS (the special action from the hand, the cast from exile for that cost), asked
     // of the parser that read it.
     if (face.foretellCost !== null && /^Foretell (?:\{[^}]+\})+$/.test(line)) continue;
+    // D542 - a PAIRING keyword (Partner, Partner—<quality>, Friends forever, Choose a Background, Doctor's companion):
+    // deck construction the validator enforces, no rule in the game - asked of the validator's own reader.
+    if (isPairingKeywordLine(line)) continue;
     // D541 - a Madness line the engine RUNS (the discard's exile, the trigger's cast for that cost), asked of the parser.
     if (face.madnessCost !== null && /^Madness (?:\{[^}]+\})+$/.test(line)) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /

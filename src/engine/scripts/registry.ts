@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BRUSE_TARL_BOORISH_HERDER_SCRIPT } from './cards/bruseTarlBoorishHerder';
+import { ERINIS_GLOOM_STALKER_SCRIPT } from './cards/erinisGloomStalker';
+import { ISHAI_OJUTAI_DRAGONSPEAKER_SCRIPT } from './cards/ishaiOjutaiDragonspeaker';
+import { ELMAR_ULVENWALD_INFORMANT_SCRIPT } from './cards/elmarUlvenwaldInformant';
+import { IKRA_SHIDIQI_THE_USURPER_SCRIPT } from './cards/ikraShidiqiTheUsurper';
+import { YASMIN_KHAN_SCRIPT } from './cards/yasminKhan';
+import { SARAH_JANE_SMITH_SCRIPT } from './cards/sarahJaneSmith';
+import { AKIRI_LINE_SLINGER_SCRIPT } from './cards/akiriLineSlinger';
+import { RAVOS_SOULTENDER_SCRIPT } from './cards/ravosSoultender';
+import { TANA_THE_BLOODSOWER_SCRIPT } from './cards/tanaTheBloodsower';
+import { WILSON_REFINED_GRIZZLY_SCRIPT } from './cards/wilsonRefinedGrizzly';
+import { GANAX_ASTRAL_HUNTER_SCRIPT } from './cards/ganaxAstralHunter';
 import { BLOODHALL_PRIEST_SCRIPT } from './cards/bloodhallPriest';
 import { NECROGOYF_SCRIPT } from './cards/necrogoyf';
 import { STENSIA_MASQUERADE_SCRIPT } from './cards/stensiaMasquerade';
@@ -8123,6 +8135,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRUSE_TARL_BOORISH_HERDER_SCRIPT,
+  ERINIS_GLOOM_STALKER_SCRIPT,
+  ISHAI_OJUTAI_DRAGONSPEAKER_SCRIPT,
+  ELMAR_ULVENWALD_INFORMANT_SCRIPT,
+  IKRA_SHIDIQI_THE_USURPER_SCRIPT,
+  YASMIN_KHAN_SCRIPT,
+  SARAH_JANE_SMITH_SCRIPT,
+  AKIRI_LINE_SLINGER_SCRIPT,
+  RAVOS_SOULTENDER_SCRIPT,
+  TANA_THE_BLOODSOWER_SCRIPT,
+  WILSON_REFINED_GRIZZLY_SCRIPT,
+  GANAX_ASTRAL_HUNTER_SCRIPT,
   BLOODHALL_PRIEST_SCRIPT,
   NECROGOYF_SCRIPT,
   STENSIA_MASQUERADE_SCRIPT,

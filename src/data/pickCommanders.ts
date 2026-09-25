@@ -34,6 +34,7 @@ export interface CommanderPick {
 const PAIR_REASON: Record<string, string> = {
   partner: 'both have Partner',
   'partner-with': 'they name each other with Partner with',
+  'partner-quality': 'both have the same Partner ability',
   'choose-background': 'it chooses a Background',
   'friends-forever': 'both have Friends forever',
   doctor: "it is a Doctor with its companion",

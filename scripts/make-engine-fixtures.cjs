@@ -9961,6 +9961,20 @@ const WANTED = [
   'Gorgon Recluse',
   'Strength of Lunacy',
   // D541 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D542 - THE PAIRING KEYWORDS: the rows the whole-leftover row maker rowed once a Partner, Friends forever, Background or Doctor pairing line - deck construction the validator enforces - was the engine's.
+  'Bruse Tarl, Boorish Herder',
+  'Erinis, Gloom Stalker',
+  'Ishai, Ojutai Dragonspeaker',
+  'Elmar, Ulvenwald Informant',
+  'Ikra Shidiqi, the Usurper',
+  'Yasmin Khan',
+  'Sarah Jane Smith',
+  'Akiri, Line-Slinger',
+  'Ravos, Soultender',
+  'Tana, the Bloodsower',
+  'Wilson, Refined Grizzly',
+  'Ganax, Astral Hunter',
+  // D542 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

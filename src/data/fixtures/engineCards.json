@@ -302913,6 +302913,456 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BRUSE_TARL_BOORISH_HERDER": {
+    "scryfallId": "07889f56-740f-4d17-9b0e-8d8e9e327f31",
+    "oracleId": "e39a1f6b-6b13-4a8b-ac0c-63ede4636812",
+    "name": "Bruse Tarl, Boorish Herder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bruse Tarl, Boorish Herder",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Human Ally",
+        "oracleText": "Whenever Bruse Tarl enters or attacks, target creature you control gains double strike and lifelink until end of turn.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Square Enix",
+        "imageId": "07889f56-740f-4d17-9b0e-8d8e9e327f31"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner"
+    ],
+    "setCode": "fca",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ERINIS_GLOOM_STALKER": {
+    "scryfallId": "07efa583-c8ef-4d02-a548-1b4186790470",
+    "oracleId": "1b76a54d-5a9f-4b1b-a075-4b4c4de8ba0a",
+    "name": "Erinis, Gloom Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Erinis, Gloom Stalker",
+        "manaCost": "{2}{G}",
+        "typeLine": "Legendary Creature — Halfling Ranger",
+        "oracleText": "Deathtouch\nWhenever Erinis attacks, return target land card from your graveyard to the battlefield.\nChoose a Background (You can have a Background as a second commander.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ioannis Fiore",
+        "imageId": "07efa583-c8ef-4d02-a548-1b4186790470"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Choose a background",
+      "Deathtouch"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "515",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ISHAI_OJUTAI_DRAGONSPEAKER": {
+    "scryfallId": "08364038-8ee8-4611-86f8-4f13af1066df",
+    "oracleId": "4aae7102-301a-429d-b169-4f462384d55d",
+    "name": "Ishai, Ojutai Dragonspeaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ishai, Ojutai Dragonspeaker",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Legendary Creature — Bird Monk",
+        "oracleText": "Flying\nWhenever an opponent casts a spell, put a +1/+1 counter on Ishai.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "08364038-8ee8-4611-86f8-4f13af1066df"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Partner"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "86160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELMAR_ULVENWALD_INFORMANT": {
+    "scryfallId": "0b5dabb3-5d54-45d4-83b4-024b72b61966",
+    "oracleId": "5a35201d-e9b1-433a-bb70-3280ceedbcd6",
+    "name": "Elmar, Ulvenwald Informant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elmar, Ulvenwald Informant",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Legendary Creature — Human",
+        "oracleText": "Haste\nWhenever you cast your second spell each turn, untap target creature, then investigate. (Create a colorless Clue artifact token with \"{2}, Sacrifice this artifact: Draw a card.\")\nPartner—Friends forever (You can have two commanders if both have this ability.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Eliz Roxs",
+        "imageId": "0b5dabb3-5d54-45d4-83b4-024b72b61966"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Investigate",
+      "Haste",
+      "Partner"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "SLX-4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IKRA_SHIDIQI_THE_USURPER": {
+    "scryfallId": "0fb98089-11b8-4afd-9724-e488d864b4dc",
+    "oracleId": "a1a1761c-88e5-40b4-ba4c-60735c054b09",
+    "name": "Ikra Shidiqi, the Usurper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ikra Shidiqi, the Usurper",
+        "manaCost": "{3}{B}{G}",
+        "typeLine": "Legendary Creature — Snake Wizard",
+        "oracleText": "Menace\nWhenever a creature you control deals combat damage to a player, you gain life equal to that creature's toughness.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": "\"Now the scaled ones rule Tarkir.\"",
+        "power": "3",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "0fb98089-11b8-4afd-9724-e488d864b4dc"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Partner",
+      "Menace"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "519",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YASMIN_KHAN": {
+    "scryfallId": "12b09a4f-bb62-4766-8115-cae4d5cc4c12",
+    "oracleId": "93637599-d9b4-4f7e-a5c0-5a92656e941e",
+    "name": "Yasmin Khan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yasmin Khan",
+        "manaCost": "{3}{R}",
+        "typeLine": "Legendary Creature — Human Detective",
+        "oracleText": "{T}: Exile the top card of your library. Until your next end step, you may play it.\nDoctor's companion (You can have two commanders if the other is the Doctor.)",
+        "flavorText": "\"We're going to find her and we're going to rescue her. She's done it for us enough times—now it's our turn.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "12b09a4f-bb62-4766-8115-cae4d5cc4c12"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Doctor's companion"
+    ],
+    "setCode": "who",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARAH_JANE_SMITH": {
+    "scryfallId": "1ba76f68-e647-4786-903c-92dbd3cef05d",
+    "oracleId": "da268892-b190-4eee-9a2b-b0b9bb763033",
+    "name": "Sarah Jane Smith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sarah Jane Smith",
+        "manaCost": "{1}{W}",
+        "typeLine": "Legendary Creature — Human Detective",
+        "oracleText": "Whenever you cast a historic spell, investigate. This ability triggers only once each turn. (Artifacts, legendaries, and Sagas are historic. To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nDoctor's companion (You can have two commanders if the other is the Doctor.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "1ba76f68-e647-4786-903c-92dbd3cef05d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Investigate",
+      "Doctor's companion"
+    ],
+    "setCode": "who",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AKIRI_LINE_SLINGER": {
+    "scryfallId": "3b951e0c-a4dd-4a20-87c6-eaa947e33aa4",
+    "oracleId": "3e0a0276-b640-41c7-95bd-ba3067f5c911",
+    "name": "Akiri, Line-Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Akiri, Line-Slinger",
+        "manaCost": "{R}{W}",
+        "typeLine": "Legendary Creature — Kor Soldier Ally",
+        "oracleText": "First strike, vigilance\nAkiri gets +1/+0 for each artifact you control.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": "Her bold movements are anchored in the careful precision of each rope.",
+        "power": "0",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "3b951e0c-a4dd-4a20-87c6-eaa947e33aa4"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "First strike",
+      "Partner"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVOS_SOULTENDER": {
+    "scryfallId": "4c5d27f8-40d4-4abd-b62f-42fc923302ef",
+    "oracleId": "7880576b-8ad9-4382-97c5-7a631106a35e",
+    "name": "Ravos, Soultender",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ravos, Soultender",
+        "manaCost": "{3}{W}{B}",
+        "typeLine": "Legendary Creature — Human Cleric",
+        "oracleText": "Flying\nOther creatures you control get +1/+1.\nAt the beginning of your upkeep, you may return target creature card from your graveyard to your hand.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "4c5d27f8-40d4-4abd-b62f-42fc923302ef"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Partner"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "86168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TANA_THE_BLOODSOWER": {
+    "scryfallId": "66e5fde1-d99e-4d64-a567-736efd8cac15",
+    "oracleId": "a7dff624-1f6b-4e00-b13b-0b0d69a48ec2",
+    "name": "Tana, the Bloodsower",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tana, the Bloodsower",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Legendary Creature — Elf Druid",
+        "oracleText": "Trample\nWhenever Tana deals combat damage to a player, create that many 1/1 green Saproling creature tokens.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "66e5fde1-d99e-4d64-a567-736efd8cac15"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner",
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "86176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILSON_REFINED_GRIZZLY": {
+    "scryfallId": "91422b68-b4a8-4138-8aee-bc98d33d6a6c",
+    "oracleId": "d2766fd7-5cf9-4037-9f34-9ae3982c613a",
+    "name": "Wilson, Refined Grizzly",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wilson, Refined Grizzly",
+        "manaCost": "{1}{G}",
+        "typeLine": "Legendary Creature — Bear Warrior",
+        "oracleText": "This spell can't be countered.\nVigilance, reach, trample\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nChoose a Background (You can have a Background as a second commander.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "91422b68-b4a8-4138-8aee-bc98d33d6a6c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Reach",
+      "Vigilance",
+      "Choose a background",
+      "Trample",
+      "Ward"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "522",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GANAX_ASTRAL_HUNTER": {
+    "scryfallId": "97fb28cc-67bd-4e1f-933a-3b859f38ea64",
+    "oracleId": "a3112971-3af4-46e8-b2d6-a8759b39d0d1",
+    "name": "Ganax, Astral Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ganax, Astral Hunter",
+        "manaCost": "{4}{R}",
+        "typeLine": "Legendary Creature — Dragon",
+        "oracleText": "Flying\nWhenever Ganax or another Dragon you control enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nChoose a Background (You can have a Background as a second commander.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "97fb28cc-67bd-4e1f-933a-3b859f38ea64"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Choose a background",
+      "Treasure"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "504",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -122,6 +122,8 @@ export function canBeCommander(card: CardData): boolean {
 export type PairingKind =
   | 'partner'
   | 'partner-with'
+  /** D542 - `Partner—<quality>` (Survivors, Character select, Father & son): pairs with the same quality alone. */
+  | 'partner-quality'
   | 'background'
   | 'choose-background'
   | 'friends-forever'
@@ -145,9 +147,28 @@ export function pairingOf(card: CardData): PairingKind {
   if (/\bTime Lord Doctor\b/.test(type)) return 'doctor';
   if (/Choose a Background/i.test(text)) return 'choose-background';
   if (/\bBackground\b/.test(type)) return 'background';
+  // D542 - a Partner with a QUALITY (`Partner—Survivors`) pairs with the same quality alone; `Partner—Friends forever`
+  // is read above as Friends forever.
+  if (partnerQuality(card) !== null) return 'partner-quality';
   // Plain Partner last: "Partner with" also contains the word.
   if (keywords.includes('partner') || /\bPartner\b(?! with)/i.test(text)) return 'partner';
   return null;
+}
+
+/** D542 - the quality of a `Partner—<quality>` line (`Survivors`, `Character select`), or null for none. */
+function partnerQuality(card: CardData): string | null {
+  const m = /^Partner—([^(\n]+?)\s*(?:\(|$)/m.exec(allText(card));
+  return m ? (m[1] ?? '').trim() : null;
+}
+
+/**
+ * D542 - is this line one of the PAIRING keywords the validator enforces at deck construction (a bare `Partner`, a
+ * `Partner—<quality>`, `Friends forever`, `Choose a Background`, `Doctor's companion`)? Deck construction alone - no
+ * rule in the game - so the completeness accounting takes the line as the engine's (engineComplete asks this reader).
+ * `Partner with <name>` is not one: its line carries an enters trigger.
+ */
+export function isPairingKeywordLine(line: string): boolean {
+  return /^(?:Partner|Partner—[^.(\n]+|Friends forever|Choose a Background|Doctor's companion)$/.test(line.trim());
 }
 
 /** The named counterpart of a "Partner with X" card. */
@@ -177,6 +198,10 @@ function pairingProblem(a: CardData, b: CardData): string | null {
     return `${a.name} and ${b.name} do not name each other with Partner with.`;
   }
   if (pa === 'partner' && pb === 'partner') return null;
+  // D542 - two `Partner—<quality>` cards pair when the quality is the same (CR 702.124); never with a plain Partner.
+  if (pa === 'partner-quality' && pb === 'partner-quality') {
+    return partnerQuality(a) === partnerQuality(b) ? null : `${a.name} and ${b.name} have different Partner abilities.`;
+  }
   if (
     (pa === 'choose-background' && pb === 'background') ||
     (pb === 'choose-background' && pa === 'background')

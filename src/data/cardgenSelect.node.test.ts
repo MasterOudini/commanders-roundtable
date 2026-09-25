@@ -778,6 +778,20 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D542 - the pairing keywords: a Partner, Friends forever, Background or Doctor pairing line is the engine's now (deck construction the validator enforces); what stays is a partner commander the row maker refuses for another line.
+  ['Miara, Thorn of the Glade', 'the row maker: two payment prompts on one row (the payer lands are shared) (D542)'],
+  ['Splinter, the Mentor', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ or another nontoken creature you control leaves the battlefield, create a Mutagen token. (D542)'],
+  ['Leela, Sevateem Warrior', 'the row maker: trigger head not in the library: Whenever an opponent draws a card except the first one they draw in each of their draw steps, put a +1/+1 counter on ~. (D542)'],
+  ['Alora, Merry Thief', 'the row maker: a combat-role clause under a head whose declaration is not self attacking (the co-attacker rides an (D542)'],
+  ['Alharu, Solemn Ritualist', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a nontoken creature you control with a +1/+1 counter on it dies, create a 1/1 white Spirit creature token with flying. (D542)'],
+  ['Kraum, Ludevic\'s Opus', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: their): Whenever an opponent casts their second spell each turn, draw a card. (D542)'],
+  ['Brinelin, the Moon Kraken', 'the row maker: trigger head not in the library: When ~ enters and whenever you cast a spell with mana value 6 or greater, you may return target nonland permanent to its owner\'s hand. (D542)'],
+  ['Graham O\'Brien', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D542)'],
+  ['Rose Noble', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast a Doctor spell or creature spell with doctor\'s companion, draw a card. (D542)'],
+  ['Francisco, Fowl Marauder', 'the row maker: trigger head not in the library: Whenever one or more Pirates you control deal damage to a player, ~ explores. (D542)'],
+  ['Yoshimaru, Ever Faithful', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: legendary): Whenever another legendary permanent you control enters, put a +1/+1 counter on ~. (D542)'],
+  ['Joel, Resolute Survivor', 'the row maker: a filtered head no fixture satisfies: a creature token (D542)'],
+  ['Keskit, the Flesh Sculptor', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: artifacts and/or creatures (D542)'],
   // D541 - madness: the Madness line is the engine's now (the discard's exile, the trigger's cast for the madness cost); what stays is a madness spell whose other sentence the vocabulary does not read.
   ['Circular Logic', 'a spell with a line outside the vocabulary: Counter target spell unless its controller pays {1} for each card in your graveyard - a counter-unless-pays priced by a count (D541)'],
   // D540 - foretell: the Foretell line is the engine's now (the special action, the cast from exile); what stays is a foretell spell whose other sentence the vocabulary does not read, and a permanent the row maker refuses for another line.
@@ -1907,7 +1921,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D515 - the stat family's remainder: the cards the wave refused, by its own reasons.
   // D514 - the object's stat as last known: the cards of the family the row maker refused, by its own reasons.
   ['Grim Feast', 'trigger payload not a pump: You gain life equal to its toughness. (D514)'],
-  ['Ikra Shidiqi, the Usurper', 'trigger payload not a pump: You gain life equal to that creature\'s toughness. (D514)'],
   ["Trostani, Selesnya's Voice", 'a vocabulary effect the suite cannot assert: populate (D514)'],
   ['Righteous Valkyrie', 'a condition outside the closed vocabulary: you have at least 7 life more than your starting life tot (D514)'],
   ['Death Watch', 'trigger payload not a pump: Its controller loses life equal to its power and you gain li (D514)'],

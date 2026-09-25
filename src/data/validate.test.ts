@@ -3,6 +3,7 @@ import {
   canBeCommander,
   commanderEligibility,
   copyLimit,
+  isPairingKeywordLine,
   pairingOf,
   unionIdentity,
   validateCommanderDeck,
@@ -548,6 +549,60 @@ describe('two-commander pairings', () => {
     const report = validateCommanderDeck(commanders, main);
     const issue = report.issues.find((i) => i.code === 'partner-mismatch');
     expect(issue?.message).toContain('cannot be played together');
+  });
+});
+
+// D542 - `Partner—<quality>` pairs with the same quality alone (CR 702.124). Scryfall lists these cards' keyword as a
+// plain `Partner`, so the validator read Joel as pairing with Thrasios.
+const JOEL = face(mk({
+  name: 'Joel, Resolute Survivor', colorIdentity: ['B', 'G'], keywords: ['Partner', 'Menace'],
+}), {
+  typeLine: 'Legendary Creature — Human Survivor',
+  oracleText: 'Menace\nWhenever a creature token dies, put a +1/+1 counter on Joel and draw a card. This ability triggers only once each turn.\nPartner—Survivors (You can have two commanders if both have this ability.)',
+  power: '4', toughness: '4',
+});
+
+const ELLIE = face(mk({
+  name: 'Ellie, Vengeful Hunter', colorIdentity: ['B', 'R'], keywords: ['Partner'],
+}), {
+  typeLine: 'Legendary Creature — Human Survivor',
+  oracleText: 'Pay 2 life, Sacrifice another creature: Ellie deals 2 damage to target player and gains indestructible until end of turn.\nPartner—Survivors (You can have two commanders if both have this ability.)',
+  power: '3', toughness: '1',
+});
+
+const SPLINTER = face(mk({
+  name: 'Splinter, the Mentor', colorIdentity: ['B'], keywords: ['Partner', 'Menace'],
+}), {
+  typeLine: 'Legendary Creature — Mutant Ninja Rat',
+  oracleText: 'Menace\nWhenever Splinter or another nontoken creature you control leaves the battlefield, create a Mutagen token.\nPartner—Character select (You can have two commanders if both have this ability.)',
+  power: '2', toughness: '2',
+});
+
+describe('D542 - Partner with a quality', () => {
+  test('pairingOf reads the quality, not the plain keyword', () => {
+    expect(pairingOf(JOEL)).toBe('partner-quality');
+    expect(pairingOf(SPLINTER)).toBe('partner-quality');
+  });
+
+  test('two cards with the same quality pair', () => {
+    const { commanders, main } = deckOf([JOEL, ELLIE], [], SWAMP);
+    const report = validateCommanderDeck(commanders, main);
+    expect(report.issues.filter((i) => i.code === 'partner-mismatch')).toEqual([]);
+  });
+
+  test('a quality never pairs with a plain Partner, nor with another quality', () => {
+    const plain = deckOf([JOEL, THRASIOS]);
+    expect(validateCommanderDeck(plain.commanders, plain.main).issues.some((i) => i.code === 'partner-mismatch')).toBe(true);
+    const other = deckOf([JOEL, SPLINTER], [], SWAMP);
+    expect(validateCommanderDeck(other.commanders, other.main).issues.find((i) => i.code === 'partner-mismatch')?.message).toContain('different Partner abilities');
+  });
+
+  test('the pairing keyword lines are the validator\'s own reader', () => {
+    for (const line of ['Partner', 'Partner—Survivors', 'Partner—Character select', 'Friends forever', 'Choose a Background', "Doctor's companion"]) {
+      expect(isPairingKeywordLine(line), line).toBe(true);
+    }
+    expect(isPairingKeywordLine('Partner with Krav, the Unredeemed'), 'an enters trigger rides it').toBe(false);
+    expect(isPairingKeywordLine('Menace')).toBe(false);
   });
 });
 
