@@ -617,6 +617,9 @@ export function linesUnaccounted(
     // D542 - a PAIRING keyword (Partner, Partner—<quality>, Friends forever, Choose a Background, Doctor's companion):
     // deck construction the validator enforces, no rule in the game - asked of the validator's own reader.
     if (isPairingKeywordLine(line)) continue;
+    // D544 - a `Partner with <name>` line the engine RUNS (the enters trigger: the target player may search for the named
+    // card), asked of the parser that read its search; the pairing is the validator's (D542).
+    if (face.partnerWith !== null && /^Partner with /.test(line)) continue;
     // D541 - a Madness line the engine RUNS (the discard's exile, the trigger's cast for that cost), asked of the parser.
     if (face.madnessCost !== null && /^Madness (?:\{[^}]+\})+$/.test(line)) continue;
     // D405 - a Convoke / Improvise / Delve line the engine CHARGES at cast time (`CastSpell.convoke` /

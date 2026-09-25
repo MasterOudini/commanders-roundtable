@@ -829,7 +829,32 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       resolve: () => [],
     },
   ],
+  [
+    'partnerWith',
+    {
+      // D544 - PARTNER WITH (CR 702.124j): "When this permanent enters, target player may search their library for a card
+      // named [name], reveal it, put it into their hand, then shuffle." Fired off the permanent's face-up entry (`fromMove` -
+      // `Partner with` is no derived keyword); the search is the entry's own effect (`OracleFace.partnerWith`), asked of
+      // the target player.
+      event: 'CardsMoved',
+      fromMove: true,
+      matches: (ctx, self, ev) => ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield' && m.faceDown !== true) && partnerWithOf(ctx, self) !== null,
+      targets: () => parseTargetClauses(PARTNER_WITH_TEXT),
+      effects: (ctx, self) => { const s = partnerWithOf(ctx, self); return s ? [s] : []; },
+      label: (ctx, self) => `${nameOf(ctx, self)} - partner with`,
+      resolve: () => [],
+    },
+  ],
 ]);
+
+/** D544 - the partner-with trigger's one target clause (the player who may search). */
+const PARTNER_WITH_TEXT = 'Target player may search their library for a card.';
+/** D544 - the face's partner-with search, off the printing of the card as it stands. */
+function partnerWithOf(ctx: ScriptCtx, id: InstanceId) {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? faceOf(printing, card.faceIndex).partnerWith : null;
+}
 
 /**
  * D536 - the storm count (CR 702.40a): every spell cast this turn, by every player, before this one - read off the state

@@ -303689,6 +303689,561 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BLARING_RECRUITER": {
+    "scryfallId": "03d8a49d-8a6a-4160-9b64-e825f2b9081e",
+    "oracleId": "33e9db5a-986d-4731-88c9-87de6f967db4",
+    "name": "Blaring Recruiter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blaring Recruiter",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Partner with Blaring Captain (When this creature enters, target player may put Blaring Captain into their hand from their library, then shuffle.)\n{2}{W}: Create a 1/1 white Warrior creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "03d8a49d-8a6a-4160-9b64-e825f2b9081e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "pbbd",
+    "collectorNumber": "13s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLARING_CAPTAIN": {
+    "scryfallId": "3885e78d-b281-4dfa-ae71-de15817a944d",
+    "oracleId": "1675476c-25b1-46c2-81ce-fef9a2360bcc",
+    "name": "Blaring Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blaring Captain",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Azra Warrior",
+        "oracleText": "Partner with Blaring Recruiter (When this creature enters, target player may put Blaring Recruiter into their hand from their library, then shuffle.)\nWhenever this creature attacks, attacking Warriors get +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "3885e78d-b281-4dfa-ae71-de15817a944d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "pbbd",
+    "collectorNumber": "14s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIPPIN_WARDEN_OF_ISENGARD": {
+    "scryfallId": "01bb5aa5-2147-4884-aaa2-f3785bc8e581",
+    "oracleId": "421ec8a8-2b20-4296-b8f7-010acc3f8097",
+    "name": "Pippin, Warden of Isengard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pippin, Warden of Isengard",
+        "manaCost": "{B}{G}",
+        "typeLine": "Legendary Creature — Halfling Advisor",
+        "oracleText": "Partner with Merry, Warden of Isengard (When this creature enters, target player may put Merry into their hand from their library, then shuffle.)\n{1}, {T}: Create a Food token.\n{T}, Sacrifice four Foods: Other creatures you control get +3/+3 and gain haste until end of turn. Activate only as a sorcery.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "01bb5aa5-2147-4884-aaa2-f3785bc8e581"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Partner with",
+      "Food",
+      "Partner"
+    ],
+    "setCode": "ltc",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROUD_MENTOR": {
+    "scryfallId": "15e49a01-115c-47e5-b1e8-11171b7c6d0b",
+    "oracleId": "9ad114d8-2123-4267-b30b-6f4e755bb0de",
+    "name": "Proud Mentor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Proud Mentor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Partner with Impetuous Protege (When this creature enters, target player may put Impetuous Protege into their hand from their library, then shuffle.)\n{W}, {T}: Tap target creature.",
+        "flavorText": "\"Get ready, son.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jakub Kasper",
+        "imageId": "15e49a01-115c-47e5-b1e8-11171b7c6d0b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "pbbd",
+    "collectorNumber": "20s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRYNN_CHAMPION_OF_FREEDOM": {
+    "scryfallId": "168d7532-c925-4a96-a756-2ce4dd0fec33",
+    "oracleId": "76771556-3eb7-4f87-aaeb-32ea81105aa2",
+    "name": "Trynn, Champion of Freedom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trynn, Champion of Freedom",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Soldier",
+        "oracleText": "Partner with Silvar, Devourer of the Free (When this creature enters, target player may put Silvar into their hand from their library, then shuffle.)\nAt the beginning of your end step, if you attacked this turn, create a 1/1 white Human Soldier creature token.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "168d7532-c925-4a96-a756-2ce4dd0fec33"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAKRAM_SLINGER": {
+    "scryfallId": "3414b206-caff-4240-82ed-a1bb9c763d2f",
+    "oracleId": "5a2568fd-4c22-413e-87e2-a384002ded38",
+    "name": "Chakram Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chakram Slinger",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "Partner with Chakram Retriever (When this creature enters, target player may put Chakram Retriever into their hand from their library, then shuffle.)\n{R}, {T}: This creature deals 2 damage to target player or planeswalker.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "3414b206-caff-4240-82ed-a1bb9c763d2f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALPHINAUD_LEVEILLEUR": {
+    "scryfallId": "37e4ab61-bf18-4f9f-ba78-3e08a21aaf4d",
+    "oracleId": "d16783a4-9980-451b-9af0-33866980bc8d",
+    "name": "Alphinaud Leveilleur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alphinaud Leveilleur",
+        "manaCost": "{3}{U}",
+        "typeLine": "Legendary Creature — Elf Wizard",
+        "oracleText": "Partner with Alisaie Leveilleur (When this creature enters, target player may put Alisaie Leveilleur into their hand from their library, then shuffle.)\nVigilance\nEukrasia — Whenever you cast your second spell each turn, draw a card.",
+        "flavorText": "\"We alone can accomplish little, but joined by others, we may yet build a bonfire to carry us heavensward.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "37e4ab61-bf18-4f9f-ba78-3e08a21aaf4d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Vigilance",
+      "Eukrasia",
+      "Partner"
+    ],
+    "setCode": "fic",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERRY_WARDEN_OF_ISENGARD": {
+    "scryfallId": "42a317e2-e190-4442-aa1b-6f7eca8a3dc8",
+    "oracleId": "1b600345-2b89-45bc-98c8-609fdd08a5fd",
+    "name": "Merry, Warden of Isengard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merry, Warden of Isengard",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Legendary Creature — Halfling Advisor",
+        "oracleText": "Partner with Pippin, Warden of Isengard (When this creature enters, target player may put Pippin into their hand from their library, then shuffle.)\nWhenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Viko Menezes",
+        "imageId": "42a317e2-e190-4442-aa1b-6f7eca8a3dc8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "ltc",
+    "collectorNumber": "468",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHABRAZ_THE_SKYSHARK": {
+    "scryfallId": "4e1c84fa-b7a5-4931-911e-ec97d048e137",
+    "oracleId": "7599fe9a-b6a5-491b-a308-aef3bf1e9daf",
+    "name": "Shabraz, the Skyshark",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shabraz, the Skyshark",
+        "manaCost": "{3}{W}{U}",
+        "typeLine": "Legendary Creature — Shark Bird",
+        "oracleText": "Partner with Brallin, Skyshark Rider\nFlying\nWhenever you draw a card, put a +1/+1 counter on Shabraz and you gain 1 life.\n{W/U}: Target Human gains flying until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "4e1c84fa-b7a5-4931-911e-ec97d048e137"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "C20-14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROCKSTEADY_MUTANT_MARAUDER": {
+    "scryfallId": "4f40a1d3-eb94-455d-a1f3-fcfd91fd888b",
+    "oracleId": "506a972d-d226-44dc-95b7-a6e7a63d76cd",
+    "name": "Rocksteady, Mutant Marauder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rocksteady, Mutant Marauder",
+        "manaCost": "{2}{G}",
+        "typeLine": "Legendary Creature — Rhino Mutant",
+        "oracleText": "Partner with Bebop, Skull & Crossbones (When this creature enters, target player may put Bebop into their hand from their library, then shuffle.)\nTrample\nWhenever another nontoken creature you control enters, put a +1/+1 counter on target creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kirokaze",
+        "imageId": "4f40a1d3-eb94-455d-a1f3-fcfd91fd888b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Partner with",
+      "Partner",
+      "Trample"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORE_WEAVER": {
+    "scryfallId": "5493d051-4dcc-4415-a1ad-368f260257f5",
+    "oracleId": "040f6f11-7fbe-4635-b935-442e41f1e704",
+    "name": "Lore Weaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lore Weaver",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Partner with Ley Weaver (When this creature enters, target player may put Ley Weaver into their hand from their library, then shuffle.)\n{5}{U}{U}: Target player draws two cards.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "5493d051-4dcc-4415-a1ad-368f260257f5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "pbbd",
+    "collectorNumber": "22s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAZUR_RUTHLESS_STALKER": {
+    "scryfallId": "6ee4fda8-07cd-4091-8850-a6925080b464",
+    "oracleId": "ccfc74f7-bf32-4201-ad8f-f552ed7f96f8",
+    "name": "Cazur, Ruthless Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cazur, Ruthless Stalker",
+        "manaCost": "{3}{G}",
+        "typeLine": "Legendary Creature — Human Warrior",
+        "oracleText": "Partner with Ukkima, Stalking Shadow (When this creature enters, target player may put Ukkima into their hand from their library, then shuffle.)\nWhenever a creature you control deals combat damage to a player, put a +1/+1 counter on that creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daarken",
+        "imageId": "6ee4fda8-07cd-4091-8850-a6925080b464"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "otc",
+    "collectorNumber": "188",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAKRAM_RETRIEVER": {
+    "scryfallId": "717e9bc4-14ac-419f-95ae-e97f4dcf7499",
+    "oracleId": "8ad2ecd5-2d50-4a54-a672-335d7e636a5a",
+    "name": "Chakram Retriever",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chakram Retriever",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental Dog",
+        "oracleText": "Partner with Chakram Slinger (When this creature enters, target player may put Chakram Slinger into their hand from their library, then shuffle.)\nWhenever you cast a spell during your turn, untap target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "717e9bc4-14ac-419f-95ae-e97f4dcf7499"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "pbbd",
+    "collectorNumber": "15s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KAMBER_THE_PLUNDERER": {
+    "scryfallId": "c2e932f7-1a72-44e7-89f7-b853eada74f0",
+    "oracleId": "0b620775-70a5-4423-8453-e403a5b79554",
+    "name": "Kamber, the Plunderer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kamber, the Plunderer",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Vampire Rogue",
+        "oracleText": "Partner with Laurine, the Diversion (When this creature enters, target player may put Laurine into their hand from their library, then shuffle.)\nLifelink\nWhenever a creature an opponent controls dies, you gain 1 life and create a Blood token. (It's an artifact with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "c2e932f7-1a72-44e7-89f7-b853eada74f0"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "voc",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SILVAR_DEVOURER_OF_THE_FREE": {
+    "scryfallId": "fc9cbc83-b9e3-4a22-948b-5a71112154c1",
+    "oracleId": "09199ebd-2c09-455f-ac10-3dbff8e6d428",
+    "name": "Silvar, Devourer of the Free",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Silvar, Devourer of the Free",
+        "manaCost": "{3}{B}{R}",
+        "typeLine": "Legendary Creature — Cat Nightmare",
+        "oracleText": "Partner with Trynn, Champion of Freedom (When this creature enters, target player may put Trynn into their hand from their library, then shuffle.)\nMenace\nSacrifice a Human: Put a +1/+1 counter on Silvar. It gains indestructible until end of turn.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "fc9cbc83-b9e3-4a22-948b-5a71112154c1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Partner with",
+      "Partner",
+      "Menace"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

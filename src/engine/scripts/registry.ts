@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PIPPIN_WARDEN_OF_ISENGARD_SCRIPT } from './cards/pippinWardenOfIsengard';
+import { BLARING_RECRUITER_SCRIPT } from './cards/blaringRecruiter';
+import { PROUD_MENTOR_SCRIPT } from './cards/proudMentor';
+import { TRYNN_CHAMPION_OF_FREEDOM_SCRIPT } from './cards/trynnChampionOfFreedom';
+import { CHAKRAM_SLINGER_SCRIPT } from './cards/chakramSlinger';
+import { ALPHINAUD_LEVEILLEUR_SCRIPT } from './cards/alphinaudLeveilleur';
+import { MERRY_WARDEN_OF_ISENGARD_SCRIPT } from './cards/merryWardenOfIsengard';
+import { SHABRAZ_THE_SKYSHARK_SCRIPT } from './cards/shabrazTheSkyshark';
+import { ROCKSTEADY_MUTANT_MARAUDER_SCRIPT } from './cards/rocksteadyMutantMarauder';
+import { LORE_WEAVER_SCRIPT } from './cards/loreWeaver';
+import { CAZUR_RUTHLESS_STALKER_SCRIPT } from './cards/cazurRuthlessStalker';
+import { CHAKRAM_RETRIEVER_SCRIPT } from './cards/chakramRetriever';
+import { KAMBER_THE_PLUNDERER_SCRIPT } from './cards/kamberThePlunderer';
+import { SILVAR_DEVOURER_OF_THE_FREE_SCRIPT } from './cards/silvarDevourerOfTheFree';
 import { KALONIAN_HYDRA_SCRIPT } from './cards/kalonianHydra';
 import { GILDER_BAIRN_SCRIPT } from './cards/gilderBairn';
 import { DEEPGLOW_SKATE_SCRIPT } from './cards/deepglowSkate';
@@ -8142,6 +8156,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PIPPIN_WARDEN_OF_ISENGARD_SCRIPT,
+  BLARING_RECRUITER_SCRIPT,
+  PROUD_MENTOR_SCRIPT,
+  TRYNN_CHAMPION_OF_FREEDOM_SCRIPT,
+  CHAKRAM_SLINGER_SCRIPT,
+  ALPHINAUD_LEVEILLEUR_SCRIPT,
+  MERRY_WARDEN_OF_ISENGARD_SCRIPT,
+  SHABRAZ_THE_SKYSHARK_SCRIPT,
+  ROCKSTEADY_MUTANT_MARAUDER_SCRIPT,
+  LORE_WEAVER_SCRIPT,
+  CAZUR_RUTHLESS_STALKER_SCRIPT,
+  CHAKRAM_RETRIEVER_SCRIPT,
+  KAMBER_THE_PLUNDERER_SCRIPT,
+  SILVAR_DEVOURER_OF_THE_FREE_SCRIPT,
   KALONIAN_HYDRA_SCRIPT,
   GILDER_BAIRN_SCRIPT,
   DEEPGLOW_SKATE_SCRIPT,

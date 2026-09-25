@@ -9987,6 +9987,24 @@ const WANTED = [
   'Dragonsguard Elite',
   'Vorel of the Hull Clade',
   // D543 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D544 - partner with: a partner-with pair for the proofs (the enters trigger, the named search).
+  'Blaring Recruiter',
+  'Blaring Captain',
+  // D544 - PARTNER WITH: the rows the whole-leftover row maker rowed once the Partner with line - its enters trigger, the named search - was the engine's.
+  'Pippin, Warden of Isengard',
+  'Proud Mentor',
+  'Trynn, Champion of Freedom',
+  'Chakram Slinger',
+  'Alphinaud Leveilleur',
+  'Merry, Warden of Isengard',
+  'Shabraz, the Skyshark',
+  'Rocksteady, Mutant Marauder',
+  'Lore Weaver',
+  'Cazur, Ruthless Stalker',
+  'Chakram Retriever',
+  'Kamber, the Plunderer',
+  'Silvar, Devourer of the Free',
+  // D544 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

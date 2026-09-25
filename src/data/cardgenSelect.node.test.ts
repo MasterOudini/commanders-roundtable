@@ -778,6 +778,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D544 - partner with: the Partner with line is the engine's now (the enters trigger, the named search asked of the target player); what stays is a partner-with card refused for another line.
+  ['Jenny Flint', 'the row maker: a sacrifice head no fixture the suite can sacrifice satisfies: a Clue or Food (D544)'],
+  ['Ley Weaver', 'the row maker: a vocabulary clause the suite has no fixture for: a counted clause (2..2) (D544)'],
+  ['Timin, Youthful Geist', 'the suite generator has no fire for a head the row maker reads: At the beginning of each combat, tap up to one target creature. (eachCombat, D544)'],
   // D543 - double counters: `Double the number of ... counters on ...` is the engine's now (the vocabulary's verb); what stays is a doubling card the row maker refuses for another line.
   ['Sisterhood of Karn', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast (D543)'],
   ['Sazh Katzroy', 'the row maker: a doubling of the previous clause\'s object (not this wave): Double the number of +1/+1 counters on t (D543)'],
@@ -1768,7 +1772,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Lord of the Nazgûl', 'a line that is neither an activated ability nor a library trigger: Wraiths you control have protection from Ring-bearers. (D521)'],
   ['Ringwraiths', 'trigger payload not a pump: Target creature an opponent controls gets -3/-3 until end of (D521)'],
   ['Elrond, Lord of Rivendell', 'trigger payload not a pump: Scry 1. If this is the second time this ability has resolved (D521)'],
-  ['Frodo, Adventurous Hobbit', 'a line that is neither an activated ability nor a library trigger: Partner with Sam, Loyal Attendant (D521)'],
+  ['Frodo, Adventurous Hobbit', 'the row maker: trigger payload not a pump: The Ring tempts you. Then if ~ is your Ring-bearer and the Ring has tempted you two or more times this game, draw a card. (D521; the Partner with line is the engine\'s since D544)'],
   ['Call of the Ring', 'trigger head not in the library: Whenever you choose a creature as your Ring-bearer, you may pay 2 life (D521)'],
   ['Ringsight', 'the temptation before a search for a card sharing a color with a legendary creature you control - the ask is not the sentence\'s last (D521)'],
   ['Frodo Baggins', 'a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ or another legendary creature you control enters, (D521)'],

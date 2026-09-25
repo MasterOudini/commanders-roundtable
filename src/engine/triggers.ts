@@ -1456,11 +1456,12 @@ export function collectTriggers(
           out.push({
             id: `t${n++}`,
             source: m.card,
-            controller: card.owner,
+            // D544 - a permanent's entry is its controller's trigger (partner with); a card in another zone its owner's (madness).
+            controller: card.zone.kind === 'battlefield' ? card.controller : card.owner,
             abilityRef: `${card.oracleId}#kw:${keyword}`,
             label: kt.label(ctx, m.card),
             optional: false,
-            specs: [],
+            specs: kt.targets ? kt.targets(ctx, m.card) : [],
             ...(kt.effects ? { effects: kt.effects(ctx, m.card, event.body) } : {}),
           });
         }

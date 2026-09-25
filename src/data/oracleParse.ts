@@ -35,7 +35,7 @@ import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
-import { parseEffects } from './effectParse';
+import { parseEffects, partnerWithSearchSpec } from './effectParse';
 import { parseModalFace } from './modalParse';
 import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 
@@ -1347,6 +1347,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),
     madnessCost: parseMadness(face.oracleText, warn),
+    partnerWith: partnerWithSearchSpec(face.oracleText),
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,

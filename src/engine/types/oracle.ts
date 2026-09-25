@@ -2030,6 +2030,13 @@ export interface OracleFace {
    */
   readonly madnessCost: ManaCost | null;
   /**
+   * D544 - PARTNER WITH (CR 702.124j): the enters trigger's search - `You may search your library for a card named
+   * <name>, reveal it, put it into your hand, then shuffle.` read by the vocabulary and aimed at a TARGET player
+   * (`targetIndex` 0: the executor asks the aimed player). Null when the face prints no `Partner with <name>` line or
+   * the sentence does not read. The pairing itself is the validator's (D542).
+   */
+  readonly partnerWith: EffectSpec | null;
+  /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard
    * (`CastSpell.convoke` / `improvise` / `delve`). Read off the keyword line at ingest.

@@ -2439,6 +2439,28 @@ export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
 
+/** D544 - the name a `Partner with <name>` line names (reminder text aside), or null. */
+export function partnerWithName(oracleText: string): string | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const m = /^Partner with ([^(]+?)\s*(?:\(.*)?$/.exec(raw.trim());
+    if (m) return (m[1] ?? '').trim();
+  }
+  return null;
+}
+
+/**
+ * D544 - PARTNER WITH (CR 702.124j): the enters trigger's search - the caster's own sentence read by the vocabulary
+ * (D359's `named`), aimed at the trigger's TARGET player (`targetIndex` 0, D507: the executor asks the aimed player).
+ * Null when the face prints no such line or the sentence does not read.
+ */
+export function partnerWithSearchSpec(oracleText: string): EffectSpec | null {
+  const name = partnerWithName(oracleText);
+  if (name === null) return null;
+  const read = parseEffects(`You may search your library for a card named ${name}, reveal it, put it into your hand, then shuffle.`, '~', true);
+  const spec = read.mode === 'auto' && read.effects.length === 1 ? read.effects[0] : undefined;
+  return spec !== undefined && spec.kind === 'search' ? { ...spec, targetIndex: 0, self: false } : null;
+}
+
 /** D541 - madness's trigger (CR 702.35a): the card its discard exiled, offered for its madness cost. */
 export function madnessCastSpec(): EffectSpec {
   return { ...BASE, kind: 'madnessCast', text: "You may cast this card for its madness cost. If you don't, put it into your graveyard.", targetIndex: -1, self: true };
