@@ -778,6 +778,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D539 - learn: `Learn.` is the engine's now (the optional rummage - no cards outside the game); what stays is a learn card the row maker refuses for another line, and Retriever Phoenix's `if you would learn` replacement.
+  ['Dream Strix', 'the row maker: trigger head not in the library: When this creature becomes the target of a spell, sacrifice it. (D539)'],
+  ['Sparring Regimen', 'the row maker: a combat-role clause under a head whose declaration is not self attacking (the co-attacker rides an attack head alone) - Whenever you attack, put a +1/+1 counter on target attacking creature (D539)'],
   // D538 - rebound: the Rebound line is the engine's now (the resolution's exile, the upkeep's free cast); what stays is a rebound spell whose other sentence the vocabulary does not read.
   ['Ephemerate', 'a spell with a line outside the vocabulary: Exile target creature you control, then return it to the battlefield under its owner\'s control - a flicker (D538)'],
   ['Survival Cache', 'a spell with a line outside the vocabulary: Then if you have more life than an opponent, draw a card - a life comparison after the gain (D538)'],

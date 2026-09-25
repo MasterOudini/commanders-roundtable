@@ -7,6 +7,11 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { EYETWITCH_SCRIPT } from './cards/eyetwitch';
+import { GNARLED_PROFESSOR_SCRIPT } from './cards/gnarledProfessor';
+import { OVERGROWN_ARCH_SCRIPT } from './cards/overgrownArch';
+import { POETS_QUILL_SCRIPT } from './cards/poetsQuill';
+import { PROFESSOR_OF_SYMBOLOGY_SCRIPT } from './cards/professorOfSymbology';
 import { VIASHINO_SANDSWIMMER_SCRIPT } from './cards/viashinoSandswimmer';
 import { SCORIA_WURM_SCRIPT } from './cards/scoriaWurm';
 import { TAVERN_SWINDLER_SCRIPT } from './cards/tavernSwindler';
@@ -8097,6 +8102,11 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  EYETWITCH_SCRIPT,
+  GNARLED_PROFESSOR_SCRIPT,
+  OVERGROWN_ARCH_SCRIPT,
+  POETS_QUILL_SCRIPT,
+  PROFESSOR_OF_SYMBOLOGY_SCRIPT,
   VIASHINO_SANDSWIMMER_SCRIPT,
   SCORIA_WURM_SCRIPT,
   TAVERN_SWINDLER_SCRIPT,

@@ -8914,6 +8914,12 @@ export const FLAME_JAB: CardData = F.FLAME_JAB as CardData;
 export const CHEMISTER_S_INSIGHT: CardData = F.CHEMISTER_S_INSIGHT as CardData;
 export const DIRECT_CURRENT: CardData = F.DIRECT_CURRENT as CardData;
 export const STAGGERSHOCK: CardData = F.STAGGERSHOCK as CardData;
+export const IGNEOUS_INSPIRATION: CardData = F.IGNEOUS_INSPIRATION as CardData;
+export const EYETWITCH: CardData = F.EYETWITCH as CardData;
+export const GNARLED_PROFESSOR: CardData = F.GNARLED_PROFESSOR as CardData;
+export const OVERGROWN_ARCH: CardData = F.OVERGROWN_ARCH as CardData;
+export const POET_S_QUILL: CardData = F.POET_S_QUILL as CardData;
+export const PROFESSOR_OF_SYMBOLOGY: CardData = F.PROFESSOR_OF_SYMBOLOGY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18080,6 +18086,12 @@ export const ENGINE_CARDS: CardData[] = [
   CHEMISTER_S_INSIGHT,
   DIRECT_CURRENT,
   STAGGERSHOCK,
+  IGNEOUS_INSPIRATION,
+  EYETWITCH,
+  GNARLED_PROFESSOR,
+  OVERGROWN_ARCH,
+  POET_S_QUILL,
+  PROFESSOR_OF_SYMBOLOGY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

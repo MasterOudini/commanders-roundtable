@@ -9918,6 +9918,15 @@ const WANTED = [
   'Direct Current',
   // D538 - REBOUND: the seam's proof card (Staggershock - a ping, exiled as it resolves and cast free at the next upkeep).
   'Staggershock',
+  // D539 - LEARN: the seam's proof cards (Igneous Inspiration - a ping and learn; Eyetwitch - learn when it dies).
+  'Igneous Inspiration',
+  'Eyetwitch',
+  // D539 - LEARN: the rows the whole-leftover row maker rowed once learn - the optional rummage, CR 701.48a - was the engine's.
+  'Gnarled Professor',
+  'Overgrown Arch',
+  "Poet's Quill",
+  'Professor of Symbology',
+  // D539 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
