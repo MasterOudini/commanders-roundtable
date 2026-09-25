@@ -415,6 +415,11 @@ const CREW_RE = /^Crew (\d+)$/;
 const SCAVENGE_RE = /^Scavenge ((?:\{[^}]+\})+)$/;
 const SCAVENGE_EFFECT = "Put a number of +1/+1 counters equal to this card's power on target creature.";
 // D448 - unearth (CR 702.84a): the mana price on the printed line; the rest of the ability is the rule's own words.
+// D546 - EMBALM / ETERNALIZE (CR 702.128a / 702.129a): the printed line, and the token copy each makes in the rule's
+// own words (the vocabulary reads them - `oracleParse` hangs the read on the ability).
+const EMBALM_RE = /^(Embalm|Eternalize) ((?:\{[^}]+\})+)$/;
+const EMBALM_EFFECT = "Create a token that's a copy of this card, except it's white, it has no mana cost, and it's a Zombie in addition to its other types.";
+const ETERNALIZE_EFFECT = "Create a token that's a copy of this card, except it's black, it's 4/4, it has no mana cost, and it's a Zombie in addition to its other types.";
 const UNEARTH_RE = /^Unearth ((?:\{[^}]+\})+)$/;
 const UNEARTH_EFFECT = 'Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield.';
 // D451 - reinforce (CR 702.77a): the number and the mana price on the printed line; the rest is the rule's own words.
@@ -662,6 +667,49 @@ export function parseActivatedAbilities(
           activateOnly: [],
           targets: [],
           unearth: { line: printed },
+        });
+        continue;
+      }
+    }
+    // D546 - THE EMBALM SEAM: an activated ability from the graveyard (CR 702.128a / 702.129a) whose cost is the printed
+    // mana and the card's own exile (scavenge's price) and whose effect is the token copy the rule prints - read by the
+    // vocabulary (`oracleParse` hangs the read on) and run natively. Sorcery speed is the rule's; an unreadable price
+    // leaves the line unsynthesized.
+    const embalm = EMBALM_RE.exec(printed);
+    if (embalm) {
+      const embalmCost = parseCost(embalm[2] ?? '', warn);
+      if (embalmCost !== null) {
+        const eternalize = embalm[1] === 'Eternalize';
+        out.push({
+          index: out.length,
+          costText: `${embalm[2]}, Exile this card from your graveyard`,
+          effectText: eternalize ? ETERNALIZE_EFFECT : EMBALM_EFFECT,
+          manaCost: embalmCost,
+          requiresTap: false,
+          requiresUntap: false,
+          lifeCost: 0,
+          lifeCostCommanderColors: false,
+          energyCost: 0,
+          sacrificesSelf: false,
+          sacrificeCost: null,
+          discardCost: null,
+          exileFromGraveyardCost: null,
+          exileSelfFromGraveyard: true,
+          activatesFromGraveyard: false,
+          removeCounterCost: null,
+          tapCost: null,
+          returnCost: null,
+          returnsSelf: false,
+          putCounterCost: null,
+          unpaidCosts: [],
+          payable: true,
+          isManaAbility: false,
+          isLoyalty: false,
+          sorceryOnly: true,
+          oncePerTurn: false,
+          activateOnly: [],
+          targets: [],
+          embalm: { line: printed, eternalize },
         });
         continue;
       }

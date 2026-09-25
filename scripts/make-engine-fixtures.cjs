@@ -10021,6 +10021,14 @@ const WANTED = [
   'Infernal Captor',
   "Sidisi's Faithful",
   // D545 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D546 - EMBALM and ETERNALIZE's proof fixtures: Sacred Cat (Lifelink, Embalm {W}) and Adorned Pouncer (Double strike, Eternalize {3}{W}{W}).
+  'Sacred Cat',
+  'Adorned Pouncer',
+  // D546 - EMBALM AND ETERNALIZE: the rows the whole-leftover row maker rowed once the Embalm and Eternalize lines were the engine's.
+  'Timeless Witness',
+  'Angel of Sanctions',
+  'Trueheart Duelist',
+  // D546 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

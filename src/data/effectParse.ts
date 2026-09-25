@@ -488,6 +488,18 @@ export function parseCopyExceptions(text: string): CopyExceptions | null {
       out = { ...out, ...(types.length > 0 ? { addTypes: types } : {}), ...(subs.length > 0 ? { addSubtypes: subs } : {}) };
       continue;
     }
+    // D546 - embalm's and eternalize's exceptions (CR 702.128a / 702.129a): the copy's colour, and no mana cost.
+    const colour = /^(?:it's|the token is|the copy is) (white|blue|black|red|green)$/i.exec(piece);
+    if (colour) {
+      const letter = SHIELD_COLOR_LETTER[(colour[1] ?? '').toLowerCase()];
+      if (letter === undefined) return null;
+      out = { ...out, colors: [letter] };
+      continue;
+    }
+    if (/^(?:it|the token|the copy) has no mana cost$/i.test(piece)) {
+      out = { ...out, noManaCost: true };
+      continue;
+    }
     const has = /^(?:it|the token|the copy) has ([a-z ]+)$/i.exec(piece);
     if (has) {
       const kws = [...(out.keywords ?? [])];

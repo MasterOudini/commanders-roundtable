@@ -240,7 +240,8 @@ function computeDerived(
   applyStatics(state, oracle, scripts, inst, chars, 'ptSwitch', cache);
 
   const card = inst.faceDown ? undefined : oracle.byPrinting(inst.printingId);
-  const manaValue = card?.manaValue ?? 0;
+  // D546 - a copy with no mana cost (embalm, eternalize) has mana value 0 (CR 202.3).
+  const manaValue = inst.copyExceptions?.noManaCost === true ? 0 : (card?.manaValue ?? 0);
   // D372 - the mana abilities come off the WORKSPACE now (layer 1 seeded the printed
   // ones, layer 6 may have pushed a granted one), never off the face here.
   return finish(chars, manaValue);
@@ -294,6 +295,8 @@ function withCopyExceptions(chars: MutableCharacteristics, x: CopyExceptions): M
     keywords,
     ...(x.power !== undefined ? { power: x.power } : {}),
     ...(x.toughness !== undefined ? { toughness: x.toughness } : {}),
+    // D546 - the copy's colours instead of the copied object's (embalm's white, eternalize's black).
+    ...(x.colors !== undefined ? { colors: [...x.colors] } : {}),
   };
 }
 

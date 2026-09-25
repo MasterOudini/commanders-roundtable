@@ -8997,6 +8997,11 @@ export const SILUMGAR_BUTCHER: CardData = F.SILUMGAR_BUTCHER as CardData;
 export const GURMAG_DROWNER: CardData = F.GURMAG_DROWNER as CardData;
 export const INFERNAL_CAPTOR: CardData = F.INFERNAL_CAPTOR as CardData;
 export const SIDISI_S_FAITHFUL: CardData = F.SIDISI_S_FAITHFUL as CardData;
+export const SACRED_CAT: CardData = F.SACRED_CAT as CardData;
+export const ADORNED_POUNCER: CardData = F.ADORNED_POUNCER as CardData;
+export const TIMELESS_WITNESS: CardData = F.TIMELESS_WITNESS as CardData;
+export const ANGEL_OF_SANCTIONS: CardData = F.ANGEL_OF_SANCTIONS as CardData;
+export const TRUEHEART_DUELIST: CardData = F.TRUEHEART_DUELIST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18246,6 +18251,11 @@ export const ENGINE_CARDS: CardData[] = [
   GURMAG_DROWNER,
   INFERNAL_CAPTOR,
   SIDISI_S_FAITHFUL,
+  SACRED_CAT,
+  ADORNED_POUNCER,
+  TIMELESS_WITNESS,
+  ANGEL_OF_SANCTIONS,
+  TRUEHEART_DUELIST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

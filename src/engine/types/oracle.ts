@@ -1231,6 +1231,8 @@ export interface CopyExceptions {
   readonly keywords?: readonly Keyword[];
   readonly power?: number;
   readonly toughness?: number;
+  /** D546 - embalm's and eternalize's `it has no mana cost` (CR 702.128a / 702.129a): the copy's mana value is 0. */
+  readonly noManaCost?: true;
 }
 
 /**
@@ -1921,6 +1923,14 @@ export interface ActivatedAbility {
    * natively. `line` is the printed line it accounts for.
    */
   readonly reinforce?: { readonly line: string; readonly n: number };
+  /**
+   * D546 - EMBALM / ETERNALIZE (CR 702.128a / 702.129a): synthesized from the printed `Embalm {cost}` / `Eternalize
+   * {cost}` line - activated from the graveyard at sorcery speed, the mana and the card's own exile the cost, the
+   * effect the vocabulary's own token copy of `this card` with the rule's exceptions (white - or black and 4/4 -, no
+   * mana cost, a Zombie in addition to its other types), hung on by `oracleParse` (`effects`, absent when the copy
+   * does not read) and resolved natively. `line` is the printed line it accounts for.
+   */
+  readonly embalm?: { readonly line: string; readonly eternalize: boolean; readonly effects?: readonly EffectSpec[] };
 }
 
 /**

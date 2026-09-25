@@ -582,6 +582,8 @@ export function linesUnaccounted(
     // D448 - an Unearth line the engine RUNS (the synthesized ability: offered from the graveyard, the mana charged,
     // the return, the haste, the exile on leaving and at the next end step resolved natively).
     if (face.activated.some((a) => a.unearth !== undefined && a.unearth.line === line)) continue;
+    // D546 - an embalm / eternalize line whose copy the vocabulary read is the engine's.
+    if (face.activated.some((a) => a.embalm?.effects !== undefined && a.embalm.line === line)) continue;
     // D462 - a Ninjutsu line the engine RUNS (the return charged, the entry tapped and attacking, natively).
     if (face.activated.some((a) => a.ninjutsu !== undefined && a.ninjutsu.line === line)) continue;
     // D451 - a Reinforce line the engine RUNS (the synthesized ability: offered from the hand, the mana and the

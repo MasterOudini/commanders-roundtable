@@ -1348,6 +1348,11 @@ export function resolveAbility(
     if (ability?.scavenge !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.scavenge.power }] });
     }
+    // D546 - EMBALM / ETERNALIZE resolve natively (CR 702.128a / 702.129a): the vocabulary's token copy of this card with
+    // the rule's exceptions; the card itself is in exile (the cost was its exile), and the copy reads its copiable values.
+    if (ability?.embalm?.effects !== undefined) {
+      events.push(...effectResult(state, deps, obj, ability.embalm.effects).events);
+    }
     // D451 - REINFORCE resolves natively (CR 702.77a): N +1/+1 counters on the target creature, if the clause
     // still admits it (CR 608.2b); the card itself is in the graveyard - the cost was its discard.
     if (ability?.reinforce !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {

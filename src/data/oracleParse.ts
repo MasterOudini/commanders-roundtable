@@ -1272,6 +1272,12 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     { oracleText: face.oracleText, isPermanent, producesMana, parseCost: parseManaCost, selfName: face.name.split(',')[0] ?? face.name, basePower: baseNumber(face.power) },
     warn,
   ).map((a) => {
+    // D546 - EMBALM / ETERNALIZE: the vocabulary's read of the token copy the parser wrote (one copy of this card).
+    if (a.embalm !== undefined) {
+      const copy = parseEffects(a.effectText, face.name, true);
+      const one = copy.mode === 'auto' && copy.effects.length === 1 ? copy.effects[0] : undefined;
+      return one !== undefined && one.kind === 'createToken' && one.copy?.of === 'self' ? { ...a, embalm: { ...a.embalm, effects: copy.effects } } : a;
+    }
     // D410 - a TYPECYCLING's search (CR 702.29b): the vocabulary's read of the sentence the parser wrote.
     if (a.cycling?.type === undefined) return a;
     const read = parseEffects(a.effectText, face.name, true);

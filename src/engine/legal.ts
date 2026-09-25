@@ -493,7 +493,8 @@ export function legalActions(
       if (ability.returnCost || ability.returnsSelf) continue;
       // D440 - a synthesized scavenge resolves natively (its counters are the printed power): no def to require.
       // D448 - and a synthesized unearth (the return and its riders are the engine's own).
-      if (ability.scavenge === undefined && ability.unearth === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      // D546 - and a synthesized embalm / eternalize whose copy the vocabulary read (the token is the engine's own).
+      if (ability.scavenge === undefined && ability.unearth === undefined && ability.embalm?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // D457 - CR 702.178: an exhaust ability this object has activated is not offered again.

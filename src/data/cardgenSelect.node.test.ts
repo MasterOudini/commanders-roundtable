@@ -778,6 +778,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D546 - embalm and eternalize: the Embalm and Eternalize lines are the engine's now (the graveyard activation, the Zombie token copy); what stays is an embalm card the row maker refuses for another line.
+  ['Labyrinth Guardian', 'the row maker: trigger head not in the library: When this creature becomes the target of a spell, sacrifice it. (D546)'],
+  ['Anointer Priest', 'the row maker: a filtered head no fixture satisfies: a creature token you control (D546)'],
   // D545 - exploit: the Exploit line is the engine's now (the enters offer to sacrifice a creature, the sacrifice tagged for the `exploits a creature` head); what stays is an exploit card the row maker refuses for another line.
   ['Graf Reaver', 'the row maker: a vocabulary clause the suite has no fixture for: a battle clause (D545)'],
   ['Skull Skaab', 'the row maker: trigger head not in the library: Whenever a creature you control exploits a nontoken creature, create a 2/2 black Zombie creature token with decayed. (D545)'],

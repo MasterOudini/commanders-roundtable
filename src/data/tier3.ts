@@ -307,6 +307,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.scavenge !== undefined) continue;
     // D448 - unearth resolves natively: the mana charged, the return and its riders run by the engine.
     if (ability.unearth !== undefined) continue;
+    // D546 - embalm / eternalize resolve natively: the exile and the mana charged, the token copy made.
+    if (ability.embalm !== undefined && embalmRuns(card, faceIndex)) continue;
     // D451 - reinforce resolves natively: the mana and the discard charged, the counters put.
     if (ability.reinforce !== undefined) continue;
     // D462 - ninjutsu resolves natively: the mana and the return charged, the entry tapped and attacking.
@@ -389,6 +391,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'scavenge' && abilities.some((a) => a.scavenge !== undefined)) continue;
     // D448 - an Unearth the engine runs is no note either.
     if (raw.trim().toLowerCase() === 'unearth' && abilities.some((a) => a.unearth !== undefined)) continue;
+    // D546 - an Embalm or an Eternalize the engine runs (its copy read, on the parsed face) is no note either.
+    if ((raw.trim().toLowerCase() === 'embalm' || raw.trim().toLowerCase() === 'eternalize') && embalmRuns(card, faceIndex)) continue;
     // D489 - a Suspend the engine runs (the free cast needs no question, `suspendRuns`) is no note either.
     if (raw.trim().toLowerCase() === 'suspend' && suspendRuns(parseFace(card, faceIndex))) continue;
     // D451 - a Reinforce the engine runs is no note either.
@@ -430,6 +434,11 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   }
 
   return notes;
+}
+
+/** D546 - does this face carry an embalm / eternalize whose copy the vocabulary read (oracleParse hangs it on - the raw parse has none)? */
+function embalmRuns(card: CardData, faceIndex: number): boolean {
+  return parseFace(card, faceIndex).activated.some((a) => a.embalm?.effects !== undefined);
 }
 
 /** D304 - does this face print an Enchant line whose spec the engine enforces? */

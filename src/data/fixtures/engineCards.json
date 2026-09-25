@@ -304703,6 +304703,184 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SACRED_CAT": {
+    "scryfallId": "08891c78-13c1-4d84-aa9c-78346b3b7d18",
+    "oracleId": "d85ea576-a794-44bf-b405-1f1c49477409",
+    "name": "Sacred Cat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sacred Cat",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Lifelink\nEmbalm {W} ({W}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a white Zombie Cat with no mana cost. Embalm only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "08891c78-13c1-4d84-aa9c-78346b3b7d18"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Lifelink",
+      "Embalm"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADORNED_POUNCER": {
+    "scryfallId": "1da3dc90-b9ca-4202-9483-80dc79bf80f2",
+    "oracleId": "80b8ee3d-4174-4f47-a533-a3db1e703382",
+    "name": "Adorned Pouncer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adorned Pouncer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Double strike\nEternalize {3}{W}{W} ({3}{W}{W}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a 4/4 black Zombie Cat with no mana cost. Eternalize only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "1da3dc90-b9ca-4202-9483-80dc79bf80f2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Double strike",
+      "Eternalize"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "64993",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TIMELESS_WITNESS": {
+    "scryfallId": "3483a95e-1b06-4973-a0f7-ff5b5f9c0e79",
+    "oracleId": "a52a06aa-56fc-4845-bbcd-a54f16369b34",
+    "name": "Timeless Witness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Timeless Witness",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "When this creature enters, return target card from your graveyard to your hand.\nEternalize {5}{G}{G} ({5}{G}{G}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a 4/4 black Zombie Human Shaman with no mana cost. Eternalize only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "3483a95e-1b06-4973-a0f7-ff5b5f9c0e79"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Eternalize"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "654",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANGEL_OF_SANCTIONS": {
+    "scryfallId": "36848874-2435-4fc0-82d9-f773aacbd76b",
+    "oracleId": "3c49e98d-d33b-47fa-8b07-b38b367de2c7",
+    "name": "Angel of Sanctions",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Angel of Sanctions",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Angel",
+        "oracleText": "Flying\nWhen this creature enters, you may exile target nonland permanent an opponent controls until this creature leaves the battlefield.\nEmbalm {5}{W} ({5}{W}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a white Zombie Angel with no mana cost. Embalm only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Min Yum",
+        "imageId": "36848874-2435-4fc0-82d9-f773aacbd76b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Embalm"
+    ],
+    "setCode": "pakh",
+    "collectorNumber": "1s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUEHEART_DUELIST": {
+    "scryfallId": "628f5230-6c0d-4f24-b89a-7f3d443511f3",
+    "oracleId": "a0185db5-8988-4f63-8f3c-a19b4807a431",
+    "name": "Trueheart Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trueheart Duelist",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "This creature can block an additional creature each combat.\nEmbalm {2}{W} ({2}{W}, Exile this card from your graveyard: Create a token that's a copy of it, except it's a white Zombie Human Warrior with no mana cost. Embalm only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Izzy",
+        "imageId": "628f5230-6c0d-4f24-b89a-7f3d443511f3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Embalm"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
