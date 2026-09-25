@@ -9862,6 +9862,18 @@ const WANTED = [
   'Vedalken Plotter',
   'Jace, Ingenious Mind-Mage',
   // D531 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D532 - CONTROL'S OTHER FORMS: the seam's proof cards (Threaten - the compound untap-and-gain-control; Bazaar Trader - control given to a target player; Humble Defector - the source given to an opponent; Homeward Path and Brand - owners take back what they own).
+  'Threaten',
+  'Bazaar Trader',
+  'Humble Defector',
+  'Homeward Path',
+  'Brand',
+  // D532 - CONTROL'S OTHER FORMS: the rows the whole-leftover row maker rowed once the compound threaten and control given to a named player were the engine's (CR 108.4).
+  'Jinxed Idol',
+  'Overtaker',
+  'Bringer of the Red Dawn',
+  'Jinxed Ring',
+  // D532 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

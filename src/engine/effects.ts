@@ -1483,6 +1483,45 @@ export function effectResult(
         break;
       }
 
+      // D532 - CONTROL GIVEN TO A NAMED PLAYER (CR 108.4): the clause's player target takes the source - or the clause's
+      // other target - for good. One already that player's, or gone, changes nothing, and the step says so.
+      case 'giveControl': {
+        if (aim?.kind !== 'player') break;
+        const givenId = effect.otherTargetIndex !== undefined
+          ? picksFor(obj, effect.otherTargetIndex)
+              .map((c) => aimOf(state, c))
+              .find((a): a is Aim => a !== null && a.kind === 'card')?.id
+          : obj.source ?? undefined;
+        const given = givenId !== undefined ? state.cards[givenId] : undefined;
+        if (!given || given.zone.kind !== 'battlefield' || given.controller === aim.id) {
+          out.push(narrated(`${obj.label}: nothing changes control.`, obj.controller));
+          break;
+        }
+        const dg = derive(state, deps.oracle, deps.scripts, given.id, cache);
+        out.push({ t: 'ControlGained', card: given.id, controller: aim.id });
+        out.push(narrated(`${obj.label}: ${dg.name} changes control.`, obj.controller));
+        break;
+      }
+
+      // D532 - OWNERS TAKE BACK WHAT THEY OWN: every member of the scope under a player other than its owner goes to its
+      // owner (the caster's own only, for `you own`), read over the board the clauses before it left.
+      case 'ownersControl': {
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const reached = scopeMembers(now, deps, controller, effect.scopes ?? [], now === state ? cache : undefined, source ?? null).cards;
+        const back = reached.filter((id) => {
+          const c = now.cards[id];
+          return c !== undefined && c.zone.kind === 'battlefield' && c.controller !== c.owner && (effect.ownersYou !== true || c.owner === obj.controller);
+        });
+        out.push({ t: 'ScopeWalked', verb: 'ownersControl', members: back.length, text: effect.text });
+        for (const id of back) {
+          const c = now.cards[id];
+          if (c) out.push({ t: 'ControlGained', card: id, controller: c.owner });
+        }
+        if (back.length > 0) out.push(narrated(`${obj.label}: ${back.length === 1 ? 'a permanent returns to its owner' : `${back.length} permanents return to their owners`}.`, obj.controller));
+        break;
+      }
+
       case 'regenerate': {
         if (aim?.kind !== 'card') break;
         // D373 - CR 701.19: a shield on the permanent, spent by the next destruction this

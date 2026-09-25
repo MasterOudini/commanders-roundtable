@@ -1292,9 +1292,9 @@ const RULES: readonly Rule[] = [
   { kind: 'exileIfDies', re: /^if a (?:creature|permanent) dealt damage this way would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'damaged' }) },
   { kind: 'exileIfDies', re: /^if a creature would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'all' }) },
   { kind: 'exileIfDies', re: /^if a creature an opponent controls would die this turn, exile it instead\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true, exileScope: 'opponents' }) },
-  // D393 - THREATEN: a control change WITH AN END. The permanent form ("Gain control of target
-  // creature.") is a different family and stays unread until it is measured and built.
-  { kind: 'control', re: new RegExp(`^gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D393 - THREATEN: a control change WITH AN END (the permanent form is D531's, below). D532 - `you` may lead it: the
+  // referent rewrite of `you gain control of that creature until end of turn` reads here.
+  { kind: 'control', re: new RegExp(`^(?:you )?gain control of ${TARGET} until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D531 - control with NO end, and for as long as the SOURCE holds (CR 611.2b); the exchange (CR 701.10) - its
   // subject the source (`this creature`) or a first target, its object a second target (a fight's shape, D396).
   { kind: 'control', re: new RegExp(`^(?:you )?gain control of ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE, controlFor: 'indefinite' as const }) },
@@ -1306,6 +1306,28 @@ const RULES: readonly Rule[] = [
     build: (m) => {
       const self = new RegExp(`^${SELF}$`, 'i').test(m[1] ?? '');
       return { ...BASE, ...(self ? { targetIndex: -1, self: true } : {}), otherTargetIndex: 0 };
+    },
+  },
+  // D532 - CONTROL GIVEN TO A NAMED PLAYER (CR 108.4): the player target takes the source, or the clause's OTHER target
+  // (a second index after the player's, D396's shape), for good.
+  { kind: 'giveControl', re: new RegExp(`^target (?:opponent|player) gains control of ${SELF}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'giveControl', re: new RegExp(`^target (?:opponent|player) gains control of (?:another )?(${TARGET})\\.$`, 'i'), build: () => ({ ...BASE, otherTargetIndex: 0 }) },
+  // D532 - OWNERS TAKE BACK WHAT THEY OWN: each member of the wide scope (D505) under a non-owner goes to its owner - the
+  // caster's own only, for `you own`.
+  {
+    kind: 'ownersControl',
+    re: /^each player gains control of ((?:all|each) (?!of )[^.]+?) they own\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
+  {
+    kind: 'ownersControl',
+    re: /^(?:you )?gain control of ((?:all|each) (?!of )[^.]+?) you own\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s], ownersYou: true as const };
     },
   },
   // D394 - "can't block this turn": a restriction WITH AN END (CR 509.1b), on the until-end-of-turn
@@ -2458,7 +2480,9 @@ interface Clause {
 // refers to does.
 const REFERENT = '(?:it|that (?:creature|permanent|artifact|enchantment|land|planeswalker)|those (?:creatures|permanents))';
 const REFERENT_LEAD = new RegExp(`^(?:then )?(?:if )?${REFERENT}(?![a-z'])`, 'i');
-const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach) ${REFERENT}(?![a-z'])`, 'i');
+// D532 - `gain control of it` joins the object verbs: the right half of `Untap target creature and gain control of it until
+// end of turn.` (D426's split) is about the left half's target.
+const REFERENT_OBJECT = new RegExp(`^(?:then )?(?:untap|tap|destroy|exile|sacrifice|return|attach|(?:you )?gain control of) ${REFERENT}(?![a-z'])`, 'i');
 // D470 - the counter put ON the referent (`Tap target creature an opponent controls and put a stun counter on it.`,
 // `Untap target creature. Put a +1/+1 counter on it.`): the referent stands where the target phrase would.
 const REFERENT_COUNTER = new RegExp(`^(?:then )?put ${COUNT} ${COUNTER_KIND} counters? on ${REFERENT}(?![a-z'])`, 'i');

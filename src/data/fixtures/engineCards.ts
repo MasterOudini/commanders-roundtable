@@ -8872,6 +8872,15 @@ export const AVARICE_TOTEM: CardData = F.AVARICE_TOTEM as CardData;
 export const ROIL_ELEMENTAL: CardData = F.ROIL_ELEMENTAL as CardData;
 export const VEDALKEN_PLOTTER: CardData = F.VEDALKEN_PLOTTER as CardData;
 export const JACE_INGENIOUS_MIND_MAGE: CardData = F.JACE_INGENIOUS_MIND_MAGE as CardData;
+export const THREATEN: CardData = F.THREATEN as CardData;
+export const BAZAAR_TRADER: CardData = F.BAZAAR_TRADER as CardData;
+export const HUMBLE_DEFECTOR: CardData = F.HUMBLE_DEFECTOR as CardData;
+export const HOMEWARD_PATH: CardData = F.HOMEWARD_PATH as CardData;
+export const BRAND: CardData = F.BRAND as CardData;
+export const JINXED_IDOL: CardData = F.JINXED_IDOL as CardData;
+export const OVERTAKER: CardData = F.OVERTAKER as CardData;
+export const BRINGER_OF_THE_RED_DAWN: CardData = F.BRINGER_OF_THE_RED_DAWN as CardData;
+export const JINXED_RING: CardData = F.JINXED_RING as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -17996,6 +18005,15 @@ export const ENGINE_CARDS: CardData[] = [
   ROIL_ELEMENTAL,
   VEDALKEN_PLOTTER,
   JACE_INGENIOUS_MIND_MAGE,
+  THREATEN,
+  BAZAAR_TRADER,
+  HUMBLE_DEFECTOR,
+  HOMEWARD_PATH,
+  BRAND,
+  JINXED_IDOL,
+  OVERTAKER,
+  BRINGER_OF_THE_RED_DAWN,
+  JINXED_RING,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

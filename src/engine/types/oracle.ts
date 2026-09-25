@@ -750,6 +750,10 @@ export type EffectKind =
   | 'returnSelf'
   /** D531 - `Exchange control of target A and target B.` (CR 701.10): each to the other's controller. */
   | 'exchangeControl'
+  /** D532 - `Target opponent gains control of ~.` (CR 108.4): the player target takes the source, or the clause's other target, for good. */
+  | 'giveControl'
+  /** D532 - `Each player gains control of all creatures they own.`: every member of the scope under a non-owner goes to its owner. */
+  | 'ownersControl'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1410,6 +1414,8 @@ export interface EffectSpec {
   readonly libraryOf?: 'player';
   /** D494 - `grantObj` only: the keywords last while the object stays (no `until end of turn` printed). */
   readonly indefinite?: true;
+  /** D532 - `ownersControl` only: `you own` - the caster's own permanents come back, no other owner's. */
+  readonly ownersYou?: true;
   /**
    * D396 - the clause's OTHER target (a bite's or a fight's object), a second index the clause
    * consumes in printed order after its subject. Absent on every one-operand clause.

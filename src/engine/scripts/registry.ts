@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { JINXED_IDOL_SCRIPT } from './cards/jinxedIdol';
+import { OVERTAKER_SCRIPT } from './cards/overtaker';
+import { BRINGER_OF_THE_RED_DAWN_SCRIPT } from './cards/bringerOfTheRedDawn';
+import { JINXED_RING_SCRIPT } from './cards/jinxedRing';
+import { HUMBLE_DEFECTOR_SCRIPT } from './cards/humbleDefector';
+import { BAZAAR_TRADER_SCRIPT } from './cards/bazaarTrader';
 import { KEIGA_THE_TIDE_STAR_SCRIPT } from './cards/keigaTheTideStar';
 import { CHROMESHELL_CRAB_SCRIPT } from './cards/chromeshellCrab';
 import { PIPER_OF_THE_SWARM_SCRIPT } from './cards/piperOfTheSwarm';
@@ -6327,7 +6333,6 @@ import { BLIGHTED_SHAMAN_SCRIPT } from './cards/blightedShaman';
 import { WRETCHED_BANQUET_SCRIPT } from './cards/wretchedBanquet';
 import { WRETCHED_DOLL_SCRIPT } from './cards/wretchedDoll';
 import { WRIGGLING_GRUB_SCRIPT } from './cards/wrigglingGrub';
-import { WRONG_TURN_SCRIPT } from './cards/wrongTurn';
 import { WYLULI_WOLF_SCRIPT } from './cards/wyluliWolf';
 import { YAVIMAYA_SAPHERD_SCRIPT } from './cards/yavimayaSapherd';
 import { YEVAS_FORCEMAGE_SCRIPT } from './cards/yevasForcemage';
@@ -7243,7 +7248,6 @@ import { HUBRIS_SCRIPT } from './cards/hubris';
 import { HUNGRY_FLAMES_SCRIPT } from './cards/hungryFlames';
 import { HURKYLS_RECALL_SCRIPT } from './cards/hurkylsRecall';
 import { HYMN_OF_REBIRTH_SCRIPT } from './cards/hymnOfRebirth';
-import { HARMLESS_OFFERING_SCRIPT } from './cards/harmlessOffering';
 import { HARMONIC_CONVERGENCE_SCRIPT } from './cards/harmonicConvergence';
 import { HARSH_SUSTENANCE_SCRIPT } from './cards/harshSustenance';
 import { HEARTWARMING_REDEMPTION_SCRIPT } from './cards/heartwarmingRedemption';
@@ -7355,7 +7359,6 @@ import { END_THE_FESTIVITIES_SCRIPT } from './cards/endTheFestivities';
 import { ENGULF_THE_SHORE_SCRIPT } from './cards/engulfTheShore';
 import { DIVINE_OFFERING_SCRIPT } from './cards/divineOffering';
 import { DOGPILE_SCRIPT } from './cards/dogpile';
-import { DONATE_SCRIPT } from './cards/donate';
 import { DOUBLE_TROUBLE_SCRIPT } from './cards/doubleTrouble';
 import { DRAG_DOWN_SCRIPT } from './cards/dragDown';
 import { DRAG_TO_THE_BOTTOM_SCRIPT } from './cards/dragToTheBottom';
@@ -8074,6 +8077,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JINXED_IDOL_SCRIPT,
+  OVERTAKER_SCRIPT,
+  BRINGER_OF_THE_RED_DAWN_SCRIPT,
+  JINXED_RING_SCRIPT,
+  HUMBLE_DEFECTOR_SCRIPT,
+  BAZAAR_TRADER_SCRIPT,
   KEIGA_THE_TIDE_STAR_SCRIPT,
   CHROMESHELL_CRAB_SCRIPT,
   PIPER_OF_THE_SWARM_SCRIPT,
@@ -14394,7 +14403,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   WRETCHED_BANQUET_SCRIPT,
   WRETCHED_DOLL_SCRIPT,
   WRIGGLING_GRUB_SCRIPT,
-  WRONG_TURN_SCRIPT,
   WYLULI_WOLF_SCRIPT,
   YAVIMAYA_SAPHERD_SCRIPT,
   YEVAS_FORCEMAGE_SCRIPT,
@@ -15309,7 +15317,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HUNGRY_FLAMES_SCRIPT,
   HURKYLS_RECALL_SCRIPT,
   HYMN_OF_REBIRTH_SCRIPT,
-  HARMLESS_OFFERING_SCRIPT,
   HARMONIC_CONVERGENCE_SCRIPT,
   HARSH_SUSTENANCE_SCRIPT,
   HEARTWARMING_REDEMPTION_SCRIPT,
@@ -15421,7 +15428,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   ENGULF_THE_SHORE_SCRIPT,
   DIVINE_OFFERING_SCRIPT,
   DOGPILE_SCRIPT,
-  DONATE_SCRIPT,
   DOUBLE_TROUBLE_SCRIPT,
   DRAG_DOWN_SCRIPT,
   DRAG_TO_THE_BOTTOM_SCRIPT,

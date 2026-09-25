@@ -83,6 +83,15 @@ function withoutRingBearers(state: GameState, cards: readonly InstanceId[], stil
   return out;
 }
 
+/**
+ * D532 - a LATER control change outlasts an earlier until-end-of-turn one (CR 613.7): the cleanup revert D393 left for
+ * that permanent is dropped, so the cleanup step does not hand it back over the newer effect.
+ */
+function withoutControlRevert(state: GameState, card: InstanceId): GameState {
+  if (!state.untilEndOfTurn.some((m) => m.card === card && m.controlRevert !== undefined)) return state;
+  return { ...state, untilEndOfTurn: state.untilEndOfTurn.filter((m) => !(m.card === card && m.controlRevert !== undefined)) };
+}
+
 function withPlayer(state: GameState, id: PlayerId, patch: Partial<PlayerState>): GameState {
   const player = state.players[id];
   if (!player) return state;
@@ -800,10 +809,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo } }), [body.card], body.controller);
     // D531 - control with no end: the new controller and the sickness, no memory (a control effect of any older kind ends).
     case 'ControlGained':
-      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller);
+      return withoutControlRevert(withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller), body.card);
     // D531 - control for as long as the source holds: D453's memory with the mode and the taker.
     case 'ControlTakenBySource':
-      return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo, mode: body.mode, by: body.controller } }), [body.card], body.controller);
+      return withoutControlRevert(withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: { source: body.source, entry: body.entry, revertTo: body.revertTo, mode: body.mode, by: body.controller } }), [body.card], body.controller), body.card);
     case 'ControlReverted':
       return withoutRingBearers(withCard(state, body.card, { controller: body.controller, summonedOnTurn: state.turn.turnNumber, controlledVia: undefined }), [body.card], body.controller);
 
