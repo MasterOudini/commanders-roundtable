@@ -1718,6 +1718,9 @@ interface Run {
   /** D537 - the spells cast from the graveyard by retrace, and by jump-start. */
   readonly retraceCasts: number;
   readonly jumpStartCasts: number;
+  /** D538 - the rebound triggers armed, and the spells cast from exile by their rebound. */
+  readonly reboundArms: number;
+  readonly reboundCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2226,6 +2229,8 @@ function runOne(seed: number): Run {
     stormCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('storm') ?? false)).length,
     retraceCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.graveyardCast?.kind === 'retrace').length,
     jumpStartCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.graveyardCast?.kind === 'jumpStart').length,
+    reboundArms: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && e.body.trigger.id.includes('-rebound-')).length,
+    reboundCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.rebound ?? false)).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2560,6 +2565,8 @@ const TOTAL_KEYS = [
   'stormCopies',
   'retraceCasts',
   'jumpStartCasts',
+  'reboundArms',
+  'reboundCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

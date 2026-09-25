@@ -1318,6 +1318,8 @@ export type Awaiting =
        * read the same list the host admits. Absent on every older prompt.
        */
       readonly pool?: readonly InstanceId[];
+      /** D538 - a declined free cast leaves the pool's card where it is (rebound's, in exile) - cascade's goes to the bottom. */
+      readonly declineStays?: true;
       /**
        * D511 - how the battlefield candidates are COMPUTED when the printed noun is not the rule: `leastToughness` is
        * bolster's (the creatures the chooser controls whose toughness is the least among them). A printed rule, never

@@ -4167,7 +4167,8 @@ function answerChooseFromZone(
       // D525 - cascade's declined candidate goes to the bottom of the library with the rest, its permission gone.
       if (awaiting.pool !== undefined && awaiting.pool.length > 0) {
         const still = awaiting.pool.filter((card) => state.cards[card]?.zone.kind === 'exile');
-        if (still.length > 0) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
+        // D538 - a rebound card declined at the upkeep stays in exile (`declineStays`); its permission still goes.
+        if (still.length > 0 && awaiting.declineStays !== true) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
         declined.push({ t: 'PlayPermissionsExpired', cards: [...awaiting.pool] });
       }
       declined.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player));

@@ -778,6 +778,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D538 - rebound: the Rebound line is the engine's now (the resolution's exile, the upkeep's free cast); what stays is a rebound spell whose other sentence the vocabulary does not read.
+  ['Ephemerate', 'a spell with a line outside the vocabulary: Exile target creature you control, then return it to the battlefield under its owner\'s control - a flicker (D538)'],
+  ['Survival Cache', 'a spell with a line outside the vocabulary: Then if you have more life than an opponent, draw a card - a life comparison after the gain (D538)'],
+  ['Blessed Reincarnation', 'a spell with a line outside the vocabulary: That player reveals cards from the top of their library until a creature card is revealed - a reveal-until for the exiled creature (D538)'],
+  ['Recurring Insight', 'a spell with a line outside the vocabulary: Draw cards equal to the number of cards in target opponent\'s hand - a count off a target\'s hand (D538)'],
   // D537 - retrace and jump-start: the keyword line is the engine's now (a graveyard cast for the mana cost and a discard); what stays is a retrace or jump-start spell whose other sentence the vocabulary does not read.
   ['Reality Scramble', 'a spell with a line outside the vocabulary: Put target permanent you own on the bottom of your library. Reveal cards from the top of your library until you reveal a card that shares a card type - a reveal-until by a shared type (D537)'],
   ['Beacon Bolt', 'a spell with a line outside the vocabulary: Beacon Bolt deals damage to target creature equal to the total number of instant and sorcery cards you own in exile and in your graveyard - a count over two zones (D537)'],
@@ -1889,7 +1894,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D516 - the item under a filtered head and the card that died: the family's remainder, by its own reason.
   ['Stalking Vengeance', 'a payload acting on a creature that died (a card in the graveyard; not this wave): Target creature deals damage equal to its power to any target (D516)'],
   // D515 - the stat family's remainder: the cards the wave refused, by its own reasons.
-  ['Consuming Vapors', 'the ask\'s chosen creature reads now, beside a Rebound line outside the vocabulary (D515)'],
   // D514 - the object's stat as last known: the cards of the family the row maker refused, by its own reasons.
   ['Grim Feast', 'trigger payload not a pump: You gain life equal to its toughness. (D514)'],
   ['Ikra Shidiqi, the Usurper', 'trigger payload not a pump: You gain life equal to that creature\'s toughness. (D514)'],

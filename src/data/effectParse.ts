@@ -2408,6 +2408,11 @@ export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
 
+/** D538 - rebound's upkeep offer (CR 702.88a): the exiled card itself, for nothing. */
+export function reboundCastSpec(): EffectSpec {
+  return { ...BASE, kind: 'reboundCast', text: 'You may cast this card from exile without paying its mana cost.', targetIndex: -1, self: true };
+}
+
 /** D489 - the suspend tick the special action arms (CR 702.62c): the exiled card itself. */
 export function suspendTickSpec(): EffectSpec {
   return { ...BASE, kind: 'suspendTick', text: 'Remove a time counter from it.', targetIndex: -1, self: true };
@@ -3399,6 +3404,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^Buyback (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^Buyback—.+\.\s*$/.test(l.trim()))
     // D537 - a Retrace or Jump-start line is a graveyard cast the engine offers, no clause of the spell either.
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
+    // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.
+    .filter((l) => !/^Rebound$/.test(l.trim()))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
     .filter((l) => !/^(?:This spell|~) can't be countered\.$/.test(l.trim()))
     // D413 - a Devoid line is a keyword the engine honours (D310), no clause of the spell either.

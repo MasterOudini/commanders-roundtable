@@ -18,7 +18,7 @@ import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
-import { suspendTickSpec } from '../data/effectParse';
+import { reboundCastSpec, suspendTickSpec } from '../data/effectParse';
 import { RING_EMBLEM } from '../data/tokenParse';
 import { modeSpecs } from './modes';
 import { exiledAsItLeaves, faceOf } from './oracle';
@@ -1205,6 +1205,22 @@ export function effectResult(
       // gives a creature, 702.62e), a cast like any other for the bus and the turn's memory. A card no longer
       // suspended in exile (it left, or was cast some other way) ends the ticks; while counters remain the tick
       // re-arms itself for the next upkeep. The id is fresh past every spell this batch already put on.
+      // D538 - REBOUND's upkeep (CR 702.88a): the card still in exile (it may have left) is offered to the trigger's
+      // controller for nothing - a play permission for this turn and the free-cast chooser over a pool of one (cascade's
+      // shape); a declined card stays in exile (`declineStays`). The cast is from exile, so it does not rebound again.
+      case 'reboundCast': {
+        if (!source) break;
+        const inst = state.cards[source];
+        if (!inst || inst.zone.kind !== 'exile') break;
+        const oracleCard = deps.oracle.byPrinting(inst.printingId);
+        if (oracleCard === undefined) break;
+        const name = faceOf(oracleCard, 0).name;
+        out.push({ t: 'PlayPermissionGranted', permission: { card: source, player: controller, until: 'thisTurn', grantedTurn: state.turn.turnNumber } });
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'exile', rest: null, count: 1, min: 0, label: `${name} - rebound`, castFree: true, pool: [source], declineStays: true } });
+        out.push(narrated(`${name} - rebound: it may be cast from exile without paying its mana cost.`, controller, oracleCard.colorIdentity));
+        break;
+      }
+
       case 'suspendTick': {
         if (!source) break;
         const inst = state.cards[source];
@@ -2481,6 +2497,20 @@ export function apnapPlayers(state: GameState, players: readonly PlayerId[]): Pl
  * fire runs its one clause over the card as the source); it re-arms itself while time counters remain. The id
  * carries the turn, so each arming is its own entry.
  */
+/** D538 - rebound's delayed trigger (CR 702.88a): at its controller's next upkeep, the free cast of the exiled card. */
+export function reboundTick(state: GameState, card: InstanceId, controller: PlayerId, name: string): DelayedTrigger {
+  return {
+    id: `${card}-rebound-${state.turn.turnNumber}`,
+    controller,
+    source: card,
+    when: { step: 'upkeep', whose: 'controller' },
+    armedTurn: state.turn.turnNumber,
+    armedStep: state.turn.step,
+    effects: [reboundCastSpec()],
+    label: `${name} — rebound: cast it from exile`,
+  };
+}
+
 export function suspendTick(state: GameState, card: InstanceId, owner: PlayerId, name: string): DelayedTrigger {
   return {
     id: `${card}-suspend-${state.turn.turnNumber}`,

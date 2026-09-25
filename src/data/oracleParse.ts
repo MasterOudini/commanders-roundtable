@@ -1232,6 +1232,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const bought = isPermanent ? { buyback: null, buybackVerb: null } : parseBuyback(face.oracleText, warn);
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
+  // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
+  const rebound = !isPermanent && (face.oracleText ?? '').split('\n').some((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Rebound');
   const altCosts = parseAltCosts(face.oracleText);
   const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
   // D408 - an alternative cost never beside an additional cost with a chooser verb (one set of pick fields).
@@ -1322,6 +1324,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     buybackCost: bought.buyback,
     buybackVerb: bought.buybackVerb,
     graveyardCast,
+    rebound,
     convoke: altCosts.convoke,
     improvise: altCosts.improvise,
     delve: altCosts.delve,

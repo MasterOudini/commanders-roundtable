@@ -14,7 +14,7 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
-import { drawEvents, drewCardsMarker, effectEvents, effectResult } from './effects';
+import { drawEvents, drewCardsMarker, effectEvents, effectResult, reboundTick } from './effects';
 import { keywordTargetSpecs, keywordTriggerDef, keywordTriggerEntry } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { legalModes, modalEffects, modeSpecs } from './modes';
@@ -885,6 +885,9 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // D535 - BUYBACK (CR 702.27): paid, the spell goes to its owner's hand instead of the graveyard as it resolves - only
     // where it would go to the graveyard (flashback's exile and the spell's own fate are not the graveyard).
     const bought = obj.buyback === true && face !== null && !face.isPermanent && obj.castFrom?.kind !== 'graveyard' && ownFate === undefined;
+    // D538 - REBOUND (CR 702.88a): cast from the HAND, the spell is exiled as it resolves - where it would go to the
+    // graveyard - and a delayed trigger at its controller's next upkeep offers the free cast (armed below, after the move).
+    const rebounds = face !== null && face.rebound && obj.castFrom?.kind === 'hand' && !exiledAsItLeaves(obj.castFrom, face) && ownFate === undefined && !bought;
     const to = face?.isPermanent
       ? { kind: 'battlefield' as const, player: obj.controller }
       : exiledAsItLeaves(obj.castFrom, face)
@@ -898,7 +901,9 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
             ? { kind: 'library' as const, player: card.owner }
             : bought
               ? { kind: 'hand' as const, player: card.owner }
-              : { kind: 'graveyard' as const, player: card.owner };
+              : rebounds
+                ? { kind: 'exile' as const, player: card.owner }
+                : { kind: 'graveyard' as const, player: card.owner };
     events.push({ t: 'StackResolved', stackId: obj.id, card: obj.card, to, targets: obj.targets, controller: obj.controller, ...(ownFate !== undefined ? { fate: ownFate } : {}), ...(bought ? { buyback: true as const } : {}) });
     // ⚠️ THE EFFECT RUNS BEFORE THE CARD MOVES. A spell is still on the stack
     // while it resolves (CR 608.2), so its own text can point at the board it is
@@ -968,6 +973,11 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
         },
       ],
     });
+    // D538 - the rebound's delayed trigger, armed as the card lands in exile.
+    if (rebounds && face !== null) {
+      events.push({ t: 'DelayedTriggerArmed', trigger: reboundTick(state, obj.card, obj.controller, face.name) });
+      events.push(narrated(`${obj.label} is exiled as it resolves - rebound: it may be cast for nothing at its controller's next upkeep.`, obj.controller, obj.identity));
+    }
     // D501 - the shuffle the fate printed, over the library the card just joined (the events so far applied to a
     // scratch state: a draw or a search before it has already moved cards); the RNG advances through the log.
     if (ownFate === 'shuffle') {

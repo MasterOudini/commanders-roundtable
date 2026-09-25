@@ -627,6 +627,8 @@ export type EffectKind =
   | 'castFromHand'
   /** D489 - the suspend tick (CR 702.62c/d): a time counter off the exiled card; with the last gone, the free cast. */
   | 'suspendTick'
+  /** D538 - REBOUND's upkeep (CR 702.88a): the exiled card offered for nothing - a play permission and the free-cast chooser. */
+  | 'reboundCast'
   /**
    * D494 - THE PREVIOUS CLAUSE'S OBJECTS: a sentence about `it` / `that token` / `those cards` / `them` whose
    * referent is what the clause before it produced (its targets, the tokens it created, the permanents it put onto
@@ -2002,6 +2004,8 @@ export interface OracleFace {
    * A jump-start spell is exiled as it leaves the stack (flashback's rule); a retrace spell goes to the graveyard.
    */
   readonly graveyardCast: { readonly kind: 'retrace' | 'jumpStart'; readonly verb: import('../../data/activatedParse').KickerVerb } | null;
+  /** D538 - REBOUND (CR 702.88a): cast from the hand, exiled as it resolves and offered free at the controller's next upkeep. */
+  readonly rebound: boolean;
   /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard

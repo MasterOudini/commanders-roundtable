@@ -9916,6 +9916,8 @@ const WANTED = [
   'Flame Jab',
   "Chemister's Insight",
   'Direct Current',
+  // D538 - REBOUND: the seam's proof card (Staggershock - a ping, exiled as it resolves and cast free at the next upkeep).
+  'Staggershock',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

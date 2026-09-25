@@ -301672,6 +301672,41 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "STAGGERSHOCK": {
+    "scryfallId": "312ada22-0085-4103-b20d-a5bbfacb6ec1",
+    "oracleId": "056c3b7d-b603-40b8-8404-18c2eb7e7129",
+    "name": "Staggershock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Staggershock",
+        "manaCost": "{2}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Staggershock deals 2 damage to any target.\nRebound (If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "312ada22-0085-4103-b20d-a5bbfacb6ec1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Rebound"
+    ],
+    "setCode": "ima",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

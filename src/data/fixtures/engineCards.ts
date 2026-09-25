@@ -8913,6 +8913,7 @@ export const TEMPEST_TECHNIQUE: CardData = F.TEMPEST_TECHNIQUE as CardData;
 export const FLAME_JAB: CardData = F.FLAME_JAB as CardData;
 export const CHEMISTER_S_INSIGHT: CardData = F.CHEMISTER_S_INSIGHT as CardData;
 export const DIRECT_CURRENT: CardData = F.DIRECT_CURRENT as CardData;
+export const STAGGERSHOCK: CardData = F.STAGGERSHOCK as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18078,6 +18079,7 @@ export const ENGINE_CARDS: CardData[] = [
   FLAME_JAB,
   CHEMISTER_S_INSIGHT,
   DIRECT_CURRENT,
+  STAGGERSHOCK,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
