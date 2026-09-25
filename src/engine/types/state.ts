@@ -227,6 +227,8 @@ export interface CardInstance {
   readonly isToken: boolean;
   /** D340 - Renown (CR 702.112): set by `BecameRenowned`, cleared with the other battlefield fields when it leaves. */
   readonly renowned: boolean;
+  /** D533 - Monstrosity (CR 701.37b): set by `BecameMonstrous`, cleared with the other battlefield fields when it leaves. */
+  readonly monstrous: boolean;
   /**
    * D403 - how many times this permanent's spell was kicked as it was cast (CR 702.33), for
    * `enters with counters if it was kicked` and `if it was kicked` conditions; cleared on entry

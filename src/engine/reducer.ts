@@ -316,6 +316,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     summonedOnTurn: null,
     phasedOut: false,
     renowned: false,
+    monstrous: false,
     controller: owner,
     ptOverride: null,
     typeOverride: null,
@@ -1485,6 +1486,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     // D330 - CR 701.19: a regeneration shield on the permanent, spent by the
     // next destruction this turn.
+    // D533 - CR 701.37b: the monstrous designation, until the permanent leaves.
+    case 'BecameMonstrous': {
+      const card = state.cards[body.card];
+      if (!card) return state;
+      return { ...state, cards: { ...state.cards, [body.card]: { ...card, monstrous: true } } };
+    }
     case 'BecameRenowned': {
       const card = state.cards[body.card];
       if (!card) return state;
@@ -1570,6 +1577,7 @@ function newInstance(
     isCommander,
     isToken: false,
     renowned: false,
+    monstrous: false,
     commanderCastCount: 0,
     ptOverride: null,
     typeOverride: null,

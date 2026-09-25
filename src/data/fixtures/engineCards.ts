@@ -8881,6 +8881,20 @@ export const JINXED_IDOL: CardData = F.JINXED_IDOL as CardData;
 export const OVERTAKER: CardData = F.OVERTAKER as CardData;
 export const BRINGER_OF_THE_RED_DAWN: CardData = F.BRINGER_OF_THE_RED_DAWN as CardData;
 export const JINXED_RING: CardData = F.JINXED_RING as CardData;
+export const NESSIAN_ASP: CardData = F.NESSIAN_ASP as CardData;
+export const KEEPSAKE_GORGON: CardData = F.KEEPSAKE_GORGON as CardData;
+export const SKITTER_EEL: CardData = F.SKITTER_EEL as CardData;
+export const FLEECEMANE_LION: CardData = F.FLEECEMANE_LION as CardData;
+export const FLEETFEATHER_COCKATRICE: CardData = F.FLEETFEATHER_COCKATRICE as CardData;
+export const RAVENOUS_LEUCROCOTA: CardData = F.RAVENOUS_LEUCROCOTA as CardData;
+export const SAUROFORM_HYBRID: CardData = F.SAUROFORM_HYBRID as CardData;
+export const SINUOUS_VERMIN: CardData = F.SINUOUS_VERMIN as CardData;
+export const ILL_TEMPERED_CYCLOPS: CardData = F.ILL_TEMPERED_CYCLOPS as CardData;
+export const CHILLERPILLAR: CardData = F.CHILLERPILLAR as CardData;
+export const SKITTERING_CRUSTACEAN: CardData = F.SKITTERING_CRUSTACEAN as CardData;
+export const AEROMUNCULUS: CardData = F.AEROMUNCULUS as CardData;
+export const SPLITTING_SLIME: CardData = F.SPLITTING_SLIME as CardData;
+export const GLUTTONOUS_CYCLOPS: CardData = F.GLUTTONOUS_CYCLOPS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18014,6 +18028,20 @@ export const ENGINE_CARDS: CardData[] = [
   OVERTAKER,
   BRINGER_OF_THE_RED_DAWN,
   JINXED_RING,
+  NESSIAN_ASP,
+  KEEPSAKE_GORGON,
+  SKITTER_EEL,
+  FLEECEMANE_LION,
+  FLEETFEATHER_COCKATRICE,
+  RAVENOUS_LEUCROCOTA,
+  SAUROFORM_HYBRID,
+  SINUOUS_VERMIN,
+  ILL_TEMPERED_CYCLOPS,
+  CHILLERPILLAR,
+  SKITTERING_CRUSTACEAN,
+  AEROMUNCULUS,
+  SPLITTING_SLIME,
+  GLUTTONOUS_CYCLOPS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

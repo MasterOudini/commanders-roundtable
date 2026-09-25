@@ -300547,6 +300547,510 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "NESSIAN_ASP": {
+    "scryfallId": "2aa5baf6-7a4c-4fe7-9650-cafd26cce979",
+    "oracleId": "8b46e077-f667-432f-ab5b-8256a7378311",
+    "name": "Nessian Asp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nessian Asp",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Reach\n{6}{G}: Monstrosity 4. (If this creature isn't monstrous, put four +1/+1 counters on it and it becomes monstrous.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "2aa5baf6-7a4c-4fe7-9650-cafd26cce979"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Monstrosity"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "186",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEEPSAKE_GORGON": {
+    "scryfallId": "aa8d2ece-9639-4384-8284-27a1b0475228",
+    "oracleId": "3aa58e5a-1b5e-4fb3-bf2d-9bad8126b6e6",
+    "name": "Keepsake Gorgon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keepsake Gorgon",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Gorgon",
+        "oracleText": "Deathtouch\n{5}{B}{B}: Monstrosity 1. (If this creature isn't monstrous, put a +1/+1 counter on it and it becomes monstrous.)\nWhen this creature becomes monstrous, destroy target non-Gorgon creature an opponent controls.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "aa8d2ece-9639-4384-8284-27a1b0475228"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Monstrosity",
+      "Deathtouch"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKITTER_EEL": {
+    "scryfallId": "367b02eb-89dd-4b8c-a51f-cd0661d857d4",
+    "oracleId": "75132177-0881-4158-9d65-73f5ba9d4402",
+    "name": "Skitter Eel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skitter Eel",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Fish Crab",
+        "oracleText": "{2}{U}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)",
+        "flavorText": "\"Life has no mistakes, only experiments.\"\n—Yolov, Simic bioengineer",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "367b02eb-89dd-4b8c-a51f-cd0661d857d4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "RNA-53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEECEMANE_LION": {
+    "scryfallId": "0afb3c64-c88a-417b-a1f7-2edea045cb14",
+    "oracleId": "e3c8cdf7-a26a-45eb-9498-99b618cfba99",
+    "name": "Fleecemane Lion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleecemane Lion",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "{3}{G}{W}: Monstrosity 1. (If this creature isn't monstrous, put a +1/+1 counter on it and it becomes monstrous.)\nAs long as this creature is monstrous, it has hexproof and indestructible.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Thomas Chamberlain-Keen",
+        "imageId": "0afb3c64-c88a-417b-a1f7-2edea045cb14"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "423",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLEETFEATHER_COCKATRICE": {
+    "scryfallId": "1139236e-5d71-4fc1-937d-ba1efadee031",
+    "oracleId": "d5006683-f1c4-4a18-bf64-2d075372534c",
+    "name": "Fleetfeather Cockatrice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fleetfeather Cockatrice",
+        "manaCost": "{3}{G}{U}",
+        "typeLine": "Creature — Cockatrice",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nFlying, deathtouch\n{5}{G}{U}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "1139236e-5d71-4fc1-937d-ba1efadee031"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Deathtouch",
+      "Flying",
+      "Monstrosity",
+      "Flash"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAVENOUS_LEUCROCOTA": {
+    "scryfallId": "1e91524b-4885-45fc-b22d-f9e5ee55845d",
+    "oracleId": "dcc5ca3f-5309-4833-bee4-f2508382ea06",
+    "name": "Ravenous Leucrocota",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ravenous Leucrocota",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Vigilance\n{6}{G}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)",
+        "flavorText": "Hunger makes a leucrocota dangerous. A full belly makes it angry and dangerous.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "1e91524b-4885-45fc-b22d-f9e5ee55845d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance",
+      "Monstrosity"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAUROFORM_HYBRID": {
+    "scryfallId": "2f7ecad5-8bb5-416f-b8ef-a04aba4dc4b5",
+    "oracleId": "559c9949-faaf-41bc-9349-b6738b4763a2",
+    "name": "Sauroform Hybrid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sauroform Hybrid",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Lizard Warrior",
+        "oracleText": "{4}{G}{G}: Adapt 4. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)",
+        "flavorText": "\"Within each of us, the potential for great power waits to be released.\"\n—Zija, Simic mutationist",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "2f7ecad5-8bb5-416f-b8ef-a04aba4dc4b5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SINUOUS_VERMIN": {
+    "scryfallId": "358c61e2-4af4-4e19-bee6-4b8c90a33f03",
+    "oracleId": "658f5cfb-326d-4da9-a39b-2ecd393a1f54",
+    "name": "Sinuous Vermin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sinuous Vermin",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Rat Horror",
+        "oracleText": "{3}{B}{B}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)\nAs long as this creature is monstrous, it has menace. (It can't be blocked except by two or more creatures.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "358c61e2-4af4-4e19-bee6-4b8c90a33f03"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "466",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILL_TEMPERED_CYCLOPS": {
+    "scryfallId": "51fbc294-301f-4c77-b1b6-54201baa2c1c",
+    "oracleId": "07f62413-92cc-4f44-a827-a7c3a7318602",
+    "name": "Ill-Tempered Cyclops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ill-Tempered Cyclops",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Cyclops",
+        "oracleText": "Trample\n{5}{R}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)",
+        "flavorText": "A cyclops has two moods: angry and asleep.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Peter Mohrbacher",
+        "imageId": "51fbc294-301f-4c77-b1b6-54201baa2c1c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Monstrosity"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "CN2-166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHILLERPILLAR": {
+    "scryfallId": "5ae18cc3-af8d-458c-8441-a3f661d38505",
+    "oracleId": "5607bc18-f3b7-40b0-b97d-2e06affa99ac",
+    "name": "Chillerpillar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chillerpillar",
+        "manaCost": "{3}{U}",
+        "typeLine": "Snow Creature — Insect",
+        "oracleText": "{4}{S}{S}: Monstrosity 2. (If this creature isn't monstrous, put two +1/+1 counters on it and it becomes monstrous. {S} can be paid with one mana from a snow source.)\nAs long as this creature is monstrous, it has flying.",
+        "flavorText": "From its cocoon, a flurry takes flight.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Suzanne Helmigh",
+        "imageId": "5ae18cc3-af8d-458c-8441-a3f661d38505"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "280",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKITTERING_CRUSTACEAN": {
+    "scryfallId": "61195835-2375-420c-b693-dc11653c4864",
+    "oracleId": "9a6d8d37-fcf9-4974-89f5-3500e9da3518",
+    "name": "Skittering Crustacean",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skittering Crustacean",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Crab",
+        "oracleText": "{6}{U}: Monstrosity 4. (If this creature isn't monstrous, put four +1/+1 counters on it and it becomes monstrous.)\nAs long as this creature is monstrous, it has hexproof. (It can't be the target of spells or abilities your opponents control.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "61195835-2375-420c-b693-dc11653c4864"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "65777",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AEROMUNCULUS": {
+    "scryfallId": "671c94c1-df52-4985-ad78-3e1c9c78df18",
+    "oracleId": "a0cd19c1-9125-4627-83ba-d42c489b4e7d",
+    "name": "Aeromunculus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aeromunculus",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Homunculus Mutant",
+        "oracleText": "Flying\n{2}{G}{U}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)",
+        "flavorText": "\"The absence of binocular vision imposes certain challenges for a flying creature, which are overcome via echolocation.\"\n—Simic research notes",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "671c94c1-df52-4985-ad78-3e1c9c78df18"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Adapt"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPLITTING_SLIME": {
+    "scryfallId": "6c1ffb14-9d92-4239-8694-61d156c9dba7",
+    "oracleId": "c2153f2b-4a9f-40b6-8862-0e4143686c8c",
+    "name": "Splitting Slime",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Splitting Slime",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Ooze",
+        "oracleText": "{4}{G}{G}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)\nWhen this creature becomes monstrous, create a token that's a copy of this creature. (The token has no counters and isn't monstrous.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "James Paick",
+        "imageId": "6c1ffb14-9d92-4239-8694-61d156c9dba7"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "pz2",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLUTTONOUS_CYCLOPS": {
+    "scryfallId": "e583f6be-3d78-4085-9059-c3c989a4977f",
+    "oracleId": "35101c6c-0bcc-4b1f-9cb5-a82e4d2f8220",
+    "name": "Gluttonous Cyclops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gluttonous Cyclops",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Cyclops",
+        "oracleText": "{5}{R}{R}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)",
+        "flavorText": "The cyclops had learned to never eat a shepherd. Instead he gently flung the \"pit\" aside to grow a new flock.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "e583f6be-3d78-4085-9059-c3c989a4977f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Monstrosity"
+    ],
+    "setCode": "jou",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

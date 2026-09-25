@@ -9874,6 +9874,23 @@ const WANTED = [
   'Bringer of the Red Dawn',
   'Jinxed Ring',
   // D532 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D533 - MONSTROSITY AND ADAPT: the seam's proof cards (Nessian Asp - Monstrosity 4; Keepsake Gorgon - the becomes-monstrous head; Skitter Eel - Adapt 2).
+  'Nessian Asp',
+  'Keepsake Gorgon',
+  'Skitter Eel',
+  // D533 - MONSTROSITY AND ADAPT: the rows the whole-leftover row maker rowed once Monstrosity N, the monstrous mark, its head and Adapt N were the engine's (CR 701.37, 701.46).
+  'Fleecemane Lion',
+  'Fleetfeather Cockatrice',
+  'Ravenous Leucrocota',
+  'Sauroform Hybrid',
+  'Sinuous Vermin',
+  'Ill-Tempered Cyclops',
+  'Chillerpillar',
+  'Skittering Crustacean',
+  'Aeromunculus',
+  'Splitting Slime',
+  'Gluttonous Cyclops',
+  // D533 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

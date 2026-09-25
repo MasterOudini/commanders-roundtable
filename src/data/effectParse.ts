@@ -1937,6 +1937,29 @@ const RULES: readonly Rule[] = [
    * +1/+1 counters, the caster choosing among a tie (the queue's sixth verb); `Bolster X` and the `, then` forms stay
    * unread. It ASKS (when several tie), so it is the sentence's last.
    */
+  /**
+   * D533 - MONSTROSITY N (CR 701.37): `Monstrosity 3.` - the source, if it is not monstrous yet, gets N +1/+1 counters and
+   * becomes monstrous; a monstrous one gets nothing. `Monstrosity X` (the activation's X) stays unread.
+   */
+  {
+    kind: 'monstrosity',
+    re: new RegExp(`^monstrosity (${COUNT})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null || n <= 0) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
+  // D533 - ADAPT N (CR 701.46): `Adapt 2.` - the source, if it has no +1/+1 counters on it, gets N of them.
+  {
+    kind: 'adapt',
+    re: new RegExp(`^adapt (${COUNT})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null || n <= 0) return null;
+      return { ...BASE, amount: n, targetIndex: -1, self: true };
+    },
+  },
   {
     kind: 'bolster',
     re: new RegExp(`^bolster (${COUNT})\\.$`, 'i'),

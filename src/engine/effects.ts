@@ -1485,6 +1485,39 @@ export function effectResult(
 
       // D532 - CONTROL GIVEN TO A NAMED PLAYER (CR 108.4): the clause's player target takes the source - or the clause's
       // other target - for good. One already that player's, or gone, changes nothing, and the step says so.
+      // D533 - MONSTROSITY (CR 701.37a): the source (a SELF_AIMED step - gone, and the plan says so), not yet monstrous,
+      // gets the counters and the mark; a monstrous one gets nothing, and the step says so.
+      case 'monstrosity': {
+        if (aim?.kind !== 'card' || effect.amount <= 0) break;
+        const monster = state.cards[aim.id];
+        if (!monster || monster.zone.kind !== 'battlefield') break;
+        const dm = derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        if (monster.monstrous) {
+          out.push(narrated(`${obj.label}: ${dm.name} is already monstrous.`, obj.controller));
+          break;
+        }
+        out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: '+1/+1', delta: effect.amount }] });
+        out.push({ t: 'BecameMonstrous', card: aim.id });
+        out.push(narrated(`${obj.label}: ${dm.name} becomes monstrous.`, obj.controller));
+        break;
+      }
+
+      // D533 - ADAPT (CR 701.46a): the source, with no +1/+1 counters on it, gets N of them; one that has any gets
+      // nothing, and the step says so.
+      case 'adapt': {
+        if (aim?.kind !== 'card' || effect.amount <= 0) break;
+        const adapter = state.cards[aim.id];
+        if (!adapter || adapter.zone.kind !== 'battlefield') break;
+        const da = derive(state, deps.oracle, deps.scripts, aim.id, cache);
+        if ((adapter.counters['+1/+1'] ?? 0) > 0) {
+          out.push(narrated(`${obj.label}: ${da.name} already has +1/+1 counters, so it does not adapt.`, obj.controller));
+          break;
+        }
+        out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: '+1/+1', delta: effect.amount }] });
+        out.push(narrated(`${obj.label}: ${da.name} adapts.`, obj.controller));
+        break;
+      }
+
       case 'giveControl': {
         if (aim?.kind !== 'player') break;
         const givenId = effect.otherTargetIndex !== undefined

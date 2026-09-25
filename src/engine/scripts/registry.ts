@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FLEECEMANE_LION_SCRIPT } from './cards/fleecemaneLion';
+import { FLEETFEATHER_COCKATRICE_SCRIPT } from './cards/fleetfeatherCockatrice';
+import { RAVENOUS_LEUCROCOTA_SCRIPT } from './cards/ravenousLeucrocota';
+import { NESSIAN_ASP_SCRIPT } from './cards/nessianAsp';
+import { SAUROFORM_HYBRID_SCRIPT } from './cards/sauroformHybrid';
+import { SINUOUS_VERMIN_SCRIPT } from './cards/sinuousVermin';
+import { SKITTER_EEL_SCRIPT } from './cards/skitterEel';
+import { ILL_TEMPERED_CYCLOPS_SCRIPT } from './cards/illTemperedCyclops';
+import { CHILLERPILLAR_SCRIPT } from './cards/chillerpillar';
+import { SKITTERING_CRUSTACEAN_SCRIPT } from './cards/skitteringCrustacean';
+import { AEROMUNCULUS_SCRIPT } from './cards/aeromunculus';
+import { SPLITTING_SLIME_SCRIPT } from './cards/splittingSlime';
+import { KEEPSAKE_GORGON_SCRIPT } from './cards/keepsakeGorgon';
+import { GLUTTONOUS_CYCLOPS_SCRIPT } from './cards/gluttonousCyclops';
 import { JINXED_IDOL_SCRIPT } from './cards/jinxedIdol';
 import { OVERTAKER_SCRIPT } from './cards/overtaker';
 import { BRINGER_OF_THE_RED_DAWN_SCRIPT } from './cards/bringerOfTheRedDawn';
@@ -8077,6 +8091,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FLEECEMANE_LION_SCRIPT,
+  FLEETFEATHER_COCKATRICE_SCRIPT,
+  RAVENOUS_LEUCROCOTA_SCRIPT,
+  NESSIAN_ASP_SCRIPT,
+  SAUROFORM_HYBRID_SCRIPT,
+  SINUOUS_VERMIN_SCRIPT,
+  SKITTER_EEL_SCRIPT,
+  ILL_TEMPERED_CYCLOPS_SCRIPT,
+  CHILLERPILLAR_SCRIPT,
+  SKITTERING_CRUSTACEAN_SCRIPT,
+  AEROMUNCULUS_SCRIPT,
+  SPLITTING_SLIME_SCRIPT,
+  KEEPSAKE_GORGON_SCRIPT,
+  GLUTTONOUS_CYCLOPS_SCRIPT,
   JINXED_IDOL_SCRIPT,
   OVERTAKER_SCRIPT,
   BRINGER_OF_THE_RED_DAWN_SCRIPT,

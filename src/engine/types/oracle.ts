@@ -754,6 +754,10 @@ export type EffectKind =
   | 'giveControl'
   /** D532 - `Each player gains control of all creatures they own.`: every member of the scope under a non-owner goes to its owner. */
   | 'ownersControl'
+  /** D533 - `Monstrosity N.` (CR 701.37): the source, not yet monstrous, gets N +1/+1 counters and becomes monstrous. */
+  | 'monstrosity'
+  /** D533 - `Adapt N.` (CR 701.46): the source, with no +1/+1 counters on it, gets N of them. */
+  | 'adapt'
   | 'gainLife'
   /** D519 - `You get {E}{E}.`: energy counters for the caster (CR 122.1); `amount` is the symbols printed. */
   | 'gainEnergy'
@@ -1175,7 +1179,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first

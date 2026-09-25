@@ -605,6 +605,8 @@ export type EventBody =
   | { readonly t: 'Regenerated'; readonly card: InstanceId }
   // D340 - CR 702.112: a creature became renowned.
   | { readonly t: 'BecameRenowned'; readonly card: InstanceId }
+  // D533 - CR 701.37: a permanent became monstrous (the counters beside it moved the state; this is the mark).
+  | { readonly t: 'BecameMonstrous'; readonly card: InstanceId }
 
   // ── non-combat effects ───────────────────────────────────────────────────
   /**
