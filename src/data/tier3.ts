@@ -35,7 +35,7 @@
 
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
-import { parseAltCosts, parseBackup, parseFlashback, parseKicker, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseTypeLine, readUpkeepPrice } from './oracleParse';
+import { parseAltCosts, parseBackup, parseFlashback, parseKicker, parseMadness, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseTypeLine, readUpkeepPrice } from './oracleParse';
 import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
@@ -399,6 +399,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (raw.trim().toLowerCase() === 'affinity' && parseCostReductions(card.faces[faceIndex]?.oracleText ?? '').some((r) => r.kind === 'affinity')) continue;
     // D307 - a Flashback the engine runs (a mana cost, read by parseFlashback) is no note.
     if (raw.trim().toLowerCase() === 'flashback' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? '')) && parseFlashback(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
+    // D541 - a Madness the engine runs (a mana cost, read by parseMadness: the discard's exile, the trigger's cast) is no note.
+    if (raw.trim().toLowerCase() === 'madness' && parseMadness(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
     // D536 - an instant's or a sorcery's Storm the engine runs (the keyword table's cast trigger) is no note.
     if (raw.trim().toLowerCase() === 'storm' && !isPermanentType(parseTypeLine(card.faces[faceIndex]?.typeLine ?? ''))) continue;
     // D405 - a Convoke / Improvise / Delve the engine charges (read by parseAltCosts) is no note.

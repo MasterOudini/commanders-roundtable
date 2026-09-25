@@ -72,6 +72,8 @@ export interface CardMove {
   readonly suspendHaste?: true;
   /** D540 - the exile that FORETELLS the card (CR 702.143a), or a back-out's return to it: the turn it was foretold, onto the card. */
   readonly foretoldTurn?: number;
+  /** D541 - the discard MADNESS sent to exile instead of the graveyard (CR 702.35a): the reducer marks the card, the trigger reads it. */
+  readonly madness?: true;
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
   /**

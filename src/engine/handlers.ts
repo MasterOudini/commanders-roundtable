@@ -420,6 +420,8 @@ interface CastSetup {
   readonly free?: true;
   /** D540 - a FORETOLD cast from exile (CR 702.143a): the turn the card was foretold; its foretell cost priced into `problem`. */
   readonly foretold?: number;
+  /** D541 - a MADNESS cast (CR 702.35a): the madness cost priced into `problem`. */
+  readonly madness?: true;
 }
 
 /** D406 - the picks a cast names for its additional cost's chooser verb. */
@@ -718,10 +720,12 @@ function kickersOf(kicked: number, kickedWith: readonly number[]): readonly numb
  * for a granted cast (D491), the alternative cost's mana (D408; its life is `stagedCastLife`), {3} face down (D309), the
  * flashback cost from the graveyard (D307). The targets stage had repriced every one of them at the printed cost.
  */
-function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly free?: true; readonly alternative?: true; readonly faceDown?: true; readonly foretold?: number; readonly from: ZoneRef }): ManaCost | null {
+function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly free?: true; readonly alternative?: true; readonly faceDown?: true; readonly foretold?: number; readonly madness?: true; readonly from: ZoneRef }): ManaCost | null {
   if (pending.free === true) return null;
   if (pending.alternative === true && face.alternativeCost !== null) return face.alternativeCost.mana;
   if (pending.faceDown === true) return MORPH_CAST_COST;
+  // D541 - a madness cast keeps paying its madness cost.
+  if (pending.madness === true && face.madnessCost !== null) return face.madnessCost;
   // D540 - a foretold cast keeps paying its foretell cost.
   if (pending.foretold !== undefined && face.foretellCost !== null) return face.foretellCost;
   if (pending.from.kind === 'graveyard' && face.flashbackCost !== null) return face.flashbackCost;
@@ -831,6 +835,8 @@ function prepareCast(
   kickedWith0: readonly number[] = [],
   // D535 - the buyback is paid (CR 702.27).
   buyback = false,
+  // D541 - a MADNESS cast (CR 702.35a), begun as the madness trigger resolves.
+  madness = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -857,14 +863,18 @@ function prepareCast(
   // D540 - a FORETOLD card: exile is a place to cast from for its owner once the turn it was foretold has ended
   // (CR 702.143a), for its foretell cost (`castsForetold`, the offer's own predicate).
   const foretold = from.kind === 'exile' && !faceDown && !free && castsForetold(state, cardId, face, player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold) {
+  // D541 - a MADNESS cast (CR 702.35a): the card its own discard exiled, cast by its owner as the trigger resolves - for
+  // the madness cost, the timing and the priority the trigger's (a resolution asks; nobody holds priority).
+  const madnessCast = madness && !faceDown && !free && from.kind === 'exile' && card.madnessExiled === true && card.owner === player && face.madnessCost !== null;
+  if (madness && !madnessCast) return { error: reject('notCastable', `${face.name} cannot be cast for its madness cost now.`) };
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }
-  if (!free && (faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
+  if (!free && !madnessCast && (faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
     return {
       error: reject(
         'timingRestriction',
@@ -872,7 +882,7 @@ function prepareCast(
       ),
     };
   }
-  if (!free && state.priority.player !== player) {
+  if (!free && !madnessCast && state.priority.player !== player) {
     return { error: reject('notYourPriority', 'You do not have priority.') };
   }
   // D312 - the generic reductions the board grants, folded into the tax the
@@ -888,11 +898,12 @@ function prepareCast(
   // 118.9: not beside a flashback or a face-down cast).
   const altCost = alternative ? alternativeCostProblem(state, deps, player, cardId, face, picks.exileFromHand) : null;
   if (altCost && 'error' in altCost) return altCost;
-  if (altCost && (faceDown || flashback || foretold)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
+  if (altCost && (faceDown || flashback || foretold || madnessCast)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   // D540 - a foretold cast pays the FORETELL cost instead of the mana cost.
-  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  // D541 - a madness cast pays the MADNESS cost instead of the mana cost.
+  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
   if (cost === null && !altCost && !free) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
@@ -922,7 +933,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1257,9 +1268,11 @@ function castSpell(
  * effect's remaining clauses ride the pending cast as its continuation (D484's shape) and run when the cast
  * completes or is backed out of. The stack object carries `freeCast`.
  */
-function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, continuation: EffectContinuation | undefined): HandleResult {
+// D541 - and the MADNESS cast (`madness`): begun the same way by the madness trigger's answer, for the madness cost -
+// priced (the board's reductions carried as the tax), paid after the announcement by the solver's plan.
+function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, continuation: EffectContinuation | undefined, madness = false): HandleResult {
   if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
-  const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, 0, NO_ALT, NO_PICKS, false, true);
+  const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, 0, NO_ALT, NO_PICKS, false, !madness, [], false, madness);
   if ('error' in setup) return setup.error;
   const modal = setup.face.modal;
   const spellSpecs = modal !== null ? [] : setup.face.targets;
@@ -1287,9 +1300,10 @@ function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, 
       paidSoFar: EMPTY_POOL,
       lifePaid: 0,
       isCommanderCast: false,
-      taxApplied: 0,
+      // D541 - a madness cast carries the board's reductions its problem was priced with (a free cast has none).
+      taxApplied: madness ? setup.tax : 0,
       ...(setup.orPaid ? { orPaid: true as const } : {}),
-      free: true,
+      ...(madness ? { madness: true as const } : { free: true as const }),
       ...(continuation !== undefined ? { continuation } : {}),
     };
     return accept([
@@ -2127,7 +2141,8 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
     events.push({
       t: 'CardsMoved',
       // D540 - a foretold card backed out of goes back as it was: face down, foretold on the turn it was.
-      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}) }],
+      // D541 - a madness cast backed out of was not cast: the card goes to its owner's graveyard (CR 702.35a).
+      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.madness === true ? { kind: 'graveyard', player: state.cards[pending.card]?.owner ?? player } : pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}) }],
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });
@@ -4218,8 +4233,10 @@ function answerChooseFromZone(
       // D525 - cascade's declined candidate goes to the bottom of the library with the rest, its permission gone.
       if (awaiting.pool !== undefined && awaiting.pool.length > 0) {
         const still = awaiting.pool.filter((card) => state.cards[card]?.zone.kind === 'exile');
+        // D541 - a madness card declined goes to its owner's graveyard (CR 702.35a).
+        if (still.length > 0 && awaiting.madness !== undefined) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player } })) });
         // D538 - a rebound card declined at the upkeep stays in exile (`declineStays`); its permission still goes.
-        if (still.length > 0 && awaiting.declineStays !== true) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
+        else if (still.length > 0 && awaiting.declineStays !== true) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
         declined.push({ t: 'PlayPermissionsExpired', cards: [...awaiting.pool] });
       }
       declined.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player));
@@ -4227,11 +4244,13 @@ function answerChooseFromZone(
     }
     const pick = intent.cards[0];
     if (pick === undefined) return reject('noSuchCard', 'Name the card to cast.');
+    // D541 - a prompt with a POOL (cascade's, rebound's, madness's exiled card) is answered from the pool - never a card of the hand.
+    if (awaiting.pool !== undefined && !awaiting.pool.includes(pick)) return reject('illegalTarget', `That card is not the one ${awaiting.label} lets you cast.`);
     const bound = { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null };
     if (!freeCastAdmits(state, deps, pick, bound)) {
       return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'a spell'} ${awaiting.label} lets you cast without paying its mana cost right now.`);
     }
-    return beginGrantedCast(state, deps, intent.player, pick, awaiting.continuation);
+    return beginGrantedCast(state, deps, intent.player, pick, awaiting.continuation, awaiting.madness !== undefined);
   }
   // D390 - a discard inside a player queue is RECORDED, not applied: every player's discard happens
   // at once when the last has chosen (CR 101.4). A lone discard prompt keeps today's path below.

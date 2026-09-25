@@ -9938,6 +9938,29 @@ const WANTED = [
   'Doomskar Titan',
   'Shepherd of the Cosmos',
   // D540 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D541 - madness: the proofs' instants and a madness creature cast at the trigger's timing.
+  'Fiery Temper',
+  'Reckless Wurm',
+  'Obsessive Search',
+  // D541 - MADNESS: the rows the whole-leftover row maker rowed once madness - the discard's exile and the trigger's cast, CR 702.35a - was the engine's.
+  'Bloodhall Priest',
+  'Necrogoyf',
+  'Stensia Masquerade',
+  'Basking Rootwalla',
+  'Hell Mongrel',
+  'Stromkirk Occultist',
+  'Big Game Hunter',
+  'Bloodmad Vampire',
+  'Skophos Reaver',
+  'Blazing Rootwalla',
+  'Markov Baron',
+  'Strength of Isolation',
+  'Revolutionist',
+  'Insatiable Gorgers',
+  'Senseless Rage',
+  'Gorgon Recluse',
+  'Strength of Lunacy',
+  // D541 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -36,7 +36,7 @@ import { n, narrated, vb, who, whose } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates } from './legal';
-import { freeCastCandidates, handChoiceAdmits, handChoiceCandidates } from './handChoice';
+import { freeCastCandidates, handChoiceAdmits, handChoiceCandidates, madnessCastAdmits } from './handChoice';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
 import type { PlayerId as Payer } from './types/ids';
@@ -1218,6 +1218,23 @@ export function effectResult(
         out.push({ t: 'PlayPermissionGranted', permission: { card: source, player: controller, until: 'thisTurn', grantedTurn: state.turn.turnNumber } });
         out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'exile', rest: null, count: 1, min: 0, label: `${name} - rebound`, castFree: true, pool: [source], declineStays: true } });
         out.push(narrated(`${name} - rebound: it may be cast from exile without paying its mana cost.`, controller, oracleCard.colorIdentity));
+        break;
+      }
+
+      // D541 - MADNESS's trigger (CR 702.35a): the card its discard exiled (it may have left - a new object, nothing to do)
+      // is offered to its owner for its madness cost there and then - the free-cast chooser over a pool of one with the
+      // price (`madness`: the cost as printed and whether it can be paid now - `madnessCastAdmits`, the host's one read
+      // for the bot, the table and the fuzz); a decline puts the card into its owner's graveyard (the answer's).
+      case 'madnessCast': {
+        if (!source) break;
+        const inst = state.cards[source];
+        if (!inst || inst.zone.kind !== 'exile' || inst.madnessExiled !== true) break;
+        const oracleCard = deps.oracle.byPrinting(inst.printingId);
+        const face = oracleCard === undefined ? undefined : faceOf(oracleCard, 0);
+        if (oracleCard === undefined || face === undefined || face.madnessCost === null) break;
+        const payable = madnessCastAdmits(state, deps, source);
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: inst.owner, zone: 'exile', rest: null, count: 1, min: 0, label: `${face.name} - madness`, castFree: true, pool: [source], madness: { cost: face.madnessCost.raw, payable } } });
+        out.push(narrated(`${face.name} - madness: it may be cast for ${face.madnessCost.raw}; if it is not, it goes to the graveyard.`, inst.owner, oracleCard.colorIdentity));
         break;
       }
 

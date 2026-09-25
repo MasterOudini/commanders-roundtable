@@ -600,6 +600,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.suspendHaste ? { suspendHaste: true as const } : {}),
           // D540 - the exile that foretells marks the card with its turn; any other move of a foretold card unmarks it.
           ...(move.foretoldTurn !== undefined ? { foretoldTurn: move.foretoldTurn } : card.foretoldTurn !== undefined ? { foretoldTurn: undefined } : {}),
+          // D541 - the discard madness exiles marks the card; any other move of it unmarks it.
+          ...(move.madness === true ? { madnessExiled: true as const } : card.madnessExiled !== undefined ? { madnessExiled: undefined } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),

@@ -16,7 +16,7 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
+import { madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -75,6 +75,11 @@ export interface KeywordTrigger {
    * `SpellCast` event - its DERIVED keywords, CR 613's silence - instead of walking the battlefield.
    */
   readonly fromStack?: true;
+  /**
+   * D541 - the entry fires off a MOVED CARD (madness): the bus asks the cards a `CardsMoved` event carried, where the move
+   * put them - no battlefield walk, no derived keyword (the card is in exile); `matches` reads the move itself.
+   */
+  readonly fromMove?: true;
   /**
    * D536 - the entry's own EFFECTS (storm's copies): carried onto the stack object as `delayedEffects` and run by the
    * vocabulary's executor at resolution (D402's path), so a clause that asks (a copy's new targets) rides the continuation.
@@ -806,6 +811,21 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       memo: (ctx) => stormCount(ctx),
       effects: (ctx, _self, ev) => (ev.t === 'SpellCast' ? Array.from({ length: stormCount(ctx) }, () => stormCopySpec(ev.obj)) : []),
       label: (ctx, self) => `${nameOf(ctx, self)} - storm`,
+      resolve: () => [],
+    },
+  ],
+  [
+    'madness',
+    {
+      // D541 - CR 702.35a: "When this card is exiled this way, its owner may cast it by paying [cost] rather than paying
+      // its mana cost. If that player doesn't, they put this card into their graveyard." The entry fires off the MOVE
+      // (`fromMove`) the discard replacement made (`CardMove.madness` - triggers.ts's built-in), its source the card in
+      // exile; the offer is the entry's own effect (`madnessCastSpec`), run by the executor with the engine's deps.
+      event: 'CardsMoved',
+      fromMove: true,
+      matches: (_ctx, self, ev) => ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.madness === true),
+      effects: () => [madnessCastSpec()],
+      label: (ctx, self) => `${nameOf(ctx, self)} - madness`,
       resolve: () => [],
     },
   ],

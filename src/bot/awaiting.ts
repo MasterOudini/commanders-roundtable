@@ -442,7 +442,10 @@ export function answerAwaiting(
         const none = awaiting.none ?? [];
         const mv = awaiting.qualifier?.manaValue ?? null;
         // D525 - a prompt with a POOL (cascade's exiled candidate) is read from the pool, not the hand.
-        const offered = awaiting.pool !== undefined ? awaiting.pool.map((id) => view.cards[id]).filter((c): c is CardView => c !== undefined) : myHand(view, me);
+        // D541 - a madness prompt the host read as unpayable is declined (the card goes to the graveyard): a refused pick
+        // would spend the turn.
+        const unpayable = awaiting.madness !== undefined && !awaiting.madness.payable;
+        const offered = unpayable ? [] : awaiting.pool !== undefined ? awaiting.pool.map((id) => view.cards[id]).filter((c): c is CardView => c !== undefined) : myHand(view, me);
         const legal = offered.filter((c) => {
           const face = c.card?.faces[0];
           if (!c.card || !face) return false;
@@ -458,7 +461,7 @@ export function answerAwaiting(
         const best = [...legal].sort(worstFirst).slice(0, 1).map((c) => c.instanceId);
         return act(
           { t: 'AnswerChooseFromZone', player: me, cards: best },
-          best.length === 0 ? `cast nothing for ${awaiting.label}` : `cast a spell from hand without paying for ${awaiting.label}`,
+          best.length === 0 ? `cast nothing for ${awaiting.label}` : awaiting.madness !== undefined ? `cast it for its madness cost ${awaiting.madness.cost} (${awaiting.label})` : `cast a spell from hand without paying for ${awaiting.label}`,
         );
       }
       const pool =

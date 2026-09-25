@@ -248,6 +248,8 @@ export interface CardInstance {
    * by the move that takes it out of exile.
    */
   readonly foretoldTurn?: number | undefined;
+  /** D541 - exiled by its own discard (CR 702.35a): the madness trigger's card; cleared by the move that takes it out of exile. */
+  readonly madnessExiled?: true | undefined;
   /**
    * D526 - MANIFESTED (CR 701.34): entered face down off a manifest; a creature card may be turned face up for its
    * mana cost while it stays (its morph cost too, if it prints one). Cleared as it leaves the battlefield.
@@ -653,6 +655,8 @@ export interface PendingCast {
   readonly buyback?: true;
   /** D540 - a FORETOLD cast (CR 702.143a): the turn the card was foretold - the foretell cost priced at every stage, the mark restored on a back-out. */
   readonly foretold?: number;
+  /** D541 - a MADNESS cast (CR 702.35a): the madness cost priced at every stage; a back-out puts the card into the graveyard. */
+  readonly madness?: true;
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */
   readonly orPaid?: true;
   /** D408 - the alternative cost was elected; `exileFromHand` its pitch's picks. */
@@ -1328,6 +1332,12 @@ export type Awaiting =
       readonly pool?: readonly InstanceId[];
       /** D538 - a declined free cast leaves the pool's card where it is (rebound's, in exile) - cascade's goes to the bottom. */
       readonly declineStays?: true;
+      /**
+       * D541 - MADNESS (CR 702.35a): the pool's card is cast for its madness cost (`cost`, as printed), not for nothing;
+       * `payable` - the host's read as the trigger resolved (`madnessCastAdmits`) of whether it can be cast and paid now,
+       * so the bot, the table and the drivers decline rather than be refused. A declined card goes to its owner's graveyard.
+       */
+      readonly madness?: { readonly cost: string; readonly payable: boolean };
       /**
        * D511 - how the battlefield candidates are COMPUTED when the printed noun is not the rule: `leastToughness` is
        * bolster's (the creatures the chooser controls whose toughness is the least among them). A printed rule, never

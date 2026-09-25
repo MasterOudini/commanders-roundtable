@@ -71,6 +71,8 @@ export function applyReplacements(
     events = withExileInsteadOfDying(state, oracle, scripts, events);
     // D448 - an unearthed permanent that would leave for anywhere but exile goes to exile instead (CR 702.84c).
     events = withUnearthedLeavingToExile(state, oracle, scripts, events);
+    // D541 - a discarded madness card goes to exile instead of the graveyard (CR 702.35a) - still a discard.
+    events = withMadnessToExile(state, oracle, events);
   }
 
   // Built-in: the other half of CR 306.5b. A permanent already on the
@@ -521,6 +523,26 @@ function withUnearthedLeavingToExile(state: GameState, oracle: OracleDb, scripts
     for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} was unearthed: it is exiled instead.`, null));
   }
   return out;
+}
+
+/**
+ * D541 - MADNESS (CR 702.35a): a card with madness its owner discards is exiled instead of put into the graveyard - still
+ * a discard (the move keeps its reason, so a discard watcher sees it), marked `madness` for the trigger. Nothing else moves.
+ */
+function withMadnessToExile(state: GameState, oracle: OracleDb, events: readonly EventBody[]): EventBody[] {
+  return events.map((ev) => {
+    if (ev.t !== 'CardsMoved') return ev;
+    let changed = false;
+    const moves = ev.moves.map((m) => {
+      if ((m.reason !== 'discard' && m.reason !== 'cycling') || m.from.kind !== 'hand' || m.to.kind !== 'graveyard') return m;
+      const inst = state.cards[m.card];
+      const printing = inst ? oracle.byPrinting(inst.printingId) : undefined;
+      if (!inst || !printing || faceOf(printing, 0).madnessCost === null) return m;
+      changed = true;
+      return { ...m, to: { kind: 'exile' as const, player: inst.owner }, madness: true as const };
+    });
+    return changed ? { ...ev, moves } : ev;
+  });
 }
 
 function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]): EventBody[] {
@@ -1418,6 +1440,28 @@ export function collectTriggers(
             ...(kt.memo ? { memo: kt.memo(ctx, id, event.body) } : {}),
             // D536 - the entry's own effects (storm's copies), onto the stack object as its `delayedEffects`.
             ...(kt.effects ? { effects: kt.effects(ctx, id, event.body) } : {}),
+          });
+        }
+        continue;
+      }
+      // D541 - an entry that fires off a MOVED CARD (madness): the card a move of this event carried, where the move put
+      // it, off the state after the event; no derived keyword is asked (the card is in exile - the entry's own `matches`
+      // reads the move's mark). Its owner controls the trigger; the entry's effects ride as storm's do.
+      if (kt.fromMove === true) {
+        if (event.body.t !== 'CardsMoved') continue;
+        for (const m of event.body.moves) {
+          const card = state.cards[m.card];
+          if (!card || card.zone.kind !== m.to.kind) continue;
+          if (!kt.matches(ctx, m.card, event.body)) continue;
+          out.push({
+            id: `t${n++}`,
+            source: m.card,
+            controller: card.owner,
+            abilityRef: `${card.oracleId}#kw:${keyword}`,
+            label: kt.label(ctx, m.card),
+            optional: false,
+            specs: [],
+            ...(kt.effects ? { effects: kt.effects(ctx, m.card, event.body) } : {}),
           });
         }
         continue;

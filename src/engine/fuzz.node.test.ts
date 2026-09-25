@@ -38,7 +38,7 @@ import { targetingSourceFor } from './loop';
 import type { TargetChoice } from './types/state';
 import { predicateAdmits } from '../data/replacementParse';
 import { revealAdmits } from './triggers';
-import { freeCastCandidates, handChoiceCandidates } from './handChoice';
+import { freeCastCandidates, handChoiceCandidates, madnessCastAdmits } from './handChoice';
 import { armyTokens, leastToughnessCreatures, ringBearerCandidates } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { zoneId } from '../view/types';
@@ -1151,7 +1151,10 @@ function answerFor(state: GameState, p: Picker): Intent | null {
             // D491 - the from-hand free cast's pick: my own hand through the one reader the host asks (a card the
             // host refuses spends the seed); the answer may be empty, and `want` below declines it half the time.
             : awaiting.castFree === true
-              ? [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null }, awaiting.pool)]
+              // D541 - a madness prompt: the pool's card when the host reads it castable and payable now.
+              ? awaiting.madness !== undefined
+                ? (awaiting.pool ?? []).filter((id) => madnessCastAdmits(state, deps(SCRIPTS), id))
+                : [...freeCastCandidates(state, deps(SCRIPTS), awaiting.player, { none: awaiting.none ?? [], filter: awaiting.filter ?? null, qualifier: awaiting.qualifier ?? null }, awaiting.pool)]
               // D509 - the hand put's pool (D508): the cards of the hand the printed noun admits (the host's reader); the whole hand
               // offered a creature to a land put and the answer was refused - 2 hand puts over the 3,000-seed gate at D508, 0 at D509.
               : awaiting.to === 'battlefield'
@@ -1727,6 +1730,9 @@ interface Run {
   /** D540 - the cards foretold (exiled face down from the hand), and the spells cast from exile whose face foretells. */
   readonly foretells: number;
   readonly foretoldCasts: number;
+  /** D541 - the discards madness sent to exile, and the spells cast from exile whose face has madness. */
+  readonly madnessExiles: number;
+  readonly madnessCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2239,6 +2245,8 @@ function runOne(seed: number): Run {
     reboundCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.rebound ?? false)).length,
     foretells: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.foretoldTurn !== undefined && m.from.kind === 'hand')).length,
     foretoldCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.foretellCost ?? null) !== null).length,
+    madnessExiles: game.log.reduce((k, e) => k + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.madness === true).length : 0), 0),
+    madnessCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.madnessCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2577,6 +2585,8 @@ const TOTAL_KEYS = [
   'reboundCasts',
   'foretells',
   'foretoldCasts',
+  'madnessExiles',
+  'madnessCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

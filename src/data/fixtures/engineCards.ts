@@ -8928,6 +8928,26 @@ export const SARULF_S_PACKMATE: CardData = F.SARULF_S_PACKMATE as CardData;
 export const DOOMSKAR_ORACLE: CardData = F.DOOMSKAR_ORACLE as CardData;
 export const DOOMSKAR_TITAN: CardData = F.DOOMSKAR_TITAN as CardData;
 export const SHEPHERD_OF_THE_COSMOS: CardData = F.SHEPHERD_OF_THE_COSMOS as CardData;
+export const FIERY_TEMPER: CardData = F.FIERY_TEMPER as CardData;
+export const RECKLESS_WURM: CardData = F.RECKLESS_WURM as CardData;
+export const OBSESSIVE_SEARCH: CardData = F.OBSESSIVE_SEARCH as CardData;
+export const BLOODHALL_PRIEST: CardData = F.BLOODHALL_PRIEST as CardData;
+export const NECROGOYF: CardData = F.NECROGOYF as CardData;
+export const STENSIA_MASQUERADE: CardData = F.STENSIA_MASQUERADE as CardData;
+export const BASKING_ROOTWALLA: CardData = F.BASKING_ROOTWALLA as CardData;
+export const HELL_MONGREL: CardData = F.HELL_MONGREL as CardData;
+export const STROMKIRK_OCCULTIST: CardData = F.STROMKIRK_OCCULTIST as CardData;
+export const BIG_GAME_HUNTER: CardData = F.BIG_GAME_HUNTER as CardData;
+export const BLOODMAD_VAMPIRE: CardData = F.BLOODMAD_VAMPIRE as CardData;
+export const SKOPHOS_REAVER: CardData = F.SKOPHOS_REAVER as CardData;
+export const BLAZING_ROOTWALLA: CardData = F.BLAZING_ROOTWALLA as CardData;
+export const MARKOV_BARON: CardData = F.MARKOV_BARON as CardData;
+export const STRENGTH_OF_ISOLATION: CardData = F.STRENGTH_OF_ISOLATION as CardData;
+export const REVOLUTIONIST: CardData = F.REVOLUTIONIST as CardData;
+export const INSATIABLE_GORGERS: CardData = F.INSATIABLE_GORGERS as CardData;
+export const SENSELESS_RAGE: CardData = F.SENSELESS_RAGE as CardData;
+export const GORGON_RECLUSE: CardData = F.GORGON_RECLUSE as CardData;
+export const STRENGTH_OF_LUNACY: CardData = F.STRENGTH_OF_LUNACY as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18108,6 +18128,26 @@ export const ENGINE_CARDS: CardData[] = [
   DOOMSKAR_ORACLE,
   DOOMSKAR_TITAN,
   SHEPHERD_OF_THE_COSMOS,
+  FIERY_TEMPER,
+  RECKLESS_WURM,
+  OBSESSIVE_SEARCH,
+  BLOODHALL_PRIEST,
+  NECROGOYF,
+  STENSIA_MASQUERADE,
+  BASKING_ROOTWALLA,
+  HELL_MONGREL,
+  STROMKIRK_OCCULTIST,
+  BIG_GAME_HUNTER,
+  BLOODMAD_VAMPIRE,
+  SKOPHOS_REAVER,
+  BLAZING_ROOTWALLA,
+  MARKOV_BARON,
+  STRENGTH_OF_ISOLATION,
+  REVOLUTIONIST,
+  INSATIABLE_GORGERS,
+  SENSELESS_RAGE,
+  GORGON_RECLUSE,
+  STRENGTH_OF_LUNACY,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

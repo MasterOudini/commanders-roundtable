@@ -136,8 +136,12 @@ export function simplestIntent(
         const v = session.currentView();
         // Two zones (D141): a library offers only what was just revealed.
         // D416 - the hand reveal's pick: the owner's revealed hand is the peek.
+        // D541 - a prompt with a POOL (cascade's, rebound's, madness's exiled card) is answered from the pool - the host
+        // refuses a card of the hand; an unpayable madness cast is declined.
         const hand =
-          awaiting.zone === 'library' || awaiting.owner !== undefined
+          awaiting.pool !== undefined
+            ? (awaiting.madness !== undefined && !awaiting.madness.payable ? [] : [...awaiting.pool])
+            : awaiting.zone === 'library' || awaiting.owner !== undefined
             ? (v.peek ?? [])
             : awaiting.zone === 'battlefield'
               ? (v.zones[`bf:${awaiting.player}`] ?? [])

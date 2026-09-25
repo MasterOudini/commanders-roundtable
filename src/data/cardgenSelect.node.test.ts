@@ -778,6 +778,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D541 - madness: the Madness line is the engine's now (the discard's exile, the trigger's cast for the madness cost); what stays is a madness spell whose other sentence the vocabulary does not read.
+  ['Circular Logic', 'a spell with a line outside the vocabulary: Counter target spell unless its controller pays {1} for each card in your graveyard - a counter-unless-pays priced by a count (D541)'],
   // D540 - foretell: the Foretell line is the engine's now (the special action, the cast from exile); what stays is a foretell spell whose other sentence the vocabulary does not read, and a permanent the row maker refuses for another line.
   ['Battle Mammoth', 'the row maker: trigger head not in the library: Whenever a permanent you control becomes the target of a spell or ability an opponent controls, you may draw a card. (D540)'],
   ['Sozin\'s Comet', 'a spell with a line outside the vocabulary: Each creature you control gains firebending 5 until end of turn - a firebending grant (D540)'],
@@ -1034,7 +1036,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Assault Suit', 'the row maker: an attached static body outside the vocabulary: gets +2/+2, has haste, can\'t attack you or planesw (D531)'],
   ['Varchild, Betrayer of Kjeldor', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Riptide Entrancer', 'the row maker: a player referent payload the vocabulary does not read: You may sacrifice it. If you do, gain control of target crea (D531)'],
-  ['Welcome to the Fold', 'the row maker: a spell with a line outside the vocabulary: Madness {X}{U}{U} (If you discard this card, discard it into (D531)'],
+  ['Welcome to the Fold', 'a spell with a line outside the vocabulary: If this spell\'s madness cost was paid, instead gain control of that creature if its toughness is X or less - a madness-paid gate (D541; D531 named the Madness line, which reads since D541)'],
   ['Skyfire Kirin', 'the row maker: trigger payload not a pump: Gain control of target creature with that spell\'s mana value (D531)'],
   ['Volatile Stormdrake', 'the row maker: a line that is neither an activated ability nor a library trigger: Flying, hexproof from activated and triggered abilities (D531)'],
   ['Insurrection', 'the row maker: a spell with a line outside the vocabulary: Untap all creatures and gain control of them until end of tu (D531)'],
@@ -1087,7 +1089,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Legerdemain', 'the row maker: a spell with a line outside the vocabulary: Exchange control of target artifact or creature and another (D531)'],
   ['Vislor Turlough', 'a control duration outside the two the engine reads (`for as long as` + they control it) (D531)'],
   ["Kitsune, Dragon's Daughter", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ enters or deals combat damage to a player, you (D531)'],
-  ['Malevolent Whispers', 'the row maker: a spell with a line outside the vocabulary: Gain control of target creature until end of turn. Untap tha (D531)'],
   ['Empress Galina', 'the row maker: a vocabulary clause the suite has no fixture for: no fixture for target legendary permanent (D531)'],
   ['Spinal Embrace', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat. (D531)'],
   ['Press into Service', 'the row maker: a spell with a line outside the vocabulary: Support 2. (Put a +1/+1 counter on each of up to two target (D531)'],

@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BLOODHALL_PRIEST_SCRIPT } from './cards/bloodhallPriest';
+import { NECROGOYF_SCRIPT } from './cards/necrogoyf';
+import { STENSIA_MASQUERADE_SCRIPT } from './cards/stensiaMasquerade';
+import { BASKING_ROOTWALLA_SCRIPT } from './cards/baskingRootwalla';
+import { HELL_MONGREL_SCRIPT } from './cards/hellMongrel';
+import { STROMKIRK_OCCULTIST_SCRIPT } from './cards/stromkirkOccultist';
+import { BIG_GAME_HUNTER_SCRIPT } from './cards/bigGameHunter';
+import { BLOODMAD_VAMPIRE_SCRIPT } from './cards/bloodmadVampire';
+import { SKOPHOS_REAVER_SCRIPT } from './cards/skophosReaver';
+import { BLAZING_ROOTWALLA_SCRIPT } from './cards/blazingRootwalla';
+import { MARKOV_BARON_SCRIPT } from './cards/markovBaron';
+import { STRENGTH_OF_ISOLATION_SCRIPT } from './cards/strengthOfIsolation';
+import { REVOLUTIONIST_SCRIPT } from './cards/revolutionist';
+import { INSATIABLE_GORGERS_SCRIPT } from './cards/insatiableGorgers';
+import { SENSELESS_RAGE_SCRIPT } from './cards/senselessRage';
+import { GORGON_RECLUSE_SCRIPT } from './cards/gorgonRecluse';
+import { STRENGTH_OF_LUNACY_SCRIPT } from './cards/strengthOfLunacy';
 import { SARULFS_PACKMATE_SCRIPT } from './cards/sarulfsPackmate';
 import { DOOMSKAR_ORACLE_SCRIPT } from './cards/doomskarOracle';
 import { DOOMSKAR_TITAN_SCRIPT } from './cards/doomskarTitan';
@@ -8106,6 +8123,23 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BLOODHALL_PRIEST_SCRIPT,
+  NECROGOYF_SCRIPT,
+  STENSIA_MASQUERADE_SCRIPT,
+  BASKING_ROOTWALLA_SCRIPT,
+  HELL_MONGREL_SCRIPT,
+  STROMKIRK_OCCULTIST_SCRIPT,
+  BIG_GAME_HUNTER_SCRIPT,
+  BLOODMAD_VAMPIRE_SCRIPT,
+  SKOPHOS_REAVER_SCRIPT,
+  BLAZING_ROOTWALLA_SCRIPT,
+  MARKOV_BARON_SCRIPT,
+  STRENGTH_OF_ISOLATION_SCRIPT,
+  REVOLUTIONIST_SCRIPT,
+  INSATIABLE_GORGERS_SCRIPT,
+  SENSELESS_RAGE_SCRIPT,
+  GORGON_RECLUSE_SCRIPT,
+  STRENGTH_OF_LUNACY_SCRIPT,
   SARULFS_PACKMATE_SCRIPT,
   DOOMSKAR_ORACLE_SCRIPT,
   DOOMSKAR_TITAN_SCRIPT,

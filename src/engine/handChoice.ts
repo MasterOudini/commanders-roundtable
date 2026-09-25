@@ -7,6 +7,10 @@
 import { faceOf } from './oracle';
 import { predicateAdmits } from '../data/replacementParse';
 import { candidatesFromState, minimumLegalTargets } from './targets';
+import { castReduction } from './costs';
+import { buildPaymentProblem } from './mana';
+import { affordable, solveInputFor } from './payment';
+import { spellPurpose } from './spend';
 import type { EngineDeps } from './loop';
 import type { InstanceId } from './types/ids';
 import type { GameState } from './types/state';
@@ -60,6 +64,22 @@ export function freeCastAdmits(state: GameState, deps: EngineDeps, card: Instanc
   if (add !== null && (add.sacrificeCost !== null || add.discardCost !== null || add.tapCost !== null || add.exileFromGraveyardCost !== null || add.returnCost !== null)) return false;
   if (face.modal !== null || face.targets.length === 0) return true;
   return minimumLegalTargets(face.targets, { controller: inst.zone.player ?? inst.owner, colors: face.colors }, candidatesFromState(state, deps)) !== null;
+}
+
+/**
+ * D541 - a MADNESS cast (CR 702.35a): the free cast's reader over the exiled card (castable, its targets there) and its
+ * madness cost payable now - the solver's plan over the owner's sources, the board's reductions taken off (the cast
+ * prices the same). One read for the prompt's `payable`, the fuzz driver and the proofs.
+ */
+export function madnessCastAdmits(state: GameState, deps: EngineDeps, card: InstanceId): boolean {
+  if (!freeCastAdmits(state, deps, card, { none: [], filter: null, qualifier: null })) return false;
+  const inst = state.cards[card];
+  const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+  if (!inst || !printing) return false;
+  const face = faceOf(printing, 0);
+  if (face.madnessCost === null) return false;
+  const problem = buildPaymentProblem(face.madnessCost, 0, [], -castReduction(state, deps.oracle, deps.scripts, inst.owner, face));
+  return affordable(solveInputFor(state, deps.oracle, deps.scripts, inst.owner), problem, spellPurpose(face, false));
 }
 
 /** The cards of `player`'s own hand the grant admits, in hand order - or of the prompt's POOL (D525, cascade's candidate). */

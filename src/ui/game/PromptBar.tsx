@@ -217,12 +217,16 @@ function describe(
             ? `${nameOf(seats, awaiting.player)} is looking at the top of their library.`
             : awaiting.zone === 'battlefield'
               ? `${nameOf(seats, awaiting.player)} is choosing ${awaiting.count === 1 ? 'a' : awaiting.count} ${awaiting.filter?.what ?? 'permanent'}${awaiting.count === 1 ? '' : 's'} to sacrifice.`
+              : awaiting.castFree === true && awaiting.madness !== undefined
+                ? `${nameOf(seats, awaiting.player)} may cast a card for its madness cost.`
               : awaiting.castFree === true
                 ? `${nameOf(seats, awaiting.player)} may cast ${awaiting.pool !== undefined ? 'the card cascade exiled' : 'a spell from their hand'} without paying its mana cost.`
                 : `${nameOf(seats, awaiting.player)} is discarding ${awaiting.count}.`;
         }
         // D491 - the from-hand free cast: the bar names the bound; the hand is the control, and "Cast nothing" is a button.
         if (awaiting.castFree === true) {
+          // D541 - madness's card: cast it for the printed madness cost, or it goes to the graveyard.
+          if (awaiting.madness !== undefined) return `${awaiting.label}: cast it for its madness cost ${awaiting.madness.cost}${awaiting.madness.payable ? '' : ' (you cannot pay it now)'}, or put it into your graveyard.`;
           // D525 - cascade's candidate sits in exile: the two buttons are the control.
           if (awaiting.pool !== undefined) return `${awaiting.label}: cast the exiled card without paying its mana cost, or cast nothing.`;
           const mv = awaiting.qualifier?.manaValue ?? null;

@@ -629,6 +629,8 @@ export type EffectKind =
   | 'suspendTick'
   /** D538 - REBOUND's upkeep (CR 702.88a): the exiled card offered for nothing - a play permission and the free-cast chooser. */
   | 'reboundCast'
+  /** D541 - MADNESS's trigger (CR 702.35a): the card its discard exiled, offered for its madness cost - a decline to the graveyard. */
+  | 'madnessCast'
   /**
    * D494 - THE PREVIOUS CLAUSE'S OBJECTS: a sentence about `it` / `that token` / `those cards` / `them` whose
    * referent is what the clause before it produced (its targets, the tokens it created, the permanents it put onto
@@ -2012,6 +2014,12 @@ export interface OracleFace {
    * cost instead of its mana cost - an alternative cost (one at a time, CR 118.9).
    */
   readonly foretellCost: ManaCost | null;
+  /**
+   * D541 - MADNESS (CR 702.35a): the madness cost the face prints (`Madness {M}`). A discard of the card exiles it
+   * instead (a built-in replacement), and its trigger offers the cast for this cost there and then - an alternative
+   * cost, the timing the trigger's; a decline puts the card into its owner's graveyard.
+   */
+  readonly madnessCost: ManaCost | null;
   /**
    * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the cast may pay part of
    * the cost by tapping creatures, tapping artifacts or exiling cards from the graveyard

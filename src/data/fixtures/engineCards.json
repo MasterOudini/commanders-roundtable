@@ -302204,6 +302204,715 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FIERY_TEMPER": {
+    "scryfallId": "1d3a3a1d-c393-4a57-8a0e-5907d1722331",
+    "oracleId": "f07bd49d-8e71-4d56-be2a-638514011318",
+    "name": "Fiery Temper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fiery Temper",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Fiery Temper deals 3 damage to any target.\nMadness {R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": "\"Let the flames ignore the sinless.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "1d3a3a1d-c393-4a57-8a0e-5907d1722331"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RECKLESS_WURM": {
+    "scryfallId": "0c52879c-2032-491f-9da2-0700fd44fc42",
+    "oracleId": "c9159396-81d3-4f81-88b4-dda163ff4b74",
+    "name": "Reckless Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reckless Wurm",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nMadness {2}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "0c52879c-2032-491f-9da2-0700fd44fc42"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Madness",
+      "Trample"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "502",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBSESSIVE_SEARCH": {
+    "scryfallId": "1d97436e-329a-49a4-a7c9-671ec9ba90cc",
+    "oracleId": "116ee88e-9e13-4f21-bc6a-efa994b5bf75",
+    "name": "Obsessive Search",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obsessive Search",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Draw a card.\nMadness {U} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "1d97436e-329a-49a4-a7c9-671ec9ba90cc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "dmr",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODHALL_PRIEST": {
+    "scryfallId": "0e7b091a-cfe3-4824-bae4-e9a38bca31e6",
+    "oracleId": "2eed5eb1-ab67-4f23-885d-922131364aba",
+    "name": "Bloodhall Priest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodhall Priest",
+        "manaCost": "{2}{B}{R}",
+        "typeLine": "Creature — Vampire Cleric",
+        "oracleText": "Whenever this creature enters or attacks, if you have no cards in hand, this creature deals 2 damage to any target.\nMadness {1}{B}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Mark Winters",
+        "imageId": "0e7b091a-cfe3-4824-bae4-e9a38bca31e6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "231",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROGOYF": {
+    "scryfallId": "11a2d158-d69e-4854-b84f-9f271e36101c",
+    "oracleId": "e034a02d-3482-44eb-90dc-c38be104197f",
+    "name": "Necrogoyf",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Necrogoyf",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Lhurgoyf",
+        "oracleText": "Necrogoyf's power is equal to the number of creature cards in all graveyards.\nAt the beginning of each player's upkeep, that player discards a card.\nMadness {1}{B}{B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "11a2d158-d69e-4854-b84f-9f271e36101c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "451",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STENSIA_MASQUERADE": {
+    "scryfallId": "12ea7e21-b500-47cb-807a-a0849038fd56",
+    "oracleId": "88f5d146-420b-417c-bcf1-fe0e78312a74",
+    "name": "Stensia Masquerade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stensia Masquerade",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Attacking creatures you control have first strike.\nWhenever a Vampire you control deals combat damage to a player, put a +1/+1 counter on it.\nMadness {2}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "12ea7e21-b500-47cb-807a-a0849038fd56"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "voc",
+    "collectorNumber": "150",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASKING_ROOTWALLA": {
+    "scryfallId": "1a67768a-6cd9-4163-b941-752f29c87a8d",
+    "oracleId": "b2ec080f-ad5d-4274-91e3-bc6ac89fc3e4",
+    "name": "Basking Rootwalla",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basking Rootwalla",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "{1}{G}: This creature gets +2/+2 until end of turn. Activate only once each turn.\nMadness {0} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "1a67768a-6cd9-4163-b941-752f29c87a8d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELL_MONGREL": {
+    "scryfallId": "1db3f83b-2b2c-4f63-84a4-8f7194c98201",
+    "oracleId": "64aa732c-d939-48c7-b1d6-c73fa1eedb40",
+    "name": "Hell Mongrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hell Mongrel",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Nightmare Dog",
+        "oracleText": "Discard a card: This creature gets +1/+1 until end of turn.\nMadness {2}{B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Robbie Trevino",
+        "imageId": "1db3f83b-2b2c-4f63-84a4-8f7194c98201"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "339",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STROMKIRK_OCCULTIST": {
+    "scryfallId": "1fa6a443-b23b-48ae-97bb-8fd4deec52c4",
+    "oracleId": "3bdd140b-1406-4d07-8f35-78f2ba92de64",
+    "name": "Stromkirk Occultist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stromkirk Occultist",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Vampire Horror",
+        "oracleText": "Trample\nWhenever this creature deals combat damage to a player, exile the top card of your library. Until end of turn, you may play that card.\nMadness {1}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Magali Villeneuve",
+        "imageId": "1fa6a443-b23b-48ae-97bb-8fd4deec52c4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness",
+      "Trample"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BIG_GAME_HUNTER": {
+    "scryfallId": "2cec1014-375c-4877-95e3-093d24c02bc8",
+    "oracleId": "ab55834f-c935-4773-89c6-bec9712284eb",
+    "name": "Big Game Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Big Game Hunter",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Rebel Assassin",
+        "oracleText": "When this creature enters, destroy target creature with power 4 or greater. It can't be regenerated.\nMadness {B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "2cec1014-375c-4877-95e3-093d24c02bc8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODMAD_VAMPIRE": {
+    "scryfallId": "3113a255-7abf-43f7-b5b0-c889aef45e0a",
+    "oracleId": "c8a20fc7-025b-403a-b893-ff5efcbdc9d8",
+    "name": "Bloodmad Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodmad Vampire",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Vampire Berserker",
+        "oracleText": "Whenever this creature deals combat damage to a player, put a +1/+1 counter on it.\nMadness {1}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "3113a255-7abf-43f7-b5b0-c889aef45e0a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKOPHOS_REAVER": {
+    "scryfallId": "32691e3f-dea9-45ac-96fe-96b34d5116a9",
+    "oracleId": "4bc0bdd5-32da-46df-b624-29a709efc676",
+    "name": "Skophos Reaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skophos Reaver",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Minotaur Warrior",
+        "oracleText": "During your turn, this creature gets +2/+0.\nMadness {1}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": "\"KILL! KILL FOR MOGIS!\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "32691e3f-dea9-45ac-96fe-96b34d5116a9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLAZING_ROOTWALLA": {
+    "scryfallId": "36bf0a33-a2da-438a-85df-0e3c2b842a74",
+    "oracleId": "d43f5977-0532-4653-bc57-ce29f9a531c9",
+    "name": "Blazing Rootwalla",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blazing Rootwalla",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "{R}: This creature gets +2/+0 until end of turn. Activate only once each turn.\nMadness {0} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jokubas Uogintas",
+        "imageId": "36bf0a33-a2da-438a-85df-0e3c2b842a74"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "418",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKOV_BARON": {
+    "scryfallId": "56c533bf-00d9-4f85-841d-f5c20b003e08",
+    "oracleId": "bafc2e11-5f1c-46f1-a852-2330e099b8e2",
+    "name": "Markov Baron",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Markov Baron",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Vampire Noble",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nLifelink\nOther Vampires you control get +1/+1.\nMadness {2}{B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ina Wong",
+        "imageId": "56c533bf-00d9-4f85-841d-f5c20b003e08"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Madness",
+      "Convoke"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MAT-14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRENGTH_OF_ISOLATION": {
+    "scryfallId": "7676e6fb-030d-40aa-a914-27ab6d7d5fc5",
+    "oracleId": "87aad9fb-e234-4171-a4ae-c686f613d37e",
+    "name": "Strength of Isolation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Strength of Isolation",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+2 and has protection from black.\nMadness {W} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": "Don't mistake isolation for safety.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jerry Tiritilli",
+        "imageId": "7676e6fb-030d-40aa-a914-27ab6d7d5fc5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Madness",
+      "Enchant"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REVOLUTIONIST": {
+    "scryfallId": "76f7fe19-cec7-459e-b2d2-42a3e2765b30",
+    "oracleId": "d00607b1-77ce-4b89-ad04-763d0d390c5c",
+    "name": "Revolutionist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Revolutionist",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, return target instant or sorcery card from your graveyard to your hand.\nMadness {3}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "76f7fe19-cec7-459e-b2d2-42a3e2765b30"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "504",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INSATIABLE_GORGERS": {
+    "scryfallId": "802c39ce-7bd6-490d-8558-9cfa9834d742",
+    "oracleId": "e4534f33-8784-40a5-af1a-0f9975741aa2",
+    "name": "Insatiable Gorgers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Insatiable Gorgers",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Vampire Berserker",
+        "oracleText": "This creature attacks each combat if able.\nMadness {3}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "802c39ce-7bd6-490d-8558-9cfa9834d742"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "164",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SENSELESS_RAGE": {
+    "scryfallId": "9c779cb6-3454-4d5a-85a1-bea5cf8005b1",
+    "oracleId": "5036fe35-43c6-45af-99d5-7b79ebcfc406",
+    "name": "Senseless Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Senseless Rage",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2.\nMadness {1}{R} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "9c779cb6-3454-4d5a-85a1-bea5cf8005b1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Madness",
+      "Enchant"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "180",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GORGON_RECLUSE": {
+    "scryfallId": "abdeb7c9-98bd-4143-87e4-1c78c0ce627e",
+    "oracleId": "e6c9a699-0468-42f8-aad5-b9d45a3c1d37",
+    "name": "Gorgon Recluse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gorgon Recluse",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Gorgon",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a nonblack creature, destroy that creature at end of combat.\nMadness {B}{B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "abdeb7c9-98bd-4143-87e4-1c78c0ce627e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Madness"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STRENGTH_OF_LUNACY": {
+    "scryfallId": "afda26e7-4fdd-45e1-bcd1-f0abf91979aa",
+    "oracleId": "02a95ea7-cfb9-497c-a004-3e783856d79c",
+    "name": "Strength of Lunacy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Strength of Lunacy",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+1 and has protection from white.\nMadness {B} (If you discard this card, discard it into exile. When you do, cast it for its madness cost or put it into your graveyard.)",
+        "flavorText": "Don't confuse lunacy with courage.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "afda26e7-4fdd-45e1-bcd1-f0abf91979aa"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Madness",
+      "Enchant"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

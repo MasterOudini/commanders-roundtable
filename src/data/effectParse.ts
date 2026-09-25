@@ -2408,6 +2408,11 @@ export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
 
+/** D541 - madness's trigger (CR 702.35a): the card its discard exiled, offered for its madness cost. */
+export function madnessCastSpec(): EffectSpec {
+  return { ...BASE, kind: 'madnessCast', text: "You may cast this card for its madness cost. If you don't, put it into your graveyard.", targetIndex: -1, self: true };
+}
+
 /** D538 - rebound's upkeep offer (CR 702.88a): the exiled card itself, for nothing. */
 export function reboundCastSpec(): EffectSpec {
   return { ...BASE, kind: 'reboundCast', text: 'You may cast this card from exile without paying its mana cost.', targetIndex: -1, self: true };
@@ -3409,6 +3414,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D540 - a Foretell line is a special action from the hand and a cast from exile the engine prices, no clause of the
     // spell either.
     .filter((l) => !/^Foretell (?:\{[^}]+\})+$/.test(l.trim()))
+    // D541 - a Madness line is a discard's exile and a trigger's cast the engine runs, no clause of the spell either.
+    .filter((l) => !/^Madness (?:\{[^}]+\})+$/.test(l.trim()))
     // D539 - LEARN (CR 701.48a) with no cards outside the game: the rummage or nothing, D415's optional verb price.
     .map((l) => (/^learn\.$/i.test(l.trim()) ? 'You may discard a card. If you do, draw a card.' : l))
     // D422 - `This spell can't be countered.` is the face's own (`OracleFace.cantBeCountered`), no clause of the spell either.
