@@ -305443,6 +305443,256 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WYRM_S_CROSSING_PATROL": {
+    "scryfallId": "f00a57fc-b4a6-48fa-a20c-864c10099e4b",
+    "oracleId": "fad2d14f-8825-4b08-8804-010d9659f6dc",
+    "name": "Wyrm's Crossing Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wyrm's Crossing Patrol",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "f00a57fc-b4a6-48fa-a20c-864c10099e4b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Myriad"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOLDLUST_TRIAD": {
+    "scryfallId": "08f0f665-a659-460b-baf7-9f781dcbb5e0",
+    "oracleId": "86d76078-9af3-45a7-90d6-72946afdc78b",
+    "name": "Goldlust Triad",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goldlust Triad",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nMyriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, create a Treasure token.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Arif Wijaya",
+        "imageId": "08f0f665-a659-460b-baf7-9f781dcbb5e0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Myriad",
+      "Flying",
+      "Treasure"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BANSHEE_OF_THE_DREAD_CHOIR": {
+    "scryfallId": "09b7880c-ddd8-481a-9cf5-e39d0b9a48c9",
+    "oracleId": "282b4dbf-ec00-48ba-8010-73bee489fa7a",
+    "name": "Banshee of the Dread Choir",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Banshee of the Dread Choir",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, that player discards a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "09b7880c-ddd8-481a-9cf5-e39d0b9a48c9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Myriad"
+    ],
+    "setCode": "c15",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONCLAVE_EVANGELIST": {
+    "scryfallId": "0dcccbd8-2135-45e6-8802-8dcaa382a398",
+    "oracleId": "13c81fc5-dd35-481d-8e32-4d404fb0e4ac",
+    "name": "Conclave Evangelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conclave Evangelist",
+        "manaCost": "{3}{G/W}{G/W}",
+        "typeLine": "Creature — Elephant Cleric",
+        "oracleText": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, create a token that's a copy of this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "John Tedrick",
+        "imageId": "0dcccbd8-2135-45e6-8802-8dcaa382a398"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Myriad"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMALA_RUMBLERS": {
+    "scryfallId": "314e1434-61a8-4587-812e-720a92493fb3",
+    "oracleId": "09189f67-b33f-4775-bfd5-862154da7526",
+    "name": "Sumala Rumblers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sumala Rumblers",
+        "manaCost": "{2}{G/W}{G/W}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Sumala Rumblers's power is equal to the number of creatures you control.\nMyriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)",
+        "flavorText": null,
+        "power": "*",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Leon Tukker",
+        "imageId": "314e1434-61a8-4587-812e-720a92493fb3"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Myriad"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROODBIRTH_VIPER": {
+    "scryfallId": "7e23e904-c676-4782-b2f7-52a07373e301",
+    "oracleId": "a8455828-9c61-4ef9-a5f1-1f0cc6fbf446",
+    "name": "Broodbirth Viper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Broodbirth Viper",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Snake",
+        "oracleText": "Myriad (Whenever this creature attacks, for each opponent other than defending player, you may create a token copy that's tapped and attacking that player or a planeswalker they control. Exile the tokens at end of combat.)\nWhenever this creature deals combat damage to a player, you may draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "7e23e904-c676-4782-b2f7-52a07373e301"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Myriad"
+    ],
+    "setCode": "pz1",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHITTERING_DISPATCHER": {
+    "scryfallId": "ec5fe7d0-b444-4488-b058-f3916e404cac",
+    "oracleId": "c1b276b7-f1b3-4f6f-b6a2-1315d805e0f2",
+    "name": "Chittering Dispatcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chittering Dispatcher",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Eldrazi Drone",
+        "oracleText": "Devoid (This card has no color.)\nMyriad\nWhen this creature leaves the battlefield, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "flavorText": "Eldrazi spawn are not their cherished young—they are smaller weapons.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jehan Choo",
+        "imageId": "ec5fe7d0-b444-4488-b058-f3916e404cac"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Devoid",
+      "Myriad"
+    ],
+    "setCode": "m3c",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

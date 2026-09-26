@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GOLDLUST_TRIAD_SCRIPT } from './cards/goldlustTriad';
+import { BANSHEE_OF_THE_DREAD_CHOIR_SCRIPT } from './cards/bansheeOfTheDreadChoir';
+import { CONCLAVE_EVANGELIST_SCRIPT } from './cards/conclaveEvangelist';
+import { SUMALA_RUMBLERS_SCRIPT } from './cards/sumalaRumblers';
+import { BROODBIRTH_VIPER_SCRIPT } from './cards/broodbirthViper';
+import { CHITTERING_DISPATCHER_SCRIPT } from './cards/chitteringDispatcher';
 import { EUSOCIAL_ENGINEERING_SCRIPT } from './cards/eusocialEngineering';
 import { MECHANOZOA_SCRIPT } from './cards/mechanozoa';
 import { NOVA_HELLKITE_SCRIPT } from './cards/novaHellkite';
@@ -8184,6 +8190,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GOLDLUST_TRIAD_SCRIPT,
+  BANSHEE_OF_THE_DREAD_CHOIR_SCRIPT,
+  CONCLAVE_EVANGELIST_SCRIPT,
+  SUMALA_RUMBLERS_SCRIPT,
+  BROODBIRTH_VIPER_SCRIPT,
+  CHITTERING_DISPATCHER_SCRIPT,
   EUSOCIAL_ENGINEERING_SCRIPT,
   MECHANOZOA_SCRIPT,
   NOVA_HELLKITE_SCRIPT,

@@ -16,7 +16,7 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec } from '../data/effectParse';
+import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec, unearthExileSpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -859,7 +859,57 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       resolve: (ctx, _self, obj) => ctx.vocabulary(obj, [exploitSpec()], []),
     },
   ],
+  [
+    'myriad',
+    {
+      // D549 - MYRIAD (CR 702.116a): "Whenever this creature attacks, for each opponent other than the defending player,
+      // you may create a token that's a copy of this creature that's tapped and attacking that player ... exile the tokens
+      // at end of combat." Mobilize's resolve shape - the token, tapped, added as an attacker, a delayed exile armed per
+      // token - with D485's copy (the printing, the face and the exceptions it carries) and D497's end-of-combat delay.
+      // ⚠️ The MAY is asked ONCE for every other opponent (an optional keyword trigger, soulshift's) - CR asks it per
+      // opponent, and a subset is not offered. With one opponent there is no other, and nothing triggers.
+      event: 'AttackersDeclared',
+      optional: true,
+      matches: (ctx, self, ev) => ev.t === 'AttackersDeclared' && ev.attackers.some((a) => a.card === self) && myriadOpponents(ctx, self).length > 0,
+      label: (ctx, self) => `${nameOf(ctx, self)} - myriad`,
+      resolve: (ctx, self, obj) => {
+        const card = ctx.state.cards[self];
+        if (!card || ctx.state.combat === null) return [];
+        const out: EventBody[] = [];
+        for (const p of myriadOpponents(ctx, self)) {
+          const id = ctx.ids.nextInstance();
+          out.push({ t: 'TokenCreated', card: id, oracleId: card.oracleId, printingId: card.printingId, controller: obj.controller, owner: obj.controller, turnNumber: ctx.state.turn.turnNumber, faceIndex: card.faceIndex, copyOf: self, ...(card.copyExceptions !== undefined ? { copyExceptions: card.copyExceptions } : {}) });
+          out.push({ t: 'PermanentsTapped', cards: [id] });
+          out.push({ t: 'AttackerAdded', card: id, defender: { kind: 'player', id: p } });
+          const trigger: DelayedTrigger = {
+            id: `${obj.id}-myriad-${p}`,
+            controller: obj.controller,
+            source: id,
+            when: { step: 'endCombat', whose: 'next' },
+            armedTurn: ctx.state.turn.turnNumber,
+            armedStep: ctx.state.turn.step,
+            effects: [unearthExileSpec()],
+            label: `${nameOf(ctx, self)} token - myriad: exile it`,
+          };
+          out.push({ t: 'DelayedTriggerArmed', trigger });
+        }
+        return out;
+      },
+    },
+  ],
 ]);
+
+/**
+ * D549 - the opponents a myriad attack makes copies toward (CR 702.116a): every player still in the game but the
+ * controller and the DEFENDING player (the controller of the permanent attacked, when a planeswalker or a battle is).
+ */
+function myriadOpponents(ctx: ScriptCtx, self: InstanceId): PlayerId[] {
+  const attack = ctx.state.combat?.attackers.find((a) => a.card === self);
+  const controller = ctx.state.cards[self]?.controller;
+  if (!attack || controller === undefined) return [];
+  const defending = attack.defender.kind === 'player' ? attack.defender.id : ctx.state.cards[attack.defender.id]?.controller;
+  return ctx.state.seating.filter((p) => p !== controller && p !== defending && !(ctx.state.players[p]?.hasLost ?? false));
+}
 
 /** D544 - the partner-with trigger's one target clause (the player who may search). */
 const PARTNER_WITH_TEXT = 'Target player may search their library for a card.';

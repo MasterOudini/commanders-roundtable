@@ -122,6 +122,9 @@ export const TIER2_KEYWORDS = [
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
   // (CR 702.110b), which looks back - it fires when the exploiter sacrificed itself.
   'exploit',
+  // D549 - MYRIAD (CR 702.116a): an attack trigger from the same table - a token copy tapped and attacking each other
+  // opponent, exiled at end of combat (mobilize's shape, D485's copy, D497's delay); the may asked once for them all.
+  'myriad',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

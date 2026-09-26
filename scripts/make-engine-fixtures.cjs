@@ -10049,6 +10049,16 @@ const WANTED = [
   // D548 - AWAKEN's proof fixtures: Coastal Discovery (Draw two cards. Awaken 4) and Clutch of Currents (Return target creature to its owner's hand. Awaken 3).
   'Coastal Discovery',
   'Clutch of Currents',
+  // D549 - MYRIAD's proof fixture: Wyrm's Crossing Patrol (Myriad).
+  "Wyrm's Crossing Patrol",
+  // D549 - MYRIAD: the rows the whole-leftover row maker rowed once the Myriad line was the engine's (the attack trigger, the token copies toward each other opponent).
+  'Goldlust Triad',
+  'Banshee of the Dread Choir',
+  'Conclave Evangelist',
+  'Sumala Rumblers',
+  'Broodbirth Viper',
+  'Chittering Dispatcher',
+  // D549 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
