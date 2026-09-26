@@ -1745,6 +1745,8 @@ interface Run {
   readonly awakenedLands: number;
   /** D549 - the token copies a myriad attack made (the end-of-combat exile each arms). */
   readonly myriadTokens: number;
+  /** D550 - the split second spells cast (the stack locked while each waited). */
+  readonly splitSecondCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2265,6 +2267,7 @@ function runOne(seed: number): Run {
     warpExiles: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.warpedTurn !== undefined).length : 0), 0),
     awakenedLands: game.log.filter((e) => e.body.t === 'Awakened').length,
     myriadTokens: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && e.body.trigger.id.includes('-myriad-')).length,
+    splitSecondCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords ?? []).includes('splitSecond')).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2611,6 +2614,7 @@ const TOTAL_KEYS = [
   'warpExiles',
   'awakenedLands',
   'myriadTokens',
+  'splitSecondCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

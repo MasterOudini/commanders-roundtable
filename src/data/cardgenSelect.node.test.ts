@@ -778,6 +778,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D550 - split second: the Split second line is the engine's now (the stack's lock on casts and non-mana activations); what stays is a split second card whose other sentence the vocabulary does not read.
+  ['Sulfur Elemental', 'a line outside the row vocabulary: White creatures get +1/-1. - a color-scoped anthem (D550)'],
+  ['Sudden Spoiling', 'a spell with a line outside the vocabulary: Until end of turn, creatures target player controls lose all abilities and have base power and toughness 0/2 - an ability loss over a player scope (D550)'],
+  ['Inventory Management', 'a spell with a line outside the vocabulary: For each Aura and Equipment you control, you may attach it to a creature you control - a per-attachment choice (D550)'],
   // D548 - awaken: the Awaken line is the engine's now (the alternative cost, the added land target, the rider); what stays is an awaken spell whose own sentence the vocabulary does not read.
   ['Boiling Earth', 'a spell with a line outside the vocabulary: Boiling Earth deals 1 damage to each creature your opponents control - a damage sweep over an each-opponent scope (D548)'],
   ['Planar Outburst', 'a spell with a line outside the vocabulary: Destroy all nonland creatures - a destroy sweep over a nonland noun (D548)'],
@@ -1059,7 +1063,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dominating Vampire', 'the row maker: trigger payload not a pump: Gain control of target creature with mana value less than or (D531)'],
   ['Reins of Power', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Geyadrone Dihada', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
-  ['Word of Seizing', 'the row maker: a spell with a line outside the vocabulary: Split second (As long as this spell is on the stack, players (D531)'],
   ['Emrakul, the World Anew', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Willbreaker', 'the row maker: trigger head not in the library: Whenever a creature an opponent controls becomes the target of a spell (D531)'],
   ['Memnarch', 'the row maker: effect not a row kind: Target permanent becomes an artifact in addition to its other types. (D531)'],
@@ -1155,7 +1158,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Loxodon Peacekeeper', 'the row maker: trigger payload not a pump: The player with the lowest life total gains control of this (D531)'],
   ['Confusion in the Ranks', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: artifact,): Whenever an artifact, creature, or enchantment en (D531)'],
   ['Slicer, Hired Muscle // Slicer, High-Speed Antagonist', 'the row maker: multi-face or unusual layout (D531)'],
-  ['Sudden Substitution', 'the row maker: a spell with a line outside the vocabulary: Split second (As long as this spell is on the stack, players (D531)'],
+  ['Sudden Substitution', 'a spell with a line outside the vocabulary: Exchange control of target noncreature spell and target creature. Then the spell\'s controller may choose new targets for it. (D531; its Split second line is the engine\'s since D550)'],
   ['Starke of Rath', 'the row maker: effect not a row kind: Destroy target artifact or creature. That permanent\'s controller gains control of Starke. (D531)'],
   ['Conjured Currency', 'the row maker: trigger payload not a pump: Exchange control of this enchantment and target permanent yo (D531)'],
   ['Molten Primordial', 'a control change with a target per opponent (`For each opponent, gain control of up to one target ...`) - a target group per player the reader does no (D531)'],

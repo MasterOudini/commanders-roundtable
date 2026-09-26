@@ -9025,6 +9025,8 @@ export const CONCLAVE_EVANGELIST: CardData = F.CONCLAVE_EVANGELIST as CardData;
 export const SUMALA_RUMBLERS: CardData = F.SUMALA_RUMBLERS as CardData;
 export const BROODBIRTH_VIPER: CardData = F.BROODBIRTH_VIPER as CardData;
 export const CHITTERING_DISPATCHER: CardData = F.CHITTERING_DISPATCHER as CardData;
+export const SUDDEN_SHOCK: CardData = F.SUDDEN_SHOCK as CardData;
+export const KROSAN_GRIP: CardData = F.KROSAN_GRIP as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18302,6 +18304,8 @@ export const ENGINE_CARDS: CardData[] = [
   SUMALA_RUMBLERS,
   BROODBIRTH_VIPER,
   CHITTERING_DISPATCHER,
+  SUDDEN_SHOCK,
+  KROSAN_GRIP,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

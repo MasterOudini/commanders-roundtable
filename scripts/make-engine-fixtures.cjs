@@ -10059,6 +10059,9 @@ const WANTED = [
   'Broodbirth Viper',
   'Chittering Dispatcher',
   // D549 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D550 - SPLIT SECOND's proof fixtures: Sudden Shock and Krosan Grip (split second), Lightning Bolt (the cast refused under it).
+  'Sudden Shock',
+  'Krosan Grip',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

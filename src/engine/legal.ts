@@ -269,7 +269,36 @@ export function legalContext(
   return { solve: solveInputFor(state, oracle, scripts, player, cache), cache };
 }
 
+/**
+ * D550 - SPLIT SECOND (CR 702.61a): a spell on the stack whose face carries the keyword (a copy's printing too; a face-down
+ * spell has none). The one predicate the offer and the host both ask.
+ */
+export function splitSecondOnStack(state: GameState, oracle: OracleDb): boolean {
+  return state.stack.some((o) => {
+    if (o.kind !== 'spell') return false;
+    const inst = o.card !== null ? state.cards[o.card] : undefined;
+    if (inst?.faceDown === true) return false;
+    const printingId = o.copyOf?.printingId ?? inst?.printingId;
+    const printing = printingId !== undefined ? oracle.byPrinting(printingId) : undefined;
+    const faceIndex = o.copyOf?.faceIndex ?? inst?.faceIndex ?? 0;
+    return printing !== undefined && faceOf(printing, faceIndex).keywords.includes('splitSecond');
+  });
+}
+
 export function legalActions(
+  state: GameState,
+  oracle: OracleDb,
+  scripts: ScriptRegistry,
+  player: PlayerId,
+  ctx?: LegalContext,
+): LegalAction[] {
+  const offered = offeredActions(state, oracle, scripts, player, ctx);
+  // D550 - under SPLIT SECOND no spell is cast and no ability but a mana ability activated (CR 702.61b): the special
+  // actions (a land, a foretell, a suspend, a morph turned up) and the mana taps stay.
+  return splitSecondOnStack(state, oracle) ? offered.filter((a) => a.t !== 'CastSpell' && a.t !== 'ActivateAbility') : offered;
+}
+
+function offeredActions(
   state: GameState,
   oracle: OracleDb,
   scripts: ScriptRegistry,

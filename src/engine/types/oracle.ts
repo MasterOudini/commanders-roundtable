@@ -125,6 +125,9 @@ export const TIER2_KEYWORDS = [
   // D549 - MYRIAD (CR 702.116a): an attack trigger from the same table - a token copy tapped and attacking each other
   // opponent, exiled at end of combat (mobilize's shape, D485's copy, D497's delay); the may asked once for them all.
   'myriad',
+  // D550 - SPLIT SECOND (CR 702.61a): while the spell is on the stack no spell is cast and no ability but a mana ability
+  // is activated (`splitSecondOnStack`, asked by the offer and the host alike).
+  'splitSecond',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',

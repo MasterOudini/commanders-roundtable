@@ -25,6 +25,7 @@ import {
   castsForetold,
   castsWarped,
   castTargetSpecs,
+  splitSecondOnStack,
   FORETELL_COST,
   discardCandidatesFor,
   exileFromGraveyardCandidatesFor,
@@ -845,6 +846,10 @@ function prepareCast(
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return { error: reject('noSuchCard', 'That card is not in the card database.') };
   const face = faceOf(oracleCard, faceIndex);
+  // D550 - SPLIT SECOND (CR 702.61a): no spell is cast while one is on the stack - every cast path, a free one too.
+  if (splitSecondOnStack(state, deps.oracle)) {
+    return { error: reject('timingRestriction', 'A spell with split second is on the stack - no spell can be cast until it resolves.') };
+  }
   // D309 - THE MORPH SEAM: cast face down as a 2/2 for {3} (CR 702.37a) - a
   // creature spell at sorcery speed, from the hand, no targets, whatever the
   // card's own cost or type (Zoetic Cavern is a land).
@@ -1427,6 +1432,10 @@ function activateAbility(
   if (intent.grantRef !== undefined && !grant) return reject('notCastable', `${face.name} no longer has that granted ability.`);
   const ability = grant ? grant.ability : face.activated[intent.abilityIndex];
   if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+  // D550 - SPLIT SECOND (CR 702.61a): no ability but a mana ability is activated while such a spell is on the stack.
+  if (!ability.isManaAbility && splitSecondOnStack(state, deps.oracle)) {
+    return reject('timingRestriction', 'A spell with split second is on the stack - only mana abilities can be activated until it resolves.');
+  }
   const abilityRef: AbilityRef = grant ? grant.ref : `${oracleCard.oracleId}#a${intent.abilityIndex}`;
   // A printed ability's destructive cost is offered only past a registered def
   // (D159); a granted ability EXISTS only because a def installed it.

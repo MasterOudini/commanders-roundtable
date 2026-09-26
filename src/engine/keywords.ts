@@ -87,6 +87,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.
   myriad: 'myriad',
+  // D550 - split second: the stack's lock on casts and non-mana activations.
+  'split second': 'splitSecond',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',
