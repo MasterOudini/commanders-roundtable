@@ -99,6 +99,9 @@ export interface CastPreview {
   /** D556 - the replicate cost the face prints (CR 702.56a), and the count this preview priced. */
   readonly replicate: { readonly cost: string } | null;
   readonly replicated: number;
+  /** D557 - the conspire the face prints (CR 702.78a) with the creatures that may pay it, and whether this preview conspires. */
+  readonly conspire: { readonly candidates: readonly InstanceId[] } | null;
+  readonly conspired: boolean;
   /**
    * D405 - the alternatives the face prints (convoke / improvise / delve) and what this preview
    * priced: `alt` is what the cast will tap or exile (empty lists when the player asked for none),
@@ -472,7 +475,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -536,6 +539,8 @@ export class ClientSession {
       bought: buyback && (face.buybackCost !== null || face.buybackVerb !== null),
       replicate: repCost ? { cost: repCost.raw } : null,
       replicated: repCost ? replicated : 0,
+      conspire: face.conspireVerb !== null ? { candidates: action.conspireCandidates ?? [] } : null,
+      conspired: conspired && face.conspireVerb !== null,
       keywords,
       alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
       altAvailable,

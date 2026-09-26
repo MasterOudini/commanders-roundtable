@@ -74,6 +74,8 @@ export type LegalAction =
       readonly replicateCost?: string;
       /** D556 - the cast replicated once is payable now; the fuzz driver replicates exactly when it is. */
       readonly replicateAffordable?: boolean;
+      /** D557 - CONSPIRE (CR 702.78a): the untapped creatures the caster controls that share a colour with the spell (`CastSpell.conspired` taps two of them, named as `tap`). */
+      readonly conspireCandidates?: readonly InstanceId[];
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -1192,6 +1194,8 @@ function castAction(
     ...(face.replicateCost !== null
       ? { replicateCost: face.replicateCost.raw, replicateAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.replicateCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
       : {}),
+    // D557 - a conspire is offered with its candidates (D406's list for the verb, the host re-validating).
+    ...conspireOffer(state, oracle, scripts, ctx, caster, id, face),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),
@@ -1249,6 +1253,14 @@ function buybackOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistr
     buybackAffordable: chooser.enough && payable(bv.mana !== null ? [bv.mana] : [], bv.lifeCost),
     ...(pick ? { buybackPickVerb: pick.verb, buybackPickCount: f[pick.n + 'Count'] as number, buybackPickCandidates: f[pick.n + 'Candidates'] as readonly InstanceId[] } : {}),
   };
+}
+
+/** D557 - CONSPIRE (CR 702.78a): the creatures the cast may tap - the verb's own candidates (one list, D139), never beside another verb. */
+function conspireOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace): Record<string, unknown> {
+  if (face.conspireVerb === null || face.additionalCost !== null) return {};
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const chooser = castCostCandidates(state, deriveOf, caster, id, face.conspireVerb);
+  return { conspireCandidates: (chooser.fields['tapCandidates'] ?? []) as readonly InstanceId[] };
 }
 
 /**

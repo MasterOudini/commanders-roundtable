@@ -10145,6 +10145,14 @@ const WANTED = [
   'Lose Focus',
   'Train of Thought',
   'Leap of Flame',
+  // D557 - CONSPIRE's proof fixtures: the seven spells the strict judge counted whole (a Conspire line and one sentence the vocabulary reads).
+  'Rally the Galadhrim',
+  'Memory Sluice',
+  'Aethertow',
+  'Gleeful Sabotage',
+  'Burn Trail',
+  'Ghastly Discovery',
+  'Barkshell Blessing',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

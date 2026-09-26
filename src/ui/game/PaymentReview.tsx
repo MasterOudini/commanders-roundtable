@@ -24,11 +24,13 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true) : null),
     [mode],
   );
 
   if (mode.kind !== 'payment' || !preview) return null;
+  // D557 - a conspire taps the first two creatures that may pay it (the offer's own list, the host re-validating).
+  const conspireTaps = preview.conspire?.candidates.slice(0, 2) ?? [];
 
   const send = (): void => {
     // ⚠️ Close the panel optimistically. The host answers a round trip later on
@@ -52,6 +54,8 @@ export function PaymentReview() {
       ...(preview.bought ? { buyback: true } : {}),
       // D556 - and the replicate count it priced.
       ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
+      // D557 - and the conspire (its taps are the picks below).
+      ...(preview.conspired ? { conspired: true } : {}),
       // D405 - what the review priced is what the host taps and exiles (D53).
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -178,6 +182,24 @@ export function PaymentReview() {
           >
             Change…
           </button>
+        </div>
+      )}
+
+      {preview.conspire && (
+        <div className="mt-2 flex items-center gap-2" data-payment-conspire="">
+          <span className="text-xs text-crt-dim">
+            {preview.conspired ? 'Conspiring - two creatures that share a colour tap, and the spell is copied' : conspireTaps.length === 2 ? 'Not conspiring' : 'Conspire (not now - it needs two untapped creatures that share a colour with it)'}
+          </span>
+          {conspireTaps.length === 2 && (
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-payment="set-conspire"
+              onClick={() => setMode({ ...mode, conspired: !preview.conspired, costPicks: { ...(mode.costPicks ?? {}), tap: preview.conspired ? [] : conspireTaps } })}
+            >
+              {preview.conspired ? 'Skip conspire' : 'Conspire'}
+            </button>
+          )}
         </div>
       )}
 

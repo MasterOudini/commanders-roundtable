@@ -419,6 +419,8 @@ interface CastSetup {
   readonly buyback: boolean;
   /** D556 - the replicate count (CR 702.56a), priced into `problem`; the stack object remembers it. */
   readonly replicated: number;
+  /** D557 - the conspire (CR 702.78a): its taps are the picks; the stack object remembers it. */
+  readonly conspired: boolean;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -774,6 +776,14 @@ function replicateProblem(face: ReturnType<typeof faceOf>, replicated: number, f
   if (face.replicateCost === null) return `${face.name} has no replicate cost the app can charge.`;
   return null;
 }
+/** D557 - why a conspire cannot be announced on this cast, or null when it can (its picks are checked as the verb's). */
+function conspireProblem(face: ReturnType<typeof faceOf>, conspired: boolean, faceDown: boolean, kicked: number, buyback: boolean): string | null {
+  if (!conspired) return null;
+  if (faceDown) return 'A face-down spell cannot conspire.';
+  if (face.conspireVerb === null) return `${face.name} has no conspire the app can charge.`;
+  if (face.additionalCost !== null || (kicked > 0 && face.kickerVerb !== null) || (buyback && face.buybackVerb !== null)) return `${face.name}'s conspire and another cost both take picks - the app charges one.`;
+  return null;
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
 function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
@@ -864,6 +874,8 @@ function prepareCast(
   madness = false,
   // D556 - the replicate count (CR 702.56a).
   replicated = 0,
+  // D557 - the conspire (CR 702.78a); its taps are `picks.tap`.
+  conspired = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -953,8 +965,11 @@ function prepareCast(
   // D556 - a replicate count is priced with the kick: the announcement names it, the problem carries the cost that many times.
   const repWhy = replicateProblem(face, replicated, faceDown);
   if (repWhy) return { error: reject('notCastable', repWhy) };
+  // D557 - a conspire's taps are the verb's picks (D530's path): validated below as the additional cost's are.
+  const conWhy = conspireProblem(face, conspired, faceDown, kicked, buyback);
+  if (conWhy) return { error: reject('notCastable', conWhy) };
   // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
-  const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? graveyardCast?.verb ?? null);
+  const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? (conspired ? face.conspireVerb : null) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };
@@ -973,7 +988,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1189,6 +1204,7 @@ function castSpell(
     intent.buyback === true,
     false,
     intent.replicated ?? 0,
+    intent.conspired === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -1269,6 +1285,7 @@ function castSpell(
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(setup.buyback ? { buyback: true as const } : {}),
       ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
+      ...(setup.conspired ? { conspired: true as const } : {}),
       ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
       // D551 - a PLOTTED cast is free: its staged stages price nothing (the only free setup this path makes), and a
       // back-out restores the mark.
@@ -2328,6 +2345,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
     ...(setup.buyback ? { buyback: true as const } : {}),
     ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
+    ...(setup.conspired ? { conspired: true as const } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
@@ -2807,6 +2825,7 @@ function finishFromPending(
     kickedWith: pending.kickedWith ?? [],
     buyback: pending.buyback === true,
     replicated: pending.replicated ?? 0,
+    conspired: pending.conspired === true,
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2852,6 +2871,7 @@ function finishFromPending(
     ...(pending.kickedWith !== undefined && pending.kickedWith.length > 0 ? { kickedWith: pending.kickedWith } : {}),
     ...(pending.buyback === true ? { buyback: true as const } : {}),
     ...(pending.replicated !== undefined && pending.replicated > 0 ? { replicated: pending.replicated } : {}),
+    ...(pending.conspired === true ? { conspired: true as const } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),

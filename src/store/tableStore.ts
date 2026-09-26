@@ -89,6 +89,8 @@ export type TableMode =
       readonly buyback?: boolean;
       /** D556 - the replicate count the player announced in the review (0 none). */
       readonly replicated?: number;
+      /** D557 - the conspire the player announced in the review (its two taps ride `costPicks.tap`). */
+      readonly conspired?: boolean;
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */

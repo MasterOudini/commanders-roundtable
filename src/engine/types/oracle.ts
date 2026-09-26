@@ -120,6 +120,9 @@ export const TIER2_KEYWORDS = [
   // D556 - REPLICATE (CR 702.56a): a cast trigger that copies the spell once for each time its replicate cost was paid
   // (`StackObject.replicated`), run from the keyword table off the SPELL on the stack as storm is.
   'replicate',
+  // D557 - CONSPIRE (CR 702.78a): the cast's tap of two creatures that share a colour with the spell, and the cast
+  // trigger that copies it once (`StackObject.conspired`), from the keyword table as replicate's is.
+  'conspire',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -2059,6 +2062,12 @@ export interface OracleFace {
    * any number of times (`CastSpell.replicated`); the cast trigger copies the spell once per payment.
    */
   readonly replicateCost: ManaCost | null;
+  /**
+   * D557 - CONSPIRE (CR 702.78a): `Conspire` on an instant or sorcery - the cast may tap two untapped creatures its
+   * controller controls that share a colour with it (`CastSpell.conspired`, the `tap` picks): D530's verb-kicker shape,
+   * the tap chooser with one creature predicate per printed colour. Paid, the cast trigger copies the spell once.
+   */
+  readonly conspireVerb: import('../../data/activatedParse').KickerVerb | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

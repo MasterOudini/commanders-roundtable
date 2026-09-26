@@ -77,6 +77,11 @@ export type Intent =
        */
       readonly replicated?: number;
       /**
+       * D557 - CONSPIRE (CR 702.78a): the spell conspires - `tap` names the two untapped creatures you control that share a
+       * colour with it (the offer's `conspireCandidates`); the host taps them in the cost batch and the cast trigger copies it.
+       */
+      readonly conspired?: boolean;
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

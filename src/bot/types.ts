@@ -56,6 +56,8 @@ export interface BotPort {
     buyback?: boolean,
     /** D556 - the replicate count (CR 702.56a). */
     replicated?: number,
+    /** D557 - the conspire (CR 702.78a); its two taps ride `costPicks.tap`. */
+    conspired?: boolean,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

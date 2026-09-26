@@ -601,6 +601,28 @@ export function parseReplicate(oracleText: string, warn: Warn = NOOP_WARN): Mana
 }
 
 /**
+ * D557 - CONSPIRE (CR 702.78a): a `Conspire` line (reminder text aside) on a spell with a colour, read as the cast's
+ * optional price - D530's verb-kicker shape: tap two untapped creatures you control that share a colour with it, one
+ * creature predicate per printed colour (the `any` list is an OR). A colourless face shares no colour - nothing to read.
+ */
+export function parseConspire(oracleText: string, colors: readonly ColorLetter[]): KickerVerb | null {
+  const printed = (oracleText ?? '').split('\n').some((raw) => raw.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Conspire');
+  if (!printed || colors.length === 0) return null;
+  return {
+    line: 'Conspire',
+    costText: 'tap two untapped creatures you control that share a color with it',
+    lifeCost: 0,
+    sacrificeCost: null,
+    discardCost: null,
+    tapCost: { count: 2, another: false, any: colors.map((c) => ({ supertypes: [], types: ['Creature'], subtypes: [], colors: [c] })) },
+    exileFromGraveyardCost: null,
+    returnCost: null,
+    orPay: null,
+    mana: null,
+  };
+}
+
+/**
  * D537 - RETRACE (CR 702.81) and JUMP-START (CR 702.133) on a line of their own (reminder text aside): the graveyard
  * cast and its discard, read by the verb-kicker grammar (a land card for retrace, any card for jump-start). The verb
  * keeps the keyword line as its `line`, so the accounting asks the parser that read it.
@@ -1275,6 +1297,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const bought = isPermanent ? { buyback: null, buybackVerb: null } : parseBuyback(face.oracleText, warn);
   // D556 - replicate on an instant or sorcery (a permanent spell's copy would be a token the engine does not make, CR 707.10a).
   const replicateCost = isPermanent ? null : parseReplicate(face.oracleText, warn);
+  // D557 - conspire on an instant or sorcery (a permanent spell's copy would be a token the engine does not make).
+  const conspireVerb = isPermanent ? null : parseConspire(face.oracleText, face.colors);
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1375,6 +1399,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     buybackCost: bought.buyback,
     buybackVerb: bought.buybackVerb,
     replicateCost,
+    conspireVerb,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

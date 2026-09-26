@@ -9090,6 +9090,13 @@ export const GIGADROWSE: CardData = F.GIGADROWSE as CardData;
 export const LOSE_FOCUS: CardData = F.LOSE_FOCUS as CardData;
 export const TRAIN_OF_THOUGHT: CardData = F.TRAIN_OF_THOUGHT as CardData;
 export const LEAP_OF_FLAME: CardData = F.LEAP_OF_FLAME as CardData;
+export const RALLY_THE_GALADHRIM: CardData = F.RALLY_THE_GALADHRIM as CardData;
+export const MEMORY_SLUICE: CardData = F.MEMORY_SLUICE as CardData;
+export const AETHERTOW: CardData = F.AETHERTOW as CardData;
+export const GLEEFUL_SABOTAGE: CardData = F.GLEEFUL_SABOTAGE as CardData;
+export const BURN_TRAIL: CardData = F.BURN_TRAIL as CardData;
+export const GHASTLY_DISCOVERY: CardData = F.GHASTLY_DISCOVERY as CardData;
+export const BARKSHELL_BLESSING: CardData = F.BARKSHELL_BLESSING as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18440,6 +18447,13 @@ export const ENGINE_CARDS: CardData[] = [
   LOSE_FOCUS,
   TRAIN_OF_THOUGHT,
   LEAP_OF_FLAME,
+  RALLY_THE_GALADHRIM,
+  MEMORY_SLUICE,
+  AETHERTOW,
+  GLEEFUL_SABOTAGE,
+  BURN_TRAIL,
+  GHASTLY_DISCOVERY,
+  BARKSHELL_BLESSING,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

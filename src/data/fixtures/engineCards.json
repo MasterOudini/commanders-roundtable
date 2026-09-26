@@ -308015,6 +308015,260 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RALLY_THE_GALADHRIM": {
+    "scryfallId": "009a2276-0014-45c2-90b7-064594009780",
+    "oracleId": "84b2d0f6-ad98-4a71-a3d5-645b0f2db6c6",
+    "name": "Rally the Galadhrim",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rally the Galadhrim",
+        "manaCost": "{2}{G}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a token that's a copy of target creature you control.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Alexander Mokhov",
+        "imageId": "009a2276-0014-45c2-90b7-064594009780"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "ltc",
+    "collectorNumber": "499",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEMORY_SLUICE": {
+    "scryfallId": "5fd93980-55f6-43a0-87db-5fa1203aa7b6",
+    "oracleId": "a30b659e-ae2b-4736-9b4f-a9805905bf75",
+    "name": "Memory Sluice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Memory Sluice",
+        "manaCost": "{U/B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player mills four cards.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Wayne England",
+        "imageId": "5fd93980-55f6-43a0-87db-5fa1203aa7b6"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Conspire",
+      "Mill"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "170",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AETHERTOW": {
+    "scryfallId": "72a656e7-9c1c-40b6-91fe-0098f72d8384",
+    "oracleId": "dd0cac88-0a78-408f-8eb0-080f79150180",
+    "name": "Aethertow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aethertow",
+        "manaCost": "{3}{W/U}",
+        "typeLine": "Instant",
+        "oracleText": "Put target attacking or blocking creature on top of its owner's library.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "72a656e7-9c1c-40b6-91fe-0098f72d8384"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLEEFUL_SABOTAGE": {
+    "scryfallId": "7802c7f8-ca2a-4bac-a579-77a8204aa5d4",
+    "oracleId": "25fe48be-95c4-4011-8c60-4628fb5ecfcb",
+    "name": "Gleeful Sabotage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gleeful Sabotage",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target artifact or enchantment.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Todd Lockwood",
+        "imageId": "7802c7f8-ca2a-4bac-a579-77a8204aa5d4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "arc",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURN_TRAIL": {
+    "scryfallId": "7f01f9a0-f1d0-4241-a270-df4ed673d1fd",
+    "oracleId": "566b4dcc-b7d7-4443-b2d0-954f1fc33a11",
+    "name": "Burn Trail",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burn Trail",
+        "manaCost": "{3}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Burn Trail deals 3 damage to any target.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "7f01f9a0-f1d0-4241-a270-df4ed673d1fd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHASTLY_DISCOVERY": {
+    "scryfallId": "9dbd510a-d71f-4b0c-bc6c-e403f632cbdb",
+    "oracleId": "1ca875f0-50a7-4332-8643-c2b4bbda18b1",
+    "name": "Ghastly Discovery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghastly Discovery",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw two cards, then discard a card.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it.)",
+        "flavorText": "Korrigans, spirits bound to sources of water, shriek when they come upon their own drowned corpses.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "9dbd510a-d71f-4b0c-bc6c-e403f632cbdb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARKSHELL_BLESSING": {
+    "scryfallId": "cd273ef2-4aed-4c7e-8c97-fe8b1af9ce69",
+    "oracleId": "baf3d4d9-0590-4d94-8f4e-1e726194b920",
+    "name": "Barkshell Blessing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barkshell Blessing",
+        "manaCost": "{G/W}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +2/+2 until end of turn.\nConspire (As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "cd273ef2-4aed-4c7e-8c97-fe8b1af9ce69"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Conspire"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

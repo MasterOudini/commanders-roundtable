@@ -830,6 +830,20 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'conspire',
+    {
+      // D557 - CR 702.78a: when you tap two creatures for the conspire as you cast the spell, copy it; you may choose a new
+      // target for the copy. Replicate's shape (D556): the entry fires off the SPELL on the stack when the cast conspired
+      // (`StackObject.conspired`), its one effect storm's copy spec.
+      event: 'SpellCast',
+      fromStack: true,
+      matches: (ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.card === self && ev.obj.copyOf === undefined && ev.obj.conspired === true && !isPermanentSpell(ctx, self),
+      effects: (_ctx, _self, ev) => (ev.t === 'SpellCast' ? [stormCopySpec(ev.obj)] : []),
+      label: (ctx, self) => `${nameOf(ctx, self)} - conspire`,
+      resolve: () => [],
+    },
+  ],
+  [
     'madness',
     {
       // D541 - CR 702.35a: "When this card is exiled this way, its owner may cast it by paying [cost] rather than paying

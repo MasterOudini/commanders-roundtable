@@ -613,6 +613,8 @@ export function linesUnaccounted(
     if (face.buybackVerb !== null && face.buybackVerb.line === line) continue;
     // D556 - a Replicate line the engine CHARGES at cast time (`CastSpell.replicated`) and RUNS as the cast trigger's copies.
     if (face.replicateCost !== null && /^Replicate (?:\{[^}]+\})+$/.test(line)) continue;
+    // D557 - a Conspire line the engine CHARGES at cast time (`CastSpell.conspired`, its taps) and RUNS as the cast trigger's copy.
+    if (face.conspireVerb !== null && line === 'Conspire') continue;
     // D537 - a Retrace / Jump-start line the engine OFFERS (a graveyard cast, its discard charged as the additional cost).
     if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
     // D538 - a Rebound line the engine RUNS (the resolution's exile, the upkeep's free cast), asked of the parser's flag.
