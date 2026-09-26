@@ -844,6 +844,24 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'offspring',
+    {
+      // D558 - CR 702.175a: when this permanent enters, if its offspring cost was paid, create a token that's a copy of it,
+      // except it's 1/1. It fires off the permanent's own entry (fabricate's shape) when the move says the cost was paid
+      // (`CardMove.offspring`, the resolving spell's); the copy is myriad's TokenCreated (D549 - the printing, the face and
+      // the copy exceptions it carries) with the 1/1 on top. The copy's own entry carries no payment, so it makes none.
+      event: 'CardsMoved',
+      matches: (_ctx, self, ev) => ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.offspring === true),
+      label: (ctx, self) => `${nameOf(ctx, self)} - offspring`,
+      resolve: (ctx, self, obj) => {
+        const card = ctx.state.cards[self];
+        if (!card) return [];
+        const id = ctx.ids.nextInstance();
+        return [{ t: 'TokenCreated', card: id, oracleId: card.oracleId, printingId: card.printingId, controller: obj.controller, owner: obj.controller, turnNumber: ctx.state.turn.turnNumber, faceIndex: card.faceIndex, copyOf: self, copyExceptions: { ...(card.copyExceptions ?? {}), power: 1, toughness: 1 } }];
+      },
+    },
+  ],
+  [
     'madness',
     {
       // D541 - CR 702.35a: "When this card is exiled this way, its owner may cast it by paying [cost] rather than paying

@@ -976,6 +976,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           // D403 - the kick the spell was cast with rides onto the permanent it becomes.
           ...(obj.kicked !== undefined && obj.kicked > 0 ? { kicked: obj.kicked } : {}),
           ...(obj.kickedWith !== undefined && obj.kickedWith.length > 0 ? { kickedWith: obj.kickedWith } : {}),
+          // D558 - and the offspring it paid (the permanent's enters trigger makes its 1/1 copy).
+          ...(obj.offspring === true ? { offspring: true as const } : {}),
           // D449 - and the keyword alternative cost it was cast for (evoke / dash).
           ...(obj.alternativePaid && face?.alternativeCost?.keyword !== undefined ? { altKeyword: face.alternativeCost.keyword } : {}),
           // D489 - a suspend cast's entry: a creature has haste while it stays (CR 702.62e).

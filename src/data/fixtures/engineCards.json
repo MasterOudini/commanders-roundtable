@@ -308269,6 +308269,395 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "IRIDESCENT_VINELASHER": {
+    "scryfallId": "0d09e0fb-e132-419b-b527-c1e624295b07",
+    "oracleId": "4f8c4927-46c2-4c18-b5af-c6288dbaff6d",
+    "name": "Iridescent Vinelasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Iridescent Vinelasher",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Lizard Assassin",
+        "oracleText": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nLandfall — Whenever a land you control enters, this creature deals 1 damage to target opponent.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "0d09e0fb-e132-419b-b527-c1e624295b07"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Offspring",
+      "Landfall"
+    ],
+    "setCode": "pblb",
+    "collectorNumber": "99s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGATE_INSTIGATOR": {
+    "scryfallId": "163c093e-9b6f-497d-a167-cfee1dbc5106",
+    "oracleId": "e1a2bd31-b800-47cd-8866-1b849a601b09",
+    "name": "Agate Instigator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agate Instigator",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Lizard Rogue",
+        "oracleText": "Offspring {1}{R} (You may pay an additional {1}{R} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhenever another creature you control enters, this creature deals 1 damage to each opponent.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "163c093e-9b6f-497d-a167-cfee1dbc5106"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blc",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FINCH_FORMATION": {
+    "scryfallId": "1c671eab-d1ef-4d79-94eb-8b85f0d18699",
+    "oracleId": "76c2e0b4-d4fa-4e98-b363-0a76eb481304",
+    "name": "Finch Formation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Finch Formation",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Bird Scout",
+        "oracleText": "Offspring {3} (You may pay an additional {3} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nFlying\nWhen this creature enters, target creature you control gains flying until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Rhonda Libbey",
+        "imageId": "1c671eab-d1ef-4d79-94eb-8b85f0d18699"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TENDER_WILDGUIDE": {
+    "scryfallId": "2dc164c8-62ca-4d59-ae1c-ef273fde9d10",
+    "oracleId": "74868bc0-6081-4f46-a2c6-9521cd5465aa",
+    "name": "Tender Wildguide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tender Wildguide",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Possum Druid",
+        "oracleText": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\n{T}: Add one mana of any color.\n{T}: Put a +1/+1 counter on this creature.",
+        "flavorText": "\"The community banded together to revitalize the scorched earth.\"\n—*Wake of the Beasts*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ellie Livingston",
+        "imageId": "2dc164c8-62ca-4d59-ae1c-ef273fde9d10"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "325",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPLASH_LASHER": {
+    "scryfallId": "362ee125-35a0-46cd-a201-e6797d12d33a",
+    "oracleId": "0d0c4c91-683a-4563-a0b0-39f3c04f6307",
+    "name": "Splash Lasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Splash Lasher",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Frog Wizard",
+        "oracleText": "Offspring {1}{U} (You may pay an additional {1}{U} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhen this creature enters, tap up to one target creature and put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "362ee125-35a0-46cd-a201-e6797d12d33a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTREPID_RABBIT": {
+    "scryfallId": "4d70b99d-c8bf-4a56-8957-cf587fe60b81",
+    "oracleId": "7ed4afc9-959a-4868-8f4a-2221bea1ba32",
+    "name": "Intrepid Rabbit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Intrepid Rabbit",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Rabbit Soldier",
+        "oracleText": "Offspring {1} (You may pay an additional {1} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhen this creature enters, target creature you control gets +1/+1 until end of turn.",
+        "flavorText": "\"I'll light the way, but we must walk it together.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Artur Treffner",
+        "imageId": "4d70b99d-c8bf-4a56-8957-cf587fe60b81"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEELBURR_CHAMPION": {
+    "scryfallId": "73b1f962-22b7-4394-9796-24f7b0f8a42f",
+    "oracleId": "d1f3d5ca-cb17-400f-8ed9-3b9a4f151b62",
+    "name": "Steelburr Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steelburr Champion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Mouse Soldier",
+        "oracleText": "Offspring {1}{W} (You may pay an additional {1}{W} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nVigilance\nWhenever an opponent casts a noncreature spell, put a +1/+1 counter on this creature.",
+        "flavorText": "\"The secret to victory is simple. Don't lose.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josiah \"Jo\" Cameron",
+        "imageId": "73b1f962-22b7-4394-9796-24f7b0f8a42f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Offspring",
+      "Vigilance"
+    ],
+    "setCode": "blc",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORUSCATION_MAGE": {
+    "scryfallId": "dc2c1de0-6233-469a-be72-a050b97d2c8f",
+    "oracleId": "88bb91b5-2ccd-4ce9-8cd4-e54d63c12abf",
+    "name": "Coruscation Mage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coruscation Mage",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Otter Wizard",
+        "oracleText": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhenever you cast a noncreature spell, this creature deals 1 damage to each opponent.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gaboleps",
+        "imageId": "dc2c1de0-6233-469a-be72-a050b97d2c8f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "131",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEAMPATH_CHARGER": {
+    "scryfallId": "03bf1296-e347-4070-8c6f-5c362c2f9364",
+    "oracleId": "75237b2c-232b-479a-ab3a-e1566c8a9fe7",
+    "name": "Steampath Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steampath Charger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Lizard Warlock",
+        "oracleText": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhen this creature dies, it deals 1 damage to target player.",
+        "flavorText": "Hot-footed and cold-blooded.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "03bf1296-e347-4070-8c6f-5c362c2f9364"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STARSCAPE_CLERIC": {
+    "scryfallId": "53a938a7-0154-4350-87cb-00da24ec3824",
+    "oracleId": "8d72ddb3-ef6e-4847-b6d4-5d85b1dd5802",
+    "name": "Starscape Cleric",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Starscape Cleric",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Bat Cleric",
+        "oracleText": "Offspring {2}{B} (You may pay an additional {2}{B} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nFlying\nThis creature can't block.\nWhenever you gain life, each opponent loses 1 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Omar Rayyan",
+        "imageId": "53a938a7-0154-4350-87cb-00da24ec3824"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "116",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUST_SHIELD_RAMPAGER": {
+    "scryfallId": "c96b01f5-83de-4237-a68d-f946c53e31a6",
+    "oracleId": "23878990-dcbd-4a2a-b4f7-ee7edb396c71",
+    "name": "Rust-Shield Rampager",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rust-Shield Rampager",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Raccoon Warrior",
+        "oracleText": "Offspring {2} (You may pay an additional {2} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nThis creature can't be blocked by creatures with power 2 or less.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "c96b01f5-83de-4237-a68d-f946c53e31a6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Offspring"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

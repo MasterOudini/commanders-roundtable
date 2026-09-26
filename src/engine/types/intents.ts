@@ -82,6 +82,11 @@ export type Intent =
        */
       readonly conspired?: boolean;
       /**
+       * D558 - OFFSPRING (CR 702.175a): the offspring cost is paid (`Offspring {M}`). The host adds it to the payment, and
+       * the permanent's enters trigger creates a token copy of it except it's 1/1.
+       */
+      readonly offspring?: boolean;
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

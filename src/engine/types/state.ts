@@ -484,6 +484,8 @@ export interface StackObject {
   readonly replicated?: number;
   /** D557 - CONSPIRE (CR 702.78a): two creatures that share a colour with the spell were tapped as it was cast - the cast trigger copies it once. */
   readonly conspired?: true;
+  /** D558 - OFFSPRING (CR 702.175a): the offspring cost was paid - carried onto the permanent's entry (`CardMove.offspring`). */
+  readonly offspring?: true;
   /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
   readonly exhaust?: true;
   /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */
@@ -689,6 +691,8 @@ export interface PendingCast {
   readonly replicated?: number;
   /** D557 - the conspire the cast was announced with (CR 702.78a) - its `tap` picks ride beside it - carried to the `StackObject`. */
   readonly conspired?: true;
+  /** D558 - the offspring the cast was announced with (CR 702.175a), priced at every stage and carried to the `StackObject`. */
+  readonly offspring?: true;
   /** D540 - a FORETOLD cast (CR 702.143a): the turn the card was foretold - the foretell cost priced at every stage, the mark restored on a back-out. */
   readonly foretold?: number;
   /** D551 - a PLOTTED cast (CR 702.170d): the turn the card was plotted - nothing priced at any stage (`free`), the mark restored on a back-out. */

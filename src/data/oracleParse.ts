@@ -605,6 +605,19 @@ export function parseReplicate(oracleText: string, warn: Warn = NOOP_WARN): Mana
  * optional price - D530's verb-kicker shape: tap two untapped creatures you control that share a colour with it, one
  * creature predicate per printed colour (the `any` list is an OR). A colourless face shares no colour - nothing to read.
  */
+/**
+ * D558 - OFFSPRING (CR 702.175a): `Offspring {M}` on its own line (reminder text aside), as a mana cost - an optional
+ * additional cost the cast may pay. An offspring cost that is not only mana stays null (D90).
+ */
+export function parseOffspring(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Offspring ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
 export function parseConspire(oracleText: string, colors: readonly ColorLetter[]): KickerVerb | null {
   const printed = (oracleText ?? '').split('\n').some((raw) => raw.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Conspire');
   if (!printed || colors.length === 0) return null;
@@ -1299,6 +1312,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const replicateCost = isPermanent ? null : parseReplicate(face.oracleText, warn);
   // D557 - conspire on an instant or sorcery (a permanent spell's copy would be a token the engine does not make).
   const conspireVerb = isPermanent ? null : parseConspire(face.oracleText, face.colors);
+  // D558 - offspring on a creature (its copy is a permanent the token machinery makes).
+  const offspringCost = isPermanent && typeLine.types.includes('Creature') ? parseOffspring(face.oracleText, warn) : null;
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1400,6 +1415,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     buybackVerb: bought.buybackVerb,
     replicateCost,
     conspireVerb,
+    offspringCost,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

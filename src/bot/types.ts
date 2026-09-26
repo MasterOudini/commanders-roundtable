@@ -58,6 +58,8 @@ export interface BotPort {
     replicated?: number,
     /** D557 - the conspire (CR 702.78a); its two taps ride `costPicks.tap`. */
     conspired?: boolean,
+    /** D558 - the offspring cost paid (CR 702.175a). */
+    offspring?: boolean,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

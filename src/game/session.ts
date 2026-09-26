@@ -601,13 +601,15 @@ export function previewCast(
   replicated = 0,
   /** D557 - the conspire (CR 702.78a); its two taps ride `costPicks.tap`. */
   conspired = false,
+  /** D558 - the offspring cost paid (CR 702.175a). */
+  offspring = false,
 ): CastPreview | null {
   // ⚠️ `targets` is FORWARDED, and it did not used to be.
   // `ClientSession.previewCast` has computed a ward surcharge from the chosen
   // targets since M5, and this wrapper silently dropped the third argument — so
   // the one cost in this app that depends on what you are pointing at could
   // never reach the player who has to approve it.
-  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired) ?? null;
+  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired, offspring) ?? null;
 }
 
 // ── the assisted-effect offer ────────────────────────────────────────────────

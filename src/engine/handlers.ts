@@ -421,6 +421,8 @@ interface CastSetup {
   readonly replicated: number;
   /** D557 - the conspire (CR 702.78a): its taps are the picks; the stack object remembers it. */
   readonly conspired: boolean;
+  /** D558 - the offspring was paid (CR 702.175a), priced into `problem`; the stack object remembers it. */
+  readonly offspring: boolean;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -784,6 +786,17 @@ function conspireProblem(face: ReturnType<typeof faceOf>, conspired: boolean, fa
   if (face.additionalCost !== null || (kicked > 0 && face.kickerVerb !== null) || (buyback && face.buybackVerb !== null)) return `${face.name}'s conspire and another cost both take picks - the app charges one.`;
   return null;
 }
+/** D558 - OFFSPRING (CR 702.175a): the mana an offspring cast adds - the offspring cost once. */
+function offspringMana(face: ReturnType<typeof faceOf>, offspring: boolean): ManaCost[] {
+  return offspring && face.offspringCost !== null ? [face.offspringCost] : [];
+}
+/** D558 - why an offspring cannot be announced on this cast, or null when it can. */
+function offspringProblem(face: ReturnType<typeof faceOf>, offspring: boolean, faceDown: boolean): string | null {
+  if (!offspring) return null;
+  if (faceDown) return 'A face-down spell pays no offspring cost.';
+  if (face.offspringCost === null) return `${face.name} has no offspring cost the app can charge.`;
+  return null;
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
 function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
@@ -876,6 +889,8 @@ function prepareCast(
   replicated = 0,
   // D557 - the conspire (CR 702.78a); its taps are `picks.tap`.
   conspired = false,
+  // D558 - the offspring cost is paid (CR 702.175a).
+  offspring = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -968,6 +983,9 @@ function prepareCast(
   // D557 - a conspire's taps are the verb's picks (D530's path): validated below as the additional cost's are.
   const conWhy = conspireProblem(face, conspired, faceDown, kicked, buyback);
   if (conWhy) return { error: reject('notCastable', conWhy) };
+  // D558 - an offspring is priced with the kick: the announcement names it, the problem carries the cost.
+  const offWhy = offspringProblem(face, offspring, faceDown);
+  if (offWhy) return { error: reject('notCastable', offWhy) };
   // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
   const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? (conspired ? face.conspireVerb : null) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
@@ -983,12 +1001,12 @@ function prepareCast(
   if ('error' in altr) return altr;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...extras.mana], tax, ward.life + extras.life);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...offspringMana(face, offspring), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, offspring, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1205,6 +1223,7 @@ function castSpell(
     false,
     intent.replicated ?? 0,
     intent.conspired === true,
+    intent.offspring === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -1286,6 +1305,7 @@ function castSpell(
       ...(setup.buyback ? { buyback: true as const } : {}),
       ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
       ...(setup.conspired ? { conspired: true as const } : {}),
+      ...(setup.offspring ? { offspring: true as const } : {}),
       ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
       // D551 - a PLOTTED cast is free: its staged stages price nothing (the only free setup this path makes), and a
       // back-out restores the mark.
@@ -1451,7 +1471,7 @@ function chooseX(
   // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
   // D535 - and every other cost the cast chose (`stagedCastCost`).
   const xCost = stagedCastCost(face, pending);
-  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...offspringMana(face, pending.offspring === true), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -2190,7 +2210,7 @@ function chooseTargets(
     stagedCastCost(face, pending),
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...offspringMana(face, pending.offspring === true), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
     pending.taxApplied,
     ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).life + stagedCastLife(face, pending),
   );
@@ -2346,6 +2366,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.buyback ? { buyback: true as const } : {}),
     ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
     ...(setup.conspired ? { conspired: true as const } : {}),
+    ...(setup.offspring ? { offspring: true as const } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
@@ -2826,6 +2847,7 @@ function finishFromPending(
     buyback: pending.buyback === true,
     replicated: pending.replicated ?? 0,
     conspired: pending.conspired === true,
+    offspring: pending.offspring === true,
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2872,6 +2894,7 @@ function finishFromPending(
     ...(pending.buyback === true ? { buyback: true as const } : {}),
     ...(pending.replicated !== undefined && pending.replicated > 0 ? { replicated: pending.replicated } : {}),
     ...(pending.conspired === true ? { conspired: true as const } : {}),
+    ...(pending.offspring === true ? { offspring: true as const } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),

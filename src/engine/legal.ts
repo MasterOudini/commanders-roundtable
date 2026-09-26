@@ -76,6 +76,9 @@ export type LegalAction =
       readonly replicateAffordable?: boolean;
       /** D557 - CONSPIRE (CR 702.78a): the untapped creatures the caster controls that share a colour with the spell (`CastSpell.conspired` taps two of them, named as `tap`). */
       readonly conspireCandidates?: readonly InstanceId[];
+      /** D558 - OFFSPRING (CR 702.175a): the face's offspring cost the cast may pay (`CastSpell.offspring`), and whether the cast with it is payable now. */
+      readonly offspringCost?: string;
+      readonly offspringAffordable?: boolean;
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -1196,6 +1199,10 @@ function castAction(
       : {}),
     // D557 - a conspire is offered with its candidates (D406's list for the verb, the host re-validating).
     ...conspireOffer(state, oracle, scripts, ctx, caster, id, face),
+    // D558 - an offspring is offered with whether the cast with it is payable, priced by the same solver.
+    ...(face.offspringCost !== null
+      ? { offspringCost: face.offspringCost.raw, offspringAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.offspringCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
+      : {}),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),

@@ -24,7 +24,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true, mode.offspring === true) : null),
     [mode],
   );
 
@@ -56,6 +56,8 @@ export function PaymentReview() {
       ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
       // D557 - and the conspire (its taps are the picks below).
       ...(preview.conspired ? { conspired: true } : {}),
+      // D558 - and the offspring it priced.
+      ...(preview.offspringPaid ? { offspring: true } : {}),
       // D405 - what the review priced is what the host taps and exiles (D53).
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -200,6 +202,22 @@ export function PaymentReview() {
               {preview.conspired ? 'Skip conspire' : 'Conspire'}
             </button>
           )}
+        </div>
+      )}
+
+      {preview.offspring && (
+        <div className="mt-2 flex items-center gap-2" data-payment-offspring="">
+          <span className="text-xs text-crt-dim">
+            {preview.offspringPaid ? 'Offspring paid - a 1/1 token copy enters with it' : 'No offspring'} ({preview.offspring.cost})
+          </span>
+          <button
+            type="button"
+            className={BTN_GHOST_SMALL}
+            data-payment="set-offspring"
+            onClick={() => setMode({ ...mode, offspring: !preview.offspringPaid })}
+          >
+            {preview.offspringPaid ? 'Skip offspring' : 'Pay offspring'}
+          </button>
         </div>
       )}
 

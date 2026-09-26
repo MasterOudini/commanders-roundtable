@@ -10153,6 +10153,20 @@ const WANTED = [
   'Burn Trail',
   'Ghastly Discovery',
   'Barkshell Blessing',
+  // D558 - OFFSPRING's proof fixtures: the eight creatures the strict judge counted whole (an Offspring line and the rows the library reads).
+  'Iridescent Vinelasher',
+  'Agate Instigator',
+  'Finch Formation',
+  'Tender Wildguide',
+  'Splash Lasher',
+  'Intrepid Rabbit',
+  'Steelburr Champion',
+  'Coruscation Mage',
+  // D558 - OFFSPRING: the rows the whole-leftover row maker rowed once the Offspring line was the engine's (a cost at cast, the enters trigger's 1/1 token copy).
+  'Steampath Charger',
+  'Starscape Cleric',
+  'Rust-Shield Rampager',
+  // D558 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

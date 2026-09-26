@@ -91,6 +91,8 @@ export type TableMode =
       readonly replicated?: number;
       /** D557 - the conspire the player announced in the review (its two taps ride `costPicks.tap`). */
       readonly conspired?: boolean;
+      /** D558 - the offspring the player announced in the review (its toggle). */
+      readonly offspring?: boolean;
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */

@@ -406,13 +406,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Thirst', 'an attached untap-skip on an Aura the suite could not find on the enchanted creature'],
   ['Chromium', 'a rampage suite whose fire ends the game (a 7/6 flier attacking into the block)'],
   ['Apex Altisaur', 'an enrage fight whose damage the suite counts against the wrong baseline (the two damage heads)'],
-  ['Intrepid Rabbit', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
   ['Juri, Master of the Revue', 'a dies payload reading the dead source power (last known information)'],
-  ['Starscape Cleric', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
   ['Galadriel, Gift-Giver', 'a modal enters-or-attacks head whose counter the suite reads twice'],
   ['Vodalian Serpent', 'a cant-attack-unless suite walking past its own declare-attackers step'],
-  ['Coruscation Mage', 'an Offspring keyword line outside the row library (the wide dump read the token printing)'],
-  ['Sinuous Striker', 'an Eternalize keyword line outside the row library (the wide dump read the token printing)'],
+  ['Sinuous Striker', 'the row maker: a line that is neither an activated ability nor a library trigger: Eternalize—{3}{U}{U}, Discard a card. (an eternalize that also discards; the dump reads the legal printing since D429 - D558)'],
   ['Melancholy', 'an attached untap-skip on an Aura the suite could not find on the enchanted creature'],
   // D429 - the classifier's static mirror (`ROW_STATICS`: can't be blocked / can't block / attacks each combat / the
   // untap-step skip / can't be countered) offered 32 more, each on a card whose OTHER line the row maker refuses - by
@@ -776,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D558 - offspring: the Offspring line is the engine's now (the cost at cast, the 1/1 token copy on entry); what stays is an offspring creature whose other line the row maker does not read.
+  ['Thundertrap Trainer', 'the row maker: a look with a negated noun the suite has no fixture for: Look at the top four cards of your library. (its Offspring line reads since D558) (D558)'],
   // D557 - conspire: the Conspire line is the engine's now (two creatures sharing a colour tapped at cast, one copy off the stack); what stays is a conspire spell whose other sentence the vocabulary does not read.
   ['Traitor\'s Roar', 'a spell with a line outside the vocabulary: Tap target untapped creature. It deals damage equal to its power to its controller. (its Conspire line reads since D557) (D557)'],
   // D556 - replicate: the Replicate line is the engine's now (the count paid at cast, the copies off the stack); what stays is a replicate spell whose other sentence the vocabulary does not read.

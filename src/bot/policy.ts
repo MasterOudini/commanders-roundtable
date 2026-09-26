@@ -242,7 +242,9 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
       // D557 - a conspire is paid whenever two creatures may pay it and the conspired cast has a plan (the copy is free).
       const conspireTaps = (cast.conspireCandidates ?? []).slice(0, 2);
       const conspiredTry = conspireTaps.length === 2 && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, { tap: conspireTaps }, false, false, 0, true) : null;
-      const plain = boughtTry?.plan ? boughtTry : replicatedTry?.plan ? replicatedTry : conspiredTry?.plan ? conspiredTry : kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
+      // D558 - an offspring is paid whenever the cast with it has a plan (a 1/1 copy is a body for nothing more).
+      const offspringTry = cast.offspringCost !== undefined && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}, false, false, 0, false, true) : null;
+      const plain = boughtTry?.plan ? boughtTry : replicatedTry?.plan ? replicatedTry : conspiredTry?.plan ? conspiredTry : offspringTry?.plan ? offspringTry : kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
       // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
       // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
       const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, x, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
@@ -273,6 +275,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.bought ? { buyback: true as const } : {}),
         ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
         ...(preview.conspired ? { conspired: true as const } : {}),
+        ...(preview.offspringPaid ? { offspring: true as const } : {}),
         ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
         ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
         ...(preview.alt.delve.length > 0 ? { delve: preview.alt.delve } : {}),
@@ -284,7 +287,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.alternative ? { alternative: true as const } : {}),
         ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       },
-      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${preview.bought ? ' (bought back)' : ''}${preview.replicated > 0 ? ' (replicated)' : ''}${preview.conspired ? ' (conspired)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
+      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${preview.bought ? ' (bought back)' : ''}${preview.replicated > 0 ? ' (replicated)' : ''}${preview.conspired ? ' (conspired)' : ''}${preview.offspringPaid ? ' (offspring)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );
   }
 

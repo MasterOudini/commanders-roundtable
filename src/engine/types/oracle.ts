@@ -123,6 +123,9 @@ export const TIER2_KEYWORDS = [
   // D557 - CONSPIRE (CR 702.78a): the cast's tap of two creatures that share a colour with the spell, and the cast
   // trigger that copies it once (`StackObject.conspired`), from the keyword table as replicate's is.
   'conspire',
+  // D558 - OFFSPRING (CR 702.175a): the cost at cast (`StackObject.offspring`, onto the permanent's entry) and the enters
+  // trigger that creates its 1/1 token copy, from the keyword table as fabricate's is.
+  'offspring',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -2068,6 +2071,11 @@ export interface OracleFace {
    * the tap chooser with one creature predicate per printed colour. Paid, the cast trigger copies the spell once.
    */
   readonly conspireVerb: import('../../data/activatedParse').KickerVerb | null;
+  /**
+   * D558 - OFFSPRING (CR 702.175a): `Offspring {M}` on a creature - an optional additional cost the cast may pay
+   * (`CastSpell.offspring`); paid, the permanent's enters trigger creates a token copy of it except it's 1/1.
+   */
+  readonly offspringCost: ManaCost | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

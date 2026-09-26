@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { STEAMPATH_CHARGER_SCRIPT } from './cards/steampathCharger';
+import { IRIDESCENT_VINELASHER_SCRIPT } from './cards/iridescentVinelasher';
+import { AGATE_INSTIGATOR_SCRIPT } from './cards/agateInstigator';
+import { FINCH_FORMATION_SCRIPT } from './cards/finchFormation';
+import { TENDER_WILDGUIDE_SCRIPT } from './cards/tenderWildguide';
+import { SPLASH_LASHER_SCRIPT } from './cards/splashLasher';
+import { INTREPID_RABBIT_SCRIPT } from './cards/intrepidRabbit';
+import { STARSCAPE_CLERIC_SCRIPT } from './cards/starscapeCleric';
+import { STEELBURR_CHAMPION_SCRIPT } from './cards/steelburrChampion';
+import { RUST_SHIELD_RAMPAGER_SCRIPT } from './cards/rustShieldRampager';
+import { CORUSCATION_MAGE_SCRIPT } from './cards/coruscationMage';
 import { PERSON_OF_INTEREST_SCRIPT } from './cards/personOfInterest';
 import { JEERING_HOMUNCULUS_SCRIPT } from './cards/jeeringHomunculus';
 import { TAUNTING_KOBOLD_SCRIPT } from './cards/tauntingKobold';
@@ -8239,6 +8250,17 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  STEAMPATH_CHARGER_SCRIPT,
+  IRIDESCENT_VINELASHER_SCRIPT,
+  AGATE_INSTIGATOR_SCRIPT,
+  FINCH_FORMATION_SCRIPT,
+  TENDER_WILDGUIDE_SCRIPT,
+  SPLASH_LASHER_SCRIPT,
+  INTREPID_RABBIT_SCRIPT,
+  STARSCAPE_CLERIC_SCRIPT,
+  STEELBURR_CHAMPION_SCRIPT,
+  RUST_SHIELD_RAMPAGER_SCRIPT,
+  CORUSCATION_MAGE_SCRIPT,
   PERSON_OF_INTEREST_SCRIPT,
   JEERING_HOMUNCULUS_SCRIPT,
   TAUNTING_KOBOLD_SCRIPT,
