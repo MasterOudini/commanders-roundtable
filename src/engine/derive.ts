@@ -149,6 +149,8 @@ function computeDerived(
   }
   // D494 - CR 611.2c: keywords gained for as long as the object stays (`It gains haste.`), at the same layer.
   for (const k of inst.gained ?? []) chars.keywords.add(k);
+  // D548 - an awakened land has haste (CR 702.113a), at the same layer.
+  if (inst.awakened === true) chars.keywords.add('haste');
   // D471 - CR 122.1c: a keyword counter gives the object that keyword. The counter kind is the printed word
   // (`first strike`), the keyword the engine's id; a kind outside the enforced list is inert, as before.
   for (const [kind, n] of Object.entries(inst.counters)) {
@@ -181,6 +183,12 @@ function computeDerived(
     for (const t of inst.addedSubtypes) if (!subtypes.includes(t)) subtypes.push(t);
     chars.typeLine = { ...chars.typeLine, subtypes };
   }
+  // D548 - an awakened land is a 0/0 Elemental creature that's still a land (CR 702.113a): layer 4.
+  if (inst.awakened === true) {
+    const types = chars.typeLine.types.includes('Creature') ? [...chars.typeLine.types] : [...chars.typeLine.types, 'Creature'];
+    const subtypes = chars.typeLine.subtypes.includes('Elemental') ? [...chars.typeLine.subtypes] : [...chars.typeLine.subtypes, 'Elemental'];
+    chars.typeLine = { ...chars.typeLine, types, subtypes };
+  }
   // D521 - the Ring-bearer is legendary once the Ring has tempted its controller (CR 701.54d, the emblem's first
   // ability): a supertype at layer 4, read off the seat rather than the emblem so the object and the count cannot
   // disagree.
@@ -206,6 +214,11 @@ function computeDerived(
   // D395 - the animate family sets the base P/T here (CR 613.4b): "This land becomes a 3/3 ..."
   // gives a land, which has none, a base of 3/3. The last entry written wins, and the Tier-3
   // override below still wins over it (D34).
+  // D548 - the awakened land's base 0/0 (CR 613.4b), timestamped before any animation still in effect this turn.
+  if (inst.awakened === true) {
+    chars.power = 0;
+    chars.toughness = 0;
+  }
   for (const mod of state.untilEndOfTurn) {
     if (mod.card !== inst.id || mod.basePt === undefined) continue;
     chars.power = mod.basePt.power;

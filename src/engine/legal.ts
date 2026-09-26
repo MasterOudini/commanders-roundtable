@@ -17,9 +17,10 @@ import { isMainPhase } from './turn';
 import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
+import { parseTargetClauses } from '../data/targetParse';
 import type { ScriptRegistry } from './scripts/registry';
 import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
-import type { ActivatedAbility, OracleCard, OracleDb, OracleFace } from './types/oracle';
+import type { ActivatedAbility, OracleCard, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import type { GameState, Step } from './types/state';
 import type { ManaCost } from './types/mana';
 
@@ -214,6 +215,18 @@ export const FORETELL_COST = parseManaCost('{2}');
  * D540 - a card FORETOLD on an earlier turn, in its owner's exile: castable from there for its foretell cost (CR
  * 702.143a). The offer and the host ask this one predicate (D139).
  */
+/** D548 - AWAKEN's own clause (CR 702.113a), read once by the target grammar: a land you control. */
+const AWAKEN_LAND: TargetSpec | undefined = parseTargetClauses('Put a +1/+1 counter on target land you control.')[0];
+/**
+ * D548 - A SPELL'S TARGET CLAUSES AS CAST: its printed ones, and the awakened land after them when its awaken cost is
+ * elected. The cast validation, the targets prompt, the fizzle rule and the still-legal picks all ask this, never
+ * `face.targets` alone - the awaken pick answers the clause after the printed ones.
+ */
+export function castTargetSpecs(face: OracleFace, alternative: boolean): readonly TargetSpec[] {
+  if (!alternative || face.alternativeCost?.keyword !== 'awaken' || AWAKEN_LAND === undefined) return face.targets;
+  return [...face.targets, AWAKEN_LAND];
+}
+
 /** D547 - a WARPED card in its owner's exile, exiled on an earlier turn: castable from there for its mana cost. */
 export function castsWarped(state: GameState, id: InstanceId, player: PlayerId): boolean {
   const inst = state.cards[id];

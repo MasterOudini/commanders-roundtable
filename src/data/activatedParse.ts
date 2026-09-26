@@ -1301,7 +1301,10 @@ export interface AlternativeCost {
    */
   // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
   // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
-  readonly keyword?: 'evoke' | 'dash' | 'warp';
+  // D548 - and AWAKEN (CR 702.113a): the election adds a target land you control and the rider after the spell (`awaken`: N).
+  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken';
+  /** D548 - AWAKEN N: the +1/+1 counters the awakened land gets. */
+  readonly awaken?: number;
   /**
    * D490 - `If <condition>, you may cast this spell without paying its mana cost.`: an alternative cost of NOTHING
    * under its conditions (mana null, no verb, no pitch). The offer and the handler already price a null mana at
@@ -1337,6 +1340,27 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         exileFromHand: null,
         conditions: [],
         keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : 'dash',
+      };
+    }
+    // D548 - AWAKEN N—{cost}: the same alternative cost with a count - the rider the engine runs after the spell.
+    const awaken = /^Awaken (\d+)—((?:\{[^}]+\})+)$/.exec(line);
+    if (awaken) {
+      const awakenMana = parseCost(awaken[2] ?? '');
+      if (awakenMana === null) return null;
+      return {
+        line,
+        costText: awaken[2] ?? '',
+        mana: awakenMana,
+        lifeCost: 0,
+        sacrificeCost: null,
+        discardCost: null,
+        tapCost: null,
+        exileFromGraveyardCost: null,
+        returnCost: null,
+        exileFromHand: null,
+        conditions: [],
+        keyword: 'awaken',
+        awaken: Number(awaken[1]),
       };
     }
     // D490 - THE CONDITIONAL FREE CAST: `If <condition>, you may cast this spell without paying its mana cost.` - an

@@ -24,6 +24,7 @@ import {
   castableFaces,
   castsForetold,
   castsWarped,
+  castTargetSpecs,
   FORETELL_COST,
   discardCandidatesFor,
   exileFromGraveyardCandidatesFor,
@@ -1142,7 +1143,8 @@ function castSpell(
     return reject('illegalMode', `No mode of ${setup.face.name} has a legal target right now.`);
   }
   const chosenModes = modal !== null && intent.modes !== undefined ? modesInOrder(intent.modes) : [];
-  const spellSpecs = modal !== null ? modeSpecs(modal.modes, chosenModes) : setup.face.targets;
+  // D548 - an awakened cast aims the awakened land after the printed clauses (`castTargetSpecs`).
+  const spellSpecs = modal !== null ? modeSpecs(modal.modes, chosenModes) : castTargetSpecs(setup.face, intent.alternative === true);
   const needsX = !setup.faceDown && !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
   const needsTargets = !setup.faceDown && spellSpecs.length > 0 && intent.targets === undefined;
 
@@ -1366,7 +1368,7 @@ function chooseX(
 
   // CR 601.2c follows 601.2b: with X known, ask for the targets it may size.
   // D343 - a modal spell aims the CHOSEN modes' clauses.
-  const xSpecs = face.modal ? modeSpecs(face.modal.modes, pending.modes) : face.targets;
+  const xSpecs = face.modal ? modeSpecs(face.modal.modes, pending.modes) : castTargetSpecs(face, pending.alternative === true);
   if (xSpecs.length > 0 && pending.targets.length === 0) {
     return accept([
       { t: 'XChosen', x: intent.x, problem },
@@ -2047,7 +2049,7 @@ function chooseTargets(
       : abilityOfRef(deps, face, pending.abilityRef)?.targets ?? []
     : face.modal
       ? modeSpecs(face.modal.modes, pending.modes)
-      : face.targets;
+      : castTargetSpecs(face, pending.alternative === true);
 
   // D341 - a staged ability's source carries its power and toughness; a spell on the stack has none.
   const src = targetingSourceFor(state, deps, pending.card, intent.player) ?? { controller: intent.player, colors: face.colors };

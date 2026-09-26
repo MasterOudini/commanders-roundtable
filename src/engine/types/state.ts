@@ -370,6 +370,11 @@ export interface CardInstance {
    */
   readonly unearthed?: true | undefined;
   /**
+   * D548 - AWAKENED (CR 702.113a): a 0/0 Elemental creature with haste that's still a land - derive reads it at layer 4
+   * (Creature, Elemental), layer 6 (haste) and layer 7b (base 0/0, before the counters). Cleared as it leaves the battlefield.
+   */
+  readonly awakened?: true | undefined;
+  /**
    * D457 - exhaust (CR 702.178): the refs of the exhaust abilities THIS object has activated. Stamped by the reducer
    * as the ability goes on the stack (`StackObject.exhaust`), read by `legal.ts` and `handlers.ts`, cleared with
    * the battlefield fields - a new object may exhaust again.

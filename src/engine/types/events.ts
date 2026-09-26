@@ -65,7 +65,7 @@ export interface CardMove {
   /** D530 - and which of a two-kicker face's costs it was kicked with. */
   readonly kickedWith?: readonly number[];
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
-  readonly altKeyword?: 'evoke' | 'dash' | 'warp';
+  readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */
   readonly warpedTurn?: number;
   /** D489 - the exile that SUSPENDS the card (CR 702.62a): the reducer marks it for the upkeep tick. */
@@ -553,6 +553,8 @@ export type EventBody =
   | { readonly t: 'HasteChosen'; readonly card: InstanceId }
   /** D448 - the card came back by its own Unearth: haste, exile on leaving, exile at the next end step. */
   | { readonly t: 'Unearthed'; readonly card: InstanceId }
+  /** D548 - AWAKEN's rider (CR 702.113a): the land becomes a 0/0 Elemental creature with haste, for as long as it stays. */
+  | { readonly t: 'Awakened'; readonly card: InstanceId }
   /**
    * D369 - a player's answer to a payment prompt, recorded before its consequence in the
    * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like

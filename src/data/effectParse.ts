@@ -3467,6 +3467,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D408 - an alternative cost the engine charges is no clause of the spell either (unread, it stays).
     // D490 - the conditional free cast's line leaves the effect text as the alternative-cost line does.
     .filter((l) => !((ALTERNATIVE_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) || FREE_CAST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim())) && parseAlternativeCost(l, parseManaCost, cardName) !== null))
+    // D548 - an AWAKEN line is the spell's alternative cost (`parseAlternativeCost`, keyword `awaken`), no clause of it.
+    .filter((l) => parseAlternativeCost(l, parseManaCost, cardName)?.keyword !== 'awaken')
     // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
     .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
     // D504 - a tribal instant's or sorcery's `Changeling` line (Crib Swap) is a characteristic the keywords carry, no

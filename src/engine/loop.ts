@@ -26,7 +26,7 @@ import { n, narrated, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
 import { orderTriggersApnap } from './triggers';
 import { grantsPriority, maxHandSize, nextStep, skipsFirstDraw } from './turn';
-import { shouldAutoPass, legalActions } from './legal';
+import { castTargetSpecs, shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
@@ -824,7 +824,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     const printed = oracleCard ? faceOf(oracleCard, obj.copyOf.faceIndex) : null;
     const face = printed !== null && obj.copyOf.colors !== undefined ? { ...printed, colors: obj.copyOf.colors } : printed;
     const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
-    if (!targetsStillLegal(state, deps, obj, face, modalSpecs)) {
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : undefined))) {
       events.push({ t: 'SpellFizzled', stackId: obj.id });
       events.push(narrated(`${obj.label} is countered on resolution — no legal targets.`, obj.controller, obj.identity));
       return emitted(events);
@@ -832,7 +832,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     events.push({ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller });
     let rng: RngState | undefined;
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
-    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? face?.targets ?? []);
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : []));
     if (spellDef && obj.source !== null) {
       events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.source, obj));
     } else if (face?.modal && face.effectMode === 'auto') {
@@ -844,6 +844,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push(...result.events);
       rng = result.rng;
     }
+    // D548 - AWAKEN's rider, after the spell's own effect (CR 702.113a).
+    events.push(...awakenRider(state, deps, obj, face));
     events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
     return emitted(events, rng);
   }
@@ -856,7 +858,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
     // D343 - a modal spell re-checks the CHOSEN modes' clauses (CR 608.2b).
     const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
-    if (!targetsStillLegal(state, deps, obj, face, modalSpecs)) {
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : undefined))) {
       // CR 608.2b — a spell whose targets are all illegal is removed from the
       // stack and does nothing. It goes to the graveyard, not to exile.
       events.push({ t: 'SpellFizzled', stackId: obj.id });
@@ -933,7 +935,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // D137); `aimOf` alone admits a card in any zone, and a two-target destroy
     // used to "destroy" a target exiled in response. A shipped def keeps the
     // declared list and its own checks.
-    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? face?.targets ?? []);
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : []));
     if (spellDef) {
       events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.card, obj));
     } else if (face?.modal && face.effectMode === 'auto') {
@@ -948,6 +950,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push(...result.events);
       rng = result.rng;
     }
+    // D548 - AWAKEN's rider, after the spell's own effect (CR 702.113a).
+    events.push(...awakenRider(state, deps, obj, face));
     events.push({
       t: 'CardsMoved',
       // ⚠️ The SPELL's face, carried onto the permanent it becomes — CR 712.
@@ -1517,6 +1521,27 @@ function targetsStillLegal(
  * otherwise (the shape `targetsStillLegal` asks); a face with no parsed clause
  * keeps the CR restrictions alone. The slots stay aligned with the kept picks.
  */
+/**
+ * D548 - AWAKEN's rider (CR 702.113a): the pick that answers the awakened-land clause (the one after the printed ones),
+ * still legal as the spell resolves, gets N +1/+1 counters and becomes a 0/0 Elemental creature with haste that stays
+ * (`Awakened`). A spell cast without its awaken cost, or whose land pick is gone, adds nothing.
+ */
+function awakenRider(state: GameState, deps: EngineDeps, obj: StackObject, face: OracleFace | null): EventBody[] {
+  const n = face?.alternativeCost?.keyword === 'awaken' ? face.alternativeCost.awaken : undefined;
+  if (obj.alternativePaid !== true || face === null || n === undefined) return [];
+  const checked = withStillLegalPicks(state, deps, obj, face, castTargetSpecs(face, true));
+  const slot = face.targets.length;
+  const at = checked.targetSlots !== undefined ? checked.targetSlots.indexOf(slot) : checked.targets.length - 1;
+  const land = at >= 0 ? checked.targets[at] : undefined;
+  if (land === undefined || land.kind !== 'card') return [];
+  const name = derive(state, deps.oracle, deps.scripts, land.id).name;
+  return [
+    { t: 'CountersChanged', changes: [{ card: land.id, kind: '+1/+1', delta: n }] },
+    { t: 'Awakened', card: land.id },
+    narrated(`${obj.label} — awaken ${n}: ${name} becomes a 0/0 Elemental creature with haste.`, obj.controller, obj.identity),
+  ];
+}
+
 function withStillLegalPicks(
   state: GameState,
   deps: EngineDeps,

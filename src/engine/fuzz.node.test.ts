@@ -1741,6 +1741,8 @@ interface Run {
   readonly embalmTokens: number;
   /** D547 - the warp exiles (a move marked `warpedTurn`: the end-step exile a warp cast armed). */
   readonly warpExiles: number;
+  /** D548 - the lands an awakened spell awakened (an `Awakened` event). */
+  readonly awakenedLands: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2259,6 +2261,7 @@ function runOne(seed: number): Run {
     exploitSacrifices: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.exploitedBy !== undefined).length : 0), 0),
     embalmTokens: game.log.filter((e) => e.body.t === 'TokenCreated' && e.body.copyExceptions?.noManaCost === true).length,
     warpExiles: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.filter((m) => m.warpedTurn !== undefined).length : 0), 0),
+    awakenedLands: game.log.filter((e) => e.body.t === 'Awakened').length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2603,6 +2606,7 @@ const TOTAL_KEYS = [
   'exploitSacrifices',
   'embalmTokens',
   'warpExiles',
+  'awakenedLands',
   'crownings',
   'ringTempts',
   'ringAbilities',

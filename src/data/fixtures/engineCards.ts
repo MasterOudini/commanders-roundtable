@@ -9016,6 +9016,8 @@ export const STARBREACH_WHALE: CardData = F.STARBREACH_WHALE as CardData;
 export const WEFTBLADE_ENHANCER: CardData = F.WEFTBLADE_ENHANCER as CardData;
 export const SINISTER_CRYOLOGIST: CardData = F.SINISTER_CRYOLOGIST as CardData;
 export const GERMINATING_WURM: CardData = F.GERMINATING_WURM as CardData;
+export const COASTAL_DISCOVERY: CardData = F.COASTAL_DISCOVERY as CardData;
+export const CLUTCH_OF_CURRENTS: CardData = F.CLUTCH_OF_CURRENTS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18284,6 +18286,8 @@ export const ENGINE_CARDS: CardData[] = [
   WEFTBLADE_ENHANCER,
   SINISTER_CRYOLOGIST,
   GERMINATING_WURM,
+  COASTAL_DISCOVERY,
+  CLUTCH_OF_CURRENTS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

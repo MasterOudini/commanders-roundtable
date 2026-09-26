@@ -345,6 +345,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     riotHaste: undefined,
     // D448 - a new object was not unearthed.
     unearthed: undefined,
+    // D548 - nor awakened.
+    awakened: undefined,
     // D526 - a new object was not manifested.
     manifested: undefined,
   };
@@ -1097,6 +1099,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D448 - unearth, remembered on the object until it leaves (and it leaves for exile).
     case 'Unearthed':
       return withCard(state, body.card, { unearthed: true });
+
+    // D548 - the awakened land's lasting mark (CR 702.113a).
+    case 'Awakened':
+      return withCard(state, body.card, { awakened: true });
 
     // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
     case 'Explored':

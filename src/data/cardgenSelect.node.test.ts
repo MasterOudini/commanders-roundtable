@@ -778,6 +778,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D548 - awaken: the Awaken line is the engine's now (the alternative cost, the added land target, the rider); what stays is an awaken spell whose own sentence the vocabulary does not read.
+  ['Boiling Earth', 'a spell with a line outside the vocabulary: Boiling Earth deals 1 damage to each creature your opponents control - a damage sweep over an each-opponent scope (D548)'],
+  ['Planar Outburst', 'a spell with a line outside the vocabulary: Destroy all nonland creatures - a destroy sweep over a nonland noun (D548)'],
   // D547 - warp: the Warp line is the engine's now (the cast from hand, the end-step exile, the later cast from exile); what stays is a warp card the row maker refuses for another line.
   ['Pinnacle Emissary', 'the row maker: a leftover line not among the printed lines: Whenever you cast an artifact spell, create a 1/1 colorless Drone artifact creature token with flying and ... (the quoted ability of the token cut the line) (D547)'],
   ['Susurian Voidborn', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another creature or artifact you control dies, target opponent loses 1 life and you gain 1 life. (D547)'],
