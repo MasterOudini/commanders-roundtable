@@ -126,6 +126,9 @@ export const TIER2_KEYWORDS = [
   // D558 - OFFSPRING (CR 702.175a): the cost at cast (`StackObject.offspring`, onto the permanent's entry) and the enters
   // trigger that creates its 1/1 token copy, from the keyword table as fabricate's is.
   'offspring',
+  // D560 - BLITZ (CR 702.152a): the alternative cost's mark (haste, derive) and the dies trigger that draws, from the
+  // keyword table as persist's is (looked back).
+  'blitz',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head

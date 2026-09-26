@@ -1386,7 +1386,7 @@ export interface AlternativeCost {
   // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
   // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
   // D548 - and AWAKEN (CR 702.113a): the election adds a target land you control and the rider after the spell (`awaken`: N).
-  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken';
+  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz';
   /** D548 - AWAKEN N: the +1/+1 counters the awakened land gets. */
   readonly awaken?: number;
   /**
@@ -1407,7 +1407,8 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
     // D449 - THE KEYWORD ALTERNATIVE COSTS: `Evoke {cost}` and `Dash {cost}` on their own line (reminder text
     // aside) are "you may pay {cost} rather than pay this spell's mana cost" with a rider the engine runs off
     // the mark the cast leaves. One alternative cost per face: a printed line found first wins.
-    const kwAlt = /^(Evoke|Dash|Warp) ((?:\{[^}]+\})+)$/.exec(line);
+    // D560 - and Blitz (CR 702.152a): dash's shape, the permanent sacrificed at the next end step and drawing when it dies.
+    const kwAlt = /^(Evoke|Dash|Warp|Blitz) ((?:\{[^}]+\})+)$/.exec(line);
     if (kwAlt) {
       const kwMana = parseCost(kwAlt[2] ?? '');
       if (kwMana === null) return null;
@@ -1423,7 +1424,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         returnCost: null,
         exileFromHand: null,
         conditions: [],
-        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : 'dash',
+        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : 'dash',
       };
     }
     // D548 - AWAKEN N—{cost}: the same alternative cost with a count - the rider the engine runs after the spell.

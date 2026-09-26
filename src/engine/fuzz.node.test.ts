@@ -1792,6 +1792,9 @@ interface Run {
   readonly offspringTriggers: number;
   /** D559 - the transmute abilities put on the stack (CR 702.53a - the hand ability, its search by mana value). */
   readonly transmutes: number;
+  /** D560 - the casts for a blitz cost (CR 702.152a), and the blitz dies-draws put on the stack. */
+  readonly blitzedCasts: number;
+  readonly blitzDraws: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2329,6 +2332,8 @@ function runOne(seed: number): Run {
       const face = ORACLE.byPrinting(game.state.cards[e.body.obj.source]?.printingId ?? '')?.faces[0];
       return at >= 0 && face?.activated[Number(ref.slice(at + 2))]?.transmute !== undefined;
     }).length,
+    blitzedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.alternativeCost?.keyword ?? null) === 'blitz').length,
+    blitzDraws: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:blitz')).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2692,6 +2697,8 @@ const TOTAL_KEYS = [
   'offspringCasts',
   'offspringTriggers',
   'transmutes',
+  'blitzedCasts',
+  'blitzDraws',
   'crownings',
   'ringTempts',
   'ringAbilities',

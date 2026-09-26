@@ -9116,6 +9116,13 @@ export const DIZZY_SPELL: CardData = F.DIZZY_SPELL as CardData;
 export const ETHEREAL_USHER: CardData = F.ETHEREAL_USHER as CardData;
 export const DRIFT_OF_PHANTASMS: CardData = F.DRIFT_OF_PHANTASMS as CardData;
 export const DIMIR_INFILTRATOR: CardData = F.DIMIR_INFILTRATOR as CardData;
+export const WORKSHOP_WARCHIEF: CardData = F.WORKSHOP_WARCHIEF as CardData;
+export const CALDAIA_GUARDIAN: CardData = F.CALDAIA_GUARDIAN as CardData;
+export const MAYHEM_PATROL: CardData = F.MAYHEM_PATROL as CardData;
+export const CALDAIA_STRONGARM: CardData = F.CALDAIA_STRONGARM as CardData;
+export const NIGHT_CLUBBER: CardData = F.NIGHT_CLUBBER as CardData;
+export const PLASMA_JOCKEY: CardData = F.PLASMA_JOCKEY as CardData;
+export const RIVETEERS_REQUISITIONER: CardData = F.RIVETEERS_REQUISITIONER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18492,6 +18499,13 @@ export const ENGINE_CARDS: CardData[] = [
   ETHEREAL_USHER,
   DRIFT_OF_PHANTASMS,
   DIMIR_INFILTRATOR,
+  WORKSHOP_WARCHIEF,
+  CALDAIA_GUARDIAN,
+  MAYHEM_PATROL,
+  CALDAIA_STRONGARM,
+  NIGHT_CLUBBER,
+  PLASMA_JOCKEY,
+  RIVETEERS_REQUISITIONER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

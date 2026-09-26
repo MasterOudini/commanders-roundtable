@@ -36,7 +36,7 @@ import { EMPTY_POOL, poolTotal } from './types/mana';
 import { shuffle, type RngState } from './rng';
 import type { ActivatedAbility, EffectSpec, ModeDecl, OracleDb, OracleFace, TargetSpec } from './types/oracle';
 import { apnapOrder, livingPlayers, type Awaiting, type DelayedTrigger, type ExtraTurn, type GameState, type PendingTrigger, type StackObject } from './types/state';
-import { dashReturnSpec, unearthExileSpec, warpExileSpec } from '../data/effectParse';
+import { dashReturnSpec, mobilizeSacrificeSpec, unearthExileSpec, warpExileSpec } from '../data/effectParse';
 import { canBlock } from './combat';
 
 export interface EngineDeps {
@@ -1019,6 +1019,22 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       };
       events.push({ t: 'DelayedTriggerArmed', trigger });
       events.push(narrated(n`${face.name} was dashed: it has haste, and it returns to hand at the beginning of the next end step.`, obj.controller, obj.identity));
+    }
+    // D560 - BLITZ (CR 702.152a): a blitzed permanent is sacrificed at the beginning of the next end step - dash's delayed
+    // trigger, a sacrifice instead of the return; the haste and the dies-draw are the mark's (derive, the keyword table).
+    if (obj.alternativePaid && face?.alternativeCost?.keyword === 'blitz') {
+      const trigger: DelayedTrigger = {
+        id: `${obj.id}-blitz`,
+        controller: obj.controller,
+        source: obj.card,
+        when: { step: 'end', whose: 'next' },
+        armedTurn: state.turn.turnNumber,
+        armedStep: state.turn.step,
+        effects: [mobilizeSacrificeSpec()],
+        label: `${face.name} — blitz: sacrifice it`,
+      };
+      events.push({ t: 'DelayedTriggerArmed', trigger });
+      events.push(narrated(n`${face.name} was blitzed: it has haste and draws a card when it dies, and it is sacrificed at the beginning of the next end step.`, obj.controller, obj.identity));
     }
     // D547 - WARP: a warped permanent is exiled at the beginning of the next end step (a delayed trigger armed as the spell
     // resolves, dash's shape) - the exile marks the card, and its owner may cast it from exile on a later turn.

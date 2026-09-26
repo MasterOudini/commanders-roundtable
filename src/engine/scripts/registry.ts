@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WORKSHOP_WARCHIEF_SCRIPT } from './cards/workshopWarchief';
+import { CALDAIA_GUARDIAN_SCRIPT } from './cards/caldaiaGuardian';
+import { MAYHEM_PATROL_SCRIPT } from './cards/mayhemPatrol';
+import { CALDAIA_STRONGARM_SCRIPT } from './cards/caldaiaStrongarm';
+import { NIGHT_CLUBBER_SCRIPT } from './cards/nightClubber';
+import { PLASMA_JOCKEY_SCRIPT } from './cards/plasmaJockey';
+import { RIVETEERS_REQUISITIONER_SCRIPT } from './cards/riveteersRequisitioner';
 import { DIMIR_HOUSE_GUARD_SCRIPT } from './cards/dimirHouseGuard';
 import { DIMIR_INFILTRATOR_SCRIPT } from './cards/dimirInfiltrator';
 import { ETHEREAL_USHER_SCRIPT } from './cards/etherealUsher';
@@ -8253,6 +8260,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WORKSHOP_WARCHIEF_SCRIPT,
+  CALDAIA_GUARDIAN_SCRIPT,
+  MAYHEM_PATROL_SCRIPT,
+  CALDAIA_STRONGARM_SCRIPT,
+  NIGHT_CLUBBER_SCRIPT,
+  PLASMA_JOCKEY_SCRIPT,
+  RIVETEERS_REQUISITIONER_SCRIPT,
   DIMIR_HOUSE_GUARD_SCRIPT,
   DIMIR_INFILTRATOR_SCRIPT,
   ETHEREAL_USHER_SCRIPT,

@@ -308944,6 +308944,254 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WORKSHOP_WARCHIEF": {
+    "scryfallId": "021d8afe-b3da-411c-aa12-d482f9801554",
+    "oracleId": "0695af85-7405-4512-bb97-42517a532ada",
+    "name": "Workshop Warchief",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Workshop Warchief",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Rhino Warrior",
+        "oracleText": "Trample\nWhen this creature enters, you gain 3 life.\nWhen this creature dies, create a 4/4 green Rhino Warrior creature token.\nBlitz {4}{G}{G} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "021d8afe-b3da-411c-aa12-d482f9801554"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Blitz",
+      "Trample"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "99715",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALDAIA_GUARDIAN": {
+    "scryfallId": "287c7d61-13a0-46f7-a8d7-33320e250bbe",
+    "oracleId": "fd55d686-510e-4b6c-b8eb-458ee7c19fff",
+    "name": "Caldaia Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caldaia Guardian",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature or another creature you control with mana value 4 or greater dies, create two 1/1 green and white Citizen creature tokens.\nBlitz {2}{G} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "287c7d61-13a0-46f7-a8d7-33320e250bbe"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Blitz"
+    ],
+    "setCode": "ncc",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAYHEM_PATROL": {
+    "scryfallId": "50162cdd-ba30-48df-93ff-197c7f4a2913",
+    "oracleId": "f77a9160-1d37-476d-8908-29ddcc982328",
+    "name": "Mayhem Patrol",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mayhem Patrol",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Devil Warrior",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever this creature attacks, target creature gets +1/+0 until end of turn.\nBlitz {1}{R} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johan Grenier",
+        "imageId": "50162cdd-ba30-48df-93ff-197c7f4a2913"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Blitz",
+      "Menace"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALDAIA_STRONGARM": {
+    "scryfallId": "58b431d2-33c1-49d8-b45d-690c174bb456",
+    "oracleId": "e0e6938b-7abf-4f69-a3d6-82a58912bff4",
+    "name": "Caldaia Strongarm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caldaia Strongarm",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, put two +1/+1 counters on target creature.\nBlitz {3}{G} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "58b431d2-33c1-49d8-b45d-690c174bb456"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Blitz"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHT_CLUBBER": {
+    "scryfallId": "59fd3f8a-a13b-4a0a-bb27-b9246949ea7b",
+    "oracleId": "4d2abfe1-f5f8-4ed5-915d-bfe98c6321ee",
+    "name": "Night Clubber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Night Clubber",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, creatures your opponents control get -1/-1 until end of turn.\nBlitz {2}{B} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "59fd3f8a-a13b-4a0a-bb27-b9246949ea7b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Blitz"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PLASMA_JOCKEY": {
+    "scryfallId": "741ed811-cbcd-4178-a874-dc79d2a5d6f1",
+    "oracleId": "dedf0d3a-090a-4cc3-b5ee-65b6cb990b72",
+    "name": "Plasma Jockey",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Plasma Jockey",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "Whenever this creature attacks, target creature an opponent controls can't block this turn.\nBlitz {2}{R} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "741ed811-cbcd-4178-a874-dc79d2a5d6f1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Blitz"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVETEERS_REQUISITIONER": {
+    "scryfallId": "8ab5152d-767a-47d5-acfc-f439810aaeea",
+    "oracleId": "469f25de-c180-47e9-9b1b-e23269139bbd",
+    "name": "Riveteers Requisitioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riveteers Requisitioner",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Lizard Rogue",
+        "oracleText": "When this creature dies, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nBlitz {2}{R} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Behm",
+        "imageId": "8ab5152d-767a-47d5-acfc-f439810aaeea"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Blitz",
+      "Treasure"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

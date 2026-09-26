@@ -10178,6 +10178,16 @@ const WANTED = [
   // D559 - TRANSMUTE: the rows the whole-leftover row maker rowed once the Transmute line was the engine's (a hand ability searching the same mana value).
   'Dimir Infiltrator',
   // D559 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D560 - BLITZ's proof fixtures: the seven creatures the strict judge counted whole (a Blitz line and the rows the library reads).
+  'Workshop Warchief',
+  'Caldaia Guardian',
+  'Mayhem Patrol',
+  'Caldaia Strongarm',
+  'Night Clubber',
+  'Plasma Jockey',
+  'Riveteers Requisitioner',
+  // D560 - BLITZ: the rows the whole-leftover row maker rowed once the Blitz line was the engine's (an alternative cost - haste, a draw on death, a sacrifice at the next end step).
+  // D560 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

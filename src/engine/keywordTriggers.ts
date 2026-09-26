@@ -320,6 +320,22 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'blitz',
+    {
+      // D560 - CR 702.152a: a creature cast for its blitz cost has "When this creature dies, draw a card." - persist's
+      // looked-back shape: the move from the battlefield to a graveyard, the mark (`CardInstance.blitzed`) read in the
+      // state before it; its controller draws.
+      event: 'CardsMoved',
+      looksBack: true,
+      matches: (ctx, self, ev) =>
+        ev.t === 'CardsMoved' &&
+        ev.moves.some((m) => m.card === self && m.from.kind === 'battlefield' && m.to.kind === 'graveyard') &&
+        ctx.state.cards[self]?.blitzed === true,
+      label: (ctx, self) => `${nameOf(ctx, self)} - blitz: draw a card`,
+      resolve: (ctx, self, obj) => ctx.vocabulary(obj, vocabularyEffects('Draw a card.', nameOf(ctx, self)), []),
+    },
+  ],
+  [
     'persist',
     {
       // CR 702.79a - when this creature dies, if it had no -1/-1 counters on it, return it under its owner's control with a -1/-1 counter.

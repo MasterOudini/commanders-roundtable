@@ -275,6 +275,8 @@ export interface CardInstance {
    */
   readonly evoked?: true | undefined;
   readonly dashed?: true | undefined;
+  /** D560 - BLITZ (CR 702.152a): cast for its blitz cost - haste, and "When this creature dies, draw a card." while it stays. */
+  readonly blitzed?: true | undefined;
   /**
    * D453 - this permanent is controlled through an Aura (`You control enchanted creature`): the Aura, its entry
    * stamp (a new object is a new Aura, CR 400.7) and the controller it goes back to when the Aura no longer holds

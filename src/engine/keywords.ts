@@ -89,6 +89,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   conspire: 'conspire',
   // D558 - offspring: the cost at cast and the enters trigger that creates the permanent's 1/1 token copy.
   offspring: 'offspring',
+  // D560 - blitz: the alternative cost's haste and sacrifice, and the dies trigger that draws.
+  blitz: 'blitz',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

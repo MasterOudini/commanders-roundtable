@@ -331,6 +331,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     // D449 - and its evoke or dash the same way.
     evoked: undefined,
     dashed: undefined,
+    blitzed: undefined,
     // D457 - a new object has exhausted nothing.
     exhausted: undefined,
     // D489 - the suspend haste lasts while the permanent stays.
@@ -601,6 +602,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           // D449 - the keyword alternative the entering spell was cast for.
           ...(move.altKeyword === 'evoke' ? { evoked: true as const } : {}),
           ...(move.altKeyword === 'dash' ? { dashed: true as const } : {}),
+          // D560 - a blitzed permanent (haste; the keyword table's dies trigger draws).
+          ...(move.altKeyword === 'blitz' ? { blitzed: true as const } : {}),
           // D489 - the exile that suspends marks the card; any move out of exile unmarks it; a suspend cast's entry
           // carries the haste (CR 702.62).
           ...(move.suspend ? { suspended: true as const } : {}),
