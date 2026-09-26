@@ -291,7 +291,20 @@ export function chooseAttacks(view: PlayerView, prompt: AttackPrompt, me: Player
   const staysHome = candidates.some((c) => !chosen.has(c.instanceId));
   return [...chosen]
     .sort((a, b) => a.localeCompare(b))
-    .map((card) => (staysHome && prompt.exertable.includes(card) ? { card, defender, exert: true } : { card, defender }));
+    .map((card) => ({ card, defender: goadSeat(prompt, card, defender, seats) }))
+    .map((a) => (staysHome && prompt.exertable.includes(a.card) ? { ...a, exert: true } : a));
+}
+
+/** D554 - GOAD (CR 701.15b): a goaded attacker goes at a seat it need not avoid when one is open (the host checks it). */
+function goadSeat(
+  prompt: AttackPrompt,
+  card: InstanceId,
+  preferred: DefenderRef & { kind: 'player' },
+  seats: readonly (DefenderRef & { kind: 'player' })[],
+): DefenderRef & { kind: 'player' } {
+  const avoid = prompt.goaded?.find((g) => g.card === card)?.avoid ?? [];
+  if (!avoid.includes(preferred.id)) return preferred;
+  return seats.find((d) => !avoid.includes(d.id)) ?? preferred;
 }
 
 /**
@@ -301,12 +314,13 @@ export function chooseAttacks(view: PlayerView, prompt: AttackPrompt, me: Player
  */
 export function requiredAttacks(view: PlayerView, prompt: AttackPrompt, me: PlayerId): Attack[] {
   if (prompt.required.length === 0) return [];
-  const defender = prompt.defenders
+  const seats = prompt.defenders
     .filter((d): d is DefenderRef & { kind: 'player' } => d.kind === 'player')
     .filter((d) => d.id !== me && !view.seats[d.id]?.lost)
-    .sort((a, b) => a.id.localeCompare(b.id))[0];
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const defender = seats[0];
   if (!defender) return [];
-  return [...prompt.required].sort((a, b) => a.localeCompare(b)).map((card) => ({ card, defender }));
+  return [...prompt.required].sort((a, b) => a.localeCompare(b)).map((card) => ({ card, defender: goadSeat(prompt, card, defender, seats) }));
 }
 
 /**

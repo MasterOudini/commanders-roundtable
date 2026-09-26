@@ -307381,6 +307381,253 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "LASER_SCREWDRIVER": {
+    "scryfallId": "431a6798-2a82-44b8-bd2e-3e3a425d3473",
+    "oracleId": "9602b5f7-65f9-4447-815e-f60d3e4f7290",
+    "name": "Laser Screwdriver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Laser Screwdriver",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "{T}: Add one mana of any color.\n{1}, {T}: Tap target artifact.\n{2}, {T}: Surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\n{3}, {T}: Goad target creature. (Until your next turn, it attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Hector Ortiz",
+        "imageId": "431a6798-2a82-44b8-bd2e-3e3a425d3473"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Surveil",
+      "Goad"
+    ],
+    "setCode": "who",
+    "collectorNumber": "783",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISRUPT_DECORUM": {
+    "scryfallId": "165796ce-6f0c-4af6-bb0c-a8b1160e0a76",
+    "oracleId": "9b084cd4-cc21-4f3a-9ac5-1e1160a31aa6",
+    "name": "Disrupt Decorum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disrupt Decorum",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Goad all creatures you don't control. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+        "flavorText": "Dinner and politics don't mix.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "165796ce-6f0c-4af6-bb0c-a8b1160e0a76"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Goad"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "533",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JEERING_HOMUNCULUS": {
+    "scryfallId": "1702dc76-b0ff-49ba-a6d3-ea81c31216aa",
+    "oracleId": "146de263-fece-4a00-ab67-35dc934165d8",
+    "name": "Jeering Homunculus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jeering Homunculus",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Homunculus",
+        "oracleText": "When this creature enters, you may goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": "Mklthd had always hated crowds . . . and they had always hated him.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "1702dc76-b0ff-49ba-a6d3-ea81c31216aa"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Goad"
+    ],
+    "setCode": "gn3",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAUNTING_KOBOLD": {
+    "scryfallId": "28d4f041-c485-464e-91b1-73597b1e7f73",
+    "oracleId": "604c581e-c1ba-417c-b9de-182192cc85cb",
+    "name": "Taunting Kobold",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Taunting Kobold",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Kobold",
+        "oracleText": "Haste\nWhenever this creature attacks, goad target creature an opponent controls. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "28d4f041-c485-464e-91b1-73597b1e7f73"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Goad",
+      "Haste"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "404",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TAUNTING_SLIVER": {
+    "scryfallId": "3db8a900-b15a-42eb-a240-35764d57c155",
+    "oracleId": "fada8f16-85e8-44f1-9d2c-99da1e27851f",
+    "name": "Taunting Sliver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Taunting Sliver",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Sliver",
+        "oracleText": "Sliver creatures you control have \"When this creature enters, goad target creature an opponent controls.\" (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": "\"The way it shakes its hood is astonishingly irritating.\"\n—Neena, outland scout",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "3db8a900-b15a-42eb-a240-35764d57c155"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Goad"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "727",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GL_IN_DWARF_EMISSARY": {
+    "scryfallId": "5e605142-6e9f-496c-94f3-1d6e7044748e",
+    "oracleId": "29375a7a-af4e-46aa-8d1c-e8d22d3c0ea7",
+    "name": "Glóin, Dwarf Emissary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glóin, Dwarf Emissary",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Dwarf Advisor",
+        "oracleText": "Whenever you cast a historic spell, create a Treasure token. This ability triggers only once each turn. (Artifacts, legendaries, and Sagas are historic.)\n{T}, Sacrifice a Treasure: Goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tomas Duchek",
+        "imageId": "5e605142-6e9f-496c-94f3-1d6e7044748e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Goad",
+      "Treasure"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "583",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAURINE_THE_DIVERSION": {
+    "scryfallId": "63f95d04-6bfa-4aa1-99c3-dd3f7955792f",
+    "oracleId": "f2f8847d-17a8-4c26-8a7a-1bb6c02f2b39",
+    "name": "Laurine, the Diversion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Laurine, the Diversion",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Human Rogue",
+        "oracleText": "Partner with Kamber, the Plunderer (When this creature enters, target player may put Kamber into their hand from their library, then shuffle.)\nFirst strike\n{2}, Sacrifice an artifact or creature: Goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "63f95d04-6bfa-4aa1-99c3-dd3f7955792f"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Partner with",
+      "Goad",
+      "First strike",
+      "Partner"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "95387",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

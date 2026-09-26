@@ -349,6 +349,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     awakened: undefined,
     // D552 - nor detained.
     detainedBy: undefined,
+    // D554 - nor goaded.
+    goadedBy: undefined,
     // D526 - a new object was not manifested.
     manifested: undefined,
   };
@@ -938,8 +940,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // ── turn / priority ──────────────────────────────────────────────────
     case 'TurnBegan': {
       // D552 - a detain ends as the detaining player's next turn begins (CR 701.35a - until your next turn).
-      const detained = Object.values(state.cards).filter((c) => c.detainedBy === body.activePlayer);
-      const cards = detained.length === 0 ? state.cards : { ...state.cards, ...Object.fromEntries(detained.map((c) => [c.id, { ...c, detainedBy: undefined }])) };
+      // D554 - and a goad as its goader's next turn begins (CR 701.15a): that goader leaves the list, the others stay.
+      const ending = Object.values(state.cards).filter((c) => c.detainedBy === body.activePlayer || (c.goadedBy ?? []).includes(body.activePlayer));
+      const cards = ending.length === 0 ? state.cards : { ...state.cards, ...Object.fromEntries(ending.map((c) => {
+        const goaders = (c.goadedBy ?? []).filter((p) => p !== body.activePlayer);
+        return [c.id, { ...c, ...(c.detainedBy === body.activePlayer ? { detainedBy: undefined } : {}), ...(c.goadedBy !== undefined ? { goadedBy: goaders.length > 0 ? goaders : undefined } : {}) }];
+      })) };
       const players = { ...state.players };
       for (const id of state.seating) {
         const p = players[id];
@@ -1113,6 +1119,17 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return withCard(state, body.card, { awakened: true });
 
     // D552 - the detain mark (CR 701.35a), on what is still on the battlefield.
+    // D554 - the goad mark (CR 701.15a): the goader joins the list once, on what is still on the battlefield.
+    case 'Goaded': {
+      let next = state;
+      for (const id of body.cards) {
+        const c = next.cards[id];
+        if (c?.zone.kind !== 'battlefield') continue;
+        const goaders = c.goadedBy ?? [];
+        if (!goaders.includes(body.by)) next = withCard(next, id, { goadedBy: [...goaders, body.by] });
+      }
+      return next;
+    }
     case 'Detained': {
       let next = state;
       for (const id of body.cards) if (next.cards[id]?.zone.kind === 'battlefield') next = withCard(next, id, { detainedBy: body.by });

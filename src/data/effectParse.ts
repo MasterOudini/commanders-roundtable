@@ -1380,6 +1380,18 @@ const RULES: readonly Rule[] = [
   // D552 - DETAIN (CR 701.35a): a target, counted forms included ("up to two target creatures your opponents control").
   // The mass form (Lavinia's "detain each ... with mana value N or less") stays unread until it is measured.
   { kind: 'detain', re: new RegExp(`^detain ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D554 - GOAD (CR 701.15a): a target, counted forms included. The referent controllers (`defending player controls`,
+  // `that player controls`) and the mass form (`goad each creature target player controls`) stay unread until measured.
+  { kind: 'goad', re: new RegExp(`^goad ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D554 - the mass form over a closed scope (`all creatures you don't control`, `all creatures your opponents control`).
+  {
+    kind: 'goad',
+    re: /^goad ((?:all|each) (?!of )[^.]+?)\.$/i,
+    build: (m) => {
+      const s = readWideScope(m[1] ?? '');
+      return s === null || s.kind === 'player' ? null : { ...BASE, targetIndex: -1, self: true, scopes: [s] };
+    },
+  },
   // D399 - "can't be blocked this turn": the EVASION with an end (CR 509.1b's other side), the same
   // list, read by `canBlock` for the attacker. A target, the self (D373), and the pump-with-rider
   // ("gets +N/+N until end of turn and can't be blocked this turn") on one entry. The scoped forms

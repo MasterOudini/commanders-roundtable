@@ -14,6 +14,7 @@
 
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
+import { goadersOf, isGoaded } from './goad';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult, reboundTick } from './effects';
 import { keywordTargetSpecs, keywordTriggerDef, keywordTriggerEntry } from './keywordTriggers';
 import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
@@ -476,6 +477,11 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
             defenders: legalDefenders(deps2, ap),
             // D443 - the attackers a script lets the player exert (a trigger on `Exerted`), abilities intact.
             exertable: possible.filter((id) => canExert(deps2, id)),
+            // D554 - the goaded attackers and the goaders each avoids when it can (CR 701.15b); absent when none is goaded.
+            ...((): { goaded?: { card: InstanceId; avoid: readonly PlayerId[] }[] } => {
+              const goaded = possible.filter((id) => isGoaded(deps2.state, id)).map((card) => ({ card, avoid: goadersOf(deps2.state, card) }));
+              return goaded.length > 0 ? { goaded } : {};
+            })(),
           },
         });
         return emitted(events);

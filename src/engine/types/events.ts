@@ -394,7 +394,7 @@ export type EventBody =
   /** D508 - a hand put's picks, named before the move that carries them (a marker; the move beside it moved the state). */
   | { readonly t: 'PutFromHand'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
   /** D505 - a mass verb walked its scope (a marker; the counters, taps or untaps beside it moved the state). */
-  | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap' | 'massCantBlock' | 'ownersControl'; readonly members: number; readonly text: string }
+  | { readonly t: 'ScopeWalked'; readonly verb: 'massCounters' | 'massTap' | 'massUntap' | 'massCantBlock' | 'massGoad' | 'ownersControl'; readonly members: number; readonly text: string }
   /** D510 - a player's hand and graveyard went into their library and were shuffled, and they drew (a marker; the moves, the shuffle and the draws beside it moved the state). */
   | { readonly t: 'WheelShuffled'; readonly player: PlayerId; readonly cards: number; readonly drew: number }
   /** D511 - a bolster resolved: the creature that got the counters, or none (a marker; the counters beside it moved the state). */
@@ -559,6 +559,8 @@ export type EventBody =
   | { readonly t: 'Awakened'; readonly card: InstanceId }
   /** D552 - DETAIN (CR 701.35a): each card marked detained by `by`, until `by`'s next turn begins. */
   | { readonly t: 'Detained'; readonly cards: readonly InstanceId[]; readonly by: PlayerId }
+  /** D554 - GOAD (CR 701.15a): `by` joins each card's goaders, until `by`'s next turn begins. */
+  | { readonly t: 'Goaded'; readonly cards: readonly InstanceId[]; readonly by: PlayerId }
   /**
    * D369 - a player's answer to a payment prompt, recorded before its consequence in the
    * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like

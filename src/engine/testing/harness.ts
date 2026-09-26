@@ -437,10 +437,15 @@ export function simplestAnswer(
       // D335 - CR 508.1d: the simplest legal declaration is the REQUIRED attackers
       // (each attacks each combat if able) at the first opponent, and nothing else.
       const defender = awaiting.defenders.find((d) => d.kind === 'player');
+      // D554 - a goaded attacker takes the first player it need not avoid (CR 701.15b), when there is one.
+      const aimOf = (card: string) => {
+        const avoid = awaiting.goaded?.find((g) => g.card === card)?.avoid ?? [];
+        return awaiting.defenders.find((d) => d.kind === 'player' && !avoid.includes(d.id)) ?? defender;
+      };
       return {
         t: 'DeclareAttackers',
         player: awaiting.player,
-        attackers: defender ? awaiting.required.map((card) => ({ card, defender })) : [],
+        attackers: defender ? awaiting.required.map((card) => ({ card, defender: aimOf(card) ?? defender })) : [],
       };
     }
     case 'chooseX':

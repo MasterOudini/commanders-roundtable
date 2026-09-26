@@ -776,6 +776,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D554 - goad: the goad clause is the engine's now (the per-goader mark, the attack requirement); what stays is a goad card whose other sentence the row maker does not read.
+  ['Puppet Master, String Puller', 'the row maker: trigger head not in the library - Whenever one or more goaded creatures deal combat damage to one of your opponents (its goad reads since D554) (D554)'],
   // D553 - saddle: the Saddle line is the engine's now (crew's chooser at sorcery speed, the saddled mark); what stays is a saddle card whose row the suite cannot stage or prove.
   ['Ornery Tumblewagg', 'the row maker: a late-entering row (its beginning-of-combat head) beside the attacks-while-saddled head the suite fires by attacking on turn 3 - summoning sick that turn (D553)'],
   ['Congregation Gryff', 'the row maker: a counted payload under the attacks-while-saddled head (~ gets +X/+X, X counted off the board the arm sizes) (D553)'],
@@ -1940,7 +1942,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dementia Sliver', 'a quoted body outside the vocabulary: Choose a card name. Target opponent reveals a card at random (D517)'],
   ['Mesmeric Sliver', 'trigger payload not a pump: Fateseal 1. (D517)'],
   ['Spiteful Sliver', 'a granted damage-taken head under a scope (the block recipe is the row card\'s; not this wave): isDea (D517)'],
-  ['Taunting Sliver', 'trigger payload not a pump: Goad target creature an opponent controls. (D517)'],
   ['Regal Sliver', 'trigger payload not a pump: Slivers you control get +1/+1 until end of turn if you\'re th (D517)'],
   ['Psionic Sliver', 'a quoted body outside the vocabulary: ~ deals 2 damage to any target and 3 damage to itself. (D517)'],
   ['Vampiric Sliver', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creatur (D517)'],
@@ -2531,7 +2532,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Disallow', 'ability countering'],
   ['Disembowel', 'computed target threshold'],
   ['Displace', 'up-to-N targeting'],
-  ['Disrupt Decorum', 'goad mechanic'],
   ['Divine Gambit', 'opponent-chooses'],
   // D209 — the up-to-N family absorbs FIVE in one batch (its heaviest
   // showing); Drain Power forces the TARGET to activate mana abilities of

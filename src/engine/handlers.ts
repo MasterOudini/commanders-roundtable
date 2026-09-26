@@ -42,6 +42,7 @@ import {
 import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
 import { freeCastAdmits, handChoiceAdmits } from './handChoice';
 import { isDetained } from './detain';
+import { goadersOf } from './goad';
 import { clashBegin, clashFinish, clashOpponentStep } from './clash';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
@@ -3115,6 +3116,15 @@ function declareAttackers(
     if (seen.has(id)) continue;
     const name = derive(state, deps.oracle, deps.scripts, id, cache).name || 'That creature';
     return reject('attackRequired', `${name} attacks each combat if able.`);
+  }
+  // D554 - GOAD (CR 701.15b): a goaded attacker attacks a player other than its goaders when it can.
+  for (const a of intent.attackers) {
+    const avoid = goadersOf(state, a.card);
+    if (avoid.length === 0) continue;
+    if (a.defender.kind === 'player' && !avoid.includes(a.defender.id)) continue;
+    if (!defenders.some((dref) => dref.kind === 'player' && !avoid.includes(dref.id) && canAttackDefender(cdeps, a.card, dref))) continue;
+    const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
+    return reject('illegalAttacker', `${name} is goaded - it attacks a player other than the one who goaded it.`);
   }
 
   const events: EventBody[] = [

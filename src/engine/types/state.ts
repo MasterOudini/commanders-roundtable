@@ -383,6 +383,11 @@ export interface CardInstance {
    */
   readonly detainedBy?: PlayerId | undefined;
   /**
+   * D554 - GOADED (CR 701.15a/b): the players who goaded it, each until that player's next turn begins; it attacks
+   * each combat if able and attacks a player other than them if able (`goadersOf`). Cleared as it leaves the battlefield.
+   */
+  readonly goadedBy?: readonly PlayerId[] | undefined;
+  /**
    * D457 - exhaust (CR 702.178): the refs of the exhaust abilities THIS object has activated. Stamped by the reducer
    * as the ability goes on the stack (`StackObject.exhaust`), read by `legal.ts` and `handlers.ts`, cleared with
    * the battlefield fields - a new object may exhaust again.
@@ -896,6 +901,11 @@ export type Awaiting =
        * fire nothing (D90). Carried for the same reason `attackers` is: the registry is the host's.
        */
       readonly exertable: readonly InstanceId[];
+      /**
+       * D554 - GOAD (CR 701.15b): each goaded attacker and the goaders it attacks only when it can attack no other player;
+       * absent when nothing is goaded. The answerers (the harness, the bot) aim by it, the host checks it.
+       */
+      readonly goaded?: readonly { readonly card: InstanceId; readonly avoid: readonly PlayerId[] }[];
     }
   /**
    * ⚠️ Carries the legal PAIRINGS for the same reason `declareAttackers` carries

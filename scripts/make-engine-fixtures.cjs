@@ -10118,6 +10118,17 @@ const WANTED = [
   'Venomsac Lagac',
   'Dracosaur Auxiliary',
   // D553 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D554 - GOAD's proof fixture: Laser Screwdriver ({3}, {T}: Goad target creature).
+  'Laser Screwdriver',
+  // D554 - GOAD's proof fixture: Disrupt Decorum (Goad all creatures you don't control).
+  'Disrupt Decorum',
+  // D554 - GOAD: the rows the whole-leftover row maker rowed once the goad clause was the engine's (the per-goader mark, the attack requirement).
+  'Jeering Homunculus',
+  'Taunting Kobold',
+  'Taunting Sliver',
+  'Glóin, Dwarf Emissary',
+  'Laurine, the Diversion',
+  // D554 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -4,6 +4,7 @@
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import { protectedFrom } from './protection';
 import { isDetained } from './detain';
+import { isGoaded } from './goad';
 import type { ScriptRegistry } from './scripts/registry';
 import type { CombatDef, ScriptCtx } from './scripts/api';
 import type { ResolvedDamage } from './types/events';
@@ -87,7 +88,8 @@ export function canAttackDefender(deps: CombatDeps, id: InstanceId, defender: De
  * exactly when every one of these is declared.
  */
 export function requiredAttackers(deps: CombatDeps, candidates: readonly InstanceId[]): InstanceId[] {
-  return candidates.filter((id) => restrictedBy(deps, (def, ctx, self) => def.mustAttack?.(ctx, self, id) === true));
+  // D554 - a GOADED creature attacks each combat if able (CR 701.15b), beside a script's requirement.
+  return candidates.filter((id) => isGoaded(deps.state, id) || restrictedBy(deps, (def, ctx, self) => def.mustAttack?.(ctx, self, id) === true));
 }
 
 function restrictedBy(

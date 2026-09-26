@@ -702,6 +702,11 @@ export type EffectKind =
    */
   | 'detain'
   /**
+   * D554 - GOAD (CR 701.15a): until the goading player's next turn the creature attacks each combat if able and attacks a
+   * player other than the goader if able - the `Goaded` mark (`goadedBy`), asked through `goadersOf`.
+   */
+  | 'goad'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).

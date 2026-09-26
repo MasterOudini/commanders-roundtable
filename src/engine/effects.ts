@@ -1439,6 +1439,23 @@ export function effectResult(
         break;
       }
 
+      // D554 - GOAD (CR 701.15a): the goader joins the aim's list, until that player's next turn (`goadersOf`).
+      case 'goad': {
+        // The mass form: every creature the scope reaches (cantBlock's walk, D510), the marker first.
+        if (effect.scopes !== undefined && effect.scopes.length > 0 && effect.targetIndex === -1) {
+          let now = state;
+          for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+          const members = scopeMembers(now, deps, controller, effect.scopes, now === state ? cache : undefined).cards.filter((id) => now.cards[id]?.zone.kind === 'battlefield');
+          out.push({ t: 'ScopeWalked', verb: 'massGoad', members: members.length, text: effect.text });
+          if (members.length > 0) out.push({ t: 'Goaded', cards: members, by: controller });
+          break;
+        }
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'Goaded', cards: [aim.id], by: controller });
+        break;
+      }
+
       // D396 - BITE and FIGHT (CR 701.12): the subject (this step's aim - a target, the self, or the
       // referent) deals damage equal to its power to the clause's OTHER target; a fight deals both
       // ways at once, in ONE `DamageDealt`. Either operand gone from the battlefield, or not a

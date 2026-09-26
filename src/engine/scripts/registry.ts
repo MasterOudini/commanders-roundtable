@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { JEERING_HOMUNCULUS_SCRIPT } from './cards/jeeringHomunculus';
+import { TAUNTING_KOBOLD_SCRIPT } from './cards/tauntingKobold';
+import { TAUNTING_SLIVER_SCRIPT } from './cards/tauntingSliver';
+import { LASER_SCREWDRIVER_SCRIPT } from './cards/laserScrewdriver';
+import { GL_IN_DWARF_EMISSARY_SCRIPT } from './cards/glInDwarfEmissary';
+import { LAURINE_THE_DIVERSION_SCRIPT } from './cards/laurineTheDiversion';
 import { UNSWERVING_SLOTH_SCRIPT } from './cards/unswervingSloth';
 import { DISTRICT_MASCOT_SCRIPT } from './cards/districtMascot';
 import { ALACRIAN_JAGUAR_SCRIPT } from './cards/alacrianJaguar';
@@ -8232,6 +8238,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  JEERING_HOMUNCULUS_SCRIPT,
+  TAUNTING_KOBOLD_SCRIPT,
+  TAUNTING_SLIVER_SCRIPT,
+  LASER_SCREWDRIVER_SCRIPT,
+  GL_IN_DWARF_EMISSARY_SCRIPT,
+  LAURINE_THE_DIVERSION_SCRIPT,
   UNSWERVING_SLOTH_SCRIPT,
   DISTRICT_MASCOT_SCRIPT,
   ALACRIAN_JAGUAR_SCRIPT,
