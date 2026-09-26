@@ -604,6 +604,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.foretoldTurn !== undefined ? { foretoldTurn: move.foretoldTurn } : card.foretoldTurn !== undefined ? { foretoldTurn: undefined } : {}),
           // D547 - the warp exile marks the card; any other move clears the mark.
           ...(move.warpedTurn !== undefined ? { warpedTurn: move.warpedTurn } : card.warpedTurn !== undefined ? { warpedTurn: undefined } : {}),
+          // D551 - the plot exile marks the card; any other move clears the mark.
+          ...(move.plottedTurn !== undefined ? { plottedTurn: move.plottedTurn } : card.plottedTurn !== undefined ? { plottedTurn: undefined } : {}),
           // D541 - the discard madness exiles marks the card; any other move of it unmarks it.
           ...(move.madness === true ? { madnessExiled: true as const } : card.madnessExiled !== undefined ? { madnessExiled: undefined } : {}),
           // D407 - the entry stamp counts every entry (CR 400.7); a linked exile is set by the move that

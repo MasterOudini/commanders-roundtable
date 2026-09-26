@@ -3513,6 +3513,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^(?:Storm|Cascade(?:, cascade)*)$/i.test(l.trim()))
     // D550 - a Split second line is the stack's lock the engine enforces (`splitSecondOnStack`), no clause of the spell either.
     .filter((l) => !/^Split second$/i.test(l.trim()))
+    // D551 - a Plot line is a special action and a later free cast the engine runs, no clause of the spell either.
+    .filter((l) => !/^Plot (?:\{[^}]+\})+$/.test(l.trim()))
     .join('\n');
   const clauses = clausesOf(clean);
   // D537 - a SPELL whose every printed line was a keyword or a cost the engine runs (Throes of Chaos: Cascade and Retrace,

@@ -45,6 +45,8 @@ export type LegalAction =
       readonly faceDown?: true;
       /** D540 - the cast of a FORETOLD card from exile, for its foretell cost (CR 702.143a). */
       readonly foretold?: true;
+      /** D551 - the free cast of a PLOTTED card from exile, as a sorcery (CR 702.170a). */
+      readonly plotted?: true;
       /** D403 - the face has a kicker the cast may announce (`CastSpell.kicked`), or a multikicker. */
       readonly kicker?: 'once' | 'many';
       /** D443 - the kicked cast (base + one kick) is payable now; the fuzz driver kicks exactly when it is. */
@@ -203,6 +205,14 @@ export type LegalAction =
       readonly costText: string;
       readonly label: string;
     }
+  | {
+      /** D551 - plot a card from the hand for its plot cost (a special action at sorcery speed, CR 702.170a). */
+      readonly t: 'Plot';
+      readonly card: InstanceId;
+      readonly affordable: boolean;
+      readonly costText: string;
+      readonly label: string;
+    }
   | { readonly t: 'PassPriority' };
 
 /** D309 - the cost of casting any card face down (CR 702.37a). */
@@ -226,6 +236,14 @@ export function castTargetSpecs(face: OracleFace, alternative: boolean): readonl
   if (!alternative || face.alternativeCost?.keyword !== 'awaken' || AWAKEN_LAND === undefined) return face.targets;
   return [...face.targets, AWAKEN_LAND];
 }
+
+/** D551 - a PLOTTED card in its owner's exile, plotted on an earlier turn: castable from there free, as a sorcery. */
+export function castsPlotted(state: GameState, id: InstanceId, player: PlayerId): boolean {
+  const inst = state.cards[id];
+  return inst !== undefined && inst.zone.kind === 'exile' && inst.owner === player && inst.plottedTurn !== undefined && inst.plottedTurn < state.turn.turnNumber;
+}
+/** D551 - the cost a plotted cast pays: nothing (CR 702.170a - without paying its mana cost). */
+const PLOT_FREE = parseManaCost('{0}');
 
 /** D547 - a WARPED card in its owner's exile, exiled on an earlier turn: castable from there for its mana cost. */
 export function castsWarped(state: GameState, id: InstanceId, player: PlayerId): boolean {
@@ -362,6 +380,16 @@ function offeredActions(
           label: `Foretell ${face.name}`,
         });
       }
+      // D551 - PLOT (CR 702.170a): a special action from the hand at sorcery speed - the plot cost, the card exiled face up.
+      if (faceIndex === 0 && face.plotCost !== null && !face.isLand && sorcerySpeed && !state.pendingCast) {
+        out.push({
+          t: 'Plot',
+          card: id,
+          affordable: affordable(context.solve, buildPaymentProblem(face.plotCost, 0, [], 0), OTHER_PURPOSE),
+          costText: face.plotCost.raw,
+          label: `Plot ${face.name}`,
+        });
+      }
       if (face.isLand) {
         if (canLand) out.push({ t: 'PlayLand', card: id, faceIndex, label: face.name });
         continue;
@@ -409,6 +437,16 @@ function offeredActions(
     if (state.playPermissions.some((perm) => perm.card === id && perm.player === player)) continue;
     const card = cardFor(state, oracle, id);
     if (!card || !castsWarped(state, id, player)) continue;
+    const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
+    if (action) out.push(action);
+  }
+
+  // D551 - A PLOTTED CARD: in its owner's exile, plotted on an earlier turn - offered free, at sorcery speed only.
+  for (const id of state.zones.exile[player] ?? []) {
+    if (!sorcerySpeed) break;
+    if (state.playPermissions.some((perm) => perm.card === id && perm.player === player)) continue;
+    const card = cardFor(state, oracle, id);
+    if (!card || !castsPlotted(state, id, player)) continue;
     const action = castAction(state, oracle, scripts, id, 0, { kind: 'exile', player }, context, sorcerySpeed);
     if (action) out.push(action);
   }
@@ -1091,16 +1129,20 @@ function castAction(
   // D312 - the generic reductions the board grants this cast are folded into
   // the same adjustment the commander tax rides on: the offer's `tax` is what
   // the client's preview prices, so the two agree by construction (D53).
-  const tax =
-    (from.kind === 'command' && inst.isCommander ? 2 * inst.commanderCastCount : 0) -
-    castReduction(state, oracle, scripts, from.player ?? inst.controller, face, ctx.cache);
+  // D551 - a PLOTTED card in exile is cast without paying its mana cost (CR 702.170a), as a sorcery (the exile loop
+  // offers it at sorcery speed only): no mana cost to reduce, no tax - the host's rule for a free cast (D491).
+  const plotted = from.kind === 'exile' && castsPlotted(state, id, from.player ?? inst.owner);
+  const tax = plotted
+    ? 0
+    : (from.kind === 'command' && inst.isCommander ? 2 * inst.commanderCastCount : 0) -
+      castReduction(state, oracle, scripts, from.player ?? inst.controller, face, ctx.cache);
   const hasX = face.manaCost.xCount > 0;
   // D307 - from the graveyard the cost is the FLASHBACK cost (CR 702.34a).
   // D537 - a retrace or jump-start cast pays the mana cost (and its discard, the additional cost below).
   const graveyardCast = from.kind === 'graveyard' && face.flashbackCost === null ? face.graveyardCast : null;
   // D540 - a FORETOLD card in exile is cast for its foretell cost (CR 702.143a), an alternative cost.
   const foretold = from.kind === 'exile' && castsForetold(state, id, face, from.player ?? inst.owner);
-  const cost = foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
+  const cost = plotted ? PLOT_FREE : foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
   if (cost === null) return null;
   // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
   // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless
@@ -1143,7 +1185,7 @@ function castAction(
     ...(chooser?.fields ?? {}),
     // D540 - a foretold cast is the alternative cost already (one at a time, CR 118.9).
     // D547 - a warp is cast from the hand alone: the later cast from exile is offered for the mana cost only.
-    ...(foretold ? { foretold: true as const } : from.kind !== 'hand' && face.alternativeCost?.keyword === 'warp' ? {} : alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax)),
+    ...(plotted ? { plotted: true as const } : foretold ? { foretold: true as const } : from.kind !== 'hand' && face.alternativeCost?.keyword === 'warp' ? {} : alternativeOffer(state, oracle, scripts, ctx, caster, id, face, tax)),
   };
 }
 

@@ -664,6 +664,16 @@ export function parseFlashback(oracleText: string, warn: Warn = NOOP_WARN): Mana
 }
 
 /** D540 - "Foretell {M}" on its own line (reminder text aside), as a mana cost (CR 702.143a). */
+/** D551 - `Plot {M}` (reminder text aside): the plot cost, or null. */
+export function parsePlot(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Plot ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
 export function parseForetell(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -1352,6 +1362,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),
+    plotCost: parsePlot(face.oracleText, warn),
     madnessCost: parseMadness(face.oracleText, warn),
     partnerWith: partnerWithSearchSpec(face.oracleText),
     convoke: altCosts.convoke,

@@ -2049,6 +2049,12 @@ export interface OracleFace {
    */
   readonly foretellCost: ManaCost | null;
   /**
+   * D551 - PLOT (CR 702.170a): the plot cost the face prints (`Plot {M}`). A special action from the hand at sorcery speed
+   * pays it and exiles the card FACE UP; on a later turn it may be cast from exile without paying its mana cost, as a
+   * sorcery (`castsPlotted`).
+   */
+  readonly plotCost: ManaCost | null;
+  /**
    * D541 - MADNESS (CR 702.35a): the madness cost the face prints (`Madness {M}`). A discard of the card exiles it
    * instead (a built-in replacement), and its trigger offers the cast for this cost there and then - an alternative
    * cost, the timing the trigger's; a decline puts the card into its owner's graveyard.

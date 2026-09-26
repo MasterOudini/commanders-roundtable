@@ -262,7 +262,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D460 - disguise is the engine's now, and the mirror offered six the row maker refused: a token outside the table, the
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.
-  ['Museum Nightwatch', 'a token outside TOKEN_TABLE: Detective|2/2|WU|Creature|'],
   ['Basilica Stalker', 'a trigger payload outside the vocabulary (a surveil beside a life gain): You gain 1 life and surveil 1.'],
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
   // (creature or artifact) the filtered-head reader does not split.
@@ -280,7 +279,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D449 - evoke and dash are the engine's now, and the mirror offered four the row maker refused: two up-to-two
   // clauses no fixture serves, a typed attack head outside the library, a token outside TOKEN_TABLE (the wide run's reason).
   ["Kolaghan, the Storm's Fury", 'trigger head not in the library: Whenever a Dragon you control attacks, creatures you control get +1/+0 until end of turn.'],
-  ['Riders of Rohan', 'a token outside TOKEN_TABLE: Human Knight|2/2|R|Creature|trample,haste'],
   // D448 - unearth is the engine's now, and the mirror offered three the row maker refused: an ability-word activated
   // line, a search-to-graveyard payload and a combat-damage head that also sacrifices (the wide run's reason).
   ['Chronomancer', 'ability-word activated line: Atomic Transmutation — {1}, {T}, Sacrifice another artifact: Draw a card.'],
@@ -590,7 +588,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Tivadar of Thorn", "a filtered head no fixture satisfies (Tivadar) (D479)"],
   ["Balthor the Stout", "a tribal anthem outside the static vocabulary (Other Barbarian creatures get +1/+1) beside its tribal pump (D479)"],
   ["Private Eye", "a tribal anthem outside the static vocabulary (Other Detectives you control get +1/+1) (D479)"],
-  ["Inside Source", "a token outside TOKEN_TABLE (the 2/2 white and blue Detective) (D479)"],
+  ["Inside Source", 'the row maker: a vocabulary clause the suite has no fixture for - Target Detective you control, under the activated pump (D479; its Detective token keys since D551)'],
   ["Phylath, World Sculptor", "a counted noun with a supertype (a Plant token for each basic land you control) (D479)"],
   ['Curiosity', 'trigger head not in the library: Whenever enchanted creature deals damage to an opponent, you may draw '],
   ['Curious Cadaver', 'a sacrifice head no fixture the suite can sacrifice satisfies: a Clue'],
@@ -778,8 +776,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D551 - plot: the Plot line is the engine's now (the special action, the later free cast); what stays is a plot card whose other sentence the suite cannot prove.
+  ['Stingerback Terror', 'the row maker: a counted shrink the suite baseline kills - This creature gets -1/-1 for each card in your hand. (the opening seven) (D551; its Plot line is the engine\'s)'],
   // D550 - split second: the Split second line is the engine's now (the stack's lock on casts and non-mana activations); what stays is a split second card whose other sentence the vocabulary does not read.
-  ['Sulfur Elemental', 'a line outside the row vocabulary: White creatures get +1/-1. - a color-scoped anthem (D550)'],
+  ['Sulfur Elemental', 'the row maker: a scoped anthem whose toughness shrink kills its own fixture - White creatures get +1/-1. on the 1/1 white Bearer (D551)'],
   ['Sudden Spoiling', 'a spell with a line outside the vocabulary: Until end of turn, creatures target player controls lose all abilities and have base power and toughness 0/2 - an ability loss over a player scope (D550)'],
   ['Inventory Management', 'a spell with a line outside the vocabulary: For each Aura and Equipment you control, you may attach it to a creature you control - a per-attachment choice (D550)'],
   // D548 - awaken: the Awaken line is the engine's now (the alternative cost, the added land target, the rider); what stays is an awaken spell whose own sentence the vocabulary does not read.
@@ -1356,7 +1356,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['City of Death', 'the row maker: a line that is neither an activated ability nor a library trigger: II, III, IV, V, VI — Create a token that\'s a copy of target non-Saga (D528)'],
   ['The Flux', 'the row maker: a line that is neither an activated ability nor a library trigger: VI — Add six {R}. (D528)'],
   ['Blink', 'the row maker: trigger payload not a pump: Choose target creature. Its owner shuffles it into their lib (D528)'],
-  ["Firja's Retribution", 'the row maker: a token outside TOKEN_TABLE: Angel Warrior|4/4|W|Creature|flying,vigilance (D528)'],
+  ["Firja's Retribution", 'the row maker: a leftover line not among the printed lines - chapter II grants a quoted ability the leftover cuts (Until end of turn, Angels you control gain ...) (D528; its Angel Warrior token keys since D551)'],
   ['The Coming of Galactus', 'the row maker: a leftover line not among the printed lines: IV — Create Galactus, a legendary 16/16 black Elde (D528)'],
   ["Joshua, Phoenix's Dominant // Phoenix, Warden of Fire", 'the row maker: multi-face or unusual layout (D528)'],
   ['Fall of Gil-galad', 'the row maker: a leftover line not among the printed lines: III — Until end of turn, target creature you contr (D528)'],
@@ -1728,7 +1728,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Crown of Gondor', 'equipped creature attacks without an Equip line the engine charges (D522)'],
   ['Fealty to the Realm', 'a line that is neither an activated ability nor a library trigger: The monarch controls enchanted creature. (D522)'],
   ['Keeper of Keys', 'trigger payload not a pump: Creatures you control can\'t be blocked this turn. (D522)'],
-  ['Queen Marchesa', 'a token outside TOKEN_TABLE: Assassin|1/1|B|Creature|deathtouch,haste (D522)'],
   ["Marchesa's Decree", 'trigger head not in the library: Whenever a creature attacks you or a planeswalker you control, that cr (D522)'],
   ['Forth Eorlingas!', 'the spell\'s X on the token count and a combat-damage reflexive head (`Whenever one or more creatures you control deal combat damage to one or more pla (D522)'],
   ['Jared Carthalion, True Heir', 'trigger payload not a pump: Target opponent becomes the monarch. You can\'t become the mo (D522)'],
@@ -1742,7 +1741,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Court of Bounty', 'trigger payload not a pump: Put a land card from your hand onto the battlefield. If you\' (D522)'],
   ['Emberwilde Captain', 'trigger head not in the library: Whenever an opponent attacks you while you\'re the monarch, this creatu (D522)'],
   ['Okoye, Mighty and Adored', 'trigger payload not a pump: Put a +1/+1 counter on target creature. Whenever that creatu (D522)'],
-  ['Oath of Eorl', 'the row maker: a token outside TOKEN_TABLE: Human Knight|2/2|R|Creature|trample,haste (D528)'],
+  ['Oath of Eorl', 'the row maker: trigger payload not a pump - III: Put an indestructible counter on up to one target Human. You become the monarch. (D528; its Human Knight token keys since D551)'],
   ['Protector of the Crown', 'a line that is neither an activated ability nor a library trigger: All damage that would be dealt to you is dealt to this creature instea (D522)'],
   ['Regal Behemoth', 'trigger head not in the library: Whenever you tap a land for mana while you\'re the monarch, add an addi (D522)'],
   ["M'Baku, Jabari Chieftain", 'an intervening if the armed board already meets (not this wave): there is no monarch (D522)'],
@@ -2211,7 +2210,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Strength from the Fallen', 'a counted payload under a constellation head (the arm sizes the board)'],
   ["Archon of Sun's Grace", 'a line that is neither an activated ability nor a library trigger (Pegasus creatures you control have lifelink) beside its Constellation line'],
   ['Molderhulk', 'a line that is neither an activated ability nor a library trigger (Undergrowth - a cost reduction per creature card in your graveyard)'],
-  ['Omnath, Locus of Rage', 'a token outside TOKEN_TABLE (a 5/5 red and green Elemental) under its Landfall head'],
   ['Tireless Tracker', 'a sacrifice head no fixture the suite can sacrifice satisfies (a Clue) beside its Landfall line'],
   // D419 - the board condition reads: the 9 the selector offered once `if you control <noun>` read under the enters and
   // refire heads that the row maker refused, by reason (a `no <noun>` condition the armed board meets from the start,
@@ -3394,7 +3392,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // condition — it files with the cast-time alternative costs, the ninth
   // free-spell refusal in four batches. Rat King's "Sacrifice a token" is
   // Hardened Tactician's line (token-predicate sacrifice cost).
-  ['Plan the Heist', 'plot mechanic'],
+  ['Plan the Heist', 'a spell with a line outside the vocabulary: Surveil 3 if you have no cards in hand. Then draw three cards. (its Plot line is the engine\'s since D551)'],
   ['Plunder', 'suspend mechanic'],
   ['Providence', 'opening-hand reveal'],
   ['Psychic Purge', 'discard-event discriminator'],
@@ -3827,8 +3825,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
 
   // D400 - the intervening if under the refire heads: the five the selector offered after the
   // classifier widening that the row maker refused, by reason (none of them the condition itself).
-  ['Valkyrie Harbinger', 'a token outside TOKEN_TABLE (a 4/4 white Angel with flying and vigilance) under the conditioned end-step head'],
-  ['Canonized in Blood', 'a token outside TOKEN_TABLE (a 4/3 white and black Vampire Demon with flying) under the conditioned end-step head'],
 
   // D401 - the conditional statics: the nine the selector offered after the classifier admitted
   // them that the row maker refused (or the draft pulled), by reason.
@@ -3881,7 +3877,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Bennie Bracks, Zoologist', 'an intervening if outside the closed reader (if you created a token this turn) under an each-end-step head, beside its convoke'],
   ['Conclave Phalanx', 'a board-sized life gain the suite cannot pin (1 life for each creature you control) under an enters head, beside its convoke'],
   ['Kasla, the Broken Halo', 'a filtered cast head outside the closed reader (whenever you cast a spell with convoke) beside its convoke'],
-  ['Merrow Skyswimmer', 'a token outside TOKEN_TABLE (a 1/1 white and blue Merfolk) under an enters head, beside its convoke'],
 
   // D406 - the additional cost at cast: the thirty-five the selector offered once the cost line was the
   // engine's that the row maker refused, by reason (thirty-four spells for their other line - this

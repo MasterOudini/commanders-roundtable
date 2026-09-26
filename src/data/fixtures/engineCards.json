@@ -305763,6 +305763,727 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DJINN_OF_FOOL_S_FALL": {
+    "scryfallId": "48bfc6af-c651-485e-a1cc-f9d00aeaf812",
+    "oracleId": "7dbb540f-ee96-4115-b6ef-28ffc73da8b7",
+    "name": "Djinn of Fool's Fall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Djinn of Fool's Fall",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying\nPlot {3}{U} (You may pay {3}{U} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": "No one knew if the waterfall was a natural wonder the djinn guarded or if he'd conjured it to hide something even greater.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Inkognit",
+        "imageId": "48bfc6af-c651-485e-a1cc-f9d00aeaf812"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VISAGE_BANDIT": {
+    "scryfallId": "685ec4c6-3332-498f-8b56-d7ad8fc5230c",
+    "oracleId": "db11596a-6704-427b-aaef-0211e7822127",
+    "name": "Visage Bandit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Visage Bandit",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Shapeshifter Rogue",
+        "oracleText": "You may have this creature enter as a copy of a creature you control, except it's a Shapeshifter Rogue in addition to its other types.\nPlot {2}{U} (You may pay {2}{U} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Miranda Meeks",
+        "imageId": "685ec4c6-3332-498f-8b56-d7ad8fc5230c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEMONIC_RUCKUS": {
+    "scryfallId": "5b491d11-d00a-4541-8389-2785a455eeee",
+    "oracleId": "a861ee41-a2c6-4530-9974-82f55ce712b1",
+    "name": "Demonic Ruckus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Demonic Ruckus",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has menace and trample.\nWhen this Aura is put into a graveyard from the battlefield, draw a card.\nPlot {R} (You may pay {R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "5b491d11-d00a-4541-8389-2785a455eeee"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Plot",
+      "Enchant"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINEWOODS_PALADIN": {
+    "scryfallId": "1b2b432d-9e73-4ab2-a098-546d406df6c0",
+    "oracleId": "d2aa9649-8394-48ca-bee6-a044e5a86b38",
+    "name": "Spinewoods Paladin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spinewoods Paladin",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Trample\nWhen this creature enters, you gain 3 life.\nPlot {3}{G} (You may pay {3}{G} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kai Carpenter",
+        "imageId": "1b2b432d-9e73-4ab2-a098-546d406df6c0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Plot",
+      "Trample"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAGECOACH_SECURITY": {
+    "scryfallId": "21301998-b3e6-4f3d-89f4-5e17aeb79a1e",
+    "oracleId": "4b4589ff-d141-49a4-a0bd-1c73fc3651ef",
+    "name": "Stagecoach Security",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stagecoach Security",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, creatures you control get +1/+1 and gain vigilance until end of turn.\nPlot {3}{W} (You may pay {3}{W} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "21301998-b3e6-4f3d-89f4-5e17aeb79a1e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RICTUS_ROBBER": {
+    "scryfallId": "252def94-2d89-48f7-8ff7-9c8682ca3ec6",
+    "oracleId": "91e49e8e-575f-43c8-9263-a8568697e7f4",
+    "name": "Rictus Robber",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rictus Robber",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie Rogue",
+        "oracleText": "When this creature enters, if a creature died this turn, create a 2/2 blue and black Zombie Rogue creature token.\nPlot {2}{B} (You may pay {2}{B} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "252def94-2d89-48f7-8ff7-9c8682ca3ec6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SLICKSHOT_SHOW_OFF": {
+    "scryfallId": "304523e7-f332-4c1d-9590-ff9a70daff26",
+    "oracleId": "74c7a029-59aa-4511-8e4c-f8f167cda4e2",
+    "name": "Slickshot Show-Off",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Slickshot Show-Off",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying, haste\nWhenever you cast a noncreature spell, this creature gets +2/+0 until end of turn.\nPlot {1}{R} (You may pay {1}{R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Augusto Quirino",
+        "imageId": "304523e7-f332-4c1d-9590-ff9a70daff26"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Plot",
+      "Haste"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "335",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IRASCIBLE_WOLVERINE": {
+    "scryfallId": "324c0af5-7cdf-4c71-84cc-6349f10e0d66",
+    "oracleId": "445cd4bd-ba7c-42a2-a794-42aed823d0d3",
+    "name": "Irascible Wolverine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Irascible Wolverine",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Wolverine",
+        "oracleText": "When this creature enters, exile the top card of your library. Until end of turn, you may play that card.\nPlot {2}{R} (You may pay {2}{R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Darrell Riche",
+        "imageId": "324c0af5-7cdf-4c71-84cc-6349f10e0d66"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOAN_SHARK": {
+    "scryfallId": "49f12760-ff07-4c9f-a7a9-1e64bd3a9adf",
+    "oracleId": "15030c1d-7c0a-4273-a022-eb98d6c7a1ce",
+    "name": "Loan Shark",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loan Shark",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Shark Rogue",
+        "oracleText": "When this creature enters, if you've cast two or more spells this turn, draw a card.\nPlot {3}{U} (You may pay {3}{U} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "49f12760-ff07-4c9f-a7a9-1e64bd3a9adf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUNNING_COYOTE": {
+    "scryfallId": "5b4ac6ea-c67b-4f90-be4f-aa25882f5794",
+    "oracleId": "a38eba6a-db90-48ac-bb49-889a7fd90ce9",
+    "name": "Cunning Coyote",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cunning Coyote",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Coyote",
+        "oracleText": "Haste\nWhen this creature enters, another target creature you control gets +1/+1 and gains haste until end of turn.\nPlot {1}{R} (You may pay {1}{R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "David Auden Nash",
+        "imageId": "5b4ac6ea-c67b-4f90-be4f-aa25882f5794"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Plot",
+      "Haste"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALOE_ALCHEMIST": {
+    "scryfallId": "69f2f632-b6cc-4092-acd5-a6b152e90488",
+    "oracleId": "97489ef7-98c3-4700-bbe6-185215d41b25",
+    "name": "Aloe Alchemist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aloe Alchemist",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Plant Warlock",
+        "oracleText": "Trample\nWhen this card becomes plotted, target creature gets +3/+2 and gains trample until end of turn.\nPlot {1}{G} (You may pay {1}{G} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "69f2f632-b6cc-4092-acd5-a6b152e90488"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Plot",
+      "Trample"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIMSTONE_ROUNDUP": {
+    "scryfallId": "bd13011e-a4fc-4107-988f-60cfc851ecd3",
+    "oracleId": "e79deeee-c14d-496d-9b0b-475a6a24274c",
+    "name": "Brimstone Roundup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brimstone Roundup",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you cast your second spell each turn, create a 1/1 red Mercenary creature token with \"{T}: Target creature you control gets +1/+0 until end of turn. Activate only as a sorcery.\"\nPlot {2}{R} (You may pay {2}{R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "bd13011e-a4fc-4107-988f-60cfc851ecd3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "115",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACKSNAG_BUZZARD": {
+    "scryfallId": "ef10b2ad-9b9b-4c5d-a2c7-3ce742224b50",
+    "oracleId": "99da512c-e222-4e5c-aa64-a276ed9ebe87",
+    "name": "Blacksnag Buzzard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blacksnag Buzzard",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nThis creature enters with a +1/+1 counter on it if a creature died this turn.\nPlot {1}{B} (You may pay {1}{B} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "ef10b2ad-9b9b-4c5d-a2c7-3ce742224b50"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUEEN_MARCHESA": {
+    "scryfallId": "03f4341c-088b-4f35-b82b-3d98d8a93de4",
+    "oracleId": "d7ac4be1-dcca-49b6-8ddb-d1b0e6cf2dcf",
+    "name": "Queen Marchesa",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Queen Marchesa",
+        "manaCost": "{1}{R}{W}{B}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Deathtouch, haste\nWhen Queen Marchesa enters, you become the monarch.\nAt the beginning of your upkeep, if an opponent is the monarch, create a 1/1 black Assassin creature token with deathtouch and haste.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Kieran Yanner",
+        "imageId": "03f4341c-088b-4f35-b82b-3d98d8a93de4"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haste",
+      "Deathtouch"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERROW_SKYSWIMMER": {
+    "scryfallId": "075b419a-fd44-4a9a-8c40-474562b7e11a",
+    "oracleId": "d709f396-021f-49eb-adb5-374aa790eaae",
+    "name": "Merrow Skyswimmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merrow Skyswimmer",
+        "manaCost": "{3}{W/U}{W/U}",
+        "typeLine": "Creature — Merfolk Soldier",
+        "oracleText": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nFlying, vigilance\nWhen this creature enters, create a 1/1 white and blue Merfolk creature token.",
+        "flavorText": "\"Only fools believe us bound to water.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Richard Kane Ferguson",
+        "imageId": "075b419a-fd44-4a9a-8c40-474562b7e11a"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Vigilance",
+      "Convoke"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "234",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OMNATH_LOCUS_OF_RAGE": {
+    "scryfallId": "08c14bb4-c9d9-41ce-a075-a441522a52c6",
+    "oracleId": "1816eede-c5bd-49df-958f-a3af64cb2932",
+    "name": "Omnath, Locus of Rage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Omnath, Locus of Rage",
+        "manaCost": "{3}{R}{R}{G}{G}",
+        "typeLine": "Legendary Creature — Elemental",
+        "oracleText": "Landfall — Whenever a land you control enters, create a 5/5 red and green Elemental creature token.\nWhenever Omnath or another Elemental you control dies, Omnath deals 3 damage to any target.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Brad Rigney",
+        "imageId": "08c14bb4-c9d9-41ce-a075-a441522a52c6"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Landfall"
+    ],
+    "setCode": "znc",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CANONIZED_IN_BLOOD": {
+    "scryfallId": "384b6892-5dfc-4607-b511-cf83544a9357",
+    "oracleId": "d491995f-e9b2-4187-852c-8a4c2495eaca",
+    "name": "Canonized in Blood",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Canonized in Blood",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your end step, if you descended this turn, put a +1/+1 counter on target creature you control. (You descended if a permanent card was put into your graveyard from anywhere.)\n{5}{B}{B}, Sacrifice this enchantment: Create a 4/3 white and black Vampire Demon creature token with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "384b6892-5dfc-4607-b511-cf83544a9357"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIDERS_OF_ROHAN": {
+    "scryfallId": "913e09a2-2eaf-4103-b266-9c70cb279896",
+    "oracleId": "688a559d-249f-4d03-98e6-581843e7ddc3",
+    "name": "Riders of Rohan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riders of Rohan",
+        "manaCost": "{3}{R}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "When this creature enters, create two 2/2 red Human Knight creature tokens with trample and haste.\nDash {4}{R}{W} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Stanislav Sherbakov",
+        "imageId": "913e09a2-2eaf-4103-b266-9c70cb279896"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Dash"
+    ],
+    "setCode": "ltc",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VALKYRIE_HARBINGER": {
+    "scryfallId": "a79ecdf5-2167-4590-a964-e9d7eb32dfe6",
+    "oracleId": "18a5e71e-eb75-4ac7-bedd-2220aaa24f78",
+    "name": "Valkyrie Harbinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Valkyrie Harbinger",
+        "manaCost": "{4}{W}{W}",
+        "typeLine": "Creature — Angel Cleric",
+        "oracleText": "Flying\nLifelink (Damage dealt by this creature also causes you to gain that much life.)\nAt the beginning of each end step, if you gained 4 or more life this turn, create a 4/4 white Angel creature token with flying and vigilance.",
+        "flavorText": "Where she flies, the Light of Starnheim shines.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tran Nguyen",
+        "imageId": "a79ecdf5-2167-4590-a964-e9d7eb32dfe6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Lifelink"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1347",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "XEREX_STROBE_KNIGHT": {
+    "scryfallId": "e38a32bc-133d-43d1-a6e3-80d39fe53d32",
+    "oracleId": "2e150f97-5688-4559-94b8-86c33fda28a0",
+    "name": "Xerex Strobe-Knight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Xerex Strobe-Knight",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flying, vigilance\n{T}: Create a 2/2 white and blue Knight creature token with vigilance. Activate only if you've cast two or more spells this turn.",
+        "flavorText": "Phyrexia broke the laws of reality to invade the planes. On Xerex, reality merely bent around the invaders.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Pavel Kolomeyets",
+        "imageId": "e38a32bc-133d-43d1-a6e3-80d39fe53d32"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -314643,6 +315364,253 @@
     ],
     "setCode": "tthb",
     "collectorNumber": "14",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ZOMBIE_ROGUE_2_2_BU_CREATURE_TOKEN": {
+    "scryfallId": "74c7a0bd-6011-495a-b56c-8fa707dd7f12",
+    "oracleId": "b5720338-083d-484c-bf45-cdc64b09be4e",
+    "name": "Zombie Rogue",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Zombie Rogue",
+        "manaCost": "",
+        "typeLine": "Token Creature — Zombie Rogue",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Caio E Santos",
+        "imageId": "74c7a0bd-6011-495a-b56c-8fa707dd7f12"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "totj",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ASSASSIN_1_1_B_CREATURE_DEATHTOUCH_HASTE_TOKEN": {
+    "scryfallId": "3a0d35d2-1e30-4aba-abf5-4ac2707c9ea3",
+    "oracleId": "6fb42b86-70bf-4c3e-af02-f861434ca424",
+    "name": "Assassin",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Assassin",
+        "manaCost": "",
+        "typeLine": "Token Creature — Assassin",
+        "oracleText": "Deathtouch, haste",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "3a0d35d2-1e30-4aba-abf5-4ac2707c9ea3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste",
+      "Deathtouch"
+    ],
+    "setCode": "totc",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "MERFOLK_1_1_UW_CREATURE_TOKEN": {
+    "scryfallId": "4c5ad4e1-b489-4023-88ab-1200c5f26ffc",
+    "oracleId": "23f86e93-0203-4222-b78a-8f1c9fa16394",
+    "name": "Merfolk",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Merfolk",
+        "manaCost": "",
+        "typeLine": "Token Creature — Merfolk",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Julia Griffin",
+        "imageId": "4c5ad4e1-b489-4023-88ab-1200c5f26ffc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tecl",
+    "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ELEMENTAL_5_5_GR_CREATURE_TOKEN": {
+    "scryfallId": "1ab6cab4-a3a5-4b48-832a-1d486e8094a5",
+    "oracleId": "a9ea980e-4734-45e5-b5b7-4ec092db3299",
+    "name": "Elemental",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Elemental",
+        "manaCost": "",
+        "typeLine": "Token Creature — Elemental",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Brad Rigney",
+        "imageId": "1ab6cab4-a3a5-4b48-832a-1d486e8094a5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tecc",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "VAMPIRE_DEMON_4_3_BW_CREATURE_FLYING_TOKEN": {
+    "scryfallId": "3005eb0a-5c96-4a07-a6b9-a907d1095cdf",
+    "oracleId": "2bcf9e7c-e869-42e9-9e00-8e8cec94cb2f",
+    "name": "Vampire Demon",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Vampire Demon",
+        "manaCost": "",
+        "typeLine": "Token Creature — Vampire Demon",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "3005eb0a-5c96-4a07-a6b9-a907d1095cdf"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "tlci",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HUMAN_KNIGHT_2_2_R_CREATURE_HASTE_TRAMPLE_TOKEN": {
+    "scryfallId": "491fc1c3-a46e-4cfd-a749-57f4c96f6aea",
+    "oracleId": "1ee82580-9d1d-4908-8d58-99f7781b08f4",
+    "name": "Human Knight",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Human Knight",
+        "manaCost": "",
+        "typeLine": "Token Creature — Human Knight",
+        "oracleText": "Trample, haste",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Inka Schulz",
+        "imageId": "491fc1c3-a46e-4cfd-a749-57f4c96f6aea"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "tltc",
+    "collectorNumber": "9",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ANGEL_4_4_W_CREATURE_FLYING_VIGILANCE_TOKEN": {
+    "scryfallId": "0dd269c7-1333-470d-b8ef-e54add09b350",
+    "oracleId": "29ff8699-53d8-413b-8a3c-0e3ea1e13ff0",
+    "name": "Angel",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Angel",
+        "manaCost": "",
+        "typeLine": "Token Creature — Angel",
+        "oracleText": "Flying, vigilance",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "0dd269c7-1333-470d-b8ef-e54add09b350"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Flying",
+      "Vigilance"
+    ],
+    "setCode": "tonc",
+    "collectorNumber": "3",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

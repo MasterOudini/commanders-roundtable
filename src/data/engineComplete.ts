@@ -616,6 +616,8 @@ export function linesUnaccounted(
     // D540 - a Foretell line the engine RUNS (the special action from the hand, the cast from exile for that cost), asked
     // of the parser that read it.
     if (face.foretellCost !== null && /^Foretell (?:\{[^}]+\})+$/.test(line)) continue;
+    // D551 - a Plot line the engine runs (the special action, the later free cast) is the engine's.
+    if (face.plotCost !== null && /^Plot (?:\{[^}]+\})+$/.test(line)) continue;
     // D542 - a PAIRING keyword (Partner, Partner—<quality>, Friends forever, Choose a Background, Doctor's companion):
     // deck construction the validator enforces, no rule in the game - asked of the validator's own reader.
     if (isPairingKeywordLine(line)) continue;

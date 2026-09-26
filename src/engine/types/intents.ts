@@ -133,6 +133,13 @@ export type Intent =
       readonly card: InstanceId;
       readonly plan?: PaymentPlan;
     }
+  /** D551 - PLOT (CR 702.170a): a special action from the hand at sorcery speed - the plot cost paid, the card exiled face up. */
+  | {
+      readonly t: 'Plot';
+      readonly player: PlayerId;
+      readonly card: InstanceId;
+      readonly plan?: PaymentPlan;
+    }
   /**
    * Activating a non-mana ability of a permanent you control. Mana abilities go
    * through `TapForMana` instead and never use the stack (CR 605).

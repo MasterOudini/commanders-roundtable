@@ -1389,7 +1389,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   };
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend' && a.t !== 'Foretell') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend' && a.t !== 'Foretell' && a.t !== 'Plot') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
     // D535 - a mana-buyback spell waits in hand until it can be cast bought back.
     .filter((a) => !(a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable !== true));
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
@@ -1452,6 +1452,9 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
     case 'Foretell':
       // D540 - the special action: pay {2}, exile the card face down (cast from exile on a later turn).
       return { t: 'Foretell', player: holder, card: chosen.card };
+    case 'Plot':
+      // D551 - the special action: pay the plot cost, exile the card face up (cast free from exile on a later turn).
+      return { t: 'Plot', player: holder, card: chosen.card };
     case 'TapForMana':
       return {
         t: 'TapForMana',
@@ -1747,6 +1750,9 @@ interface Run {
   readonly myriadTokens: number;
   /** D550 - the split second spells cast (the stack locked while each waited). */
   readonly splitSecondCasts: number;
+  /** D551 - the cards plotted (exiled face up from the hand), and the spells cast free from exile whose face plots. */
+  readonly plots: number;
+  readonly plottedCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2268,6 +2274,8 @@ function runOne(seed: number): Run {
     awakenedLands: game.log.filter((e) => e.body.t === 'Awakened').length,
     myriadTokens: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && e.body.trigger.id.includes('-myriad-')).length,
     splitSecondCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords ?? []).includes('splitSecond')).length,
+    plots: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.plottedTurn !== undefined && m.from.kind === 'hand')).length,
+    plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
     ringAbilities: game.log.reduce((k, e) => k + (e.body.t === 'PendingTriggersAdded' ? e.body.triggers.filter((t) => /^The Ring - /.test(t.label)).length : 0), 0),
@@ -2615,6 +2623,8 @@ const TOTAL_KEYS = [
   'awakenedLands',
   'myriadTokens',
   'splitSecondCasts',
+  'plots',
+  'plottedCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

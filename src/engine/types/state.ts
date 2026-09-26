@@ -253,6 +253,8 @@ export interface CardInstance {
    * mana cost, on a later turn. Cleared by the move that takes it out of exile.
    */
   readonly warpedTurn?: number | undefined;
+  /** D551 - PLOTTED (CR 702.170a): the turn the plot action exiled the card face up; castable free as a sorcery on a later turn. Cleared by the move out. */
+  readonly plottedTurn?: number | undefined;
   /** D541 - exiled by its own discard (CR 702.35a): the madness trigger's card; cleared by the move that takes it out of exile. */
   readonly madnessExiled?: true | undefined;
   /**
@@ -665,6 +667,8 @@ export interface PendingCast {
   readonly buyback?: true;
   /** D540 - a FORETOLD cast (CR 702.143a): the turn the card was foretold - the foretell cost priced at every stage, the mark restored on a back-out. */
   readonly foretold?: number;
+  /** D551 - a PLOTTED cast (CR 702.170d): the turn the card was plotted - nothing priced at any stage (`free`), the mark restored on a back-out. */
+  readonly plotted?: number;
   /** D541 - a MADNESS cast (CR 702.35a): the madness cost priced at every stage; a back-out puts the card into the graveyard. */
   readonly madness?: true;
   /** D406 - the additional cost's `or pay {M}` alternative was taken (no picks named): the mana rides the problem at every stage. */

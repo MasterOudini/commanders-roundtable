@@ -10062,6 +10062,29 @@ const WANTED = [
   // D550 - SPLIT SECOND's proof fixtures: Sudden Shock and Krosan Grip (split second), Lightning Bolt (the cast refused under it).
   'Sudden Shock',
   'Krosan Grip',
+  // D551 - PLOT's proof fixtures: Djinn of Fool's Fall and Visage Bandit (the seam alone completes them), Demonic Ruckus (a plotted Aura's targets stage).
+  "Djinn of Fool's Fall",
+  'Visage Bandit',
+  'Demonic Ruckus',
+  // D551 - PLOT: the rows the whole-leftover row maker rowed once the Plot line was the engine's (the special action, the later free cast; the becomes-plotted head).
+  'Spinewoods Paladin',
+  'Stagecoach Security',
+  'Rictus Robber',
+  'Slickshot Show-Off',
+  'Irascible Wolverine',
+  'Loan Shark',
+  'Cunning Coyote',
+  'Aloe Alchemist',
+  'Brimstone Roundup',
+  'Blacksnag Buzzard',
+  'Queen Marchesa',
+  'Merrow Skyswimmer',
+  'Omnath, Locus of Rage',
+  'Canonized in Blood',
+  'Riders of Rohan',
+  'Valkyrie Harbinger',
+  'Xerex Strobe-Knight',
+  // D551 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10480,6 +10503,14 @@ const WANTED_TOKENS = [
   { name: 'Sliver Army', set: 'tcmm', cn: '68', key: 'SLIVER_ARMY_TOKEN' },
   // D528 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Wall', set: 'tthb', cn: '14', key: 'WALL_0_4_ARTIFACT_CREATURE_DEFENDER_TOKEN' },
+  // D551 - the tokens the wave's rows create (the port's token-pin step; re-run after the trial restore).
+  { name: 'Zombie Rogue', set: 'totj', cn: '15', key: 'ZOMBIE_ROGUE_2_2_BU_CREATURE_TOKEN' },
+  { name: 'Assassin', set: 'totc', cn: '7', key: 'ASSASSIN_1_1_B_CREATURE_DEATHTOUCH_HASTE_TOKEN' },
+  { name: 'Merfolk', set: 'tecl', cn: '8', key: 'MERFOLK_1_1_UW_CREATURE_TOKEN' },
+  { name: 'Elemental', set: 'tecc', cn: '9', key: 'ELEMENTAL_5_5_GR_CREATURE_TOKEN' },
+  { name: 'Vampire Demon', set: 'tlci', cn: '15', key: 'VAMPIRE_DEMON_4_3_BW_CREATURE_FLYING_TOKEN' },
+  { name: 'Human Knight', set: 'tltc', cn: '9', key: 'HUMAN_KNIGHT_2_2_R_CREATURE_HASTE_TRAMPLE_TOKEN' },
+  { name: 'Angel', set: 'tonc', cn: '3', key: 'ANGEL_4_4_W_CREATURE_FLYING_VIGILANCE_TOKEN' },
 ];
 
 function constName(name) {

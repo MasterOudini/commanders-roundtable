@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SPINEWOODS_PALADIN_SCRIPT } from './cards/spinewoodsPaladin';
+import { STAGECOACH_SECURITY_SCRIPT } from './cards/stagecoachSecurity';
+import { RICTUS_ROBBER_SCRIPT } from './cards/rictusRobber';
+import { SLICKSHOT_SHOW_OFF_SCRIPT } from './cards/slickshotShowOff';
+import { IRASCIBLE_WOLVERINE_SCRIPT } from './cards/irascibleWolverine';
+import { LOAN_SHARK_SCRIPT } from './cards/loanShark';
+import { DEMONIC_RUCKUS_SCRIPT } from './cards/demonicRuckus';
+import { CUNNING_COYOTE_SCRIPT } from './cards/cunningCoyote';
+import { ALOE_ALCHEMIST_SCRIPT } from './cards/aloeAlchemist';
+import { BRIMSTONE_ROUNDUP_SCRIPT } from './cards/brimstoneRoundup';
+import { BLACKSNAG_BUZZARD_SCRIPT } from './cards/blacksnagBuzzard';
+import { QUEEN_MARCHESA_SCRIPT } from './cards/queenMarchesa';
+import { MERROW_SKYSWIMMER_SCRIPT } from './cards/merrowSkyswimmer';
+import { OMNATH_LOCUS_OF_RAGE_SCRIPT } from './cards/omnathLocusOfRage';
+import { MUSEUM_NIGHTWATCH_SCRIPT } from './cards/museumNightwatch';
+import { CANONIZED_IN_BLOOD_SCRIPT } from './cards/canonizedInBlood';
+import { RIDERS_OF_ROHAN_SCRIPT } from './cards/ridersOfRohan';
+import { VALKYRIE_HARBINGER_SCRIPT } from './cards/valkyrieHarbinger';
+import { XEREX_STROBE_KNIGHT_SCRIPT } from './cards/xerexStrobeKnight';
 import { GOLDLUST_TRIAD_SCRIPT } from './cards/goldlustTriad';
 import { BANSHEE_OF_THE_DREAD_CHOIR_SCRIPT } from './cards/bansheeOfTheDreadChoir';
 import { CONCLAVE_EVANGELIST_SCRIPT } from './cards/conclaveEvangelist';
@@ -8190,6 +8209,25 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SPINEWOODS_PALADIN_SCRIPT,
+  STAGECOACH_SECURITY_SCRIPT,
+  RICTUS_ROBBER_SCRIPT,
+  SLICKSHOT_SHOW_OFF_SCRIPT,
+  IRASCIBLE_WOLVERINE_SCRIPT,
+  LOAN_SHARK_SCRIPT,
+  DEMONIC_RUCKUS_SCRIPT,
+  CUNNING_COYOTE_SCRIPT,
+  ALOE_ALCHEMIST_SCRIPT,
+  BRIMSTONE_ROUNDUP_SCRIPT,
+  BLACKSNAG_BUZZARD_SCRIPT,
+  QUEEN_MARCHESA_SCRIPT,
+  MERROW_SKYSWIMMER_SCRIPT,
+  OMNATH_LOCUS_OF_RAGE_SCRIPT,
+  MUSEUM_NIGHTWATCH_SCRIPT,
+  CANONIZED_IN_BLOOD_SCRIPT,
+  RIDERS_OF_ROHAN_SCRIPT,
+  VALKYRIE_HARBINGER_SCRIPT,
+  XEREX_STROBE_KNIGHT_SCRIPT,
   GOLDLUST_TRIAD_SCRIPT,
   BANSHEE_OF_THE_DREAD_CHOIR_SCRIPT,
   CONCLAVE_EVANGELIST_SCRIPT,

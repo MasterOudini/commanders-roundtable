@@ -24,6 +24,7 @@ import {
   castableFaces,
   castsForetold,
   castsWarped,
+  castsPlotted,
   castTargetSpecs,
   splitSecondOnStack,
   FORETELL_COST,
@@ -123,6 +124,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return suspend(state, intent, deps);
     case 'Foretell':
       return foretell(state, intent, deps);
+    case 'Plot':
+      return plot(state, intent, deps);
     case 'CancelPendingCast':
       return cancelPendingCast(state, intent.player, deps);
     case 'TapForMana':
@@ -423,6 +426,8 @@ interface CastSetup {
   readonly free?: true;
   /** D540 - a FORETOLD cast from exile (CR 702.143a): the turn the card was foretold; its foretell cost priced into `problem`. */
   readonly foretold?: number;
+  /** D551 - a PLOTTED cast from exile (CR 702.170d): the turn the card was plotted (the cast is `free`). */
+  readonly plotted?: number;
   /** D541 - a MADNESS cast (CR 702.35a): the madness cost priced into `problem`. */
   readonly madness?: true;
 }
@@ -870,20 +875,22 @@ function prepareCast(
   // D540 - a FORETOLD card: exile is a place to cast from for its owner once the turn it was foretold has ended
   // (CR 702.143a), for its foretell cost (`castsForetold`, the offer's own predicate).
   const foretold = from.kind === 'exile' && !faceDown && !free && castsForetold(state, cardId, face, player);
+  // D551 - a PLOTTED card: exile is a place to cast from for its owner on a later turn - free, and as a sorcery.
+  const plotted = !foretold && from.kind === 'exile' && !faceDown && !free && castsPlotted(state, cardId, player);
   // D541 - a MADNESS cast (CR 702.35a): the card its own discard exiled, cast by its owner as the trigger resolves - for
   // the madness cost, the timing and the priority the trigger's (a resolution asks; nobody holds priority).
   const madnessCast = madness && !faceDown && !free && from.kind === 'exile' && card.madnessExiled === true && card.owner === player && face.madnessCost !== null;
   if (madness && !madnessCast) return { error: reject('notCastable', `${face.name} cannot be cast for its madness cost now.`) };
   // D547 - a WARPED card: exile is a place to cast from for its owner on a turn after its warp exiled it, for its mana cost.
   const warped = from.kind === 'exile' && !faceDown && !free && castsWarped(state, cardId, player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast && !warped) {
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast && !warped && !plotted) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
   if (from.kind === 'command' && !card.isCommander) {
     return { error: reject('notCastable', 'Only a commander can be cast from the command zone.') };
   }
-  if (!free && !madnessCast && (faceDown || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
+  if (!free && !madnessCast && (faceDown || plotted || !face.instantSpeed) && !canActAtSorcerySpeed(state, player)) {
     return {
       error: reject(
         'timingRestriction',
@@ -897,7 +904,7 @@ function prepareCast(
   // D312 - the generic reductions the board grants, folded into the tax the
   // way the offer folds them (a face-down cast has no printed text to reduce).
   // D491 - a granted cast has no mana cost to reduce and no tax.
-  const tax = free
+  const tax = free || plotted
     ? 0
     : (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
       (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
@@ -909,13 +916,13 @@ function prepareCast(
   if (altCost && 'error' in altCost) return altCost;
   // D547 - the warp cost is paid casting from the hand alone.
   if (altCost && face.alternativeCost?.keyword === 'warp' && from.kind !== 'hand') return { error: reject('notCastable', `${face.name}'s warp cost is paid only casting it from your hand.`) };
-  if (altCost && (faceDown || flashback || foretold || madnessCast)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
+  if (altCost && (faceDown || flashback || foretold || madnessCast || plotted)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   // D540 - a foretold cast pays the FORETELL cost instead of the mana cost.
   // D541 - a madness cast pays the MADNESS cost instead of the mana cost.
-  const cost = free ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
-  if (cost === null && !altCost && !free) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
+  const cost = free || plotted ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  if (cost === null && !altCost && !free && !plotted) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
   if (kickWhy) return { error: reject('notCastable', kickWhy) };
@@ -944,7 +951,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1013,6 +1020,39 @@ function suspend(state: GameState, intent: Extract<Intent, { t: 'Suspend' }>, de
  * it (`project.ts`); the table learns only that a card was foretold - the narration names none and shows no colour.
  * Once that turn has ended the card may be cast from exile for its foretell cost (`prepareCast`, `castsForetold`).
  */
+/**
+ * D551 - PLOT (CR 702.170a): a special action from the hand at sorcery speed - the plot cost paid (a plan, or the
+ * solver's; restricted mana never pays a special action, D397), the card exiled FACE UP and marked with this turn. No
+ * stack; on a later turn it is cast from exile free, as a sorcery (`castsPlotted`).
+ */
+function plot(state: GameState, intent: Extract<Intent, { t: 'Plot' }>, deps: EngineDeps): HandleResult {
+  const card = state.cards[intent.card];
+  if (!card) return reject('noSuchCard', 'That card is not in the game.');
+  if (card.zone.kind !== 'hand' || card.zone.player !== intent.player) return reject('wrongZone', 'That card is not in your hand.');
+  const oracleCard = deps.oracle.byPrinting(card.printingId);
+  if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
+  const face = faceOf(oracleCard, 0);
+  if (face.plotCost === null || face.isLand) return reject('notCastable', `${face.name} has no plot cost.`);
+  if (state.priority.player !== intent.player || state.priority.awaiting !== null) {
+    return reject('notYourPriority', 'You do not have priority.');
+  }
+  if (!canActAtSorcerySpeed(state, intent.player)) return reject('timingRestriction', 'A card is plotted only as a sorcery - in your own main phase with an empty stack.');
+  if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
+  const problem = buildPaymentProblem(face.plotCost, 0, [], 0);
+  const solve = solveInputFor(state, deps.oracle, deps.scripts, intent.player);
+  const chosen = intent.plan ?? suggestPayment(solve, problem, OTHER_PURPOSE);
+  if (!chosen) return reject('cannotAfford', `You cannot pay ${face.plotCost.raw} to plot ${face.name}.`);
+  const verdict = validatePlan(state, deps.oracle, deps.scripts, intent.player, problem, chosen, OTHER_PURPOSE);
+  if (verdict === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');
+  if (verdict === 'invalid') return reject('invalidPaymentPlan', 'That payment does not cover the cost.');
+  const events: EventBody[] = [];
+  events.push(...payEvents(state, deps, intent.player, chosen, { problem }, OTHER_PURPOSE));
+  events.push({ t: 'CardsMoved', moves: [{ card: intent.card, from: { kind: 'hand', player: intent.player }, to: { kind: 'exile', player: card.owner }, plottedTurn: state.turn.turnNumber }] });
+  events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'plots', 'plot')} ${face.name}.`, intent.player, oracleCard.colorIdentity));
+  events.push(...retainPriority(intent.player, state.stack.length));
+  return accept(events);
+}
+
 function foretell(state: GameState, intent: Extract<Intent, { t: 'Foretell' }>, deps: EngineDeps): HandleResult {
   const card = state.cards[intent.card];
   if (!card) return reject('noSuchCard', 'That card is not in the game.');
@@ -1205,6 +1245,10 @@ function castSpell(
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(setup.buyback ? { buyback: true as const } : {}),
       ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
+      // D551 - a PLOTTED cast is free: its staged stages price nothing (the only free setup this path makes), and a
+      // back-out restores the mark.
+      ...(setup.free ? { free: true as const } : {}),
+      ...(setup.plotted !== undefined ? { plotted: setup.plotted } : {}),
       ...(altCount(setup.alt) > 0 ? { alt: setup.alt } : {}),
       ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
       ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
@@ -2158,7 +2202,8 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
       t: 'CardsMoved',
       // D540 - a foretold card backed out of goes back as it was: face down, foretold on the turn it was.
       // D541 - a madness cast backed out of was not cast: the card goes to its owner's graveyard (CR 702.35a).
-      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.madness === true ? { kind: 'graveyard', player: state.cards[pending.card]?.owner ?? player } : pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}) }],
+      // D551 - a plotted card backed out of goes back plotted on the turn it was.
+      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.madness === true ? { kind: 'graveyard', player: state.cards[pending.card]?.owner ?? player } : pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}), ...(pending.plotted !== undefined ? { plottedTurn: pending.plotted } : {}) }],
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });

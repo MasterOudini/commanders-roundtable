@@ -68,6 +68,8 @@ export interface CardMove {
   readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */
   readonly warpedTurn?: number;
+  /** D551 - the exile the PLOT action made: the turn it happened, onto the card. */
+  readonly plottedTurn?: number;
   /** D489 - the exile that SUSPENDS the card (CR 702.62a): the reducer marks it for the upkeep tick. */
   readonly suspend?: true;
   /** D489 - the entry from a suspend cast: a creature has haste while it stays (702.62e). */
