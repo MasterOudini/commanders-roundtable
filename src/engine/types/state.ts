@@ -925,6 +925,12 @@ export type Awaiting =
        * absent when nothing is goaded. The answerers (the harness, the bot) aim by it, the host checks it.
        */
       readonly goaded?: readonly { readonly card: InstanceId; readonly avoid: readonly PlayerId[] }[];
+      /**
+       * D562 - ENLIST (CR 702.154a): the attackers that may enlist and the creatures they may tap (untapped, the
+       * attacker's, with haste or controlled since the turn began - one not declared as an attacker, and each at most
+       * once); absent when none may. Carried because the client cannot compute it (summoning sickness is the host's).
+       */
+      readonly enlist?: { readonly attackers: readonly InstanceId[]; readonly candidates: readonly InstanceId[] };
     }
   /**
    * ⚠️ Carries the legal PAIRINGS for the same reason `declareAttackers` carries

@@ -1016,10 +1016,22 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // itself a thing worth exercising.
       const chosen = attackers.filter(() => p.below(2) === 0);
       // D443 - every exertable attacker (the prompt lists them) is exerted: the attack itself is the rare event.
+      // D562 - and every enlisting attacker enlists the first candidate left home, each at most once (no new draw).
+      const taken = new Set<string>();
+      const enlistFor = (card: string): string | undefined => {
+        const offer = awaiting.enlist;
+        if (!offer || !offer.attackers.includes(card)) return undefined;
+        const pick = offer.candidates.find((c) => c !== card && !chosen.includes(c) && !taken.has(c));
+        if (pick !== undefined) taken.add(pick);
+        return pick;
+      };
       return {
         t: 'DeclareAttackers',
         player: awaiting.player,
-        attackers: chosen.map((card) => (awaiting.exertable.includes(card) ? { card, defender: { kind: 'player' as const, id: defender }, exert: true } : { card, defender: { kind: 'player' as const, id: defender } })),
+        attackers: chosen.map((card) => {
+          const enlist = enlistFor(card);
+          return { card, defender: { kind: 'player' as const, id: defender }, ...(awaiting.exertable.includes(card) ? { exert: true } : {}), ...(enlist !== undefined ? { enlist } : {}) };
+        }),
       };
     }
     case 'declareBlockers': {
@@ -1798,6 +1810,9 @@ interface Run {
   /** D561 - the recover triggers put on the stack (CR 702.59a), and the recover cards returned to hand (the price paid). */
   readonly recoverTriggers: number;
   readonly recoverReturns: number;
+  /** D562 - the enlistments declared with an attack (CR 702.154a), and the enlist triggers put on the stack. */
+  readonly enlists: number;
+  readonly enlistPumps: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2339,6 +2354,8 @@ function runOne(seed: number): Run {
     blitzDraws: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:blitz')).length,
     recoverTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:recover')).length,
     recoverReturns: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.from.kind === 'graveyard' && m.to.kind === 'hand' && (ORACLE.byPrinting(game.state.cards[m.card]?.printingId ?? '')?.faces[0]?.recoverCost ?? null) !== null)).length,
+    enlists: game.log.filter((e) => e.body.t === 'Enlisted').length,
+    enlistPumps: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:enlist')).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2706,6 +2723,8 @@ const TOTAL_KEYS = [
   'blitzDraws',
   'recoverTriggers',
   'recoverReturns',
+  'enlists',
+  'enlistPumps',
   'crownings',
   'ringTempts',
   'ringAbilities',

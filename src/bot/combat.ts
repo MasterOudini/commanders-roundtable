@@ -27,6 +27,8 @@ export interface Attack {
   readonly defender: DefenderRef;
   /** D443 - exert it as it attacks (CR 701.39): the prompt listed it, and a blocker stays home. */
   readonly exert?: boolean;
+  /** D562 - the creature it enlists (CR 702.154a): the strongest candidate the attack leaves home and the reserve spares. */
+  readonly enlist?: InstanceId;
 }
 export interface Block {
   readonly blocker: InstanceId;
@@ -289,10 +291,34 @@ export function chooseAttacks(view: PlayerView, prompt: AttackPrompt, me: Player
   // so an exertable attacker is exerted whenever some creature of mine is NOT attacking - it can block while
   // the exerted one stays tapped. A lone attacker keeps its untap.
   const staysHome = candidates.some((c) => !chosen.has(c.instanceId));
-  return [...chosen]
+  const attacks = [...chosen]
     .sort((a, b) => a.localeCompare(b))
     .map((card) => ({ card, defender: goadSeat(prompt, card, defender, seats) }))
     .map((a) => (staysHome && prompt.exertable.includes(a.card) ? { ...a, exert: true } : a));
+  return withEnlist(view, prompt, attacks, held);
+}
+
+/**
+ * D562 - ENLIST (CR 702.154a): each enlisting attacker taps the strongest candidate the attack leaves home - never one
+ * of the reserve held back to block, never a creature with defender (the wall the reserve counts on), each at most once.
+ */
+function withEnlist(view: PlayerView, prompt: AttackPrompt, attacks: readonly Attack[], held: ReadonlySet<InstanceId>): Attack[] {
+  const offer = prompt.enlist;
+  if (!offer) return [...attacks];
+  const attacking = new Set(attacks.map((a) => a.card));
+  const spare = offer.candidates
+    .filter((id) => !attacking.has(id) && !held.has(id))
+    .map((id) => view.cards[id])
+    .filter((c): c is CardView => c !== undefined && power(c) > 0 && !kw(c).has('defender'))
+    .sort((a, b) => {
+      const d = power(b) - power(a);
+      return d !== 0 ? d : a.instanceId.localeCompare(b.instanceId);
+    });
+  return attacks.map((a) => {
+    if (!offer.attackers.includes(a.card)) return a;
+    const pick = spare.shift();
+    return pick ? { ...a, enlist: pick.instanceId } : a;
+  });
 }
 
 /** D554 - GOAD (CR 701.15b): a goaded attacker goes at a seat it need not avoid when one is open (the host checks it). */

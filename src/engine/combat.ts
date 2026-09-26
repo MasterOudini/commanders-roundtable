@@ -64,6 +64,22 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
  * — every board the shipped app has, since `SHIPPED_REGISTRY` ships — allocates
  * nothing and the whole check is one array-length test.
  */
+/**
+ * D562 - ENLIST (CR 702.154a): the creatures a declaration may tap to enlist - untapped creatures the player controls,
+ * phased in, that have haste or have been under the player's control since the turn began (summoning sickness's own
+ * test). A creature with defender may be enlisted: the rule asks nothing of its attacking. One reader for the prompt
+ * and the handler (D139: never read off the prompt).
+ */
+export function enlistCandidates(deps: CombatDeps, player: PlayerId): InstanceId[] {
+  return deps.state.zones.battlefield.filter((id) => {
+    const card = deps.state.cards[id];
+    if (!card || card.controller !== player || card.tapped || card.phasedOut) return false;
+    const chars = d(deps, id);
+    if (!chars.isCreature) return false;
+    return chars.keywords.has('haste') || card.summonedOnTurn === null || card.summonedOnTurn < deps.state.turn.turnNumber;
+  });
+}
+
 /** D341 - "can't attack or block alone": may this creature not be the only one declared? */
 export function mustNotAttackAlone(deps: CombatDeps, id: InstanceId): boolean {
   return restrictedBy(deps, (def, ctx, self) => def.canAttackAlone?.(ctx, self, id) === false);

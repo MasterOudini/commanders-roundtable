@@ -133,6 +133,9 @@ export const TIER2_KEYWORDS = [
   // graveyard from the battlefield, the recover cost returns the card to its owner's hand, or it is exiled; from the
   // keyword table's graveyard walk (`fromGraveyard`), the price the vocabulary's own pay prompt (D369's two arms).
   'recover',
+  // D562 - ENLIST (CR 702.154a): the attack declaration's tap of another creature (exert's shape - the prompt lists the
+  // enlisting attackers and the candidates) and the reflexive trigger that adds its power, from the keyword table.
+  'enlist',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head

@@ -609,6 +609,11 @@ export type EventBody =
    * trigger fires on (`TriggerDef.event: 'Exerted'`).
    */
   | { readonly t: 'Exerted'; readonly card: InstanceId; readonly player: PlayerId }
+  /**
+   * D562 - CR 702.154a: an attacker ENLISTED a creature as it was declared - the enlisted creature tapped with the
+   * declaration (the attack's optional cost, CR 508.1g); the event the keyword table's `When you do` fires on.
+   */
+  | { readonly t: 'Enlisted'; readonly card: InstanceId; readonly enlisted: InstanceId; readonly player: PlayerId }
   | {
       readonly t: 'BlockersDeclared';
       readonly blocks: readonly { readonly blocker: InstanceId; readonly attacker: InstanceId }[];

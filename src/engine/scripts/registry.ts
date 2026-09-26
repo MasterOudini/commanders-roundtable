@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { LINEBREAKER_BALOTH_SCRIPT } from './cards/linebreakerBaloth';
+import { YAVIMAYA_STEELCRUSHER_SCRIPT } from './cards/yavimayaSteelcrusher';
+import { ARGIVIAN_CAVALIER_SCRIPT } from './cards/argivianCavalier';
 import { WORKSHOP_WARCHIEF_SCRIPT } from './cards/workshopWarchief';
 import { CALDAIA_GUARDIAN_SCRIPT } from './cards/caldaiaGuardian';
 import { MAYHEM_PATROL_SCRIPT } from './cards/mayhemPatrol';
@@ -8260,6 +8263,9 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LINEBREAKER_BALOTH_SCRIPT,
+  YAVIMAYA_STEELCRUSHER_SCRIPT,
+  ARGIVIAN_CAVALIER_SCRIPT,
   WORKSHOP_WARCHIEF_SCRIPT,
   CALDAIA_GUARDIAN_SCRIPT,
   MAYHEM_PATROL_SCRIPT,

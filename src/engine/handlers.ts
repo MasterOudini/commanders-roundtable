@@ -12,6 +12,7 @@ import {
   needsFirstStrikeSubstep,
   canAttack,
   canAttackDefender,
+  enlistCandidates,
   mustNotAttackAlone,
   requiredAttackers,
   validateBlockDeclaration,
@@ -3169,7 +3170,19 @@ function declareAttackers(
       const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
       return reject('illegalAttacker', `${name} can't be exerted.`);
     }
+    // D562 - an enlistment (CR 702.154a), recomputed: the attacker has enlist, and the creature it taps is a candidate
+    // (untapped, the player's, haste or controlled since the turn began) that is not itself and not declared to attack.
+    if (a.enlist !== undefined) {
+      const name = derive(state, deps.oracle, deps.scripts, a.card, cache).name || 'That creature';
+      if (!derive(state, deps.oracle, deps.scripts, a.card, cache).keywords.has('enlist')) return reject('illegalAttacker', `${name} can't enlist.`);
+      if (a.enlist === a.card || intent.attackers.some((b) => b.card === a.enlist) || !enlistCandidates(cdeps, intent.player).includes(a.enlist)) {
+        return reject('illegalAttacker', `${name} can't enlist that creature.`);
+      }
+    }
   }
+  // D562 - CR 702.154c: a creature is enlisted at most once.
+  const enlistedIds = intent.attackers.flatMap((a) => (a.enlist !== undefined ? [a.enlist] : []));
+  if (new Set(enlistedIds).size !== enlistedIds.length) return reject('illegalAttacker', 'A creature can be enlisted by one attacker only.');
   // D341 - "can't attack or block alone": the only attacker declared may not be one that needs company.
   const lone = intent.attackers.length === 1 ? intent.attackers[0] : undefined;
   if (lone && mustNotAttackAlone(cdeps, lone.card)) {
@@ -3205,6 +3218,14 @@ function declareAttackers(
     .map((a) => a.card)
     .filter((id) => !derive(state, deps.oracle, deps.scripts, id, cache).keywords.has('vigilance'));
   if (toTap.length > 0) events.push({ t: 'PermanentsTapped', cards: toTap });
+  // D562 - CR 702.154a: each enlisted creature is tapped with the declaration (the optional cost, CR 508.1g), and the
+  // enlistment is the event the keyword table's `When you do` fires on.
+  const enlisting = intent.attackers.filter((a): a is typeof a & { enlist: InstanceId } => a.enlist !== undefined);
+  if (enlisting.length > 0) events.push({ t: 'PermanentsTapped', cards: enlisting.map((a) => a.enlist) });
+  for (const a of enlisting) {
+    events.push({ t: 'Enlisted', card: a.card, enlisted: a.enlist, player: intent.player });
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'enlists', 'enlist')} ${derive(state, deps.oracle, deps.scripts, a.enlist, cache).name} for ${derive(state, deps.oracle, deps.scripts, a.card, cache).name}.`, intent.player));
+  }
   // D443 - CR 701.39: an exerted attacker won't untap during its controller's next untap step (D411's
   // field), and its `When you do` fires on `Exerted`.
   for (const a of intent.attackers) {

@@ -381,6 +381,26 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'enlist',
+    {
+      // D562 - CR 702.154a: "When you do, add its power to this creature's until end of turn." The reflexive trigger fires off
+      // the enlistment (`Enlisted` - the host's, at the declaration), the enlisted creature its item; the power is read as
+      // it resolves (CR 608.2h), or taken as it was tapped (the memo) when it has left the battlefield - its last known.
+      event: 'Enlisted',
+      matches: (_ctx, self, ev) => ev.t === 'Enlisted' && ev.card === self,
+      perItem: (_ctx, _self, ev) => (ev.t === 'Enlisted' ? [ev.enlisted] : []),
+      memo: (ctx, _self, ev) => (ev.t === 'Enlisted' ? (ctx.derive(ev.enlisted).power ?? 0) : 0),
+      label: (ctx, self) => `${nameOf(ctx, self)} - enlist`,
+      resolve: (ctx, self, obj) => {
+        if (!onBattlefield(ctx, self)) return [];
+        const item = obj.item;
+        const x = item !== undefined && onBattlefield(ctx, item) ? (ctx.derive(item).power ?? 0) : (obj.memo ?? 0);
+        // Exalted's pump (D308): the modification itself, the power alone.
+        return x === 0 ? [] : [{ t: 'PtModifiedUntilEndOfTurn', card: self, power: x, toughness: 0 }];
+      },
+    },
+  ],
+  [
     'persist',
     {
       // CR 702.79a - when this creature dies, if it had no -1/-1 counters on it, return it under its owner's control with a -1/-1 counter.

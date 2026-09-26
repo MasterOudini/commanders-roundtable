@@ -12,7 +12,7 @@
 // or it is blocked on a human (`priority.awaiting !== null`). Those are the only
 // two places the engine stops.
 
-import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
+import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, enlistCandidates, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { goadersOf, isGoaded } from './goad';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult, reboundTick } from './effects';
@@ -481,6 +481,14 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
             ...((): { goaded?: { card: InstanceId; avoid: readonly PlayerId[] }[] } => {
               const goaded = possible.filter((id) => isGoaded(deps2.state, id)).map((card) => ({ card, avoid: goadersOf(deps2.state, card) }));
               return goaded.length > 0 ? { goaded } : {};
+            })(),
+            // D562 - ENLIST (CR 702.154a): the attackers that may enlist and the creatures they may tap; absent when no
+            // attacker has enlist or nothing but itself could be tapped.
+            ...((): { enlist?: { attackers: InstanceId[]; candidates: InstanceId[] } } => {
+              const attackers = possible.filter((id) => derive(deps2.state, deps2.oracle, deps2.scripts, id, deps2.cache).keywords.has('enlist'));
+              if (attackers.length === 0) return {};
+              const candidates = enlistCandidates(deps2, ap);
+              return candidates.some((c) => attackers.some((a) => a !== c)) ? { enlist: { attackers, candidates } } : {};
             })(),
           },
         });

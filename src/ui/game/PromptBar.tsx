@@ -968,8 +968,14 @@ export function PromptBar() {
                   send({
                     t: 'DeclareAttackers',
                     player: viewer,
-                    // D443 - the exert toggles ride the declaration (CR 701.39).
-                    attackers: mode.chosen.map((a) => (a.exert ? { card: a.card, defender: a.defender, exert: true } : { card: a.card, defender: a.defender })),
+                    // D443 - the exert toggles ride the declaration (CR 701.39); D562 - and the enlistments (CR 702.154a),
+                    // an enlistment naming a creature since chosen to attack dropped.
+                    attackers: mode.chosen.map((a) => ({
+                      card: a.card,
+                      defender: a.defender,
+                      ...(a.exert ? { exert: true } : {}),
+                      ...(a.enlist !== undefined && !mode.chosen.some((c) => c.card === a.enlist) ? { enlist: a.enlist } : {}),
+                    })),
                   });
                   setMode({ kind: 'idle' });
                 }}
@@ -1001,6 +1007,43 @@ export function PromptBar() {
                     {view.cards[a.card]?.card?.name ?? 'it'}
                   </button>
                 ))}
+            {/* D562 - ENLIST: one button per chosen attacker the prompt lists as enlisting (CR 702.154a), cycling through
+                the candidates the attack leaves home - none first. The client cannot compute them: the prompt carries them. */}
+            {mode.kind === 'attackers' &&
+              awaiting?.kind === 'declareAttackers' &&
+              awaiting.enlist !== undefined &&
+              mode.chosen
+                .filter((a) => awaiting.enlist?.attackers.includes(a.card))
+                .map((a) => {
+                  const free = (awaiting.enlist?.candidates ?? []).filter(
+                    (id) => id !== a.card && !mode.chosen.some((c) => c.card === id || (c.card !== a.card && c.enlist === id)),
+                  );
+                  const next = free[(a.enlist === undefined ? -1 : free.indexOf(a.enlist)) + 1];
+                  return (
+                    <button
+                      key={`enlist-${a.card}`}
+                      type="button"
+                      className={a.enlist !== undefined ? BTN_SMALL : BTN_GHOST_SMALL}
+                      data-action="cycle-enlist"
+                      data-instance-id={a.card}
+                      disabled={free.length === 0}
+                      onClick={() =>
+                        setMode({
+                          ...mode,
+                          chosen: mode.chosen.map((c) =>
+                            c.card === a.card
+                              ? { card: c.card, defender: c.defender, ...(c.exert ? { exert: true } : {}), ...(next !== undefined ? { enlist: next } : {}) }
+                              : c,
+                          ),
+                        })
+                      }
+                    >
+                      {a.enlist !== undefined
+                        ? `${view.cards[a.card]?.card?.name ?? 'It'} enlists ${view.cards[a.enlist]?.card?.name ?? 'a creature'}`
+                        : `Enlist for ${view.cards[a.card]?.card?.name ?? 'it'}`}
+                    </button>
+                  );
+                })}
             <button
               type="button"
               className={BTN_GHOST}

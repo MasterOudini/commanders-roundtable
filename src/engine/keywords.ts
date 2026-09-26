@@ -93,6 +93,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   blitz: 'blitz',
   // D561 - recover: the graveyard trigger that asks for the recover cost - back to its owner's hand, or exiled.
   recover: 'recover',
+  // D562 - enlist: the declaration's tap of another creature and the trigger that adds its power until end of turn.
+  enlist: 'enlist',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

@@ -230,8 +230,12 @@ export type Intent =
   | {
       readonly t: 'DeclareAttackers';
       readonly player: PlayerId;
-      /** D443 - `exert: true` exerts the creature as it attacks (CR 701.39); legal only on a prompt-listed exertable one. */
-      readonly attackers: readonly { readonly card: InstanceId; readonly defender: DefenderRef; readonly exert?: boolean }[];
+      /**
+       * D443 - `exert: true` exerts the creature as it attacks (CR 701.39); legal only on a prompt-listed exertable one.
+       * D562 - `enlist` names the creature this attacker enlists (CR 702.154a): tapped with the declaration, its power added
+       * as the trigger resolves; legal only for an attacker with enlist and a creature the host lists as a candidate.
+       */
+      readonly attackers: readonly { readonly card: InstanceId; readonly defender: DefenderRef; readonly exert?: boolean; readonly enlist?: InstanceId }[];
     }
   | {
       readonly t: 'DeclareBlockers';

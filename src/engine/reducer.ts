@@ -1278,6 +1278,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D443 - the exert is in the log for the trigger bus and the narration; the untap it costs is
     // `UntapSkipSet`'s, emitted beside it.
     case 'Exerted':
+    // D562 - the enlistment likewise: the tap it costs is `PermanentsTapped`'s, emitted beside it.
+    case 'Enlisted':
       return state;
 
     case 'AttackersDeclared':

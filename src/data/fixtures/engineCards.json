@@ -309437,6 +309437,290 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BENALISH_FAITHBONDER": {
+    "scryfallId": "084d77df-a899-406f-9d79-e3fa3abeaebc",
+    "oracleId": "278db664-4235-40f0-a926-3074a0e038c1",
+    "name": "Benalish Faithbonder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benalish Faithbonder",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Vigilance\nEnlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)",
+        "flavorText": "\"A single light can hold back endless darkness.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Francisco Miyara",
+        "imageId": "084d77df-a899-406f-9d79-e3fa3abeaebc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARKWEAVE_CRUSHER": {
+    "scryfallId": "41c62c55-7b04-4987-9047-1322c842bb59",
+    "oracleId": "cbac75c6-6006-4025-b893-8828965b5f97",
+    "name": "Barkweave Crusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barkweave Crusher",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elemental Warrior",
+        "oracleText": "Enlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)",
+        "flavorText": "\"Phyrexia may be ancient, but Gaea is eternal.\"\n—Queen Allenal of Ruadach",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "41c62c55-7b04-4987-9047-1322c842bb59"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COALITION_WARBRUTE": {
+    "scryfallId": "554c422f-2a1b-47c0-9358-42b85cdbb84e",
+    "oracleId": "84d67d87-2696-4c2f-9f10-29d5832bfbb6",
+    "name": "Coalition Warbrute",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coalition Warbrute",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Minotaur Berserker",
+        "oracleText": "Enlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)\nTrample",
+        "flavorText": "Anger is his greatest weapon, and he sharpens it daily.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Will Gist",
+        "imageId": "554c422f-2a1b-47c0-9358-42b85cdbb84e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "118",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COALITION_SKYKNIGHT": {
+    "scryfallId": "8b12da45-aff4-406d-83a3-39ecaff6ff56",
+    "oracleId": "dc763f20-73e7-4db7-9e98-6f419b8fba84",
+    "name": "Coalition Skyknight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coalition Skyknight",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flying\nEnlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "8b12da45-aff4-406d-83a3-39ecaff6ff56"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enlist",
+      "Flying"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEXBANE_TORTOISE": {
+    "scryfallId": "acd5a635-bcf5-4a05-b00b-bf40322823fe",
+    "oracleId": "f3b4097f-b84f-4645-81f1-018366e40eeb",
+    "name": "Hexbane Tortoise",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hexbane Tortoise",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "Ward {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nEnlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "acd5a635-bcf5-4a05-b00b-bf40322823fe"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Ward",
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LINEBREAKER_BALOTH": {
+    "scryfallId": "15cc59c7-6478-4f84-898a-7e0fed10f004",
+    "oracleId": "c3b395b3-fea0-41d9-a3f2-6c90f89d8bdb",
+    "name": "Linebreaker Baloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Linebreaker Baloth",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Enlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)\nThis creature can't be blocked by creatures with power 2 or less.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "15cc59c7-6478-4f84-898a-7e0fed10f004"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YAVIMAYA_STEELCRUSHER": {
+    "scryfallId": "25175622-7b68-4916-adf2-3bf2d82e8356",
+    "oracleId": "ad181ee7-756f-4002-9009-023ea6172991",
+    "name": "Yavimaya Steelcrusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yavimaya Steelcrusher",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Ape Warrior",
+        "oracleText": "Enlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)\n{1}, Sacrifice this creature: Destroy target artifact.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "25175622-7b68-4916-adf2-3bf2d82e8356"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARGIVIAN_CAVALIER": {
+    "scryfallId": "57746e72-ba9f-4717-a4a2-6c6a039080c3",
+    "oracleId": "c45090bd-a589-45a0-8388-025b8e0b3487",
+    "name": "Argivian Cavalier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Argivian Cavalier",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Orc Knight",
+        "oracleText": "Enlist (As this creature attacks, you may tap a nonattacking creature you control without summoning sickness. When you do, add its power to this creature's until end of turn.)\nWhen this creature enters, create a 1/1 white Soldier creature token.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "57746e72-ba9f-4717-a4a2-6c6a039080c3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enlist"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

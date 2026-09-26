@@ -10196,6 +10196,17 @@ const WANTED = [
   "Sun's Bounty",
   'Resize',
   "Garza's Assassin",
+  // D562 - ENLIST: the five bare-keyword enlist creatures the seam completes.
+  'Benalish Faithbonder',
+  'Barkweave Crusher',
+  'Coalition Warbrute',
+  'Coalition Skyknight',
+  'Hexbane Tortoise',
+  // D562 - ENLIST: the rows the whole-leftover row maker rowed once the Enlist line was the engine's (an attack-declaration tap of another creature, its power added until end of turn).
+  'Linebreaker Baloth',
+  'Yavimaya Steelcrusher',
+  'Argivian Cavalier',
+  // D562 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

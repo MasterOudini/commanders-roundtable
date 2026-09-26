@@ -773,6 +773,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D562 - enlist: the Enlist line is the engine's now (the declaration's tap of another creature, its power added until end of turn); what stays is an enlist creature whose other line the row maker does not read.
+  ['Guardian of New Benalia', 'the row maker: a head outside the closed reader: Whenever this creature enlists a creature, scry 2. (the enlistment is an event with no row head yet; its Enlist line reads since D562) (D562)'],
+  ['Balduvian Berserker', 'the row maker: a dies trigger that bites from the graveyard: When this creature dies, it deals damage equal to its power to any target. (the bite needs its source on the battlefield - its last known power unread - and any target is no card-only aim; its Enlist line reads since D562) (D562)'],
   // D558 - offspring: the Offspring line is the engine's now (the cost at cast, the 1/1 token copy on entry); what stays is an offspring creature whose other line the row maker does not read.
   ['Thundertrap Trainer', 'the row maker: a look with a negated noun the suite has no fixture for: Look at the top four cards of your library. (its Offspring line reads since D558) (D558)'],
   // D557 - conspire: the Conspire line is the engine's now (two creatures sharing a colour tapped at cast, one copy off the stack); what stays is a conspire spell whose other sentence the vocabulary does not read.

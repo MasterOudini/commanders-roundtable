@@ -110,8 +110,11 @@ export type TableMode =
    */
   | {
       readonly kind: 'attackers';
-      /** D443 - `exert`: the toggle on the prompt bar for an attacker the prompt lists as exertable (CR 701.39). */
-      readonly chosen: readonly { readonly card: string; readonly defender: DefenderRef; readonly exert?: boolean }[];
+      /**
+       * D443 - `exert`: the toggle on the prompt bar for an attacker the prompt lists as exertable (CR 701.39).
+       * D562 - `enlist`: the creature an enlisting attacker taps (CR 702.154a), cycled on the prompt bar.
+       */
+      readonly chosen: readonly { readonly card: string; readonly defender: DefenderRef; readonly exert?: boolean; readonly enlist?: string }[];
       /** Who a newly-armed attacker goes at. The player on my left, by default. */
       readonly defaultDefender: DefenderRef | null;
     }
