@@ -1362,6 +1362,11 @@ function buyOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unkn
   return { buyback: true, ...(verb !== undefined && n > 0 ? { [verb]: picked } : {}) };
 }
 
+/** D556 - the replicate the driver pays: once, whenever the offer says the replicated cast is payable (D443's rule). */
+function repOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  return a.replicateAffordable === true ? { replicated: 1 } : {};
+}
+
 function castPicksOf(action: Extract<LegalAction, { t: 'CastSpell' }>): { sacrifice?: readonly InstanceId[]; discard?: readonly InstanceId[]; tap?: readonly InstanceId[]; exileFromGraveyard?: readonly InstanceId[]; returnToHand?: readonly InstanceId[] } {
   const first = (ids: readonly InstanceId[] | undefined, n: number | undefined): readonly InstanceId[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
   const sacrifice = first(action.sacrificeCandidates, action.sacrificeCount);
@@ -1446,7 +1451,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1765,6 +1770,9 @@ interface Run {
   readonly goads: number;
   /** D555 - the creatures suspected (a `Suspected` event each card). */
   readonly suspects: number;
+  /** D556 - the casts that paid a replicate cost (CR 702.56a), and the copies the replicate trigger made. */
+  readonly replicatedCasts: number;
+  readonly replicateCopies: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2290,6 +2298,8 @@ function runOne(seed: number): Run {
     detains: game.log.reduce((n, e) => n + (e.body.t === 'Detained' ? e.body.cards.length : 0), 0),
     goads: game.log.reduce((n, e) => n + (e.body.t === 'Goaded' ? e.body.cards.length : 0), 0),
     suspects: game.log.reduce((n, e) => n + (e.body.t === 'Suspected' ? e.body.cards.length : 0), 0),
+    replicatedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.replicated ?? 0) > 0).length,
+    replicateCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('replicate') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
@@ -2645,6 +2655,8 @@ const TOTAL_KEYS = [
   'saddles',
   'goads',
   'suspects',
+  'replicatedCasts',
+  'replicateCopies',
   'crownings',
   'ringTempts',
   'ringAbilities',

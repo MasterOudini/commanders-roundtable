@@ -54,6 +54,8 @@ export interface BotPort {
     alternative?: boolean,
     /** D535 - the buyback paid (CR 702.27). */
     buyback?: boolean,
+    /** D556 - the replicate count (CR 702.56a). */
+    replicated?: number,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

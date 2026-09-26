@@ -117,6 +117,9 @@ export const TIER2_KEYWORDS = [
   // D536 - STORM (CR 702.40a): a cast trigger that copies the spell for each spell cast before it this turn, run from the
   // keyword table off the SPELL on the stack as cascade is.
   'storm',
+  // D556 - REPLICATE (CR 702.56a): a cast trigger that copies the spell once for each time its replicate cost was paid
+  // (`StackObject.replicated`), run from the keyword table off the SPELL on the stack as storm is.
+  'replicate',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -2051,6 +2054,11 @@ export interface OracleFace {
   readonly buybackCost: ManaCost | null;
   /** D535 - `Buyback—<cost>.`: a buyback that is not only mana, read and charged as D530's verb kicker is. */
   readonly buybackVerb: import('../../data/activatedParse').KickerVerb | null;
+  /**
+   * D556 - REPLICATE (CR 702.56a): `Replicate {M}` on an instant or sorcery - an optional additional cost the cast may pay
+   * any number of times (`CastSpell.replicated`); the cast trigger copies the spell once per payment.
+   */
+  readonly replicateCost: ManaCost | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

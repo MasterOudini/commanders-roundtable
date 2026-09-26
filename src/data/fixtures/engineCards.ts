@@ -9082,6 +9082,14 @@ export const LAURINE_THE_DIVERSION: CardData = F.LAURINE_THE_DIVERSION as CardDa
 export const REASONABLE_DOUBT: CardData = F.REASONABLE_DOUBT as CardData;
 export const CAUGHT_RED_HANDED: CardData = F.CAUGHT_RED_HANDED as CardData;
 export const PERSON_OF_INTEREST: CardData = F.PERSON_OF_INTEREST as CardData;
+export const SUPER_COMBO: CardData = F.SUPER_COMBO as CardData;
+export const VACUUMELT: CardData = F.VACUUMELT as CardData;
+export const SHATTERING_SPREE: CardData = F.SHATTERING_SPREE as CardData;
+export const PYROMATICS: CardData = F.PYROMATICS as CardData;
+export const GIGADROWSE: CardData = F.GIGADROWSE as CardData;
+export const LOSE_FOCUS: CardData = F.LOSE_FOCUS as CardData;
+export const TRAIN_OF_THOUGHT: CardData = F.TRAIN_OF_THOUGHT as CardData;
+export const LEAP_OF_FLAME: CardData = F.LEAP_OF_FLAME as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18424,6 +18432,14 @@ export const ENGINE_CARDS: CardData[] = [
   REASONABLE_DOUBT,
   CAUGHT_RED_HANDED,
   PERSON_OF_INTEREST,
+  SUPER_COMBO,
+  VACUUMELT,
+  SHATTERING_SPREE,
+  PYROMATICS,
+  GIGADROWSE,
+  LOSE_FOCUS,
+  TRAIN_OF_THOUGHT,
+  LEAP_OF_FLAME,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

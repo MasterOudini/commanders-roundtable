@@ -70,6 +70,10 @@ export type LegalAction =
       readonly buybackPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand';
       readonly buybackPickCount?: number;
       readonly buybackPickCandidates?: readonly InstanceId[];
+      /** D556 - REPLICATE (CR 702.56a): the face's replicate cost the cast may pay any number of times (`CastSpell.replicated`). */
+      readonly replicateCost?: string;
+      /** D556 - the cast replicated once is payable now; the fuzz driver replicates exactly when it is. */
+      readonly replicateAffordable?: boolean;
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -1184,6 +1188,10 @@ function castAction(
     ...(face.delve ? { delve: true as const } : {}),
     ...kickerOffer(state, oracle, scripts, ctx, caster, id, face, cost, tax),
     ...buybackOffer(state, oracle, scripts, ctx, caster, id, face, cost, tax),
+    // D556 - a replicate is offered, not priced: the preview prices the count the player announces; one payment priced here.
+    ...(face.replicateCost !== null
+      ? { replicateCost: face.replicateCost.raw, replicateAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.replicateCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
+      : {}),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),
     ...(chooser?.fields ?? {}),

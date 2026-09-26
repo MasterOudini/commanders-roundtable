@@ -24,7 +24,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0) : null),
     [mode],
   );
 
@@ -50,6 +50,8 @@ export function PaymentReview() {
       ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
       // D535 - and the buyback it priced.
       ...(preview.bought ? { buyback: true } : {}),
+      // D556 - and the replicate count it priced.
+      ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
       // D405 - what the review priced is what the host taps and exiles (D53).
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -150,6 +152,31 @@ export function PaymentReview() {
             onClick={() => setMode({ ...mode, buyback: !preview.bought })}
           >
             {preview.bought ? 'Skip buyback' : 'Buy back'}
+          </button>
+        </div>
+      )}
+
+      {preview.replicate && (
+        <div className="mt-2 flex items-center gap-2" data-payment-replicate="">
+          <span className="text-xs text-crt-dim">
+            {`Replicated ${preview.replicated} time${preview.replicated === 1 ? '' : 's'}`} ({preview.replicate.cost} each - one copy per payment)
+          </span>
+          <button
+            type="button"
+            className={BTN_GHOST_SMALL}
+            data-payment="set-replicate"
+            onClick={() =>
+              askNumber({
+                title: `Replicate ${preview.name} how many times?`,
+                label: 'Copies',
+                initial: preview.replicated,
+                min: 0,
+                max: 20,
+                onSubmit: (replicated) => setMode({ ...mode, replicated }),
+              })
+            }
+          >
+            Change…
           </button>
         </div>
       )}

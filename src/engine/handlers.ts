@@ -417,6 +417,8 @@ interface CastSetup {
   readonly kickedWith: readonly number[];
   /** D535 - the buyback was paid (CR 702.27), priced into `problem`; the stack object remembers it. */
   readonly buyback: boolean;
+  /** D556 - the replicate count (CR 702.56a), priced into `problem`; the stack object remembers it. */
+  readonly replicated: number;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -759,6 +761,19 @@ function buybackProblem(face: ReturnType<typeof faceOf>, buyback: boolean, kicke
   if (face.buybackVerb !== null && (face.additionalCost !== null || (kicked > 0 && face.kickerVerb !== null))) return `${face.name}'s buyback and another cost both take picks - the app charges one.`;
   return null;
 }
+/** D556 - REPLICATE (CR 702.56a): the mana a replicated cast adds - the replicate cost once per payment. */
+function replicateMana(face: ReturnType<typeof faceOf>, replicated: number): ManaCost[] {
+  if (replicated <= 0 || face.replicateCost === null) return [];
+  return Array.from({ length: replicated }, () => face.replicateCost as ManaCost);
+}
+/** D556 - why a replicate count cannot be announced on this cast, or null when it can. */
+function replicateProblem(face: ReturnType<typeof faceOf>, replicated: number, faceDown: boolean): string | null {
+  if (!Number.isInteger(replicated) || replicated < 0) return 'The replicate count must be zero or more.';
+  if (replicated === 0) return null;
+  if (faceDown) return 'A face-down spell cannot be replicated.';
+  if (face.replicateCost === null) return `${face.name} has no replicate cost the app can charge.`;
+  return null;
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
 function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
@@ -847,6 +862,8 @@ function prepareCast(
   buyback = false,
   // D541 - a MADNESS cast (CR 702.35a), begun as the madness trigger resolves.
   madness = false,
+  // D556 - the replicate count (CR 702.56a).
+  replicated = 0,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -933,6 +950,9 @@ function prepareCast(
   // D535 - a buyback is priced with the kick: the announcement names it, the problem carries the cost.
   const buyWhy = buybackProblem(face, buyback, kicked, faceDown);
   if (buyWhy) return { error: reject('notCastable', buyWhy) };
+  // D556 - a replicate count is priced with the kick: the announcement names it, the problem carries the cost that many times.
+  const repWhy = replicateProblem(face, replicated, faceDown);
+  if (repWhy) return { error: reject('notCastable', repWhy) };
   // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
   const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
@@ -948,12 +968,12 @@ function prepareCast(
   if ('error' in altr) return altr;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...extras.mana], tax, ward.life + extras.life);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1167,6 +1187,8 @@ function castSpell(
     false,
     intent.kickedWith ?? [],
     intent.buyback === true,
+    false,
+    intent.replicated ?? 0,
   );
   if ('error' in setup) return setup.error;
 
@@ -1246,6 +1268,7 @@ function castSpell(
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(setup.buyback ? { buyback: true as const } : {}),
+      ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
       ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
       // D551 - a PLOTTED cast is free: its staged stages price nothing (the only free setup this path makes), and a
       // back-out restores the mark.
@@ -1411,7 +1434,7 @@ function chooseX(
   // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
   // D535 - and every other cost the cast chose (`stagedCastCost`).
   const xCost = stagedCastCost(face, pending);
-  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -2150,7 +2173,7 @@ function chooseTargets(
     stagedCastCost(face, pending),
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
     pending.taxApplied,
     ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).life + stagedCastLife(face, pending),
   );
@@ -2304,6 +2327,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
     ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
     ...(setup.buyback ? { buyback: true as const } : {}),
+    ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
@@ -2782,6 +2806,7 @@ function finishFromPending(
     kicked: pending.kicked ?? 0,
     kickedWith: pending.kickedWith ?? [],
     buyback: pending.buyback === true,
+    replicated: pending.replicated ?? 0,
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2826,6 +2851,7 @@ function finishFromPending(
     ...(pending.kicked !== undefined && pending.kicked > 0 ? { kicked: pending.kicked } : {}),
     ...(pending.kickedWith !== undefined && pending.kickedWith.length > 0 ? { kickedWith: pending.kickedWith } : {}),
     ...(pending.buyback === true ? { buyback: true as const } : {}),
+    ...(pending.replicated !== undefined && pending.replicated > 0 ? { replicated: pending.replicated } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),

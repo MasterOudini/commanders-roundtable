@@ -588,6 +588,19 @@ export function parseBuyback(oracleText: string, warn: Warn = NOOP_WARN): { buyb
 }
 
 /**
+ * D556 - REPLICATE (CR 702.56a): `Replicate {M}` on its own line (reminder text aside), as a mana cost - an additional
+ * cost the cast may pay any number of times. A replicate cost that is not only mana stays null (D90).
+ */
+export function parseReplicate(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Replicate ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
+/**
  * D537 - RETRACE (CR 702.81) and JUMP-START (CR 702.133) on a line of their own (reminder text aside): the graveyard
  * cast and its discard, read by the verb-kicker grammar (a land card for retrace, any card for jump-start). The verb
  * keeps the keyword line as its `line`, so the accounting asks the parser that read it.
@@ -1260,6 +1273,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const kicked = parseKicker(face.oracleText, warn);
   // D535 - buyback is an instant or sorcery keyword (CR 702.27a: it returns the spell as it resolves).
   const bought = isPermanent ? { buyback: null, buybackVerb: null } : parseBuyback(face.oracleText, warn);
+  // D556 - replicate on an instant or sorcery (a permanent spell's copy would be a token the engine does not make, CR 707.10a).
+  const replicateCost = isPermanent ? null : parseReplicate(face.oracleText, warn);
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1359,6 +1374,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     kickerVerb: kicked.kickerVerb,
     buybackCost: bought.buyback,
     buybackVerb: bought.buybackVerb,
+    replicateCost,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

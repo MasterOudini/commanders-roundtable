@@ -815,6 +815,21 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'replicate',
+    {
+      // D556 - CR 702.56a: when you cast this spell, copy it for each time you paid its replicate cost; you may choose new
+      // targets for the copies. Storm's shape (D536): the entry fires off the SPELL on the stack, the count the cast's own
+      // (`StackObject.replicated` - a cast that paid none fires nothing), the copies the entry's own effects (`stormCopySpec`).
+      event: 'SpellCast',
+      fromStack: true,
+      matches: (ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.card === self && ev.obj.copyOf === undefined && (ev.obj.replicated ?? 0) > 0 && !isPermanentSpell(ctx, self),
+      memo: (_ctx, _self, ev) => (ev.t === 'SpellCast' ? ev.obj.replicated ?? 0 : 0),
+      effects: (_ctx, _self, ev) => (ev.t === 'SpellCast' ? Array.from({ length: ev.obj.replicated ?? 0 }, () => stormCopySpec(ev.obj)) : []),
+      label: (ctx, self) => `${nameOf(ctx, self)} - replicate`,
+      resolve: () => [],
+    },
+  ],
+  [
     'madness',
     {
       // D541 - CR 702.35a: "When this card is exiled this way, its owner may cast it by paying [cost] rather than paying

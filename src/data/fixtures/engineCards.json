@@ -307733,6 +307733,288 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SUPER_COMBO": {
+    "scryfallId": "31375e66-6519-4131-849f-5aef1ec4c4d9",
+    "oracleId": "68555673-2833-459a-b415-e2805f837778",
+    "name": "Super Combo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super Combo",
+        "manaCost": "{1}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Replicate {2} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nTarget creature you control deals damage equal to its power to target creature an opponent controls.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kirokaze",
+        "imageId": "31375e66-6519-4131-849f-5aef1ec4c4d9"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VACUUMELT": {
+    "scryfallId": "32dfe9aa-8303-460b-a4c3-e5533af2e1fd",
+    "oracleId": "eb421a1b-147f-422b-bb8d-483a182a4096",
+    "name": "Vacuumelt",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vacuumelt",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Replicate {2}{U} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nReturn target creature to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nottsuo",
+        "imageId": "32dfe9aa-8303-460b-a4c3-e5533af2e1fd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "ddj",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHATTERING_SPREE": {
+    "scryfallId": "6563f7d2-1b34-40ce-b758-5c64e8ab80c5",
+    "oracleId": "fe725b27-49ef-41bc-91f9-9cd9871ad863",
+    "name": "Shattering Spree",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shattering Spree",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Replicate {R} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nDestroy target artifact.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Pat Lee",
+        "imageId": "6563f7d2-1b34-40ce-b758-5c64e8ab80c5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GK1-34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYROMATICS": {
+    "scryfallId": "795a7929-2c32-4006-bdf1-def0a4400f59",
+    "oracleId": "9c01e2a6-61e7-455c-b09f-8c0de2266782",
+    "name": "Pyromatics",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pyromatics",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Replicate {1}{R} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nPyromatics deals 1 damage to any target.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Glen Angus",
+        "imageId": "795a7929-2c32-4006-bdf1-def0a4400f59"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "ddj",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIGADROWSE": {
+    "scryfallId": "8b2dee56-95b7-4672-aeea-56dd58c5d8dd",
+    "oracleId": "9cc64a91-82d2-4be1-812f-531863e99801",
+    "name": "Gigadrowse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gigadrowse",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Replicate {U} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nTap target permanent.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "8b2dee56-95b7-4672-aeea-56dd58c5d8dd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GPT-26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOSE_FOCUS": {
+    "scryfallId": "985bdb0c-ce6c-4506-8163-76f3b2fdf5fb",
+    "oracleId": "1cea6439-7ae5-4887-8c33-7da9fb36e2d4",
+    "name": "Lose Focus",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lose Focus",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Replicate {U} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nCounter target spell unless its controller pays {2}.",
+        "flavorText": "The spell wavered, caught on the tip of his tongue and at the edge of his awareness.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Martina Fačková",
+        "imageId": "985bdb0c-ce6c-4506-8163-76f3b2fdf5fb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRAIN_OF_THOUGHT": {
+    "scryfallId": "a9c1c674-0742-45be-afd5-2dbcd6b499ae",
+    "oracleId": "90ba0366-57ff-4dc4-a290-3925548129ce",
+    "name": "Train of Thought",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Train of Thought",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Replicate {1}{U} (When you cast this spell, copy it for each time you paid its replicate cost.)\nDraw a card.",
+        "flavorText": "\"But then . . . oh, but . . . which means . . . which would lead to . . . exactly!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Thompson",
+        "imageId": "a9c1c674-0742-45be-afd5-2dbcd6b499ae"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "ddj",
+    "collectorNumber": "19",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEAP_OF_FLAME": {
+    "scryfallId": "c011b432-ec39-44c8-bf2a-1c3fec32a576",
+    "oracleId": "cf3b1070-2c08-49b9-aa78-fe676fab38aa",
+    "name": "Leap of Flame",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leap of Flame",
+        "manaCost": "{U}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Replicate {U}{R} (When you cast this spell, copy it for each time you paid its replicate cost. You may choose new targets for the copies.)\nTarget creature gets +1/+0 and gains flying and first strike until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "c011b432-ec39-44c8-bf2a-1c3fec32a576"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Replicate"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "121",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

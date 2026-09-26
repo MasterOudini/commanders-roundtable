@@ -72,6 +72,11 @@ export type Intent =
        */
       readonly buyback?: boolean;
       /**
+       * D556 - REPLICATE (CR 702.56a): how many times the replicate cost is paid (`Replicate {M}`). The host adds it that
+       * many times to the payment, and the cast trigger copies the spell once per payment.
+       */
+      readonly replicated?: number;
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

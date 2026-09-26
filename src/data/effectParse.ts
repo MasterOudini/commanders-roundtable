@@ -3512,6 +3512,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D535 - a Buyback line (`Buyback {M}`, `Buyback—<cost>.`) is a cost the cast announces, no clause of the spell either
     // (the accounting still refuses a Buyback— line whose cost the grammar cannot read).
     .filter((l) => !/^Buyback (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^Buyback—.+\.\s*$/.test(l.trim()))
+    // D556 - a Replicate line is a cost the cast announces and a cast trigger the keyword table runs, no clause of the spell either.
+    .filter((l) => !/^Replicate (?:\{[^}]+\})+\s*$/.test(l.trim()))
     // D537 - a Retrace or Jump-start line is a graveyard cast the engine offers, no clause of the spell either.
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.

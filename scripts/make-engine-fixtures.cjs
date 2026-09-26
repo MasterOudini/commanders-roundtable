@@ -10136,6 +10136,15 @@ const WANTED = [
   // D555 - SUSPECT: the rows the whole-leftover row maker rowed once the suspect clause was the engine's (the suspected mark - menace, no blocks).
   'Person of Interest',
   // D555 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D556 - REPLICATE's proof fixtures: the eight spells the strict judge counted whole (a Replicate line and one sentence the vocabulary reads).
+  'Super Combo',
+  'Vacuumelt',
+  'Shattering Spree',
+  'Pyromatics',
+  'Gigadrowse',
+  'Lose Focus',
+  'Train of Thought',
+  'Leap of Flame',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

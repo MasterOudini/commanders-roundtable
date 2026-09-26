@@ -776,6 +776,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D556 - replicate: the Replicate line is the engine's now (the count paid at cast, the copies off the stack); what stays is a replicate spell whose other sentence the vocabulary does not read.
+  ['Siege of Towers', 'a spell with a line outside the vocabulary: Target Mountain becomes a 3/1 creature. It\'s still a land. (its Replicate line reads since D556) (D556)'],
+  ['Mists of Lórien', 'a spell with a line outside the vocabulary: Return target nonland permanent and each other nonland permanent with the same mana value as that permanent to their owners\' hands. (its Replicate line reads since D556) (D556)'],
   // D555 - suspect: the suspect clause is the engine's now (the suspected mark - menace, no blocks); what stays is a suspect card whose other sentence the row maker does not read.
   ['Clandestine Meddler', 'the row maker: trigger head not in the library - Whenever one or more suspected creatures you control attack, surveil 1. (its suspect reads since D555) (D555)'],
   ['J. Jonah Jameson', 'the row maker: trigger head not in the library - Whenever a creature you control with menace attacks, create a Treasure token. (its suspect reads since D555) (D555)'],
