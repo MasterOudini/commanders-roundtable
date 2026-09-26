@@ -10085,6 +10085,20 @@ const WANTED = [
   'Valkyrie Harbinger',
   'Xerex Strobe-Knight',
   // D551 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D552 - DETAIN's proof fixtures: Inaction Injunction and Lyev Decree (the spells), Llanowar Elves and New Prahv Guildmage (a mana ability and an activated one, detained).
+  'Inaction Injunction',
+  'Lyev Decree',
+  'New Prahv Guildmage',
+  // D552 - DETAIN: the rows the whole-leftover row maker rowed once the detain clause was the engine's (the mark until the detainer's next turn) and the plural controller read.
+  "Isperia's Skywatch",
+  'Archon of the Triumvirate',
+  'Lyev Skyknight',
+  'Azorius Justiciar',
+  'Azorius Arrester',
+  'Martial Law',
+  'Soulsworn Spirit',
+  'Intrusive Packbeast',
+  // D552 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

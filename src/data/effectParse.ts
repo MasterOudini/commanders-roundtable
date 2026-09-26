@@ -195,7 +195,7 @@ const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)(?: other)?|two|three
 // admitted ONLY because `targetParse` reads the controller off every noun (D407, `readController`) and `specAdmits`
 // enforces it on every candidate, the stack included - D139's order: enforce first, then admit the wording. The D407
 // entries above that spell the word per noun stay (longest first); the qualifier still follows the noun.
-const CONTROLLER = "(?: (?:you control|an opponent controls|you don(?:'|’)t control))?";
+const CONTROLLER = "(?: (?:you control|an opponent controls|your opponents control|you don(?:'|’)t control))?";
 const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${CONTROLLER}${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 /**
@@ -1377,6 +1377,9 @@ const RULES: readonly Rule[] = [
   // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
   // are a different reader and stay unread until they are measured.
   { kind: 'cantBlock', re: new RegExp(`^${TARGET} can't block this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D552 - DETAIN (CR 701.35a): a target, counted forms included ("up to two target creatures your opponents control").
+  // The mass form (Lavinia's "detain each ... with mana value N or less") stays unread until it is measured.
+  { kind: 'detain', re: new RegExp(`^detain ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D399 - "can't be blocked this turn": the EVASION with an end (CR 509.1b's other side), the same
   // list, read by `canBlock` for the attacker. A target, the self (D373), and the pump-with-rider
   // ("gets +N/+N until end of turn and can't be blocked this turn") on one entry. The scoped forms

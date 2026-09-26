@@ -23,6 +23,7 @@ import type { GameState } from './types/state';
 import { faceColors, fitPool, type SpendPurpose } from './spend';
 import type { SpendRestriction } from './types/mana';
 import { faceOf } from './oracle';
+import { isDetained } from './detain';
 
 /** One tappable mana ability, with its `anyColor` already expanded. */
 export interface ManaSource {
@@ -124,6 +125,8 @@ export function manaSourcesOf(
     const card = state.cards[id];
     if (!card || card.controller !== player) continue;
     if (card.phasedOut) continue;
+    // D552 - a detained permanent's activated abilities can't be activated (CR 701.35a) - its mana abilities neither.
+    if (isDetained(state, id)) continue;
     const d = derive(state, oracle, scripts, id, opts.cache);
     for (const prod of d.producesMana) {
       if (prod.conditional && !opts.includeConditional) continue;

@@ -306484,6 +306484,400 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "INACTION_INJUNCTION": {
+    "scryfallId": "5342ec3c-9d26-474a-9df5-c21ac90bb233",
+    "oracleId": "6f6bb2dd-c888-43bd-b9ef-8bd451ab669b",
+    "name": "Inaction Injunction",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inaction Injunction",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Detain target creature an opponent controls. (Until your next turn, that creature can't attack or block and its activated abilities can't be activated.)\nDraw a card.",
+        "flavorText": "\"To prevent action is to prevent transgression.\"\n—Azorius Arrester motto",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "5342ec3c-9d26-474a-9df5-c21ac90bb233"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LYEV_DECREE": {
+    "scryfallId": "773cf2aa-4337-4d14-8a8e-ff8b1fdec1b5",
+    "oracleId": "ace64875-ca4b-45c7-8b46-29ef2f2629dd",
+    "name": "Lyev Decree",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lyev Decree",
+        "manaCost": "{1}{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "Detain up to two target creatures your opponents control. (Until your next turn, those creatures can't attack or block and their activated abilities can't be activated.)",
+        "flavorText": "The Azorius have so many codes and statutes that you're always in violation of one of them.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "773cf2aa-4337-4d14-8a8e-ff8b1fdec1b5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEW_PRAHV_GUILDMAGE": {
+    "scryfallId": "698b47d1-c72e-4dc3-b28b-7421e0163f22",
+    "oracleId": "5912d4b7-d18d-4619-a96b-d2615200971f",
+    "name": "New Prahv Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "New Prahv Guildmage",
+        "manaCost": "{W}{U}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{W}{U}: Target creature gains flying until end of turn.\n{3}{W}{U}: Detain target nonland permanent an opponent controls. (Until your next turn, that permanent can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "698b47d1-c72e-4dc3-b28b-7421e0163f22"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ISPERIA_S_SKYWATCH": {
+    "scryfallId": "019ba84d-d236-45c5-a8ad-75def7736d0c",
+    "oracleId": "5101fa05-3cca-499c-8c48-198ba0f8c672",
+    "name": "Isperia's Skywatch",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Isperia's Skywatch",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Vedalken Knight",
+        "oracleText": "Flying\nWhen this creature enters, detain target creature an opponent controls. (Until your next turn, that creature can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "019ba84d-d236-45c5-a8ad-75def7736d0c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCHON_OF_THE_TRIUMVIRATE": {
+    "scryfallId": "07baef91-d7fd-4890-8c00-62f1a416dc76",
+    "oracleId": "27ecb717-6251-4066-b57e-7070e9e44bbf",
+    "name": "Archon of the Triumvirate",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Archon of the Triumvirate",
+        "manaCost": "{5}{W}{U}",
+        "typeLine": "Creature — Archon",
+        "oracleText": "Flying\nWhenever this creature attacks, detain up to two target nonland permanents your opponents control. (Until your next turn, those permanents can't attack or block and their activated abilities can't be activated.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "07baef91-d7fd-4890-8c00-62f1a416dc76"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Detain"
+    ],
+    "setCode": "prtr",
+    "collectorNumber": "142★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LYEV_SKYKNIGHT": {
+    "scryfallId": "11cbeb3b-1579-4318-a024-4a2c06896eaf",
+    "oracleId": "191ec087-7817-4c56-b2d5-66de5c663536",
+    "name": "Lyev Skyknight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lyev Skyknight",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flying\nWhen this creature enters, detain target nonland permanent an opponent controls. (Until your next turn, that permanent can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "11cbeb3b-1579-4318-a024-4a2c06896eaf"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZORIUS_JUSTICIAR": {
+    "scryfallId": "1628e808-f0d7-4225-8020-d9cbd14c510e",
+    "oracleId": "cba0eae3-73ea-4ea9-87bf-1015e490da90",
+    "name": "Azorius Justiciar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azorius Justiciar",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "When this creature enters, detain up to two target creatures your opponents control. (Until your next turn, those creatures can't attack or block and their activated abilities can't be activated.)",
+        "flavorText": "\"Your potential to commit a crime warrants further investigation.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "1628e808-f0d7-4225-8020-d9cbd14c510e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "clu",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AZORIUS_ARRESTER": {
+    "scryfallId": "199f7563-563e-483c-8317-5380a83db955",
+    "oracleId": "3f2a27a1-f9cf-4dac-a248-5c6af4de3722",
+    "name": "Azorius Arrester",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Azorius Arrester",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "When this creature enters, detain target creature an opponent controls. (Until your next turn, that creature can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": "\"You have the right to remain silent. Mostly because I tire of your excuses.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "199f7563-563e-483c-8317-5380a83db955"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARTIAL_LAW": {
+    "scryfallId": "21078b6f-a39d-4ec8-879e-ad10d97c3ff6",
+    "oracleId": "dfcf9f38-eb26-4033-b7c0-45ed29417aa5",
+    "name": "Martial Law",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Martial Law",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "At the beginning of your upkeep, detain target creature an opponent controls. (Until your next turn, that creature can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": "\"The good of society matters much more than the inconvenience of a few.\"\n—Agmand Sarv, Azorius hussar",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tyler Jacobson",
+        "imageId": "21078b6f-a39d-4ec8-879e-ad10d97c3ff6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOULSWORN_SPIRIT": {
+    "scryfallId": "32602ed9-c0a7-4498-a333-235eaae628df",
+    "oracleId": "e67e3cf1-6da9-4b52-a945-47bf54f69ffa",
+    "name": "Soulsworn Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soulsworn Spirit",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "This creature can't be blocked.\nWhen this creature enters, detain target creature an opponent controls. (Until your next turn, that creature can't attack or block and its activated abilities can't be activated.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "James Ryman",
+        "imageId": "32602ed9-c0a7-4498-a333-235eaae628df"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Detain"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INTRUSIVE_PACKBEAST": {
+    "scryfallId": "49266f3c-4b43-4175-8bac-16789ba6f4b9",
+    "oracleId": "85a59833-b661-4599-a5d1-042dee033617",
+    "name": "Intrusive Packbeast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Intrusive Packbeast",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Vigilance\nWhen this creature enters, tap up to two target creatures your opponents control.",
+        "flavorText": "Good at carrying things. Really good at knocking them down.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jason Felix",
+        "imageId": "49266f3c-4b43-4175-8bac-16789ba6f4b9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

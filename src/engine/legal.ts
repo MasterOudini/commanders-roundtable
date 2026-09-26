@@ -14,6 +14,7 @@ import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf } from
 import { affordable, solveInputFor, type SolveInput } from './payment';
 import { OTHER_PURPOSE, abilityPurpose, faceColors, spellPurpose } from './spend';
 import { isMainPhase } from './turn';
+import { isDetained } from './detain';
 import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
@@ -313,7 +314,9 @@ export function legalActions(
   const offered = offeredActions(state, oracle, scripts, player, ctx);
   // D550 - under SPLIT SECOND no spell is cast and no ability but a mana ability activated (CR 702.61b): the special
   // actions (a land, a foretell, a suspend, a morph turned up) and the mana taps stay.
-  return splitSecondOnStack(state, oracle) ? offered.filter((a) => a.t !== 'CastSpell' && a.t !== 'ActivateAbility') : offered;
+  const locked = splitSecondOnStack(state, oracle) ? offered.filter((a) => a.t !== 'CastSpell' && a.t !== 'ActivateAbility') : offered;
+  // D552 - a DETAINED permanent's activated abilities are not offered (CR 701.35a; its mana taps are gone from the sources).
+  return locked.filter((a) => a.t !== 'ActivateAbility' || !isDetained(state, a.card));
 }
 
 function offeredActions(

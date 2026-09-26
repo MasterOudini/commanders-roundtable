@@ -3,6 +3,7 @@
 
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import { protectedFrom } from './protection';
+import { isDetained } from './detain';
 import type { ScriptRegistry } from './scripts/registry';
 import type { CombatDef, ScriptCtx } from './scripts/api';
 import type { ResolvedDamage } from './types/events';
@@ -31,6 +32,8 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
   if (card.controller !== state.turn.activePlayer) return false;
   if (card.phasedOut) return false;
   if (card.tapped) return false;
+  // D552 - a detained creature can't attack (CR 701.35a).
+  if (isDetained(state, id)) return false;
   const chars = d(deps, id);
   if (!chars.isCreature) return false;
   if (chars.keywords.has('defender')) return false;
@@ -196,6 +199,8 @@ export type BlockRejection =
   // D394 - "can't block this turn": a one-shot restriction with an END, on the
   // until-end-of-turn list (CR 509.1b, CR 514.2).
   | 'cantBlockThisTurn'
+  /** D552 - detained (CR 701.35a): it can't block until the detaining player's next turn. */
+  | 'detained'
   /** D444 - unleash (CR 702.98b): it can't block as long as it has a +1/+1 counter on it. */
   | 'unleashed'
   // D399 - "can't be blocked this turn": the ATTACKER carries the evasion with an END, on the
@@ -223,6 +228,8 @@ export function canBlock(
   if (!b || !a) return 'notACreature';
   if (b.zone.kind !== 'battlefield' || b.phasedOut) return 'notACreature';
   if (b.tapped) return 'tapped';
+  // D552 - a detained creature can't block (CR 701.35a).
+  if (isDetained(state, blocker)) return 'detained';
   // D394 - "can't block this turn" (the vocabulary's `cantBlock`), until cleanup clears it.
   if (state.untilEndOfTurn.some((m) => m.card === blocker && m.cantBlock === true)) return 'cantBlockThisTurn';
   // D399 - "can't be blocked this turn" (the vocabulary's `cantBeBlocked`) on the ATTACKER, until
@@ -395,6 +402,8 @@ function blockRejectionText(
       return `Something on the battlefield stops ${bn} blocking ${an}.`;
     case 'cantBlockThisTurn':
       return `${bn} can't block this turn.`;
+    case 'detained':
+      return `${bn} is detained - it can't block until its detainer's next turn.`;
     case 'unleashed':
       return `${bn} can't block while it has a +1/+1 counter on it (unleash).`;
     // D521 - the Ring-bearer's evasion (CR 701.54d): the blocker's power is the reason, and the Ring is named.

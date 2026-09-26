@@ -41,6 +41,7 @@ import {
 } from './legal';
 import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
 import { freeCastAdmits, handChoiceAdmits } from './handChoice';
+import { isDetained } from './detain';
 import { clashBegin, clashFinish, clashOpponentStep } from './clash';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
@@ -1476,6 +1477,8 @@ function activateAbility(
   if (intent.grantRef !== undefined && !grant) return reject('notCastable', `${face.name} no longer has that granted ability.`);
   const ability = grant ? grant.ability : face.activated[intent.abilityIndex];
   if (!ability) return reject('notCastable', 'That permanent has no such ability.');
+  // D552 - DETAIN (CR 701.35a): a detained permanent's activated abilities can't be activated.
+  if (isDetained(state, intent.card)) return reject('notCastable', `${face.name} is detained - its abilities can't be activated until its detainer's next turn.`);
   // D550 - SPLIT SECOND (CR 702.61a): no ability but a mana ability is activated while such a spell is on the stack.
   if (!ability.isManaAbility && splitSecondOnStack(state, deps.oracle)) {
     return reject('timingRestriction', 'A spell with split second is on the stack - only mana abilities can be activated until it resolves.');

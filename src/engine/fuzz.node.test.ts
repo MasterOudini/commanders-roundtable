@@ -1753,6 +1753,8 @@ interface Run {
   /** D551 - the cards plotted (exiled face up from the hand), and the spells cast free from exile whose face plots. */
   readonly plots: number;
   readonly plottedCasts: number;
+  /** D552 - the permanents detained (a `Detained` event each card). */
+  readonly detains: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2275,6 +2277,7 @@ function runOne(seed: number): Run {
     myriadTokens: game.log.filter((e) => e.body.t === 'DelayedTriggerArmed' && e.body.trigger.id.includes('-myriad-')).length,
     splitSecondCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords ?? []).includes('splitSecond')).length,
     plots: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.plottedTurn !== undefined && m.from.kind === 'hand')).length,
+    detains: game.log.reduce((n, e) => n + (e.body.t === 'Detained' ? e.body.cards.length : 0), 0),
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
@@ -2625,6 +2628,7 @@ const TOTAL_KEYS = [
   'splitSecondCasts',
   'plots',
   'plottedCasts',
+  'detains',
   'crownings',
   'ringTempts',
   'ringAbilities',

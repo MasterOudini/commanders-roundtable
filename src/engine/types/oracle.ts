@@ -697,6 +697,11 @@ export type EffectKind =
    */
   | 'cantBlock'
   /**
+   * D552 - DETAIN (CR 701.35a): until the detaining player's next turn the permanent can't attack or block and its
+   * activated abilities can't be activated - the `Detained` mark (`detainedBy`), asked through `isDetained`.
+   */
+  | 'detain'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).

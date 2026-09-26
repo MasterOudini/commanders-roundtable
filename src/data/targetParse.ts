@@ -783,6 +783,10 @@ function readController(after: string, from: number): ControllerResult {
   const opp = searchable.match(/^\s+an\s+opponent\s+controls\b/i);
   if (opp) return withController('opponent', readController(after, from + (opp[0]?.length ?? 0)));
 
+  // D552 - the plural (`up to two target creatures your opponents control`): each target an opponent's, the same set.
+  const opps = searchable.match(/^\s+your\s+opponents\s+control\b/i);
+  if (opps) return withController('opponent', readController(after, from + (opps[0]?.length ?? 0)));
+
   const notYou = searchable.match(/^\s+you\s+don(?:'|’)?t\s+control\b/i);
   if (notYou) return withController('opponent', readController(after, from + (notYou[0]?.length ?? 0)));
 
@@ -899,7 +903,7 @@ function readList(clean: string, cursor: number, firstRestrict: MutableRestrict,
   // A qualifier's own " or " ("power 4 or greater", "mana value 3 or less") is
   // not a list delimiter: the list region ends where the trailing qualifier
   // begins, and that qualifier is read off the last piece below.
-  const qualAt = sentence.search(/\s+(?:with|without|you\s+control|you\s+don't\s+control|you\s+don\u2019t\s+control|an\s+opponent\s+controls|that)\b/i);
+  const qualAt = sentence.search(/\s+(?:with|without|you\s+control|you\s+don't\s+control|you\s+don\u2019t\s+control|an\s+opponent\s+controls|your\s+opponents\s+control|that)\b/i);
   const region = qualAt >= 0 ? sentence.slice(0, qualAt) : sentence;
   const parts = region.split(/,\s*(?:or\s+|and\/or\s+)?|\s+(?:or|and\/or)\s+/i);
   if (parts.length < 2) return null;

@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ISPERIAS_SKYWATCH_SCRIPT } from './cards/isperiasSkywatch';
+import { ARCHON_OF_THE_TRIUMVIRATE_SCRIPT } from './cards/archonOfTheTriumvirate';
+import { LYEV_SKYKNIGHT_SCRIPT } from './cards/lyevSkyknight';
+import { AZORIUS_JUSTICIAR_SCRIPT } from './cards/azoriusJusticiar';
+import { AZORIUS_ARRESTER_SCRIPT } from './cards/azoriusArrester';
+import { MARTIAL_LAW_SCRIPT } from './cards/martialLaw';
+import { SOULSWORN_SPIRIT_SCRIPT } from './cards/soulswornSpirit';
+import { NEW_PRAHV_GUILDMAGE_SCRIPT } from './cards/newPrahvGuildmage';
+import { INTRUSIVE_PACKBEAST_SCRIPT } from './cards/intrusivePackbeast';
 import { SPINEWOODS_PALADIN_SCRIPT } from './cards/spinewoodsPaladin';
 import { STAGECOACH_SECURITY_SCRIPT } from './cards/stagecoachSecurity';
 import { RICTUS_ROBBER_SCRIPT } from './cards/rictusRobber';
@@ -8209,6 +8218,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ISPERIAS_SKYWATCH_SCRIPT,
+  ARCHON_OF_THE_TRIUMVIRATE_SCRIPT,
+  LYEV_SKYKNIGHT_SCRIPT,
+  AZORIUS_JUSTICIAR_SCRIPT,
+  AZORIUS_ARRESTER_SCRIPT,
+  MARTIAL_LAW_SCRIPT,
+  SOULSWORN_SPIRIT_SCRIPT,
+  NEW_PRAHV_GUILDMAGE_SCRIPT,
+  INTRUSIVE_PACKBEAST_SCRIPT,
   SPINEWOODS_PALADIN_SCRIPT,
   STAGECOACH_SECURITY_SCRIPT,
   RICTUS_ROBBER_SCRIPT,

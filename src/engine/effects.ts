@@ -1431,6 +1431,14 @@ export function effectResult(
         break;
       }
 
+      // D552 - DETAIN (CR 701.35a): the mark on the aim, until the detaining player's next turn (`isDetained`).
+      case 'detain': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'Detained', cards: [aim.id], by: controller });
+        break;
+      }
+
       // D396 - BITE and FIGHT (CR 701.12): the subject (this step's aim - a target, the self, or the
       // referent) deals damage equal to its power to the clause's OTHER target; a fight deals both
       // ways at once, in ONE `DamageDealt`. Either operand gone from the battlefield, or not a

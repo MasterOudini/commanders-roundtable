@@ -557,6 +557,8 @@ export type EventBody =
   | { readonly t: 'Unearthed'; readonly card: InstanceId }
   /** D548 - AWAKEN's rider (CR 702.113a): the land becomes a 0/0 Elemental creature with haste, for as long as it stays. */
   | { readonly t: 'Awakened'; readonly card: InstanceId }
+  /** D552 - DETAIN (CR 701.35a): each card marked detained by `by`, until `by`'s next turn begins. */
+  | { readonly t: 'Detained'; readonly cards: readonly InstanceId[]; readonly by: PlayerId }
   /**
    * D369 - a player's answer to a payment prompt, recorded before its consequence in the
    * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like

@@ -347,6 +347,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     unearthed: undefined,
     // D548 - nor awakened.
     awakened: undefined,
+    // D552 - nor detained.
+    detainedBy: undefined,
     // D526 - a new object was not manifested.
     manifested: undefined,
   };
@@ -935,6 +937,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     // ── turn / priority ──────────────────────────────────────────────────
     case 'TurnBegan': {
+      // D552 - a detain ends as the detaining player's next turn begins (CR 701.35a - until your next turn).
+      const detained = Object.values(state.cards).filter((c) => c.detainedBy === body.activePlayer);
+      const cards = detained.length === 0 ? state.cards : { ...state.cards, ...Object.fromEntries(detained.map((c) => [c.id, { ...c, detainedBy: undefined }])) };
       const players = { ...state.players };
       for (const id of state.seating) {
         const p = players[id];
@@ -947,6 +952,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
       }
       return {
         ...state,
+        cards,
         players,
         // D502 - an extra turn is taken off the top of the stack; the regular succession remembers whose turn it
         // interrupted (an extra turn inherits `regular`, a regular turn is its own).
@@ -1105,6 +1111,13 @@ function applyBody(state: GameState, body: EventBody): GameState {
     // D548 - the awakened land's lasting mark (CR 702.113a).
     case 'Awakened':
       return withCard(state, body.card, { awakened: true });
+
+    // D552 - the detain mark (CR 701.35a), on what is still on the battlefield.
+    case 'Detained': {
+      let next = state;
+      for (const id of body.cards) if (next.cards[id]?.zone.kind === 'battlefield') next = withCard(next, id, { detainedBy: body.by });
+      return next;
+    }
 
     // D409 - an explore's marker (CR 701.42c): the reveal, the move and the counter beside it moved the state.
     case 'Explored':

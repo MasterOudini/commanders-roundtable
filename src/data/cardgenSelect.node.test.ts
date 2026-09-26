@@ -2701,7 +2701,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // are still unenforced at the aim, a NEW class); Make Your Move's
   // trailing 'power 4 or greater' binds to the CREATURE arm only — a
   // per-arm qualifier no spec can carry (Exorcise's shape).
-  ['Lyev Decree', 'detain mechanic'],
   ['Madcap Experiment', 'ctx.random'],
   ["Mages' Contest", 'bidding mechanic'],
   ['Magical Hack', 'text-changing effect (CR 612)'],
@@ -3338,7 +3337,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Icy Blast', 'cast-time computed target count'],
   ["Illusionist's Stratagem", 'up-to-N targeting'],
   ['Impossible Inferno', 'play-from-exile permission'],
-  ['Inaction Injunction', 'detain mechanic'],
   ['Inquisitive Puppet', 'exile-self cost'],
   ['Inside Out', 'until-end-of-turn power/toughness switch'],
   ['Invigorate', 'cast-time alternative cost'],

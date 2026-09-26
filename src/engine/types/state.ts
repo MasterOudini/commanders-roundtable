@@ -377,6 +377,12 @@ export interface CardInstance {
    */
   readonly awakened?: true | undefined;
   /**
+   * D552 - DETAINED (CR 701.35a): the player who detained it; until that player's next turn begins it can't attack or
+   * block and its activated abilities can't be activated (`isDetained`). Cleared by `TurnBegan` and as it leaves the
+   * battlefield.
+   */
+  readonly detainedBy?: PlayerId | undefined;
+  /**
    * D457 - exhaust (CR 702.178): the refs of the exhaust abilities THIS object has activated. Stamped by the reducer
    * as the ability goes on the stack (`StackObject.exhaust`), read by `legal.ts` and `handlers.ts`, cleared with
    * the battlefield fields - a new object may exhaust again.
