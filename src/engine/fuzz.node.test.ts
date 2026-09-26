@@ -1345,6 +1345,16 @@ function altPickFor(state: GameState, holder: PlayerId, action: Extract<LegalAct
   };
 }
 
+/** D563 - a harmonized cast taps the strongest creature the offer lists (the kicker's rule: whenever it can). */
+function harmOf(state: GameState, action: Extract<LegalAction, { t: 'CastSpell' }>): { harmonize?: InstanceId } {
+  const list = action.harmonizeCandidates ?? [];
+  if (list.length === 0) return {};
+  const cache = makeDeriveCache(state);
+  const power = (id: InstanceId): number => derive(state, ORACLE, SCRIPTS, id, cache).power ?? 0;
+  const best = [...list].sort((a, b) => power(b) - power(a) || a.localeCompare(b))[0];
+  return best !== undefined ? { harmonize: best } : {};
+}
+
 /** D406 - the picks a cast's additional cost takes: the first candidates the offer lists, exactly the count. */
 /**
  * D530 - the kick the driver names (D443: kicked exactly when payable, never on a coin): both kickers of a two-kicker
@@ -1421,7 +1431,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
   };
   // D418 - the doubling guard: a board of forty or more permanents takes no activation (Krenko's Goblins).
   const crowded = state.zones.battlefield.filter((id) => state.cards[id]?.controller === holder).length >= 40;
-  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend' && a.t !== 'Foretell' && a.t !== 'Plot') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true)))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
+  const usable = actions.filter((a) => (a.t !== 'CastSpell' && a.t !== 'TurnFaceUp' && a.t !== 'Suspend' && a.t !== 'Foretell' && a.t !== 'Plot') || a.affordable || (a.t === 'CastSpell' && (altFor(a) !== null || (a.alternativeAvailable === true && a.alternativeAffordable === true) || a.harmonizeAffordable === true))).filter((a) => !(crowded && a.t === 'ActivateAbility'))
     // D535 - a mana-buyback spell waits in hand until it can be cast bought back.
     .filter((a) => !(a.t === 'CastSpell' && a.buyback === 'mana' && a.buybackAffordable !== true));
   // D443 - a kicker card whose kick is payable is cast now, kicked (D408's rule for an alternative cost): the
@@ -1474,7 +1484,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...(altFor(chosen) ?? {}), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1813,6 +1823,9 @@ interface Run {
   /** D562 - the enlistments declared with an attack (CR 702.154a), and the enlist triggers put on the stack. */
   readonly enlists: number;
   readonly enlistPumps: number;
+  /** D563 - the casts from the graveyard for the harmonize cost (CR 702.180a), and the ones that tapped a creature. */
+  readonly harmonizedCasts: number;
+  readonly harmonizeTaps: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2356,6 +2369,8 @@ function runOne(seed: number): Run {
     recoverReturns: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.from.kind === 'graveyard' && m.to.kind === 'hand' && (ORACLE.byPrinting(game.state.cards[m.card]?.printingId ?? '')?.faces[0]?.recoverCost ?? null) !== null)).length,
     enlists: game.log.filter((e) => e.body.t === 'Enlisted').length,
     enlistPumps: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:enlist')).length,
+    harmonizedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.harmonizeCost ?? null) !== null).length,
+    harmonizeTaps: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.harmonizeTapped === true).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2725,6 +2740,8 @@ const TOTAL_KEYS = [
   'recoverReturns',
   'enlists',
   'enlistPumps',
+  'harmonizedCasts',
+  'harmonizeTaps',
   'crownings',
   'ringTempts',
   'ringAbilities',

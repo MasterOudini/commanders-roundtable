@@ -666,7 +666,7 @@ function priceAlternatives(state: GameState, deps: EngineDeps, face: ReturnType<
 /** D405 - the taps and the exiles the alternatives pay with, ahead of the mana (CR 601.2h). */
 function altEvents(state: GameState, player: PlayerId, alt: AltChoice): EventBody[] {
   const out: EventBody[] = [];
-  const tapped = [...alt.convoke, ...alt.improvise];
+  const tapped = [...alt.convoke, ...alt.improvise, ...(alt.harmonize ?? [])];
   if (tapped.length > 0) out.push({ t: 'PermanentsTapped', cards: tapped });
   if (alt.delve.length > 0) {
     out.push({
@@ -679,14 +679,15 @@ function altEvents(state: GameState, player: PlayerId, alt: AltChoice): EventBod
 
 /** D405 - a solve input without the permanents the cast taps for its alternatives: a mana creature convoked cannot also be tapped for mana. */
 function solveWithout(solve: SolveInput, alt: AltChoice, tapped: readonly InstanceId[] = []): SolveInput {
-  if (alt.convoke.length + alt.improvise.length + tapped.length === 0) return solve;
-  const gone = new Set<InstanceId>([...alt.convoke, ...alt.improvise, ...tapped]);
+  const harm = alt.harmonize ?? [];
+  if (alt.convoke.length + alt.improvise.length + harm.length + tapped.length === 0) return solve;
+  const gone = new Set<InstanceId>([...alt.convoke, ...alt.improvise, ...harm, ...tapped]);
   return { ...solve, sources: solve.sources.filter((s) => !gone.has(s.card)) };
 }
 
 /** D405 - does the mana plan tap a permanent the cast already taps for convoke or improvise? */
 function planTapsAlt(plan: import('./types/mana').PaymentPlan, alt: AltChoice, tapped: readonly InstanceId[] = []): boolean {
-  return plan.taps.some((t) => alt.convoke.includes(t.source) || alt.improvise.includes(t.source) || tapped.includes(t.source));
+  return plan.taps.some((t) => alt.convoke.includes(t.source) || alt.improvise.includes(t.source) || (alt.harmonize ?? []).includes(t.source) || tapped.includes(t.source));
 }
 
 /** D406 - the count the stack object remembers: the picks, a life payment as one, the mana alternative as one. */
@@ -696,8 +697,10 @@ function additionalPaidOf(face: ReturnType<typeof faceOf>, picks: CastPicks, orP
 }
 
 /** D405 - the counts the stack object remembers, only when something was tapped or exiled. */
-function altCounts(alt: AltChoice): { convoked?: number; improvised?: number; delved?: number } {
+function altCounts(alt: AltChoice): { convoked?: number; improvised?: number; delved?: number; harmonizeTapped?: true } {
   return {
+    // D563 - and the harmonize tap (CR 702.180a).
+    ...((alt.harmonize ?? []).length > 0 ? { harmonizeTapped: true as const } : {}),
     ...(alt.convoke.length > 0 ? { convoked: alt.convoke.length } : {}),
     ...(alt.improvise.length > 0 ? { improvised: alt.improvise.length } : {}),
     ...(alt.delve.length > 0 ? { delved: alt.delve.length } : {}),
@@ -710,6 +713,7 @@ function altNote(alt: AltChoice): string {
   if (alt.convoke.length > 0) parts.push(`convoke ${alt.convoke.length}`);
   if (alt.improvise.length > 0) parts.push(`improvise ${alt.improvise.length}`);
   if (alt.delve.length > 0) parts.push(`delve ${alt.delve.length}`);
+  if ((alt.harmonize ?? []).length > 0) parts.push('harmonized');
   return parts.length > 0 ? ` (${parts.join(', ')})` : '';
 }
 
@@ -746,6 +750,8 @@ function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly fre
   // D540 - a foretold cast keeps paying its foretell cost.
   if (pending.foretold !== undefined && face.foretellCost !== null) return face.foretellCost;
   if (pending.from.kind === 'graveyard' && face.flashbackCost !== null) return face.flashbackCost;
+  // D563 - a harmonized cast keeps paying its harmonize cost (its tap's reduction rides `taxApplied`).
+  if (pending.from.kind === 'graveyard' && face.harmonizeCost !== null && face.graveyardCast === null) return face.harmonizeCost;
   return face.manaCost;
 }
 /** D535 - the life an elected alternative cost adds to a staged cast's problem (`prepareCast` adds the same). */
@@ -917,6 +923,8 @@ function prepareCast(
   const flashback = from.kind === 'graveyard' && face.flashbackCost !== null;
   // D537 - RETRACE / JUMP-START: the graveyard too, for the mana cost and a discard (the verb below charges it).
   const graveyardCast = from.kind === 'graveyard' && !flashback && !faceDown ? face.graveyardCast : null;
+  // D563 - HARMONIZE (CR 702.180a): the graveyard too, for the harmonize cost (never beside a flashback or a retrace).
+  const harmonized = from.kind === 'graveyard' && !flashback && graveyardCast === null && !faceDown && face.harmonizeCost !== null;
   // D417 - a PLAY PERMISSION: exile is a place to cast from while the player holds one for the card.
   const permitted = from.kind === 'exile' && state.playPermissions.some((p) => p.card === cardId && p.player === player);
   // D540 - a FORETOLD card: exile is a place to cast from for its owner once the turn it was foretold has ended
@@ -930,7 +938,7 @@ function prepareCast(
   if (madness && !madnessCast) return { error: reject('notCastable', `${face.name} cannot be cast for its madness cost now.`) };
   // D547 - a WARPED card: exile is a place to cast from for its owner on a turn after its warp exiled it, for its mana cost.
   const warped = from.kind === 'exile' && !faceDown && !free && castsWarped(state, cardId, player);
-  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !permitted && !foretold && !madnessCast && !warped && !plotted) {
+  if (from.kind !== 'hand' && from.kind !== 'command' && !flashback && graveyardCast === null && !harmonized && !permitted && !foretold && !madnessCast && !warped && !plotted) {
     return { error: reject('wrongZone', `${face.name} is not somewhere you can cast it from.`) };
   }
   if (from.player !== player && !permitted) return { error: reject('wrongZone', 'That is not your card.') };
@@ -951,10 +959,25 @@ function prepareCast(
   // D312 - the generic reductions the board grants, folded into the tax the
   // way the offer folds them (a face-down cast has no printed text to reduce).
   // D491 - a granted cast has no mana cost to reduce and no tax.
-  const tax = free || plotted
+  const tax0 = free || plotted
     ? 0
     : (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
       (faceDown ? 0 : castReduction(state, deps.oracle, deps.scripts, player, face));
+  // D563 - THE HARMONIZE TAP (CR 702.180a): one untapped creature the caster controls, on a harmonized cast alone; the
+  // cost is {X} less, X its power - folded into the tax the stages carry (`taxApplied`), the creature tapped with the
+  // alternatives (`altEvents`) and out of the mana sources.
+  const harmonizeTap = alt.harmonize ?? [];
+  if (harmonizeTap.length > 0) {
+    if (!harmonized) return { error: reject('notCastable', `${face.name} is not being cast for its harmonize cost.`) };
+    if (harmonizeTap.length > 1) return { error: reject('notCastable', 'A harmonized cast taps one creature.') };
+    const tapId = harmonizeTap[0] as InstanceId;
+    const tapInst = state.cards[tapId];
+    if (!tapInst || tapInst.zone.kind !== 'battlefield' || tapInst.controller !== player || tapInst.tapped || tapInst.phasedOut || !derive(state, deps.oracle, deps.scripts, tapId).isCreature) {
+      return { error: reject('notCastable', 'That is not an untapped creature you control.') };
+    }
+    if (alt.convoke.includes(tapId) || alt.improvise.includes(tapId)) return { error: reject('notCastable', 'That creature is already tapped for the cast.') };
+  }
+  const tax = tax0 - (harmonizeTap.length === 1 ? Math.max(0, derive(state, deps.oracle, deps.scripts, harmonizeTap[0] as InstanceId).power ?? 0) : 0);
   const ward = wardTaxFor(state, deps, player, targets);
   // D408 - THE ALTERNATIVE COST elected: the mana cost is REPLACED by what the face's line names (its
   // mana, its life, its verb's picks, its pitch), under its condition; one alternative at a time (CR
@@ -963,12 +986,12 @@ function prepareCast(
   if (altCost && 'error' in altCost) return altCost;
   // D547 - the warp cost is paid casting from the hand alone.
   if (altCost && face.alternativeCost?.keyword === 'warp' && from.kind !== 'hand') return { error: reject('notCastable', `${face.name}'s warp cost is paid only casting it from your hand.`) };
-  if (altCost && (faceDown || flashback || foretold || madnessCast || plotted)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
+  if (altCost && (faceDown || flashback || harmonized || foretold || madnessCast || plotted)) return { error: reject('notCastable', `${face.name}'s alternative cost cannot be paid with another alternative cost.`) };
   if (!altCost && picks.exileFromHand.length > 0) return { error: reject('notCastable', `${face.name} has no alternative cost the app charges.`) };
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   // D540 - a foretold cast pays the FORETELL cost instead of the mana cost.
   // D541 - a madness cast pays the MADNESS cost instead of the mana cost.
-  const cost = free || plotted ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : face.manaCost;
+  const cost = free || plotted ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : harmonized ? face.harmonizeCost : face.manaCost;
   if (cost === null && !altCost && !free && !plotted) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
@@ -1215,7 +1238,7 @@ function castSpell(
     intent.targets ?? [],
     intent.faceDown === true,
     intent.kicked ?? 0,
-    { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [] },
+    { convoke: intent.convoke ?? [], improvise: intent.improvise ?? [], delve: intent.delve ?? [], ...(intent.harmonize !== undefined ? { harmonize: [intent.harmonize] } : {}) },
     picksOf(intent),
     intent.alternative === true,
     false,

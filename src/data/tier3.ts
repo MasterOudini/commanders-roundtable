@@ -35,7 +35,7 @@
 
 import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
-import { parseAltCosts, parseBackup, parseFlashback, parseKicker, parseMadness, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseRecover, parseTypeLine, readUpkeepPrice } from './oracleParse';
+import { parseAltCosts, parseBackup, parseFlashback, parseHarmonize, parseKicker, parseMadness, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseRecover, parseTypeLine, readUpkeepPrice } from './oracleParse';
 import { parseCostReductions } from './costParse';
 import { isPermanentType } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
@@ -382,6 +382,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     } else if (canon === 'recover') {
       // D561 - recover is the engine's when its cost read as mana (the graveyard trigger's price).
       if (parseRecover(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
+    } else if (canon === 'harmonize') {
+      // D563 - harmonize is the engine's when its cost read as mana (the graveyard cast's cost).
+      if (parseHarmonize(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
     } else if (canon !== null) continue;
     // D304 - an Aura's Enchant is the engine's own when its spec is enforced
     // (the cast aims by it, CR 704.5m keeps it): the same predicate the

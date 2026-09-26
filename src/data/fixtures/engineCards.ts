@@ -9138,6 +9138,12 @@ export const HEXBANE_TORTOISE: CardData = F.HEXBANE_TORTOISE as CardData;
 export const LINEBREAKER_BALOTH: CardData = F.LINEBREAKER_BALOTH as CardData;
 export const YAVIMAYA_STEELCRUSHER: CardData = F.YAVIMAYA_STEELCRUSHER as CardData;
 export const ARGIVIAN_CAVALIER: CardData = F.ARGIVIAN_CAVALIER as CardData;
+export const CHANNELED_DRAGONFIRE: CardData = F.CHANNELED_DRAGONFIRE as CardData;
+export const MAMMOTH_BELLOW: CardData = F.MAMMOTH_BELLOW as CardData;
+export const URENI_S_REBUFF: CardData = F.URENI_S_REBUFF as CardData;
+export const WILD_RIDE: CardData = F.WILD_RIDE as CardData;
+export const ROAMER_S_ROUTINE: CardData = F.ROAMER_S_ROUTINE as CardData;
+export const UNENDING_WHISPER: CardData = F.UNENDING_WHISPER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18536,6 +18542,12 @@ export const ENGINE_CARDS: CardData[] = [
   LINEBREAKER_BALOTH,
   YAVIMAYA_STEELCRUSHER,
   ARGIVIAN_CAVALIER,
+  CHANNELED_DRAGONFIRE,
+  MAMMOTH_BELLOW,
+  URENI_S_REBUFF,
+  WILD_RIDE,
+  ROAMER_S_ROUTINE,
+  UNENDING_WHISPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

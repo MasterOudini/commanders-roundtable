@@ -621,6 +621,8 @@ export function linesUnaccounted(
     if (face.offspringCost !== null && /^Offspring (?:\{[^}]+\})+$/.test(line)) continue;
     // D561 - a Recover line the engine RUNS (the graveyard trigger, its price the pay prompt's), asked of the parser that read it.
     if (face.recoverCost !== null && /^Recover (?:\{[^}]+\})+$/.test(line)) continue;
+    // D563 - a Harmonize line the engine OFFERS (the graveyard cast for its cost, the tap's reduction), asked of the parser that read it.
+    if (face.harmonizeCost !== null && /^Harmonize (?:\{[^}]+\})+$/.test(line)) continue;
     // D537 - a Retrace / Jump-start line the engine OFFERS (a graveyard cast, its discard charged as the additional cost).
     if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
     // D538 - a Rebound line the engine RUNS (the resolution's exile, the upkeep's free cast), asked of the parser's flag.

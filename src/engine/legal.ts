@@ -79,6 +79,12 @@ export type LegalAction =
       /** D558 - OFFSPRING (CR 702.175a): the face's offspring cost the cast may pay (`CastSpell.offspring`), and whether the cast with it is payable now. */
       readonly offspringCost?: string;
       readonly offspringAffordable?: boolean;
+      /**
+       * D563 - HARMONIZE (CR 702.180a): a cast from the graveyard for the harmonize cost - the untapped creatures the cast
+       * may tap (`CastSpell.harmonize`, the cost {X} less by its power), and whether it is payable with the strongest.
+       */
+      readonly harmonizeCandidates?: readonly InstanceId[];
+      readonly harmonizeAffordable?: boolean;
       /** D405 - the face has convoke / improvise / delve: the cast may name what it taps or exiles. */
       readonly convoke?: true;
       readonly improvise?: true;
@@ -418,7 +424,7 @@ function offeredActions(
     const card = cardFor(state, oracle, id);
     if (!card) continue;
     for (const faceIndex of castableFaces(card)) {
-      if (faceOf(card, faceIndex).flashbackCost === null && faceOf(card, faceIndex).graveyardCast === null) continue;
+      if (faceOf(card, faceIndex).flashbackCost === null && faceOf(card, faceIndex).graveyardCast === null && faceOf(card, faceIndex).harmonizeCost === null) continue;
       const action = castAction(state, oracle, scripts, id, faceIndex, { kind: 'graveyard', player }, context, sorcerySpeed);
       if (action) out.push(action);
     }
@@ -1156,7 +1162,7 @@ function castAction(
   const graveyardCast = from.kind === 'graveyard' && face.flashbackCost === null ? face.graveyardCast : null;
   // D540 - a FORETOLD card in exile is cast for its foretell cost (CR 702.143a), an alternative cost.
   const foretold = from.kind === 'exile' && castsForetold(state, id, face, from.player ?? inst.owner);
-  const cost = plotted ? PLOT_FREE : foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : null)) : face.manaCost;
+  const cost = plotted ? PLOT_FREE : foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : face.harmonizeCost)) : face.manaCost;
   if (cost === null) return null;
   // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
   // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless
@@ -1200,6 +1206,8 @@ function castAction(
       : {}),
     // D557 - a conspire is offered with its candidates (D406's list for the verb, the host re-validating).
     ...conspireOffer(state, oracle, scripts, ctx, caster, id, face),
+    // D563 - a harmonized cast is offered with the creatures it may tap and whether the strongest makes it payable.
+    ...(from.kind === 'graveyard' && face.flashbackCost === null && graveyardCast === null && face.harmonizeCost !== null ? harmonizeOffer(state, oracle, scripts, ctx, caster, face, cost, tax) : {}),
     // D558 - an offspring is offered with whether the cast with it is payable, priced by the same solver.
     ...(face.offspringCost !== null
       ? { offspringCost: face.offspringCost.raw, offspringAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.offspringCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
@@ -1261,6 +1269,19 @@ function buybackOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistr
     buybackAffordable: chooser.enough && payable(bv.mana !== null ? [bv.mana] : [], bv.lifeCost),
     ...(pick ? { buybackPickVerb: pick.verb, buybackPickCount: f[pick.n + 'Count'] as number, buybackPickCandidates: f[pick.n + 'Candidates'] as readonly InstanceId[] } : {}),
   };
+}
+
+/**
+ * D563 - HARMONIZE (CR 702.180a): the untapped creatures the caster controls a harmonized cast may tap, and whether the
+ * cast is payable with the strongest of them (the cost {X} less, X its power - the host folds the same into the tax).
+ */
+function harmonizeOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, face: OracleFace, cost: ManaCost, tax: number): Record<string, unknown> {
+  const candidates = state.zones.battlefield.filter((cid) => {
+    const c = state.cards[cid];
+    return c !== undefined && c.controller === caster && !c.tapped && !c.phasedOut && derive(state, oracle, scripts, cid, ctx.cache).isCreature;
+  });
+  const best = candidates.reduce((m, cid) => Math.max(m, derive(state, oracle, scripts, cid, ctx.cache).power ?? 0), 0);
+  return { harmonizeCandidates: candidates, harmonizeAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [], tax - best), spellPurpose(face, false)) };
 }
 
 /** D557 - CONSPIRE (CR 702.78a): the creatures the cast may tap - the verb's own candidates (one list, D139), never beside another verb. */

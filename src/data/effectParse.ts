@@ -3540,6 +3540,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D561 - a Recover line is a graveyard trigger the keyword table runs (its price the pay prompt's), no clause of the
     // spell either.
     .filter((l) => !/^Recover (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    // D563 - a Harmonize line is a graveyard cast the engine offers (its tap a reduction), no clause of the spell either.
+    .filter((l) => !/^Harmonize (?:\{[^}]+\})+\s*$/.test(l.trim()))
     // D537 - a Retrace or Jump-start line is a graveyard cast the engine offers, no clause of the spell either.
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.

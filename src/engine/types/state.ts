@@ -502,6 +502,8 @@ export interface StackObject {
   readonly convoked?: number;
   readonly improvised?: number;
   readonly delved?: number;
+  /** D563 - a harmonized cast tapped a creature to reduce its cost (CR 702.180a); absent otherwise. */
+  readonly harmonizeTapped?: true;
   /**
    * D406 - how many things the spell's ADDITIONAL COST took as it was cast (the picks of its chooser
    * verb, a life payment counted as one, the `or pay {M}` alternative counted as one); absent when
@@ -715,7 +717,7 @@ export interface PendingCast {
   readonly free?: true;
   readonly continuation?: EffectContinuation;
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
-  readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[] };
+  readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[]; readonly harmonize?: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */
   readonly faceIndex: number;
   /**

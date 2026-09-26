@@ -97,6 +97,11 @@ export type Intent =
       readonly improvise?: readonly InstanceId[];
       readonly delve?: readonly InstanceId[];
       /**
+       * D563 - HARMONIZE (CR 702.180a): the untapped creature a cast from the graveyard for the harmonize cost taps - the
+       * cost {X} less, X its power. Refused on any other cast.
+       */
+      readonly harmonize?: InstanceId;
+      /**
        * D406 - THE ADDITIONAL COST (`As an additional cost to cast this spell, <cost>.`): the picks
        * that pay its chooser verb - exactly the cost's count, re-validated by the host against the
        * same candidate lists the offer carries (`sacrificeCandidatesFor` and its siblings), charged in

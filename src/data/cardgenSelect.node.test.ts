@@ -3231,7 +3231,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dark Petition', 'spell mastery'],
   ["New Generation's Technique", 'cast-time alternative cost'],
   ['Profane Tutor', 'suspend mechanic'],
-  ["Roamer's Routine", 'cast-time alternative cost'],
   ['Search for Tomorrow', 'suspend mechanic'],
   ["Splinter's Technique", 'cast-time alternative cost'],
   ['The Masters of Evil', 'scoped anthem beside a search'],
@@ -3282,7 +3281,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Brainspoil', 'a spell with a line outside the vocabulary: Destroy target creature that isn\'t enchanted. It can\'t be regenerated. (its Transmute line reads since D559)'],
   ['Cat Collector', 'once-per-turn trigger memory'],
   ['Cerulean Wisps', 'UEOT color change'],
-  ['Channeled Dragonfire', 'harmonize mechanic'],
   ['Chivalric Alliance', 'discard-cost chooser'],
   ['Clear the Mind', 'ctx.random'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
@@ -3369,7 +3367,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Laquatus's Disdain", 'cast-zone discriminator'],
   ['Learn from the Past', 'ctx.random'],
   ['Lethargy Trap', 'cast-time alternative cost'],
-  ['Mammoth Bellow', 'harmonize mechanic'],
   ['Manamorphose', 'script-raised prompt'],
   ['Metrognome', 'discard-event discriminator'],
   ['Mind Transfer Protocol', 'until-end-of-turn type change with P/T set'],
@@ -3469,15 +3466,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // LAST batch the order can offer. ZERO new classes: every wall here was
   // already named. Four Harmonize spells in one batch; three Cleave/
   // Freerunning alternative costs beside Baleful Mastery.
-  ['Unending Whisper', 'harmonize mechanic'],
   ['Unexplained Vision', 'mana-spent memory'],
-  ["Ureni's Rebuff", 'harmonize mechanic'],
   ['Verdant Rebirth', 'quoted-ability temporary grant'],
   ['Viridescent Wisps', 'UEOT color change'],
 
   ['Wash Away', 'cleave mechanic'],
   ['Wheel of Fate', 'suspend mechanic'],
-  ['Wild Ride', 'harmonize mechanic'],
   ['Winged Portent', 'cleave mechanic'],
   ['Zenith Festival', 'play-from-exile permission'],
   ['Zhalfirin Shapecraft', 'until-end-of-turn base P/T set'],

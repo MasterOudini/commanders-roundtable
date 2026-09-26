@@ -136,6 +136,9 @@ export const TIER2_KEYWORDS = [
   // D562 - ENLIST (CR 702.154a): the attack declaration's tap of another creature (exert's shape - the prompt lists the
   // enlisting attackers and the candidates) and the reflexive trigger that adds its power, from the keyword table.
   'enlist',
+  // D563 - HARMONIZE (CR 702.180a): a cast from the graveyard for the harmonize cost (flashback's), a creature tapped
+  // to reduce it by its power (the alternatives' tap), the spell exiled as it leaves the stack.
+  'harmonize',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -2099,6 +2102,12 @@ export interface OracleFace {
    * owner's hand; declined or unpayable: it is exiled). A recover cost that is not only mana stays null (D90).
    */
   readonly recoverCost: ManaCost | null;
+  /**
+   * D563 - HARMONIZE (CR 702.180a): `Harmonize {M}` on an instant or sorcery - the cost of a cast from the graveyard (a
+   * creature tapped as it is cast reduces it by its power; the spell is exiled as it leaves the stack). A harmonize cost
+   * that is not only mana stays null (D90).
+   */
+  readonly harmonizeCost: ManaCost | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

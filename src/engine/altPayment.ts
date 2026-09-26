@@ -19,11 +19,16 @@ export interface AltChoice {
   readonly convoke: readonly InstanceId[];
   readonly improvise: readonly InstanceId[];
   readonly delve: readonly InstanceId[];
+  /**
+   * D563 - HARMONIZE (CR 702.180a): the one creature a harmonized cast taps - no symbol of its own paid: the cost is
+   * {X} less (the host folds its power into the cast's tax), the creature tapped with the rest. Absent otherwise.
+   */
+  readonly harmonize?: readonly InstanceId[];
 }
 
 export const NO_ALT: AltChoice = { convoke: [], improvise: [], delve: [] };
 
-export const altCount = (alt: AltChoice): number => alt.convoke.length + alt.improvise.length + alt.delve.length;
+export const altCount = (alt: AltChoice): number => alt.convoke.length + alt.improvise.length + alt.delve.length + (alt.harmonize?.length ?? 0);
 
 /** The symbols the alternatives pay: so many of each colour, so much generic. */
 export interface AltPaid {

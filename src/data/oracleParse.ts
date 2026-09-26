@@ -369,6 +369,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if ((kw === 'evoke' || kw === 'dash' || kw === 'blitz') && parseAlternativeCost(face?.oracleText ?? '', parseManaCost)?.keyword !== kw) continue;
     // D561 - recover is the engine's only when its cost read as mana (the graveyard trigger asks for it).
     if (kw === 'recover' && parseRecover(face?.oracleText ?? '') === null) continue;
+    // D563 - harmonize is the engine's only when its cost read as mana (the graveyard cast pays it).
+    if (kw === 'harmonize' && parseHarmonize(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -611,6 +613,19 @@ export function parseRecover(oracleText: string, warn: Warn = NOOP_WARN): ManaCo
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const m = /^Recover ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
+/**
+ * D563 - HARMONIZE (CR 702.180a): `Harmonize {M}` on its own line (reminder text aside), as a mana cost - the cost of the
+ * cast from the graveyard. A harmonize cost that is not only mana stays null (D90).
+ */
+export function parseHarmonize(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Harmonize ((?:\{[^}]+\})+)$/.exec(line);
     if (m) return parseManaCost(m[1] ?? '', warn);
   }
   return null;
@@ -1332,6 +1347,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const offspringCost = isPermanent && typeLine.types.includes('Creature') ? parseOffspring(face.oracleText, warn) : null;
   // D561 - recover on any face (its trigger works from the graveyard, whatever the card is).
   const recoverCost = parseRecover(face.oracleText, warn);
+  // D563 - harmonize on an instant or sorcery (a cast of the spell from the graveyard).
+  const harmonizeCost = isPermanent ? null : parseHarmonize(face.oracleText, warn);
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1440,6 +1457,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     conspireVerb,
     offspringCost,
     recoverCost,
+    harmonizeCost,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

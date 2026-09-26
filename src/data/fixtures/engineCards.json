@@ -309721,6 +309721,220 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CHANNELED_DRAGONFIRE": {
+    "scryfallId": "24204881-690c-4043-8771-20cb93385072",
+    "oracleId": "91179937-6f55-4d1b-8f06-2efe1c8fea7a",
+    "name": "Channeled Dragonfire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Channeled Dragonfire",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Channeled Dragonfire deals 2 damage to any target.\nHarmonize {5}{R}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jorge Jacinto",
+        "imageId": "24204881-690c-4043-8771-20cb93385072"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "102",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAMMOTH_BELLOW": {
+    "scryfallId": "468b17b4-79ce-4dfa-8873-a9cfc347e38f",
+    "oracleId": "6f2e4607-bece-42ba-a2a3-5dc50f246793",
+    "name": "Mammoth Bellow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mammoth Bellow",
+        "manaCost": "{2}{G}{U}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Create a 5/5 green Elephant creature token.\nHarmonize {5}{G}{U}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R",
+          "U"
+        ],
+        "artist": "Xavier Ribeiro",
+        "imageId": "468b17b4-79ce-4dfa-8873-a9cfc347e38f"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "URENI_S_REBUFF": {
+    "scryfallId": "722716df-9cea-40a7-924b-c28497e227e6",
+    "oracleId": "c0b7e989-8194-484c-93aa-a44df0764a77",
+    "name": "Ureni's Rebuff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ureni's Rebuff",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Return target creature to its owner's hand.\nHarmonize {5}{U} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": "\"You say you come in peace. That you come here at all is an act of war.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Sergio Cosmai",
+        "imageId": "722716df-9cea-40a7-924b-c28497e227e6"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WILD_RIDE": {
+    "scryfallId": "abc8c6f5-6135-428e-8476-1751f82623f9",
+    "oracleId": "61978202-538b-4f92-acfc-e95f4a6ce466",
+    "name": "Wild Ride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wild Ride",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target creature gets +3/+0 and gains haste until end of turn.\nHarmonize {4}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Filipe Pagliuso",
+        "imageId": "abc8c6f5-6135-428e-8476-1751f82623f9"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROAMER_S_ROUTINE": {
+    "scryfallId": "fb8c2d5c-ba0c-4d50-8898-5c6574b1e974",
+    "oracleId": "cf2355f3-11d2-4b03-b663-9fad6b07e4b2",
+    "name": "Roamer's Routine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Roamer's Routine",
+        "manaCost": "{2}{G}",
+        "typeLine": "Sorcery",
+        "oracleText": "Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nHarmonize {4}{G} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "fb8c2d5c-ba0c-4d50-8898-5c6574b1e974"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNENDING_WHISPER": {
+    "scryfallId": "fc48180a-ccac-469f-938d-c050821d0160",
+    "oracleId": "c5da5c31-0cf1-4393-8701-eda7880ecebc",
+    "name": "Unending Whisper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unending Whisper",
+        "manaCost": "{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Draw a card.\nHarmonize {5}{U} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+        "flavorText": "In the Endless Song, Temur's whisperers hear spirits murmur of the past, present, and future.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Danny Schwartz",
+        "imageId": "fc48180a-ccac-469f-938d-c050821d0160"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Harmonize"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

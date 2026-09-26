@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2468);
-    expect.soft(r.spells.assisted).toBe(1702);
-    expect.soft(r.spells.autoAnyFace).toBe(2475);
+    expect.soft(r.spells.auto).toBe(2474);
+    expect.soft(r.spells.assisted).toBe(1696);
+    expect.soft(r.spells.autoAnyFace).toBe(2481);
   });
 
   /**
@@ -464,7 +464,7 @@ const POOL: Record<string, number> = {
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
   creature: 7567,
   instant: 1668,
-  sorcery: 1342,
+  sorcery: 1348,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 684,

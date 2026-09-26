@@ -95,6 +95,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   recover: 'recover',
   // D562 - enlist: the declaration's tap of another creature and the trigger that adds its power until end of turn.
   enlist: 'enlist',
+  // D563 - harmonize: the graveyard cast for the harmonize cost, a creature tapped to reduce it by its power.
+  harmonize: 'harmonize',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.
