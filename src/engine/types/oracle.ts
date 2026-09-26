@@ -707,6 +707,11 @@ export type EffectKind =
    */
   | 'goad'
   /**
+   * D555 - SUSPECT (CR 701.60): the creature becomes suspected - menace and "can't block" for as long as it is (the
+   * `Suspected` mark, `suspected`), until it leaves the battlefield.
+   */
+  | 'suspect'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).
@@ -1218,7 +1223,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first

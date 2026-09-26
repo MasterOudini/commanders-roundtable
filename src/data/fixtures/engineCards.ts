@@ -9079,6 +9079,9 @@ export const TAUNTING_KOBOLD: CardData = F.TAUNTING_KOBOLD as CardData;
 export const TAUNTING_SLIVER: CardData = F.TAUNTING_SLIVER as CardData;
 export const GL_IN_DWARF_EMISSARY: CardData = F.GL_IN_DWARF_EMISSARY as CardData;
 export const LAURINE_THE_DIVERSION: CardData = F.LAURINE_THE_DIVERSION as CardData;
+export const REASONABLE_DOUBT: CardData = F.REASONABLE_DOUBT as CardData;
+export const CAUGHT_RED_HANDED: CardData = F.CAUGHT_RED_HANDED as CardData;
+export const PERSON_OF_INTEREST: CardData = F.PERSON_OF_INTEREST as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18418,6 +18421,9 @@ export const ENGINE_CARDS: CardData[] = [
   TAUNTING_SLIVER,
   GL_IN_DWARF_EMISSARY,
   LAURINE_THE_DIVERSION,
+  REASONABLE_DOUBT,
+  CAUGHT_RED_HANDED,
+  PERSON_OF_INTEREST,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

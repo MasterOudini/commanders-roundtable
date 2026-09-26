@@ -151,6 +151,8 @@ function computeDerived(
   for (const k of inst.gained ?? []) chars.keywords.add(k);
   // D548 - an awakened land has haste (CR 702.113a), at the same layer.
   if (inst.awakened === true) chars.keywords.add('haste');
+  // D555 - a suspected creature has menace (CR 701.60c), at the same layer; its "can't block" is canBlock's.
+  if (inst.suspected === true) chars.keywords.add('menace');
   // D471 - CR 122.1c: a keyword counter gives the object that keyword. The counter kind is the printed word
   // (`first strike`), the keyword the engine's id; a kind outside the enforced list is inert, as before.
   for (const [kind, n] of Object.entries(inst.counters)) {

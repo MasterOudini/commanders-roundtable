@@ -776,6 +776,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D555 - suspect: the suspect clause is the engine's now (the suspected mark - menace, no blocks); what stays is a suspect card whose other sentence the row maker does not read.
+  ['Clandestine Meddler', 'the row maker: trigger head not in the library - Whenever one or more suspected creatures you control attack, surveil 1. (its suspect reads since D555) (D555)'],
+  ['J. Jonah Jameson', 'the row maker: trigger head not in the library - Whenever a creature you control with menace attacks, create a Treasure token. (its suspect reads since D555) (D555)'],
+  ['Rune-Brand Juggler', 'the row maker: cost - a sacrifice cost with no fixture the suite can put: suspected creature (its suspect reads since D555) (D555)'],
   // D554 - goad: the goad clause is the engine's now (the per-goader mark, the attack requirement); what stays is a goad card whose other sentence the row maker does not read.
   ['Puppet Master, String Puller', 'the row maker: trigger head not in the library - Whenever one or more goaded creatures deal combat damage to one of your opponents (its goad reads since D554) (D554)'],
   // D553 - saddle: the Saddle line is the engine's now (crew's chooser at sorcery speed, the saddled mark); what stays is a saddle card whose row the suite cannot stage or prove.
@@ -1162,7 +1166,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mascot Interception', 'a control line under a shape the row maker never reached (`Gain control of target creature until end of turn. Untap tha`) (D531)'],
   ['Old Man of the Sea', 'a control duration outside the two the engine reads (`for as long as` + ~ remains tapped and that creature\'s power remains) (D531)'],
   ['Hot Pursuit', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
-  ['Caught Red-Handed', 'the row maker: a spell with a line outside the vocabulary: This spell can\'t be countered. (This includes by the ward ab (D531)'],
   ['Harness by Force', 'the row maker: a spell with a line outside the vocabulary: Strive — This spell costs {2}{R} more to cast for each targe (D531)'],
   ['Loxodon Peacekeeper', 'the row maker: trigger payload not a pump: The player with the lowest life total gains control of this (D531)'],
   ['Confusion in the Ranks', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: artifact,): Whenever an artifact, creature, or enchantment en (D531)'],
@@ -2554,7 +2557,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Hunt's greatest-MV can TIE and the opponent breaks it.
   ['Dwell on the Past', 'up-to-N targeting'],
   ['Earth Rumble', 'land animation (type change)'],
-  ['Eliminate the Impossible', 'suspect mechanic'],
+  ['Eliminate the Impossible', 'the un-suspect clause (If any of them are suspected, they\'re no longer suspected. - the suspected mark itself is the engine\'s since D555)'],
   ['Elven Farsight', 'script-raised prompt'],
   ['Empty City Ruse', 'phase skipping'],
   ['End of the Hunt', 'opponent-chooses'],
@@ -3982,7 +3985,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Cut the Tethers', 'a per-item payment (one question per object)'],
   ['Whirlwind Denial', 'a per-item payment (one question per object)'],
   ['Calculated Dismissal', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
-  ['Reasonable Doubt', 'a second line after the payment ask (an effect that asks must be LAST: D195)'],
   ['Withdraw', 'a second target clause carrying its own payment'],
   ["Don't Make a Sound", 'a sentence after the payment ask (an effect that asks must be LAST: D195)'],
   ['Silumgar Spell-Eater', 'a spell clause under a trigger head: the scaffold casts the opponent`s spell for an activa'],

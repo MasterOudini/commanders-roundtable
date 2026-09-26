@@ -10129,6 +10129,13 @@ const WANTED = [
   'Glóin, Dwarf Emissary',
   'Laurine, the Diversion',
   // D554 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D555 - SUSPECT's proof fixture: Reasonable Doubt (Counter target spell unless its controller pays {2}. Suspect up to one target creature.).
+  'Reasonable Doubt',
+  // D555 - SUSPECT's second proof fixture: Caught Red-Handed (the object verb - Suspect it. - after a control change).
+  'Caught Red-Handed',
+  // D555 - SUSPECT: the rows the whole-leftover row maker rowed once the suspect clause was the engine's (the suspected mark - menace, no blocks).
+  'Person of Interest',
+  // D555 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

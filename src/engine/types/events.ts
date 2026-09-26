@@ -561,6 +561,8 @@ export type EventBody =
   | { readonly t: 'Detained'; readonly cards: readonly InstanceId[]; readonly by: PlayerId }
   /** D554 - GOAD (CR 701.15a): `by` joins each card's goaders, until `by`'s next turn begins. */
   | { readonly t: 'Goaded'; readonly cards: readonly InstanceId[]; readonly by: PlayerId }
+  /** D555 - SUSPECT (CR 701.60): each card suspected, until it leaves the battlefield. */
+  | { readonly t: 'Suspected'; readonly cards: readonly InstanceId[] }
   /**
    * D369 - a player's answer to a payment prompt, recorded before its consequence in the
    * same batch. A MARKER for `EntersChoiceAnswered`'s reason: paying is a `ManaSpent` like

@@ -1456,6 +1456,14 @@ export function effectResult(
         break;
       }
 
+      // D555 - SUSPECT (CR 701.60): the mark on the aim (a target, the source, or the previous clause's object).
+      case 'suspect': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'Suspected', cards: [aim.id] });
+        break;
+      }
+
       // D396 - BITE and FIGHT (CR 701.12): the subject (this step's aim - a target, the self, or the
       // referent) deals damage equal to its power to the clause's OTHER target; a fight deals both
       // ways at once, in ONE `DamageDealt`. Either operand gone from the battlefield, or not a

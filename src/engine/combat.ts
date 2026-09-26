@@ -203,6 +203,8 @@ export type BlockRejection =
   | 'cantBlockThisTurn'
   /** D552 - detained (CR 701.35a): it can't block until the detaining player's next turn. */
   | 'detained'
+  /** D555 - suspected (CR 701.60c): it can't block for as long as it is suspected. */
+  | 'suspected'
   /** D444 - unleash (CR 702.98b): it can't block as long as it has a +1/+1 counter on it. */
   | 'unleashed'
   // D399 - "can't be blocked this turn": the ATTACKER carries the evasion with an END, on the
@@ -232,6 +234,8 @@ export function canBlock(
   if (b.tapped) return 'tapped';
   // D552 - a detained creature can't block (CR 701.35a).
   if (isDetained(state, blocker)) return 'detained';
+  // D555 - a suspected creature can't block (CR 701.60c).
+  if (b.suspected === true) return 'suspected';
   // D394 - "can't block this turn" (the vocabulary's `cantBlock`), until cleanup clears it.
   if (state.untilEndOfTurn.some((m) => m.card === blocker && m.cantBlock === true)) return 'cantBlockThisTurn';
   // D399 - "can't be blocked this turn" (the vocabulary's `cantBeBlocked`) on the ATTACKER, until
@@ -404,6 +408,8 @@ function blockRejectionText(
       return `Something on the battlefield stops ${bn} blocking ${an}.`;
     case 'cantBlockThisTurn':
       return `${bn} can't block this turn.`;
+    case 'suspected':
+      return `${bn} is suspected - it can't block.`;
     case 'detained':
       return `${bn} is detained - it can't block until its detainer's next turn.`;
     case 'unleashed':

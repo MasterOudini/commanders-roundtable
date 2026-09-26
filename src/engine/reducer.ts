@@ -351,6 +351,8 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     detainedBy: undefined,
     // D554 - nor goaded.
     goadedBy: undefined,
+    // D555 - nor suspected.
+    suspected: undefined,
     // D526 - a new object was not manifested.
     manifested: undefined,
   };
@@ -1128,6 +1130,12 @@ function applyBody(state: GameState, body: EventBody): GameState {
         const goaders = c.goadedBy ?? [];
         if (!goaders.includes(body.by)) next = withCard(next, id, { goadedBy: [...goaders, body.by] });
       }
+      return next;
+    }
+    // D555 - the suspected mark (CR 701.60), on what is still on the battlefield.
+    case 'Suspected': {
+      let next = state;
+      for (const id of body.cards) if (next.cards[id]?.zone.kind === 'battlefield') next = withCard(next, id, { suspected: true });
       return next;
     }
     case 'Detained': {

@@ -1763,6 +1763,8 @@ interface Run {
   readonly saddles: number;
   /** D554 - the creatures goaded (a `Goaded` event each card). */
   readonly goads: number;
+  /** D555 - the creatures suspected (a `Suspected` event each card). */
+  readonly suspects: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2287,6 +2289,7 @@ function runOne(seed: number): Run {
     plots: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.plottedTurn !== undefined && m.from.kind === 'hand')).length,
     detains: game.log.reduce((n, e) => n + (e.body.t === 'Detained' ? e.body.cards.length : 0), 0),
     goads: game.log.reduce((n, e) => n + (e.body.t === 'Goaded' ? e.body.cards.length : 0), 0),
+    suspects: game.log.reduce((n, e) => n + (e.body.t === 'Suspected' ? e.body.cards.length : 0), 0),
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
@@ -2641,6 +2644,7 @@ const TOTAL_KEYS = [
   'detains',
   'saddles',
   'goads',
+  'suspects',
   'crownings',
   'ringTempts',
   'ringAbilities',

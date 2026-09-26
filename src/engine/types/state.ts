@@ -388,6 +388,11 @@ export interface CardInstance {
    */
   readonly goadedBy?: readonly PlayerId[] | undefined;
   /**
+   * D555 - SUSPECTED (CR 701.60): menace and "can't block" for as long as it is suspected (derive grants the menace,
+   * canBlock refuses). Cleared as it leaves the battlefield.
+   */
+  readonly suspected?: true | undefined;
+  /**
    * D457 - exhaust (CR 702.178): the refs of the exhaust abilities THIS object has activated. Stamped by the reducer
    * as the ability goes on the stack (`StackObject.exhaust`), read by `legal.ts` and `handlers.ts`, cleared with
    * the battlefield fields - a new object may exhaust again.

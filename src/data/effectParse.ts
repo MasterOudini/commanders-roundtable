@@ -1383,6 +1383,10 @@ const RULES: readonly Rule[] = [
   // D554 - GOAD (CR 701.15a): a target, counted forms included. The referent controllers (`defending player controls`,
   // `that player controls`) and the mass form (`goad each creature target player controls`) stay unread until measured.
   { kind: 'goad', re: new RegExp(`^goad ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D555 - SUSPECT (CR 701.60): a target (counted forms included), and the self form (`suspect ~.` - the vocabulary
+  // bridge spells a self head's `it` as `~`).
+  { kind: 'suspect', re: new RegExp(`^suspect ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'suspect', re: new RegExp(`^suspect ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D554 - the mass form over a closed scope (`all creatures you don't control`, `all creatures your opponents control`).
   {
     kind: 'goad',
@@ -2661,7 +2665,7 @@ const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate',
 // turn.` / `Those creatures can't block this turn.` / `Those creatures don't untap during their controller's next untap
 // step.` after a clause that produced objects - the plain kinds themselves, planned aimless (`ofPrevious`) and spliced in
 // per object as they run (D494's path; the executor's `objectsOf` reads the scoped clause's permanents too).
-const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate) ${OBJ_REF}\\.$`, 'i');
+const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate|suspect) ${OBJ_REF}\\.$`, 'i');
 const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
@@ -2697,7 +2701,7 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
   const vs = vl ? null : OBJ_VERB_SUBJ.exec(sentence);
   if ((vl || vs) && (OBJ_LATE.has(prev.kind) || prev.ofPrevious === true)) return null;
   if (vl) {
-    const verb = (vl.groups?.['verb'] ?? '').toLowerCase() as 'untap' | 'tap' | 'regenerate';
+    const verb = (vl.groups?.['verb'] ?? '').toLowerCase() as 'untap' | 'tap' | 'regenerate' | 'suspect';
     return { ...BASE, kind: verb, text: sentence, targetIndex: -1, ofPrevious: true };
   }
   if (vs) {
