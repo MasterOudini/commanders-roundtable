@@ -1795,6 +1795,9 @@ interface Run {
   /** D560 - the casts for a blitz cost (CR 702.152a), and the blitz dies-draws put on the stack. */
   readonly blitzedCasts: number;
   readonly blitzDraws: number;
+  /** D561 - the recover triggers put on the stack (CR 702.59a), and the recover cards returned to hand (the price paid). */
+  readonly recoverTriggers: number;
+  readonly recoverReturns: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2334,6 +2337,8 @@ function runOne(seed: number): Run {
     }).length,
     blitzedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.alternativeCost?.keyword ?? null) === 'blitz').length,
     blitzDraws: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:blitz')).length,
+    recoverTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:recover')).length,
+    recoverReturns: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.from.kind === 'graveyard' && m.to.kind === 'hand' && (ORACLE.byPrinting(game.state.cards[m.card]?.printingId ?? '')?.faces[0]?.recoverCost ?? null) !== null)).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2699,6 +2704,8 @@ const TOTAL_KEYS = [
   'transmutes',
   'blitzedCasts',
   'blitzDraws',
+  'recoverTriggers',
+  'recoverReturns',
   'crownings',
   'ringTempts',
   'ringAbilities',

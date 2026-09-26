@@ -129,6 +129,10 @@ export const TIER2_KEYWORDS = [
   // D560 - BLITZ (CR 702.152a): the alternative cost's mark (haste, derive) and the dies trigger that draws, from the
   // keyword table as persist's is (looked back).
   'blitz',
+  // D561 - RECOVER (CR 702.59a): a trigger that works from the GRAVEYARD - when a creature is put into its owner's
+  // graveyard from the battlefield, the recover cost returns the card to its owner's hand, or it is exiled; from the
+  // keyword table's graveyard walk (`fromGraveyard`), the price the vocabulary's own pay prompt (D369's two arms).
+  'recover',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -1401,6 +1405,8 @@ export interface EffectSpec {
   readonly untilLeaves: boolean;
   /** D547 - `exileSelf` only: the WARP's end-step exile - the move marks the card (`CardMove.warpedTurn`) for its later cast. */
   readonly warp?: true;
+  /** D561 - `exileSelf` only: RECOVER's otherwise - the card is exiled from its graveyard, not from the battlefield. */
+  readonly fromGraveyard?: true;
   /**
    * `scry`/`surveil` only: cards drawn AFTER the choice resolves — the
    * "Scry 2, then draw a card" / "Surveil 1, then draw a card" shape
@@ -2085,6 +2091,11 @@ export interface OracleFace {
    * (`CastSpell.offspring`); paid, the permanent's enters trigger creates a token copy of it except it's 1/1.
    */
   readonly offspringCost: ManaCost | null;
+  /**
+   * D561 - RECOVER (CR 702.59a): `Recover {M}` - the price the graveyard trigger asks for (paid: the card returns to its
+   * owner's hand; declined or unpayable: it is exiled). A recover cost that is not only mana stays null (D90).
+   */
+  readonly recoverCost: ManaCost | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

@@ -1467,6 +1467,37 @@ export function collectTriggers(
         }
         continue;
       }
+      // D561 - an entry that fires off a card IN A GRAVEYARD (recover): every graveyard's cards, off the state the entry
+      // looks at (before the event for a looks-back one), through the PRINTED face's keywords (a map lookup per card, since
+      // every move walks the piles - nothing grants a graveyard card an ability here); the card's OWNER controls the trigger
+      // (a card in a graveyard has no controller), one firing per item, the entry's effects riding as storm's do.
+      if (kt.fromGraveyard === true) {
+        const kw = kt.keyword ?? (keyword as Keyword);
+        for (const pile of Object.values(state.zones.graveyard)) {
+          for (const id of pile ?? []) {
+            const card = state.cards[id];
+            const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+            if (!card || !printing || card.zone.kind !== 'graveyard') continue;
+            if (!faceOf(printing, card.faceIndex).keywords.includes(kw)) continue;
+            if (!kt.matches(ctx, id, event.body)) continue;
+            const items: readonly (InstanceId | undefined)[] = kt.perItem ? kt.perItem(ctx, id, event.body) : [undefined];
+            for (const item of items) {
+              out.push({
+                id: `t${n++}`,
+                source: id,
+                controller: card.owner,
+                abilityRef: `${card.oracleId}#kw:${keyword}`,
+                label: kt.label(ctx, id),
+                optional: false,
+                specs: [],
+                ...(item !== undefined ? { item } : {}),
+                ...(kt.effects ? { effects: kt.effects(ctx, id, event.body) } : {}),
+              });
+            }
+          }
+        }
+        continue;
+      }
       for (const id of idsOf(look)) {
         const card = state.cards[id];
         if (!card || card.zone.kind !== 'battlefield') continue;

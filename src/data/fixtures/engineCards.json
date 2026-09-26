@@ -309192,6 +309192,251 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CONTROVERT": {
+    "scryfallId": "0e670f6b-d16e-47fc-a5b7-7ca0d8763644",
+    "oracleId": "f7ad79e3-d128-4aee-8542-99fd3527f9d3",
+    "name": "Controvert",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Controvert",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target spell.\nRecover {2}{U}{U} (When a creature is put into your graveyard from the battlefield, you may pay {2}{U}{U}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Joel Thomas",
+        "imageId": "0e670f6b-d16e-47fc-a5b7-7ca0d8763644"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "30",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROVIKAN_ROT": {
+    "scryfallId": "17597c66-0d9f-41af-9160-0d92be88f450",
+    "oracleId": "f9a272c5-6ebc-4d29-a47c-a2d570184196",
+    "name": "Krovikan Rot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krovikan Rot",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target creature with power 2 or less.\nRecover {1}{B}{B} (When a creature is put into your graveyard from the battlefield, you may pay {1}{B}{B}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "17597c66-0d9f-41af-9160-0d92be88f450"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICEFALL": {
+    "scryfallId": "6cf90fc3-b08b-4261-a194-d6b06fdd59d8",
+    "oracleId": "30baca42-50e2-45f8-8f99-8e2f9795b4da",
+    "name": "Icefall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Icefall",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Destroy target artifact or land.\nRecover {R}{R} (When a creature is put into your graveyard from the battlefield, you may pay {R}{R}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": "As the Thaw met Terisiare, mountains shed their icy skins, crushing homes and hopes alike.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "6cf90fc3-b08b-4261-a194-d6b06fdd59d8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIM_HARVEST": {
+    "scryfallId": "94d090f5-542d-47e4-a531-93bd20271cbe",
+    "oracleId": "231ca538-b277-4c12-979f-57640a0e87f0",
+    "name": "Grim Harvest",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grim Harvest",
+        "manaCost": "{1}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Return target creature card from your graveyard to your hand.\nRecover {2}{B} (When a creature is put into your graveyard from the battlefield, you may pay {2}{B}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Zoltan Boros & Gabor Szikszai",
+        "imageId": "94d090f5-542d-47e4-a531-93bd20271cbe"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "td0",
+    "collectorNumber": "A43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_S_BOUNTY": {
+    "scryfallId": "bde59b0e-c75e-455b-b375-e0dac430a6d1",
+    "oracleId": "5c15d9b1-5ec7-4476-a3e6-539d899a9957",
+    "name": "Sun's Bounty",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun's Bounty",
+        "manaCost": "{1}{W}",
+        "typeLine": "Instant",
+        "oracleText": "You gain 4 life.\nRecover {1}{W} (When a creature is put into your graveyard from the battlefield, you may pay {1}{W}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": "\"Heidar has forced the sun into hiding, but it has not forgotten us.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Sutfin",
+        "imageId": "bde59b0e-c75e-455b-b375-e0dac430a6d1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RESIZE": {
+    "scryfallId": "c5dded16-e516-430e-a528-c49a483f03b4",
+    "oracleId": "2c092ed4-4dbb-41ec-9e07-e59b9676802e",
+    "name": "Resize",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Resize",
+        "manaCost": "{1}{G}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets +3/+3 until end of turn.\nRecover {1}{G} (When a creature is put into your graveyard from the battlefield, you may pay {1}{G}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "c5dded16-e516-430e-a528-c49a483f03b4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GARZA_S_ASSASSIN": {
+    "scryfallId": "3407ccbd-788d-4fe3-a039-0497724a94b5",
+    "oracleId": "9660b7c4-7b04-4ec3-b867-299c141f77e6",
+    "name": "Garza's Assassin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Garza's Assassin",
+        "manaCost": "{B}{B}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "Sacrifice this creature: Destroy target nonblack creature.\nRecover—Pay half your life, rounded up. (When another creature is put into your graveyard from the battlefield, you may pay half your life, rounded up. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "3407ccbd-788d-4fe3-a039-0497724a94b5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Recover"
+    ],
+    "setCode": "csp",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

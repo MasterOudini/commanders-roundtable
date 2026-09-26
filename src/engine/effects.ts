@@ -1285,6 +1285,11 @@ export function effectResult(
       case 'exileSelf': {
         if (!source) break;
         const gone = state.cards[source];
+        // D561 - RECOVER's otherwise (CR 702.59a): the card is exiled from its graveyard - if it is still there.
+        if (effect.fromGraveyard === true) {
+          if (gone?.zone.kind === 'graveyard') out.push({ t: 'CardsMoved', moves: [{ card: source, from: { kind: 'graveyard', player: gone.zone.player }, to: { kind: 'exile', player: gone.owner } }] });
+          break;
+        }
         if (!gone || gone.zone.kind !== 'battlefield') break;
         // D547 - a warp's exile marks the card with this turn: its owner may cast it from exile on a later turn.
         out.push(effect.warp === true ? { t: 'CardsMoved', moves: [{ card: source, from: { kind: 'battlefield', player: null }, to: { kind: 'exile', player: gone.owner }, warpedTurn: state.turn.turnNumber }] } : moveTo(source, 'exile', gone.owner));

@@ -10188,6 +10188,14 @@ const WANTED = [
   'Riveteers Requisitioner',
   // D560 - BLITZ: the rows the whole-leftover row maker rowed once the Blitz line was the engine's (an alternative cost - haste, a draw on death, a sacrifice at the next end step).
   // D560 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D561 - RECOVER: the six recover spells the seam completes and Garza's Assassin (its half-life recover stays unread).
+  'Controvert',
+  'Krovikan Rot',
+  'Icefall',
+  'Grim Harvest',
+  "Sun's Bounty",
+  'Resize',
+  "Garza's Assassin",
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

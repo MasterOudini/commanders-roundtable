@@ -367,6 +367,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (kw === 'backup' && parseBackup(face?.oracleText ?? '') === null) continue;
     // D449 - evoke and dash are the engine's only when their line read as the face's alternative cost (D560 - and blitz).
     if ((kw === 'evoke' || kw === 'dash' || kw === 'blitz') && parseAlternativeCost(face?.oracleText ?? '', parseManaCost)?.keyword !== kw) continue;
+    // D561 - recover is the engine's only when its cost read as mana (the graveyard trigger asks for it).
+    if (kw === 'recover' && parseRecover(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -595,6 +597,20 @@ export function parseReplicate(oracleText: string, warn: Warn = NOOP_WARN): Mana
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const m = /^Replicate ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
+/**
+ * D561 - RECOVER (CR 702.59a): `Recover {M}` on its own line (reminder text aside), as a mana cost - the price the
+ * graveyard trigger asks for. A recover cost that is not only mana (`Recover—Pay half your life, rounded up.`) stays
+ * null (D90), and the keyword is not the engine's.
+ */
+export function parseRecover(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Recover ((?:\{[^}]+\})+)$/.exec(line);
     if (m) return parseManaCost(m[1] ?? '', warn);
   }
   return null;
@@ -1314,6 +1330,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const conspireVerb = isPermanent ? null : parseConspire(face.oracleText, face.colors);
   // D558 - offspring on a creature (its copy is a permanent the token machinery makes).
   const offspringCost = isPermanent && typeLine.types.includes('Creature') ? parseOffspring(face.oracleText, warn) : null;
+  // D561 - recover on any face (its trigger works from the graveyard, whatever the card is).
+  const recoverCost = parseRecover(face.oracleText, warn);
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1421,6 +1439,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     replicateCost,
     conspireVerb,
     offspringCost,
+    recoverCost,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

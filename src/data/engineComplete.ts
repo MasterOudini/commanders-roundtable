@@ -619,6 +619,8 @@ export function linesUnaccounted(
     if (face.conspireVerb !== null && line === 'Conspire') continue;
     // D558 - an Offspring line the engine CHARGES at cast time (`CastSpell.offspring`) and RUNS as the enters trigger's copy.
     if (face.offspringCost !== null && /^Offspring (?:\{[^}]+\})+$/.test(line)) continue;
+    // D561 - a Recover line the engine RUNS (the graveyard trigger, its price the pay prompt's), asked of the parser that read it.
+    if (face.recoverCost !== null && /^Recover (?:\{[^}]+\})+$/.test(line)) continue;
     // D537 - a Retrace / Jump-start line the engine OFFERS (a graveyard cast, its discard charged as the additional cost).
     if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
     // D538 - a Rebound line the engine RUNS (the resolution's exile, the upkeep's free cast), asked of the parser's flag.

@@ -9123,6 +9123,13 @@ export const CALDAIA_STRONGARM: CardData = F.CALDAIA_STRONGARM as CardData;
 export const NIGHT_CLUBBER: CardData = F.NIGHT_CLUBBER as CardData;
 export const PLASMA_JOCKEY: CardData = F.PLASMA_JOCKEY as CardData;
 export const RIVETEERS_REQUISITIONER: CardData = F.RIVETEERS_REQUISITIONER as CardData;
+export const CONTROVERT: CardData = F.CONTROVERT as CardData;
+export const KROVIKAN_ROT: CardData = F.KROVIKAN_ROT as CardData;
+export const ICEFALL: CardData = F.ICEFALL as CardData;
+export const GRIM_HARVEST: CardData = F.GRIM_HARVEST as CardData;
+export const SUN_S_BOUNTY: CardData = F.SUN_S_BOUNTY as CardData;
+export const RESIZE: CardData = F.RESIZE as CardData;
+export const GARZA_S_ASSASSIN: CardData = F.GARZA_S_ASSASSIN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18506,6 +18513,13 @@ export const ENGINE_CARDS: CardData[] = [
   NIGHT_CLUBBER,
   PLASMA_JOCKEY,
   RIVETEERS_REQUISITIONER,
+  CONTROVERT,
+  KROVIKAN_ROT,
+  ICEFALL,
+  GRIM_HARVEST,
+  SUN_S_BOUNTY,
+  RESIZE,
+  GARZA_S_ASSASSIN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

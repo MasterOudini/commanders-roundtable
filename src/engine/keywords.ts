@@ -91,6 +91,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   offspring: 'offspring',
   // D560 - blitz: the alternative cost's haste and sacrifice, and the dies trigger that draws.
   blitz: 'blitz',
+  // D561 - recover: the graveyard trigger that asks for the recover cost - back to its owner's hand, or exiled.
+  recover: 'recover',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

@@ -2471,6 +2471,24 @@ export function warpExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true, warp: true };
 }
 
+/**
+ * D561 - RECOVER (CR 702.59a): "you may pay [cost]. If you do, return this card from your graveyard to your hand.
+ * Otherwise, exile this card." D369's pay prompt with its two arms: paid, the card returns (`returnSelf` reads a
+ * graveyard); declined or unpayable, it is exiled from its graveyard (`exileSelf`'s `fromGraveyard`).
+ */
+export function recoverSpec(cost: import('../engine/types/mana').ManaCost): EffectSpec {
+  const back: EffectSpec = { ...BASE, kind: 'returnSelf', text: 'Return this card from your graveyard to your hand.', targetIndex: -1, self: true };
+  const exile: EffectSpec = { ...BASE, kind: 'exileSelf', text: 'Exile this card.', targetIndex: -1, self: true, fromGraveyard: true };
+  return {
+    ...BASE,
+    kind: 'payOptional',
+    text: `You may pay ${cost.raw}. If you do, return this card from your graveyard to your hand. Otherwise, exile this card.`,
+    targetIndex: -1,
+    self: true,
+    pay: { cost, life: 0, energy: 0, verbs: null, who: 'controller', ifPaid: [back], ifNotPaid: [exile] },
+  };
+}
+
 export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
@@ -3519,6 +3537,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D559 - a Transmute line is a hand ability the engine runs (the discard its cost, the search by mana value), no clause
     // of the spell either.
     .filter((l) => !/^Transmute (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    // D561 - a Recover line is a graveyard trigger the keyword table runs (its price the pay prompt's), no clause of the
+    // spell either.
+    .filter((l) => !/^Recover (?:\{[^}]+\})+\s*$/.test(l.trim()))
     // D537 - a Retrace or Jump-start line is a graveyard cast the engine offers, no clause of the spell either.
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.

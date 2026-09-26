@@ -3282,7 +3282,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Channeled Dragonfire', 'harmonize mechanic'],
   ['Chivalric Alliance', 'discard-cost chooser'],
   ['Clear the Mind', 'ctx.random'],
-  ['Controvert', 'recover mechanic'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
 
@@ -3330,7 +3329,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Garbage Fire', 'draft-matters'],
   ['Ghostfire', 'color-defining static'],
   ['Gluttonous Guest', 'sacrifice-event discriminator'],
-  ['Grim Harvest', 'recover mechanic'],
 
   // D276 (M6.4dm) — the G/H/I/J residue; ONE new class.
   //
@@ -3345,7 +3343,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Heroes Remembered', 'suspend mechanic'],
   ['Hunting Triad', 'hand-activated ability'],
   ['Hypergenesis', 'suspend mechanic'],
-  ['Icefall', 'recover mechanic'],
   ['Icy Blast', 'cast-time computed target count'],
   ["Illusionist's Stratagem", 'up-to-N targeting'],
   ['Impossible Inferno', 'play-from-exile permission'],
@@ -3365,7 +3362,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Three conditional FREE casts (Lethargy Trap, Massacre, Mogg Salvage)
   // join the cast-time alternative cost class after D275's four.
   ["Katara's Reversal", 'up-to-N targeting'],
-  ['Krovikan Rot', 'recover mechanic'],
   ['Lantern Flare', 'cleave mechanic'],
   ["Laquatus's Disdain", 'cast-zone discriminator'],
   ['Learn from the Past', 'ctx.random'],
@@ -3412,7 +3408,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reality Anchor', 'temporary keyword/ability grant'],
   ['Reforge the Soul', 'miracle mechanic'],
   ['Refreshing Rain', 'cast-time alternative cost'],
-  ['Resize', 'recover mechanic'],
   ['Restart Sequence', 'freerunning mechanic'],
   ['Reverent Silence', 'cast-time alternative cost'],
 
@@ -3450,7 +3445,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Spiritualize', 'temporary game-wide trigger'],
   ['Starfall Invocation', 'gift mechanic'],
   ['Suit Up', 'until-end-of-turn type change with P/T set'],
-  ["Sun's Bounty", 'recover mechanic'],
 
   // D282 (M6.4ds) — the S/T residue; ONE new class.
   //

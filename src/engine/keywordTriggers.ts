@@ -16,7 +16,7 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, stormCopySpec, unearthExileSpec } from '../data/effectParse';
+import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, recoverSpec, stormCopySpec, unearthExileSpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -81,6 +81,11 @@ export interface KeywordTrigger {
    */
   readonly fromMove?: true;
   /**
+   * D561 - the entry fires off a card IN A GRAVEYARD (recover): the bus walks every graveyard (the pre-event state for a
+   * looks-back entry) for the cards whose printed face carries the keyword; the card's OWNER controls the trigger.
+   */
+  readonly fromGraveyard?: true;
+  /**
    * D536 - the entry's own EFFECTS (storm's copies): carried onto the stack object as `delayedEffects` and run by the
    * vocabulary's executor at resolution (D402's path), so a clause that asks (a copy's new targets) rides the continuation.
    */
@@ -97,6 +102,25 @@ const nameOf = (ctx: ScriptCtx, id: InstanceId): string => {
   const card = ctx.state.cards[id];
   const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
   return card && printing ? faceOf(printing, card.faceIndex).name : 'a permanent';
+};
+
+/** D561 - the recover cost printed on the card's face (null: none, or one that is not only mana). */
+const recoverCostOf = (ctx: ScriptCtx, id: InstanceId) => {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? faceOf(printing, card.faceIndex).recoverCost : null;
+};
+
+/**
+ * D561 - the creatures a move put into the recover card's OWNER'S graveyard from the battlefield (asked of the state
+ * before the move: they were creatures there), one firing each.
+ */
+const recoverDeaths = (ctx: ScriptCtx, self: InstanceId, ev: EventBody): InstanceId[] => {
+  if (ev.t !== 'CardsMoved') return [];
+  const owner = ctx.state.cards[self]?.owner;
+  return ev.moves
+    .filter((m) => m.card !== self && m.from.kind === 'battlefield' && m.to.kind === 'graveyard' && m.to.player === owner && ctx.derive(m.card).isCreature)
+    .map((m) => m.card);
 };
 
 /** The printed number after a keyword ("bushido 2"), 1 when none is printed (a granted keyword). */
@@ -333,6 +357,27 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
         ctx.state.cards[self]?.blitzed === true,
       label: (ctx, self) => `${nameOf(ctx, self)} - blitz: draw a card`,
       resolve: (ctx, self, obj) => ctx.vocabulary(obj, vocabularyEffects('Draw a card.', nameOf(ctx, self)), []),
+    },
+  ],
+  [
+    'recover',
+    {
+      // D561 - CR 702.59a: when a creature is put into your graveyard from the battlefield, you may pay the recover cost;
+      // if you do, return this card from your graveyard to your hand, otherwise exile it. The entry fires off the card IN
+      // ITS OWNER'S GRAVEYARD (`fromGraveyard`), looked back (a leaves-the-battlefield head, CR 603.10a - the card was there
+      // before the creature died: a recover spell that kills a creature as it resolves is still on the stack), once per
+      // creature; the price and its two arms are the entry's own effects (D369's pay prompt), run as storm's are.
+      event: 'CardsMoved',
+      looksBack: true,
+      fromGraveyard: true,
+      matches: (ctx, self, ev) => recoverCostOf(ctx, self) !== null && recoverDeaths(ctx, self, ev).length > 0,
+      perItem: (ctx, self, ev) => recoverDeaths(ctx, self, ev),
+      effects: (ctx, self) => {
+        const cost = recoverCostOf(ctx, self);
+        return cost === null ? [] : [recoverSpec(cost)];
+      },
+      label: (ctx, self) => `${nameOf(ctx, self)} - recover`,
+      resolve: () => [],
     },
   ],
   [
