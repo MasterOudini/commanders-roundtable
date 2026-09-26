@@ -301,6 +301,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.equip !== undefined) continue;
     // D306 - the synthesized Cycling is the engine's own: no note.
     if (ability.cycling !== undefined) continue;
+    // D559 - so is the synthesized Transmute, once its search read (asked of the face - the raw parse carries no read).
+    if (ability.transmute !== undefined && transmuteRuns(card, faceIndex)) continue;
     // D311 - crew resolves natively: the tap chooser charges it, the engine animates.
     if (ability.crew !== undefined) continue;
     // D553 - saddle resolves natively too: the tap chooser charges it, the engine saddles.
@@ -444,6 +446,11 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
 }
 
 /** D546 - does this face carry an embalm / eternalize whose copy the vocabulary read (oracleParse hangs it on - the raw parse has none)? */
+/** D559 - does this face carry a transmute whose search the vocabulary read (oracleParse hangs it on - the raw parse has none)? */
+function transmuteRuns(card: CardData, faceIndex: number): boolean {
+  return parseFace(card, faceIndex).activated.some((a) => a.transmute?.effects !== undefined);
+}
+
 function embalmRuns(card: CardData, faceIndex: number): boolean {
   return parseFace(card, faceIndex).activated.some((a) => a.embalm?.effects !== undefined);
 }

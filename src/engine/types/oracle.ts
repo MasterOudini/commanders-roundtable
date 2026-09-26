@@ -1923,6 +1923,12 @@ export interface ActivatedAbility {
     readonly effects?: readonly EffectSpec[];
   };
   /**
+   * D559 - TRANSMUTE (CR 702.53a): `Transmute {M}` - {M}, discard this card: search your library for a card with the same
+   * mana value, reveal it, put it into your hand, then shuffle; only as a sorcery. A hand ability (`discardsSelf`) whose
+   * search is the vocabulary's read of the face's own mana value (hung on by `oracleParse`); never a cycling.
+   */
+  readonly transmute?: { readonly line: string; readonly effects?: readonly EffectSpec[] };
+  /**
    * D311 - THE CREW SEAM. The synthesized "Crew N" ability (CR 702.122a): tap
    * any number of untapped creatures you control with total power N or more,
    * and the Vehicle becomes an artifact creature until end of turn. `line`

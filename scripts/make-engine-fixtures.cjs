@@ -10167,6 +10167,17 @@ const WANTED = [
   'Starscape Cleric',
   'Rust-Shield Rampager',
   // D558 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D559 - TRANSMUTE's proof fixtures: the seven cards the strict judge counted whole (a Transmute line and the lines the vocabulary reads).
+  'Clutch of the Undercity',
+  'Dimir House Guard',
+  'Tolaria West',
+  'Muddle the Mixture',
+  'Dizzy Spell',
+  'Ethereal Usher',
+  'Drift of Phantasms',
+  // D559 - TRANSMUTE: the rows the whole-leftover row maker rowed once the Transmute line was the engine's (a hand ability searching the same mana value).
+  'Dimir Infiltrator',
+  // D559 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

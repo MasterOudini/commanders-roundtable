@@ -1342,6 +1342,11 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
       const one = copy.mode === 'auto' && copy.effects.length === 1 ? copy.effects[0] : undefined;
       return one !== undefined && one.kind === 'createToken' && one.copy?.of === 'self' ? { ...a, embalm: { ...a.embalm, effects: copy.effects } } : a;
     }
+    // D559 - TRANSMUTE's search (CR 702.53a): the vocabulary's read of a search for the face's own mana value.
+    if (a.transmute !== undefined) {
+      const read = parseEffects(`Search your library for a card with mana value ${card.cmc}, reveal it, put it into your hand, then shuffle.`, face.name, true);
+      return read.mode === 'auto' && read.effects.length === 1 && read.effects[0]?.kind === 'search' ? { ...a, transmute: { ...a.transmute, effects: read.effects } } : a;
+    }
     // D410 - a TYPECYCLING's search (CR 702.29b): the vocabulary's read of the sentence the parser wrote.
     if (a.cycling?.type === undefined) return a;
     const read = parseEffects(a.effectText, face.name, true);

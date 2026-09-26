@@ -1386,6 +1386,11 @@ export function resolveAbility(
     if (ability?.reinforce !== undefined && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'CountersChanged', changes: [{ card: target.id, kind: '+1/+1', delta: ability.reinforce.n }] });
     }
+    // D559 - TRANSMUTE resolves natively (CR 702.53a): the search the vocabulary read for the face's own mana value (the
+    // shuffle is the answer's); the card itself is in the graveyard - the cost was its discard.
+    if (ability?.transmute?.effects !== undefined) {
+      events.push(...effectResult(state, deps, obj, ability.transmute.effects).events);
+    }
     // D448 - UNEARTH resolves natively (CR 702.84a): the card returns from its owner's graveyard to the battlefield
     // under the activator's control, unearthed - haste (derive), exile instead of leaving (the funnel) - and a
     // delayed trigger armed now exiles it at the next end step (CR 603.7). A card no longer in the graveyard

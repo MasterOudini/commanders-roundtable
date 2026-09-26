@@ -9108,6 +9108,14 @@ export const CORUSCATION_MAGE: CardData = F.CORUSCATION_MAGE as CardData;
 export const STEAMPATH_CHARGER: CardData = F.STEAMPATH_CHARGER as CardData;
 export const STARSCAPE_CLERIC: CardData = F.STARSCAPE_CLERIC as CardData;
 export const RUST_SHIELD_RAMPAGER: CardData = F.RUST_SHIELD_RAMPAGER as CardData;
+export const CLUTCH_OF_THE_UNDERCITY: CardData = F.CLUTCH_OF_THE_UNDERCITY as CardData;
+export const DIMIR_HOUSE_GUARD: CardData = F.DIMIR_HOUSE_GUARD as CardData;
+export const TOLARIA_WEST: CardData = F.TOLARIA_WEST as CardData;
+export const MUDDLE_THE_MIXTURE: CardData = F.MUDDLE_THE_MIXTURE as CardData;
+export const DIZZY_SPELL: CardData = F.DIZZY_SPELL as CardData;
+export const ETHEREAL_USHER: CardData = F.ETHEREAL_USHER as CardData;
+export const DRIFT_OF_PHANTASMS: CardData = F.DRIFT_OF_PHANTASMS as CardData;
+export const DIMIR_INFILTRATOR: CardData = F.DIMIR_INFILTRATOR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18476,6 +18484,14 @@ export const ENGINE_CARDS: CardData[] = [
   STEAMPATH_CHARGER,
   STARSCAPE_CLERIC,
   RUST_SHIELD_RAMPAGER,
+  CLUTCH_OF_THE_UNDERCITY,
+  DIMIR_HOUSE_GUARD,
+  TOLARIA_WEST,
+  MUDDLE_THE_MIXTURE,
+  DIZZY_SPELL,
+  ETHEREAL_USHER,
+  DRIFT_OF_PHANTASMS,
+  DIMIR_INFILTRATOR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

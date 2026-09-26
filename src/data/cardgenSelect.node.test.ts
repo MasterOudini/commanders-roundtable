@@ -3276,13 +3276,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // question) — its discard-cost line is what refuses it.
   ['Blooming Blast', 'gift mechanic'],
   ['Bonfire of the Damned', 'miracle mechanic'],
-  ['Brainspoil', 'transmute mechanic'],
+  ['Brainspoil', 'a spell with a line outside the vocabulary: Destroy target creature that isn\'t enchanted. It can\'t be regenerated. (its Transmute line reads since D559)'],
   ['Cat Collector', 'once-per-turn trigger memory'],
   ['Cerulean Wisps', 'UEOT color change'],
   ['Channeled Dragonfire', 'harmonize mechanic'],
   ['Chivalric Alliance', 'discard-cost chooser'],
   ['Clear the Mind', 'ctx.random'],
-  ['Clutch of the Undercity', 'transmute mechanic'],
   ['Controvert', 'recover mechanic'],
   ["Council's Deliberation", 'scry-surveil event discriminator'],
   ['Crackleburr', 'tap-creatures cost'],
@@ -3303,7 +3302,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Disrupting Shoal', 'cast-time alternative cost'],
   ['Distract the Guards', 'freerunning mechanic'],
   ['Divine Congregation', 'suspend mechanic'],
-  ['Dizzy Spell', 'transmute mechanic'],
   ['Eagle Vision', 'freerunning mechanic'],
   ['Earthbrawn', 'hand-activated ability'],
   ["Electro's Bolt", 'mayhem mechanic'],
@@ -3385,7 +3383,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // effectParse's grantable list, so it files with the temporary grants.
   // ⚠️ Olórin's Searing Light makes each OPPONENT pick among tied greatest
   // powers: opponent-chooses.
-  ['Muddle the Mixture', 'transmute mechanic'],
   ['Nighthaze', 'temporary keyword/ability grant'],
   ['Niveous Wisps', 'UEOT color change'],
   ['Nocturnal Hunger', 'gift mechanic'],
@@ -3437,7 +3434,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Send to Sleep', 'up-to-N targeting'],
   ['Shimmering Mirage', 'script-raised prompt'],
   ['Shivan Meteor', 'suspend mechanic'],
-  ['Shred Memory', 'transmute mechanic'],
+  ['Shred Memory', 'a spell with a line outside the vocabulary: Exile up to four target cards from a single graveyard. (its Transmute line reads since D559)'],
   ['Sickening Shoal', 'cast-time alternative cost'],
 
   // D281 (M6.4dr) — the S residue; ONE new class.

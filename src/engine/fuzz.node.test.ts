@@ -1790,6 +1790,8 @@ interface Run {
   /** D558 - the casts that paid an offspring cost (CR 702.175a), and the offspring triggers put on the stack. */
   readonly offspringCasts: number;
   readonly offspringTriggers: number;
+  /** D559 - the transmute abilities put on the stack (CR 702.53a - the hand ability, its search by mana value). */
+  readonly transmutes: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2320,6 +2322,13 @@ function runOne(seed: number): Run {
     conspiredCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.conspired === true).length,
     offspringCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.offspring === true).length,
     offspringTriggers: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:offspring')).length,
+    transmutes: game.log.filter((e) => {
+      if (e.body.t !== 'AbilityPutOnStack' || e.body.obj.source === null) return false;
+      const ref = e.body.obj.abilityRef ?? '';
+      const at = ref.indexOf('#a');
+      const face = ORACLE.byPrinting(game.state.cards[e.body.obj.source]?.printingId ?? '')?.faces[0];
+      return at >= 0 && face?.activated[Number(ref.slice(at + 2))]?.transmute !== undefined;
+    }).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2682,6 +2691,7 @@ const TOTAL_KEYS = [
   'conspireCopies',
   'offspringCasts',
   'offspringTriggers',
+  'transmutes',
   'crownings',
   'ringTempts',
   'ringAbilities',

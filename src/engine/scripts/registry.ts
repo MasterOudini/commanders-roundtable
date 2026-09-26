@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DIMIR_HOUSE_GUARD_SCRIPT } from './cards/dimirHouseGuard';
+import { DIMIR_INFILTRATOR_SCRIPT } from './cards/dimirInfiltrator';
+import { ETHEREAL_USHER_SCRIPT } from './cards/etherealUsher';
 import { STEAMPATH_CHARGER_SCRIPT } from './cards/steampathCharger';
 import { IRIDESCENT_VINELASHER_SCRIPT } from './cards/iridescentVinelasher';
 import { AGATE_INSTIGATOR_SCRIPT } from './cards/agateInstigator';
@@ -8250,6 +8253,9 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIMIR_HOUSE_GUARD_SCRIPT,
+  DIMIR_INFILTRATOR_SCRIPT,
+  ETHEREAL_USHER_SCRIPT,
   STEAMPATH_CHARGER_SCRIPT,
   IRIDESCENT_VINELASHER_SCRIPT,
   AGATE_INSTIGATOR_SCRIPT,

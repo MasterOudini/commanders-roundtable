@@ -423,6 +423,10 @@ const EMBALM_RE = /^(Embalm|Eternalize) ((?:\{[^}]+\})+)$/;
 const EMBALM_EFFECT = "Create a token that's a copy of this card, except it's white, it has no mana cost, and it's a Zombie in addition to its other types.";
 const ETERNALIZE_EFFECT = "Create a token that's a copy of this card, except it's black, it's 4/4, it has no mana cost, and it's a Zombie in addition to its other types.";
 const UNEARTH_RE = /^Unearth ((?:\{[^}]+\})+)$/;
+// D559 - transmute (CR 702.53a): the mana price on the printed line; the search is the rule's own words (the face's mana
+// value substituted by `oracleParse`, which hangs the vocabulary's read on the ability).
+const TRANSMUTE_RE = /^Transmute ((?:\{[^}]+\})+)$/;
+const TRANSMUTE_EFFECT = 'Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle.';
 const UNEARTH_EFFECT = 'Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield.';
 // D451 - reinforce (CR 702.77a): the number and the mana price on the printed line; the rest is the rule's own words.
 const REINFORCE_RE = /^Reinforce (\d+)—((?:\{[^}]+\})+)$/;
@@ -585,6 +589,45 @@ export function parseActivatedAbilities(
         cycling: piece.type === null ? { line: printed } : { line: printed, type: piece.type },
       });
       }
+      continue;
+    }
+    // D559 - THE TRANSMUTE SEAM: an activated ability from the HAND (CR 702.53a) priced by the mana and the card's own
+    // discard (reinforce's shape, D451), only as a sorcery; the search resolves natively once the vocabulary read it.
+    const transmute = TRANSMUTE_RE.exec(printed);
+    if (transmute) {
+      const transmuteCost = parseCost(transmute[1] ?? '', warn);
+      out.push({
+        index: out.length,
+        costText: `${transmute[1]}, Discard this card`,
+        effectText: TRANSMUTE_EFFECT,
+        manaCost: transmuteCost,
+        requiresTap: false,
+        requiresUntap: false,
+        lifeCost: 0,
+        lifeCostCommanderColors: false,
+        energyCost: 0,
+        sacrificesSelf: false,
+        sacrificeCost: null,
+        discardCost: null,
+        exileFromGraveyardCost: null,
+        exileSelfFromGraveyard: false,
+        activatesFromGraveyard: false,
+        discardsSelf: true,
+        removeCounterCost: null,
+        tapCost: null,
+        returnCost: null,
+        returnsSelf: false,
+        putCounterCost: null,
+        unpaidCosts: transmuteCost === null ? [transmute[1] ?? ''] : [],
+        payable: transmuteCost !== null,
+        isManaAbility: false,
+        isLoyalty: false,
+        sorceryOnly: true,
+        oncePerTurn: false,
+        activateOnly: [],
+        targets: [],
+        transmute: { line: printed },
+      });
       continue;
     }
     // D311 - THE CREW SEAM: "Crew N" is an activated ability with no mana in

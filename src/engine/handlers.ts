@@ -1557,7 +1557,7 @@ function activateAbility(
   if (ability.discardsSelf === true && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', `${face.name}'s ability is activated from your hand.`);
   }
-  if (ability.discardsSelf === true && ability.reinforce === undefined && !defReady) {
+  if (ability.discardsSelf === true && ability.reinforce === undefined && ability.transmute?.effects === undefined && !defReady) {
     return reject('notCastable', `${face.name}'s "${ability.costText}" ability is not one the app runs yet.`);
   }
   // D329 - an ability priced by exiling the card from the graveyard is activated from there (CR 113.6).

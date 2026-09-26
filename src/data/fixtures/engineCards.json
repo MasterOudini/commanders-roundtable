@@ -308658,6 +308658,292 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CLUTCH_OF_THE_UNDERCITY": {
+    "scryfallId": "02e8f673-e708-49a7-be29-788cb342dcf9",
+    "oracleId": "316cae8b-31b0-4b76-8b72-8122005e1b4e",
+    "name": "Clutch of the Undercity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Clutch of the Undercity",
+        "manaCost": "{1}{U}{U}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Return target permanent to its owner's hand. Its controller loses 3 life.\nTransmute {1}{U}{B} ({1}{U}{B}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "02e8f673-e708-49a7-be29-788cb342dcf9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "E14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIMIR_HOUSE_GUARD": {
+    "scryfallId": "231d6840-5228-4df1-8583-efda6e0b8185",
+    "oracleId": "35c027cd-f754-4e41-9242-8a9d0481171c",
+    "name": "Dimir House Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir House Guard",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Skeleton",
+        "oracleText": "Fear (This creature can't be blocked except by artifact creatures and/or black creatures.)\nSacrifice a creature: Regenerate this creature.\nTransmute {1}{B}{B} ({1}{B}{B}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Zeleznik",
+        "imageId": "231d6840-5228-4df1-8583-efda6e0b8185"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Regenerate",
+      "Fear",
+      "Transmute"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TOLARIA_WEST": {
+    "scryfallId": "42dfc4d1-7043-4859-b177-8ad4027ef835",
+    "oracleId": "46eefc72-2d9e-4389-8ae1-26d9ee472b5c",
+    "name": "Tolaria West",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tolaria West",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "This land enters tapped.\n{T}: Add {U}.\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with mana value 0, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Khang Le",
+        "imageId": "42dfc4d1-7043-4859-b177-8ad4027ef835"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "FUT-173",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MUDDLE_THE_MIXTURE": {
+    "scryfallId": "4cc785b0-0a77-4b02-b0b4-2bda2fc621cc",
+    "oracleId": "0826cf7d-7ccc-459b-a92f-29dc169628f8",
+    "name": "Muddle the Mixture",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Muddle the Mixture",
+        "manaCost": "{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Counter target instant or sorcery spell.\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Luca Zontini",
+        "imageId": "4cc785b0-0a77-4b02-b0b4-2bda2fc621cc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIZZY_SPELL": {
+    "scryfallId": "6e0db10d-fb6d-44df-9ff2-6f1e0e8f8209",
+    "oracleId": "7de04284-dcaa-4b63-a734-fcfe2698f83c",
+    "name": "Dizzy Spell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dizzy Spell",
+        "manaCost": "{U}",
+        "typeLine": "Instant",
+        "oracleText": "Target creature gets -3/-0 until end of turn.\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "6e0db10d-fb6d-44df-9ff2-6f1e0e8f8209"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETHEREAL_USHER": {
+    "scryfallId": "908901b7-fb40-4358-bca5-5e71bdafcbe7",
+    "oracleId": "3ad6e495-d0e6-4b07-8f91-fe057e173975",
+    "name": "Ethereal Usher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ethereal Usher",
+        "manaCost": "{5}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{U}, {T}: Target creature can't be blocked this turn.\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark A. Nelson",
+        "imageId": "908901b7-fb40-4358-bca5-5e71bdafcbe7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRIFT_OF_PHANTASMS": {
+    "scryfallId": "c1096ce5-f776-4028-b231-e6eaee35014b",
+    "oracleId": "6ee51134-c4ad-4101-8ce2-23dde9359cd4",
+    "name": "Drift of Phantasms",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drift of Phantasms",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Defender (This creature can't attack.)\nFlying\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michael Phillippi",
+        "imageId": "c1096ce5-f776-4028-b231-e6eaee35014b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Defender",
+      "Transmute"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIMIR_INFILTRATOR": {
+    "scryfallId": "3db9204c-dde8-4241-aac2-1f090566f604",
+    "oracleId": "d215127b-5f1d-4d3c-935b-c228c9c7f874",
+    "name": "Dimir Infiltrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir Infiltrator",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "This creature can't be blocked.\nTransmute {1}{U}{B} ({1}{U}{B}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "3db9204c-dde8-4241-aac2-1f090566f604"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transmute"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "203",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

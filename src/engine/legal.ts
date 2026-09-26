@@ -528,7 +528,8 @@ function offeredActions(
       // past a registered def (D159), a synthesized reinforce natively; targets are declared as the stack asks.
       if (ability.discardsSelf === true) {
         if (!ability.payable || ability.isManaAbility || ability.isLoyalty || ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.returnCost || ability.returnsSelf || ability.exileFromGraveyardCost) continue;
-        if (ability.reinforce === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        // D559 - and a synthesized transmute natively, once its search read.
+        if (ability.reinforce === undefined && ability.transmute?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
         if (ability.sorceryOnly && !sorcerySpeed) continue;
         if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
         if (ability.exhaust && (inst.exhausted ?? []).includes(`${card.oracleId}#a${ability.index}`)) continue;
