@@ -1419,6 +1419,10 @@ export function resolveAbility(
     if (ability?.crew !== undefined && state.cards[obj.source]?.zone.kind === 'battlefield') {
       events.push({ t: 'PtModifiedUntilEndOfTurn', card: obj.source, power: 0, toughness: 0, types: ['Artifact', 'Creature'] });
     }
+    // D553 - SADDLE resolves natively: the creature saddled until end of turn (CR 702.171b), the same list, the same cleanup.
+    if (ability?.saddle !== undefined && state.cards[obj.source]?.zone.kind === 'battlefield') {
+      events.push({ t: 'PtModifiedUntilEndOfTurn', card: obj.source, power: 0, toughness: 0, saddled: true });
+    }
   }
   if (answer !== null) {
     events.push(

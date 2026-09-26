@@ -466,8 +466,12 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D440 - extort (Syndic of Tithes - every spell the seat casts asks for {W/B}), modular (two Arcbound Workers - a
   // dying one may move its counter to the other) and scavenge (Deadbridge Goliath - a graveyard activation the
   // driver picks like any other); the trigger on the stack is the floor.
-  { names: ['Syndic of Tithes', 'Deadbridge Goliath'], copiesPerSeat: 1,
-    counterKeys: ['extortsFired'], rotHistory: 'D440' },
+  // D553 - ROTTED to 0 over 500 seeds (60, then 1 and 1 at the three gates before) once D551's rows reshaped the pools:
+  // two Syndics a seat in the SAME two slots (Deadbridge Goliath's gave way - scavenge carries no floor). Three of each
+  // were tried first and reshaped every pool: `damagePrevented` went 12 -> 0 and `vanishingTicks` 38 -> 1. A swap that
+  // keeps the seat's card count keeps the seeded shuffle, and every other card where it was.
+  { names: ['Syndic of Tithes'], copiesPerSeat: 2,
+    counterKeys: ['extortsFired'], rotHistory: 'D440, D553' },
   { names: ['Arcbound Worker'], copiesPerSeat: 2,
     counterKeys: ['modularMoves'], rotHistory: 'D440' },
   // D441 - the reveal lands: Port Town asks for a Plains or Island from the hand as it enters - three a seat, because
@@ -1755,6 +1759,8 @@ interface Run {
   readonly plottedCasts: number;
   /** D552 - the permanents detained (a `Detained` event each card). */
   readonly detains: number;
+  /** D553 - the creatures saddled (the saddle ability resolved). */
+  readonly saddles: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2278,6 +2284,7 @@ function runOne(seed: number): Run {
     splitSecondCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords ?? []).includes('splitSecond')).length,
     plots: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.plottedTurn !== undefined && m.from.kind === 'hand')).length,
     detains: game.log.reduce((n, e) => n + (e.body.t === 'Detained' ? e.body.cards.length : 0), 0),
+    saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
     ringTempts: game.log.filter((e) => e.body.t === 'RingTempted').length,
@@ -2629,6 +2636,7 @@ const TOTAL_KEYS = [
   'plots',
   'plottedCasts',
   'detains',
+  'saddles',
   'crownings',
   'ringTempts',
   'ringAbilities',

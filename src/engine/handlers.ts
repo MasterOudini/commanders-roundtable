@@ -1641,7 +1641,8 @@ function activateAbility(
   // ⚠️ The TAP chooser (D286): the same gate and the same re-validation,
   // over untapped permanents the player controls.
   if (ability.tapCost) {
-    if (ability.crew === undefined && !defReady) {
+    // D553 - saddle's effect is the engine's own too.
+    if (ability.crew === undefined && ability.saddle === undefined && !defReady) {
       return reject('notCastable', `${face.name}'s "${ability.costText}" cost is not one the app can pay — use the manual tools.`);
     }
     const picks = intent.tap ?? [];

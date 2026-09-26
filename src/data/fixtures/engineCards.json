@@ -306878,6 +306878,509 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SERAPHIC_STEED": {
+    "scryfallId": "0947b219-4cb7-42bd-acd2-efe9821d9bd1",
+    "oracleId": "51622e89-aa5e-4dd6-a078-eb45e8ebb434",
+    "name": "Seraphic Steed",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seraphic Steed",
+        "manaCost": "{G}{W}",
+        "typeLine": "Creature — Unicorn Mount",
+        "oracleText": "First strike, lifelink\nWhenever this creature attacks while saddled, create a 3/3 white Angel creature token with flying.\nSaddle 4 (Tap any number of other creatures you control with total power 4 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Jonas De Ro",
+        "imageId": "0947b219-4cb7-42bd-acd2-efe9821d9bd1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Saddle",
+      "First strike"
+    ],
+    "setCode": "potj",
+    "collectorNumber": "232p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILDED_GHODA": {
+    "scryfallId": "55685602-a18c-43a4-ac60-13b039672fa4",
+    "oracleId": "5f4939dc-6e87-47fa-8287-9da60d4b5db2",
+    "name": "Gilded Ghoda",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gilded Ghoda",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Horse Mount",
+        "oracleText": "Whenever this creature attacks while saddled, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")\nSaddle 1 (Tap any number of other creatures you control with total power 1 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alexandre Honoré",
+        "imageId": "55685602-a18c-43a4-ac60-13b039672fa4"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Saddle",
+      "Treasure"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUARDIAN_SUNMARE": {
+    "scryfallId": "309072be-b813-42bd-adaf-7d45053029c0",
+    "oracleId": "3b319540-4db1-43d3-8f4d-f5a276ad78e4",
+    "name": "Guardian Sunmare",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guardian Sunmare",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Horse Mount",
+        "oracleText": "Ward {2}\nWhenever this creature attacks while saddled, search your library for a nonland permanent card with mana value 3 or less, put it onto the battlefield, then shuffle.\nSaddle 4",
+        "flavorText": "It'll satisfy your need for steed!",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wojtek Łebski",
+        "imageId": "309072be-b813-42bd-adaf-7d45053029c0"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Saddle",
+      "Ward"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "334",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DROVER_GRIZZLY": {
+    "scryfallId": "560062cd-34f8-4d30-9e25-099b03961724",
+    "oracleId": "290fe09e-04ab-48d1-a60e-db47ea8c4d00",
+    "name": "Drover Grizzly",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drover Grizzly",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Bear Mount",
+        "oracleText": "Whenever this creature attacks while saddled, creatures you control gain trample until end of turn.\nSaddle 1 (Tap any number of other creatures you control with total power 1 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Adrián Rodríguez Pérez",
+        "imageId": "560062cd-34f8-4d30-9e25-099b03961724"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Saddle"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "161",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLORYHEATH_LYNX": {
+    "scryfallId": "ea3ac678-8b74-4865-a896-c42692c02341",
+    "oracleId": "28673657-f05f-4b0a-b80c-939773abdefb",
+    "name": "Gloryheath Lynx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gloryheath Lynx",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Mount",
+        "oracleText": "Lifelink\nWhenever this creature attacks while saddled, search your library for a basic Plains card, reveal it, put it into your hand, then shuffle.\nSaddle 2 (Tap any number of other creatures you control with total power 2 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "ea3ac678-8b74-4865-a896-c42692c02341"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Saddle"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GILA_COURSER": {
+    "scryfallId": "f568803d-65c0-48d7-916f-671267a9e00e",
+    "oracleId": "bc983c67-eb5d-4a85-a12e-a410f85e949e",
+    "name": "Gila Courser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gila Courser",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Lizard Mount",
+        "oracleText": "Whenever this creature attacks while saddled, exile the top card of your library. Until the end of your next turn, you may play that card.\nSaddle 1 (Tap any number of other creatures you control with total power 1 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "f568803d-65c0-48d7-916f-671267a9e00e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Saddle"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIDLED_BIGHORN": {
+    "scryfallId": "fa7bf089-fa9b-4ffc-bf84-45cd51c76463",
+    "oracleId": "6a1ad848-6fda-46dd-aad8-2f6a5c71a696",
+    "name": "Bridled Bighorn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bridled Bighorn",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Sheep Mount",
+        "oracleText": "Vigilance\nWhenever this creature attacks while saddled, create a 1/1 white Sheep creature token.\nSaddle 2 (Tap any number of other creatures you control with total power 2 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "fa7bf089-fa9b-4ffc-bf84-45cd51c76463"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Saddle",
+      "Vigilance"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSWERVING_SLOTH": {
+    "scryfallId": "12296a74-5d60-4ee3-aa53-2289f84da776",
+    "oracleId": "5e512ce9-5e2e-4ec3-9486-a10c63cff299",
+    "name": "Unswerving Sloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unswerving Sloth",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Sloth Mount",
+        "oracleText": "Whenever this creature attacks while saddled, it gains indestructible until end of turn. Untap all creatures you control.\nSaddle 4 (Tap any number of other creatures you control with total power 4 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": "\"To victory . . . eventually!\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "12296a74-5d60-4ee3-aa53-2289f84da776"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Saddle"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISTRICT_MASCOT": {
+    "scryfallId": "15f978b9-d464-42f7-ba8b-0c0795d54cb5",
+    "oracleId": "5fa7cf3a-2a4d-4dd7-890b-49c497570b16",
+    "name": "District Mascot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "District Mascot",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Dog Mount",
+        "oracleText": "This creature enters with a +1/+1 counter on it.\n{1}{G}, Remove two +1/+1 counters from this creature: Destroy target artifact.\nWhenever this creature attacks while saddled, put a +1/+1 counter on it.\nSaddle 1",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ryan Roadkill",
+        "imageId": "15f978b9-d464-42f7-ba8b-0c0795d54cb5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Saddle"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "344",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ALACRIAN_JAGUAR": {
+    "scryfallId": "2bd40bca-aa54-4e52-8d48-b3709a11e633",
+    "oracleId": "caeb4ec1-a8ba-4ac4-ad32-edbc671e5a39",
+    "name": "Alacrian Jaguar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Alacrian Jaguar",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Cat Mount",
+        "oracleText": "Vigilance\nWhenever this creature attacks while saddled, it gets +2/+2 until end of turn.\nSaddle 1 (Tap any number of other creatures you control with total power 1 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "2bd40bca-aa54-4e52-8d48-b3709a11e633"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Saddle",
+      "Vigilance"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUILLED_CHARGER": {
+    "scryfallId": "56e326c4-39f1-41ee-9e47-ebe468c51718",
+    "oracleId": "6498e3e9-1a7b-4b47-9e7c-cdbd8928c9c8",
+    "name": "Quilled Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quilled Charger",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Porcupine Mount",
+        "oracleText": "Whenever this creature attacks while saddled, it gets +1/+2 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)\nSaddle 2 (Tap any number of other creatures you control with total power 2 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "56e326c4-39f1-41ee-9e47-ebe468c51718"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Saddle"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "139",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRIGHTFIELD_GLIDER": {
+    "scryfallId": "7eb819eb-ba5c-4449-87b5-3894380558bc",
+    "oracleId": "acff6e5c-7f25-4ae1-8672-8672450ad844",
+    "name": "Brightfield Glider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brightfield Glider",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Possum Mount",
+        "oracleText": "Vigilance\nWhenever this creature attacks while saddled, it gets +1/+2 and gains flying until end of turn.\nSaddle 3 (Tap any number of other creatures you control with total power 3 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "7eb819eb-ba5c-4449-87b5-3894380558bc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Saddle",
+      "Vigilance"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VENOMSAC_LAGAC": {
+    "scryfallId": "9142b1c9-09d7-42e4-8138-6c15d31f2470",
+    "oracleId": "2fac62be-dcbe-409f-a362-f0e519ec14a9",
+    "name": "Venomsac Lagac",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Venomsac Lagac",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Lizard Mount",
+        "oracleText": "Deathtouch\nWhenever this creature attacks while saddled, it gets +0/+3 until end of turn.\nSaddle 2 (Tap any number of other creatures you control with total power 2 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "9142b1c9-09d7-42e4-8138-6c15d31f2470"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Saddle",
+      "Deathtouch"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRACOSAUR_AUXILIARY": {
+    "scryfallId": "cf800b8c-d08e-4644-8ed2-11b839153861",
+    "oracleId": "457e3218-b2ef-4280-931a-5320987b9657",
+    "name": "Dracosaur Auxiliary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dracosaur Auxiliary",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dinosaur Dragon Mount",
+        "oracleText": "Flying, haste\nWhenever this creature attacks while saddled, it deals 2 damage to any target.\nSaddle 3 (Tap any number of other creatures you control with total power 3 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "cf800b8c-d08e-4644-8ed2-11b839153861"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Saddle",
+      "Haste"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -316005,6 +316508,39 @@
     ],
     "setCode": "tonc",
     "collectorNumber": "3",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SHEEP_1_1_W_CREATURE_TOKEN": {
+    "scryfallId": "dccb30d0-b491-43be-8aa0-2ee7da86343e",
+    "oracleId": "03ad66cd-51e9-4365-8951-1a913365686b",
+    "name": "Sheep",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Sheep",
+        "manaCost": "",
+        "typeLine": "Token Creature — Sheep",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "dccb30d0-b491-43be-8aa0-2ee7da86343e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "totj",
+    "collectorNumber": "4",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

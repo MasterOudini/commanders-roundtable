@@ -576,6 +576,8 @@ export function linesUnaccounted(
     // D311 - a Crew line the engine RUNS (the synthesized ability: the tap
     // chooser charged by power, the Vehicle animated natively).
     if (face.activated.some((a) => a.crew !== undefined && a.crew.line === line)) continue;
+    // D553 - a Saddle line the engine RUNS (crew's chooser at sorcery speed, the creature saddled natively).
+    if (face.activated.some((a) => a.saddle !== undefined && a.saddle.line === line)) continue;
     // D440 - a Scavenge line the engine RUNS (the synthesized ability: offered from the graveyard, the exile and
     // the mana charged, the printed power's counters resolved natively).
     if (face.activated.some((a) => a.scavenge !== undefined && a.scavenge.line === line)) continue;

@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { UNSWERVING_SLOTH_SCRIPT } from './cards/unswervingSloth';
+import { DISTRICT_MASCOT_SCRIPT } from './cards/districtMascot';
+import { ALACRIAN_JAGUAR_SCRIPT } from './cards/alacrianJaguar';
+import { QUILLED_CHARGER_SCRIPT } from './cards/quilledCharger';
+import { BRIGHTFIELD_GLIDER_SCRIPT } from './cards/brightfieldGlider';
+import { VENOMSAC_LAGAC_SCRIPT } from './cards/venomsacLagac';
+import { DRACOSAUR_AUXILIARY_SCRIPT } from './cards/dracosaurAuxiliary';
+import { SERAPHIC_STEED_SCRIPT } from './cards/seraphicSteed';
+import { GUARDIAN_SUNMARE_SCRIPT } from './cards/guardianSunmare';
+import { GILDED_GHODA_SCRIPT } from './cards/gildedGhoda';
+import { DROVER_GRIZZLY_SCRIPT } from './cards/droverGrizzly';
+import { GLORYHEATH_LYNX_SCRIPT } from './cards/gloryheathLynx';
+import { GILA_COURSER_SCRIPT } from './cards/gilaCourser';
+import { BRIDLED_BIGHORN_SCRIPT } from './cards/bridledBighorn';
 import { ISPERIAS_SKYWATCH_SCRIPT } from './cards/isperiasSkywatch';
 import { ARCHON_OF_THE_TRIUMVIRATE_SCRIPT } from './cards/archonOfTheTriumvirate';
 import { LYEV_SKYKNIGHT_SCRIPT } from './cards/lyevSkyknight';
@@ -8218,6 +8232,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  UNSWERVING_SLOTH_SCRIPT,
+  DISTRICT_MASCOT_SCRIPT,
+  ALACRIAN_JAGUAR_SCRIPT,
+  QUILLED_CHARGER_SCRIPT,
+  BRIGHTFIELD_GLIDER_SCRIPT,
+  VENOMSAC_LAGAC_SCRIPT,
+  DRACOSAUR_AUXILIARY_SCRIPT,
+  SERAPHIC_STEED_SCRIPT,
+  GUARDIAN_SUNMARE_SCRIPT,
+  GILDED_GHODA_SCRIPT,
+  DROVER_GRIZZLY_SCRIPT,
+  GLORYHEATH_LYNX_SCRIPT,
+  GILA_COURSER_SCRIPT,
+  BRIDLED_BIGHORN_SCRIPT,
   ISPERIAS_SKYWATCH_SCRIPT,
   ARCHON_OF_THE_TRIUMVIRATE_SCRIPT,
   LYEV_SKYKNIGHT_SCRIPT,

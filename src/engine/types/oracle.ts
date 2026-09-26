@@ -1910,6 +1910,8 @@ export interface ActivatedAbility {
    * is the printed line it accounts for.
    */
   readonly crew?: { readonly line: string; readonly power: number };
+  /** D553 - SADDLE (CR 702.171a): the synthesized ability - crew's chooser at sorcery speed, the `saddled` mark natively. */
+  readonly saddle?: { readonly line: string; readonly power: number };
   /**
    * D440 - THE SCAVENGE SEAM. The synthesized "Scavenge {cost}" ability (CR 702.96a): the mana and the card's own
    * exile from the graveyard as the cost, `target creature` as the clause, and the card's PRINTED power in +1/+1

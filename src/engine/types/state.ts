@@ -1701,6 +1701,8 @@ export interface GameState {
      * replay hash are untouched; an entry carrying it is inert at every layer `derive` reads.
      */
     readonly cantBlock?: true;
+    /** D553 - saddled (CR 702.171b), read by the attacks-while-saddled heads; cleanup clears it. */
+    readonly saddled?: true;
     /**
      * D399 - "can't be blocked this turn": read by `canBlock` for the ATTACKER, cleared with the
      * rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.

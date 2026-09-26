@@ -776,6 +776,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D553 - saddle: the Saddle line is the engine's now (crew's chooser at sorcery speed, the saddled mark); what stays is a saddle card whose row the suite cannot stage or prove.
+  ['Ornery Tumblewagg', 'the row maker: a late-entering row (its beginning-of-combat head) beside the attacks-while-saddled head the suite fires by attacking on turn 3 - summoning sick that turn (D553)'],
+  ['Congregation Gryff', 'the row maker: a counted payload under the attacks-while-saddled head (~ gets +X/+X, X counted off the board the arm sizes) (D553)'],
+  ['Autarch Mammoth', 'the row maker: a saddle the two fixtures cannot pay (Saddle 5), and its enters-and-attacks head (D553)'],
+  ['Stubborn Burrowfiend', 'the row maker: a counted payload under the becomes-saddled head (mill two, then ~ gets +X/+X for the creature cards in your graveyard) (D553)'],
+  ['Brightfield Mustang', 'the row maker: trigger payload not a pump - Untap it and put a +1/+1 counter on it, under the attacks-while-saddled head (D553)'],
+  ['Trained Arynx', 'the row maker: trigger payload not a pump - ~ gains first strike until end of turn. Scry 1., two sentences under the attacks-while-saddled head (D553)'],
   // D551 - plot: the Plot line is the engine's now (the special action, the later free cast); what stays is a plot card whose other sentence the suite cannot prove.
   ['Stingerback Terror', 'the row maker: a counted shrink the suite baseline kills - This creature gets -1/-1 for each card in your hand. (the opening seven) (D551; its Plot line is the engine\'s)'],
   // D550 - split second: the Split second line is the engine's now (the stack's lock on casts and non-mana activations); what stays is a split second card whose other sentence the vocabulary does not read.

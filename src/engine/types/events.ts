@@ -700,6 +700,8 @@ export type EventBody =
        * pumps and grants (power 0 / toughness 0), read by `canBlock`, cleared at cleanup.
        */
       readonly cantBlock?: true;
+      /** D553 - SADDLED (CR 702.171b): the saddle ability resolved - until end of turn, or until it leaves. */
+      readonly saddled?: true;
       /**
        * D399 - "can't be blocked this turn": the evasion with an END, read by `canBlock` for the
        * ATTACKER (CR 509.1b's other side), riding the same event, cleared at cleanup.

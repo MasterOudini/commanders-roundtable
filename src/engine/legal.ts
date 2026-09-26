@@ -728,7 +728,8 @@ function offeredActions(
       let tapCandidates: readonly InstanceId[] | null = null;
       if (ability.tapCost) {
         // D311 - crew's effect is the engine's own: no def to wait for.
-        if (ability.crew === undefined && !defReady) continue;
+        // D553 - and saddle's.
+        if (ability.crew === undefined && ability.saddle === undefined && !defReady) continue;
         tapCandidates = tapCandidatesFor(
           state,
           (cid) => derive(state, oracle, scripts, cid, context.cache),

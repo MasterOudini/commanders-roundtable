@@ -411,6 +411,8 @@ export function cyclingAbilities(printed: string): readonly { readonly cost: str
 }
 // D311 - THE CREW SEAM: "Crew N" on its own line (reminder text aside).
 const CREW_RE = /^Crew (\d+)$/;
+/** D553 - SADDLE (CR 702.171a): crew's shape, at sorcery speed, the creature saddled until end of turn. */
+const SADDLE_RE = /^Saddle (\d+)$/;
 // D440 - scavenge (CR 702.96a): the mana price on the printed line; the rest of the ability is the rule's own words.
 const SCAVENGE_RE = /^Scavenge ((?:\{[^}]+\})+)$/;
 const SCAVENGE_EFFECT = "Put a number of +1/+1 counters equal to this card's power on target creature.";
@@ -429,6 +431,7 @@ const NINJUTSU_RE = /^Ninjutsu ((?:\{[^}]+\})+)$/;
 const NINJUTSU_EFFECT = 'Put this card onto the battlefield from your hand tapped and attacking.';
 const NINJUTSU_RETURN = { count: 1, another: false, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [], unblockedAttacker: true }] } as const;
 const CREW_EFFECT = 'This Vehicle becomes an artifact creature until end of turn.';
+const SADDLE_EFFECT = 'This creature becomes saddled until end of turn.';
 
 export interface ActivatedParseInput {
   readonly oracleText: string;
@@ -833,6 +836,44 @@ export function parseActivatedAbilities(
         activateOnly: [],
         targets: [],
         crew: { line: printed, power },
+      });
+      continue;
+    }
+    // D553 - SADDLE: crew's synthesized ability at sorcery speed (the tap chooser over OTHER creatures, by power).
+    const saddleLine = SADDLE_RE.exec(printed);
+    if (saddleLine) {
+      const power = Number(saddleLine[1] ?? '0');
+      const saddleAny = predicatesOf('creature');
+      out.push({
+        index: out.length,
+        costText: `Saddle ${power}`,
+        effectText: SADDLE_EFFECT,
+        manaCost: parseCost('{0}', warn),
+        requiresTap: false,
+        requiresUntap: false,
+        lifeCost: 0,
+        lifeCostCommanderColors: false,
+        energyCost: 0,
+        sacrificesSelf: false,
+        sacrificeCost: null,
+        discardCost: null,
+        exileFromGraveyardCost: null,
+        exileSelfFromGraveyard: false,
+        activatesFromGraveyard: false,
+        removeCounterCost: null,
+        tapCost: saddleAny === null ? null : { count: 0, another: true, any: saddleAny, powerAtLeast: power },
+        returnCost: null,
+        returnsSelf: false,
+        putCounterCost: null,
+        unpaidCosts: saddleAny === null ? [`Saddle ${power}`] : [],
+        payable: saddleAny !== null,
+        isManaAbility: false,
+        isLoyalty: false,
+        sorceryOnly: true,
+        oncePerTurn: false,
+        activateOnly: [],
+        targets: [],
+        saddle: { line: printed, power },
       });
       continue;
     }

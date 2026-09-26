@@ -10099,6 +10099,25 @@ const WANTED = [
   'Soulsworn Spirit',
   'Intrusive Packbeast',
   // D552 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D553 - SADDLE's proof fixtures: Seraphic Steed (Saddle 4) and Gilded Ghoda (Saddle 1).
+  'Seraphic Steed',
+  'Gilded Ghoda',
+  // D553 - SADDLE: the rows the whole-leftover row maker rowed once the Saddle line was the engine's (crew's chooser at sorcery speed, the saddled mark) and the saddle heads read.
+  'Guardian Sunmare',
+  'Drover Grizzly',
+  'Gloryheath Lynx',
+  'Gila Courser',
+  'Bridled Bighorn',
+  // D553 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D553 - SADDLE (batch B, the self pronoun): the rows the whole-leftover row maker rowed once the Saddle line was the engine's (crew's chooser at sorcery speed, the saddled mark) and the saddle heads read.
+  'Unswerving Sloth',
+  'District Mascot',
+  'Alacrian Jaguar',
+  'Quilled Charger',
+  'Brightfield Glider',
+  'Venomsac Lagac',
+  'Dracosaur Auxiliary',
+  // D553 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10525,6 +10544,8 @@ const WANTED_TOKENS = [
   { name: 'Vampire Demon', set: 'tlci', cn: '15', key: 'VAMPIRE_DEMON_4_3_BW_CREATURE_FLYING_TOKEN' },
   { name: 'Human Knight', set: 'tltc', cn: '9', key: 'HUMAN_KNIGHT_2_2_R_CREATURE_HASTE_TRAMPLE_TOKEN' },
   { name: 'Angel', set: 'tonc', cn: '3', key: 'ANGEL_4_4_W_CREATURE_FLYING_VIGILANCE_TOKEN' },
+  // D553 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Sheep', set: 'totj', cn: '4', key: 'SHEEP_1_1_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

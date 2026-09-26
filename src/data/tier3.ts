@@ -303,6 +303,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     if (ability.cycling !== undefined) continue;
     // D311 - crew resolves natively: the tap chooser charges it, the engine animates.
     if (ability.crew !== undefined) continue;
+    // D553 - saddle resolves natively too: the tap chooser charges it, the engine saddles.
+    if (ability.saddle !== undefined) continue;
     // D440 - scavenge resolves natively: the exile and the mana charged, the counters put.
     if (ability.scavenge !== undefined) continue;
     // D448 - unearth resolves natively: the mana charged, the return and its riders run by the engine.

@@ -1486,6 +1486,7 @@ function applyBody(state: GameState, body: EventBody): GameState {
             ...(body.types !== undefined ? { types: body.types } : {}),
             // D394 - the can't-block restriction rides the same entry, spread-conditional too.
             ...(body.cantBlock !== undefined ? { cantBlock: body.cantBlock } : {}),
+            ...(body.saddled !== undefined ? { saddled: body.saddled } : {}),
             // D399 - the can't-be-blocked evasion rides the same entry, spread-conditional too.
             ...(body.cantBeBlocked !== undefined ? { cantBeBlocked: body.cantBeBlocked } : {}),
             // D413 - the exile-instead-of-dying mark rides the same entry, spread-conditional too.
