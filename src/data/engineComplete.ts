@@ -275,6 +275,10 @@ function clauseAccounted(raw: string, face: OracleFace): boolean {
   // A printed keyword clause never contains a period, a semicolon or a colon.
   // Anything that does is a sentence or an ability line, and the branches below
   // — four of which locate their clause by prefix — must not see it.
+  // D571 - CHAMPION (CR 702.72a): `Champion a|an <noun>` is the keyword and its noun - accounted when the face read it
+  // (`parseChampion`, the one reader) and the keyword was granted on that reading.
+  if (/^champion an? /i.test(s)) return face.keywords.includes('champion') && face.champion !== null;
+
   if (/[.;:]/.test(s)) return false;
 
   const kw = canonicalKeyword(s);

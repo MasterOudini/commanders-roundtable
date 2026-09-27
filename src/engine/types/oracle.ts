@@ -149,6 +149,10 @@ export const TIER2_KEYWORDS = [
   // N +1/+1 counters for each - asked through D136's `entersChoice` (its `devour` field: N and the candidates). Gated on
   // the plain line (`parseDevour`): the quality variants and `Devour X` are not the engine's.
   'devour',
+  // D571 - CHAMPION (CR 702.72a): the enter trigger from the keyword table - sacrifice it unless you exile another
+  // [object] you control (D415's verb price, `VerbPrice.championExile`), the exile linked to its entry (D407's `until`).
+  // Gated on the read noun (`OracleFace.champion`).
+  'champion',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -1230,6 +1234,12 @@ export interface VerbPrice {
   readonly tapCost: ActivatedAbility['tapCost'];
   readonly exileFromGraveyardCost: ActivatedAbility['exileFromGraveyardCost'];
   readonly returnCost: ActivatedAbility['returnCost'];
+  /**
+   * D571 - CHAMPION's price (CR 702.72a): exile ANOTHER permanent the payer controls that one of these predicates
+   * admits (the face's noun, `OracleFace.champion`). One pick, from the battlefield; the answer links the exile to the
+   * source's entry (D407's `until`) - it returns under its owner's control when the champion leaves. Absent elsewhere.
+   */
+  readonly championExile?: { readonly any: readonly PermanentPredicate[] };
 }
 
 export interface PaySpec {
@@ -2143,6 +2153,8 @@ export interface OracleFace {
   readonly graveyardCast: { readonly kind: 'retrace' | 'jumpStart' | 'escape'; readonly verb: import('../../data/activatedParse').KickerVerb; readonly mana?: ManaCost } | null;
   /** D568 - `This creature escapes with N +1/+1 counters on it.` (CR 702.138c): an escaped permanent enters with them. */
   readonly escapesWith: { readonly counters: number; readonly line: string } | null;
+  /** D571 - `Champion a|an <noun>` (CR 702.72a): the noun as predicates (`predicatesOf`'s OR list) and as printed. */
+  readonly champion: { readonly any: readonly PermanentPredicate[]; readonly noun: string } | null;
   /** D538 - REBOUND (CR 702.88a): cast from the hand, exiled as it resolves and offered free at the controller's next upkeep. */
   readonly rebound: boolean;
   /**

@@ -35,7 +35,7 @@ import type { Awaiting, DelayedTrigger, EffectContinuation, GameState, PendingAs
 import { n, narrated, vb, who, whose } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
-import { castCostCandidates } from './legal';
+import { castCostCandidates, sacrificeCandidatesFor } from './legal';
 import { freeCastCandidates, handChoiceAdmits, handChoiceCandidates, madnessCastAdmits } from './handChoice';
 import { solveInputFor, suggestPayment } from './payment';
 import { OTHER_PURPOSE } from './spend';
@@ -886,6 +886,13 @@ export function effectResult(
           if (pay.verbs.sacrificeSelf) {
             const inst = self === null ? undefined : state.cards[self];
             verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? [self] : [];
+            shipCandidates = true;
+          } else if (pay.verbs.championExile) {
+            // D571 - the champion's exile: ANOTHER permanent the payer controls the noun admits (public - the prompt
+            // ships them); a champion gone from the battlefield prices nothing.
+            const inst = self === null ? undefined : state.cards[self];
+            const champ = { count: 1, another: true, any: pay.verbs.championExile.any };
+            verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? sacrificeCandidatesFor(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), payer, self, champ) : [];
             shipCandidates = true;
           } else {
             const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), payer, self ?? '', pay.verbs);

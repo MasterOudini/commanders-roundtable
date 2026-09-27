@@ -2992,6 +2992,19 @@ const SELF_PRICE_RE = /^sacrifice (?:it|~|this (?:creature|permanent|artifact|en
  * resolves this spec: D415's verb price with nothing after it, offered to the controller; the exploiter itself is a
  * candidate (no `another`). `exploit` asks the answer to tag the sacrifice with the source (`CardMove.exploitedBy`).
  */
+/**
+ * D571 - CHAMPION (CR 702.72a): `Sacrifice it unless you exile another <noun> you control.` The keyword table's entry
+ * resolves this spec: D415's verb price with the champion's own verb (`VerbPrice.championExile` - the face's noun as
+ * predicates), offered to the controller; unpaid, the champion is sacrificed. Self-aimed: a champion already gone
+ * at resolution asks nothing.
+ */
+export function championSpec(any: readonly import('./replacementParse').PermanentPredicate[], noun: string): EffectSpec {
+  const costText = `exile another ${noun.replace(/^an? /i, '')} you control`;
+  const body: EffectSpec = { ...BASE, kind: 'sacrificeSelf', text: 'Sacrifice it.', targetIndex: -1, self: true };
+  const verbs: VerbPrice = { costText, sacrificeSelf: false, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: null, returnCost: null, championExile: { any } };
+  return { ...BASE, kind: 'payOptional', text: `Sacrifice it unless you ${costText}.`, targetIndex: -1, self: true, pay: { cost: null, life: 0, energy: 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [body] } };
+}
+
 export function exploitSpec(): EffectSpec {
   const verbs = readVerbPrice('sacrifice a creature');
   if (!verbs) throw new Error('the exploit price does not read');

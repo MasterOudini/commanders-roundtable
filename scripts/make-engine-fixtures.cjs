@@ -10279,6 +10279,15 @@ const WANTED = [
   'Caldera Hellion',
   'Thorn-Thrash Viashino',
   // D570 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D571 - CHAMPION: the champion creatures the proofs deal (the rows bring the rest).
+  'Changeling Hero',
+  'Nova Chaser',
+  // D571 - CHAMPION: the rows the whole-leftover row maker rowed once the Champion line was the engine's (another of its kind exiled as it enters and returned when it leaves - or it is sacrificed).
+  "Wren's Run Packmaster",
+  'Lightning Crafter',
+  'Thoughtweft Trio',
+  'Boggart Mob',
+  // D571 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

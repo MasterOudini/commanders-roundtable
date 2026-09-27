@@ -16,7 +16,7 @@ import { parseTargetClauses } from '../data/targetParse';
 import { readUpkeepPrice, type UpkeepPrice } from '../data/oracleParse';
 import { vocabularyEffects } from './scripts/vocabulary';
 import { TOKEN_TABLE, type TokenRef } from '../data/tokenTable';
-import { exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, recoverSpec, stormCopySpec, unearthExileSpec } from '../data/effectParse';
+import { championSpec, exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, recoverSpec, stormCopySpec, unearthExileSpec } from '../data/effectParse';
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -265,6 +265,12 @@ function backupOf(ctx: ScriptCtx, id: InstanceId): { n: number; grants: readonly
   const card = ctx.state.cards[id];
   const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
   return card && printing ? faceOf(printing, card.faceIndex).backup : null;
+}
+/** D571 - the face's champion reading for one permanent, at resolution (the one reader). */
+function championOf(ctx: ScriptCtx, id: InstanceId): { any: readonly import('../data/replacementParse').PermanentPredicate[]; noun: string } | null {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? faceOf(printing, card.faceIndex).champion : null;
 }
 /** The move of this permanent ONTO the battlefield from anywhere else, which is what "enters" means. */
 const enteredThisEvent = (self: InstanceId, ev: EventBody): boolean =>
@@ -1002,6 +1008,23 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       matches: (_ctx, self, ev) => enteredThisEvent(self, ev),
       label: (ctx, self) => `${nameOf(ctx, self)} - exploit`,
       resolve: (ctx, _self, obj) => ctx.vocabulary(obj, [exploitSpec()], []),
+    },
+  ],
+  [
+    'champion',
+    {
+      // D571 - CHAMPION (CR 702.72a): "When this permanent enters, sacrifice it unless you exile another [object] you
+      // control." The verb price of D415 with the champion verb (`championSpec` - the noun of the face), run through the
+      // vocabulary as exploit's is; the answer links the exile to this permanent's entry (D407's `until`), so the
+      // state-based return brings the card back under its owner's control when the champion leaves (CR 702.72a's
+      // second ability). No candidate: the champion is sacrificed unasked (D369). Gone at resolution: nothing (self-aimed).
+      event: 'CardsMoved',
+      matches: (_ctx, self, ev) => enteredThisEvent(self, ev),
+      label: (ctx, self) => `${nameOf(ctx, self)} - champion`,
+      resolve: (ctx, self, obj) => {
+        const c = championOf(ctx, self);
+        return c ? ctx.vocabulary(obj, [championSpec(c.any, c.noun)], []) : [];
+      },
     },
   ],
   [

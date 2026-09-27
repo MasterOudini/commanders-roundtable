@@ -9188,6 +9188,12 @@ export const GORGER_WURM: CardData = F.GORGER_WURM as CardData;
 export const CAPRICHROME: CardData = F.CAPRICHROME as CardData;
 export const CALDERA_HELLION: CardData = F.CALDERA_HELLION as CardData;
 export const THORN_THRASH_VIASHINO: CardData = F.THORN_THRASH_VIASHINO as CardData;
+export const CHANGELING_HERO: CardData = F.CHANGELING_HERO as CardData;
+export const NOVA_CHASER: CardData = F.NOVA_CHASER as CardData;
+export const WREN_S_RUN_PACKMASTER: CardData = F.WREN_S_RUN_PACKMASTER as CardData;
+export const LIGHTNING_CRAFTER: CardData = F.LIGHTNING_CRAFTER as CardData;
+export const THOUGHTWEFT_TRIO: CardData = F.THOUGHTWEFT_TRIO as CardData;
+export const BOGGART_MOB: CardData = F.BOGGART_MOB as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18638,6 +18644,12 @@ export const ENGINE_CARDS: CardData[] = [
   CAPRICHROME,
   CALDERA_HELLION,
   THORN_THRASH_VIASHINO,
+  CHANGELING_HERO,
+  NOVA_CHASER,
+  WREN_S_RUN_PACKMASTER,
+  LIGHTNING_CRAFTER,
+  THOUGHTWEFT_TRIO,
+  BOGGART_MOB,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

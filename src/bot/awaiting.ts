@@ -313,11 +313,21 @@ export function answerAwaiting(
        */
       if (awaiting.verbs) {
         const v = awaiting.verbs;
-        const count = v.sacrificeSelf ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
+        // D571 - a champion's exile names one.
+        const count = v.sacrificeSelf || v.championExile !== undefined ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
         const pool: CardView[] =
           v.discardCost !== null
             ? myHand(view, me)
             : (awaiting.candidates ?? []).map((id) => view.cards[id]).filter((c): c is CardView => !!c);
+        // D571 - a CHAMPION's exile is paid with the cheapest candidate (the lowest mana value): the card comes back
+        // when the champion leaves, and unpaid the champion itself is lost.
+        if (v.championExile !== undefined) {
+          const cheapest = [...pool].sort((a, b) => (a.card?.cmc ?? 0) - (b.card?.cmc ?? 0))[0];
+          return act(
+            cheapest ? { t: 'AnswerPayMana', player: me, pay: true, picks: [cheapest.instanceId] } : { t: 'AnswerPayMana', player: me, pay: false },
+            cheapest ? `${v.costText} for ${awaiting.label}` : `decline to ${v.costText} for ${awaiting.label}`,
+          );
+        }
         const sorted = v.discardCost !== null ? [...pool].sort(worstFirst) : [...pool].sort(worstFirst).reverse();
         const picks = sorted.slice(0, count).map((c) => c.instanceId);
         const cheap = v.discardCost !== null || v.exileFromGraveyardCost !== null || v.tapCost !== null;

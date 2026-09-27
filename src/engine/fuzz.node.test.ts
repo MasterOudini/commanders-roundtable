@@ -1069,7 +1069,8 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // same list the answer is checked against, D139) - so the paying half is reached, never refused.
       const v = awaiting.verbs;
       if (!pay || !v) return { t: 'AnswerPayMana', player: awaiting.player, pay };
-      const count = v.sacrificeSelf ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
+      // D571 - a champion's exile names one (the prompt ships its candidates).
+      const count = v.sacrificeSelf || v.championExile !== undefined ? 1 : (v.sacrificeCost?.count ?? v.discardCost?.count ?? v.tapCost?.count ?? v.exileFromGraveyardCost?.count ?? v.returnCost?.count ?? 0);
       let pool: readonly InstanceId[] = awaiting.candidates ?? [];
       if (!awaiting.candidates && !v.sacrificeSelf) {
         const cache = makeDeriveCache(state);
@@ -1861,6 +1862,9 @@ interface Run {
   readonly endureAsks: number;
   /** D570 - the devour questions asked (CR 702.82a). */
   readonly devourAsks: number;
+  /** D571 - the champion questions asked (CR 702.72a) and the exiles paid (the rest sacrificed the champion). */
+  readonly championAsks: number;
+  readonly championExiles: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2417,6 +2421,8 @@ function runOne(seed: number): Run {
     escapedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.escaped === true)).length,
     endureAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'endureChoice').length,
     devourAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.devour !== undefined).length,
+    championAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && e.body.awaiting.verbs?.championExile !== undefined).length,
+    championExiles: game.log.filter((e) => e.body.t === 'PaymentAnswered' && e.body.paid && /^exile another .+ you control$/.test(e.body.verb ?? '')).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2799,6 +2805,8 @@ const TOTAL_KEYS = [
   'escapedEntries',
   'endureAsks',
   'devourAsks',
+  'championAsks',
+  'championExiles',
   'crownings',
   'ringTempts',
   'ringAbilities',

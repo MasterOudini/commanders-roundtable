@@ -311482,6 +311482,221 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CHANGELING_HERO": {
+    "scryfallId": "24f0c586-a1a5-4907-801a-7815c4dceb39",
+    "oracleId": "fc893d4a-debd-4df0-ae83-d3ebd2f0fefe",
+    "name": "Changeling Hero",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Changeling Hero",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nChampion a creature (When this enters, sacrifice it unless you exile another creature you control. When this leaves the battlefield, that card returns to the battlefield.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "24f0c586-a1a5-4907-801a-7815c4dceb39"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Lifelink",
+      "Champion",
+      "Changeling"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOVA_CHASER": {
+    "scryfallId": "07f97507-abbe-4c8b-9683-f044e38f8d4b",
+    "oracleId": "997f5847-04c2-498a-a294-d3355fbb7424",
+    "name": "Nova Chaser",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nova Chaser",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Elemental Warrior",
+        "oracleText": "Trample\nChampion an Elemental (When this enters, sacrifice it unless you exile another Elemental you control. When this leaves the battlefield, that card returns to the battlefield.)",
+        "flavorText": null,
+        "power": "10",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "07f97507-abbe-4c8b-9683-f044e38f8d4b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Champion"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WREN_S_RUN_PACKMASTER": {
+    "scryfallId": "154f63c1-3be1-4f01-a3f7-d4f600c8ef32",
+    "oracleId": "d4d27fef-e86b-4dd3-a15e-a0db8d0725ee",
+    "name": "Wren's Run Packmaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wren's Run Packmaster",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Champion an Elf (When this creature enters, sacrifice it unless you exile another Elf you control. When this creature leaves the battlefield, that card returns to the battlefield.)\n{2}{G}: Create a 2/2 green Wolf creature token.\nWolves you control have deathtouch.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "154f63c1-3be1-4f01-a3f7-d4f600c8ef32"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Champion"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "31965",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHTNING_CRAFTER": {
+    "scryfallId": "1caa3ca6-40e3-46d5-bee7-52b34dc4569c",
+    "oracleId": "d0f81e9c-b890-4fa1-9f7e-868dff33b6a7",
+    "name": "Lightning Crafter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lightning Crafter",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Shaman",
+        "oracleText": "Champion a Goblin or Shaman (When this enters, sacrifice it unless you exile another Goblin or Shaman you control. When this leaves the battlefield, that card returns to the battlefield.)\n{T}: This creature deals 3 damage to any target.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "1caa3ca6-40e3-46d5-bee7-52b34dc4569c"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Champion"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MOR-93",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUGHTWEFT_TRIO": {
+    "scryfallId": "9e48d34d-063c-4703-870b-4a22d5774c89",
+    "oracleId": "15fca8d6-8a86-4c24-9178-f0b6496518ab",
+    "name": "Thoughtweft Trio",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thoughtweft Trio",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Kithkin Soldier",
+        "oracleText": "First strike, vigilance\nChampion a Kithkin (When this enters, sacrifice it unless you exile another Kithkin you control. When this leaves the battlefield, that card returns to the battlefield.)\nThis creature can block any number of creatures.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "9e48d34d-063c-4703-870b-4a22d5774c89"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance",
+      "First strike",
+      "Champion"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOGGART_MOB": {
+    "scryfallId": "a61990de-0daf-4340-8e6b-c49852d46980",
+    "oracleId": "f5e2da6c-35fa-4f46-bfae-8ac8907c8300",
+    "name": "Boggart Mob",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boggart Mob",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "Champion a Goblin (When this enters, sacrifice it unless you exile another Goblin you control. When this leaves the battlefield, that card returns to the battlefield.)\nWhenever a Goblin you control deals combat damage to a player, you may create a 1/1 black Goblin Rogue creature token.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Thomas Denmark",
+        "imageId": "a61990de-0daf-4340-8e6b-c49852d46980"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Champion"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

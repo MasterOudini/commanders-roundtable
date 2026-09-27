@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WRENS_RUN_PACKMASTER_SCRIPT } from './cards/wrensRunPackmaster';
+import { LIGHTNING_CRAFTER_SCRIPT } from './cards/lightningCrafter';
+import { THOUGHTWEFT_TRIO_SCRIPT } from './cards/thoughtweftTrio';
+import { BOGGART_MOB_SCRIPT } from './cards/boggartMob';
 import { CALDERA_HELLION_SCRIPT } from './cards/calderaHellion';
 import { THORN_THRASH_VIASHINO_SCRIPT } from './cards/thornThrashViashino';
 import { SINKHOLE_SURVEYOR_SCRIPT } from './cards/sinkholeSurveyor';
@@ -8295,6 +8299,10 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WRENS_RUN_PACKMASTER_SCRIPT,
+  LIGHTNING_CRAFTER_SCRIPT,
+  THOUGHTWEFT_TRIO_SCRIPT,
+  BOGGART_MOB_SCRIPT,
   CALDERA_HELLION_SCRIPT,
   THORN_THRASH_VIASHINO_SCRIPT,
   SINKHOLE_SURVEYOR_SCRIPT,

@@ -103,6 +103,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   sunburst: 'sunburst',
   // D570 - devour: the entering ask that sacrifices any number of creatures for N +1/+1 counters each.
   devour: 'devour',
+  // D571 - champion: the enter trigger that exiles another of its kind (linked) or sacrifices it.
+  champion: 'champion',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

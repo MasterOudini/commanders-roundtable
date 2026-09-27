@@ -3896,6 +3896,23 @@ function verbPriceEvents(
     return additionalCostEvents(state, deps, player, awaiting.identity, picksOf({ sacrifice: [self] }));
   }
   const cache = makeDeriveCache(state);
+  // D571 - CHAMPION's exile: one pick, another permanent the payer controls the noun admits, re-checked against the
+  // board as it stands; the move carries the champion's entry stamp (D407's `until`) - the state-based return brings
+  // it back under its owner's control when the champion leaves.
+  if (verbs.championExile) {
+    const src = self === '' ? undefined : state.cards[self];
+    if (!src || src.zone.kind !== 'battlefield') return { error: reject('cannotAfford', `${awaiting.label}: the champion has left the battlefield.`) };
+    const legal = sacrificeCandidatesFor(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), player, self, { count: 1, another: true, any: verbs.championExile.any });
+    const pick = picks[0];
+    const inst = pick === undefined ? undefined : state.cards[pick];
+    if (picks.length !== 1 || pick === undefined || !inst || !legal.includes(pick)) return { error: reject('noSuchCard', `Name one to ${verbs.costText} for ${awaiting.label}.`) };
+    return {
+      events: [
+        { t: 'CardsMoved', moves: [{ card: pick, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'exile', player: inst.owner }, until: { source: self, entry: src.entries ?? 0 } }] },
+        narrated(n`${revealedName(state, deps, pick)} is exiled until ${revealedName(state, deps, self)} leaves the battlefield.`, player, awaiting.identity),
+      ],
+    };
+  }
   const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), player, self, verbs);
   const VERBS = [
     [verbs.sacrificeCost, 'sacrificeCandidates', 'needsSacrifice', 'illegalSacrifice', 'sacrifice'],

@@ -13,7 +13,7 @@
 // tutors, no recursion, because the engine runs none of those yet. That ceiling
 // is the honest state of the app and it rises as the engine's coverage does.
 //
-// commander: Emmara, Soul of the Accord (GW), chosen from 424 fully-executable legendary creatures for reaching 5196 cards
+// commander: Emmara, Soul of the Accord (GW), chosen from 424 fully-executable legendary creatures for reaching 5200 cards
 // mv 0–1: wanted 6, took 6
 // mv 2–2: wanted 14, took 14
 // mv 3–3: wanted 14, took 14
@@ -63,6 +63,7 @@ export const BOT_DECK = {
   "Airship Crash",
   "Colossal Rattlewurm",
   "Runaway Carriage",
+  "Thoughtweft Trio",
   "Advent of the Wurm",
   "Ajani, Adversary of Tyrants",
   "Ajani's Influence",
@@ -72,7 +73,6 @@ export const BOT_DECK = {
   "Angelic Accord",
   "Armageddon",
   "Artisan's Sorrow",
-  "Barl's Cage",
   "Endless Wurm",
   "Gigantosaurus",
   "Agonasaur Rex",

@@ -37,7 +37,7 @@ import { parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects, partnerWithSearchSpec } from './effectParse';
 import { parseModalFace } from './modalParse';
-import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
+import { parseEntersAsCopy, parseEntersTapped, parseChoosesColorOnEntry, parseChoosesTypeOnEntry, predicatesOf, type PermanentPredicate } from './replacementParse';
 
 /**
  * D343 - a modal face's effect mode from its modes: `auto` when EVERY mode is
@@ -375,6 +375,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (kw === 'squad' && parseSquad(face?.oracleText ?? '') === null) continue;
     // D570 - devour is the engine's only as the plain `Devour N` line (the entering ask reads N off it).
     if (kw === 'devour' && parseDevour(face?.oracleText ?? '') === null) continue;
+    // D571 - champion is the engine's only when its noun reads (the price's predicates).
+    if (kw === 'champion' && parseChampion(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -722,6 +724,23 @@ export function parseEscapesWith(oracleText: string): { counters: number; line: 
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const m = /^This creature escapes with (a|an|one|two|three|four|five|six|seven|eight|nine|ten) \+1\/\+1 counters? on it\.$/.exec(line);
     if (m) return { counters: ESCAPE_COUNT[(m[1] ?? '').toLowerCase()] ?? 0, line };
+  }
+  return null;
+}
+
+/**
+ * D571 - `Champion a|an <noun>` (CR 702.72a): the noun as predicates - `a creature`, `an Elemental`, `a Goblin or
+ * Shaman` (`predicatesOf`, the OR list the sacrifice costs read) - and as printed, for the price's words. A noun the
+ * grammar cannot place reads null: the keyword is not granted and the line stays a leftover.
+ */
+export function parseChampion(oracleText: string): { any: readonly PermanentPredicate[]; noun: string } | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Champion (an? .+)$/.exec(line);
+    if (!m) continue;
+    const noun = (m[1] ?? '').trim();
+    const any = predicatesOf(noun);
+    return any && any.length > 0 ? { any, noun } : null;
   }
   return null;
 }
@@ -1396,6 +1415,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const graveyardCast0 = parseGraveyardCast(face.oracleText, warn);
   const graveyardCast = graveyardCast0 !== null && (!isPermanent || graveyardCast0.kind === 'escape') ? graveyardCast0 : null;
   const escapesWith = isPermanent && graveyardCast?.kind === 'escape' ? parseEscapesWith(face.oracleText) : null;
+  // D571 - champion on a permanent (it enters and is exiled or sacrificed).
+  const champion = isPermanent ? parseChampion(face.oracleText) : null;
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
   const rebound = !isPermanent && (face.oracleText ?? '').split('\n').some((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Rebound');
   const altCosts = parseAltCosts(face.oracleText);
@@ -1506,6 +1527,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     squadCost,
     graveyardCast,
     escapesWith,
+    champion,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),
     plotCost: parsePlot(face.oracleText, warn),

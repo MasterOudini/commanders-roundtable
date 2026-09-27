@@ -773,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D571 - champion: the Champion line is the engine's now (another of its kind exiled as it enters and returned when it leaves - or it is sacrificed); what stays is a champion creature whose other line the suite cannot assert yet.
+  ['Wanderwine Prophets', 'the row maker: a payment branch the suite cannot assert: extraTurn (Whenever this creature deals combat damage to a player, you may sacrifice a Merfolk. If you do, take an extra turn after this one. - its champion reads since D571) (D571)'],
   // D569 - endure: `<it> endures N` is the engine's now (the counters or an N/N white Spirit, chosen at resolution); what stays is an endure creature whose trial or payment branch the generator cannot assert yet.
   ['Inspirited Vanguard', 'the trial: an enters-or-attacks head whose attack arm counts the entry\'s endure too (4 counters, not 2 - the generator asserts per arm; its endure reads since D569) (D569)'],
   ['Descendant of Storms', 'the row maker: a payment branch the suite cannot assert: endure (Whenever this creature attacks, you may pay {1}{W}. If you do, it endures 1. - its endure reads since D569) (D569)'],
