@@ -758,6 +758,8 @@ function withEntryCounters(
       if (face.keywords.includes('sunburst') && (move.sunburst ?? 0) > 0) {
         changes.push({ card: move.card, kind: face.typeLine.types.includes('Creature') ? '+1/+1' : 'charge', delta: move.sunburst ?? 0 });
       }
+      // D568 - ESCAPE (CR 702.138c): an escaped permanent enters with the counters its `escapes with` line names.
+      if (move.escaped === true && face.escapesWith !== null) changes.push({ card: move.card, kind: '+1/+1', delta: face.escapesWith.counters });
       // D450 - vanishing N / fading N (CR 702.63a, 702.32a): N time / fade counters as it enters.
       if (face.keywords.includes('vanishing')) {
         const n = Number(/\bvanishing (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');

@@ -773,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D568 - escape: the Escape line is the engine's now (the cast from the graveyard for its escape cost, the counters an escaped permanent enters with); what stays is an escape spell whose own sentence the vocabulary does not read.
+  ['Cling to Dust', 'the row maker: a spell with a line outside the vocabulary: Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card. (the branch on the exiled card\'s type is unread; its Escape line reads since D568) (D568)'],
   // D564 - squad: the Squad line is the engine's now (the count paid at cast, a token copy per payment as it enters); what stays is a squad creature whose other line the row maker does not read.
   ['Arco-Flagellant', 'the row maker: ability-word activated line: Endurant — Pay 3 life: ~ gains indestructible until end of turn. (its Squad line reads since D564) (D564)'],
   // D562 - enlist: the Enlist line is the engine's now (the declaration's tap of another creature, its power added until end of turn); what stays is an enlist creature whose other line the row maker does not read.

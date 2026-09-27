@@ -2129,7 +2129,11 @@ export interface OracleFace {
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.
    * A jump-start spell is exiled as it leaves the stack (flashback's rule); a retrace spell goes to the graveyard.
    */
-  readonly graveyardCast: { readonly kind: 'retrace' | 'jumpStart'; readonly verb: import('../../data/activatedParse').KickerVerb } | null;
+  // D568 - and ESCAPE (CR 702.138a): the escape cost's mana REPLACES the mana cost (`mana`), the exile of N other
+  // graveyard cards its verb; an escaped spell is not exiled as it leaves the stack.
+  readonly graveyardCast: { readonly kind: 'retrace' | 'jumpStart' | 'escape'; readonly verb: import('../../data/activatedParse').KickerVerb; readonly mana?: ManaCost } | null;
+  /** D568 - `This creature escapes with N +1/+1 counters on it.` (CR 702.138c): an escaped permanent enters with them. */
+  readonly escapesWith: { readonly counters: number; readonly line: string } | null;
   /** D538 - REBOUND (CR 702.88a): cast from the hand, exiled as it resolves and offered free at the controller's next upkeep. */
   readonly rebound: boolean;
   /**

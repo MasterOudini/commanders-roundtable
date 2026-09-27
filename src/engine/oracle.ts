@@ -126,7 +126,8 @@ export const EMPTY_ORACLE: OracleDb = new MapOracleDb([]);
  */
 export function exiledAsItLeaves(castFrom: { readonly kind: string } | null | undefined, face: OracleCard['faces'][number] | null | undefined): boolean {
   if (castFrom?.kind !== 'graveyard') return false;
-  return !(face !== null && face !== undefined && face.flashbackCost === null && face.graveyardCast?.kind === 'retrace');
+  // D568 - nor does escape (CR 702.138a has no exile - an escaped card may escape again).
+  return !(face !== null && face !== undefined && face.flashbackCost === null && (face.graveyardCast?.kind === 'retrace' || face.graveyardCast?.kind === 'escape'));
 }
 
 export function faceOf(card: OracleCard, faceIndex: number): OracleCard['faces'][number] {

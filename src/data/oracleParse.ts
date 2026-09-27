@@ -686,7 +686,10 @@ export function parseConspire(oracleText: string, colors: readonly ColorLetter[]
  * cast and its discard, read by the verb-kicker grammar (a land card for retrace, any card for jump-start). The verb
  * keeps the keyword line as its `line`, so the accounting asks the parser that read it.
  */
-export function parseGraveyardCast(oracleText: string, warn: Warn = NOOP_WARN): { kind: 'retrace' | 'jumpStart'; verb: KickerVerb } | null {
+/** D568 - the escape cost's exile count and the escapes-with counter count, in words. */
+const ESCAPE_COUNT: Readonly<Record<string, number>> = { a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10 };
+
+export function parseGraveyardCast(oracleText: string, warn: Warn = NOOP_WARN): { kind: 'retrace' | 'jumpStart' | 'escape'; verb: KickerVerb; mana?: ManaCost } | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     if (line === 'Retrace') {
@@ -697,6 +700,26 @@ export function parseGraveyardCast(oracleText: string, warn: Warn = NOOP_WARN): 
       const verb = readKickerVerb(line, 'Discard a card', warn);
       return verb ? { kind: 'jumpStart', verb } : null;
     }
+    // D568 - ESCAPE (CR 702.138a): the escape mana REPLACES the mana cost (the graveyard cast's own `mana`), the exile of
+    // N OTHER cards from the graveyard its one verb; any other cost refuses the line (D90).
+    const esc = /^Escape—((?:\{[^}]+\})+), Exile (a|an|one|two|three|four|five|six|seven|eight|nine|ten) other cards? from your graveyard\.$/.exec(line);
+    if (esc) {
+      const mana = parseManaCost(esc[1] ?? '', warn);
+      const count = ESCAPE_COUNT[(esc[2] ?? '').toLowerCase()] ?? 0;
+      if (mana === null || count === 0) return null;
+      const costText = `exile ${esc[2] ?? ''} other card${count === 1 ? '' : 's'} from your graveyard`;
+      return { kind: 'escape', mana, verb: { line, costText, lifeCost: 0, sacrificeCost: null, discardCost: null, tapCost: null, exileFromGraveyardCost: { count, any: null, another: true }, returnCost: null, orPay: null, mana: null } };
+    }
+  }
+  return null;
+}
+
+/** D568 - `This creature escapes with N +1/+1 counters on it.` (CR 702.138c): the counters an escaped permanent enters with. */
+export function parseEscapesWith(oracleText: string): { counters: number; line: string } | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^This creature escapes with (a|an|one|two|three|four|five|six|seven|eight|nine|ten) \+1\/\+1 counters? on it\.$/.exec(line);
+    if (m) return { counters: ESCAPE_COUNT[(m[1] ?? '').toLowerCase()] ?? 0, line };
   }
   return null;
 }
@@ -1367,7 +1390,10 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   // D564 - squad on a permanent (its copies are permanents the token machinery makes - Endless Foot Assault is an enchantment).
   const squadCost = isPermanent ? parseSquad(face.oracleText, warn) : null;
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
-  const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
+  // D568 - escape on any face (a creature escapes too, CR 702.138a), and its `escapes with` counters on a permanent.
+  const graveyardCast0 = parseGraveyardCast(face.oracleText, warn);
+  const graveyardCast = graveyardCast0 !== null && (!isPermanent || graveyardCast0.kind === 'escape') ? graveyardCast0 : null;
+  const escapesWith = isPermanent && graveyardCast?.kind === 'escape' ? parseEscapesWith(face.oracleText) : null;
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
   const rebound = !isPermanent && (face.oracleText ?? '').split('\n').some((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Rebound');
   const altCosts = parseAltCosts(face.oracleText);
@@ -1477,6 +1503,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     harmonizeCost,
     squadCost,
     graveyardCast,
+    escapesWith,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),
     plotCost: parsePlot(face.oracleText, warn),

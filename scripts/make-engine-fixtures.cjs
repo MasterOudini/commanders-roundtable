@@ -10250,6 +10250,18 @@ const WANTED = [
   'Containment Membrane',
   'Hackrobat',
   // D567 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D568 - ESCAPE: the escape cards the proofs deal (the rows bring the rest).
+  'Sweet Oblivion',
+  'Loathsome Chimera',
+  // D568 - ESCAPE: the rows the whole-leftover row maker rowed once the Escape line was the engine's (a cast from the graveyard for its escape cost, and the counters an escaped permanent enters with).
+  'Woe Strider',
+  'Phoenix of Ash',
+  "Sentinel's Eyes",
+  "Mogis's Favor",
+  'Escape Velocity',
+  'Underworld Rage-Hound',
+  'Underworld Charger',
+  // D568 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

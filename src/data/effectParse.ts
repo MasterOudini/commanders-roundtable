@@ -44,7 +44,7 @@ import type { ColorLetter } from './cardTypes';
 
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
-import { parseManaCost, type Warn } from './oracleParse';
+import { parseGraveyardCast, parseManaCost, type Warn } from './oracleParse';
 import { scrub } from './targetParse';
 import { parseGateCondition } from './activatedParse';
 import { amassArmyKey, amassSubtype, foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
@@ -3508,6 +3508,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D566 - and a FREERUNNING line (the alternative cost under its combat-damage condition).
     // D567 - and a SURGE or SPECTACLE line (the alternative cost under its turn-record condition).
     .filter((l) => { const k = parseAlternativeCost(l, parseManaCost, cardName)?.keyword; return k !== 'awaken' && k !== 'freerunning' && k !== 'surge' && k !== 'spectacle'; })
+    // D568 - an ESCAPE line is the graveyard cast's cost (`parseGraveyardCast`, kind `escape`), no clause of the spell.
+    .filter((l) => parseGraveyardCast(l)?.kind !== 'escape')
     // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
     .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
     // D504 - a tribal instant's or sorcery's `Changeling` line (Crib Swap) is a characteristic the keywords carry, no

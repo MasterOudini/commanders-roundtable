@@ -627,6 +627,8 @@ export function linesUnaccounted(
     if (face.harmonizeCost !== null && /^Harmonize (?:\{[^}]+\})+$/.test(line)) continue;
     // D537 - a Retrace / Jump-start line the engine OFFERS (a graveyard cast, its discard charged as the additional cost).
     if (face.graveyardCast !== null && face.graveyardCast.verb.line === line) continue;
+    // D568 - an escaped permanent's `escapes with` line the engine RUNS (its entry counters), asked of the parser that read it.
+    if (face.escapesWith !== null && face.escapesWith.line === line) continue;
     // D538 - a Rebound line the engine RUNS (the resolution's exile, the upkeep's free cast), asked of the parser's flag.
     if (face.rebound && line === 'Rebound') continue;
     // D540 - a Foretell line the engine RUNS (the special action from the hand, the cast from exile for that cost), asked

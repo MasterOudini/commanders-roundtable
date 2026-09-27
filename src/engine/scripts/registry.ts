@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WOE_STRIDER_SCRIPT } from './cards/woeStrider';
+import { PHOENIX_OF_ASH_SCRIPT } from './cards/phoenixOfAsh';
+import { SENTINELS_EYES_SCRIPT } from './cards/sentinelsEyes';
+import { MOGISS_FAVOR_SCRIPT } from './cards/mogissFavor';
+import { ESCAPE_VELOCITY_SCRIPT } from './cards/escapeVelocity';
+import { UNDERWORLD_RAGE_HOUND_SCRIPT } from './cards/underworldRageHound';
+import { UNDERWORLD_CHARGER_SCRIPT } from './cards/underworldCharger';
 import { BLADE_JUGGLER_SCRIPT } from './cards/bladeJuggler';
 import { CONTAINMENT_MEMBRANE_SCRIPT } from './cards/containmentMembrane';
 import { HACKROBAT_SCRIPT } from './cards/hackrobat';
@@ -8280,6 +8287,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WOE_STRIDER_SCRIPT,
+  PHOENIX_OF_ASH_SCRIPT,
+  SENTINELS_EYES_SCRIPT,
+  MOGISS_FAVOR_SCRIPT,
+  ESCAPE_VELOCITY_SCRIPT,
+  UNDERWORLD_RAGE_HOUND_SCRIPT,
+  UNDERWORLD_CHARGER_SCRIPT,
   BLADE_JUGGLER_SCRIPT,
   CONTAINMENT_MEMBRANE_SCRIPT,
   HACKROBAT_SCRIPT,

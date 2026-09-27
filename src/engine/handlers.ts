@@ -752,6 +752,8 @@ function stagedCastCost(face: ReturnType<typeof faceOf>, pending: { readonly fre
   // D540 - a foretold cast keeps paying its foretell cost.
   if (pending.foretold !== undefined && face.foretellCost !== null) return face.foretellCost;
   if (pending.from.kind === 'graveyard' && face.flashbackCost !== null) return face.flashbackCost;
+  // D568 - an escape cast keeps paying its escape cost (the graveyard cast's own mana).
+  if (pending.from.kind === 'graveyard' && face.flashbackCost === null && face.graveyardCast !== null && face.graveyardCast.mana !== undefined) return face.graveyardCast.mana;
   // D563 - a harmonized cast keeps paying its harmonize cost (its tap's reduction rides `taxApplied`).
   if (pending.from.kind === 'graveyard' && face.harmonizeCost !== null && face.graveyardCast === null) return face.harmonizeCost;
   return face.manaCost;
@@ -1017,7 +1019,8 @@ function prepareCast(
   // D307 - a flashback cast pays the FLASHBACK cost instead of the mana cost.
   // D540 - a foretold cast pays the FORETELL cost instead of the mana cost.
   // D541 - a madness cast pays the MADNESS cost instead of the mana cost.
-  const cost = free || plotted ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : harmonized ? face.harmonizeCost : face.manaCost;
+  // D568 - an escape cast pays the ESCAPE cost (the graveyard cast's own mana) instead of the mana cost.
+  const cost = free || plotted ? null : altCost ? altCost.alt.mana : faceDown ? MORPH_CAST_COST : madnessCast ? face.madnessCost : foretold ? face.foretellCost : flashback && face.flashbackCost !== null ? face.flashbackCost : graveyardCast !== null && graveyardCast.mana !== undefined ? graveyardCast.mana : harmonized ? face.harmonizeCost : face.manaCost;
   if (cost === null && !altCost && !free && !plotted) return { error: reject('notCastable', `${face.name} cannot be cast.`) };
   // D403 - a kick is priced with the ward: the announcement names the count, the problem carries the cost.
   const kickWhy = faceDown ? (kicked > 0 || kickedWith0.length > 0 ? 'A face-down spell cannot be kicked.' : null) : kickProblem(face, kicked, kickedWith0);
@@ -2427,6 +2430,8 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.offspring ? { offspring: true as const } : {}),
     ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
     ...(sunburst !== null && sunburst > 0 ? { sunburst } : {}),
+    // D568 - ESCAPE (CR 702.138b): cast from the graveyard with escape - the mark the entry's `escapes with` counters read.
+    ...(setup.from.kind === 'graveyard' && setup.face.flashbackCost === null && setup.face.graveyardCast?.kind === 'escape' ? { escaped: true as const } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),

@@ -310762,6 +310762,328 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SWEET_OBLIVION": {
+    "scryfallId": "51ac77d4-f918-4bbc-b023-8117a8c401ee",
+    "oracleId": "c023538d-2feb-4af5-a44e-b355a190f081",
+    "name": "Sweet Oblivion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sweet Oblivion",
+        "manaCost": "{1}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player mills four cards.\nEscape—{3}{U}, Exile four other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "flavorText": "When memory is torment, oblivion is bliss.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "51ac77d4-f918-4bbc-b023-8117a8c401ee"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Escape",
+      "Mill"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LOATHSOME_CHIMERA": {
+    "scryfallId": "3afe6283-3642-4883-ac6e-83ae3280af9c",
+    "oracleId": "fe983088-6e0d-4544-90bd-f5ebb95c3418",
+    "name": "Loathsome Chimera",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Loathsome Chimera",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Chimera",
+        "oracleText": "Escape—{4}{G}, Exile three other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)\nThis creature escapes with a +1/+1 counter on it.",
+        "flavorText": "\"I see... elk? And lion? And... teeth! A lot of teeth!\"\n—Teraklos of Meletis",
+        "power": "4",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "3afe6283-3642-4883-ac6e-83ae3280af9c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Escape"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "177",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WOE_STRIDER": {
+    "scryfallId": "05500b14-d36d-49b3-82b0-d0c533d4ec00",
+    "oracleId": "3adbd963-e85d-4569-963a-4472594f06f9",
+    "name": "Woe Strider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Woe Strider",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Horror",
+        "oracleText": "When this creature enters, create a 0/1 white Goat creature token.\nSacrifice another creature: Scry 1.\nEscape—{3}{B}{B}, Exile four other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)\nThis creature escapes with two +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "John Thacker",
+        "imageId": "05500b14-d36d-49b3-82b0-d0c533d4ec00"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Escape",
+      "Scry"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "317",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHOENIX_OF_ASH": {
+    "scryfallId": "319afab5-4a3c-466e-9cb4-8dd23bcd229e",
+    "oracleId": "0ad557fc-6b7e-4f7e-b060-e3c8ec8acf6d",
+    "name": "Phoenix of Ash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phoenix of Ash",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Phoenix",
+        "oracleText": "Flying, haste\n{2}{R}: This creature gets +2/+0 until end of turn.\nEscape—{2}{R}{R}, Exile three other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)\nThis creature escapes with a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "319afab5-4a3c-466e-9cb4-8dd23bcd229e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Haste",
+      "Escape"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "79915",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SENTINEL_S_EYES": {
+    "scryfallId": "32adc118-b81e-48c2-b7ef-b62e8c3308d6",
+    "oracleId": "0a7d6489-b239-4ce8-aea3-7b5d0e436f70",
+    "name": "Sentinel's Eyes",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sentinel's Eyes",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has vigilance.\nEscape—{W}, Exile two other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wisnu Tan",
+        "imageId": "32adc118-b81e-48c2-b7ef-b62e8c3308d6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Escape"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOGIS_S_FAVOR": {
+    "scryfallId": "5b83e695-80ac-40d3-ae06-98f8b59949a3",
+    "oracleId": "312dbc3a-3ffb-4ed2-a278-8950d8ce8c86",
+    "name": "Mogis's Favor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mogis's Favor",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/-1.\nEscape—{2}{B}, Exile two other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "flavorText": "Rage-crowned Mogis swiftly rewards the virtue of brutality.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Uriah Voth",
+        "imageId": "5b83e695-80ac-40d3-ae06-98f8b59949a3"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Escape"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "THB-107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESCAPE_VELOCITY": {
+    "scryfallId": "90c2a3da-2458-4921-8574-9eb9d5925ae8",
+    "oracleId": "2db4c197-982b-4c23-88e7-6ddf17378bb4",
+    "name": "Escape Velocity",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Escape Velocity",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+0 and has haste.\nEscape—{1}{R}, Exile two other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "flavorText": "\"Not even death can catch me now!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "90c2a3da-2458-4921-8574-9eb9d5925ae8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant",
+      "Escape"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERWORLD_RAGE_HOUND": {
+    "scryfallId": "a04eef82-fd53-41f4-9c7e-28b9ac039032",
+    "oracleId": "a1418e8d-dea5-43e1-b041-3f6a88f9a6d7",
+    "name": "Underworld Rage-Hound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Underworld Rage-Hound",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Elemental Dog",
+        "oracleText": "This creature attacks each combat if able.\nEscape—{3}{R}, Exile three other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)\nThis creature escapes with a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "a04eef82-fd53-41f4-9c7e-28b9ac039032"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Escape"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERWORLD_CHARGER": {
+    "scryfallId": "f2dd847f-0db2-4f6a-bdfb-5c88ce7802f9",
+    "oracleId": "39694a3f-536e-41e0-adf6-d49de721aabd",
+    "name": "Underworld Charger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Underworld Charger",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Nightmare Horse",
+        "oracleText": "This creature can't block.\nEscape—{4}{B}, Exile three other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)\nThis creature escapes with two +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "f2dd847f-0db2-4f6a-bdfb-5c88ce7802f9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Escape"
+    ],
+    "setCode": "thb",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

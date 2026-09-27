@@ -70,6 +70,8 @@ export interface CardMove {
   readonly squadded?: number;
   /** D565 - the resolving spell's sunburst count (CR 702.44a): the colours of mana spent to cast it - the entry's counters. */
   readonly sunburst?: number;
+  /** D568 - the resolving spell escaped (CR 702.138b) - the entry's `escapes with` counters. */
+  readonly escaped?: true;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
   readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */

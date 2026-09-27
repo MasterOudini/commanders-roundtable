@@ -1165,7 +1165,8 @@ function castAction(
   const graveyardCast = from.kind === 'graveyard' && face.flashbackCost === null ? face.graveyardCast : null;
   // D540 - a FORETOLD card in exile is cast for its foretell cost (CR 702.143a), an alternative cost.
   const foretold = from.kind === 'exile' && castsForetold(state, id, face, from.player ?? inst.owner);
-  const cost = plotted ? PLOT_FREE : foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? face.manaCost : face.harmonizeCost)) : face.manaCost;
+  // D568 - an escape cast pays the escape cost (the graveyard cast's own mana) instead of the mana cost.
+  const cost = plotted ? PLOT_FREE : foretold ? face.foretellCost : from.kind === 'graveyard' ? (face.flashbackCost ?? (graveyardCast !== null ? (graveyardCast.mana ?? face.manaCost) : face.harmonizeCost)) : face.manaCost;
   if (cost === null) return null;
   // D406 - the additional cost's chooser candidates, the same lists the activated offer carries; a
   // verb its candidates cannot pay is not offered ("a cost you cannot pay is not offered") unless

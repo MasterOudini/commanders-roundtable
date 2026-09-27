@@ -9168,6 +9168,15 @@ export const SKEWER_THE_CRITICS: CardData = F.SKEWER_THE_CRITICS as CardData;
 export const BLADE_JUGGLER: CardData = F.BLADE_JUGGLER as CardData;
 export const CONTAINMENT_MEMBRANE: CardData = F.CONTAINMENT_MEMBRANE as CardData;
 export const HACKROBAT: CardData = F.HACKROBAT as CardData;
+export const SWEET_OBLIVION: CardData = F.SWEET_OBLIVION as CardData;
+export const LOATHSOME_CHIMERA: CardData = F.LOATHSOME_CHIMERA as CardData;
+export const WOE_STRIDER: CardData = F.WOE_STRIDER as CardData;
+export const PHOENIX_OF_ASH: CardData = F.PHOENIX_OF_ASH as CardData;
+export const SENTINEL_S_EYES: CardData = F.SENTINEL_S_EYES as CardData;
+export const MOGIS_S_FAVOR: CardData = F.MOGIS_S_FAVOR as CardData;
+export const ESCAPE_VELOCITY: CardData = F.ESCAPE_VELOCITY as CardData;
+export const UNDERWORLD_RAGE_HOUND: CardData = F.UNDERWORLD_RAGE_HOUND as CardData;
+export const UNDERWORLD_CHARGER: CardData = F.UNDERWORLD_CHARGER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18596,6 +18605,15 @@ export const ENGINE_CARDS: CardData[] = [
   BLADE_JUGGLER,
   CONTAINMENT_MEMBRANE,
   HACKROBAT,
+  SWEET_OBLIVION,
+  LOATHSOME_CHIMERA,
+  WOE_STRIDER,
+  PHOENIX_OF_ASH,
+  SENTINEL_S_EYES,
+  MOGIS_S_FAVOR,
+  ESCAPE_VELOCITY,
+  UNDERWORLD_RAGE_HOUND,
+  UNDERWORLD_CHARGER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
