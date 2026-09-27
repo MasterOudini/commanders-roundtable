@@ -1,6 +1,7 @@
 // Combat legality and damage assignment. Pure functions over state — the
 // handlers turn their answers into events.
 
+import { inPlay } from './zones';
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import { protectedFrom } from './protection';
 import { isDetained } from './detain';
@@ -71,7 +72,7 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
  * and the handler (D139: never read off the prompt).
  */
 export function enlistCandidates(deps: CombatDeps, player: PlayerId): InstanceId[] {
-  return deps.state.zones.battlefield.filter((id) => {
+  return inPlay(deps.state).filter((id) => {
     const card = deps.state.cards[id];
     if (!card || card.controller !== player || card.tapped || card.phasedOut) return false;
     const chars = d(deps, id);
@@ -116,7 +117,7 @@ function restrictedBy(
   if (defs.length === 0) return false;
   const { state } = deps;
   let ctx: ScriptCtx | null = null;
-  for (const sourceId of state.zones.battlefield) {
+  for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
     // D438 - the source's OWN script's defs (the registry-scaling walk, see derive.ts); `defs` stays the gate.
@@ -144,7 +145,7 @@ function countsBy(deps: CombatDeps, ask: (def: CombatDef, ctx: ScriptCtx, self: 
   const { state } = deps;
   let ctx: ScriptCtx | null = null;
   let out: number | null = null;
-  for (const sourceId of state.zones.battlefield) {
+  for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
     const script = deps.scripts.get(source.oracleId);
@@ -183,7 +184,7 @@ export function legalDefenders(deps: CombatDeps, attackingPlayer: PlayerId): Def
     if (state.players[id]?.hasLost) continue;
     out.push({ kind: 'player', id });
   }
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card || card.controller === attackingPlayer) continue;
     if (state.players[card.controller]?.hasLost) continue;
@@ -313,7 +314,7 @@ function defenderControlsLandType(
   player: PlayerId,
   types: readonly string[],
 ): boolean {
-  for (const id of deps.state.zones.battlefield) {
+  for (const id of inPlay(deps.state)) {
     const card = deps.state.cards[id];
     if (!card || card.controller !== player) continue;
     const chars = d(deps, id);

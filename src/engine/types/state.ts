@@ -356,6 +356,8 @@ export interface CardInstance {
   /** Players who may see this card even though its zone is hidden. */
   readonly revealedTo: readonly PlayerId[];
   readonly phasedOut: boolean;
+  /** D573 - phased out INDIRECTLY with the permanent it is attached to (CR 702.26g): it phases in with that host. */
+  readonly phasedWith?: InstanceId | undefined;
   /**
    * D411 - "doesn't untap during its controller's next untap step": set by the effect (or a mana
    * ability's rider), spent by that untap STEP whether or not the permanent was tapped, cleared by

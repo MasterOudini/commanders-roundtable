@@ -6,6 +6,7 @@
 // has just been told "no". "notYourPriority" is a code for the client; "Ana has
 // priority — wait for her to pass" is the message.
 
+import { inPlay } from './zones';
 import { askPromptFor, resumeReplacementFunnel, revealAdmits, runReplacementFunnel } from './triggers';
 import {
   legalDefenders,
@@ -3261,7 +3262,7 @@ function declareAttackers(
   // must be in the declaration. Recomputed here rather than read off the
   // prompt - a client's word is not a rule (D139).
   // D338 - a creature no legal defender admits is not able to attack, so no requirement asks it.
-  const possible = state.zones.battlefield.filter((id) => canAttack(cdeps, id) && defenders.some((dref) => canAttackDefender(cdeps, id, dref)));
+  const possible = inPlay(state).filter((id) => canAttack(cdeps, id) && defenders.some((dref) => canAttackDefender(cdeps, id, dref)));
   for (const id of requiredAttackers(cdeps, possible)) {
     if (seen.has(id)) continue;
     const name = derive(state, deps.oracle, deps.scripts, id, cache).name || 'That creature';

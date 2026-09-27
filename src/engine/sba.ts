@@ -7,6 +7,7 @@
 // creature's killer already gone. The `derive` cache is built once for the whole
 // pass for the same reason.
 
+import { inPlay } from './zones';
 import type { ColorLetter } from '../data/cardTypes';
 import { derive, hasLethalDamage, makeDeriveCache, type DeriveCache } from './derive';
 import { faceOf } from './oracle';
@@ -71,7 +72,7 @@ export function checkStateBasedActions(
   // D469 - CR 122.1i: the permanents whose shield counter replaced a lethal-damage destruction this pass.
   const shielded: InstanceId[] = [];
 
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card) continue;
     const d = derive(state, oracle, scripts, id, cache);
@@ -200,7 +201,7 @@ export function checkStateBasedActions(
   // attached, and goes back to whoever had it when the Aura leaves, moves on or falls off this very pass. Checked
   // here because every road an Aura takes onto or off a permanent ends in this sweep - and the memory rides the
   // permanent (`controlledVia`), stamped with the Aura's entry so a returned Aura is a new object (CR 400.7).
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card || doomed.has(id)) continue;
     if (card.controlledVia !== undefined) {
@@ -272,7 +273,7 @@ export function checkStateBasedActions(
   // supertype simultaneously — has no representation here, because one array
   // cannot hold two things at one index.
   const worlds: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     if (doomed.has(id)) continue;
     if (!state.cards[id]) continue;
     if (derive(state, oracle, scripts, id, cache).typeLine.supertypes.includes('World')) {
@@ -385,7 +386,7 @@ function findLegendChoice(
   doomed: ReadonlySet<InstanceId>,
 ): { action: SbaAction; awaiting: NonNullable<GameState['priority']['awaiting']> } | null {
   const groups = new Map<string, InstanceId[]>();
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     if (doomed.has(id)) continue;
     const card = state.cards[id];
     if (!card) continue;

@@ -6,6 +6,7 @@
 // it lives in its own module: three implementations of "can I cast this" drift,
 // and the drift shows up as a card that lights up but cannot be cast.
 
+import { inPlay } from './zones';
 import { faceOf } from './oracle';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
@@ -649,7 +650,7 @@ function offeredActions(
       });
     }
   }
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.phasedOut) continue;
     const card = cardFor(state, oracle, id);
@@ -856,7 +857,7 @@ function offeredActions(
   // D309 - THE MORPH SEAM: a face-down permanent you control whose card prints
   // a morph cost the engine can charge may be turned face up any time you have
   // priority (CR 702.37c) - a special action, no stack.
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || !inst.faceDown || inst.controller !== player || inst.phasedOut) continue;
     const card = cardFor(state, oracle, id);
@@ -922,7 +923,7 @@ export function sacrificeCandidatesFor(
   cost: NonNullable<ActivatedAbility['sacrificeCost']>,
 ): readonly InstanceId[] {
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     if (state.cards[id]?.controller !== player) continue;
     if (cost.another && id === selfId) continue;
     const chars = deriveOf(id);
@@ -1013,7 +1014,7 @@ export function tapCandidatesFor(
   cost: NonNullable<ActivatedAbility['tapCost']>,
 ): readonly InstanceId[] {
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.tapped) continue;
     if (cost.another && id === selfId) continue;
@@ -1040,7 +1041,7 @@ export function returnCandidatesFor(
   cost: NonNullable<ActivatedAbility['returnCost']>,
 ): readonly InstanceId[] {
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
     if (cost.another && id === selfId) continue;
@@ -1073,7 +1074,7 @@ export function removeCounterCandidatesFor(
     return self && countersOfKind(self.counters, cost.kind) >= cost.count ? [selfId] : [];
   }
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
     if (countersOfKind(inst.counters, cost.kind) <= 0) continue;
@@ -1284,7 +1285,7 @@ function buybackOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistr
  * cast is payable with the strongest of them (the cost {X} less, X its power - the host folds the same into the tax).
  */
 function harmonizeOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, face: OracleFace, cost: ManaCost, tax: number): Record<string, unknown> {
-  const candidates = state.zones.battlefield.filter((cid) => {
+  const candidates = inPlay(state).filter((cid) => {
     const c = state.cards[cid];
     return c !== undefined && c.controller === caster && !c.tapped && !c.phasedOut && derive(state, oracle, scripts, cid, ctx.cache).isCreature;
   });

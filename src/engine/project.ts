@@ -131,6 +131,8 @@ export class Projector {
         controller: inst.controller,
         owner: inst.owner,
         tapped: inst.tapped,
+        // D573 - a phased-out permanent is still on the table, drawn faint (absent when phased in).
+        ...(inst.phasedOut ? { phasedOut: true as const } : {}),
         summoningSick:
           d.isCreature &&
           inst.summonedOnTurn !== null &&
@@ -438,6 +440,7 @@ function sameCardView(a: CardView, b: CardView): boolean {
     a.faceIndex === b.faceIndex &&
     a.faceDown === b.faceDown &&
     a.disguised === b.disguised &&
+    a.phasedOut === b.phasedOut &&
     a.controller === b.controller &&
     a.owner === b.owner &&
     a.tapped === b.tapped &&

@@ -24,6 +24,7 @@
  * Nothing here reads the log or a memory the turn does not keep, which is why
  * "if a creature died this turn" stays unread until the turn remembers it.
  */
+import { inPlay } from './zones';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { STEP_ORDER } from './turn';
 import { conditionHolds } from './triggers';
@@ -66,7 +67,7 @@ export function activationConditionsHold(
 ): boolean {
   const c = cache ?? makeDeriveCache(state);
   const d = (id: InstanceId): DerivedCharacteristics => derive(state, oracle, scripts, id, c);
-  const mine = (): readonly InstanceId[] => state.zones.battlefield.filter((id) => state.cards[id]?.controller === player);
+  const mine = (): readonly InstanceId[] => inPlay(state).filter((id) => state.cards[id]?.controller === player);
   for (const cond of conditions) {
     switch (cond.kind) {
       case 'duringYourTurn':
@@ -136,7 +137,7 @@ export function activationConditionsHold(
         if (cond.who === 'you' ? state.monarch !== player : cond.who === 'opponent' ? state.monarch === null || state.monarch === player : state.monarch !== null) return false;
         break;
       case 'acrossControl':
-        if (!state.zones.battlefield.some((id) => { const inst = state.cards[id]; return inst !== undefined && inst.controller !== player && matchesAny(d(id), cond.theirs); })) return false;
+        if (!inPlay(state).some((id) => { const inst = state.cards[id]; return inst !== undefined && inst.controller !== player && matchesAny(d(id), cond.theirs); })) return false;
         if (!mine().some((id) => matchesAny(d(id), cond.yours))) return false;
         break;
       case 'turnMemory': {

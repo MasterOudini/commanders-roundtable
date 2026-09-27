@@ -9205,6 +9205,16 @@ export const ETALI_S_FAVOR: CardData = F.ETALI_S_FAVOR as CardData;
 export const HIDDEN_NURSERY: CardData = F.HIDDEN_NURSERY as CardData;
 export const HIDDEN_COURTYARD: CardData = F.HIDDEN_COURTYARD as CardData;
 export const HIDDEN_NECROPOLIS: CardData = F.HIDDEN_NECROPOLIS as CardData;
+export const SANDBAR_CROCODILE: CardData = F.SANDBAR_CROCODILE as CardData;
+export const REALITY_RIPPLE: CardData = F.REALITY_RIPPLE as CardData;
+export const RENEGADE_SILENT: CardData = F.RENEGADE_SILENT as CardData;
+export const RAINBOW_EFREET: CardData = F.RAINBOW_EFREET as CardData;
+export const TEFERI_S_HONOR_GUARD: CardData = F.TEFERI_S_HONOR_GUARD as CardData;
+export const HAYSTACK: CardData = F.HAYSTACK as CardData;
+export const CRYSTAL_GOLEM: CardData = F.CRYSTAL_GOLEM as CardData;
+export const FRENETIC_EFREET: CardData = F.FRENETIC_EFREET as CardData;
+export const VODALIAN_ILLUSIONIST: CardData = F.VODALIAN_ILLUSIONIST as CardData;
+export const VAPOROUS_DJINN: CardData = F.VAPOROUS_DJINN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18672,6 +18682,16 @@ export const ENGINE_CARDS: CardData[] = [
   HIDDEN_NURSERY,
   HIDDEN_COURTYARD,
   HIDDEN_NECROPOLIS,
+  SANDBAR_CROCODILE,
+  REALITY_RIPPLE,
+  RENEGADE_SILENT,
+  RAINBOW_EFREET,
+  TEFERI_S_HONOR_GUARD,
+  HAYSTACK,
+  CRYSTAL_GOLEM,
+  FRENETIC_EFREET,
+  VODALIAN_ILLUSIONIST,
+  VAPOROUS_DJINN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

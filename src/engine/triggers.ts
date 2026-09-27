@@ -11,6 +11,7 @@
 // a planeswalker — are the replacements that are NOT card scripts, because they
 // are rules rather than cards.
 
+import { inPlay } from './zones';
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
 import { narrated } from './narrate';
@@ -157,7 +158,7 @@ function applicableTo(
   // the player's (one applicable effect) and it is the order the options are
   // OFFERED in, which is the order they appear on screen. CR 613.7c's timestamp,
   // the same property D129 leans on for layers.
-  for (const sourceId of state.zones.battlefield) {
+  for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
     const script = scripts.get(source.oracleId);
@@ -669,7 +670,7 @@ export function copyCandidates(state: GameState, oracle: OracleDb, scripts: Scri
     return printing !== undefined && predicateAdmits(faceOf(printing, inst.faceIndex), spec.predicates);
   };
   if (spec.zone === 'graveyard') return state.seating.flatMap((p) => (state.zones.graveyard[p] ?? []).filter(admits));
-  return state.zones.battlefield.filter(admits);
+  return inPlay(state).filter(admits);
 }
 
 /**
@@ -932,7 +933,7 @@ function devourCandidates(state: GameState, oracle: OracleDb, scripts: ScriptReg
     for (const m of ev.moves) if (m.from.kind === 'battlefield' && m.to.kind !== 'battlefield') leaving.add(m.card);
   }
   const cache = makeDeriveCache(state);
-  return state.zones.battlefield.filter((id) => state.cards[id]?.controller === player && !leaving.has(id) && derive(state, oracle, scripts, id, cache).isCreature);
+  return inPlay(state).filter((id) => state.cards[id]?.controller === player && !leaving.has(id) && derive(state, oracle, scripts, id, cache).isCreature);
 }
 
 /** D441 - does this hand card's printed face satisfy a reveal land's noun? (One reader: `predicateAdmits`, D389.) */
@@ -976,7 +977,7 @@ export function conditionHolds(
   controller: PlayerId,
 ): boolean {
   const cache = makeDeriveCache(state);
-  const mine = state.zones.battlefield.filter((id) => state.cards[id]?.controller === controller);
+  const mine = inPlay(state).filter((id) => state.cards[id]?.controller === controller);
   // ⚠️ THE REAL REGISTRY, and it used to be an empty one (D156). These are
   // board QUERIES — "do you control two other lands", "a Forest", "a basic
   // land" — answered from DERIVED characteristics, so deriving them without
@@ -1006,7 +1007,7 @@ export function conditionHolds(
       return livingPlayers(state).some((id) => (state.players[id]?.life ?? 0) <= condition.life);
     case 'opponentsLands':
       return (
-        state.zones.battlefield.filter((id) => {
+        inPlay(state).filter((id) => {
           const c = state.cards[id];
           return !!c && c.controller !== controller && d(id).isLand;
         }).length >= condition.count
@@ -1251,7 +1252,7 @@ export function collectTriggers(
       const candidates = byOracle(look).get(script.oracleId) ?? [];
       for (const id of candidates) {
         const card = state.cards[id];
-        if (!card) continue;
+        if (!card || card.phasedOut) continue;
         if (!def.activeZones.includes(card.zone.kind)) continue;
       // ⚠️ **CR 613 LAYER 6 — A SOURCE WITH NO ABILITIES IS NOT A SOURCE.** This
       // is the other half of `hasAbilities`: clearing an object's keywords says
@@ -1315,7 +1316,7 @@ export function collectTriggers(
     if (event.body.t !== 'TokenCreated') continue;
     const id = event.body.card;
     const card = after.cards[id];
-    if (!card || card.zone.kind !== 'battlefield') continue;
+    if (!card || card.zone.kind !== 'battlefield' || card.phasedOut) continue;
     const script = scripts.get(card.oracleId);
     if (!script) continue;
     const view: EventBody = { t: 'CardsMoved', moves: [{ card: id, from: { kind: 'exile', player: card.owner }, to: { kind: 'battlefield', player: null } }] };
@@ -1403,7 +1404,7 @@ export function collectTriggers(
         const ctx = ctxOf(look);
         for (const id of idsOf(look)) {
           const card = state.cards[id];
-          if (!card || card.zone.kind !== 'battlefield') continue;
+          if (!card || card.zone.kind !== 'battlefield' || card.phasedOut) continue;
           if (!hasAbilities(state, oracle, scripts, id)) continue;
           for (const g of ctx.derive(id).grantedTriggered) {
             const found = grantIndex.get(g.ref);
@@ -1535,7 +1536,7 @@ export function collectTriggers(
       }
       for (const id of idsOf(look)) {
         const card = state.cards[id];
-        if (!card || card.zone.kind !== 'battlefield') continue;
+        if (!card || card.zone.kind !== 'battlefield' || card.phasedOut) continue;
         if (!hasAbilities(state, oracle, scripts, id)) continue;
         // D450 - the entry names the keyword that gates it (a keyword may carry two triggers under two keys).
         if (!ctx.derive(id).keywords.has(kt.keyword ?? (keyword as Keyword))) continue;
@@ -1619,7 +1620,7 @@ function readonlyCtx(
     },
     query: {
       permanentsOf: (player: PlayerId) =>
-        state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),
+        inPlay(state).filter((id) => state.cards[id]?.controller === player),
       controllerOf: (id: InstanceId) => state.cards[id]?.controller ?? null,
       isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
     },

@@ -105,6 +105,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   devour: 'devour',
   // D571 - champion: the enter trigger that exiles another of its kind (linked) or sacrifices it.
   champion: 'champion',
+  // D573 - phasing: the untap step's turn action phases it out and back in.
+  phasing: 'phasing',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

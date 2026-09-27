@@ -12,6 +12,7 @@
 // or it is blocked on a human (`priority.awaiting !== null`). Those are the only
 // two places the engine stops.
 
+import { inPlay, phaseOutEvent } from './zones';
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, enlistCandidates, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { goadersOf, isGoaded } from './goad';
@@ -374,9 +375,30 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
         const card = state.cards[id];
         return !!card && card.controller === ap && card.skipsUntap === true;
       });
+      // D573 - PHASING (CR 502.1, 702.26a): FIRST, before anything untaps, the active player's phased-in permanents with
+      // phasing phase out and every permanent that player's phasing or an effect put out phases in (with what phased out
+      // with it), simultaneously; the untap below reads the state after it.
+      const goingIn = state.zones.battlefield.filter((id) => {
+        const card = state.cards[id];
+        return !!card && card.phasedOut && card.phasedWith === undefined && card.controller === ap;
+      });
+      const withHosts = state.zones.battlefield.filter((id) => {
+        const host = state.cards[id]?.phasedWith;
+        return host !== undefined && goingIn.includes(host);
+      });
+      const phasingOut = state.zones.battlefield.filter((id) => {
+        const card = state.cards[id];
+        return !!card && !card.phasedOut && card.controller === ap && derive(state, deps.oracle, deps.scripts, id).keywords.has('phasing');
+      });
+      const inNow = [...goingIn, ...withHosts];
+      if (inNow.length > 0) events.push({ t: 'PhasedIn', cards: inNow });
+      const outNow = phaseOutEvent(state, phasingOut);
+      if (outNow !== null) events.push(outNow);
+      const outAfter = new Set([...(outNow?.cards ?? []), ...(outNow?.indirect ?? []).map((x) => x.card)]);
       const toUntap = state.zones.battlefield.filter((id) => {
         const card = state.cards[id];
-        return !!card && card.controller === ap && card.tapped && !card.phasedOut && card.skipsUntap !== true;
+        const phasedAfter = outAfter.has(id) || (card?.phasedOut === true && !inNow.includes(id));
+        return !!card && card.controller === ap && card.tapped && !phasedAfter && card.skipsUntap !== true;
       });
       if (toUntap.length > 0) events.push({ t: 'PermanentsUntapped', cards: toUntap });
       for (const id of frozen) {
@@ -437,7 +459,7 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
     // counter on each Saga they control - one batch, as the entry funnel puts its own; the chapter whose number the
     // count reaches triggers off the change. A phased-out Saga is not there to count.
     case 'precombatMain': {
-      const sagas = state.zones.battlefield.filter((id) => {
+      const sagas = inPlay(state).filter((id) => {
         const card = state.cards[id];
         return !!card && card.controller === ap && !card.phasedOut && derive(state, deps.oracle, deps.scripts, id).typeLine.subtypes.includes('Saga');
       });
@@ -451,7 +473,7 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
 
     case 'declareAttackers': {
       const deps2 = { state, oracle: deps.oracle, scripts: deps.scripts, cache: makeDeriveCache(state) };
-      const possible = state.zones.battlefield.filter((id) => canAttack(deps2, id));
+      const possible = inPlay(state).filter((id) => canAttack(deps2, id));
       if (possible.length === 0) {
         // No prompt when there is nothing to decide. On a four-player table this
         // removes one forced click per player per turn.
@@ -607,7 +629,7 @@ function blockPrompt(
     if (!defendsSomething) continue;
 
     let any = false;
-    for (const bid of state.zones.battlefield) {
+    for (const bid of inPlay(state)) {
       if (state.cards[bid]?.controller !== id) continue;
       const attackers = combat.attackers
         .filter((a) => canBlock(cdeps, bid, a.card) === null)
@@ -1257,7 +1279,7 @@ function scriptCtxFor(state: GameState, deps: EngineDeps): ScriptCtx {
     },
     query: {
       permanentsOf: (player: PlayerId) =>
-        state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),
+        inPlay(state).filter((id) => state.cards[id]?.controller === player),
       controllerOf: (id: InstanceId) => state.cards[id]?.controller ?? null,
       isOnBattlefield: (id: InstanceId) => state.cards[id]?.zone.kind === 'battlefield',
     },

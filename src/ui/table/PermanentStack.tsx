@@ -113,7 +113,8 @@ export function PermanentStack({
       // ⚠️ `x` is in `initial` as well, or a card entering the battlefield slides
       // in from the band's left edge instead of appearing where it belongs.
       initial={{ opacity: 0, scale: 0.9, x: packed.x }}
-      animate={{ opacity: 1, scale: 1, x: packed.x }}
+      // D573 - a phased-out permanent is drawn faint (it is treated as though it does not exist).
+      animate={{ opacity: card?.phasedOut ? 0.35 : 1, scale: 1, x: packed.x }}
       // ⚠️ The delay is on `x` ALONE. A card arriving in a row while another one
       // untaps must still settle immediately — it has nothing to wait for, and
       // holding its fade-in would read as a dropped frame.

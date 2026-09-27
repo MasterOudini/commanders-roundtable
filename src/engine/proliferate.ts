@@ -2,6 +2,7 @@
 // raised only when something carries a counter), the answer handler (every pick is checked) and
 // the fuzz driver (a random subset). Counters and poison are public, so the client and the bot
 // list the same things off their VIEW, and the host's answer is the one that counts.
+import { inPlay } from './zones';
 import type { InstanceId, PlayerId } from './types/ids';
 import type { GameState } from './types/state';
 
@@ -13,7 +14,7 @@ export interface ProliferateCandidates {
 }
 
 export function proliferateCandidates(state: GameState): ProliferateCandidates {
-  const permanents = state.zones.battlefield.filter((id) => {
+  const permanents = inPlay(state).filter((id) => {
     const card = state.cards[id];
     return card !== undefined && Object.values(card.counters).some((v) => v > 0);
   });

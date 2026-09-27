@@ -312069,6 +312069,347 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SANDBAR_CROCODILE": {
+    "scryfallId": "450b79d9-5ab8-4699-8052-a278c316a5c3",
+    "oracleId": "e11926bf-ca14-4e1e-aca5-9ffedb91868c",
+    "name": "Sandbar Crocodile",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sandbar Crocodile",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Crocodile",
+        "oracleText": "Phasing (This phases in or out before you untap during each of your untap steps. While it's phased out, it's treated as though it doesn't exist.)",
+        "flavorText": "\"We've run aground sandbars before, but today, a sandbar ran aground us.\"\n—Kipkemboi, Kukemssa pirate",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Una Fricker",
+        "imageId": "450b79d9-5ab8-4699-8052-a278c316a5c3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Phasing"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REALITY_RIPPLE": {
+    "scryfallId": "c5b94eed-2a45-4a6b-a06b-a2021b174bc5",
+    "oracleId": "504d5c29-7c37-4c31-8549-2a49eeef74c8",
+    "name": "Reality Ripple",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Reality Ripple",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Target artifact, creature, or land phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before its controller untaps during their next untap step.)",
+        "flavorText": "\"Can you prepare for the unexpected? No, you cannot. You can prepare only to be surprised.\"\n—Teferi",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alan Rabinowitz",
+        "imageId": "c5b94eed-2a45-4a6b-a06b-a2021b174bc5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "87",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RENEGADE_SILENT": {
+    "scryfallId": "0984a09f-91e5-4566-9f8e-e8e12e4dcb5b",
+    "oracleId": "6b5565a2-be5c-46b1-99df-8094e77446cc",
+    "name": "Renegade Silent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Renegade Silent",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Alien Horror",
+        "oracleText": "At the beginning of your end step, goad up to one target creature you don't control and put a +1/+1 counter on this creature. This creature phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+        "flavorText": "\"Silence will fall.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Calder Moore",
+        "imageId": "0984a09f-91e5-4566-9f8e-e8e12e4dcb5b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Goad"
+    ],
+    "setCode": "who",
+    "collectorNumber": "658",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAINBOW_EFREET": {
+    "scryfallId": "1d6f03a6-3665-40e4-ae68-640913972770",
+    "oracleId": "7c158405-d3ef-4c10-a504-7b061ef71a74",
+    "name": "Rainbow Efreet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rainbow Efreet",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Efreet",
+        "oracleText": "Flying\n{U}{U}: This creature phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+        "flavorText": "\"A beauty made more so by its fleeting visitations.\"\n—Teferi",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nathalie Hertz",
+        "imageId": "1d6f03a6-3665-40e4-ae68-640913972770"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "vis",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TEFERI_S_HONOR_GUARD": {
+    "scryfallId": "38249837-5dac-4287-a18c-515b5cf87e52",
+    "oracleId": "8a3a8a02-b7da-4648-a772-c9efb7c332da",
+    "name": "Teferi's Honor Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Teferi's Honor Guard",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\n{U}{U}: This creature phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+        "flavorText": "\"They may seem ceremonial, but their swords are still sharp.\"\n—Kipkemboi, Kukemssa pirate",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Cecil Fernando",
+        "imageId": "38249837-5dac-4287-a18c-515b5cf87e52"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flanking"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "VIS-22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAYSTACK": {
+    "scryfallId": "46e791f0-297b-46bf-acd5-f62458009d76",
+    "oracleId": "d64d69bd-1815-4647-90bc-767fad5c7da7",
+    "name": "Haystack",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haystack",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact",
+        "oracleText": "{2}, {T}: Target creature you control phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+        "flavorText": "\"Search the area! He can't have gone far!\"\n—Palazzo guard",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Xabi Gaztelua",
+        "imageId": "46e791f0-297b-46bf-acd5-f62458009d76"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "acr",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYSTAL_GOLEM": {
+    "scryfallId": "4b1d3280-f3e1-42ea-93e1-dbab7336fb73",
+    "oracleId": "82246ef2-4267-4daf-9463-908c2e142e7d",
+    "name": "Crystal Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crystal Golem",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "At the beginning of your end step, this creature phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+        "flavorText": "\"Once, a wealthy king commissioned an artificial creature to be crafted from the royal treasury, thinking it a clever ploy to have the jewels guard themselves.\"\n—Azeworai, \"The Golem's Wish\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mike Dringenberg",
+        "imageId": "4b1d3280-f3e1-42ea-93e1-dbab7336fb73"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "298",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FRENETIC_EFREET": {
+    "scryfallId": "4e4f0c8f-8f00-40a1-8968-07f4cea1df5e",
+    "oracleId": "c21d3360-8be0-477e-a592-7e64a76570d3",
+    "name": "Frenetic Efreet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Frenetic Efreet",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Creature — Efreet",
+        "oracleText": "Flying\n{0}: Flip a coin. If you win the flip, this creature phases out. If you lose the flip, sacrifice this creature. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Thomas Gianni",
+        "imageId": "4e4f0c8f-8f00-40a1-8968-07f4cea1df5e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "wc97",
+    "collectorNumber": "jk264",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VODALIAN_ILLUSIONIST": {
+    "scryfallId": "9ce0e28b-9fd6-4763-8d6b-952b530358ab",
+    "oracleId": "ac935639-ba30-4b04-86f6-363527e85a8b",
+    "name": "Vodalian Illusionist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vodalian Illusionist",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{U}{U}, {T}: Target creature phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before its controller untaps during their next untap step.)",
+        "flavorText": "\"Torahn gore these shifty fishtails! You can't even get close to one.\"\n—Tahngarth of the *Weatherlight*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "John Matson",
+        "imageId": "9ce0e28b-9fd6-4763-8d6b-952b530358ab"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "58",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VAPOROUS_DJINN": {
+    "scryfallId": "e7ea65e2-68d8-429f-9be7-e6e5e12a2a4d",
+    "oracleId": "66fc64db-7dc4-43fa-8087-281a72286c35",
+    "name": "Vaporous Djinn",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vaporous Djinn",
+        "manaCost": "{2}{U}{U}",
+        "typeLine": "Creature — Djinn",
+        "oracleText": "Flying\nAt the beginning of your upkeep, this creature phases out unless you pay {U}{U}. (While it's phased out, it's treated as though it doesn't exist. It phases in before you untap during your next untap step.)",
+        "flavorText": "\"What is taking them so long to fill the waterskins?\"\n—Mwani, Mtenda goatherd",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "e7ea65e2-68d8-429f-9be7-e6e5e12a2a4d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

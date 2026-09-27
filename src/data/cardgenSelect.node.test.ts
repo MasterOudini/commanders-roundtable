@@ -773,6 +773,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D573 - phasing: the Phasing line and `<object> phases out` are the engine's now (a phased-out permanent is treated as though it does not exist until its controller's next untap step); what stays is a phasing permanent whose other line the library or the generator does not read.
+  ['Teferi\'s Imp', 'the row maker: trigger head not in the library: Whenever this creature phases out, discard a card. - its Phasing reads since D573 (D573)'],
+  ['Shimmering Efreet', 'the row maker: trigger head not in the library: Whenever this creature phases in, target creature phases out. - its Phasing reads since D573 (D573)'],
+  ['Blink Dog', 'the row maker: ability-word activated line: Teleport — {3}{W}: ~ phases out. - its phase-out reads since D573 (D573)'],
+  ['Warping Wurm', 'the row maker: trigger head not in the library: Whenever this creature phases in, put a +1/+1 counter on it. - its Phasing and its upkeep phase-out read since D573 (D573)'],
+  ['Vision, Synthezoid Avenger', 'the row maker: a player referent payload the vocabulary does not read: If it isn\'t target player\'s turn, choose one - its phase-out mode reads since D573 (D573)'],
   // D572 - discover: `Discover N.` is the engine's now (cascade's walk with a bound - the hit cast for nothing or put into the hand); what stays is a discover card whose other line the library or the vocabulary does not read.
   ['Long-Range Sensor', 'the row maker: trigger head not in the library: Whenever you attack a player, put a charge counter on this artifact. - its discover reads since D572 (D572)'],
   // D571 - champion: the Champion line is the engine's now (another of its kind exiled as it enters and returned when it leaves - or it is sacrificed); what stays is a champion creature whose other line the suite cannot assert yet.
@@ -912,7 +918,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Odds // Ends', 'the row maker: multi-face or unusual layout (D534)'],
   ['Skittish Valesk', 'the row maker: trigger payload not a pump: Flip a coin. If you lose the flip, turn this creature face d (D534)'],
   ['Goblin Archaeologist', 'the row maker: effect not a row kind: Flip a coin. If you win the flip, destroy target artifact and untap this creature. If you lose the flip, sacrifi (D534)'],
-  ['Frenetic Efreet', 'the row maker: effect not a row kind: Flip a coin. If you win the flip, this creature phases out. If you lose the flip, sacrifice this creature. (D534)'],
   ['Plasma Caster', 'the row maker: an attack head on a card with no creature body: equippedCreatureAttacks (D534)'],
   ['Volatile Rig', 'the row maker: trigger payload not a pump: Flip a coin. If you lose the flip, it deals 4 damage to each (D534)'],
   ['Mirror March', 'several flips (`Flip three coins. For each flip you win, ...`, `until you lose a flip`) - the rule reads one flip (D534)'],
@@ -2844,7 +2849,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D238 (M6.4ca)
   ['Ray of Ruin', 'subtype list alternative'],
   ['Reach of Shadows', 'color target qualifier unenforced'],
-  ['Reality Ripple', 'phasing'],
   ['Regenerate', 'its own name is its verb: selfRef spells the name ~ before any rule runs, so the sentence arrives as ~ target creature (D373)'],
   ['Reign of Terror', 'script-raised prompt'],
   // D239 (M6.4cb)
@@ -3004,7 +3008,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // ⚠️ Tidal Surge is refused TWICE over — "up to three target creatures"
   // AND "without flying" (D197's keyword qualifier). It is ledgered under
   // up-to-N, which is still the heaviest class in this table.
-  ['Time and Tide', 'phasing'],
+  ['Time and Tide', 'a spell with a line outside the vocabulary: Simultaneously, all phased-out creatures phase in and all creatures with phasing phase out. - the mass phasing; a target, the source and a referent phase out since D573 (D573)'],
   ['Time Stop', 'end the turn'],
   // NEW: no turn-insertion machinery exists anywhere — `turn.ts` walks one
   // turn at a time and nothing can splice another in after it.

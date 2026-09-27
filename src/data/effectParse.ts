@@ -1319,6 +1319,9 @@ const RULES: readonly Rule[] = [
   // D572 - DISCOVER N (CR 701.57a): the controller's action, planned aimless (`self` with a kind outside SELF_AIMED - a
   // dies trigger's discover still discovers). An X stays unread.
   { kind: 'discover', re: new RegExp(`^(?:then )?discover (${COUNT})\\.$`, 'i'), build: (m) => { const n = num(m[1]); return n === null || n < 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true }; } },
+  // D573 - PHASES OUT (CR 702.26): a target, or the source (self-aimed - a source already gone phases nothing).
+  { kind: 'phaseOut', re: new RegExp(`^(?:then )?${TARGET} phases out\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'phaseOut', re: new RegExp(`^(?:then )?${SELF} phases out\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D411 - THE UNTAP SKIP: the bare targeted form, and the self form under a trigger's head or an
@@ -2700,7 +2703,7 @@ const OBJ_MAKERS: ReadonlySet<EffectKind> = new Set(['createToken', 'reanimate',
 // step.` after a clause that produced objects - the plain kinds themselves, planned aimless (`ofPrevious`) and spliced in
 // per object as they run (D494's path; the executor's `objectsOf` reads the scoped clause's permanents too).
 const OBJ_VERB_LEAD = new RegExp(`^(?:then )?(?<verb>untap|tap|regenerate|suspect) ${OBJ_REF}\\.$`, 'i');
-const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps)\\.$`, 'i');
+const OBJ_VERB_SUBJ = new RegExp(`^(?:then )?${OBJ_REF} (?<rest>can't be blocked this turn|can't block this turn|(?:doesn't|don't) untap during (?:its|their) controller(?:'|’)s next untap step|don't untap during their controllers(?:'|’) next untap steps|phases? out)\\.$`, 'i');
 // The clauses whose objects are NOT on the battlefield in the state the object verbs read (they arrive as the clause runs).
 const OBJ_LATE: ReadonlySet<EffectKind> = new Set(['createToken', 'populate', 'reanimate', 'returnFromGraveyard', 'returnObj']);
 const OBJ_ASKS: ReadonlySet<EffectKind> = new Set(['search', 'lookAtTop', 'payOptional', 'sacrifice', 'discard', 'returnChoose', 'explore', 'connive', 'revealHandChoose', 'proliferate', 'scry', 'surveil', 'copySpell', 'putFromHand', 'untapChoose', 'bolster', 'amass', 'ringTempt']);
@@ -2740,7 +2743,8 @@ function objectsRewrite(sentence: string, previous: Clause | undefined): EffectS
   }
   if (vs) {
     const rest = (vs.groups?.['rest'] ?? '').toLowerCase();
-    const kind: EffectKind = rest.startsWith("can't be blocked") ? 'cantBeBlocked' : rest.startsWith("can't block") ? 'cantBlock' : 'freeze';
+    // D573 - `It phases out.` / `Those creatures phase out.` - the previous clause's objects phase out.
+    const kind: EffectKind = rest.startsWith('phase') ? 'phaseOut' : rest.startsWith("can't be blocked") ? 'cantBeBlocked' : rest.startsWith("can't block") ? 'cantBlock' : 'freeze';
     return { ...BASE, kind, text: sentence, targetIndex: -1, ofPrevious: true };
   }
   const d = OBJ_DELAY_TAIL.exec(sentence) ?? OBJ_DELAY_HEAD.exec(sentence);

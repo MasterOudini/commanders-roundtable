@@ -11,6 +11,7 @@
 // prompt bar's one-click offer instead, marked manual in the log. See
 // `effectParse.ts` for why half-executing is the failure that matters.
 
+import { inPlay, phaseOutEvent } from './zones';
 import { derive, type DeriveCache } from './derive';
 import { flipCoin, shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
@@ -1383,7 +1384,7 @@ export function effectResult(
         } else if (effect.exileScope === 'damaged') {
           for (const e of out) if (e.t === 'DamageDealt') for (const d of e.damages) if (d.target.kind === 'card' && !marked.includes(d.target.id)) marked.push(d.target.id);
         } else {
-          for (const id of state.zones.battlefield) {
+          for (const id of inPlay(state)) {
             const c = state.cards[id];
             if (!c || (effect.exileScope === 'opponents' && c.controller === controller)) continue;
             if (derive(state, deps.oracle, deps.scripts, id, cache).typeLine.types.includes('Creature')) marked.push(id);
@@ -1632,6 +1633,17 @@ export function effectResult(
       // to the first nonland card with mana value N or LESS (the printed value, cascade's reader); the rest to the bottom
       // in a random order off the seeded generator; the hit's play permission and cascade's pool prompt with
       // `declineToHand` - cast for nothing, or into its owner's hand. The prompt stops the resolution (the rest carried).
+      // D573 - PHASES OUT (CR 702.26): the permanent (with its attachments, indirectly) - one still phased in on the
+      // battlefield; treated as though it does not exist until its controller's next untap step.
+      case 'phaseOut': {
+        if (aim?.kind !== 'card') break;
+        const ev = phaseOutEvent(state, [aim.id]);
+        if (ev === null) break;
+        out.push(ev);
+        out.push(narrated(`${obj.label}: ${derive(state, deps.oracle, deps.scripts, aim.id, cache).name} phases out.`, obj.controller, obj.identity));
+        break;
+      }
+
       case 'discover': {
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         let now = state;
@@ -2691,7 +2703,7 @@ export function askCandidates(
   // D521 - the Ring-bearer's candidates: every creature the player controls (CR 701.54a).
   if (verb === 'ringBearer') return ringBearerCandidates(state, deps, player, cache);
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     // D510 - an untap names ANY permanent the noun admits (`Untap up to four lands` - CR: any lands, an opponent's too);
     // an untapped pick untaps nothing and is legal, so the candidates are every match, not the tapped ones alone.
@@ -2883,7 +2895,7 @@ export function mergeExceptions(base: CopyExceptions | undefined, more: CopyExce
 /** D511 - the creatures `player` controls whose toughness is the least among them (bolster's candidates, CR 701.37). */
 export function leastToughnessCreatures(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
   const mine: { id: InstanceId; t: number }[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player) continue;
     const d = derive(state, deps.oracle, deps.scripts, id, cache);
@@ -2898,7 +2910,7 @@ export function leastToughnessCreatures(state: GameState, deps: EngineDeps, play
 /** D520 - the Army creature tokens `player` controls (amass's candidates, CR 701.47a). */
 export function armyTokens(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || !inst.isToken) continue;
     const d = derive(state, deps.oracle, deps.scripts, id, cache);
@@ -2910,7 +2922,7 @@ export function armyTokens(state: GameState, deps: EngineDeps, player: PlayerId,
 /** D521 - the creatures `player` controls (the Ring-bearer candidates, CR 701.54a). */
 export function ringBearerCandidates(state: GameState, deps: EngineDeps, player: PlayerId, cache?: DeriveCache): InstanceId[] {
   const out: InstanceId[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.controller !== player || inst.phasedOut) continue;
     if (derive(state, deps.oracle, deps.scripts, id, cache).typeLine.types.includes('Creature')) out.push(id);
@@ -3103,7 +3115,7 @@ function scopeMembers(
       }
       continue;
     }
-    for (const id of state.zones.battlefield) {
+    for (const id of inPlay(state)) {
       const inst = state.cards[id];
       if (!inst || cards.includes(id)) continue;
       if (scope.controller === 'you' && inst.controller !== controller) continue;

@@ -745,6 +745,10 @@ export type EventBody =
   | { readonly t: 'Fought'; readonly subject: InstanceId; readonly other: InstanceId; readonly mutual: boolean }
   /** D411 - the untap skip set by an effect (`skip`), or spent by the untap step. */
   | { readonly t: 'UntapSkipSet'; readonly card: InstanceId; readonly skip: boolean }
+  /** D573 - PHASING (CR 702.26): these permanents phase out - `cards` directly, `indirect` with their host (702.26g). No zone change. */
+  | { readonly t: 'PhasedOut'; readonly cards: readonly InstanceId[]; readonly indirect: readonly { readonly card: InstanceId; readonly host: InstanceId }[] }
+  /** D573 - these permanents phase in (the untap step's turn action, CR 502.1). */
+  | { readonly t: 'PhasedIn'; readonly cards: readonly InstanceId[] }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }
 

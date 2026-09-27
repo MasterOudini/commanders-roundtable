@@ -7,6 +7,7 @@
 // already has, using the same `derive` the board uses, so a Levitation-granted flier and a
 // face-down 2/2 count as what they ARE and not as what is printed.
 
+import { inPlay } from './zones';
 import { derive, type DeriveCache } from './derive';
 import type { EngineDeps } from './loop';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -62,7 +63,7 @@ export function countOf(
     }
     case 'basicLandTypes': {
       const seen = new Set<string>();
-      for (const id of state.zones.battlefield) {
+      for (const id of inPlay(state)) {
         const inst = state.cards[id];
         if (!inst || inst.controller !== controller) continue;
         const chars = d(id);
@@ -75,7 +76,7 @@ export function countOf(
       // The largest set of the controller's creatures that fills distinct roles: four roles,
       // so the search is tiny and exact.
       const roleHolders = PARTY_ROLES.map((role) =>
-        state.zones.battlefield.filter((id) => {
+        inPlay(state).filter((id) => {
           const inst = state.cards[id];
           if (!inst || inst.controller !== controller) return false;
           const chars = d(id);
@@ -98,7 +99,7 @@ export function countOf(
     case 'permanents': {
       const attackers = new Set((state.combat?.attackers ?? []).map((a) => a.card));
       let n = 0;
-      for (const id of state.zones.battlefield) {
+      for (const id of inPlay(state)) {
         const inst = state.cards[id];
         if (!inst) continue;
         if (expr.other && id === source) continue;

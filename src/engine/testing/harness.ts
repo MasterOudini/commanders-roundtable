@@ -7,6 +7,7 @@
 // the game is broken. `put()` uses the Tier-3 `ManualMoveCard` intent, so even
 // "just put a Serra Angel on the battlefield" is a logged, replayable event.
 
+import { inPlay } from '../zones';
 import { Game, type GameOpts } from '../game';
 import { ingestOracle } from '../oracle';
 import { NO_SCRIPTS, type ScriptRegistry } from '../scripts/registryCore';
@@ -611,7 +612,7 @@ export function simplestAnswer(
             )
           : awaiting.zone === 'battlefield'
             // D511 - a computed pick (bolster's least toughness) is the host's own set.
-            ? awaiting.pick === 'leastToughness' ? leastToughnessCreatures(state, deps(), awaiting.player) : state.zones.battlefield.filter((id) => state.cards[id]?.controller === awaiting.player)
+            ? awaiting.pick === 'leastToughness' ? leastToughnessCreatures(state, deps(), awaiting.player) : inPlay(state).filter((id) => state.cards[id]?.controller === awaiting.player)
             // D491 - the from-hand free cast's pick: the first card of my own hand the grant admits (the host's reader).
             // D541 - a madness offer is declined (the card to the graveyard, as a discard left it before madness).
             : awaiting.castFree === true

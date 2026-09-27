@@ -153,6 +153,8 @@ export function groupIdentical(
       c.card.oracleId,
       c.faceDown ? 'fd' : c.faceIndex,
       c.tapped ? 't' : 'u',
+      // D573 - a phased-out permanent is never piled with a phased-in one.
+      c.phasedOut ? 'po' : '-',
       c.summoningSick ? 's' : '-',
       c.damage,
       counters,

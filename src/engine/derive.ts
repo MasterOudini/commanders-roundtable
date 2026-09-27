@@ -9,6 +9,7 @@
 // duration of ONE pass and is invalidated by `state.eventCount` — so an SBA
 // sweep over 84 permanents derives each of them once, not once per check.
 
+import { inPlay } from './zones';
 import type { ColorLetter } from '../data/cardTypes';
 import { parseTypeLine } from '../data/oracleParse';
 import { faceOf } from './oracle';
@@ -593,7 +594,7 @@ function staticSourcesFor(
   if (hit) return hit;
 
   const out: StaticSource[] = [];
-  for (const sourceId of state.zones.battlefield) {
+  for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
     // D309 - a face-down source grants nothing (CR 708.2).
@@ -652,7 +653,7 @@ export function makeScriptCtx(state: GameState, oracle: OracleDb, scripts: Scrip
       nextStack: () => `s${++stackAlloc}`,
     },
     query: {
-      permanentsOf: (player) => state.zones.battlefield.filter((id) => state.cards[id]?.controller === player),
+      permanentsOf: (player) => inPlay(state).filter((id) => state.cards[id]?.controller === player),
       controllerOf: (id) => state.cards[id]?.controller ?? null,
       isOnBattlefield: (id) => state.cards[id]?.zone.kind === 'battlefield',
     },

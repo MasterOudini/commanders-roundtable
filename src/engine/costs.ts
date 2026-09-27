@@ -8,6 +8,7 @@
 // whether you control one). A reduction that would need a choice, a target or
 // a memory of the turn does not parse and is not here.
 
+import { inPlay } from './zones';
 import type { GameState } from './types/state';
 import type { OracleDb, OracleFace } from './types/oracle';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -41,7 +42,7 @@ export function castReduction(
   // generic amount, when THIS cast face satisfies its predicate. Read off the printed face of each
   // permanent (a grant is a static of its own card, never a characteristic the layers change).
   let granted = 0;
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const inst = state.cards[id];
     if (!inst || inst.phasedOut || inst.faceDown) continue;
     const card = oracle.byPrinting(inst.printingId);
@@ -57,7 +58,7 @@ export function castReduction(
   let mine: InstanceId[] | null = null;
   const controlled = (): InstanceId[] => {
     if (mine === null) {
-      mine = state.zones.battlefield.filter((id) => {
+      mine = inPlay(state).filter((id) => {
         const inst = state.cards[id];
         return inst !== undefined && inst.controller === player && !inst.phasedOut;
       });

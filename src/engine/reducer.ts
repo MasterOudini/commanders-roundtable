@@ -331,6 +331,7 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
     attachments: [],
     summonedOnTurn: null,
     phasedOut: false,
+    phasedWith: undefined,
     renowned: false,
     monstrous: false,
     controller: owner,
@@ -1124,6 +1125,19 @@ function applyBody(state: GameState, body: EventBody): GameState {
       return state;
 
     // D411 - the untap skip: set by an effect, spent by the untap step.
+    // D573 - PHASING (CR 702.26): the flag set and cleared - no zone change, nothing else about the permanent moves.
+    case 'PhasedOut': {
+      let next = state;
+      for (const id of body.cards) next = withCard(next, id, { phasedOut: true, phasedWith: undefined });
+      for (const { card, host } of body.indirect) next = withCard(next, card, { phasedOut: true, phasedWith: host });
+      return next;
+    }
+    case 'PhasedIn': {
+      let next = state;
+      for (const id of body.cards) next = withCard(next, id, { phasedOut: false, phasedWith: undefined });
+      return next;
+    }
+
     case 'UntapSkipSet':
       return withCard(state, body.card, body.skip ? { skipsUntap: true } : { skipsUntap: undefined });
 

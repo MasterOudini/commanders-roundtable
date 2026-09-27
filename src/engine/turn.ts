@@ -1,7 +1,8 @@
 // Phase and step structure.
 
+import { inPlay } from './zones';
 import type { ExtraPhaseKind, ExtraPhases, GameState, Phase, Step } from './types/state';
-import type { InstanceId, PlayerId } from './types/ids';
+import type { PlayerId } from './types/ids';
 import type { OracleDb } from './types/oracle';
 import type { ScriptRegistry } from './scripts/registry';
 import { derive } from './derive';
@@ -140,7 +141,7 @@ export function maxHandSize(state: GameState, oracle: OracleDb, scripts: ScriptR
   let unlimited = state.options.maxHandSize === null;
   let base = state.options.maxHandSize ?? 7;
   let delta = 0;
-  for (const id of state.zones.battlefield as readonly InstanceId[]) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card) continue;
     const printing = oracle.byPrinting(card.printingId);

@@ -1,5 +1,6 @@
 // Mana sources on the board, and turning a cost into a payment problem.
 
+import { inPlay } from './zones';
 import type { ColorLetter } from '../data/cardTypes';
 import { derive, type DeriveCache } from './derive';
 import type { ScriptRegistry } from './scripts/registry';
@@ -121,7 +122,7 @@ export function manaSourcesOf(
   // mana, because neither can name a colour the other could make.
   const landColours = boardColours(state, oracle, scripts, opts.cache);
   const out: ManaSource[] = [];
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card || card.controller !== player) continue;
     if (card.phasedOut) continue;
@@ -199,7 +200,7 @@ function boardColours(
   cache?: DeriveCache,
 ): Map<PlayerId, Color[]> {
   const byPlayer = new Map<PlayerId, Set<Color>>();
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card || card.phasedOut) continue;
     const d = derive(state, oracle, scripts, id, cache);
@@ -240,7 +241,7 @@ function legendaryColours(
   cache?: DeriveCache,
 ): Color[] {
   const set = new Set<Color>();
-  for (const id of state.zones.battlefield) {
+  for (const id of inPlay(state)) {
     const card = state.cards[id];
     if (!card || card.phasedOut || card.controller !== player) continue;
     const d = derive(state, oracle, scripts, id, cache);

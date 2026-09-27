@@ -153,6 +153,9 @@ export const TIER2_KEYWORDS = [
   // [object] you control (D415's verb price, `VerbPrice.championExile`), the exile linked to its entry (D407's `until`).
   // Gated on the read noun (`OracleFace.champion`).
   'champion',
+  // D573 - PHASING (CR 702.26a): during its controller's untap step, before untapping, it phases out if phased in (the
+  // untap step's turn action; a phased-out permanent is treated as though it does not exist until it phases in).
+  'phasing',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -759,6 +762,11 @@ export type EffectKind =
    */
   | 'discover'
   /**
+   * D573 - PHASES OUT (CR 702.26): the permanent - a target, the source, the previous clause's object - phases out with
+   * its attachments (indirectly), treated as though it does not exist until its controller's next untap step.
+   */
+  | 'phaseOut'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).
@@ -1276,7 +1284,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first

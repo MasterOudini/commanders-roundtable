@@ -42,6 +42,7 @@
  * deterministic order that replays, with the choice named as unbuilt rather than
  * quietly taken. A shield is spent in the order it was created.
  */
+import { inPlay } from './zones';
 import { derive, makeDeriveCache, makeScriptCtx, type DeriveCache } from './derive';
 import { narrated } from './narrate';
 import type { PreventionDef, ScriptCtx } from './scripts/api';
@@ -130,7 +131,7 @@ function staticPreventions(state: GameState, oracle: OracleDb, scripts: ScriptRe
   const defs = scripts.preventions();
   if (defs.length === 0) return NONE;
   const out: StaticPrevention[] = [];
-  for (const sourceId of state.zones.battlefield) {
+  for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source || source.faceDown) continue;
     let able: boolean | null = null;

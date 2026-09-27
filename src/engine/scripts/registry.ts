@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { VAPOROUS_DJINN_SCRIPT } from './cards/vaporousDjinn';
+import { RENEGADE_SILENT_SCRIPT } from './cards/renegadeSilent';
+import { RAINBOW_EFREET_SCRIPT } from './cards/rainbowEfreet';
+import { TEFERIS_HONOR_GUARD_SCRIPT } from './cards/teferisHonorGuard';
+import { HAYSTACK_SCRIPT } from './cards/haystack';
+import { CRYSTAL_GOLEM_SCRIPT } from './cards/crystalGolem';
+import { FRENETIC_EFREET_SCRIPT } from './cards/freneticEfreet';
+import { VODALIAN_ILLUSIONIST_SCRIPT } from './cards/vodalianIllusionist';
 import { FRANKLIN_RICHARDS_ASCENDANT_SCRIPT } from './cards/franklinRichardsAscendant';
 import { HIDDEN_VOLCANO_SCRIPT } from './cards/hiddenVolcano';
 import { BURIED_TREASURE_SCRIPT } from './cards/buriedTreasure';
@@ -8308,6 +8316,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  VAPOROUS_DJINN_SCRIPT,
+  RENEGADE_SILENT_SCRIPT,
+  RAINBOW_EFREET_SCRIPT,
+  TEFERIS_HONOR_GUARD_SCRIPT,
+  HAYSTACK_SCRIPT,
+  CRYSTAL_GOLEM_SCRIPT,
+  FRENETIC_EFREET_SCRIPT,
+  VODALIAN_ILLUSIONIST_SCRIPT,
   FRANKLIN_RICHARDS_ASCENDANT_SCRIPT,
   HIDDEN_VOLCANO_SCRIPT,
   BURIED_TREASURE_SCRIPT,

@@ -144,6 +144,8 @@ export interface CardView {
    * it face down is known to every player - so the client's cost preview can charge what the host charges (D53).
    */
   disguised?: true;
+  /** D573 - PHASED OUT (CR 702.26b): treated as though it does not exist until its controller's next untap step. PUBLIC. */
+  phasedOut?: true;
   controller: PlayerId;
   owner: PlayerId;
   tapped: boolean;

@@ -10302,6 +10302,21 @@ const WANTED = [
   'Hidden Courtyard',
   'Hidden Necropolis',
   // D572 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D573 - PHASING: the phasing cards the proofs deal (the rows bring the rest).
+  'Sandbar Crocodile',
+  'Reality Ripple',
+  // D573 - PHASING: the rows the whole-leftover row maker rowed once phasing was the engine's (a phased-out permanent treated as though it does not exist until its controller's next untap step).
+  'Renegade Silent',
+  'Rainbow Efreet',
+  "Teferi's Honor Guard",
+  'Haystack',
+  'Crystal Golem',
+  'Frenetic Efreet',
+  'Vodalian Illusionist',
+  // D573 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D573 - PHASING, the second batch: the payment-branch row (a phase-out unless you pay).
+  'Vaporous Djinn',
+  // D573 - the fixtures the second batch's suite deals that the generator DERIVED (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
