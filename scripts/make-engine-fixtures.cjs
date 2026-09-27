@@ -10327,6 +10327,19 @@ const WANTED = [
   'Splashy Spellcaster',
   'Unassuming Sage',
   // D574 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D575 - THE DERIVED WARD: the rows the whole-leftover row maker rowed once a granted ward was the engine's (the Royal and Young Hero Roles among them).
+  'Protective Parents',
+  'Star Whale',
+  'Charmed Clothier',
+  'Redtooth Genealogist',
+  'Embereth Veteran',
+  'Crystal Carapace',
+  'Winged Boots',
+  'Super Strength',
+  "Falcon's Wing Harness",
+  'Giant Ankheg',
+  'Lavaspur Boots',
+  // D575 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10762,6 +10775,8 @@ const WANTED_TOKENS = [
   { name: 'Monster // Sorcerer', set: 'twoe', cn: '15', key: 'MONSTER_SORCERER_ROLE_TOKEN' },
   { name: 'Wicked // Cursed', set: 'plst', cn: 'TWOE-17', key: 'WICKED_CURSED_ROLE_TOKEN' },
   { name: 'Monster // Virtuous', set: 'twoc', cn: '1', key: 'MONSTER_VIRTUOUS_ROLE_TOKEN' },
+  // D575 - the Royal // Young Hero Role printing (Royal and Young Hero join the Role table with the derived ward).
+  { name: 'Royal // Young Hero', set: 'twoe', cn: '16', key: 'ROYAL_YOUNG_HERO_ROLE_TOKEN' },
 ];
 
 function constName(name) {

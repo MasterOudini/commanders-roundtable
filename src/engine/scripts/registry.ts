@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { PROTECTIVE_PARENTS_SCRIPT } from './cards/protectiveParents';
+import { STAR_WHALE_SCRIPT } from './cards/starWhale';
+import { CHARMED_CLOTHIER_SCRIPT } from './cards/charmedClothier';
+import { REDTOOTH_GENEALOGIST_SCRIPT } from './cards/redtoothGenealogist';
+import { EMBERETH_VETERAN_SCRIPT } from './cards/emberethVeteran';
+import { CRYSTAL_CARAPACE_SCRIPT } from './cards/crystalCarapace';
+import { WINGED_BOOTS_SCRIPT } from './cards/wingedBoots';
+import { SUPER_STRENGTH_SCRIPT } from './cards/superStrength';
+import { FALCONS_WING_HARNESS_SCRIPT } from './cards/falconsWingHarness';
+import { GIANT_ANKHEG_SCRIPT } from './cards/giantAnkheg';
+import { LAVASPUR_BOOTS_SCRIPT } from './cards/lavaspurBoots';
+import { ROYAL_YOUNG_HERO_ROLE_SCRIPT } from './cards/royalYoungHeroRole';
 import { LIVING_LECTERN_SCRIPT } from './cards/livingLectern';
 import { SPITEFUL_HEXMAGE_SCRIPT } from './cards/spitefulHexmage';
 import { CURSED_COURTIER_SCRIPT } from './cards/cursedCourtier';
@@ -8327,6 +8339,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  PROTECTIVE_PARENTS_SCRIPT,
+  STAR_WHALE_SCRIPT,
+  CHARMED_CLOTHIER_SCRIPT,
+  REDTOOTH_GENEALOGIST_SCRIPT,
+  EMBERETH_VETERAN_SCRIPT,
+  CRYSTAL_CARAPACE_SCRIPT,
+  WINGED_BOOTS_SCRIPT,
+  SUPER_STRENGTH_SCRIPT,
+  FALCONS_WING_HARNESS_SCRIPT,
+  GIANT_ANKHEG_SCRIPT,
+  LAVASPUR_BOOTS_SCRIPT,
+  ROYAL_YOUNG_HERO_ROLE_SCRIPT,
   LIVING_LECTERN_SCRIPT,
   SPITEFUL_HEXMAGE_SCRIPT,
   CURSED_COURTIER_SCRIPT,

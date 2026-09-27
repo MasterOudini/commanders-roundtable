@@ -518,11 +518,24 @@ function insideQuotes(text: string, index: number): boolean {
   return quotes % 2 === 1;
 }
 
+/**
+ * D575 - a ward the line GRANTS (`Enchanted creature gets +1/+1 and has ward {1}`, `Creatures you control have ward
+ * {1}`, `... gains ward {2}`) is the recipient's, not this object's: the Royal Role warded itself before D575.
+ */
+function grantedAt(text: string, index: number): boolean {
+  const lineStart = text.lastIndexOf(String.fromCharCode(10), index - 1) + 1;
+  const before = text.slice(lineStart, index);
+  // A ward the card gives ITSELF (`Iymrith has ward {4} as long as it's untapped`) stays its own: only a subject that is
+  // someone else - an enchanted or equipped creature, a group, a target - makes it a grant.
+  return /\b(?:has|have|gains?)\b/i.test(before) && /\b(?:enchanted|equipped|creatures|permanents|artifacts|lands|each|other|another|target|tokens?)\b/i.test(before);
+}
+
 /** `ward {2}`. Enforced as a cast-time mana tax. */
 export function parseWard(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   const text = oracleText ?? '';
-  const m = text.match(/\bward\s*((?:\{[^}]+\})+)/i);
-  if (m?.[1] && !insideQuotes(text, m.index ?? 0)) return parseManaCost(m[1], warn);
+  for (const m of text.matchAll(/\bward\s*((?:\{[^}]+\})+)/gi)) {
+    if (m[1] && !insideQuotes(text, m.index ?? 0) && !grantedAt(text, m.index ?? 0)) return parseManaCost(m[1], warn);
+  }
   // A non-mana ward is warned about by `parseWardLife` below, which is the only
   // caller that can tell "we understood it as life" from "we did not understand
   // it at all". Warning here too would double-count every life ward.
@@ -855,6 +868,8 @@ export function parseWardLife(oracleText: string, warn: Warn = NOOP_WARN): numbe
   if (/\bward\s*(?:\{[^}]+\})/i.test(text)) return 0;
   const m = text.match(/\bward\s*[—–-]\s*pay\s+(\d+)\s+life\b/i);
   if (m?.[1] && !insideQuotes(text, m.index ?? 0)) {
+    // D575 - a granted life ward is the recipient's (read, not warned about).
+    if (grantedAt(text, m.index ?? 0)) return 0;
     const n = Number(m[1]);
     if (Number.isInteger(n) && n > 0) return n;
   }

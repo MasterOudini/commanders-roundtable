@@ -59,7 +59,7 @@ const rolesOn = (g: Game, host: InstanceId) => g.state.zones.battlefield.filter(
 const pt = (g: Game, id: InstanceId) => { const d = derive(g.state, ORACLE, g.deps.scripts, id); return [d.power, d.toughness]; };
 
 describe('D574 - Role tokens', () => {
-  test('the reading: a target, the source, the referent, the pool loader; Royal is not read', () => {
+  test('the reading: a target, the source, the referent, the pool loader; Royal reads (D575)', () => {
     const aimed = vocabularyEffects('Create a Monster Role token attached to target creature you control.', 'x');
     expect(aimed.map((e) => [e.kind, e.attach, e.tokenFace, e.targetIndex, e.token?.name])).toEqual([['createToken', 'aim', 0, 0, 'Monster Role']]);
     expect(vocabularyTargets('Create a Monster Role token attached to target creature you control.')).toHaveLength(1);
@@ -67,7 +67,8 @@ describe('D574 - Role tokens', () => {
     expect(own.map((e) => [e.kind, e.attach, e.tokenFace, e.self, e.token?.name])).toEqual([['createToken', 'source', 1, true, 'Cursed Role']]);
     const referent = vocabularyEffects('Target creature gets +2/+0 until end of turn. Create a Monster Role token attached to it.', 'x');
     expect(referent.map((e) => [e.kind, e.targetIndex, e.attach ?? null])).toEqual([['pump', 0, null], ['createToken', 0, 'aim']]);
-    expect(() => vocabularyEffects('Create a Royal Role token attached to target creature you control.', 'x')).toThrow();
+    // D575 - Royal reads since the derived ward (Royal // Young Hero ships whole).
+    expect(vocabularyEffects('Create a Royal Role token attached to target creature you control.', 'x').map((e) => [e.attach, e.tokenFace, e.token?.name])).toEqual([['aim', 0, 'Royal Role']]);
     const card = { faces: [{ oracleText: 'Create a Wicked Role token attached to target creature you control.' }] } as unknown as CardData;
     expect(tokenPrintingIdsIn([card])).toContain(ROLE_TABLE['Wicked']?.printingId);
   });

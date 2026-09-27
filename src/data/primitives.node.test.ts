@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 12834,
-      blocked: 18858,
+      complete: 12849,
+      blocked: 18843,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -343,9 +343,9 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 928,
+      layer6: 923,
       counter: 998,
-      token: 780,
+      token: 773,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001, 3321, 4831, 5983]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001, 3316, 4826, 5970]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -474,7 +474,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // temporary grant is its sole primitive.
     // D568 - and one more: an escape card's Escape line is read now (the graveyard cast), so its grant is its sole primitive.
     // D573 - one restriction up: a phasing card's Phasing line is read now, so its restriction static is its sole primitive.
-    expect.soft(split).toEqual({ grant: 561, anthem: 105, restriction: 173, conditional: 89, unclaimed: 0 });
+    // D575 - five down: a granted ward is a static the rows emit now (the Aura, Equipment and lord grants rowed).
+    expect.soft(split).toEqual({ grant: 557, anthem: 104, restriction: 173, conditional: 89, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
@@ -517,7 +518,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // sentence is its sole primitive.
     // D574 - eleven down: a Role sentence reads now (the Role table), so the token primitive is no longer the need of three
     // spells and eight permanents.
-    expect.soft(byOwner).toEqual({ spell: 281, permanent: 499 });
+    // D575 - seven down: the Royal and Young Hero Role sentences read now (two spells, five permanents).
+    expect.soft(byOwner).toEqual({ spell: 279, permanent: 494 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -534,7 +536,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       predefined: 126,
       withAbilities: 231,
       variable: 75,
-      plain: 256,
+      plain: 249,
       unclaimed: 0,
     });
   });
@@ -566,7 +568,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
     expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001]);
-    expect.soft(r.complete).toBe(12834);
+    expect.soft(r.complete).toBe(12849);
   });
 });
 
@@ -711,7 +713,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
   test('the residue splits into named families', () => {
     expect.soft(rr.residue).toEqual({
       activatedCost: 1690,
-      triggeredShell: 1499,
+      triggeredShell: 1498,
       damage: 536,
       exile: 755,
       staticShell: 513,
@@ -722,7 +724,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       copySpell: 180,
       cantBeCountered: 18,
       gainControl: 58,
-      wardHexproofGrant: 46,
+      wardHexproofGrant: 45,
       other: 2304,
     });
   });

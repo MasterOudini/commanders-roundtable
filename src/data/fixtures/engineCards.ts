@@ -9223,6 +9223,17 @@ export const THE_WITCH_S_VANITY: CardData = F.THE_WITCH_S_VANITY as CardData;
 export const CHARMING_SCOUNDREL: CardData = F.CHARMING_SCOUNDREL as CardData;
 export const SPLASHY_SPELLCASTER: CardData = F.SPLASHY_SPELLCASTER as CardData;
 export const UNASSUMING_SAGE: CardData = F.UNASSUMING_SAGE as CardData;
+export const PROTECTIVE_PARENTS: CardData = F.PROTECTIVE_PARENTS as CardData;
+export const STAR_WHALE: CardData = F.STAR_WHALE as CardData;
+export const CHARMED_CLOTHIER: CardData = F.CHARMED_CLOTHIER as CardData;
+export const REDTOOTH_GENEALOGIST: CardData = F.REDTOOTH_GENEALOGIST as CardData;
+export const EMBERETH_VETERAN: CardData = F.EMBERETH_VETERAN as CardData;
+export const CRYSTAL_CARAPACE: CardData = F.CRYSTAL_CARAPACE as CardData;
+export const WINGED_BOOTS: CardData = F.WINGED_BOOTS as CardData;
+export const SUPER_STRENGTH: CardData = F.SUPER_STRENGTH as CardData;
+export const FALCON_S_WING_HARNESS: CardData = F.FALCON_S_WING_HARNESS as CardData;
+export const GIANT_ANKHEG: CardData = F.GIANT_ANKHEG as CardData;
+export const LAVASPUR_BOOTS: CardData = F.LAVASPUR_BOOTS as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -9503,6 +9514,7 @@ export const SPIRIT_3_3_W_CREATURE_TOKEN: CardData = F.SPIRIT_3_3_W_CREATURE_TOK
 export const MONSTER_SORCERER_ROLE_TOKEN: CardData = F.MONSTER_SORCERER_ROLE_TOKEN as CardData;
 export const WICKED_CURSED_ROLE_TOKEN: CardData = F.WICKED_CURSED_ROLE_TOKEN as CardData;
 export const MONSTER_VIRTUOUS_ROLE_TOKEN: CardData = F.MONSTER_VIRTUOUS_ROLE_TOKEN as CardData;
+export const ROYAL_YOUNG_HERO_ROLE_TOKEN: CardData = F.ROYAL_YOUNG_HERO_ROLE_TOKEN as CardData;
 
 /** Every fixture card, for building an OracleDb in a test. */
 export const ENGINE_CARDS: CardData[] = [
@@ -18711,6 +18723,17 @@ export const ENGINE_CARDS: CardData[] = [
   CHARMING_SCOUNDREL,
   SPLASHY_SPELLCASTER,
   UNASSUMING_SAGE,
+  PROTECTIVE_PARENTS,
+  STAR_WHALE,
+  CHARMED_CLOTHIER,
+  REDTOOTH_GENEALOGIST,
+  EMBERETH_VETERAN,
+  CRYSTAL_CARAPACE,
+  WINGED_BOOTS,
+  SUPER_STRENGTH,
+  FALCON_S_WING_HARNESS,
+  GIANT_ANKHEG,
+  LAVASPUR_BOOTS,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
@@ -18991,4 +19014,5 @@ export const ENGINE_CARDS: CardData[] = [
   MONSTER_SORCERER_ROLE_TOKEN,
   WICKED_CURSED_ROLE_TOKEN,
   MONSTER_VIRTUOUS_ROLE_TOKEN,
+  ROYAL_YOUNG_HERO_ROLE_TOKEN,
 ];

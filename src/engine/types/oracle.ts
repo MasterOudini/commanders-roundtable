@@ -2410,6 +2410,12 @@ export interface OracleDb {
 }
 
 /** Characteristics after the layer pipeline. Never stored — always recomputed. */
+/** D575 - one ward: its mana, or its life (`Ward—Pay N life`). The shape the tax sums (mana.ts wardTaxFrom). */
+export interface WardCharge {
+  readonly wardCost: ManaCost | null;
+  readonly wardLife: number;
+}
+
 export interface DerivedCharacteristics {
   readonly name: string;
   readonly typeLine: ParsedTypeLine;
@@ -2425,6 +2431,11 @@ export interface DerivedCharacteristics {
   readonly landwalk: readonly string[];
   /** `Toxic N`. 0 unless the creature has toxic. */
   readonly toxicAmount: number;
+  /**
+   * D575 - THE WARDS (CR 702.21): the printed one (layer 1) and every one a static grants (the ability layer) - each its
+   * own tax on an opponent's spell or ability that targets this; none once the abilities are lost.
+   */
+  readonly wards: readonly WardCharge[];
   readonly isCreature: boolean;
   readonly isLand: boolean;
   readonly isPermanent: boolean;

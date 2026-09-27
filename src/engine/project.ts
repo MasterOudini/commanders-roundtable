@@ -133,6 +133,8 @@ export class Projector {
         tapped: inst.tapped,
         // D573 - a phased-out permanent is still on the table, drawn faint (absent when phased in).
         ...(inst.phasedOut ? { phasedOut: true as const } : {}),
+        // D575 - the derived wards of a visible permanent (absent when none - every older view unchanged).
+        ...(visible && !inst.faceDown && inst.zone.kind === 'battlefield' && d.wards.length > 0 ? { wards: d.wards } : {}),
         summoningSick:
           d.isCreature &&
           inst.summonedOnTurn !== null &&
@@ -441,6 +443,7 @@ function sameCardView(a: CardView, b: CardView): boolean {
     a.faceDown === b.faceDown &&
     a.disguised === b.disguised &&
     a.phasedOut === b.phasedOut &&
+    (a.wards ?? []).map((w) => (w.wardCost?.raw ?? '') + '/' + w.wardLife).join(',') === (b.wards ?? []).map((w) => (w.wardCost?.raw ?? '') + '/' + w.wardLife).join(',') &&
     a.controller === b.controller &&
     a.owner === b.owner &&
     a.tapped === b.tapped &&

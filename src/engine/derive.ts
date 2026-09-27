@@ -111,6 +111,7 @@ function computeDerived(
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
+      wards: [],
       grantedActivated: [],
       grantedTriggered: [],
       producesMana: [],
@@ -340,6 +341,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
+      wards: [],
       grantedActivated: [],
       grantedTriggered: [],
       producesMana: [],
@@ -363,6 +365,7 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
       protection: NO_PROTECTION,
       landwalk: [],
       toxicAmount: 0,
+      wards: [],
       grantedActivated: [],
       grantedTriggered: [],
       producesMana: [],
@@ -392,6 +395,8 @@ function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics 
     protection: face.protection,
     landwalk: [...face.landwalk],
     toxicAmount: face.toxicAmount,
+    // D575 - the printed ward (a granted one is a static's, pushed in the ability layer).
+    wards: face.wardCost !== null || face.wardLife > 0 ? [{ wardCost: face.wardCost, wardLife: face.wardLife }] : [],
     // D367 - a printed object has no GRANTED abilities; only a layer-6 static adds one.
     grantedActivated: [],
     grantedTriggered: [],
@@ -490,6 +495,7 @@ function cloneChars(chars: MutableCharacteristics): MutableCharacteristics {
     landwalk: [...chars.landwalk],
     grantedActivated: [...chars.grantedActivated],
     grantedTriggered: [...chars.grantedTriggered],
+    wards: [...chars.wards],
     producesMana: [...chars.producesMana],
   };
 }
@@ -703,6 +709,7 @@ function finish(
     protection: gone ? NO_PROTECTION : chars.protection,
     landwalk: gone ? [] : chars.landwalk,
     toxicAmount: gone ? 0 : chars.toxicAmount,
+    wards: gone ? [] : chars.wards,
     // D367 - the sixth ability-shaped field: a granted ability is an ability.
     grantedActivated: gone ? [] : chars.grantedActivated,
     grantedTriggered: gone ? [] : chars.grantedTriggered,

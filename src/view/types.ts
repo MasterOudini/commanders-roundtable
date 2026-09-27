@@ -22,6 +22,7 @@
 //    while independent things still overlap.
 
 import type { CardData, ColorLetter } from '../data/cardTypes';
+import type { WardCharge } from '../engine/types/oracle';
 
 export type PlayerId = string;
 export type InstanceId = string;
@@ -146,6 +147,11 @@ export interface CardView {
   disguised?: true;
   /** D573 - PHASED OUT (CR 702.26b): treated as though it does not exist until its controller's next untap step. PUBLIC. */
   phasedOut?: true;
+  /**
+   * D575 - the permanent's DERIVED wards (printed and granted), for the client's cost preview to charge what the host
+   * charges (D53). PUBLIC - a permanent's abilities are public. Absent when it has none.
+   */
+  wards?: readonly WardCharge[];
   controller: PlayerId;
   owner: PlayerId;
   tapped: boolean;

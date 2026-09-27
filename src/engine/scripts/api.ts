@@ -17,7 +17,7 @@
 import type { ColorLetter } from '../../data/cardTypes';
 import type { EventBody, EventKind, ResolvedDamage } from '../types/events';
 import type { AbilityRef, InstanceId, OracleId, PlayerId, ZoneKind } from '../types/ids';
-import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ManaProduction, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec } from '../types/oracle';
+import type { ActivatedAbility, DerivedCharacteristics, EffectSpec, GrantedActivated, GrantedTriggered, Keyword, ManaProduction, ModeDecl, OracleDb, ParsedTypeLine, Protection, TargetSpec, WardCharge } from '../types/oracle';
 import type { DefenderRef, GameOptions, GameState, StackObject } from '../types/state';
 
 /** The mutable form a static ability edits. Copied out of `derive()`'s workspace. */
@@ -51,6 +51,8 @@ export interface MutableCharacteristics {
   landwalk: string[];
   /** `Toxic N`. Layer 6 can grant the keyword; this is the amount that came with it. */
   toxicAmount: number;
+  /** D575 - the wards (a static in the ability layer pushes a granted one). */
+  wards: WardCharge[];
   /**
    * D372 - THE MANA ABILITIES this object has, printed AND granted. Seeded from the
    * face in layer 1 (a face-down or unknown object has none); a layer-6 static that

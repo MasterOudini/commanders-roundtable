@@ -5,9 +5,9 @@
 // one face of one of them - `TokenCreated` carries the face. A hand table (the generated TOKEN_TABLE reads only
 // `layout: 'token'` descriptions), pinned against the fixtures by roleTable.node.test.ts.
 //
-// ⚠️ ROYAL AND YOUNG HERO ARE ABSENT: the only printing with Young Hero is `Royal // Young Hero`, and a shipped script
-// owes EVERY face (engineCompleteness reads them all) - Royal's `has ward {1}` waits for a derived ward (the ward tax
-// reads the printed face). A Role clause naming a Role absent here is a sentence the parser does not read (D90).
+// D575 - ROYAL AND YOUNG HERO share `Royal // Young Hero` (a shipped script owes EVERY face - engineCompleteness reads
+// them all): they joined once the derived ward carried Royal's `has ward {1}`. A Role clause naming a Role absent here is
+// a sentence the parser does not read (D90).
 import type { TokenRef } from './tokenTable';
 
 export interface RoleRef extends TokenRef {
@@ -21,6 +21,8 @@ export const ROLE_TABLE: Readonly<Record<string, RoleRef>> = {
   Wicked: { oracleId: '0664dcc8-fa68-4802-936f-ecd2979ebf3c', printingId: '6929750f-cf08-4e3e-83b0-076e1f6fa8e0', name: 'Wicked Role', faceIndex: 0 },
   Cursed: { oracleId: '0664dcc8-fa68-4802-936f-ecd2979ebf3c', printingId: '6929750f-cf08-4e3e-83b0-076e1f6fa8e0', name: 'Cursed Role', faceIndex: 1 },
   Virtuous: { oracleId: '0873438f-14c4-4427-b42e-9f531ce86e7d', printingId: '27927100-2587-4e05-9957-eb183d46c1f0', name: 'Virtuous Role', faceIndex: 1 },
+  Royal: { oracleId: '48b92b4d-ba82-4ea4-a48b-3d2813350260', printingId: 'cff8ef48-2988-4d21-837e-01f1459e07c5', name: 'Royal Role', faceIndex: 0 },
+  'Young Hero': { oracleId: '48b92b4d-ba82-4ea4-a48b-3d2813350260', printingId: 'cff8ef48-2988-4d21-837e-01f1459e07c5', name: 'Young Hero Role', faceIndex: 1 },
 };
 
 /** The Role a clause names (`Monster`, `monster`), or undefined for a Role the table does not hold. */

@@ -312698,6 +312698,392 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PROTECTIVE_PARENTS": {
+    "scryfallId": "68cc9653-80ef-4606-a0ec-6d4228fdb118",
+    "oracleId": "d9717522-358b-41ac-9183-8a6b3981f921",
+    "name": "Protective Parents",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Protective Parents",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "When this creature dies, create a Young Hero Role token attached to up to one target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature has \"Whenever this creature attacks, if its toughness is 3 or less, put a +1/+1 counter on it.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "68cc9653-80ef-4606-a0ec-6d4228fdb118"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAR_WHALE": {
+    "scryfallId": "82dca4c3-efd6-4b6b-ac49-5a916135a592",
+    "oracleId": "3e84d719-bb76-43a4-b61a-fee30c3aac68",
+    "name": "Star Whale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Star Whale",
+        "manaCost": "{6}{U}{U}",
+        "typeLine": "Creature — Alien Whale",
+        "oracleText": "Flying, vigilance\nOther creatures you control have ward {2}.\nSuspend 6—{1}{U} (Rather than cast this card from your hand, you may pay {1}{U} and exile it with six time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost. It has haste.)",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "82dca4c3-efd6-4b6b-ac49-5a916135a592"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying",
+      "Vigilance",
+      "Suspend"
+    ],
+    "setCode": "who",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHARMED_CLOTHIER": {
+    "scryfallId": "994f4473-dfc9-45cd-8528-945db3aa6a9a",
+    "oracleId": "ad0e6b12-a6bd-4860-9eac-68b2492d9567",
+    "name": "Charmed Clothier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Charmed Clothier",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Faerie Advisor",
+        "oracleText": "Flying\nWhen this creature enters, create a Royal Role token attached to another target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature gets +1/+1 and has ward {1}.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "994f4473-dfc9-45cd-8528-945db3aa6a9a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REDTOOTH_GENEALOGIST": {
+    "scryfallId": "99c81440-66eb-4443-a83f-e2f15cb68a3e",
+    "oracleId": "f6cb9c5a-601e-4580-9fab-903e9b00e35e",
+    "name": "Redtooth Genealogist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Redtooth Genealogist",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Advisor",
+        "oracleText": "When this creature enters, create a Royal Role token attached to another target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature gets +1/+1 and has ward {1}.)",
+        "flavorText": "Some family trees are thornier than others.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Gaboleps",
+        "imageId": "99c81440-66eb-4443-a83f-e2f15cb68a3e"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "179",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMBERETH_VETERAN": {
+    "scryfallId": "bc7130b8-3168-421f-912a-46ed5b769807",
+    "oracleId": "2c232056-9dd6-4a78-be08-3bff19daa88d",
+    "name": "Embereth Veteran",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Embereth Veteran",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "{1}, Sacrifice this creature: Create a Young Hero Role token attached to another target creature. (If you control another Role on it, put that one into the graveyard. Enchanted creature has \"Whenever this creature attacks, if its toughness is 3 or less, put a +1/+1 counter on it.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andreia Ugrai",
+        "imageId": "bc7130b8-3168-421f-912a-46ed5b769807"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRYSTAL_CARAPACE": {
+    "scryfallId": "e1888c61-dc2d-4a33-9ba4-439d97f490be",
+    "oracleId": "06a6130f-f27b-4db0-915d-decd9a7d3c15",
+    "name": "Crystal Carapace",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crystal Carapace",
+        "manaCost": "{3}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +3/+3 and has ward {2}.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+        "flavorText": "\"Why won't you die, wretched flesh-beast?\"\n—Lukka",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "e1888c61-dc2d-4a33-9ba4-439d97f490be"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Enchant",
+      "Cycling"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "183",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINGED_BOOTS": {
+    "scryfallId": "116361c4-fddd-440a-ad02-8d71df733231",
+    "oracleId": "a178a789-1f5f-46ca-a90b-574bd236a671",
+    "name": "Winged Boots",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Winged Boots",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has flying and ward {4}. (Whenever equipped creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {4}.)\nEquip {1}",
+        "flavorText": "Get carried away.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "116361c4-fddd-440a-ad02-8d71df733231"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "otc",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPER_STRENGTH": {
+    "scryfallId": "1d24d200-63d4-44cf-8d3a-6c6ece5e16ff",
+    "oracleId": "e1b577ad-1488-43b5-83d9-e40bd60c74be",
+    "name": "Super Strength",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super Strength",
+        "manaCost": "{4}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +4/+4 and has trample and ward {1}. (Whenever enchanted creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)",
+        "flavorText": "\"SEE! HULK STRONG . . . STRONGEST THERE IS!\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "1d24d200-63d4-44cf-8d3a-6c6ece5e16ff"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FALCON_S_WING_HARNESS": {
+    "scryfallId": "20e93f86-9e20-4e08-9bf7-ae6ebebf6876",
+    "oracleId": "e69db5f0-beed-48e8-bc25-768b1e8be5ea",
+    "name": "Falcon's Wing Harness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Falcon's Wing Harness",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+1 and has flying and ward {1}. (Whenever equipped creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)\nEquip {2}{U} ({2}{U}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "20e93f86-9e20-4e08-9bf7-ae6ebebf6876"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_ANKHEG": {
+    "scryfallId": "bc420f2c-09fa-4f90-a1c3-7d151ecaa8b3",
+    "oracleId": "ca905672-50c2-4e19-9d08-2d3f8e3debfd",
+    "name": "Giant Ankheg",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Ankheg",
+        "manaCost": "{6}{G}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Trample\nWard {2} (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {2}.)\nOther creatures you control have trample and ward {2}.",
+        "flavorText": null,
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Kendall",
+        "imageId": "bc420f2c-09fa-4f90-a1c3-7d151ecaa8b3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Trample",
+      "Ward"
+    ],
+    "setCode": "clb",
+    "collectorNumber": "233",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVASPUR_BOOTS": {
+    "scryfallId": "e50709de-e6ef-4dbc-af1e-290fed279f34",
+    "oracleId": "63bfb9ca-d9d5-4c17-be39-82eb115bc20c",
+    "name": "Lavaspur Boots",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lavaspur Boots",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+0 and has haste and ward {1}. (Whenever it becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)\nEquip {1}",
+        "flavorText": "These boots were made for far more than walking.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Mila Pesic",
+        "imageId": "e50709de-e6ef-4dbc-af1e-290fed279f34"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -322060,6 +322446,51 @@
     ],
     "setCode": "twoc",
     "collectorNumber": "1",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ROYAL_YOUNG_HERO_ROLE_TOKEN": {
+    "scryfallId": "cff8ef48-2988-4d21-837e-01f1459e07c5",
+    "oracleId": "48b92b4d-ba82-4ea4-a48b-3d2813350260",
+    "name": "Royal // Young Hero",
+    "layout": "flip",
+    "faces": [
+      {
+        "name": "Royal",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has ward {1}. (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "cff8ef48-2988-4d21-837e-01f1459e07c5"
+      },
+      {
+        "name": "Young Hero",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature has \"Whenever this creature attacks, if its toughness is 3 or less, put a +1/+1 counter on it.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "cff8ef48-2988-4d21-837e-01f1459e07c5"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "twoe",
+    "collectorNumber": "16",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

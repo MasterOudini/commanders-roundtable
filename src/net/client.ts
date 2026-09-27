@@ -617,10 +617,8 @@ export class ClientSession {
         if (card.disguised) out.push(DISGUISE_WARD);
         continue;
       }
-      if (!card.card) continue;
-      const oracleCard = this.pool.oracle().byPrinting(card.card.scryfallId);
-      if (!oracleCard) continue;
-      out.push(faceOf(oracleCard, 0));
+      // D575 - the view's DERIVED wards (printed and granted) - the host's own sum, not face 0's.
+      out.push(...(card.wards ?? []));
     }
     return out;
   }

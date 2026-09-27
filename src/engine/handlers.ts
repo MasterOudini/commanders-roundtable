@@ -893,7 +893,8 @@ function wardTaxFor(
       if (faceOf(oracleCard, 0).disguise) faces.push(DISGUISE_WARD);
       continue;
     }
-    faces.push(faceOf(oracleCard, card.faceIndex));
+    // D575 - the DERIVED wards: the printed one and every one a static grants (the Royal Role's), none once lost.
+    faces.push(...derive(state, deps.oracle, deps.scripts, card.id).wards);
   }
   // ⚠️ The SUM is shared with the client (D53). Only the lookup above differs.
   return wardTaxFrom(faces);
