@@ -93,6 +93,8 @@ export type TableMode =
       readonly conspired?: boolean;
       /** D558 - the offspring the player announced in the review (its toggle). */
       readonly offspring?: boolean;
+      /** D564 - the squad count the player announced in the review (0 none). */
+      readonly squadded?: number;
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */

@@ -66,6 +66,8 @@ export interface CardMove {
   readonly kickedWith?: readonly number[];
   /** D558 - the resolving spell's offspring cost was paid (CR 702.175a): the permanent's enters trigger makes its 1/1 copy. */
   readonly offspring?: true;
+  /** D564 - the resolving spell's squad count (CR 702.157a): the permanent's enters trigger makes that many token copies. */
+  readonly squadded?: number;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
   readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */

@@ -87,6 +87,11 @@ export type Intent =
        */
       readonly offspring?: boolean;
       /**
+       * D564 - SQUAD (CR 702.157a): how many times the squad cost is paid (`Squad {M}`). The host adds it that many times
+       * to the payment, and the permanent's enters trigger creates a token copy of it for each payment.
+       */
+      readonly squadded?: number;
+      /**
        * D405 - CONVOKE (CR 702.51), IMPROVISE (CR 702.126), DELVE (CR 702.66): the creatures the
        * caster taps, the artifacts the caster taps, the cards the caster exiles from their graveyard,
        * each paying one symbol of the cost (a creature a coloured one of its colour, else generic;

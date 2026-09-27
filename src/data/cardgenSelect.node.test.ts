@@ -773,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D564 - squad: the Squad line is the engine's now (the count paid at cast, a token copy per payment as it enters); what stays is a squad creature whose other line the row maker does not read.
+  ['Arco-Flagellant', 'the row maker: ability-word activated line: Endurant — Pay 3 life: ~ gains indestructible until end of turn. (its Squad line reads since D564) (D564)'],
   // D562 - enlist: the Enlist line is the engine's now (the declaration's tap of another creature, its power added until end of turn); what stays is an enlist creature whose other line the row maker does not read.
   ['Guardian of New Benalia', 'the row maker: a head outside the closed reader: Whenever this creature enlists a creature, scry 2. (the enlistment is an event with no row head yet; its Enlist line reads since D562) (D562)'],
   ['Balduvian Berserker', 'the row maker: a dies trigger that bites from the graveyard: When this creature dies, it deals damage equal to its power to any target. (the bite needs its source on the battlefield - its last known power unread - and any target is no card-only aim; its Enlist line reads since D562) (D562)'],

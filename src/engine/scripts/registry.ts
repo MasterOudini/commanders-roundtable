@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ULTRAMARINES_HONOUR_GUARD_SCRIPT } from './cards/ultramarinesHonourGuard';
+import { WASTELAND_RAIDER_SCRIPT } from './cards/wastelandRaider';
+import { GALADHRIM_BRIGADE_SCRIPT } from './cards/galadhrimBrigade';
+import { VANGUARD_SUPPRESSOR_SCRIPT } from './cards/vanguardSuppressor';
+import { ROADKILL_RODNEY_SCRIPT } from './cards/roadkillRodney';
+import { SPACE_MARINE_DEVASTATOR_SCRIPT } from './cards/spaceMarineDevastator';
+import { POWDER_GANGER_SCRIPT } from './cards/powderGanger';
+import { SICARIAN_INFILTRATOR_SCRIPT } from './cards/sicarianInfiltrator';
 import { LINEBREAKER_BALOTH_SCRIPT } from './cards/linebreakerBaloth';
 import { YAVIMAYA_STEELCRUSHER_SCRIPT } from './cards/yavimayaSteelcrusher';
 import { ARGIVIAN_CAVALIER_SCRIPT } from './cards/argivianCavalier';
@@ -8263,6 +8271,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ULTRAMARINES_HONOUR_GUARD_SCRIPT,
+  WASTELAND_RAIDER_SCRIPT,
+  GALADHRIM_BRIGADE_SCRIPT,
+  VANGUARD_SUPPRESSOR_SCRIPT,
+  ROADKILL_RODNEY_SCRIPT,
+  SPACE_MARINE_DEVASTATOR_SCRIPT,
+  POWDER_GANGER_SCRIPT,
+  SICARIAN_INFILTRATOR_SCRIPT,
   LINEBREAKER_BALOTH_SCRIPT,
   YAVIMAYA_STEELCRUSHER_SCRIPT,
   ARGIVIAN_CAVALIER_SCRIPT,

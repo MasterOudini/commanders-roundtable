@@ -60,6 +60,8 @@ export interface BotPort {
     conspired?: boolean,
     /** D558 - the offspring cost paid (CR 702.175a). */
     offspring?: boolean,
+    /** D564 - the squad count (CR 702.157a). */
+    squadded?: number,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

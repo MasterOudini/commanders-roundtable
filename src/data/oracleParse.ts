@@ -371,6 +371,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (kw === 'recover' && parseRecover(face?.oracleText ?? '') === null) continue;
     // D563 - harmonize is the engine's only when its cost read as mana (the graveyard cast pays it).
     if (kw === 'harmonize' && parseHarmonize(face?.oracleText ?? '') === null) continue;
+    // D564 - squad is the engine's only when its cost read as mana (the cast pays it, the copies follow).
+    if (kw === 'squad' && parseSquad(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -626,6 +628,19 @@ export function parseHarmonize(oracleText: string, warn: Warn = NOOP_WARN): Mana
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const m = /^Harmonize ((?:\{[^}]+\})+)$/.exec(line);
+    if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
+/**
+ * D564 - SQUAD (CR 702.157a): `Squad {M}` on its own line (reminder text aside), as a mana cost - an additional cost the
+ * cast may pay any number of times. A squad cost that is not only mana stays null (D90).
+ */
+export function parseSquad(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
+  for (const raw of (oracleText ?? '').split('\n')) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Squad ((?:\{[^}]+\})+)$/.exec(line);
     if (m) return parseManaCost(m[1] ?? '', warn);
   }
   return null;
@@ -1349,6 +1364,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const recoverCost = parseRecover(face.oracleText, warn);
   // D563 - harmonize on an instant or sorcery (a cast of the spell from the graveyard).
   const harmonizeCost = isPermanent ? null : parseHarmonize(face.oracleText, warn);
+  // D564 - squad on a permanent (its copies are permanents the token machinery makes - Endless Foot Assault is an enchantment).
+  const squadCost = isPermanent ? parseSquad(face.oracleText, warn) : null;
   // D537 - retrace and jump-start are instant and sorcery keywords (a graveyard cast of the spell).
   const graveyardCast = isPermanent ? null : parseGraveyardCast(face.oracleText, warn);
   // D538 - rebound is an instant and sorcery keyword: a `Rebound` line of its own (reminder text aside).
@@ -1458,6 +1475,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     offspringCost,
     recoverCost,
     harmonizeCost,
+    squadCost,
     graveyardCast,
     rebound,
     foretellCost: parseForetell(face.oracleText, warn),

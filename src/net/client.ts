@@ -105,6 +105,9 @@ export interface CastPreview {
   /** D558 - the offspring cost the face prints (CR 702.175a), and whether this preview priced it. */
   readonly offspring: { readonly cost: string } | null;
   readonly offspringPaid: boolean;
+  /** D564 - the squad cost the face prints (CR 702.157a), and the count this preview priced. */
+  readonly squad: { readonly cost: string } | null;
+  readonly squadded: number;
   /**
    * D405 - the alternatives the face prints (convoke / improvise / delve) and what this preview
    * priced: `alt` is what the cast will tap or exile (empty lists when the player asked for none),
@@ -478,7 +481,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false, squadded = 0): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -504,6 +507,9 @@ export class ClientSession {
     const repMana = replicated > 0 && repCost ? Array.from({ length: replicated }, () => repCost) : [];
     // D558 - the offspring the player announced (the host prices the same cost).
     const offMana = offspring && face.offspringCost ? [face.offspringCost] : [];
+    // D564 - the squad count the player announced (the host prices the same cost that many times).
+    const sqCost = face.squadCost;
+    const sqMana = squadded > 0 && sqCost ? Array.from({ length: squadded }, () => sqCost) : [];
     // D406 - the additional cost: the life rides the problem; with no pick named and `or pay {M}` printed,
     // the mana stands in (the host prices the same way, D53).
     const add = face.additionalCost;
@@ -513,7 +519,7 @@ export class ClientSession {
     const orPaid = altc === null && add !== null && add.orPay !== null && picksCount(costPicks) === 0;
     const addMana = orPaid && add?.orPay ? [add.orPay] : [];
     const addLife = (add && !orPaid ? add.lifeCost : 0) + (altc ? altc.lifeCost : 0);
-    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...addMana], action.tax, ward.life + addLife + buyLife);
+    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...sqMana, ...addMana], action.tax, ward.life + addLife + buyLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
@@ -548,6 +554,8 @@ export class ClientSession {
       conspired: conspired && face.conspireVerb !== null,
       offspring: face.offspringCost ? { cost: face.offspringCost.raw } : null,
       offspringPaid: offspring && face.offspringCost !== null,
+      squad: sqCost ? { cost: sqCost.raw } : null,
+      squadded: sqCost ? squadded : 0,
       keywords,
       alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
       altAvailable,

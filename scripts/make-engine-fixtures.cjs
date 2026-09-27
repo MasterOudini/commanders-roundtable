@@ -10214,6 +10214,17 @@ const WANTED = [
   'Wild Ride',
   "Roamer's Routine",
   'Unending Whisper',
+  // D564 - SQUAD: the squad creatures the proofs deal (the rows bring the rest).
+  'Vanguard Suppressor',
+  'Powder Ganger',
+  // D564 - SQUAD: the rows the whole-leftover row maker rowed once the Squad line was the engine's (a count paid at cast, a token copy per payment as it enters).
+  'Ultramarines Honour Guard',
+  'Wasteland Raider',
+  'Galadhrim Brigade',
+  'Roadkill Rodney',
+  'Space Marine Devastator',
+  'Sicarian Infiltrator',
+  // D564 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -943,6 +943,23 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'squad',
+    {
+      // D564 - CR 702.157a: when this creature enters, if its squad cost was paid, create a token that's a copy of it for
+      // each time its squad cost was paid. Offspring's shape (D558) without the 1/1: the move says how many
+      // (`CardMove.squadded`, the resolving spell's count, taken as the memo); the copies' own entries carry no payment.
+      event: 'CardsMoved',
+      matches: (_ctx, self, ev) => ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && (m.squadded ?? 0) > 0),
+      memo: (_ctx, self, ev) => (ev.t === 'CardsMoved' ? ev.moves.find((m) => m.card === self && m.to.kind === 'battlefield')?.squadded ?? 0 : 0),
+      label: (ctx, self) => `${nameOf(ctx, self)} - squad`,
+      resolve: (ctx, self, obj) => {
+        const card = ctx.state.cards[self];
+        if (!card) return [];
+        return Array.from({ length: obj.memo ?? 0 }, () => ({ t: 'TokenCreated' as const, card: ctx.ids.nextInstance(), oracleId: card.oracleId, printingId: card.printingId, controller: obj.controller, owner: obj.controller, turnNumber: ctx.state.turn.turnNumber, faceIndex: card.faceIndex, copyOf: self, ...(card.copyExceptions ? { copyExceptions: card.copyExceptions } : {}) }));
+      },
+    },
+  ],
+  [
     'madness',
     {
       // D541 - CR 702.35a: "When this card is exiled this way, its owner may cast it by paying [cost] rather than paying

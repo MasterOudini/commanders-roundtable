@@ -79,6 +79,9 @@ export type LegalAction =
       /** D558 - OFFSPRING (CR 702.175a): the face's offspring cost the cast may pay (`CastSpell.offspring`), and whether the cast with it is payable now. */
       readonly offspringCost?: string;
       readonly offspringAffordable?: boolean;
+      /** D564 - SQUAD (CR 702.157a): the face's squad cost the cast may pay any number of times (`CastSpell.squadded`), and whether one payment is payable now. */
+      readonly squadCost?: string;
+      readonly squadAffordable?: boolean;
       /**
        * D563 - HARMONIZE (CR 702.180a): a cast from the graveyard for the harmonize cost - the untapped creatures the cast
        * may tap (`CastSpell.harmonize`, the cost {X} less by its power), and whether it is payable with the strongest.
@@ -1211,6 +1214,10 @@ function castAction(
     // D558 - an offspring is offered with whether the cast with it is payable, priced by the same solver.
     ...(face.offspringCost !== null
       ? { offspringCost: face.offspringCost.raw, offspringAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.offspringCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
+      : {}),
+    // D564 - a squad is offered, not priced: the preview prices the count the player announces; one payment priced here.
+    ...(face.squadCost !== null
+      ? { squadCost: face.squadCost.raw, squadAffordable: affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), face.squadCost], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false)) }
       : {}),
     ...(add ? { additionalCostText: add.costText } : {}),
     ...(add?.orPay ? { orPay: add.orPay.raw } : {}),

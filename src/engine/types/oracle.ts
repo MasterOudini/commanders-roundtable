@@ -139,6 +139,9 @@ export const TIER2_KEYWORDS = [
   // D563 - HARMONIZE (CR 702.180a): a cast from the graveyard for the harmonize cost (flashback's), a creature tapped
   // to reduce it by its power (the alternatives' tap), the spell exiled as it leaves the stack.
   'harmonize',
+  // D564 - SQUAD (CR 702.157a): the count paid at cast (replicate's, onto the permanent's entry as offspring's is) and
+  // the enters trigger that makes a token copy per payment, from the keyword table.
+  'squad',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
@@ -2108,6 +2111,11 @@ export interface OracleFace {
    * that is not only mana stays null (D90).
    */
   readonly harmonizeCost: ManaCost | null;
+  /**
+   * D564 - SQUAD (CR 702.157a): `Squad {M}` on a permanent - an additional cost the cast may pay any number of times
+   * (`CastSpell.squadded`); the permanent's enters trigger creates a token copy of it for each payment.
+   */
+  readonly squadCost: ManaCost | null;
   /**
    * D537 - RETRACE (CR 702.81) / JUMP-START (CR 702.133): the card may be cast from its owner's graveyard for its mana
    * cost and a discard - a land card (retrace) or any card (jump-start) - the `verb` D406's additional cost charges.

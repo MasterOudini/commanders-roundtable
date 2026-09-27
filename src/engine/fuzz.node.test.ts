@@ -1400,6 +1400,11 @@ function offOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unkn
   return a.offspringAffordable === true ? { offspring: true } : {};
 }
 
+/** D564 - the squad the driver names: once, exactly when the offer says one payment is payable (replicate's rule). */
+function sqOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  return a.squadAffordable === true ? { squadded: 1 } : {};
+}
+
 function castPicksOf(action: Extract<LegalAction, { t: 'CastSpell' }>): { sacrifice?: readonly InstanceId[]; discard?: readonly InstanceId[]; tap?: readonly InstanceId[]; exileFromGraveyard?: readonly InstanceId[]; returnToHand?: readonly InstanceId[] } {
   const first = (ids: readonly InstanceId[] | undefined, n: number | undefined): readonly InstanceId[] | null => (ids && n !== undefined && ids.length >= n ? ids.slice(0, n) : null);
   const sacrifice = first(action.sacrificeCandidates, action.sacrificeCount);
@@ -1484,7 +1489,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...sqOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1826,6 +1831,9 @@ interface Run {
   /** D563 - the casts from the graveyard for the harmonize cost (CR 702.180a), and the ones that tapped a creature. */
   readonly harmonizedCasts: number;
   readonly harmonizeTaps: number;
+  /** D564 - the casts that paid the squad cost (CR 702.157a), and the squad triggers put on the stack. */
+  readonly squaddedCasts: number;
+  readonly squadCopies: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2371,6 +2379,8 @@ function runOne(seed: number): Run {
     enlistPumps: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:enlist')).length,
     harmonizedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'graveyard' && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.harmonizeCost ?? null) !== null).length,
     harmonizeTaps: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.harmonizeTapped === true).length,
+    squaddedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.squadded ?? 0) > 0).length,
+    squadCopies: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:squad')).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2742,6 +2752,8 @@ const TOTAL_KEYS = [
   'enlistPumps',
   'harmonizedCasts',
   'harmonizeTaps',
+  'squaddedCasts',
+  'squadCopies',
   'crownings',
   'ringTempts',
   'ringAbilities',

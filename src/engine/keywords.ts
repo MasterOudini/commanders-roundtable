@@ -97,6 +97,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   enlist: 'enlist',
   // D563 - harmonize: the graveyard cast for the harmonize cost, a creature tapped to reduce it by its power.
   harmonize: 'harmonize',
+  // D564 - squad: the count paid at cast and the enters trigger that makes a token copy per payment.
+  squad: 'squad',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

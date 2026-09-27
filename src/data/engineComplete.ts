@@ -619,6 +619,8 @@ export function linesUnaccounted(
     if (face.conspireVerb !== null && line === 'Conspire') continue;
     // D558 - an Offspring line the engine CHARGES at cast time (`CastSpell.offspring`) and RUNS as the enters trigger's copy.
     if (face.offspringCost !== null && /^Offspring (?:\{[^}]+\})+$/.test(line)) continue;
+    // D564 - a Squad line the engine CHARGES at cast time (`CastSpell.squadded`) and RUNS as the enters trigger's copies.
+    if (face.squadCost !== null && /^Squad (?:\{[^}]+\})+$/.test(line)) continue;
     // D561 - a Recover line the engine RUNS (the graveyard trigger, its price the pay prompt's), asked of the parser that read it.
     if (face.recoverCost !== null && /^Recover (?:\{[^}]+\})+$/.test(line)) continue;
     // D563 - a Harmonize line the engine OFFERS (the graveyard cast for its cost, the tap's reduction), asked of the parser that read it.
