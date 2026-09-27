@@ -310584,6 +310584,184 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BOULDER_SALVO": {
+    "scryfallId": "44d7da93-f96b-4a04-80f8-590b369e730b",
+    "oracleId": "16df20e2-5228-4543-84b7-74a3170d9d31",
+    "name": "Boulder Salvo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boulder Salvo",
+        "manaCost": "{4}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Surge {1}{R} (You may cast this spell for its surge cost if you or a teammate has cast another spell this turn.)\nBoulder Salvo deals 4 damage to target creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Vincent Proce",
+        "imageId": "44d7da93-f96b-4a04-80f8-590b369e730b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Surge"
+    ],
+    "setCode": "pio",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKEWER_THE_CRITICS": {
+    "scryfallId": "01ef52d0-1c0a-41f7-bccf-64e6f6886ebc",
+    "oracleId": "c43b616e-ef87-4c12-810b-a1a3260168fa",
+    "name": "Skewer the Critics",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skewer the Critics",
+        "manaCost": "{2}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nSkewer the Critics deals 3 damage to any target.",
+        "flavorText": "Going to a Rakdos show is dangerous. Trying to leave early can be fatal.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Heonhwa",
+        "imageId": "01ef52d0-1c0a-41f7-bccf-64e6f6886ebc"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Spectacle"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "340",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADE_JUGGLER": {
+    "scryfallId": "099bc474-e656-4167-b105-3a3a36c0b23e",
+    "oracleId": "34400cf5-b8c4-4cf2-9186-51f12037cc51",
+    "name": "Blade Juggler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blade Juggler",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Spectacle {2}{B} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nWhen this creature enters, it deals 1 damage to you and you draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dmitry Burmak",
+        "imageId": "099bc474-e656-4167-b105-3a3a36c0b23e"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Spectacle"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONTAINMENT_MEMBRANE": {
+    "scryfallId": "49dd3963-a4d7-4992-b6f8-753996390bbf",
+    "oracleId": "e3bf1a95-4363-4915-8f43-b423714861ec",
+    "name": "Containment Membrane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Containment Membrane",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Surge {U} (You may cast this spell for its surge cost if you or a teammate has cast another spell this turn.)\nEnchant creature\nEnchanted creature doesn't untap during its controller's untap step.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daarken",
+        "imageId": "49dd3963-a4d7-4992-b6f8-753996390bbf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant",
+      "Surge"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HACKROBAT": {
+    "scryfallId": "a41335c2-3d11-4f95-8d9f-66b04398c10b",
+    "oracleId": "65ce903f-8c3e-4283-9b6e-ee9b3176f059",
+    "name": "Hackrobat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hackrobat",
+        "manaCost": "{1}{B}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Spectacle {B}{R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\n{B}: This creature gains deathtouch until end of turn.\n{R}: This creature gets +2/-2 until end of turn.",
+        "flavorText": "\"They all want to see me fall.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "a41335c2-3d11-4f95-8d9f-66b04398c10b"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Spectacle"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "181",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

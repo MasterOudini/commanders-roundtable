@@ -1386,7 +1386,7 @@ export interface AlternativeCost {
   // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
   // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
   // D548 - and AWAKEN (CR 702.113a): the election adds a target land you control and the rider after the spell (`awaken`: N).
-  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning';
+  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle';
   /** D548 - AWAKEN N: the +1/+1 counters the awakened land gets. */
   readonly awaken?: number;
   /**
@@ -1410,10 +1410,15 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
     // D560 - and Blitz (CR 702.152a): dash's shape, the permanent sacrificed at the next end step and drawing when it dies.
     // D566 - and Freerunning (CR 702.173a): no rider - the cast's condition, combat damage dealt to a player this turn
     // with an Assassin or commander (the turn record's combat damagers).
-    const kwAlt = /^(Evoke|Dash|Warp|Blitz|Freerunning) ((?:\{[^}]+\})+)$/.exec(line);
+    // D567 - and Surge (CR 702.117a: another spell cast this turn - the free-for-all has no teammate) and Spectacle
+    // (CR 702.137a: an opponent lost life this turn): freerunning's shape, their conditions read by the activation
+    // grammar's own reader; a reading that fails refuses the line (D90).
+    const kwAlt = /^(Evoke|Dash|Warp|Blitz|Freerunning|Surge|Spectacle) ((?:\{[^}]+\})+)$/.exec(line);
     if (kwAlt) {
       const kwMana = parseCost(kwAlt[2] ?? '');
       if (kwMana === null) return null;
+      const kwCond = kwAlt[1] === 'Surge' ? parseGateCondition("you've cast another spell this turn") : kwAlt[1] === 'Spectacle' ? parseGateCondition('an opponent lost life this turn') : null;
+      if ((kwAlt[1] === 'Surge' || kwAlt[1] === 'Spectacle') && kwCond === null) return null;
       return {
         line,
         costText: kwAlt[2] ?? '',
@@ -1425,8 +1430,8 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         exileFromGraveyardCost: null,
         returnCost: null,
         exileFromHand: null,
-        conditions: kwAlt[1] === 'Freerunning' ? [{ kind: 'freerunning' }] : [],
-        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : kwAlt[1] === 'Freerunning' ? 'freerunning' : 'dash',
+        conditions: kwAlt[1] === 'Freerunning' ? [{ kind: 'freerunning' }] : kwCond !== null ? [kwCond] : [],
+        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : kwAlt[1] === 'Freerunning' ? 'freerunning' : kwAlt[1] === 'Surge' ? 'surge' : kwAlt[1] === 'Spectacle' ? 'spectacle' : 'dash',
       };
     }
     // D566 - `Freerunning—<cost>.` (Escape Detection): ONE chooser verb the cost grammar reads (`readCostVerbs`, D415) in

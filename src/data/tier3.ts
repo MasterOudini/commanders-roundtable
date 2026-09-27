@@ -424,6 +424,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     // D566 - a Freerunning the engine runs (its line read as the face's alternative cost under its combat-damage condition) is
     // no note.
     if (raw.trim().toLowerCase() === 'freerunning' && parseAlternativeCost(card.faces[faceIndex]?.oracleText ?? '', parseManaCost)?.keyword === 'freerunning') continue;
+    // D567 - a Surge or a Spectacle the engine runs (its line read as the face's alternative cost under its turn-record
+    // condition) is no note.
+    if ((raw.trim().toLowerCase() === 'surge' || raw.trim().toLowerCase() === 'spectacle') && parseAlternativeCost(card.faces[faceIndex]?.oracleText ?? '', parseManaCost)?.keyword === raw.trim().toLowerCase()) continue;
     // D541 - a Madness the engine runs (a mana cost, read by parseMadness: the discard's exile, the trigger's cast) is no note.
     if (raw.trim().toLowerCase() === 'madness' && parseMadness(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
     // D536 - an instant's or a sorcery's Storm the engine runs (the keyword table's cast trigger) is no note.

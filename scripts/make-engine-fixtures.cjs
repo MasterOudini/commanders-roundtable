@@ -10242,6 +10242,14 @@ const WANTED = [
   // D566 - FREERUNNING: the rows the whole-leftover row maker rowed once the Freerunning line was the engine's (an alternative cost once an Assassin or a commander of yours dealt combat damage to a player this turn).
   'Achilles Davenport',
   // D566 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D567 - SURGE AND SPECTACLE: the surge and spectacle spells the proofs deal (the rows bring the rest).
+  'Boulder Salvo',
+  'Skewer the Critics',
+  // D567 - SURGE AND SPECTACLE: the rows the whole-leftover row maker rowed once the Surge and Spectacle lines were the engine's (alternative costs once another spell was cast, or an opponent lost life, this turn).
+  'Blade Juggler',
+  'Containment Membrane',
+  'Hackrobat',
+  // D567 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

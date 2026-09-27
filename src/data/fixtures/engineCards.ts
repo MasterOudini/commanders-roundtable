@@ -9163,6 +9163,11 @@ export const MERCILESS_HARLEQUIN: CardData = F.MERCILESS_HARLEQUIN as CardData;
 export const HIRED_POISONER: CardData = F.HIRED_POISONER as CardData;
 export const ESCAPE_DETECTION: CardData = F.ESCAPE_DETECTION as CardData;
 export const ACHILLES_DAVENPORT: CardData = F.ACHILLES_DAVENPORT as CardData;
+export const BOULDER_SALVO: CardData = F.BOULDER_SALVO as CardData;
+export const SKEWER_THE_CRITICS: CardData = F.SKEWER_THE_CRITICS as CardData;
+export const BLADE_JUGGLER: CardData = F.BLADE_JUGGLER as CardData;
+export const CONTAINMENT_MEMBRANE: CardData = F.CONTAINMENT_MEMBRANE as CardData;
+export const HACKROBAT: CardData = F.HACKROBAT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18586,6 +18591,11 @@ export const ENGINE_CARDS: CardData[] = [
   HIRED_POISONER,
   ESCAPE_DETECTION,
   ACHILLES_DAVENPORT,
+  BOULDER_SALVO,
+  SKEWER_THE_CRITICS,
+  BLADE_JUGGLER,
+  CONTAINMENT_MEMBRANE,
+  HACKROBAT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

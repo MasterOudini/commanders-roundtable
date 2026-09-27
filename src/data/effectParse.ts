@@ -3506,7 +3506,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !((ALTERNATIVE_COST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) || FREE_CAST_LINE.test(l.replace(/\s*\([^)]*\)\s*$/, '').trim())) && parseAlternativeCost(l, parseManaCost, cardName) !== null))
     // D548 - an AWAKEN line is the spell's alternative cost (`parseAlternativeCost`, keyword `awaken`), no clause of it.
     // D566 - and a FREERUNNING line (the alternative cost under its combat-damage condition).
-    .filter((l) => { const k = parseAlternativeCost(l, parseManaCost, cardName)?.keyword; return k !== 'awaken' && k !== 'freerunning'; })
+    // D567 - and a SURGE or SPECTACLE line (the alternative cost under its turn-record condition).
+    .filter((l) => { const k = parseAlternativeCost(l, parseManaCost, cardName)?.keyword; return k !== 'awaken' && k !== 'freerunning' && k !== 'surge' && k !== 'spectacle'; })
     // D410 - a TYPECYCLING line is the hand ability's (`activatedParse`), no clause of the spell either.
     .filter((l) => !(/cycling \{/i.test(l) && cyclingAbilities(l.replace(/\s*\([^)]*\)\s*$/, '').trim()) !== null))
     // D504 - a tribal instant's or sorcery's `Changeling` line (Crib Swap) is a characteristic the keywords carry, no
