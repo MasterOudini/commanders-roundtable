@@ -1407,6 +1407,8 @@ export type Awaiting =
       readonly pool?: readonly InstanceId[];
       /** D538 - a declined free cast leaves the pool's card where it is (rebound's, in exile) - cascade's goes to the bottom. */
       readonly declineStays?: true;
+      /** D572 - DISCOVER (CR 701.57a): a declined free cast puts the pool's card into its owner's HAND (cascade's goes to the bottom). */
+      readonly declineToHand?: true;
       /**
        * D541 - MADNESS (CR 702.35a): the pool's card is cast for its madness cost (`cost`, as printed), not for nothing;
        * `payable` - the host's read as the trigger resolved (`madnessCastAdmits`) of whether it can be cast and paid now,

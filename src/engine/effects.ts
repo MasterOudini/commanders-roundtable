@@ -1628,6 +1628,51 @@ export function effectResult(
         break;
       }
 
+      // D572 - DISCOVER N (CR 701.57a): cascade's walk (D525) off the controller's library as this resolution has left it,
+      // to the first nonland card with mana value N or LESS (the printed value, cascade's reader); the rest to the bottom
+      // in a random order off the seeded generator; the hit's play permission and cascade's pool prompt with
+      // `declineToHand` - cast for nothing, or into its owner's hand. The prompt stops the resolution (the rest carried).
+      case 'discover': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        let now = state;
+        for (const body of out) now = apply(now, { seq: now.eventCount, body, cause: { kind: 'system' } } as never);
+        const lib = now.zones.library[controller] ?? [];
+        const exiled: InstanceId[] = [];
+        let hit: InstanceId | null = null;
+        // The library is bottom-first: the last entry is the top.
+        for (let i = lib.length - 1; i >= 0; i--) {
+          const id = lib[i];
+          if (id === undefined) break;
+          exiled.push(id);
+          const inst = now.cards[id];
+          const printing = inst ? deps.oracle.byPrinting(inst.printingId) : undefined;
+          if (!inst || !printing) continue;
+          if (!faceOf(printing, 0).isLand && printing.manaValue <= effect.amount) {
+            hit = id;
+            break;
+          }
+        }
+        if (exiled.length === 0) {
+          out.push(narrated(`${obj.label} - discover ${effect.amount}: the library is empty.`, obj.controller, obj.identity));
+          break;
+        }
+        const ownerOf = (card: InstanceId): PlayerId => now.cards[card]?.owner ?? controller;
+        out.push({ t: 'CardsMoved', moves: exiled.map((card) => ({ card, from: { kind: 'library' as const, player: controller }, to: { kind: 'exile' as const, player: ownerOf(card) } })) });
+        const mixed = shuffle(rng ?? state.rng, exiled.filter((card) => card !== hit));
+        rng = mixed.next;
+        if (mixed.value.length > 0) out.push({ t: 'CardsMoved', moves: mixed.value.map((card) => ({ card, from: { kind: 'exile' as const, player: ownerOf(card) }, to: { kind: 'library' as const, player: controller }, placement: 'bottom' as const })) });
+        const k = exiled.length;
+        if (hit === null) {
+          out.push(narrated(`${obj.label} - discover ${effect.amount}: ${k} card${k === 1 ? '' : 's'} exiled and put on the bottom of the library in a random order - no nonland card with mana value ${effect.amount} or less among them.`, obj.controller, obj.identity));
+          break;
+        }
+        out.push({ t: 'PlayPermissionGranted', permission: { card: hit, player: controller, until: 'thisTurn', grantedTurn: state.turn.turnNumber } });
+        out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseFromZone', player: controller, zone: 'exile', rest: null, count: 1, min: 0, label: obj.label, castFree: true, pool: [hit], declineToHand: true } });
+        const hitPrinting = deps.oracle.byPrinting(now.cards[hit]?.printingId ?? '');
+        out.push(narrated(`${obj.label} - discover ${effect.amount}: ${k} card${k === 1 ? '' : 's'} exiled; ${hitPrinting ? faceOf(hitPrinting, 0).name : 'a card'} may be cast without paying its mana cost, or put into its owner's hand.`, obj.controller, obj.identity));
+        break;
+      }
+
       case 'adapt': {
         if (aim?.kind !== 'card' || effect.amount <= 0) break;
         const adapter = state.cards[aim.id];

@@ -4516,10 +4516,12 @@ function answerChooseFromZone(
         // D541 - a madness card declined goes to its owner's graveyard (CR 702.35a).
         if (still.length > 0 && awaiting.madness !== undefined) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'graveyard' as const, player: state.cards[card]?.owner ?? intent.player } })) });
         // D538 - a rebound card declined at the upkeep stays in exile (`declineStays`); its permission still goes.
+        // D572 - discover's card declined goes into its owner's hand (CR 701.57a).
+        else if (still.length > 0 && awaiting.declineToHand === true) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'hand' as const, player: state.cards[card]?.owner ?? intent.player } })) });
         else if (still.length > 0 && awaiting.declineStays !== true) declined.push({ t: 'CardsMoved', moves: still.map((card) => ({ card, from: { kind: 'exile' as const, player: state.cards[card]?.owner ?? intent.player }, to: { kind: 'library' as const, player: state.cards[card]?.owner ?? intent.player }, placement: 'bottom' as const })) });
         declined.push({ t: 'PlayPermissionsExpired', cards: [...awaiting.pool] });
       }
-      declined.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player));
+      declined.push(narrated(awaiting.declineToHand === true ? n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} the discovered card into its owner's hand.` : n`${who(state, intent.player)} ${vb(intent.player, 'casts', 'cast')} nothing for ${awaiting.label}.`, intent.player));
       return accept(declined, resumeContinuation(state, deps, declined, awaiting.continuation));
     }
     const pick = intent.cards[0];

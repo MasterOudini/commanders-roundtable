@@ -753,6 +753,12 @@ export type EffectKind =
    */
   | 'endure'
   /**
+   * D572 - DISCOVER N (CR 701.57a): cascade's walk off the controller's library to the first nonland card with mana value
+   * N or less, the rest to the bottom in a random order; the hit cast for nothing or put into its owner's hand (the pool
+   * prompt with `declineToHand`). Planned aimless.
+   */
+  | 'discover'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).

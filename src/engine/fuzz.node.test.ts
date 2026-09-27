@@ -1865,6 +1865,8 @@ interface Run {
   /** D571 - the champion questions asked (CR 702.72a) and the exiles paid (the rest sacrificed the champion). */
   readonly championAsks: number;
   readonly championExiles: number;
+  /** D572 - the discover questions asked (CR 701.57a - the pool prompts that put a declined card into the hand). */
+  readonly discoverAsks: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2423,6 +2425,7 @@ function runOne(seed: number): Run {
     devourAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.devour !== undefined).length,
     championAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'payMana' && e.body.awaiting.verbs?.championExile !== undefined).length,
     championExiles: game.log.filter((e) => e.body.t === 'PaymentAnswered' && e.body.paid && /^exile another .+ you control$/.test(e.body.verb ?? '')).length,
+    discoverAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.declineToHand === true).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2807,6 +2810,7 @@ const TOTAL_KEYS = [
   'devourAsks',
   'championAsks',
   'championExiles',
+  'discoverAsks',
   'crownings',
   'ringTempts',
   'ringAbilities',

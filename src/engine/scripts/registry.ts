@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FRANKLIN_RICHARDS_ASCENDANT_SCRIPT } from './cards/franklinRichardsAscendant';
+import { HIDDEN_VOLCANO_SCRIPT } from './cards/hiddenVolcano';
+import { BURIED_TREASURE_SCRIPT } from './cards/buriedTreasure';
+import { HIDDEN_CATARACT_SCRIPT } from './cards/hiddenCataract';
+import { ETALIS_FAVOR_SCRIPT } from './cards/etalisFavor';
+import { PRIMORDIAL_GNAWER_SCRIPT } from './cards/primordialGnawer';
+import { HIDDEN_NURSERY_SCRIPT } from './cards/hiddenNursery';
+import { HIDDEN_COURTYARD_SCRIPT } from './cards/hiddenCourtyard';
+import { HIDDEN_NECROPOLIS_SCRIPT } from './cards/hiddenNecropolis';
 import { WRENS_RUN_PACKMASTER_SCRIPT } from './cards/wrensRunPackmaster';
 import { LIGHTNING_CRAFTER_SCRIPT } from './cards/lightningCrafter';
 import { THOUGHTWEFT_TRIO_SCRIPT } from './cards/thoughtweftTrio';
@@ -8299,6 +8308,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FRANKLIN_RICHARDS_ASCENDANT_SCRIPT,
+  HIDDEN_VOLCANO_SCRIPT,
+  BURIED_TREASURE_SCRIPT,
+  HIDDEN_CATARACT_SCRIPT,
+  ETALIS_FAVOR_SCRIPT,
+  PRIMORDIAL_GNAWER_SCRIPT,
+  HIDDEN_NURSERY_SCRIPT,
+  HIDDEN_COURTYARD_SCRIPT,
+  HIDDEN_NECROPOLIS_SCRIPT,
   WRENS_RUN_PACKMASTER_SCRIPT,
   LIGHTNING_CRAFTER_SCRIPT,
   THOUGHTWEFT_TRIO_SCRIPT,

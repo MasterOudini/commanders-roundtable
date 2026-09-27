@@ -773,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D572 - discover: `Discover N.` is the engine's now (cascade's walk with a bound - the hit cast for nothing or put into the hand); what stays is a discover card whose other line the library or the vocabulary does not read.
+  ['Long-Range Sensor', 'the row maker: trigger head not in the library: Whenever you attack a player, put a charge counter on this artifact. - its discover reads since D572 (D572)'],
   // D571 - champion: the Champion line is the engine's now (another of its kind exiled as it enters and returned when it leaves - or it is sacrificed); what stays is a champion creature whose other line the suite cannot assert yet.
   ['Wanderwine Prophets', 'the row maker: a payment branch the suite cannot assert: extraTurn (Whenever this creature deals combat damage to a player, you may sacrifice a Merfolk. If you do, take an extra turn after this one. - its champion reads since D571) (D571)'],
   // D569 - endure: `<it> endures N` is the engine's now (the counters or an N/N white Spirit, chosen at resolution); what stays is an endure creature whose trial or payment branch the generator cannot assert yet.
@@ -2498,7 +2500,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Commune with Lava', 'play-from-exile permission'],
   ['Conduct Electricity', 'up-to-N targeting'],
   ['Contaminated Drink', 'rad counters'],
-  ['Contest of Claws', 'discover mechanic'],
+  ['Contest of Claws', 'a spell with a line outside the vocabulary: If excess damage was dealt this way, discover X, where X is that excess damage. - a counted X the vocabulary does not read; discover N reads since D572 (D572)'],
   // D205 — Cosmic Hunger probed: 'another target creature, planeswalker,
   // or battle' is the second-clause shape (the family's SEVENTH card);
   // Cut Down probed: the SUM qualifier ('total power and toughness 5 or
@@ -2676,7 +2678,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hostile Takeover', 'until-end-of-turn base P/T set'],
   ['Hour of Devastation', 'temporary keyword/ability grant'],
   ['Humble', 'until-end-of-turn base P/T set'],
-  ['Hurl into History', 'discover mechanic'],
+  ['Hurl into History', 'a spell with a line outside the vocabulary: Discover X, where X is that spell\'s mana value. - a counted X the vocabulary does not read; discover N reads since D572 (D572)'],
   ['Hurl Through Hell', 'play-from-exile permission'],
 
   ['Hypothesizzle', 'script-raised prompt'],
@@ -3232,7 +3234,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Yawgmoth's Vile Offering", 'cast-permission condition'],
   ['Zagoth Mamba', 'mutate mechanic'],
   ['Zero Point Ballad', 'script-raised prompt'],
-  ["Zoyowa's Justice", 'discover mechanic'],
+  ["Zoyowa's Justice", 'a spell with a line outside the vocabulary: Then that player discovers X, where X is its mana value. - another player discovers a counted X; discover N reads since D572 (D572)'],
   // D358 - the wave the library search opened landed 69 of 84; these fifteen are what the row
   // maker refused, each by the reason it gave.
   ['Everbark Shaman', 'exile-from-graveyard cost (typed)'],

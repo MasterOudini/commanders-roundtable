@@ -10288,6 +10288,20 @@ const WANTED = [
   'Thoughtweft Trio',
   'Boggart Mob',
   // D571 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D572 - DISCOVER: the discover cards the proofs deal (the rows bring the rest).
+  'Daring Discovery',
+  'Geological Appraiser',
+  'Primordial Gnawer',
+  // D572 - DISCOVER: the rows the whole-leftover row maker rowed once discover was the engine's (cascade's walk with a bound, the hit cast for nothing or put into the hand).
+  'Franklin Richards, Ascendant',
+  'Hidden Volcano',
+  'Buried Treasure',
+  'Hidden Cataract',
+  "Etali's Favor",
+  'Hidden Nursery',
+  'Hidden Courtyard',
+  'Hidden Necropolis',
+  // D572 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

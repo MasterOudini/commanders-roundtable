@@ -1316,6 +1316,9 @@ const RULES: readonly Rule[] = [
       return token ? { ...BASE, amount: 1, targetIndex: -1, self: true, token } : null;
     },
   },
+  // D572 - DISCOVER N (CR 701.57a): the controller's action, planned aimless (`self` with a kind outside SELF_AIMED - a
+  // dies trigger's discover still discovers). An X stays unread.
+  { kind: 'discover', re: new RegExp(`^(?:then )?discover (${COUNT})\\.$`, 'i'), build: (m) => { const n = num(m[1]); return n === null || n < 0 ? null : { ...BASE, amount: n, targetIndex: -1, self: true }; } },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D411 - THE UNTAP SKIP: the bare targeted form, and the self form under a trigger's head or an
