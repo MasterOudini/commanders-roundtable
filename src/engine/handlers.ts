@@ -48,6 +48,7 @@ import { goadersOf } from './goad';
 import { clashBegin, clashFinish, clashOpponentStep } from './clash';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
+import { splicedFaces } from './splice';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
 import { NO_ALT, altCount, applyAlternativePayment, assignAlternativePayment, type AltChoice, type ConvokeCandidate } from './altPayment';
@@ -85,7 +86,7 @@ import {
   type HandleResult,
   type Intent,
 } from './types/intents';
-import type { Awaiting, EffectContinuation, GameState, PendingCast, StackObject, TargetChoice } from './types/state';
+import type { Awaiting, EffectContinuation, GameState, PendingCast, SplicedCard, StackObject, TargetChoice } from './types/state';
 
 const KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 
@@ -429,6 +430,8 @@ interface CastSetup {
   readonly offspring: boolean;
   /** D564 - the squad count (CR 702.157a), priced into `problem`; the stack object remembers it. */
   readonly squadded: number;
+  /** D576 - the cards spliced onto it (CR 702.47), their costs priced into `problem`; the stack object remembers them. */
+  readonly spliced: readonly SplicedCard[];
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced into `problem`. */
   readonly alt: AltChoice;
   /** D406 - the picks of the additional cost's chooser verb, paid in the cost batch; `orPaid` when the `or pay {M}` alternative stands in. */
@@ -784,6 +787,46 @@ function replicateMana(face: ReturnType<typeof faceOf>, replicated: number): Man
   if (replicated <= 0 || face.replicateCost === null) return [];
   return Array.from({ length: replicated }, () => face.replicateCost as ManaCost);
 }
+/** D576 - SPLICE (CR 702.47): the mana the spliced cards add - each one's splice cost. */
+function spliceMana(deps: EngineDeps, spliced: readonly SplicedCard[] | undefined): ManaCost[] {
+  return splicedFaces(deps.oracle, spliced).flatMap((f) => (f.spliceCost ? [f.spliceCost] : []));
+}
+/** D576 - the cards spliced onto a cast, named in its narration (revealed as it is cast, CR 702.47a). */
+function spliceNote(deps: EngineDeps, spliced: readonly SplicedCard[] | undefined): string {
+  const names = splicedFaces(deps.oracle, spliced).map((f) => f.name);
+  return names.length > 0 ? `, splicing ${names.join(' and ')} onto it` : '';
+}
+/**
+ * D576 - why these cards cannot be spliced onto this cast, or null when they can: each is ANOTHER card in the caster's
+ * hand whose face prints a splice (the mana form) onto what this spell is - Arcane, or an instant or sorcery - and whose
+ * text the engine reads whole; the spell itself resolves its own one text (not face down, modal, scripted or cast for an
+ * alternative cost).
+ */
+function spliceProblem(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>, spliced: readonly InstanceId[], faceDown: boolean, alternative: boolean): string | null {
+  if (spliced.length === 0) return null;
+  if (faceDown) return 'A face-down spell cannot have cards spliced onto it.';
+  if (alternative) return `${face.name}'s alternative cost and a splice - the app charges one at a time.`;
+  if (face.modal !== null) return `${face.name} is modal - the app splices onto a spell with one text.`;
+  const host = state.cards[cardId];
+  if (host && deps.scripts.spell(host.oracleId) !== undefined) return `${face.name} resolves its own script - the app splices onto a spell whose text it reads.`;
+  if (face.effectMode !== 'auto') return `${face.name}' + AP + 's text is not read whole - nothing can be spliced onto it.`;
+  const arcane = face.typeLine.subtypes.includes('Arcane');
+  const instantOrSorcery = face.typeLine.types.includes('Instant') || face.typeLine.types.includes('Sorcery');
+  const seen = new Set<InstanceId>();
+  for (const id of spliced) {
+    if (id === cardId) return 'A spell cannot be spliced onto itself.';
+    if (seen.has(id)) return 'Each card is spliced once.';
+    seen.add(id);
+    const inst = state.cards[id];
+    if (!inst || inst.zone.kind !== 'hand' || inst.zone.player !== player) return 'A spliced card is revealed from your hand.';
+    const oc = deps.oracle.byPrinting(inst.printingId);
+    const f = oc ? faceOf(oc, 0) : undefined;
+    if (!f || f.spliceCost === null || f.spliceOnto === null) return `${f?.name ?? 'That card'} has no splice the app can charge.`;
+    if (f.spliceOnto === 'arcane' ? !arcane : !instantOrSorcery) return `${f.name} splices onto ${f.spliceOnto === 'arcane' ? 'an Arcane spell' : 'an instant or sorcery spell'}.`;
+    if (f.effectMode !== 'auto' || deps.scripts.spell(inst.oracleId) !== undefined) return `${f.name}' + AP + 's text is not one the app splices.`;
+  }
+  return null;
+}
 /** D556 - why a replicate count cannot be announced on this cast, or null when it can. */
 function replicateProblem(face: ReturnType<typeof faceOf>, replicated: number, faceDown: boolean): string | null {
   if (!Number.isInteger(replicated) || replicated < 0) return 'The replicate count must be zero or more.';
@@ -930,6 +973,8 @@ function prepareCast(
   offspring = false,
   // D564 - the squad count (CR 702.157a).
   squadded = 0,
+  // D576 - the cards spliced onto it (CR 702.47a).
+  spliced: readonly InstanceId[] = [],
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -1046,6 +1091,10 @@ function prepareCast(
   // D564 - a squad count is priced with the kick: the announcement names it, the problem carries the cost that many times.
   const sqWhy = squadProblem(face, squadded, faceDown);
   if (sqWhy) return { error: reject('notCastable', sqWhy) };
+  // D576 - the spliced cards: checked, their printings and faces carried, their costs priced with the kick.
+  const splWhy = spliceProblem(state, deps, player, cardId, face, spliced, faceDown, alternative);
+  if (splWhy) return { error: reject('notCastable', splWhy) };
+  const splicedCards: SplicedCard[] = spliced.flatMap((sid) => { const s = state.cards[sid]; return s ? [{ card: sid, printingId: s.printingId, faceIndex: 0 }] : []; });
   // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
   const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? (conspired ? face.conspireVerb : null) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
@@ -1061,12 +1110,12 @@ function prepareCast(
   if ('error' in altr) return altr;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...offspringMana(face, offspring), ...squadMana(face, squadded), ...extras.mana], tax, ward.life + extras.life);
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...spliceMana(deps, splicedCards), ...offspringMana(face, offspring), ...squadMana(face, squadded), ...extras.mana], tax, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, offspring, squadded, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, offspring, squadded, spliced: splicedCards, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1285,6 +1334,7 @@ function castSpell(
     intent.conspired === true,
     intent.offspring === true,
     intent.squadded ?? 0,
+    intent.spliced ?? [],
   );
   if ('error' in setup) return setup.error;
 
@@ -1309,7 +1359,7 @@ function castSpell(
   }
   const chosenModes = modal !== null && intent.modes !== undefined ? modesInOrder(intent.modes) : [];
   // D548 - an awakened cast aims the awakened land after the printed clauses (`castTargetSpecs`).
-  const spellSpecs = modal !== null ? modeSpecs(modal.modes, chosenModes) : castTargetSpecs(setup.face, intent.alternative === true);
+  const spellSpecs = modal !== null ? modeSpecs(modal.modes, chosenModes) : castTargetSpecs(setup.face, intent.alternative === true, splicedFaces(deps.oracle, setup.spliced));
   const needsX = !setup.faceDown && !!setup.face.manaCost && setup.face.manaCost.xCount > 0 && intent.xValue === undefined;
   const needsTargets = !setup.faceDown && spellSpecs.length > 0 && intent.targets === undefined;
 
@@ -1368,6 +1418,7 @@ function castSpell(
       ...(setup.conspired ? { conspired: true as const } : {}),
       ...(setup.offspring ? { offspring: true as const } : {}),
       ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
+      ...(setup.spliced.length > 0 ? { spliced: setup.spliced } : {}),
       ...(setup.foretold !== undefined ? { foretold: setup.foretold } : {}),
       // D551 - a PLOTTED cast is free: its staged stages price nothing (the only free setup this path makes), and a
       // back-out restores the mark.
@@ -1533,7 +1584,7 @@ function chooseX(
   // priced here before, and a Devil's Play flashed back for {X}{R}{R}{R} became {X}{R} the moment X was named.
   // D535 - and every other cost the cast chose (`stagedCastCost`).
   const xCost = stagedCastCost(face, pending);
-  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...offspringMana(face, pending.offspring === true), ...squadMana(face, pending.squadded ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
+  const base = buildPaymentProblem(xCost, intent.x, [...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...spliceMana(deps, pending.spliced), ...offspringMana(face, pending.offspring === true), ...squadMana(face, pending.squadded ?? 0), ...xExtras.mana], pending.taxApplied, xExtras.life + stagedCastLife(face, pending));
   // D405 - the alternatives the cast named stay in the problem X resizes (a choice X leaves no symbol for is refused).
   const priced = priceAlternatives(state, deps, face, base, pending.alt ?? NO_ALT);
   if ('error' in priced) return priced.error;
@@ -1541,7 +1592,7 @@ function chooseX(
 
   // CR 601.2c follows 601.2b: with X known, ask for the targets it may size.
   // D343 - a modal spell aims the CHOSEN modes' clauses.
-  const xSpecs = face.modal ? modeSpecs(face.modal.modes, pending.modes) : castTargetSpecs(face, pending.alternative === true);
+  const xSpecs = face.modal ? modeSpecs(face.modal.modes, pending.modes) : castTargetSpecs(face, pending.alternative === true, splicedFaces(deps.oracle, pending.spliced));
   if (xSpecs.length > 0 && pending.targets.length === 0) {
     return accept([
       { t: 'XChosen', x: intent.x, problem },
@@ -2229,7 +2280,7 @@ function chooseTargets(
       : abilityOfRef(deps, face, pending.abilityRef)?.targets ?? []
     : face.modal
       ? modeSpecs(face.modal.modes, pending.modes)
-      : castTargetSpecs(face, pending.alternative === true);
+      : castTargetSpecs(face, pending.alternative === true, splicedFaces(deps.oracle, pending.spliced));
 
   // D341 - a staged ability's source carries its power and toughness; a spell on the stack has none.
   const src = targetingSourceFor(state, deps, pending.card, intent.player) ?? { controller: intent.player, colors: face.colors };
@@ -2272,7 +2323,7 @@ function chooseTargets(
     stagedCastCost(face, pending),
     pending.xValue ?? 0,
     // D403 - the kick announced with the cast stays in the problem the targets reprice.
-    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...offspringMana(face, pending.offspring === true), ...squadMana(face, pending.squadded ?? 0), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
+    [...ward.mana, ...kickerMana(face, pending.kicked ?? 0, pending.kickedWith ?? []), ...buybackMana(face, pending.buyback === true), ...replicateMana(face, pending.replicated ?? 0), ...spliceMana(deps, pending.spliced), ...offspringMana(face, pending.offspring === true), ...squadMana(face, pending.squadded ?? 0), ...additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).mana],
     pending.taxApplied,
     ward.life + additionalExtras(face, pending.orPaid === true, kickVerbOf(face, pending.kicked ?? 0, pending.buyback === true)).life + stagedCastLife(face, pending),
   );
@@ -2433,6 +2484,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.conspired ? { conspired: true as const } : {}),
     ...(setup.offspring ? { offspring: true as const } : {}),
     ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
+    ...(setup.spliced.length > 0 ? { spliced: setup.spliced } : {}),
     ...(sunburst !== null && sunburst > 0 ? { sunburst } : {}),
     // D568 - ESCAPE (CR 702.138b): cast from the graveyard with escape - the mark the entry's `escapes with` counters read.
     ...(setup.from.kind === 'graveyard' && setup.face.flashbackCost === null && setup.face.graveyardCast?.kind === 'escape' ? { escaped: true as const } : {}),
@@ -2451,7 +2503,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   }
   events.push(
     narrated(
-      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}${altNote(setup.alt)}${setup.free ? ' without paying its mana cost' : ''}.`,
+      n`${who(state, args.player)} ${vb(args.player, 'casts', 'cast')} ${setup.faceDown ? 'a face-down creature' : setup.face.name}${setup.tax > 0 ? ` (commander tax {${setup.tax}})` : ''}${altNote(setup.alt)}${setup.free ? ' without paying its mana cost' : ''}${spliceNote(deps, setup.spliced)}.`,
       args.player,
       setup.identity,
     ),
@@ -2918,6 +2970,7 @@ function finishFromPending(
     conspired: pending.conspired === true,
     offspring: pending.offspring === true,
     squadded: pending.squadded ?? 0,
+    spliced: pending.spliced ?? [],
     alt,
     picks,
     orPaid: pending.orPaid === true,
@@ -2966,6 +3019,7 @@ function finishFromPending(
     ...(pending.conspired === true ? { conspired: true as const } : {}),
     ...(pending.offspring === true ? { offspring: true as const } : {}),
     ...(pending.squadded !== undefined && pending.squadded > 0 ? { squadded: pending.squadded } : {}),
+    ...(pending.spliced !== undefined && pending.spliced.length > 0 ? { spliced: pending.spliced } : {}),
     ...altCounts(alt),
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),
@@ -2977,7 +3031,7 @@ function finishFromPending(
   }
   events.push(
     narrated(
-      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}${altNote(alt)}${pending.free === true ? ' without paying its mana cost' : ''}.`,
+      n`${who(state, pending.player)} ${vb(pending.player, 'casts', 'cast')} ${face.name}${pending.xValue ? ` with X = ${pending.xValue}` : ''}${altNote(alt)}${pending.free === true ? ' without paying its mana cost' : ''}${spliceNote(deps, pending.spliced)}.`,
       pending.player,
       identity,
     ),

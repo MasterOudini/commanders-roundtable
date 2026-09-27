@@ -313084,6 +313084,109 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "GLACIAL_RAY": {
+    "scryfallId": "04c713fd-df47-4b35-bd37-ab65d853bdc8",
+    "oracleId": "e65a8ab8-84a7-4fe2-b009-ceb87bec6b4e",
+    "name": "Glacial Ray",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glacial Ray",
+        "manaCost": "{1}{R}",
+        "typeLine": "Instant — Arcane",
+        "oracleText": "Glacial Ray deals 2 damage to any target.\nSplice onto Arcane {1}{R} (As you cast an Arcane spell, you may reveal this card from your hand and pay its splice cost. If you do, add this card's effects to that spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "04c713fd-df47-4b35-bd37-ab65d853bdc8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Splice"
+    ],
+    "setCode": "pal04",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EVERDREAM": {
+    "scryfallId": "b71c923f-34ee-4743-98fb-1e6b727ded6d",
+    "oracleId": "5b17d3c5-6085-416e-9afd-8ed0639ae7d2",
+    "name": "Everdream",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Everdream",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Draw a card.\nSplice onto instant or sorcery {2}{U} (As you cast an instant or sorcery spell, you may reveal this card from your hand and pay its splice cost. If you do, add this card's effects to that spell.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "b71c923f-34ee-4743-98fb-1e6b727ded6d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Splice"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MH1-47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LAVA_SPIKE": {
+    "scryfallId": "049f1787-eddb-4ff2-adbe-e102142e972e",
+    "oracleId": "2837888c-bfa8-4955-9334-0605ad409f7e",
+    "name": "Lava Spike",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lava Spike",
+        "manaCost": "{R}",
+        "typeLine": "Sorcery — Arcane",
+        "oracleText": "Lava Spike deals 3 damage to target player or planeswalker.",
+        "flavorText": "Some kami attacks during the war were rife with trickery, subterfuge, and subtlety, draining hope and pride from the mortal world. Other attacks were a lot more straightforward.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "049f1787-eddb-4ff2-adbe-e102142e972e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "td0",
+    "collectorNumber": "B20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

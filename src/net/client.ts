@@ -109,6 +109,12 @@ export interface CastPreview {
   readonly squad: { readonly cost: string } | null;
   readonly squadded: number;
   /**
+   * D576 - the cards in hand the offer may splice onto it (CR 702.47) - each one's name, splice cost and target clauses -
+   * and the ones this preview priced (the offer's candidates among those asked for, in order).
+   */
+  readonly splice: { readonly candidates: readonly { readonly id: InstanceId; readonly name: string; readonly cost: string; readonly targets: number }[] } | null;
+  readonly spliced: readonly InstanceId[];
+  /**
    * D405 - the alternatives the face prints (convoke / improvise / delve) and what this preview
    * priced: `alt` is what the cast will tap or exile (empty lists when the player asked for none),
    * `altAvailable` what the chooser would take if asked, `altProblem` the choice the host would
@@ -481,7 +487,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false, squadded = 0): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false, squadded = 0, spliced: readonly InstanceId[] = []): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -510,6 +516,9 @@ export class ClientSession {
     // D564 - the squad count the player announced (the host prices the same cost that many times).
     const sqCost = face.squadCost;
     const sqMana = squadded > 0 && sqCost ? Array.from({ length: squadded }, () => sqCost) : [];
+    // D576 - the cards the player splices onto it, among the offer's candidates (the host prices each one's splice cost).
+    const splicing = spliced.filter((id) => (action.spliceCandidates ?? []).includes(id));
+    const splMana = splicing.flatMap((id) => { const f = this.faceFor(id); return f?.spliceCost ? [f.spliceCost] : []; });
     // D406 - the additional cost: the life rides the problem; with no pick named and `or pay {M}` printed,
     // the mana stands in (the host prices the same way, D53).
     const add = face.additionalCost;
@@ -519,7 +528,7 @@ export class ClientSession {
     const orPaid = altc === null && add !== null && add.orPay !== null && picksCount(costPicks) === 0;
     const addMana = orPaid && add?.orPay ? [add.orPay] : [];
     const addLife = (add && !orPaid ? add.lifeCost : 0) + (altc ? altc.lifeCost : 0);
-    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...sqMana, ...addMana], action.tax, ward.life + addLife + buyLife);
+    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...sqMana, ...splMana, ...addMana], action.tax, ward.life + addLife + buyLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };
@@ -556,6 +565,8 @@ export class ClientSession {
       offspringPaid: offspring && face.offspringCost !== null,
       squad: sqCost ? { cost: sqCost.raw } : null,
       squadded: sqCost ? squadded : 0,
+      splice: action.spliceCandidates !== undefined ? { candidates: action.spliceCandidates.flatMap((id) => { const f = this.faceFor(id); return f?.spliceCost ? [{ id, name: f.name, cost: f.spliceCost.raw, targets: f.targets.length }] : []; }) } : null,
+      spliced: splicing,
       keywords,
       alt: altCount(chosenAlt) > 0 ? chosenAlt : NO_ALT,
       altAvailable,
@@ -720,7 +731,7 @@ export class ClientSession {
   }
 
   /** The parsed target clauses of a card in hand, or of one of its abilities. */
-  targetSpecsFor(cardId: InstanceId, abilityIndex?: number, grantRef?: string): readonly TargetSpec[] {
+  targetSpecsFor(cardId: InstanceId, abilityIndex?: number, grantRef?: string, spliced: readonly InstanceId[] = []): readonly TargetSpec[] {
     // D367 - a GRANTED ability is not on the recipient's face: its parsed body
     // lives on the provider's def (`ActivatedDef.granted`), which ships in the
     // bundle exactly as the spell defs D187 reads here do.
@@ -730,7 +741,8 @@ export class ClientSession {
     }
     const face = this.faceFor(cardId);
     if (!face) return [];
-    if (abilityIndex === undefined) return face.targets;
+    // D576 - a cast with cards spliced onto it aims at their clauses after its own (the host's castTargetSpecs).
+    if (abilityIndex === undefined) return spliced.length > 0 ? [...face.targets, ...spliced.flatMap((id) => this.faceFor(id)?.targets ?? [])] : face.targets;
     return face.activated[abilityIndex]?.targets ?? [];
   }
 

@@ -2138,6 +2138,12 @@ export interface OracleFace {
    */
   readonly replicateCost: ManaCost | null;
   /**
+   * D576 - SPLICE (CR 702.47): `Splice onto Arcane {M}` / `Splice onto instant or sorcery {M}` - the mana a cast of a spell
+   * of that kind may pay to add this card's text to it (`CastSpell.spliced`); null for a splice that is not only mana.
+   */
+  readonly spliceCost: ManaCost | null;
+  readonly spliceOnto: 'arcane' | 'instantOrSorcery' | null;
+  /**
    * D557 - CONSPIRE (CR 702.78a): `Conspire` on an instant or sorcery - the cast may tap two untapped creatures its
    * controller controls that share a colour with it (`CastSpell.conspired`, the `tap` picks): D530's verb-kicker shape,
    * the tap chooser with one creature predicate per printed colour. Paid, the cast trigger copies the spell once.

@@ -620,6 +620,8 @@ export function linesUnaccounted(
     if (face.buybackVerb !== null && face.buybackVerb.line === line) continue;
     // D556 - a Replicate line the engine CHARGES at cast time (`CastSpell.replicated`) and RUNS as the cast trigger's copies.
     if (face.replicateCost !== null && /^Replicate (?:\{[^}]+\})+$/.test(line)) continue;
+    // D576 - a Splice line the engine CHARGES as another spell is cast (`CastSpell.spliced`) and RUNS as that spell's text.
+    if (face.spliceCost !== null && /^Splice onto (?:Arcane|instant or sorcery) (?:\{[^}]+\})+$/.test(line)) continue;
     // D557 - a Conspire line the engine CHARGES at cast time (`CastSpell.conspired`, its taps) and RUNS as the cast trigger's copy.
     if (face.conspireVerb !== null && line === 'Conspire') continue;
     // D558 - an Offspring line the engine CHARGES at cast time (`CastSpell.offspring`) and RUNS as the enters trigger's copy.

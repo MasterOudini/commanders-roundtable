@@ -1414,6 +1414,12 @@ function offOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unkn
   return a.offspringAffordable === true ? { offspring: true } : {};
 }
 
+/** D576 - the splice the driver names: its first candidate, exactly when the offer says the cast with it spliced is payable (D443's rule). */
+function splOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  const first = a.spliceCandidates?.[0];
+  return a.spliceAffordable === true && first !== undefined ? { spliced: [first] } : {};
+}
+
 /** D564 - the squad the driver names: once, exactly when the offer says one payment is payable (replicate's rule). */
 function sqOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
   return a.squadAffordable === true ? { squadded: 1 } : {};
@@ -1503,7 +1509,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...sqOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...sqOf(chosen), ...splOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1873,6 +1879,8 @@ interface Run {
   readonly phasedIn: number;
   /** D574 - the Role tokens created (CR 303.7). */
   readonly rolesCreated: number;
+  /** D576 - the casts that spliced a card onto the spell (CR 702.47). */
+  readonly splicedCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2435,6 +2443,7 @@ function runOne(seed: number): Run {
     phasedOut: game.log.reduce((n, e) => n + (e.body.t === 'PhasedOut' ? e.body.cards.length : 0), 0),
     phasedIn: game.log.reduce((n, e) => n + (e.body.t === 'PhasedIn' ? e.body.cards.length : 0), 0),
     rolesCreated: game.log.filter((e) => e.body.t === 'TokenCreated' && ROLE_PRINTINGS.has(e.body.printingId)).length,
+    splicedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.spliced ?? []).length > 0).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2823,6 +2832,7 @@ const TOTAL_KEYS = [
   'phasedOut',
   'phasedIn',
   'rolesCreated',
+  'splicedCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

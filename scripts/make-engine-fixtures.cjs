@@ -10340,6 +10340,10 @@ const WANTED = [
   'Giant Ankheg',
   'Lavaspur Boots',
   // D575 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D576 - SPLICE: the splice cards and the Arcane host the proofs deal (the rows bring the rest).
+  'Glacial Ray',
+  'Everdream',
+  'Lava Spike',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

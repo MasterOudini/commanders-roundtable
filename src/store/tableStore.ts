@@ -58,6 +58,8 @@ export type TableMode =
       readonly next: 'payment' | 'submit' | 'answer';
       /** D406 - the additional cost's picks, chosen before the targets, carried into the payment review. */
       readonly costPicks?: CostPicks;
+      /** D576 - the cards spliced onto the spell in the review, whose clauses these targets include; carried back to it. */
+      readonly spliced?: readonly string[];
     }
   /**
    * Reviewing what auto-tap proposes before paying.
@@ -95,6 +97,8 @@ export type TableMode =
       readonly offspring?: boolean;
       /** D564 - the squad count the player announced in the review (0 none). */
       readonly squadded?: number;
+      /** D576 - the cards the player splices onto it in the review (CR 702.47), in order; `targets` covers their clauses too. */
+      readonly spliced?: readonly string[];
       /** D405 - pay with convoke / improvise / delve as the chooser picks them (the review's toggle). */
       readonly useAlt?: boolean;
       /** D406 - the additional cost's picks (a sacrifice, a discard, a tap, an exile, a return), priced and sent as named. */

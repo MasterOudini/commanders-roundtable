@@ -614,6 +614,21 @@ export function parseBuyback(oracleText: string, warn: Warn = NOOP_WARN): { buyb
  * D556 - REPLICATE (CR 702.56a): `Replicate {M}` on its own line (reminder text aside), as a mana cost - an additional
  * cost the cast may pay any number of times. A replicate cost that is not only mana stays null (D90).
  */
+/**
+ * D576 - SPLICE (CR 702.47): `Splice onto Arcane {M}` / `Splice onto instant or sorcery {M}` on its own line (reminder text
+ * aside), the mana form only - a splice cost that is not only mana stays null (D90).
+ */
+export function parseSplice(oracleText: string, warn: Warn = NOOP_WARN): { readonly onto: 'arcane' | 'instantOrSorcery'; readonly cost: ManaCost } | null {
+  for (const raw of (oracleText ?? '').split(String.fromCharCode(10))) {
+    const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    const m = /^Splice onto (Arcane|instant or sorcery) ((?:\{[^}]+\})+)$/.exec(line);
+    if (!m) continue;
+    const cost = parseManaCost(m[2] ?? '', warn);
+    return cost ? { onto: m[1] === 'Arcane' ? 'arcane' : 'instantOrSorcery', cost } : null;
+  }
+  return null;
+}
+
 export function parseReplicate(oracleText: string, warn: Warn = NOOP_WARN): ManaCost | null {
   for (const raw of (oracleText ?? '').split('\n')) {
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -1415,6 +1430,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const bought = isPermanent ? { buyback: null, buybackVerb: null } : parseBuyback(face.oracleText, warn);
   // D556 - replicate on an instant or sorcery (a permanent spell's copy would be a token the engine does not make, CR 707.10a).
   const replicateCost = isPermanent ? null : parseReplicate(face.oracleText, warn);
+  // D576 - a splice (an instant or sorcery's; the mana form).
+  const splice = isPermanent ? null : parseSplice(face.oracleText, warn);
   // D557 - conspire on an instant or sorcery (a permanent spell's copy would be a token the engine does not make).
   const conspireVerb = isPermanent ? null : parseConspire(face.oracleText, face.colors);
   // D558 - offspring on a creature (its copy is a permanent the token machinery makes).
@@ -1535,6 +1552,8 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     buybackCost: bought.buyback,
     buybackVerb: bought.buybackVerb,
     replicateCost,
+    spliceCost: splice?.cost ?? null,
+    spliceOnto: splice?.onto ?? null,
     conspireVerb,
     offspringCost,
     recoverCost,

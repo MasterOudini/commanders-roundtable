@@ -3580,6 +3580,8 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^Buyback (?:\{[^}]+\})+\s*$/.test(l.trim()) && !/^Buyback—.+\.\s*$/.test(l.trim()))
     // D556 - a Replicate line is a cost the cast announces and a cast trigger the keyword table runs, no clause of the spell either.
     .filter((l) => !/^Replicate (?:\{[^}]+\})+\s*$/.test(l.trim()))
+    // D576 - a Splice line (the mana form) is a cost another spell's cast announces, no clause of this spell either.
+    .filter((l) => !/^Splice onto (?:Arcane|instant or sorcery) (?:\{[^}]+\})+\s*$/.test(l.trim()))
     // D557 - a Conspire line is a cost the cast may pay and a cast trigger the keyword table runs, no clause of the spell either.
     .filter((l) => l.trim() !== 'Conspire')
     // D559 - a Transmute line is a hand ability the engine runs (the discard its cost, the search by mana value), no clause

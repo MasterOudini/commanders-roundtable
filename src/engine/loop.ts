@@ -12,6 +12,7 @@
 // or it is blocked on a human (`priority.awaiting !== null`). Those are the only
 // two places the engine stops.
 
+import { splicedFaces, withSpliced } from './splice';
 import { inPlay, phaseOutEvent } from './zones';
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, enlistCandidates, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
 import { derive, makeDeriveCache, type DeriveCache } from './derive';
@@ -860,7 +861,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     const printed = oracleCard ? faceOf(oracleCard, obj.copyOf.faceIndex) : null;
     const face = printed !== null && obj.copyOf.colors !== undefined ? { ...printed, colors: obj.copyOf.colors } : printed;
     const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
-    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : undefined))) {
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : undefined))) {
       events.push({ t: 'SpellFizzled', stackId: obj.id });
       events.push(narrated(`${obj.label} is countered on resolution — no legal targets.`, obj.controller, obj.identity));
       return emitted(events);
@@ -868,7 +869,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     events.push({ t: 'StackResolved', stackId: obj.id, card: null, to: null, targets: obj.targets, controller: obj.controller });
     let rng: RngState | undefined;
     const spellDef = oracleCard ? deps.scripts.spell(oracleCard.oracleId) : undefined;
-    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : []));
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : []));
     if (spellDef && obj.source !== null) {
       events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.source, obj));
     } else if (face?.modal && face.effectMode === 'auto') {
@@ -876,7 +877,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push(...result.events);
       rng = result.rng;
     } else if (face && face.effectMode === 'auto' && face.effects.length > 0) {
-      const result = effectResult(state, deps, resolving, face.effects);
+      const result = effectResult(state, deps, resolving, withSpliced(face, splicedFaces(deps.oracle, obj.spliced)));
       events.push(...result.events);
       rng = result.rng;
     }
@@ -894,7 +895,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
     // D343 - a modal spell re-checks the CHOSEN modes' clauses (CR 608.2b).
     const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
-    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : undefined))) {
+    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : undefined))) {
       // CR 608.2b — a spell whose targets are all illegal is removed from the
       // stack and does nothing. It goes to the graveyard, not to exile.
       events.push({ t: 'SpellFizzled', stackId: obj.id });
@@ -971,7 +972,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
     // D137); `aimOf` alone admits a card in any zone, and a two-target destroy
     // used to "destroy" a target exiled in response. A shipped def keeps the
     // declared list and its own checks.
-    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true) : []));
+    const resolving = withStillLegalPicks(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : []));
     if (spellDef) {
       events.push(...spellDef.resolve(scriptCtxFor(state, deps), obj.card, obj));
     } else if (face?.modal && face.effectMode === 'auto') {
@@ -982,7 +983,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
       events.push(...result.events);
       rng = result.rng;
     } else if (face && face.effectMode === 'auto' && face.effects.length > 0) {
-      const result = effectResult(state, deps, resolving, face.effects);
+      const result = effectResult(state, deps, resolving, withSpliced(face, splicedFaces(deps.oracle, obj.spliced)));
       events.push(...result.events);
       rng = result.rng;
     }

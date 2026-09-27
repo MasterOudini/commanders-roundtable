@@ -11,6 +11,7 @@
 // prompt bar's one-click offer instead, marked manual in the log. See
 // `effectParse.ts` for why half-executing is the failure that matters.
 
+import { splicedFaces } from './splice';
 import { inPlay, phaseOutEvent } from './zones';
 import { derive, type DeriveCache } from './derive';
 import { flipCoin, shuffle, type RngState } from './rng';
@@ -708,6 +709,8 @@ export function effectResult(
           faceIndex: of.faceIndex,
           ...(original.kicked !== undefined ? { kicked: original.kicked } : {}),
           ...(original.kickedWith !== undefined ? { kickedWith: original.kickedWith } : {}),
+          // D576 - the spliced text is copied with the spell (CR 707.10; the splice rulings).
+          ...(original.spliced !== undefined ? { spliced: original.spliced } : {}),
           copyOf: { printingId: of.printingId, faceIndex: of.faceIndex, ...(colors !== undefined ? { colors } : {}) },
         };
         out.push({ t: 'SpellCopied', obj: copy, of: original.id });
@@ -715,7 +718,7 @@ export function effectResult(
         if (effect.newTargets === true && copy.targets.length > 0 && copy.source !== null) {
           const oracleCard = deps.oracle.byPrinting(of.printingId);
           const face = oracleCard === undefined ? undefined : faceOf(oracleCard, of.faceIndex);
-          const specs = face === undefined ? [] : face.modal ? modeSpecs(face.modal.modes, copy.modes) : face.targets;
+          const specs = face === undefined ? [] : face.modal ? modeSpecs(face.modal.modes, copy.modes) : [...face.targets, ...splicedFaces(deps.oracle, original.spliced).flatMap((f) => f.targets)];
           if (specs.length > 0) {
             out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseTargets', player: controller, stackId: copy.id, count: 0, source: copy.source, label: copy.label, specs, forKind: 'copy' } });
           }

@@ -6,7 +6,7 @@ import { ManaCost } from '../card/ManaCost';
 import { handOffDropOrigin } from './useEngineTable';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, PANEL } from './styles';
 import { NO_ALT, altCount } from '../../engine/altPayment';
-import { electAlternative } from './aimCommit';
+import { electAlternative, reaimSpliced } from './aimCommit';
 
 // "Here is what I am about to tap. Cast, or let me do it myself."
 //
@@ -24,13 +24,25 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true, mode.offspring === true, mode.squadded ?? 0) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true, mode.offspring === true, mode.squadded ?? 0, mode.spliced ?? []) : null),
     [mode],
   );
 
   if (mode.kind !== 'payment' || !preview) return null;
   // D557 - a conspire taps the first two creatures that may pay it (the offer's own list, the host re-validating).
   const conspireTaps = preview.conspire?.candidates.slice(0, 2) ?? [];
+  // D576 - a splice toggled here: a card whose text targets changes what the spell targets, so the cast is aimed again
+  // (every clause, in order); one that targets nothing is only priced.
+  const toggleSplice = (id: string, aims: boolean): void => {
+    const now = mode.spliced ?? [];
+    const spliced = now.includes(id) ? now.filter((s) => s !== id) : [...now, id];
+    if (!aims) {
+      setMode({ ...mode, spliced });
+      return;
+    }
+    if (reaimSpliced(mode.card, preview.name, spliced, mode.costPicks)) return;
+    setMode({ ...mode, spliced, targets: [] });
+  };
 
   const send = (): void => {
     // ⚠️ Close the panel optimistically. The host answers a round trip later on
@@ -60,6 +72,8 @@ export function PaymentReview() {
       ...(preview.offspringPaid ? { offspring: true } : {}),
       // D564 - and the squad count it priced.
       ...(preview.squadded > 0 ? { squadded: preview.squadded } : {}),
+      // D576 - and the cards it spliced, in order (their clauses are the tail of `targets`).
+      ...(preview.spliced.length > 0 ? { spliced: preview.spliced } : {}),
       // D405 - what the review priced is what the host taps and exiles (D53).
       ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
       ...(preview.alt.improvise.length > 0 ? { improvise: preview.alt.improvise } : {}),
@@ -247,6 +261,20 @@ export function PaymentReview() {
           </button>
         </div>
       )}
+
+      {preview.splice?.candidates.map((c) => {
+        const on = preview.spliced.includes(c.id);
+        return (
+          <div key={c.id} className="mt-2 flex items-center gap-2" data-payment-splice={c.id}>
+            <span className="text-xs text-crt-dim">
+              {on ? `Splicing ${c.name} (${c.cost}) - its text is added to the spell` : `Splice ${c.name} onto it (${c.cost})`}
+            </span>
+            <button type="button" className={BTN_GHOST_SMALL} data-payment="set-splice" onClick={() => toggleSplice(c.id, c.targets > 0)}>
+              {on ? 'Skip splice' : 'Splice'}
+            </button>
+          </div>
+        );
+      })}
 
       {preview.alternativeCost && (
         <div className="mt-2 flex items-center gap-2" data-payment-alternative="">

@@ -9234,6 +9234,9 @@ export const SUPER_STRENGTH: CardData = F.SUPER_STRENGTH as CardData;
 export const FALCON_S_WING_HARNESS: CardData = F.FALCON_S_WING_HARNESS as CardData;
 export const GIANT_ANKHEG: CardData = F.GIANT_ANKHEG as CardData;
 export const LAVASPUR_BOOTS: CardData = F.LAVASPUR_BOOTS as CardData;
+export const GLACIAL_RAY: CardData = F.GLACIAL_RAY as CardData;
+export const EVERDREAM: CardData = F.EVERDREAM as CardData;
+export const LAVA_SPIKE: CardData = F.LAVA_SPIKE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18734,6 +18737,9 @@ export const ENGINE_CARDS: CardData[] = [
   FALCON_S_WING_HARNESS,
   GIANT_ANKHEG,
   LAVASPUR_BOOTS,
+  GLACIAL_RAY,
+  EVERDREAM,
+  LAVA_SPIKE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

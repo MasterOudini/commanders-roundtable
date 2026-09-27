@@ -77,6 +77,10 @@ export type LegalAction =
       readonly replicateAffordable?: boolean;
       /** D557 - CONSPIRE (CR 702.78a): the untapped creatures the caster controls that share a colour with the spell (`CastSpell.conspired` taps two of them, named as `tap`). */
       readonly conspireCandidates?: readonly InstanceId[];
+      /** D576 - SPLICE (CR 702.47): the other cards in the caster's hand this spell may have spliced onto it (`CastSpell.spliced`). */
+      readonly spliceCandidates?: readonly InstanceId[];
+      /** D576 - the cast with the first candidate spliced is payable now; the fuzz driver splices exactly when it is. */
+      readonly spliceAffordable?: boolean;
       /** D558 - OFFSPRING (CR 702.175a): the face's offspring cost the cast may pay (`CastSpell.offspring`), and whether the cast with it is payable now. */
       readonly offspringCost?: string;
       readonly offspringAffordable?: boolean;
@@ -252,7 +256,9 @@ const AWAKEN_LAND: TargetSpec | undefined = parseTargetClauses('Put a +1/+1 coun
  * elected. The cast validation, the targets prompt, the fizzle rule and the still-legal picks all ask this, never
  * `face.targets` alone - the awaken pick answers the clause after the printed ones.
  */
-export function castTargetSpecs(face: OracleFace, alternative: boolean): readonly TargetSpec[] {
+export function castTargetSpecs(face: OracleFace, alternative: boolean, spliced: readonly OracleFace[] = []): readonly TargetSpec[] {
+  // D576 - the spliced cards' clauses after the spell's own (CR 702.47b; a splice never rides an alternative cost).
+  if (spliced.length > 0) return [...face.targets, ...spliced.flatMap((f) => f.targets)];
   if (!alternative || face.alternativeCost?.keyword !== 'awaken' || AWAKEN_LAND === undefined) return face.targets;
   return [...face.targets, AWAKEN_LAND];
 }
@@ -1211,6 +1217,8 @@ function castAction(
       : {}),
     // D557 - a conspire is offered with its candidates (D406's list for the verb, the host re-validating).
     ...conspireOffer(state, oracle, scripts, ctx, caster, id, face),
+    // D576 - a splice is offered with its candidates and whether the cast with the first one spliced is payable.
+    ...spliceOffer(state, oracle, scripts, caster, id, face, (extra) => affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), ...extra], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false))),
     // D563 - a harmonized cast is offered with the creatures it may tap and whether the strongest makes it payable.
     ...(from.kind === 'graveyard' && face.flashbackCost === null && graveyardCast === null && face.harmonizeCost !== null ? harmonizeOffer(state, oracle, scripts, ctx, caster, face, cost, tax) : {}),
     // D558 - an offspring is offered with whether the cast with it is payable, priced by the same solver.
@@ -1294,6 +1302,33 @@ function harmonizeOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegis
 }
 
 /** D557 - CONSPIRE (CR 702.78a): the creatures the cast may tap - the verb's own candidates (one list, D139), never beside another verb. */
+/**
+ * D576 - SPLICE (CR 702.47): the cards in the caster's hand that could be spliced onto this cast - another card whose face
+ * prints a splice (the mana form) onto what the spell is (Arcane, or an instant or sorcery) and whose text the engine reads
+ * whole; the spell reads whole itself (one text: not modal, not scripted). The host re-validates (`spliceProblem`).
+ */
+function spliceOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, caster: PlayerId, id: InstanceId, face: OracleFace, payable: (extra: readonly ManaCost[]) => boolean): Record<string, unknown> {
+  if (face.effectMode !== 'auto' || face.modal !== null || face.isPermanent) return {};
+  const host = state.cards[id];
+  if (!host || scripts.spell(host.oracleId) !== undefined) return {};
+  const arcane = face.typeLine.subtypes.includes('Arcane');
+  const instantOrSorcery = face.typeLine.types.includes('Instant') || face.typeLine.types.includes('Sorcery');
+  const candidates: InstanceId[] = [];
+  let first: ManaCost | null = null;
+  for (const cid of state.zones.hand[caster] ?? []) {
+    if (cid === id) continue;
+    const inst = state.cards[cid];
+    const oc = inst ? oracle.byPrinting(inst.printingId) : undefined;
+    const f = oc ? faceOf(oc, 0) : undefined;
+    if (!inst || !f || f.spliceCost === null || f.spliceOnto === null || f.effectMode !== 'auto' || scripts.spell(inst.oracleId) !== undefined) continue;
+    if (f.spliceOnto === 'arcane' ? !arcane : !instantOrSorcery) continue;
+    candidates.push(cid);
+    if (first === null) first = f.spliceCost;
+  }
+  if (candidates.length === 0 || first === null) return {};
+  return { spliceCandidates: candidates, spliceAffordable: payable([first]) };
+}
+
 function conspireOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace): Record<string, unknown> {
   if (face.conspireVerb === null || face.additionalCost !== null) return {};
   const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);

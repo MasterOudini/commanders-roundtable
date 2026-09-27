@@ -82,6 +82,11 @@ export type Intent =
        */
       readonly conspired?: boolean;
       /**
+       * D576 - SPLICE (CR 702.47): the other cards in the caster's hand revealed and spliced onto this spell, in order - their
+       * splice costs paid with it, their text (effects and targets) added after its own; they stay in the hand.
+       */
+      readonly spliced?: readonly InstanceId[];
+      /**
        * D558 - OFFSPRING (CR 702.175a): the offspring cost is paid (`Offspring {M}`). The host adds it to the payment, and
        * the permanent's enters trigger creates a token copy of it except it's 1/1.
        */

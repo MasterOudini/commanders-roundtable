@@ -390,7 +390,8 @@ export function commitTargets(): void {
   // ward surcharge from them. Dropping them here is what used to make ward
   // unreachable from the UI entirely.
   // D406 - the additional cost's picks, chosen before the targets, reach the review with them.
-  table.setMode({ kind: 'payment', card: mode.source.card, xValue: 0, targets: [...mode.chosen], ...(mode.costPicks ? { costPicks: mode.costPicks } : {}) });
+  // D576 - and the spliced cards whose clauses these targets include.
+  table.setMode({ kind: 'payment', card: mode.source.card, xValue: 0, targets: [...mode.chosen], ...(mode.costPicks ? { costPicks: mode.costPicks } : {}), ...(mode.spliced ? { spliced: mode.spliced } : {}) });
 }
 
 /**
@@ -438,6 +439,21 @@ export function electAlternative(card: string, faceIndex: number | undefined, la
     table.setMode({ kind: 'costPick', card, abilityIndex: 0, cast: castMark, name: label, verb, count: pick.count, chosen: [] });
   }
   beginAimFrom(card);
+}
+
+/**
+ * D576 - the review's splice changed what the spell targets: aim again at every clause, the spell's and then each spliced
+ * card's in order (CR 601.2c), and come back to the review with them. False when nothing is left to aim at.
+ */
+export function reaimSpliced(card: string, label: string, spliced: readonly string[], costPicks: CostPicks | undefined): boolean {
+  const table = useTable.getState();
+  const specs = session.targetSpecsFor(card, undefined, undefined, spliced);
+  const max = specs.reduce((n, s) => n + s.max, 0);
+  if (specs.length === 0 || max === 0) return false;
+  const min = specs.reduce((n, s) => n + s.min, 0);
+  table.setMode({ kind: 'targeting', source: { kind: 'spell', card }, name: label, chosen: [], specs, min, max, next: 'payment', ...(costPicks ? { costPicks } : {}), spliced });
+  beginAimFrom(card);
+  return true;
 }
 
 /** D406 - after the picks: the targets (with the picks riding along), or straight to the payment review. */

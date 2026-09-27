@@ -240,9 +240,9 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
    * verified identical across isolated and full-suite runs.
    */
   test('D90 does not reproduce, and the vocabulary keeps moving it: 948 auto, 1,832 assisted (D199, D343)', () => {
-    expect.soft(r.spells.auto).toBe(2505);
-    expect.soft(r.spells.assisted).toBe(1671);
-    expect.soft(r.spells.autoAnyFace).toBe(2512);
+    expect.soft(r.spells.auto).toBe(2519);
+    expect.soft(r.spells.assisted).toBe(1657);
+    expect.soft(r.spells.autoAnyFace).toBe(2526);
   });
 
   /**
@@ -463,8 +463,8 @@ const POOL: Record<string, number> = {
   // D485 - the token copy: the permanents that copy themselves (Spawnwrithe, Giant Adephage ...) and the copy spells (Rite of Replication, Cackling Counterpart ...).
   // D486 - the clone: the clones themselves (Clone, Stunt Double, Phyrexian Metamorph, Copy Enchantment, Vesuva ...).
   creature: 7647,
-  instant: 1679,
-  sorcery: 1368,
+  instant: 1692,
+  sorcery: 1369,
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 690,

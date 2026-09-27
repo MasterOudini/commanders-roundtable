@@ -605,13 +605,15 @@ export function previewCast(
   offspring = false,
   /** D564 - the squad count (CR 702.157a). */
   squadded = 0,
+  /** D576 - the cards spliced onto it (CR 702.47). */
+  spliced: readonly string[] = [],
 ): CastPreview | null {
   // ⚠️ `targets` is FORWARDED, and it did not used to be.
   // `ClientSession.previewCast` has computed a ward surcharge from the chosen
   // targets since M5, and this wrapper silently dropped the third argument — so
   // the one cost in this app that depends on what you are pointing at could
   // never reach the player who has to approve it.
-  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired, offspring, squadded) ?? null;
+  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired, offspring, squadded, spliced) ?? null;
 }
 
 // ── the assisted-effect offer ────────────────────────────────────────────────
@@ -678,8 +680,8 @@ export function legalTargetsFor(specs: readonly TargetSpec[], sourceCard: string
 }
 
 /** The parsed target clauses of a card, or of one of its activated abilities. */
-export function targetSpecsFor(cardId: string, abilityIndex?: number, grantRef?: string): readonly TargetSpec[] {
-  return active()?.targetSpecsFor(cardId, abilityIndex, grantRef) ?? [];
+export function targetSpecsFor(cardId: string, abilityIndex?: number, grantRef?: string, spliced: readonly string[] = []): readonly TargetSpec[] {
+  return active()?.targetSpecsFor(cardId, abilityIndex, grantRef, spliced) ?? [];
 }
 
 export function seatIds(): string[] {

@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 12849,
-      blocked: 18843,
+      complete: 12863,
+      blocked: 18829,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1986,
+      scriptableToday: 1989,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -343,7 +343,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // ⚠️ The other rows ROSE by what `optional` had been hiding, which is the
       // same figure read from the other side: 1,736 → 1,791 · 1,364 → 1,575 ·
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
-      layer6: 923,
+      layer6: 924,
       counter: 998,
       token: 773,
     });
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001, 3316, 4826, 5970]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1989, 2004, 3320, 4830, 5974]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -475,11 +475,12 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // D568 - and one more: an escape card's Escape line is read now (the graveyard cast), so its grant is its sole primitive.
     // D573 - one restriction up: a phasing card's Phasing line is read now, so its restriction static is its sole primitive.
     // D575 - five down: a granted ward is a static the rows emit now (the Aura, Equipment and lord grants rowed).
-    expect.soft(split).toEqual({ grant: 557, anthem: 104, restriction: 173, conditional: 89, unclaimed: 0 });
+    // D576 - one grant up: a splice card's Splice line is read now, so its temporary grant is its sole primitive.
+    expect.soft(split).toEqual({ grant: 558, anthem: 104, restriction: 173, conditional: 89, unclaimed: 0 });
     // ⚠️ THE NUMBER THAT KEEPS `layer6` OUT OF `BUILT`. Asserted here rather than
     // written in the comment above, because D129's reason lived in a comment and
     // stayed there for twenty-four decisions after D147 closed it.
-    expect.soft(temporary).toBe(396);
+    expect.soft(temporary).toBe(397);
   });
 
   /**
@@ -567,8 +568,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001]);
-    expect.soft(r.complete).toBe(12849);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1989, 2004]);
+    expect.soft(r.complete).toBe(12863);
   });
 });
 

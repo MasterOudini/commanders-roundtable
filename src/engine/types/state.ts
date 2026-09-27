@@ -440,6 +440,13 @@ export type TargetChoice =
   | { readonly kind: 'player'; readonly id: PlayerId }
   | { readonly kind: 'stack'; readonly id: StackId };
 
+/** D576 - a card spliced onto a spell (CR 702.47): the printing and face whose text the spell gains (the card stays in the hand). */
+export interface SplicedCard {
+  readonly card: InstanceId;
+  readonly printingId: PrintingId;
+  readonly faceIndex: number;
+}
+
 export interface StackObject {
   readonly id: StackId;
   readonly kind: 'spell' | 'activated' | 'triggered';
@@ -486,6 +493,8 @@ export interface StackObject {
   readonly buyback?: true;
   /** D556 - REPLICATE (CR 702.56a): how many times the replicate cost was paid - the cast trigger copies the spell that many times. */
   readonly replicated?: number;
+  /** D576 - the cards spliced onto this spell (CR 702.47): their printings and faces, in order. */
+  readonly spliced?: readonly SplicedCard[];
   /** D557 - CONSPIRE (CR 702.78a): two creatures that share a colour with the spell were tapped as it was cast - the cast trigger copies it once. */
   readonly conspired?: true;
   /** D558 - OFFSPRING (CR 702.175a): the offspring cost was paid - carried onto the permanent's entry (`CardMove.offspring`). */
@@ -701,6 +710,8 @@ export interface PendingCast {
   readonly buyback?: true;
   /** D556 - the replicate count the cast was announced with (CR 702.56a), priced at every stage and carried to the `StackObject`. */
   readonly replicated?: number;
+  /** D576 - the cards spliced onto this spell (CR 702.47): their printings and faces, in order. */
+  readonly spliced?: readonly SplicedCard[];
   /** D557 - the conspire the cast was announced with (CR 702.78a) - its `tap` picks ride beside it - carried to the `StackObject`. */
   readonly conspired?: true;
   /** D558 - the offspring the cast was announced with (CR 702.175a), priced at every stage and carried to the `StackObject`. */
