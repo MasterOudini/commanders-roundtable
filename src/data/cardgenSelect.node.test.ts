@@ -3302,9 +3302,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Death Spark', 'graveyard-order condition'],
   ['Devastation Tide', 'miracle mechanic'],
   ['Disrupting Shoal', 'cast-time alternative cost'],
-  ['Distract the Guards', 'freerunning mechanic'],
   ['Divine Congregation', 'suspend mechanic'],
-  ['Eagle Vision', 'freerunning mechanic'],
   ['Earthbrawn', 'hand-activated ability'],
   ["Electro's Bolt", 'mayhem mechanic'],
   ['Elemental Masterpiece', 'hand-activated ability'],
@@ -3410,7 +3408,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Reality Anchor', 'temporary keyword/ability grant'],
   ['Reforge the Soul', 'miracle mechanic'],
   ['Refreshing Rain', 'cast-time alternative cost'],
-  ['Restart Sequence', 'freerunning mechanic'],
   ['Reverent Silence', 'cast-time alternative cost'],
 
   // D280 (M6.4dq) — the R/S residue; ONE new class.
@@ -3479,7 +3476,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Zhalfirin Shapecraft', 'until-end-of-turn base P/T set'],
   ['Baleful Mastery', 'cast-time alternative cost'],
   ['Code of Constraint', 'untap restriction'],
-  ['Escape Detection', 'freerunning mechanic'],
 
   // D290 (M6.4ea) — the 22 cards D289's keyword seam made offerable: 18
   // landed, four refused.
@@ -4305,7 +4301,9 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // left the spell text and seven cascade SPELLS (Deny Reality, Violent Outburst, Forceful Denial, Bituminous Blast,
     // Natural Reclamation, Demonic Dread, Captured Sunlight) run with no script at all; the one storm spell the seam made
     // offerable (Galvanic Relay) is in the ledger above by name.
-    expect.soft(all.length).toBe(18);
+    // D566 - DOWN BY ONE, a seam completing a card the select was offering: the Freerunning line became the engine's
+    // alternative cost and Chain Assassination runs with no script at all; nothing new was offered.
+    expect.soft(all.length).toBe(17);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

@@ -9158,6 +9158,11 @@ export const SUNTOUCHED_MYR: CardData = F.SUNTOUCHED_MYR as CardData;
 export const ETCHED_ORACLE: CardData = F.ETCHED_ORACLE as CardData;
 export const SUNCRUSHER: CardData = F.SUNCRUSHER as CardData;
 export const SOLARION: CardData = F.SOLARION as CardData;
+export const EAGLE_VISION: CardData = F.EAGLE_VISION as CardData;
+export const MERCILESS_HARLEQUIN: CardData = F.MERCILESS_HARLEQUIN as CardData;
+export const HIRED_POISONER: CardData = F.HIRED_POISONER as CardData;
+export const ESCAPE_DETECTION: CardData = F.ESCAPE_DETECTION as CardData;
+export const ACHILLES_DAVENPORT: CardData = F.ACHILLES_DAVENPORT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18576,6 +18581,11 @@ export const ENGINE_CARDS: CardData[] = [
   ETCHED_ORACLE,
   SUNCRUSHER,
   SOLARION,
+  EAGLE_VISION,
+  MERCILESS_HARLEQUIN,
+  HIRED_POISONER,
+  ESCAPE_DETECTION,
+  ACHILLES_DAVENPORT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

@@ -10234,6 +10234,14 @@ const WANTED = [
   'Suncrusher',
   'Solarion',
   // D565 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D566 - FREERUNNING: the freerunning cards and the Assassin the proofs deal (the rows bring the rest).
+  'Eagle Vision',
+  'Merciless Harlequin',
+  'Hired Poisoner',
+  'Escape Detection',
+  // D566 - FREERUNNING: the rows the whole-leftover row maker rowed once the Freerunning line was the engine's (an alternative cost once an Assassin or a commander of yours dealt combat damage to a player this turn).
+  'Achilles Davenport',
+  // D566 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

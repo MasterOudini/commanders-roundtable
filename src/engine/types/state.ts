@@ -1556,6 +1556,12 @@ export interface TurnMemory {
    * permanent cards.
    */
   readonly toGraveyard: Readonly<Record<PlayerId, readonly InstanceId[]>>;
+  /**
+   * D566 - the sources that dealt COMBAT damage to a player this turn, and who controlled each as it dealt it
+   * (freerunning, CR 702.173a: "if you dealt combat damage to a player this turn with an Assassin or commander").
+   * Ids, like the rest: the CHECK derives the Assassin type and reads the commander flag.
+   */
+  readonly combatDamagers: readonly { readonly card: InstanceId; readonly controller: PlayerId }[];
 }
 
 /**

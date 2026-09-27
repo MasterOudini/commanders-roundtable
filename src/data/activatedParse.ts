@@ -1386,7 +1386,7 @@ export interface AlternativeCost {
   // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
   // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
   // D548 - and AWAKEN (CR 702.113a): the election adds a target land you control and the rider after the spell (`awaken`: N).
-  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz';
+  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning';
   /** D548 - AWAKEN N: the +1/+1 counters the awakened land gets. */
   readonly awaken?: number;
   /**
@@ -1408,7 +1408,9 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
     // aside) are "you may pay {cost} rather than pay this spell's mana cost" with a rider the engine runs off
     // the mark the cast leaves. One alternative cost per face: a printed line found first wins.
     // D560 - and Blitz (CR 702.152a): dash's shape, the permanent sacrificed at the next end step and drawing when it dies.
-    const kwAlt = /^(Evoke|Dash|Warp|Blitz) ((?:\{[^}]+\})+)$/.exec(line);
+    // D566 - and Freerunning (CR 702.173a): no rider - the cast's condition, combat damage dealt to a player this turn
+    // with an Assassin or commander (the turn record's combat damagers).
+    const kwAlt = /^(Evoke|Dash|Warp|Blitz|Freerunning) ((?:\{[^}]+\})+)$/.exec(line);
     if (kwAlt) {
       const kwMana = parseCost(kwAlt[2] ?? '');
       if (kwMana === null) return null;
@@ -1423,8 +1425,30 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         exileFromGraveyardCost: null,
         returnCost: null,
         exileFromHand: null,
-        conditions: [],
-        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : 'dash',
+        conditions: kwAlt[1] === 'Freerunning' ? [{ kind: 'freerunning' }] : [],
+        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : kwAlt[1] === 'Freerunning' ? 'freerunning' : 'dash',
+      };
+    }
+    // D566 - `Freerunning—<cost>.` (Escape Detection): ONE chooser verb the cost grammar reads (`readCostVerbs`, D415) in
+    // place of the mana, under the same condition; a cost it cannot read refuses the line (D90).
+    const frVerb = /^Freerunning—(.+)\.$/.exec(line);
+    if (frVerb) {
+      const body = frVerb[1] ?? '';
+      const read = readCostVerbs(body.charAt(0).toLowerCase() + body.slice(1), parseCost, selfName);
+      if (read === null) return null;
+      return {
+        line,
+        costText: read.costText,
+        mana: null,
+        lifeCost: read.lifeCost,
+        sacrificeCost: read.sacrificeCost,
+        discardCost: read.discardCost,
+        tapCost: read.tapCost,
+        exileFromGraveyardCost: read.exileFromGraveyardCost,
+        returnCost: read.returnCost,
+        exileFromHand: null,
+        conditions: [{ kind: 'freerunning' }],
+        keyword: 'freerunning',
       };
     }
     // D548 - AWAKEN N—{cost}: the same alternative cost with a count - the rider the engine runs after the spell.

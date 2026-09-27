@@ -1632,6 +1632,11 @@ export type ActivationCondition =
   /** D490 - `if you control a commander` (the free-cast conditions): a commander among the player's permanents. */
   | { readonly kind: 'controlsCommander' }
   /**
+   * D566 - FREERUNNING (CR 702.173a): `if you dealt combat damage to a player this turn with an Assassin or commander` -
+   * the freerunning cost's condition, asked of the turn record's combat damagers (`TurnMemory.combatDamagers`).
+   */
+  | { readonly kind: 'freerunning' }
+  /**
    * D523 - the crown (CR 724), the condition half of D522's payload: `if you're the monarch` (and an opponent's, and
    * nobody's). Read off `state.monarch`, so a gated clause and an `Activate only if` line ask the same question.
    */

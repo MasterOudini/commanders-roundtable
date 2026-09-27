@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MERCILESS_HARLEQUIN_SCRIPT } from './cards/mercilessHarlequin';
+import { ACHILLES_DAVENPORT_SCRIPT } from './cards/achillesDavenport';
 import { ETCHED_ORACLE_SCRIPT } from './cards/etchedOracle';
 import { SUNCRUSHER_SCRIPT } from './cards/suncrusher';
 import { SOLARION_SCRIPT } from './cards/solarion';
@@ -8275,6 +8277,8 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MERCILESS_HARLEQUIN_SCRIPT,
+  ACHILLES_DAVENPORT_SCRIPT,
   ETCHED_ORACLE_SCRIPT,
   SUNCRUSHER_SCRIPT,
   SOLARION_SCRIPT,

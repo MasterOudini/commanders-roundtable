@@ -1837,6 +1837,8 @@ interface Run {
   /** D565 - the entries that carried a sunburst count (CR 702.44a), and the counters those entries added. */
   readonly sunburstEntries: number;
   readonly sunburstCounters: number;
+  /** D566 - the casts for a freerunning cost (CR 702.173a). */
+  readonly freerunningCasts: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2386,6 +2388,7 @@ function runOne(seed: number): Run {
     squadCopies: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:squad')).length,
     sunburstEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => (m.sunburst ?? 0) > 0)).length,
     sunburstCounters: game.log.reduce((n, e) => n + (e.body.t === 'CardsMoved' ? e.body.moves.reduce((k, m) => k + (m.sunburst ?? 0), 0) : 0), 0),
+    freerunningCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.alternativeCost?.keyword ?? null) === 'freerunning').length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2761,6 +2764,7 @@ const TOTAL_KEYS = [
   'squadCopies',
   'sunburstEntries',
   'sunburstCounters',
+  'freerunningCasts',
   'crownings',
   'ringTempts',
   'ringAbilities',

@@ -310406,6 +310406,184 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "EAGLE_VISION": {
+    "scryfallId": "21ab7020-bd24-4c43-9c7c-5a283d6f650d",
+    "oracleId": "f96f1b4c-f06a-4374-8d8f-aaa06c6108c3",
+    "name": "Eagle Vision",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eagle Vision",
+        "manaCost": "{4}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Freerunning {1}{U} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)\nDraw three cards.",
+        "flavorText": "No mark remains hidden and no secret can be kept from an Assassin possessed of this unique gift.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kim Sokol",
+        "imageId": "21ab7020-bd24-4c43-9c7c-5a283d6f650d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Freerunning"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERCILESS_HARLEQUIN": {
+    "scryfallId": "1bb19a35-7224-4fe2-a0c0-17b93d2837ad",
+    "oracleId": "10e0ccdf-9a31-402a-9fbf-f501ce63fa52",
+    "name": "Merciless Harlequin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merciless Harlequin",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "Freerunning {1}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)\nWhen this creature enters, you draw a card and you lose 1 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lixin Yin",
+        "imageId": "1bb19a35-7224-4fe2-a0c0-17b93d2837ad"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Freerunning"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "287",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIRED_POISONER": {
+    "scryfallId": "bf97e572-90d6-46fc-81c3-956a7ef88983",
+    "oracleId": "a7a6cdfd-10ac-49d0-a0a6-8ad37e326511",
+    "name": "Hired Poisoner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hired Poisoner",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "Deathtouch",
+        "flavorText": "\"They don't even feel the cut. I'm ordering a drink in a nearby tavern before anyone notices something's wrong.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Joe Slucher",
+        "imageId": "bf97e572-90d6-46fc-81c3-956a7ef88983"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ESCAPE_DETECTION": {
+    "scryfallId": "726bf33c-1555-4056-9544-e7477659726b",
+    "oracleId": "e16c5516-f73c-40c4-9ffa-39c6b2e92ab7",
+    "name": "Escape Detection",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Escape Detection",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Freerunning—Return a blue creature you control to its owner's hand. (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)\nReturn target creature to its owner's hand.\nDraw a card.",
+        "flavorText": "\"They never learn to check the corners.\"\n—Evie Frye",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "726bf33c-1555-4056-9544-e7477659726b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Freerunning"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "191",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ACHILLES_DAVENPORT": {
+    "scryfallId": "f8ead24c-dd4a-40cd-839e-de08017a7c29",
+    "oracleId": "b921a672-721e-4bd8-a10b-a6de8c13c7d8",
+    "name": "Achilles Davenport",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Achilles Davenport",
+        "manaCost": "{2}{U}{B}",
+        "typeLine": "Legendary Creature — Human Assassin",
+        "oracleText": "Freerunning {U}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)\nMenace (This creature can't be blocked except by two or more creatures.)\nOther Assassins you control get +1/+1.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Josu Solano",
+        "imageId": "f8ead24c-dd4a-40cd-839e-de08017a7c29"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Freerunning",
+      "Menace"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "294",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

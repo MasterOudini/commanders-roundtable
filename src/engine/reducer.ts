@@ -129,6 +129,7 @@ export const EMPTY_TURN_MEMORY: TurnMemory = {
   lifeGained: {},
   lifeLost: {},
   toGraveyard: {},
+  combatDamagers: [],
 };
 
 /**
@@ -156,6 +157,21 @@ function recordDamage(memory: TurnMemory, damages: readonly ResolvedDamage[]): T
     }
   }
   return m;
+}
+
+/**
+ * D566 - FREERUNNING (CR 702.173a): the sources that dealt COMBAT damage to a player, each with the controller it had as
+ * it dealt it (read off the instances before the damage lands) - the condition asks the Assassin type and the commander
+ * flag, where the oracle is.
+ */
+function recordCombatDamagers(memory: TurnMemory, damages: readonly ResolvedDamage[], cards: Readonly<Record<InstanceId, CardInstance>>): TurnMemory {
+  let combatDamagers = memory.combatDamagers;
+  for (const d of damages) {
+    if (d.amount <= 0 || d.target.kind !== 'player') continue;
+    const controller = cards[d.source]?.controller;
+    if (controller !== null && controller !== undefined) combatDamagers = [...combatDamagers, { card: d.source, controller }];
+  }
+  return combatDamagers === memory.combatDamagers ? memory : { ...memory, combatDamagers };
 }
 
 /**
@@ -1386,7 +1402,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           } satisfies CombatState)
         : null;
       // D398 - the turn remembers combat damage dealt to a player (Bloodthirst).
-      return { ...marked, combat, turn: { ...marked.turn, memory: recordDamage(marked.turn.memory, body.damages) } };
+      // D566 - and which sources dealt it, under whose control (freerunning).
+      return { ...marked, combat, turn: { ...marked.turn, memory: recordCombatDamagers(recordDamage(marked.turn.memory, body.damages), body.damages, state.cards) } };
     }
 
     // D462 - a creature entering attacking joins the attackers as an unblocked one (the turn record's

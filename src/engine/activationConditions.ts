@@ -120,6 +120,11 @@ export function activationConditionsHold(
       case 'controlsCommander':
         if (!mine().some((id) => state.cards[id]?.isCommander === true)) return false;
         break;
+      // D566 - FREERUNNING (CR 702.173a): a source the player controlled dealt combat damage to a player this turn, and it
+      // is an Assassin or a commander - the record holds ids (the reducer has no oracle), the subtype is derived HERE.
+      case 'freerunning':
+        if (!state.turn.memory.combatDamagers.some((e) => e.controller === player && (state.cards[e.card]?.isCommander === true || d(e.card).typeLine.subtypes.includes('Assassin')))) return false;
+        break;
       // D527 - the clash verdict lives on the resolution, not the board: `gateHolds` answers it first and never asks here.
       case 'clashWon':
       // D534 - the flip's verdict lives on the resolution too: `gateHolds` answers it first and never asks here.
@@ -215,6 +220,8 @@ export function describeActivationConditions(conditions: readonly ActivationCond
           return 'if it is a creature';
         case 'controlsCommander':
           return 'if you control a commander';
+        case 'freerunning':
+          return 'if you dealt combat damage to a player this turn with an Assassin or commander';
         case 'clashWon':
           return 'if you win the clash';
         case 'flipWon':
