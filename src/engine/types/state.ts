@@ -490,6 +490,8 @@ export interface StackObject {
   readonly offspring?: true;
   /** D564 - SQUAD (CR 702.157a): how many times the squad cost was paid - carried onto the permanent's entry (`CardMove.squadded`). */
   readonly squadded?: number;
+  /** D565 - SUNBURST (CR 702.44a): the colours of mana spent to cast it (a face with sunburst alone) - carried onto the entry. */
+  readonly sunburst?: number;
   /** D457 - an exhaust activation (CR 702.178): the reducer stamps the source's memory as this goes on the stack. */
   readonly exhaust?: true;
   /** D458 - a boast activation (CR 702.142): its source attacked this turn - recorded for the log and the gate. */

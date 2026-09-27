@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ETCHED_ORACLE_SCRIPT } from './cards/etchedOracle';
+import { SUNCRUSHER_SCRIPT } from './cards/suncrusher';
+import { SOLARION_SCRIPT } from './cards/solarion';
+import { BATON_OF_COURAGE_SCRIPT } from './cards/batonOfCourage';
 import { ULTRAMARINES_HONOUR_GUARD_SCRIPT } from './cards/ultramarinesHonourGuard';
 import { WASTELAND_RAIDER_SCRIPT } from './cards/wastelandRaider';
 import { GALADHRIM_BRIGADE_SCRIPT } from './cards/galadhrimBrigade';
@@ -8271,6 +8275,10 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ETCHED_ORACLE_SCRIPT,
+  SUNCRUSHER_SCRIPT,
+  SOLARION_SCRIPT,
+  BATON_OF_COURAGE_SCRIPT,
   ULTRAMARINES_HONOUR_GUARD_SCRIPT,
   WASTELAND_RAIDER_SCRIPT,
   GALADHRIM_BRIGADE_SCRIPT,

@@ -9152,6 +9152,12 @@ export const GALADHRIM_BRIGADE: CardData = F.GALADHRIM_BRIGADE as CardData;
 export const ROADKILL_RODNEY: CardData = F.ROADKILL_RODNEY as CardData;
 export const SPACE_MARINE_DEVASTATOR: CardData = F.SPACE_MARINE_DEVASTATOR as CardData;
 export const SICARIAN_INFILTRATOR: CardData = F.SICARIAN_INFILTRATOR as CardData;
+export const SKYREACH_MANTA: CardData = F.SKYREACH_MANTA as CardData;
+export const BATON_OF_COURAGE: CardData = F.BATON_OF_COURAGE as CardData;
+export const SUNTOUCHED_MYR: CardData = F.SUNTOUCHED_MYR as CardData;
+export const ETCHED_ORACLE: CardData = F.ETCHED_ORACLE as CardData;
+export const SUNCRUSHER: CardData = F.SUNCRUSHER as CardData;
+export const SOLARION: CardData = F.SOLARION as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18564,6 +18570,12 @@ export const ENGINE_CARDS: CardData[] = [
   ROADKILL_RODNEY,
   SPACE_MARINE_DEVASTATOR,
   SICARIAN_INFILTRATOR,
+  SKYREACH_MANTA,
+  BATON_OF_COURAGE,
+  SUNTOUCHED_MYR,
+  ETCHED_ORACLE,
+  SUNCRUSHER,
+  SOLARION,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

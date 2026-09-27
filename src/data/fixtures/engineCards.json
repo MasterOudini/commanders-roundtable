@@ -310217,6 +310217,195 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SKYREACH_MANTA": {
+    "scryfallId": "3df1e8a0-6a54-4be9-bd0c-ac70f0ae9aa6",
+    "oracleId": "58eab745-9afa-4db7-9d8a-f5eb0b9dca6c",
+    "name": "Skyreach Manta",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyreach Manta",
+        "manaCost": "{5}",
+        "typeLine": "Artifact Creature — Fish",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)\nFlying",
+        "flavorText": "As the dawns break, the manta soars.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Moeller",
+        "imageId": "3df1e8a0-6a54-4be9-bd0c-ac70f0ae9aa6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Sunburst"
+    ],
+    "setCode": "mm2",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATON_OF_COURAGE": {
+    "scryfallId": "d363970c-2418-42f9-8d13-0e5700161b62",
+    "oracleId": "a20bb8b3-b724-4fec-b179-ca9e6adc4718",
+    "name": "Baton of Courage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baton of Courage",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash\nSunburst (This artifact enters with a charge counter on it for each color of mana spent to cast it.)\nRemove a charge counter from this artifact: Target creature gets +1/+1 until end of turn.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Heather Hudson",
+        "imageId": "d363970c-2418-42f9-8d13-0e5700161b62"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Sunburst",
+      "Flash"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNTOUCHED_MYR": {
+    "scryfallId": "07d6c82f-b943-435e-a716-a58ae30b3922",
+    "oracleId": "75d4f61a-8276-43ad-99e6-0d756a597e4b",
+    "name": "Suntouched Myr",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Suntouched Myr",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)",
+        "flavorText": "As the fifth sun joins the other four, new abilities awaken in the creatures of Mirrodin.",
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Hildebrandt",
+        "imageId": "07d6c82f-b943-435e-a716-a58ae30b3922"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "160",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ETCHED_ORACLE": {
+    "scryfallId": "1b4e70c6-8f74-4b0b-9ad7-33fce05c401b",
+    "oracleId": "7ecfa47e-1165-46a6-884c-290b1c14d020",
+    "name": "Etched Oracle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Etched Oracle",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Wizard",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)\n{1}, Remove four +1/+1 counters from this creature: Target player draws three cards.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Matt Cavotta",
+        "imageId": "1b4e70c6-8f74-4b0b-9ad7-33fce05c401b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "eoc",
+    "collectorNumber": "136",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUNCRUSHER": {
+    "scryfallId": "66c22071-959e-4986-aa25-ed883a20796b",
+    "oracleId": "4e81ead0-df8b-4d9d-b1cb-d1d9dc503d4c",
+    "name": "Suncrusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Suncrusher",
+        "manaCost": "{9}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)\n{4}, {T}, Remove a +1/+1 counter from this creature: Destroy target creature.\n{2}, Remove a +1/+1 counter from this creature: Return this creature to its owner's hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Dave Dorman",
+        "imageId": "66c22071-959e-4986-aa25-ed883a20796b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 9,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOLARION": {
+    "scryfallId": "9070dd3e-7600-493e-84b9-931ac92f44bc",
+    "oracleId": "4022e540-8fa0-4eee-bcf1-df5046289f2b",
+    "name": "Solarion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Solarion",
+        "manaCost": "{7}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)\n{T}: Double the number of +1/+1 counters on this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jim Murray",
+        "imageId": "9070dd3e-7600-493e-84b9-931ac92f44bc"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 7,
+    "keywords": [
+      "Sunburst",
+      "Double"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "153",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

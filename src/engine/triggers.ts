@@ -753,6 +753,11 @@ function withEntryCounters(
         const n = Number(/\bmodular (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');
         if (n > 0) changes.push({ card: move.card, kind: '+1/+1', delta: n });
       }
+      // D565 - SUNBURST (CR 702.44a): a counter for each colour of mana spent to cast it, the count the move carries off
+      // the resolving spell (a permanent not cast carries none): +1/+1 if it enters as a creature, charge otherwise.
+      if (face.keywords.includes('sunburst') && (move.sunburst ?? 0) > 0) {
+        changes.push({ card: move.card, kind: face.typeLine.types.includes('Creature') ? '+1/+1' : 'charge', delta: move.sunburst ?? 0 });
+      }
       // D450 - vanishing N / fading N (CR 702.63a, 702.32a): N time / fade counters as it enters.
       if (face.keywords.includes('vanishing')) {
         const n = Number(/\bvanishing (\d+)\b/i.exec(face.oracleText)?.[1] ?? '0');

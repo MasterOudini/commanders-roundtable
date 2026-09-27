@@ -68,6 +68,8 @@ export interface CardMove {
   readonly offspring?: true;
   /** D564 - the resolving spell's squad count (CR 702.157a): the permanent's enters trigger makes that many token copies. */
   readonly squadded?: number;
+  /** D565 - the resolving spell's sunburst count (CR 702.44a): the colours of mana spent to cast it - the entry's counters. */
+  readonly sunburst?: number;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
   readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */

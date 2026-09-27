@@ -142,6 +142,9 @@ export const TIER2_KEYWORDS = [
   // D564 - SQUAD (CR 702.157a): the count paid at cast (replicate's, onto the permanent's entry as offspring's is) and
   // the enters trigger that makes a token copy per payment, from the keyword table.
   'squad',
+  // D565 - SUNBURST (CR 702.44a): a counter for each colour of mana spent to cast it - the cast's ManaSpent colours onto
+  // the stack object, carried onto the entry move, added by the entry counters (+1/+1 on a creature, charge otherwise).
+  'sunburst',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head

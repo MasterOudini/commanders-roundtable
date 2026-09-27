@@ -988,6 +988,8 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
           ...(obj.offspring === true ? { offspring: true as const } : {}),
           // D564 - and the squad count it paid (the permanent's enters trigger makes that many copies).
           ...(obj.squadded !== undefined && obj.squadded > 0 ? { squadded: obj.squadded } : {}),
+          // D565 - and the colours its cast spent (the entry's sunburst counters).
+          ...(obj.sunburst !== undefined && obj.sunburst > 0 ? { sunburst: obj.sunburst } : {}),
           // D449 - and the keyword alternative cost it was cast for (evoke / dash).
           ...(obj.alternativePaid && face?.alternativeCost?.keyword !== undefined ? { altKeyword: face.alternativeCost.keyword } : {}),
           // D489 - a suspend cast's entry: a creature has haste while it stays (CR 702.62e).

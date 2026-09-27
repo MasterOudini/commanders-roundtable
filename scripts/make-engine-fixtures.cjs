@@ -10225,6 +10225,15 @@ const WANTED = [
   'Space Marine Devastator',
   'Sicarian Infiltrator',
   // D564 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D565 - SUNBURST: the sunburst permanents the proofs deal (the rows bring the rest).
+  'Skyreach Manta',
+  'Baton of Courage',
+  'Suntouched Myr',
+  // D565 - SUNBURST: the rows the whole-leftover row maker rowed once the Sunburst line was the engine's (a counter for each colour of mana spent to cast it).
+  'Etched Oracle',
+  'Suncrusher',
+  'Solarion',
+  // D565 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

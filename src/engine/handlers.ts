@@ -819,6 +819,15 @@ function squadProblem(face: ReturnType<typeof faceOf>, squadded: number, faceDow
   if (face.squadCost === null) return `${face.name} has no squad cost the app can charge.`;
   return null;
 }
+/** D565 - SUNBURST (CR 702.44a): how many colours of mana the ManaSpent events among these spent (W, U, B, R, G). */
+function spentColourCount(events: readonly EventBody[]): number {
+  const seen = new Set<string>();
+  for (const e of events) {
+    if (e.t !== 'ManaSpent') continue;
+    for (const c of ['W', 'U', 'B', 'R', 'G'] as const) if (e.mana[c] > 0) seen.add(c);
+  }
+  return seen.size;
+}
 /** D403 - why a kick count cannot be announced on this face, or null when it can. */
 function kickProblem(face: ReturnType<typeof faceOf>, kicked: number, kickedWith: readonly number[] = []): string | null {
   if (!Number.isInteger(kicked) || kicked < 0) return 'The kicker count must be zero or more.';
@@ -2387,6 +2396,9 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
   events.push(...paid.events);
   events.push(...altEvents(state, args.player, setup.alt));
   events.push(...payEvents(state, deps, args.player, plan, setup, purpose));
+  // D565 - SUNBURST (CR 702.44a): the colours of mana this cast spent, counted off its own ManaSpent events (a convoked
+  // creature is not mana spent) - onto the stack object for a face with the keyword.
+  const sunburst = setup.face.keywords.includes('sunburst') ? spentColourCount(events) : null;
 
   const card = state.cards[args.card];
   const obj: StackObject = {
@@ -2414,6 +2426,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.conspired ? { conspired: true as const } : {}),
     ...(setup.offspring ? { offspring: true as const } : {}),
     ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
+    ...(sunburst !== null && sunburst > 0 ? { sunburst } : {}),
     ...altCounts(setup.alt),
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),

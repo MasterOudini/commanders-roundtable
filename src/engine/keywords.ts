@@ -99,6 +99,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   harmonize: 'harmonize',
   // D564 - squad: the count paid at cast and the enters trigger that makes a token copy per payment.
   squad: 'squad',
+  // D565 - sunburst: the entry counters for the colours of mana spent to cast it.
+  sunburst: 'sunburst',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.
