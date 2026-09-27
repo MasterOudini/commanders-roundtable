@@ -773,6 +773,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D569 - endure: `<it> endures N` is the engine's now (the counters or an N/N white Spirit, chosen at resolution); what stays is an endure creature whose trial or payment branch the generator cannot assert yet.
+  ['Inspirited Vanguard', 'the trial: an enters-or-attacks head whose attack arm counts the entry\'s endure too (4 counters, not 2 - the generator asserts per arm; its endure reads since D569) (D569)'],
+  ['Descendant of Storms', 'the row maker: a payment branch the suite cannot assert: endure (Whenever this creature attacks, you may pay {1}{W}. If you do, it endures 1. - its endure reads since D569) (D569)'],
   // D568 - escape: the Escape line is the engine's now (the cast from the graveyard for its escape cost, the counters an escaped permanent enters with); what stays is an escape spell whose own sentence the vocabulary does not read.
   ['Cling to Dust', 'the row maker: a spell with a line outside the vocabulary: Exile target card from a graveyard. If it was a creature card, you gain 3 life. Otherwise, you draw a card. (the branch on the exiled card\'s type is unread; its Escape line reads since D568) (D568)'],
   // D564 - squad: the Squad line is the engine's now (the count paid at cast, a token copy per payment as it enters); what stays is a squad creature whose other line the row maker does not read.

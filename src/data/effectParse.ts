@@ -2014,6 +2014,19 @@ const RULES: readonly Rule[] = [
       return { ...BASE, amount: n, targetIndex: -1, self: true };
     },
   },
+  // D569 - ENDURE N (CR 701.63): `It endures 2.` / `This creature endures 1.` / `~ endures 2.` - the source, aimed at itself
+  // (D373); the N/N white Spirit its token branch creates resolved here as a token rule resolves its own (TOKEN_TABLE).
+  {
+    kind: 'endure',
+    re: new RegExp(`^(?:${SELF}|it) endures (${COUNT})\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      if (n === null || n <= 0) return null;
+      const spec = parseTokenClause(`Create a ${n}/${n} white Spirit creature token.`);
+      const token = spec ? TOKEN_TABLE[specKey(spec)] : undefined;
+      return token ? { ...BASE, amount: n, targetIndex: -1, self: true, token } : null;
+    },
+  },
   // D533 - ADAPT N (CR 701.46): `Adapt 2.` - the source, if it has no +1/+1 counters on it, gets N of them.
   {
     kind: 'adapt',

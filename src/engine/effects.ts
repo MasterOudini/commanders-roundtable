@@ -1601,6 +1601,26 @@ export function effectResult(
 
       // D533 - ADAPT (CR 701.46a): the source, with no +1/+1 counters on it, gets N of them; one that has any gets
       // nothing, and the step says so.
+      // D569 - ENDURE N (CR 701.63): the permanent's controller chooses the counters or the Spirit - a question at
+      // resolution (`endureChoice`, the rest of the resolution its continuation); a permanent no longer on the battlefield
+      // takes no counters, so the token alone, asked of nobody (CR 701.63b).
+      case 'endure': {
+        if (out.some((e) => e.t === 'AwaitingSet')) break;
+        if (effect.amount <= 0 || !effect.token) break;
+        // The subject is the SOURCE - planned aimless, NOT self-aimed: a self-aimed clause whose source has left is planned
+        // missing and skipped, and a gone permanent still endures, as the Spirit alone.
+        const who = effect.self ? source : aim?.kind === 'card' ? aim.id : null;
+        const enduring = who !== null ? state.cards[who] : undefined;
+        if (who !== null && enduring !== undefined && enduring.zone.kind === 'battlefield') {
+          out.push({ t: 'AwaitingSet', awaiting: { kind: 'endureChoice', player: enduring.controller ?? controller, card: who, amount: effect.amount, token: effect.token, label: obj.label } });
+          break;
+        }
+        nextInstance++;
+        out.push({ t: 'TokenCreated', card: `c${nextInstance}`, oracleId: effect.token.oracleId, printingId: effect.token.printingId, controller, owner: controller, turnNumber: state.turn.turnNumber });
+        out.push(narrated(`${obj.label}: it has left the battlefield, so it endures as a ${effect.amount}/${effect.amount} Spirit.`, obj.controller));
+        break;
+      }
+
       case 'adapt': {
         if (aim?.kind !== 'card' || effect.amount <= 0) break;
         const adapter = state.cards[aim.id];
@@ -2681,6 +2701,8 @@ function withContinuation(awaiting: Awaiting, continuation: EffectContinuation):
     case 'orderCards':
     case 'scryChoice':
     case 'proliferateChoice':
+    // D569 - the endure choice carries the clauses after the enduring one.
+    case 'endureChoice':
     // D527 - the player choice a clash raises carries the clauses after the clashing one.
     case 'choosePlayer':
       if (awaiting.continuation === continuation) return awaiting;

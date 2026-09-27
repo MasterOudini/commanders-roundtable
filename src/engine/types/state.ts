@@ -1481,6 +1481,11 @@ export type Awaiting =
    * one from its own view and the host checks every pick against the board as it stands.
    */
   | { readonly kind: 'proliferateChoice'; readonly player: PlayerId; readonly label: string; readonly continuation?: EffectContinuation }
+  /**
+   * D569 - ENDURE (CR 701.63): the enduring permanent's controller chooses - N +1/+1 counters on it (`card`), or an N/N
+   * white Spirit creature token (`token`, the printing the parser resolved). Every field is public (D61).
+   */
+  | { readonly kind: 'endureChoice'; readonly player: PlayerId; readonly card: InstanceId; readonly amount: number; readonly token: { readonly oracleId: string; readonly printingId: string }; readonly label: string; readonly continuation?: EffectContinuation }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
 export interface PriorityState {

@@ -573,6 +573,9 @@ export function simplestAnswer(
     /** D391 - proliferate nothing: legal on any board, and it runs no card text a test did not ask for. */
     case 'proliferateChoice':
       return { t: 'AnswerProliferate', player: awaiting.player, permanents: [], players: [] };
+    /** D569 - endure: the counters (no new object - the quieter answer; the proofs choose the Spirit themselves). */
+    case 'endureChoice':
+      return { t: 'AnswerEndure', player: awaiting.player, counters: true };
     case 'scryChoice': {
       const shown = (state.zones.library[awaiting.player] ?? []).filter((id) =>
         state.cards[id]?.revealedTo.includes(awaiting.player),

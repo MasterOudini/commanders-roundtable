@@ -69,6 +69,8 @@ async function build(): Promise<Record<string, TokenRef>> {
       }
       // D520 - the Army an amass makes: no card prints its description, so the keyword line seeds it (CR 701.47a).
       for (const m of folded.text.matchAll(/\bamass ([A-Za-z]+) /gi)) clauses.add(JSON.stringify([amassArmyClause(m[1] ?? ''), []]));
+      // D569 - the Spirit an endure makes: its description is reminder text alone, so the verb seeds it (CR 701.63a).
+      for (const m of folded.text.matchAll(/\bendures (\d+)\b/gi)) clauses.add(JSON.stringify([`Create a ${m[1] ?? ''}/${m[1] ?? ''} white Spirit creature token.`, []]));
     }
   }
 

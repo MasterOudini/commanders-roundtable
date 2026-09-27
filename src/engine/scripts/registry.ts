@@ -7,6 +7,12 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SINKHOLE_SURVEYOR_SCRIPT } from './cards/sinkholeSurveyor';
+import { SANDSKITTER_OUTRIDER_SCRIPT } from './cards/sandskitterOutrider';
+import { KIN_TREE_NURTURER_SCRIPT } from './cards/kinTreeNurturer';
+import { ANAFENZA_UNYIELDING_LINEAGE_SCRIPT } from './cards/anafenzaUnyieldingLineage';
+import { FORTRESS_KIN_GUARD_SCRIPT } from './cards/fortressKinGuard';
+import { DUSYUT_EARTHCARVER_SCRIPT } from './cards/dusyutEarthcarver';
 import { WOE_STRIDER_SCRIPT } from './cards/woeStrider';
 import { PHOENIX_OF_ASH_SCRIPT } from './cards/phoenixOfAsh';
 import { SENTINELS_EYES_SCRIPT } from './cards/sentinelsEyes';
@@ -8287,6 +8293,12 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SINKHOLE_SURVEYOR_SCRIPT,
+  SANDSKITTER_OUTRIDER_SCRIPT,
+  KIN_TREE_NURTURER_SCRIPT,
+  ANAFENZA_UNYIELDING_LINEAGE_SCRIPT,
+  FORTRESS_KIN_GUARD_SCRIPT,
+  DUSYUT_EARTHCARVER_SCRIPT,
   WOE_STRIDER_SCRIPT,
   PHOENIX_OF_ASH_SCRIPT,
   SENTINELS_EYES_SCRIPT,

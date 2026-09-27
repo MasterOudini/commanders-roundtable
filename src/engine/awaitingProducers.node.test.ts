@@ -135,7 +135,7 @@ const PRODUCED = [...new Set(SITES.map((s) => s.kind))].sort();
 const NO_PRODUCER = ['orderAttackers', 'orderBlockers'] as const;
 
 describe('Awaiting — which prompts the engine can raise', () => {
-  test('the union is the twenty-six kinds this test knows about', () => {
+  test('the union is the twenty-seven kinds this test knows about', () => {
     expect([...KINDS].sort()).toEqual(
       [
         'chooseColor',
@@ -154,6 +154,8 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'commanderZoneChoice',
         'declareAttackers',
         'declareBlockers',
+        // D569 - endure's choice at resolution.
+        'endureChoice',
         'entersChoice',
         'mulligan',
         'mulliganBottom',
@@ -170,7 +172,7 @@ describe('Awaiting — which prompts the engine can raise', () => {
     );
   });
 
-  test('twenty-four of the twenty-six have a producer, and the sites are real', () => {
+  test('twenty-five of the twenty-seven have a producer, and the sites are real', () => {
     expect(PRODUCED).toEqual(
       [
         'chooseColor',
@@ -188,6 +190,8 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'commanderZoneChoice',
         'declareAttackers',
         'declareBlockers',
+        // D569 - endure's choice at resolution.
+        'endureChoice',
         'entersChoice',
         'mulligan',
         'mulliganBottom',

@@ -1112,6 +1112,9 @@ function answerFor(state: GameState, p: Picker): Intent | null {
         players: c.players.filter(() => p.below(2) === 0),
       };
     }
+    // D569 - endure: a coin flip - the counters, or the Spirit (the harness always takes the counters).
+    case 'endureChoice':
+      return { t: 'AnswerEndure', player: awaiting.player, counters: p.below(2) === 0 };
     case 'searchLibrary': {
       // ⚠️ FINDS SOMETHING WHENEVER IT CAN. Failing to find is legal and the harness does it, but
       // a gate that always declined would never move a card, never tap one and never shuffle -
@@ -1845,6 +1848,8 @@ interface Run {
   /** D568 - the casts from a graveyard for an escape cost (CR 702.138a), and the escaped entries (CR 702.138b). */
   readonly escapedCasts: number;
   readonly escapedEntries: number;
+  /** D569 - the endure questions asked (CR 701.63). */
+  readonly endureAsks: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2399,6 +2404,7 @@ function runOne(seed: number): Run {
     spectacleCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.alternativePaid === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.alternativeCost?.keyword ?? null) === 'spectacle').length,
     escapedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.escaped === true).length,
     escapedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.escaped === true)).length,
+    endureAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'endureChoice').length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2779,6 +2785,7 @@ const TOTAL_KEYS = [
   'spectacleCasts',
   'escapedCasts',
   'escapedEntries',
+  'endureAsks',
   'crownings',
   'ringTempts',
   'ringAbilities',

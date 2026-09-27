@@ -258,6 +258,9 @@ function describe(
         }
         if (awaiting.explore) return `${awaiting.label}: explore - click the revealed card to put it into your graveyard, or keep it on top.`;
         return `${awaiting.label}: click cards to send to the ${awaiting.toGraveyard ? 'graveyard' : 'bottom'}; the rest stay on top in the order shown.`;
+      case 'endureChoice':
+        if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is choosing how it endures.`;
+        return `${awaiting.label}: put ${awaiting.amount} +1/+1 counter${awaiting.amount === 1 ? '' : 's'} on it, or create a ${awaiting.amount}/${awaiting.amount} white Spirit?`;
       case 'proliferateChoice':
         if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is proliferating.`;
         return `${awaiting.label}: click the permanents with counters and the players with poison to proliferate, then confirm.`;
@@ -784,6 +787,28 @@ export function PromptBar() {
               }
             >
               Decline
+            </button>
+          </>
+        )}
+
+        {/* D569 - endure: each button says what it makes - the counters on the permanent, or the Spirit beside it. */}
+        {awaiting?.kind === 'endureChoice' && mine('endureChoice') && (
+          <>
+            <button
+              type="button"
+              className={BTN}
+              data-action="endure-counters"
+              onClick={() => send({ t: 'AnswerEndure', player: viewer, counters: true })}
+            >
+              {`Put ${awaiting.amount} +1/+1 counter${awaiting.amount === 1 ? '' : 's'} on it`}
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST}
+              data-action="endure-spirit"
+              onClick={() => send({ t: 'AnswerEndure', player: viewer, counters: false })}
+            >
+              {`Create a ${awaiting.amount}/${awaiting.amount} Spirit`}
             </button>
           </>
         )}

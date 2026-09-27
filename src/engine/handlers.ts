@@ -173,6 +173,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerScry(state, intent, deps);
     case 'AnswerProliferate':
       return answerProliferate(state, intent, deps);
+    case 'AnswerEndure':
+      return answerEndure(state, intent, deps);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -4755,6 +4757,34 @@ function answerProliferate(
     narrated(n`${who(state, intent.player)} ${vb(intent.player, 'proliferates', 'proliferate')}${summary}.`, intent.player),
   ];
   // D484 - the clauses after the proliferate.
+  return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+}
+
+/**
+ * D569 - ENDURE (CR 701.63): the counters on the permanent, or the N/N white Spirit - chosen by its controller now. A
+ * permanent that has left the battlefield since the question was asked takes no counters: the token, whatever the answer.
+ */
+function answerEndure(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerEndure' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'endureChoice' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'Nothing of yours is enduring.');
+  }
+  const inst = state.cards[awaiting.card];
+  const counters = intent.counters && inst !== undefined && inst.zone.kind === 'battlefield';
+  const events: EventBody[] = [{ t: 'AwaitingSet', awaiting: null }];
+  if (counters) {
+    events.push({ t: 'CountersChanged', changes: [{ card: awaiting.card, kind: '+1/+1', delta: awaiting.amount }] });
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'puts', 'put')} ${String(awaiting.amount)} +1/+1 counter${awaiting.amount === 1 ? '' : 's'} on it for ${awaiting.label}.`, intent.player));
+  } else {
+    const id = `c${state.counters.instance + 1}` as InstanceId;
+    events.push({ t: 'TokenCreated', card: id, oracleId: awaiting.token.oracleId, printingId: awaiting.token.printingId, controller: intent.player, owner: intent.player, turnNumber: state.turn.turnNumber });
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'creates', 'create')} a ${String(awaiting.amount)}/${String(awaiting.amount)} Spirit for ${awaiting.label}.`, intent.player));
+  }
+  // D484 - the clauses after the endure.
   return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
 }
 

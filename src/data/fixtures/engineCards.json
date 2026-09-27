@@ -311084,6 +311084,222 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SANDSKITTER_OUTRIDER": {
+    "scryfallId": "1c4bfebe-f10f-44bd-9368-33e273ba5a55",
+    "oracleId": "eae480fe-d9fe-4dbe-8b78-b65f398b0af3",
+    "name": "Sandskitter Outrider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sandskitter Outrider",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Goblin Soldier",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen this creature enters, it endures 2. (Put two +1/+1 counters on it or create a 2/2 white Spirit creature token.)",
+        "flavorText": "\"There's a new sinkhole, seven leagues east. I'll take Scratchy.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Arif Wijaya",
+        "imageId": "1c4bfebe-f10f-44bd-9368-33e273ba5a55"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Menace",
+      "Endure"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SINKHOLE_SURVEYOR": {
+    "scryfallId": "1580519d-c44d-4404-a438-cb9e278abe5f",
+    "oracleId": "83a47724-b8d1-4884-9442-b62aa1510dc3",
+    "name": "Sinkhole Surveyor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sinkhole Surveyor",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Bird Scout",
+        "oracleText": "Flying\nWhenever this creature attacks, you lose 1 life and this creature endures 1. (Put a +1/+1 counter on it or create a 1/1 white Spirit creature token.)",
+        "flavorText": "Vast sinkholes in the Shifting Wastes revealed long-buried structures—and long-buried dangers.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "1580519d-c44d-4404-a438-cb9e278abe5f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Endure",
+      "Flying"
+    ],
+    "setCode": "ptdm",
+    "collectorNumber": "93p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KIN_TREE_NURTURER": {
+    "scryfallId": "2177ef64-28bf-4acf-b1f1-c1408f03c411",
+    "oracleId": "ad28a1f9-8893-4693-9464-c32ed760f6b1",
+    "name": "Kin-Tree Nurturer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kin-Tree Nurturer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Druid",
+        "oracleText": "Lifelink\nWhen this creature enters, it endures 1. (Put a +1/+1 counter on it or create a 1/1 white Spirit creature token.)",
+        "flavorText": "\"Thank the ancestors. A few more weeks, and we would have discovered nothing but dead wood and lost kin.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "2177ef64-28bf-4acf-b1f1-c1408f03c411"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Endure"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANAFENZA_UNYIELDING_LINEAGE": {
+    "scryfallId": "29957f49-9a6b-42f6-b2fb-b48f653ab725",
+    "oracleId": "659bc01c-fa60-4d00-bdad-5bca1d2a978f",
+    "name": "Anafenza, Unyielding Lineage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Anafenza, Unyielding Lineage",
+        "manaCost": "{2}{W}",
+        "typeLine": "Legendary Creature — Spirit Soldier",
+        "oracleText": "Flash\nFirst strike\nWhenever another nontoken creature you control dies, Anafenza endures 2. (Put two +1/+1 counters on it or create a 2/2 white Spirit creature token.)",
+        "flavorText": "\"Kin and clan call to me—and I will always answer.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "29957f49-9a6b-42f6-b2fb-b48f653ab725"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike",
+      "Flash",
+      "Endure"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORTRESS_KIN_GUARD": {
+    "scryfallId": "b647a018-1d70-43a1-a265-928bcd863689",
+    "oracleId": "fa3ed0f6-e44e-433d-80d3-824de5e6135a",
+    "name": "Fortress Kin-Guard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fortress Kin-Guard",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dog Soldier",
+        "oracleText": "When this creature enters, it endures 1. (Put a +1/+1 counter on it or create a 1/1 white Spirit creature token.)",
+        "flavorText": "All through the night, the ancestor whispered of ancient battles fought from this very rampart atop Arashin City.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daneen Wilkerson",
+        "imageId": "b647a018-1d70-43a1-a265-928bcd863689"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Endure"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "12",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSYUT_EARTHCARVER": {
+    "scryfallId": "b98ecc96-f557-479a-8685-2b5487d5b407",
+    "oracleId": "387b12b1-d8f5-487b-972f-5303b23eed5a",
+    "name": "Dusyut Earthcarver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dusyut Earthcarver",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Elephant Druid",
+        "oracleText": "Reach\nWhen this creature enters, it endures 3. (Put three +1/+1 counters on it or create a 3/3 white Spirit creature token.)",
+        "flavorText": "Created by a sudden sinking, Dusyut Forest attracts earthcarvers eager to explore its mysteries and test their magic.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Andrea Piparo",
+        "imageId": "b98ecc96-f557-479a-8685-2b5487d5b407"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Reach",
+      "Endure"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -320244,6 +320460,72 @@
     "keywords": [],
     "setCode": "totj",
     "collectorNumber": "4",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SPIRIT_2_2_W_CREATURE_TOKEN": {
+    "scryfallId": "b83a7343-9f5f-4b79-8929-c84011de401c",
+    "oracleId": "b246d202-fb4b-4ebd-8b8d-0969b079a9b0",
+    "name": "Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Spirit",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josiah \"Jo\" Cameron",
+        "imageId": "b83a7343-9f5f-4b79-8929-c84011de401c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdm",
+    "collectorNumber": "7",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "SPIRIT_3_3_W_CREATURE_TOKEN": {
+    "scryfallId": "997edcc4-6021-4443-9470-3fd7f7595cc6",
+    "oracleId": "493db94d-eb81-4f35-a2d5-3f43e6928db7",
+    "name": "Spirit",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Spirit",
+        "manaCost": "",
+        "typeLine": "Token Creature — Spirit",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Elizabeth Peiró",
+        "imageId": "997edcc4-6021-4443-9470-3fd7f7595cc6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "ttdm",
+    "collectorNumber": "8",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

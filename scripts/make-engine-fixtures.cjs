@@ -10262,6 +10262,15 @@ const WANTED = [
   'Underworld Rage-Hound',
   'Underworld Charger',
   // D568 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D569 - ENDURE: the endure creature the proofs deal (the rows bring the rest).
+  'Sandskitter Outrider',
+  // D569 - ENDURE: the rows the whole-leftover row maker rowed once endure was the engine's (the counters on the permanent or an N/N white Spirit, chosen at resolution).
+  'Sinkhole Surveyor',
+  'Kin-Tree Nurturer',
+  'Anafenza, Unyielding Lineage',
+  'Fortress Kin-Guard',
+  'Dusyut Earthcarver',
+  // D569 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10690,6 +10699,9 @@ const WANTED_TOKENS = [
   { name: 'Angel', set: 'tonc', cn: '3', key: 'ANGEL_4_4_W_CREATURE_FLYING_VIGILANCE_TOKEN' },
   // D553 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Sheep', set: 'totj', cn: '4', key: 'SHEEP_1_1_W_CREATURE_TOKEN' },
+  // D569 - the Spirits endure makes (TDM 2/2 and 3/3; its 1/1 was pinned already).
+  { name: 'Spirit', set: 'ttdm', cn: '7', key: 'SPIRIT_2_2_W_CREATURE_TOKEN' },
+  { name: 'Spirit', set: 'ttdm', cn: '8', key: 'SPIRIT_3_3_W_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

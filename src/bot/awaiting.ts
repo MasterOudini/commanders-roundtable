@@ -689,6 +689,13 @@ export function answerAwaiting(
         `proliferate ${permanents.length} permanent${permanents.length === 1 ? '' : 's'} and ${players.length} player${players.length === 1 ? '' : 's'}`,
       );
     }
+
+    /**
+     * D569 - endure, a POLICY said to be one: the counters on my own permanent (it stays, and grows). The Spirit is the
+     * better answer only for a permanent about to leave, which the bot does not judge.
+     */
+    case 'endureChoice':
+      return awaiting.player === me ? act({ t: 'AnswerEndure', player: me, counters: true }, `endure: the counters for ${awaiting.label}`) : wait('not my endure');
     case 'scryChoice': {
       if (awaiting.player !== me) return wait('not my scry');
       const shown = view.peek ?? [];

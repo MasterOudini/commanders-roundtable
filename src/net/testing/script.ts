@@ -200,6 +200,9 @@ export function simplestIntent(
         return awaiting.player === snapshot.you
           ? { t: 'AnswerProliferate', player: awaiting.player, permanents: [], players: [] }
           : null;
+      /** D569 - endure: the counters, always legal. */
+      case 'endureChoice':
+        return awaiting.player === snapshot.you ? { t: 'AnswerEndure', player: awaiting.player, counters: true } : null;
       /** D195 — keep everything in revealed order: the no-op scry, always legal. */
       case 'scryChoice':
         return awaiting.player === snapshot.you

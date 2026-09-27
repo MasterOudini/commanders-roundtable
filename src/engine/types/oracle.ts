@@ -740,6 +740,11 @@ export type EffectKind =
    */
   | 'suspect'
   /**
+   * D569 - ENDURE N (CR 701.63): the permanent's controller puts N +1/+1 counters on it or creates an N/N white Spirit
+   * creature token (`token`) - a choice made at resolution (`endureChoice`); the token alone once it has left the battlefield.
+   */
+  | 'endure'
+  /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
    * The self form ("This creature can't be blocked this turn.") is aimed at the source (D373).
