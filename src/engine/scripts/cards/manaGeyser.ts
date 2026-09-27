@@ -4,6 +4,7 @@
 // type-changed permanent counts the way the rules count it. "Your opponents"
 // is every other player still in the game (multiplayer is the format). D192.
 
+import { inPlay } from '../../zones';
 import { MANA_GEYSER } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const MANA_GEYSER_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller || !card.tapped) continue;
         if (ctx.state.players[card.controller]?.hasLost) continue;

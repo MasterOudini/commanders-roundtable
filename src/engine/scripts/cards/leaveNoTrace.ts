@@ -1,6 +1,7 @@
 // `Leave No Trace` — Radiance on a destroy: the target enchantment and
 // every other enchantment sharing a color with it. D222.
 
+import { inPlay } from '../../zones';
 import { LEAVE_NO_TRACE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const LEAVE_NO_TRACE_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const colors = ctx.derive(target.id).colors;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

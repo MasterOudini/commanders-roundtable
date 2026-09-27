@@ -4,6 +4,7 @@
 // every creature STILL there — the destroyed one has already left in the
 // same resolve, so it is not in the sweep, exactly as the card reads. D272.
 
+import { inPlay } from '../../zones';
 import { BLIGHT_GRENADE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -46,7 +47,7 @@ export const BLIGHT_GRENADE_SCRIPT: CardScript = {
           ],
         });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (destroyed && id === target.id) continue;
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

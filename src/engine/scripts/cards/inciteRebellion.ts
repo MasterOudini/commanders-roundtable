@@ -1,6 +1,7 @@
 // `Incite Rebellion` — for EACH player: their creature count, dealt to
 // them and to each creature they control. My own board included. D219.
 
+import { inPlay } from '../../zones';
 import { INCITE_REBELLION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const INCITE_REBELLION_SCRIPT: CardScript = {
         const p = ctx.state.players[pid];
         if (!p || p.hasLost) continue;
         const mine = [];
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== pid) continue;
           if (ctx.derive(id).typeLine.types.includes('Creature')) mine.push(id);

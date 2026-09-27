@@ -1,6 +1,7 @@
 // `Congregate` — "Target player gains 2 life for each creature on the
 // battlefield." Everyone's creatures count. D204.
 
+import { inPlay } from '../../zones';
 import { CONGREGATE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const CONGREGATE_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (ctx.derive(id).typeLine.types.includes('Creature')) n++;
       }
       if (n === 0) return [];

@@ -2,6 +2,7 @@
 // Battle Hymn's ritual counting EVERYONE's Goblins by derived subtype.
 // D201.
 
+import { inPlay } from '../../zones';
 import { BRIGHTSTONE_RITUAL } from '../../../data/fixtures/engineCards';
 import { EMPTY_POOL } from '../../types/mana';
 import type { CardData } from '../../../data/cardTypes';
@@ -28,7 +29,7 @@ export const BRIGHTSTONE_RITUAL_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (ctx.derive(id).typeLine.subtypes.includes('Goblin')) n++;
       }
       if (n === 0) return [];

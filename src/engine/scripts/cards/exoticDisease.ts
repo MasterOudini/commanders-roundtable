@@ -2,6 +2,7 @@
 // life, where X is the number of basic land types among lands you
 // control." The Domain count as a drain. D211.
 
+import { inPlay } from '../../zones';
 import { EXOTIC_DISEASE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const EXOTIC_DISEASE_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

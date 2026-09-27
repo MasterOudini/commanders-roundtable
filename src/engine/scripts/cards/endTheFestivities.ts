@@ -2,6 +2,7 @@
 // opponent and each creature and planeswalker they control." The caster's
 // side is untouched on every half. D210.
 
+import { inPlay } from '../../zones';
 import { END_THE_FESTIVITIES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const END_THE_FESTIVITIES_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         const types = ctx.derive(id).typeLine.types;

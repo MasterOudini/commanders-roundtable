@@ -2,6 +2,7 @@
 // player who controls a white creature." Both halves read the DERIVED
 // colors, and the player list is derived from the same scan. D208.
 
+import { inPlay } from '../../zones';
 import { DISORDER } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const DISORDER_SCRIPT: CardScript = {
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
       const owners = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

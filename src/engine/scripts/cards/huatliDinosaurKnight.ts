@@ -50,7 +50,7 @@ export const HUATLI_DINOSAUR_KNIGHT_SCRIPT: CardScript = {
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           if (!ctx.derive(inst.id).typeLine.subtypes.includes("Dinosaur")) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 4, toughness: 4 });

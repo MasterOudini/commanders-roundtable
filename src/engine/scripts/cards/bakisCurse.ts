@@ -4,6 +4,7 @@
 // DamageDealt. The SPELL is the source — no riders (Acidic Soil's rule).
 // D199.
 
+import { inPlay } from '../../zones';
 import { BAKI_S_CURSE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const BAKIS_CURSE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

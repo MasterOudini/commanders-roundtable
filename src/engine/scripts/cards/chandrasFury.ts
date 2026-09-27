@@ -3,6 +3,7 @@
 // planeswalker's controller controls." The rider's owner is the player
 // half OR the planeswalker's controller. D203.
 
+import { inPlay } from '../../zones';
 import { CHANDRA_S_FURY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -58,7 +59,7 @@ export const CHANDRAS_FURY_SCRIPT: CardScript = {
         who = card.controller;
         damages.push(hit({ kind: 'card', id: target.id }, 4));
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== who) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

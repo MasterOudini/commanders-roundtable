@@ -1,6 +1,7 @@
 // `Harmonic Convergence` — every enchantment goes on TOP of its owner's
 // library: Hallowed Burial's move at the other end. D217.
 
+import { inPlay } from '../../zones';
 import { HARMONIC_CONVERGENCE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const HARMONIC_CONVERGENCE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Enchantment')) continue;

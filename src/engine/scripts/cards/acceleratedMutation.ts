@@ -5,6 +5,7 @@
 // tokens and faceless blanks count 0), riding the same
 // PtModifiedUntilEndOfTurn every pump rides. D196.
 
+import { inPlay } from '../../zones';
 import { ACCELERATED_MUTATION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const ACCELERATED_MUTATION_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const mv = ctx.oracle.byPrinting(card.printingId)?.manaValue ?? 0;

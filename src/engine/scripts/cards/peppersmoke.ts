@@ -2,6 +2,7 @@
 // control a Faerie, draw a card." The board-query rider (Misthios's
 // shape) on a debuff. D232.
 
+import { inPlay } from '../../zones';
 import { PEPPERSMOKE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const PEPPERSMOKE_SCRIPT: CardScript = {
       const events: EventBody[] = [
         { t: 'PtModifiedUntilEndOfTurn', card: target.id, power: -1, toughness: -1 },
       ];
-      const hasFaerie = ctx.state.zones.battlefield.some((id) => {
+      const hasFaerie = inPlay(ctx.state).some((id) => {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) return false;
         return ctx.derive(id).typeLine.subtypes.includes('Faerie');

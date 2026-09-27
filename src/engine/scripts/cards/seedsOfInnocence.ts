@@ -4,6 +4,7 @@
 // are PAID, per artifact, computed pre-move; the regeneration clause is
 // vacuous and this file is a damnation-tripwire client (#17). D245.
 
+import { inPlay } from '../../zones';
 import { SEEDS_OF_INNOCENCE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const SEEDS_OF_INNOCENCE_SCRIPT: CardScript = {
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
       const gains = new Map<PlayerId, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

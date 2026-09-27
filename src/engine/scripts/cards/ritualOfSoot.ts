@@ -1,6 +1,7 @@
 // `Ritual of Soot` — "Destroy all creatures with mana value 3 or less."
 // Culling Sun's sweep on the other wording of the same bar. D241.
 
+import { inPlay } from '../../zones';
 import { RITUAL_OF_SOOT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const RITUAL_OF_SOOT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

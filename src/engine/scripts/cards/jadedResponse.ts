@@ -2,6 +2,7 @@
 // creature I control: the condition read at resolution off the CAST
 // face's colors against my derived board. D220.
 
+import { inPlay } from '../../zones';
 import { JADED_RESPONSE } from '../../../data/fixtures/engineCards';
 import { moveFromStack } from '../../effects';
 import { faceOf } from '../../oracle';
@@ -40,7 +41,7 @@ export const JADED_RESPONSE_SCRIPT: CardScript = {
       if (!oc) return [];
       const spellColors = faceOf(oc, vc.faceIndex ?? 0).colors;
       let shares = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

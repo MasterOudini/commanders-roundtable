@@ -1,6 +1,7 @@
 // `Incandescent Aria` — 3 to each NONTOKEN creature: the isToken
 // instance fact as the exemption. D219.
 
+import { inPlay } from '../../zones';
 import { INCANDESCENT_ARIA } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const INCANDESCENT_ARIA_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.isToken) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

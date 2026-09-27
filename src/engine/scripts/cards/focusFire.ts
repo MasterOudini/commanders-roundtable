@@ -1,6 +1,7 @@
 // `Focus Fire` — X is 2 plus the creatures and/or Spacecraft I control (a
 // permanent that is both counts once). D291's role.
 
+import { inPlay } from '../../zones';
 import { FOCUS_FIRE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const FOCUS_FIRE_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       let count = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         const d = ctx.derive(id);

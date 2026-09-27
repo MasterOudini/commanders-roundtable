@@ -2,6 +2,7 @@
 // creature and each other creature that shares a color with it."
 // Brightflame's set at a flat 2 with no gain. D203.
 
+import { inPlay } from '../../zones';
 import { CLEANSING_BEAM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const CLEANSING_BEAM_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const shared = new Set(ctx.derive(target.id).colors);
       const hit = [target.id];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

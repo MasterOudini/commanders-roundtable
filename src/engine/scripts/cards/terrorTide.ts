@@ -3,6 +3,7 @@
 // (Swirling Sandstorm's precedent, D256). The count is read off the ORACLE
 // face — a graveyard card has no battlefield derivation (D171). D258.
 
+import { inPlay } from '../../zones';
 import { TERROR_TIDE } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -44,7 +45,7 @@ export const TERROR_TIDE_SCRIPT: CardScript = {
       }
       if (x === 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: -x, toughness: -x });

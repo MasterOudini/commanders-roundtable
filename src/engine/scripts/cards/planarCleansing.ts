@@ -2,6 +2,7 @@
 // committed wipe shape: every nonland on every board, indestructible
 // asked per permanent, one simultaneous move. D234.
 
+import { inPlay } from '../../zones';
 import { PLANAR_CLEANSING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const PLANAR_CLEANSING_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

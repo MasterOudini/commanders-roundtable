@@ -3,6 +3,7 @@
 // to the damage dealt this way." The radiance set is DERIVED colors; the
 // gain is X per creature actually hit. D201.
 
+import { inPlay } from '../../zones';
 import { BRIGHTFLAME } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const BRIGHTFLAME_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const shared = new Set(ctx.derive(target.id).colors);
       const hit = [target.id];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue;
         const card = ctx.state.cards[id];
         if (!card) continue;

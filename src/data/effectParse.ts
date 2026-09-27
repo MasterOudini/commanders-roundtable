@@ -21,6 +21,7 @@
 // express as EVENTS is an effect it must not claim. `tier3.ts` asks this module
 // what it understood, and says so on the card.
 
+import { ROLE_TABLE, roleRef } from './roleTable';
 import type {
   BoardScope,
   CounterKind,
@@ -214,6 +215,8 @@ const NUM = '(?:\\d+)';
  * where the text is known to be a quoted body (`scripts/vocabulary.ts`).
  */
 const SELF = '(?:this (?:creature|permanent|artifact|enchantment|land)|~)';
+// D574 - the Roles the table holds (a Role it does not hold is a sentence the parser does not read).
+const ROLE_NAMES = `(?:${Object.keys(ROLE_TABLE).join('|')})`;
 
 
 const WORD_NUMBERS: Readonly<Record<string, number>> = {
@@ -2433,6 +2436,11 @@ const RULES: readonly Rule[] = [
       return self ? { ...BASE, amount: n, targetIndex: -1, self: true, copy: { of: 'self', exceptions } } : { ...BASE, amount: n, copy: { of: 'target', exceptions } };
     },
   },
+  // D574 - THE ROLE (CR 303.7): `Create a <Role> Role token attached to <target | this creature>.` - the printing and the
+  // face from ROLE_TABLE, created ATTACHED to the aim or the source; `attached to it` after a targeted clause is D392's
+  // referent (REFERENT_ROLE), and a payload's `attached to it` with no target before it is the source (rewriteSelf).
+  { kind: 'createToken', re: new RegExp(`^(?:then )?create an? (${ROLE_NAMES}) Role token attached to ${TARGET}\\.$`, 'i'), build: (m) => { const r = roleRef(m[1] ?? ''); return r ? { ...BASE, amount: 1, token: r, attach: 'aim' as const, tokenFace: r.faceIndex } : null; } },
+  { kind: 'createToken', re: new RegExp(`^(?:then )?create an? (${ROLE_NAMES}) Role token attached to ${SELF}\\.$`, 'i'), build: (m) => { const r = roleRef(m[1] ?? ''); return r ? { ...BASE, amount: 1, targetIndex: -1, self: true, token: r, attach: 'source' as const, tokenFace: r.faceIndex } : null; } },
   {
     kind: 'createToken',
     re: new RegExp(`^creates? (${COUNT}) .+ tokens?(?: with [^.]+)?\\.$`, 'i'),
@@ -2658,6 +2666,9 @@ const REFERENT_DOUBLE = new RegExp(`^(?:then )?double the number of (?:${COUNTER
 // D485 - the token COPY of the referent (`Exile target creature. Create a token that's a copy of it.`, `... copy of that
 // creature`): the referent stands where the target phrase would.
 const REFERENT_COPY = new RegExp(`^(?:then )?create ${COUNT} tokens? that(?:'s| is| are) (?:a )?cop(?:y|ies) of ${REFERENT}(?![a-z'])`, 'i');
+// D574 - the ROLE attached to the referent (`Target creature gets +2/+0 until end of turn. Create a Monster Role token
+// attached to it.`, `... attached to that creature.`): the referent stands where the target phrase would.
+const REFERENT_ROLE = new RegExp(`^(?:then )?create an? ${ROLE_NAMES} Role token attached to ${REFERENT}(?![a-z'])`, 'i');
 // D514 - the POSSESSIVE referent: `You gain life equal to its toughness.` / `... that creature's toughness.` names the
 // previous clause's object as the owner of the stat; the phrase goes in with an apostrophe-s.
 const REFERENT_STAT = /^(?:you )?gain life equal to (?:its|that (?:creature|permanent)'s) (?:power|toughness)\.$/i;
@@ -2811,7 +2822,7 @@ function referentRewrite(sentence: string, previous: Clause | undefined): Effect
     const hit = matchSentence(sentence.replace(REFERENT_POSSESSIVE, previous.phrase + "'s"));
     return hit ? { ...hit, text: sentence, referent: true } : null;
   }
-  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_DOUBLE.test(sentence) && !REFERENT_COPY.test(sentence)) return null;
+  if (!REFERENT_LEAD.test(sentence) && !REFERENT_OBJECT.test(sentence) && !REFERENT_SHIELD.test(sentence) && !REFERENT_COUNTER.test(sentence) && !REFERENT_DOUBLE.test(sentence) && !REFERENT_COPY.test(sentence) && !REFERENT_ROLE.test(sentence)) return null;
   const hit = matchSentence(sentence.replace(REFERENT_ANY, previous.phrase));
   return hit ? { ...hit, text: sentence, referent: true } : null;
 }

@@ -2,6 +2,7 @@
 // census is over MY battlefield only, and any one of the six is enough.
 // D263.
 
+import { inPlay } from '../../zones';
 import { UNAGI_S_SPRAY } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -39,7 +40,7 @@ export const UNAGIS_SPRAY_SCRIPT: CardScript = {
       }
 
       let kin = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         const subs = ctx.derive(id).typeLine.subtypes;

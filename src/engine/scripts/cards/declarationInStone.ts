@@ -4,6 +4,7 @@
 // family is matched by ORACLE NAME over the target's controller's board;
 // the Clues go to THAT PLAYER, one per nontoken exiled. D207.
 
+import { inPlay } from '../../zones';
 import { DECLARATION_IN_STONE } from '../../../data/fixtures/engineCards';
 import { TOKEN_TABLE, type TokenRef } from '../../../data/tokenTable';
 import type { CardData } from '../../../data/cardTypes';
@@ -48,7 +49,7 @@ export const DECLARATION_IN_STONE_SCRIPT: CardScript = {
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const moves = [];
       let nontoken = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== owner) continue;
         const isTarget = id === target.id;

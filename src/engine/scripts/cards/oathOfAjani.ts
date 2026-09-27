@@ -37,7 +37,7 @@ export const OATH_OF_AJANI_SCRIPT: CardScript = {
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         const changes: { card: InstanceId; kind: string; delta: number }[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           changes.push({ card: inst.id, kind: "+1/+1", delta: 1 });
         }

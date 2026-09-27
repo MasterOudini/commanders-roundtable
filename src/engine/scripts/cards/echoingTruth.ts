@@ -35,7 +35,7 @@ export const ECHOING_TRUTH_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
       const sameName = (p: { id: InstanceId; card: CardInstance }): CardInstance[] =>
-        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && c.oracleId === p.card.oracleId);
+        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && !c.phasedOut && c.oracleId === p.card.oracleId);
         { const p = perm(0); if (p) {
           for (const c of [p.card, ...sameName(p)]) {
             events.push({ t: 'CardsMoved', moves: [{ card: c.id, from: { kind: 'battlefield', player: c.controller }, to: { kind: 'hand', player: c.owner } }] });

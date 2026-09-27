@@ -1,6 +1,7 @@
 // `Armed Response` — damage to the attacker equal to the Equipment I control
 // (derived subtype). D291's role.
 
+import { inPlay } from '../../zones';
 import { ARMED_RESPONSE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const ARMED_RESPONSE_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Equipment')) amount++;

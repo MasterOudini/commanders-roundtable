@@ -1,6 +1,7 @@
 // `Echoing Ruin` — "Destroy target artifact and all other artifacts with
 // the same name as that artifact." Echoing Calm one type over. D210.
 
+import { inPlay } from '../../zones';
 import { ECHOING_RUIN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const ECHOING_RUIN_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const isTarget = id === target.id;

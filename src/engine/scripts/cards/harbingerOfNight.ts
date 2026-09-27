@@ -35,7 +35,7 @@ export const HARBINGER_OF_NIGHT_SCRIPT: CardScript = {
       resolve: (ctx, _self, _obj): readonly EventBody[] => {
         const changes: { card: InstanceId; kind: string; delta: number }[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield') continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           changes.push({ card: inst.id, kind: "-1/-1", delta: 1 });
         }

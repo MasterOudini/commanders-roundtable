@@ -1,5 +1,6 @@
 // `Creeping Corrosion` — "Destroy all artifacts." D205.
 
+import { inPlay } from '../../zones';
 import { CREEPING_CORROSION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -25,7 +26,7 @@ export const CREEPING_CORROSION_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

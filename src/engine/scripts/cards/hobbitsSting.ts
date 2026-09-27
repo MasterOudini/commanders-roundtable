@@ -1,6 +1,7 @@
 // `Hobbit's Sting` — X = my creatures plus my Foods (a Food creature
 // counts in both halves, as printed). D217.
 
+import { inPlay } from '../../zones';
 import { HOBBIT_S_STING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const HOBBITS_STING_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

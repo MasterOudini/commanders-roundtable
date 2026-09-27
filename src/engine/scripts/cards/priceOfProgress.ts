@@ -2,6 +2,7 @@
 // equal to twice the number of nonbasic lands that player controls."
 // Incite Rebellion's per-player census fan, priced in land tax. D234.
 
+import { inPlay } from '../../zones';
 import { PRICE_OF_PROGRESS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const PRICE_OF_PROGRESS_SCRIPT: CardScript = {
         const player = ctx.state.players[seat];
         if (!player || player.hasLost) continue;
         let nonbasics = 0;
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== seat) continue;
           const d = ctx.derive(id);

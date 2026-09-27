@@ -2,6 +2,7 @@
 // I control. The ask is emitted LAST (D195): an effect that stops to ask
 // must be the final one, or everything after it is silently dropped. D256.
 
+import { inPlay } from '../../zones';
 import { TAKEN_BY_NIGHTMARES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -46,7 +47,7 @@ export const TAKEN_BY_NIGHTMARES_SCRIPT: CardScript = {
         },
       ];
       let enchantment = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Enchantment')) {

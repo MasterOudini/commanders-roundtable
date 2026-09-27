@@ -36,7 +36,7 @@ export const WINNOW_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
       const sameName = (p: { id: InstanceId; card: CardInstance }): CardInstance[] =>
-        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && c.oracleId === p.card.oracleId);
+        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && !c.phasedOut && c.oracleId === p.card.oracleId);
         { const p = perm(0); if (p && sameName(p).length > 0 && !ctx.derive(p.id).keywords.has('indestructible')) events.push({ t: 'CardsMoved', moves: [{ card: p.id, from: { kind: 'battlefield', player: p.card.controller }, to: { kind: 'graveyard', player: p.card.owner } }] }); }
         events.push(...drawEvents(ctx.state, obj.controller, 1));
       return events;

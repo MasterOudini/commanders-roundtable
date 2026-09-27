@@ -2,6 +2,7 @@
 // (D228) with the filter inverted. One simultaneous damage event, and the
 // SBA does the killing. D262.
 
+import { inPlay } from '../../zones';
 import { TREMOR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -38,7 +39,7 @@ export const TREMOR_SCRIPT: CardScript = {
         toxic: number;
         applyAs: 'normal';
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         if (d.keywords.has('flying')) continue;

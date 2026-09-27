@@ -3,6 +3,7 @@
 // ONE simultaneous move: battlefield creatures DERIVED, graveyard cards
 // typed off the ORACLE face. D250.
 
+import { inPlay } from '../../zones';
 import { SOULQUAKE } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -32,7 +33,7 @@ export const SOULQUAKE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves: CardMove[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

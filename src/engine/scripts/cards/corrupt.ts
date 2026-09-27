@@ -2,6 +2,7 @@
 // Swamps you control. You gain life equal to the damage dealt this way."
 // D205.
 
+import { inPlay } from '../../zones';
 import { CORRUPT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const CORRUPT_SCRIPT: CardScript = {
       if (target.kind === 'card' && ctx.state.cards[target.id]?.zone.kind !== 'battlefield')
         return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Swamp')) x++;

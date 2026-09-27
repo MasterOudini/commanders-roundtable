@@ -2,6 +2,7 @@
 // same name as that creature get +2/+2 until end of turn." The name-family
 // pump. D210.
 
+import { inPlay } from '../../zones';
 import { ECHOING_COURAGE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const ECHOING_COURAGE_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const isTarget = id === target.id;

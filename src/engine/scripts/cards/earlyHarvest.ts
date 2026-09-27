@@ -2,6 +2,7 @@
 // The BASIC supertype and the Land type both read derived; only the
 // actually-tapped go in the event. D210.
 
+import { inPlay } from '../../zones';
 import { EARLY_HARVEST } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const EARLY_HARVEST_SCRIPT: CardScript = {
       if (!target || target.kind !== 'player') return [];
       if (ctx.state.players[target.id]?.hasLost) return [];
       const cards = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id || !card.tapped) continue;
         const tl = ctx.derive(id).typeLine;

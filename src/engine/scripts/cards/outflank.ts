@@ -1,6 +1,7 @@
 // `Outflank` — damage to the attacking or blocking creature equal to the
 // creatures I control (derived type). D291's role.
 
+import { inPlay } from '../../zones';
 import { OUTFLANK } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const OUTFLANK_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) amount++;

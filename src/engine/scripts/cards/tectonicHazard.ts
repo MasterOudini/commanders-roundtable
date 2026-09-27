@@ -2,6 +2,7 @@
 // control, in one simultaneous fan. Flame Wave's shape (D213) widened from
 // one player to every opponent. D257.
 
+import { inPlay } from '../../zones';
 import { TECTONIC_HAZARD } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -49,7 +50,7 @@ export const TECTONIC_HAZARD_SCRIPT: CardScript = {
       }
       if (opponents.size === 0) return [];
       const damages = [...opponents].map((pid) => hit({ kind: 'player', id: pid }));
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || !opponents.has(inst.controller)) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

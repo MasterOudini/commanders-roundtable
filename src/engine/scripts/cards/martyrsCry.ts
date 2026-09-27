@@ -1,6 +1,7 @@
 // `Martyr's Cry` — every white creature is exiled and each CONTROLLER
 // draws per loss of their own. D223.
 
+import { inPlay } from '../../zones';
 import { MARTYR_S_CRY } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -31,7 +32,7 @@ export const MARTYRS_CRY_SCRIPT: CardScript = {
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
       const counts = new Map<string, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

@@ -2,6 +2,7 @@
 // creature and each player." The destroy, then Dakmor Plague's sweep at 1.
 // D208.
 
+import { inPlay } from '../../zones';
 import { DEVASTATE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -47,7 +48,7 @@ export const DEVASTATE_SCRIPT: CardScript = {
         }
       }
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (id === target?.id && events.length > 0) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

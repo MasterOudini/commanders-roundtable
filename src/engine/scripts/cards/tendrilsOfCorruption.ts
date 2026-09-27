@@ -3,6 +3,7 @@
 // a Swamp that is only a Swamp because something changed its type still
 // counts. D258.
 
+import { inPlay } from '../../zones';
 import { TENDRILS_OF_CORRUPTION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const TENDRILS_OF_CORRUPTION_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Swamp')) x += 1;

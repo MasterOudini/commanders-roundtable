@@ -2,6 +2,7 @@
 // is what makes it always do something: with no Dinosaur at all it is still
 // 2 damage, so the census is a raise and never a gate. D262.
 
+import { inPlay } from '../../zones';
 import { TRIUMPHANT_CHOMP } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const TRIUMPHANT_CHOMP_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
 
       let amount = 2;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         const d = ctx.derive(id);

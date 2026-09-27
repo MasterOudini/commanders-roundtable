@@ -2,6 +2,7 @@
 // player and 1 damage to each creature that player controls." Chandra's
 // Fury's fan at instant speed and a flat 3. D236.
 
+import { inPlay } from '../../zones';
 import { RADIATING_LIGHTNING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -48,7 +49,7 @@ export const RADIATING_LIGHTNING_SCRIPT: CardScript = {
         applyAs: 'normal' as const,
       });
       const damages = [hit({ kind: 'player', id: target.id }, 3)];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

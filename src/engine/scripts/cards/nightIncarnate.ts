@@ -36,7 +36,7 @@ export const NIGHT_INCARNATE_SCRIPT: CardScript = {
       resolve: (ctx, _self, _obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield') continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: -3, toughness: -3 });
         }

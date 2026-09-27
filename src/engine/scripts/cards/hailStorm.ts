@@ -1,6 +1,7 @@
 // `Hail Storm` — 2 to each ATTACKING creature, 1 to me and each creature
 // I control; my own attacker takes both entries. D216.
 
+import { inPlay } from '../../zones';
 import { HAIL_STORM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -57,7 +58,7 @@ export const HAIL_STORM_SCRIPT: CardScript = {
           applyAs: 'normal' as const,
         });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -1,6 +1,7 @@
 // `Peach Garden Oath` — "You gain 2 life for each creature you control."
 // The census gain. D232.
 
+import { inPlay } from '../../zones';
 import { PEACH_GARDEN_OATH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -28,7 +29,7 @@ export const PEACH_GARDEN_OATH_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

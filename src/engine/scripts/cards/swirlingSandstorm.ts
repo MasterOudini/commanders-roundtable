@@ -2,6 +2,7 @@
 // census gates a flying-exempt sweep. The ability word is part of the
 // printed line and the def claims it whole. D256.
 
+import { inPlay } from '../../zones';
 import { SWIRLING_SANDSTORM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const SWIRLING_SANDSTORM_SCRIPT: CardScript = {
       const graveyard = ctx.state.zones.graveyard[obj.controller] ?? [];
       if (graveyard.length < 7) return [];
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

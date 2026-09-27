@@ -3,6 +3,7 @@
 // players: one DamageDealt, an entry per derived creature and per living
 // player, spell source, no riders. D206.
 
+import { inPlay } from '../../zones';
 import { DAKMOR_PLAGUE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -28,7 +29,7 @@ export const DAKMOR_PLAGUE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         damages.push({

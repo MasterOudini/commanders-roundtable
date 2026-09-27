@@ -4,6 +4,7 @@
 // derived creature its own source and target, riders per creature, power 0
 // deals nothing. D196.
 
+import { inPlay } from '../../zones';
 import { WAVE_OF_RECKONING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const WAVE_OF_RECKONING_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         const power = d.power ?? 0;

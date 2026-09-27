@@ -2,6 +2,7 @@
 // you gain X life, where X is the number of Clerics on the battlefield."
 // The census burn-and-gain, counted across EVERY board. D235.
 
+import { inPlay } from '../../zones';
 import { PROFANE_PRAYERS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const PROFANE_PRAYERS_SCRIPT: CardScript = {
       if (target.kind === 'player' && !ctx.state.players[target.id]) return [];
       if (target.kind !== 'card' && target.kind !== 'player') return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Cleric')) x++;
       }

@@ -5,6 +5,7 @@
 // nonbasic lands, so two attackers at two defenders can get two different
 // bonuses. D224.
 
+import { inPlay } from '../../zones';
 import { MERCADIA_S_DOWNFALL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -40,7 +41,7 @@ export const MERCADIAS_DOWNFALL_SCRIPT: CardScript = {
           a.defender.kind === 'player' ? a.defender.id : ctx.query.controllerOf(a.defender.id);
         if (!defender) continue;
         let n = 0;
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== defender) continue;
           const d = ctx.derive(id);

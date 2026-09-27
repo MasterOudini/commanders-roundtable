@@ -3,6 +3,7 @@
 // so tokens die); the regeneration clause is vacuous under the
 // `damnation.node.test.ts` tripwire. D204.
 
+import { inPlay } from '../../zones';
 import { CONSUME_THE_MEEK } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const CONSUME_THE_MEEK_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

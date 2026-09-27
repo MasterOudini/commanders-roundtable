@@ -2,6 +2,7 @@
 // for each basic land type among lands you control." Drag Down's mirror.
 // D215.
 
+import { inPlay } from '../../zones';
 import { GAEA_S_MIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const GAEAS_MIGHT_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

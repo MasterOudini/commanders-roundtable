@@ -3,6 +3,7 @@
 // greater." Both counts off the derived board at resolution: every creature
 // of mine is a card, every one at power 4 or more is 4 life more. D280.
 
+import { inPlay } from '../../zones';
 import { SHAMANIC_REVELATION } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const SHAMANIC_REVELATION_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let creatures = 0;
       let big = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

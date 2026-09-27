@@ -312410,6 +312410,294 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "LIVING_LECTERN": {
+    "scryfallId": "169afcaf-7ebf-4590-9e51-2a1a5eb3ac76",
+    "oracleId": "061e7fb2-2c04-4845-b60a-0e2512a2dec1",
+    "name": "Living Lectern",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Living Lectern",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{1}, Sacrifice this creature: Draw a card. Create a Sorcerer Role token attached to up to one other target creature you control. Activate only as a sorcery. (If you control another Role on it, put that one into the graveyard. Enchanted creature gets +1/+1 and has \"Whenever this creature attacks, scry 1.\")",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "169afcaf-7ebf-4590-9e51-2a1a5eb3ac76"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Role token",
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITEFUL_HEXMAGE": {
+    "scryfallId": "3501fc49-682a-4f09-8a40-641fed41dc64",
+    "oracleId": "d07e0d88-8b7f-423d-97b7-cf7b80d8924c",
+    "name": "Spiteful Hexmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spiteful Hexmage",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "When this creature enters, create a Cursed Role token attached to target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature is 1/1.)",
+        "flavorText": "\"Who'll never amount to anything now, Father?\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Anna Steinbauer",
+        "imageId": "3501fc49-682a-4f09-8a40-641fed41dc64"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Role token"
+    ],
+    "setCode": "pwoe",
+    "collectorNumber": "108s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CURSED_COURTIER": {
+    "scryfallId": "3d2d5a71-d6e1-4c96-9a53-0e370047a56e",
+    "oracleId": "17916cf9-1e6c-41bd-96ce-2b050d828838",
+    "name": "Cursed Courtier",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cursed Courtier",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Noble",
+        "oracleText": "Lifelink\nWhen this creature enters, create a Cursed Role token attached to it. (Enchanted creature is 1/1.)",
+        "flavorText": "It was the first and last time anyone attempted to levy a tax on the witches of Dunbarrow.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "3d2d5a71-d6e1-4c96-9a53-0e370047a56e"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIANT_INHERITANCE": {
+    "scryfallId": "3e8d46e1-7aad-4e2b-82a5-af81cd6c8ae5",
+    "oracleId": "6be21185-f85c-49e8-988a-a76b6613fdaa",
+    "name": "Giant Inheritance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Giant Inheritance",
+        "manaCost": "{4}{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +5/+5 and has \"Whenever this creature attacks, create a Monster Role token attached to up to one target attacking creature.\" (Enchanted creature gets +1/+1 and has trample.)\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Borja Pindado",
+        "imageId": "3e8d46e1-7aad-4e2b-82a5-af81cd6c8ae5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Role token",
+      "Enchant"
+    ],
+    "setCode": "woc",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_WITCH_S_VANITY": {
+    "scryfallId": "47ca4926-b5ac-405a-8b58-f8db6df400ff",
+    "oracleId": "ad2793f3-a36f-4a09-a38f-eb98ce0a2b79",
+    "name": "The Witch's Vanity",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "The Witch's Vanity",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Saga",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Destroy target creature an opponent controls with mana value 2 or less.\nII — Create a Food token. (It's an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")\nIII — Create a Wicked Role token attached to target creature you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "47ca4926-b5ac-405a-8b58-f8db6df400ff"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Role token",
+      "Food"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "119",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHARMING_SCOUNDREL": {
+    "scryfallId": "51f94c92-cf88-4770-8ab8-874cd6634510",
+    "oracleId": "9eec304d-ffcb-4287-b877-280ac1e4f496",
+    "name": "Charming Scoundrel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Charming Scoundrel",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Haste\nWhen this creature enters, choose one —\n• Discard a card, then draw a card.\n• Create a Treasure token.\n• Create a Wicked Role token attached to target creature you control.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Caroline Gariba",
+        "imageId": "51f94c92-cf88-4770-8ab8-874cd6634510"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Role token",
+      "Treasure",
+      "Haste"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "345",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPLASHY_SPELLCASTER": {
+    "scryfallId": "73ebd7f0-a54d-43a8-a5ee-9d6835308794",
+    "oracleId": "21486218-70ec-4c60-9844-8f7c80912333",
+    "name": "Splashy Spellcaster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Splashy Spellcaster",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental Wizard",
+        "oracleText": "Whenever you cast an instant or sorcery spell, create a Sorcerer Role token attached to up to one other target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature gets +1/+1 and has \"Whenever this creature attacks, scry 1.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "73ebd7f0-a54d-43a8-a5ee-9d6835308794"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Role token",
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNASSUMING_SAGE": {
+    "scryfallId": "a66fbaeb-1624-43b3-83e2-a37ce7588a5a",
+    "oracleId": "1cf4e16b-2273-41c7-9bcd-0cdc78e12198",
+    "name": "Unassuming Sage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unassuming Sage",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Peasant Wizard",
+        "oracleText": "When this creature enters, you may pay {2}. If you do, create a Sorcerer Role token attached to it. (Enchanted creature gets +1/+1 and has \"Whenever this creature attacks, scry 1.\")",
+        "flavorText": "\"The archmage Valya? Why yes, I do believe I've heard of her.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michele Giorgi",
+        "imageId": "a66fbaeb-1624-43b3-83e2-a37ce7588a5a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Role token",
+      "Scry"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -321636,6 +321924,142 @@
     "keywords": [],
     "setCode": "ttdm",
     "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "MONSTER_SORCERER_ROLE_TOKEN": {
+    "scryfallId": "6b8a810b-8538-41c3-a792-dbd1a1845faa",
+    "oracleId": "ed95e696-3e4d-4b2b-9327-46fc2604652c",
+    "name": "Monster // Sorcerer",
+    "layout": "flip",
+    "faces": [
+      {
+        "name": "Monster",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has trample.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "6b8a810b-8538-41c3-a792-dbd1a1845faa"
+      },
+      {
+        "name": "Sorcerer",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has \"Whenever this creature attacks, scry 1.\"",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "6b8a810b-8538-41c3-a792-dbd1a1845faa"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Enchant",
+      "Scry"
+    ],
+    "setCode": "twoe",
+    "collectorNumber": "15",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "WICKED_CURSED_ROLE_TOKEN": {
+    "scryfallId": "6929750f-cf08-4e3e-83b0-076e1f6fa8e0",
+    "oracleId": "0664dcc8-fa68-4802-936f-ecd2979ebf3c",
+    "name": "Wicked // Cursed",
+    "layout": "flip",
+    "faces": [
+      {
+        "name": "Wicked",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1.\nWhen this Aura is put into a graveyard from the battlefield, each opponent loses 1 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "6929750f-cf08-4e3e-83b0-076e1f6fa8e0"
+      },
+      {
+        "name": "Cursed",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature has base power and toughness 1/1.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "6929750f-cf08-4e3e-83b0-076e1f6fa8e0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "TWOE-17",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "MONSTER_VIRTUOUS_ROLE_TOKEN": {
+    "scryfallId": "27927100-2587-4e05-9957-eb183d46c1f0",
+    "oracleId": "0873438f-14c4-4427-b42e-9f531ce86e7d",
+    "name": "Monster // Virtuous",
+    "layout": "flip",
+    "faces": [
+      {
+        "name": "Monster",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has trample.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "27927100-2587-4e05-9957-eb183d46c1f0"
+      },
+      {
+        "name": "Virtuous",
+        "manaCost": "",
+        "typeLine": "Token Enchantment — Aura Role",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 for each enchantment you control.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rovina Cai",
+        "imageId": "27927100-2587-4e05-9957-eb183d46c1f0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "twoc",
+    "collectorNumber": "1",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

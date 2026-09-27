@@ -5,6 +5,7 @@
 // target itself can never qualify. Indestructible survives; one CardsMoved
 // so the deaths are simultaneous. D192.
 
+import { inPlay } from '../../zones';
 import { FELL_THE_MIGHTY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const FELL_THE_MIGHTY_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const bar = ctx.derive(target.id).power ?? 0;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

@@ -3,6 +3,7 @@
 // targeting restriction is the parser's and the validator's (D289); the
 // sweep reads DERIVED keywords, so a creature wearing flying is hit too.
 
+import { inPlay } from '../../zones';
 import { SAGITTARS_VOLLEY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -49,7 +50,7 @@ export const SAGITTARS_VOLLEY_SCRIPT: CardScript = {
         });
       }
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (destroyed && id === target.id) continue;
         const c = ctx.state.cards[id];
         if (!c || c.controller === obj.controller) continue;

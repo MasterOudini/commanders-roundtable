@@ -5,6 +5,7 @@
 // card says so), by DERIVED subtypes so a Dryad Arbor or an animated
 // forest-typed land counts the way the rules count it. D187.
 
+import { inPlay } from '../../zones';
 import { FRUITION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const FRUITION_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let forests = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (ctx.derive(id).typeLine.subtypes.includes('Forest')) forests++;
       }
       if (forests === 0) return [];

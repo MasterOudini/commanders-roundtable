@@ -1,5 +1,6 @@
 // `Spitting Earth` — the Mountain census at a target creature. D251.
 
+import { inPlay } from '../../zones';
 import { SPITTING_EARTH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const SPITTING_EARTH_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Mountain')) amount += 1;

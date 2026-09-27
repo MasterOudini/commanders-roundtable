@@ -1,6 +1,7 @@
 // `Magmaquake` — X to each grounded creature and each planeswalker.
 // D223.
 
+import { inPlay } from '../../zones';
 import { MAGMAQUAKE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const MAGMAQUAKE_SCRIPT: CardScript = {
       const x = obj.xValue ?? 0;
       if (x <= 0) return [];
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         const isCreature = d.typeLine.types.includes('Creature');

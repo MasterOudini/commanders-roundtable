@@ -1,6 +1,7 @@
 // `Jovial Evil` — X is TWICE the white creatures the target opponent
 // controls. D221.
 
+import { inPlay } from '../../zones';
 import { JOVIAL_EVIL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const JOVIAL_EVIL_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       let white = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

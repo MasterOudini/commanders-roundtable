@@ -3,6 +3,7 @@
 // vocabulary refused it, and a script now runs every word. 4 to the
 // target and each OTHER creature sharing its name. D218.
 
+import { inPlay } from '../../zones';
 import { HOMING_LIGHTNING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const HOMING_LIGHTNING_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const isTarget = id === target.id;

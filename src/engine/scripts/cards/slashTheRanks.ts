@@ -4,6 +4,7 @@
 // stolen commander is still exempt (the ids are instance ids, not names).
 // Creatures AND planeswalkers by derived types; indestructible survives. D192.
 
+import { inPlay } from '../../zones';
 import { SLASH_THE_RANKS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const SLASH_THE_RANKS_SCRIPT: CardScript = {
         for (const id of p.commanderIds) commanders.add(id);
       }
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || commanders.has(id)) continue;
         const d = ctx.derive(id);

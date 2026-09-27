@@ -30,7 +30,7 @@ export const COURAGEOUS_GOBLIN_SCRIPT: CardScript = {
       activeZones: ['battlefield'],
       optional: false,
       matches: (ctx, self, ev) =>
-        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.types.includes('Creature') && (ctx.derive(c.id).power ?? 0) >= 4) &&
+        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.types.includes('Creature') && (ctx.derive(c.id).power ?? 0) >= 4) &&
         (ev.t === 'AttackersDeclared' && ev.attackers.some((a) => a.card === self)),
       label: () => "Courageous Goblin - it pumped until end of turn",
       resolve: (ctx, self, _obj): readonly EventBody[] => {

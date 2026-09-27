@@ -6,6 +6,7 @@
 // readings apart, so the test gives the two seats DIFFERENT land counts.
 // "Nonbasic" is the negation of the Basic supertype, read DERIVED. D268.
 
+import { inPlay } from '../../zones';
 import { WEIGHT_OF_SPIRES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -39,7 +40,7 @@ export const WEIGHT_OF_SPIRES_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
 
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== victim.controller) continue;
         const d = ctx.derive(id);

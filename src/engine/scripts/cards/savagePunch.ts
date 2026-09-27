@@ -7,6 +7,7 @@
 // then counted into the bite as a known delta, exactly as Swift Kick's
 // +1/+0 is. D280.
 
+import { inPlay } from '../../zones';
 import { SAVAGE_PUNCH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -47,7 +48,7 @@ export const SAVAGE_PUNCH_SCRIPT: CardScript = {
       if (mine === null) return [];
       // Ferocious, asked before the pump: any creature of mine at power 4+.
       let ferocious = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

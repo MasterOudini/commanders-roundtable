@@ -2,6 +2,7 @@
 // creature that seat controls: the fan keyed off the target's
 // controller. D222.
 
+import { inPlay } from '../../zones';
 import { LAVALANCHE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -65,7 +66,7 @@ export const LAVALANCHE_SCRIPT: CardScript = {
           applyAs: 'normal' as const,
         });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== seat) continue;
         if (target.kind === 'card' && id === target.id) continue;

@@ -2,6 +2,7 @@
 // they control." A life SET is a computed DELTA: `LifeChanged` carries both,
 // and a player already at their count gets no event. D200.
 
+import { inPlay } from '../../zones';
 import { BIORHYTHM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const BIORHYTHM_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const counts = new Map<string, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -3,6 +3,7 @@
 // control." The subtype census burn — Mount and Vehicle are both
 // SUBTYPES, read derived. D241.
 
+import { inPlay } from '../../zones';
 import { ROAD_RAGE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const ROAD_RAGE_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let rides = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const subtypes = ctx.derive(id).typeLine.subtypes;

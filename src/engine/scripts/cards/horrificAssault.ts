@@ -1,6 +1,7 @@
 // `Horrific Assault` — the one-way bite with the Eldrazi rider: the gain
 // only behind an Eldrazi on my board. D218.
 
+import { inPlay } from '../../zones';
 import { HORRIFIC_ASSAULT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -61,7 +62,7 @@ export const HORRIFIC_ASSAULT_SCRIPT: CardScript = {
         }
       }
       let eldrazi = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Eldrazi')) {

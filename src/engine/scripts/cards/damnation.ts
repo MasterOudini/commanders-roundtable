@@ -10,6 +10,7 @@
 // whole-card claim is honest because the clause modifies a mechanism the
 // engine does not have; the test pins this reasoning. D192.
 
+import { inPlay } from '../../zones';
 import { DAMNATION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const DAMNATION_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

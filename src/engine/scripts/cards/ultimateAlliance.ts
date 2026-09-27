@@ -4,6 +4,7 @@
 // "creatures you control" with no exclusion, so aiming it at my own creature
 // is a real (if odd) play and the number is one higher than it looks. D263.
 
+import { inPlay } from '../../zones';
 import { ULTIMATE_ALLIANCE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const ULTIMATE_ALLIANCE_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
 
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) amount += 1;

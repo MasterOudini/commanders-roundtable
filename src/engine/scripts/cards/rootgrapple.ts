@@ -36,7 +36,7 @@ export const ROOTGRAPPLE_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
       const controlsSubtype = (sub: string): boolean =>
-        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && c.controller === obj.controller && ctx.derive(c.id).typeLine.subtypes.includes(sub));
+        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === obj.controller && ctx.derive(c.id).typeLine.subtypes.includes(sub));
         { const p = perm(0); if (p && !ctx.derive(p.id).keywords.has('indestructible')) events.push({ t: 'CardsMoved', moves: [{ card: p.id, from: { kind: 'battlefield', player: p.card.controller }, to: { kind: 'graveyard', player: p.card.owner } }] }); }
         if (controlsSubtype("Treefolk")) events.push(...drawEvents(ctx.state, obj.controller, 1));
       return events;

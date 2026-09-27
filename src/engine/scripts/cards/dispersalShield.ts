@@ -4,6 +4,7 @@
 // spell's MV counts a chosen X (CR 616.1/202.3b): the printed mana value
 // plus xValue per {X} in the printed cost. D208.
 
+import { inPlay } from '../../zones';
 import { DISPERSAL_SHIELD } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import { moveFromStack } from '../../effects';
@@ -43,7 +44,7 @@ export const DISPERSAL_SHIELD_SCRIPT: CardScript = {
       const xCount = faceOf(oc, vc.faceIndex ?? 0).manaCost?.xCount ?? 0;
       const spellMv = (oc.manaValue ?? 0) + xCount * (spell.xValue ?? 0);
       let greatest = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const mv = ctx.oracle.byPrinting(card.printingId)?.manaValue ?? 0;

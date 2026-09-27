@@ -1,6 +1,7 @@
 // `Culling Sun` — "Destroy each creature with mana value 3 or less."
 // Consume the Meek's exact wipe, one printed clause shorter. D205.
 
+import { inPlay } from '../../zones';
 import { CULLING_SUN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const CULLING_SUN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

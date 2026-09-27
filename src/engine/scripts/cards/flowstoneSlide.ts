@@ -2,6 +2,7 @@
 // asymmetric board pump; the SBA fells anything whose toughness hits
 // zero. D214.
 
+import { inPlay } from '../../zones';
 import { FLOWSTONE_SLIDE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const FLOWSTONE_SLIDE_SCRIPT: CardScript = {
       const x = obj.xValue ?? 0;
       if (x <= 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: x, toughness: -x });

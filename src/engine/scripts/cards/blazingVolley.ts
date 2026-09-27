@@ -2,6 +2,7 @@
 // opponents control." One simultaneous batch over the opposing boards; the
 // spell is the source, no riders. D200.
 
+import { inPlay } from '../../zones';
 import { BLAZING_VOLLEY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const BLAZING_VOLLEY_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

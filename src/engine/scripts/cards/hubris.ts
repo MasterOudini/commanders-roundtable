@@ -1,6 +1,7 @@
 // `Hubris` — the target goes home and every AURA riding it goes with it
 // (End Hostilities' attachedTo scan, bounced instead of binned). D218.
 
+import { inPlay } from '../../zones';
 import { HUBRIS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -38,7 +39,7 @@ export const HUBRIS_SCRIPT: CardScript = {
         from: { kind: 'battlefield' as const, player: victim.controller },
         to: { kind: 'hand' as const, player: victim.owner },
       });
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.attachedTo !== target.id) continue;
         if (!ctx.derive(id).typeLine.subtypes.includes('Aura')) continue;

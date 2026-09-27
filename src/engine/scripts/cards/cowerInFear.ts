@@ -1,6 +1,7 @@
 // `Cower in Fear` — "Creatures your opponents control get -1/-1 until end
 // of turn." D205.
 
+import { inPlay } from '../../zones';
 import { COWER_IN_FEAR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const COWER_IN_FEAR_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

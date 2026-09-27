@@ -1,6 +1,7 @@
 // `Harsh Sustenance` — X = my creature count: X damage to any target AND
 // X life to me, one census read once. D217.
 
+import { inPlay } from '../../zones';
 import { HARSH_SUSTENANCE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const HARSH_SUSTENANCE_SCRIPT: CardScript = {
         return [];
       if (target.kind === 'player' && ctx.state.players[target.id]?.hasLost) return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) x++;

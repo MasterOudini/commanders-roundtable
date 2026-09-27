@@ -50,7 +50,7 @@ export const VIVIEN_OF_THE_ARKBOW_SCRIPT: CardScript = {
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 4, toughness: 4, keywords: ["trample"] });
         }

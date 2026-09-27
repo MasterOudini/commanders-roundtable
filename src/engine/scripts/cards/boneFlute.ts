@@ -30,7 +30,7 @@ export const BONE_FLUTE_SCRIPT: CardScript = {
         // Every creature on the battlefield, as the board derives NOW.
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield') continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: -1, toughness: 0 });
         }

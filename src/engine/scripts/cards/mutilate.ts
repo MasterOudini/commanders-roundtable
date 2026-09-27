@@ -2,6 +2,7 @@
 // you control." The Swamp census scales Nausea's board debuff; the SBA does
 // the killing. D227.
 
+import { inPlay } from '../../zones';
 import { MUTILATE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const MUTILATE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.subtypes.includes('Swamp')) continue;
@@ -38,7 +39,7 @@ export const MUTILATE_SCRIPT: CardScript = {
       }
       if (n === 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

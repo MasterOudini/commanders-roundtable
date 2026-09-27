@@ -2,6 +2,7 @@
 // you lose life equal to that creature's toughness." The Human check and
 // the toughness are both read off the DERIVED pre-move state. D208.
 
+import { inPlay } from '../../zones';
 import { DIRE_TACTICS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const DIRE_TACTICS_SCRIPT: CardScript = {
       if (!card || card.zone.kind !== 'battlefield') return [];
       const toughness = ctx.derive(target.id).toughness ?? 0;
       let human = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Human')) {

@@ -773,6 +773,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D574 - Role tokens: `Create a <Role> Role token attached to ...` is the engine's now (an Aura token created attached - Monster, Sorcerer, Wicked, Cursed, Virtuous); what stays is a Role card whose other line the library does not read, or whose Role (Royal, Young Hero) waits for a derived ward.
+  ['Ellivere of the Wild Court', 'the row maker: trigger head not in the library: Whenever Ellivere enters or attacks, create a Virtuous Role token a - its Role reads since D574 (D574)'],
   // D573 - phasing: the Phasing line and `<object> phases out` are the engine's now (a phased-out permanent is treated as though it does not exist until its controller's next untap step); what stays is a phasing permanent whose other line the library or the generator does not read.
   ['Teferi\'s Imp', 'the row maker: trigger head not in the library: Whenever this creature phases out, discard a card. - its Phasing reads since D573 (D573)'],
   ['Shimmering Efreet', 'the row maker: trigger head not in the library: Whenever this creature phases in, target creature phases out. - its Phasing reads since D573 (D573)'],
@@ -1123,7 +1125,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mutinous Massacre', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Ashiok, Sculptor of Fears', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ['Disharmony', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat before blockers are decla (D531)'],
-  ['Twisted Fealty', 'the row maker: a spell with a line outside the vocabulary: Gain control of target creature until end of turn. Untap tha (D531)'],
   ['Gilt-Leaf Archdruid', 'a control change over every object of a scope (`gain control of all ...`) - the rule reads one target (D531)'],
   ["Bucknard's Everfull Purse", 'the row maker: effect not a row kind: Roll a d4 and create a number of Treasure tokens equal to the result. The player to your right gains control of (D531)'],
   ["Blue Sun's Twilight", 'a control line under a shape the row maker never reached (`Gain control of target creature with mana value X or less. I`) (D531)'],
@@ -1500,7 +1501,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Clive, Ifrit's Dominant // Ifrit, Warden of Inferno", 'the row maker: multi-face or unusual layout (D528)'],
   ['Summon: Knights of Round', 'the row maker: trigger payload not a pump: Other creatures you control get +2/+2 until end of turn. Put (D528)'],
   ['Heaven Sent', 'the row maker: trigger payload not a pump: ~ deals 1 damage to each opponent. Then if an opponent has 0 (D528)'],
-  ["The Witch's Vanity", 'the row maker: trigger payload not a pump: Create a Wicked Role token attached to target creature you c (D528)'],
   ['The Legend of Kyoshi // Avatar Kyoshi', 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
   ['The Three Seasons', 'the row maker: a vocabulary clause the suite has no fixture for: no graveyard fixture for up to two target snow permanent cards from your graveyard (D528)'],
   ["Braids's Frightful Return", 'read ahead (CR 714.2d - the chapter chosen as it enters) (D528)'],
@@ -1576,7 +1576,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Summon: Kujata', 'the row maker: trigger payload not a pump: Discard a card, then draw two cards. When you discard a card (D528)'],
   ['Korvold and the Noble Thief', 'the row maker: trigger payload not a pump: Exile the top three cards of target opponent\'s library. You (D528)'],
   ['The Eleventh Hour', 'the row maker: trigger payload not a pump: Create a Food token and a 1/1 white Human creature token wit (D528)'],
-  ["Gadwick's First Duel", 'the row maker: trigger payload not a pump: Create a Cursed Role token attached to up to one target crea (D528)'],
+  ["Gadwick's First Duel", 'the row maker: trigger payload not a pump: When you next cast an instant or sorcery spell with mana val - its Cursed Role reads since D574 (D574)'],
   ['Leaves from the Vine', 'the row maker: trigger payload not a pump: Draw a card if there\'s a creature or Lesson card in your gra (D528)'],
   ['Origin of Thor', 'the row maker: trigger payload not a pump: Whenever you cast a spell this turn, put a +1/+1 counter on (D528)'],
   ['Of Herbs and Stewed Rabbit', 'the row maker: a counted payload under a head whose arm sizes the board (chapter): Create a 1/1 white Halfling creature token for each Food you contro (D528)'],

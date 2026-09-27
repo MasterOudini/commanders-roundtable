@@ -30,7 +30,7 @@ export const BURNING_SUN_CAVALRY_SCRIPT: CardScript = {
       activeZones: ['battlefield'],
       optional: false,
       matches: (ctx, self, ev) =>
-        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.subtypes.includes('Dinosaur')) &&
+        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.subtypes.includes('Dinosaur')) &&
         (ev.t === 'AttackersDeclared' && ev.attackers.some((a) => a.card === self)),
       label: () => "Burning Sun Cavalry - it pumped until end of turn",
       resolve: (ctx, self, _obj): readonly EventBody[] => {
@@ -46,7 +46,7 @@ export const BURNING_SUN_CAVALRY_SCRIPT: CardScript = {
       activeZones: ['battlefield'],
       optional: false,
       matches: (ctx, self, ev) =>
-        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.subtypes.includes('Dinosaur')) &&
+        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === ctx.query.controllerOf(self) && ctx.derive(c.id).typeLine.subtypes.includes('Dinosaur')) &&
         (ev.t === 'BlockersDeclared' && ev.blocks.some((b) => b.blocker === self)),
       label: () => "Burning Sun Cavalry - it pumped until end of turn",
       resolve: (ctx, self, _obj): readonly EventBody[] => {

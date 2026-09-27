@@ -3,6 +3,7 @@
 // with the hand revealed: Declaration in Stone + Echoing Decay + Hour
 // of Glory in one resolve. D222.
 
+import { inPlay } from '../../zones';
 import { LEGION_S_END } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const LEGIONS_END_SCRIPT: CardScript = {
       const controller = victim.controller;
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== controller) continue;
         const isTarget = id === target.id;

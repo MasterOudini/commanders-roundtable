@@ -1,6 +1,7 @@
 // `Seismic Strike` — the Mountain census burn, Rockslide Ambush's
 // wording at instant speed. D245.
 
+import { inPlay } from '../../zones';
 import { SEISMIC_STRIKE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const SEISMIC_STRIKE_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let mountains = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Mountain')) mountains++;

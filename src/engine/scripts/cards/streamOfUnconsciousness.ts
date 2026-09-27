@@ -2,6 +2,7 @@
 // the census reads derived subtypes across my board, and the Kindred type
 // line changes nothing about how the text is claimed. D254.
 
+import { inPlay } from '../../zones';
 import { STREAM_OF_UNCONSCIOUSNESS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -37,7 +38,7 @@ export const STREAM_OF_UNCONSCIOUSNESS_SCRIPT: CardScript = {
         { t: 'PtModifiedUntilEndOfTurn', card: target.id, power: -4, toughness: 0 },
       ];
       let wizard = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Wizard')) {

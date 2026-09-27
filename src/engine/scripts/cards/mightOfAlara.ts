@@ -1,6 +1,7 @@
 // `Might of Alara` — Gaea's Might's exact printed text on a second oracle
 // id: the Domain pump. D224.
 
+import { inPlay } from '../../zones';
 import { MIGHT_OF_ALARA } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const MIGHT_OF_ALARA_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

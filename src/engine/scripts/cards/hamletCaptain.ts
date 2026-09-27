@@ -34,7 +34,7 @@ export const HAMLET_CAPTAIN_SCRIPT: CardScript = {
       resolve: (ctx, self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (inst.id === self) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           if (!ctx.derive(inst.id).typeLine.subtypes.includes("Human")) continue;
@@ -54,7 +54,7 @@ export const HAMLET_CAPTAIN_SCRIPT: CardScript = {
       resolve: (ctx, self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (inst.id === self) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           if (!ctx.derive(inst.id).typeLine.subtypes.includes("Human")) continue;

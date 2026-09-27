@@ -6,6 +6,7 @@
 // the Kamahl idiom (D160) applied per entry. Power 0 deals nothing
 // (CR 120.8: an amount of 0 is not damage). D192.
 
+import { inPlay } from '../../zones';
 import { SOLAR_BLAZE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const SOLAR_BLAZE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         const power = d.power ?? 0;

@@ -7,6 +7,7 @@
 // seats, colours read DERIVED. A COLOURLESS target shares a colour with
 // nothing, so it pumps alone — the branch worth pinning. D270.
 
+import { inPlay } from '../../zones';
 import { WOJEK_SIREN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -43,7 +44,7 @@ export const WOJEK_SIREN_SCRIPT: CardScript = {
         { t: 'PtModifiedUntilEndOfTurn', card: target.id, power: 1, toughness: 1, keywords: [] },
       ];
 
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue; // "each OTHER creature"
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);

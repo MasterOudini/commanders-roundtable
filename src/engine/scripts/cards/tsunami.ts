@@ -3,6 +3,7 @@
 // goes too and a Mountain stands. Per-object indestructible, as every sweep
 // since D192's Damnation. D262.
 
+import { inPlay } from '../../zones';
 import { TSUNAMI } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const TSUNAMI_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

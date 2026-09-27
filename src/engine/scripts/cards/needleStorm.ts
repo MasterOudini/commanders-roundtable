@@ -1,6 +1,7 @@
 // `Needle Storm` — "Needle Storm deals 4 damage to each creature with
 // flying." Gale Force's filtered sweep as one damage batch. D228.
 
+import { inPlay } from '../../zones';
 import { NEEDLE_STORM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const NEEDLE_STORM_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

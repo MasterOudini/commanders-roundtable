@@ -1,6 +1,7 @@
 // `Hurkyl's Recall` — every artifact the target player OWNS goes to
 // their hand: the scan is by OWNER, so a lent-out Ring comes home. D218.
 
+import { inPlay } from '../../zones';
 import { HURKYL_S_RECALL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const HURKYLS_RECALL_SCRIPT: CardScript = {
       if (!target || target.kind !== 'player') return [];
       if (ctx.state.players[target.id]?.hasLost) return [];
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.owner !== target.id) continue;
         if (!ctx.derive(id).typeLine.types.includes('Artifact')) continue;

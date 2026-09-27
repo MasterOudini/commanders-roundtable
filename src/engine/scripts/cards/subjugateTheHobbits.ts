@@ -2,6 +2,7 @@
 // less changes hands, EXCEPT commanders (the exclusion read off
 // `commanderIds`, Slash the Ranks' precedent). D254.
 
+import { inPlay } from '../../zones';
 import { SUBJUGATE_THE_HOBBITS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const SUBJUGATE_THE_HOBBITS_SCRIPT: CardScript = {
         for (const id of ctx.state.players[pid]?.commanderIds ?? []) commanders.add(id);
       }
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (commanders.has(id)) continue;

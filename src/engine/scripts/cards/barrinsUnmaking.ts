@@ -6,6 +6,7 @@
 // board with no colored permanent has an empty mode set — both bounce
 // nothing, which is the printed rule. D199.
 
+import { inPlay } from '../../zones';
 import { BARRIN_S_UNMAKING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -38,7 +39,7 @@ export const BARRINS_UNMAKING_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       const counts = new Map<string, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         for (const c of ctx.derive(id).colors) counts.set(c, (counts.get(c) ?? 0) + 1);
       }
       const max = Math.max(0, ...counts.values());

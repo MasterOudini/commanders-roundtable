@@ -2,6 +2,7 @@
 // or greater draws a card. Then destroy all creatures." The conditional
 // per-player draws read BEFORE the wipe, emitted in printed order. D246.
 
+import { inPlay } from '../../zones';
 import { SHATTER_THE_SKY } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const SHATTER_THE_SKY_SCRIPT: CardScript = {
       const events: EventBody[] = [];
       const drawers = new Set<string>();
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

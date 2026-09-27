@@ -2,6 +2,7 @@
 // control with flying get +2/+2 until end of turn." The untap sweep
 // with the flyer-only pump, both filters DERIVED. D237.
 
+import { inPlay } from '../../zones';
 import { RALLY_OF_WINGS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const RALLY_OF_WINGS_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const untap: InstanceId[] = [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

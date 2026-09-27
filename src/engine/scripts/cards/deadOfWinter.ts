@@ -3,6 +3,7 @@
 // board debuff with a computed X: the Snow SUPERTYPE read off the DERIVED
 // type line on both sides — the count and the exemption. D206.
 
+import { inPlay } from '../../zones';
 import { DEAD_OF_WINTER } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,14 +32,14 @@ export const DEAD_OF_WINTER_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.supertypes.includes('Snow')) x += 1;
       }
       if (x <= 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

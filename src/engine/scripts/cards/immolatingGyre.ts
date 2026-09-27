@@ -1,6 +1,7 @@
 // `Immolating Gyre` — X counts instants and sorceries in MY graveyard;
 // the sweep spares everything I control. D219.
 
+import { inPlay } from '../../zones';
 import { IMMOLATING_GYRE } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -39,7 +40,7 @@ export const IMMOLATING_GYRE_SCRIPT: CardScript = {
       }
       if (x <= 0) return [];
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         const d = ctx.derive(id);

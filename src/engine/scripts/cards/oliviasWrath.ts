@@ -2,6 +2,7 @@
 // turn, where X is the number of Vampires you control." Mutilate's census
 // with the subtype exemption. D229.
 
+import { inPlay } from '../../zones';
 import { OLIVIA_S_WRATH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const OLIVIAS_WRATH_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.subtypes.includes('Vampire')) continue;
@@ -38,7 +39,7 @@ export const OLIVIAS_WRATH_SCRIPT: CardScript = {
       }
       if (x === 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

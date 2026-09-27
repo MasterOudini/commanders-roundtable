@@ -1,6 +1,7 @@
 // `Mana Short` — every land the target controls turns, and their pool
 // empties (ManaPoolEmptied is the reducer's own set-to-empty). D223.
 
+import { inPlay } from '../../zones';
 import { MANA_SHORT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const MANA_SHORT_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       const lands = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id || card.tapped) continue;
         if (ctx.derive(id).typeLine.types.includes('Land')) lands.push(id);

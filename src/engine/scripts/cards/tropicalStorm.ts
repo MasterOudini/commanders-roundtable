@@ -3,6 +3,7 @@
 // ground creature takes 1, and a colourless flyer takes X. The overlap is
 // the card, so it is what the test proves. D262.
 
+import { inPlay } from '../../zones';
 import { TROPICAL_STORM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -43,7 +44,7 @@ export const TROPICAL_STORM_SCRIPT: CardScript = {
         toxic: number;
         applyAs: 'normal';
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         // ⚠️ The two clauses stack on one creature rather than replacing each

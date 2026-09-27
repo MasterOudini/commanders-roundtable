@@ -31,7 +31,7 @@ export const FROSTWIND_INVOKER_SCRIPT: CardScript = {
         // Every creature its controller controls, as the board derives NOW.
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 0, toughness: 0, keywords: ["flying"] });
         }

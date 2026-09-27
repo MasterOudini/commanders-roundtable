@@ -1,6 +1,7 @@
 // `Riptide` — "Tap all blue creatures." Blinding Light's filtered board
 // tap with the colour read POSITIVE. D240.
 
+import { inPlay } from '../../zones';
 import { RIPTIDE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const RIPTIDE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const cards = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.tapped) continue;
         const d = ctx.derive(id);

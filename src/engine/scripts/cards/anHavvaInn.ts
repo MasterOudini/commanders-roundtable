@@ -2,6 +2,7 @@
 // creatures on the battlefield." Derived colors AND types, any controller
 // (the card says so). D197.
 
+import { inPlay } from '../../zones';
 import { AN_HAVVA_INN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const AN_HAVVA_INN_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let green = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (d.typeLine.types.includes('Creature') && d.colors.includes('G')) green++;
       }

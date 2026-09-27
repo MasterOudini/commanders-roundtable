@@ -53,7 +53,7 @@ export const ABZAN_ASCENDANCY_SCRIPT: CardScript = {
         const me = ctx.query.controllerOf(self);
         const changes: { card: InstanceId; kind: string; delta: number }[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== me) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== me) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           changes.push({ card: inst.id, kind: '+1/+1', delta: 1 });
         }

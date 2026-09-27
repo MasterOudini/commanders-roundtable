@@ -2,6 +2,7 @@
 // creatures" with no controller: an opponent's white creature gets it too,
 // which is the case worth pinning. Colour is read DERIVED. D265.
 
+import { inPlay } from '../../zones';
 import { VALOROUS_CHARGE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const VALOROUS_CHARGE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         if (!d.colors.includes('W')) continue;

@@ -2,6 +2,7 @@
 // number of creatures you control." Massive Raid narrowed to a creature
 // target. D231.
 
+import { inPlay } from '../../zones';
 import { OUTNUMBER } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const OUTNUMBER_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

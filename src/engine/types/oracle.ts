@@ -1361,6 +1361,13 @@ export interface EffectSpec {
    * spell executes depend on which tokens happened to be in the game's pool.
    */
   readonly token: TokenRef | null;
+  /**
+   * D574 - `createToken` only: a ROLE (CR 303.7) - the token is created ATTACHED, to the clause's aim (`aim` - a target,
+   * the referent) or to its source (`source` - `this creature`, a payload's `it`); none when that permanent is gone or
+   * phased out. `tokenFace` is the face of the double-faced Role printing (`ROLE_TABLE`).
+   */
+  readonly attach?: 'aim' | 'source';
+  readonly tokenFace?: number;
   /** D520 - `amass` only: the creature subtype the chosen Army becomes (`Zombie`, `Orc`, `Sliver`). */
   readonly subtype?: string;
   /** `lookAtTop` only: how many to keep and where the rest go (D141). */

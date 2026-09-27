@@ -4,6 +4,7 @@
 // survivor costs its controller nothing, because the loss is derived from
 // the move list rather than from the board. D206.
 
+import { inPlay } from '../../zones';
 import { DEADLY_TEMPEST } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const DEADLY_TEMPEST_SCRIPT: CardScript = {
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
       const lost = new Map<string, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

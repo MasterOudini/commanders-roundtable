@@ -1,6 +1,7 @@
 // `Lunar Insight` — draw per DIFFERENT mana value among my nonland
 // permanents (Golden Ratio's set census on mv). D223.
 
+import { inPlay } from '../../zones';
 import { LUNAR_INSIGHT } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -30,7 +31,7 @@ export const LUNAR_INSIGHT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const values = new Set<number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Land')) continue;

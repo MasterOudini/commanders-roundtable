@@ -1,6 +1,7 @@
 // `Evaporate` — "Evaporate deals 1 damage to each white and/or blue
 // creature." The color test is DERIVED W-or-U membership. D211.
 
+import { inPlay } from '../../zones';
 import { EVAPORATE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const EVAPORATE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

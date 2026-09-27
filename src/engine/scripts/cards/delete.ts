@@ -2,6 +2,7 @@
 // player." Dakmor Plague with an X and the artifact exemption read off the
 // DERIVED types. D207.
 
+import { inPlay } from '../../zones';
 import { DELETE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const DELETE_SCRIPT: CardScript = {
       const x = obj.xValue ?? 0;
       if (x <= 0) return [];
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

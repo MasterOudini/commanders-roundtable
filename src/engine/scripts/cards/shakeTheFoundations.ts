@@ -3,6 +3,7 @@
 // creature whose DERIVED keywords lack flying (a granted flying counts, a
 // lost one does not), the spell itself the source; then the draw. D280.
 
+import { inPlay } from '../../zones';
 import { SHAKE_THE_FOUNDATIONS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -32,7 +33,7 @@ export const SHAKE_THE_FOUNDATIONS_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature') || d.keywords.has('flying')) continue;

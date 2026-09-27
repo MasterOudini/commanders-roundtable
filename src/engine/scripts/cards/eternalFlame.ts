@@ -3,6 +3,7 @@
 // number of Mountains you control." The recoil is ceil(X/2) to the CASTER,
 // both halves off one Mountain count. D211.
 
+import { inPlay } from '../../zones';
 import { ETERNAL_FLAME } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const ETERNAL_FLAME_SCRIPT: CardScript = {
       if (target.kind === 'card' && ctx.state.cards[target.id]?.zone.kind !== 'battlefield')
         return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Mountain')) x++;

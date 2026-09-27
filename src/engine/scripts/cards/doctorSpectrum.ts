@@ -72,7 +72,7 @@ export const DOCTOR_SPECTRUM_SCRIPT: CardScript = {
         if (chosen === 1) {
           const changes: { card: InstanceId; kind: string; delta: number }[] = [];
           for (const inst of Object.values(ctx.state.cards)) {
-            if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+            if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
             if (inst.id === self) continue;
             if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
             if (!ctx.derive(inst.id).typeLine.subtypes.includes("Hero")) continue;

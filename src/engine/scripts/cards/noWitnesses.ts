@@ -2,6 +2,7 @@
 // investigates. Then destroy all creatures." The most-creatures census
 // (ties included) pays Clues BEFORE the wipe empties the count. D229.
 
+import { inPlay } from '../../zones';
 import { NO_WITNESSES } from '../../../data/fixtures/engineCards';
 import { TOKEN_TABLE, type TokenRef } from '../../../data/tokenTable';
 import type { CardData } from '../../../data/cardTypes';
@@ -45,7 +46,7 @@ export const NO_WITNESSES_SCRIPT: CardScript = {
         if (!p || p.hasLost) continue;
         counts.set(seat, 0);
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || !counts.has(card.controller)) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
@@ -68,7 +69,7 @@ export const NO_WITNESSES_SCRIPT: CardScript = {
         }
       }
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

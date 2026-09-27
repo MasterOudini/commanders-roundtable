@@ -3,6 +3,7 @@
 // NAME match, board-wide and any controller; indestructible checked per
 // permanent. D210.
 
+import { inPlay } from '../../zones';
 import { ECHOING_CALM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const ECHOING_CALM_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const name = ctx.oracle.byPrinting(victim.printingId)?.name;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const isTarget = id === target.id;

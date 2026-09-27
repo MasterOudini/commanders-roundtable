@@ -2,6 +2,7 @@
 // until end of turn. Surveil 2." The one-player board debuff with the
 // surveil ask LAST (D195's rule holds by construction). D228.
 
+import { inPlay } from '../../zones';
 import { NEUTRALIZE_THE_GUARDS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const NEUTRALIZE_THE_GUARDS_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -1,5 +1,6 @@
 // `Steam Blast` — 2 to each creature AND each player, nobody exempt. D252.
 
+import { inPlay } from '../../zones';
 import { STEAM_BLAST } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const STEAM_BLAST_SCRIPT: CardScript = {
         applyAs: 'normal' as const,
       });
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         damages.push(hit({ kind: 'card', id }));

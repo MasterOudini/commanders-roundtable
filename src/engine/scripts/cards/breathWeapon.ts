@@ -2,6 +2,7 @@
 // creature." A NEGATED subtype on a computed wipe is fine — nothing is
 // targeted, so the filter is just the derive. D201.
 
+import { inPlay } from '../../zones';
 import { BREATH_WEAPON } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const BREATH_WEAPON_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

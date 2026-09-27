@@ -1,6 +1,7 @@
 // `Fiery Cannonade` — "Fiery Cannonade deals 2 damage to each non-Pirate
 // creature." D213.
 
+import { inPlay } from '../../zones';
 import { FIERY_CANNONADE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const FIERY_CANNONADE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

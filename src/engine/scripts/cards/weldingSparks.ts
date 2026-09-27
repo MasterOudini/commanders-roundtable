@@ -2,6 +2,7 @@
 // than 3 and never needs an X on the cast. The artifacts are MINE (the card
 // says "you control"), counted at resolution. D268.
 
+import { inPlay } from '../../zones';
 import { WELDING_SPARKS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const WELDING_SPARKS_SCRIPT: CardScript = {
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
 
       let artifacts = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) artifacts += 1;

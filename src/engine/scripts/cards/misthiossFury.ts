@@ -4,6 +4,7 @@
 // board query is a derived-SUBTYPE census, and the controller is read
 // before anything moves. D225.
 
+import { inPlay } from '../../zones';
 import { MISTHIOS_S_FURY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const MISTHIOSS_FURY_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       const controller = card.controller;
-      const hasEquipment = ctx.state.zones.battlefield.some((id) => {
+      const hasEquipment = inPlay(ctx.state).some((id) => {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) return false;
         return ctx.derive(id).typeLine.subtypes.includes('Equipment');

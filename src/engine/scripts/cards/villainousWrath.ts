@@ -8,6 +8,7 @@
 // directions across four batches (D260 exclude, D264 include, this one
 // simply reads first). D266.
 
+import { inPlay } from '../../zones';
 import { VILLAINOUS_WRATH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -42,7 +43,7 @@ export const VILLAINOUS_WRATH_SCRIPT: CardScript = {
       const events: EventBody[] = [];
 
       let theirs = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== target.id) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) theirs += 1;
@@ -62,7 +63,7 @@ export const VILLAINOUS_WRATH_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

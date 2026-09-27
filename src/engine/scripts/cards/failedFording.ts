@@ -35,7 +35,7 @@ export const FAILED_FORDING_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
       const controlsSubtype = (sub: string): boolean =>
-        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && c.controller === obj.controller && ctx.derive(c.id).typeLine.subtypes.includes(sub));
+        Object.values(ctx.state.cards).some((c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === obj.controller && ctx.derive(c.id).typeLine.subtypes.includes(sub));
       // A script-raised scry/surveil (appendageAmalgam's shape): reveal the top n, then ask.
       const scryEvents = (n: number, toGraveyard: boolean): EventBody[] => {
         const library = ctx.state.zones.library[obj.controller] ?? [];

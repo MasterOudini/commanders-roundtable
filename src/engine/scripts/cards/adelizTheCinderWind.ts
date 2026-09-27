@@ -36,7 +36,7 @@ export const ADELIZ_THE_CINDER_WIND_SCRIPT: CardScript = {
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           if (!ctx.derive(inst.id).typeLine.subtypes.includes("Wizard")) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 1, toughness: 1 });

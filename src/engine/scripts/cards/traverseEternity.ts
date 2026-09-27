@@ -2,6 +2,7 @@
 // derived type line) composed with the greatest-mana-value census (D242) as a
 // draw count. No historic permanents is a true no-op. D262.
 
+import { inPlay } from '../../zones';
 import { TRAVERSE_ETERNITY } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -31,7 +32,7 @@ export const TRAVERSE_ETERNITY_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let best = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         const tl = ctx.derive(id).typeLine;

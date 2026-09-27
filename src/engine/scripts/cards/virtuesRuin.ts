@@ -1,6 +1,7 @@
 // `Virtue's Ruin` — the COLOUR wipe (Anarchy's shape, D197, one colour over):
 // every white creature, whoever controls it, colour read DERIVED. D266.
 
+import { inPlay } from '../../zones';
 import { VIRTUE_S_RUIN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const VIRTUES_RUIN_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

@@ -84,7 +84,10 @@ function rewriteSelf(text: string, opening: boolean): string {
         .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
     : unanchored;
   // D470 - only with no target phrase before it: after one, `it` is that target (the referent rewrite's).
-  return anchored.replace(/\bon it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'on ~.'));
+  // D574 - a Role `attached to it` likewise (`When this creature enters, create a Cursed Role token attached to it.`).
+  return anchored
+    .replace(/\bon it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'on ~.'))
+    .replace(/\battached to it\.$/i, (m, off: number, str: string) => (/\btarget\b/i.test(str.slice(0, off)) ? m : 'attached to ~.'));
 }
 
 /**

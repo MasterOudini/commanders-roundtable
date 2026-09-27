@@ -8,6 +8,7 @@
 // worth saying because D260's Tidy Conclusion and D261's Too Greedily both
 // turned on this exact property in the other direction. D263.
 
+import { inPlay } from '../../zones';
 import { TURN_TO_SLAG } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -64,7 +65,7 @@ export const TURN_TO_SLAG_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.attachedTo !== target.id) continue;
         const d = ctx.derive(id);

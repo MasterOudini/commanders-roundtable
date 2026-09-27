@@ -6,6 +6,7 @@
 // and the pump event has not landed while this resolve is still running.
 // D277.
 
+import { inPlay } from '../../zones';
 import { MIGHT_OF_THE_OLD_WAYS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -41,7 +42,7 @@ export const MIGHT_OF_THE_OLD_WAYS_SCRIPT: CardScript = {
         { t: 'PtModifiedUntilEndOfTurn', card: target.id, power: 2, toughness: 2, keywords: [] },
       ];
       const powers = new Set<number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

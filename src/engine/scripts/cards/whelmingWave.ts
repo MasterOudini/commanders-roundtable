@@ -3,6 +3,7 @@
 // of the aim-layer field the subtype noun list is still owed. My own
 // non-sea-monsters go home with theirs. D269.
 
+import { inPlay } from '../../zones';
 import { WHELMING_WAVE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const WHELMING_WAVE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

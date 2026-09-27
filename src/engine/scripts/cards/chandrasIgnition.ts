@@ -8,6 +8,7 @@
 // opponent" is every other player still in the game — the caster and the
 // source's own entry are excluded by the card's own words. D192.
 
+import { inPlay } from '../../zones';
 import { CHANDRA_S_IGNITION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -50,7 +51,7 @@ export const CHANDRAS_IGNITION_SCRIPT: CardScript = {
       };
       const lifelinkTo = d.keywords.has('lifelink') ? source.controller : null;
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         damages.push({

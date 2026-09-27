@@ -65,7 +65,8 @@ function deathsFrom(actions: readonly SbaAction[]): InstanceId[] {
       a.t === 'zeroToughness' ||
       a.t === 'zeroLoyalty' ||
       a.t === 'zeroDefense' ||
-      a.t === 'auraFalls'
+      a.t === 'auraFalls' ||
+      a.t === 'roleReplaced'
     ) {
       out.push(a.card);
     }

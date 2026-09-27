@@ -1,6 +1,7 @@
 // `Glistening Deluge` — every creature takes -1/-1; the green and/or
 // white ones take -3/-3 total. One entry per creature, summed. D216.
 
+import { inPlay } from '../../zones';
 import { GLISTENING_DELUGE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const GLISTENING_DELUGE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

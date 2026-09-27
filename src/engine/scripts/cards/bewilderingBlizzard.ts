@@ -2,6 +2,7 @@
 // control get -3/-0 until end of turn." The draws through THE draw rule,
 // then one entry per opposing DERIVED creature. D199.
 
+import { inPlay } from '../../zones';
 import { BEWILDERING_BLIZZARD } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -31,7 +32,7 @@ export const BEWILDERING_BLIZZARD_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const events: EventBody[] = [...drawEvents(ctx.state, obj.controller, 3)];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

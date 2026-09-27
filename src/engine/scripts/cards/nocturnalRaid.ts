@@ -1,6 +1,7 @@
 // `Nocturnal Raid` — "Black creatures get +2/+0 until end of turn." The
 // color-filtered board pump, asked of the DERIVED colors. D229.
 
+import { inPlay } from '../../zones';
 import { NOCTURNAL_RAID } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const NOCTURNAL_RAID_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

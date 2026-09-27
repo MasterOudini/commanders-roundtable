@@ -1,6 +1,7 @@
 // `Golden Ratio` — "Draw a card for each different power among creatures
 // you control." The census is a SET of derived powers. D216.
 
+import { inPlay } from '../../zones';
 import { GOLDEN_RATIO } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -30,7 +31,7 @@ export const GOLDEN_RATIO_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const powers = new Set<number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

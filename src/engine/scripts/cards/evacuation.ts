@@ -1,5 +1,6 @@
 // `Evacuation` — "Return all creatures to their owners' hands." D211.
 
+import { inPlay } from '../../zones';
 import { EVACUATION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -25,7 +26,7 @@ export const EVACUATION_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

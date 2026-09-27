@@ -6,6 +6,7 @@
 // nothing dies until the state-based sweep after resolution (CR 510.2's
 // logic at instant speed), so both waves land before any body drops. D197.
 
+import { inPlay } from '../../zones';
 import { ALPHA_BRAWL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -39,7 +40,7 @@ export const ALPHA_BRAWL_SCRIPT: CardScript = {
       if (brawler?.zone.kind !== 'battlefield') return [];
       const db = ctx.derive(target.id);
       const others: string[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue;
         const card = ctx.state.cards[id];
         if (!card || card.controller !== brawler.controller) continue;

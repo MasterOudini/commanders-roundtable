@@ -2,6 +2,7 @@
 // damage count, fired at any target. The count is BASIC LAND TYPES, not
 // lands: five Forests are one. D262.
 
+import { inPlay } from '../../zones';
 import { TRIBAL_FLAMES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -38,7 +39,7 @@ export const TRIBAL_FLAMES_SCRIPT: CardScript = {
         return [];
       }
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

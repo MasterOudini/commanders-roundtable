@@ -1,6 +1,7 @@
 // `Goblin War Strike` — damage to target player or planeswalker equal to
 // my Goblin count (derived subtypes, Gates Ablaze's census). D216.
 
+import { inPlay } from '../../zones';
 import { GOBLIN_WAR_STRIKE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const GOBLIN_WAR_STRIKE_SCRIPT: CardScript = {
         return [];
       if (target.kind === 'player' && ctx.state.players[target.id]?.hasLost) return [];
       let goblins = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Goblin')) goblins++;

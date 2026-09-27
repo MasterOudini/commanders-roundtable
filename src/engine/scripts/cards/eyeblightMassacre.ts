@@ -1,6 +1,7 @@
 // `Eyeblight Massacre` — "Non-Elf creatures get -2/-2 until end of turn."
 // The negated-subtype sweep (Breath Weapon's shape as a debuff). D212.
 
+import { inPlay } from '../../zones';
 import { EYEBLIGHT_MASSACRE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const EYEBLIGHT_MASSACRE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

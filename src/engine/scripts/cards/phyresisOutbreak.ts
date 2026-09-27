@@ -3,6 +3,7 @@
 // poison counter its controller has." The poison lands FIRST, so the
 // debuff reads each controller's count INCLUDING the new one. D232.
 
+import { inPlay } from '../../zones';
 import { PHYRESIS_OUTBREAK } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -40,7 +41,7 @@ export const PHYRESIS_OUTBREAK_SCRIPT: CardScript = {
         poisonAfter.set(seat, to);
         events.push({ t: 'PoisonChanged', player: seat, delta: 1, to });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const n = poisonAfter.get(card.controller);

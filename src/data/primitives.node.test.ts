@@ -320,8 +320,8 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // wave's rows. The other 34 are spells the seam reads whole with no script anywhere.
       // M6.4hq (D384): the QUOTED GRANT, 8,035 -> 8,040 - five cards whose only leftover was the
       // ability they hand out, which `scrub` blanks so the classifier could not see it at all.
-      complete: 12818,
-      blocked: 18874,
+      complete: 12834,
+      blocked: 18858,
       // ⚠️ THE ONE FIGURE D153 DID NOT MOVE, and the tell that the correction was
       // a reclassification rather than a re-count: a card blocked on a script
       // alone has no unaccounted line for the `optional` pre-filter to have
@@ -330,7 +330,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // in D160, → 1,219 in D161 — the D161 fall is 13 landed; the selection's
       // new spell/unenforced filters change what a BATCH offers, not this
       // count, which stays the parsers' own).
-      scriptableToday: 1985,
+      scriptableToday: 1986,
       // ⚠️⚠️ **2,025 → 96, AND THE OLD NUMBER WAS THE ARTEFACT.** `optional` was
       // tested ahead of `expressible` and every rule below it, so it caught any
       // line containing "you may" whatever else that line needed — 4,549 lines,
@@ -345,7 +345,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
       // 812 → 915, and `chooseFromZone` 691 → 1,005 is the largest single move.
       layer6: 928,
       counter: 998,
-      token: 791,
+      token: 780,
     });
   });
 
@@ -382,7 +382,7 @@ describe.skipIf(!HAVE_DB)('what each primitive is worth', () => {
     // scriptable by the seam), so the multiplier fell 5.1× → 3.1× — the
     // report's own headline note coming true: "if that number is large, the
     // library is the bottleneck", and now it is.
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1985, 2000, 3319, 4829, 5997]);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001, 3321, 4831, 5983]);
     expect.soft(steps[4]!.unlocked / steps[0]!.unlocked).toBeGreaterThan(2.8);
   });
 
@@ -515,7 +515,9 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
     // sentence is its sole primitive.
     // D567 - one spell up: a surge or spectacle spell's keyword line is read now (the alternative cost), so its token
     // sentence is its sole primitive.
-    expect.soft(byOwner).toEqual({ spell: 284, permanent: 507 });
+    // D574 - eleven down: a Role sentence reads now (the Role table), so the token primitive is no longer the need of three
+    // spells and eight permanents.
+    expect.soft(byOwner).toEqual({ spell: 281, permanent: 499 });
     // ⚠️ `unclaimed: 0` is the canary on the classifier: every one of the 1,123
     // is accounted for, so the five buckets are the whole row rather than five
     // buckets and a shrug.
@@ -532,7 +534,7 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
       predefined: 126,
       withAbilities: 231,
       variable: 75,
-      plain: 267,
+      plain: 256,
       unclaimed: 0,
     });
   });
@@ -563,8 +565,8 @@ replacement split: ${JSON.stringify(split)}  (tapped LANDS: ${tappedLands})`);
    */
   test('what a script can express today, and what the engine still runs', () => {
     const steps = cumulative(r, BUILT);
-    expect.soft(steps.map((s) => s.unlocked)).toEqual([1985, 2000]);
-    expect.soft(r.complete).toBe(12818);
+    expect.soft(steps.map((s) => s.unlocked)).toEqual([1986, 2001]);
+    expect.soft(r.complete).toBe(12834);
   });
 });
 
@@ -721,7 +723,7 @@ describe.skipIf(!HAVE_DB)('what the residue is about', () => {
       cantBeCountered: 18,
       gainControl: 58,
       wardHexproofGrant: 46,
-      other: 2306,
+      other: 2304,
     });
   });
 

@@ -3,6 +3,7 @@
 // resolution from DERIVED type lines, all entries in one DamageDealt so
 // the burn is simultaneous. The spell is the source — no riders. D196.
 
+import { inPlay } from '../../zones';
 import { ACIDIC_SOIL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const ACIDIC_SOIL_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const lands = new Map<string, number>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Land')) continue;

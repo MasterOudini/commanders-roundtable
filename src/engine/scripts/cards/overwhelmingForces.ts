@@ -3,6 +3,7 @@
 // counting its OWN kills into draws (Fumigate's count, Kaya's-Wrath's
 // side). D231.
 
+import { inPlay } from '../../zones';
 import { OVERWHELMING_FORCES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const OVERWHELMING_FORCES_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

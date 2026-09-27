@@ -2,6 +2,7 @@
 // The debuff commutes with the scry, so it lands first and the ask is LAST
 // (D195's rule met by construction). D209.
 
+import { inPlay } from '../../zones';
 import { DROWN_IN_SORROW } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const DROWN_IN_SORROW_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: -2, toughness: -2 });

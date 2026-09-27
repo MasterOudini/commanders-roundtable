@@ -1,6 +1,7 @@
 // `Seismic Rupture` — "deals 2 damage to each creature without flying."
 // Rolling Earthquake's exemption at a printed flat 2. D245.
 
+import { inPlay } from '../../zones';
 import { SEISMIC_RUPTURE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const SEISMIC_RUPTURE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature') || d.keywords.has('flying')) continue;
         damages.push({

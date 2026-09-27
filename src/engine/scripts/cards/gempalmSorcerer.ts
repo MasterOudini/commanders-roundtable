@@ -36,7 +36,7 @@ export const GEMPALM_SORCERER_SCRIPT: CardScript = {
       resolve: (ctx, _self, _obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield') continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           if (!ctx.derive(inst.id).typeLine.subtypes.includes("Wizard")) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 0, toughness: 0, keywords: ["flying"] });

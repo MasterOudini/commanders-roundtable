@@ -3,6 +3,7 @@
 // command zone." The commander read spans both zones (Slash the Ranks'
 // commanderIds, D192). D203.
 
+import { inPlay } from '../../zones';
 import { CLOUDKILL } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -41,7 +42,7 @@ export const CLOUDKILL_SCRIPT: CardScript = {
       }
       if (x <= 0) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: -x, toughness: -x });
       }

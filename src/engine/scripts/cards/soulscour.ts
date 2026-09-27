@@ -2,6 +2,7 @@
 // over EVERYTHING: lands included, artifacts exempt, indestructible skipped,
 // one simultaneous move. D250.
 
+import { inPlay } from '../../zones';
 import { SOULSCOUR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardMove, EventBody } from '../../types/events';
@@ -27,7 +28,7 @@ export const SOULSCOUR_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves: CardMove[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

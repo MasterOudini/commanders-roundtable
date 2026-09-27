@@ -1,6 +1,7 @@
 // `Ground Assault` — damage to target creature equal to my land count.
 // Goblin War Strike's census one type over. D216.
 
+import { inPlay } from '../../zones';
 import { GROUND_ASSAULT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const GROUND_ASSAULT_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let lands = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Land')) lands++;

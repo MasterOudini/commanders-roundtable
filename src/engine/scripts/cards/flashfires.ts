@@ -1,6 +1,7 @@
 // `Flashfires` — "Destroy all Plains." The subtype wipe (Flashfires'
 // Plains are DERIVED, so a Plains-typed dual dies too). D214.
 
+import { inPlay } from '../../zones';
 import { FLASHFIRES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const FLASHFIRES_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

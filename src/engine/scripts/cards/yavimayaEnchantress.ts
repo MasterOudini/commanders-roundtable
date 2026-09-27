@@ -27,7 +27,7 @@ function countOf(ctx: ScriptCtx, self: InstanceId, _applied: InstanceId): number
   if (!me) return 0;
   let n = 0;
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield') continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
     const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
     if (!face) continue;
     if (!face.typeLine.types.includes("Enchantment")) continue;

@@ -1,5 +1,6 @@
 // `Holy Light` — nonwhite creatures take -1/-1 for the turn. D218.
 
+import { inPlay } from '../../zones';
 import { HOLY_LIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -25,7 +26,7 @@ export const HOLY_LIGHT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

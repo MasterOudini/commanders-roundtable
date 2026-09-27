@@ -2,6 +2,7 @@
 // among permanents you control." One with the Machine, one type wider.
 // D242.
 
+import { inPlay } from '../../zones';
 import { RUSH_OF_KNOWLEDGE } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const RUSH_OF_KNOWLEDGE_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let greatest = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const mv = ctx.oracle.byPrinting(card.printingId)?.manaValue ?? 0;

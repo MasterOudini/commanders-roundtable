@@ -24,7 +24,7 @@ function cond0Of(ctx: ScriptCtx, self: InstanceId): boolean {
   const me = ctx.query.controllerOf(self);
   if (me === null) return false;
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield' || inst.attachedTo !== self) continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.attachedTo !== self) continue;
     const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
     if (face && face.typeLine.subtypes.includes("Aura")) return true;
   }

@@ -2,6 +2,7 @@
 // nonartifact creature target opponent controls." TWO probed specs in
 // one sentence; the mixed fan rides the hit() helper. D245.
 
+import { inPlay } from '../../zones';
 import { SEISMIC_WAVE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -57,7 +58,7 @@ export const SEISMIC_WAVE_SCRIPT: CardScript = {
         ),
       ];
       if (opponent && opponent.kind === 'player') {
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== opponent.id) continue;
           const d = ctx.derive(id);

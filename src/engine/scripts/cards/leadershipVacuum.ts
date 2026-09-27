@@ -6,6 +6,7 @@
 // draw. The move goes straight to the zone rather than through the CR 903.9
 // replacement prompt: the card says "returns", not "would be put". D277.
 
+import { inPlay } from '../../zones';
 import { LEADERSHIP_VACUUM } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -39,7 +40,7 @@ export const LEADERSHIP_VACUUM_SCRIPT: CardScript = {
       const them = ctx.state.players[target.id];
       if (!them || them.hasLost) return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id || !card.isCommander) continue;
         events.push({

@@ -4,6 +4,7 @@
 // target's entry plus one per same-name creature, tokens included — two
 // Grizzly Bears die together. D199.
 
+import { inPlay } from '../../zones';
 import { BILE_BLIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -40,7 +41,7 @@ export const BILE_BLIGHT_SCRIPT: CardScript = {
         { t: 'PtModifiedUntilEndOfTurn', card: target.id, power: -3, toughness: -3 },
       ];
       if (name !== undefined) {
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           if (id === target.id) continue;
           const other = ctx.state.cards[id];
           if (!other) continue;

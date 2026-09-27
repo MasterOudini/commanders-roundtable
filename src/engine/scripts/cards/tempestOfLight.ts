@@ -3,6 +3,7 @@
 // enchantment goes too. Per-object indestructible, as every sweep since
 // D192's Damnation. D257.
 
+import { inPlay } from '../../zones';
 import { TEMPEST_OF_LIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const TEMPEST_OF_LIGHT_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

@@ -4,6 +4,7 @@
 // creature with power 4 or greater." The fan is conditional on MY board
 // and excludes the target itself. D214.
 
+import { inPlay } from '../../zones';
 import { FLAMES_OF_THE_RAZE_BOAR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -49,7 +50,7 @@ export const FLAMES_OF_THE_RAZE_BOAR_SCRIPT: CardScript = {
         applyAs: 'normal' as const,
       });
       let bigOnMySide = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);
@@ -60,7 +61,7 @@ export const FLAMES_OF_THE_RAZE_BOAR_SCRIPT: CardScript = {
         }
       }
       if (bigOnMySide) {
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== owner || id === target.id) continue;
           if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -1,6 +1,7 @@
 // `Sunder` — every land on the battlefield goes to its OWNER's hand, in
 // one simultaneous move. D255.
 
+import { inPlay } from '../../zones';
 import { SUNDER } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardMove, EventBody } from '../../types/events';
@@ -26,7 +27,7 @@ export const SUNDER_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves: CardMove[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Land')) continue;

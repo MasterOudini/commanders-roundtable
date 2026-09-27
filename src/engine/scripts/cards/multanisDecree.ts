@@ -2,6 +2,7 @@
 // enchantment destroyed this way." Fumigate's own-kills count at 2 apiece.
 // D226.
 
+import { inPlay } from '../../zones';
 import { MULTANI_S_DECREE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const MULTANIS_DECREE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

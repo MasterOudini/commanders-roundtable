@@ -6,6 +6,7 @@
 // transformed back face has a null cost and correctly contributes nothing.
 // D198.
 
+import { inPlay } from '../../zones';
 import { ASPECT_OF_HYDRA } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -38,7 +39,7 @@ export const ASPECT_OF_HYDRA_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       let devotion = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const oc = ctx.oracle.byPrinting(card.printingId);

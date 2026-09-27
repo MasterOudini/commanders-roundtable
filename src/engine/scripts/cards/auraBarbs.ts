@@ -5,6 +5,7 @@
 // (Flamekin Spitfire's per-kind branch, D175). An Aura on a creature pays
 // twice — once to its controller, once to its host — which is the card. D198.
 
+import { inPlay } from '../../zones';
 import { AURA_BARBS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const AURA_BARBS_SCRIPT: CardScript = {
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const toControllers = [];
       const toHosts = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

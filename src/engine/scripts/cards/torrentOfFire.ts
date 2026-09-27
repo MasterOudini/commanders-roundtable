@@ -2,6 +2,7 @@
 // (Rush of Knowledge's read, D242) fired at any target. An empty board is a
 // true no-op rather than a 0-damage event. D261.
 
+import { inPlay } from '../../zones';
 import { TORRENT_OF_FIRE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const TORRENT_OF_FIRE_SCRIPT: CardScript = {
       }
 
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         const oc = ctx.oracle.byPrinting(inst.printingId);

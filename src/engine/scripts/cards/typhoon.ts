@@ -2,6 +2,7 @@
 // count, not a shared number (Incite Rebellion's shape, D219). An opponent
 // with no Islands takes nothing at all rather than a 0-damage entry. D263.
 
+import { inPlay } from '../../zones';
 import { TYPHOON } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -46,7 +47,7 @@ export const TYPHOON_SCRIPT: CardScript = {
         const player = ctx.state.players[p];
         if (!player || player.hasLost) continue;
         let islands = 0;
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const inst = ctx.state.cards[id];
           if (!inst || inst.controller !== p) continue;
           if (ctx.derive(id).typeLine.subtypes.includes('Island')) islands += 1;

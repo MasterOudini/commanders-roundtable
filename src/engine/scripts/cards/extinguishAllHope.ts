@@ -1,6 +1,7 @@
 // `Extinguish All Hope` — "Destroy all nonenchantment creatures." The
 // wipe with the enchantment-creature exemption read derived. D211.
 
+import { inPlay } from '../../zones';
 import { EXTINGUISH_ALL_HOPE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const EXTINGUISH_ALL_HOPE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

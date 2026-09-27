@@ -10317,6 +10317,16 @@ const WANTED = [
   // D573 - PHASING, the second batch: the payment-branch row (a phase-out unless you pay).
   'Vaporous Djinn',
   // D573 - the fixtures the second batch's suite deals that the generator DERIVED (D347/D370/D374).
+  // D574 - ROLE TOKENS: the rows the whole-leftover row maker rowed once Roles were the engine's (an Aura token created attached - Monster, Sorcerer, Wicked, Cursed, Virtuous).
+  'Living Lectern',
+  'Spiteful Hexmage',
+  'Cursed Courtier',
+  'Giant Inheritance',
+  "The Witch's Vanity",
+  'Charming Scoundrel',
+  'Splashy Spellcaster',
+  'Unassuming Sage',
+  // D574 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10748,6 +10758,10 @@ const WANTED_TOKENS = [
   // D569 - the Spirits endure makes (TDM 2/2 and 3/3; its 1/1 was pinned already).
   { name: 'Spirit', set: 'ttdm', cn: '7', key: 'SPIRIT_2_2_W_CREATURE_TOKEN' },
   { name: 'Spirit', set: 'ttdm', cn: '8', key: 'SPIRIT_3_3_W_CREATURE_TOKEN' },
+  // D574 - ROLE TOKENS: the double-faced Role token printings the Role table names (CR 303.7).
+  { name: 'Monster // Sorcerer', set: 'twoe', cn: '15', key: 'MONSTER_SORCERER_ROLE_TOKEN' },
+  { name: 'Wicked // Cursed', set: 'plst', cn: 'TWOE-17', key: 'WICKED_CURSED_ROLE_TOKEN' },
+  { name: 'Monster // Virtuous', set: 'twoc', cn: '1', key: 'MONSTER_VIRTUOUS_ROLE_TOKEN' },
 ];
 
 function constName(name) {

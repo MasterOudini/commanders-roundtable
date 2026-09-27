@@ -2,6 +2,7 @@
 // resolve-side off the derived type line, so an artifact creature is spared
 // and a plain one is not. D269.
 
+import { inPlay } from '../../zones';
 import { WHIPFLARE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const WHIPFLARE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const types = ctx.derive(id).typeLine.types;
         if (!types.includes('Creature')) continue;

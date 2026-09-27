@@ -3,6 +3,7 @@
 // the creatures every OPPONENT controls — mine are untouched — then the
 // draw. Power may go negative; the engine derives it as printed. D273.
 
+import { inPlay } from '../../zones';
 import { BLINDING_SPRAY } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -29,7 +30,7 @@ export const BLINDING_SPRAY_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -5,6 +5,7 @@
 // resolution: three artifacts or more and the creature is exiled to its
 // owner's zone; fewer and the tap is all. D274.
 
+import { inPlay } from '../../zones';
 import { DISPATCH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -39,7 +40,7 @@ export const DISPATCH_SCRIPT: CardScript = {
       const events: EventBody[] = [];
       if (!card.tapped) events.push({ t: 'PermanentsTapped', cards: [target.id] });
       let artifacts = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) artifacts += 1;

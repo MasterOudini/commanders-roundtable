@@ -2,6 +2,7 @@
 // number of creatures you control." Dogpile's census burn read off the
 // whole battlefield instead of the combat state. D224.
 
+import { inPlay } from '../../zones';
 import { MASSIVE_RAID } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const MASSIVE_RAID_SCRIPT: CardScript = {
       if (target.kind === 'card' && ctx.state.cards[target.id]?.zone.kind !== 'battlefield')
         return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

@@ -35,7 +35,7 @@ export const LEGIONS_TO_ASHES_SCRIPT: CardScript = {
         return card && card.zone.kind === 'battlefield' ? { id: t.id, card } : null;
       };
       const sameName = (p: { id: InstanceId; card: CardInstance }): CardInstance[] =>
-        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && c.oracleId === p.card.oracleId);
+        Object.values(ctx.state.cards).filter((c) => c.id !== p.id && c.zone.kind === 'battlefield' && !c.phasedOut && c.oracleId === p.card.oracleId);
         { const p = perm(0); if (p) events.push({ t: 'CardsMoved', moves: [{ card: p.id, from: { kind: 'battlefield', player: p.card.controller }, to: { kind: 'exile', player: p.card.owner } }] }); }
         { const p = perm(0); if (p) {
           for (const c of sameName(p)) {

@@ -2,6 +2,7 @@
 // what actually died this way: Fumigate's own-kill count feeding the
 // recoil. D217.
 
+import { inPlay } from '../../zones';
 import { HELLFIRE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const HELLFIRE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

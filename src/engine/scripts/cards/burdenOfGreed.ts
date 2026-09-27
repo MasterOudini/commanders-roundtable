@@ -1,6 +1,7 @@
 // `Burden of Greed` — "Target player loses 1 life for each tapped artifact
 // they control." D202.
 
+import { inPlay } from '../../zones';
 import { BURDEN_OF_GREED } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const BURDEN_OF_GREED_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id || !card.tapped) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) n++;

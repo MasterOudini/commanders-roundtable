@@ -1,6 +1,7 @@
 // `Judgment Bolt` — 5 at the creature, plus the Equipment census at its
 // controller (read pre-move). D221.
 
+import { inPlay } from '../../zones';
 import { JUDGMENT_BOLT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const JUDGMENT_BOLT_SCRIPT: CardScript = {
       if (!victim || victim.zone.kind !== 'battlefield') return [];
       const controller = victim.controller;
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Equipment')) x++;

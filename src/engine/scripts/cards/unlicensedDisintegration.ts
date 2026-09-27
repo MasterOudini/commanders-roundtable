@@ -6,6 +6,7 @@
 // (D120's `clearBattlefieldFields`), which would be the wrong player for a
 // stolen creature. D264.
 
+import { inPlay } from '../../zones';
 import { UNLICENSED_DISINTEGRATION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -54,7 +55,7 @@ export const UNLICENSED_DISINTEGRATION_SCRIPT: CardScript = {
       }
 
       let artifact = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) {

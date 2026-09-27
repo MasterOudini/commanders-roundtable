@@ -5,6 +5,7 @@
 // gains menace, every creature the targeted player controls is pumped.
 // Menace is a grantable keyword (effectParse's list). D276.
 
+import { inPlay } from '../../zones';
 import { HOW_TO_START_A_RIOT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -39,7 +40,7 @@ export const HOW_TO_START_ARIOT_SCRIPT: CardScript = {
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: creature.id, power: 0, toughness: 0, keywords: ['menace'] });
       }
       if (player && player.kind === 'player') {
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const card = ctx.state.cards[id];
           if (!card || card.controller !== player.id) continue;
           if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

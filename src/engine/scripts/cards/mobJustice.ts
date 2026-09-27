@@ -2,6 +2,7 @@
 // equal to the number of creatures you control." Massive Raid's census on the
 // player-or-planeswalker compound. D226.
 
+import { inPlay } from '../../zones';
 import { MOB_JUSTICE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const MOB_JUSTICE_SCRIPT: CardScript = {
       if (target.kind === 'card' && ctx.state.cards[target.id]?.zone.kind !== 'battlefield')
         return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

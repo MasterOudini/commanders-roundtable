@@ -1,3 +1,4 @@
+import { ROLE_PRINTINGS } from '../data/roleTable';
 import { describe, expect, test } from 'vitest';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -1870,6 +1871,8 @@ interface Run {
   /** D573 - the phasing events: permanents phased out (directly) and phased in (CR 702.26). */
   readonly phasedOut: number;
   readonly phasedIn: number;
+  /** D574 - the Role tokens created (CR 303.7). */
+  readonly rolesCreated: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2431,6 +2434,7 @@ function runOne(seed: number): Run {
     discoverAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'chooseFromZone' && e.body.awaiting.declineToHand === true).length,
     phasedOut: game.log.reduce((n, e) => n + (e.body.t === 'PhasedOut' ? e.body.cards.length : 0), 0),
     phasedIn: game.log.reduce((n, e) => n + (e.body.t === 'PhasedIn' ? e.body.cards.length : 0), 0),
+    rolesCreated: game.log.filter((e) => e.body.t === 'TokenCreated' && ROLE_PRINTINGS.has(e.body.printingId)).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2818,6 +2822,7 @@ const TOTAL_KEYS = [
   'discoverAsks',
   'phasedOut',
   'phasedIn',
+  'rolesCreated',
   'crownings',
   'ringTempts',
   'ringAbilities',

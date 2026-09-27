@@ -2,6 +2,7 @@
 // among artifacts you control." Boon of Boseiju's greatest-MV read on a
 // draw. D230.
 
+import { inPlay } from '../../zones';
 import { ONE_WITH_THE_MACHINE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const ONE_WITH_THE_MACHINE_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let greatest = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Artifact')) continue;

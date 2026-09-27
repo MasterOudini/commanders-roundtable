@@ -36,7 +36,7 @@ export const MURDEROUS_SPOILS_SCRIPT: CardScript = {
       };
         { const p = perm(0); if (p) {
           for (const c of Object.values(ctx.state.cards)) {
-            if (c.zone.kind !== 'battlefield' || c.attachedTo !== p.id || c.controller === obj.controller) continue;
+            if (c.zone.kind !== 'battlefield' || c.phasedOut || c.attachedTo !== p.id || c.controller === obj.controller) continue;
             if (!ctx.derive(c.id).typeLine.subtypes.includes('Equipment')) continue;
             events.push({ t: 'ControlChanged', card: c.id, controller: obj.controller });
           }

@@ -3,6 +3,7 @@
 // Forces, with the vacuous regeneration clause; this module's file name
 // sits in damnation.node.test.ts's exclude list. D233.
 
+import { inPlay } from '../../zones';
 import { PLAGUE_WIND } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -28,7 +29,7 @@ export const PLAGUE_WIND_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

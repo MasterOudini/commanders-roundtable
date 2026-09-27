@@ -1,6 +1,7 @@
 // `Final Judgment` — "Exile all creatures." Exile is not destroy, so
 // indestructible offers no shelter. D213.
 
+import { inPlay } from '../../zones';
 import { FINAL_JUDGMENT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const FINAL_JUDGMENT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

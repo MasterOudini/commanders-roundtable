@@ -1,6 +1,7 @@
 // `Paraselene` — "Destroy all enchantments. You gain 1 life for each
 // enchantment destroyed this way." Multani's Decree at 1 apiece. D231.
 
+import { inPlay } from '../../zones';
 import { PARASELENE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const PARASELENE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

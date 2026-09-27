@@ -2,6 +2,7 @@
 // the filter positive rather than negated). Per-object indestructible, as
 // every sweep since D192's Damnation. D260.
 
+import { inPlay } from '../../zones';
 import { TIVADAR_S_CRUSADE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const TIVADARS_CRUSADE_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

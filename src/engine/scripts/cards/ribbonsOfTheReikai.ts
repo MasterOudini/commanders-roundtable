@@ -1,6 +1,7 @@
 // `Ribbons of the Reikai` — "Draw a card for each Spirit you control."
 // The subtype census draw, off the DERIVED type lines. D240.
 
+import { inPlay } from '../../zones';
 import { RIBBONS_OF_THE_REIKAI } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -27,7 +28,7 @@ export const RIBBONS_OF_THE_REIKAI_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Spirit')) n++;

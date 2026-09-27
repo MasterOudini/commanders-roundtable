@@ -5,6 +5,7 @@
 // SUBTYPE and a global enchantment dies by not having it. Per-object
 // indestructible, as every sweep since D192's Damnation. D261.
 
+import { inPlay } from '../../zones';
 import { TRANQUIL_DOMAIN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const TRANQUIL_DOMAIN_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

@@ -1,6 +1,7 @@
 // `Kaervek's Hex` — 1 to each nonblack creature plus 1 more to each
 // green one: summed per creature, one entry each. D221.
 
+import { inPlay } from '../../zones';
 import { KAERVEK_S_HEX } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const KAERVEKS_HEX_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, _obj): readonly EventBody[] => {
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

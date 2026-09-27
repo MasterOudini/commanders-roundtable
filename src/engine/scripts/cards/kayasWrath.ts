@@ -1,6 +1,7 @@
 // `Kaya's Wrath` — the wipe pays its caster for their OWN losses only
 // (Fumigate's own-kill count on its Orzhov twin). D221.
 
+import { inPlay } from '../../zones';
 import { KAYA_S_WRATH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const KAYAS_WRATH_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
       let mine = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

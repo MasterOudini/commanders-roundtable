@@ -37,7 +37,7 @@ export const ARTILLERY_BLAST_SCRIPT: CardScript = {
         { const p = perm(0); if (p) {
           const basics = new Set<string>();
           for (const c of Object.values(ctx.state.cards)) {
-            if (c.zone.kind !== 'battlefield' || c.controller !== obj.controller) continue;
+            if (c.zone.kind !== 'battlefield' || c.phasedOut || c.controller !== obj.controller) continue;
             const tl = ctx.derive(c.id).typeLine;
             if (!tl.types.includes('Land')) continue;
             for (const s of tl.subtypes) if (['Plains', 'Island', 'Swamp', 'Mountain', 'Forest'].includes(s)) basics.add(s);

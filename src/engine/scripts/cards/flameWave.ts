@@ -4,6 +4,7 @@
 // TARGET's controller's creatures (the player themself when a player is
 // targeted). D213.
 
+import { inPlay } from '../../zones';
 import { FLAME_WAVE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -65,7 +66,7 @@ export const FLAME_WAVE_SCRIPT: CardScript = {
           applyAs: 'normal' as const,
         });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== owner || id === target.id) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

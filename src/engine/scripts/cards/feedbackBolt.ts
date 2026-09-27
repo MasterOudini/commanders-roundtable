@@ -1,6 +1,7 @@
 // `Feedback Bolt` — "Feedback Bolt deals damage to target player or
 // planeswalker equal to the number of artifacts you control." D213.
 
+import { inPlay } from '../../zones';
 import { FEEDBACK_BOLT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const FEEDBACK_BOLT_SCRIPT: CardScript = {
       if (target.kind === 'card' && ctx.state.cards[target.id]?.zone.kind !== 'battlefield')
         return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) n++;

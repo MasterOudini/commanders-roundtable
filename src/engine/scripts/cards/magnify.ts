@@ -1,5 +1,6 @@
 // `Magnify` — all creatures +1/+1 for the turn. D223.
 
+import { inPlay } from '../../zones';
 import { MAGNIFY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -25,7 +26,7 @@ export const MAGNIFY_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: 1, toughness: 1 });

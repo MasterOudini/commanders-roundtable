@@ -21,6 +21,7 @@
 // preference, and a miss returns null. The caller decides, and `effectParse`'s
 // answer is that a card whose token cannot be named is not understood.
 
+import { roleRef } from './roleTable';
 import type { CardData, ColorLetter } from './cardTypes';
 import { scrub } from './targetParse';
 import { EMBLEM_TABLE } from './emblemTable';
@@ -473,6 +474,11 @@ export function tokenPrintingIdsIn(cards: readonly CardData[]): string[] {
       }
       // D521 - the Ring emblem the first temptation gives: the pool must hold it (D133) for every card the Ring tempts.
       if (/\bthe Ring tempts you\b/i.test(folded.text)) out.add(RING_EMBLEM.printingId);
+      // D574 - the ROLES a card creates (CR 303.7): the Role's double-faced token printing - the pool must hold it too.
+      for (const m of folded.text.matchAll(/\b(Cursed|Monster|Sorcerer|Virtuous|Wicked|Royal|Young Hero) Role tokens?\b/gi)) {
+        const ref = roleRef(m[1] ?? '');
+        if (ref) out.add(ref.printingId);
+      }
       for (const line of folded.text.split(/\n|(?<=\.)\s+/)) {
         const spec = parseTokenClause(line.trim(), folded.quotes);
         if (!spec) continue;

@@ -3,6 +3,7 @@
 // so a counter is the only thing that saves a creature — mine included.
 // D268.
 
+import { inPlay } from '../../zones';
 import { WAVE_GOODBYE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const WAVE_GOODBYE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

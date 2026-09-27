@@ -2,6 +2,7 @@
 // the attachment walk (Disarm's shape, D208) pointed at a single host,
 // each attachment checking its own indestructible. D254.
 
+import { inPlay } from '../../zones';
 import { STRIP_BARE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardMove, EventBody } from '../../types/events';
@@ -30,7 +31,7 @@ export const STRIP_BARE_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const moves: CardMove[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.attachedTo !== target.id) continue;
         const subtypes = ctx.derive(id).typeLine.subtypes;

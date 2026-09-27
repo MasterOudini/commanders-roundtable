@@ -4,6 +4,7 @@
 // the engine has no regeneration and this file is a client of the
 // damnation tripwire (D192) — the SIXTEENTH. D240.
 
+import { inPlay } from '../../zones';
 import { RETRIBUTION_OF_THE_MEEK } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const RETRIBUTION_OF_THE_MEEK_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

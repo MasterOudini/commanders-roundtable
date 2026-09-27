@@ -2,6 +2,7 @@
 // control a Wizard, draw a card." The Wizard is a board query at
 // resolution (derived subtypes). D203.
 
+import { inPlay } from '../../zones';
 import { CHILLING_TRAP } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -36,7 +37,7 @@ export const CHILLING_TRAP_SCRIPT: CardScript = {
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: target.id, power: -4, toughness: 0 });
       }
       let wizard = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Wizard')) {

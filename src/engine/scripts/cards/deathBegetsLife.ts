@@ -3,6 +3,7 @@
 // Fumigate's destroyed-this-way count feeding THE draw rule. A permanent
 // that is BOTH types dies once and counts once. D206.
 
+import { inPlay } from '../../zones';
 import { DEATH_BEGETS_LIFE } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -32,7 +33,7 @@ export const DEATH_BEGETS_LIFE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

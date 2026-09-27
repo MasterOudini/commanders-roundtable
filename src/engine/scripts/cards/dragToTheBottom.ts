@@ -2,6 +2,7 @@
 // turn, where X is 1 plus the number of basic land types among lands you
 // control." Drag Down's count, board-wide, plus one. D209.
 
+import { inPlay } from '../../zones';
 import { DRAG_TO_THE_BOTTOM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const DRAG_TO_THE_BOTTOM_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);
@@ -41,7 +42,7 @@ export const DRAG_TO_THE_BOTTOM_SCRIPT: CardScript = {
       }
       const x = 1 + types.size;
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;
         events.push({ t: 'PtModifiedUntilEndOfTurn', card: id, power: -x, toughness: -x });

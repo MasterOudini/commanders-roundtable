@@ -7,6 +7,17 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { LIVING_LECTERN_SCRIPT } from './cards/livingLectern';
+import { SPITEFUL_HEXMAGE_SCRIPT } from './cards/spitefulHexmage';
+import { CURSED_COURTIER_SCRIPT } from './cards/cursedCourtier';
+import { GIANT_INHERITANCE_SCRIPT } from './cards/giantInheritance';
+import { THE_WITCHS_VANITY_SCRIPT } from './cards/theWitchsVanity';
+import { CHARMING_SCOUNDREL_SCRIPT } from './cards/charmingScoundrel';
+import { SPLASHY_SPELLCASTER_SCRIPT } from './cards/splashySpellcaster';
+import { UNASSUMING_SAGE_SCRIPT } from './cards/unassumingSage';
+import { MONSTER_SORCERER_ROLE_SCRIPT } from './cards/monsterSorcererRole';
+import { WICKED_CURSED_ROLE_SCRIPT } from './cards/wickedCursedRole';
+import { MONSTER_VIRTUOUS_ROLE_SCRIPT } from './cards/monsterVirtuousRole';
 import { VAPOROUS_DJINN_SCRIPT } from './cards/vaporousDjinn';
 import { RENEGADE_SILENT_SCRIPT } from './cards/renegadeSilent';
 import { RAINBOW_EFREET_SCRIPT } from './cards/rainbowEfreet';
@@ -8316,6 +8327,17 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  LIVING_LECTERN_SCRIPT,
+  SPITEFUL_HEXMAGE_SCRIPT,
+  CURSED_COURTIER_SCRIPT,
+  GIANT_INHERITANCE_SCRIPT,
+  THE_WITCHS_VANITY_SCRIPT,
+  CHARMING_SCOUNDREL_SCRIPT,
+  SPLASHY_SPELLCASTER_SCRIPT,
+  UNASSUMING_SAGE_SCRIPT,
+  MONSTER_SORCERER_ROLE_SCRIPT,
+  WICKED_CURSED_ROLE_SCRIPT,
+  MONSTER_VIRTUOUS_ROLE_SCRIPT,
   VAPOROUS_DJINN_SCRIPT,
   RENEGADE_SILENT_SCRIPT,
   RAINBOW_EFREET_SCRIPT,

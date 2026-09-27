@@ -25,7 +25,7 @@ function countOf_0(ctx: ScriptCtx, self: InstanceId): number {
   if (!me) return 0;
   let n = 0;
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield') continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
     const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
     if (!face) continue;
     if (!face.typeLine.subtypes.includes('Forest')) continue;

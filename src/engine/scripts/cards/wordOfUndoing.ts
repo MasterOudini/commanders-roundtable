@@ -9,6 +9,7 @@
 // but both moves go in ONE `CardsMoved`, so the reads all happen up front.
 // D270.
 
+import { inPlay } from '../../zones';
 import { WORD_OF_UNDOING } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -49,7 +50,7 @@ export const WORD_OF_UNDOING_SCRIPT: CardScript = {
         },
       ];
 
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.attachedTo !== target.id) continue;
         if (card.owner !== obj.controller) continue; // "you OWN"

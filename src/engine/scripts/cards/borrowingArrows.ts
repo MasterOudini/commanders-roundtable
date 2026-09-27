@@ -2,6 +2,7 @@
 // opponent controls." The count is TAPPED derived creatures of the target,
 // through THE draw rule. D201.
 
+import { inPlay } from '../../zones';
 import { BORROWING_100_000_ARROWS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const BORROWING_ARROWS_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id || !card.tapped) continue;
         if (!ctx.derive(id).typeLine.types.includes('Creature')) continue;

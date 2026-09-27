@@ -1,6 +1,7 @@
 // `Starlight` — 3 life per BLACK creature the target opponent controls: the
 // census reads derived colors, the opponent restriction is enforced. D252.
 
+import { inPlay } from '../../zones';
 import { STARLIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -28,7 +29,7 @@ export const STARLIGHT_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

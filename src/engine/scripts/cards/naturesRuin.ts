@@ -1,6 +1,7 @@
 // `Nature's Ruin` — "Destroy all green creatures." Anarchy's color wipe on
 // one color, asked of the DERIVED colors. D227.
 
+import { inPlay } from '../../zones';
 import { NATURE_S_RUIN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const NATURES_RUIN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

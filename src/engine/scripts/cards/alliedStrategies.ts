@@ -3,6 +3,7 @@
 // claimed text; the count is DISTINCT basic land subtypes among the TARGET
 // player's derived lands, and the draws are theirs. D197.
 
+import { inPlay } from '../../zones';
 import { ALLIED_STRATEGIES } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -37,7 +38,7 @@ export const ALLIED_STRATEGIES_SCRIPT: CardScript = {
       if (!target || target.kind !== 'player') return [];
       if (ctx.state.players[target.id]?.hasLost) return [];
       const types = new Set<string>();
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

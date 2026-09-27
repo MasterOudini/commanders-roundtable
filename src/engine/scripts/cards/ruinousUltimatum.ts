@@ -2,6 +2,7 @@
 // control." The opponents-only nonland wipe: Kaya's Wrath's controller
 // filter inverted, indestructible asked per object. D242.
 
+import { inPlay } from '../../zones';
 import { RUINOUS_ULTIMATUM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const RUINOUS_ULTIMATUM_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller === obj.controller) continue;
         const d = ctx.derive(id);

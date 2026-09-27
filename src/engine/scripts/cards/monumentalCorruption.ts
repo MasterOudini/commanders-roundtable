@@ -2,6 +2,7 @@
 // where X is the number of artifacts you control." Minions' Murmurs pointed
 // at a TARGET, censusing the CASTER's artifacts. D226.
 
+import { inPlay } from '../../zones';
 import { MONUMENTAL_CORRUPTION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const MONUMENTAL_CORRUPTION_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (!ctx.derive(id).typeLine.types.includes('Artifact')) continue;

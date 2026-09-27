@@ -2,6 +2,7 @@
 // batch: every enchantment, Aura or not. Landing the pair together is what
 // makes the negation in the other one an assertion rather than a claim. D261.
 
+import { inPlay } from '../../zones';
 import { TRANQUILITY } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const TRANQUILITY_SCRIPT: CardScript = {
         from: { kind: 'battlefield'; player: string };
         to: { kind: 'graveyard'; player: string };
       }[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst) continue;
         const d = ctx.derive(id);

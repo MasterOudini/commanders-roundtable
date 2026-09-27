@@ -2,6 +2,7 @@
 // multicolored filter is DERIVED colors at length two or more; exile is
 // not destruction, so indestructible does not help. D237.
 
+import { inPlay } from '../../zones';
 import { RAVNICA_AT_WAR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const RAVNICA_AT_WAR_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (ctx.derive(id).colors.length < 2) continue;

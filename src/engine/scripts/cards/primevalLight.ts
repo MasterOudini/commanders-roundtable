@@ -1,6 +1,7 @@
 // `Primeval Light` — "Destroy all enchantments target player controls."
 // The one-player typed wipe, aimed. D235.
 
+import { inPlay } from '../../zones';
 import { PRIMEVAL_LIGHT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -28,7 +29,7 @@ export const PRIMEVAL_LIGHT_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

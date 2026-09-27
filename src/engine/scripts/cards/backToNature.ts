@@ -2,6 +2,7 @@
 // over: every DERIVED enchantment in ONE CardsMoved, indestructible skipped
 // (CR 701.7b). D199.
 
+import { inPlay } from '../../zones';
 import { BACK_TO_NATURE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const BACK_TO_NATURE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

@@ -11,6 +11,7 @@
 // own effects (sixth outing), and all the moves go in ONE `CardsMoved`.
 // D270.
 
+import { inPlay } from '../../zones';
 import { WORLDFIRE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -45,7 +46,7 @@ export const WORLDFIRE_SCRIPT: CardScript = {
         to: { kind: 'exile'; player: string };
       }[] = [];
 
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         moves.push({

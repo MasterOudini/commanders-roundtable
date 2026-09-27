@@ -4,6 +4,7 @@
 // scratch fold, so the player draws past what they just binned. With ZERO
 // artifacts the ask is skipped and the draws still happen. D202.
 
+import { inPlay } from '../../zones';
 import { CEREBRAL_DOWNLOAD } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const CEREBRAL_DOWNLOAD_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) x++;

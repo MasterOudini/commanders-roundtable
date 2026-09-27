@@ -4,6 +4,7 @@
 // ⚠️ "plus", not "or": an artifact creature is counted TWICE, once in each
 // term. That is the whole card, and the branch the test pins. D267.
 
+import { inPlay } from '../../zones';
 import { WAR_REPORT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const WAR_REPORT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let amount = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const types = ctx.derive(id).typeLine.types;
         if (types.includes('Creature')) amount += 1;

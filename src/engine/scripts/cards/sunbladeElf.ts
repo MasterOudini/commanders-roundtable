@@ -27,7 +27,7 @@ function cond0Of(ctx: ScriptCtx, self: InstanceId): boolean {
   if (me === null) return false;
   let n = 0;
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield') continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut) continue;
     if (inst.controller !== me) continue;
     const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
     if (!face) continue;
@@ -48,7 +48,7 @@ export const SUNBLADE_ELF_SCRIPT: CardScript = {
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         const out: EventBody[] = [];
         for (const inst of Object.values(ctx.state.cards)) {
-          if (inst.zone.kind !== 'battlefield' || inst.controller !== obj.controller) continue;
+          if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== obj.controller) continue;
           if (!ctx.derive(inst.id).typeLine.types.includes('Creature')) continue;
           out.push({ t: 'PtModifiedUntilEndOfTurn', card: inst.id, power: 1, toughness: 1 });
         }

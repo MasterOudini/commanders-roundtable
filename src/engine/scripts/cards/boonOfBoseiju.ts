@@ -4,6 +4,7 @@
 // plus Filigree's untap — an already-upright target just skips the event.
 // D201.
 
+import { inPlay } from '../../zones';
 import { BOON_OF_BOSEIJU } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -36,7 +37,7 @@ export const BOON_OF_BOSEIJU_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const c = ctx.state.cards[id];
         if (!c || c.controller !== obj.controller) continue;
         const mv = ctx.oracle.byPrinting(c.printingId)?.manaValue ?? 0;

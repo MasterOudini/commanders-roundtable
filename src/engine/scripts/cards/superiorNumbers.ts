@@ -2,6 +2,7 @@
 // opponent's, floored at nothing. Two probed specs, the opponent
 // restriction enforced. D255.
 
+import { inPlay } from '../../zones';
 import { SUPERIOR_NUMBERS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript, ScriptCtx } from '../api';
@@ -26,7 +27,7 @@ const TEXT = printed(
 
 function creatureCount(ctx: ScriptCtx, who: PlayerId): number {
   let n = 0;
-  for (const id of ctx.state.zones.battlefield) {
+  for (const id of inPlay(ctx.state)) {
     const card = ctx.state.cards[id];
     if (!card || card.controller !== who) continue;
     if (ctx.derive(id).typeLine.types.includes('Creature')) n += 1;

@@ -2,6 +2,7 @@
 // on a TWO-SIDED census: my creature count against the spell controller's.
 // Strictly MORE, so a tie is a true no-op and the spell resolves. D264.
 
+import { inPlay } from '../../zones';
 import { UNIFIED_WILL } from '../../../data/fixtures/engineCards';
 import { moveFromStack } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -37,7 +38,7 @@ export const UNIFIED_WILL_SCRIPT: CardScript = {
 
       const count = (player: string): number => {
         let n = 0;
-        for (const id of ctx.state.zones.battlefield) {
+        for (const id of inPlay(ctx.state)) {
           const inst = ctx.state.cards[id];
           if (!inst || inst.controller !== player) continue;
           if (ctx.derive(id).typeLine.types.includes('Creature')) n += 1;

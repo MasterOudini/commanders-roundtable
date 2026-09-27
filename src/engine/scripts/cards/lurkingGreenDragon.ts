@@ -25,7 +25,7 @@ function defenderControls_1(ctx: ScriptCtx, defender: DefenderRef): boolean {
   const who = defender.kind === 'player' ? defender.id : ctx.state.cards[defender.id]?.controller;
   if (!who) return false;
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield' || inst.controller !== who) continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== who) continue;
     const d = ctx.derive(inst.id);
     if (d.typeLine.types.includes('Creature') && d.keywords.has('flying')) return true;
   }

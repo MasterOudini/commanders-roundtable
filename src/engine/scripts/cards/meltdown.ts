@@ -1,6 +1,7 @@
 // `Meltdown` — "Destroy each artifact with mana value X or less." Gaze of
 // Granite's X-bounded sweep narrowed to artifacts. D224.
 
+import { inPlay } from '../../zones';
 import { MELTDOWN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const MELTDOWN_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const x = obj.xValue ?? 0;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

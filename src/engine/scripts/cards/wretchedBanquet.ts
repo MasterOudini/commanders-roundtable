@@ -6,6 +6,7 @@
 // at most that minimum (a tie counts, the card says so). A target that is not
 // the smallest survives — the branch a happy-path test never sees. D271.
 
+import { inPlay } from '../../zones';
 import { WRETCHED_BANQUET } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -39,7 +40,7 @@ export const WRETCHED_BANQUET_SCRIPT: CardScript = {
       if (!card || card.zone.kind !== 'battlefield') return [];
 
       let least = Infinity;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;

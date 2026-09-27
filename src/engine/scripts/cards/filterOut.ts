@@ -1,6 +1,7 @@
 // `Filter Out` — "Return all noncreature, nonland permanents to their
 // owners' hands." D213.
 
+import { inPlay } from '../../zones';
 import { FILTER_OUT } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -29,7 +30,7 @@ export const FILTER_OUT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const types = ctx.derive(id).typeLine.types;

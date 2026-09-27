@@ -3,6 +3,7 @@
 // creature land) counts ONCE, because the card asks for a count of
 // permanents rather than a sum per type. D260.
 
+import { inPlay } from '../../zones';
 import { TOIL_TO_RENOWN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const TOIL_TO_RENOWN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller || !inst.tapped) continue;
         const types = ctx.derive(id).typeLine.types;

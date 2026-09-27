@@ -2,6 +2,7 @@
 // AttachmentChanged-to-null per attached EQUIPMENT (derived subtype — an
 // Aura on the same creature stays put). D208.
 
+import { inPlay } from '../../zones';
 import { DISARM } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -30,7 +31,7 @@ export const DISARM_SCRIPT: CardScript = {
       if (!target || target.kind !== 'card') return [];
       if (ctx.state.cards[target.id]?.zone.kind !== 'battlefield') return [];
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.attachedTo !== target.id) continue;
         if (!ctx.derive(id).typeLine.subtypes.includes('Equipment')) continue;

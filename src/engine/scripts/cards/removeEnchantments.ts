@@ -6,6 +6,7 @@
 // plus Auras attached to opponents' attackers — read off attachedTo and
 // the combat state. D239.
 
+import { inPlay } from '../../zones';
 import { REMOVE_ENCHANTMENTS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -41,7 +42,7 @@ export const REMOVE_ENCHANTMENTS_SCRIPT: CardScript = {
       );
       const returns = [];
       const destroys = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

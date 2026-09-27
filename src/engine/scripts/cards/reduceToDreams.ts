@@ -1,6 +1,7 @@
 // `Reduce to Dreams` — "Return all artifacts and enchantments to their
 // owners' hands." The two-type bounce-wipe. D238.
 
+import { inPlay } from '../../zones';
 import { REDUCE_TO_DREAMS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const REDUCE_TO_DREAMS_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const types = ctx.derive(id).typeLine.types;

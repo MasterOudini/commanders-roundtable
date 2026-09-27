@@ -1,6 +1,7 @@
 // `Star of Extinction` — destroy the land, then 20 to EVERY creature and
 // planeswalker in one damage batch. D252.
 
+import { inPlay } from '../../zones';
 import { STAR_OF_EXTINCTION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -49,7 +50,7 @@ export const STAR_OF_EXTINCTION_SCRIPT: CardScript = {
         }
       }
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (!ctx.state.cards[id]) continue;
         const d = ctx.derive(id);
         const types = d.typeLine.types;

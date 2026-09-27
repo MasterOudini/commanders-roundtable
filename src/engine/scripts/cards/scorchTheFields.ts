@@ -3,6 +3,7 @@
 // subtype-filtered sweep rider; the destruction can miss and the sweep
 // still fires (CR 608.2c). D244.
 
+import { inPlay } from '../../zones';
 import { SCORCH_THE_FIELDS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -51,7 +52,7 @@ export const SCORCH_THE_FIELDS_SCRIPT: CardScript = {
         }
       }
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature')) continue;
         if (!d.typeLine.subtypes.includes('Human')) continue;

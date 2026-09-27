@@ -3,6 +3,7 @@
 // cards with mana value 3 or less from all graveyards." The two-zone
 // exile sweep behind one MV bar. D246.
 
+import { inPlay } from '../../zones';
 import { SHADOWS_VERDICT } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -32,7 +33,7 @@ export const SHADOWS_VERDICT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

@@ -1,6 +1,7 @@
 // `Battle Hymn` — "Add {R} for each creature you control." Mana Geyser's
 // shape with the count on MY creatures. D199.
 
+import { inPlay } from '../../zones';
 import { BATTLE_HYMN } from '../../../data/fixtures/engineCards';
 import { EMPTY_POOL } from '../../types/mana';
 import type { CardData } from '../../../data/cardTypes';
@@ -27,7 +28,7 @@ export const BATTLE_HYMN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (ctx.state.cards[id]?.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) n++;
       }

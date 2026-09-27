@@ -3,6 +3,7 @@
 // turn." The controller is read BEFORE the move; the victim is exempt
 // from its own aftermath. D236.
 
+import { inPlay } from '../../zones';
 import { PUBLIC_EXECUTION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -48,7 +49,7 @@ export const PUBLIC_EXECUTION_SCRIPT: CardScript = {
           ],
         });
       }
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (id === target.id) continue;
         const other = ctx.state.cards[id];
         if (!other || other.controller !== victimController) continue;

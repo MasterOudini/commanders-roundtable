@@ -1,6 +1,7 @@
 // `Tranquil Path` — every enchantment on the battlefield goes to its owner's
 // graveyard; I draw.
 
+import { inPlay } from '../../zones';
 import { TRANQUIL_PATH } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -27,7 +28,7 @@ export const TRANQUIL_PATH_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).typeLine.types.includes('Enchantment')) continue;

@@ -4,6 +4,7 @@
 // my derived Vampires at resolution — none means no damage event at all —
 // then the draw. D281.
 
+import { inPlay } from '../../zones';
 import { STENSIA_BANQUET } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -40,7 +41,7 @@ export const STENSIA_BANQUET_SCRIPT: CardScript = {
           : ctx.state.cards[target.id]?.zone.kind === 'battlefield';
       if (!legal) return [];
       let vampires = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Vampire')) vampires += 1;

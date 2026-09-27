@@ -2,6 +2,7 @@
 // card. Then destroy all creatures." The draws are decided BEFORE the wipe
 // (printed order), multicolored read off the DERIVED colors. D207.
 
+import { inPlay } from '../../zones';
 import { DEPOPULATE } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -32,7 +33,7 @@ export const DEPOPULATE_SCRIPT: CardScript = {
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const hasMulti = new Set<string>();
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

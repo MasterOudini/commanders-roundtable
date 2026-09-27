@@ -3,6 +3,7 @@
 // the derived power right now (a 0-power creature gains nothing, a
 // negative-power one is left alone rather than halved further). D209.
 
+import { inPlay } from '../../zones';
 import { DOUBLE_TROUBLE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -31,7 +32,7 @@ export const DOUBLE_TROUBLE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const events: EventBody[] = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const d = ctx.derive(id);

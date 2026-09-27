@@ -1,6 +1,7 @@
 // `Ravages of War` — "Destroy all lands." The land wipe, four words
 // long. D237.
 
+import { inPlay } from '../../zones';
 import { RAVAGES_OF_WAR } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const RAVAGES_OF_WAR_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

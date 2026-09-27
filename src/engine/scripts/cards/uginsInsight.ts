@@ -7,6 +7,7 @@
 // ⚠️ X = 0 raises NO ask and still draws three — the branch a happy-path
 // test would miss. D263.
 
+import { inPlay } from '../../zones';
 import { UGIN_S_INSIGHT } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -36,7 +37,7 @@ export const UGINS_INSIGHT_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         const oc = ctx.oracle.byPrinting(inst.printingId);

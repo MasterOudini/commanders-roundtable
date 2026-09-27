@@ -2,6 +2,7 @@
 // most the number of Soldiers on the battlefield, any controller; otherwise
 // the spell resolves and does nothing. D291's role.
 
+import { inPlay } from '../../zones';
 import { UNIFIED_STRIKE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -34,7 +35,7 @@ export const UNIFIED_STRIKE_SCRIPT: CardScript = {
       const card = ctx.state.cards[target.id];
       if (!card || card.zone.kind !== 'battlefield') return [];
       let soldiers = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         if (ctx.derive(id).typeLine.subtypes.includes('Soldier')) soldiers++;
       }
       const power = ctx.derive(target.id).power ?? 0;

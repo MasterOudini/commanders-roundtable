@@ -2,6 +2,7 @@
 // planeswalker. If you control a Giant, draw a card." The board query is
 // DERIVED subtypes. D215.
 
+import { inPlay } from '../../zones';
 import { GIANT_S_IRE } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -56,7 +57,7 @@ export const GIANTS_IRE_SCRIPT: CardScript = {
         },
       ];
       let giant = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Giant')) {

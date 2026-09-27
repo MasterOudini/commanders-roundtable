@@ -217,6 +217,8 @@ export type SbaAction =
    * with nothing for anyone to decide.
    */
   | { readonly t: 'worldRule'; readonly card: InstanceId }
+  /** D574 - CR 303.7: a Role a newer Role of the same controller replaced on the same permanent (no prompt). */
+  | { readonly t: 'roleReplaced'; readonly card: InstanceId }
   /** D528 - CR 714.4: a Saga whose lore count reached its final chapter, with no chapter ability of its own pending or on the stack. */
   | { readonly t: 'sagaSacrificed'; readonly card: InstanceId }
   /** D407 - CR 610.3c: a card exiled "until <source> leaves the battlefield" returns, its source gone or a new object. */

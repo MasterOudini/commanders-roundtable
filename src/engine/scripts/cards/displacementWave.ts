@@ -3,6 +3,7 @@
 // 704.5d — the reducer's job); the MV is the printing's (a battlefield
 // permanent's X is spent, CR 202.3b makes it 0 there). D208.
 
+import { inPlay } from '../../zones';
 import { DISPLACEMENT_WAVE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const DISPLACEMENT_WAVE_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       const x = obj.xValue ?? 0;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (ctx.derive(id).typeLine.types.includes('Land')) continue;

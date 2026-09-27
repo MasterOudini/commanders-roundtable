@@ -2,6 +2,7 @@
 // subtype wipe in one simultaneous CardsMoved; exile is not destruction, so
 // indestructible goes too (Apocalypse's rule). D199.
 
+import { inPlay } from '../../zones';
 import { BEYOND_THE_QUIET } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -27,7 +28,7 @@ export const BEYOND_THE_QUIET_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

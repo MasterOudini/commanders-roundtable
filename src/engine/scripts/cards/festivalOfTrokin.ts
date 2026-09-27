@@ -1,6 +1,7 @@
 // `Festival of Trokin` — "You gain 2 life for each creature you control."
 // D213.
 
+import { inPlay } from '../../zones';
 import { FESTIVAL_OF_TROKIN } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const FESTIVAL_OF_TROKIN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) n++;

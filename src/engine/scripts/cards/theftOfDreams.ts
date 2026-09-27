@@ -3,6 +3,7 @@
 // resolve only counts. Zero tapped creatures is a true no-op rather than a
 // draw of nothing. D259.
 
+import { inPlay } from '../../zones';
 import { THEFT_OF_DREAMS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -36,7 +37,7 @@ export const THEFT_OF_DREAMS_SCRIPT: CardScript = {
       const victim = ctx.state.players[target.id];
       if (!victim || victim.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== target.id || !inst.tapped) continue;
         if (ctx.derive(id).typeLine.types.includes('Creature')) n += 1;

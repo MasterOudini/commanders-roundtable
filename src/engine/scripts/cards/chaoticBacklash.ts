@@ -3,6 +3,7 @@
 // The count is DERIVED colors: white OR blue counts once per permanent.
 // D203.
 
+import { inPlay } from '../../zones';
 import { CHAOTIC_BACKLASH } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -35,7 +36,7 @@ export const CHAOTIC_BACKLASH_SCRIPT: CardScript = {
       const p = ctx.state.players[target.id];
       if (!p || p.hasLost) return [];
       let n = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const colors = ctx.derive(id).colors;

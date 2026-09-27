@@ -295,6 +295,29 @@ export function checkStateBasedActions(
     doomed.add(id);
   }
 
+  // D574 - THE ONE-ROLE RULE (CR 303.7): a permanent with more than one Role attached that one player controls keeps
+  // the NEWEST - the battlefield array is the timestamp (the world rule's reading) - and the rest go to their owners'
+  // graveyards (a token there ceases on the next pass). One legal answer, so no prompt.
+  const roleGroups = new Map<string, InstanceId[]>();
+  for (const id of inPlay(state)) {
+    if (doomed.has(id)) continue;
+    const card = state.cards[id];
+    if (!card || card.attachedTo === null) continue;
+    if (!derive(state, oracle, scripts, id, cache).typeLine.subtypes.includes('Role')) continue;
+    const key = card.attachedTo + '|' + card.controller;
+    roleGroups.set(key, [...(roleGroups.get(key) ?? []), id]);
+  }
+  for (const group of roleGroups.values()) {
+    for (const id of group.slice(0, -1)) {
+      const card = state.cards[id];
+      if (!card) continue;
+      actions.push({ t: 'roleReplaced', card: id });
+      moves.push({ card: id, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } });
+      events.push(narrated(n`${derive(state, oracle, scripts, id, cache).name}: a newer Role of the same player replaces it.`, card.controller));
+      doomed.add(id);
+    }
+  }
+
   // 6 — the legend rule. ALWAYS ASK, even for two identical copies: damage,
   // counters and attachments differ, so the choice is real.
   const legendPrompt = findLegendChoice(state, oracle, scripts, cache, doomed);

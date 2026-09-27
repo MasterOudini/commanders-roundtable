@@ -3,6 +3,7 @@
 // Two waves, the second gated on a board query at resolution; each wave
 // skips indestructible (CR 701.7b). D202.
 
+import { inPlay } from '../../zones';
 import { CALMING_VERSE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -32,7 +33,7 @@ export const CALMING_VERSE_SCRIPT: CardScript = {
     resolve: (ctx, _self, obj): readonly EventBody[] => {
       let untappedLand = false;
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

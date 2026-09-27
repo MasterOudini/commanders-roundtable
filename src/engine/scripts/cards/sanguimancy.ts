@@ -2,6 +2,7 @@
 // devotion to black." Aspect of Hydra's devotion census paying a draw
 // and a bill. D243.
 
+import { inPlay } from '../../zones';
 import { SANGUIMANCY } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import { drawEvents } from '../../effects';
@@ -35,7 +36,7 @@ export const SANGUIMANCY_SCRIPT: CardScript = {
       const player = ctx.state.players[obj.controller];
       if (!player || player.hasLost) return [];
       let devotion = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         const oc = ctx.oracle.byPrinting(card.printingId);

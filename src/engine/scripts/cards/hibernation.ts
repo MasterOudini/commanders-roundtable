@@ -1,6 +1,7 @@
 // `Hibernation` — every GREEN permanent goes home to hand: Anarchy's
 // color wipe as a bounce. D217.
 
+import { inPlay } from '../../zones';
 import { HIBERNATION } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const HIBERNATION_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         if (!ctx.derive(id).colors.includes('G')) continue;

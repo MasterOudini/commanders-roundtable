@@ -28,7 +28,7 @@ function countOf(ctx: ScriptCtx, self: InstanceId, _applied: InstanceId): number
   let n = 0;
   const types = new Set<string>();
   for (const inst of Object.values(ctx.state.cards)) {
-    if (inst.zone.kind !== 'battlefield' || inst.controller !== me.controller) continue;
+    if (inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== me.controller) continue;
     const face = ctx.oracle.byPrinting(inst.printingId)?.faces[0];
     if (!face) continue;
     for (const t of ['Plains', 'Island', 'Swamp', 'Mountain', 'Forest']) if (face.typeLine.subtypes.includes(t)) types.add(t);

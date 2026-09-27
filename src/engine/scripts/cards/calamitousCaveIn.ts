@@ -4,6 +4,7 @@
 // Caves by DERIVE, graveyard Cave cards by ORACLE face (a hidden-zone card
 // derives nothing). D202.
 
+import { inPlay } from '../../zones';
 import { CALAMITOUS_CAVE_IN } from '../../../data/fixtures/engineCards';
 import { faceOf } from '../../oracle';
 import type { CardData } from '../../../data/cardTypes';
@@ -33,7 +34,7 @@ export const CALAMITOUS_CAVE_IN_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, self, obj): readonly EventBody[] => {
       let x = 0;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.subtypes.includes('Cave')) x++;
@@ -46,7 +47,7 @@ export const CALAMITOUS_CAVE_IN_SCRIPT: CardScript = {
       }
       if (x <= 0) return [];
       const damages = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const d = ctx.derive(id);
         if (!d.typeLine.types.includes('Creature') && !d.typeLine.types.includes('Planeswalker'))
           continue;

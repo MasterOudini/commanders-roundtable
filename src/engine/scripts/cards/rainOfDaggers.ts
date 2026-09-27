@@ -3,6 +3,7 @@
 // wipe with the per-kill bill — indestructible survivors are not
 // destroyed this way and cost nothing. D237.
 
+import { inPlay } from '../../zones';
 import { RAIN_OF_DAGGERS } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -33,7 +34,7 @@ export const RAIN_OF_DAGGERS_SCRIPT: CardScript = {
       const target = obj.targets[0];
       if (!target || target.kind !== 'player') return [];
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card || card.controller !== target.id) continue;
         const d = ctx.derive(id);

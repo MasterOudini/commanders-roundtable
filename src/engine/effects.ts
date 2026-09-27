@@ -828,7 +828,7 @@ export function effectResult(
         const n =
           per === 'creaturesYouControl'
             ? Object.values(state.cards).filter(
-                (c) => c.zone.kind === 'battlefield' && c.controller === controller && derive(state, deps.oracle, deps.scripts, c.id, cache).typeLine.types.includes('Creature'),
+                (c) => c.zone.kind === 'battlefield' && !c.phasedOut && c.controller === controller && derive(state, deps.oracle, deps.scripts, c.id, cache).typeLine.types.includes('Creature'),
               ).length
             : per === 'cardsInYourGraveyard'
               ? gy.length
@@ -2457,6 +2457,23 @@ export function effectResult(
        * reducer would overwrite the first with the second — one token, silently.
        */
       case 'createToken': {
+        // D574 - A ROLE (CR 303.7): created ATTACHED - to the aim (a target, the referent) or to the source - and not at all
+        // when that permanent is gone or phased out (nothing to attach it to); the face of its double-faced printing rides
+        // `tokenFace`. The Role is the clause controller's; the TokenCreated and the attachment land in one batch, so the
+        // state-based check never sees it unattached.
+        if (effect.attach !== undefined && effect.token) {
+          const host = effect.attach === 'source' ? (source ?? null) : aim?.kind === 'card' ? aim.id : null;
+          const at = host === null ? undefined : state.cards[host];
+          if (host === null || !at || at.zone.kind !== 'battlefield' || at.phasedOut) {
+            out.push(narrated(`${obj.label} — no ${effect.token.name}: nothing to attach it to.`, obj.controller, obj.identity));
+            break;
+          }
+          nextInstance++;
+          const role = `c${nextInstance}`;
+          out.push({ t: 'TokenCreated', card: role, oracleId: effect.token.oracleId, printingId: effect.token.printingId, controller, owner: controller, turnNumber: state.turn.turnNumber, faceIndex: effect.tokenFace ?? 0 });
+          out.push({ t: 'AttachmentChanged', card: role, to: host });
+          break;
+        }
         // D485 - CR 707: a token that is a COPY takes the copied object's copiable values - its printing, its face and
         // the copy exceptions it already carries (707.3) - with this clause's own exceptions on top (707.9b); counters,
         // damage and every other status stay behind. The source (`this creature`, `this card`) is copied wherever its

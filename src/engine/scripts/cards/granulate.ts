@@ -1,6 +1,7 @@
 // `Granulate` — "Destroy each nonland artifact with mana value 4 or
 // less." Gaze of Granite's sweep with the number printed. D216.
 
+import { inPlay } from '../../zones';
 import { GRANULATE } from '../../../data/fixtures/engineCards';
 import type { CardData } from '../../../data/cardTypes';
 import type { CardScript } from '../api';
@@ -26,7 +27,7 @@ export const GRANULATE_SCRIPT: CardScript = {
     text: TEXT,
     resolve: (ctx, _self, _obj): readonly EventBody[] => {
       const moves = [];
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const card = ctx.state.cards[id];
         if (!card) continue;
         const d = ctx.derive(id);

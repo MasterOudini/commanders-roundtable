@@ -3,6 +3,7 @@
 // bouncing an artifact creature of my own still pays — but the condition
 // here is about what I CONTROL, and the target is anyone's. D257.
 
+import { inPlay } from '../../zones';
 import { TEMPORAL_MACHINATIONS } from '../../../data/fixtures/engineCards';
 import { drawEvents } from '../../effects';
 import type { CardData } from '../../../data/cardTypes';
@@ -38,7 +39,7 @@ export const TEMPORAL_MACHINATIONS_SCRIPT: CardScript = {
       // Read the board BEFORE the bounce: an artifact creature being returned
       // is still mine to count at this instant.
       let artifact = false;
-      for (const id of ctx.state.zones.battlefield) {
+      for (const id of inPlay(ctx.state)) {
         const inst = ctx.state.cards[id];
         if (!inst || inst.controller !== obj.controller) continue;
         if (ctx.derive(id).typeLine.types.includes('Artifact')) {
