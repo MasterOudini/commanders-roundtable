@@ -308,7 +308,8 @@ export type Intent =
   /** D465 - the creature-type twin of the colour answer; a name outside the oracle catalogue is refused. */
   | { readonly t: 'AnswerChooseCreatureType'; readonly player: PlayerId; readonly creatureType: string }
   /** D441 - `reveal` names the hand card a reveal land's price shows (with `pay: true`); absent for a life price. */
-  | { readonly t: 'AnswerEntersChoice'; readonly player: PlayerId; readonly source: InstanceId; readonly pay: boolean; readonly reveal?: InstanceId }
+  /** D570 - `devour` names the creatures a devourer eats (with `pay: true`); `pay: false` eats none. */
+  | { readonly t: 'AnswerEntersChoice'; readonly player: PlayerId; readonly source: InstanceId; readonly pay: boolean; readonly reveal?: InstanceId; readonly devour?: readonly InstanceId[] }
   /**
    * CR 701.8a. The cards the player picked out of their own hand, or out of the
    * top of their library (D141).

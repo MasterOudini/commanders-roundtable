@@ -163,6 +163,12 @@ function describe(
           ? `${awaiting.label} — name a creature type.`
           : `${nameOf(seats, awaiting.player)} is naming a creature type for ${awaiting.label}.`;
       case 'entersChoice':
+        // D570 - devour: any number of the answerer's other creatures, N +1/+1 counters each.
+        if (awaiting.devour !== undefined) {
+          return awaiting.player === viewer
+            ? `${awaiting.label}: devour ${awaiting.devour.n} - sacrifice any number of your other creatures as it enters, for ${awaiting.devour.n} +1/+1 counter${awaiting.devour.n === 1 ? '' : 's'} each?`
+            : `${nameOf(seats, awaiting.player)} is choosing what ${awaiting.label} devours.`;
+        }
         // D441 - a reveal land's price is a card shown, not life.
         if (awaiting.reveal !== undefined) {
           return awaiting.player === viewer
@@ -434,6 +440,8 @@ export function PromptBar() {
                       ? `${mode.name}: click a ${mode.text} card in your hand to reveal it`
                     : mode.kind === 'boardPick'
                       ? `${mode.name}: choose ${mode.count - mode.chosen.length} more to sacrifice`
+                      : mode.kind === 'devourPick'
+                        ? `${mode.name}: ${mode.chosen.length} chosen to devour (${mode.chosen.length * mode.n} +1/+1 counters) — click to add or remove, then confirm`
                       : mode.kind === 'proliferate'
                         ? `${mode.name}: ${mode.chosen.length} chosen to proliferate — click to add or remove, then confirm`
                         : describe(awaiting, priority, seats, viewer)}
@@ -818,7 +826,7 @@ export function PromptBar() {
             find out what yes costs. Declining is a full button and not a
             dismissal: entering tapped is a legitimate line, routinely the right
             one, and hiding it would make the expensive answer the easy one. */}
-        {awaiting?.kind === 'entersChoice' && mine('entersChoice') && (
+        {awaiting?.kind === 'entersChoice' && mine('entersChoice') && awaiting.devour === undefined && (
           <>
             {/* D441 - a reveal land's price arms the pick over the hand; a life price pays at once. */}
             {awaiting.reveal !== undefined ? (
@@ -854,6 +862,44 @@ export function PromptBar() {
               {awaiting.option === 'riot' ? 'Haste' : awaiting.option === 'unleash' ? 'No counter' : 'Enter tapped'}
             </button>
           </>
+        )}
+        {/* D570 - devour: the pick over the prompt's candidates, committed by a button - none is a legal answer, so no
+            click can be the last one (proliferate's rule, D391). Devour nothing answers at once. */}
+        {awaiting?.kind === 'entersChoice' && mine('entersChoice') && awaiting.devour !== undefined && (
+          mode.kind === 'devourPick' ? (
+            <button
+              type="button"
+              className={BTN}
+              data-action="devour-submit"
+              onClick={() => {
+                const chosen = [...mode.chosen];
+                useAim.getState().reset();
+                setMode({ kind: 'idle' });
+                send({ t: 'AnswerEntersChoice', player: viewer, source: awaiting.source, pay: chosen.length > 0, ...(chosen.length > 0 ? { devour: chosen } : {}) });
+              }}
+            >
+              {mode.chosen.length === 0 ? 'Devour nothing' : `Devour ${mode.chosen.length}`}
+            </button>
+          ) : (
+            <>
+              <button
+                type="button"
+                className={BTN}
+                data-action="devour-pick"
+                onClick={() => setMode({ kind: 'devourPick', name: awaiting.label, source: awaiting.source, n: awaiting.devour?.n ?? 0, candidates: [...(awaiting.devour?.candidates ?? [])], chosen: [] })}
+              >
+                Choose creatures to devour
+              </button>
+              <button
+                type="button"
+                className={BTN_GHOST}
+                data-action="devour-none"
+                onClick={() => send({ t: 'AnswerEntersChoice', player: viewer, source: awaiting.source, pay: false })}
+              >
+                Devour nothing
+              </button>
+            </>
+          )
         )}
 
         {/* ⚠️ D359 - THE OFFER IS A SEPARATE QUESTION FROM THE SEARCH, and it has to be:

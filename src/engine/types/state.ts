@@ -1182,6 +1182,13 @@ export type Awaiting =
        */
       readonly option?: 'unleash' | 'riot';
       /**
+       * D570 - DEVOUR N (CR 702.82a): the creatures the answerer may sacrifice as it enters, read by the funnel off the
+       * board BEFORE the move - so neither the devourer nor a creature entering beside it is ever among them (both
+       * public) - and N, the +1/+1 counters each one buys. The answer names the picks (`AnswerEntersChoice.devour`,
+       * with `pay`); declined, nothing is sacrificed and nothing taps. Raised only with a candidate to name.
+       */
+      readonly devour?: { readonly n: number; readonly candidates: readonly InstanceId[] };
+      /**
        * The permanents after this one still waiting to be asked about.
        *
        * ⚠️ Each entry carries its own LABEL, so the handler that pops the queue
@@ -1197,6 +1204,7 @@ export type Awaiting =
         readonly label: string;
         readonly reveal?: { readonly any: readonly PermanentPredicate[]; readonly text: string };
         readonly option?: 'unleash' | 'riot';
+        readonly devour?: { readonly n: number; readonly candidates: readonly InstanceId[] };
       }[];
     }
   /**

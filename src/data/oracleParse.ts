@@ -30,7 +30,7 @@ import type {
 } from '../engine/types/oracle';
 import { NO_PROTECTION } from '../engine/types/oracle';
 import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
-import { canonicalKeyword, parseLandwalk, parseToxic } from '../engine/keywords';
+import { canonicalKeyword, parseDevour, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
 import { parseSpellTargets } from './targetParse';
@@ -373,6 +373,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (kw === 'harmonize' && parseHarmonize(face?.oracleText ?? '') === null) continue;
     // D564 - squad is the engine's only when its cost read as mana (the cast pays it, the copies follow).
     if (kw === 'squad' && parseSquad(face?.oracleText ?? '') === null) continue;
+    // D570 - devour is the engine's only as the plain `Devour N` line (the entering ask reads N off it).
+    if (kw === 'devour' && parseDevour(face?.oracleText ?? '') === null) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;

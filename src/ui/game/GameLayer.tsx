@@ -132,6 +132,13 @@ export function GameLayer({
       setTargets(pool.map((id) => ({ kind: 'card' as const, id })));
       return;
     }
+    // D570 - devour: the prompt's candidates still on the viewer's battlefield (the host checks every pick). The chosen
+    // stay legal - a click on one takes it back out (a toggle).
+    if (mode.kind === 'devourPick') {
+      const board = new Set(view.zones[zoneId('bf', viewer)] ?? []);
+      setTargets(mode.candidates.filter((id) => board.has(id)).map((id) => ({ kind: 'card' as const, id })));
+      return;
+    }
     // D391 - proliferate: every permanent with a counter on it, either side, and every player with
     // poison. Counters are public, so the client lists them itself; the host checks every pick.
     // The chosen stay legal, because a click on one of them takes it back out (a toggle).
@@ -221,6 +228,7 @@ export function GameLayer({
           mode.kind === 'boardPick' ||
           mode.kind === 'payPick' ||
           mode.kind === 'revealPick' ||
+          mode.kind === 'devourPick' ||
           mode.kind === 'proliferate'
         }
         legalTargets={targets}

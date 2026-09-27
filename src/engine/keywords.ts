@@ -101,6 +101,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   squad: 'squad',
   // D565 - sunburst: the entry counters for the colours of mana spent to cast it.
   sunburst: 'sunburst',
+  // D570 - devour: the entering ask that sacrifices any number of creatures for N +1/+1 counters each.
+  devour: 'devour',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.
@@ -130,6 +132,18 @@ export function parseToxic(oracleText: string): number {
   if (!m?.[1]) return 0;
   const n = Number(m[1]);
   return Number.isInteger(n) && n > 0 ? n : 0;
+}
+
+/**
+ * D570 - `Devour N` → N (CR 702.82a), off a printed line that IS the keyword and its number (its reminder may follow).
+ * The variants read null - `Devour artifact 1`, `Devour Food 3`, `Devour land 3` (CR 702.82c) and `Devour X, where X
+ * is...` - so none of them is the engine's: `parseKeywords` grants the keyword only on this reading, and the entering
+ * ask reads N here.
+ */
+export function parseDevour(oracleText: string): number | null {
+  const m = /^devour (\d+)(?: \(|$)/im.exec(oracleText ?? '');
+  const n = Number(m?.[1] ?? '0');
+  return Number.isInteger(n) && n > 0 ? n : null;
 }
 
 /**

@@ -16,6 +16,7 @@ import { faceOf } from './oracle';
 import { narrated } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import { KEYWORD_TRIGGERS } from './keywordTriggers';
+import { parseDevour } from './keywords';
 import { STEP_ORDER } from './turn';
 import { withoutPreventedDamage } from './prevention';
 import type { CardMove, EventBody, GameEvent } from './types/events';
@@ -819,7 +820,7 @@ function withEntersTapped(
   events: readonly EventBody[],
 ): EventBody[] {
   const tapping: InstanceId[] = [];
-  const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string }; option?: 'unleash' | 'riot' }[] = [];
+  const asking: { card: InstanceId; player: PlayerId; life: number; label: string; reveal?: { any: readonly PermanentPredicate[]; text: string }; option?: 'unleash' | 'riot'; devour?: { n: number; candidates: readonly InstanceId[] } }[] = [];
   for (const ev of events) {
     if (ev.t !== 'CardsMoved') continue;
     for (const move of ev.moves) {
@@ -838,6 +839,18 @@ function withEntersTapped(
         const chooser = move.to.player ?? card.controller ?? card.owner;
         const seat = state.players[chooser];
         if (seat && !seat.hasLost) asking.push({ card: move.card, player: chooser, life: 0, label: face.name, option });
+      }
+      // D570 - DEVOUR N (CR 702.82a): the controller may sacrifice any number of creatures as it enters, N +1/+1 counters
+      // for each. The candidates are read HERE, off the board before the move - so neither the devourer nor a creature
+      // entering beside it can be eaten - and no candidate is no question. A seat out of the game is not asked.
+      if (face.keywords.includes('devour')) {
+        const n = parseDevour(face.oracleText);
+        const chooser = move.to.player ?? card.controller ?? card.owner;
+        const seat = state.players[chooser];
+        if (n !== null && seat && !seat.hasLost) {
+          const candidates = devourCandidates(state, oracle, scripts, chooser, events);
+          if (candidates.length > 0) asking.push({ card: move.card, player: chooser, life: 0, label: face.name, devour: { n, candidates } });
+        }
       }
       const rule = face.entersTapped;
       if (!rule) continue;
@@ -900,11 +913,26 @@ function withEntersTapped(
         label: head.label,
         ...(head.reveal !== undefined ? { reveal: head.reveal } : {}),
         ...(head.option !== undefined ? { option: head.option } : {}),
+        ...(head.devour !== undefined ? { devour: head.devour } : {}),
         queue: asking.slice(1),
       },
     });
   }
   return out;
+}
+
+/**
+ * D570 - the creatures a devourer entering under `player` may sacrifice: theirs on the battlefield now (the board before
+ * the move, derived with the real registry), none that this batch moves off it.
+ */
+function devourCandidates(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, player: PlayerId, events: readonly EventBody[]): InstanceId[] {
+  const leaving = new Set<InstanceId>();
+  for (const ev of events) {
+    if (ev.t !== 'CardsMoved') continue;
+    for (const m of ev.moves) if (m.from.kind === 'battlefield' && m.to.kind !== 'battlefield') leaving.add(m.card);
+  }
+  const cache = makeDeriveCache(state);
+  return state.zones.battlefield.filter((id) => state.cards[id]?.controller === player && !leaving.has(id) && derive(state, oracle, scripts, id, cache).isCreature);
 }
 
 /** D441 - does this hand card's printed face satisfy a reveal land's noun? (One reader: `predicateAdmits`, D389.) */

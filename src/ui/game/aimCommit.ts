@@ -54,6 +54,7 @@ export function pickTarget(choice: TargetChoice): void {
 export function chosenIdsFor(mode: TableMode): ReadonlySet<string> {
   if (mode.kind === 'targeting') return new Set(mode.chosen.map((c) => c.id));
   if (mode.kind === 'proliferate') return new Set(mode.chosen.map((c) => c.id));
+  if (mode.kind === 'devourPick') return new Set(mode.chosen);
   if (mode.kind === 'payPick') return new Set(mode.chosen);
   if (mode.kind === 'blockers') {
     const ids = mode.blocks.flatMap((b) => [b.blocker, b.attacker]);
@@ -181,6 +182,13 @@ export function onVeilPick(choice: TargetChoice): void {
     useAim.getState().reset();
     table.setMode({ kind: 'idle' });
     session.submit({ t: 'AnswerPayMana', player: table.viewer, pay: true, picks: chosen });
+    return;
+  }
+
+  // D570 - devour: a TOGGLE over the prompt's candidates; the prompt bar's button commits (none is a legal answer).
+  if (mode.kind === 'devourPick') {
+    if (choice.kind !== 'card' || !mode.candidates.includes(choice.id)) return;
+    table.setMode({ ...mode, chosen: mode.chosen.includes(choice.id) ? mode.chosen.filter((c) => c !== choice.id) : [...mode.chosen, choice.id] });
     return;
   }
 

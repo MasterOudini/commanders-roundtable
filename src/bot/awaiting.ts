@@ -341,6 +341,11 @@ export function answerAwaiting(
     }
     case 'entersChoice': {
       if (awaiting.player !== me) return wait('not my permanent');
+      // D570 - devour: the bot keeps its board (it declines) - which creatures are worth less than the counters they
+      // buy is an evaluation this policy does not make, and a sacrifice cannot be taken back.
+      if (awaiting.devour !== undefined) {
+        return act({ t: 'AnswerEntersChoice', player: me, source: awaiting.source, pay: false }, `${awaiting.label} devours nothing`);
+      }
       // D441 - a reveal price: show the first hand card the noun admits (the printed face, the one reader) - it
       // costs nothing but the information, and an untapped land is worth that; none, and the land enters tapped.
       if (awaiting.reveal !== undefined) {

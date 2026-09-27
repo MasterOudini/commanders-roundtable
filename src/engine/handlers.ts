@@ -3951,13 +3951,40 @@ function answerEntersChoice(
       return reject('noSuchCard', `That card is not a ${awaiting.reveal.text} card.`);
     }
   }
+  // D570 - devour: the answer names the creatures eaten - each among the prompt's candidates, still on the battlefield
+  // under the answerer's control, none twice. `pay` with no pick is refused; the decline is `pay: false`.
+  const eaten: readonly InstanceId[] = awaiting.devour !== undefined && intent.pay ? (intent.devour ?? []) : [];
+  if (awaiting.devour !== undefined && intent.pay) {
+    const candidates = awaiting.devour.candidates;
+    if (eaten.length === 0) return reject('needsSacrifice', `Name the creatures ${awaiting.label} devours.`);
+    const live = (id: InstanceId): boolean => candidates.includes(id) && state.cards[id]?.zone.kind === 'battlefield' && state.cards[id]?.controller === intent.player;
+    if (new Set(eaten).size !== eaten.length || !eaten.every(live)) return reject('illegalSacrifice', `${awaiting.label} cannot devour those.`);
+  }
 
   const events: EventBody[] = [
     { t: 'EntersChoiceAnswered', card: awaiting.source, player: intent.player, pay: intent.pay },
   ];
-  // D444 - an entry choice: `pay` is the +1/+1 counter (unleash and riot alike); declined, unleash takes nothing
-  // and riot takes haste. Neither branch taps - the tap is the life price's decline only.
-  if (awaiting.option !== undefined) {
+  // D570 - devour: the creatures eaten in ONE move (every death simultaneous, each a sacrifice to the watchers), then
+  // the devourer's N +1/+1 counters for each; declined, nothing moves and nothing taps.
+  if (awaiting.devour !== undefined) {
+    if (eaten.length > 0) {
+      const moves: { card: InstanceId; from: { kind: 'battlefield'; player: PlayerId }; to: { kind: 'graveyard'; player: PlayerId }; reason: 'sacrifice' }[] = [];
+      for (const id of eaten) {
+        const inst = state.cards[id];
+        if (inst) moves.push({ card: id, from: { kind: 'battlefield', player: inst.controller }, to: { kind: 'graveyard', player: inst.owner }, reason: 'sacrifice' });
+      }
+      events.push({ t: 'CardsMoved', moves });
+      const what = eaten.length === 1 ? revealedName(state, deps, eaten[0] as InstanceId) : `${eaten.length} creatures`;
+      events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'sacrifices', 'sacrifice')} ${what} to ${awaiting.label}.`, intent.player));
+      const k = awaiting.devour.n * eaten.length;
+      if (state.cards[awaiting.source]?.zone.kind === 'battlefield') {
+        events.push({ t: 'CountersChanged', changes: [{ card: awaiting.source, kind: '+1/+1', delta: k }] });
+        events.push(narrated(n`${awaiting.label} enters with ${k} +1/+1 counter${k === 1 ? '' : 's'}.`, intent.player));
+      }
+    } else {
+      events.push(narrated(n`${awaiting.label} devours nothing.`, intent.player));
+    }
+  } else if (awaiting.option !== undefined) {
     if (intent.pay) {
       events.push({ t: 'CountersChanged', changes: [{ card: awaiting.source, kind: '+1/+1', delta: 1 }] });
       events.push(narrated(n`${awaiting.label} enters with a +1/+1 counter.`, intent.player));
@@ -4003,6 +4030,7 @@ function answerEntersChoice(
           label: next.label,
           ...(next.reveal !== undefined ? { reveal: next.reveal } : {}),
           ...(next.option !== undefined ? { option: next.option } : {}),
+          ...(next.devour !== undefined ? { devour: next.devour } : {}),
           queue: awaiting.queue.slice(1),
         }
       : null,

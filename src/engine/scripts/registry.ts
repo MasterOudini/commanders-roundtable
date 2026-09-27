@@ -7,6 +7,8 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CALDERA_HELLION_SCRIPT } from './cards/calderaHellion';
+import { THORN_THRASH_VIASHINO_SCRIPT } from './cards/thornThrashViashino';
 import { SINKHOLE_SURVEYOR_SCRIPT } from './cards/sinkholeSurveyor';
 import { SANDSKITTER_OUTRIDER_SCRIPT } from './cards/sandskitterOutrider';
 import { KIN_TREE_NURTURER_SCRIPT } from './cards/kinTreeNurturer';
@@ -8293,6 +8295,8 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CALDERA_HELLION_SCRIPT,
+  THORN_THRASH_VIASHINO_SCRIPT,
   SINKHOLE_SURVEYOR_SCRIPT,
   SANDSKITTER_OUTRIDER_SCRIPT,
   KIN_TREE_NURTURER_SCRIPT,

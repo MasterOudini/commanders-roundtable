@@ -1210,6 +1210,15 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       return { t: 'ChooseTargets', player: awaiting.player, targets: picked };
     }
     case 'entersChoice': {
+      // D570 - devour: one time in two nothing, else a random subset of the candidates still under the answerer's control.
+      if (awaiting.devour !== undefined) {
+        const who = awaiting.player;
+        const live = awaiting.devour.candidates.filter((id) => state.cards[id]?.zone.kind === 'battlefield' && state.cards[id]?.controller === who);
+        const picks = p.below(2) === 0 ? [] : live.filter(() => p.below(2) === 0);
+        return picks.length > 0
+          ? { t: 'AnswerEntersChoice', player: who, source: awaiting.source, pay: true, devour: picks }
+          : { t: 'AnswerEntersChoice', player: who, source: awaiting.source, pay: false };
+      }
       // D441 - a reveal price: on the paying half of the flip, the first hand card the noun admits (the prompt
       // ships no candidates - the driver reads the state, as the answerer reads its own hand).
       if (awaiting.reveal !== undefined) {
@@ -1850,6 +1859,8 @@ interface Run {
   readonly escapedEntries: number;
   /** D569 - the endure questions asked (CR 701.63). */
   readonly endureAsks: number;
+  /** D570 - the devour questions asked (CR 702.82a). */
+  readonly devourAsks: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2405,6 +2416,7 @@ function runOne(seed: number): Run {
     escapedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.escaped === true).length,
     escapedEntries: game.log.filter((e) => e.body.t === 'CardsMoved' && e.body.moves.some((m) => m.escaped === true)).length,
     endureAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'endureChoice').length,
+    devourAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'entersChoice' && e.body.awaiting.devour !== undefined).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2786,6 +2798,7 @@ const TOTAL_KEYS = [
   'escapedCasts',
   'escapedEntries',
   'endureAsks',
+  'devourAsks',
   'crownings',
   'ringTempts',
   'ringAbilities',

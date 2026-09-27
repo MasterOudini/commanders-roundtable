@@ -227,6 +227,20 @@ export type TableMode =
       readonly any: readonly PermanentPredicate[];
     }
   /**
+   * D570 - answering a DEVOUR ask (CR 702.82a): any number of the prompt's candidates (the answerer's creatures),
+   * toggled on the veil and committed by the prompt bar's button - none is a legal answer. Armed by the bar's
+   * button (Devour nothing is the other); Escape backs out one pick, then drops it. TIER 1: the host re-validates
+   * every pick against the prompt and the board.
+   */
+  | {
+      readonly kind: 'devourPick';
+      readonly name: string;
+      readonly source: string;
+      readonly n: number;
+      readonly candidates: readonly string[];
+      readonly chosen: readonly string[];
+    }
+  /**
    * D391 - answering a PROLIFERATE ask (CR 701.27a): any number of permanents with a counter, on
    * either side, and players with poison, toggled on the veil and committed by the prompt bar's
    * button - none is a legal answer (D195's rule for the scry). TIER 1: the host re-validates
@@ -574,7 +588,12 @@ export const useTable = create<TableUi>((set, get) => ({
       set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
       return;
     }
-    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'revealPick' || mode.kind === 'proliferate') {
+    // D570 - a devour pick backs out the same way; with none left the mode drops and the bar's buttons stand.
+    if (mode.kind === 'devourPick' && mode.chosen.length > 0) {
+      set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
+      return;
+    }
+    if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'revealPick' || mode.kind === 'devourPick' || mode.kind === 'proliferate') {
       useAim.getState().reset();
       set({ mode: { kind: 'idle' } });
       return;

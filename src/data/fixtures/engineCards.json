@@ -311300,6 +311300,188 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "PREDATOR_DRAGON": {
+    "scryfallId": "352c3c86-1662-4055-b814-026826632cff",
+    "oracleId": "ef048ecc-581d-4a17-91fd-edf7d7733ef9",
+    "name": "Predator Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Predator Dragon",
+        "manaCost": "{3}{R}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\nDevour 2 (As this creature enters, you may sacrifice any number of creatures. It enters with twice that many +1/+1 counters on it.)",
+        "flavorText": "Dragons make for spiteful gods.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "352c3c86-1662-4055-b814-026826632cff"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Haste",
+      "Devour"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GORGER_WURM": {
+    "scryfallId": "00e5a9be-bfb2-466b-b0fe-3b24694e9f84",
+    "oracleId": "f2126eb9-892c-4788-95cc-6f3e59f0375d",
+    "name": "Gorger Wurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gorger Wurm",
+        "manaCost": "{3}{R}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Devour 1 (As this creature enters, you may sacrifice any number of creatures. It enters with that many +1/+1 counters on it.)",
+        "flavorText": "In war-torn Alara, sometimes a wurm's gullet is the safest place to be.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "00e5a9be-bfb2-466b-b0fe-3b24694e9f84"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Devour"
+    ],
+    "setCode": "arb",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPRICHROME": {
+    "scryfallId": "e8c71a1f-191b-45f6-bb34-fba3e981a711",
+    "oracleId": "27831489-b444-4b7b-91db-feb54281bca9",
+    "name": "Caprichrome",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caprichrome",
+        "manaCost": "{3}{W}",
+        "typeLine": "Artifact Creature — Goat",
+        "oracleText": "Flash\nVigilance\nDevour artifact 1 (As this creature enters, you may sacrifice any number of artifacts. It enters with that many +1/+1 counters on it.)",
+        "flavorText": "It is what it eats.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Drew Tucker",
+        "imageId": "e8c71a1f-191b-45f6-bb34-fba3e981a711"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance",
+      "Flash",
+      "Devour"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALDERA_HELLION": {
+    "scryfallId": "88866ce7-0b81-4b6c-a17e-ce5e51a0f2da",
+    "oracleId": "86a7dba7-aff9-4086-b149-03eee812249f",
+    "name": "Caldera Hellion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Caldera Hellion",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Hellion",
+        "oracleText": "Devour 1 (As this creature enters, you may sacrifice any number of creatures. It enters with that many +1/+1 counters on it.)\nWhen this creature enters, it deals 3 damage to each creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "88866ce7-0b81-4b6c-a17e-ce5e51a0f2da"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Devour"
+    ],
+    "setCode": "ala",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THORN_THRASH_VIASHINO": {
+    "scryfallId": "ade3218d-f429-47dc-b282-6413f1ffb4c9",
+    "oracleId": "83d9a5a2-09b0-44bf-b0b8-82a5fc53b00a",
+    "name": "Thorn-Thrash Viashino",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thorn-Thrash Viashino",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "Devour 2 (As this creature enters, you may sacrifice any number of creatures. It enters with twice that many +1/+1 counters on it.)\n{G}: This creature gains trample until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jon Foster",
+        "imageId": "ade3218d-f429-47dc-b282-6413f1ffb4c9"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Devour"
+    ],
+    "setCode": "pca",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

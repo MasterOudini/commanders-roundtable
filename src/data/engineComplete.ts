@@ -63,7 +63,8 @@ import { KEYWORD_TRIGGERS } from '../engine/keywordTriggers';
 // D450 - vanishing and fading: the number is the entry counters (the built-in) and the ticks are the table's.
 // D459 - fabricate: the entry choice is the table's (a modal keyword trigger).
 // D463 - mobilize: the attack trigger, the tokens, the delayed sacrifice - all the table's.
-const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading', 'fabricate', 'mobilize']);
+// D570 - devour: the number is the counters each creature eaten buys, asked as it enters (`withEntersTapped`).
+const NUMBERED_TRIGGER_KEYWORDS: ReadonlySet<string> = new Set(['bushido', 'soulshift', 'afterlife', 'afflict', 'modular', 'backup', 'vanishing', 'fading', 'fabricate', 'mobilize', 'devour']);
 import { parseEnchant, scrub, splitAbilityLines } from './targetParse';
 import { parseEntersAsCopyLine, parseEntersTappedLine, parseChoosesColorOnEntry, parseChoosesTypeOnEntry } from './replacementParse';
 

@@ -10271,6 +10271,14 @@ const WANTED = [
   'Fortress Kin-Guard',
   'Dusyut Earthcarver',
   // D569 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D570 - DEVOUR: the devour creatures the proofs deal and the quality variant they refuse (the rows bring the rest).
+  'Predator Dragon',
+  'Gorger Wurm',
+  'Caprichrome',
+  // D570 - DEVOUR: the rows the whole-leftover row maker rowed once the Devour line was the engine's (the creatures sacrificed as it enters, N +1/+1 counters for each).
+  'Caldera Hellion',
+  'Thorn-Thrash Viashino',
+  // D570 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -145,6 +145,10 @@ export const TIER2_KEYWORDS = [
   // D565 - SUNBURST (CR 702.44a): a counter for each colour of mana spent to cast it - the cast's ManaSpent colours onto
   // the stack object, carried onto the entry move, added by the entry counters (+1/+1 on a creature, charge otherwise).
   'sunburst',
+  // D570 - DEVOUR N (CR 702.82a): as it enters its controller may sacrifice any number of creatures, and it enters with
+  // N +1/+1 counters for each - asked through D136's `entersChoice` (its `devour` field: N and the candidates). Gated on
+  // the plain line (`parseDevour`): the quality variants and `Devour X` are not the engine's.
+  'devour',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
