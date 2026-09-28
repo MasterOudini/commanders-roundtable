@@ -9,6 +9,7 @@
 // duration of ONE pass and is invalidated by `state.eventCount` — so an SBA
 // sweep over 84 permanents derives each of them once, not once per check.
 
+import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
 import type { ColorLetter } from '../data/cardTypes';
 import { parseTypeLine } from '../data/oracleParse';
@@ -612,7 +613,7 @@ function staticSourcesFor(
     if (!script) continue;
     for (const def of script.statics ?? []) {
       if (def.layer !== layer) continue;
-      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
       out.push({ sourceId, def });
     }
   }

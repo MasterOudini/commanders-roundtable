@@ -313331,6 +313331,489 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "RECKLESS_STORMSEEKER_STORM_CHARGED_SLASHER": {
+    "scryfallId": "061171f6-7da3-494d-82d1-1406fd7f5439",
+    "oracleId": "ea5fd21a-c23a-49ee-aab8-0a9618d65c11",
+    "name": "Reckless Stormseeker // Storm-Charged Slasher",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Reckless Stormseeker",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of combat on your turn, target creature you control gets +1/+0 and gains haste until end of turn.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "061171f6-7da3-494d-82d1-1406fd7f5439-0"
+      },
+      {
+        "name": "Storm-Charged Slasher",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of combat on your turn, target creature you control gets +2/+0 and gains trample and haste until end of turn.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "061171f6-7da3-494d-82d1-1406fd7f5439-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "LAMBHOLT_RACONTEUR_LAMBHOLT_RAVAGER": {
+    "scryfallId": "0cbee24c-9147-46cb-a5f9-8d919c021aa4",
+    "oracleId": "f3c104e2-470b-429f-a047-a21edc2adb3b",
+    "name": "Lambholt Raconteur // Lambholt Ravager",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Lambholt Raconteur",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Whenever you cast a noncreature spell, this creature deals 1 damage to each opponent.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "0cbee24c-9147-46cb-a5f9-8d919c021aa4-0"
+      },
+      {
+        "name": "Lambholt Ravager",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever you cast a noncreature spell, this creature deals 2 damage to each opponent.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrey Kuzinskiy",
+        "imageId": "0cbee24c-9147-46cb-a5f9-8d919c021aa4-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HOOKHAND_MARINER_RIPHOOK_RAIDER": {
+    "scryfallId": "1aff161b-253f-4e79-b8b2-e9c16e1d6aec",
+    "oracleId": "52def237-0374-4ab0-8c01-d0d00aaa324f",
+    "name": "Hookhand Mariner // Riphook Raider",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Hookhand Mariner",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Daybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": "The local gossips swore Nesmith lost his hands in a fight with a werewolf.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "1aff161b-253f-4e79-b8b2-e9c16e1d6aec-0"
+      },
+      {
+        "name": "Riphook Raider",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "This creature can't be blocked by creatures with power 2 or less.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": "They weren't entirely wrong.",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "1aff161b-253f-4e79-b8b2-e9c16e1d6aec-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "470",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SPELLRUNE_PAINTER_SPELLRUNE_HOWLER": {
+    "scryfallId": "1d4d2aac-84ed-434e-921e-b724e3854cf2",
+    "oracleId": "4ff8c359-430f-434e-ac1e-822abdc28360",
+    "name": "Spellrune Painter // Spellrune Howler",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Spellrune Painter",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Shaman Werewolf",
+        "oracleText": "Whenever you cast an instant or sorcery spell, this creature gets +1/+1 until end of turn.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michael Walsh",
+        "imageId": "1d4d2aac-84ed-434e-921e-b724e3854cf2-0"
+      },
+      {
+        "name": "Spellrune Howler",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever you cast an instant or sorcery spell, this creature gets +2/+2 until end of turn.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michael Walsh",
+        "imageId": "1d4d2aac-84ed-434e-921e-b724e3854cf2-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "295",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "FANGBLADE_BRIGAND_FANGBLADE_EVISCERATOR": {
+    "scryfallId": "35e17f53-021b-484b-9ede-524742fe8aae",
+    "oracleId": "dbd22a65-4ccb-4435-ae27-03a47a86d630",
+    "name": "Fangblade Brigand // Fangblade Eviscerator",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Fangblade Brigand",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "{1}{R}: This creature gets +1/+0 and gains first strike until end of turn.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sami Makkonen",
+        "imageId": "35e17f53-021b-484b-9ede-524742fe8aae-0"
+      },
+      {
+        "name": "Fangblade Eviscerator",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "{1}{R}: This creature gets +1/+0 and gains first strike until end of turn.\n{4}{R}: Creatures you control get +2/+0 until end of turn.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sami Makkonen",
+        "imageId": "35e17f53-021b-484b-9ede-524742fe8aae-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "292",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SUSPICIOUS_STOWAWAY_SEAFARING_WEREWOLF": {
+    "scryfallId": "5305fc4a-30c6-4aaf-b98c-9a2d273014fc",
+    "oracleId": "da412474-1da8-409b-bd7b-87cbfc239fb0",
+    "name": "Suspicious Stowaway // Seafaring Werewolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Suspicious Stowaway",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Human Rogue Werewolf",
+        "oracleText": "This creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card, then discard a card.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "5305fc4a-30c6-4aaf-b98c-9a2d273014fc-0"
+      },
+      {
+        "name": "Seafaring Werewolf",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "This creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "5305fc4a-30c6-4aaf-b98c-9a2d273014fc-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "WEARY_PRISONER_WRATHFUL_JAILBREAKER": {
+    "scryfallId": "6f1ba822-dff7-430a-b34c-032210d53189",
+    "oracleId": "bdcf0af3-3976-400d-a8b7-15e959e2b255",
+    "name": "Weary Prisoner // Wrathful Jailbreaker",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Weary Prisoner",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Defender\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": "\"Your guard attacked me. He got what was coming to him.\"",
+        "power": "2",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "6f1ba822-dff7-430a-b34c-032210d53189-0"
+      },
+      {
+        "name": "Wrathful Jailbreaker",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "This creature attacks each combat if able.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": "\"And now I'm coming for you!\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "6f1ba822-dff7-430a-b34c-032210d53189-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound",
+      "Defender"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "451",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CHILD_OF_THE_PACK_SAVAGE_PACKMATE": {
+    "scryfallId": "79fbd424-8668-4e36-8e2f-780362c9915e",
+    "oracleId": "a9c5b155-7c09-4100-9679-8fca2b5e9222",
+    "name": "Child of the Pack // Savage Packmate",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Child of the Pack",
+        "manaCost": "{2}{R}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "{2}{R}{G}: Create a 2/2 green Wolf creature token.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": "Her face shines with youthful innocence.",
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "79fbd424-8668-4e36-8e2f-780362c9915e-0"
+      },
+      {
+        "name": "Savage Packmate",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Trample\nOther creatures you control get +1/+0.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": "Her claws are another matter.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "79fbd424-8668-4e36-8e2f-780362c9915e-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Trample",
+      "Nightbound"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "501",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "WOLFKIN_OUTCAST_WEDDING_CRASHER": {
+    "scryfallId": "7a743426-6333-4ca6-9207-163b325ba435",
+    "oracleId": "ac3d07cd-88c4-4e22-9d86-f92d34f406d4",
+    "name": "Wolfkin Outcast // Wedding Crasher",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Wolfkin Outcast",
+        "manaCost": "{5}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "This spell costs {2} less to cast if you control a Wolf or Werewolf.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": "The villagers feared him. The cathars scorned him. Only in the wilds did he find a family that accepted him.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alexander Mokhov",
+        "imageId": "7a743426-6333-4ca6-9207-163b325ba435-0"
+      },
+      {
+        "name": "Wedding Crasher",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever this creature or another Wolf or Werewolf you control dies, draw a card.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": "He raged not just against vampires, but against civilization itself.",
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Alexander Mokhov",
+        "imageId": "7a743426-6333-4ca6-9207-163b325ba435-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

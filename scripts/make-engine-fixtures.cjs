@@ -10348,6 +10348,17 @@ const WANTED = [
   "Dromoka's Command",
   'Tavern Ruffian // Tavern Smasher',
   'Fearful Villager // Fearsome Werewolf',
+  // D578 - THE TRANSFORM ROWS: the rows the whole-leftover row maker rowed once a transform card rows face by face (both faces in one script, each def on its face).
+  'Reckless Stormseeker // Storm-Charged Slasher',
+  'Lambholt Raconteur // Lambholt Ravager',
+  'Hookhand Mariner // Riphook Raider',
+  'Spellrune Painter // Spellrune Howler',
+  'Fangblade Brigand // Fangblade Eviscerator',
+  'Suspicious Stowaway // Seafaring Werewolf',
+  'Weary Prisoner // Wrathful Jailbreaker',
+  'Child of the Pack // Savage Packmate',
+  'Wolfkin Outcast // Wedding Crasher',
+  // D578 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

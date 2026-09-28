@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RECKLESS_STORMSEEKER_STORM_CHARGED_SLASHER_SCRIPT } from './cards/recklessStormseekerStormChargedSlasher';
+import { LAMBHOLT_RACONTEUR_LAMBHOLT_RAVAGER_SCRIPT } from './cards/lambholtRaconteurLambholtRavager';
+import { HOOKHAND_MARINER_RIPHOOK_RAIDER_SCRIPT } from './cards/hookhandMarinerRiphookRaider';
+import { SPELLRUNE_PAINTER_SPELLRUNE_HOWLER_SCRIPT } from './cards/spellrunePainterSpellruneHowler';
+import { FANGBLADE_BRIGAND_FANGBLADE_EVISCERATOR_SCRIPT } from './cards/fangbladeBrigandFangbladeEviscerator';
+import { SUSPICIOUS_STOWAWAY_SEAFARING_WEREWOLF_SCRIPT } from './cards/suspiciousStowawaySeafaringWerewolf';
+import { WEARY_PRISONER_WRATHFUL_JAILBREAKER_SCRIPT } from './cards/wearyPrisonerWrathfulJailbreaker';
+import { CHILD_OF_THE_PACK_SAVAGE_PACKMATE_SCRIPT } from './cards/childOfThePackSavagePackmate';
+import { WOLFKIN_OUTCAST_WEDDING_CRASHER_SCRIPT } from './cards/wolfkinOutcastWeddingCrasher';
 import { PROTECTIVE_PARENTS_SCRIPT } from './cards/protectiveParents';
 import { STAR_WHALE_SCRIPT } from './cards/starWhale';
 import { CHARMED_CLOTHIER_SCRIPT } from './cards/charmedClothier';
@@ -8339,6 +8348,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RECKLESS_STORMSEEKER_STORM_CHARGED_SLASHER_SCRIPT,
+  LAMBHOLT_RACONTEUR_LAMBHOLT_RAVAGER_SCRIPT,
+  HOOKHAND_MARINER_RIPHOOK_RAIDER_SCRIPT,
+  SPELLRUNE_PAINTER_SPELLRUNE_HOWLER_SCRIPT,
+  FANGBLADE_BRIGAND_FANGBLADE_EVISCERATOR_SCRIPT,
+  SUSPICIOUS_STOWAWAY_SEAFARING_WEREWOLF_SCRIPT,
+  WEARY_PRISONER_WRATHFUL_JAILBREAKER_SCRIPT,
+  CHILD_OF_THE_PACK_SAVAGE_PACKMATE_SCRIPT,
+  WOLFKIN_OUTCAST_WEDDING_CRASHER_SCRIPT,
   PROTECTIVE_PARENTS_SCRIPT,
   STAR_WHALE_SCRIPT,
   CHARMED_CLOTHIER_SCRIPT,

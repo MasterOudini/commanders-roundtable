@@ -11,6 +11,7 @@
 // a planeswalker — are the replacements that are NOT card scripts, because they
 // are rules rather than cards.
 
+import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
@@ -167,7 +168,7 @@ function applicableTo(
     const script = scripts.get(source.oracleId);
     if (!script) continue;
     for (const def of script.replacements ?? []) {
-      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
       // CR 613 layer 6 — see `hasAbilities`. A silenced permanent replaces
       // nothing.
       if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
@@ -194,7 +195,8 @@ function applicableTo(
       const script = scripts.get(source.oracleId);
       if (!script) continue;
       for (const def of script.replacements ?? []) {
-        if (!def.activeZones.includes('battlefield')) continue;
+        // D578 - the entering card's own replacements read the face it enters with (the move's, D155).
+        if (!def.activeZones.includes('battlefield') || !defOnFace(def, move.faceIndex)) continue;
         if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
         const key = `${sourceId}#${def.abilityId}`;
         if (used.has(key)) continue;
@@ -1278,7 +1280,7 @@ export function collectTriggers(
       for (const id of candidates) {
         const card = state.cards[id];
         if (!card || card.phasedOut) continue;
-        if (!def.activeZones.includes(card.zone.kind)) continue;
+        if (!def.activeZones.includes(card.zone.kind) || !defOnFace(def, card.faceIndex)) continue;
       // ⚠️ **CR 613 LAYER 6 — A SOURCE WITH NO ABILITIES IS NOT A SOURCE.** This
       // is the other half of `hasAbilities`: clearing an object's keywords says
       // nothing about the triggered, static and replacement abilities it has
@@ -1348,7 +1350,7 @@ export function collectTriggers(
     const ctx = ctxOf(false);
     for (const def of script.triggers ?? []) {
       if (def.event !== 'CardsMoved' || def.looksBack === true) continue;
-      if (!def.activeZones.includes('battlefield')) continue;
+      if (!def.activeZones.includes('battlefield') || !defOnFace(def, card.faceIndex)) continue;
       if (!hasAbilities(after, oracle, scripts, id)) continue;
       if (!def.matches(ctx, id, view)) continue;
       const items: readonly (InstanceId | undefined)[] = def.perItem ? def.perItem(ctx, id, view) : [undefined];

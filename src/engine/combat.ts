@@ -1,6 +1,7 @@
 // Combat legality and damage assignment. Pure functions over state — the
 // handlers turn their answers into events.
 
+import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import { protectedFrom } from './protection';
@@ -124,7 +125,7 @@ function restrictedBy(
     const script = deps.scripts.get(source.oracleId);
     if (!script) continue;
     for (const def of script.combat ?? []) {
-      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
       // CR 613 layer 6 — a silenced permanent restricts nothing.
       if (!d(deps, sourceId).hasAbilities) continue;
       ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
@@ -151,7 +152,7 @@ function countsBy(deps: CombatDeps, ask: (def: CombatDef, ctx: ScriptCtx, self: 
     const script = deps.scripts.get(source.oracleId);
     if (!script) continue;
     for (const def of script.combat ?? []) {
-      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
       if (!d(deps, sourceId).hasAbilities) continue;
       ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
       const n = ask(def, ctx, sourceId);

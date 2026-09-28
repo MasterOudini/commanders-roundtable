@@ -506,11 +506,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // to hand at the end step); the driver elects an alternative cost when it can pay it.
   { names: ['Mulldrifter'], copiesPerSeat: 2,
     counterKeys: ['evokedCasts'], rotHistory: 'D449' },
-  { names: ['Zurgo Bellstriker'], copiesPerSeat: 3,
-    counterKeys: ['dashedCasts'], rotHistory: 'D449' },
+  // D578 - two a seat: its third slot went to Calciderm (the swap below; dashed casts 76 over D578's first gate).
+  { names: ['Zurgo Bellstriker'], copiesPerSeat: 2,
+    counterKeys: ['dashedCasts'], rotHistory: 'D449, D578' },
   // D450 - the counted-down keywords: a vanishing 5/5 and a fading 5/5 a seat (both shroud - no aims lost to them).
-  { names: ['Calciderm'], copiesPerSeat: 2,
-    counterKeys: ['vanishingTicks'], rotHistory: 'D450' },
+  // D578 - ROTTED to 0 over 500 seeds (10 at the three gates before) once the transform rows reshaped the pools: three a
+  // seat, the third in Zurgo Bellstriker's third slot (the seat's card count and the shuffle kept, D553's rule).
+  { names: ['Calciderm'], copiesPerSeat: 3,
+    counterKeys: ['vanishingTicks'], rotHistory: 'D450, D578' },
   { names: ['Blastoderm'], copiesPerSeat: 2,
     counterKeys: ['fadingFires'], rotHistory: 'D450' },
   // D451 - the hand activations: a reinforce 4/4 a seat (two counters on a target for {1}{G} and the card).

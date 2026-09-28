@@ -42,6 +42,7 @@
  * deterministic order that replays, with the choice named as unbuilt rather than
  * quietly taken. A shield is spent in the order it was created.
  */
+import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
 import { derive, makeDeriveCache, makeScriptCtx, type DeriveCache } from './derive';
 import { narrated } from './narrate';
@@ -139,7 +140,7 @@ function staticPreventions(state: GameState, oracle: OracleDb, scripts: ScriptRe
     const script = scripts.get(source.oracleId);
     if (!script) continue;
     for (const def of script.prevention ?? []) {
-      if (!def.activeZones.includes(source.zone.kind)) continue;
+      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
       if (able === null) able = derive(state, oracle, scripts, sourceId, cache).hasAbilities;
       if (!able) break;
       out.push({ sourceId, def });

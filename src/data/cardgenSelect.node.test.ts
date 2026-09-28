@@ -773,19 +773,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
-  // D577 - daybound: the Daybound and Nightbound lines are the engine's now (day and night, the untap step's check, the transforms, the entry at night); what stays is a transforming permanent whose other lines a script would carry - and the row maker refuses the layout (a generated suite for both faces is the next seam).
-  ['Reckless Stormseeker // Storm-Charged Slasher', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Infestation Expert // Infested Werewolf', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Lambholt Raconteur // Lambholt Ravager', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Brutal Cathar // Moonrage Brute', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Avabruck Caretaker // Hollowhenge Huntmaster', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Hookhand Mariner // Riphook Raider', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Spellrune Painter // Spellrune Howler', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Fangblade Brigand // Fangblade Eviscerator', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Suspicious Stowaway // Seafaring Werewolf', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Weary Prisoner // Wrathful Jailbreaker', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Child of the Pack // Savage Packmate', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
-  ['Wolfkin Outcast // Wedding Crasher', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  // D577 - daybound: the Daybound and Nightbound lines are the engine's now (day and night, the untap step's check, the transforms, the entry at night); what stays is a transforming permanent whose other lines a script would carry - since D578 the row maker reads it face by face, and what stands names the face and the line it refuses.
+  ['Infestation Expert // Infested Werewolf', 'the row maker: a back-face enters head (the suite stages the back face after the entry): Whenever this creature enters or attacks, create two 1/1 green Insect creature tokens. - the transform rows read it face by face since D578 (D578)'],
+  ['Brutal Cathar // Moonrage Brute', 'the row maker: the face 0 trigger head not in the library: Whenever this creature enters or transforms into Brutal Cathar - the transform rows read it face by face since D578 (D578)'],
+  ['Avabruck Caretaker // Hollowhenge Huntmaster', 'the row maker: the face 1 line that is neither an activated ability nor a library trigger: Other permanents you control have hexproof. - the transform rows read it face by face since D578 (D578)'],
   // D576 - splice: `Splice onto Arcane {M}` / `Splice onto instant or sorcery {M}` is the engine's now (the card revealed from the hand as another spell is cast, its splice cost paid, its effects and targets added after the spell's own); what stays is a splice card whose own text the vocabulary does not read - its spliced text would be a script's, and a script cannot run on another spell.
   ['Desperate Ritual', 'a spell with a line outside the vocabulary: Add {R}{R}{R}. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
   ['Strange Inversion', 'a spell with a line outside the vocabulary: Switch target creature\'s power and toughness until end of turn. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],

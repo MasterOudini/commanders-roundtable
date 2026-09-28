@@ -123,6 +123,11 @@ export interface ScriptCtx {
 
 export interface TriggerDef {
   readonly abilityId: string;
+  /**
+   * D578 - the FACE this trigger belongs to on a two-faced card's script: it runs only while its object has that face up
+   * (`defOnFace`); absent, it runs on every face.
+   */
+  readonly face?: number;
   readonly text: string;
   /** Pre-indexed by the registry, so the bus is O(#candidates), not O(#permanents). */
   readonly event: EventKind;
@@ -232,6 +237,11 @@ export interface TriggerDef {
  */
 export interface CombatDef {
   readonly abilityId: string;
+  /**
+   * D578 - the FACE this combat rule belongs to on a two-faced card's script: it runs only while its object has that face up
+   * (`defOnFace`); absent, it runs on every face.
+   */
+  readonly face?: number;
   readonly text: string;
   readonly activeZones: readonly ZoneKind[];
   /**
@@ -307,6 +317,11 @@ export interface CombatDef {
  */
 export interface PreventionDef {
   readonly abilityId: string;
+  /**
+   * D578 - the FACE this prevention belongs to on a two-faced card's script: it runs only while its object has that face up
+   * (`defOnFace`); absent, it runs on every face.
+   */
+  readonly face?: number;
   readonly text: string;
   readonly activeZones: readonly ZoneKind[];
   /** Does this ability prevent this damage entry? Asked once per entry, per source. */
@@ -315,6 +330,11 @@ export interface PreventionDef {
 
 export interface StaticDef {
   readonly abilityId: string;
+  /**
+   * D578 - the FACE this static belongs to on a two-faced card's script: it runs only while its object has that face up
+   * (`defOnFace`); absent, it runs on every face.
+   */
+  readonly face?: number;
   readonly text: string;
   readonly layer: 'type' | 'color' | 'ability' | 'cda' | 'ptSet' | 'ptModify' | 'ptSwitch';
   readonly activeZones: readonly ZoneKind[];
@@ -368,6 +388,11 @@ export interface StaticDef {
 
 export interface ReplacementDef {
   readonly abilityId: string;
+  /**
+   * D578 - the FACE this replacement belongs to on a two-faced card's script: it runs only while its object has that face up
+   * (`defOnFace`); absent, it runs on every face.
+   */
+  readonly face?: number;
   readonly text: string;
   readonly activeZones: readonly ZoneKind[];
   applies(ctx: ScriptCtx, self: InstanceId, ev: EventBody): boolean;
@@ -442,6 +467,14 @@ export interface ActivatedDef {
 export interface SpellDef {
   readonly text: string;
   resolve(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[];
+}
+
+/**
+ * D578 - whether a def runs for an object with `faceIndex` up: an untagged def on every face, a tagged one on its own
+ * (CR 712.8 - a transforming permanent has only its face-up face's characteristics).
+ */
+export function defOnFace(def: { readonly face?: number }, faceIndex: number | undefined): boolean {
+  return def.face === undefined || (faceIndex ?? 0) === def.face;
 }
 
 export interface CardScript {
