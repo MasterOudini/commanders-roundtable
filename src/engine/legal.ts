@@ -20,6 +20,7 @@ import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
 import { parseTargetClauses } from '../data/targetParse';
+import { defOnFace } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { AbilityRef, InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { ActivatedAbility, OracleCard, OracleDb, OracleFace, TargetSpec } from './types/oracle';
@@ -551,7 +552,7 @@ function offeredActions(
       if (ability.discardsSelf === true) {
         if (!ability.payable || ability.isManaAbility || ability.isLoyalty || ability.requiresTap || ability.requiresUntap || ability.sacrificeCost || ability.discardCost || ability.tapCost || ability.returnCost || ability.returnsSelf || ability.exileFromGraveyardCost) continue;
         // D559 - and a synthesized transmute natively, once its search read.
-        if (ability.reinforce === undefined && ability.transmute?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+        if (ability.reinforce === undefined && ability.transmute?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index, inst.faceIndex)) continue;
         if (ability.sorceryOnly && !sorcerySpeed) continue;
         if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
         if (ability.exhaust && (inst.exhausted ?? []).includes(`${card.oracleId}#a${ability.index}`)) continue;
@@ -625,7 +626,7 @@ function offeredActions(
       // D440 - a synthesized scavenge resolves natively (its counters are the printed power): no def to require.
       // D448 - and a synthesized unearth (the return and its riders are the engine's own).
       // D546 - and a synthesized embalm / eternalize whose copy the vocabulary read (the token is the engine's own).
-      if (ability.scavenge === undefined && ability.unearth === undefined && ability.embalm?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index)) continue;
+      if (ability.scavenge === undefined && ability.unearth === undefined && ability.embalm?.effects === undefined && !activatedDefRegistered(scripts, card.oracleId, ability.index, inst.faceIndex)) continue;
       if (ability.sorceryOnly && !sorcerySpeed) continue;
       if (ability.oncePerTurn && (state.turn.activations[`${id}|${card.oracleId}#a${ability.index}`] ?? 0) >= 1) continue;
       // D457 - CR 702.178: an exhaust ability this object has activated is not offered again.
@@ -681,7 +682,7 @@ function offeredActions(
     const offerable: { ability: ActivatedAbility; grantRef: AbilityRef | null; defReady: boolean }[] = face.activated.map((ability) => ({
       ability,
       grantRef: null,
-      defReady: activatedDefRegistered(scripts, card.oracleId, ability.index),
+      defReady: activatedDefRegistered(scripts, card.oracleId, ability.index, inst.faceIndex),
     }));
     for (const g of d.grantedActivated) offerable.push({ ability: g.ability, grantRef: g.ref, defReady: true });
     for (const { ability, grantRef, defReady } of offerable) {
@@ -911,9 +912,11 @@ export function activatedDefRegistered(
   scripts: ScriptRegistry,
   oracleId: string,
   index: number,
+  // D582 - the face up now: a def tagged with another face is not this ability's (`ActivatedDef.face`).
+  face = 0,
 ): boolean {
   const ref = `${oracleId}#a${index}`;
-  return scripts.get(oracleId)?.activated?.some((d) => d.ref === ref) ?? false;
+  return scripts.get(oracleId)?.activated?.some((d) => d.ref === ref && defOnFace(d, face)) ?? false;
 }
 
 /**

@@ -10434,6 +10434,19 @@ const WANTED = [
   'Regal Leosaur',
   'Souvenir Snatcher',
   // D581 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D582 - THE TRANSFORM FOLLOW-UPS: the two-faced creature the face proof deals (the rows bring the rest).
+  'Vildin-Pack Outcast // Dronepack Kindred',
+  // D582 - THE TRANSFORM FOLLOW-UPS: the rows the whole-leftover row maker rowed once a transforms-into head fired and a face's own activated abilities were asked by face.
+  'Brutal Cathar // Moonrage Brute',
+  'Avacynian Missionaries // Lunarch Inquisitors',
+  'Wolfbitten Captive // Krallenhorde Killer',
+  'Daybreak Ranger // Nightfall Predator',
+  'Mysterious Tome // Chilling Chronicle',
+  'Town Gossipmonger // Incited Rabble',
+  'Captive Weird // Compleated Conjurer',
+  'Skyclave Aerialist // Skyclave Invader',
+  'Blightreaper Thallid // Blightsower Thallid',
+  // D582 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10873,6 +10886,8 @@ const WANTED_TOKENS = [
   { name: 'Royal // Young Hero', set: 'twoe', cn: '16', key: 'ROYAL_YOUNG_HERO_ROLE_TOKEN' },
   // D579 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Human Wizard', set: 'tinr', cn: '5', key: 'HUMAN_WIZARD_1_1_U_CREATURE_TOKEN' },
+  // D582 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Phyrexian Saproling', set: 'tmom', cn: '8', key: 'PHYREXIAN_SAPROLING_1_1_G_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

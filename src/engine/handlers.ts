@@ -1663,7 +1663,7 @@ function activateAbility(
   // A printed ability's destructive cost is offered only past a registered def
   // (D159); a granted ability EXISTS only because a def installed it.
   // D462 - a synthesized ninjutsu resolves natively: its return is the engine's own to charge.
-  const defReady = grant !== undefined || ability.ninjutsu !== undefined || activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex);
+  const defReady = grant !== undefined || ability.ninjutsu !== undefined || activatedDefRegistered(deps.scripts, oracleCard.oracleId, intent.abilityIndex, card.faceIndex);
   // D306 - cycling is activated from the hand and nowhere else (CR 702.29a).
   if (ability.cycling !== undefined && (card.zone.kind !== 'hand' || card.zone.player !== intent.player)) {
     return reject('wrongZone', 'Cycling is activated from your hand.');
@@ -1929,7 +1929,7 @@ function activateAbility(
   // its targets; the chosen modes' clauses are then what it aims. Its def
   // declares the modes (`ActivatedDef.modes`); named inline they are checked
   // here, absent the `modes` stage asks.
-  const abilityModal = activatedModesFor(deps, abilityRef);
+  const abilityModal = activatedModesFor(deps, abilityRef, card.faceIndex);
   const needsModes = abilityModal !== null && intent.modes === undefined;
   if (abilityModal !== null && intent.modes !== undefined) {
     const legal = legalModesFor(state, deps, intent.player, intent.card, abilityModal.modes);
@@ -2113,7 +2113,7 @@ function chooseModes(
   if (pending.kind === 'ability') {
     const ability = abilityOfRef(deps, face, pending.abilityRef);
     if (!ability) return reject('notCastable', 'That permanent has no such ability.');
-    const specs = modeSpecs(activatedModesFor(deps, pending.abilityRef)?.modes ?? [], modes);
+    const specs = modeSpecs(activatedModesFor(deps, pending.abilityRef, state.cards[pending.card]?.faceIndex ?? 0)?.modes ?? [], modes);
     if (specs.length > 0) {
       return accept([
         { t: 'ModesChosen', modes },
@@ -2275,7 +2275,7 @@ function chooseTargets(
   if (!card || !oracleCard) return reject('noSuchCard', 'That card is not in the game.');
   const face = faceOf(oracleCard, card.faceIndex);
   // D343 - a modal spell or ability aims the CHOSEN modes' clauses.
-  const abilityModal = pending.kind === 'ability' ? activatedModesFor(deps, pending.abilityRef) : null;
+  const abilityModal = pending.kind === 'ability' ? activatedModesFor(deps, pending.abilityRef, card.faceIndex) : null;
   const specs = pending.kind === 'ability'
     ? abilityModal !== null
       ? modeSpecs(abilityModal.modes, pending.modes)
@@ -2888,6 +2888,8 @@ function finishAbility(
     kind: 'activated',
     // An ability is a chit, not a card. See D155.
     faceIndex: 0,
+    // D582 - the face it was activated from, for the def its resolution asks (absent on face 0).
+    ...((state.cards[pending.card]?.faceIndex ?? 0) !== 0 ? { abilityFace: state.cards[pending.card]?.faceIndex ?? 0 } : {}),
     controller: pending.player,
     // ⚠️ `card: null` is what makes this a chit rather than a card on the stack,
     // and `resolveTop` already keys off it — an ability resolving must not move

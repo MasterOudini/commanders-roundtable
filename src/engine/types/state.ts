@@ -573,6 +573,11 @@ export interface StackObject {
    */
   readonly faceIndex: number;
   /**
+   * D582 - an ACTIVATED ability's source face when it was activated (`faceIndex` is 0 on every ability - a chit, D155):
+   * the resolution asks the def of that face (`ActivatedDef.face`). Absent on face 0 - every older object unchanged.
+   */
+  readonly abilityFace?: number;
+  /**
    * D487 - A COPY OF A SPELL (CR 707.10): the stack object is the copy's whole existence. No card (`card` is null,
    * as an ability's; `source` is the copied spell's card - the damage the copy deals is attributed to it, and its
    * targeting source reads off it); the copiable values are read off THIS printing and face at resolution, with

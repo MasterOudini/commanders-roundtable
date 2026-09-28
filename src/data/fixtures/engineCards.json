@@ -316864,6 +316864,531 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "VILDIN_PACK_OUTCAST_DRONEPACK_KINDRED": {
+    "scryfallId": "460f7733-c0a6-4439-a313-7b26ae6ee15b",
+    "oracleId": "6e6f9269-c72b-4449-9c2d-a720b9bd6f06",
+    "name": "Vildin-Pack Outcast // Dronepack Kindred",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Vildin-Pack Outcast",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Werewolf Horror",
+        "oracleText": "Trample\n{R}: This creature gets +1/-1 until end of turn.\n{5}{R}{R}: Transform this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jose Cabrera",
+        "imageId": "460f7733-c0a6-4439-a313-7b26ae6ee15b-0"
+      },
+      {
+        "name": "Dronepack Kindred",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Werewolf",
+        "oracleText": "Trample\n{1}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "These new terrors will not recede with the setting of the moon.",
+        "power": "5",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jose Cabrera",
+        "imageId": "460f7733-c0a6-4439-a313-7b26ae6ee15b-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Transform",
+      "Trample"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "BRUTAL_CATHAR_MOONRAGE_BRUTE": {
+    "scryfallId": "0dbac7ce-a6fa-466e-b6ba-173cf2dec98e",
+    "oracleId": "1ed2d8e0-462b-468e-8fd3-1f3c6d99fb8a",
+    "name": "Brutal Cathar // Moonrage Brute",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Brutal Cathar",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Soldier Werewolf",
+        "oracleText": "Whenever this creature enters or transforms into Brutal Cathar, exile target creature an opponent controls until this creature leaves the battlefield.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0dbac7ce-a6fa-466e-b6ba-173cf2dec98e-0"
+      },
+      {
+        "name": "Moonrage Brute",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "First strike\nWard—Pay 3 life.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "0dbac7ce-a6fa-466e-b6ba-173cf2dec98e-1"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "First strike",
+      "Ward",
+      "Nightbound"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "AVACYNIAN_MISSIONARIES_LUNARCH_INQUISITORS": {
+    "scryfallId": "1001e708-e4f9-456a-8b9d-3421a2a3833d",
+    "oracleId": "5b356a01-900c-4fe5-93bd-45629528c484",
+    "name": "Avacynian Missionaries // Lunarch Inquisitors",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Avacynian Missionaries",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "At the beginning of your end step, if this creature is equipped, transform it.",
+        "flavorText": "\"We come bearing the word of Avacyn and the Lunarch Council.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "1001e708-e4f9-456a-8b9d-3421a2a3833d-0"
+      },
+      {
+        "name": "Lunarch Inquisitors",
+        "manaCost": "",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "When this creature transforms into Lunarch Inquisitors, you may exile another target creature until this creature leaves the battlefield.",
+        "flavorText": "\"We come bearing the tools of confession and absolution.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "1001e708-e4f9-456a-8b9d-3421a2a3833d-1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "WOLFBITTEN_CAPTIVE_KRALLENHORDE_KILLER": {
+    "scryfallId": "1303e02a-ef69-4817-bca5-02c74774b811",
+    "oracleId": "7f59252f-3a37-4a22-938c-001f3208bd94",
+    "name": "Wolfbitten Captive // Krallenhorde Killer",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Wolfbitten Captive",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "{1}{G}: This creature gets +2/+2 until end of turn. Activate only once each turn.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "1303e02a-ef69-4817-bca5-02c74774b811-0"
+      },
+      {
+        "name": "Krallenhorde Killer",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "{3}{G}: This creature gets +4/+4 until end of turn. Activate only once each turn.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "1303e02a-ef69-4817-bca5-02c74774b811-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "133",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "DAYBREAK_RANGER_NIGHTFALL_PREDATOR": {
+    "scryfallId": "25b54a1d-e201-453b-9173-b04e06ee6fb7",
+    "oracleId": "280624aa-5f9a-48fd-85ea-815c96c747b3",
+    "name": "Daybreak Ranger // Nightfall Predator",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Daybreak Ranger",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Archer Ranger Werewolf",
+        "oracleText": "{T}: This creature deals 2 damage to target creature with flying.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "25b54a1d-e201-453b-9173-b04e06ee6fb7-0"
+      },
+      {
+        "name": "Nightfall Predator",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "{R}, {T}: This creature fights target creature. (Each deals damage equal to its power to the other.)\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "25b54a1d-e201-453b-9173-b04e06ee6fb7-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform",
+      "Fight"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "MYSTERIOUS_TOME_CHILLING_CHRONICLE": {
+    "scryfallId": "37fe7919-1282-4155-94f8-545eba19b189",
+    "oracleId": "b32253d6-5f00-40a8-a7e5-dc4655cd288c",
+    "name": "Mysterious Tome // Chilling Chronicle",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Mysterious Tome",
+        "manaCost": "{2}{U}",
+        "typeLine": "Artifact — Book",
+        "oracleText": "{2}, {T}: Draw a card. Transform this artifact.",
+        "flavorText": "The villagers pored through the old storybook, hoping that one of the tales within might hold some clue to saving the fading sun.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Auden Nash",
+        "imageId": "37fe7919-1282-4155-94f8-545eba19b189-0"
+      },
+      {
+        "name": "Chilling Chronicle",
+        "manaCost": "",
+        "typeLine": "Artifact — Book",
+        "oracleText": "{1}, {T}: Tap target nonland permanent. Transform this artifact.",
+        "flavorText": "But every story ended the same way: the countryside was captured in the icy grip of winter and darkened by eternal night.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Auden Nash",
+        "imageId": "37fe7919-1282-4155-94f8-545eba19b189-1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "63",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "TOWN_GOSSIPMONGER_INCITED_RABBLE": {
+    "scryfallId": "51d3da6f-5598-4795-8a27-91734c9fc688",
+    "oracleId": "8a8e225b-14e4-464f-bebe-89b4c9be7fe1",
+    "name": "Town Gossipmonger // Incited Rabble",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Town Gossipmonger",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human",
+        "oracleText": "{T}, Tap an untapped creature you control: Transform this creature.",
+        "flavorText": "\"You'll never believe what I heard.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Stanko",
+        "imageId": "51d3da6f-5598-4795-8a27-91734c9fc688-0"
+      },
+      {
+        "name": "Incited Rabble",
+        "manaCost": "",
+        "typeLine": "Creature — Human",
+        "oracleText": "This creature attacks each combat if able.\n{2}: This creature gets +1/+0 until end of turn.",
+        "flavorText": "Rumors are sparks: gather enough of them and something's going to catch fire.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "John Stanko",
+        "imageId": "51d3da6f-5598-4795-8a27-91734c9fc688-1"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "451",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CAPTIVE_WEIRD_COMPLEATED_CONJURER": {
+    "scryfallId": "70668650-0fb1-4486-a4e6-ab9a12be5626",
+    "oracleId": "ac5487ba-6d6e-47ee-ae29-776e186789cc",
+    "name": "Captive Weird // Compleated Conjurer",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Captive Weird",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Weird",
+        "oracleText": "Defender\n{3}{R/P}: Transform this creature. Activate only as a sorcery. ({R/P} can be paid with either {R} or 2 life.)",
+        "flavorText": "Izzet researchers agreed to keep the unusual weird contained until they understood the extent of its powers.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "70668650-0fb1-4486-a4e6-ab9a12be5626-0"
+      },
+      {
+        "name": "Compleated Conjurer",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Weird",
+        "oracleText": "When this creature transforms into Compleated Conjurer, exile the top card of your library. Until the end of your next turn, you may play that card.",
+        "flavorText": "The Furnace Host saw no need for such caution.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Manuel Castañón",
+        "imageId": "70668650-0fb1-4486-a4e6-ab9a12be5626-1"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform",
+      "Defender"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SKYCLAVE_AERIALIST_SKYCLAVE_INVADER": {
+    "scryfallId": "cd1c8e1a-bd38-47a2-a55a-682ebaede960",
+    "oracleId": "29e96c47-94ad-4740-ba86-66dc2cf9ae2f",
+    "name": "Skyclave Aerialist // Skyclave Invader",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Skyclave Aerialist",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "Flying\n{4}{G/P}: Transform this creature. Activate only as a sorcery. ({G/P} can be paid with either {G} or 2 life.)",
+        "flavorText": "Together with her beloved falcon, she had explored every waterway on Zendikar, from the Tazeem highlands to the inland sea.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "cd1c8e1a-bd38-47a2-a55a-682ebaede960-0"
+      },
+      {
+        "name": "Skyclave Invader",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Merfolk Scout",
+        "oracleText": "Flying\nWhen this creature transforms into Skyclave Invader, look at the top card of your library. If it's a land card, you may put it onto the battlefield. If you don't put the card onto the battlefield, put it into your hand.",
+        "flavorText": "With her guidance, the oil coursed freely across the world.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "cd1c8e1a-bd38-47a2-a55a-682ebaede960-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Transform"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "BLIGHTREAPER_THALLID_BLIGHTSOWER_THALLID": {
+    "scryfallId": "f1150ea9-02b5-4767-a529-6149d758830e",
+    "oracleId": "ea405cb4-a21b-4a26-98f3-251e65ea2aef",
+    "name": "Blightreaper Thallid // Blightsower Thallid",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Blightreaper Thallid",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "{3}{G/P}: Transform this creature. Activate only as a sorcery. ({G/P} can be paid with either {G} or 2 life.)",
+        "flavorText": "Mudcreep loved the taste of the funny oil that leaked from the wrecked machines in Urborg.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "f1150ea9-02b5-4767-a529-6149d758830e-0"
+      },
+      {
+        "name": "Blightsower Thallid",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Fungus",
+        "oracleText": "When this creature transforms into Blightsower Thallid or dies, create a 1/1 green Phyrexian Saproling creature token.",
+        "flavorText": "Then one day, Mudcreep started to feel funny itself.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "f1150ea9-02b5-4767-a529-6149d758830e-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "92",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -326304,6 +326829,39 @@
     "keywords": [],
     "setCode": "tinr",
     "collectorNumber": "5",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_SAPROLING_1_1_G_CREATURE_TOKEN": {
+    "scryfallId": "a10358f5-d653-49a0-9d81-a5d4e6dafe25",
+    "oracleId": "e85bfbbc-7269-486b-992c-776ab45d5840",
+    "name": "Phyrexian Saproling",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Phyrexian Saproling",
+        "manaCost": "",
+        "typeLine": "Token Creature — Phyrexian Saproling",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Maxime Minard",
+        "imageId": "a10358f5-d653-49a0-9d81-a5d4e6dafe25"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmom",
+    "collectorNumber": "8",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

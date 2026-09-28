@@ -32,6 +32,7 @@ import { orderTriggersApnap } from './triggers';
 import { grantsPriority, maxHandSize, nextStep, skipsFirstDraw } from './turn';
 import { castTargetSpecs, shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
+import { defOnFace } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, GameEvent, ResolvedDamage } from './types/events';
 import type { AbilityRef, InstanceId, PlayerId, PrintingId } from './types/ids';
@@ -1253,7 +1254,8 @@ export function abilityOfRef(
 export function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDef | undefined {
   if (obj.kind !== 'activated' || !obj.abilityRef) return undefined;
   const script = deps.scripts.get(obj.abilityRef.slice(0, obj.abilityRef.indexOf('#')));
-  return script?.activated?.find((d) => d.ref === obj.abilityRef);
+  // D582 - the def of the face the ability was activated from (a two-faced card's faces can share a face-local index).
+  return script?.activated?.find((d) => d.ref === obj.abilityRef && defOnFace(d, obj.abilityFace ?? 0));
 }
 
 /**
@@ -1264,10 +1266,12 @@ export function activatedDefFor(deps: EngineDeps, obj: StackObject): ActivatedDe
 export function activatedModesFor(
   deps: EngineDeps,
   abilityRef: AbilityRef | null,
+  // D582 - the face the ability is activated from (`ActivatedDef.face`).
+  face = 0,
 ): { readonly modes: readonly ModeDecl[]; readonly choice: { readonly min: number; readonly max: number } } | null {
   if (!abilityRef) return null;
   const script = deps.scripts.get(abilityRef.slice(0, abilityRef.indexOf('#')));
-  const def = script?.activated?.find((d) => d.ref === abilityRef);
+  const def = script?.activated?.find((d) => d.ref === abilityRef && defOnFace(d, face));
   if (!def?.modes || def.modes.length === 0) return null;
   return { modes: def.modes, choice: def.modeChoice ?? { min: 1, max: 1 } };
 }

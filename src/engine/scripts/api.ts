@@ -420,6 +420,11 @@ export interface ReplacementDef {
  */
 export interface ActivatedDef {
   readonly ref: AbilityRef;
+  /**
+   * D582 - the FACE that prints it (a transforming card: two faces can print different abilities at one face-local
+   * index - one `#a<index>` ref). Asked beside the ref by every lookup; absent, the def is every face's (`defOnFace`).
+   */
+  readonly face?: number;
   readonly text: string;
   /** D343 - the modes of a modal activated ability ("{T}: Choose one —"), as on `TriggerDef`; asked at activation (CR 602.2b). */
   readonly modes?: readonly ModeDecl[];

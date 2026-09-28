@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BRUTAL_CATHAR_MOONRAGE_BRUTE_SCRIPT } from './cards/brutalCatharMoonrageBrute';
+import { AVACYNIAN_MISSIONARIES_LUNARCH_INQUISITORS_SCRIPT } from './cards/avacynianMissionariesLunarchInquisitors';
+import { WOLFBITTEN_CAPTIVE_KRALLENHORDE_KILLER_SCRIPT } from './cards/wolfbittenCaptiveKrallenhordeKiller';
+import { DAYBREAK_RANGER_NIGHTFALL_PREDATOR_SCRIPT } from './cards/daybreakRangerNightfallPredator';
+import { MYSTERIOUS_TOME_CHILLING_CHRONICLE_SCRIPT } from './cards/mysteriousTomeChillingChronicle';
+import { VILDIN_PACK_OUTCAST_DRONEPACK_KINDRED_SCRIPT } from './cards/vildinPackOutcastDronepackKindred';
+import { TOWN_GOSSIPMONGER_INCITED_RABBLE_SCRIPT } from './cards/townGossipmongerIncitedRabble';
+import { CAPTIVE_WEIRD_COMPLEATED_CONJURER_SCRIPT } from './cards/captiveWeirdCompleatedConjurer';
+import { SKYCLAVE_AERIALIST_SKYCLAVE_INVADER_SCRIPT } from './cards/skyclaveAerialistSkyclaveInvader';
+import { BLIGHTREAPER_THALLID_BLIGHTSOWER_THALLID_SCRIPT } from './cards/blightreaperThallidBlightsowerThallid';
 import { SNAPDAX_APEX_OF_THE_HUNT_SCRIPT } from './cards/snapdaxApexOfTheHunt';
 import { GEMRAZER_SCRIPT } from './cards/gemrazer';
 import { CLOUDPIERCER_SCRIPT } from './cards/cloudpiercer';
@@ -8414,6 +8424,16 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BRUTAL_CATHAR_MOONRAGE_BRUTE_SCRIPT,
+  AVACYNIAN_MISSIONARIES_LUNARCH_INQUISITORS_SCRIPT,
+  WOLFBITTEN_CAPTIVE_KRALLENHORDE_KILLER_SCRIPT,
+  DAYBREAK_RANGER_NIGHTFALL_PREDATOR_SCRIPT,
+  MYSTERIOUS_TOME_CHILLING_CHRONICLE_SCRIPT,
+  VILDIN_PACK_OUTCAST_DRONEPACK_KINDRED_SCRIPT,
+  TOWN_GOSSIPMONGER_INCITED_RABBLE_SCRIPT,
+  CAPTIVE_WEIRD_COMPLEATED_CONJURER_SCRIPT,
+  SKYCLAVE_AERIALIST_SKYCLAVE_INVADER_SCRIPT,
+  BLIGHTREAPER_THALLID_BLIGHTSOWER_THALLID_SCRIPT,
   SNAPDAX_APEX_OF_THE_HUNT_SCRIPT,
   GEMRAZER_SCRIPT,
   CLOUDPIERCER_SCRIPT,
