@@ -10389,6 +10389,28 @@ const WANTED = [
   // D579 - TRANSFORM, the second batch: the payment-branch row (a transform if you pay).
   'Screeching Bat // Stalking Vampire',
   // D579 - the fixtures the second batch's suite deals that the generator DERIVED (D347/D370/D374).
+  // D580 - THE LAST TURN'S SPELLS: the rows the whole-leftover row maker rowed once the older werewolves' last-turn ifs were read (the previous turn's spells per player).
+  'Reckless Waif // Merciless Predator',
+  'Hinterland Logger // Timber Shredder',
+  'Hanweir Watchkeep // Bane of Hanweir',
+  'Villagers of Estwald // Howlpack of Estwald',
+  'Kessig Forgemaster // Flameheart Werewolf',
+  'Village Messenger // Moonrise Intruder',
+  'Grizzled Outcasts // Krallenhorde Wantons',
+  'Gatstaf Shepherd // Gatstaf Howler',
+  'Tormented Pariah // Rampaging Werewolf',
+  'Gatstaf Arsonists // Gatstaf Ravagers',
+  'Solitary Hunter // One of the Pack',
+  'Scorned Villager // Moonscarred Werewolf',
+  'Ulvenwald Mystics // Ulvenwald Primordials',
+  'Lambholt Elder // Silverpelt Werewolf',
+  "Mondronen Shaman // Tovolar's Magehunter",
+  'Instigator Gang // Wildblood Pack',
+  'Village Ironsmith // Ironfang',
+  'Hermit of the Natterknolls // Lone Wolf of the Natterknolls',
+  'Convicted Killer // Branded Howler',
+  'Breakneck Rider // Neck Breaker',
+  // D580 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

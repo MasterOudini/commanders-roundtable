@@ -1642,6 +1642,12 @@ export interface TurnState {
    * night: the untap step's day/night check reads it (CR 502.2) after `spellsCast` was cleared.
    */
   readonly dayNightCasts?: number;
+  /**
+   * D580 - the spells each player cast during the PREVIOUS turn: that turn's `spellsCast`, kept by `TurnBegan` when any
+   * was cast (absent, none was). The older werewolves' intervening ifs read it - `if no spells were cast last turn`,
+   * `if a player cast two or more spells last turn` (CR 603.4) - every player's, not day and night's active player.
+   */
+  readonly lastTurnSpells?: Readonly<Record<PlayerId, number>>;
   /** D336 - the turn memory: cards each player has drawn this turn ("your second card each turn"); cleared by `TurnBegan`. */
   readonly cardsDrawn: Readonly<Record<PlayerId, number>>;
   /** D340 - Raid: whether the active player declared one or more attackers this turn; cleared by `TurnBegan`. */

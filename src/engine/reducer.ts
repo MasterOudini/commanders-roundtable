@@ -996,6 +996,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(body.extra !== undefined ? { extra: body.extra } : {}),
           // D577 - the ending turn's active player's spells, for the untap step's day/night check (only once it is day or night).
           ...(body.dayNightCasts !== undefined ? { dayNightCasts: body.dayNightCasts } : {}),
+          // D580 - the ending turn's spells per player, kept when any was cast (the werewolves' last-turn ifs read it).
+          ...(Object.values(state.turn.spellsCast).some((n) => n > 0) ? { lastTurnSpells: state.turn.spellsCast } : {}),
           phase: 'beginning',
           step: 'untap',
           turnBasedActionsDone: false,

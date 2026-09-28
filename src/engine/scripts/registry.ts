@@ -7,6 +7,27 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RECKLESS_WAIF_MERCILESS_PREDATOR_SCRIPT } from './cards/recklessWaifMercilessPredator';
+import { DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER_SCRIPT } from './cards/duskwatchRecruiterKrallenhordeHowler';
+import { HINTERLAND_LOGGER_TIMBER_SHREDDER_SCRIPT } from './cards/hinterlandLoggerTimberShredder';
+import { HANWEIR_WATCHKEEP_BANE_OF_HANWEIR_SCRIPT } from './cards/hanweirWatchkeepBaneOfHanweir';
+import { VILLAGERS_OF_ESTWALD_HOWLPACK_OF_ESTWALD_SCRIPT } from './cards/villagersOfEstwaldHowlpackOfEstwald';
+import { KESSIG_FORGEMASTER_FLAMEHEART_WEREWOLF_SCRIPT } from './cards/kessigForgemasterFlameheartWerewolf';
+import { VILLAGE_MESSENGER_MOONRISE_INTRUDER_SCRIPT } from './cards/villageMessengerMoonriseIntruder';
+import { GRIZZLED_OUTCASTS_KRALLENHORDE_WANTONS_SCRIPT } from './cards/grizzledOutcastsKrallenhordeWantons';
+import { GATSTAF_SHEPHERD_GATSTAF_HOWLER_SCRIPT } from './cards/gatstafShepherdGatstafHowler';
+import { TORMENTED_PARIAH_RAMPAGING_WEREWOLF_SCRIPT } from './cards/tormentedPariahRampagingWerewolf';
+import { GATSTAF_ARSONISTS_GATSTAF_RAVAGERS_SCRIPT } from './cards/gatstafArsonistsGatstafRavagers';
+import { SOLITARY_HUNTER_ONE_OF_THE_PACK_SCRIPT } from './cards/solitaryHunterOneOfThePack';
+import { SCORNED_VILLAGER_MOONSCARRED_WEREWOLF_SCRIPT } from './cards/scornedVillagerMoonscarredWerewolf';
+import { ULVENWALD_MYSTICS_ULVENWALD_PRIMORDIALS_SCRIPT } from './cards/ulvenwaldMysticsUlvenwaldPrimordials';
+import { LAMBHOLT_ELDER_SILVERPELT_WEREWOLF_SCRIPT } from './cards/lambholtElderSilverpeltWerewolf';
+import { MONDRONEN_SHAMAN_TOVOLARS_MAGEHUNTER_SCRIPT } from './cards/mondronenShamanTovolarsMagehunter';
+import { INSTIGATOR_GANG_WILDBLOOD_PACK_SCRIPT } from './cards/instigatorGangWildbloodPack';
+import { VILLAGE_IRONSMITH_IRONFANG_SCRIPT } from './cards/villageIronsmithIronfang';
+import { HERMIT_OF_THE_NATTERKNOLLS_LONE_WOLF_OF_THE_NATTERKNOLLS_SCRIPT } from './cards/hermitOfTheNatterknollsLoneWolfOfTheNatterknolls';
+import { CONVICTED_KILLER_BRANDED_HOWLER_SCRIPT } from './cards/convictedKillerBrandedHowler';
+import { BREAKNECK_RIDER_NECK_BREAKER_SCRIPT } from './cards/breakneckRiderNeckBreaker';
 import { SCREECHING_BAT_STALKING_VAMPIRE_SCRIPT } from './cards/screechingBatStalkingVampire';
 import { PANICKED_BYSTANDER_CACKLING_CULPRIT_SCRIPT } from './cards/panickedBystanderCacklingCulprit';
 import { MYSTIC_SKULL_MYSTIC_MONSTROSITY_SCRIPT } from './cards/mysticSkullMysticMonstrosity';
@@ -8373,6 +8394,27 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RECKLESS_WAIF_MERCILESS_PREDATOR_SCRIPT,
+  DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER_SCRIPT,
+  HINTERLAND_LOGGER_TIMBER_SHREDDER_SCRIPT,
+  HANWEIR_WATCHKEEP_BANE_OF_HANWEIR_SCRIPT,
+  VILLAGERS_OF_ESTWALD_HOWLPACK_OF_ESTWALD_SCRIPT,
+  KESSIG_FORGEMASTER_FLAMEHEART_WEREWOLF_SCRIPT,
+  VILLAGE_MESSENGER_MOONRISE_INTRUDER_SCRIPT,
+  GRIZZLED_OUTCASTS_KRALLENHORDE_WANTONS_SCRIPT,
+  GATSTAF_SHEPHERD_GATSTAF_HOWLER_SCRIPT,
+  TORMENTED_PARIAH_RAMPAGING_WEREWOLF_SCRIPT,
+  GATSTAF_ARSONISTS_GATSTAF_RAVAGERS_SCRIPT,
+  SOLITARY_HUNTER_ONE_OF_THE_PACK_SCRIPT,
+  SCORNED_VILLAGER_MOONSCARRED_WEREWOLF_SCRIPT,
+  ULVENWALD_MYSTICS_ULVENWALD_PRIMORDIALS_SCRIPT,
+  LAMBHOLT_ELDER_SILVERPELT_WEREWOLF_SCRIPT,
+  MONDRONEN_SHAMAN_TOVOLARS_MAGEHUNTER_SCRIPT,
+  INSTIGATOR_GANG_WILDBLOOD_PACK_SCRIPT,
+  VILLAGE_IRONSMITH_IRONFANG_SCRIPT,
+  HERMIT_OF_THE_NATTERKNOLLS_LONE_WOLF_OF_THE_NATTERKNOLLS_SCRIPT,
+  CONVICTED_KILLER_BRANDED_HOWLER_SCRIPT,
+  BREAKNECK_RIDER_NECK_BREAKER_SCRIPT,
   SCREECHING_BAT_STALKING_VAMPIRE_SCRIPT,
   PANICKED_BYSTANDER_CACKLING_CULPRIT_SCRIPT,
   MYSTIC_SKULL_MYSTIC_MONSTROSITY_SCRIPT,

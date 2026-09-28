@@ -2007,7 +2007,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Righteous Valkyrie', 'a condition outside the closed vocabulary: you have at least 7 life more than your starting life tot (D514)'],
   ['Death Watch', 'trigger payload not a pump: Its controller loses life equal to its power and you gain li (D514)'],
   ['Noxious Gearhulk', 'trigger payload not a pump: Destroy another target creature. If a creature is destroyed (D514)'],
-  ['Paladin of Atonement', 'trigger payload not a pump: If you lost life last turn, put a +1/+1 counter on ~. (D514)'],
+  ['Paladin of Atonement', 'an intervening if outside the closed reader: you lost life last turn - the each-upkeep head peels its if since D580 (D514)'],
   ['Abattoir Ghoul', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creatur (D514)'],
   ['Garruk, Apex Predator', 'a vocabulary clause the suite has no fixture for: a battle clause (D514)'],
   // D513 - the first-time-each-turn head: the cards of the family the row maker refused, by its own reasons.

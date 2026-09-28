@@ -315105,6 +315105,1036 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "RECKLESS_WAIF_MERCILESS_PREDATOR": {
+    "scryfallId": "028aeebc-4073-4595-94da-02f9f96ea148",
+    "oracleId": "ba57df46-11c9-4f28-8818-175fb52e67bc",
+    "name": "Reckless Waif // Merciless Predator",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Reckless Waif",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Rogue Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"Yes, I'm alone. No, I'm not worried.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "028aeebc-4073-4595-94da-02f9f96ea148-0"
+      },
+      {
+        "name": "Merciless Predator",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "Before she just wanted to snatch your purse; now she'll take the whole arm.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michael C. Hayes",
+        "imageId": "028aeebc-4073-4595-94da-02f9f96ea148-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "159",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HINTERLAND_LOGGER_TIMBER_SHREDDER": {
+    "scryfallId": "14529bed-9632-4d58-8edc-c5a1359f6604",
+    "oracleId": "29b22d41-4c6e-46de-8553-983d05f12f0f",
+    "name": "Hinterland Logger // Timber Shredder",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Hinterland Logger",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"There's a forester lives up in the highlands. Tried to sell her one of my finest axes at a bargain, but she wasn't interested.\"\n—Old Rutstein",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "14529bed-9632-4d58-8edc-c5a1359f6604-0"
+      },
+      {
+        "name": "Timber Shredder",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Trample\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "\"She even had the audacity to criticize my wares as inferior.\"\n—Old Rutstein",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "14529bed-9632-4d58-8edc-c5a1359f6604-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "Trample"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "210",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HANWEIR_WATCHKEEP_BANE_OF_HANWEIR": {
+    "scryfallId": "2b14ed17-1a35-4c49-ac46-3cad42d46c14",
+    "oracleId": "8bdf986e-a47e-47b6-8cdb-576c86c4041b",
+    "name": "Hanweir Watchkeep // Bane of Hanweir",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Hanweir Watchkeep",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Warrior Werewolf",
+        "oracleText": "Defender\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "He scans for wolves, knowing there's one he can never anticipate.",
+        "power": "1",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "2b14ed17-1a35-4c49-ac46-3cad42d46c14-0"
+      },
+      {
+        "name": "Bane of Hanweir",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "This creature attacks each combat if able.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "Technically he never left his post. He looks after the wolf wherever it goes.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Wayne Reynolds",
+        "imageId": "2b14ed17-1a35-4c49-ac46-3cad42d46c14-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform",
+      "Defender"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "VILLAGERS_OF_ESTWALD_HOWLPACK_OF_ESTWALD": {
+    "scryfallId": "319b65f6-a6e6-45ea-9837-bc5831f54205",
+    "oracleId": "dcf692f6-baec-4b60-a6e3-2a8b731d7816",
+    "name": "Villagers of Estwald // Howlpack of Estwald",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Villagers of Estwald",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "You can spot a werewolf-infested town by its lack of butcher shops.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "319b65f6-a6e6-45ea-9837-bc5831f54205-0"
+      },
+      {
+        "name": "Howlpack of Estwald",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "Estwald's citizens don't dislike outsiders—they taste just fine.",
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "319b65f6-a6e6-45ea-9837-bc5831f54205-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "224",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "KESSIG_FORGEMASTER_FLAMEHEART_WEREWOLF": {
+    "scryfallId": "33e542ce-1106-489d-9563-bd62886b8ed3",
+    "oracleId": "b0d66546-c6a3-4052-b86e-98c3c2ab44b3",
+    "name": "Kessig Forgemaster // Flameheart Werewolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Kessig Forgemaster",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Shaman Werewolf",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, this creature deals 1 damage to that creature.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "33e542ce-1106-489d-9563-bd62886b8ed3-0"
+      },
+      {
+        "name": "Flameheart Werewolf",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever this creature blocks or becomes blocked by a creature, this creature deals 2 damage to that creature.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Winona Nelson",
+        "imageId": "33e542ce-1106-489d-9563-bd62886b8ed3-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "VILLAGE_MESSENGER_MOONRISE_INTRUDER": {
+    "scryfallId": "44deb8cf-b9d1-4a14-aeaf-e62cf3dc9ef2",
+    "oracleId": "f6634a84-a9ce-4bbd-bc2c-3f9179b7f16a",
+    "name": "Village Messenger // Moonrise Intruder",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Village Messenger",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Haste\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"I'm afraid it's bad news.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "44deb8cf-b9d1-4a14-aeaf-e62cf3dc9ef2-0"
+      },
+      {
+        "name": "Moonrise Intruder",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "44deb8cf-b9d1-4a14-aeaf-e62cf3dc9ef2-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform",
+      "Haste",
+      "Menace"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "GRIZZLED_OUTCASTS_KRALLENHORDE_WANTONS": {
+    "scryfallId": "4b43b0cb-a5a3-47b4-9b6b-9d2638222bb6",
+    "oracleId": "abcfcc71-77c0-46e7-93c3-726967946b12",
+    "name": "Grizzled Outcasts // Krallenhorde Wantons",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Grizzled Outcasts",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "Seen as unsavory, the hunters were never allowed in town—until one night they vanished.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "4b43b0cb-a5a3-47b4-9b6b-9d2638222bb6-0"
+      },
+      {
+        "name": "Krallenhorde Wantons",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "The boot prints became paw prints, and they led right back into town.",
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "4b43b0cb-a5a3-47b4-9b6b-9d2638222bb6-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "185",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "GATSTAF_SHEPHERD_GATSTAF_HOWLER": {
+    "scryfallId": "57f0907f-74f4-4d86-93df-f2e50c9d0b2f",
+    "oracleId": "c05c5375-d0d7-4cf2-92e6-76f86cd0febf",
+    "name": "Gatstaf Shepherd // Gatstaf Howler",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Gatstaf Shepherd",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"What is worse than a wolf in sheep's clothing?\"\n—Wolfhunter's riddle",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Evans",
+        "imageId": "57f0907f-74f4-4d86-93df-f2e50c9d0b2f-0"
+      },
+      {
+        "name": "Gatstaf Howler",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.)\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Evans",
+        "imageId": "57f0907f-74f4-4d86-93df-f2e50c9d0b2f-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "Intimidate"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "182",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "TORMENTED_PARIAH_RAMPAGING_WEREWOLF": {
+    "scryfallId": "6151cae7-92a4-4891-a952-21def412d3e4",
+    "oracleId": "bbcc2d2d-b29c-410f-bee7-5ef1609a5b32",
+    "name": "Tormented Pariah // Rampaging Werewolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Tormented Pariah",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Warrior Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"Hey lads, the moon's rising. All the better to watch him beg for mercy.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bud Cook",
+        "imageId": "6151cae7-92a4-4891-a952-21def412d3e4-0"
+      },
+      {
+        "name": "Rampaging Werewolf",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "\"Just look at him, groveling on all fours! What a pathetic—uh-oh.\"",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bud Cook",
+        "imageId": "6151cae7-92a4-4891-a952-21def412d3e4-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "165",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "GATSTAF_ARSONISTS_GATSTAF_RAVAGERS": {
+    "scryfallId": "6a43bf79-4eed-4351-9920-01c0547c2ac7",
+    "oracleId": "cde622fa-a634-409d-962c-1e4c5ddf9b3b",
+    "name": "Gatstaf Arsonists // Gatstaf Ravagers",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Gatstaf Arsonists",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "6a43bf79-4eed-4351-9920-01c0547c2ac7-0"
+      },
+      {
+        "name": "Gatstaf Ravagers",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "6a43bf79-4eed-4351-9920-01c0547c2ac7-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Transform",
+      "Menace"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SOLITARY_HUNTER_ONE_OF_THE_PACK": {
+    "scryfallId": "6c200ef1-ea08-48d4-ab50-77940a0e08c3",
+    "oracleId": "c99834dc-755f-407c-ad0e-550f8ae12198",
+    "name": "Solitary Hunter // One of the Pack",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Solitary Hunter",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Human Warrior Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"Making a living in Kessig is hard, but I've learned some tricks of the trade.\"",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "6c200ef1-ea08-48d4-ab50-77940a0e08c3-0"
+      },
+      {
+        "name": "One of the Pack",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "When the howl beckons, he cannot resist the urge to join the others.",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "6c200ef1-ea08-48d4-ab50-77940a0e08c3-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SCORNED_VILLAGER_MOONSCARRED_WEREWOLF": {
+    "scryfallId": "6f35e364-81d9-4888-993b-acc7a53d963c",
+    "oracleId": "52855f90-19c1-46c9-8eed-88b3c1722bb0",
+    "name": "Scorned Villager // Moonscarred Werewolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Scorned Villager",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "{T}: Add {G}.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"My village's fear drove me into the wild . . .\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "6f35e364-81d9-4888-993b-acc7a53d963c-0"
+      },
+      {
+        "name": "Moonscarred Werewolf",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Vigilance\n{T}: Add {G}{G}.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "\". . . and I will bring the fury of the wild back to my village.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Cynthia Sheppard",
+        "imageId": "6f35e364-81d9-4888-993b-acc7a53d963c-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Transform"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "ULVENWALD_MYSTICS_ULVENWALD_PRIMORDIALS": {
+    "scryfallId": "8325c570-4d74-4e65-891c-3e153abf4bf9",
+    "oracleId": "4418ff27-57c0-4c94-8aee-6151e4f8b0f9",
+    "name": "Ulvenwald Mystics // Ulvenwald Primordials",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Ulvenwald Mystics",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Human Shaman Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"With this ritual, we cast aside our fragile humanity . . .\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "8325c570-4d74-4e65-891c-3e153abf4bf9-0"
+      },
+      {
+        "name": "Ulvenwald Primordials",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "{G}: Regenerate this creature.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "\". . . and embrace the ancient ferocity of the undying Wild.\"",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "8325c570-4d74-4e65-891c-3e153abf4bf9-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Regenerate"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "208",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "LAMBHOLT_ELDER_SILVERPELT_WEREWOLF": {
+    "scryfallId": "932d753d-9584-4ad8-9a5e-a3524184f961",
+    "oracleId": "12330f42-0e3f-40e1-86f3-57a34403d143",
+    "name": "Lambholt Elder // Silverpelt Werewolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Lambholt Elder",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"Be wary of the seemingly gentle souls. The weak here were slaughtered long ago.\"\n—Rem Karolus, Blade of the Inquisitors",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "932d753d-9584-4ad8-9a5e-a3524184f961-0"
+      },
+      {
+        "name": "Silverpelt Werewolf",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever this creature deals combat damage to a player, draw a card.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "932d753d-9584-4ad8-9a5e-a3524184f961-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "MONDRONEN_SHAMAN_TOVOLAR_S_MAGEHUNTER": {
+    "scryfallId": "98fc475a-809d-4278-be03-86eab62b46ce",
+    "oracleId": "f94cb722-7e46-4569-b474-9654ecf7ec14",
+    "name": "Mondronen Shaman // Tovolar's Magehunter",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Mondronen Shaman",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Shaman Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "\"Tovolar, my master. Gather the howlpack, for the Hunter's Moon is nigh and Thraben's walls grow weak.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "98fc475a-809d-4278-be03-86eab62b46ce-0"
+      },
+      {
+        "name": "Tovolar's Magehunter",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever an opponent casts a spell, this creature deals 2 damage to that player.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "98fc475a-809d-4278-be03-86eab62b46ce-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "pdka",
+    "collectorNumber": "98★",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "INSTIGATOR_GANG_WILDBLOOD_PACK": {
+    "scryfallId": "bb90a6f1-c7f2-4c2e-ab1e-59c5c7937841",
+    "oracleId": "27c2bb87-7e50-4a80-b41c-ff0237a3d648",
+    "name": "Instigator Gang // Wildblood Pack",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Instigator Gang",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Attacking creatures you control get +1/+0.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "bb90a6f1-c7f2-4c2e-ab1e-59c5c7937841-0"
+      },
+      {
+        "name": "Wildblood Pack",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Trample\nAttacking creatures you control get +3/+0.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "bb90a6f1-c7f2-4c2e-ab1e-59c5c7937841-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Trample"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "VILLAGE_IRONSMITH_IRONFANG": {
+    "scryfallId": "cd5435d0-789f-4c42-8efc-165c072404a2",
+    "oracleId": "c7b1aaff-e2c3-427c-8478-1fd053f7ffb2",
+    "name": "Village Ironsmith // Ironfang",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Village Ironsmith",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "First strike\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "Each night, he abandons the trappings of civilization.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "cd5435d0-789f-4c42-8efc-165c072404a2-0"
+      },
+      {
+        "name": "Ironfang",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "First strike\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "Each morning, he repairs the front door.",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "cd5435d0-789f-4c42-8efc-165c072404a2-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "First strike"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HERMIT_OF_THE_NATTERKNOLLS_LONE_WOLF_OF_THE_NATTERKNOLLS": {
+    "scryfallId": "d5e84d80-b5a6-4cd1-9f31-f6ca46bf2c0c",
+    "oracleId": "6d32f688-a854-4d82-b654-d720b93fb766",
+    "name": "Hermit of the Natterknolls // Lone Wolf of the Natterknolls",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Hermit of the Natterknolls",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "Whenever an opponent casts a spell during your turn, draw a card.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "He hates company . . .",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "d5e84d80-b5a6-4cd1-9f31-f6ca46bf2c0c-0"
+      },
+      {
+        "name": "Lone Wolf of the Natterknolls",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Whenever an opponent casts a spell during your turn, draw two cards.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": ". . . but he'll have you for lunch.",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "d5e84d80-b5a6-4cd1-9f31-f6ca46bf2c0c-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "209",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CONVICTED_KILLER_BRANDED_HOWLER": {
+    "scryfallId": "f43f5f02-1b29-4e75-a6af-378dcc88c3df",
+    "oracleId": "c1801b5c-1a87-46d0-83d3-e8dfd94211f4",
+    "name": "Convicted Killer // Branded Howler",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Convicted Killer",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "None are more dangerous than those who have already been sentenced to death.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "f43f5f02-1b29-4e75-a6af-378dcc88c3df-0"
+      },
+      {
+        "name": "Branded Howler",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "At the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "It is said that one of the most notorious werewolf howlpacks, the Vildin, only calls those whose hands are already stained with blood.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "f43f5f02-1b29-4e75-a6af-378dcc88c3df-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "BREAKNECK_RIDER_NECK_BREAKER": {
+    "scryfallId": "fe9f85e8-1e4c-4478-8344-71fae357b694",
+    "oracleId": "51685f85-06ad-4de2-a7a6-06e6f59a1cbb",
+    "name": "Breakneck Rider // Neck Breaker",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Breakneck Rider",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Human Scout Werewolf",
+        "oracleText": "At the beginning of each upkeep, if no spells were cast last turn, transform this creature.",
+        "flavorText": "Only the most skillful riders brave the Breakneck Ride through Kessig.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "fe9f85e8-1e4c-4478-8344-71fae357b694-0"
+      },
+      {
+        "name": "Neck Breaker",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "Attacking creatures you control get +1/+0 and have trample.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+        "flavorText": "He can't outrun what he is.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "fe9f85e8-1e4c-4478-8344-71fae357b694-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "147",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
