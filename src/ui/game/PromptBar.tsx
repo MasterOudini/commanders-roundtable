@@ -266,6 +266,10 @@ function describe(
         }
         if (awaiting.explore) return `${awaiting.label}: explore - click the revealed card to put it into your graveyard, or keep it on top.`;
         return `${awaiting.label}: click cards to send to the ${awaiting.toGraveyard ? 'graveyard' : 'bottom'}; the rest stay on top in the order shown.`;
+      // D581 - mutate: where the mutating spell goes - over the creature it targets, or under it.
+      case 'mutateOrder':
+        if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is choosing where ${awaiting.label} mutates.`;
+        return `${awaiting.label}: put it over the creature it targets (the merged creature is ${awaiting.label}), or under it?`;
       case 'endureChoice':
         if (awaiting.player !== viewer) return `${nameOf(seats, awaiting.player)} is choosing how it endures.`;
         return `${awaiting.label}: put ${awaiting.amount} +1/+1 counter${awaiting.amount === 1 ? '' : 's'} on it, or create a ${awaiting.amount}/${awaiting.amount} white Spirit?`;
@@ -819,6 +823,28 @@ export function PromptBar() {
               onClick={() => send({ t: 'AnswerEndure', player: viewer, counters: false })}
             >
               {`Create a ${awaiting.amount}/${awaiting.amount} Spirit`}
+            </button>
+          </>
+        )}
+
+        {/* D581 - mutate: each button says where the spell goes - over the creature (its characteristics win), or under it. */}
+        {awaiting?.kind === 'mutateOrder' && mine('mutateOrder') && (
+          <>
+            <button
+              type="button"
+              className={BTN}
+              data-action="mutate-over"
+              onClick={() => send({ t: 'AnswerMutateOrder', player: viewer, stackId: awaiting.stackId, over: true })}
+            >
+              Over it
+            </button>
+            <button
+              type="button"
+              className={BTN_GHOST}
+              data-action="mutate-under"
+              onClick={() => send({ t: 'AnswerMutateOrder', player: viewer, stackId: awaiting.stackId, over: false })}
+            >
+              Under it
             </button>
           </>
         )}

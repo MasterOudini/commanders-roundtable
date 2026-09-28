@@ -10411,6 +10411,29 @@ const WANTED = [
   'Convicted Killer // Branded Howler',
   'Breakneck Rider // Neck Breaker',
   // D580 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D581 - MUTATE: the mutate creatures the proofs deal (the rows bring the rest).
+  'Dreamtail Heron',
+  'Gemrazer',
+  // D581 - MUTATE: the rows the whole-leftover row maker rowed once a mutating spell merged (the mutates head, the host its permanent).
+  'Snapdax, Apex of the Hunt',
+  'Cloudpiercer',
+  'Vulpikeet',
+  'Trumpeting Gnarr',
+  'Glowstone Recluse',
+  'Cubwarden',
+  'Dirge Bat',
+  'Migratory Greathorn',
+  'Boneyard Lurker',
+  'Necropanther',
+  'Majestic Auricorn',
+  'Pouncing Shoreshark',
+  'Sea-Dasher Octopus',
+  'Cavern Whisperer',
+  'Lore Drakkis',
+  'Chittering Harvester',
+  'Regal Leosaur',
+  'Souvenir Snatcher',
+  // D581 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

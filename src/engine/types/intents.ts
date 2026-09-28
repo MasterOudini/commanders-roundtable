@@ -356,6 +356,8 @@ export type Intent =
     }
   /** D569 - endure: the counters on the permanent (`counters: true`), or the N/N white Spirit. */
   | { readonly t: 'AnswerEndure'; readonly player: PlayerId; readonly counters: boolean }
+  /** D581 - mutate: the mutating spell over the creature it targets (`over: true`), or under it. */
+  | { readonly t: 'AnswerMutateOrder'; readonly player: PlayerId; readonly stackId: StackId; readonly over: boolean }
 
   // Tier 3 — manual tools. NOT enforced; every one is marked in the log.
   | { readonly t: 'ManualMoveCard'; readonly player: PlayerId; readonly card: InstanceId; readonly to: { readonly kind: 'library' | 'hand' | 'battlefield' | 'graveyard' | 'exile' | 'command'; readonly player: PlayerId }; readonly placement?: 'top' | 'bottom'; readonly faceDown?: boolean }

@@ -637,5 +637,8 @@ function zoneWord(kind: ZoneRef['kind']): string {
       return 'exile';
     case 'stack':
       return 'the stack';
+    // D581 - part of a merged permanent (CR 730).
+    case 'merged':
+      return 'a merged permanent';
   }
 }

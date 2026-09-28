@@ -87,6 +87,8 @@ export interface TargetCandidate {
   readonly subtypes: readonly string[];
   readonly tapped: boolean;
   readonly isToken: boolean;
+  /** D581 - a card's OWNER (absent on a player): mutate's target is a creature with the spell's owner (CR 702.140a). */
+  readonly owner?: PlayerId;
   readonly hexproof: boolean;
   readonly shroud: boolean;
   readonly protection: Protection;
@@ -197,6 +199,8 @@ export function specAdmits(spec: TargetSpec, src: TargetingSource, c: TargetCand
   if (!spec.kinds.some((k) => c.kinds.includes(k))) return false;
   if (spec.controller === 'you' && c.controller !== src.controller) return false;
   if (spec.controller === 'opponent' && c.controller === src.controller) return false;
+  // D581 - OWNED BY YOU (mutate's target, CR 702.140a): the candidate's owner is the spell's controller, whoever controls it.
+  if (spec.restrict?.ownedByYou === true && c.owner !== src.controller) return false;
   // D414 - `another target X`: never the resolving object's own source (a permanent's ability aimed at
   // itself; a spell is no battlefield candidate, so its own id never comes up).
   if (spec.another === true && c.choice.kind === 'card' && src.sourceId !== undefined && src.sourceId !== null && c.choice.id === src.sourceId) return false;
@@ -527,6 +531,7 @@ export function candidateFor(
     subtypes: d.typeLine.subtypes,
     tapped: card.tapped,
     isToken: card.isToken,
+    owner: card.owner,
     hexproof: d.keywords.has('hexproof'),
     shroud: d.keywords.has('shroud'),
     protection: d.protection,

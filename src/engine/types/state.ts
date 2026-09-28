@@ -317,6 +317,14 @@ export interface CardInstance {
    */
   readonly original?: { readonly oracleId: OracleId; readonly printingId: PrintingId } | undefined;
   /**
+   * D581 - A MERGED PERMANENT (CR 730, mutate 702.140): the cards it is represented by, top to bottom, its own id among
+   * them. Its characteristics are the top card's (a card merged over takes the identity fields, `original` keeping
+   * this card's own); it has every card's abilities (`mutate.ts`). Absent on every permanent that is not merged.
+   */
+  readonly merged?: readonly InstanceId[] | undefined;
+  /** D581 - the permanent this card is MERGED into (its zone is `merged`); absent on every card that is not. */
+  readonly mergedInto?: InstanceId | undefined;
+  /**
    * The colour named by "As this ~ enters, choose a color." (CR 614.12).
    *
    * ⚠️ **A COLOUR, NOT A GENERAL `chosen`, AND THE NARROWNESS IS THE POINT.**
@@ -1509,6 +1517,11 @@ export type Awaiting =
    * white Spirit creature token (`token`, the printing the parser resolved). Every field is public (D61).
    */
   | { readonly kind: 'endureChoice'; readonly player: PlayerId; readonly card: InstanceId; readonly amount: number; readonly token: { readonly oracleId: string; readonly printingId: string }; readonly label: string; readonly continuation?: EffectContinuation }
+  /**
+   * D581 - MUTATE (CR 702.140c): the mutating spell's controller puts it OVER the creature it targets (the merged permanent
+   * takes its characteristics) or UNDER it, as it resolves. `host` is that creature, `source` the spell's card.
+   */
+  | { readonly kind: 'mutateOrder'; readonly player: PlayerId; readonly stackId: StackId; readonly source: InstanceId; readonly host: InstanceId; readonly label: string }
   | { readonly kind: 'rewindVote'; readonly proposer: PlayerId; readonly toEventCount: number; readonly agreed: readonly PlayerId[]; readonly declined: readonly PlayerId[] };
 
 export interface PriorityState {
@@ -1901,6 +1914,9 @@ export function zoneList(state: GameState, zone: ZoneRef): readonly InstanceId[]
       return (zone.player && state.zones.exile[zone.player]) || [];
     case 'command':
       return (zone.player && state.zones.command[zone.player]) || [];
+    // D581 - a merged card is part of its host (`CardInstance.merged`), in no list.
+    case 'merged':
+      return [];
   }
 }
 

@@ -711,6 +711,9 @@ export function answerAwaiting(
      */
     case 'endureChoice':
       return awaiting.player === me ? act({ t: 'AnswerEndure', player: me, counters: true }, `endure: the counters for ${awaiting.label}`) : wait('not my endure');
+    /** D581 - mutate, a POLICY said to be one: over - the mutating card is the one the bot cast for its body. */
+    case 'mutateOrder':
+      return awaiting.player === me ? act({ t: 'AnswerMutateOrder', player: me, stackId: awaiting.stackId, over: true }, `mutate: ${awaiting.label} over it`) : wait('not my mutate');
     case 'scryChoice': {
       if (awaiting.player !== me) return wait('not my scry');
       const shown = view.peek ?? [];

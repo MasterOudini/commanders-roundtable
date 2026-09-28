@@ -13,6 +13,7 @@
 
 import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
+import { mergedScripts, mergedUnder } from './mutate';
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
 import { narrated } from './narrate';
@@ -165,17 +166,18 @@ function applicableTo(
   for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
-    const script = scripts.get(source.oracleId);
-    if (!script) continue;
-    for (const def of script.replacements ?? []) {
-      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
-      // CR 613 layer 6 — see `hasAbilities`. A silenced permanent replaces
-      // nothing.
-      if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
-      const key = `${sourceId}#${def.abilityId}`;
-      if (used.has(key)) continue;
-      if (!def.applies(readonlyCtx(state, oracle, scripts, cache), sourceId, ev)) continue;
-      out.push({ key, sourceId, def });
+    // D581 - its own script's defs, then every merged card's (CR 702.140e); an under card's key names its card.
+    for (const { script, faceIndex, own } of mergedScripts(scripts, state, source)) {
+      for (const def of script.replacements ?? []) {
+        if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, faceIndex)) continue;
+        // CR 613 layer 6 — see `hasAbilities`. A silenced permanent replaces
+        // nothing.
+        if (!hasAbilities(state, oracle, scripts, sourceId)) continue;
+        const key = own ? `${sourceId}#${def.abilityId}` : `${sourceId}#${script.oracleId}#${def.abilityId}`;
+        if (used.has(key)) continue;
+        if (!def.applies(readonlyCtx(state, oracle, scripts, cache), sourceId, ev)) continue;
+        out.push({ key, sourceId, def });
+      }
     }
   }
   // ⚠️ CR 614.12 (D318) — a permanent's OWN replacement effects that modify how it
@@ -1226,6 +1228,16 @@ export function collectTriggers(
       const got = m.get(o);
       if (got) got.push(id);
       else m.set(o, [id]);
+      // D581 - A MERGED PERMANENT fires every card's triggers (CR 702.140e): the host is indexed under each card merged
+      // under its top one as well - after its own, so the order of everything else is unchanged.
+      const host = state.cards[id];
+      if (host?.merged !== undefined) {
+        for (const part of mergedUnder(state, host)) {
+          const also = m.get(part.oracleId);
+          if (also) also.push(id);
+          else m.set(part.oracleId, [id]);
+        }
+      }
     }
     return m;
   };

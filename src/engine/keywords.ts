@@ -116,6 +116,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   myriad: 'myriad',
   // D550 - split second: the stack's lock on casts and non-mana activations.
   'split second': 'splitSecond',
+  // D581 - mutate: the alternative cost's target, and the merge as the spell resolves.
+  mutate: 'mutate',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

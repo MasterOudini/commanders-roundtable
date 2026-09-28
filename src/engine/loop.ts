@@ -905,7 +905,21 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
     // D343 - a modal spell re-checks the CHOSEN modes' clauses (CR 608.2b).
     const modalSpecs = face?.modal ? modeSpecs(face.modal.modes, obj.modes) : undefined;
-    if (!targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : undefined))) {
+    // D581 - A MUTATING CREATURE SPELL is never countered for its target (CR 702.140b): still legal, it merges - its
+    // controller answers over or under first (`mutateOrder`, answered by `mutateMerge`); gone, it is an ordinary creature
+    // spell and enters below.
+    const mutating = obj.alternativePaid === true && face !== null && face.alternativeCost?.keyword === 'mutate';
+    if (mutating && face !== null) {
+      const at = obj.targets[face.targets.length];
+      const host = at !== undefined && at.kind === 'card' && targetsStillLegal(state, deps, obj, face, castTargetSpecs(face, true)) ? at.id : null;
+      if (host !== null) {
+        // ⚠️ NEVER ASK A PLAYER WHO IS OUT OF THE GAME (the optional trigger's rule, below): under, which changes the least.
+        if (state.players[obj.controller]?.hasLost ?? true) return emitted(mutateMerge(state, deps, obj, host, false));
+        const awaiting: Awaiting = { kind: 'mutateOrder', player: obj.controller, stackId: obj.id, source: obj.card, host, label: obj.label };
+        return emitted([{ t: 'AwaitingSet', awaiting }]);
+      }
+    }
+    if (!mutating && !targetsStillLegal(state, deps, obj, face, modalSpecs ?? (face ? castTargetSpecs(face, obj.alternativePaid === true, splicedFaces(deps.oracle, obj.spliced)) : undefined))) {
       // CR 608.2b — a spell whose targets are all illegal is removed from the
       // stack and does nothing. It goes to the graveyard, not to exile.
       events.push({ t: 'SpellFizzled', stackId: obj.id });
@@ -1159,6 +1173,21 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 
   const resolved = resolveAbility(state, deps, obj, null);
   return emitted(resolved.events, resolved.rng);
+}
+
+/**
+ * D581 - THE MERGE (CR 702.140c): the mutating spell resolves - its stack object gone, its card merged with the host, over
+ * or under - and never enters the battlefield. The `Mutated` event is what `whenever this creature mutates` watches.
+ */
+export function mutateMerge(state: GameState, deps: EngineDeps, obj: StackObject, host: InstanceId, onTop: boolean): EventBody[] {
+  const card = obj.card;
+  if (card === null) return [];
+  const hostName = derive(state, deps.oracle, deps.scripts, host).name || 'it';
+  return [
+    { t: 'StackResolved', stackId: obj.id, card, to: null, targets: obj.targets, controller: obj.controller },
+    { t: 'Mutated', host, card, onTop, player: obj.controller },
+    narrated(`${obj.label} mutates ${onTop ? 'onto' : 'under'} ${hostName}.`, obj.controller, obj.identity),
+  ];
 }
 
 /** D501 - the resolving spell's own fate among its clauses (the self kinds the vocabulary parses; `resolveTop` moves the card). */

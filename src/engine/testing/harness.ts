@@ -577,6 +577,9 @@ export function simplestAnswer(
     /** D569 - endure: the counters (no new object - the quieter answer; the proofs choose the Spirit themselves). */
     case 'endureChoice':
       return { t: 'AnswerEndure', player: awaiting.player, counters: true };
+    /** D581 - mutate: under (the host keeps its characteristics - the quieter answer; a proof chooses for itself). */
+    case 'mutateOrder':
+      return { t: 'AnswerMutateOrder', player: awaiting.player, stackId: awaiting.stackId, over: false };
     case 'scryChoice': {
       const shown = (state.zones.library[awaiting.player] ?? []).filter((id) =>
         state.cards[id]?.revealedTo.includes(awaiting.player),

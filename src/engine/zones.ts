@@ -32,6 +32,9 @@ export function zoneContents(zones: Zones, zone: ZoneRef): readonly InstanceId[]
       // The stack's membership lives in `state.stack` as StackObjects, because
       // an ability on the stack is not a card and has no zone array entry.
       return [];
+    // D581 - a merged card is part of its host (`CardInstance.merged`), in no array.
+    case 'merged':
+      return [];
   }
 }
 
@@ -50,6 +53,7 @@ function setZone(zones: Zones, zone: ZoneRef, next: readonly InstanceId[]): Zone
     case 'command':
       return zone.player ? { ...zones, command: withPlayerZone(zones.command, zone.player, next) } : zones;
     case 'stack':
+    case 'merged':
       return zones;
   }
 }

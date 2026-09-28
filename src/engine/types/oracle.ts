@@ -172,6 +172,9 @@ export const TIER2_KEYWORDS = [
   // D550 - SPLIT SECOND (CR 702.61a): while the spell is on the stack no spell is cast and no ability but a mana ability
   // is activated (`splitSecondOnStack`, asked by the offer and the host alike).
   'splitSecond',
+  // D581 - MUTATE (CR 702.140): the alternative cost that makes the creature spell a MUTATING one - it targets a
+  // non-Human creature with its owner and, as it resolves, merges with it over or under (`mutate.ts`, CR 730).
+  'mutate',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -442,6 +445,8 @@ export interface TargetRestrictions {
   readonly subtypesNone?: readonly string[];
   readonly tapped?: boolean;
   readonly token?: boolean;
+  /** D581 - a candidate its OWNER owns - the spell's controller (mutate's target, CR 702.140a); any controller. */
+  readonly ownedByYou?: true;
 }
 
 export type TargetZone = 'graveyard' | 'exile';

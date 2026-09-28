@@ -135,7 +135,7 @@ const PRODUCED = [...new Set(SITES.map((s) => s.kind))].sort();
 const NO_PRODUCER = ['orderAttackers', 'orderBlockers'] as const;
 
 describe('Awaiting — which prompts the engine can raise', () => {
-  test('the union is the twenty-seven kinds this test knows about', () => {
+  test('the union is the twenty-eight kinds this test knows about', () => {
     expect([...KINDS].sort()).toEqual(
       [
         'chooseColor',
@@ -159,6 +159,8 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'entersChoice',
         'mulligan',
         'mulliganBottom',
+        // D581 - mutate's over-or-under, raised as the mutating spell resolves.
+        'mutateOrder',
         'optionalTrigger',
         'orderAttackers',
         'orderCards',
@@ -172,7 +174,7 @@ describe('Awaiting — which prompts the engine can raise', () => {
     );
   });
 
-  test('twenty-five of the twenty-seven have a producer, and the sites are real', () => {
+  test('twenty-six of the twenty-eight have a producer, and the sites are real', () => {
     expect(PRODUCED).toEqual(
       [
         'chooseColor',
@@ -195,6 +197,7 @@ describe('Awaiting — which prompts the engine can raise', () => {
         'entersChoice',
         'mulligan',
         'mulliganBottom',
+        'mutateOrder',
         'optionalTrigger',
         'orderCards',
         'orderTriggers',

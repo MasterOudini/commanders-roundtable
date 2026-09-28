@@ -316135,6 +316135,735 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "DREAMTAIL_HERON": {
+    "scryfallId": "2d1828b1-a6eb-4346-b405-7642e34b3e71",
+    "oracleId": "1cadb1e1-19b6-4ce5-8eb5-7851cec7dfa3",
+    "name": "Dreamtail Heron",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Dreamtail Heron",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Elemental Bird",
+        "oracleText": "Mutate {3}{U} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlying\nWhenever this creature mutates, draw a card.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tomasz Jedruszek",
+        "imageId": "2d1828b1-a6eb-4346-b405-7642e34b3e71"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "284",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEMRAZER": {
+    "scryfallId": "0095245c-a30e-4e2a-88c9-632c678e9f03",
+    "oracleId": "3dfb0c0a-b68f-43b9-8475-28d0192fc4ed",
+    "name": "Gemrazer",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Gemrazer",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Mutate {1}{G}{G} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nReach, trample\nWhenever this creature mutates, destroy target artifact or enchantment an opponent controls.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "0095245c-a30e-4e2a-88c9-632c678e9f03"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Mutate",
+      "Trample"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "155",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNAPDAX_APEX_OF_THE_HUNT": {
+    "scryfallId": "004237f7-1099-4422-9ce9-6065a803e230",
+    "oracleId": "b2b78623-5a10-4ef7-b983-3d82478269c3",
+    "name": "Snapdax, Apex of the Hunt",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Snapdax, Apex of the Hunt",
+        "manaCost": "{1}{R}{W}{B}",
+        "typeLine": "Legendary Creature — Dinosaur Cat Nightmare",
+        "oracleText": "Mutate {2}{B/R}{W}{W} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nDouble strike\nWhenever this creature mutates, it deals 4 damage to target creature or planeswalker an opponent controls and you gain 4 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "004237f7-1099-4422-9ce9-6065a803e230"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mutate",
+      "Double strike"
+    ],
+    "setCode": "piko",
+    "collectorNumber": "209p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOUDPIERCER": {
+    "scryfallId": "039b04c0-ac5c-499b-968b-698aba421c07",
+    "oracleId": "ed7885bf-c557-4328-b1a4-54780b2315f4",
+    "name": "Cloudpiercer",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Cloudpiercer",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Mutate {3}{R} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nReach\nWhenever this creature mutates, you may discard a card. If you do, draw a card.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "039b04c0-ac5c-499b-968b-698aba421c07"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Reach",
+      "Mutate"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "80979",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VULPIKEET": {
+    "scryfallId": "044dae1f-a767-49f8-b4e2-85161f2685d5",
+    "oracleId": "11d0c8a4-1dd0-4707-9c1d-19ed27d1934e",
+    "name": "Vulpikeet",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Vulpikeet",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Fox Bird",
+        "oracleText": "Mutate {2}{W} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlying\nWhenever this creature mutates, put a +1/+1 counter on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Justine Mara Andersen",
+        "imageId": "044dae1f-a767-49f8-b4e2-85161f2685d5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "282",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUMPETING_GNARR": {
+    "scryfallId": "063a95ee-3fda-436f-9ff8-de80cc874dde",
+    "oracleId": "734be5ec-6148-48b9-9021-380e9b62ec23",
+    "name": "Trumpeting Gnarr",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Trumpeting Gnarr",
+        "manaCost": "{1}{G}{U}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Mutate {3}{G/U}{G/U} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, create a 3/3 green Beast creature token.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "063a95ee-3fda-436f-9ff8-de80cc874dde"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLOWSTONE_RECLUSE": {
+    "scryfallId": "06a9698d-400c-4c31-82cd-28d0897fe28c",
+    "oracleId": "b2b76070-f103-4f83-ad21-119e6352f2cd",
+    "name": "Glowstone Recluse",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Glowstone Recluse",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Spider",
+        "oracleText": "Mutate {3}{G} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nReach\nWhenever this creature mutates, put two +1/+1 counters on it.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Yeong-Hao Han",
+        "imageId": "06a9698d-400c-4c31-82cd-28d0897fe28c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUBWARDEN": {
+    "scryfallId": "17398d7f-baf3-4605-aced-21582a81c73a",
+    "oracleId": "8c1b3f1b-40d8-4cd5-bedf-92c3c534be84",
+    "name": "Cubwarden",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Cubwarden",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Cat",
+        "oracleText": "Mutate {2}{W}{W} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nLifelink\nWhenever this creature mutates, create two 1/1 white Cat creature tokens with lifelink.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Denis Medri",
+        "imageId": "17398d7f-baf3-4605-aced-21582a81c73a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink",
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "279",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIRGE_BAT": {
+    "scryfallId": "1844a069-16f7-4b80-afe9-42f290e96b04",
+    "oracleId": "4746828f-46ea-439f-88de-5e54cc536545",
+    "name": "Dirge Bat",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Dirge Bat",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Mutate {4}{B}{B} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlash\nFlying\nWhenever this creature mutates, destroy target creature or planeswalker an opponent controls.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kohei Hayama",
+        "imageId": "1844a069-16f7-4b80-afe9-42f290e96b04"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Mutate",
+      "Flash"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "80935",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIGRATORY_GREATHORN": {
+    "scryfallId": "1e31f56d-bf75-4e14-94de-5c77193abf3a",
+    "oracleId": "4c6c8155-efa0-4c22-b255-34974a80c496",
+    "name": "Migratory Greathorn",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Migratory Greathorn",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Mutate {2}{G} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "1e31f56d-bf75-4e14-94de-5c77193abf3a"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "297",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BONEYARD_LURKER": {
+    "scryfallId": "2e0232c0-0867-4217-8e5d-b3454c0c8dab",
+    "oracleId": "88aa5cd0-811a-4682-b2b0-2decbd13b332",
+    "name": "Boneyard Lurker",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Boneyard Lurker",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Creature — Nightmare Beast",
+        "oracleText": "Mutate {2}{B/G}{B/G} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, return target permanent card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "2e0232c0-0867-4217-8e5d-b3454c0c8dab"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "298",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NECROPANTHER": {
+    "scryfallId": "2e1ed055-8988-4625-9d57-8ce8a4e04aea",
+    "oracleId": "7df82bf8-b232-48e1-858b-1571c48b6f46",
+    "name": "Necropanther",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Necropanther",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Cat Nightmare",
+        "oracleText": "Mutate {2}{W/B}{W/B} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, return target creature card with mana value 3 or less from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Jason A. Engle",
+        "imageId": "2e1ed055-8988-4625-9d57-8ce8a4e04aea"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAJESTIC_AURICORN": {
+    "scryfallId": "3d63b878-4d0d-444c-9db2-05cf5dd3fa8c",
+    "oracleId": "9c13f77a-800c-4fb6-b54a-89a96e12d279",
+    "name": "Majestic Auricorn",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Majestic Auricorn",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Unicorn",
+        "oracleText": "Mutate {3}{W} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nVigilance\nWhenever this creature mutates, you gain 4 life.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "3d63b878-4d0d-444c-9db2-05cf5dd3fa8c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mutate",
+      "Vigilance"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "281",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POUNCING_SHORESHARK": {
+    "scryfallId": "4a0a3562-0f65-4b05-952e-8ef4bc0ca694",
+    "oracleId": "38630f89-bc22-49b2-b97e-d31a5169decc",
+    "name": "Pouncing Shoreshark",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Pouncing Shoreshark",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Shark Beast",
+        "oracleText": "Mutate {3}{U} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlash\nWhenever this creature mutates, you may return target creature an opponent controls to its owner's hand.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daniel Warren Johnson",
+        "imageId": "4a0a3562-0f65-4b05-952e-8ef4bc0ca694"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mutate",
+      "Flash"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "80975",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEA_DASHER_OCTOPUS": {
+    "scryfallId": "5e248d88-21ef-4225-a6fb-06853bab04a7",
+    "oracleId": "0b718d21-6873-4613-ad15-660d30527fcd",
+    "name": "Sea-Dasher Octopus",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Sea-Dasher Octopus",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Octopus",
+        "oracleText": "Mutate {1}{U} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlash\nWhenever this creature deals combat damage to a player, draw a card.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Chris Seaman",
+        "imageId": "5e248d88-21ef-4225-a6fb-06853bab04a7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mutate",
+      "Flash"
+    ],
+    "setCode": "hbg",
+    "collectorNumber": "912",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAVERN_WHISPERER": {
+    "scryfallId": "64ae7651-4a5c-41f3-b528-41b9b0f2e5d8",
+    "oracleId": "b42147e1-cf90-4c12-8abe-7f2931d0607c",
+    "name": "Cavern Whisperer",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Cavern Whisperer",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Nightmare",
+        "oracleText": "Mutate {3}{B} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nMenace (This creature can't be blocked except by two or more creatures.)\nWhenever this creature mutates, each opponent discards a card.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "64ae7651-4a5c-41f3-b528-41b9b0f2e5d8"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Mutate",
+      "Menace"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LORE_DRAKKIS": {
+    "scryfallId": "83e035ca-eccd-4b63-817c-f2c676b9c98d",
+    "oracleId": "3ec271d8-8264-4574-8c4c-e57b35872b1e",
+    "name": "Lore Drakkis",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Lore Drakkis",
+        "manaCost": "{1}{U}{R}",
+        "typeLine": "Creature — Lizard Beast",
+        "oracleText": "Mutate {U/R}{U/R} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "83e035ca-eccd-4b63-817c-f2c676b9c98d"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHITTERING_HARVESTER": {
+    "scryfallId": "92e7d1e9-6b17-427e-862f-c8c8c619c55b",
+    "oracleId": "9473b445-294b-4572-8267-f1f2fc2a05a7",
+    "name": "Chittering Harvester",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Chittering Harvester",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Nightmare",
+        "oracleText": "Mutate {4}{B} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, each opponent sacrifices a creature of their choice.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "92e7d1e9-6b17-427e-862f-c8c8c619c55b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "80961",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "REGAL_LEOSAUR": {
+    "scryfallId": "b6fdf313-740b-4976-911f-9fb5eb54afce",
+    "oracleId": "fc445b1d-229d-4cf3-8203-8872d8957a15",
+    "name": "Regal Leosaur",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Regal Leosaur",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Dinosaur Cat",
+        "oracleText": "Mutate {1}{R/W}{R/W} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nWhenever this creature mutates, other creatures you control get +2/+1 until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Ilse Gort",
+        "imageId": "b6fdf313-740b-4976-911f-9fb5eb54afce"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Mutate"
+    ],
+    "setCode": "iko",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOUVENIR_SNATCHER": {
+    "scryfallId": "f7845c68-ab08-4fb3-a1af-167ba6c8b82a",
+    "oracleId": "ee8fb1d0-db86-489f-8d23-4238b2e8eba4",
+    "name": "Souvenir Snatcher",
+    "layout": "mutate",
+    "faces": [
+      {
+        "name": "Souvenir Snatcher",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Mutate {5}{U} (If you cast this spell for its mutate cost, put it over or under target non-Human creature you own. They mutate into the creature on top plus all abilities from under it.)\nFlying\nWhenever this creature mutates, gain control of target noncreature artifact.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "f7845c68-ab08-4fb3-a1af-167ba6c8b82a"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Mutate"
+    ],
+    "setCode": "c20",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

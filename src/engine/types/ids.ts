@@ -35,7 +35,9 @@ export type ZoneKind =
   | 'graveyard'
   | 'exile'
   | 'command'
-  | 'stack';
+  | 'stack'
+  // D581 - a card MERGED into a permanent (CR 730): part of that permanent, in no zone array (`CardInstance.mergedInto`).
+  | 'merged';
 
 /** `player` is null only for the stack and the (shared) battlefield array. */
 export interface ZoneRef {

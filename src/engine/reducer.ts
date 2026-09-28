@@ -656,6 +656,19 @@ function applyBody(state: GameState, body: EventBody): GameState {
           revealedTo: [],
         };
         zones = addToZone(zones, move.to, move.card, move.placement ?? 'top');
+        // D581 - A MERGED PERMANENT LEAVES AS EVERY CARD (CR 730.3): the cards merged into it follow the host to the same
+        // kind of zone, each its owner's (a token among them ceases as tokens do, 704.5d); the merge is over.
+        if (move.from.kind === 'battlefield' && move.to.kind !== 'battlefield' && card.merged !== undefined) {
+          for (const partId of card.merged) {
+            if (partId === move.card) continue;
+            const part = cards[partId];
+            if (!part) continue;
+            const partTo = { kind: move.to.kind, player: part.owner };
+            cards[partId] = { ...part, ...clearBattlefieldFields(part.owner), zone: partTo, mergedInto: undefined, faceDown: false, revealedTo: [] };
+            zones = addToZone(zones, partTo, partId, move.placement ?? 'top');
+          }
+          cards[move.card] = { ...(cards[move.card] as CardInstance), merged: undefined };
+        }
       }
       // D330 - a shield belongs to the permanent on the battlefield; leaving takes it.
       let regenerationShields = state.regenerationShields;
@@ -670,6 +683,25 @@ function applyBody(state: GameState, body: EventBody): GameState {
       // D348 - the turn record, read off the instances BEFORE this batch applied.
       // D521 - a Ring-bearer that left the battlefield is a new object: no seat keeps it.
       return withoutRingBearers({ ...state, zones, cards, regenerationShields, playPermissions, turn: { ...state.turn, memory: recordMoves(state.turn.memory, body.moves, state.cards) } }, body.moves.filter((m) => m.from.kind === 'battlefield' && m.to.kind !== 'battlefield').map((m) => m.card));
+    }
+
+    case 'Mutated': {
+      // D581 - THE MERGE (CR 702.140c, 730.2): the mutating spell's card joins the host - on top, the host takes its
+      // identity fields (D486's `original` keeping its own card's); underneath, nothing about the host changes but the
+      // abilities it now has (`mutate.ts`). The host stays the same object: counters, damage, attachments, combat,
+      // summoning sickness. The card sits in the `merged` zone, in no array.
+      const host = state.cards[body.host];
+      const card = state.cards[body.card];
+      if (!host || !card) return state;
+      const cards = { ...state.cards };
+      const own = host.merged ?? [host.id];
+      cards[body.card] = { ...card, ...clearBattlefieldFields(card.owner), zone: { kind: 'merged', player: card.owner }, mergedInto: body.host, controller: host.controller, faceDown: false, revealedTo: [] };
+      cards[body.host] = {
+        ...host,
+        merged: body.onTop ? [body.card, ...own] : [...own, body.card],
+        ...(body.onTop ? { oracleId: card.oracleId, printingId: card.printingId, faceIndex: card.faceIndex, original: host.original ?? { oracleId: host.oracleId, printingId: host.printingId } } : {}),
+      };
+      return { ...state, cards };
     }
 
     case 'TokenCreated': {

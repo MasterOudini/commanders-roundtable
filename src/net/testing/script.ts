@@ -203,6 +203,9 @@ export function simplestIntent(
       /** D569 - endure: the counters, always legal. */
       case 'endureChoice':
         return awaiting.player === snapshot.you ? { t: 'AnswerEndure', player: awaiting.player, counters: true } : null;
+      /** D581 - mutate: under, always legal. */
+      case 'mutateOrder':
+        return awaiting.player === snapshot.you ? { t: 'AnswerMutateOrder', player: awaiting.player, stackId: awaiting.stackId, over: false } : null;
       /** D195 — keep everything in revealed order: the no-op scry, always legal. */
       case 'scryChoice':
         return awaiting.player === snapshot.you

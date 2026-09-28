@@ -53,6 +53,9 @@ export function viewZone(ref: ZoneRef): ZoneId {
       return zoneId('cmd', ref.player ?? '');
     case 'stack':
       return 'stack';
+    // D581 - a merged card is part of its host on the battlefield: the owner's row it is shown in.
+    case 'merged':
+      return zoneId('bf', ref.player ?? '');
   }
 }
 

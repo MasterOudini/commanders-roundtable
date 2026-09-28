@@ -349,6 +349,9 @@ function simplestIntent(snapshot: session.SessionSnapshot): Intent | null {
           stackId: awaiting.stackId,
           accept: false,
         };
+      // D581 - mutate: under, always legal.
+      case 'mutateOrder':
+        return { t: 'AnswerMutateOrder', player: awaiting.player, stackId: awaiting.stackId, over: false };
       default:
         return null;
     }

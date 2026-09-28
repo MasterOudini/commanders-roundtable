@@ -7,6 +7,26 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SNAPDAX_APEX_OF_THE_HUNT_SCRIPT } from './cards/snapdaxApexOfTheHunt';
+import { GEMRAZER_SCRIPT } from './cards/gemrazer';
+import { CLOUDPIERCER_SCRIPT } from './cards/cloudpiercer';
+import { VULPIKEET_SCRIPT } from './cards/vulpikeet';
+import { TRUMPETING_GNARR_SCRIPT } from './cards/trumpetingGnarr';
+import { GLOWSTONE_RECLUSE_SCRIPT } from './cards/glowstoneRecluse';
+import { CUBWARDEN_SCRIPT } from './cards/cubwarden';
+import { DIRGE_BAT_SCRIPT } from './cards/dirgeBat';
+import { MIGRATORY_GREATHORN_SCRIPT } from './cards/migratoryGreathorn';
+import { DREAMTAIL_HERON_SCRIPT } from './cards/dreamtailHeron';
+import { BONEYARD_LURKER_SCRIPT } from './cards/boneyardLurker';
+import { NECROPANTHER_SCRIPT } from './cards/necropanther';
+import { MAJESTIC_AURICORN_SCRIPT } from './cards/majesticAuricorn';
+import { POUNCING_SHORESHARK_SCRIPT } from './cards/pouncingShoreshark';
+import { SEA_DASHER_OCTOPUS_SCRIPT } from './cards/seaDasherOctopus';
+import { CAVERN_WHISPERER_SCRIPT } from './cards/cavernWhisperer';
+import { LORE_DRAKKIS_SCRIPT } from './cards/loreDrakkis';
+import { CHITTERING_HARVESTER_SCRIPT } from './cards/chitteringHarvester';
+import { REGAL_LEOSAUR_SCRIPT } from './cards/regalLeosaur';
+import { SOUVENIR_SNATCHER_SCRIPT } from './cards/souvenirSnatcher';
 import { RECKLESS_WAIF_MERCILESS_PREDATOR_SCRIPT } from './cards/recklessWaifMercilessPredator';
 import { DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER_SCRIPT } from './cards/duskwatchRecruiterKrallenhordeHowler';
 import { HINTERLAND_LOGGER_TIMBER_SHREDDER_SCRIPT } from './cards/hinterlandLoggerTimberShredder';
@@ -8394,6 +8414,26 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SNAPDAX_APEX_OF_THE_HUNT_SCRIPT,
+  GEMRAZER_SCRIPT,
+  CLOUDPIERCER_SCRIPT,
+  VULPIKEET_SCRIPT,
+  TRUMPETING_GNARR_SCRIPT,
+  GLOWSTONE_RECLUSE_SCRIPT,
+  CUBWARDEN_SCRIPT,
+  DIRGE_BAT_SCRIPT,
+  MIGRATORY_GREATHORN_SCRIPT,
+  DREAMTAIL_HERON_SCRIPT,
+  BONEYARD_LURKER_SCRIPT,
+  NECROPANTHER_SCRIPT,
+  MAJESTIC_AURICORN_SCRIPT,
+  POUNCING_SHORESHARK_SCRIPT,
+  SEA_DASHER_OCTOPUS_SCRIPT,
+  CAVERN_WHISPERER_SCRIPT,
+  LORE_DRAKKIS_SCRIPT,
+  CHITTERING_HARVESTER_SCRIPT,
+  REGAL_LEOSAUR_SCRIPT,
+  SOUVENIR_SNATCHER_SCRIPT,
   RECKLESS_WAIF_MERCILESS_PREDATOR_SCRIPT,
   DUSKWATCH_RECRUITER_KRALLENHORDE_HOWLER_SCRIPT,
   HINTERLAND_LOGGER_TIMBER_SHREDDER_SCRIPT,

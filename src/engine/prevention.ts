@@ -44,6 +44,7 @@
  */
 import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
+import { mergedScripts } from './mutate';
 import { derive, makeDeriveCache, makeScriptCtx, type DeriveCache } from './derive';
 import { narrated } from './narrate';
 import type { PreventionDef, ScriptCtx } from './scripts/api';
@@ -137,13 +138,14 @@ function staticPreventions(state: GameState, oracle: OracleDb, scripts: ScriptRe
     if (!source || source.faceDown) continue;
     let able: boolean | null = null;
     // D438 - the source's OWN script's defs (the registry-scaling walk, see derive.ts); `defs` stays the gate.
-    const script = scripts.get(source.oracleId);
-    if (!script) continue;
-    for (const def of script.prevention ?? []) {
-      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
-      if (able === null) able = derive(state, oracle, scripts, sourceId, cache).hasAbilities;
-      if (!able) break;
-      out.push({ sourceId, def });
+    // D581 - its own script's shields, then every merged card's (CR 702.140e).
+    for (const { script, faceIndex } of mergedScripts(scripts, state, source)) {
+      for (const def of script.prevention ?? []) {
+        if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, faceIndex)) continue;
+        if (able === null) able = derive(state, oracle, scripts, sourceId, cache).hasAbilities;
+        if (!able) break;
+        out.push({ sourceId, def });
+      }
     }
   }
   return out;

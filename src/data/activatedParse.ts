@@ -1386,7 +1386,9 @@ export interface AlternativeCost {
   // D547 - and WARP: cast from the hand alone for the warp cost; the permanent is exiled at the next end step and
   // its owner may cast it from exile on a later turn (`CardInstance.warpedTurn`).
   // D548 - and AWAKEN (CR 702.113a): the election adds a target land you control and the rider after the spell (`awaken`: N).
-  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle';
+  // D581 - and MUTATE (CR 702.140a): the elected cost targets a non-Human creature with the spell's owner (castTargetSpecs) and
+  // the spell merges with it as it resolves (`mutate.ts`).
+  readonly keyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle' | 'mutate';
   /** D548 - AWAKEN N: the +1/+1 counters the awakened land gets. */
   readonly awaken?: number;
   /**
@@ -1413,7 +1415,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
     // D567 - and Surge (CR 702.117a: another spell cast this turn - the free-for-all has no teammate) and Spectacle
     // (CR 702.137a: an opponent lost life this turn): freerunning's shape, their conditions read by the activation
     // grammar's own reader; a reading that fails refuses the line (D90).
-    const kwAlt = /^(Evoke|Dash|Warp|Blitz|Freerunning|Surge|Spectacle) ((?:\{[^}]+\})+)$/.exec(line);
+    const kwAlt = /^(Evoke|Dash|Warp|Blitz|Freerunning|Surge|Spectacle|Mutate) ((?:\{[^}]+\})+)$/.exec(line);
     if (kwAlt) {
       const kwMana = parseCost(kwAlt[2] ?? '');
       if (kwMana === null) return null;
@@ -1431,7 +1433,7 @@ export function parseAlternativeCost(oracleText: string, parseCost: (raw: string
         returnCost: null,
         exileFromHand: null,
         conditions: kwAlt[1] === 'Freerunning' ? [{ kind: 'freerunning' }] : kwCond !== null ? [kwCond] : [],
-        keyword: kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : kwAlt[1] === 'Freerunning' ? 'freerunning' : kwAlt[1] === 'Surge' ? 'surge' : kwAlt[1] === 'Spectacle' ? 'spectacle' : 'dash',
+        keyword: kwAlt[1] === 'Mutate' ? 'mutate' : kwAlt[1] === 'Evoke' ? 'evoke' : kwAlt[1] === 'Warp' ? 'warp' : kwAlt[1] === 'Blitz' ? 'blitz' : kwAlt[1] === 'Freerunning' ? 'freerunning' : kwAlt[1] === 'Surge' ? 'surge' : kwAlt[1] === 'Spectacle' ? 'spectacle' : 'dash',
       };
     }
     // D566 - `Freerunning—<cost>.` (Escape Detection): ONE chooser verb the cost grammar reads (`readCostVerbs`, D415) in

@@ -366,7 +366,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     // D445 - backup is the engine's only when the abilities printed below it are keywords it can grant.
     if (kw === 'backup' && parseBackup(face?.oracleText ?? '') === null) continue;
     // D449 - evoke and dash are the engine's only when their line read as the face's alternative cost (D560 - and blitz).
-    if ((kw === 'evoke' || kw === 'dash' || kw === 'blitz') && parseAlternativeCost(face?.oracleText ?? '', parseManaCost)?.keyword !== kw) continue;
+    // D581 - and mutate (its target and its merge are the engine's when the line reads).
+    if ((kw === 'evoke' || kw === 'dash' || kw === 'blitz' || kw === 'mutate') && parseAlternativeCost(face?.oracleText ?? '', parseManaCost)?.keyword !== kw) continue;
     // D561 - recover is the engine's only when its cost read as mana (the graveyard trigger asks for it).
     if (kw === 'recover' && parseRecover(face?.oracleText ?? '') === null) continue;
     // D563 - harmonize is the engine's only when its cost read as mana (the graveyard cast pays it).

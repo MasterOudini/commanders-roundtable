@@ -11,6 +11,7 @@
 
 import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
+import { mergedScripts, mergedUnder } from './mutate';
 import type { ColorLetter } from '../data/cardTypes';
 import { parseTypeLine } from '../data/oracleParse';
 import { faceOf } from './oracle';
@@ -120,6 +121,9 @@ function computeDerived(
   }
 
   const chars = layerOne(inst, oracle);
+  // D581 - A MERGED PERMANENT has every card's abilities (CR 702.140e): the printed ones of each card under the top one
+  // join the top card's at layer 1 (its characteristics are the top card's alone - the identity fields).
+  if (inst.merged !== undefined && !inst.faceDown) withMergedAbilities(chars, state, oracle, inst);
 
   // Layer 4 — type-changing. Only the Tier-3 manual override in v1.
   if (inst.typeOverride !== null) chars.typeLine = parseTypeLine(inst.typeOverride);
@@ -316,6 +320,30 @@ function withCopyExceptions(chars: MutableCharacteristics, x: CopyExceptions): M
     // D546 - the copy's colours instead of the copied object's (embalm's white, eternalize's black).
     ...(x.colors !== undefined ? { colors: [...x.colors] } : {}),
   };
+}
+
+/** D581 - the printed abilities of the cards merged under a permanent's top card, joined to its own (CR 702.140e). */
+function withMergedAbilities(chars: MutableCharacteristics, state: GameState, oracle: OracleDb, inst: CardInstance): void {
+  for (const part of mergedUnder(state, inst)) {
+    const card = oracle.byPrinting(part.printingId);
+    if (!card) continue;
+    const face = faceOf(card, part.faceIndex);
+    for (const k of face.keywords) chars.keywords.add(k);
+    chars.landwalk = [...chars.landwalk, ...face.landwalk];
+    chars.toxicAmount += face.toxicAmount;
+    if (face.wardCost !== null || face.wardLife > 0) chars.wards = [...chars.wards, { wardCost: face.wardCost, wardLife: face.wardLife }];
+    chars.producesMana = [...chars.producesMana, ...face.producesMana];
+    const p = face.protection;
+    const q = chars.protection;
+    chars.protection = {
+      colors: [...q.colors, ...p.colors.filter((c) => !q.colors.includes(c))],
+      fromEverything: q.fromEverything || p.fromEverything,
+      ...(q.types !== undefined || p.types !== undefined ? { types: [...(q.types ?? []), ...(p.types ?? [])] } : {}),
+      ...(q.subtypes !== undefined || p.subtypes !== undefined ? { subtypes: [...(q.subtypes ?? []), ...(p.subtypes ?? [])] } : {}),
+      ...(q.categories !== undefined || p.categories !== undefined ? { categories: [...(q.categories ?? []), ...(p.categories ?? [])] } : {}),
+      other: [...q.other, ...p.other],
+    };
+  }
 }
 
 function layerOne(inst: CardInstance, oracle: OracleDb): MutableCharacteristics {
@@ -609,12 +637,13 @@ function staticSourcesFor(
     // D438 - THE REGISTRY-SCALING WALK: the source's OWN script's defs of this layer, not every def of the layer
     // compared by oracleId (N permanents x ~1,000 layer-6 defs per cache-less derive - the tournament profile put
     // 80% of the bot's whole pipeline in this loop). Same sources, same order: a script lists its defs in order.
-    const script = scripts.get(source.oracleId);
-    if (!script) continue;
-    for (const def of script.statics ?? []) {
-      if (def.layer !== layer) continue;
-      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
-      out.push({ sourceId, def });
+    // D581 - its own script's statics, then every merged card's (CR 702.140e).
+    for (const { script, faceIndex } of mergedScripts(scripts, state, source)) {
+      for (const def of script.statics ?? []) {
+        if (def.layer !== layer) continue;
+        if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, faceIndex)) continue;
+        out.push({ sourceId, def });
+      }
     }
   }
   // D475 - an EMBLEM's statics apply from its owner's command zone (CR 114.1): a def that declares `command`

@@ -53,6 +53,12 @@ export function checkInvariants(state: GameState): string[] {
     // to exist made every single cast fail the invariant in the window between
     // the two events, which the fuzzer would report as a corrupt state.
     if (card.zone.kind === 'stack') continue;
+    // D581 - A MERGED CARD has no zone array either: its host is on the battlefield and holds it (CR 730).
+    if (card.zone.kind === 'merged') {
+      const host = card.mergedInto !== undefined ? state.cards[card.mergedInto] : undefined;
+      if (!host || host.zone.kind !== 'battlefield' || !(host.merged ?? []).includes(id)) problems.push(`${id} is merged into ${card.mergedInto ?? 'nothing'}, which does not hold it`);
+      continue;
+    }
     const where = seen.get(id);
     if (!where) {
       problems.push(`${id} (${card.oracleId}) is in no zone`);

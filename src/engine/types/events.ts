@@ -73,7 +73,7 @@ export interface CardMove {
   /** D568 - the resolving spell escaped (CR 702.138b) - the entry's `escapes with` counters. */
   readonly escaped?: true;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
-  readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle';
+  readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle' | 'mutate';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */
   readonly warpedTurn?: number;
   /** D551 - the exile the PLOT action made: the turn it happened, onto the card. */
@@ -310,6 +310,11 @@ export type EventBody =
   | { readonly t: 'AttachmentChanged'; readonly card: InstanceId; readonly to: InstanceId | null }
   | { readonly t: 'FaceDownSet'; readonly card: InstanceId; readonly faceDown: boolean }
   | { readonly t: 'FaceIndexSet'; readonly card: InstanceId; readonly faceIndex: number }
+  /**
+   * D581 - MUTATE (CR 702.140c): the mutating spell's card merges with the host - over it (the merged permanent takes
+   * its characteristics) or under it - and the two are one permanent, the host's (CR 730.2). The spell never enters.
+   */
+  | { readonly t: 'Mutated'; readonly host: InstanceId; readonly card: InstanceId; readonly onTop: boolean; readonly player: PlayerId }
   | { readonly t: 'ControlChanged'; readonly card: InstanceId; readonly controller: PlayerId }
   /** D453 - an Aura's controller takes the enchanted permanent (the memory rides the permanent; CR 302.6 sickness). */
   | { readonly t: 'ControlTakenByAura'; readonly card: InstanceId; readonly controller: PlayerId; readonly source: InstanceId; readonly entry: number; readonly revertTo: PlayerId }

@@ -3,6 +3,7 @@
 
 import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
+import { mergedScripts } from './mutate';
 import { derive, makeScriptCtx, type DeriveCache } from './derive';
 import { protectedFrom } from './protection';
 import { isDetained } from './detain';
@@ -122,14 +123,15 @@ function restrictedBy(
     const source = state.cards[sourceId];
     if (!source) continue;
     // D438 - the source's OWN script's defs (the registry-scaling walk, see derive.ts); `defs` stays the gate.
-    const script = deps.scripts.get(source.oracleId);
-    if (!script) continue;
-    for (const def of script.combat ?? []) {
-      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
-      // CR 613 layer 6 — a silenced permanent restricts nothing.
-      if (!d(deps, sourceId).hasAbilities) continue;
-      ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
-      if (ask(def, ctx, sourceId)) return true;
+    // D581 - its own script's defs, then every merged card's (CR 702.140e).
+    for (const { script, faceIndex } of mergedScripts(deps.scripts, state, source)) {
+      for (const def of script.combat ?? []) {
+        if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, faceIndex)) continue;
+        // CR 613 layer 6 — a silenced permanent restricts nothing.
+        if (!d(deps, sourceId).hasAbilities) continue;
+        ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
+        if (ask(def, ctx, sourceId)) return true;
+      }
     }
   }
   return false;
@@ -149,15 +151,16 @@ function countsBy(deps: CombatDeps, ask: (def: CombatDef, ctx: ScriptCtx, self: 
   for (const sourceId of inPlay(state)) {
     const source = state.cards[sourceId];
     if (!source) continue;
-    const script = deps.scripts.get(source.oracleId);
-    if (!script) continue;
-    for (const def of script.combat ?? []) {
-      if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, source.faceIndex)) continue;
-      if (!d(deps, sourceId).hasAbilities) continue;
-      ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
-      const n = ask(def, ctx, sourceId);
-      if (n === null) continue;
-      out = out === null ? n : fold(out, n);
+    // D581 - its own script's defs, then every merged card's (CR 702.140e).
+    for (const { script, faceIndex } of mergedScripts(deps.scripts, state, source)) {
+      for (const def of script.combat ?? []) {
+        if (!def.activeZones.includes(source.zone.kind) || !defOnFace(def, faceIndex)) continue;
+        if (!d(deps, sourceId).hasAbilities) continue;
+        ctx ??= makeScriptCtx(state, deps.oracle, deps.scripts);
+        const n = ask(def, ctx, sourceId);
+        if (n === null) continue;
+        out = out === null ? n : fold(out, n);
+      }
     }
   }
   return out;

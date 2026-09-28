@@ -379,7 +379,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     } else if (canon === 'backup') {
       // D445 - backup is the engine's only when the abilities printed below it are keywords it can grant.
       if (parseBackup(card.faces[faceIndex]?.oracleText ?? '') !== null) continue;
-    } else if (canon === 'evoke' || canon === 'dash' || canon === 'blitz') {
+    // D581 - and mutate: the engine's when its line read as the face's alternative cost (the target, the merge).
+    } else if (canon === 'evoke' || canon === 'dash' || canon === 'blitz' || canon === 'mutate') {
       // D449 - evoke and dash are the engine's when their line read as the face's alternative cost (D560 - and blitz).
       if (parseAlternativeCost(card.faces[faceIndex]?.oracleText ?? '', parseManaCost)?.keyword === canon) continue;
     } else if (canon === 'recover') {

@@ -773,6 +773,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D581 - mutate: `Mutate {cost}` is the engine's now (the mutating spell's target - a non-Human creature its caster owns - the merge over or under, every card's abilities, the whole pile leaving); what stays is a mutate card the row maker refuses for another line.
+  ['Parcelbeast', 'the row maker: a mutate row with an activated ability (an under card\'s activated abilities are not offered) - its Mutate reads since D581 (D581)'],
+  ['Sawtusk Demolisher', 'the row maker: a clause done by the previous object\'s controller on the opponent\'s side the suite cannot read (a token, a discard; not this wave): Its controller creates a 3/3 green Beast creature token. - its Mutate reads since D581 (D581)'],
   // D579 - transform: `Transform this creature.` (this artifact, ~, it) is the engine's now (the source turned to its other face, only while the face that prints it is up); what stays is a transforming permanent whose other line the row maker refuses.
   ['Restless Bloodseeker // Bloodsoaked Reveler', 'the row maker: the face 0 cost: a sacrifice cost with no fixture the suite can put: Blood tokens - its transform reads since D579 (D579)'],
   ['Bloodline Keeper // Lord of Lineage', 'the row maker: the face 0 activation condition: if you control five or more Vampires - its transform reads since D579 (D579)'],
@@ -1256,7 +1259,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hivis of the Scale', 'a control duration outside the two the engine reads (`for as long as` + you control Hivis and Hivis remains tapped) (D531)'],
   ['Ogre Geargrabber', 'the row maker: trigger payload not a pump: Gain control of target Equipment an opponent controls until (D531)'],
   ['Visions of Duplicity', 'an exchange of two targets under one phrase (`exchange control of two target creatures`) - the rule reads `A and target B` (D531)'],
-  ['Souvenir Snatcher', 'the row maker: multi-face or unusual layout (D531)'],
   ['Modify Memory', 'an exchange of two targets under one phrase (`exchange control of two target creatures`) - the rule reads `A and target B` (D531)'],
   ['Perplexing Chimera', 'the row maker: trigger payload not a pump: Exchange control of this creature and that spell. If you do, (D531)'],
   // D530 - the kicker's other costs: the two-kicker face (the cast naming which) and the kicker paid by a cost that is not mana are the engine's now; what stays is the named kicker under an enters-with, a cast trigger or a spell clause, the heads that watch for a kicked spell and the kicked riders outside the vocabulary.
@@ -2216,7 +2218,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Leyline Phantom', "trigger head not in the library (When this creature deals combat damage, return it to its owner's hand.)"],
   ['Mayhem Devil', 'trigger head not in the library (Whenever a player sacrifices a permanent, this creature deals 1 damage)'],
   ['Mischievous Chimera', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
-  ['Mysterious Egg', 'trigger head not in the library (Whenever this creature mutates, put a +1/+1 counter on it.)'],
+  ['Mysterious Egg', 'the row maker: a mutates head whose mutate cost the test cannot pay: no mutate line - the mutates head is in the library since D581; a card with no Mutate line is mutated onto (another mutate card cast onto it) (D581)'],
   ['Rampaging Classmate', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each other attacking creature.)'],
   ['Renegade Freighter', 'an attack head on a card with no creature body (vehicleAttacks)'],
   ['Saprazzan Raider', "trigger head not in the library (When this creature becomes blocked, return it to its owner's hand.)"],
@@ -3259,7 +3261,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // resolve itself just created — a resolve cannot see its own effects, and
   // chooseFromZone has no way to say "only the ones I just binned".
   ["Yawgmoth's Vile Offering", 'cast-permission condition'],
-  ['Zagoth Mamba', 'mutate mechanic'],
+  ['Zagoth Mamba', 'the row maker: a mutates head whose mutate cost the test cannot pay: no mutate line - the mutates head is in the library since D581; a card with no Mutate line is mutated onto (another mutate card cast onto it) (D581)'],
   ['Zero Point Ballad', 'script-raised prompt'],
   ["Zoyowa's Justice", 'a spell with a line outside the vocabulary: Then that player discovers X, where X is its mana value. - another player discovers a counted X; discover N reads since D572 (D572)'],
   // D358 - the wave the library search opened landed 69 of 84; these fifteen are what the row

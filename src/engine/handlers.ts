@@ -66,7 +66,7 @@ import { exploreChain } from './explore';
 import { conniveAfterDiscard } from './connive';
 import { apply } from './reducer';
 import { bottomCountFor, drawFromTop } from './setup';
-import { abilityOfRef, activatedModesFor, canExert, legalModesFor, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
+import { abilityOfRef, activatedModesFor, canExert, legalModesFor, mutateMerge, resolveAbility, stackPendingTriggers, targetingSourceFor, triggerDefFor, type EngineDeps } from './loop';
 import { modeChoiceProblem, modeSpecs, modesInOrder } from './modes';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
 import type { CardMove, EventBody } from './types/events';
@@ -177,6 +177,8 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
       return answerProliferate(state, intent, deps);
     case 'AnswerEndure':
       return answerEndure(state, intent, deps);
+    case 'AnswerMutateOrder':
+      return answerMutateOrder(state, intent, deps);
     case 'Concede':
       return concede(state, intent.player);
     case 'RollDice':
@@ -4889,6 +4891,29 @@ function answerEndure(
   }
   // D484 - the clauses after the endure.
   return accept(events, resumeContinuation(state, deps, events, awaiting.continuation));
+}
+
+/**
+ * D581 - MUTATE (CR 702.140c): the mutating spell over the creature it targets, or under it - its controller says now, as
+ * it resolves. Nothing moved since the question (an `Awaiting` blocks every other intent), so the host it named is the one.
+ */
+function answerMutateOrder(
+  state: GameState,
+  intent: Extract<Intent, { t: 'AnswerMutateOrder' }>,
+  deps: EngineDeps,
+): HandleResult {
+  const awaiting = state.priority.awaiting;
+  if (awaiting?.kind !== 'mutateOrder' || awaiting.player !== intent.player) {
+    return reject('notAwaitingThat', 'You are not being asked where a mutating spell goes.');
+  }
+  if (awaiting.stackId !== intent.stackId) {
+    return reject('notAwaitingThat', 'That is not the spell you are being asked about.');
+  }
+  const obj = state.stack[state.stack.length - 1];
+  if (!obj || obj.id !== awaiting.stackId) {
+    return reject('noSuchCard', 'That spell is no longer on top of the stack.');
+  }
+  return accept([{ t: 'AwaitingSet', awaiting: null }, ...mutateMerge(state, deps, obj, awaiting.host, intent.over)]);
 }
 
 function concede(state: GameState, player: PlayerId): HandleResult {

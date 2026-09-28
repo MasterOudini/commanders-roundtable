@@ -514,8 +514,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // seat, the third in Zurgo Bellstriker's third slot (the seat's card count and the shuffle kept, D553's rule).
   { names: ['Calciderm'], copiesPerSeat: 3,
     counterKeys: ['vanishingTicks'], rotHistory: 'D450, D578' },
-  { names: ['Blastoderm'], copiesPerSeat: 2,
-    counterKeys: ['fadingFires'], rotHistory: 'D450' },
+  // D581 - ROTTED to 0 over 500 seeds (5 / 5 / 2 at the three gates before) once the mutate staple reshaped the pools:
+  // three a seat, the third in Shock Brigade's fourth slot (the seat's card count and the shuffle kept, D553's rule).
+  { names: ['Blastoderm'], copiesPerSeat: 3,
+    counterKeys: ['fadingFires'], rotHistory: 'D450, D581' },
   // D451 - the hand activations: a reinforce 4/4 a seat (two counters on a target for {1}{G} and the card).
   { names: ['Bannerhide Krushok'], copiesPerSeat: 2,
     counterKeys: ['handActivations'], rotHistory: 'D451' },
@@ -541,8 +543,9 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // the four-mana Lancer was never cast over 150 seeds - a seat holds three basics, D445). D465 - FOUR a seat: two
   // read 0 at 60 and 150 seeds on the D465 tree (15 over the D464 gate`s 500), and the rate is the deal, not the
   // mechanism (8 fires in one 20-seed shard at twelve a seat).
-  { names: ['Shock Brigade'], copiesPerSeat: 4,
-    counterKeys: ['mobilizeFired'], rotHistory: 'D463, D465' },
+  // D581 - three a seat: its fourth slot went to Blastoderm (the swap above; mobilize fired 23 over D581's first gate).
+  { names: ['Shock Brigade'], copiesPerSeat: 3,
+    counterKeys: ['mobilizeFired'], rotHistory: 'D463, D465, D581' },
   // D465 - the chosen creature type: a Shared Triumph a seat ({1}{W}; the entry prompt the driver answers Bear,
   // the anthem the generated static reads off the answer).
   { names: ['Shared Triumph'], copiesPerSeat: 2,
@@ -574,8 +577,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D484 - the prompt continuation: a Vampiric Tutor a seat ({B}; `Search your library for a card, then shuffle and put
   // that card on top. You lose 2 life.`) - the search always asks while the library holds a card, the question carries
   // the life loss, and the driver's answer (it finds whenever it can) runs it.
-  { names: ['Vampiric Tutor'], copiesPerSeat: 3,
-    counterKeys: ['continuationsCarried', 'continuationsRun'], rotHistory: 'D484' },
+  // D581 - two a seat: its third slot went to Vulpikeet (the swap below; continuations 321 / 150 over D578's gate).
+  { names: ['Vampiric Tutor'], copiesPerSeat: 2,
+    counterKeys: ['continuationsCarried', 'continuationsRun'], rotHistory: 'D484, D581' },
+  // D581 - MUTATE (CR 702.140): a Vulpikeet a seat ({2}{W}; mutate {2}{W} onto a non-Human creature of its own - the
+  // question asked, over or under at random, and the merge), in Vampiric Tutor's third slot (the seat's card count and
+  // the shuffle kept, D553's rule): the 60-seed canary cast no mutating spell before it.
+  { names: ['Vulpikeet'], copiesPerSeat: 1,
+    counterKeys: ['mutateAsks', 'mutations'], rotHistory: 'D581' },
   // D485 - the token copy (CR 707): two Cackling Counterparts a seat ({1}{U}{U}; `Create a token that's a copy of
   // target creature you control`) - a copy made whenever the driver aims it at a creature it controls.
   { names: ['Cackling Counterpart'], copiesPerSeat: 2,
@@ -1120,6 +1129,9 @@ function answerFor(state: GameState, p: Picker): Intent | null {
     // D569 - endure: a coin flip - the counters, or the Spirit (the harness always takes the counters).
     case 'endureChoice':
       return { t: 'AnswerEndure', player: awaiting.player, counters: p.below(2) === 0 };
+    // D581 - mutate: a coin flip - over or under (the harness always goes under).
+    case 'mutateOrder':
+      return { t: 'AnswerMutateOrder', player: awaiting.player, stackId: awaiting.stackId, over: p.below(2) === 0 };
     case 'searchLibrary': {
       // ⚠️ FINDS SOMETHING WHENEVER IT CAN. Failing to find is legal and the harness does it, but
       // a gate that always declined would never move a card, never tap one and never shuffle -
@@ -1886,6 +1898,9 @@ interface Run {
   readonly splicedCasts: number;
   /** D577 - the times it became day or night (CR 726). */
   readonly dayNightChanges: number;
+  /** D581 - the mutate questions asked, and the merges (CR 702.140c). */
+  readonly mutateAsks: number;
+  readonly mutations: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2450,6 +2465,8 @@ function runOne(seed: number): Run {
     rolesCreated: game.log.filter((e) => e.body.t === 'TokenCreated' && ROLE_PRINTINGS.has(e.body.printingId)).length,
     splicedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.spliced ?? []).length > 0).length,
     dayNightChanges: game.log.filter((e) => e.body.t === 'DayNightChanged').length,
+    mutateAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'mutateOrder').length,
+    mutations: game.log.filter((e) => e.body.t === 'Mutated').length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2840,6 +2857,8 @@ const TOTAL_KEYS = [
   'rolesCreated',
   'splicedCasts',
   'dayNightChanges',
+  'mutateAsks',
+  'mutations',
   'crownings',
   'ringTempts',
   'ringAbilities',

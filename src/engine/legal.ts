@@ -251,6 +251,10 @@ export const FORETELL_COST = parseManaCost('{2}');
  */
 /** D548 - AWAKEN's own clause (CR 702.113a), read once by the target grammar: a land you control. */
 const AWAKEN_LAND: TargetSpec | undefined = parseTargetClauses('Put a +1/+1 counter on target land you control.')[0];
+// D581 - MUTATE'S TARGET (CR 702.140a): a non-Human creature with the same owner as the spell - owned by its caster, whoever
+// controls it (the grammar's `you control` widened to any controller, `ownedByYou` added).
+const MUTATE_BASE: TargetSpec | undefined = parseTargetClauses('Put a +1/+1 counter on target non-Human creature you control.')[0];
+const MUTATE_TARGET: TargetSpec | undefined = MUTATE_BASE === undefined ? undefined : { ...MUTATE_BASE, controller: 'any', restrict: { ...(MUTATE_BASE.restrict ?? {}), ownedByYou: true }, text: 'target non-Human creature you own' };
 /**
  * D548 - A SPELL'S TARGET CLAUSES AS CAST: its printed ones, and the awakened land after them when its awaken cost is
  * elected. The cast validation, the targets prompt, the fizzle rule and the still-legal picks all ask this, never
@@ -259,6 +263,8 @@ const AWAKEN_LAND: TargetSpec | undefined = parseTargetClauses('Put a +1/+1 coun
 export function castTargetSpecs(face: OracleFace, alternative: boolean, spliced: readonly OracleFace[] = []): readonly TargetSpec[] {
   // D576 - the spliced cards' clauses after the spell's own (CR 702.47b; a splice never rides an alternative cost).
   if (spliced.length > 0) return [...face.targets, ...spliced.flatMap((f) => f.targets)];
+  // D581 - the elected mutate cost makes it a MUTATING creature spell: its one target, the creature it merges with.
+  if (alternative && face.alternativeCost?.keyword === 'mutate' && MUTATE_TARGET !== undefined) return [...face.targets, MUTATE_TARGET];
   if (!alternative || face.alternativeCost?.keyword !== 'awaken' || AWAKEN_LAND === undefined) return face.targets;
   return [...face.targets, AWAKEN_LAND];
 }
