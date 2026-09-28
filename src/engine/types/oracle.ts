@@ -771,6 +771,8 @@ export type EffectKind =
    * its attachments (indirectly), treated as though it does not exist until its controller's next untap step.
    */
   | 'phaseOut'
+  /** D579 - TRANSFORM (CR 701.28): the source turned to its other face (a transforming double-faced card only). */
+  | 'transform'
   /**
    * D399 - "<target> can't be blocked this turn." (the evasion with an END, CR 509.1b's other
    * side): an until-end-of-turn entry on the ATTACKER that `canBlock` reads and cleanup clears.
@@ -1289,7 +1291,7 @@ export interface PaySpec {
  * `selfAimed.test.ts`. A kind listed here without a rule would be a subject the
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first
@@ -1553,6 +1555,12 @@ export interface EffectSpec {
    * consumes in printed order after its subject. Absent on every one-operand clause.
    */
   readonly otherTargetIndex?: number;
+  /**
+   * D579 - `transform` only: the face that prints the ability - its transform happens only while that face is still up
+   * (CR 701.28c: the permanent has not transformed since the ability was put on the stack). Set by a generated two-faced
+   * script (`transformFrom` in scripts/vocabulary.ts); absent, the source transforms from whichever face is up.
+   */
+  readonly transformFrom?: number;
   /** D395 - the animate family's shape: what the permanent becomes until end of turn. */
   readonly animate?: {
     readonly power: number;

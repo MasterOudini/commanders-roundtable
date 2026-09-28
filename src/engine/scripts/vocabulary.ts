@@ -94,6 +94,14 @@ function rewriteSelf(text: string, opening: boolean): string {
  * The effect specs of a printed payload sentence, or a throw naming the card
  * and the sentence.
  */
+/**
+ * D579 - a two-faced script's transform on face `face`: each `transform` effect carries the face that prints it, so it
+ * happens only while that face is still up (CR 701.28c).
+ */
+export function transformFrom(effects: readonly EffectSpec[], face: number): readonly EffectSpec[] {
+  return effects.map((e) => (e.kind === 'transform' ? { ...e, transformFrom: face } : e));
+}
+
 export function vocabularyEffects(payload: string, name: string, opts: { readonly memo?: boolean } = {}): readonly EffectSpec[] {
   // D476 - a def under a head that memoises a number (the damage dealt) may read `that much` / `that many`.
   const parsed = parseEffects(recipientAsSelf(payload), name, true, undefined, false, opts.memo === true);

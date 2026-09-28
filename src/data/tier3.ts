@@ -368,6 +368,9 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
   }
 
   for (const raw of card.keywords) {
+    // D579 - a two-faced card's keyword is its face's only where that face prints it (parseKeywords' filter): the back face's
+    // Crew is no note on the front, whose abilities cannot carry it.
+    if (card.faces.length > 1 && !(face?.oracleText ?? '').toLowerCase().includes(raw.trim().toLowerCase())) continue;
     const canon = canonicalKeyword(raw);
     // D439 - a priced keyword is the engine's only for a price it asks for (`readUpkeepPrice`, the one reader);
     // an echo of `Discard a card` keeps its note.

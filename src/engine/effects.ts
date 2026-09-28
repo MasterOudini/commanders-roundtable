@@ -1647,6 +1647,25 @@ export function effectResult(
         break;
       }
 
+      // D579 - TRANSFORM (CR 701.28): the source turned to its other face - a transforming double-faced card only (701.28b),
+      // on the battlefield and face up; a daybound or nightbound permanent turns with the day and the night alone (702.145);
+      // an ability's own transform only while the face that prints it is up (701.28c - `transformFrom`).
+      case 'transform': {
+        if (aim?.kind !== 'card') break;
+        const card = state.cards[aim.id];
+        if (!card || card.zone.kind !== 'battlefield' || card.faceDown || card.phasedOut) break;
+        const printing = deps.oracle.byPrinting(card.printingId);
+        if (!printing || printing.layout !== 'transform' || printing.faces.length !== 2) break;
+        const from = card.faceIndex ?? 0;
+        if (effect.transformFrom !== undefined && from !== effect.transformFrom) break;
+        const kws = derive(state, deps.oracle, deps.scripts, aim.id, cache).keywords;
+        if (kws.has('daybound') || kws.has('nightbound')) break;
+        const to = from === 0 ? 1 : 0;
+        out.push({ t: 'FaceIndexSet', card: aim.id, faceIndex: to });
+        out.push(narrated(`${obj.label}: ${faceOf(printing, from).name} transforms into ${faceOf(printing, to).name}.`, obj.controller, obj.identity));
+        break;
+      }
+
       case 'discover': {
         if (out.some((e) => e.t === 'AwaitingSet')) break;
         let now = state;

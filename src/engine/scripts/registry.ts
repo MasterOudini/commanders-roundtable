@@ -7,6 +7,31 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SCREECHING_BAT_STALKING_VAMPIRE_SCRIPT } from './cards/screechingBatStalkingVampire';
+import { PANICKED_BYSTANDER_CACKLING_CULPRIT_SCRIPT } from './cards/panickedBystanderCacklingCulprit';
+import { MYSTIC_SKULL_MYSTIC_MONSTROSITY_SCRIPT } from './cards/mysticSkullMysticMonstrosity';
+import { SMOLDERING_WEREWOLF_ERUPTING_DREADWOLF_SCRIPT } from './cards/smolderingWerewolfEruptingDreadwolf';
+import { ULVENWALD_CAPTIVE_ULVENWALD_ABOMINATION_SCRIPT } from './cards/ulvenwaldCaptiveUlvenwaldAbomination';
+import { DESPERATE_FARMER_DEPRAVED_HARVESTER_SCRIPT } from './cards/desperateFarmerDepravedHarvester';
+import { PYRETIC_PRANKSTER_GLISTENING_GOREMONGER_SCRIPT } from './cards/pyreticPranksterGlisteningGoremonger';
+import { ULVENWALD_ODDITY_ULVENWALD_BEHEMOTH_SCRIPT } from './cards/ulvenwaldOddityUlvenwaldBehemoth';
+import { CURIOUS_HOMUNCULUS_VORACIOUS_READER_SCRIPT } from './cards/curiousHomunculusVoraciousReader';
+import { DOCENT_OF_PERFECTION_FINAL_ITERATION_SCRIPT } from './cards/docentOfPerfectionFinalIteration';
+import { THRABEN_SENTRY_THRABEN_MILITIA_SCRIPT } from './cards/thrabenSentryThrabenMilitia';
+import { BONDED_HERDBEAST_PLATED_KILNBEAST_SCRIPT } from './cards/bondedHerdbeastPlatedKilnbeast';
+import { HEIR_OF_FALKENRATH_HEIR_TO_THE_NIGHT_SCRIPT } from './cards/heirOfFalkenrathHeirToTheNight';
+import { HARRIED_ARTISAN_PHYREXIAN_SKYFLAYER_SCRIPT } from './cards/harriedArtisanPhyrexianSkyflayer';
+import { PIOUS_EVANGEL_WAYWARD_DISCIPLE_SCRIPT } from './cards/piousEvangelWaywardDisciple';
+import { CHOSEN_OF_MARKOV_MARKOVS_SERVANT_SCRIPT } from './cards/chosenOfMarkovMarkovsServant';
+import { SIDEQUEST_CARD_COLLECTION_MAGICKED_CARD_SCRIPT } from './cards/sidequestCardCollectionMagickedCard';
+import { ECSTATIC_AWAKENER_AWOKEN_DEMON_SCRIPT } from './cards/ecstaticAwakenerAwokenDemon';
+import { LONE_RIDER_IT_THAT_RIDES_AS_ONE_SCRIPT } from './cards/loneRiderItThatRidesAsOne';
+import { AUTUMNAL_GLOOM_ANCIENT_OF_THE_EQUINOX_SCRIPT } from './cards/autumnalGloomAncientOfTheEquinox';
+import { THRABEN_GARGOYLE_STONEWING_ANTAGONIZER_SCRIPT } from './cards/thrabenGargoyleStonewingAntagonizer';
+import { KESSIG_PROWLER_SINUOUS_PREDATOR_SCRIPT } from './cards/kessigProwlerSinuousPredator';
+import { CLOISTERED_YOUTH_UNHOLY_FIEND_SCRIPT } from './cards/cloisteredYouthUnholyFiend';
+import { SERAPH_OF_NEW_CAPENNA_SERAPH_OF_NEW_PHYREXIA_SCRIPT } from './cards/seraphOfNewCapennaSeraphOfNewPhyrexia';
+import { TARKIR_DUNESHAPER_BURNISHED_DUNESTOMPER_SCRIPT } from './cards/tarkirDuneshaperBurnishedDunestomper';
 import { RECKLESS_STORMSEEKER_STORM_CHARGED_SLASHER_SCRIPT } from './cards/recklessStormseekerStormChargedSlasher';
 import { LAMBHOLT_RACONTEUR_LAMBHOLT_RAVAGER_SCRIPT } from './cards/lambholtRaconteurLambholtRavager';
 import { HOOKHAND_MARINER_RIPHOOK_RAIDER_SCRIPT } from './cards/hookhandMarinerRiphookRaider';
@@ -8348,6 +8373,31 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SCREECHING_BAT_STALKING_VAMPIRE_SCRIPT,
+  PANICKED_BYSTANDER_CACKLING_CULPRIT_SCRIPT,
+  MYSTIC_SKULL_MYSTIC_MONSTROSITY_SCRIPT,
+  SMOLDERING_WEREWOLF_ERUPTING_DREADWOLF_SCRIPT,
+  ULVENWALD_CAPTIVE_ULVENWALD_ABOMINATION_SCRIPT,
+  DESPERATE_FARMER_DEPRAVED_HARVESTER_SCRIPT,
+  PYRETIC_PRANKSTER_GLISTENING_GOREMONGER_SCRIPT,
+  ULVENWALD_ODDITY_ULVENWALD_BEHEMOTH_SCRIPT,
+  CURIOUS_HOMUNCULUS_VORACIOUS_READER_SCRIPT,
+  DOCENT_OF_PERFECTION_FINAL_ITERATION_SCRIPT,
+  THRABEN_SENTRY_THRABEN_MILITIA_SCRIPT,
+  BONDED_HERDBEAST_PLATED_KILNBEAST_SCRIPT,
+  HEIR_OF_FALKENRATH_HEIR_TO_THE_NIGHT_SCRIPT,
+  HARRIED_ARTISAN_PHYREXIAN_SKYFLAYER_SCRIPT,
+  PIOUS_EVANGEL_WAYWARD_DISCIPLE_SCRIPT,
+  CHOSEN_OF_MARKOV_MARKOVS_SERVANT_SCRIPT,
+  SIDEQUEST_CARD_COLLECTION_MAGICKED_CARD_SCRIPT,
+  ECSTATIC_AWAKENER_AWOKEN_DEMON_SCRIPT,
+  LONE_RIDER_IT_THAT_RIDES_AS_ONE_SCRIPT,
+  AUTUMNAL_GLOOM_ANCIENT_OF_THE_EQUINOX_SCRIPT,
+  THRABEN_GARGOYLE_STONEWING_ANTAGONIZER_SCRIPT,
+  KESSIG_PROWLER_SINUOUS_PREDATOR_SCRIPT,
+  CLOISTERED_YOUTH_UNHOLY_FIEND_SCRIPT,
+  SERAPH_OF_NEW_CAPENNA_SERAPH_OF_NEW_PHYREXIA_SCRIPT,
+  TARKIR_DUNESHAPER_BURNISHED_DUNESTOMPER_SCRIPT,
   RECKLESS_STORMSEEKER_STORM_CHARGED_SLASHER_SCRIPT,
   LAMBHOLT_RACONTEUR_LAMBHOLT_RAVAGER_SCRIPT,
   HOOKHAND_MARINER_RIPHOOK_RAIDER_SCRIPT,

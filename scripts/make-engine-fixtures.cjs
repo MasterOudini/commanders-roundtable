@@ -10359,6 +10359,36 @@ const WANTED = [
   'Child of the Pack // Savage Packmate',
   'Wolfkin Outcast // Wedding Crasher',
   // D578 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D579 - TRANSFORM: the transforming card the proofs deal (the rows bring the rest).
+  'Ulvenwald Captive // Ulvenwald Abomination',
+  // D579 - TRANSFORM: the rows the whole-leftover row maker rowed once a self transform was the engine's (the source turned to its other face).
+  'Panicked Bystander // Cackling Culprit',
+  'Mystic Skull // Mystic Monstrosity',
+  'Smoldering Werewolf // Erupting Dreadwolf',
+  'Desperate Farmer // Depraved Harvester',
+  'Pyretic Prankster // Glistening Goremonger',
+  'Ulvenwald Oddity // Ulvenwald Behemoth',
+  'Curious Homunculus // Voracious Reader',
+  'Docent of Perfection // Final Iteration',
+  'Thraben Sentry // Thraben Militia',
+  'Bonded Herdbeast // Plated Kilnbeast',
+  'Heir of Falkenrath // Heir to the Night',
+  'Harried Artisan // Phyrexian Skyflayer',
+  'Pious Evangel // Wayward Disciple',
+  "Chosen of Markov // Markov's Servant",
+  'Sidequest: Card Collection // Magicked Card',
+  'Ecstatic Awakener // Awoken Demon',
+  'Lone Rider // It That Rides as One',
+  'Autumnal Gloom // Ancient of the Equinox',
+  'Thraben Gargoyle // Stonewing Antagonizer',
+  'Kessig Prowler // Sinuous Predator',
+  'Cloistered Youth // Unholy Fiend',
+  'Seraph of New Capenna // Seraph of New Phyrexia',
+  'Tarkir Duneshaper // Burnished Dunestomper',
+  // D579 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D579 - TRANSFORM, the second batch: the payment-branch row (a transform if you pay).
+  'Screeching Bat // Stalking Vampire',
+  // D579 - the fixtures the second batch's suite deals that the generator DERIVED (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10796,6 +10826,8 @@ const WANTED_TOKENS = [
   { name: 'Monster // Virtuous', set: 'twoc', cn: '1', key: 'MONSTER_VIRTUOUS_ROLE_TOKEN' },
   // D575 - the Royal // Young Hero Role printing (Royal and Young Hero join the Role table with the derived ward).
   { name: 'Royal // Young Hero', set: 'twoe', cn: '16', key: 'ROYAL_YOUNG_HERO_ROLE_TOKEN' },
+  // D579 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Human Wizard', set: 'tinr', cn: '5', key: 'HUMAN_WIZARD_1_1_U_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

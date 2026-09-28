@@ -313814,6 +313814,1297 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "ULVENWALD_CAPTIVE_ULVENWALD_ABOMINATION": {
+    "scryfallId": "0dbaef61-fa39-4ea7-bc21-445401c373e7",
+    "oracleId": "0272ca81-e727-4f4b-b06e-072d70bb5558",
+    "name": "Ulvenwald Captive // Ulvenwald Abomination",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Ulvenwald Captive",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Werewolf Horror",
+        "oracleText": "Defender\n{T}: Add {G}.\n{5}{G}{G}: Transform this creature.",
+        "flavorText": "\"Even on a plane as dark as this one, nature will organize a defense against the unnatural.\"\n—Nissa Revane",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "0dbaef61-fa39-4ea7-bc21-445401c373e7-0"
+      },
+      {
+        "name": "Ulvenwald Abomination",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Werewolf",
+        "oracleText": "{T}: Add {C}{C}.",
+        "flavorText": "\"The Eldrazi are all too practiced at twisting natural into unnatural.\"\n—Nissa Revane",
+        "power": "4",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Rahn",
+        "imageId": "0dbaef61-fa39-4ea7-bc21-445401c373e7-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "Defender"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "PANICKED_BYSTANDER_CACKLING_CULPRIT": {
+    "scryfallId": "031c5cff-e579-432a-bcee-864b12eb0558",
+    "oracleId": "fc58a086-2743-4465-bf16-4a20701cd3b1",
+    "name": "Panicked Bystander // Cackling Culprit",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Panicked Bystander",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "Whenever this creature or another creature you control dies, you gain 1 life.\nAt the beginning of your end step, if you gained 3 or more life this turn, transform this creature.",
+        "flavorText": "\"Help! There's been a horrible murder!\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "031c5cff-e579-432a-bcee-864b12eb0558-0"
+      },
+      {
+        "name": "Cackling Culprit",
+        "manaCost": "",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "Whenever this creature or another creature you control dies, you gain 1 life.\n{1}{B}: This creature gains deathtouch until end of turn.",
+        "flavorText": "\"Ha! They fall for it every time.\"",
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aaron Miller",
+        "imageId": "031c5cff-e579-432a-bcee-864b12eb0558-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "28",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "MYSTIC_SKULL_MYSTIC_MONSTROSITY": {
+    "scryfallId": "04c75e86-d5aa-43b0-be30-1a5115b5bc13",
+    "oracleId": "1a7e367e-1d8d-463d-a35f-4bad44a5ebea",
+    "name": "Mystic Skull // Mystic Monstrosity",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Mystic Skull",
+        "manaCost": "{2}",
+        "typeLine": "Artifact",
+        "oracleText": "{1}, {T}: Add one mana of any color.\n{5}, {T}: Transform this artifact.",
+        "flavorText": "It waited on the barn wall for decades, forgotten, looking for the perfect opportunity.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "04c75e86-d5aa-43b0-be30-1a5115b5bc13-0"
+      },
+      {
+        "name": "Mystic Monstrosity",
+        "manaCost": "",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Lands you control have \"{T}: Add one mana of any color.\"",
+        "flavorText": "Under the light of an unnatural moon, it walked out on legs of straw with joints of hinges ripped from the barn doors.",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Joe Slucher",
+        "imageId": "04c75e86-d5aa-43b0-be30-1a5115b5bc13-1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "256",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SMOLDERING_WEREWOLF_ERUPTING_DREADWOLF": {
+    "scryfallId": "0b0eab47-af62-4ee8-99cf-a864fadade2d",
+    "oracleId": "372a01f7-6e58-4424-9405-0ee4acbb9346",
+    "name": "Smoldering Werewolf // Erupting Dreadwolf",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Smoldering Werewolf",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Werewolf Horror",
+        "oracleText": "When this creature enters, it deals 1 damage to each of up to two target creatures.\n{4}{R}{R}: Transform this creature.",
+        "flavorText": "\"Never thought I'd see the day I'd be wishing to see just a plain old werewolf.\"\n—Raf Gyel of the Quiver of Kessig",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zack Stella",
+        "imageId": "0b0eab47-af62-4ee8-99cf-a864fadade2d-0"
+      },
+      {
+        "name": "Erupting Dreadwolf",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Werewolf",
+        "oracleText": "Whenever this creature attacks, it deals 2 damage to any target.",
+        "flavorText": "\". . . heck, I'd settle for anything that even resembled a werewolf.\"\n—Raf Gyel of the Quiver of Kessig",
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Zack Stella",
+        "imageId": "0b0eab47-af62-4ee8-99cf-a864fadade2d-1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "DESPERATE_FARMER_DEPRAVED_HARVESTER": {
+    "scryfallId": "0ec488de-fded-4df9-97ed-ba46cbacfdbf",
+    "oracleId": "60d591f6-6d84-45d2-9d78-a2ef07a3e403",
+    "name": "Desperate Farmer // Depraved Harvester",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Desperate Farmer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "Lifelink\nWhen another creature you control dies, transform this creature.",
+        "flavorText": "A tragic moment pushed him to a blasphemous act.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "0ec488de-fded-4df9-97ed-ba46cbacfdbf-0"
+      },
+      {
+        "name": "Depraved Harvester",
+        "manaCost": "",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "Lifelink",
+        "flavorText": "Once he'd tasted that dark power, there was no turning back.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Valera Lutfullina",
+        "imageId": "0ec488de-fded-4df9-97ed-ba46cbacfdbf-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Lifelink",
+      "Transform"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "105",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "PYRETIC_PRANKSTER_GLISTENING_GOREMONGER": {
+    "scryfallId": "0ee40c4b-2ca3-4cda-bc9e-451455c17adc",
+    "oracleId": "f810e185-4498-483b-ab37-0c583dae0eaf",
+    "name": "Pyretic Prankster // Glistening Goremonger",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Pyretic Prankster",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "{3}{B/P}: Transform this creature. Activate only as a sorcery. ({B/P} can be paid with either {B} or 2 life.)",
+        "flavorText": "It'd played the same prank a hundred times, never noticing the flame's slowly evolving pattern.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Francis Tneh",
+        "imageId": "0ee40c4b-2ca3-4cda-bc9e-451455c17adc-0"
+      },
+      {
+        "name": "Glistening Goremonger",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Devil",
+        "oracleText": "When this creature dies, each opponent sacrifices an artifact or creature of their choice.",
+        "flavorText": "When it realized the symbol's true, glorious meaning, it began marking every surface on Innistrad with oil-soaked claws.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Francis Tneh",
+        "imageId": "0ee40c4b-2ca3-4cda-bc9e-451455c17adc-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "ULVENWALD_ODDITY_ULVENWALD_BEHEMOTH": {
+    "scryfallId": "1c068cd5-6dcb-48d8-b796-31f5204db84a",
+    "oracleId": "90379825-1894-4b79-bf72-445175e97ffb",
+    "name": "Ulvenwald Oddity // Ulvenwald Behemoth",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Ulvenwald Oddity",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Trample, haste\n{5}{G}{G}: Transform this creature.",
+        "flavorText": "\"Obviously it's dangerous, but I've never seen anything like it. This could be an entirely new species! I say we follow it.\"\n—Halana, Kessig ranger",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "1c068cd5-6dcb-48d8-b796-31f5204db84a-0"
+      },
+      {
+        "name": "Ulvenwald Behemoth",
+        "manaCost": "",
+        "typeLine": "Creature — Beast Horror",
+        "oracleText": "Trample, haste\nOther creatures you control get +1/+1 and have trample and haste.",
+        "flavorText": "\"We've learned enough! I say we run.\"\n—Alena, Kessig trapper",
+        "power": "8",
+        "toughness": "8",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "1c068cd5-6dcb-48d8-b796-31f5204db84a-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Transform",
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "pvow",
+    "collectorNumber": "225s",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CURIOUS_HOMUNCULUS_VORACIOUS_READER": {
+    "scryfallId": "22e816af-df55-4a3f-a6e7-0ff3bb1b45b5",
+    "oracleId": "c38db10f-c0b7-4391-b49a-77079a4d087c",
+    "name": "Curious Homunculus // Voracious Reader",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Curious Homunculus",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Homunculus",
+        "oracleText": "{T}: Add {C}. Spend this mana only to cast an instant or sorcery spell.\nAt the beginning of your upkeep, if there are three or more instant and/or sorcery cards in your graveyard, transform this creature.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "22e816af-df55-4a3f-a6e7-0ff3bb1b45b5-0"
+      },
+      {
+        "name": "Voracious Reader",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Homunculus",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nInstant and sorcery spells you cast cost {1} less to cast.",
+        "flavorText": "Good books make you savor each word.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Filip Burburan",
+        "imageId": "22e816af-df55-4a3f-a6e7-0ff3bb1b45b5-1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Prowess",
+      "Transform"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "DOCENT_OF_PERFECTION_FINAL_ITERATION": {
+    "scryfallId": "2c983363-f900-45f5-b906-d56b91d5c260",
+    "oracleId": "85e797de-da27-4cd5-8fa4-4aef948988b2",
+    "name": "Docent of Perfection // Final Iteration",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Docent of Perfection",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Insect Horror",
+        "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, create a 1/1 blue Human Wizard creature token. Then if you control three or more Wizards, transform this creature.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "2c983363-f900-45f5-b906-d56b91d5c260-0"
+      },
+      {
+        "name": "Final Iteration",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Insect",
+        "oracleText": "Flying\nWizards you control get +2/+1 and have flying.\nWhenever you cast an instant or sorcery spell, create a 1/1 blue Human Wizard creature token.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "2c983363-f900-45f5-b906-d56b91d5c260-1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Transform"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "THRABEN_SENTRY_THRABEN_MILITIA": {
+    "scryfallId": "58ae9cbc-d88d-42df-ab76-63ab5d05c023",
+    "oracleId": "9636073e-e361-4d2a-92f6-5fe049e5eb23",
+    "name": "Thraben Sentry // Thraben Militia",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Thraben Sentry",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Vigilance\nWhenever another creature you control dies, you may transform this creature.",
+        "flavorText": "\"Looks like it's going to be a quiet night.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "58ae9cbc-d88d-42df-ab76-63ab5d05c023-0"
+      },
+      {
+        "name": "Thraben Militia",
+        "manaCost": "",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Trample",
+        "flavorText": "\"The time for grief is over. The time for retribution has begun.\"",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "58ae9cbc-d88d-42df-ab76-63ab5d05c023-1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Vigilance",
+      "Transform",
+      "Trample"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "BONDED_HERDBEAST_PLATED_KILNBEAST": {
+    "scryfallId": "61972ddb-3421-4f22-a47a-89cea944dd02",
+    "oracleId": "b06067e7-330e-47de-be59-c2874eedba1d",
+    "name": "Bonded Herdbeast // Plated Kilnbeast",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Bonded Herdbeast",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "{4}{R/P}: Transform this creature. Activate only as a sorcery. ({R/P} can be paid with either {R} or 2 life.)",
+        "flavorText": "Though both had lost their families, the *eludha*—the spiritual connection between the monsters of Ikoria and their human bonders—gave them something greater.",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jokubas Uogintas",
+        "imageId": "61972ddb-3421-4f22-a47a-89cea944dd02-0"
+      },
+      {
+        "name": "Plated Kilnbeast",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "Menace (This creature can't be blocked except by two or more creatures.)",
+        "flavorText": "Now, united by the Great Work, they knew what it meant to be truly bonded.",
+        "power": "7",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Jokubas Uogintas",
+        "imageId": "61972ddb-3421-4f22-a47a-89cea944dd02-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Transform",
+      "Menace"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HEIR_OF_FALKENRATH_HEIR_TO_THE_NIGHT": {
+    "scryfallId": "6317573e-d892-48ce-bba4-76f9f632ed2b",
+    "oracleId": "d5b9c62d-fe98-4cbc-b4b6-012702bf6657",
+    "name": "Heir of Falkenrath // Heir to the Night",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Heir of Falkenrath",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Discard a card: Transform this creature. Activate only once each turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "6317573e-d892-48ce-bba4-76f9f632ed2b-0"
+      },
+      {
+        "name": "Heir to the Night",
+        "manaCost": "",
+        "typeLine": "Creature — Vampire Berserker",
+        "oracleText": "Flying",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Jason Rainville",
+        "imageId": "6317573e-d892-48ce-bba4-76f9f632ed2b-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Transform"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "338",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "HARRIED_ARTISAN_PHYREXIAN_SKYFLAYER": {
+    "scryfallId": "73e92389-4bd2-492e-b4d6-d7cb6baedc41",
+    "oracleId": "c4e51cba-e5f7-4f44-9ae9-9223a2efd004",
+    "name": "Harried Artisan // Phyrexian Skyflayer",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Harried Artisan",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "Haste\n{3}{W/P}: Transform this creature. Activate only as a sorcery. ({W/P} can be paid with either {W} or 2 life.)",
+        "flavorText": "As strange portals roared open across Theros, Lydus gathered his prototype and fled. He was so close to perfecting his design.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "73e92389-4bd2-492e-b4d6-d7cb6baedc41-0"
+      },
+      {
+        "name": "Phyrexian Skyflayer",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Artificer",
+        "oracleText": "Flying, haste",
+        "flavorText": "Soaring in Realmbreaker's embrace, he finally understood what perfection was.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Caio Monteiro",
+        "imageId": "73e92389-4bd2-492e-b4d6-d7cb6baedc41-1"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Transform",
+      "Haste"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "PIOUS_EVANGEL_WAYWARD_DISCIPLE": {
+    "scryfallId": "7ac2a5aa-71c3-482b-9431-5f0b228cf64d",
+    "oracleId": "e2fc5069-374b-4feb-acd9-976ddf90e504",
+    "name": "Pious Evangel // Wayward Disciple",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Pious Evangel",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever this creature or another creature you control enters, you gain 1 life.\n{2}, {T}, Sacrifice another permanent: Transform this creature.",
+        "flavorText": "\"My faith guides my hand . . .\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "7ac2a5aa-71c3-482b-9431-5f0b228cf64d-0"
+      },
+      {
+        "name": "Wayward Disciple",
+        "manaCost": "",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever this creature or another creature you control dies, target opponent loses 1 life and you gain 1 life.",
+        "flavorText": "\". . . and I will prove my devotion.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Kev Walker",
+        "imageId": "7ac2a5aa-71c3-482b-9431-5f0b228cf64d-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CHOSEN_OF_MARKOV_MARKOV_S_SERVANT": {
+    "scryfallId": "7c5a3c09-5656-4975-ba03-2d809903ed18",
+    "oracleId": "29328bcb-e991-4095-9439-f493c8fa3f82",
+    "name": "Chosen of Markov // Markov's Servant",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Chosen of Markov",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human",
+        "oracleText": "{T}, Tap an untapped Vampire you control: Transform this creature.",
+        "flavorText": "\"I have been found worthy by this great house . . .\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "7c5a3c09-5656-4975-ba03-2d809903ed18-0"
+      },
+      {
+        "name": "Markov's Servant",
+        "manaCost": "",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "",
+        "flavorText": "\". . . and for that I shall be eternally grateful.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "7c5a3c09-5656-4975-ba03-2d809903ed18-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dka",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SIDEQUEST_CARD_COLLECTION_MAGICKED_CARD": {
+    "scryfallId": "8ac3d2c9-5978-4cfb-a746-c901decff093",
+    "oracleId": "0c2095b0-478d-45b4-a34d-b19eb77cea4c",
+    "name": "Sidequest: Card Collection // Magicked Card",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Sidequest: Card Collection",
+        "manaCost": "{3}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, draw three cards, then discard two cards.\nAt the beginning of your end step, if eight or more cards are in your graveyard, transform this enchantment.",
+        "flavorText": "The glory of the tourney awaits!",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Erikas Perl",
+        "imageId": "8ac3d2c9-5978-4cfb-a746-c901decff093-0"
+      },
+      {
+        "name": "Magicked Card",
+        "manaCost": "",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Flying\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jurijus Chitrovas",
+        "imageId": "8ac3d2c9-5978-4cfb-a746-c901decff093-1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Transform",
+      "Crew"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "ECSTATIC_AWAKENER_AWOKEN_DEMON": {
+    "scryfallId": "91a861d9-318e-43eb-9552-59072d3fca8e",
+    "oracleId": "26ff3da5-4e02-41d1-a52f-3f8e87b01a77",
+    "name": "Ecstatic Awakener // Awoken Demon",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Ecstatic Awakener",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{2}{B}, Sacrifice another creature: Draw a card, then transform this creature. Activate only once each turn.",
+        "flavorText": "\"Great Ormendahl, I kneel before you, a fragment of your will, a servant of your tyranny. I beg you, release the strength within me!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "91a861d9-318e-43eb-9552-59072d3fca8e-0"
+      },
+      {
+        "name": "Awoken Demon",
+        "manaCost": "",
+        "typeLine": "Creature — Demon",
+        "oracleText": "",
+        "flavorText": "Bones cracked, flesh split apart, and the screams of euphoric agony gave way to unholy laughter.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Tuan Duong Chu",
+        "imageId": "91a861d9-318e-43eb-9552-59072d3fca8e-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "100",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "LONE_RIDER_IT_THAT_RIDES_AS_ONE": {
+    "scryfallId": "9a55b60a-5d90-4f73-984e-53fdcc0366e4",
+    "oracleId": "849741a3-9e64-41a9-a4f4-d146a7d42389",
+    "name": "Lone Rider // It That Rides as One",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Lone Rider",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Knight",
+        "oracleText": "First strike, lifelink\nAt the beginning of the end step, if you gained 3 or more life this turn, transform this creature.",
+        "flavorText": "\"Horse and rider are often of one mind.\"\n—Ulda, Gavony Rider",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daarken",
+        "imageId": "9a55b60a-5d90-4f73-984e-53fdcc0366e4-0"
+      },
+      {
+        "name": "It That Rides as One",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Horror",
+        "oracleText": "First strike, trample, lifelink",
+        "flavorText": "\". . . but until this morning, I'd never seen them be of one body.\"\n—Ulda, Gavony Rider",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daarken",
+        "imageId": "9a55b60a-5d90-4f73-984e-53fdcc0366e4-1"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Transform",
+      "First strike",
+      "Trample"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "AUTUMNAL_GLOOM_ANCIENT_OF_THE_EQUINOX": {
+    "scryfallId": "d41b07c8-f0c8-4654-bcc2-00c785c8c628",
+    "oracleId": "245aa786-d607-414f-ab55-b003b2b9faf4",
+    "name": "Autumnal Gloom // Ancient of the Equinox",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Autumnal Gloom",
+        "manaCost": "{2}{G}",
+        "typeLine": "Enchantment",
+        "oracleText": "{B}: Mill a card.\nDelirium — At the beginning of your end step, if there are four or more card types among cards in your graveyard, transform this enchantment.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "d41b07c8-f0c8-4654-bcc2-00c785c8c628-0"
+      },
+      {
+        "name": "Ancient of the Equinox",
+        "manaCost": "",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Trample, hexproof",
+        "flavorText": "\"When the leaves fall and the nights grow cold, look elsewhere for firewood.\"\n—Ola of Lambholt",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jaime Jones",
+        "imageId": "d41b07c8-f0c8-4654-bcc2-00c785c8c628-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Delirium",
+      "Transform",
+      "Hexproof",
+      "Trample",
+      "Mill"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "THRABEN_GARGOYLE_STONEWING_ANTAGONIZER": {
+    "scryfallId": "f2687683-2986-4e22-97d9-7820c870475b",
+    "oracleId": "9b5cf592-8385-4115-b27a-98f42bdf6329",
+    "name": "Thraben Gargoyle // Stonewing Antagonizer",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Thraben Gargoyle",
+        "manaCost": "{1}",
+        "typeLine": "Artifact Creature — Gargoyle",
+        "oracleText": "Defender\n{6}: Transform this creature.",
+        "flavorText": "Runechanters engrave their strongest wards on those that protect the church.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "f2687683-2986-4e22-97d9-7820c870475b-0"
+      },
+      {
+        "name": "Stonewing Antagonizer",
+        "manaCost": "",
+        "typeLine": "Artifact Creature — Gargoyle Horror",
+        "oracleText": "Flying",
+        "flavorText": "Nahiri twisted them in shape and bent them to her will.",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "f2687683-2986-4e22-97d9-7820c870475b-1"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Flying",
+      "Transform",
+      "Defender"
+    ],
+    "setCode": "soi",
+    "collectorNumber": "266",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "KESSIG_PROWLER_SINUOUS_PREDATOR": {
+    "scryfallId": "f89f116a-1e8e-4ae7-be39-552e4954f229",
+    "oracleId": "d2aff0ea-5474-4329-ae6a-80ee4908ee8d",
+    "name": "Kessig Prowler // Sinuous Predator",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Kessig Prowler",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Werewolf Horror",
+        "oracleText": "{4}{G}: Transform this creature.",
+        "flavorText": "In the wake of Emrakul, some werewolves' human forms were lost forever.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "f89f116a-1e8e-4ae7-be39-552e4954f229-0"
+      },
+      {
+        "name": "Sinuous Predator",
+        "manaCost": "",
+        "typeLine": "Creature — Eldrazi Werewolf",
+        "oracleText": "This creature can't be blocked by more than one creature.",
+        "flavorText": "A different kind of transformation has taken place.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Slawomir Maniak",
+        "imageId": "f89f116a-1e8e-4ae7-be39-552e4954f229-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "163",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "CLOISTERED_YOUTH_UNHOLY_FIEND": {
+    "scryfallId": "f8b8f0b4-71e1-4822-99a1-b1b3c2f10cb2",
+    "oracleId": "7552a9b4-b82f-491f-ad52-e271cf730211",
+    "name": "Cloistered Youth // Unholy Fiend",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Cloistered Youth",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human",
+        "oracleText": "At the beginning of your upkeep, you may transform this creature.",
+        "flavorText": "\"I heard her talking in her sleep—pleading, shrieking, snarling. It was not my daughter's voice. That is not my daughter.\"\n—Ekatrin, elder of Hanweir",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "f8b8f0b4-71e1-4822-99a1-b1b3c2f10cb2-0"
+      },
+      {
+        "name": "Unholy Fiend",
+        "manaCost": "",
+        "typeLine": "Creature — Horror",
+        "oracleText": "At the beginning of your end step, you lose 1 life.",
+        "flavorText": "The fiend tormented them by recounting the girl's memories, as if some part of her remained inside that twisted shell.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "f8b8f0b4-71e1-4822-99a1-b1b3c2f10cb2-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SERAPH_OF_NEW_CAPENNA_SERAPH_OF_NEW_PHYREXIA": {
+    "scryfallId": "fbd9ed1d-1972-4db8-bc43-b05b94956aa0",
+    "oracleId": "08574d1b-4b76-42dd-884b-29c5a61cfdda",
+    "name": "Seraph of New Capenna // Seraph of New Phyrexia",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Seraph of New Capenna",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Angel Soldier",
+        "oracleText": "Flying\n{4}{B/P}: Transform this creature. Activate only as a sorcery. ({B/P} can be paid with either {B} or 2 life.)",
+        "flavorText": "The angels had vowed to protect New Capenna. She was determined to uphold that vow, no matter the cost.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "fbd9ed1d-1972-4db8-bc43-b05b94956aa0-0"
+      },
+      {
+        "name": "Seraph of New Phyrexia",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Angel",
+        "oracleText": "Flying\nWhenever this creature attacks, you may sacrifice another creature or artifact. If you do, this creature gets +2/+1 until end of turn.",
+        "flavorText": "With her Halo reserves exhausted, she began to change, and she made a new promise to bless New Capenna with glistening perfection.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "fbd9ed1d-1972-4db8-bc43-b05b94956aa0-1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Transform"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "TARKIR_DUNESHAPER_BURNISHED_DUNESTOMPER": {
+    "scryfallId": "fdc37acc-05ba-4457-8a03-d635497bfb1b",
+    "oracleId": "c554ae68-0201-4958-aa63-8159911acb50",
+    "name": "Tarkir Duneshaper // Burnished Dunestomper",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Tarkir Duneshaper",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Dog Warrior",
+        "oracleText": "{4}{G/P}: Transform this creature. Activate only as a sorcery. ({G/P} can be paid with either {G} or 2 life.)",
+        "flavorText": "\"Obey the teachings of the dragonlords, for they provide all. They grant us magic and safety, and in return we offer respect.\"\n—Baihir, Dromoka mage",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Denys Tsiperko",
+        "imageId": "fdc37acc-05ba-4457-8a03-d635497bfb1b-0"
+      },
+      {
+        "name": "Burnished Dunestomper",
+        "manaCost": "",
+        "typeLine": "Creature — Phyrexian Dog Warrior",
+        "oracleText": "Trample",
+        "flavorText": "\"Your precious dragonlords repressed your instincts, cur. You were born a hunter. Evolve, and hunt again.\"\n—Benzir, archdruid of Temple Might",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Denys Tsiperko",
+        "imageId": "fdc37acc-05ba-4457-8a03-d635497bfb1b-1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Transform",
+      "Trample"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "43",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
+  "SCREECHING_BAT_STALKING_VAMPIRE": {
+    "scryfallId": "88db324f-11f1-43d3-a897-f4e3caf8d642",
+    "oracleId": "209de43d-0cdd-4075-9f41-88e3d2ff90df",
+    "name": "Screeching Bat // Stalking Vampire",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Screeching Bat",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Flying\nAt the beginning of your upkeep, you may pay {2}{B}{B}. If you do, transform this creature.",
+        "flavorText": "The bat has such clarity of hearing that simple sounds become symphonies.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "88db324f-11f1-43d3-a897-f4e3caf8d642-0"
+      },
+      {
+        "name": "Stalking Vampire",
+        "manaCost": "",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "At the beginning of your upkeep, you may pay {2}{B}{B}. If you do, transform this creature.",
+        "flavorText": "Each form she takes is an exploration of the senses.",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Slawomir Maniak",
+        "imageId": "88db324f-11f1-43d3-a897-f4e3caf8d642-1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Transform"
+    ],
+    "setCode": "isd",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -323221,6 +324512,39 @@
     ],
     "setCode": "twoe",
     "collectorNumber": "16",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "HUMAN_WIZARD_1_1_U_CREATURE_TOKEN": {
+    "scryfallId": "547ba2bc-2520-4d79-b9c9-a17f921df1bd",
+    "oracleId": "9a84c6f8-537c-430d-95b6-f19a86f74f45",
+    "name": "Human Wizard",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Human Wizard",
+        "manaCost": "",
+        "typeLine": "Token Creature — Human Wizard",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "547ba2bc-2520-4d79-b9c9-a17f921df1bd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tinr",
+    "collectorNumber": "5",
     "commanderLegality": "not_legal",
     "singleImage": true
   }
