@@ -773,6 +773,19 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D577 - daybound: the Daybound and Nightbound lines are the engine's now (day and night, the untap step's check, the transforms, the entry at night); what stays is a transforming permanent whose other lines a script would carry - and the row maker refuses the layout (a generated suite for both faces is the next seam).
+  ['Reckless Stormseeker // Storm-Charged Slasher', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Infestation Expert // Infested Werewolf', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Lambholt Raconteur // Lambholt Ravager', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Brutal Cathar // Moonrage Brute', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Avabruck Caretaker // Hollowhenge Huntmaster', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Hookhand Mariner // Riphook Raider', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Spellrune Painter // Spellrune Howler', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Fangblade Brigand // Fangblade Eviscerator', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Suspicious Stowaway // Seafaring Werewolf', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Weary Prisoner // Wrathful Jailbreaker', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Child of the Pack // Savage Packmate', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
+  ['Wolfkin Outcast // Wedding Crasher', 'the row maker: multi-face or unusual layout - its Daybound and Nightbound read since D577 (D577)'],
   // D576 - splice: `Splice onto Arcane {M}` / `Splice onto instant or sorcery {M}` is the engine's now (the card revealed from the hand as another spell is cast, its splice cost paid, its effects and targets added after the spell's own); what stays is a splice card whose own text the vocabulary does not read - its spliced text would be a script's, and a script cannot run on another spell.
   ['Desperate Ritual', 'a spell with a line outside the vocabulary: Add {R}{R}{R}. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
   ['Strange Inversion', 'a spell with a line outside the vocabulary: Switch target creature\'s power and toughness until end of turn. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
@@ -3224,7 +3237,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // decision ownership for a whole turn is a feature, not a script. Both are
   // honest first entries.
   ["Witch's Vengeance", 'script-raised prompt'],
-  ['Wolf Strike', 'day/night tracking'],
+  ['Wolf Strike', 'a condition outside the vocabulary: if it\'s night - day and night are the engine\'s since D577 (GameState.dayNight); the clause\'s condition is not read (D577)'],
   ['Word of Binding', 'cast-time computed target count'],
   ["Worldsoul's Rage", 'script-raised prompt'],
   ['Worst Fears', 'control-a-player'],

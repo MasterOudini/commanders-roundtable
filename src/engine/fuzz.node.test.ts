@@ -1881,6 +1881,8 @@ interface Run {
   readonly rolesCreated: number;
   /** D576 - the casts that spliced a card onto the spell (CR 702.47). */
   readonly splicedCasts: number;
+  /** D577 - the times it became day or night (CR 726). */
+  readonly dayNightChanges: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2444,6 +2446,7 @@ function runOne(seed: number): Run {
     phasedIn: game.log.reduce((n, e) => n + (e.body.t === 'PhasedIn' ? e.body.cards.length : 0), 0),
     rolesCreated: game.log.filter((e) => e.body.t === 'TokenCreated' && ROLE_PRINTINGS.has(e.body.printingId)).length,
     splicedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && (e.body.obj.spliced ?? []).length > 0).length,
+    dayNightChanges: game.log.filter((e) => e.body.t === 'DayNightChanged').length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2833,6 +2836,7 @@ const TOTAL_KEYS = [
   'phasedIn',
   'rolesCreated',
   'splicedCasts',
+  'dayNightChanges',
   'crownings',
   'ringTempts',
   'ringAbilities',

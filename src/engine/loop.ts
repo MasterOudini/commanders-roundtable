@@ -12,6 +12,7 @@
 // or it is blocked on a human (`priority.awaiting !== null`). Those are the only
 // two places the engine stops.
 
+import { dayNightAtUntap } from './daynight';
 import { splicedFaces, withSpliced } from './splice';
 import { inPlay, phaseOutEvent } from './zones';
 import { assignBlockerDamage, creaturesInCombat, canAttack, canAttackDefender, enlistCandidates, legalDefenders, needsFirstStrikeSubstep, requiredAttackers, resolveCombatDamage } from './combat';
@@ -396,6 +397,10 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
       const outNow = phaseOutEvent(state, phasingOut);
       if (outNow !== null) events.push(outNow);
       const outAfter = new Set([...(outNow?.cards ?? []), ...(outNow?.indirect ?? []).map((x) => x.card)]);
+      // D577 - DAY AND NIGHT (CR 502.2): SECOND, if it's day and the previous turn's active player cast no spells during
+      // that turn it becomes night, and if it's night and they cast two or more it becomes day - the daybound or nightbound
+      // permanents there after the phasing above transform with it; the untap below follows.
+      events.push(...dayNightAtUntap(state, deps, (id) => !outAfter.has(id) && (state.cards[id]?.phasedOut !== true || inNow.includes(id))));
       const toUntap = state.zones.battlefield.filter((id) => {
         const card = state.cards[id];
         const phasedAfter = outAfter.has(id) || (card?.phasedOut === true && !inNow.includes(id));
@@ -812,6 +817,11 @@ function cleanupActions(state: GameState): EventBody[] {
   return events;
 }
 
+/** D577 - the ending turn's active player's spells onto `TurnBegan`, once it is day or night (CR 502.2 reads them at the untap). */
+function dayNightCastsOf(state: GameState): { dayNightCasts?: number } {
+  return state.dayNight === undefined ? {} : { dayNightCasts: state.turn.spellsCast[state.turn.activePlayer] ?? 0 };
+}
+
 function beginNextTurn(state: GameState): EventBody[] {
   const living = livingPlayers(state);
   if (living.length === 0) return [{ t: 'GameEnded', winners: [] }];
@@ -823,7 +833,7 @@ function beginNextTurn(state: GameState): EventBody[] {
   while (pending.length > 0) {
     const top = pending[pending.length - 1] as ExtraTurn;
     if (living.includes(top.player)) {
-      events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: top.player, extra: top });
+      events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: top.player, extra: top, ...dayNightCastsOf(state) });
       events.push({ t: 'StepBegan', phase: 'beginning', step: 'untap' });
       return events;
     }
@@ -840,7 +850,7 @@ function beginNextTurn(state: GameState): EventBody[] {
       break;
     }
   }
-  events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: nextPlayer });
+  events.push({ t: 'TurnBegan', turnNumber: state.turn.turnNumber + 1, activePlayer: nextPlayer, ...dayNightCastsOf(state) });
   events.push({ t: 'StepBegan', phase: 'beginning', step: 'untap' });
   return events;
 }

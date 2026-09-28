@@ -10344,6 +10344,10 @@ const WANTED = [
   'Glacial Ray',
   'Everdream',
   'Lava Spike',
+  // D577 - step 0's Dromoka's Command, and DAYBOUND: the daybound cards the proofs deal (the rows bring the rest).
+  "Dromoka's Command",
+  'Tavern Ruffian // Tavern Smasher',
+  'Fearful Villager // Fearsome Werewolf',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

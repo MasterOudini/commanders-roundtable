@@ -125,6 +125,12 @@ export function PhaseTrack({ view, right }: { view: PlayerView; right?: ReactNod
               <span className="crt-num text-[13px] leading-none text-crt-text">
                 {view.turn.turnNumber}
               </span>
+              {/* D577 - day or night (CR 726), once a daybound or nightbound permanent has made it one. */}
+              {view.turn.dayNight && (
+                <span className="font-sc text-[10px] tracking-wider text-crt-faint" data-day-night={view.turn.dayNight}>
+                  {view.turn.dayNight === 'day' ? 'DAY' : 'NIGHT'}
+                </span>
+              )}
             </>
           )}
           {/* Brass whoever it is — this IS the turn owner, and the same brass

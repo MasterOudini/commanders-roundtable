@@ -348,6 +348,8 @@ export class Projector {
         active: state.turn.activePlayer,
         phase: STEP_TO_PHASE[state.turn.step],
         turnNumber: state.turn.turnNumber,
+        // D577 - day or night (CR 726), public; absent while it is neither.
+        ...(state.dayNight !== undefined ? { dayNight: state.dayNight } : {}),
       },
       priority: state.priority.player,
       log,

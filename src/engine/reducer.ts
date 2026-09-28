@@ -902,6 +902,10 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'MonarchChanged':
       return { ...state, monarch: body.player };
 
+    // D577 - it becomes day or night (CR 726).
+    case 'DayNightChanged':
+      return { ...state, dayNight: body.to };
+
     case 'ManaAdded': {
       const p = state.players[body.player];
       if (!p) return state;
@@ -990,6 +994,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           activePlayer: body.activePlayer,
           regular: body.extra !== undefined ? state.turn.regular : body.activePlayer,
           ...(body.extra !== undefined ? { extra: body.extra } : {}),
+          // D577 - the ending turn's active player's spells, for the untap step's day/night check (only once it is day or night).
+          ...(body.dayNightCasts !== undefined ? { dayNightCasts: body.dayNightCasts } : {}),
           phase: 'beginning',
           step: 'untap',
           turnBasedActionsDone: false,

@@ -389,6 +389,23 @@ export function checkStateBasedActions(
     }
   }
 
+  // D577 - DAY AND NIGHT BEGIN (CR 702.145d/g): while it is neither day nor night, a daybound permanent on the battlefield
+  // makes it day - or, none daybound, a nightbound one night. The printings filter first (a game with no such card derives
+  // nothing more); the permanents already face the way it becomes.
+  if (state.dayNight === undefined) {
+    const bound = inPlay(state).filter((id) => {
+      const c = state.cards[id];
+      const p = c ? oracle.byPrinting(c.printingId) : undefined;
+      return !!p && p.faces.some((f) => f.keywords.includes('daybound') || f.keywords.includes('nightbound'));
+    });
+    const kws = bound.map((id) => derive(state, oracle, scripts, id, cache).keywords);
+    const to = kws.some((k) => k.has('daybound')) ? 'day' : kws.some((k) => k.has('nightbound')) ? 'night' : null;
+    if (to !== null) {
+      actions.push({ t: 'dayNightBegins', to });
+      events.push({ t: 'DayNightChanged', to }, narrated(`It becomes ${to}.`, null));
+    }
+  }
+
   if (actions.length === 0) return NOTHING;
   return { actions, events: [{ t: 'StateBasedActionsApplied', actions }, ...events] };
 }

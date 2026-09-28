@@ -59,6 +59,9 @@ export function applyReplacements(
   // anywhere may go to the command zone instead, at its owner's choice.
   if (ev.t === 'CardsMoved') {
     events = commanderZoneReplacement(state, ev.moves);
+    // D577 - a daybound card entering at night enters transformed (CR 702.145b): the move's face, decided before the
+    // counters, the tapped entry and the colour read the arriving face.
+    events = withNightEntry(state, oracle, events);
     // ⚠️ AFTER the commander rule, and reading ITS output rather than `ev`. That
     // rule can redirect a move, and a second replacement that read the original
     // would be answering a question about a board that never happened.
@@ -1102,6 +1105,28 @@ function withStunCounters(state: GameState, oracle: OracleDb, ev: Extract<EventB
     out.push(narrated(`${name} stays tapped: a stun counter is removed instead.`, card?.controller ?? null));
   }
   return out;
+}
+
+/**
+ * D577 - DAYBOUND (CR 702.145b): "If it is night, this permanent enters the battlefield transformed" - a card whose front
+ * face is daybound moving onto the battlefield at night arrives back face up (the move's face, D155). A face-down move and a
+ * copy entry are left alone.
+ */
+function withNightEntry(state: GameState, oracle: OracleDb, events: readonly EventBody[]): EventBody[] {
+  if (state.dayNight !== 'night') return [...events];
+  return events.map((e) => {
+    if (e.t !== 'CardsMoved') return e;
+    let changed = false;
+    const moves = e.moves.map((m) => {
+      if (m.to.kind !== 'battlefield' || m.faceDown === true || m.asCopyOf !== undefined || (m.faceIndex ?? 0) !== 0) return m;
+      const card = state.cards[m.card];
+      const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+      if (!printing || printing.faces.length < 2 || !faceOf(printing, 0).keywords.includes('daybound')) return m;
+      changed = true;
+      return { ...m, faceIndex: 1 };
+    });
+    return changed ? { ...e, moves } : e;
+  });
 }
 
 function withTransformCounters(

@@ -275,7 +275,8 @@ export interface PlayerView {
   zones: Partial<Record<ZoneId, InstanceId[]>>;
   /** Bottom-first, so the LAST entry is the top of the stack. */
   stack: StackItemView[];
-  turn: { active: PlayerId; phase: PhaseId; turnNumber: number };
+  /** D577 - `dayNight`: the game's day or night (CR 726), absent while it is neither. */
+  turn: { active: PlayerId; phase: PhaseId; turnNumber: number; dayNight?: 'day' | 'night' };
   priority: PlayerId | null;
   log: LogEntry[];
   /** Counts for zones the viewer cannot see into (own library, others' hands). */

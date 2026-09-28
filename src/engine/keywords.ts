@@ -107,6 +107,9 @@ const CANON: Readonly<Record<string, Keyword>> = {
   champion: 'champion',
   // D573 - phasing: the untap step's turn action phases it out and back in.
   phasing: 'phasing',
+  // D577 - daybound / nightbound (CR 702.145).
+  daybound: 'daybound',
+  nightbound: 'nightbound',
   // D545 - exploit: the enters trigger that may sacrifice a creature, tagged for the `exploits a creature` head.
   exploit: 'exploit',
   // D549 - myriad: the attack trigger's token copies toward every other opponent.

@@ -219,6 +219,8 @@ export type SbaAction =
   | { readonly t: 'worldRule'; readonly card: InstanceId }
   /** D574 - CR 303.7: a Role a newer Role of the same controller replaced on the same permanent (no prompt). */
   | { readonly t: 'roleReplaced'; readonly card: InstanceId }
+  /** D577 - CR 702.145d/g: while it is neither day nor night, a daybound permanent makes it day (a nightbound one, none daybound, night). */
+  | { readonly t: 'dayNightBegins'; readonly to: 'day' | 'night' }
   /** D528 - CR 714.4: a Saga whose lore count reached its final chapter, with no chapter ability of its own pending or on the stack. */
   | { readonly t: 'sagaSacrificed'; readonly card: InstanceId }
   /** D407 - CR 610.3c: a card exiled "until <source> leaves the battlefield" returns, its source gone or a new object. */
@@ -386,7 +388,8 @@ export type EventBody =
 
   // ── turn / priority ──────────────────────────────────────────────────────
   /** D502 - `extra`: the turn is an extra turn (the entry taken off `GameState.extraTurns`). */
-  | { readonly t: 'TurnBegan'; readonly turnNumber: number; readonly activePlayer: PlayerId; readonly extra?: ExtraTurn }
+  /** D577 - `dayNightCasts`: the ending turn's active player's spells, once it is day or night (the untap step's check, CR 502.2). */
+  | { readonly t: 'TurnBegan'; readonly turnNumber: number; readonly activePlayer: PlayerId; readonly extra?: ExtraTurn; readonly dayNightCasts?: number }
   /** D502 - an extra turn created for a player (CR 500.7), pushed on `GameState.extraTurns`. */
   | { readonly t: 'ExtraTurnAdded'; readonly player: PlayerId }
   /** D502 - the player's most recently created extra turn will skip its untap step (Savor the Moment). */
@@ -751,6 +754,8 @@ export type EventBody =
   | { readonly t: 'PhasedOut'; readonly cards: readonly InstanceId[]; readonly indirect: readonly { readonly card: InstanceId; readonly host: InstanceId }[] }
   /** D573 - these permanents phase in (the untap step's turn action, CR 502.1). */
   | { readonly t: 'PhasedIn'; readonly cards: readonly InstanceId[] }
+  /** D577 - DAY AND NIGHT (CR 726): it becomes day or night (the transforms follow as `FaceIndexSet`s). */
+  | { readonly t: 'DayNightChanged'; readonly to: 'day' | 'night' }
   /** Cleanup, CR 514.2. Every until-end-of-turn modifier ends at once. */
   | { readonly t: 'UntilEndOfTurnEnded' }
 

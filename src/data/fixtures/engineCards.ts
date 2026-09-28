@@ -9237,6 +9237,9 @@ export const LAVASPUR_BOOTS: CardData = F.LAVASPUR_BOOTS as CardData;
 export const GLACIAL_RAY: CardData = F.GLACIAL_RAY as CardData;
 export const EVERDREAM: CardData = F.EVERDREAM as CardData;
 export const LAVA_SPIKE: CardData = F.LAVA_SPIKE as CardData;
+export const DROMOKA_S_COMMAND: CardData = F.DROMOKA_S_COMMAND as CardData;
+export const TAVERN_RUFFIAN_TAVERN_SMASHER: CardData = F.TAVERN_RUFFIAN_TAVERN_SMASHER as CardData;
+export const FEARFUL_VILLAGER_FEARSOME_WEREWOLF: CardData = F.FEARFUL_VILLAGER_FEARSOME_WEREWOLF as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -18740,6 +18743,9 @@ export const ENGINE_CARDS: CardData[] = [
   GLACIAL_RAY,
   EVERDREAM,
   LAVA_SPIKE,
+  DROMOKA_S_COMMAND,
+  TAVERN_RUFFIAN_TAVERN_SMASHER,
+  FEARFUL_VILLAGER_FEARSOME_WEREWOLF,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

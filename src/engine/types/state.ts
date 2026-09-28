@@ -1637,6 +1637,11 @@ export interface TurnState {
   readonly triggered: Readonly<Record<string, number>>;
   /** D336 - the turn memory: spells each player has cast this turn ("your second spell each turn"); cleared by `TurnBegan`. */
   readonly spellsCast: Readonly<Record<PlayerId, number>>;
+  /**
+   * D577 - the spells the PREVIOUS turn's active player cast during that turn, carried by `TurnBegan` once it is day or
+   * night: the untap step's day/night check reads it (CR 502.2) after `spellsCast` was cleared.
+   */
+  readonly dayNightCasts?: number;
   /** D336 - the turn memory: cards each player has drawn this turn ("your second card each turn"); cleared by `TurnBegan`. */
   readonly cardsDrawn: Readonly<Record<PlayerId, number>>;
   /** D340 - Raid: whether the active player declared one or more attackers this turn; cleared by `TurnBegan`. */
@@ -1840,6 +1845,11 @@ export interface GameState {
    * monarch. Null until a card says "you become the monarch".
    */
   readonly monarch: PlayerId | null;
+  /**
+   * D577 - DAY AND NIGHT (CR 726): the game's designation - absent while it is neither (every game until a daybound or
+   * nightbound permanent is on the battlefield, CR 702.145d/g); the untap step's check turns it (CR 502.2).
+   */
+  readonly dayNight?: 'day' | 'night';
   readonly rng: RngState;
   readonly eventCount: number;
   readonly counters: IdCounters;

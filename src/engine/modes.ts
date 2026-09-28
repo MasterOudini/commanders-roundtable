@@ -18,6 +18,7 @@
  */
 import type { EffectSpec, ModalFace, ModeDecl, TargetSpec } from './types/oracle';
 import { minimumLegalTargets, type TargetCandidate, type TargetingSource } from './targets';
+import { shiftedClause } from './splice';
 
 /**
  * The modes a player may choose against this board (CR 601.2c, 603.3d): a mode
@@ -89,7 +90,9 @@ export function modalEffects(modal: ModalFace, chosen: readonly number[]): Effec
   for (const i of modesInOrder(chosen)) {
     const mode = modal.modes[i];
     if (!mode) continue;
-    for (const e of mode.effects) out.push(e.self || e.targetIndex === -1 ? e : { ...e, targetIndex: e.targetIndex + base });
+    // D577 - a fight's or a bite's other target shifts with its subject (Dromoka's Command's fourth mode after a targeted one
+    // read its own subject as the other - a creature fought itself).
+    for (const e of mode.effects) out.push(shiftedClause(e, base));
     base += mode.targets.length;
   }
   return out;

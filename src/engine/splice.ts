@@ -13,11 +13,19 @@ export function splicedFaces(oracle: OracleDb, spliced: readonly SplicedCard[] |
   return out;
 }
 
-/** A spliced clause's target indices past the `base` clauses declared before its card's (its subject and a fight's other). */
-function shifted(e: EffectSpec, base: number): EffectSpec {
-  const subject = e.self || e.targetIndex === -1 ? {} : { targetIndex: e.targetIndex + base };
-  const other = e.otherTargetIndex !== undefined ? { otherTargetIndex: e.otherTargetIndex + base } : {};
-  return { ...e, ...subject, ...other };
+/**
+ * A clause's target indices past the `base` clauses declared before it - its subject and a fight's or a bite's other
+ * (`otherTargetIndex`). D576's spliced cards and D577's chosen modes (modalEffects) both run through it; a clause that moves
+ * nothing is returned as it is.
+ */
+export function shiftedClause(e: EffectSpec, base: number): EffectSpec {
+  const moves = !(e.self || e.targetIndex === -1);
+  if (base === 0 || (!moves && e.otherTargetIndex === undefined)) return e;
+  return {
+    ...e,
+    ...(moves ? { targetIndex: e.targetIndex + base } : {}),
+    ...(e.otherTargetIndex !== undefined ? { otherTargetIndex: e.otherTargetIndex + base } : {}),
+  };
 }
 
 /**
@@ -30,7 +38,7 @@ export function withSpliced(face: OracleFace, spliced: readonly OracleFace[]): r
   const out: EffectSpec[] = [...face.effects];
   let base = face.targets.length;
   for (const f of spliced) {
-    for (const e of f.effects) out.push(shifted(e, base));
+    for (const e of f.effects) out.push(shiftedClause(e, base));
     base += f.targets.length;
   }
   return out;

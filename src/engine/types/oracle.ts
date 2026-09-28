@@ -156,6 +156,11 @@ export const TIER2_KEYWORDS = [
   // D573 - PHASING (CR 702.26a): during its controller's untap step, before untapping, it phases out if phased in (the
   // untap step's turn action; a phased-out permanent is treated as though it does not exist until it phases in).
   'phasing',
+  // D577 - DAYBOUND and NIGHTBOUND (CR 702.145): a transforming permanent's front face turns with the night and its back face
+  // with the day (the untap step's check, CR 502.2 / 726.3); a daybound card entering at night enters transformed, and one
+  // on the battlefield while it is neither day nor night makes it day (702.145d - or a nightbound one night, 702.145g).
+  'daybound',
+  'nightbound',
   // D545 - EXPLOIT (CR 702.110a): an enters trigger from the same table - you may sacrifice a creature (the
   // vocabulary's own verb price, D415, offered to the controller; the exploiter itself may be the one). The
   // sacrifice is tagged with its exploiter (`CardMove.exploitedBy`) for the `When ~ exploits a creature` head
