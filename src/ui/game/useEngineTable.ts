@@ -3,7 +3,7 @@ import * as session from '../../game/session';
 import { useGame } from '../../store/gameStore';
 import { useTable, type TableMode, type TargetSource } from '../../store/tableStore';
 import { useAim } from '../../store/aimStore';
-import { beginAimFrom, beginCastPicks, onVeilPick } from './aimCommit';
+import { beginAimFrom, beginCastPicks, beginGrantedReview, onVeilPick } from './aimCommit';
 import { canTapOnly, manaOptionsFor } from './manaOptions';
 import { abilityOptionsFor } from './abilityOptions';
 import { faceOptionsFor } from './faceOptions';
@@ -258,6 +258,12 @@ export function useEngineTable() {
       if (awaiting?.kind === 'chooseFromZone' && awaiting.player === viewer && awaiting.zone === 'hand' && awaiting.owner === undefined) {
         const hand = zoneCards(view, zoneId('hand', viewer));
         if (!hand.includes(id)) return;
+        // D491 - a granted cast whose card prints an optional cost it may pay (CR 118.9d) opens the payment review; any
+        // other is answered at once, closing a review opened for another card.
+        if (awaiting.castFree === true) {
+          if (beginGrantedReview(id)) return;
+          if (mode.kind !== 'idle') setMode({ kind: 'idle' });
+        }
         const st = useTable.getState();
         const picked = st.pickOrder.includes(id)
           ? st.pickOrder.filter((c) => c !== id)

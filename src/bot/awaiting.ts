@@ -30,6 +30,9 @@ const FREE_CAST_UNPICKABLE = /^as an additional cost to cast this spell, (?:sacr
 import { chooseAttacks, chooseBlocks, requiredAttacks } from './combat';
 import { planTargets } from './targets';
 import { act, fault, wait, type BotDecision, type BotPort } from './types';
+import { costsCasterLife, spareFor } from './policy';
+import { NO_ALT } from '../engine/altPayment';
+import type { FreeCastCosts } from '../engine/types/intents';
 
 /** The cards in my own hand, which projection always shows me in full. */
 function myHand(view: PlayerView, me: PlayerId): CardView[] {
@@ -79,6 +82,23 @@ const ENTERS_LIFE_FLOOR = 12;
 function worstFirst(a: CardView, b: CardView): number {
   const d = (b.card?.cmc ?? 0) - (a.card?.cmc ?? 0);
   return d !== 0 ? d : a.instanceId.localeCompare(b.instanceId);
+}
+
+/**
+ * D491 - the optional costs the bot's GRANTED cast pays (CR 118.9d), priced by the client's own preview of the granted
+ * cast (`CastPreview.free`) and chosen by the offered cast's rules one prompt over (policy.ts), in its precedence: a
+ * conspire when two creatures may pay it, a casualty with a SPARE creature (D585's `spareFor`; never on a spell that
+ * costs its caster life), a kick when the kicked cast has a plan. Undefined when none is payable: the plain free cast.
+ */
+function freeCastCosts(port: BotPort, view: PlayerView, card: InstanceId, me: PlayerId): FreeCastCosts | undefined {
+  const plain = port.previewCast(card);
+  if (!plain?.free) return undefined;
+  const taps = plain.conspire?.candidates.slice(0, 2) ?? [];
+  if (taps.length === 2 && port.previewCast(card, 0, [], 0, NO_ALT, { tap: taps }, false, false, 0, true)?.plan) return { conspired: true, tap: taps };
+  const spare = plain.casualty !== null && !costsCasterLife(view, { card, faceIndex: 0 }) ? spareFor(plain.casualty.candidates, view, [], me) : null;
+  if (spare !== null && port.previewCast(card, 0, [], 0, NO_ALT, { sacrifice: [spare] }, false, false, 0, false, false, 0, [], true)?.plan) return { casualty: true, sacrifice: [spare] };
+  if (plain.kicker !== null && port.previewCast(card, 0, [], 1)?.plan) return { kicked: 1 };
+  return undefined;
 }
 
 /**
@@ -487,9 +507,13 @@ export function answerAwaiting(
           return !awaiting.filter || admitsCard(awaiting.filter, c);
         });
         const best = [...legal].sort(worstFirst).slice(0, 1).map((c) => c.instanceId);
+        // The optional costs the granted cast may still pay (`freeCastCosts`); a refused answer is made again plain.
+        const pick = best[0];
+        const cast = pick !== undefined && attempt === 0 ? freeCastCosts(port, view, pick, me) : undefined;
+        const paid = cast === undefined ? '' : cast.conspired ? ' (conspired)' : cast.casualty ? ' (casualty)' : ' (kicked)';
         return act(
-          { t: 'AnswerChooseFromZone', player: me, cards: best },
-          best.length === 0 ? `cast nothing for ${awaiting.label}` : awaiting.madness !== undefined ? `cast it for its madness cost ${awaiting.madness.cost} (${awaiting.label})` : `cast a spell from hand without paying for ${awaiting.label}`,
+          { t: 'AnswerChooseFromZone', player: me, cards: best, ...(cast !== undefined ? { cast } : {}) },
+          best.length === 0 ? `cast nothing for ${awaiting.label}` : awaiting.madness !== undefined ? `cast it for its madness cost ${awaiting.madness.cost} (${awaiting.label})` : `cast a spell from hand without paying for ${awaiting.label}${paid}`,
         );
       }
       const pool =

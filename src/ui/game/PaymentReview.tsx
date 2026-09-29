@@ -6,7 +6,8 @@ import { ManaCost } from '../card/ManaCost';
 import { handOffDropOrigin } from './useEngineTable';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, PANEL } from './styles';
 import { NO_ALT, altCount } from '../../engine/altPayment';
-import { electAlternative, electCasualty, reaimSpliced } from './aimCommit';
+import { electAlternative, electCasualty, grantedCastAnswer, reaimSpliced } from './aimCommit';
+import { poolTotal } from '../../engine/types/mana';
 
 // "Here is what I am about to tap. Cast, or let me do it myself."
 //
@@ -49,6 +50,12 @@ export function PaymentReview() {
     // a guest, so waiting for it would leave the review sitting there while the
     // spell was already on the stack; a rejection surfaces in the prompt bar.
     useTable.getState().setMessage(null);
+    // D491 - a GRANTED cast is answered, not cast: the prompt's answer names the card, with the optional costs priced here.
+    if (preview.free) {
+      session.submit(grantedCastAnswer(viewer, mode.card, preview));
+      setMode({ kind: 'idle' });
+      return;
+    }
     // If this review was opened by dropping the card on the battlefield, the card
     // is lying there right now — so that, not its empty hand slot, is where the
     // cast flight starts. A no-op for a review opened by clicking.
@@ -107,6 +114,12 @@ export function PaymentReview() {
         <h2 className="truncate font-sc text-sm tracking-wider text-crt-text">{preview.name}</h2>
         <ManaCost cost={preview.cost} size={13} />
       </div>
+
+      {preview.free && (
+        <p className="mt-1 text-[11px] text-crt-dim" data-payment-free="">
+          Cast without paying its mana cost - you pay only what you add below.
+        </p>
+      )}
 
       {preview.tax > 0 && (
         <p className="mt-1 text-[11px] text-crt-warn" data-payment-tax="">
@@ -360,7 +373,7 @@ export function PaymentReview() {
         </p>
       ) : (
         <ul className="mt-1 max-h-[120px] overflow-y-auto text-xs text-crt-dim" data-payment-taps="">
-          {preview.taps.length === 0 && <li>Mana already in your pool.</li>}
+          {preview.taps.length === 0 && <li>{preview.free && preview.lifePaid === 0 && poolTotal(preview.plan.spendFromPool) === 0 ? 'Nothing to pay.' : 'Mana already in your pool.'}</li>}
           {preview.taps.map((id, i) => (
             <li key={`${id}-${i}`} className="truncate">
               {view.cards[id]?.card?.name ?? id}

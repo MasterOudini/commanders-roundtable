@@ -85,6 +85,7 @@ import { EMPTY_POOL, addPool, poolFrom, type ManaCost, type ManaPool, type ManaS
 import {
   accept,
   reject,
+  type FreeCastCosts,
   type HandleResult,
   type Intent,
 } from './types/intents';
@@ -1503,10 +1504,18 @@ function castSpell(
  */
 // D541 - and the MADNESS cast (`madness`): begun the same way by the madness trigger's answer, for the madness cost -
 // priced (the board's reductions carried as the tax), paid after the announcement by the solver's plan.
-function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, continuation: EffectContinuation | undefined, madness = false): HandleResult {
+// And the OPTIONAL COSTS the answer announces (`cast` - CR 118.9d: an additional cost applies on top of the alternative
+// "without paying its mana cost"): the kick, the conspire, the casualty and a verb kicker's picks, checked by the same
+// `prepareCast` a `CastSpell` goes through and carried on the pending cast as a `CastSpell`'s are.
+function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, continuation: EffectContinuation | undefined, madness = false, cast?: FreeCastCosts): HandleResult {
   if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
-  const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, 0, NO_ALT, NO_PICKS, false, !madness, [], false, madness);
+  const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, cast?.kicked ?? 0, NO_ALT, cast ? picksOf(cast) : NO_PICKS, false, !madness, cast?.kickedWith ?? [], false, madness, 0, cast?.conspired === true, false, 0, [], cast?.casualty === true);
   if ('error' in setup) return setup.error;
+  // What the elections add must be payable as they are announced: refused here, where the prompt can be answered again -
+  // never at the targets stage, where a staged cast (paid only as it completes) would be stranded.
+  if (cast !== undefined && suggestPayment(solveWithout(solveInputFor(state, deps.oracle, deps.scripts, player), NO_ALT, setup.picks.tap), setup.problem, spellPurpose(setup.face, false)) === null) {
+    return reject('cannotAfford', `You cannot pay the optional costs you chose for ${setup.face.name} - cast it without them, or cast nothing.`);
+  }
   const modal = setup.face.modal;
   const spellSpecs = modal !== null ? [] : setup.face.targets;
   const needsModes = modal !== null;
@@ -1535,6 +1544,15 @@ function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, 
       isCommanderCast: false,
       // D541 - a madness cast carries the board's reductions its problem was priced with (a free cast has none).
       taxApplied: madness ? setup.tax : 0,
+      ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
+      ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
+      ...(setup.conspired ? { conspired: true as const } : {}),
+      ...(setup.casualty ? { casualty: true as const } : {}),
+      ...(setup.picks.sacrifice.length > 0 ? { sacrifice: setup.picks.sacrifice } : {}),
+      ...(setup.picks.discard.length > 0 ? { discard: setup.picks.discard } : {}),
+      ...(setup.picks.tap.length > 0 ? { tap: setup.picks.tap } : {}),
+      ...(setup.picks.exileFromGraveyard.length > 0 ? { exileFromGraveyard: setup.picks.exileFromGraveyard } : {}),
+      ...(setup.picks.returnToHand.length > 0 ? { returnToHand: setup.picks.returnToHand } : {}),
       ...(setup.orPaid ? { orPaid: true as const } : {}),
       ...(madness ? { madness: true as const } : { free: true as const }),
       ...(continuation !== undefined ? { continuation } : {}),
@@ -4395,6 +4413,10 @@ function answerChooseFromZone(
   if (awaiting?.kind !== 'chooseFromZone' || awaiting.player !== intent.player) {
     return reject('notAwaitingThat', 'You are not being asked to choose cards.');
   }
+  // D491 - optional costs belong to the card a `castFree` answer casts: never to a decline, never to another prompt's answer.
+  if (intent.cast !== undefined && (awaiting.castFree !== true || intent.cards.length === 0)) {
+    return reject('notCastable', awaiting.castFree === true ? 'Casting nothing pays nothing - name the card to pay its optional costs.' : 'Only a spell being cast has optional costs to pay.');
+  }
   // D389 - `min` is the fewest a look with "you may" takes; every older prompt is exact.
   const min = awaiting.min ?? awaiting.count;
   if (intent.cards.length > awaiting.count || intent.cards.length < min) {
@@ -4637,7 +4659,7 @@ function answerChooseFromZone(
     if (!freeCastAdmits(state, deps, pick, bound)) {
       return reject('illegalTarget', `That card is not ${awaiting.filter?.what ?? 'a spell'} ${awaiting.label} lets you cast without paying its mana cost right now.`);
     }
-    return beginGrantedCast(state, deps, intent.player, pick, awaiting.continuation, awaiting.madness !== undefined);
+    return beginGrantedCast(state, deps, intent.player, pick, awaiting.continuation, awaiting.madness !== undefined, intent.cast);
   }
   // D390 - a discard inside a player queue is RECORDED, not applied: every player's discard happens
   // at once when the last has chosen (CR 101.4). A lone discard prompt keeps today's path below.

@@ -3,8 +3,9 @@ import { useAim } from '../../store/aimStore';
 import { cardSlot, resolveKey } from '../anim/rectRegistry';
 import { useTable, type TableMode } from '../../store/tableStore';
 import type { TargetChoice } from '../../engine/types/state';
-import type { CostPicks } from '../../net/client';
+import type { CastPreview, CostPicks } from '../../net/client';
 import type { LegalAction } from '../../engine/legal';
+import type { FreeCastCosts, Intent } from '../../engine/types/intents';
 
 // Adding a target, and finishing an aim. ONE implementation, because three
 // things do it — clicking a legal target on the veil, releasing a drag on one,
@@ -434,6 +435,36 @@ export function electCasualty(payment: Extract<TableMode, { kind: 'payment' }>, 
   const table = useTable.getState();
   table.setMode({ kind: 'sacrifice', card: payment.card, abilityIndex: 0, cast: { ...(payment.faceIndex !== undefined ? { faceIndex: payment.faceIndex } : {}), label, casualtyOf: payment }, name: label, count: 1, chosen: [] });
   beginAimFrom(payment.card);
+}
+
+/**
+ * D491 - THE GRANTED CAST'S REVIEW: a card a `castFree` prompt lets the viewer cast opens the payment review when it prints
+ * an optional cost it may pay now (CR 118.9d) - a kick the mana can pay, a conspire two creatures can pay, a casualty a
+ * creature can pay. The review previews the cast free (`CastPreview.free`) and answers the prompt (`grantedCastAnswer`).
+ * False when there is nothing to elect: the caller answers at once, as before.
+ */
+export function beginGrantedReview(card: string): boolean {
+  const preview = session.previewCast(card);
+  if (!preview?.free) return false;
+  const kick = preview.kicker !== null && (session.previewCast(card, 0, [], 1)?.plan ?? null) !== null;
+  const conspire = (preview.conspire?.candidates.length ?? 0) >= 2;
+  const casualty = (preview.casualty?.candidates.length ?? 0) > 0;
+  if (!kick && !conspire && !casualty) return false;
+  useAim.getState().reset();
+  useTable.getState().setMode({ kind: 'payment', card, xValue: 0, targets: [] });
+  return true;
+}
+
+/** D491 - what the review sends for a GRANTED cast: the prompt's answer naming the card, with the optional costs it priced. */
+export function grantedCastAnswer(viewer: string, card: string, preview: CastPreview): Intent {
+  const tap = preview.conspired ? (preview.costPicks.tap ?? []) : [];
+  const sacrifice = preview.casualtyPaid ? (preview.costPicks.sacrifice ?? []) : [];
+  const cast: FreeCastCosts = {
+    ...(preview.kicked > 0 ? { kicked: preview.kicked } : {}),
+    ...(tap.length > 0 ? { conspired: true, tap } : {}),
+    ...(sacrifice.length > 0 ? { casualty: true, sacrifice } : {}),
+  };
+  return { t: 'AnswerChooseFromZone', player: viewer, cards: [card], ...(Object.keys(cast).length > 0 ? { cast } : {}) };
 }
 
 export function electAlternative(card: string, faceIndex: number | undefined, label: string, targets: readonly TargetChoice[], pick: { readonly verb: string | null; readonly count: number }): void {

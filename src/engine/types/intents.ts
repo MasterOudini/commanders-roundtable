@@ -329,7 +329,13 @@ export type Intent =
    * state: every id in the player's own hand, no duplicates, exactly `count` of
    * them. See D137.
    */
-  | { readonly t: 'AnswerChooseFromZone'; readonly player: PlayerId; readonly cards: readonly InstanceId[] }
+  | {
+      readonly t: 'AnswerChooseFromZone';
+      readonly player: PlayerId;
+      readonly cards: readonly InstanceId[];
+      /** D491 - a `castFree` answer's optional costs for the card it names (`FreeCastCosts`); refused on a decline and on any other prompt. */
+      readonly cast?: FreeCastCosts;
+    }
   /**
    * The sequence the player chose for "…in any order", FIRST ENTRY FIRST — the
    * card that ends up nearest the named end of the library. See D142.
@@ -462,6 +468,26 @@ export type Intent =
   | { readonly t: 'CancelRewind'; readonly player: PlayerId };
 
 export type IntentKind = Intent['t'];
+
+/**
+ * D491 - THE GRANTED CAST'S OPTIONAL COSTS. Casting a spell "without paying its mana cost" is an alternative cost (CR
+ * 118.9), and an additional cost still applies on top of it (CR 118.9d), announced with the cast (CR 601.2b) - so a
+ * spell cast off cascade, discover, rebound or a from-hand grant may still be kicked, conspire or pay its casualty. What a
+ * `castFree` answer (`AnswerChooseFromZone`) may announce for the card it names, spelled as `CastSpell` spells it and
+ * checked by the same `prepareCast`: the kick (`kicked`, a two-kicker face's `kickedWith`), the conspire (`conspired`,
+ * its two creatures as `tap`), the casualty (`casualty`, its one creature as `sacrifice`), and a verb kicker's picks.
+ */
+export interface FreeCastCosts {
+  readonly kicked?: number;
+  readonly kickedWith?: readonly number[];
+  readonly conspired?: boolean;
+  readonly casualty?: boolean;
+  readonly sacrifice?: readonly InstanceId[];
+  readonly discard?: readonly InstanceId[];
+  readonly tap?: readonly InstanceId[];
+  readonly exileFromGraveyard?: readonly InstanceId[];
+  readonly returnToHand?: readonly InstanceId[];
+}
 
 export type RejectReason =
   | 'notYourPriority'

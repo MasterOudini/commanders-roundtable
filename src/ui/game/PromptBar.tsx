@@ -6,7 +6,7 @@ import * as session from '../../game/session';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, BTN_SMALL, FIELD, PANEL } from './styles';
 import { parseTypeLine } from '../../data/oracleParse';
 import type { PlayerView } from '../../view/types';
-import { aimPrompt, commitTargets } from './aimCommit';
+import { aimPrompt, beginGrantedReview, commitTargets } from './aimCommit';
 import { useAim } from '../../store/aimStore';
 import type { Awaiting, TargetChoice } from '../../engine/types/state';
 import { useLayout } from '../../store/layoutStore';
@@ -955,25 +955,36 @@ export function PromptBar() {
           </>
         )}
 
-        {/* D525 - cascade's candidate: casting it is a button too (the card sits in exile, not in the hand). */}
+        {/* D525 - cascade's candidate: casting it is a button too (the card sits in exile, not in the hand).
+            D491 - a card that prints an optional cost it may pay (CR 118.9d) opens the payment review first. */}
         {awaiting?.kind === 'chooseFromZone' && mine('chooseFromZone') && awaiting.castFree === true && awaiting.pool !== undefined && awaiting.pool.length === 1 && (
           <button
             type="button"
             className={BTN}
             data-action="cast-pool"
-            onClick={() => send({ t: 'AnswerChooseFromZone', player: viewer, cards: [...(awaiting.pool ?? [])] })}
+            onClick={() => {
+              const card = awaiting.pool?.[0];
+              if (card !== undefined && beginGrantedReview(card)) return;
+              send({ t: 'AnswerChooseFromZone', player: viewer, cards: [...(awaiting.pool ?? [])] });
+            }}
           >
             Cast it
           </button>
         )}
 
-        {/* D491 - the from-hand free cast's decline: casting nothing is always legal. */}
+        {/* D491 - the from-hand free cast's decline: casting nothing is always legal (a review opened for the grant closes). */}
         {awaiting?.kind === 'chooseFromZone' && mine('chooseFromZone') && awaiting.castFree === true && (
           <button
             type="button"
             className={BTN_GHOST}
             data-action="cast-nothing"
-            onClick={() => send({ t: 'AnswerChooseFromZone', player: viewer, cards: [] })}
+            onClick={() => {
+              if (mode.kind !== 'idle') {
+                useAim.getState().reset();
+                setMode({ kind: 'idle' });
+              }
+              send({ t: 'AnswerChooseFromZone', player: viewer, cards: [] });
+            }}
           >
             {awaiting.declineToHand === true ? 'Put it into your hand' : 'Cast nothing'}
           </button>

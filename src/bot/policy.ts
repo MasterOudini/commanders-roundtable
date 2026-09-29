@@ -33,7 +33,7 @@ import type { CastPreview, CostPicks } from '../net/client';
  * D585 - the creature the bot spares for a casualty: a TOKEN (the weakest first), never the commander, never one the spell aims at;
  * and never its LAST creature while the opponents' creatures could swing for lethal (a sacrifice is permanent - the review).
  */
-function spareFor(candidates: readonly string[], view: PlayerView, targets: readonly { readonly kind: string; readonly id: string }[], me: PlayerId): string | null {
+export function spareFor(candidates: readonly string[], view: PlayerView, targets: readonly { readonly kind: string; readonly id: string }[], me: PlayerId): string | null {
   const aimed = new Set(targets.filter((t) => t.kind === 'card').map((t) => t.id));
   const pool = candidates.map((id) => view.cards[id]).filter((c): c is CardView => !!c && c.isToken && !c.isCommander && !aimed.has(c.instanceId));
   pool.sort((a, b) => ((a.power ?? 0) + (a.toughness ?? 0)) - ((b.power ?? 0) + (b.toughness ?? 0)) || a.instanceId.localeCompare(b.instanceId));
@@ -51,7 +51,7 @@ function spareFor(candidates: readonly string[], view: PlayerView, targets: read
 }
 
 /** D585 - a spell that costs its own caster life (`you lose X life`, `each player loses N life`): its casualty copy would cost it again. */
-function costsCasterLife(view: PlayerView, cast: Extract<LegalAction, { t: 'CastSpell' }>): boolean {
+export function costsCasterLife(view: PlayerView, cast: Pick<Extract<LegalAction, { t: 'CastSpell' }>, 'card' | 'faceIndex'>): boolean {
   const data = view.cards[cast.card]?.card;
   if (!data) return false;
   return parseFace(data, cast.faceIndex ?? 0).effects.some((e) => e.kind === 'loseLife' && e.self && (e.scopes === undefined || e.scopes.some((s) => s.controller !== 'opponents')));
