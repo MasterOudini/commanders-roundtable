@@ -22,8 +22,10 @@ import { KEYWORD_TRIGGERS } from './keywordTriggers';
 import { parseDevour } from './keywords';
 import { STEP_ORDER } from './turn';
 import { withoutPreventedDamage } from './prevention';
+import { wardsMet } from './mana';
+import { wardSpec } from '../data/effectParse';
 import type { CardMove, EventBody, GameEvent } from './types/events';
-import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
+import type { InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
 import { isAskedCondition, predicateAdmits, type EntersAsCopy, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
 import type { DerivedCharacteristics, Keyword, OracleCard, OracleDb } from './types/oracle';
 import {
@@ -1683,6 +1685,42 @@ export function collectTriggers(
       });
     }
   }
+  // WARD AGAINST A SPELL COPY (CR 702.21a). A copy is never cast, so the cast-time tax (`handlers.ts wardTaxFor` - D68's
+  // deliberate simplification for a CAST spell) never reaches it: its ward TRIGGERS, the rule itself. Once a copy's targets
+  // are settled (`copiesSettled`), each ward of each permanent it targets that an opponent of its controller controls - the
+  // tax's own lookup (`wardsMet`) - fires one trigger, controlled by that permanent's controller and put on the stack above
+  // the copy: counter it unless its controller pays (D369's prompt, `wardSpec`), the copy bound as its aim. Walked LAST, so
+  // no trigger id or order before it moves: a batch that settles no copy aimed at a ward collects exactly what it did.
+  for (const copyId of copiesSettled(before, applied)) {
+    const copy = after.stack.find((o) => o.id === copyId);
+    if (!copy || copy.copyOf === undefined || after.players[copy.controller]?.hasLost !== false) continue;
+    const met = new Set<InstanceId>();
+    for (const { permanent, wards } of wardsMet(after, oracle, scripts, copy.controller, copy.targets)) {
+      // A permanent the copy targets twice becomes its target once.
+      if (met.has(permanent)) continue;
+      met.add(permanent);
+      const card = after.cards[permanent];
+      const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+      if (!card || !printing) continue;
+      // A face-down creature's identity is hidden (CR 708.5): its disguise ward is named as the table sees it.
+      const name = card.faceDown ? 'A face-down creature' : faceOf(printing, card.faceIndex).name;
+      // One trigger per ward ability: a face printing a mana ward and a life ward derives them as one charge.
+      const prices = wards.flatMap((w) => [...(w.wardCost !== null ? [{ cost: w.wardCost, life: 0 }] : []), ...(w.wardLife > 0 ? [{ cost: null, life: w.wardLife }] : [])]);
+      for (const price of prices) {
+        out.push({
+          id: `t${n++}`,
+          source: permanent,
+          controller: card.controller,
+          abilityRef: `${card.oracleId}#ward`,
+          label: `${name} - ward`,
+          optional: false,
+          specs: [],
+          effects: [wardSpec(price.cost, price.life)],
+          bound: [{ kind: 'stack', id: copy.id }],
+        });
+      }
+    }
+  }
   // D492 - THE ONCE-PER-TURN RIDER (`This ability triggers only once each turn.`): a printed def marked `oncePerTurn`
   // triggers once per turn per source. A match already recorded this turn (`turn.triggered`, bumped as the pending
   // trigger is queued) or earlier in this very collection (two creatures entering at once) is not queued at all; the
@@ -1697,6 +1735,28 @@ export function collectTriggers(
     seen.add(key);
     return [{ ...t, oncePerTurn: true as const }];
   });
+}
+
+/**
+ * The spell copies whose targets this batch SETTLED - a copy is put on the stack with its final targets (CR 707.10c), and
+ * that is when a permanent becomes its target. The engine makes the copy first and then asks (D487), so a copy is settled
+ * either as it is made with no question about its targets (`SpellCopied` without its `forKind: 'copy'` prompt in the same
+ * batch), or by the answer to that question, kept or new: `before` held the question and the batch's first `AwaitingSet`
+ * clears it (both branches of `chooseCopyTargets`). The copy settled by the answer comes first: a storm or replicate answer
+ * makes the next copy, and asks about it, in the same batch.
+ */
+function copiesSettled(before: GameState, applied: readonly GameEvent[]): StackId[] {
+  const out: StackId[] = [];
+  const held = before.priority.awaiting;
+  const cleared = applied.find((e) => e.body.t === 'AwaitingSet');
+  if (held?.kind === 'chooseTargets' && held.forKind === 'copy' && cleared?.body.t === 'AwaitingSet' && cleared.body.awaiting === null) out.push(held.stackId);
+  for (const e of applied) {
+    if (e.body.t !== 'SpellCopied') continue;
+    const id = e.body.obj.id;
+    const asked = applied.some((a) => a.body.t === 'AwaitingSet' && a.body.awaiting?.kind === 'chooseTargets' && a.body.awaiting.forKind === 'copy' && a.body.awaiting.stackId === id);
+    if (!asked) out.push(id);
+  }
+  return out;
 }
 
 function readonlyCtx(

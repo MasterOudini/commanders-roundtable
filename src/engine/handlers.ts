@@ -42,7 +42,7 @@ import {
   readyToTap,
   type CostVerbs,
 } from './legal';
-import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
+import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardsMet, wardTaxFrom, type ManaSource } from './mana';
 import { freeCastAdmits, handChoiceAdmits } from './handChoice';
 import { isDetained } from './detain';
 import { goadersOf } from './goad';
@@ -921,6 +921,11 @@ const MORPH_CAST_COST = parseManaCost('{3}');
  * ⚠️ Only OPPONENTS' permanents ward. Targeting your own warded creature is
  * free, and charging yourself for it would be a rules bug players would feel
  * immediately.
+ *
+ * ⚠️ A COPY OF A SPELL IS NEVER CAST, so no tax can reach it: its ward is the
+ * real trigger instead, fired by the trigger bus once the copy's targets are
+ * settled (`triggers.ts`, CR 702.21a / 707.10c) - off the same lookup
+ * (`wardsMet`), so the tax and the trigger agree on which permanents ward.
  */
 function wardTaxFor(
   state: GameState,
@@ -928,25 +933,8 @@ function wardTaxFor(
   player: PlayerId,
   targets: readonly TargetChoice[],
 ): { mana: ManaCost[]; life: number } {
-  const faces = [];
-  for (const target of targets) {
-    if (target.kind !== 'card') continue;
-    const card = state.cards[target.id];
-    if (!card || card.zone.kind !== 'battlefield') continue;
-    if (card.controller === player) continue;
-    const oracleCard = deps.oracle.byPrinting(card.printingId);
-    if (!oracleCard) continue;
-    // D460 - a face-down permanent has no printed ward (CR 708.2); a DISGUISED one has ward {2} (CR 702.168c).
-    // The client reads the same fact off the public view flag - the same constant, the same sum.
-    if (card.faceDown) {
-      if (faceOf(oracleCard, 0).disguise) faces.push(DISGUISE_WARD);
-      continue;
-    }
-    // D575 - the DERIVED wards: the printed one and every one a static grants (the Royal Role's), none once lost.
-    faces.push(...derive(state, deps.oracle, deps.scripts, card.id).wards);
-  }
-  // ⚠️ The SUM is shared with the client (D53). Only the lookup above differs.
-  return wardTaxFrom(faces);
+  // ⚠️ The SUM is shared with the client (D53). Only the lookup differs.
+  return wardTaxFrom(wardsMet(state, deps.oracle, deps.scripts, player, targets).flatMap((m) => m.wards));
 }
 
 function prepareCast(

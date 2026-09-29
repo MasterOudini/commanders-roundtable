@@ -2523,6 +2523,22 @@ export function unearthExileSpec(): EffectSpec {
   return { ...BASE, kind: 'exileSelf', text: 'Exile it.', targetIndex: -1, self: true };
 }
 
+/**
+ * WARD's payload (CR 702.21a): `counter that spell or ability unless that player pays [cost]`. D369's prompt in the shape
+ * Mana Leak's line parses to (`its controller` pays; unpaid, the counter), aimed at the object the ward trigger is about -
+ * bound as its clause-0 aim, because ward targets nothing (`PendingTrigger.bound`). One ward, one price: its mana
+ * (`Ward {2}`) or its life (`Ward—Pay 3 life`).
+ */
+export function wardSpec(cost: import('../engine/types/mana').ManaCost | null, life: number): EffectSpec {
+  const counter: EffectSpec = { ...BASE, kind: 'counter', text: 'Counter that spell.' };
+  return {
+    ...BASE,
+    kind: 'payOptional',
+    text: `Counter that spell unless its controller pays ${cost !== null ? cost.raw : `${life} life`}.`,
+    pay: { cost, life, energy: 0, verbs: null, who: 'targetController', ifPaid: [], ifNotPaid: [counter] },
+  };
+}
+
 /** D544 - the name a `Partner with <name>` line names (reminder text aside), or null. */
 export function partnerWithName(oracleText: string): string | null {
   for (const raw of (oracleText ?? '').split('\n')) {

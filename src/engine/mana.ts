@@ -19,8 +19,8 @@ import {
   type ManaSymbolKey,
   type PaymentProblem,
 } from './types/mana';
-import type { ManaOutput, ManaProduction, OracleDb } from './types/oracle';
-import type { GameState } from './types/state';
+import type { ManaOutput, ManaProduction, OracleDb, WardCharge } from './types/oracle';
+import type { GameState, TargetChoice } from './types/state';
 import { faceColors, fitPool, type SpendPurpose } from './spend';
 import type { SpendRestriction } from './types/mana';
 import { faceOf } from './oracle';
@@ -429,6 +429,39 @@ export function wardTaxFrom(
     life += face.wardLife;
   }
   return { mana, life };
+}
+
+/**
+ * The wards a set of targets MEETS (CR 702.21a): each targeted permanent on the battlefield that an OPPONENT of `player`
+ * controls, in target order, with its wards. ⚠️ THE HOST'S ONE LOOKUP, for the cast-time tax (`handlers.ts wardTaxFor`)
+ * and the trigger against a spell copy (`triggers.ts`), so the two can never disagree about which permanents ward; the
+ * client's lookup is its own because it reads a view (D53), and the sum is `wardTaxFrom`.
+ */
+export function wardsMet(
+  state: GameState,
+  oracle: OracleDb,
+  scripts: ScriptRegistry,
+  player: PlayerId,
+  targets: readonly TargetChoice[],
+): { readonly permanent: InstanceId; readonly wards: readonly WardCharge[] }[] {
+  const out: { readonly permanent: InstanceId; readonly wards: readonly WardCharge[] }[] = [];
+  for (const target of targets) {
+    if (target.kind !== 'card') continue;
+    const card = state.cards[target.id];
+    if (!card || card.zone.kind !== 'battlefield') continue;
+    if (card.controller === player) continue;
+    const oracleCard = oracle.byPrinting(card.printingId);
+    if (!oracleCard) continue;
+    // D460 - a face-down permanent has no printed ward (CR 708.2); a DISGUISED one has ward {2} (CR 702.168c).
+    // The client reads the same fact off the public view flag - the same constant, the same sum.
+    if (card.faceDown) {
+      out.push({ permanent: card.id, wards: faceOf(oracleCard, 0).disguise ? [DISGUISE_WARD] : [] });
+      continue;
+    }
+    // D575 - the DERIVED wards: the printed one and every one a static grants (the Royal Role's), none once lost.
+    out.push({ permanent: card.id, wards: derive(state, oracle, scripts, card.id).wards });
+  }
+  return out;
 }
 
 /** The cheapest a hybrid can be in MANA (a phyrexian half costs zero mana). */

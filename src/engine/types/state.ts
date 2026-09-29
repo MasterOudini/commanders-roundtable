@@ -883,6 +883,12 @@ export interface PendingTrigger {
   readonly reflexive?: true;
   /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
   readonly sourceColors?: readonly ColorLetter[];
+  /**
+   * The object a trigger is ABOUT without targeting it - ward's `that spell` (CR 702.21a: the copy whose targets met it) -
+   * bound as it fires and riding onto the stack object as its targets, every one answering clause 0 (D494's carrier for a
+   * delayed trigger's bound aims). Absent on every other pending trigger, so every older state hashes byte-identically.
+   */
+  readonly bound?: readonly TargetChoice[];
   /** D492 - a once-per-turn def's firing: recorded on `TurnState.triggered` as it is queued (the reducer). */
   readonly oncePerTurn?: true;
   /**

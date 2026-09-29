@@ -305,6 +305,8 @@ export function stackPendingTriggers(
       ...(trigger.delayed !== undefined && (state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims?.length ?? 0) > 0
         ? (() => { const aims = state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims ?? []; return { targets: aims.map((id) => ({ kind: 'card' as const, id })), targetSlots: aims.map(() => 0) }; })()
         : {}),
+      // Ward's copy (CR 702.21a) rides the same way: the object the trigger is about, bound as it fired (`PendingTrigger.bound`).
+      ...(trigger.bound !== undefined ? { targets: trigger.bound, targetSlots: trigger.bound.map(() => 0) } : {}),
     };
     events.push({ t: 'AbilityPutOnStack', obj });
     events.push(
