@@ -448,14 +448,8 @@ function findLegendChoice(
     if (ids.length < 2) continue;
     const controller = key.slice(0, key.indexOf('|'));
     const name = key.slice(key.indexOf('|') + 1);
-    // ⚠️ Do not re-ask a question that is already on screen. `advance()` runs
-    // the SBA pass BEFORE the awaiting check (CR 117.5 requires that order), so
-    // an SBA that emits a prompt would emit it again on every single iteration
-    // — `pump` hit its 10 000-iteration cap the moment a second Krenko landed.
-    const current = state.priority.awaiting;
-    if (current?.kind === 'chooseLegendKeep' && current.player === controller && current.name === name) {
-      continue;
-    }
+    // No re-ask check: `advance()` runs this pass only while no question is up (its SBA guard), so the question
+    // this returns is never already on screen. The check that stood here re-asked the OTHER group when two were due.
     return {
       action: { t: 'legendRule', player: controller, name, candidates: ids },
       awaiting: { kind: 'chooseLegendKeep', player: controller, name, candidates: ids },

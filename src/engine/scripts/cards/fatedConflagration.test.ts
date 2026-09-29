@@ -34,14 +34,17 @@ function conflagrated(): { g: Game; victim: InstanceId } {
 }
 
 describe('Fated Conflagration', () => {
-  test('on MY turn: the 2/2 dies and the scry 2 asks', () => {
+  test('on MY turn: the scry 2 asks, and the 2/2 dies once it is answered', () => {
     const { g, victim } = conflagrated();
     advanceUntil(g, (s) => s.priority.awaiting?.kind === 'scryChoice', 20_000);
-    expect(g.state.cards[victim]?.zone.kind).toBe('graveyard');
+    // CR 704.3: the damage is marked, but no state-based action is performed until the spell has resolved.
+    expect(g.state.cards[victim]?.zone.kind).toBe('battlefield');
+    expect(g.state.cards[victim]?.damage).toBe(5);
     const lib = g.state.zones.library['p1'] ?? [];
     const revealed = lib.filter((id) => g.state.cards[id]?.revealedTo.includes('p1'));
     expect(revealed).toHaveLength(2);
     must(g.submit({ t: 'AnswerScry', player: 'p1', toTop: revealed, toBottom: [] }));
+    expect(g.state.cards[victim]?.zone.kind).toBe('graveyard');
     settle(g);
     expect(g.state.priority.awaiting).toBeNull();
   });

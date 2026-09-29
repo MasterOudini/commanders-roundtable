@@ -57,8 +57,16 @@ export function advance(state: GameState, deps: EngineDeps): Emitted {
 
   // 1 — state-based actions. Repeat until a pass yields nothing (CR 704.4);
   // `pump` provides the repetition.
-  const sba = checkStateBasedActions(state, deps.oracle, deps.scripts);
-  if (sba.actions.length > 0) {
+  // THE SBA GUARD (CR 704.3), the other half of D584's drain guard below: state-based actions are checked when a player
+  // would receive priority - never under a live question. The pass ran before the awaiting check, so an SBA landed
+  // mid-resolution (Grim Affliction's -1/-1 counter killed the Kami while its proliferate was still asked, so the Kami
+  // could not be proliferated onto) and an SBA's question replaced the one up (a dying commander's over the proliferate,
+  // the legend rule's over the commander's, two legend groups over each other until pump threw). A question asked
+  // outside a resolution - a declaration, an ordering, an aim, the cleanup discard - is raised only after a clean pass,
+  // and one the pass raises itself (the legend rule, a commander's zone) is answered on the board as it stands; each
+  // answer lets the pass run again.
+  const sba = state.priority.awaiting === null ? checkStateBasedActions(state, deps.oracle, deps.scripts) : null;
+  if (sba !== null && sba.actions.length > 0) {
     const events = [...sba.events];
     // CR 514.3a — an SBA during cleanup means players DO get priority, and
     // another cleanup step follows.
