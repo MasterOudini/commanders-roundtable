@@ -24,7 +24,7 @@ const VIEW = {
   me: ME,
   seatOrder: [ME, FOE],
   seats: { [ME]: seat(ME), [FOE]: seat(FOE) },
-  cards: { src: card('src', ME), mine: card('mine', ME), theirs: card('theirs', FOE) },
+  cards: { src: card('src', ME), mine: card('mine', ME), theirs: card('theirs', FOE), zbears: card('zbears', ME), g1: card('g1', ME), g2: card('g2', ME) },
   zones: { [`bf:${ME}`]: ['src', 'mine'], [`bf:${FOE}`]: ['theirs'] },
   stack: [],
   turn: { active: ME, phase: 'main1', turnNumber: 3 },
@@ -70,5 +70,27 @@ describe('D584 - the bot prices a reflexive payload', () => {
   test('no legal fill (603.3d would remove the trigger): declined, never paid as a cheap tax; a payload with no clause: paid', () => {
     expect(paid(answerAwaiting(port([]), price('you may pay {1}. When you do, destroy target creature.'), ME, 0))).toBe(false);
     expect(paid(answerAwaiting(port([]), price('you may pay {1}. When you do, draw a card.'), ME, 0))).toBe(true);
+  });
+});
+
+// D585 - the D584 review's last suggestion: a reflexive VERB price never pays with the card its payload is planned to aim
+// at - Young Necromancer's exile could take the only creature card its payload returns (603.3d would then remove the
+// trigger, the price paid for nothing).
+const NECRO = 'you may exile two cards from your graveyard. When you do, return target creature card from your graveyard to the battlefield.';
+function verbPrice(candidates: readonly string[]): Awaiting {
+  const pay = parseEffects(NECRO, 'Young Necromancer', true).effects[0]?.pay;
+  if (!pay?.verbs || !pay.reflexive) throw new Error('the price does not read');
+  return { kind: 'payMana', player: ME, cost: null, life: 0, label: 'Young Necromancer', controller: ME, source: 'src', card: null, identity: [], targets: [], ifPaid: [], ifNotPaid: [], verbs: pay.verbs, candidates: [...candidates], reflexive: pay.reflexive } as Awaiting;
+}
+const picked = (d: ReturnType<typeof answerAwaiting>): readonly string[] | null => (d.t === 'act' && d.intent.t === 'AnswerPayMana' && d.intent.pay ? (d.intent.picks ?? []) : null);
+
+describe('D585 - a reflexive verb price spares the payload' + "'" + 's planned target', () => {
+  test('the exile takes the two other cards and leaves the Bears to be returned', () => {
+    const d = answerAwaiting(port([{ kind: 'card', id: 'zbears' }]), verbPrice(['g1', 'g2', 'zbears']), ME, 0);
+    expect(picked(d)).toEqual(expect.arrayContaining(['g1', 'g2']));
+    expect(picked(d)).not.toContain('zbears');
+  });
+  test('with only the Bears and one other card, the bot declines rather than exile its own target', () => {
+    expect(paid(answerAwaiting(port([{ kind: 'card', id: 'zbears' }]), verbPrice(['zbears', 'g1']), ME, 0))).toBe(false);
   });
 });

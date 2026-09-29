@@ -102,6 +102,9 @@ export interface CastPreview {
   /** D557 - the conspire the face prints (CR 702.78a) with the creatures that may pay it, and whether this preview conspires. */
   readonly conspire: { readonly candidates: readonly InstanceId[] } | null;
   readonly conspired: boolean;
+  /** D585 - the casualty the face prints (CR 702.153a): the creatures that may pay it (power `floor` or greater), and whether this preview pays it (its one sacrifice rides `costPicks.sacrifice`). */
+  readonly casualty: { readonly candidates: readonly InstanceId[]; readonly floor: number } | null;
+  readonly casualtyPaid: boolean;
   /** D558 - the offspring cost the face prints (CR 702.175a), and whether this preview priced it. */
   readonly offspring: { readonly cost: string } | null;
   readonly offspringPaid: boolean;
@@ -487,7 +490,7 @@ export class ClientSession {
     return { plan, taps: plan?.taps.map((t) => t.source) ?? [] };
   }
 
-  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false, squadded = 0, spliced: readonly InstanceId[] = []): CastPreview | null {
+  previewCast(cardId: InstanceId, xValue = 0, targets: readonly TargetChoice[] = [], kicked = 0, alt: AltChoice | 'auto' = NO_ALT, costPicks: CostPicks = NO_PICKS, alternative = false, buyback = false, replicated = 0, conspired = false, offspring = false, squadded = 0, spliced: readonly InstanceId[] = [], casualty = false): CastPreview | null {
     const action = this.session.legal.find((a) => a.t === 'CastSpell' && a.card === cardId);
     if (action?.t !== 'CastSpell') return null;
     const data = this.view.cards[cardId]?.card;
@@ -561,6 +564,9 @@ export class ClientSession {
       replicated: repCost ? replicated : 0,
       conspire: face.conspireVerb !== null ? { candidates: action.conspireCandidates ?? [] } : null,
       conspired: conspired && face.conspireVerb !== null,
+      // D585 - the casualty and its one sacrifice (the offer's candidates carry the power floor, D139).
+      casualty: face.casualtyVerb !== null ? { candidates: action.casualtyCandidates ?? [], floor: face.casualtyVerb.sacrificeCost?.powerAtLeast ?? 0 } : null,
+      casualtyPaid: casualty && face.casualtyVerb !== null && (costPicks.sacrifice?.length ?? 0) === 1,
       offspring: face.offspringCost ? { cost: face.offspringCost.raw } : null,
       offspringPaid: offspring && face.offspringCost !== null,
       squad: sqCost ? { cost: sqCost.raw } : null,

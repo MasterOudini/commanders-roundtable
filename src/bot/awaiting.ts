@@ -332,7 +332,10 @@ export function answerAwaiting(
             cheapest ? `${v.costText} for ${awaiting.label}` : `decline to ${v.costText} for ${awaiting.label}`,
           );
         }
-        const sorted = v.discardCost !== null ? [...pool].sort(worstFirst) : [...pool].sort(worstFirst).reverse();
+        // D585 - a reflexive price never pays with what its payload is planned to aim at (the plan `reflexiveWorth` made).
+        const aimed = awaiting.reflexive === undefined ? new Set<string>() : new Set((planTargets(port, awaiting.source ?? awaiting.card ?? '', awaiting.reflexive.targets, view, me) ?? []).filter((t) => t.kind === 'card').map((t) => t.id));
+        const payable = pool.filter((c) => !aimed.has(c.instanceId));
+        const sorted = v.discardCost !== null ? [...payable].sort(worstFirst) : [...payable].sort(worstFirst).reverse();
         const picks = sorted.slice(0, count).map((c) => c.instanceId);
         const cheap = v.discardCost !== null || v.exileFromGraveyardCost !== null || v.tapCost !== null;
         const spareLand = !cheap && !v.sacrificeSelf && !benefit && pool.length >= 6 && pool.every(isLand);

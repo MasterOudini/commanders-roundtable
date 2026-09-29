@@ -123,6 +123,7 @@ export const TIER2_KEYWORDS = [
   // D557 - CONSPIRE (CR 702.78a): the cast's tap of two creatures that share a colour with the spell, and the cast
   // trigger that copies it once (`StackObject.conspired`), from the keyword table as replicate's is.
   'conspire',
+  'casualty',
   // D558 - OFFSPRING (CR 702.175a): the cost at cast (`StackObject.offspring`, onto the permanent's entry) and the enters
   // trigger that creates its 1/1 token copy, from the keyword table as fabricate's is.
   'offspring',
@@ -1841,6 +1842,8 @@ export interface ActivatedAbility {
     readonly count: number;
     readonly another: boolean;
     readonly any: readonly import('../../data/replacementParse').PermanentPredicate[];
+    /** D585 - CASUALTY (CR 702.153a): each creature sacrificed must have power this or greater (a floor per creature, not crew's total). */
+    readonly powerAtLeast?: number;
   } | null;
   /**
    * `Discard a card` / `Discard two cards` / `Discard a land card` — a discard
@@ -2187,6 +2190,12 @@ export interface OracleFace {
    * the tap chooser with one creature predicate per printed colour. Paid, the cast trigger copies the spell once.
    */
   readonly conspireVerb: import('../../data/activatedParse').KickerVerb | null;
+  /**
+   * D585 - CASUALTY (CR 702.153a): `Casualty N` on an instant or sorcery - an optional additional cost, the sacrifice of one
+   * creature with power N or greater (`sacrificeCost.powerAtLeast`). Paid, the cast trigger copies the spell once. Null
+   * on a permanent (its copy would be a token the engine does not make) and on `Casualty X`.
+   */
+  readonly casualtyVerb: import('../../data/activatedParse').KickerVerb | null;
   /**
    * D558 - OFFSPRING (CR 702.175a): `Offspring {M}` on a creature - an optional additional cost the cast may pay
    * (`CastSpell.offspring`); paid, the permanent's enters trigger creates a token copy of it except it's 1/1.

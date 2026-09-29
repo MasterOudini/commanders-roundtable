@@ -937,6 +937,20 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
     },
   ],
   [
+    'casualty',
+    {
+      // D585 - CR 702.153a: when you cast the spell, if a casualty cost was paid for it, copy it; you may choose new targets for
+      // the copy. Conspire's shape (D557): the entry fires off the SPELL on the stack when the cast paid it (`StackObject.casualty`),
+      // its one effect storm's copy spec - a copy (which carries the mark, CR 707.10) never triggers it again.
+      event: 'SpellCast',
+      fromStack: true,
+      matches: (ctx, self, ev) => ev.t === 'SpellCast' && ev.obj.card === self && ev.obj.copyOf === undefined && ev.obj.casualty === true && !isPermanentSpell(ctx, self),
+      effects: (_ctx, _self, ev) => (ev.t === 'SpellCast' ? [stormCopySpec(ev.obj)] : []),
+      label: (ctx, self) => `${nameOf(ctx, self)} - casualty`,
+      resolve: () => [],
+    },
+  ],
+  [
     'offspring',
     {
       // D558 - CR 702.175a: when this permanent enters, if its offspring cost was paid, create a token that's a copy of it,

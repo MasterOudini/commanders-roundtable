@@ -713,6 +713,8 @@ export function effectResult(
           ...(original.kickedWith !== undefined ? { kickedWith: original.kickedWith } : {}),
           // D576 - the spliced text is copied with the spell (CR 707.10; the splice rulings).
           ...(original.spliced !== undefined ? { spliced: original.spliced } : {}),
+          // D585 - the casualty paid is a cast-time choice the copy carries (CR 707.10); its trigger asks `copyOf === undefined`.
+          ...(original.casualty !== undefined ? { casualty: original.casualty } : {}),
           copyOf: { printingId: of.printingId, faceIndex: of.faceIndex, ...(colors !== undefined ? { colors } : {}) },
         };
         out.push({ t: 'SpellCopied', obj: copy, of: original.id });

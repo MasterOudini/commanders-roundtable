@@ -492,8 +492,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // D444 - the entry choices: an unleash two-drop and a riot two-drop, asked as they enter (the driver flips).
   // The one-hybrid-mana Cackler and the mono-red Shaman, three a seat: Gore-House Chainwalker x2 read 4 then 0 asks
   // at 60 seeds, Zhur-Taa Goblin's {R}{G} one, Arcbound Slasher's {4}{R} none.
-  { names: ['Rakdos Cackler'], copiesPerSeat: 3,
-    counterKeys: ['unleashAsked'], rotHistory: 'D444' },
+  // D585 - two a seat: its third slot went to A Little Chat (the swap below; 12 unleash asks at 60 seeds with three).
+  { names: ['Rakdos Cackler'], copiesPerSeat: 2,
+    counterKeys: ['unleashAsked'], rotHistory: 'D444, D585' },
+  // D585 - CASUALTY (CR 702.153): an A Little Chat a seat ({1}{U} instant; Casualty 1 - the driver sacrifices the first
+  // creature the offer lists, and the trigger copies the look), in Rakdos Cackler's third slot (the seat's card count and
+  // the shuffle kept, D553's rule): the 60-seed canary cast no casualty spell before it.
+  { names: ['A Little Chat'], copiesPerSeat: 1,
+    counterKeys: ['casualtyCasts', 'casualtyCopies'], rotHistory: 'D585' },
   { names: ['Clamor Shaman'], copiesPerSeat: 3,
     counterKeys: ['riotAsked'], rotHistory: 'D444' },
   // D445 - backup: a {2}{W} vigilance creature whose entry puts a counter on a target and grants vigilance.
@@ -1425,6 +1431,12 @@ function repOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unkn
 }
 
 /** D557 - the conspire the driver names: whenever the offer lists two creatures that may pay it, its first two (D443's rule). */
+/** D585 - the casualty the driver pays: whenever the offer lists a creature with the power it asks, its first (D443's rule). */
+function casOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
+  const pick = (a.casualtyCandidates ?? [])[0];
+  return pick !== undefined ? { casualty: true, sacrifice: [pick] } : {};
+}
+
 function conspOf(a: Extract<LegalAction, { t: 'CastSpell' }>): Record<string, unknown> {
   const taps = (a.conspireCandidates ?? []).slice(0, 2);
   return taps.length === 2 ? { conspired: true, tap: taps } : {};
@@ -1530,7 +1542,7 @@ function nextIntent(state: GameState, p: Picker): Intent | null {
       // both branches of a kicked clause are fuel. D443 - the kick is taken exactly when the offer says it is
       // payable (D180's mechanism for the kicked-entry canary, which read 0 over 500 seeds on a coin flip): the
       // plain branch is the early turns', the kicked branch the later ones' - neither waits on a coin.
-      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...offOf(chosen), ...sqOf(chosen), ...splOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
+      return { t: 'CastSpell', player: holder, card: chosen.card, ...(chosen.faceDown ? { faceDown: true } : {}), ...kickOf(chosen), ...buyOf(chosen), ...repOf(chosen), ...conspOf(chosen), ...casOf(chosen), ...offOf(chosen), ...sqOf(chosen), ...splOf(chosen), ...(altFor(chosen) ?? {}), ...harmOf(state, chosen), ...castPicksOf(chosen) };
     case 'TurnFaceUp':
       // D309 - the special action: pay the morph cost, turn it face up.
       return { t: 'TurnFaceUp', player: holder, card: chosen.card };
@@ -1855,6 +1867,9 @@ interface Run {
   /** D557 - the casts that conspired (CR 702.78a), and the copies the conspire trigger made. */
   readonly conspiredCasts: number;
   readonly conspireCopies: number;
+  /** D585 - the casts that paid a casualty (CR 702.153a), and the copies the casualty trigger made. */
+  readonly casualtyCasts: number;
+  readonly casualtyCopies: number;
   /** D558 - the casts that paid an offspring cost (CR 702.175a), and the offspring triggers put on the stack. */
   readonly offspringCasts: number;
   readonly offspringTriggers: number;
@@ -2479,6 +2494,8 @@ function runOne(seed: number): Run {
     reflexiveTriggers: game.log.filter((e) => e.body.t === 'ReflexiveTriggered').length,
     reflexiveStacked: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.abilityRef?.endsWith('#reflexive') === true).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
+    casualtyCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.casualty === true && e.body.obj.copyOf === undefined).length,
+    casualtyCopies: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:casualty')).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
     crownings: game.log.filter((e) => e.body.t === 'MonarchChanged').length,
@@ -2838,6 +2855,8 @@ const TOTAL_KEYS = [
   'replicateCopies',
   'conspiredCasts',
   'conspireCopies',
+  'casualtyCasts',
+  'casualtyCopies',
   'offspringCasts',
   'offspringTriggers',
   'transmutes',

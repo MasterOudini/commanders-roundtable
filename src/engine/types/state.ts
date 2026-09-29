@@ -522,6 +522,8 @@ export interface StackObject {
   readonly spliced?: readonly SplicedCard[];
   /** D557 - CONSPIRE (CR 702.78a): two creatures that share a colour with the spell were tapped as it was cast - the cast trigger copies it once. */
   readonly conspired?: true;
+  /** D585 - CASUALTY (CR 702.153a): a creature with power N or greater was sacrificed as it was cast - the cast trigger copies it once. */
+  readonly casualty?: true;
   /** D558 - OFFSPRING (CR 702.175a): the offspring cost was paid - carried onto the permanent's entry (`CardMove.offspring`). */
   readonly offspring?: true;
   /** D564 - SQUAD (CR 702.157a): how many times the squad cost was paid - carried onto the permanent's entry (`CardMove.squadded`). */
@@ -744,6 +746,8 @@ export interface PendingCast {
   readonly spliced?: readonly SplicedCard[];
   /** D557 - the conspire the cast was announced with (CR 702.78a) - its `tap` picks ride beside it - carried to the `StackObject`. */
   readonly conspired?: true;
+  /** D585 - the casualty the cast was announced with (CR 702.153a) - its `sacrifice` pick rides beside it - carried to the `StackObject`. */
+  readonly casualty?: true;
   /** D558 - the offspring the cast was announced with (CR 702.175a), priced at every stage and carried to the `StackObject`. */
   readonly offspring?: true;
   /** D564 - the squad count the cast was announced with (CR 702.157a), priced at every stage and carried to the `StackObject`. */

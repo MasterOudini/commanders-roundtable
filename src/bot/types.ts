@@ -62,6 +62,10 @@ export interface BotPort {
     offspring?: boolean,
     /** D564 - the squad count (CR 702.157a). */
     squadded?: number,
+    /** D576 - the cards spliced onto it (CR 702.47) - the bot splices none. */
+    spliced?: readonly string[],
+    /** D585 - the casualty (CR 702.153a); its one sacrifice rides `costPicks.sacrifice`. */
+    casualty?: boolean,
   ): CastPreview | null;
   legalTargetsFor(specs: readonly TargetSpec[], sourceCard: InstanceId): TargetChoice[];
   targetSpecsFor(cardId: InstanceId, abilityIndex?: number): readonly TargetSpec[];

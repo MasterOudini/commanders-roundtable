@@ -425,6 +425,17 @@ export function beginCastPicks(card: string, cast: Extract<LegalAction, { t: 'Ca
  * needs a pick (a verb or the pitch) goes through the pick modes marked `cast.alt`, the veil reading the
  * offer's `altPickCandidates`, and comes back to the review elected with the picks.
  */
+/**
+ * D585 - the review elects CASUALTY (CR 702.153a): the one-creature sacrifice pick, marked with the review to go back to
+ * (`casualtyOf`); the veil reads the offer's `casualtyCandidates` (the power floor applied host-side), and the review returns
+ * elected with the pick.
+ */
+export function electCasualty(payment: Extract<TableMode, { kind: 'payment' }>, label: string): void {
+  const table = useTable.getState();
+  table.setMode({ kind: 'sacrifice', card: payment.card, abilityIndex: 0, cast: { ...(payment.faceIndex !== undefined ? { faceIndex: payment.faceIndex } : {}), label, casualtyOf: payment }, name: label, count: 1, chosen: [] });
+  beginAimFrom(payment.card);
+}
+
 export function electAlternative(card: string, faceIndex: number | undefined, label: string, targets: readonly TargetChoice[], pick: { readonly verb: string | null; readonly count: number }): void {
   const table = useTable.getState();
   const castMark = { ...(faceIndex !== undefined ? { faceIndex } : {}), label, alt: true as const, targets };
@@ -457,8 +468,13 @@ export function reaimSpliced(card: string, label: string, spliced: readonly stri
 }
 
 /** D406 - after the picks: the targets (with the picks riding along), or straight to the payment review. */
-function continueCast(card: string, cast: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[] }, costPicks: CostPicks): void {
+function continueCast(card: string, cast: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[]; readonly casualtyOf?: Extract<TableMode, { kind: 'payment' }> }, costPicks: CostPicks): void {
   const table = useTable.getState();
+  // D585 - the casualty's pick was made FROM the review: back to it, elected, the sacrifice beside its other picks.
+  if (cast.casualtyOf) {
+    table.setMode({ ...cast.casualtyOf, casualty: true, costPicks: { ...(cast.casualtyOf.costPicks ?? {}), ...(costPicks.sacrifice ? { sacrifice: costPicks.sacrifice } : {}) } });
+    return;
+  }
   // D408 - the alternative cost's pick was made FROM the review (the targets already chosen): back to it, elected.
   if (cast.alt) {
     table.setMode({ kind: 'payment', card, ...(cast.faceIndex !== undefined ? { faceIndex: cast.faceIndex } : {}), xValue: 0, targets: cast.targets ?? [], costPicks, alternative: true });

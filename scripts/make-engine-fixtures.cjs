@@ -10493,6 +10493,38 @@ const WANTED = [
   'General Traag, Heart of Stone',
   'Snaremaster Sprite',
   // D584 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D585 - CASUALTY: the casualty spells the proofs deal (eight complete, three whose other line keeps them out).
+  'Cut of the Profits',
+  'Illicit Shipment',
+  'Make Disappear',
+  'A Little Chat',
+  "Light 'Em Up",
+  'Rob the Archives',
+  'Rooftop Nuisance',
+  'Join the Maestros',
+  'Cut Your Losses',
+  'Dig Up the Body',
+  'Grisly Sigil',
+  // D585 - CASUALTY and the vocab key twin: the rows the whole-leftover row maker rowed once its lookups read the probe's key for the same payload.
+  'Triskelion',
+  'Twinshot Sniper',
+  'Walking Ballista',
+  'Keen Buccaneer',
+  'Thorn Thallid',
+  'Consumptive Goo',
+  'Icatian Javelineers',
+  'Sphinx of Magosi',
+  'Ghost-Lit Raider',
+  'Migloz, Maze Crusher',
+  'Trumpeting Carnosaur',
+  'Spitting Hydra',
+  'Deathbringer Thoctar',
+  'Longhorn Sharpshooter',
+  'Sawtooth Thresher',
+  'Monoskelion',
+  'Ancient Hydra',
+  'Sawblade Scamp',
+  // D585 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -10934,6 +10966,8 @@ const WANTED_TOKENS = [
   { name: 'Human Wizard', set: 'tinr', cn: '5', key: 'HUMAN_WIZARD_1_1_U_CREATURE_TOKEN' },
   // D582 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
   { name: 'Phyrexian Saproling', set: 'tmom', cn: '8', key: 'PHYREXIAN_SAPROLING_1_1_G_CREATURE_TOKEN' },
+  // D585 - the Ogre Warrior Join the Maestros makes.
+  { name: 'Ogre Warrior', set: 'tsnc', cn: '6', key: 'OGRE_WARRIOR_4_3_B_CREATURE_TOKEN' },
 ];
 
 function constName(name) {

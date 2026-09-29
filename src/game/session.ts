@@ -607,13 +607,15 @@ export function previewCast(
   squadded = 0,
   /** D576 - the cards spliced onto it (CR 702.47). */
   spliced: readonly string[] = [],
+  /** D585 - the casualty (CR 702.153a); its one sacrifice rides `costPicks.sacrifice`. */
+  casualty = false,
 ): CastPreview | null {
   // ⚠️ `targets` is FORWARDED, and it did not used to be.
   // `ClientSession.previewCast` has computed a ward surcharge from the chosen
   // targets since M5, and this wrapper silently dropped the third argument — so
   // the one cost in this app that depends on what you are pointing at could
   // never reach the player who has to approve it.
-  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired, offspring, squadded, spliced) ?? null;
+  return active()?.previewCast(cardId, xValue, targets, kicked, alt, costPicks, alternative, buyback, replicated, conspired, offspring, squadded, spliced, casualty) ?? null;
 }
 
 // ── the assisted-effect offer ────────────────────────────────────────────────

@@ -10,7 +10,7 @@ import type { Intent } from '../engine/types/intents';
 import type { LegalAction } from '../engine/legal';
 import type { CardView, PlayerView } from '../view/types';
 import type { PlayerId } from '../engine/types/ids';
-import { parseTypeLine } from '../data/oracleParse';
+import { parseFace, parseTypeLine } from '../data/oracleParse';
 import { answerAwaiting } from './awaiting';
 import { planTargets } from './targets';
 import { decideRandom } from './random';
@@ -29,6 +29,34 @@ import type { CastPreview, CostPicks } from '../net/client';
  * in) or no verb at all.
  */
 /** D408 - the picks an alternative cost takes, off the offer's own `altPickCandidates`; `{}` when it needs none, null when they fall short. */
+/**
+ * D585 - the creature the bot spares for a casualty: a TOKEN (the weakest first), never the commander, never one the spell aims at;
+ * and never its LAST creature while the opponents' creatures could swing for lethal (a sacrifice is permanent - the review).
+ */
+function spareFor(candidates: readonly string[], view: PlayerView, targets: readonly { readonly kind: string; readonly id: string }[], me: PlayerId): string | null {
+  const aimed = new Set(targets.filter((t) => t.kind === 'card').map((t) => t.id));
+  const pool = candidates.map((id) => view.cards[id]).filter((c): c is CardView => !!c && c.isToken && !c.isCommander && !aimed.has(c.instanceId));
+  pool.sort((a, b) => ((a.power ?? 0) + (a.toughness ?? 0)) - ((b.power ?? 0) + (b.toughness ?? 0)) || a.instanceId.localeCompare(b.instanceId));
+  const pick = pool[0];
+  if (!pick) return null;
+  const others = (view.zones[`bf:${me}`] ?? []).filter((id) => id !== pick.instanceId && (view.cards[id]?.power ?? null) !== null);
+  if (others.length === 0) {
+    const incoming = Object.keys(view.seats)
+      .filter((p) => p !== me && !view.seats[p]?.lost)
+      .flatMap((p) => view.zones[`bf:${p}`] ?? [])
+      .reduce((sum, id) => sum + Math.max(0, view.cards[id]?.power ?? 0), 0);
+    if (incoming >= (view.seats[me]?.life ?? 0)) return null;
+  }
+  return pick.instanceId;
+}
+
+/** D585 - a spell that costs its own caster life (`you lose X life`, `each player loses N life`): its casualty copy would cost it again. */
+function costsCasterLife(view: PlayerView, cast: Extract<LegalAction, { t: 'CastSpell' }>): boolean {
+  const data = view.cards[cast.card]?.card;
+  if (!data) return false;
+  return parseFace(data, cast.faceIndex ?? 0).effects.some((e) => e.kind === 'loseLife' && e.self && (e.scopes === undefined || e.scopes.some((s) => s.controller !== 'opponents')));
+}
+
 function altPicksFor(cast: Extract<LegalAction, { t: 'CastSpell' }>, view: PlayerView): CostPicks | null {
   if (cast.altPickVerb === undefined) return {};
   const cands = cast.altPickCandidates ?? [];
@@ -242,11 +270,16 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
       // D557 - a conspire is paid whenever two creatures may pay it and the conspired cast has a plan (the copy is free).
       const conspireTaps = (cast.conspireCandidates ?? []).slice(0, 2);
       const conspiredTry = conspireTaps.length === 2 && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, { tap: conspireTaps }, false, false, 0, true) : null;
+      // D585 - a casualty is paid with a SPARE creature whenever the cast with it has a plan (a copy is what the card is for):
+      // a token, never the commander, never one the spell itself aims at (the offer's candidates carry the power floor);
+      // never on a spell that costs its caster life, never with the last creature before a lethal swing (the review).
+      const casualtyPick = picks === null && !costsCasterLife(view, cast) ? spareFor(cast.casualtyCandidates ?? [], view, targets, me) : null;
+      const casualtyTry = casualtyPick !== null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, { sacrifice: [casualtyPick] }, false, false, 0, false, false, 0, [], true) : null;
       // D558 - an offspring is paid whenever the cast with it has a plan (a 1/1 copy is a body for nothing more).
       const offspringTry = cast.offspringCost !== undefined && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}, false, false, 0, false, true) : null;
       // D564 - a squad is paid ONCE whenever the squadded cast has a plan (a copy of the creature is what the card is for).
       const squadTry = cast.squadCost !== undefined && picks === null ? port.previewCast(cast.card, x, targets, 0, NO_ALT, {}, false, false, 0, false, false, 1) : null;
-      const plain = boughtTry?.plan ? boughtTry : replicatedTry?.plan ? replicatedTry : conspiredTry?.plan ? conspiredTry : offspringTry?.plan ? offspringTry : squadTry?.plan ? squadTry : kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
+      const plain = boughtTry?.plan ? boughtTry : replicatedTry?.plan ? replicatedTry : conspiredTry?.plan ? conspiredTry : casualtyTry?.plan ? casualtyTry : offspringTry?.plan ? offspringTry : squadTry?.plan ? squadTry : kicked?.plan ? kicked : plainMana?.plan ? plainMana : plainPicks?.plan ? plainPicks : plainMana ?? plainPicks;
       // D405 - convoke / improvise / delve are the FALLBACK: a cast the mana cannot pay is tried
       // with the chooser's pick (tapping creatures and artifacts, exiling graveyard cards).
       const withAlt = !plain?.plan && (cast.convoke || cast.improvise || cast.delve) ? port.previewCast(cast.card, x, targets, 0, 'auto', plain?.costPicks ?? picks ?? {}) : null;
@@ -277,6 +310,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.bought ? { buyback: true as const } : {}),
         ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
         ...(preview.conspired ? { conspired: true as const } : {}),
+        ...(preview.casualtyPaid ? { casualty: true as const } : {}),
         ...(preview.offspringPaid ? { offspring: true as const } : {}),
         ...(preview.squadded > 0 ? { squadded: preview.squadded } : {}),
         ...(preview.alt.convoke.length > 0 ? { convoke: preview.alt.convoke } : {}),
@@ -290,7 +324,7 @@ function priorityAction(port: BotPort, snapshot: BotSnapshot, me: PlayerId): Bot
         ...(preview.alternative ? { alternative: true as const } : {}),
         ...(preview.alternative && preview.costPicks.exileFromHand ? { exileFromHand: preview.costPicks.exileFromHand } : {}),
       },
-      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${preview.bought ? ' (bought back)' : ''}${preview.replicated > 0 ? ' (replicated)' : ''}${preview.conspired ? ' (conspired)' : ''}${preview.offspringPaid ? ' (offspring)' : ''}${preview.squadded > 0 ? ' (squad)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
+      `cast ${cast.label}${cast.hasX ? ` (X = ${xValue})` : ''}${preview.kicked > 0 ? ' (kicked)' : ''}${preview.bought ? ' (bought back)' : ''}${preview.replicated > 0 ? ' (replicated)' : ''}${preview.conspired ? ' (conspired)' : ''}${preview.casualtyPaid ? ' (casualty)' : ''}${preview.offspringPaid ? ' (offspring)' : ''}${preview.squadded > 0 ? ' (squad)' : ''}${altCount(preview.alt) > 0 ? ' (convoke / improvise / delve)' : ''}`,
     );
   }
 

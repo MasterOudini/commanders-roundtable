@@ -82,6 +82,11 @@ export type Intent =
        */
       readonly conspired?: boolean;
       /**
+       * D585 - CASUALTY (CR 702.153a): the spell's casualty is paid - `sacrifice` names the one creature with power N or greater (the
+       * offer's `casualtyCandidates`); the host sacrifices it in the cost batch and the cast trigger copies the spell.
+       */
+      readonly casualty?: boolean;
+      /**
        * D576 - SPLICE (CR 702.47): the other cards in the caster's hand revealed and spliced onto this spell, in order - their
        * splice costs paid with it, their text (effects and targets) added after its own; they stay in the hand.
        */

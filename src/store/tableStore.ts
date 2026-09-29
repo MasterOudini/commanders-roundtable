@@ -93,6 +93,8 @@ export type TableMode =
       readonly replicated?: number;
       /** D557 - the conspire the player announced in the review (its two taps ride `costPicks.tap`). */
       readonly conspired?: boolean;
+      /** D585 - the casualty the player elected in the review (its one sacrifice rides `costPicks.sacrifice`). */
+      readonly casualty?: boolean;
       /** D558 - the offspring the player announced in the review (its toggle). */
       readonly offspring?: boolean;
       /** D564 - the squad count the player announced in the review (0 none). */
@@ -163,7 +165,7 @@ export type TableMode =
       readonly card: string;
       readonly abilityIndex: number;
       /** D406 - the pick pays a CAST's additional cost (the card is the spell): the picks then ride the cast, not an activation. D408 - `alt`: the ALTERNATIVE cost's pick, made from the review with the targets already chosen. */
-      readonly cast?: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[] };
+      readonly cast?: { readonly faceIndex?: number; readonly label: string; readonly alt?: true; readonly targets?: readonly TargetChoice[]; readonly casualtyOf?: Extract<TableMode, { kind: 'payment' }> };
       /** D367 - a granted ability's ref, when the activation is one (rides the intent). */
       readonly grantRef?: string;
       /** Shown in the prompt: the ability's own label. */
@@ -595,6 +597,12 @@ export const useTable = create<TableUi>((set, get) => ({
     // D570 - a devour pick backs out the same way; with none left the mode drops and the bar's buttons stand.
     if (mode.kind === 'devourPick' && mode.chosen.length > 0) {
       set({ mode: { ...mode, chosen: mode.chosen.slice(0, -1) } });
+      return;
+    }
+    // D585 - backing out of a casualty's sacrifice pick returns to the review it came from, the casualty unpaid.
+    if (mode.kind === 'sacrifice' && mode.cast?.casualtyOf) {
+      useAim.getState().reset();
+      set({ mode: mode.cast.casualtyOf });
       return;
     }
     if (mode.kind === 'attach' || mode.kind === 'sacrifice' || mode.kind === 'costPick' || mode.kind === 'boardPick' || mode.kind === 'payPick' || mode.kind === 'revealPick' || mode.kind === 'devourPick' || mode.kind === 'proliferate') {

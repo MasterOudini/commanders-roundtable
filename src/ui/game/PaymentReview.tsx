@@ -6,7 +6,7 @@ import { ManaCost } from '../card/ManaCost';
 import { handOffDropOrigin } from './useEngineTable';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, PANEL } from './styles';
 import { NO_ALT, altCount } from '../../engine/altPayment';
-import { electAlternative, reaimSpliced } from './aimCommit';
+import { electAlternative, electCasualty, reaimSpliced } from './aimCommit';
 
 // "Here is what I am about to tap. Cast, or let me do it myself."
 //
@@ -24,7 +24,7 @@ export function PaymentReview() {
   const view = useGame((s) => s.view);
 
   const preview = useMemo(
-    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true, mode.offspring === true, mode.squadded ?? 0, mode.spliced ?? []) : null),
+    () => (mode.kind === 'payment' ? session.previewCast(mode.card, mode.xValue, mode.targets, mode.kicked ?? 0, mode.useAlt ? 'auto' : NO_ALT, mode.costPicks ?? {}, mode.alternative === true, mode.buyback === true, mode.replicated ?? 0, mode.conspired === true, mode.offspring === true, mode.squadded ?? 0, mode.spliced ?? [], mode.casualty === true) : null),
     [mode],
   );
 
@@ -68,6 +68,8 @@ export function PaymentReview() {
       ...(preview.replicated > 0 ? { replicated: preview.replicated } : {}),
       // D557 - and the conspire (its taps are the picks below).
       ...(preview.conspired ? { conspired: true } : {}),
+      // D585 - and the casualty (its sacrifice is the pick below).
+      ...(preview.casualtyPaid ? { casualty: true } : {}),
       // D558 - and the offspring it priced.
       ...(preview.offspringPaid ? { offspring: true } : {}),
       // D564 - and the squad count it priced.
@@ -216,6 +218,32 @@ export function PaymentReview() {
               onClick={() => setMode({ ...mode, conspired: !preview.conspired, costPicks: { ...(mode.costPicks ?? {}), tap: preview.conspired ? [] : conspireTaps } })}
             >
               {preview.conspired ? 'Skip conspire' : 'Conspire'}
+            </button>
+          )}
+        </div>
+      )}
+
+      {preview.casualty && (
+        <div className="mt-2 flex items-center gap-2" data-payment-casualty="">
+          <span className="text-xs text-crt-dim">
+            {preview.casualtyPaid
+              ? `Casualty - the chosen creature is sacrificed, and the spell is copied`
+              : preview.casualty.candidates.length > 0
+                ? `Casualty ${preview.casualty.floor} - sacrifice a creature with power ${preview.casualty.floor} or greater to copy it`
+                : `Casualty ${preview.casualty.floor} (not now - no creature with power ${preview.casualty.floor} or greater)`}
+          </span>
+          {(preview.casualtyPaid || preview.casualty.candidates.length > 0) && (
+            <button
+              type="button"
+              className={BTN_GHOST_SMALL}
+              data-payment="set-casualty"
+              onClick={() =>
+                preview.casualtyPaid
+                  ? setMode({ ...mode, casualty: false, costPicks: Object.fromEntries(Object.entries(mode.costPicks ?? {}).filter(([k]) => k !== 'sacrifice')) })
+                  : electCasualty(mode, preview.name)
+              }
+            >
+              {preview.casualtyPaid ? 'Skip casualty' : 'Pay casualty'}
             </button>
           )}
         </div>

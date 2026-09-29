@@ -7,6 +7,24 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { TRISKELION_SCRIPT } from './cards/triskelion';
+import { TWINSHOT_SNIPER_SCRIPT } from './cards/twinshotSniper';
+import { WALKING_BALLISTA_SCRIPT } from './cards/walkingBallista';
+import { KEEN_BUCCANEER_SCRIPT } from './cards/keenBuccaneer';
+import { THORN_THALLID_SCRIPT } from './cards/thornThallid';
+import { CONSUMPTIVE_GOO_SCRIPT } from './cards/consumptiveGoo';
+import { ICATIAN_JAVELINEERS_SCRIPT } from './cards/icatianJavelineers';
+import { SPHINX_OF_MAGOSI_SCRIPT } from './cards/sphinxOfMagosi';
+import { GHOST_LIT_RAIDER_SCRIPT } from './cards/ghostLitRaider';
+import { MIGLOZ_MAZE_CRUSHER_SCRIPT } from './cards/miglozMazeCrusher';
+import { TRUMPETING_CARNOSAUR_SCRIPT } from './cards/trumpetingCarnosaur';
+import { SPITTING_HYDRA_SCRIPT } from './cards/spittingHydra';
+import { DEATHBRINGER_THOCTAR_SCRIPT } from './cards/deathbringerThoctar';
+import { LONGHORN_SHARPSHOOTER_SCRIPT } from './cards/longhornSharpshooter';
+import { SAWTOOTH_THRESHER_SCRIPT } from './cards/sawtoothThresher';
+import { MONOSKELION_SCRIPT } from './cards/monoskelion';
+import { ANCIENT_HYDRA_SCRIPT } from './cards/ancientHydra';
+import { SAWBLADE_SCAMP_SCRIPT } from './cards/sawbladeScamp';
 import { KISHLA_TRAWLERS_SCRIPT } from './cards/kishlaTrawlers';
 import { BOILERBILGES_RIPPER_SCRIPT } from './cards/boilerbilgesRipper';
 import { SUTINA_SPEAKER_OF_THE_TAJURU_SCRIPT } from './cards/sutinaSpeakerOfTheTajuru';
@@ -8458,6 +8476,24 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  TRISKELION_SCRIPT,
+  TWINSHOT_SNIPER_SCRIPT,
+  WALKING_BALLISTA_SCRIPT,
+  KEEN_BUCCANEER_SCRIPT,
+  THORN_THALLID_SCRIPT,
+  CONSUMPTIVE_GOO_SCRIPT,
+  ICATIAN_JAVELINEERS_SCRIPT,
+  SPHINX_OF_MAGOSI_SCRIPT,
+  GHOST_LIT_RAIDER_SCRIPT,
+  MIGLOZ_MAZE_CRUSHER_SCRIPT,
+  TRUMPETING_CARNOSAUR_SCRIPT,
+  SPITTING_HYDRA_SCRIPT,
+  DEATHBRINGER_THOCTAR_SCRIPT,
+  LONGHORN_SHARPSHOOTER_SCRIPT,
+  SAWTOOTH_THRESHER_SCRIPT,
+  MONOSKELION_SCRIPT,
+  ANCIENT_HYDRA_SCRIPT,
+  SAWBLADE_SCAMP_SCRIPT,
   KISHLA_TRAWLERS_SCRIPT,
   BOILERBILGES_RIPPER_SCRIPT,
   SUTINA_SPEAKER_OF_THE_TAJURU_SCRIPT,

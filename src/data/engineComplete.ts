@@ -624,6 +624,8 @@ export function linesUnaccounted(
     if (face.spliceCost !== null && /^Splice onto (?:Arcane|instant or sorcery) (?:\{[^}]+\})+$/.test(line)) continue;
     // D557 - a Conspire line the engine CHARGES at cast time (`CastSpell.conspired`, its taps) and RUNS as the cast trigger's copy.
     if (face.conspireVerb !== null && line === 'Conspire') continue;
+    // D585 - the Casualty line: charged at cast, run as the cast trigger's copy.
+    if (face.casualtyVerb !== null && line === face.casualtyVerb.line) continue;
     // D558 - an Offspring line the engine CHARGES at cast time (`CastSpell.offspring`) and RUNS as the enters trigger's copy.
     if (face.offspringCost !== null && /^Offspring (?:\{[^}]+\})+$/.test(line)) continue;
     // D564 - a Squad line the engine CHARGES at cast time (`CastSpell.squadded`) and RUNS as the enters trigger's copies.
@@ -761,6 +763,11 @@ export function faceCompleteness(card: CardData, faceIndex: number): Completenes
   // sorcery was understood — `parseEffects` counts them and anchors each pattern
   // at both ends. So it settles the whole face, and there is nothing left to
   // check line by line.
+  // D585 - THE CASUALTY LINE THE EFFECT TEXT DROPS (the review): parseEffects filters a `Casualty N` line by its words, so
+  // it is the engine's only where the parser read it (`casualtyVerb` - printed once, its keyword printed, nothing else
+  // taking picks beside it); any other such line leaves the face out before `auto` settles it.
+  const casualtyLines = (raw.oracleText ?? '').split('\n').map((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim()).filter((l) => /^Casualty \d+$/.test(l));
+  if (casualtyLines.length > 0 && face.casualtyVerb === null) return { complete: false, leftover: casualtyLines };
   if (face.effectMode === 'auto') return COMPLETE;
 
   const leftover = linesUnaccounted(

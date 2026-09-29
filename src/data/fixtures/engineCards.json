@@ -318764,6 +318764,997 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CUT_OF_THE_PROFITS": {
+    "scryfallId": "00e76749-cc11-401e-926f-f4286aab1ea9",
+    "oracleId": "8ce63f60-0211-46c7-8fb6-c5484ebfa029",
+    "name": "Cut of the Profits",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cut of the Profits",
+        "manaCost": "{X}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 3 (As you cast this spell, you may sacrifice a creature with power 3 or greater. When you do, copy this spell.)\nYou draw X cards and you lose X life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "00e76749-cc11-401e-926f-f4286aab1ea9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "99719",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLICIT_SHIPMENT": {
+    "scryfallId": "1f7cced2-390b-499f-ace3-e52fd53d4712",
+    "oracleId": "81d62f0a-b2ba-4e87-9003-e5472bd1101f",
+    "name": "Illicit Shipment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illicit Shipment",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 3 (As you cast this spell, you may sacrifice a creature with power 3 or greater. When you do, copy this spell.)\nSearch your library for a card, put it into your hand, then shuffle.",
+        "flavorText": "Whatever the Maestros had ordered, it wasn't anyone's business, including his.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josu Hernaiz",
+        "imageId": "1f7cced2-390b-499f-ace3-e52fd53d4712"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAKE_DISAPPEAR": {
+    "scryfallId": "3f2d6a21-ea77-484b-9e3a-1bd49806f907",
+    "oracleId": "5f12f665-f083-48ae-b61a-541051c996ec",
+    "name": "Make Disappear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Make Disappear",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell and you may choose a new target for the copy.)\nCounter target spell unless its controller pays {2}.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Inka Schulz",
+        "imageId": "3f2d6a21-ea77-484b-9e3a-1bd49806f907"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "49",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "A_LITTLE_CHAT": {
+    "scryfallId": "4d7424b6-b56a-47b7-8204-294d3dca925f",
+    "oracleId": "1167fe30-32b8-4381-8067-a05cd345977b",
+    "name": "A Little Chat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "A Little Chat",
+        "manaCost": "{1}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell.)\nLook at the top two cards of your library. Put one of them into your hand and the other on the bottom of your library.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "4d7424b6-b56a-47b7-8204-294d3dca925f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIGHT_EM_UP": {
+    "scryfallId": "5c80b3da-bda1-4d8d-ba50-7162574f4564",
+    "oracleId": "c6932bcf-d66b-42c1-8ca4-6a4573e0f6bf",
+    "name": "Light 'Em Up",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Light 'Em Up",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 2 (As you cast this spell, you may sacrifice a creature with power 2 or greater. When you do, copy this spell and you may choose a new target for the copy.)\nLight 'Em Up deals 2 damage to target creature or planeswalker.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Tony Foti",
+        "imageId": "5c80b3da-bda1-4d8d-ba50-7162574f4564"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "466",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROB_THE_ARCHIVES": {
+    "scryfallId": "a3ec95f6-88c8-4daf-882f-8b4bc73452c3",
+    "oracleId": "df45a344-5937-4a3f-a80f-581ea456ea05",
+    "name": "Rob the Archives",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rob the Archives",
+        "manaCost": "{1}{R}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell.)\nExile the top two cards of your library. You may play those cards this turn.",
+        "flavorText": "\"Well, I guess stealth's out of the question.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "a3ec95f6-88c8-4daf-882f-8b4bc73452c3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOFTOP_NUISANCE": {
+    "scryfallId": "d7a84781-b40c-41e0-a0b9-86e466c9b12d",
+    "oracleId": "8843faa9-0cd5-4ef3-8e7b-b8833db9dc84",
+    "name": "Rooftop Nuisance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rooftop Nuisance",
+        "manaCost": "{2}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell and you may choose a new target for the copy.)\nTap target creature. It doesn't untap during its controller's next untap step.\nDraw a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "d7a84781-b40c-41e0-a0b9-86e466c9b12d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JOIN_THE_MAESTROS": {
+    "scryfallId": "ff2665f7-6cf8-4f9b-810e-17e264753225",
+    "oracleId": "849a7ae8-2b4e-4fa5-9607-2bfc961fee40",
+    "name": "Join the Maestros",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Join the Maestros",
+        "manaCost": "{4}{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 2 (As you cast this spell, you may sacrifice a creature with power 2 or greater. When you do, copy this spell.)\nCreate a 4/3 black Ogre Warrior creature token.",
+        "flavorText": "\"We're family now, big guy.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "ff2665f7-6cf8-4f9b-810e-17e264753225"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "85",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUT_YOUR_LOSSES": {
+    "scryfallId": "31184dd0-4080-44c1-a3e0-f6d10a4d1fcb",
+    "oracleId": "54530a84-8278-4c93-a2cb-f5c86619a053",
+    "name": "Cut Your Losses",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cut Your Losses",
+        "manaCost": "{4}{U}{U}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 2 (As you cast this spell, you may sacrifice a creature with power 2 or greater. When you do, copy this spell and you may choose a new target for the copy.)\nTarget player mills half their library, rounded down.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dominik Mayer",
+        "imageId": "31184dd0-4080-44c1-a3e0-f6d10a4d1fcb"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Casualty",
+      "Mill"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIG_UP_THE_BODY": {
+    "scryfallId": "902abe4d-5c19-4c96-b825-e6cd4d954a84",
+    "oracleId": "144e3d90-8ed8-4c21-941d-fc59cec042a2",
+    "name": "Dig Up the Body",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dig Up the Body",
+        "manaCost": "{2}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell.)\nMill two cards, then you may return a creature card from your graveyard to your hand. (To mill a card, put the top card of your library into your graveyard.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "902abe4d-5c19-4c96-b825-e6cd4d954a84"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Casualty",
+      "Mill"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRISLY_SIGIL": {
+    "scryfallId": "6322e12d-b932-4ca1-a51d-e2a928140cc7",
+    "oracleId": "b9d9d118-a073-4e73-90fe-026462d1d895",
+    "name": "Grisly Sigil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grisly Sigil",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Casualty 1 (As you cast this spell, you may sacrifice a creature with power 1 or greater. When you do, copy this spell and you may choose a new target for the copy.)\nChoose target creature or planeswalker. If it was dealt noncombat damage this turn, Grisly Sigil deals 3 damage to it and you gain 3 life. Otherwise, Grisly Sigil deals 1 damage to it and you gain 1 life.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dominik Mayer",
+        "imageId": "6322e12d-b932-4ca1-a51d-e2a928140cc7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Casualty"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRISKELION": {
+    "scryfallId": "0017e784-5f71-4f7a-aed5-2ceff2cac18b",
+    "oracleId": "74f67dcf-5afb-45aa-8d4b-3cdb23f6f2a1",
+    "name": "Triskelion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Triskelion",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature enters with three +1/+1 counters on it.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+        "flavorText": "\"Why do bad things always come in threes?\"\n—Gisulf, expedition survivor",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Moeller",
+        "imageId": "0017e784-5f71-4f7a-aed5-2ceff2cac18b"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M11-218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWINSHOT_SNIPER": {
+    "scryfallId": "08a86009-4637-4b6c-9d36-367151583668",
+    "oracleId": "b72fd535-0051-4f59-9d99-75895f751006",
+    "name": "Twinshot Sniper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twinshot Sniper",
+        "manaCost": "{3}{R}",
+        "typeLine": "Artifact Creature — Goblin Archer",
+        "oracleText": "Reach\nWhen this creature enters, it deals 2 damage to any target.\nChannel — {1}{R}, Discard this card: It deals 2 damage to any target.",
+        "flavorText": "\"Pierce the heart and pierce the head, even the mightiest fall down dead.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "08a86009-4637-4b6c-9d36-367151583668"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Reach",
+      "Channel"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALKING_BALLISTA": {
+    "scryfallId": "0db963e2-38df-4036-a312-35854dc3521c",
+    "oracleId": "4b515bb0-f275-4400-8032-3173b799ab40",
+    "name": "Walking Ballista",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Walking Ballista",
+        "manaCost": "{X}{X}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature enters with X +1/+1 counters on it.\n{4}: Put a +1/+1 counter on this creature.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "0db963e2-38df-4036-a312-35854dc3521c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "mb2",
+    "collectorNumber": "238",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KEEN_BUCCANEER": {
+    "scryfallId": "0ed90a63-5aca-470a-8e1e-518d8aeb6d91",
+    "oracleId": "8cadf9c0-9a63-4cde-a6be-0ae86890c831",
+    "name": "Keen Buccaneer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Keen Buccaneer",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Octopus Pirate",
+        "oracleText": "Vigilance\nExhaust — {1}{U}: Draw a card, then discard a card. Put a +1/+1 counter on this creature. (Activate each exhaust ability only once.)",
+        "flavorText": "\"The secret to good piratin' is being ready for anything. That, and havin' eight arms.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mirko Failoni",
+        "imageId": "0ed90a63-5aca-470a-8e1e-518d8aeb6d91"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Vigilance",
+      "Exhaust"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "48",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THORN_THALLID": {
+    "scryfallId": "0edfae02-5e0d-47e2-9bd5-96dbfc2eeaca",
+    "oracleId": "1239d3bf-06e8-4732-b1e2-f6eb145e5894",
+    "name": "Thorn Thallid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thorn Thallid",
+        "manaCost": "{1}{G}{G}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "At the beginning of your upkeep, put a spore counter on this creature.\nRemove three spore counters from this creature: It deals 1 damage to any target.",
+        "flavorText": "\"The danger in cultivating massive plants caught the elves by surprise.\"\n—*Sarpadian Empires, vol. III*",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "0edfae02-5e0d-47e2-9bd5-96dbfc2eeaca"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "me1",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSUMPTIVE_GOO": {
+    "scryfallId": "0f0f549f-6607-483a-9d89-2019ca9ef571",
+    "oracleId": "4bbfa49e-4460-439e-8f31-2e54316fbb5f",
+    "name": "Consumptive Goo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Consumptive Goo",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Ooze",
+        "oracleText": "{2}{B}{B}: Target creature gets -1/-1 until end of turn. Put a +1/+1 counter on this creature.",
+        "flavorText": "Silent as fog and relentless as plague, it is wet, creeping death.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Carl Critchlow",
+        "imageId": "0f0f549f-6607-483a-9d89-2019ca9ef571"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "scg",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ICATIAN_JAVELINEERS": {
+    "scryfallId": "1ae589f5-a513-4d3c-b3fa-66eead66faf3",
+    "oracleId": "26112ba7-2859-4af3-93c3-e62c31177216",
+    "name": "Icatian Javelineers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Icatian Javelineers",
+        "manaCost": "{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "This creature enters with a javelin counter on it.\n{T}, Remove a javelin counter from this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Phillippi",
+        "imageId": "1ae589f5-a513-4d3c-b3fa-66eead66faf3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "ddo",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPHINX_OF_MAGOSI": {
+    "scryfallId": "1b92959c-0995-4bcc-b937-fc272c4540e9",
+    "oracleId": "1c9cf20c-51e4-4a87-b9f8-231b6baf5d6b",
+    "name": "Sphinx of Magosi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sphinx of Magosi",
+        "manaCost": "{3}{U}{U}{U}",
+        "typeLine": "Creature — Sphinx",
+        "oracleText": "Flying\n{2}{U}: Draw a card, then put a +1/+1 counter on this creature.",
+        "flavorText": "\"A riddle is nothing more than a trap for small minds, baited with the promise of understanding.\"",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "James Ryman",
+        "imageId": "1b92959c-0995-4bcc-b937-fc272c4540e9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOST_LIT_RAIDER": {
+    "scryfallId": "244bdd06-bb74-4030-b343-9a764f0f2462",
+    "oracleId": "3d772c44-a756-406d-a83f-f671a81513b0",
+    "name": "Ghost-Lit Raider",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghost-Lit Raider",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "{2}{R}, {T}: This creature deals 2 damage to target creature.\nChannel — {3}{R}, Discard this card: It deals 4 damage to target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ittoku",
+        "imageId": "244bdd06-bb74-4030-b343-9a764f0f2462"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Channel"
+    ],
+    "setCode": "psok",
+    "collectorNumber": "99★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIGLOZ_MAZE_CRUSHER": {
+    "scryfallId": "28470a4c-4767-47d4-bd18-3c2ebbff5906",
+    "oracleId": "85eb890e-a5e1-48f8-b813-e8424d18b28a",
+    "name": "Migloz, Maze Crusher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Migloz, Maze Crusher",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Legendary Creature — Phyrexian Beast",
+        "oracleText": "Migloz enters with five oil counters on it.\n{1}, Remove an oil counter from Migloz: It gains vigilance and menace until end of turn.\n{2}, Remove two oil counters from Migloz: It gets +2/+2 until end of turn.\n{3}, Remove three oil counters from Migloz: Destroy target artifact or enchantment.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Zezhou Chen",
+        "imageId": "28470a4c-4767-47d4-bd18-3c2ebbff5906"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pone",
+    "collectorNumber": "210p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRUMPETING_CARNOSAUR": {
+    "scryfallId": "35957bfb-c75f-4181-9726-19956992a6e6",
+    "oracleId": "f2ef8bda-373d-4387-900d-0f1b6ccf72e9",
+    "name": "Trumpeting Carnosaur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trumpeting Carnosaur",
+        "manaCost": "{4}{R}{R}",
+        "typeLine": "Creature — Dinosaur",
+        "oracleText": "Trample\nWhen this creature enters, discover 5.\n{2}{R}, Discard this card: It deals 3 damage to target creature or planeswalker.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "35957bfb-c75f-4181-9726-19956992a6e6"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Discover",
+      "Trample"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "324",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPITTING_HYDRA": {
+    "scryfallId": "38c25d65-16bd-4628-b6ec-9e5495818277",
+    "oracleId": "67a7bfa4-5004-4838-874d-03fa11f051d0",
+    "name": "Spitting Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spitting Hydra",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "This creature enters with four +1/+1 counters on it.\n{1}{R}, Remove a +1/+1 counter from this creature: It deals 1 damage to target creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "38c25d65-16bd-4628-b6ec-9e5495818277"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "sth",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DEATHBRINGER_THOCTAR": {
+    "scryfallId": "3927343d-e21c-4637-923e-fe7fd9051d27",
+    "oracleId": "2500a811-2435-4915-ac83-9bfe2887621a",
+    "name": "Deathbringer Thoctar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Deathbringer Thoctar",
+        "manaCost": "{4}{B}{R}",
+        "typeLine": "Creature — Zombie Beast",
+        "oracleText": "Whenever another creature dies, you may put a +1/+1 counter on this creature.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "3927343d-e21c-4637-923e-fe7fd9051d27"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ps11",
+    "collectorNumber": "169",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LONGHORN_SHARPSHOOTER": {
+    "scryfallId": "398d9a16-d72c-42e2-a0ea-d9da642ee046",
+    "oracleId": "6a0a7b02-10e6-4dbf-8356-659095519480",
+    "name": "Longhorn Sharpshooter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Longhorn Sharpshooter",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Minotaur Rogue",
+        "oracleText": "Reach\nWhen this card becomes plotted, it deals 2 damage to any target.\nPlot {3}{R} (You may pay {3}{R} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Diego Gisbert",
+        "imageId": "398d9a16-d72c-42e2-a0ea-d9da642ee046"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Reach",
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAWTOOTH_THRESHER": {
+    "scryfallId": "3c36de4a-807d-471d-ba59-0462d7bb028a",
+    "oracleId": "3a8f382e-0bc6-4e79-87e2-9f99d907d234",
+    "name": "Sawtooth Thresher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sawtooth Thresher",
+        "manaCost": "{6}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Sunburst (This creature enters with a +1/+1 counter on it for each color of mana spent to cast it.)\nRemove two +1/+1 counters from this creature: It gets +4/+4 until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alan Pollack",
+        "imageId": "3c36de4a-807d-471d-ba59-0462d7bb028a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [
+      "Sunburst"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "149",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MONOSKELION": {
+    "scryfallId": "4519e358-d822-46f1-8708-397087042a30",
+    "oracleId": "c16d79d9-c159-421f-90a2-13313a1de5f6",
+    "name": "Monoskelion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Monoskelion",
+        "manaCost": "{2}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "This creature enters with a +1/+1 counter on it.\n{1}, Remove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason A. Engle",
+        "imageId": "4519e358-d822-46f1-8708-397087042a30"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "748",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANCIENT_HYDRA": {
+    "scryfallId": "5de57c84-38b9-4606-b934-0ab270496582",
+    "oracleId": "8e1d3722-9bd1-4ab7-b4a5-9265fca3aba9",
+    "name": "Ancient Hydra",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ancient Hydra",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Hydra",
+        "oracleText": "Fading 5 (This creature enters with five fade counters on it. At the beginning of your upkeep, remove a fade counter from it. If you can't, sacrifice it.)\n{1}, Remove a fade counter from this creature: It deals 1 damage to any target.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "5de57c84-38b9-4606-b934-0ab270496582"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Fading"
+    ],
+    "setCode": "nem",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAWBLADE_SCAMP": {
+    "scryfallId": "6c3df8b6-3f31-4d1c-a165-40cb3f2e2233",
+    "oracleId": "8cac286c-1a17-4ee1-9858-d7a2f8c09037",
+    "name": "Sawblade Scamp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sawblade Scamp",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Phyrexian Beast",
+        "oracleText": "Haste\nWhenever you cast a noncreature spell, put an oil counter on this creature.\n{T}, Remove an oil counter from this creature: It deals 1 damage to each opponent.",
+        "flavorText": "Be the blade that severs hierarchy.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Flavio Girón",
+        "imageId": "6c3df8b6-3f31-4d1c-a165-40cb3f2e2233"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "one",
+    "collectorNumber": "292",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -328237,6 +329228,39 @@
     "keywords": [],
     "setCode": "tmom",
     "collectorNumber": "8",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "OGRE_WARRIOR_4_3_B_CREATURE_TOKEN": {
+    "scryfallId": "3ca43425-d007-4181-9182-18dc01ad7e90",
+    "oracleId": "77fc8f50-dcf1-4d60-8fd6-b1c7d58a9724",
+    "name": "Ogre Warrior",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Ogre Warrior",
+        "manaCost": "",
+        "typeLine": "Token Creature — Ogre Warrior",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dallas Williams",
+        "imageId": "3ca43425-d007-4181-9182-18dc01ad7e90"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tsnc",
+    "collectorNumber": "6",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

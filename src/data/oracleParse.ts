@@ -379,6 +379,8 @@ export function parseKeywords(card: CardData, faceIndex: number, warn: Warn = NO
     if (kw === 'devour' && parseDevour(face?.oracleText ?? '') === null) continue;
     // D571 - champion is the engine's only when its noun reads (the price's predicates).
     if (kw === 'champion' && parseChampion(face?.oracleText ?? '') === null) continue;
+    // D585 - casualty is the engine's only on an instant or sorcery whose `Casualty N` reads.
+    if (kw === 'casualty' && (parseCasualty(face?.oracleText ?? '') === null || !/\b(?:Instant|Sorcery)\b/.test(face?.typeLine ?? ''))) continue;
     if (multiFace) {
       const printed = raw.toLowerCase();
       if (!text.includes(printed)) continue;
@@ -694,6 +696,32 @@ export function parseOffspring(oracleText: string, warn: Warn = NOOP_WARN): Mana
     const line = raw.replace(/\s*\([^)]*\)\s*$/, '').trim();
     const m = /^Offspring ((?:\{[^}]+\})+)$/.exec(line);
     if (m) return parseManaCost(m[1] ?? '', warn);
+  }
+  return null;
+}
+
+/**
+ * D585 - CASUALTY (CR 702.153a): `Casualty N` on a line of its own (reminder text aside) - an optional additional cost: sacrifice
+ * one creature with power N or greater (the verb-kicker shape, D530; the floor `powerAtLeast`). `Casualty X` stays unread.
+ */
+export function parseCasualty(oracleText: string): KickerVerb | null {
+  // Printed twice, the instances are paid apart and trigger apart (CR 702.153b); the engine charges one, so neither line is
+  // the engine's and the spell stays out (the review).
+  const printed = (oracleText ?? '').split('\n').map((raw) => raw.replace(/\s*\([^)]*\)\s*$/, '').trim()).filter((l) => /^Casualty \d+$/.test(l));
+  for (const line of printed.length === 1 ? printed : []) {
+    const n = Number(line.slice('Casualty '.length));
+    return {
+      line,
+      costText: 'sacrifice a creature with power ' + n + ' or greater',
+      lifeCost: 0,
+      sacrificeCost: { count: 1, another: false, any: [{ supertypes: [], types: ['Creature'], subtypes: [], colors: [] }], powerAtLeast: n },
+      discardCost: null,
+      tapCost: null,
+      exileFromGraveyardCost: null,
+      returnCost: null,
+      orPay: null,
+      mana: null,
+    };
   }
   return null;
 }
@@ -1492,6 +1520,10 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const rebound = !isPermanent && (face.oracleText ?? '').split('\n').some((l) => l.replace(/\s*\([^)]*\)\s*$/, '').trim() === 'Rebound');
   const altCosts = parseAltCosts(face.oracleText);
   const additionalCost = parseAdditionalCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
+  // D585 - casualty on an instant or sorcery only (a permanent spell's copy would be a token the engine does not make), and
+  // only where the host charges it (the review): its keyword printed (the cast trigger reads it), and no other cost that
+  // takes picks beside it - an additional cost, a verb kicker or buyback, conspire (the app charges one set a cast).
+  const casualtyVerb = isPermanent || !keywords.includes('casualty') || additionalCost !== null || kicked.kickerVerb !== null || bought.buybackVerb !== null || conspireVerb !== null ? null : parseCasualty(face.oracleText);
   // D408 - an alternative cost never beside an additional cost with a chooser verb (one set of pick fields).
   const alternativeCost0 = parseAlternativeCost(face.oracleText, parseManaCost, face.name.split(',')[0] ?? face.name);
   const additionalHasVerb = additionalCost !== null && (additionalCost.sacrificeCost !== null || additionalCost.discardCost !== null || additionalCost.tapCost !== null || additionalCost.exileFromGraveyardCost !== null || additionalCost.returnCost !== null);
@@ -1597,6 +1629,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     spliceCost: splice?.cost ?? null,
     spliceOnto: splice?.onto ?? null,
     conspireVerb,
+    casualtyVerb,
     offspringCost,
     recoverCost,
     harmonizeCost,

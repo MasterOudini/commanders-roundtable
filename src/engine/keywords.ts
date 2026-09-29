@@ -87,6 +87,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   replicate: 'replicate',
   // D557 - conspire: the tap of two creatures that share a colour at cast, and the cast trigger that copies the spell once.
   conspire: 'conspire',
+  // D585 - casualty: the sacrifice of a creature with power N or greater at cast, and the cast trigger that copies the spell once.
+  casualty: 'casualty',
   // D558 - offspring: the cost at cast and the enters trigger that creates the permanent's 1/1 token copy.
   offspring: 'offspring',
   // D560 - blitz: the alternative cost's haste and sacrifice, and the dies trigger that draws.

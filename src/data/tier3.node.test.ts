@@ -419,7 +419,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
     // D472 - a planeswalker's payable loyalty abilities each earn the charged-for-nothing note until a row runs them.
     // D568 - one fewer: an escape card's Escape line is the engine's now, and its list fell below four.
     // D579 - one fewer: a two-faced card's keyword is noted on the face that prints it, and a front face's list fell below four.
-    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 94 });
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 93 });
   });
 
   /**
@@ -484,12 +484,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 12089,
-  payable: 3410,
+  abilityText: 12077,
+  payable: 3393,
   manaPart: 353,
-  either: 14191,
-  eitherAnyFace: 14211,
-  wasSilent: 13293,
+  either: 14173,
+  eitherAnyFace: 14193,
+  wasSilent: 13275,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -503,9 +503,9 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 13216,
-  silentBefore: 26400,
-  silentAfter: 13107,
+  wasSilentAnyFace: 13198,
+  silentBefore: 26408,
+  silentAfter: 13133,
   residual: 56,
   residualKeyword: 56,
   residualManaLine: 0,

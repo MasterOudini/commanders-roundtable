@@ -72,7 +72,8 @@ export function GameLayer({
             (a) => a.t === 'ActivateAbility' && a.card === mode.card && a.abilityIndex === mode.abilityIndex && (a.grantRef ?? null) === (mode.grantRef ?? null),
           );
       // D408 - the alternative cost's pick reads the offer's own alternative candidates.
-      const candidates = live?.t === 'CastSpell' && mode.cast?.alt ? (live.altPickCandidates ?? []) : live?.t === 'ActivateAbility' || live?.t === 'CastSpell' ? (live.sacrificeCandidates ?? []) : [];
+      // D585 - a casualty's pick reads the offer's casualty candidates (the power floor applied host-side).
+      const candidates = live?.t === 'CastSpell' && mode.cast?.casualtyOf ? (live.casualtyCandidates ?? []) : live?.t === 'CastSpell' && mode.cast?.alt ? (live.altPickCandidates ?? []) : live?.t === 'ActivateAbility' || live?.t === 'CastSpell' ? (live.sacrificeCandidates ?? []) : [];
       setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
       return;
     }

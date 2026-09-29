@@ -428,6 +428,8 @@ interface CastSetup {
   readonly replicated: number;
   /** D557 - the conspire (CR 702.78a): its taps are the picks; the stack object remembers it. */
   readonly conspired: boolean;
+  /** D585 - the casualty (CR 702.153a): its sacrifice is the pick; the stack object remembers it. */
+  readonly casualty: boolean;
   /** D558 - the offspring was paid (CR 702.175a), priced into `problem`; the stack object remembers it. */
   readonly offspring: boolean;
   /** D564 - the squad count (CR 702.157a), priced into `problem`; the stack object remembers it. */
@@ -977,6 +979,8 @@ function prepareCast(
   squadded = 0,
   // D576 - the cards spliced onto it (CR 702.47a).
   spliced: readonly InstanceId[] = [],
+  // D585 - the casualty (CR 702.153a); its sacrifice is `picks.sacrifice`.
+  casualty = false,
 ): CastSetup | { error: HandleResult } {
   const card = state.cards[cardId];
   if (!card) return { error: reject('noSuchCard', 'That card is not in the game.') };
@@ -1087,6 +1091,10 @@ function prepareCast(
   // D557 - a conspire's taps are the verb's picks (D530's path): validated below as the additional cost's are.
   const conWhy = conspireProblem(face, conspired, faceDown, kicked, buyback);
   if (conWhy) return { error: reject('notCastable', conWhy) };
+  // D585 - a casualty's sacrifice is the verb's pick (D530's path, conspire's): one set of picks a cast, so it stands alone.
+  if (casualty && faceDown) return { error: reject('notCastable', 'A face-down spell pays no casualty.') };
+  if (casualty && face.casualtyVerb === null) return { error: reject('notCastable', `${face.name} has no casualty the app can charge.`) };
+  if (casualty && (conspired || face.additionalCost !== null || (kicked > 0 && face.kickerVerb !== null) || (buyback && face.buybackVerb !== null))) return { error: reject('notCastable', `${face.name}'s casualty and another cost both take picks - the app charges one.`) };
   // D558 - an offspring is priced with the kick: the announcement names it, the problem carries the cost.
   const offWhy = offspringProblem(face, offspring, faceDown);
   if (offWhy) return { error: reject('notCastable', offWhy) };
@@ -1098,7 +1106,7 @@ function prepareCast(
   if (splWhy) return { error: reject('notCastable', splWhy) };
   const splicedCards: SplicedCard[] = spliced.flatMap((sid) => { const s = state.cards[sid]; return s ? [{ card: sid, printingId: s.printingId, faceIndex: 0 }] : []; });
   // D537 - a retrace or jump-start cast's discard rides the same verb path (never printed beside a verb kicker or buyback).
-  const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? (conspired ? face.conspireVerb : null) ?? graveyardCast?.verb ?? null);
+  const kickVerb = faceDown ? null : (kickVerbOf(face, kicked, buyback) ?? (conspired ? face.conspireVerb : null) ?? (casualty ? face.casualtyVerb : null) ?? graveyardCast?.verb ?? null);
   // D405 - what the cast taps or exiles is checked by name and priced with the shared assignment.
   const altWhy = altProblem(state, deps, player, face, alt, faceDown);
   if (altWhy) return { error: reject('notCastable', altWhy) };
@@ -1117,7 +1125,7 @@ function prepareCast(
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, offspring, squadded, spliced: splicedCards, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, casualty, offspring, squadded, spliced: splicedCards, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1337,6 +1345,7 @@ function castSpell(
     intent.offspring === true,
     intent.squadded ?? 0,
     intent.spliced ?? [],
+    intent.casualty === true,
   );
   if ('error' in setup) return setup.error;
 
@@ -1418,6 +1427,7 @@ function castSpell(
       ...(setup.buyback ? { buyback: true as const } : {}),
       ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
       ...(setup.conspired ? { conspired: true as const } : {}),
+      ...(setup.casualty ? { casualty: true as const } : {}),
       ...(setup.offspring ? { offspring: true as const } : {}),
       ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
       ...(setup.spliced.length > 0 ? { spliced: setup.spliced } : {}),
@@ -2484,6 +2494,7 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...(setup.buyback ? { buyback: true as const } : {}),
     ...(setup.replicated > 0 ? { replicated: setup.replicated } : {}),
     ...(setup.conspired ? { conspired: true as const } : {}),
+    ...(setup.casualty ? { casualty: true as const } : {}),
     ...(setup.offspring ? { offspring: true as const } : {}),
     ...(setup.squadded > 0 ? { squadded: setup.squadded } : {}),
     ...(setup.spliced.length > 0 ? { spliced: setup.spliced } : {}),
@@ -2972,6 +2983,7 @@ function finishFromPending(
     buyback: pending.buyback === true,
     replicated: pending.replicated ?? 0,
     conspired: pending.conspired === true,
+    casualty: pending.casualty === true,
     offspring: pending.offspring === true,
     squadded: pending.squadded ?? 0,
     spliced: pending.spliced ?? [],
@@ -3021,6 +3033,7 @@ function finishFromPending(
     ...(pending.buyback === true ? { buyback: true as const } : {}),
     ...(pending.replicated !== undefined && pending.replicated > 0 ? { replicated: pending.replicated } : {}),
     ...(pending.conspired === true ? { conspired: true as const } : {}),
+    ...(pending.casualty === true ? { casualty: true as const } : {}),
     ...(pending.offspring === true ? { offspring: true as const } : {}),
     ...(pending.squadded !== undefined && pending.squadded > 0 ? { squadded: pending.squadded } : {}),
     ...(pending.spliced !== undefined && pending.spliced.length > 0 ? { spliced: pending.spliced } : {}),

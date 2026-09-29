@@ -78,6 +78,8 @@ export type LegalAction =
       readonly replicateAffordable?: boolean;
       /** D557 - CONSPIRE (CR 702.78a): the untapped creatures the caster controls that share a colour with the spell (`CastSpell.conspired` taps two of them, named as `tap`). */
       readonly conspireCandidates?: readonly InstanceId[];
+      /** D585 - CASUALTY (CR 702.153a): the creatures the caster controls with power N or greater (`CastSpell.casualty` sacrifices one, named as `sacrifice`). */
+      readonly casualtyCandidates?: readonly InstanceId[];
       /** D576 - SPLICE (CR 702.47): the other cards in the caster's hand this spell may have spliced onto it (`CastSpell.spliced`). */
       readonly spliceCandidates?: readonly InstanceId[];
       /** D576 - the cast with the first candidate spliced is payable now; the fuzz driver splices exactly when it is. */
@@ -932,7 +934,7 @@ export function activatedDefRegistered(
  */
 export function sacrificeCandidatesFor(
   state: GameState,
-  deriveOf: (id: InstanceId) => { readonly typeLine: { readonly supertypes: readonly string[]; readonly types: readonly string[]; readonly subtypes: readonly string[] }; readonly colors: readonly string[] },
+  deriveOf: (id: InstanceId) => { readonly typeLine: { readonly supertypes: readonly string[]; readonly types: readonly string[]; readonly subtypes: readonly string[] }; readonly colors: readonly string[]; readonly power?: number | null },
   player: PlayerId,
   selfId: InstanceId,
   cost: NonNullable<ActivatedAbility['sacrificeCost']>,
@@ -951,7 +953,8 @@ export function sacrificeCandidatesFor(
         // D328 - "Sacrifice a token": the instance, not its characteristics.
         (p.token !== true || state.cards[id]?.isToken === true),
     );
-    if (hit) out.push(id);
+    // D585 - CASUALTY's floor (CR 702.153a): each creature the cost eats has power N or greater.
+    if (hit && (cost.powerAtLeast === undefined || (chars.power ?? 0) >= cost.powerAtLeast)) out.push(id);
   }
   return out;
 }
@@ -1226,6 +1229,7 @@ function castAction(
       : {}),
     // D557 - a conspire is offered with its candidates (D406's list for the verb, the host re-validating).
     ...conspireOffer(state, oracle, scripts, ctx, caster, id, face),
+    ...casualtyOffer(state, oracle, scripts, ctx, caster, id, face),
     // D576 - a splice is offered with its candidates and whether the cast with the first one spliced is payable.
     ...spliceOffer(state, oracle, scripts, caster, id, face, (extra) => affordable(ctx.solve, buildPaymentProblem(cost, 0, [...(orPaid && add?.orPay ? [add.orPay] : []), ...extra], tax, add && !orPaid ? add.lifeCost : 0), spellPurpose(face, false))),
     // D563 - a harmonized cast is offered with the creatures it may tap and whether the strongest makes it payable.
@@ -1336,6 +1340,14 @@ function spliceOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry
   }
   if (candidates.length === 0 || first === null) return {};
   return { spliceCandidates: candidates, spliceAffordable: payable([first]) };
+}
+
+/** D585 - CASUALTY's offer: the creatures that may pay it (the verb's own candidates, the power floor applied); none beside an additional cost. */
+function casualtyOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace): Record<string, unknown> {
+  if (face.casualtyVerb === null || face.additionalCost !== null) return {};
+  const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
+  const chooser = castCostCandidates(state, deriveOf, caster, id, face.casualtyVerb);
+  return { casualtyCandidates: (chooser.fields['sacrificeCandidates'] ?? []) as readonly InstanceId[] };
 }
 
 function conspireOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, ctx: LegalContext, caster: PlayerId, id: InstanceId, face: OracleFace): Record<string, unknown> {

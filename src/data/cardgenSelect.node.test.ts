@@ -494,7 +494,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ragnarok, Divine Deliverance', 'multi-face or unusual layout'],
   ['Samite Herbalist', 'trigger payload not a pump: You gain 1 life and scry 1.'],
   ['Serum Visionary', 'trigger payload not a pump: Draw a card, then scry 2.'],
-  ['Sphinx of Magosi', 'effect not a row kind: Draw a card, then put a +1/+1 counter on ~.'],
   ['Tenth District Legionnaire', 'trigger payload not a pump: Put a +1/+1 counter on this creature, then scry 1.'],
   ['Thrasher Brute', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Warrior your team controls'],
   ['Trelasarra, Moon Dancer', 'trigger payload not a pump: Put a +1/+1 counter on ~ and scry 1.'],
@@ -565,7 +564,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D484 - the prompt continuation: the five the mirror offers that the wave cannot row.
   ['Surtland Frostpyre', 'a scry beside a sweep in one payload (the suite answers no scry; the continuation runs it) (D484)'],
   ['Greedy Freebooter', 'a scry beside a token in one payload (the suite answers no scry; the continuation runs it) (D484)'],
-  ['Keen Buccaneer', 'a self counter behind a loot in one payload (the row maker asks the vocabulary in its ~ form, the probe keyed the printed one) (D484)'],
   ['Ninja of the Hand', 'an ability-word activated line (Power-up) beside its discard-then-draw head (D484)'],
   ['Siren of the Silent Song', 'a mill beside a queued discard in one payload (the suite counts the graveyard delta of the mill alone) (D484)'],
   // D479 - the tribal target: the twenty-three the mirror offers that the wave cannot row.
@@ -773,6 +771,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D585 - casualty (CR 702.153): the optional sacrifice of a creature with power N or greater, and the copy its trigger makes, are the engine's now; what stays is a card whose other line the engine does not read.
+  ['Audacious Swap', 'a spell outside the vocabulary: its Casualty line reads since D585, its other line (the owner shuffles the target into their library, exiles the top card, a land onto the battlefield or the rest cast free) does not (D585)'],
   // D584 - the reflexive trigger (CR 603.12): `<price>. When you do, <payload>` is the engine's now (the payload a triggered ability of its own, aimed after the payment); what stays is a card the row maker refuses for another reason.
   ['The Falcon, Airship Restored', 'the row maker: a self damage head on a creature with no printed power: combatDamagePlayer - its When you do line reads since D584 (D584)'],
   ['Shire Shirriff', 'the row maker: a verb price the suite has no fixture for: sacrifice a token - its When you do line reads since D584 (D584)'],
@@ -4080,7 +4080,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Retrofitter Foundry', 'a sacrifice cost with no fixture the suite can put'],
   ['Honor-Worn Shaku', 'a tap cost with no fixture the suite can put'],
   ['Mold Folk', 'ability-word activated line'],
-  ['Consumptive Goo', 'effect outside the row kinds'],
   ['Trophy Hunter', 'effect outside the row kinds'],
   ['Arena Trickster', 'filtered head: a determiner outside the closed reader'],
   ['Blood Cultist', 'filtered head: an adjective outside the closed reader'],
