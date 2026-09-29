@@ -26,6 +26,7 @@ import { RING_EMBLEM } from '../data/tokenParse';
 import { modeSpecs } from './modes';
 import { exiledAsItLeaves, faceOf } from './oracle';
 import { activationConditionsHold, describeActivationConditions } from './activationConditions';
+import { uncounterable } from './triggers';
 import { apply } from './reducer';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
@@ -643,10 +644,9 @@ export function effectResult(
         if (!victim) break;
         // D336 - "This spell can't be countered.": the funnel would drop the
         // counter anyway; saying so here keeps the resolver's own line honest.
-        const victimCard = victim.card === null ? undefined : state.cards[victim.card];
-        // D422 - a SPELL face carries the line itself (`OracleFace.cantBeCountered`); a permanent's is its script's.
-        const victimFace = victimCard ? deps.oracle.byPrinting(victimCard.printingId) : undefined;
-        if (victimCard && (deps.scripts.get(victimCard.oracleId)?.cantBeCountered !== undefined || (victimFace !== undefined && faceOf(victimFace, victimCard.faceIndex).cantBeCountered))) {
+        // D587 - the funnel's own reading (`uncounterable`, triggers.ts), so the two never disagree: a spell COPY has the
+        // copied text (CR 707.2) - a ward trigger or a Counterspell meeting a copy of Abrupt Decay counters nothing.
+        if (uncounterable(state, deps.oracle, deps.scripts, victim)) {
           out.push(narrated(`${victim.label} can't be countered.`, obj.controller, obj.identity));
           break;
         }

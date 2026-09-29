@@ -448,7 +448,9 @@ export function wardsMet(
   for (const target of targets) {
     if (target.kind !== 'card') continue;
     const card = state.cards[target.id];
-    if (!card || card.zone.kind !== 'battlefield') continue;
+    // D587 - a PHASED-OUT permanent is treated as though it does not exist (CR 702.26b): its ward never triggers. A cast
+    // cannot target one (targets.ts `candidateFor`), so the tax never meets one; a spell copy may keep one (CR 707.10c).
+    if (!card || card.zone.kind !== 'battlefield' || card.phasedOut) continue;
     if (card.controller === player) continue;
     const oracleCard = oracle.byPrinting(card.printingId);
     if (!oracleCard) continue;

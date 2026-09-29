@@ -36,6 +36,7 @@ import {
   type PendingReplacement,
   type Step,
   type PendingTrigger,
+  type StackObject,
 } from './types/state';
 
 /**
@@ -281,6 +282,22 @@ function runFanOut(
 }
 
 /**
+ * D587 - "This spell can't be countered." (CR 101.2: the can't wins), read in ONE place for the funnel below and the
+ * executor's counter (effects.ts), so the two never disagree. A spell's own card: its face's line (D422) or, on a
+ * permanent, its script's (D336). A spell COPY has no card but has the copied text (CR 707.2): its copied printing and
+ * face (`copyOf`) - a ward trigger or a Counterspell meeting a copy of Abrupt Decay counters nothing. Never an ability.
+ */
+export function uncounterable(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, victim: StackObject): boolean {
+  const card = victim.card === null ? undefined : state.cards[victim.card];
+  const of = victim.card === null ? victim.copyOf : card;
+  if (of === undefined) return false;
+  const printing = oracle.byPrinting(of.printingId);
+  const oracleId = card !== undefined ? card.oracleId : printing?.oracleId;
+  // D422 - a SPELL face carries the line itself (`OracleFace.cantBeCountered`); a permanent's is its script's.
+  return (oracleId !== undefined && scripts.get(oracleId)?.cantBeCountered !== undefined) || (printing !== undefined && faceOf(printing, of.faceIndex).cantBeCountered);
+}
+
+/**
  * D336 - "This spell can't be countered." (CR 701.5a: countering it does
  * nothing.) A counter's events arrive as a batch - the `SpellCountered` and,
  * behind it, the move that would send the card off the stack - and every
@@ -296,13 +313,8 @@ function withoutCountersOfTheUncounterable(state: GameState, oracle: OracleDb, s
     const ev = out[i];
     if (!ev || ev.t !== 'SpellCountered') continue;
     const victim = state.stack.find((s) => s.id === ev.stackId);
-    if (!victim || victim.card === null) continue;
-    const card = state.cards[victim.card];
-    // D422 - a SPELL face carries the line itself (`OracleFace.cantBeCountered`); a permanent's is its script's.
-    if (!card) continue;
-    const printing = oracle.byPrinting(card.printingId);
-    const faceSays = printing !== undefined && faceOf(printing, card.faceIndex).cantBeCountered;
-    if (scripts.get(card.oracleId)?.cantBeCountered === undefined && !faceSays) continue;
+    // D587 - the executor's reading too (`uncounterable`): a spell COPY has the copied text (CR 707.2).
+    if (!victim || !uncounterable(state, oracle, scripts, victim)) continue;
     out[i] = narrated(`${victim.label} can't be countered.`, victim.controller, victim.identity);
     for (let j = i + 1; j < out.length; j++) {
       const mv = out[j];
