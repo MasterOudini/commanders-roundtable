@@ -32,7 +32,8 @@ import type { ColorLetter } from '../data/cardTypes';
 import type { EventBody } from './types/events';
 import type { PlayerId } from './types/ids';
 import type { NarrationPart } from './types/narration';
-import type { GameState } from './types/state';
+import type { DerivedCharacteristics } from './types/oracle';
+import type { CardInstance, GameState } from './types/state';
 
 export type { NarrationPart };
 
@@ -204,4 +205,30 @@ export function narrated(
   const parts: readonly NarrationPart[] =
     typeof line === 'string' ? (line === '' ? [] : [{ lit: line }]) : line;
   return { t: 'Narrated', text: render(parts, null), player, identity, manual, parts };
+}
+
+/**
+ * The table's name for a permanent (CR 708.5). The narration is ONE shared log every seat reads, so a face-down
+ * permanent is named as the table sees it - "a face-down creature", "a face-down permanent" when an effect has made it
+ * no creature, "a face-down card" off the battlefield and the stack - never by the printed face only its controller
+ * may look at. It derives no name (CR 708.2), and interpolating that empty name printed " regenerates.". Anything
+ * else is the name it derives. `start` capitalises the phrase at the head of a sentence; a card's own name is left
+ * as it is.
+ *
+ * ⚠️ A line about a face-down permanent LEAVING the battlefield face up (it dies, it is exiled instead) names it by its
+ * printed face instead: CR 708.9 reveals it to every player as it moves.
+ */
+export function tableName(
+  card: Pick<CardInstance, 'faceDown' | 'zone'> | undefined,
+  d: Pick<DerivedCharacteristics, 'name' | 'isCreature'>,
+  start = false,
+): string {
+  if (card?.faceDown !== true) return d.name;
+  const phrase =
+    card.zone.kind !== 'battlefield' && card.zone.kind !== 'stack'
+      ? 'a face-down card'
+      : d.isCreature
+        ? 'a face-down creature'
+        : 'a face-down permanent';
+  return start ? `A${phrase.slice(1)}` : phrase;
 }

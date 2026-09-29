@@ -35,7 +35,7 @@ import { countOf } from './count';
 import type { Awaiting, DelayedTrigger, EffectContinuation, GameState, PendingAsks, PreventionShield, ShieldSourceFilter, StackObject, TargetChoice } from './types/state';
 // Every line here has a CARD as its subject ("Lightning Bolt counters Negate."),
 // so none of them changes person for the reader and none needs parts.
-import { n, narrated, vb, who, whose } from './narrate';
+import { n, narrated, tableName, vb, who, whose } from './narrate';
 import { drawFromTop } from './setup';
 import { buildPaymentProblem } from './mana';
 import { castCostCandidates, sacrificeCandidatesFor } from './legal';
@@ -535,7 +535,7 @@ export function effectResult(
         if (d.keywords.has('indestructible')) {
           out.push(
             narrated(
-              `${obj.label} cannot destroy ${d.name} — it is indestructible.`,
+              `${obj.label} cannot destroy ${tableName(state.cards[aim.id], d)} — it is indestructible.`,
               obj.controller,
               obj.identity,
             ),
@@ -551,13 +551,13 @@ export function effectResult(
           out.push({ t: 'DamageCleared', cards: [aim.id] });
           out.push({ t: 'RemovedFromCombat', cards: [aim.id] });
           out.push({ t: 'Regenerated', card: aim.id });
-          out.push(narrated(`${d.name} regenerates.`, obj.controller, obj.identity));
+          out.push(narrated(`${tableName(inst, d, true)} regenerates.`, obj.controller, obj.identity));
           break;
         }
         // D469 - CR 122.1i: a shield counter replaces the destruction and is removed instead.
         if ((state.cards[aim.id]?.counters['shield'] ?? 0) > 0) {
           out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: 'shield', delta: -1 }] });
-          out.push(narrated(`A shield counter on ${d.name} is removed instead.`, obj.controller, obj.identity));
+          out.push(narrated(`A shield counter on ${tableName(state.cards[aim.id], d)} is removed instead.`, obj.controller, obj.identity));
           break;
         }
         out.push(moveTo(aim.id, 'graveyard', aim.owner));
@@ -1222,7 +1222,7 @@ export function effectResult(
           nextInstance++;
           out.push({ t: 'TokenCreated', card: `c${nextInstance}`, oracleId: copied.oracleId, printingId: copied.printingId, controller, owner: controller, turnNumber: state.turn.turnNumber, faceIndex: copied.faceIndex, copyOf: copied.id, ...(copied.copyExceptions !== undefined ? { copyExceptions: copied.copyExceptions } : {}) });
           out.push({ t: 'Populated', player: controller, token: copied.id, copy: `c${nextInstance}` });
-          out.push(narrated(`${obj.label} — populate: a token that is a copy of ${derive(now, deps.oracle, deps.scripts, copied.id).name}.`, obj.controller, obj.identity));
+          out.push(narrated(`${obj.label} — populate: a token that is a copy of ${tableName(copied, derive(now, deps.oracle, deps.scripts, copied.id))}.`, obj.controller, obj.identity));
           break;
         }
         out.push(...queueAsks(now, deps, controller, 'populate', [{ kind: 'player', controller: 'you' }], 1, filter, obj.label));
@@ -1516,7 +1516,7 @@ export function effectResult(
         const da = derive(state, deps.oracle, deps.scripts, aim.id, cache);
         const db = derive(state, deps.oracle, deps.scripts, otherAim.id, cache);
         if (!da.isCreature || !db.isCreature) {
-          out.push(narrated(`${obj.label}: ${da.name} and ${db.name} are not both creatures, so no damage is dealt.`, obj.controller));
+          out.push(narrated(`${obj.label}: ${tableName(a, da)} and ${tableName(b, db)} are not both creatures, so no damage is dealt.`, obj.controller));
           break;
         }
         const damages: ResolvedDamage[] = [];
@@ -1524,7 +1524,7 @@ export function effectResult(
         if (effect.kind === 'fight' && (db.power ?? 0) > 0) damages.push(damageTo(state, deps, otherAim.id, aim, db.power ?? 0, cache));
         out.push({ t: 'Fought', subject: aim.id, other: otherAim.id, mutual: effect.kind === 'fight' });
         if (damages.length > 0) out.push(dealt(damages));
-        out.push(narrated(effect.kind === 'fight' ? `${da.name} fights ${db.name}.` : `${da.name} deals ${da.power ?? 0} damage to ${db.name}.`, obj.controller));
+        out.push(narrated(effect.kind === 'fight' ? `${tableName(a, da, true)} fights ${tableName(b, db)}.` : `${tableName(a, da, true)} deals ${da.power ?? 0} damage to ${tableName(b, db)}.`, obj.controller));
         break;
       }
 
@@ -1559,7 +1559,7 @@ export function effectResult(
         // D531 - control with no end: the taker's from now on.
         if (effect.controlFor === 'indefinite') {
           out.push({ t: 'ControlGained', card: aim.id, controller: obj.controller });
-          out.push(narrated(`${obj.label}: ${d.name} changes control.`, obj.controller));
+          out.push(narrated(`${obj.label}: ${tableName(taken, d)} changes control.`, obj.controller));
           break;
         }
         // D531 - for as long as the SOURCE holds: a source already gone (or no longer the taker's) ends the duration
@@ -1567,15 +1567,15 @@ export function effectResult(
         if (effect.controlFor === 'whileControlled' || effect.controlFor === 'whileOnBattlefield') {
           const src = obj.source !== null ? state.cards[obj.source] : undefined;
           if (!src || src.zone.kind !== 'battlefield' || (effect.controlFor === 'whileControlled' && src.controller !== obj.controller)) {
-            out.push(narrated(`${obj.label}: the source is gone, so ${d.name} does not change control.`, obj.controller));
+            out.push(narrated(`${obj.label}: the source is gone, so ${tableName(taken, d)} does not change control.`, obj.controller));
             break;
           }
           out.push({ t: 'ControlTakenBySource', card: aim.id, controller: obj.controller, source: src.id, entry: src.entries ?? 0, revertTo: taken.controller, mode: effect.controlFor });
-          out.push(narrated(`${obj.label}: ${d.name} changes control for as long as ${effect.controlFor === 'whileControlled' ? 'its taker controls the source' : 'the source remains on the battlefield'}.`, obj.controller));
+          out.push(narrated(`${obj.label}: ${tableName(taken, d)} changes control for as long as ${effect.controlFor === 'whileControlled' ? 'its taker controls the source' : 'the source remains on the battlefield'}.`, obj.controller));
           break;
         }
         out.push({ t: 'ControlChangedUntilEndOfTurn', card: aim.id, controller: obj.controller, revertTo: taken.controller });
-        out.push(narrated(`${obj.label}: ${d.name} changes control until end of turn.`, obj.controller));
+        out.push(narrated(`${obj.label}: ${tableName(taken, d)} changes control until end of turn.`, obj.controller));
         break;
       }
 
@@ -1596,7 +1596,7 @@ export function effectResult(
         const db = derive(state, deps.oracle, deps.scripts, b.id, cache);
         out.push({ t: 'ControlGained', card: a.id, controller: b.controller });
         out.push({ t: 'ControlGained', card: b.id, controller: a.controller });
-        out.push(narrated(`${obj.label}: ${da.name} and ${db.name} exchange control.`, obj.controller));
+        out.push(narrated(`${obj.label}: ${tableName(a, da)} and ${tableName(b, db)} exchange control.`, obj.controller));
         break;
       }
 
@@ -1620,12 +1620,12 @@ export function effectResult(
         if (!monster || monster.zone.kind !== 'battlefield') break;
         const dm = derive(state, deps.oracle, deps.scripts, aim.id, cache);
         if (monster.monstrous) {
-          out.push(narrated(`${obj.label}: ${dm.name} is already monstrous.`, obj.controller));
+          out.push(narrated(`${obj.label}: ${tableName(monster, dm)} is already monstrous.`, obj.controller));
           break;
         }
         out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: '+1/+1', delta: effect.amount }] });
         out.push({ t: 'BecameMonstrous', card: aim.id });
-        out.push(narrated(`${obj.label}: ${dm.name} becomes monstrous.`, obj.controller));
+        out.push(narrated(`${obj.label}: ${tableName(monster, dm)} becomes monstrous.`, obj.controller));
         break;
       }
 
@@ -1662,7 +1662,7 @@ export function effectResult(
         const ev = phaseOutEvent(state, [aim.id]);
         if (ev === null) break;
         out.push(ev);
-        out.push(narrated(`${obj.label}: ${derive(state, deps.oracle, deps.scripts, aim.id, cache).name} phases out.`, obj.controller, obj.identity));
+        out.push(narrated(`${obj.label}: ${tableName(state.cards[aim.id], derive(state, deps.oracle, deps.scripts, aim.id, cache))} phases out.`, obj.controller, obj.identity));
         break;
       }
 
@@ -1732,11 +1732,11 @@ export function effectResult(
         if (!adapter || adapter.zone.kind !== 'battlefield') break;
         const da = derive(state, deps.oracle, deps.scripts, aim.id, cache);
         if ((adapter.counters['+1/+1'] ?? 0) > 0) {
-          out.push(narrated(`${obj.label}: ${da.name} already has +1/+1 counters, so it does not adapt.`, obj.controller));
+          out.push(narrated(`${obj.label}: ${tableName(adapter, da)} already has +1/+1 counters, so it does not adapt.`, obj.controller));
           break;
         }
         out.push({ t: 'CountersChanged', changes: [{ card: aim.id, kind: '+1/+1', delta: effect.amount }] });
-        out.push(narrated(`${obj.label}: ${da.name} adapts.`, obj.controller));
+        out.push(narrated(`${obj.label}: ${tableName(adapter, da)} adapts.`, obj.controller));
         break;
       }
 
@@ -1754,7 +1754,7 @@ export function effectResult(
         }
         const dg = derive(state, deps.oracle, deps.scripts, given.id, cache);
         out.push({ t: 'ControlGained', card: given.id, controller: aim.id });
-        out.push(narrated(`${obj.label}: ${dg.name} changes control.`, obj.controller));
+        out.push(narrated(`${obj.label}: ${tableName(given, dg)} changes control.`, obj.controller));
         break;
       }
 
@@ -3017,7 +3017,7 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
       if (card === undefined) { out.push({ t: 'Bolstered', player: c.player, card: null, amount: amount ?? 1 }); out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'controls', 'control')} no creature to bolster.`, c.player)); continue; }
       out.push({ t: 'Bolstered', player: c.player, card, amount: amount ?? 1 });
       out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: amount ?? 1 }] });
-      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'bolsters', 'bolster')} ${amount ?? 1}: ${derive(state, deps.oracle, deps.scripts, card).name} gets ${amount ?? 1} +1/+1 counter${(amount ?? 1) === 1 ? '' : 's'}.`, c.player));
+      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'bolsters', 'bolster')} ${amount ?? 1}: ${tableName(state.cards[card], derive(state, deps.oracle, deps.scripts, card))} gets ${amount ?? 1} +1/+1 counter${(amount ?? 1) === 1 ? '' : 's'}.`, c.player));
     }
     return out;
   }
@@ -3034,7 +3034,7 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
       out.push({ t: 'Amassed', player: c.player, card, amount: k, subtype: sub });
       out.push({ t: 'CountersChanged', changes: [{ card, kind: '+1/+1', delta: k }] });
       if (becomes) out.push({ t: 'CreatureSubtypeAdded', card, subtype: sub });
-      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'amasses', 'amass')} ${sub}s ${k}: ${d.name} gets ${k} +1/+1 counter${k === 1 ? '' : 's'}${becomes ? ` and is ${/^[aeiou]/i.test(sub) ? 'an' : 'a'} ${sub} too` : ''}.`, c.player));
+      out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'amasses', 'amass')} ${sub}s ${k}: ${tableName(state.cards[card], d)} gets ${k} +1/+1 counter${k === 1 ? '' : 's'}${becomes ? ` and is ${/^[aeiou]/i.test(sub) ? 'an' : 'a'} ${sub} too` : ''}.`, c.player));
     }
     return out;
   }
@@ -3053,7 +3053,7 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
         const printing = deps.oracle.byPrinting(RING_EMBLEM.printingId);
         if (printing) { nextId++; out.push({ t: 'EmblemCreated', card: `c${nextId}`, oracleId: printing.oracleId, printingId: printing.printingId, owner: c.player }); }
       }
-      const name = bearer === null ? null : derive(state, deps.oracle, deps.scripts, bearer).name;
+      const name = bearer === null ? null : tableName(state.cards[bearer], derive(state, deps.oracle, deps.scripts, bearer));
       out.push(narrated(n`The Ring tempts ${who(state, c.player)} (${times === 1 ? 'the first time' : `${times} times now`}): ${name === null ? `${who(state, c.player)} ${vb(c.player, 'controls', 'control')} no creature to bear it` : `${name} is the Ring-bearer`}.`, c.player));
     }
     return out;
@@ -3086,7 +3086,7 @@ export function askBatch(state: GameState, deps: EngineDeps, verb: 'sacrifice' |
         next += 1;
         out.push({ t: 'TokenCreated', card: `c${next}`, oracleId: copied.oracleId, printingId: copied.printingId, controller: c.player, owner: c.player, turnNumber: state.turn.turnNumber, faceIndex: copied.faceIndex, copyOf: copied.id, ...(copied.copyExceptions !== undefined ? { copyExceptions: copied.copyExceptions } : {}) });
         out.push({ t: 'Populated', player: c.player, token: copied.id, copy: `c${next}` });
-        out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'populates', 'populate')}: a token that is a copy of ${derive(state, deps.oracle, deps.scripts, card).name}.`, c.player));
+        out.push(narrated(n`${who(state, c.player)} ${vb(c.player, 'populates', 'populate')}: a token that is a copy of ${tableName(copied, derive(state, deps.oracle, deps.scripts, card))}.`, c.player));
       }
     }
     return out;

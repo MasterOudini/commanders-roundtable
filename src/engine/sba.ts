@@ -18,7 +18,7 @@ import type { EventBody, SbaAction } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { OracleDb } from './types/oracle';
 import type { GameState, LossReason } from './types/state';
-import { n, narrated, vb, who } from './narrate';
+import { n, narrated, tableName, vb, who } from './narrate';
 
 export interface SbaResult {
   readonly actions: readonly SbaAction[];
@@ -213,7 +213,8 @@ export function checkStateBasedActions(
       if (!holds) {
         actions.push({ t: 'controlReverts', card: id });
         events.push({ t: 'ControlReverted', card: id, controller: card.controlledVia.revertTo });
-        events.push(narrated(`${derive(state, oracle, scripts, id, cache).name} goes back to ${who(state, card.controlledVia.revertTo)}.`, card.controlledVia.revertTo));
+        // ⚠️ `n`, not a plain template: `who` is a part, and a plain template printed it as "[object Object]".
+        events.push(narrated(n`${tableName(card, derive(state, oracle, scripts, id, cache), true)} goes back to ${who(state, card.controlledVia.revertTo)}.`, card.controlledVia.revertTo));
       } else if (mode === undefined && src.controller !== card.controller) {
         // The Aura itself changed hands: the permanent follows its Aura, the way back unchanged.
         actions.push({ t: 'controlTakenByAura', card: id, source: src.id });
@@ -228,7 +229,7 @@ export function checkStateBasedActions(
       if (!printing || !faceOf(printing, aura.faceIndex).controlsEnchanted || aura.controller === card.controller) continue;
       actions.push({ t: 'controlTakenByAura', card: id, source: auraId });
       events.push({ t: 'ControlTakenByAura', card: id, controller: aura.controller, source: auraId, entry: aura.entries ?? 0, revertTo: card.controller });
-      events.push(narrated(`${who(state, aura.controller)} ${vb(aura.controller, 'takes', 'take')} control of ${derive(state, oracle, scripts, id, cache).name}.`, aura.controller));
+      events.push(narrated(n`${who(state, aura.controller)} ${vb(aura.controller, 'takes', 'take')} control of ${tableName(card, derive(state, oracle, scripts, id, cache))}.`, aura.controller));
       break;
     }
   }
@@ -313,7 +314,7 @@ export function checkStateBasedActions(
       if (!card) continue;
       actions.push({ t: 'roleReplaced', card: id });
       moves.push({ card: id, from: { kind: 'battlefield', player: card.controller }, to: { kind: 'graveyard', player: card.owner } });
-      events.push(narrated(n`${derive(state, oracle, scripts, id, cache).name}: a newer Role of the same player replaces it.`, card.controller));
+      events.push(narrated(n`${tableName(card, derive(state, oracle, scripts, id, cache), true)}: a newer Role of the same player replaces it.`, card.controller));
       doomed.add(id);
     }
   }
@@ -330,7 +331,9 @@ export function checkStateBasedActions(
   for (const id of shielded) {
     events.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'shield', delta: -1 }] });
     const card = state.cards[id];
-    if (card) events.push(narrated(`A shield counter on ${derive(state, oracle, scripts, id, cache).name} is removed instead.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []));
+    // A face-down creature stays on the battlefield hidden (CR 708.5): no printed colour on the log's bar, and the
+    // table's name for it rather than its empty derived one (CR 708.2).
+    if (card) events.push(narrated(`A shield counter on ${tableName(card, derive(state, oracle, scripts, id, cache))} is removed instead.`, card.controller, card.faceDown ? [] : oracle.byPrinting(card.printingId)?.colorIdentity ?? []));
   }
   // D330 - the regeneration itself: tapped, damage removed, out of combat, the shield spent.
   if (regenerated.length > 0) {
@@ -342,8 +345,9 @@ export function checkStateBasedActions(
       events.push({ t: 'Regenerated', card: id });
       const card = state.cards[id];
       if (!card) continue;
+      // The same for a face-down creature that regenerates: it stays hidden (CR 708.5).
       events.push(
-        narrated(`${derive(state, oracle, scripts, id, cache).name} regenerates.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
+        narrated(`${tableName(card, derive(state, oracle, scripts, id, cache), true)} regenerates.`, card.controller, card.faceDown ? [] : oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
       );
     }
   }
@@ -383,8 +387,13 @@ export function checkStateBasedActions(
       const card = state.cards[move.card];
       if (!card || card.isToken) continue;
       const d = derive(state, oracle, scripts, move.card, cache);
+      // ⚠️ CR 708.9 - a face-down permanent that leaves the battlefield is REVEALED to every player as it moves, and it
+      // lands face up in the graveyard for all to see: what died is named by its printed face (as the sacrifice lines
+      // name it), never "a face-down creature", which would withhold what the rules have just shown the table - and never
+      // its derived name, which is empty (CR 708.2).
+      const printing = card.faceDown ? oracle.byPrinting(card.printingId) : undefined;
       events.push(
-        narrated(`${d.name} dies.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
+        narrated(`${printing ? faceOf(printing, card.faceIndex).name : d.name} dies.`, card.controller, oracle.byPrinting(card.printingId)?.colorIdentity ?? []),
       );
     }
   }

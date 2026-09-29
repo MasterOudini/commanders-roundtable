@@ -10,7 +10,7 @@
 
 import { derive } from './derive';
 import type { EngineDeps } from './loop';
-import { n, narrated, vb, who, whose } from './narrate';
+import { n, narrated, tableName, vb, who, whose } from './narrate';
 import { apply } from './reducer';
 import type { EventBody } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -23,7 +23,7 @@ export function exploreOnce(state: GameState, deps: EngineDeps, controller: Play
   const top = library[library.length - 1];
   const inst = state.cards[permanent];
   const onBattlefield = inst !== undefined && inst.zone.kind === 'battlefield';
-  const subject = onBattlefield ? derive(state, deps.oracle, deps.scripts, permanent).name : label;
+  const subject = onBattlefield ? tableName(inst, derive(state, deps.oracle, deps.scripts, permanent), true) : label;
   const counter: EventBody[] = onBattlefield ? [{ t: 'CountersChanged', changes: [{ card: permanent, kind: '+1/+1', delta: 1 }] }] : [];
   if (top === undefined) {
     out.push(...counter);

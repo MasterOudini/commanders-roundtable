@@ -38,6 +38,13 @@ function nameOf(state: GameState, deps: EngineDeps, id: InstanceId): string {
   const card = state.cards[id];
   if (!card) return 'a card';
   const d = derive(state, deps.oracle, deps.scripts, id);
+  // ⚠️ CR 708.5 - a face-down card's identity is hidden, and narration is ONE shared log every seat reads (only its
+  // controller's own view shows the card). It derives no name (708.2), so the printed-face fallback below would name
+  // it to the table: it is named as the table sees it, whoever uses the tool (the leak D583 found in the haunt's line).
+  if (card.faceDown) {
+    if (card.zone.kind !== 'battlefield' && card.zone.kind !== 'stack') return 'a face-down card';
+    return d.isCreature ? 'a face-down creature' : 'a face-down permanent';
+  }
   if (d.name) return d.name;
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   return oracleCard ? faceOf(oracleCard, card.faceIndex).name : 'a card';
@@ -45,7 +52,8 @@ function nameOf(state: GameState, deps: EngineDeps, id: InstanceId): string {
 
 function identityOf(state: GameState, deps: EngineDeps, id: InstanceId) {
   const card = state.cards[id];
-  if (!card) return [];
+  // A face-down card is colourless to the table (CR 708.2): its printed identity on the log's colour bar would leak it.
+  if (!card || card.faceDown) return [];
   return deps.oracle.byPrinting(card.printingId)?.colorIdentity ?? [];
 }
 
@@ -82,14 +90,16 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
         ...(intent.faceDown !== undefined ? { faceDown: intent.faceDown } : {}),
         ...(isDiscard ? { reason: 'discard' as const } : {}),
       };
-      const name = nameOf(state, deps, intent.card);
+      // A card this move puts face down is as hidden as one that already is (CR 708.5): the line names neither.
+      const hidden = intent.faceDown === true;
+      const name = hidden ? 'a card' : nameOf(state, deps, intent.card);
       return accept([
         marker(actor, 'moveCard', `${intent.card} → ${to.kind}:${to.player}`),
         { t: 'CardsMoved', moves: [move] },
         narrated(
-          n`${me} ${vb(actor, 'moves', 'move')} ${name} to ${zoneWord(to.kind)}.`,
+          n`${me} ${vb(actor, 'moves', 'move')} ${name} to ${zoneWord(to.kind)}${hidden ? ' face down' : ''}.`,
           actor,
-          identityOf(state, deps, intent.card),
+          hidden ? [] : identityOf(state, deps, intent.card),
           true,
         ),
       ]);
@@ -556,7 +566,9 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       if (!card) return reject('noSuchCard', 'That card is not in the game.');
       const oracleCard = deps.oracle.byPrinting(card.printingId);
       const face = oracleCard ? faceOf(oracleCard, card.faceIndex) : null;
-      if (!face || face.effectMode !== 'assisted' || face.effects.length === 0) {
+      // A face-down card has no text to the table (CR 708.2): applying it would print its name and rules text into the
+      // shared log (CR 708.5), whoever asked - and the offer only ever names a resolved spell, face up.
+      if (card.faceDown || !face || face.effectMode !== 'assisted' || face.effects.length === 0) {
         return reject('notCastable', 'There is nothing on that card for the app to apply.');
       }
       // A synthetic stack object: the card has already left the stack, but the

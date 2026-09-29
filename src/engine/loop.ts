@@ -26,7 +26,7 @@ import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
 import { apply } from './reducer';
 import { exiledAsItLeaves, faceOf } from './oracle';
-import { n, narrated, their, they, vb, who } from './narrate';
+import { n, narrated, tableName, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
 import { orderTriggersApnap } from './triggers';
 import { grantsPriority, maxHandSize, nextStep, skipsFirstDraw } from './turn';
@@ -423,7 +423,7 @@ function turnBasedActions(state: GameState, deps: EngineDeps): Emitted {
       if (toUntap.length > 0) events.push({ t: 'PermanentsUntapped', cards: toUntap });
       for (const id of frozen) {
         events.push({ t: 'UntapSkipSet', card: id, skip: false });
-        events.push(narrated(`${derive(state, deps.oracle, deps.scripts, id).name} doesn't untap this turn.`, ap));
+        events.push(narrated(`${tableName(state.cards[id], derive(state, deps.oracle, deps.scripts, id), true)} doesn't untap this turn.`, ap));
       }
       events.push(narrated(state.turn.extra !== undefined ? n`Turn ${state.turn.turnNumber} — ${who(state, ap)} (an extra turn).` : n`Turn ${state.turn.turnNumber} — ${who(state, ap)}.`, ap));
       break;
@@ -1196,7 +1196,7 @@ function resolveTop(state: GameState, deps: EngineDeps): Emitted {
 export function mutateMerge(state: GameState, deps: EngineDeps, obj: StackObject, host: InstanceId, onTop: boolean): EventBody[] {
   const card = obj.card;
   if (card === null) return [];
-  const hostName = derive(state, deps.oracle, deps.scripts, host).name || 'it';
+  const hostName = tableName(state.cards[host], derive(state, deps.oracle, deps.scripts, host)) || 'it';
   return [
     { t: 'StackResolved', stackId: obj.id, card, to: null, targets: obj.targets, controller: obj.controller },
     { t: 'Mutated', host, card, onTop, player: obj.controller },
@@ -1680,7 +1680,7 @@ function awakenRider(state: GameState, deps: EngineDeps, obj: StackObject, face:
   const at = checked.targetSlots !== undefined ? checked.targetSlots.indexOf(slot) : checked.targets.length - 1;
   const land = at >= 0 ? checked.targets[at] : undefined;
   if (land === undefined || land.kind !== 'card') return [];
-  const name = derive(state, deps.oracle, deps.scripts, land.id).name;
+  const name = tableName(state.cards[land.id], derive(state, deps.oracle, deps.scripts, land.id));
   return [
     { t: 'CountersChanged', changes: [{ card: land.id, kind: '+1/+1', delta: n }] },
     { t: 'Awakened', card: land.id },

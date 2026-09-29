@@ -61,7 +61,7 @@ import { OTHER_PURPOSE, abilityPurpose, bucketsFitting, fitPool, restrictedOfSpe
 import type { RestrictedMana } from './types/mana';
 import { manualIntent } from './manual';
 import { flipCoin, rollDie, shuffle } from './rng';
-import { n, narrated, their, vb, who } from './narrate';
+import { n, narrated, tableName, their, vb, who } from './narrate';
 import { askBatch, askCandidates, drawEvents, effectResult, mergeExceptions, resumeContinuation, suspendTick } from './effects';
 import { proliferateCandidates } from './proliferate';
 import { exploreChain } from './explore';
@@ -3396,7 +3396,7 @@ function declareAttackers(
   if (enlisting.length > 0) events.push({ t: 'PermanentsTapped', cards: enlisting.map((a) => a.enlist) });
   for (const a of enlisting) {
     events.push({ t: 'Enlisted', card: a.card, enlisted: a.enlist, player: intent.player });
-    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'enlists', 'enlist')} ${derive(state, deps.oracle, deps.scripts, a.enlist, cache).name} for ${derive(state, deps.oracle, deps.scripts, a.card, cache).name}.`, intent.player));
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'enlists', 'enlist')} ${tableName(state.cards[a.enlist], derive(state, deps.oracle, deps.scripts, a.enlist, cache))} for ${tableName(state.cards[a.card], derive(state, deps.oracle, deps.scripts, a.card, cache))}.`, intent.player));
   }
   // D443 - CR 701.39: an exerted attacker won't untap during its controller's next untap step (D411's
   // field), and its `When you do` fires on `Exerted`.
@@ -3404,7 +3404,7 @@ function declareAttackers(
     if (a.exert !== true) continue;
     events.push({ t: 'UntapSkipSet', card: a.card, skip: true });
     events.push({ t: 'Exerted', card: a.card, player: intent.player });
-    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'exerts', 'exert')} ${derive(state, deps.oracle, deps.scripts, a.card, cache).name}.`, intent.player));
+    events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'exerts', 'exert')} ${tableName(state.cards[a.card], derive(state, deps.oracle, deps.scripts, a.card, cache))}.`, intent.player));
   }
   events.push(
     narrated(

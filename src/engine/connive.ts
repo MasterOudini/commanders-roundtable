@@ -9,7 +9,7 @@
 import { derive } from './derive';
 import type { EngineDeps } from './loop';
 import { drawEvents } from './effects';
-import { n, narrated, vb, who } from './narrate';
+import { n, narrated, tableName, vb, who } from './narrate';
 import { apply } from './reducer';
 import type { EventBody } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
@@ -19,7 +19,7 @@ import type { GameState } from './types/state';
 export function conniveOnce(state: GameState, deps: EngineDeps, controller: PlayerId, permanent: InstanceId, label: string, remaining: number): EventBody[] {
   const out: EventBody[] = [];
   const inst = state.cards[permanent];
-  const subject = inst !== undefined && inst.zone.kind === 'battlefield' ? derive(state, deps.oracle, deps.scripts, permanent).name : label;
+  const subject = inst !== undefined && inst.zone.kind === 'battlefield' ? tableName(inst, derive(state, deps.oracle, deps.scripts, permanent), true) : label;
   out.push(...drawEvents(state, controller, 1));
   let scratch = state;
   for (const body of out) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
@@ -46,7 +46,7 @@ export function conniveAfterDiscard(state: GameState, deps: EngineDeps, controll
   const onBattlefield = inst !== undefined && inst.zone.kind === 'battlefield';
   if (nonland && onBattlefield) {
     out.push({ t: 'CountersChanged', changes: [{ card: permanent, kind: '+1/+1', delta: 1 }] });
-    out.push(narrated(`${derive(state, deps.oracle, deps.scripts, permanent).name} gets a +1/+1 counter for the nonland card.`, controller));
+    out.push(narrated(`${tableName(inst, derive(state, deps.oracle, deps.scripts, permanent), true)} gets a +1/+1 counter for the nonland card.`, controller));
   }
   out.push({ t: 'Connived', permanent, controller, card, nonland });
   if (remaining > 0) {

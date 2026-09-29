@@ -46,7 +46,7 @@ import { defOnFace } from './scripts/api';
 import { inPlay } from './zones';
 import { mergedScripts } from './mutate';
 import { derive, makeDeriveCache, makeScriptCtx, type DeriveCache } from './derive';
-import { narrated } from './narrate';
+import { narrated, tableName } from './narrate';
 import type { PreventionDef, ScriptCtx } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registryCore';
 import type { EventBody, ResolvedDamage } from './types/events';
@@ -255,7 +255,7 @@ export function withoutPreventedDamage(
     if (kept.length > 0) out.push({ ...body, damages: kept });
     for (const id of shieldedHere) {
       out.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'shield', delta: -1 }] });
-      out.push(narrated(`A shield counter on ${derive(state, oracle, scripts, id, cache).name} absorbs the damage.`, null));
+      out.push(narrated(`A shield counter on ${tableName(state.cards[id], derive(state, oracle, scripts, id, cache))} absorbs the damage.`, null));
     }
   }
 

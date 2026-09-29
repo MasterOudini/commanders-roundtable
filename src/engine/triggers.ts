@@ -492,6 +492,18 @@ function affectedPlayer(state: GameState, ev: EventBody): PlayerId {
 }
 
 /**
+ * The name a permanent LEAVING the battlefield face up goes by (the lines below). CR 708.9 reveals a face-down one to
+ * every player as it moves, so it is named by its printed face - its derived name is empty (CR 708.2) - as sba.ts's
+ * dies line names it; anything else by its derived name.
+ */
+function leavingName(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, id: InstanceId): string {
+  const card = state.cards[id];
+  if (!card) return 'It';
+  const printing = card.faceDown ? oracle.byPrinting(card.printingId) : undefined;
+  return printing ? faceOf(printing, card.faceIndex).name : derive(state, oracle, scripts, id).name;
+}
+
+/**
  * D413 - "if that creature would die this turn, exile it instead": a move from the battlefield to a
  * graveyard of a card carrying the mark (`untilEndOfTurn[].exileIfDies`) goes to exile - its owner's,
  * as every graveyard move here is the owner's - and the log says so. Nothing else moves.
@@ -509,7 +521,7 @@ function withExileInsteadOfDying(state: GameState, oracle: OracleDb, scripts: Sc
       return { ...m, to: { kind: 'exile' as const, player: m.to.player } };
     });
     out.push(redirected.length === 0 ? ev : { ...ev, moves });
-    for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} is exiled instead of dying.`, null));
+    for (const id of redirected) out.push(narrated(`${leavingName(state, oracle, scripts, id)} is exiled instead of dying.`, null));
   }
   return out;
 }
@@ -529,7 +541,7 @@ function withUnearthedLeavingToExile(state: GameState, oracle: OracleDb, scripts
       return { ...m, to: { kind: 'exile' as const, player: state.cards[m.card]?.owner ?? m.to.player } };
     });
     out.push(redirected.length === 0 ? ev : { ...ev, moves });
-    for (const id of redirected) out.push(narrated(`${state.cards[id] ? derive(state, oracle, scripts, id).name : 'It'} was unearthed: it is exiled instead.`, null));
+    for (const id of redirected) out.push(narrated(`${leavingName(state, oracle, scripts, id)} was unearthed: it is exiled instead.`, null));
   }
   return out;
 }
@@ -1105,7 +1117,8 @@ function withStunCounters(state: GameState, oracle: OracleDb, ev: Extract<EventB
     out.push({ t: 'CountersChanged', changes: [{ card: id, kind: 'stun', delta: -1 }] });
     const card = state.cards[id];
     const printing = card ? oracle.byPrinting(card.printingId) : undefined;
-    const name = card && printing ? faceOf(printing, card.faceIndex).name : 'It';
+    // A face-down creature is named as the table sees it (CR 708.5) - never by its printed face, in the one shared log.
+    const name = card?.faceDown ? 'A face-down creature' : card && printing ? faceOf(printing, card.faceIndex).name : 'It';
     out.push(narrated(`${name} stays tapped: a stun counter is removed instead.`, card?.controller ?? null));
   }
   return out;
