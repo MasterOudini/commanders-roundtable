@@ -658,11 +658,14 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.haunting !== undefined ? { haunting: move.haunting } : card.haunting !== undefined ? { haunting: undefined } : {}),
           // CR 903.9a / 704.6d - a commander put into a graveyard or exile is owed its owner's command-zone choice at the
           // next state-based check; a move to any other zone settles the debt (a move within one zone changes nothing).
-          ...(owesCommanderChoice(state, card, move.from, move.to)
-            ? { commanderZoneOwed: true as const }
-            : move.from.kind !== move.to.kind && card.commanderZoneOwed !== undefined
-              ? { commanderZoneOwed: undefined }
-              : {}),
+          // D587 - a backed-out cast's undo (`CardMove.reversal`) does neither: the card is back as it was.
+          ...(move.reversal === true
+            ? {}
+            : owesCommanderChoice(state, card, move.from, move.to)
+              ? { commanderZoneOwed: true as const }
+              : move.from.kind !== move.to.kind && card.commanderZoneOwed !== undefined
+                ? { commanderZoneOwed: undefined }
+                : {}),
           // D486 - entering AS A COPY (CR 707.9): the identity becomes the copied card's, the printed card kept for the
           // move that takes it off the battlefield; a copy leaving the battlefield is its printed card again (707.4).
           ...(move.asCopyOf !== undefined

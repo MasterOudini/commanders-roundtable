@@ -28,7 +28,7 @@ import { apply } from './reducer';
 import { exiledAsItLeaves, faceOf } from './oracle';
 import { n, narrated, tableName, their, they, vb, who } from './narrate';
 import { drawFromTop, mulligansComplete } from './setup';
-import { orderTriggersApnap } from './triggers';
+import { askPromptFor, orderTriggersApnap } from './triggers';
 import { grantsPriority, maxHandSize, nextStep, skipsFirstDraw } from './turn';
 import { castTargetSpecs, shouldAutoPass, legalActions } from './legal';
 import type { ActivatedDef, ScriptCtx, TriggerDef } from './scripts/api';
@@ -54,6 +54,13 @@ export const MAX_ITER = 10_000;
 export function advance(state: GameState, deps: EngineDeps): Emitted {
   if (state.gamePhase === 'finished' || state.gamePhase === 'lobby') return emitted([]);
   if (state.gamePhase === 'mulligan') return advanceMulligan(state);
+
+  // D587 - A HELD MOVE IS NEVER ORPHANED (the review's F4): a question raised over it and answered (a Tier-3 Godless
+  // Shrine's pay 2 life over a held commander question) left the move held with nothing asking, and its resolution never
+  // finished. It is asked again before anything else - the resolution is still under way (CR 704.3: no SBA inside it).
+  if (state.pendingReplacement !== null && state.priority.awaiting === null) {
+    return emitted([{ t: 'AwaitingSet', awaiting: askPromptFor(state, deps.oracle, deps.scripts, state.pendingReplacement) }]);
+  }
 
   // 1 — state-based actions. Repeat until a pass yields nothing (CR 704.4);
   // `pump` provides the repetition.

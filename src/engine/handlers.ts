@@ -7,7 +7,7 @@
 // priority — wait for her to pass" is the message.
 
 import { inPlay } from './zones';
-import { askPromptFor, resumeReplacementFunnel, revealAdmits, runReplacementFunnel } from './triggers';
+import { askPromptFor, resumeReplacementFunnel, revealAdmits, runReplacementFunnel, withoutDiverted } from './triggers';
 import {
   legalDefenders,
   needsFirstStrikeSubstep,
@@ -195,8 +195,20 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'CancelRewind':
       return cancelRewind(state, intent.player);
     default:
-      return manualIntent(state, intent, deps);
+      return manualUnderQuestion(state, manualIntent(state, intent, deps), deps);
   }
+}
+
+/**
+ * D587 - A TIER-3 TOOL NEVER DISPLACES A QUESTION (the review's X11/F4). A tool is allowed under any question and under a
+ * held move - but not one whose own batch the funnel would HOLD (a commander's 903.9b choice, a clone's, a CR 616 order):
+ * its question would replace the one up (Grim Affliction's proliferate, lost for good), and its hold would overwrite the
+ * held move and orphan that batch. The batch is dry-run through the funnel (pure) and the tool refused, saying what to do.
+ */
+function manualUnderQuestion(state: GameState, result: HandleResult, deps: EngineDeps): HandleResult {
+  if (!result.ok || result.funnelled === true || (state.priority.awaiting === null && state.pendingReplacement === null)) return result;
+  if (runReplacementFunnel(state, deps.oracle, deps.scripts, result.events).kind !== 'ask') return result;
+  return reject('timingRestriction', 'That move would ask a question of its own - answer the one on screen first, then make it.');
 }
 
 // ── mulligan ─────────────────────────────────────────────────────────────────
@@ -2430,7 +2442,9 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
       // D540 - a foretold card backed out of goes back as it was: face down, foretold on the turn it was.
       // D541 - a madness cast backed out of was not cast: the card goes to its owner's graveyard (CR 702.35a).
       // D551 - a plotted card backed out of goes back plotted on the turn it was.
-      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.madness === true ? { kind: 'graveyard', player: state.cards[pending.card]?.owner ?? player } : pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}), ...(pending.plotted !== undefined ? { plottedTurn: pending.plotted } : {}) }],
+      // D587 - and the undo is a REVERSAL (Handling Illegal Actions): no replacement and no 903.9 choice applies to it -
+      // but not madness's graveyard, the instruction's own move (`CardMove.reversal`).
+      moves: [{ card: pending.card, from: { kind: 'stack', player: null }, to: pending.madness === true ? { kind: 'graveyard', player: state.cards[pending.card]?.owner ?? player } : pending.from, ...(pending.foretold !== undefined ? { faceDown: true, foretoldTurn: pending.foretold } : {}), ...(pending.plotted !== undefined ? { plottedTurn: pending.plotted } : {}), ...(pending.madness === true ? {} : { reversal: true as const }) }],
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });
@@ -3568,7 +3582,13 @@ function commanderZoneChoice(
     return reject('notAwaitingThat', 'You are not being asked about a commander.');
   }
   const held = state.pendingReplacement;
-  if (held?.commanderChoice !== undefined) return answerHeldCommander(state, intent, deps, held, held.commanderChoice.card);
+  // D587 - ROUTED BY THE QUESTION THAT IS UP (the review's F4): 903.9b's names the held move's destination (`instead`) and
+  // its commander at the head - one with no such held move is moot; a 903.9a question is 903.9a's, whatever move is held.
+  if (awaiting.instead !== undefined) {
+    return held?.commanderChoice !== undefined && held.commanderChoice.card === awaiting.queue[0]?.card
+      ? answerHeldCommander(state, intent, deps, held, held.commanderChoice.card)
+      : accept([{ t: 'AwaitingSet', awaiting: null }]);
+  }
   const head = awaiting.queue[0];
   if (!head) return accept([{ t: 'AwaitingSet', awaiting: null }]);
   const events: EventBody[] = [];
@@ -3610,9 +3630,11 @@ function commanderZoneChoice(
  * body runs through the whole funnel from its start, over the state the answer leaves: a standing answer this one set
  * decides a second commander in the same move without a second question.
  *
- * ⚠️ A commander that has MOVED ON while the question was up (a Tier-3 move is allowed under any question) no longer
- * sits where the held move takes it from; applying that move would put one card in two zones (fuzz seed 69's shape), so
- * its move is dropped - the zone change that raised the question can no longer happen.
+ * ⚠️ A card that has MOVED ON while the question was up (a Tier-3 move is allowed under it when it asks nothing of its
+ * own) no longer sits where the held move takes it from; applying that move would put one card in two zones (fuzz seed
+ * 69's shape), so its move is dropped - the zone change can no longer happen. D587 - every card's, not the commander's
+ * alone (the review's F4: Bears moved to a graveyard by hand were put into the library as well), and "sits where" is
+ * `stillFrom`'s (F1). A card the answer takes off its way into a library leaves the batch's later shuffle (F2).
  */
 function answerHeldCommander(
   state: GameState,
@@ -3626,8 +3648,8 @@ function answerHeldCommander(
   const card = state.cards[commander];
   const owner = card?.owner ?? intent.player;
   const moves = held.moves.flatMap((m): CardMove[] => {
+    if (!stillFrom(state, m)) return [];
     if (m.card !== commander) return [m];
-    if (!card || card.zone.kind !== m.from.kind || card.zone.player !== m.from.player) return [];
     return [intent.toCommandZone ? { card: m.card, from: m.from, to: { kind: 'command', player: owner } } : { ...m, homeDeclined: true as const }];
   });
   const said: EventBody[] = intent.toCommandZone && moves.some((m) => m.card === commander)
@@ -3639,7 +3661,9 @@ function answerHeldCommander(
   ];
   let scratch = state;
   for (const body of lead) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
-  const result = runReplacementFunnel(scratch, deps.oracle, deps.scripts, [...(moves.length > 0 ? [{ ...held, moves }] : []), ...pending.queued]);
+  // D587 - a card sent home, or whose move went stale, on its way into a library is not in it (the review's F2).
+  const diverted = held.moves.filter((m) => m.to.kind === 'library' && !moves.some((k) => k.card === m.card && k.to.kind === 'library'));
+  const result = runReplacementFunnel(scratch, deps.oracle, deps.scripts, [...(moves.length > 0 ? [{ ...held, moves }] : []), ...withoutDiverted(pending.queued, diverted)]);
   if (result.kind === 'done') {
     return { ok: true, funnelled: true, events: [...lead, { t: 'AwaitingSet', awaiting: null }, ...said, ...result.events] };
   }
@@ -3654,6 +3678,18 @@ function answerHeldCommander(
       { t: 'AwaitingSet', awaiting: askPromptFor(scratch, deps.oracle, deps.scripts, result.pending) },
     ],
   };
+}
+
+/**
+ * D587 - CR 400.7: does the card still sit in the zone this held move takes it from? By KIND on the shared battlefield and
+ * stack: a permanent's zone names the player it entered under, a vocabulary move names no one (Snap, a dash return,
+ * shuffleSelf) and a script the controller now (a stolen commander's zone still names its owner) - the review's F1, where
+ * each such answer dropped the move without a word. By kind and player elsewhere; a move naming no player names any.
+ */
+function stillFrom(state: GameState, m: CardMove): boolean {
+  const zone = state.cards[m.card]?.zone;
+  if (zone === undefined || zone.kind !== m.from.kind) return false;
+  return m.from.kind === 'battlefield' || m.from.kind === 'stack' || m.from.player === null || zone.player === m.from.player;
 }
 
 function orderTriggers(

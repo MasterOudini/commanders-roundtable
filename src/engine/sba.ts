@@ -17,7 +17,7 @@ import type { ScriptRegistry } from './scripts/registry';
 import type { EventBody, SbaAction } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { OracleDb } from './types/oracle';
-import type { GameState, LossReason } from './types/state';
+import { apnapOrder, type CardInstance, type GameState, type LossReason } from './types/state';
 import { n, narrated, tableName, their, vb, who } from './narrate';
 
 export interface SbaResult {
@@ -417,7 +417,8 @@ export function checkStateBasedActions(
 
   // CR 704.6d / 903.9a - a commander put into a graveyard or exile since the last check may go to the command zone.
   // A legend-rule question raised by this pass goes first: one question at a time.
-  const home = commanderZoneChoices(state, legendPrompt === null, new Set(returns.map((m) => m.card)));
+  // D587 - and a player this pass makes lose is not asked (CR 704.3: at once; 800.4a: their objects leave with them).
+  const home = commanderZoneChoices(state, legendPrompt === null, new Set(returns.map((m) => m.card)), new Set(losers.map((l) => l.player)));
   actions.push(...home.actions);
   events.push(...home.events);
 
@@ -476,22 +477,25 @@ function findLegendChoice(
  * raised (`asking` false) - one `AwaitingSet` a pass - but the standing answers act at once. ⚠️ A commander this pass
  * already moves (`moving` - a linked exile ending, D407) is moved on: the choice is moot, and a second move of it in
  * the same pass would put it in two zones.
+ * D587 - the owners in APNAP order (CR 101.4: the active player chooses first, then the others in turn order), and a
+ * player this pass makes lose is not asked (`leaving`, CR 704.3 / 800.4a). THE USER'S CHOICE (2026-09-29): a standing
+ * yes does not send home a commander its owner exiled to cast it from there (`castableFromExile`) - the owner is asked.
  */
-function commanderZoneChoices(state: GameState, asking: boolean, moving: ReadonlySet<InstanceId>): { actions: SbaAction[]; events: EventBody[] } {
+function commanderZoneChoices(state: GameState, asking: boolean, moving: ReadonlySet<InstanceId>, leaving: ReadonlySet<PlayerId>): { actions: SbaAction[]; events: EventBody[] } {
   const actions: SbaAction[] = [];
   const events: EventBody[] = [];
   if (state.priority.awaiting !== null) return { actions, events };
   const mode = state.options.commanderZoneReplacement;
   const homes: { card: InstanceId; from: ZoneRef; to: ZoneRef }[] = [];
   const queue: { player: PlayerId; card: InstanceId; from: ZoneRef }[] = [];
-  for (const p of state.seating) {
+  for (const p of apnapOrder(state)) {
     const seat = state.players[p];
-    if (!seat || seat.hasLost) continue;
+    if (!seat || seat.hasLost || leaving.has(p)) continue;
     for (const id of seat.commanderIds) {
       const card = state.cards[id];
       if (card?.commanderZoneOwed !== true || (card.zone.kind !== 'graveyard' && card.zone.kind !== 'exile') || moving.has(id)) continue;
       const standing = mode === 'always' ? true : mode === 'never' ? false : seat.commanderZoneAlways;
-      if (standing === true) {
+      if (standing === true && !castableFromExile(card)) {
         actions.push({ t: 'commanderZone', card: id, choice: 'home' });
         homes.push({ card: id, from: card.zone, to: { kind: 'command', player: p } });
       } else if (standing === false) {
@@ -514,6 +518,15 @@ function commanderZoneChoices(state: GameState, asking: boolean, moving: Readonl
   const head = queue[0];
   if (head) events.push({ t: 'AwaitingSet', awaiting: { kind: 'commanderZoneChoice', player: head.player, queue } });
   return { actions, events };
+}
+
+/**
+ * D587 - THE USER'S CHOICE (2026-09-29): an exile its owner chose, to cast the card from there - foretold (CR 702.143a),
+ * plotted (702.170a), suspended (702.62a), discarded to madness (702.35a), warped (its end-step exile). A standing "send
+ * it home" asks about it instead. The engine exiles nothing "on an adventure" (CR 715.4) yet; that exile joins here.
+ */
+function castableFromExile(card: CardInstance): boolean {
+  return card.zone.kind === 'exile' && (card.foretoldTurn !== undefined || card.plottedTurn !== undefined || card.suspended === true || card.madnessExiled === true || card.warpedTurn !== undefined);
 }
 
 /**

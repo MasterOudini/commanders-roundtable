@@ -337,7 +337,7 @@ export function runReplacementFunnel(
   // consume the same shield. D385 - the CONTINUOUS prevention abilities (a
   // `PreventionDef` on a battlefield permanent) are asked in the same walk,
   // which is why it takes the oracle and the registry now.
-  const bodies = withoutPreventedDamage(state, oracle, scripts, withoutCountersOfTheUncounterable(state, oracle, scripts, rawBodies));
+  let bodies = withoutPreventedDamage(state, oracle, scripts, withoutCountersOfTheUncounterable(state, oracle, scripts, rawBodies));
   const defs = scripts.replacements();
   const settled: EventBody[] = [];
 
@@ -367,6 +367,13 @@ export function runReplacementFunnel(
       };
     }
     const builtIn = applyReplacements(state, oracle, scripts, body);
+    // D587 - a card a built-in took off its way into a library (903.9b's command zone, unearth's exile) is not in it: the
+    // rest of the batch forgets the shuffle order and the draw it was counted in (`withoutDiverted`).
+    if (body.t === 'CardsMoved' && body.moves.some((m) => m.to.kind === 'library')) {
+      const kept = new Set(builtIn.flatMap((e) => (e.t === 'CardsMoved' ? e.moves.filter((m) => m.to.kind === 'library').map((m) => `${m.to.player ?? ''}|${m.card}`) : [])));
+      const diverted = body.moves.filter((m) => m.to.kind === 'library' && !kept.has(`${m.to.player ?? ''}|${m.card}`));
+      if (diverted.length > 0) bodies = [...bodies.slice(0, i + 1), ...withoutDiverted(bodies.slice(i + 1), diverted)];
+    }
     if (defs.length === 0) {
       settled.push(...builtIn);
       continue;
@@ -579,6 +586,37 @@ function withMadnessToExile(state: GameState, oracle: OracleDb, events: readonly
 }
 
 /**
+ * D587 - A CARD TAKEN OFF ITS WAY INTO A LIBRARY IS NOT IN IT (CR 903.9b, 614.1). An effect that puts cards into a library
+ * and shuffles works the order out - a wheel its draws too - on a scratch state where they arrived (ManualMoveZone's
+ * shuffle, the D510 wheel, shuffleSelf, Oblation, a spell's own shuffle fate), and `LibraryShuffled` SETS the library to
+ * it. When a replacement sends one of them elsewhere (903.9b's command zone, unearth's exile) or a held move's answer drops
+ * a move gone stale, the later bodies of the batch forget it: the order without it, and a move of it OUT of that library
+ * - a draw off the stale order - dropped with the draw's marker, until a later move puts it there after all. Else the card
+ * sat in the library and where it went at once (the review's F2).
+ */
+export function withoutDiverted(bodies: readonly EventBody[], diverted: readonly CardMove[]): EventBody[] {
+  const gone = new Set(diverted.flatMap((m) => (m.to.kind === 'library' && m.to.player !== null ? [`${m.to.player}|${m.card}`] : [])));
+  if (gone.size === 0) return [...bodies];
+  const out: EventBody[] = [];
+  for (const b of bodies) {
+    if (b.t === 'LibraryShuffled') {
+      const order = b.order.filter((id) => !gone.has(`${b.player}|${id}`));
+      out.push(order.length === b.order.length ? b : { ...b, order });
+    } else if (b.t === 'CardsMoved') {
+      const moves = b.moves.filter((m) => !(m.from.kind === 'library' && gone.has(`${m.from.player ?? ''}|${m.card}`)));
+      for (const m of moves) if (m.to.kind === 'library') gone.delete(`${m.to.player ?? ''}|${m.card}`);
+      if (moves.length > 0) out.push(moves.length === b.moves.length ? b : { ...b, moves });
+    } else if (b.t === 'DrewCards') {
+      const cards = b.cards.filter((id) => !gone.has(`${b.player}|${id}`));
+      if (cards.length > 0) out.push(cards.length === b.cards.length ? b : { ...b, cards });
+    } else {
+      out.push(b);
+    }
+  }
+  return out;
+}
+
+/**
  * CR 903.9b - a commander that would be put into its owner's hand or library from anywhere may be put into the command
  * zone instead. A REPLACEMENT, so the move is rewritten before it happens and the commander never touches the hand or
  * the library: the standing answer (the game's option, or the owner's "always do this") rewrites it here; with none, the
@@ -616,7 +654,8 @@ function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]):
  */
 function commanderWouldGoHome(state: GameState, move: CardMove): boolean {
   if (move.to.kind !== 'hand' && move.to.kind !== 'library') return false;
-  if (move.from.kind === move.to.kind || move.from.kind === 'command' || move.homeDeclined === true) return false;
+  // D587 - nor a backed-out cast's undo (`CardMove.reversal`): the card goes back as it was, and no replacement applies.
+  if (move.from.kind === move.to.kind || move.from.kind === 'command' || move.homeDeclined === true || move.reversal === true) return false;
   const card = state.cards[move.card];
   return !!card && card.isCommander && !card.isToken && card.merged === undefined;
 }

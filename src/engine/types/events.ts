@@ -124,6 +124,13 @@ export interface CardMove {
    */
   readonly homeDeclined?: true;
   /**
+   * D587 - the undo of a BACKED-OUT CAST (`CancelPendingCast` - the rules' Handling Illegal Actions, a reversal): the card
+   * goes back to the zone it came from, as it was. Not a zone change a replacement applies to - no 903.9b question or
+   * rewrite - and it neither owes nor settles a 903.9a choice (the reducer leaves `commanderZoneOwed` as it stood). A
+   * madness cast backed out of is not one: its graveyard is the madness instruction's own move (CR 702.35a).
+   */
+  readonly reversal?: true;
+  /**
    * WHY this card moved, when the rules know a reason a card can watch for.
    * `undefined` for every ordinary move - a destroy, a bounce, a draw, a token
    * ceasing, a reanimation, a search - and set only where a rule performed one
