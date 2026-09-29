@@ -221,8 +221,21 @@ export interface SeatView {
 
 export interface StackItemView {
   stackItemId: string;
-  /** null for an activated/triggered ability, which is a chit rather than a card. */
+  /**
+   * A spell or an ability - public, and what a target clause asks: `target spell` never admits an ability (CR 113.1c).
+   * ⚠️ `instanceId` cannot say it: a copy of a spell has no card either, and it is a spell (CR 112.1a).
+   */
+  kind: 'spell' | 'activated' | 'triggered';
+  /** null for an activated/triggered ability, which is a chit rather than a card - and for a copy of a spell. */
   instanceId: InstanceId | null;
+  /**
+   * D487 - a COPY of a spell (CR 707.10): the printing and face its copiable values come from, and its own colours
+   * where the copying clause set them (Fork's red copy) - public, as the spell it copies was. What a typed clause
+   * reads ("target instant spell", "target red spell", "with mana value 1 or less"), exactly as the host reads
+   * `StackObject.copyOf`: with `instanceId` null, the client saw no types, colours or mana value on a copy. The
+   * printing ships in the view's dictionary like a card's (`printingsIn`). Null for anything that is not a copy.
+   */
+  copyOf: { printingId: string; faceIndex: number; colors: ColorLetter[] | null } | null;
   label: string;
   controller: PlayerId;
   identity: ColorLetter[];

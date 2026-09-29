@@ -294,7 +294,10 @@ export class Projector {
 
     const stack: StackItemView[] = state.stack.map((obj) => ({
       stackItemId: obj.id,
+      kind: obj.kind,
       instanceId: obj.card,
+      // D487 - a copy's copiable identity (CR 707.10), public: a typed clause reads it on the client as the host does.
+      copyOf: obj.copyOf ? { printingId: obj.copyOf.printingId, faceIndex: obj.copyOf.faceIndex, colors: obj.copyOf.colors ? [...obj.copyOf.colors] : null } : null,
       label: obj.label,
       controller: obj.controller,
       identity: [...obj.identity],

@@ -424,7 +424,9 @@ export class FixtureTable {
     const stackItemId = `st${this.nextStackItem++}`;
     this.stack.push({
       stackItemId,
+      kind: 'spell',
       instanceId,
+      copyOf: null,
       label: inst.card.name,
       controller,
       identity: [...inst.card.colorIdentity],

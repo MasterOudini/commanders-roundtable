@@ -496,13 +496,18 @@ const NOUNS: readonly NounEntry[] = [
 
   // stack objects
   // ⚠️ `cardTypes` on a spell noun is enforced against the CAST FACE's types
-  // (D198): an activated or triggered ability on the stack carries none, so a
-  // typed-spell clause refuses it — which is also the correct CR answer.
+  // (D198). An activated or triggered ability on the stack is no spell at all -
+  // kind `ability` (CR 113.1c) - so every spell clause refuses it.
   { re: new RegExp(`^creature\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Creature', 'Sorcery'] },
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Instant', 'Sorcery'] },
   { re: new RegExp(`^instant\\s+or\\s+sorcery\\s+card${s}\\b`, 'i'), kinds: ['card'], zones: ['graveyard'], cardTypes: ['Instant', 'Sorcery'] },
-  { re: new RegExp(`^activated\\s+or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
-  { re: new RegExp(`^spell${s}\\s+or\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
+  { re: new RegExp(`^activated\\s+or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['ability'] },
+  { re: new RegExp(`^spell${s}\\s+or\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell', 'ability'] },
+  // ⚠️ Disallow's list (Voidslime, Deny the Witch, Ertai Resurrected, Overcharged
+  // Amalgam) - spells and both kinds of ability. The bare `spell` entry below read
+  // its first word and DROPPED the rest, which only aimed at abilities while an
+  // ability counted as a spell.
+  { re: new RegExp(`^spell${s},\\s*activated\\s+abilit(?:y|ies),\\s*or\\s+triggered\\s+abilit(?:y|ies)\\b`, 'i'), kinds: ['spell', 'ability'] },
   { re: new RegExp(`^spell${s}\\s+or\\s+permanent${s}\\b`, 'i'), kinds: ['spell', 'permanent'] },
   // Enforced since D198 the way "creature card" has been since D138 — same
   // field, same predicate, one zone over. "noncreature" is ENFORCED since D294
@@ -511,7 +516,7 @@ const NOUNS: readonly NounEntry[] = [
   { re: new RegExp(`^creature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], cardTypes: ['Creature'] },
   { re: new RegExp(`^noncreature\\s+spell${s}\\b`, 'i'), kinds: ['spell'], restrict: { typesNone: ['Creature'] } },
   { re: new RegExp(`^spell${s}\\b`, 'i'), kinds: ['spell'] },
-  { re: new RegExp(`^abilit(?:y|ies)\\b`, 'i'), kinds: ['spell'] },
+  { re: new RegExp(`^abilit(?:y|ies)\\b`, 'i'), kinds: ['ability'] },
 
   // combat states — the kind is enforced, the state is not
   // ⚠️ ENFORCED since D291 (`TargetSpec.combatRole`, checked by `targetAllowed`

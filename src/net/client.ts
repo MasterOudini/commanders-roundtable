@@ -688,6 +688,10 @@ export class ClientSession {
     // host's rule (loop.ts), so the veil and the host agree on the same board.
     const cv = this.view.cards[sourceCard];
     const onBattlefield = this.view.seatOrder.some((p) => (this.view.zones[`bf:${p}`] ?? []).includes(sourceCard));
+    // CR 115.5 - the one object aimed while it is ON the stack is the one my live prompt asks about (a trigger's
+    // targets, a copy's new ones): never its own target, as the host rules (`chooseTriggerTargets`, `chooseCopyTargets`).
+    const prompt = this.session.awaiting;
+    const aimed = prompt?.kind === 'chooseTargets' && prompt.player === this.you && prompt.source === sourceCard ? prompt.stackId : null;
     const src = {
       controller: this.you,
       colors: face?.colors ?? [],
@@ -698,6 +702,7 @@ export class ClientSession {
       toughness: onBattlefield ? (cv?.toughness ?? null) : null,
       // D414 - `another target X` refuses the source itself; the client says which it is.
       sourceId: sourceCard,
+      stackId: aimed,
     };
     const candidates = this.candidatesFromView();
     const seen = new Set<string>();
@@ -842,21 +847,29 @@ export class ClientSession {
        * exactly as the host adapter reads them, or the veil lights up a spell
        * the host then refuses. `instanceId` is null for an activated or
        * triggered ability, which genuinely has neither.
+       *
+       * ⚠️ And null for a COPY of a spell (D487), which has both: its printing
+       * and face ride the view (`copyOf`) and are read here exactly as the host
+       * reads `StackObject.copyOf` - without them the veil refused a copy that
+       * "target instant spell" or "target red spell" admits on the host.
        */
-      const spellFace = item.instanceId ? this.faceFor(item.instanceId) : null;
+      const copied = item.copyOf ? this.pool.oracle().byPrinting(item.copyOf.printingId) : undefined;
+      const spellFace = item.instanceId ? this.faceFor(item.instanceId) : copied && item.copyOf ? faceOf(copied, item.copyOf.faceIndex) : null;
       out.push({
         choice: { kind: 'stack', id: item.stackItemId },
         zone: 'stack',
         controller: item.controller,
-        kinds: ['spell'],
+        // A spell (a copy too) or an ability, as the host adapter reads `StackObject.kind` - never one for the other.
+        kinds: item.kind === 'spell' ? ['spell'] : ['ability'],
         types: spellFace?.typeLine.types ?? [],
         manaValue: item.instanceId
           ? (this.pool.oracle().byPrinting(this.view.cards[item.instanceId]?.card?.scryfallId ?? '')?.manaValue ?? null)
-          : null,
+          : (copied?.manaValue ?? null),
         power: null,
         toughness: null,
-        // D295: a spell's colours, read exactly as the host adapter reads them.
-        colors: spellFace?.colors ?? [],
+        // D295: a spell's colours, read exactly as the host adapter reads them - a copy's own where the copying clause
+        // set them (Fork's red copy).
+        colors: spellFace ? (item.copyOf?.colors ?? spellFace.colors) : [],
         keywords: [],
         combat: { attacking: false, blocking: false },
         supertypes: spellFace?.typeLine.supertypes ?? [],

@@ -334,8 +334,15 @@ export type TargetKind =
   /** Any permanent on the battlefield. */
   | 'permanent'
   | 'player'
-  /** Any object on the stack. */
+  /**
+   * A SPELL on the stack - a card cast, or a copy of one (CR 112.1a).
+   *
+   * ⚠️ Never an ability. This kind used to stand for any object on the stack, so
+   * `Counterspell` could counter a triggered ability and `Stifle` a spell.
+   */
   | 'spell'
+  /** An activated or triggered ability on the stack (CR 113.1c) - never a spell. */
+  | 'ability'
   /** A card in a graveyard or in exile — narrowed by `TargetSpec.zones`. */
   | 'card';
 

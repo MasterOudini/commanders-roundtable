@@ -1234,10 +1234,12 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player, awaiting.lki);
       if (!src) return keep ? { t: 'ChooseTargets', player: awaiting.player, targets: [] } : simplestAnswer(awaiting, state);
       const pool = candidatesFromState(state, deps(SCRIPTS));
+      // CR 115.5 - a trigger or a copy is on the stack as it is aimed, and never its own target (the host refuses it).
+      const aimer = { ...src, stackId: awaiting.stackId };
       const picked: TargetChoice[] = [];
       for (const spec of awaiting.specs) {
         for (let i = 0; i < spec.min; i++) {
-          const legal = legalTargetsFor(spec, src, pool).filter((c) => !picked.some((q) => q.kind === c.kind && q.id === c.id));
+          const legal = legalTargetsFor(spec, aimer, pool).filter((c) => !picked.some((q) => q.kind === c.kind && q.id === c.id));
           if (legal.length === 0) return keep ? { t: 'ChooseTargets', player: awaiting.player, targets: [] } : { t: 'CancelPendingCast', player: awaiting.player };
           picked.push(legal[p.below(legal.length)] as TargetChoice);
         }

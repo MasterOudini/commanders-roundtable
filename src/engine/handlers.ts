@@ -2232,8 +2232,9 @@ function chooseTriggerTargets(
   const verdict = validateTargets(
     awaiting.specs,
     // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
-    // D586 - a recoloured spell copy's reflexive trigger aims as the copy (its colours, CR 603.7d).
-    targetingSourceFor(state, deps, awaiting.source, intent.player, awaiting.lki, awaiting.sourceColors) ?? { controller: intent.player, colors: awaiting.sourceColors ?? face.colors },
+    // D586 - a recoloured spell copy's reflexive trigger aims as the copy (its colours, CR 603.7d);
+    // CR 115.5 - the trigger is on the stack as it is aimed, and never its own target.
+    { ...(targetingSourceFor(state, deps, awaiting.source, intent.player, awaiting.lki, awaiting.sourceColors) ?? { controller: intent.player, colors: awaiting.sourceColors ?? face.colors }), stackId: awaiting.stackId },
     awaiting.label,
     intent.targets,
     candidatesFromState(state, deps),
@@ -2273,7 +2274,8 @@ function chooseCopyTargets(
     const printing = deps.oracle.byPrinting(copy.copyOf.printingId);
     if (!printing) return reject('noSuchCard', 'That card is not in the game.');
     const face = faceOf(printing, copy.copyOf.faceIndex);
-    const own = targetingSourceFor(state, deps, awaiting.source, intent.player) ?? { controller: intent.player, colors: face.colors };
+    // CR 115.5 - the copy is on the stack as it is aimed, and never its own target.
+    const own = { ...(targetingSourceFor(state, deps, awaiting.source, intent.player) ?? { controller: intent.player, colors: face.colors }), stackId: copy.id };
     const src = copy.copyOf.colors === undefined ? own : { ...own, colors: copy.copyOf.colors };
     const verdict = validateTargets(awaiting.specs, src, awaiting.label, intent.targets, candidatesFromState(state, deps));
     if (!verdict.ok) return reject('illegalTarget', verdict.message);

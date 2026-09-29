@@ -22,7 +22,7 @@
 // Lightning Greaves does nothing. `tier3.ts` says so on the card.
 
 import type { ColorLetter } from '../data/cardTypes';
-import type { InstanceId, PlayerId } from './types/ids';
+import type { InstanceId, PlayerId, StackId } from './types/ids';
 import type { GameState, TargetChoice } from './types/state';
 import type { Keyword, OracleDb, ParsedTypeLine, Protection, TargetAlternative, TargetKind, TargetRestrictions, TargetSpec } from './types/oracle';
 import { protectedFrom } from './protection';
@@ -109,6 +109,12 @@ export interface TargetingSource {
   readonly toughness?: number | null;
   /** D414 - the permanent (or card) doing the targeting, refused by a spec that says `another`; absent for a source the state does not hold. */
   readonly sourceId?: InstanceId | null;
+  /**
+   * The spell or ability doing the targeting when it is ALREADY ON THE STACK as it is aimed - a trigger (CR 603.3d) or
+   * a copy asked for new targets (CR 707.10c) - refused as its own target (CR 115.5). Absent for a spell being cast or
+   * an ability being activated: neither has a stack object until its targets are chosen.
+   */
+  readonly stackId?: StackId | null;
 }
 
 /**
@@ -123,12 +129,18 @@ export interface TargetingSource {
  * between these two is the whole reason they are separate keywords.
  */
 export function untargetableByRule(src: TargetingSource, c: TargetCandidate): boolean {
+  if (targetsItself(src, c)) return true;
   if (c.shroud) return true;
   if (c.hexproof && src.controller !== c.controller) return true;
   // D356 - one predicate, shared with combat and the Aura fall-off.
   if (protectedFrom(c.protection, { colors: src.colors, typeLine: src.typeLine })) return true;
   // `protection.other` is verbatim and UNENFORCED — `tier3.ts` already says so.
   return false;
+}
+
+/** CR 115.5 - a spell or ability on the stack is an illegal target for itself. */
+function targetsItself(src: TargetingSource, c: TargetCandidate): boolean {
+  return src.stackId !== undefined && src.stackId !== null && c.choice.kind === 'stack' && c.choice.id === src.stackId;
 }
 
 /** Does this candidate satisfy this clause? */
@@ -437,6 +449,7 @@ export function validateTargets(
 }
 
 function untargetableMessage(src: TargetingSource, c: TargetCandidate, label: string): string {
+  if (targetsItself(src, c)) return `${label} can't target itself — choose another target.`;
   if (c.shroud) return `That has shroud — nothing can target it, not even your own ${label}.`;
   if (c.hexproof && src.controller !== c.controller) {
     return `That has hexproof — your spells and abilities can't target it.`;
@@ -559,7 +572,7 @@ export function candidatesFromState(
     // ⚠️ **A SPELL ON THE STACK HAS CARD TYPES** — "counter target artifact
     // spell" restricts on them (D198), and they come from the FACE ACTUALLY
     // CAST (D155's rule; a modal DFC's back face is its own spell). An ability
-    // has none, so a typed-spell clause refuses it, which is the CR answer.
+    // has none.
     const spellCard = obj.card ? state.cards[obj.card] : null;
     // D487 - a COPY of a spell has no card: its printing and face are the copy's own (CR 707.10), its colours too.
     const spellOracle = spellCard ? deps.oracle.byPrinting(spellCard.printingId) : obj.copyOf !== undefined ? deps.oracle.byPrinting(obj.copyOf.printingId) : undefined;
@@ -567,7 +580,9 @@ export function candidatesFromState(
       choice: { kind: 'stack', id: obj.id },
       zone: 'stack',
       controller: obj.controller,
-      kinds: ['spell'],
+      // ⚠️ A spell - a card cast, or a copy of one (CR 112.1a) - or an activated or triggered ability, which is never
+      // a spell (CR 113.1c): `target spell` refuses an ability, and `target activated or triggered ability` a spell.
+      kinds: obj.kind === 'spell' ? ['spell'] : ['ability'],
       types: spellOracle ? faceOf(spellOracle, obj.faceIndex).typeLine.types : [],
       /**
        * ⚠️ **A SPELL ON THE STACK DOES HAVE A MANA VALUE**, and 504 lines in the

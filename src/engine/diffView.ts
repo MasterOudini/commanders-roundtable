@@ -78,6 +78,13 @@ function sameTargets(
   return true;
 }
 
+function sameCopyOf(a: StackItemView['copyOf'], b: StackItemView['copyOf']): boolean {
+  if (a === b) return true;
+  if (a === null || b === null) return false;
+  if (a.printingId !== b.printingId || a.faceIndex !== b.faceIndex) return false;
+  return a.colors === null || b.colors === null ? a.colors === b.colors : sameStrings(a.colors, b.colors);
+}
+
 function sameStack(a: readonly StackItemView[], b: readonly StackItemView[]): boolean {
   if (a === b) return true;
   if (a.length !== b.length) return false;
@@ -87,7 +94,9 @@ function sameStack(a: readonly StackItemView[], b: readonly StackItemView[]): bo
     if (!x || !y) return false;
     if (
       x.stackItemId !== y.stackItemId ||
+      x.kind !== y.kind ||
       x.instanceId !== y.instanceId ||
+      !sameCopyOf(x.copyOf, y.copyOf) ||
       x.label !== y.label ||
       x.controller !== y.controller ||
       !sameStrings(x.identity, y.identity) ||

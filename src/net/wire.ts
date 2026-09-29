@@ -60,6 +60,12 @@ export function printingsIn(view: PlayerView): Set<PrintingId> {
   for (const card of Object.values(view.cards)) {
     if (card.card) out.add(card.card.scryfallId);
   }
+  // D487 - a copy on the stack names the printing its copiable values come from (public, as the copied spell was).
+  // The copied card is usually still in view, but not always - Remand the original and a client that reconnects never
+  // sees it - so the copy ships its own printing.
+  for (const item of view.stack) {
+    if (item.copyOf) out.add(item.copyOf.printingId);
+  }
   return out;
 }
 
