@@ -234,6 +234,12 @@ export function answerAwaiting(
 
     case 'chooseTargets': {
       if (awaiting.player !== me) return wait('not my targets');
+      // D586 - a TRIGGER's aim has no cast to cancel: a pick the host refused (the client reads printed keywords - a granted
+      // hexproof is invisible to it) is followed by the NEXT candidate in the planner's order, never by a cancel the host refuses.
+      if (awaiting.forKind === 'trigger') {
+        const aim = planTargets(port, awaiting.source, awaiting.specs, view, me, attempt);
+        return aim ? act({ t: 'ChooseTargets', player: me, targets: aim }, `aim at ${aim.length}${attempt > 0 ? ' (the next candidate)' : ''}`) : fault('noIntentForAwaiting', `no target the host accepts for ${awaiting.label}`);
+      }
       const targets: TargetChoice[] | null =
         attempt > 0 ? null : planTargets(port, awaiting.source, awaiting.specs, view, me);
       // The board can change between choosing to cast and being asked. Cancelling

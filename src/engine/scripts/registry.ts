@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { GLORYBRINGER_SCRIPT } from './cards/glorybringer';
+import { OBSCURA_STOREFRONT_SCRIPT } from './cards/obscuraStorefront';
+import { RIVETEERS_OVERLOOK_SCRIPT } from './cards/riveteersOverlook';
+import { EASTFARTHING_FARMER_SCRIPT } from './cards/eastfarthingFarmer';
+import { AHN_CROP_CHAMPION_SCRIPT } from './cards/ahnCropChampion';
+import { SMOKE_BOMB_SCRIPT } from './cards/smokeBomb';
+import { MAESTROS_THEATER_SCRIPT } from './cards/maestrosTheater';
+import { GO_SHINTAI_OF_ANCIENT_WARS_SCRIPT } from './cards/goShintaiOfAncientWars';
+import { GO_SHINTAI_OF_BOUNDLESS_VIGOR_SCRIPT } from './cards/goShintaiOfBoundlessVigor';
+import { GO_SHINTAI_OF_LOST_WISDOM_SCRIPT } from './cards/goShintaiOfLostWisdom';
+import { BROKERS_HIDEOUT_SCRIPT } from './cards/brokersHideout';
+import { CABARETTI_COURTYARD_SCRIPT } from './cards/cabarettiCourtyard';
+import { BROODRAGE_MYCOID_SCRIPT } from './cards/broodrageMycoid';
+import { THE_SPIRIT_OASIS_SCRIPT } from './cards/theSpiritOasis';
+import { HONDEN_OF_LIFES_WEB_SCRIPT } from './cards/hondenOfLifesWeb';
+import { HONDEN_OF_CLEANSING_FIRE_SCRIPT } from './cards/hondenOfCleansingFire';
+import { EMPRESS_GALINA_SCRIPT } from './cards/empressGalina';
+import { HONDEN_OF_SEEING_WINDS_SCRIPT } from './cards/hondenOfSeeingWinds';
+import { SUMMON_PRIMAL_GARUDA_SCRIPT } from './cards/summonPrimalGaruda';
 import { TRISKELION_SCRIPT } from './cards/triskelion';
 import { TWINSHOT_SNIPER_SCRIPT } from './cards/twinshotSniper';
 import { WALKING_BALLISTA_SCRIPT } from './cards/walkingBallista';
@@ -8476,6 +8495,25 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  GLORYBRINGER_SCRIPT,
+  OBSCURA_STOREFRONT_SCRIPT,
+  RIVETEERS_OVERLOOK_SCRIPT,
+  EASTFARTHING_FARMER_SCRIPT,
+  AHN_CROP_CHAMPION_SCRIPT,
+  SMOKE_BOMB_SCRIPT,
+  MAESTROS_THEATER_SCRIPT,
+  GO_SHINTAI_OF_ANCIENT_WARS_SCRIPT,
+  GO_SHINTAI_OF_BOUNDLESS_VIGOR_SCRIPT,
+  GO_SHINTAI_OF_LOST_WISDOM_SCRIPT,
+  BROKERS_HIDEOUT_SCRIPT,
+  CABARETTI_COURTYARD_SCRIPT,
+  BROODRAGE_MYCOID_SCRIPT,
+  THE_SPIRIT_OASIS_SCRIPT,
+  HONDEN_OF_LIFES_WEB_SCRIPT,
+  HONDEN_OF_CLEANSING_FIRE_SCRIPT,
+  EMPRESS_GALINA_SCRIPT,
+  HONDEN_OF_SEEING_WINDS_SCRIPT,
+  SUMMON_PRIMAL_GARUDA_SCRIPT,
   TRISKELION_SCRIPT,
   TWINSHOT_SNIPER_SCRIPT,
   WALKING_BALLISTA_SCRIPT,

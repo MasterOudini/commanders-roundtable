@@ -610,6 +610,8 @@ export type EventBody =
       readonly effects: readonly EffectSpec[];
       readonly specs: readonly TargetSpec[];
       readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+      /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+      readonly sourceColors?: readonly ColorLetter[];
     }
   /**
    * A player DREW (CR 121) — the marker beside the `CardsMoved` that did it,

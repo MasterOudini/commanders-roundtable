@@ -1410,6 +1410,12 @@ export interface EffectSpec {
   /** `payOptional` only: the price and the branches (D369). REQUIRED, `null` elsewhere (D355). */
   readonly pay: PaySpec | null;
   /**
+   * D586 - THE MANDATORY ACTION'S REFLEXIVE TRIGGER (CR 603.12): `<action>. When you do, <payload>` - this clause IS the
+   * action; after its last step, when it was performed, the payload triggers (the executor pushes D584's marker). Absent on
+   * every other clause.
+   */
+  readonly reflexive?: ReflexiveSpec;
+  /**
    * D399 - `pump` only: the printed rider "... until end of turn and can't be blocked this turn"
    * ("gets +1/+0 until end of turn and can't be blocked this turn") rides the same until-end-of-turn
    * entry as the pump. REQUIRED (D355/D356's rule), `false` on every other kind.

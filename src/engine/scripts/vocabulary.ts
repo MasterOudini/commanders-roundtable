@@ -118,7 +118,7 @@ export function vocabularyEffects(payload: string, name: string, opts: { readonl
   // what followed); D484 - the question carries the clauses after it (`EffectContinuation`), so the ask may
   // stand anywhere and nothing is refused for its place.
   // D584 - and a reflexive payload's clauses (they resolve as their own ability).
-  for (const effect of [...parsed.effects, ...parsed.effects.flatMap((e) => e.pay?.reflexive?.effects ?? [])]) {
+  for (const effect of [...parsed.effects, ...parsed.effects.flatMap((e) => e.pay?.reflexive?.effects ?? []), ...parsed.effects.flatMap((e) => e.reflexive?.effects ?? [])]) {
     // D373 - a self clause of a SELF_AIMED kind is aimed at the source by the executor; the refusal
     // stays for the aimable kinds that have no subject without a target clause.
     if (effect.self && NEEDS_AIM.has(effect.kind) && !SELF_AIMED.has(effect.kind)) {

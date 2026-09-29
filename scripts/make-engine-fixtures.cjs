@@ -10525,6 +10525,30 @@ const WANTED = [
   'Ancient Hydra',
   'Sawblade Scamp',
   // D585 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D586 - THE REFLEXIVE TRIGGER'S SECOND CUT: the cards the mandatory reflexive proofs deal (Faebloom Trick, a Family land, Smoke Bomb).
+  'Faebloom Trick',
+  'Obscura Storefront',
+  'Smoke Bomb',
+  // D586 - THE REFLEXIVE TRIGGER'S SECOND CUT: the rows the whole-leftover row maker rowed once a mandatory action's When you do payload read as its own triggered ability (CR 603.12).
+  'Glorybringer',
+  'Riveteers Overlook',
+  'Eastfarthing Farmer',
+  'Ahn-Crop Champion',
+  'Maestros Theater',
+  'Go-Shintai of Ancient Wars',
+  'Go-Shintai of Boundless Vigor',
+  'Go-Shintai of Lost Wisdom',
+  'Brokers Hideout',
+  'Cabaretti Courtyard',
+  'Broodrage Mycoid',
+  'The Spirit Oasis',
+  "Honden of Life's Web",
+  'Honden of Cleansing Fire',
+  'Empress Galina',
+  'Honden of Seeing Winds',
+  'Summon: Primal Garuda',
+  // D586 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  'Sanctum of Tranquil Light',
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

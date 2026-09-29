@@ -142,8 +142,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   { names: ['Godless Shrine', 'The Black Gate'], copiesPerSeat: 1,
     counterKeys: ['entersPaid', 'entersDeclined'], rotHistory: 'D136' },
   // D369 - the payment prompt, BOTH answers: a counter its target can buy off.
-  { names: ['Mana Leak'], copiesPerSeat: 3,
-    counterKeys: ['paymentsPaid', 'paymentsDeclined'], rotHistory: 'D369' },
+  // D586 - two a seat: its third slot went to Obscura Storefront (the swap below; 104 paid / 78 declined at D585's gate with three).
+  { names: ['Mana Leak'], copiesPerSeat: 2,
+    counterKeys: ['paymentsPaid', 'paymentsDeclined'], rotHistory: 'D369, D586' },
+  // D586 - THE MANDATORY REFLEXIVE TRIGGER (CR 603.12): an Obscura Storefront a seat (a Family land - it enters, is sacrificed,
+  // and its `When you do` search and life trigger), in Mana Leak's third slot (the seat's card count and the shuffle kept,
+  // D553's rule): the 60-seed canary read no mandatory reflexive trigger before it.
+  { names: ['Obscura Storefront'], copiesPerSeat: 1,
+    counterKeys: ['mandatoryReflexives'], rotHistory: 'D586' },
   // The only route to `chooseFromZone` — a real cast at a real player.
   { names: ['Mind Rot'], copiesPerSeat: 1,
     counterKeys: ['discardsChosen', 'cardsDiscarded'], rotHistory: 'D137 D176' },
@@ -1925,6 +1931,8 @@ interface Run {
   /** D584 - the reflexive triggers a paid price made (CR 603.12), and the ones put on the stack (the rest removed, 603.3d). */
   readonly reflexiveTriggers: number;
   readonly reflexiveStacked: number;
+  /** D586 - the MANDATORY action's reflexive triggers (CR 603.12): the marker made as an action resolves, not at a payment's answer. */
+  readonly mandatoryReflexives: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2138,8 +2146,10 @@ function runOne(seed: number): Run {
     const inst = id === null ? undefined : game.state.cards[id];
     return inst === undefined ? '' : (ORACLE.byPrinting(inst.printingId)?.name ?? '');
   };
+  // D586 - the staples' `another` abilities ALONE (the label carries the effect text): a staple may carry another ability -
+  // a granted `deals 1 damage to any target` aimed at itself is legal, and the hard-zero floor read it as a self-pick (seed 435).
   const anotherPushes = game.log.flatMap((e) =>
-    e.body.t === 'AbilityPutOnStack' && ANOTHER_STAPLES.has(nameOf(e.body.obj.source)) ? [e.body.obj] : [],
+    e.body.t === 'AbilityPutOnStack' && ANOTHER_STAPLES.has(nameOf(e.body.obj.source)) && /another target/i.test(e.body.obj.label) ? [e.body.obj] : [],
   );
   const anotherTriggers = new Map<string, InstanceId | null>();
   for (const o of anotherPushes) if (o.kind === 'triggered') anotherTriggers.set(o.id, o.source);
@@ -2493,6 +2503,7 @@ function runOne(seed: number): Run {
     mutations: game.log.filter((e) => e.body.t === 'Mutated').length,
     reflexiveTriggers: game.log.filter((e) => e.body.t === 'ReflexiveTriggered').length,
     reflexiveStacked: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.abilityRef?.endsWith('#reflexive') === true).length,
+    mandatoryReflexives: game.log.filter((e) => e.body.t === 'ReflexiveTriggered' && e.cause.intent !== 'AnswerPayMana').length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     casualtyCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.casualty === true && e.body.obj.copyOf === undefined).length,
     casualtyCopies: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && (e.body.obj.abilityRef ?? '').endsWith('#kw:casualty')).length,
@@ -2891,6 +2902,7 @@ const TOTAL_KEYS = [
   'mutations',
   'reflexiveTriggers',
   'reflexiveStacked',
+  'mandatoryReflexives',
   'crownings',
   'ringTempts',
   'ringAbilities',

@@ -16,7 +16,8 @@ import { inPlay, phaseOutEvent } from './zones';
 import { derive, type DeriveCache } from './derive';
 import { flipCoin, shuffle, type RngState } from './rng';
 import type { EngineDeps } from './loop';
-import type { EventBody, MoveReason, ResolvedDamage } from './types/events';
+import type { CardMove, EventBody, MoveReason, ResolvedDamage } from './types/events';
+import { reflexiveMarker } from './reflexiveMarker';
 import type { InstanceId, PlayerId } from './types/ids';
 import { SELF_AIMED, type BoardScope, type CopyExceptions, type CounterKind, type DelayWhen, type EffectSpec, type LookFilter, type SearchQualifier } from './types/oracle';
 import { predicateAdmits } from '../data/replacementParse';
@@ -952,6 +953,8 @@ export function effectResult(
             ...(pay.exploit === true ? { exploit: true as const } : {}),
             // D584 - a reflexive price's payload: paid, the answer triggers it (absent elsewhere - older prompts byte-identical).
             ...(pay.reflexive !== undefined ? { reflexive: pay.reflexive } : {}),
+            // D586 - a recoloured spell copy's colours: the trigger the answer makes is the copy's (CR 603.7d).
+            ...(pay.reflexive !== undefined && obj.card === null && obj.copyOf?.colors !== undefined ? { sourceColors: obj.copyOf.colors } : {}),
             // D584 - and a TOKEN source's printing: the answer makes the trigger off it if the token has ceased by then.
             ...(pay.reflexive !== undefined ? (() => { const s = obj.source === null ? undefined : state.cards[obj.source]; const l = s?.isToken ? { printingId: s.printingId, faceIndex: s.faceIndex } : obj.lki; return l !== undefined ? { lki: l } : {}; })() : {}),
           },
@@ -1373,7 +1376,9 @@ export function effectResult(
       case 'sacrificeSelf': {
         if (!source) break;
         const inst = state.cards[source];
-        if (!inst || inst.zone.kind !== 'battlefield') break;
+        // D586 - only a permanent its ability's controller controls is sacrificed (CR 701.21a), and a phased-out one is treated
+        // as though it does not exist (CR 702.26b): nothing moves, so a mandatory action's `you do` is false.
+        if (!inst || inst.zone.kind !== 'battlefield' || inst.phasedOut || inst.controller !== controller) break;
         // D377 - the one sacrifice the VOCABULARY performs, so it carries the reason like the
         // cost machinery's does: a watcher must not care which path sacrificed the permanent.
         out.push(moveTo(source, 'graveyard', inst.owner, 'sacrifice'));
@@ -2625,6 +2630,26 @@ export function effectResult(
      * pick only (no vocabulary rule prints one).
      */
     if (rec) rec.end = out.length;
+    // D586 - THE MANDATORY ACTION'S REFLEXIVE TRIGGER (CR 603.12): after the action's LAST step, when the action was PERFORMED -
+    // judged on the action, never its destination (the source LEFT the battlefield, cards LEFT the library: a sacrifice replaced
+    // into exile is still a sacrifice); a step that did nothing (the source gone, no token made) triggers nothing. D584's marker.
+    if (effect.reflexive !== undefined && source) {
+      const next = steps[si + 1];
+      if (next === undefined || (next.at ?? effects.indexOf(next.effect)) !== at) {
+        const made = out.slice(rec ? rec.start : before);
+        const moved = (f: (m: CardMove) => boolean): boolean => made.some((e) => e.t === 'CardsMoved' && e.moves.some(f));
+        const did =
+          effect.kind === 'createToken' || effect.kind === 'populate' ? made.some((e) => e.t === 'TokenCreated')
+          : effect.kind === 'mill' ? moved((m) => m.from.kind === 'library')
+          : effect.kind === 'sacrificeSelf' ? moved((m) => m.card === source && m.from.kind === 'battlefield')
+          : effect.kind === 'draw' ? made.some((e) => e.t === 'DrewCards')
+          : effect.kind === 'putCounters' ? made.some((e) => e.t === 'CountersChanged' && e.changes.some((c) => c.delta > 0))
+          : made.some((e) => e.t !== 'Narrated');
+        // A recoloured spell copy is the trigger's source (CR 603.7d): its colours ride the marker.
+        const marker = did ? reflexiveMarker(state, deps, source, controller, effect.reflexive, obj.lki, obj.card === null && obj.copyOf?.colors !== undefined ? obj.copyOf.colors : undefined) : null;
+        if (marker !== null) out.push(marker);
+      }
+    }
     const asked = out.slice(before).findIndex((e) => e.t === 'AwaitingSet' && e.awaiting !== null);
     if (asked < 0) continue;
     const rest = effects.slice(at + 1);

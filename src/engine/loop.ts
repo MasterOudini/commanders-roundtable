@@ -252,7 +252,7 @@ export function stackPendingTriggers(
       continue;
     }
     if (modalLegal === null && trigger.specs.length > 0) {
-      const src = targetingSourceFor(state, deps, trigger.source, trigger.controller, trigger.lki);
+      const src = targetingSourceFor(state, deps, trigger.source, trigger.controller, trigger.lki, trigger.sourceColors);
       const fill = src
         ? minimumLegalTargets(trigger.specs, src, candidatesFromState(state, deps))
         : null;
@@ -299,6 +299,8 @@ export function stackPendingTriggers(
       ...(trigger.reflexive === true ? { delayedSpecs: trigger.specs } : {}),
       // D584 - a token's printing rides too: a question its resolution asks may come after the token ceased (CR 603.10).
       ...(trigger.lki !== undefined ? { lki: trigger.lki } : {}),
+      // D586 - a recoloured spell copy's reflexive trigger: the copy's colours ride (608.2b re-check).
+      ...(trigger.sourceColors !== undefined ? { sourceColors: trigger.sourceColors } : {}),
       // D494 - the objects a delayed referent clause was bound to ride as its targets (every one answering clause 0).
       ...(trigger.delayed !== undefined && (state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims?.length ?? 0) > 0
         ? (() => { const aims = state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims ?? []; return { targets: aims.map((id) => ({ kind: 'card' as const, id })), targetSlots: aims.map(() => 0) }; })()
@@ -352,6 +354,8 @@ export function stackPendingTriggers(
         source: trigger.source,
         // D474 - a ceased token's printing rides to the answer (CR 603.10).
         ...(trigger.lki ? { lki: trigger.lki } : {}),
+        // D586 - and a recoloured spell copy's colours (the aim asks as the copy).
+        ...(trigger.sourceColors ? { sourceColors: trigger.sourceColors } : {}),
         label: trigger.label,
         specs: trigger.specs,
         forKind: 'trigger',
@@ -1393,7 +1397,9 @@ export function resolveAbility(
     if (delayedSpecs.length > 0 && obj.source) {
       const dCard = state.cards[obj.source];
       const dPrinting = dCard ? deps.oracle.byPrinting(dCard.printingId) : undefined;
-      const dFace = dCard && dPrinting ? faceOf(dPrinting, dCard.faceIndex) : null;
+      const dFace0 = dCard && dPrinting ? faceOf(dPrinting, dCard.faceIndex) : null;
+      // D586 - a recoloured spell copy's reflexive trigger is re-checked as the copy (its colours, CR 603.7d).
+      const dFace = dFace0 !== null && obj.sourceColors !== undefined ? { ...dFace0, colors: obj.sourceColors } : dFace0;
       if (!targetsStillLegal(state, deps, obj, dFace, delayedSpecs)) {
         events.push(narrated(n`${obj.label} — no legal target left, so it does not resolve (CR 608.2b).`, obj.controller));
         return { events };
@@ -1600,6 +1606,8 @@ export function targetingSourceFor(
   controller: PlayerId,
   /** D474 - a ceased token's last known printing (CR 603.10): read when the instance is gone. */
   lki?: { readonly printingId: PrintingId; readonly faceIndex: number },
+  /** D586 - a recoloured spell copy's colours, for its reflexive trigger (the copy is the source, CR 603.7d). */
+  colors?: readonly import('../data/cardTypes').ColorLetter[],
 ): TargetingSource | null {
   if (!source) return null;
   const card = state.cards[source];
@@ -1610,7 +1618,7 @@ export function targetingSourceFor(
   // D356 - the source's TYPE LINE rides with its colours, because `protection from artifacts`
   // is a question about the source and the aim layer is where it is asked.
   const srcFace = faceOf(printing, card ? card.faceIndex : (lki?.faceIndex ?? 0));
-  return { controller, colors: srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source };
+  return { controller, colors: colors ?? srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source };
 }
 
 function targetsStillLegal(

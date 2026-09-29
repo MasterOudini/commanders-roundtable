@@ -506,6 +506,8 @@ export interface StackObject {
    * token ceased to exist - a reflexive price's trigger is made off it (CR 603.10, 113.7a). Absent for a card, which never ceases.
    */
   readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+  /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+  readonly sourceColors?: readonly ColorLetter[];
   /**
    * D403 - KICKER (CR 702.33): the number of times the kicker was paid, absent when the spell
    * was not kicked. Read by the executor (`If this spell was kicked, ...`) and carried onto the
@@ -879,6 +881,8 @@ export interface PendingTrigger {
   readonly effects?: readonly EffectSpec[];
   /** D584 - a REFLEXIVE trigger (CR 603.12): its `specs` ride onto the stack object as `delayedSpecs` too (608.2b at resolution). */
   readonly reflexive?: true;
+  /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+  readonly sourceColors?: readonly ColorLetter[];
   /** D492 - a once-per-turn def's firing: recorded on `TurnState.triggered` as it is queued (the reducer). */
   readonly oncePerTurn?: true;
   /**
@@ -1085,6 +1089,8 @@ export type Awaiting =
       readonly source: InstanceId;
       /** D474 - a ceased token's last known printing (the trigger's `lki`), read when `source` is gone. */
       readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+      /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+      readonly sourceColors?: readonly ColorLetter[];
       /** `Lightning Bolt` · `Prodigal Sorcerer — {T}: deals 1 damage to any target`. */
       readonly label: string;
       /** One per clause, in printed order. Never empty while this prompt is up. */
@@ -1306,6 +1312,8 @@ export type Awaiting =
       readonly reflexive?: ReflexiveSpec;
       /** D584 - the reflexive price's TOKEN source's printing (it may cease before the answer - the trigger is made off it). */
       readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+      /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+      readonly sourceColors?: readonly ColorLetter[];
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.

@@ -48,6 +48,7 @@ import { goadersOf } from './goad';
 import { clashBegin, clashFinish, clashOpponentStep } from './clash';
 import { hybridCombinations, spendFromPool } from './mana';
 import { faceOf } from './oracle';
+import { reflexiveMarker } from './reflexiveMarker';
 import { splicedFaces } from './splice';
 import { parseManaCost } from '../data/oracleParse';
 import { castReduction } from './costs';
@@ -2209,7 +2210,8 @@ function chooseTriggerTargets(
   const verdict = validateTargets(
     awaiting.specs,
     // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
-    targetingSourceFor(state, deps, awaiting.source, intent.player, awaiting.lki) ?? { controller: intent.player, colors: face.colors },
+    // D586 - a recoloured spell copy's reflexive trigger aims as the copy (its colours, CR 603.7d).
+    targetingSourceFor(state, deps, awaiting.source, intent.player, awaiting.lki, awaiting.sourceColors) ?? { controller: intent.player, colors: awaiting.sourceColors ?? face.colors },
     awaiting.label,
     intent.targets,
     candidatesFromState(state, deps),
@@ -3930,22 +3932,10 @@ function answerPayMana(
   // the spell's card, wherever it is now (a sacrificed source still makes it).
   if (intent.pay && awaiting.reflexive !== undefined) {
     const src = awaiting.source ?? awaiting.card;
-    const inst = src === null ? undefined : state.cards[src];
-    // A token source that has ceased to exist still makes it (CR 113.7a): off the printing the prompt carried.
-    const lki = inst ? (inst.isToken ? { printingId: inst.printingId, faceIndex: inst.faceIndex } : undefined) : awaiting.lki;
-    const gonePrinting = !inst && lki ? deps.oracle.byPrinting(lki.printingId) : undefined;
-    if (src !== null && (inst || gonePrinting)) {
-      const name = inst ? (inst.faceDown ? 'A face-down permanent' : revealedName(state, deps, src)) : gonePrinting ? faceOf(gonePrinting, lki?.faceIndex ?? 0).name : 'A token';
-      events.push({
-        t: 'ReflexiveTriggered',
-        source: src,
-        controller: awaiting.controller,
-        label: `${name} - ${awaiting.reflexive.text.split('~').join(name)}`,
-        effects: awaiting.reflexive.effects,
-        specs: awaiting.reflexive.targets,
-        ...(lki !== undefined ? { lki } : {}),
-      });
-    }
+    // D586 - the marker's one builder (the mandatory action's too); a token source that has ceased to exist still makes it
+    // (CR 113.7a): off the printing the prompt carried.
+    const marker = src === null ? null : reflexiveMarker(state, deps, src, awaiting.controller, awaiting.reflexive, awaiting.lki, awaiting.sourceColors);
+    if (marker !== null) events.push(marker);
   }
   const branch = intent.pay ? awaiting.ifPaid : awaiting.ifNotPaid;
   if (branch.length > 0) {

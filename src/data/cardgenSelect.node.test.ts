@@ -781,9 +781,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Ant-Man, Colony Commander', 'the row maker: trigger head not in the library: Whenever you put a +1/+1 counter on a creature, create a 1/1 green Ins - its When you do line reads since D584 (D584)'],
   ['The Thing', 'the row maker: a payment row beside a second step-head trigger that fires during the walk - its When you do line reads since D584 (D584)'],
   ['Eden, Seat of the Sanctum', 'the row maker: a mill beside an effect whose graveyard delta the suite does not count: payOptional - its When you do line reads since D584 (D584)'],
-  ['Go-Shintai of Ancient Wars', 'the row maker: a reflexive payload that asks, waits, counts or is gated (not this wave): damage - its When you do line reads since D584 (D584)'],
-  ['Go-Shintai of Boundless Vigor', 'the row maker: a reflexive payload that asks, waits, counts or is gated (not this wave): putCounters - its When you do line reads since D584 (D584)'],
-  ['Go-Shintai of Lost Wisdom', 'the row maker: a reflexive payload that asks, waits, counts or is gated (not this wave): mill - its When you do line reads since D584 (D584)'],
   ['Icewrought Sentry', 'the row maker: trigger head not in the library: Whenever you tap an untapped creature an opponent controls, this creat - its When you do line reads since D584 (D584)'],
   ['Edgar\'s Awakening', 'the row maker: a spell with a line outside the vocabulary: Return target creature card from your graveyard to the battl - its When you do line reads since D584 (D584)'],
   // D581 - mutate: `Mutate {cost}` is the engine's now (the mutating spell's target - a non-Human creature its caster owns - the merge over or under, every card's abilities, the whole pile leaving); what stays is a mutate card the row maker refuses for another line.
@@ -1199,7 +1196,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Legerdemain', 'the row maker: a spell with a line outside the vocabulary: Exchange control of target artifact or creature and another (D531)'],
   ['Vislor Turlough', 'a control duration outside the two the engine reads (`for as long as` + they control it) (D531)'],
   ["Kitsune, Dragon's Daughter", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ enters or deals combat damage to a player, you (D531)'],
-  ['Empress Galina', 'the row maker: a vocabulary clause the suite has no fixture for: no fixture for target legendary permanent (D531)'],
   ['Spinal Embrace', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat. (D531)'],
   ['Press into Service', 'the row maker: a spell with a line outside the vocabulary: Support 2. (Put a +1/+1 counter on each of up to two target (D531)'],
   ['Edea, Possessed Sorceress', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control but don\'t own dies, ret (D531)'],
@@ -1577,7 +1573,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Genesis of the Daleks', 'the row maker: trigger payload not a pump: Create a 3/3 black Dalek artifact creature token with menace (D528)'],
   ['The War in Heaven', 'the row maker: trigger payload not a pump: Choose up to three target creature cards with total mana val (D528)'],
   ['Welcome to . . . // Jurassic Park', 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
-  ['The Last Ronin', 'the row maker: trigger payload not a pump: Mill four cards. When you do, return target creature card fr (D528)'],
+  ['The Last Ronin', 'the row maker: a mill beside an effect whose graveyard delta the suite does not count: returnFromGraveyard - its mandatory When you do line reads since D586 (D586)'],
   ['Vault 101: Birthday Party', 'the row maker: trigger payload not a pump: Create a 1/1 white Human Soldier creature token and a Food t (D528)'],
   ["Michiko's Reign of Truth // Portrait of Michiko", 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
   ['Era of Enlightenment // Hand of Enlightenment', 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
@@ -1620,7 +1616,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Time of Ice', 'the row maker: a condition outside the closed vocabulary: you control ~ (D528)'],
   ['Fugitive of the Judoon', 'the row maker: trigger payload not a pump: Create a 1/1 white Human creature token with ward {2} and a (D528)'],
   ['The Weatherseed Treaty', 'read ahead (CR 714.2d - the chapter chosen as it enters) (D528)'],
-  ['Summon: Primal Garuda', 'the row maker: trigger payload not a pump: ~ deals 4 damage to target tapped creature an opponent contr (D528)'],
   ['Behold the Unspeakable // Vision of the Unspeakable', 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
   ["Azusa's Many Journeys // Likeness of the Seeker", 'a Saga that transforms (two faces - the layout the row maker refuses) (D528)'],
   ['Ral and the Implicit Maze', 'the row maker: trigger payload not a pump: ~ deals 2 damage to each creature and planeswalker your oppo (D528)'],
@@ -2301,9 +2296,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Drana's Silencer", 'a counted party noun (creatures in your party) the suite cannot stage'],
   ['Escaped Experiment', 'a counted payload under an attacks head (the arm sizes the board) beside its counted line'],
   ['Glimmerpost', 'a counted noun with no witness fixture (Locus) beside its counted line'],
-  ['Honden of Cleansing Fire', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
-  ["Honden of Life's Web", 'a counted noun with no witness fixture (Shrine) beside its counted line'],
-  ['Honden of Seeing Winds', 'a counted noun with no witness fixture (Shrine) beside its counted line'],
   ['Intelligence Bobblehead', 'a counted noun with no witness fixture (Bobblehead) beside its counted line'],
   ['Kabira Outrider', 'a counted party noun (creatures in your party) the suite cannot stage'],
   ['Khabál Ghoul', 'a counted deaths noun (creature that died this turn) the suite cannot stage'],
@@ -2331,7 +2323,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Dwynen, Gilt-Leaf Daen', 'a counted payload under an attacks head (attacking Elf you control) beside its anthem'],
   ['Horn of Gondor', 'a counted payload beside another ability that puts a permanent (the enters token joins the count)'],
   ['Marrow-Gnawer', 'a line that is neither an activated ability nor a library trigger (All Rats have fear) beside its counted line'],
-  ['The Spirit Oasis', 'a counted noun with no witness fixture (Shrine) beside its Shrine-enters trigger'],
   ['Wingmate Roc', 'a counted payload under an attacks head (attacking creature) beside its raid trigger'],
   // D417 - the play permission reads: the 16 the selector offered once `exile the top card ... you may play it` read
   // that the row maker refused, by reason (seven trigger heads outside the library among them).
@@ -4345,7 +4336,7 @@ describe.skipIf(!HAVE_DB)('the next batch to script', () => {
     // offerable (Galvanic Relay) is in the ledger above by name.
     // D566 - DOWN BY ONE, a seam completing a card the select was offering: the Freerunning line became the engine's
     // alternative cost and Chain Assassination runs with no script at all; nothing new was offered.
-    expect.soft(all.length).toBe(17);
+    expect.soft(all.length).toBe(16);
     // Everything emitted needs a script and nothing else — the property the
     // whole pipeline downstream depends on.
     expect.soft(all.every((c) => c.lines > 0)).toBe(true);

@@ -58,6 +58,8 @@ export function planTargets(
   specs: readonly TargetSpec[],
   view: PlayerView | null = null,
   me = '',
+  /** D586 - the candidates of the FIRST pick to step past (a trigger's aim re-planned after the host refused a pick). */
+  skip = 0,
 ): TargetChoice[] | null {
   const taken = new Set<string>();
   const targets: TargetChoice[] = [];
@@ -77,8 +79,8 @@ export function planTargets(
             const d = preference(a, view, me) - preference(b, view, me);
             if (d !== 0) return d;
             return a.kind === b.kind ? a.id.localeCompare(b.id) : a.kind.localeCompare(b.kind);
-          })[0]
-        : legal[0];
+          })[targets.length === 0 ? skip : 0]
+        : legal[targets.length === 0 ? skip : 0];
       if (!pick) return null;
       taken.add(`${pick.kind}:${pick.id}`);
       targets.push(pick);

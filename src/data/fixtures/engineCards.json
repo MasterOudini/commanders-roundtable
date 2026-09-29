@@ -319755,6 +319755,696 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FAEBLOOM_TRICK": {
+    "scryfallId": "0c3bee8f-f5be-4404-a696-c902637799c3",
+    "oracleId": "903d114b-1899-4e67-bee3-af0673850388",
+    "name": "Faebloom Trick",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faebloom Trick",
+        "manaCost": "{2}{U}",
+        "typeLine": "Instant",
+        "oracleText": "Create two 1/1 blue Faerie creature tokens with flying. When you do, tap target creature an opponent controls.",
+        "flavorText": "\"A face full of pollen? That's probably the nicest thing a faerie will ever give you!\"\n—Calydd, kithkin farmer",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Annie Stegg",
+        "imageId": "0c3bee8f-f5be-4404-a696-c902637799c3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "fdn",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBSCURA_STOREFRONT": {
+    "scryfallId": "1016b884-9a4c-41de-bd65-14271f4f6f9a",
+    "oracleId": "dc31a6f8-6228-4a25-b937-5d8d78514333",
+    "name": "Obscura Storefront",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obscura Storefront",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "When this land enters, sacrifice it. When you do, search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+        "flavorText": "In volatile times, a sense of certainty is in high demand.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Muhammad Firdaus",
+        "imageId": "1016b884-9a4c-41de-bd65-14271f4f6f9a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "252",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SMOKE_BOMB": {
+    "scryfallId": "4330d8ce-3b82-4297-ad5f-c63b54b6665a",
+    "oracleId": "c262e015-f379-484f-894f-1a1deb3c75cc",
+    "name": "Smoke Bomb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Smoke Bomb",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "Flash\nAll creatures have shroud. (They can't be the targets of spells or abilities.)\nAt the beginning of your upkeep, sacrifice this artifact. When you do, target creature you control can't be blocked this turn.",
+        "flavorText": "When the sun removes all shadows, the Assassins create their own.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Borja Pindado",
+        "imageId": "4330d8ce-3b82-4297-ad5f-c63b54b6665a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Flash"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "75",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLORYBRINGER": {
+    "scryfallId": "06f90d62-6d21-47b1-a427-eb25a42f4dcb",
+    "oracleId": "b75c3902-633e-4d24-acde-d7a9cc8f466e",
+    "name": "Glorybringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glorybringer",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying, haste\nYou may exert this creature as it attacks. When you do, it deals 4 damage to target non-Dragon creature an opponent controls. (An exerted creature won't untap during your next untap step.)",
+        "flavorText": "What the initiates face in the final trial is completely at Hazoret's discretion.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Sam Burley",
+        "imageId": "06f90d62-6d21-47b1-a427-eb25a42f4dcb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haste",
+      "Exert"
+    ],
+    "setCode": "tdc",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIVETEERS_OVERLOOK": {
+    "scryfallId": "1d161f81-c01a-4c91-b025-52dcb1881638",
+    "oracleId": "5548ff43-e5f6-4a63-8562-a2b1de06d6f5",
+    "name": "Riveteers Overlook",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riveteers Overlook",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "When this land enters, sacrifice it. When you do, search your library for a basic Swamp, Mountain, or Forest card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+        "flavorText": "Along the outer girders, in gold filigree, are inscribed the names of all those who fell to their deaths during construction.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Lucas Staniec",
+        "imageId": "1d161f81-c01a-4c91-b025-52dcb1881638"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "255",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EASTFARTHING_FARMER": {
+    "scryfallId": "26bb65ba-d605-4b79-a700-4a08ec5a90b4",
+    "oracleId": "4b1603f3-a246-449b-a109-99adb49e5ea4",
+    "name": "Eastfarthing Farmer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eastfarthing Farmer",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Halfling Peasant",
+        "oracleText": "When this creature enters, create a Food token. When you do, target creature you control gets +1/+1 until end of turn for each Food you control. (A Food token is an artifact with \"{2}, {T}, Sacrifice this token: You gain 3 life.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Iga Oliwiak",
+        "imageId": "26bb65ba-d605-4b79-a700-4a08ec5a90b4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Food"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AHN_CROP_CHAMPION": {
+    "scryfallId": "2ddda94a-4b2d-47b0-8d2c-3ad70a0d5584",
+    "oracleId": "c03d073e-ea59-4873-952a-bcf2730f1115",
+    "name": "Ahn-Crop Champion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ahn-Crop Champion",
+        "manaCost": "{2}{G}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "You may exert this creature as it attacks. When you do, untap all other creatures you control. (An exerted creature won't untap during your next untap step.)",
+        "flavorText": "\"The Second Sun nears its destination! Let it light the way to ours!\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Craig J Spearing",
+        "imageId": "2ddda94a-4b2d-47b0-8d2c-3ad70a0d5584"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Exert"
+    ],
+    "setCode": "akh",
+    "collectorNumber": "194",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAESTROS_THEATER": {
+    "scryfallId": "51eb4a44-a5c8-49ed-b440-2462626bb638",
+    "oracleId": "9464ddf2-4bcb-44f6-b945-89a132544de6",
+    "name": "Maestros Theater",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Maestros Theater",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "When this land enters, sacrifice it. When you do, search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+        "flavorText": "Only extraordinary performers are invited to grace the grandest stage in New Capenna.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jokubas Uogintas",
+        "imageId": "51eb4a44-a5c8-49ed-b440-2462626bb638"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "251",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GO_SHINTAI_OF_ANCIENT_WARS": {
+    "scryfallId": "5b915e8d-b972-4ae1-a1c3-74d6623963c8",
+    "oracleId": "d145e4d4-a190-4c0b-8dfd-401c0111e995",
+    "name": "Go-Shintai of Ancient Wars",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Go-Shintai of Ancient Wars",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Enchantment Creature — Shrine",
+        "oracleText": "First strike\nAt the beginning of your end step, you may pay {1}. When you do, Go-Shintai of Ancient Wars deals X damage to target player or planeswalker, where X is the number of Shrines you control.",
+        "flavorText": "It seeks those consumed with rage and offers burning blades.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "5b915e8d-b972-4ae1-a1c3-74d6623963c8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "144",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GO_SHINTAI_OF_BOUNDLESS_VIGOR": {
+    "scryfallId": "691016a1-8630-423c-9a57-061593d170fd",
+    "oracleId": "183cfd35-c18a-4838-94e5-1ad66e6bd325",
+    "name": "Go-Shintai of Boundless Vigor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Go-Shintai of Boundless Vigor",
+        "manaCost": "{1}{G}",
+        "typeLine": "Legendary Enchantment Creature — Shrine",
+        "oracleText": "Trample\nAt the beginning of your end step, you may pay {1}. When you do, put a +1/+1 counter on target Shrine for each Shrine you control.",
+        "flavorText": "It seeks those with untamed spirits and offers wild strength.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "691016a1-8630-423c-9a57-061593d170fd"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "187",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GO_SHINTAI_OF_LOST_WISDOM": {
+    "scryfallId": "7ec1192c-25b8-4975-ae6c-86be28ac1840",
+    "oracleId": "f6a2092a-093e-4cd6-9eb0-d8ed32da896c",
+    "name": "Go-Shintai of Lost Wisdom",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Go-Shintai of Lost Wisdom",
+        "manaCost": "{1}{U}",
+        "typeLine": "Legendary Enchantment Creature — Shrine",
+        "oracleText": "Flying\nAt the beginning of your end step, you may pay {1}. When you do, target player mills X cards, where X is the number of Shrines you control. (To mill a card, a player puts the top card of their library into their graveyard.)",
+        "flavorText": "It seeks those driven by curiosity and offers enlightenment.",
+        "power": "0",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "7ec1192c-25b8-4975-ae6c-86be28ac1840"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Mill"
+    ],
+    "setCode": "neo",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROKERS_HIDEOUT": {
+    "scryfallId": "989b299b-daa9-4bda-94e2-9a2f0e8f2bce",
+    "oracleId": "bd002797-a545-4bee-88bf-b878436e7cca",
+    "name": "Brokers Hideout",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brokers Hideout",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "When this land enters, sacrifice it. When you do, search your library for a basic Forest, Plains, or Island card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+        "flavorText": "Once the witness was inside, the safe house vanished first from sight, then from memory.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Paick",
+        "imageId": "989b299b-daa9-4bda-94e2-9a2f0e8f2bce"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CABARETTI_COURTYARD": {
+    "scryfallId": "9dda1e1c-b330-42e0-8547-97e2afc7615f",
+    "oracleId": "65424bea-fd53-4f85-9757-0b91a6d40ba4",
+    "name": "Cabaretti Courtyard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cabaretti Courtyard",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "When this land enters, sacrifice it. When you do, search your library for a basic Mountain, Forest, or Plains card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+        "flavorText": "So long as the Halo keeps flowing, the festivities never end.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kasia 'Kafis' Zielińska",
+        "imageId": "9dda1e1c-b330-42e0-8547-97e2afc7615f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "snc",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROODRAGE_MYCOID": {
+    "scryfallId": "08318a16-a9ed-42c8-9433-876b7a72e368",
+    "oracleId": "eeba4706-b4f2-48f9-bcb1-e42a5fc68c40",
+    "name": "Broodrage Mycoid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Broodrage Mycoid",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Fungus",
+        "oracleText": "At the beginning of your end step, if you descended this turn, create a 1/1 black Fungus creature token with \"This token can't block.\" (You descended if a permanent card was put into your graveyard from anywhere.)",
+        "flavorText": "As the massive mycoids known as rage titans charge into battle, lesser ones swarm in their wake, gobbling up any survivors.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "08318a16-a9ed-42c8-9433-876b7a72e368"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_SPIRIT_OASIS": {
+    "scryfallId": "3a1b1329-531c-47ed-9802-c505501f8fd9",
+    "oracleId": "b677a73c-f179-46bf-83ee-c2b05f9fca67",
+    "name": "The Spirit Oasis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Spirit Oasis",
+        "manaCost": "{2}{U}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "When The Spirit Oasis enters, draw a card for each Shrine you control.\nWhenever another Shrine you control enters, draw a card.",
+        "flavorText": "\"It's the center of all spiritual energy in our land.\"\n—Princess Yue",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Slawek Fedorczuk",
+        "imageId": "3a1b1329-531c-47ed-9802-c505501f8fd9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tla",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONDEN_OF_LIFE_S_WEB": {
+    "scryfallId": "3c618af6-b02e-448f-9131-3c50ef0d433b",
+    "oracleId": "a1fdfcc6-4b3c-40f8-a9e4-dff9ace74a59",
+    "name": "Honden of Life's Web",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honden of Life's Web",
+        "manaCost": "{4}{G}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "At the beginning of your upkeep, create a 1/1 colorless Spirit creature token for each Shrine you control.",
+        "flavorText": "To the sorrow of all, its web became a net that strangled those who helped weave it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "3c618af6-b02e-448f-9131-3c50ef0d433b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "213",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONDEN_OF_CLEANSING_FIRE": {
+    "scryfallId": "463f598a-7de0-4691-a61a-fe24c29f9e1b",
+    "oracleId": "15ee7e1d-b13e-4fd0-bc41-345b6ed34f53",
+    "name": "Honden of Cleansing Fire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honden of Cleansing Fire",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "At the beginning of your upkeep, you gain 2 life for each Shrine you control.",
+        "flavorText": "To the sorrow of all, its fire was turned toward those who worshipped it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "463f598a-7de0-4691-a61a-fe24c29f9e1b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "14",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EMPRESS_GALINA": {
+    "scryfallId": "6851dbc7-f072-41e7-a899-897445d99425",
+    "oracleId": "ea2614bc-00ad-4859-98f5-689f33357fe6",
+    "name": "Empress Galina",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Empress Galina",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Legendary Creature — Merfolk Noble",
+        "oracleText": "{U}{U}, {T}: Gain control of target legendary permanent. (This effect lasts indefinitely.)",
+        "flavorText": "\"Above the waves you may be mighty indeed, but down here you belong to me.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "6851dbc7-f072-41e7-a899-897445d99425"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "inv",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HONDEN_OF_SEEING_WINDS": {
+    "scryfallId": "97ffdaad-7b35-4256-9da1-0befc6bd86f4",
+    "oracleId": "45beca46-480c-4771-ba46-78b6ac7d5c2c",
+    "name": "Honden of Seeing Winds",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Honden of Seeing Winds",
+        "manaCost": "{4}{U}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "At the beginning of your upkeep, draw a card for each Shrine you control.",
+        "flavorText": "To the sorrow of all, its winds found sin in the hearts of those who once learned from its wisdom.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Martina Pilcerova",
+        "imageId": "97ffdaad-7b35-4256-9da1-0befc6bd86f4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "ema",
+    "collectorNumber": "54",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUMMON_PRIMAL_GARUDA": {
+    "scryfallId": "e44497a8-067e-454e-a9c0-684f03df55ff",
+    "oracleId": "aaf9e711-94e1-4869-81b0-baa6380ee873",
+    "name": "Summon: Primal Garuda",
+    "layout": "saga",
+    "faces": [
+      {
+        "name": "Summon: Primal Garuda",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment Creature — Saga Harpy",
+        "oracleText": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Aerial Blast — This creature deals 4 damage to target tapped creature an opponent controls.\nII, III — Slipstream — Another target creature you control gets +1/+0 and gains flying until end of turn.\nFlying",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Madeline Boni",
+        "imageId": "e44497a8-067e-454e-a9c0-684f03df55ff"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SANCTUM_OF_TRANQUIL_LIGHT": {
+    "scryfallId": "34a5478a-1a2c-4117-b543-da083ed2b562",
+    "oracleId": "1818b0b1-0104-4673-9be8-acfc773ef87d",
+    "name": "Sanctum of Tranquil Light",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sanctum of Tranquil Light",
+        "manaCost": "{W}",
+        "typeLine": "Legendary Enchantment — Shrine",
+        "oracleText": "{5}{W}: Tap target creature. This ability costs {1} less to activate for each Shrine you control.",
+        "flavorText": "An untroubled mind\nDwells in perfect harmony\nWith a peaceful heart.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johannes Voss",
+        "imageId": "34a5478a-1a2c-4117-b543-da083ed2b562"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "m21",
+    "collectorNumber": "33",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -3040,7 +3040,7 @@ function reflexiveUnits(text: string, cardName: string): { readonly raw: string[
     const payload = at < 0 ? '' : line.slice(at + REFLEXIVE_MARK.length).trim();
     const head = at < 0 ? [] : sentences(line.slice(0, at + 1));
     const price = head.pop();
-    const spec = price === undefined || payload === '' ? null : matchReflexive(price, payload, cardName);
+    const spec = price === undefined || payload === '' ? null : matchReflexive(price, payload, cardName, head.length > 0);
     if (spec === null) {
       raw.push(...sentences(line));
       continue;
@@ -3051,12 +3051,12 @@ function reflexiveUnits(text: string, cardName: string): { readonly raw: string[
   }
   return { raw, units };
 }
-function matchReflexive(price: string, payload: string, cardName: string): EffectSpec | null {
+function matchReflexive(price: string, payload: string, cardName: string, afterAnother = false): EffectSpec | null {
   const pm = MAY_PAY_PRICE_RE.exec(price);
   const vm = pm ? null : MAY_VERB_PRICE_RE.exec(price);
   const paid = pm ? readPrice(pm[1] ?? '') : null;
   const verbs = vm ? readVerbPrice(vm[1] ?? '') : null;
-  if (paid === null && verbs === null) return null;
+  if (paid === null && verbs === null) return mandatoryAction(price, payload, cardName, afterAnother);
   const reflexive = reflexivePayload(payload, cardName);
   if (reflexive === null) return null;
   return {
@@ -3067,6 +3067,22 @@ function matchReflexive(price: string, payload: string, cardName: string): Effec
     self: true,
     pay: { cost: paid?.cost ?? null, life: paid?.life ?? 0, energy: paid?.energy ?? 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [], reflexive },
   };
+}
+// D586 - THE MANDATORY ACTION (CR 603.12): `<action>. When you do, <payload>` with no `you may` price - the action is one
+// sentence one rule reads whole (no payment, no delay, not optional, not itself reflexive), and an ASKING kind stays out (its
+// `you do` is the answer - a second seam). A pronoun action (`it`, `them`) after another sentence of its line may be that
+// sentence's object, never the source: refused. The executor pushes D584's marker after the action's last step, when the
+// action was performed.
+const MANDATORY_ASKING: ReadonlySet<string> = new Set(['sacrifice', 'discard', 'surveil', 'scry', 'lookAtTop', 'search', 'amass', 'explore', 'connive', 'proliferate', 'populate', 'returnChoose', 'putFromHand', 'revealHandChoose', 'untapChoose', 'bolster', 'ringTempt', 'discover', 'clash', 'manifestDread', 'copySpell', 'endure', 'payOptional']);
+function mandatoryAction(price: string, payload: string, cardName: string, afterAnother: boolean): EffectSpec | null {
+  if (/^(?:then )?(?:if [^,]+, )?you may /i.test(price)) return null;
+  if (afterAnother && /\b(?:it|them)\b/i.test(price)) return null;
+  const act = matchSentence(price);
+  if (act === null || act.pay !== null || act.delay !== null || act.optional === true || act.reflexive !== undefined) return null;
+  if (MANDATORY_ASKING.has(act.kind)) return null;
+  const reflexive = reflexivePayload(payload, cardName);
+  if (reflexive === null) return null;
+  return { ...act, text: `${price} When you do, ${payload}`, reflexive };
 }
 function reflexivePayload(payload: string, cardName: string): ReflexiveSpec | null {
   const text = payload.charAt(0).toUpperCase() + payload.slice(1);

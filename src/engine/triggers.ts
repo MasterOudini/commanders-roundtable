@@ -1665,6 +1665,8 @@ export function collectTriggers(
         effects: b.effects,
         reflexive: true,
         ...(b.lki !== undefined ? { lki: b.lki } : {}),
+        // D586 - a recoloured spell copy's colours (the copy is the source, CR 603.7d).
+        ...(b.sourceColors !== undefined ? { sourceColors: b.sourceColors } : {}),
       });
     }
   }
