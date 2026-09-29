@@ -211,7 +211,7 @@ export function narrated(
  * The table's name for a permanent (CR 708.5). The narration is ONE shared log every seat reads, so a face-down
  * permanent is named as the table sees it - "a face-down creature", "a face-down permanent" when an effect has made it
  * no creature, "a face-down card" off the battlefield and the stack - never by the printed face only its controller
- * may look at. It derives no name (CR 708.2), and interpolating that empty name printed " regenerates.". Anything
+ * may look at. It derives no name (CR 708.2), and interpolating that empty name printed a line with no subject. Anything
  * else is the name it derives. `start` capitalises the phrase at the head of a sentence; a card's own name is left
  * as it is.
  *
