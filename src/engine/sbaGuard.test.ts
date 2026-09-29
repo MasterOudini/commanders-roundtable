@@ -93,17 +93,18 @@ describe('the SBA guard: no state-based action is performed under a live prompt'
     const talrand = put(g, 'p2', 'Talrand, Sky Summoner');
     const first = put(g, 'p1', BETRAYAL);
     expect(g.state.cards[talrand]?.zone.kind, 'a 1/1 under one Betrayal').toBe('battlefield');
-    // The second Betrayal: in ONE pass Talrand dies (0/0 - a commander, so the funnel asks p2) and the legend rule
-    // asks p1. Before the guard the next pass re-raised the legend rule over the commander question.
+    // The second Betrayal: in ONE pass Talrand dies (0/0 - a commander, owed to the command zone) and the legend rule
+    // asks p1. D587 (the merged commander rework): the pass asks its legend rule FIRST and the owed commander after the
+    // answer (903.9a is a state-based action now); before the guard the next pass re-raised one question over the other.
     const second = put(g, 'p1', BETRAYAL);
     expect(g.state.cards[talrand]?.zone.kind).toBe('graveyard');
+    const legend = g.state.priority.awaiting;
+    expect(legend?.kind === 'chooseLegendKeep' && legend.player, 'the legend rule first').toBe('p1');
+    must(g.submit({ t: 'ChooseLegendKeep', player: 'p1', keep: second }));
     const ask = g.state.priority.awaiting;
-    expect(ask?.kind === 'commanderZoneChoice' && ask.player, "the commander's question stands").toBe('p2');
+    expect(ask?.kind === 'commanderZoneChoice' && ask.player, "then the commander's question").toBe('p2');
     must(g.submit({ t: 'CommanderZoneChoice', player: 'p2', toCommandZone: true, always: false }));
     expect(g.state.cards[talrand]?.zone.kind).toBe('command');
-    const legend = g.state.priority.awaiting;
-    expect(legend?.kind === 'chooseLegendKeep' && legend.player, 'then the legend rule, asked again by the next pass').toBe('p1');
-    must(g.submit({ t: 'ChooseLegendKeep', player: 'p1', keep: second }));
     expect(g.state.cards[first]?.zone.kind).toBe('graveyard');
     expect(g.state.cards[second]?.zone.kind).toBe('battlefield');
     expect(g.state.priority.awaiting?.kind ?? null).not.toBe('chooseLegendKeep');

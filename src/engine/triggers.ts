@@ -25,7 +25,7 @@ import { withoutPreventedDamage } from './prevention';
 import { wardsMet } from './mana';
 import { wardSpec } from '../data/effectParse';
 import type { CardMove, EventBody, GameEvent } from './types/events';
-import type { InstanceId, PlayerId, StackId, ZoneRef } from './types/ids';
+import type { InstanceId, PlayerId, StackId } from './types/ids';
 import { isAskedCondition, predicateAdmits, type EntersAsCopy, type EntersTappedCondition, type PermanentPredicate } from '../data/replacementParse';
 import type { DerivedCharacteristics, Keyword, OracleCard, OracleDb } from './types/oracle';
 import {
