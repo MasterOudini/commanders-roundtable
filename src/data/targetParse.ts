@@ -629,6 +629,12 @@ interface ControllerResult {
   readonly keyword: KeywordRestriction | null;
   /** Where the printed clause ends. */
   readonly end: number;
+  /**
+   * The words of a graveyard phrase whose ZONE is read but whose owner the clause cannot say - relative to another
+   * object ("from that player's graveyard") or one graveyard shared by every pick ("from a single graveyard") - for
+   * `unenforced` (D138). Null when the clause names none, or names one the zone alone says ("from graveyards").
+   */
+  readonly zoneUnread: string | null;
 }
 
 /**
@@ -646,7 +652,7 @@ interface ControllerResult {
  * prints, so the first wins.
  */
 function withController(controller: TargetController, rest: ControllerResult): ControllerResult {
-  return { controller, zones: rest.zones, numeric: rest.numeric, keyword: rest.keyword, end: rest.end };
+  return { controller, zones: rest.zones, numeric: rest.numeric, keyword: rest.keyword, end: rest.end, zoneUnread: rest.zoneUnread };
 }
 
 function readController(after: string, from: number): ControllerResult {
@@ -697,6 +703,7 @@ function readController(after: string, from: number): ControllerResult {
         numeric: rest.numeric,
         keyword: { word, present: (kw[1] ?? '').toLowerCase() === 'with' },
         end: rest.end,
+        zoneUnread: rest.zoneUnread,
       };
     }
   }
@@ -728,6 +735,7 @@ function readController(after: string, from: number): ControllerResult {
       numeric: { attr, cmp, value: 0 },
       keyword: rest.keyword,
       end: rest.end,
+      zoneUnread: rest.zoneUnread,
     };
   }
 
@@ -748,6 +756,7 @@ function readController(after: string, from: number): ControllerResult {
       numeric: Number.isFinite(value) ? { attr, cmp, value } : null,
       keyword: rest.keyword,
       end: rest.end,
+      zoneUnread: rest.zoneUnread,
     };
   }
 
@@ -774,6 +783,31 @@ function readController(after: string, from: number): ControllerResult {
       numeric: rest.numeric,
       keyword: rest.keyword,
       end: rest.end,
+      zoneUnread: rest.zoneUnread,
+    };
+  }
+
+  /**
+   * The graveyard phrases the reader above does not know (measured 2026-09-29: 73 card clauses in ten shapes, none on
+   * an engine-complete card). Each names a graveyard, so the ZONE is read and enforced - before this an exiled card
+   * answered "target cards from graveyards". What the clause cannot say is RECORDED (`zoneUnread`, D138): an owner
+   * relative to another object ("that player's", "their", "target player's", "defending player's", "that graveyard")
+   * or one graveyard every pick must share ("a single graveyard", "a player's graveyard"). The controller stays open
+   * (D79). "graveyards" is any graveyard: the zone alone, nothing left to record.
+   */
+  const gyMore = searchable.match(
+    /^\s+(?:from|in)\s+(graveyards|a\s+single\s+graveyard|a\s+player(?:'|’)s\s+graveyard|that\s+player(?:'|’)s\s+graveyard|that\s+graveyard|their\s+graveyards?|target\s+player(?:'|’)s\s+graveyard|defending\s+player(?:'|’)s\s+graveyard)\b/i,
+  );
+  if (gyMore) {
+    const rest = readController(after, from + (gyMore[0]?.length ?? 0));
+    const anyGraveyard = (gyMore[1] ?? '').toLowerCase() === 'graveyards';
+    return {
+      controller: rest.controller,
+      zones: ['graveyard'],
+      numeric: rest.numeric,
+      keyword: rest.keyword,
+      end: rest.end,
+      zoneUnread: anyGraveyard ? rest.zoneUnread : (gyMore[0] ?? '').trim(),
     };
   }
 
@@ -793,7 +827,7 @@ function readController(after: string, from: number): ControllerResult {
   const other = searchable.match(/^\s+another\s+player\s+controls\b/i);
   if (other) return withController('opponent', readController(after, from + (other[0]?.length ?? 0)));
 
-  return { controller: null, zones: null, numeric: null, keyword: null, end: from };
+  return { controller: null, zones: null, numeric: null, keyword: null, end: from, zoneUnread: null };
 }
 
 // ── the clause parser ────────────────────────────────────────────────────────
@@ -1050,7 +1084,8 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         alternatives: list.alternatives,
         text: text.slice(count.start, list.ctl.end).trim(),
         confident: count.confident,
-        unenforced: list.unenforced,
+        // The graveyard phrase the list's last piece named, where the clause cannot say its owner (`zoneUnread`).
+        unenforced: list.ctl.zoneUnread !== null ? [...list.unenforced, list.ctl.zoneUnread] : list.unenforced,
         ...(count.another ? { another: true as const } : {}),
       };
     };
@@ -1120,6 +1155,12 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       const unread = tailAfter.match(/^\s+(with(?:out)?\s+[^.;\n]*?)(?=\s+(?:or|and)\s+target\b|[.;\n]|$)/i);
       if (unread) unenforced.push((unread[1] ?? '').trim());
     }
+    // The same for a SOURCE qualifier ("target activated or triggered ability from an artifact source"): a stack
+    // candidate carries nothing of its source, so it is not enforced, and it was dropped silently - Green Slime's
+    // clause admitted any ability and the card said nothing. Only a phrase that names a source: "from combat" and
+    // "from a single graveyard" are no source qualifier.
+    const unreadSource = tailAfter.match(/^\s+(from\s+(?:a|an|another)\s+[^.;\n]*?\bsources?\b[^.;\n]*?)(?=\s+(?:or|and)\s+target\b|[.;\n]|$)/i);
+    if (unreadSource) unenforced.push((unreadSource[1] ?? '').trim());
     const danglingOr = /^\s+(?:or|and\/or)\s+/i.test(tailAfter);
     const danglingComma = /^\s*,\s*/.test(tailAfter);
     // D298: "artifact or enchantment CARD" - the table read the type list as
@@ -1139,6 +1180,8 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       }
     }
     const controller: TargetController = ctl.controller ?? entry.controller ?? 'any';
+    // A graveyard phrase whose zone is read and whose owner the clause cannot say (`zoneUnread`) - recorded (D138).
+    if (ctl.zoneUnread !== null) unenforced.push(ctl.zoneUnread);
 
     out.push({
       min: count.min,

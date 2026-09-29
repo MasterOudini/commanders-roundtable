@@ -419,7 +419,9 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
     // D472 - a planeswalker's payable loyalty abilities each earn the charged-for-nothing note until a row runs them.
     // D568 - one fewer: an escape card's Escape line is the engine's now, and its list fell below four.
     // D579 - one fewer: a two-faced card's keyword is noted on the face that prints it, and a front face's list fell below four.
-    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 93 });
+    // fix/graveyard-target-qualifier - three more: the recorded graveyard phrase is a fourth note on Kaya, Orzhov Usurper,
+    // Tasha, the Witch Queen and Pestilent Cauldron's front face. The longest list is still 6.
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 96 });
   });
 
   /**
@@ -489,7 +491,7 @@ const MEASURED: Record<string, number> = {
   manaPart: 353,
   either: 14154,
   eitherAnyFace: 14174,
-  wasSilent: 13256,
+  wasSilent: 13243,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -503,8 +505,18 @@ const MEASURED: Record<string, number> = {
   // nothing under them. M6.4b's PARSE widening does move it: these baselines
   // are parse-relative, and a line reclassified sentence→activated changes
   // what the old rules would have said too.
-  wasSilentAnyFace: 13179,
-  silentBefore: 26409,
+  // ⚠️ fix/ability-source-qualifier: -6 on `wasSilent`, `wasSilentAnyFace` and `silentBefore`, `silentAfter`
+  // unmoved. Six permanents whose ONLY note was a D122 ability label (Scientist Supreme of A.I.M., Tawnos, Weaver of
+  // Harmony, Abstruse Archaic, Echo, The Peregrine Dynamo) now also say their target's unread source qualifier
+  // ("from an artifact source" on its target) - a note of the pre-D122 kind, so the subtraction no longer counts them
+  // as once silent. No card went silent, and none that says nothing began to speak.
+  // ⚠️ fix/graveyard-target-qualifier: -7 on `wasSilent` and `silentBefore`, -6 on `wasSilentAnyFace`, `silentAfter`
+  // unmoved - the same shape: seven cards whose only notes were D122 labels (Carrion Beetles, Rag Dealer, Famished
+  // Ghoul, Lodestone Bauble, Digsite Conservator, Unlicensed Hearse, Pestilent Cauldron's front face) now also say their
+  // target's unread graveyard phrase ("from a single graveyard" on its target). Pestilent Cauldron's back face already
+  // spoke, so the any-face count moves by six.
+  wasSilentAnyFace: 13167,
+  silentBefore: 26396,
   silentAfter: 13153,
   residual: 56,
   residualKeyword: 56,

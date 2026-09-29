@@ -510,7 +510,12 @@ describe.skipIf(!HAVE_DB)('bulk oracle ingest', () => {
       // they leave the unenforced record on 144 specs.
       // D294: the enforced adjectives leave the unenforced record - 964 specs
       // were held here by a word the engine could already check.
-      withUnenforced: 281, // D414: `another` enforced; D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped; D304: an Enchant line's unread tail too
+      // +3 (fix/ability-source-qualifier): an unread SOURCE qualifier ("from a noncreature source") is recorded as an
+      // unread "with ..." one is - Dissonant Wave's clause, on its three printings (clb, hbg, the Alchemy A-210).
+      // +50 (fix/graveyard-target-qualifier): a graveyard phrase whose owner a clause cannot say ("from a single
+      // graveyard", "from their graveyard", "from target player's graveyard" ...) is recorded, its zone enforced - the
+      // spell-level clauses among them, per printing (42 -> 92 over the printings that mention a graveyard).
+      withUnenforced: 334, // D414: `another` enforced; D297: 166 subtype words enforced; 208 unread "with ..." qualifiers now RECORDED (D138) instead of dropped; D304: an Enchant line's unread tail too
     });
     // ⚠️ M6.4b (D159) moved three of these over the whole 113,559-printing
     // database: `lines` +195 (the brace rule admits a long cost that opens
