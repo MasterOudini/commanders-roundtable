@@ -1951,6 +1951,9 @@ function activateAbility(
   }
   const chosenModes = abilityModal !== null && intent.modes !== undefined ? modesInOrder(intent.modes) : [];
   const abilitySpecs = abilityModal !== null ? modeSpecs(abilityModal.modes, chosenModes) : ability.targets;
+  // D586 - the clause each pick answers (D299), fixed here and carried onto the activation's stack object: without it a
+  // counted clause (`each of up to two target creatures`) resolved its first pick alone.
+  let abilitySlots: readonly number[] | undefined;
   if (intent.targets !== undefined && abilitySpecs.length > 0) {
     const verdict = validateTargets(
       abilitySpecs,
@@ -1960,6 +1963,7 @@ function activateAbility(
       candidatesFromState(state, deps),
     );
     if (!verdict.ok) return reject('illegalTarget', verdict.message);
+    abilitySlots = verdict.assignment;
   }
 
   const stackId = `s${state.counters.stack + 1}`;
@@ -2005,6 +2009,7 @@ function activateAbility(
     abilityRef,
     modes: chosenModes,
     targets: intent.targets ?? [],
+    ...(abilitySlots !== undefined ? { targetSlots: abilitySlots } : {}),
     xValue: null,
     problem,
     paidSoFar: EMPTY_POOL,
@@ -2315,7 +2320,7 @@ function chooseTargets(
     return finishAbility(
       state,
       deps,
-      { ...pending, targets: intent.targets, problem: problemA, stage: 'pay' },
+      { ...pending, targets: intent.targets, ...(verdict.assignment !== undefined ? { targetSlots: verdict.assignment } : {}), problem: problemA, stage: 'pay' },
       face,
       ability,
       oracleCard.colorIdentity,
@@ -2909,6 +2914,8 @@ function finishAbility(
     source: pending.card,
     abilityRef: pending.abilityRef,
     targets: pending.targets,
+    // D586 - the clause each pick answers (D299): a counted clause resolves every pick, not its first alone.
+    ...(pending.targetSlots !== undefined ? { targetSlots: pending.targetSlots } : {}),
     modes: pending.modes,
     xValue: null,
     label: `${face.name} — ${ability.effectText}`,
