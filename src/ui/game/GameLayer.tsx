@@ -73,7 +73,7 @@ export function GameLayer({
           );
       // D408 - the alternative cost's pick reads the offer's own alternative candidates.
       // D585 - a casualty's pick reads the offer's casualty candidates (the power floor applied host-side).
-      // D491 - a GRANTED cast has no offer: its casualty's candidates are the review's preview's (off the view).
+      // D491 - a GRANTED cast has no offer: its casualty's candidates are the review's preview's (D587 - the host's list, per seat).
       const candidates = mode.cast?.casualtyOf && live?.t !== 'CastSpell' ? (session.previewCast(mode.card)?.casualty?.candidates ?? []) : live?.t === 'CastSpell' && mode.cast?.casualtyOf ? (live.casualtyCandidates ?? []) : live?.t === 'CastSpell' && mode.cast?.alt ? (live.altPickCandidates ?? []) : live?.t === 'ActivateAbility' || live?.t === 'CastSpell' ? (live.sacrificeCandidates ?? []) : [];
       setTargets(candidates.map((id) => ({ kind: 'card' as const, id })));
       return;

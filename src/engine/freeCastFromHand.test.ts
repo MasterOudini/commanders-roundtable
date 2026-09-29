@@ -94,7 +94,7 @@ describe('D491 - the from-hand free cast', () => {
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
-  test('a targeted pick asks its targets under the grant; backing out returns the card', () => {
+  test('a targeted pick asks its targets under the grant; backing out returns the card and the question (D587)', () => {
     const g = startedGame({ players: 2, decks: [["Sram's Expertise", 'Lightning Bolt'], ['Grizzly Bears']] });
     holdEverywhere(g);
     const sram = put(g, 'p1', "Sram's Expertise", 'hand');
@@ -108,10 +108,13 @@ describe('D491 - the from-hand free cast', () => {
     expect(g.state.priority.awaiting).toMatchObject({ kind: 'chooseTargets', player: 'p1', forKind: 'spell' });
     must(g.submit({ t: 'CancelPendingCast', player: 'p1' }));
     expect(g.state.pendingCast).toBeNull();
-    expect(g.state.priority.awaiting).toBeNull();
+    // D587 - backing out returns the game to the moment before the cast began (CR 601.2): the grant's question is up again.
+    expect(g.state.priority.awaiting).toMatchObject({ kind: 'chooseFromZone', player: 'p1', zone: 'hand', castFree: true });
     expect(g.state.cards[bolt]?.zone.kind, 'back in hand').toBe('hand');
     expect(freeCasts(g)).toHaveLength(0);
+    must(g.submit({ t: 'AnswerChooseFromZone', player: 'p1', cards: [] }));
     settle(g);
+    expect(freeCasts(g), 'nothing cast').toHaveLength(0);
     expect(g.state.stack).toHaveLength(0);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });

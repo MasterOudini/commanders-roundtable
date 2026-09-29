@@ -42,7 +42,7 @@ import {
   readyToTap,
   type CostVerbs,
 } from './legal';
-import { buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardsMet, wardTaxFrom, type ManaSource } from './mana';
+import { buildPaymentProblem, costStringOf, extraCostSpend, grantedCastTax, manaSourcesOf, wardsMet, wardTaxFrom, type ManaSource } from './mana';
 import { freeCastAdmits, handChoiceAdmits } from './handChoice';
 import { isDetained } from './detain';
 import { goadersOf } from './goad';
@@ -80,7 +80,7 @@ import type {
   VerbPrice,
 } from './types/oracle';
 import { predicateAdmits, type PermanentPredicate } from '../data/replacementParse';
-import { candidatesFromState, validateTargets } from './targets';
+import { candidatesFromState, minimumLegalTargets, validateTargets } from './targets';
 import { EMPTY_POOL, addPool, poolFrom, type ManaCost, type ManaPool, type ManaSymbolKey } from './types/mana';
 import {
   accept,
@@ -950,6 +950,21 @@ function wardTaxFor(
   return wardTaxFrom(wardsMet(state, deps.oracle, deps.scripts, player, targets).flatMap((m) => m.wards));
 }
 
+/**
+ * D587 - the aim a GRANTED cast's targets stage could take for the least ward (CR 702.21a, charged as a cast tax - D68):
+ * `minimumLegalTargets`' own fill over the candidates ordered by the ward each one meets alone (the unwarded first, the
+ * candidates' own order otherwise), so the answer's check prices the elections beside a ward the player could really
+ * choose. Null when the board holds no legal aim.
+ */
+function cheapestWardAim(state: GameState, deps: EngineDeps, player: PlayerId, cardId: InstanceId, face: ReturnType<typeof faceOf>): readonly TargetChoice[] | null {
+  const weigh = (choice: TargetChoice): number => {
+    const w = wardTaxFor(state, deps, player, [choice]);
+    return buildPaymentProblem(null, 0, w.mana, 0).totalMana + w.life;
+  };
+  const ranked = candidatesFromState(state, deps).map((c) => ({ c, w: weigh(c.choice) })).sort((a, b) => a.w - b.w).map((r) => r.c);
+  return minimumLegalTargets(face.targets, targetingSourceFor(state, deps, cardId, player) ?? { controller: player, colors: face.colors }, ranked);
+}
+
 function prepareCast(
   state: GameState,
   deps: EngineDeps,
@@ -1044,7 +1059,7 @@ function prepareCast(
   }
   // D312 - the generic reductions the board grants, folded into the tax the
   // way the offer folds them (a face-down cast has no printed text to reduce).
-  // D491 - a granted cast has no mana cost to reduce and no tax.
+  // D491 - a granted cast has no mana cost to reduce and no tax - D587: the reduction its ELECTIONS take is folded below.
   const tax0 = free || plotted
     ? 0
     : (from.kind === 'command' && card.isCommander ? 2 * card.commanderCastCount : 0) -
@@ -1123,12 +1138,17 @@ function prepareCast(
   if ('error' in altr) return altr;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
-  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...spliceMana(deps, splicedCards), ...offspringMana(face, offspring), ...squadMana(face, squadded), ...extras.mana], tax, ward.life + extras.life);
+  const elected = [...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...spliceMana(deps, splicedCards), ...offspringMana(face, offspring), ...squadMana(face, squadded), ...extras.mana];
+  // D587 - a GRANTED cast's total cost is what its elections add to "without paying its mana cost" (CR 118.9d), and the
+  // board's reductions apply to that total (CR 601.2f): folded into its tax, capped at the elections' own generic - never
+  // below {0}, never reaching the ward priced beside them (`grantedCastTax`; the client's preview prices the same, D53).
+  const taxed = free ? tax + grantedCastTax(castReduction(state, deps.oracle, deps.scripts, player, face), elected) : tax;
+  const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...elected], taxed, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;
   const problem = priced.problem;
   // A face-down spell has no color identity to show (CR 708.2).
-  return { problem, face, tax, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, casualty, offspring, squadded, spliced: splicedCards, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
+  return { problem, face, tax: taxed, from, identity: faceDown ? [] : oracleCard.colorIdentity, faceDown, kicked, kickedWith, buyback, replicated, conspired, casualty, offspring, squadded, spliced: splicedCards, alt, picks, orPaid: addr.orPaid, alternative: altCost !== null, ...(free || plotted ? { free: true as const } : {}), ...(foretold && card.foretoldTurn !== undefined ? { foretold: card.foretoldTurn } : {}), ...(plotted && card.plottedTurn !== undefined ? { plotted: card.plottedTurn } : {}), ...(madnessCast ? { madness: true as const } : {}) };
 }
 
 // D309 - THE MORPH SEAM: turning a face-down permanent face up is a special
@@ -1512,7 +1532,8 @@ function castSpell(
  * targets; X is 0 when a spell is cast without paying its mana cost, CR 107.3?/601.2b - so the X stage never
  * asks), and the cast completes with nothing paid but the ward and the additional cost's price. The granting
  * effect's remaining clauses ride the pending cast as its continuation (D484's shape) and run when the cast
- * completes or is backed out of. The stack object carries `freeCast`.
+ * completes or is backed out of (D587 - a free cast backed out of asks its prompt again, the clauses riding that). The
+ * stack object carries `freeCast`.
  */
 // D541 - and the MADNESS cast (`madness`): begun the same way by the madness trigger's answer, for the madness cost -
 // priced (the board's reductions carried as the tax), paid after the announcement by the solver's plan.
@@ -1523,11 +1544,22 @@ function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, 
   if (state.pendingCast) return reject('wrongCastStage', 'Finish or cancel the spell you are already casting.');
   const setup = prepareCast(state, deps, player, cardId, 0, 0, [], false, cast?.kicked ?? 0, NO_ALT, cast ? picksOf(cast) : NO_PICKS, false, !madness, cast?.kickedWith ?? [], false, madness, 0, cast?.conspired === true, false, 0, [], cast?.casualty === true);
   if ('error' in setup) return setup.error;
-  // What the elections add must be payable as they are announced: refused here, where the prompt can be answered again -
-  // never at the targets stage, where a staged cast (paid only as it completes) would be stranded.
-  if (cast !== undefined && suggestPayment(solveWithout(solveInputFor(state, deps.oracle, deps.scripts, player), NO_ALT, setup.picks.tap), setup.problem, spellPurpose(setup.face, false)) === null) {
-    return reject('cannotAfford', `You cannot pay the optional costs you chose for ${setup.face.name} - cast it without them, or cast nothing.`);
+  // What the elections add must be payable as they are announced: refused here, where the prompt can be answered again.
+  // D587 - priced beside the ward of the cheapest aim the targets stage could take (CR 601.2c then 601.2f: that stage
+  // prices the ward into the same problem), so an answer taken always leaves the player a legal aim they can pay for.
+  if (cast !== undefined) {
+    const aim = setup.face.modal === null && setup.face.targets.length > 0 ? cheapestWardAim(state, deps, player, cardId, setup.face) : null;
+    const aimed = aim !== null && aim.length > 0 ? prepareCast(state, deps, player, cardId, 0, 0, aim, false, cast.kicked ?? 0, NO_ALT, picksOf(cast), false, !madness, cast.kickedWith ?? [], false, madness, 0, cast.conspired === true, false, 0, [], cast.casualty === true) : setup;
+    if ('error' in aimed) return aimed.error;
+    if (suggestPayment(solveWithout(solveInputFor(state, deps.oracle, deps.scripts, player), NO_ALT, setup.picks.tap), aimed.problem, spellPurpose(setup.face, false)) === null) {
+      const warded = aimed.problem.totalMana > setup.problem.totalMana || aimed.problem.additionalLife > setup.problem.additionalLife;
+      return reject('cannotAfford', `You cannot pay the optional costs you chose for ${setup.face.name}${warded ? ' on top of the ward of every target it could take' : ''} - cast it without them, or cast nothing.`);
+    }
   }
+  // D587 - the prompt this answer came from, and the play permission its card holds there: what backing out restores.
+  const prompt = state.priority.awaiting;
+  const permission = state.playPermissions.find((p) => p.card === cardId && p.player === player);
+  const grant = !madness && prompt?.kind === 'chooseFromZone' ? { prompt, ...(permission !== undefined ? { permission } : {}) } : undefined;
   const modal = setup.face.modal;
   const spellSpecs = modal !== null ? [] : setup.face.targets;
   const needsModes = modal !== null;
@@ -1554,8 +1586,9 @@ function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, 
       paidSoFar: EMPTY_POOL,
       lifePaid: 0,
       isCommanderCast: false,
-      // D541 - a madness cast carries the board's reductions its problem was priced with (a free cast has none).
-      taxApplied: madness ? setup.tax : 0,
+      // D541 - a madness cast carries the board's reductions its problem was priced with; D587 - a free cast the
+      // reduction its elections took (CR 601.2f), so the targets stage prices the same problem.
+      taxApplied: setup.tax,
       ...(setup.kicked > 0 ? { kicked: setup.kicked } : {}),
       ...(setup.kickedWith.length > 0 ? { kickedWith: setup.kickedWith } : {}),
       ...(setup.conspired ? { conspired: true as const } : {}),
@@ -1568,6 +1601,8 @@ function beginGrantedCast(state: GameState, deps: EngineDeps, player: PlayerId, 
       ...(setup.orPaid ? { orPaid: true as const } : {}),
       ...(madness ? { madness: true as const } : { free: true as const }),
       ...(continuation !== undefined ? { continuation } : {}),
+      // D587 - the prompt this cast answered and the permission its card held: a back-out asks the prompt again (CR 601.2).
+      ...(grant !== undefined ? { grant } : {}),
     };
     return accept([
       { t: 'CardsMoved', moves: [{ card: cardId, from: setup.from, to: { kind: 'stack', player: null } }] },
@@ -2448,9 +2483,17 @@ function cancelPendingCast(state: GameState, player: PlayerId, deps: EngineDeps)
     });
   }
   events.push({ t: 'CastCancelled', stackId: pending.stackId });
+  // D587 - BACKING OUT OF A GRANTED CAST returns the game to the moment before the cast began (CR 601.2): the card back
+  // where the grant found it (the move above), the play permission it held there restored, and the prompt it answered
+  // up again - answered anew (plain, other elections, another card, or nothing), the granting effect's rest riding it.
+  if (pending.grant !== undefined) {
+    if (pending.grant.permission !== undefined) events.push({ t: 'PlayPermissionGranted', permission: pending.grant.permission });
+    events.push({ t: 'AwaitingSet', awaiting: pending.grant.prompt });
+    return accept(events);
+  }
   // Backing out also dismisses whatever the cast was asking for.
   events.push({ t: 'AwaitingSet', awaiting: null });
-  // D491 - backing out of a granted cast still runs the granting effect's remaining clauses.
+  // D491 - backing out of a madness cast still runs the granting effect's remaining clauses (a free one's prompt asks again).
   return accept(events, resumeContinuation(state, deps, events, pending.continuation));
 }
 
@@ -3017,7 +3060,8 @@ function finishFromPending(
   const purpose = src ? abilityPurpose(src.typeLine, src.colors) : spellPurpose(face, pending.faceDown === true);
   const chosen = plan ?? suggestPayment(solve, pending.problem, purpose);
   if (!chosen) {
-    return reject('cannotAfford', `You cannot pay for ${face.name} with X = ${pending.xValue ?? 0}.`);
+    // D587 - X is named only for a spell that has one (a free cast of a face without X read "with X = 0").
+    return reject('cannotAfford', `You cannot pay for ${face.name}${pending.xValue !== null ? ` with X = ${pending.xValue}` : ''}.`);
   }
   const problem = validatePlan(state, deps.oracle, deps.scripts, pending.player, pending.problem, chosen, purpose);
   if (problem === 'stale') return reject('stalePaymentPlan', 'The board changed while you were paying. Try again.');

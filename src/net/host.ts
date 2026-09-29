@@ -26,7 +26,7 @@
 import { diffView, viewHash, type ViewPatch } from '../engine/diffView';
 import { Game } from '../engine/game';
 import { hashOf } from '../engine/hash';
-import { legalActions, legalContext } from '../engine/legal';
+import { grantedCastFacts, legalActions, legalContext } from '../engine/legal';
 import { createOracleDb } from '../engine/oracle';
 import { SHIPPED_REGISTRY, type ScriptRegistry } from '../engine/scripts/registry';
 import type { SetupPlayer, SetupSpec } from '../engine/setup';
@@ -778,6 +778,8 @@ export class HostSession {
     if (!game) throw new Error('sessionState: no game');
     const state = game.state;
     const ctx = legalContext(state, game.deps.oracle, game.deps.scripts, player);
+    // D587 - the granted cast's host facts, for this seat's own free-cast prompt alone (per seat, as `legal` is).
+    const granted = grantedCastFacts(state, game.deps.oracle, game.deps.scripts, player, ctx);
     return {
       eventCount: state.eventCount,
       awaiting: state.priority.awaiting,
@@ -787,6 +789,7 @@ export class HostSession {
       winners: [...state.winners],
       legal: legalActions(state, game.deps.oracle, game.deps.scripts, player, ctx),
       solve: ctx.solve,
+      ...(granted !== undefined ? { granted } : {}),
       seats: state.seating.map((id) => ({ id, name: state.players[id]?.name ?? id })),
       stateHash: game.hash(),
     };

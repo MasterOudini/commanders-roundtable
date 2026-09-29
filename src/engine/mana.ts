@@ -432,6 +432,18 @@ export function wardTaxFrom(
 }
 
 /**
+ * D587 - THE TAX OF A GRANTED CAST ("without paying its mana cost", D491): the board's generic reduction for the spell
+ * (CR 601.2f - `castReduction`) taken off what its elections add (CR 118.9d - a kick, a verb's `or pay`), never more than
+ * their own generic part - so the total is never below {0}, and the ward the cast pays beside them (a triggered ability's
+ * price, D68, not the spell's cost) is never reduced. ONE helper for the host's charge and the client's preview (D53):
+ * only the reduction's lookup differs (the host's `castReduction`, the client's shipped `SessionState.granted`).
+ */
+export function grantedCastTax(reduction: number, elected: readonly ManaCost[]): number {
+  const cut = Math.min(Math.max(0, reduction), buildPaymentProblem(null, 0, elected, 0).generic);
+  return cut > 0 ? -cut : 0;
+}
+
+/**
  * The wards a set of targets MEETS (CR 702.21a): each targeted permanent on the battlefield that an OPPONENT of `player`
  * controls, in target order, with its wards. ⚠️ THE HOST'S ONE LOOKUP, for the cast-time tax (`handlers.ts wardTaxFor`)
  * and the trigger against a spell copy (`triggers.ts`), so the two can never disagree about which permanents ward; the

@@ -783,10 +783,18 @@ export interface PendingCast {
    * D491 - a cast GRANTED by a resolving effect (`You may cast ... from your hand without paying its mana cost`):
    * nothing to pay (the problem carries no mana; the ward and the additional cost's price still ride it), begun
    * with no priority of its own; `continuation` the granting effect's clauses after the grant, run once the cast
-   * completes or is backed out of (D484's shape).
+   * completes or is backed out of (D484's shape; D587 - a free cast backed out of asks its prompt again: `grant`).
    */
   readonly free?: true;
   readonly continuation?: EffectContinuation;
+  /**
+   * D587 - the free-cast prompt a GRANTED cast answered, and the play permission its card held under it: backing out
+   * returns the game to the moment before the cast began (CR 601.2) - the card back where the grant found it with that
+   * permission, the prompt up again with the granting effect's rest still riding it, answered anew (plain, other
+   * elections, another card, or nothing). Absent on every other cast; a madness cast backed out of still goes to the
+   * graveyard (CR 702.35a).
+   */
+  readonly grant?: { readonly prompt: Extract<Awaiting, { kind: 'chooseFromZone' }>; readonly permission?: PlayPermission };
   /** D405 - what the cast taps or exiles (convoke / improvise / delve), priced at every stage. */
   readonly alt?: { readonly convoke: readonly InstanceId[]; readonly improvise: readonly InstanceId[]; readonly delve: readonly InstanceId[]; readonly harmonize?: readonly InstanceId[] };
   /** The modal DFC face being cast, carried to the `StackObject`. See D155. */

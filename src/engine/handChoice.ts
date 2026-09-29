@@ -63,7 +63,9 @@ export function freeCastAdmits(state: GameState, deps: EngineDeps, card: Instanc
   const add = face.additionalCost;
   if (add !== null && (add.sacrificeCost !== null || add.discardCost !== null || add.tapCost !== null || add.exileFromGraveyardCost !== null || add.returnCost !== null)) return false;
   if (face.modal !== null || face.targets.length === 0) return true;
-  return minimumLegalTargets(face.targets, { controller: inst.zone.player ?? inst.owner, colors: face.colors }, candidatesFromState(state, deps)) !== null;
+  // D587 - aimed as the targets stage aims (`targetingSourceFor`: the type line too, for a protection from instants), so a
+  // card admitted here has a legal aim there - where a driver short of one backs out, and a back-out asks this prompt again.
+  return minimumLegalTargets(face.targets, { controller: inst.zone.player ?? inst.owner, colors: face.colors, typeLine: face.typeLine }, candidatesFromState(state, deps)) !== null;
 }
 
 /**

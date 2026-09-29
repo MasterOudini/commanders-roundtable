@@ -18,7 +18,7 @@
 // side of the wire. Everything the UI needs comes back through `subscribe`.
 
 import { applyPatch, viewHash } from '../engine/diffView';
-import { DISGUISE_WARD, buildPaymentProblem, wardTaxFrom } from '../engine/mana';
+import { DISGUISE_WARD, buildPaymentProblem, grantedCastTax, wardTaxFrom } from '../engine/mana';
 import { NO_ALT, altCount, applyAlternativePayment, assignAlternativePayment, chooseAlternatives, type AltChoice, type ConvokeCandidate } from '../engine/altPayment';
 import { faceOf } from '../engine/oracle';
 import { suggestPayment } from '../engine/payment';
@@ -30,7 +30,6 @@ import type { Intent, RejectReason } from '../engine/types/intents';
 import type { Awaiting, Step, TargetChoice } from '../engine/types/state';
 import type { OracleFace, TargetKind, TargetSpec } from '../engine/types/oracle';
 import { targetAllowed, type TargetCandidate } from '../engine/targets';
-import { predicateAdmits, type PermanentPredicate } from '../data/replacementParse';
 import { SHIPPED_REGISTRY } from '../engine/scripts/registry';
 import { emptyView, type EngineEvent, type PlayerView } from '../view/types';
 import {
@@ -594,34 +593,34 @@ export class ClientSession {
 
   /**
    * D491 - THE GRANTED CAST, previewed: the card a `castFree` prompt up for this viewer lets it cast without paying its
-   * mana cost (the prompt's pool card, or one of its own hand - the host checks the grant's bound). A granted cast is
-   * never offered, so no `CastSpell` action carries its lists: what it may still pay (CR 118.9d) is priced as the host
-   * prices it (the kick; an additional cost's life), and the conspire's and the casualty's creatures come off the VIEW
-   * (`costCandidates`) - the host re-validates the answer against its own. Its plan is the same solver's over the shipped
-   * input (D53). A madness cast is not previewed: its cost carries the board's reductions, which only the host holds.
+   * mana cost. A granted cast is never offered, so no `CastSpell` action carries its facts - D587: the host ships them for
+   * this seat alone (`SessionState.granted`): the cards the grant admits (the answer's own reader - a card outside its
+   * bound previews nothing, so its click is answered at once), the board's reduction for each, and the creatures its
+   * conspire and its casualty may take (the host's own lists, over derived characteristics). What the cast may still pay
+   * (CR 118.9d) is priced as the host prices it - the kick less that reduction (`grantedCastTax`), an additional cost's
+   * life - and its plan is the same solver's over the shipped input (D53). A madness cast is not previewed.
    */
   private previewGrantedCast(cardId: InstanceId, kicked: number, costPicks: CostPicks, conspired: boolean, casualty: boolean): CastPreview | null {
     const aw = this.session.awaiting;
     if (aw?.kind !== 'chooseFromZone' || aw.castFree !== true || aw.player !== this.you || aw.madness !== undefined) return null;
-    if (!(aw.pool ?? this.view.zones[`hand:${this.you}`] ?? []).includes(cardId)) return null;
+    const facts = this.session.granted?.[cardId];
+    if (facts === undefined) return null;
     const face = this.faceFor(cardId);
     if (!face?.manaCost) return null;
     const kickCost = face.multikickerCost ?? face.kickerCost;
     const kickMana = kicked > 0 && kickCost ? Array.from({ length: face.multikickerCost ? kicked : 1 }, () => kickCost) : [];
     const add = face.additionalCost;
-    const problem = buildPaymentProblem(null, 0, kickMana, 0, add ? add.lifeCost : 0);
+    const tax = grantedCastTax(facts.reduction, kickMana);
+    const problem = buildPaymentProblem(null, 0, kickMana, tax, add ? add.lifeCost : 0);
     // A creature the conspire taps is no mana source for the same cast (the host's `solveWithout`).
     const tapped = new Set<InstanceId>(conspired ? (costPicks.tap ?? []) : []);
     const solve = tapped.size > 0 ? { ...this.session.solve, sources: this.session.solve.sources.filter((s) => !tapped.has(s.card)) } : this.session.solve;
     const plan = suggestPayment(solve, problem, spellPurpose(face, false));
-    // The offer's rule (legal.ts): no conspire or casualty beside an additional cost - both would take picks.
-    const conspireCost = face.additionalCost === null ? (face.conspireVerb?.tapCost ?? null) : null;
-    const casualtyCost = face.additionalCost === null ? (face.casualtyVerb?.sacrificeCost ?? null) : null;
     return {
       card: cardId,
       name: face.name,
       cost: face.manaCost.raw,
-      tax: 0,
+      tax,
       hasX: false,
       plan,
       taps: plan?.taps.map((t) => t.source) ?? [],
@@ -632,9 +631,9 @@ export class ClientSession {
       bought: false,
       replicate: null,
       replicated: 0,
-      conspire: face.conspireVerb !== null ? { candidates: conspireCost ? this.costCandidates(conspireCost, true) : [] } : null,
+      conspire: face.conspireVerb !== null ? { candidates: facts.conspireCandidates ?? [] } : null,
       conspired: conspired && face.conspireVerb !== null,
-      casualty: face.casualtyVerb !== null ? { candidates: casualtyCost ? this.costCandidates(casualtyCost, false) : [], floor: face.casualtyVerb.sacrificeCost?.powerAtLeast ?? 0 } : null,
+      casualty: face.casualtyVerb !== null ? { candidates: facts.casualtyCandidates ?? [], floor: face.casualtyVerb.sacrificeCost?.powerAtLeast ?? 0 } : null,
       casualtyPaid: casualty && face.casualtyVerb !== null && (costPicks.sacrifice?.length ?? 0) === 1,
       offspring: null,
       offspringPaid: false,
@@ -653,24 +652,6 @@ export class ClientSession {
       alternative: false,
       free: true,
     };
-  }
-
-  /**
-   * D491 - the creatures a granted cast's conspire (untapped) or casualty (its power floor) may take, from the VIEW: this
-   * viewer's, phased in and face up, the verb's predicate met by the PRINTED face (D405's convoke rule - the view holds no
-   * derived colours), the floor met by the view's DERIVED power. In id order, so a chooser's pick is deterministic.
-   */
-  private costCandidates(cost: { readonly any: readonly PermanentPredicate[]; readonly powerAtLeast?: number }, untapped: boolean): InstanceId[] {
-    const out: InstanceId[] = [];
-    for (const id of [...(this.view.zones[`bf:${this.you}`] ?? [])].sort()) {
-      const card = this.view.cards[id];
-      if (!card || card.faceDown || card.phasedOut === true || card.controller !== this.you || (untapped && card.tapped)) continue;
-      const face = this.faceFor(id);
-      if (!face || !predicateAdmits(face, cost.any)) continue;
-      if (cost.powerAtLeast !== undefined && (card.power ?? 0) < cost.powerAtLeast) continue;
-      out.push(id);
-    }
-    return out;
   }
 
   /**

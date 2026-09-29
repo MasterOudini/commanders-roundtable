@@ -19,6 +19,7 @@ import { isDetained } from './detain';
 import { activationConditionsHold } from './activationConditions';
 import { legalModes } from './modes';
 import { candidatesFromState } from './targets';
+import { freeCastCandidates } from './handChoice';
 import { parseTargetClauses } from '../data/targetParse';
 import { defOnFace } from './scripts/api';
 import type { ScriptRegistry } from './scripts/registry';
@@ -1356,6 +1357,43 @@ function conspireOffer(state: GameState, oracle: OracleDb, scripts: ScriptRegist
   const deriveOf = (cid: InstanceId) => derive(state, oracle, scripts, cid, ctx.cache);
   const chooser = castCostCandidates(state, deriveOf, caster, id, face.conspireVerb);
   return { conspireCandidates: (chooser.fields['tapCandidates'] ?? []) as readonly InstanceId[] };
+}
+
+/**
+ * D587 - what one card a free-cast prompt admits carries to its player's client (`SessionState.granted`): the board's
+ * reduction for its cast (CR 601.2f - `castReduction`, which no view can compute) and the creatures its conspire and its
+ * casualty may take - the offer's own lists (D139), over DERIVED characteristics (a face-down 2/2, a recoloured token).
+ */
+export interface GrantedCastFacts {
+  readonly reduction: number;
+  readonly conspireCandidates?: readonly InstanceId[];
+  readonly casualtyCandidates?: readonly InstanceId[];
+}
+
+/**
+ * D587 - THE GRANTED CAST'S HOST FACTS: while a free-cast prompt is up for `player` (never madness's, which is not
+ * previewed), each card the grant admits - the answer's own reader, `freeCastCandidates` (the bound, castability, a legal
+ * aim) - with its `GrantedCastFacts`; undefined otherwise. PER SEAT (`sessionState`, beside `legal`), never on the shared
+ * prompt: a from-hand grant's cards are hidden, and a list keyed by their ids would show every seat what they are.
+ */
+export function grantedCastFacts(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, player: PlayerId, ctx: LegalContext): Readonly<Record<InstanceId, GrantedCastFacts>> | undefined {
+  const aw = state.priority.awaiting;
+  if (aw?.kind !== 'chooseFromZone' || aw.castFree !== true || aw.player !== player || aw.madness !== undefined) return undefined;
+  const out: Record<InstanceId, GrantedCastFacts> = {};
+  for (const id of freeCastCandidates(state, { oracle, scripts }, player, { none: aw.none ?? [], filter: aw.filter ?? null, qualifier: aw.qualifier ?? null }, aw.pool)) {
+    const inst = state.cards[id];
+    const printing = inst ? oracle.byPrinting(inst.printingId) : undefined;
+    if (!printing) continue;
+    const face = faceOf(printing, 0);
+    const conspire = conspireOffer(state, oracle, scripts, ctx, player, id, face)['conspireCandidates'] as readonly InstanceId[] | undefined;
+    const casualty = casualtyOffer(state, oracle, scripts, ctx, player, id, face)['casualtyCandidates'] as readonly InstanceId[] | undefined;
+    out[id] = {
+      reduction: castReduction(state, oracle, scripts, player, face, ctx.cache),
+      ...(conspire !== undefined ? { conspireCandidates: conspire } : {}),
+      ...(casualty !== undefined ? { casualtyCandidates: casualty } : {}),
+    };
+  }
+  return out;
 }
 
 /**

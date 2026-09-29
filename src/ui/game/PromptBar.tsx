@@ -6,7 +6,7 @@ import * as session from '../../game/session';
 import { BTN, BTN_GHOST, BTN_GHOST_SMALL, BTN_SMALL, FIELD, PANEL } from './styles';
 import { parseTypeLine } from '../../data/oracleParse';
 import type { PlayerView } from '../../view/types';
-import { aimPrompt, beginGrantedReview, commitTargets } from './aimCommit';
+import { aimPrompt, beginGrantedReview, cancelAim, commitTargets } from './aimCommit';
 import { useAim } from '../../store/aimStore';
 import type { Awaiting, TargetChoice } from '../../engine/types/state';
 import { useLayout } from '../../store/layoutStore';
@@ -554,12 +554,14 @@ export function PromptBar() {
             {mode.chosen.length === 0 ? `Cast ${mode.name} with no targets` : 'Done'}
           </button>
         )}
+        {/* D587 - on the targets prompt of my own staged cast Cancel backs the cast out (a granted cast to its prompt,
+            CR 601.2); on any other aim it steps back, as Escape does (`cancelAim`). */}
         {mode.kind === 'targeting' && (
           <button
             type="button"
             className={BTN_GHOST}
             data-action="cancel-targets"
-            onClick={() => useTable.getState().escape()}
+            onClick={() => cancelAim()}
           >
             Cancel
           </button>

@@ -23,7 +23,7 @@
 
 import type { CardData } from '../data/cardTypes';
 import type { ViewPatch } from '../engine/diffView';
-import type { LegalAction } from '../engine/legal';
+import type { GrantedCastFacts, LegalAction } from '../engine/legal';
 import type { SolveInput } from '../engine/payment';
 import type { InstanceId, OracleId, PlayerId, PrintingId } from '../engine/types/ids';
 import type { Intent, RejectReason } from '../engine/types/intents';
@@ -154,6 +154,13 @@ export interface SessionState {
   readonly winners: readonly PlayerId[];
   readonly legal: readonly LegalAction[];
   readonly solve: SolveInput;
+  /**
+   * D587 - THE GRANTED CAST'S HOST FACTS, for this seat's own free-cast prompt (per seat, as `legal` and `solve` are: a
+   * from-hand grant's cards are hidden, so nothing keyed by them may ride the shared `awaiting`): each card the grant admits
+   * with the board's reduction for its cast and its conspire's and casualty's creatures (`grantedCastFacts`). Absent while
+   * no such prompt is up for this seat.
+   */
+  readonly granted?: Readonly<Record<InstanceId, GrantedCastFacts>>;
   readonly seats: readonly { readonly id: PlayerId; readonly name: string }[];
   readonly stateHash: string;
 }

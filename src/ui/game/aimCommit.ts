@@ -396,6 +396,25 @@ export function commitTargets(): void {
 }
 
 /**
+ * D587 - the aim's Cancel button. An aim of my own is local until it is sent, so Cancel steps it back (Escape's rule); but
+ * the targets prompt of my own STAGED spell or activation - a granted cast's, begun by its prompt's answer - is the engine's
+ * question, which Escape cannot leave (the veil re-arms it, D169): there Cancel backs the cast out (`CancelPendingCast` -
+ * a granted cast returns to the prompt it answered, CR 601.2; any other to where it was before it began).
+ */
+export function cancelAim(): void {
+  const table = useTable.getState();
+  const mode = table.mode;
+  const asked = session.current().awaiting;
+  if (mode.kind === 'targeting' && mode.next === 'answer' && asked?.kind === 'chooseTargets' && asked.player === table.viewer && (asked.forKind === 'spell' || asked.forKind === 'ability')) {
+    useAim.getState().reset();
+    table.setMode({ kind: 'idle' });
+    session.submit({ t: 'CancelPendingCast', player: table.viewer });
+    return;
+  }
+  table.escape();
+}
+
+/**
  * D406 - a cast whose face prints an additional cost with a CHOOSER verb starts by naming the picks:
  * the same `sacrifice` / `costPick` modes an activation uses, marked `cast`, with the candidates read
  * off the CastSpell action (`GameLayer`). Returns false when the cast has no such pick to make (no
