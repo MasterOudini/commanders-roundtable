@@ -34,9 +34,20 @@ export function manualIntent(state: GameState, intent: Intent, deps: EngineDeps)
   return runManual(state, intent as ManualIntent, deps);
 }
 
-function nameOf(state: GameState, deps: EngineDeps, id: InstanceId): string {
+/**
+ * CR 400.2 - a library and a hand are HIDDEN zones. ⚠️ Narration is ONE shared log every seat reads (only events and
+ * views are redacted per seat), so a tool's line names a card only where every seat sees it: `nameOf` and `identityOf`
+ * give "a card" and no colours for one that is not `seen`, whoever used the tool (the peek panel's "bottom" and "hand"
+ * named each card the peek had shown its peeker alone). `seen` defaults to where the card stands; a move passes where
+ * it lands too.
+ */
+function hiddenZone(kind: ZoneRef['kind'] | undefined): boolean {
+  return kind === 'library' || kind === 'hand';
+}
+
+function nameOf(state: GameState, deps: EngineDeps, id: InstanceId, seen = !hiddenZone(state.cards[id]?.zone.kind)): string {
   const card = state.cards[id];
-  if (!card) return 'a card';
+  if (!card || !seen) return 'a card';
   const d = derive(state, deps.oracle, deps.scripts, id);
   // ⚠️ CR 708.5 - a face-down card's identity is hidden, and narration is ONE shared log every seat reads (only its
   // controller's own view shows the card). It derives no name (708.2), so the printed-face fallback below would name
@@ -50,10 +61,11 @@ function nameOf(state: GameState, deps: EngineDeps, id: InstanceId): string {
   return oracleCard ? faceOf(oracleCard, card.faceIndex).name : 'a card';
 }
 
-function identityOf(state: GameState, deps: EngineDeps, id: InstanceId) {
+function identityOf(state: GameState, deps: EngineDeps, id: InstanceId, seen = !hiddenZone(state.cards[id]?.zone.kind)) {
   const card = state.cards[id];
   // A face-down card is colourless to the table (CR 708.2): its printed identity on the log's colour bar would leak it.
-  if (!card || card.faceDown) return [];
+  // So is an unseen one (CR 400.2).
+  if (!card || !seen || card.faceDown) return [];
   return deps.oracle.byPrinting(card.printingId)?.colorIdentity ?? [];
 }
 
@@ -92,14 +104,17 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       };
       // A card this move puts face down is as hidden as one that already is (CR 708.5): the line names neither.
       const hidden = intent.faceDown === true;
-      const name = hidden ? 'a card' : nameOf(state, deps, intent.card);
+      // Nor one hidden at BOTH ends (CR 400.2): a peeked card to the library's bottom or to hand, a hand card into a
+      // library. A card is named where every seat sees it, where it stood or where it lands.
+      const seen = !hiddenZone(card.zone.kind) || !hiddenZone(to.kind);
+      const name = hidden ? 'a card' : nameOf(state, deps, intent.card, seen);
       return accept([
         marker(actor, 'moveCard', `${intent.card} → ${to.kind}:${to.player}`),
         { t: 'CardsMoved', moves: [move] },
         narrated(
           n`${me} ${vb(actor, 'moves', 'move')} ${name} to ${zoneWord(to.kind)}${hidden ? ' face down' : ''}.`,
           actor,
-          hidden ? [] : identityOf(state, deps, intent.card),
+          hidden ? [] : identityOf(state, deps, intent.card, seen),
           true,
         ),
       ]);
@@ -564,6 +579,14 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
     case 'ManualApplyEffect': {
       const card = state.cards[intent.card];
       if (!card) return reject('noSuchCard', 'That card is not in the game.');
+      // CR 400.2 - a hidden card applies only from the actor's OWN hand. Applying prints its name, its colours and its
+      // effects into the ONE shared log, so an opponent's hand card (a view carries its id, never its data) and any
+      // library card (unseen even by its owner) are refused - before the face is read, so the refusal is the same
+      // whatever the card is. A card in your own hand is yours to show: a bought-back spell (CR 702.27a) is there by
+      // the time its offer is taken.
+      if (hiddenZone(card.zone.kind) && !(card.zone.kind === 'hand' && card.zone.player === actor)) {
+        return reject('wrongZone', "That card is hidden in a library or in another player's hand — apply it by hand.");
+      }
       const oracleCard = deps.oracle.byPrinting(card.printingId);
       const face = oracleCard ? faceOf(oracleCard, card.faceIndex) : null;
       // A face-down card has no text to the table (CR 708.2): applying it would print its name and rules text into the
@@ -608,7 +631,10 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
           // `ref` rather than `vb` — "theirs" is a possessive, not a verb.
           n`${me} ${vb(actor, 'applies', 'apply')} the part of ${face.name} the app understands. The rest is ${ref(actor, 'theirs', 'yours')}.`,
           actor,
-          identityOf(state, deps, intent.card),
+          // Seen: the offer names a spell every seat has just watched resolve, and the only hidden card let through above
+          // is in the actor's own hand - shown by its holder (a bought-back spell, CR 702.27a). The effects' own lines
+          // carry its label and colours too.
+          identityOf(state, deps, intent.card, true),
           true,
         ),
       ], rng);
