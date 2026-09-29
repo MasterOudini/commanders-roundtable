@@ -1120,7 +1120,8 @@ export function countersOfKind(counters: Readonly<Record<string, number>>, kind:
   return n;
 }
 
-function readyToTap(
+/** CR 302.6 - may this permanent pay a `{T}` now? Exported because `handlers.activateAbility` re-checks the offer with it. */
+export function readyToTap(
   state: GameState,
   chars: ReturnType<typeof derive>,
   inst: NonNullable<GameState['cards'][InstanceId]>,

@@ -28,6 +28,8 @@ describe('Adun Oakenshield', () => {
     const adun = put(g, 'p1', ADUN);
     const bears = put(g, 'p1', 'Grizzly Bears', 'graveyard');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
@@ -52,6 +54,8 @@ describe('Adun Oakenshield', () => {
     const adun = put(g, 'p1', ADUN);
     const bears = put(g, 'p1', 'Grizzly Bears', 'graveyard');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'G', amount: 1 }));
@@ -65,7 +69,7 @@ describe('Adun Oakenshield', () => {
       }),
     );
     settle(g);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

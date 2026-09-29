@@ -27,6 +27,8 @@ describe('Akroan Jailer', () => {
     const jailer = put(g, 'p1', JAILER);
     const bears = put(g, 'p2', 'Grizzly Bears');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 3 }));
     must(
       g.submit({
@@ -47,6 +49,8 @@ describe('Akroan Jailer', () => {
     const jailer = put(g, 'p1', JAILER);
     const bears = put(g, 'p2', 'Grizzly Bears');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'W', amount: 3 }));
     must(
       g.submit({
@@ -58,7 +62,7 @@ describe('Akroan Jailer', () => {
       }),
     );
     settle(g);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

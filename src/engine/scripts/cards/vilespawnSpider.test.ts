@@ -51,6 +51,8 @@ function armed(which: number): Armed {
     settle(g);
     }
   if (which === 1) {
+    // CR 302.6 - it entered this turn: its {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber === 5 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 40_000);
     must(g.submit({ t: 'ManualSetTapped', player: 'p1', cards: [self], tapped: false }));
     settle(g);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));

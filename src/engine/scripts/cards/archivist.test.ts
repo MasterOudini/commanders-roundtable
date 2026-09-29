@@ -20,12 +20,14 @@ describe('Archivist', () => {
     });
     const id = put(g, 'p1', 'Archivist');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     const before = idsIn(g, 'p1', 'hand').length;
     must(g.submit({ t: 'ActivateAbility', player: 'p1', card: id, abilityIndex: 0 }));
     settle(g);
     expect(idsIn(g, 'p1', 'hand').length).toBe(before + 1);
     expect(g.state.cards[id]?.tapped).toBe(true);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

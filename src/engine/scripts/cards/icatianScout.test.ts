@@ -23,7 +23,8 @@ function scouted(): { g: Game; bears: InstanceId } {
   const bears = put(g, 'p1', 'Grizzly Bears');
   settle(g);
   holdEverywhere(g);
-  advanceUntil(g, (s) => s.turn.activePlayer === 'p1' && s.turn.phase === 'precombatMain', 60_000);
+  // CR 302.6 - p1's turn 3: the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+  advanceUntil(g, (s) => s.turn.turnNumber === 3 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 60_000);
   must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 1 }));
   must(g.submit({ t: 'ActivateAbility', player: 'p1', card: scout, abilityIndex: 0 }));
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
@@ -43,7 +44,7 @@ describe('Icatian Scout', () => {
 
   test('replays to the same hash', () => {
     const { g } = scouted();
-    advanceUntil(g, (s) => s.turn.turnNumber >= 2, 60_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 4, 60_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

@@ -27,6 +27,8 @@ describe('Acolyte of Xathrid', () => {
     const g = game();
     const id = put(g, 'p1', ACOLYTE);
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 2 }));
     must(
       g.submit({
@@ -46,6 +48,8 @@ describe('Acolyte of Xathrid', () => {
     const g = game();
     const id = put(g, 'p1', ACOLYTE);
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'B', amount: 2 }));
     must(
       g.submit({
@@ -57,7 +61,7 @@ describe('Acolyte of Xathrid', () => {
       }),
     );
     settle(g);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

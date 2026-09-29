@@ -22,6 +22,8 @@ describe('Aquus Steed', () => {
     const steed = put(g, 'p1', 'Aquus Steed');
     const angel = put(g, 'p2', 'Serra Angel');
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'U', amount: 1 }));
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'C', amount: 2 }));
     must(
@@ -36,7 +38,7 @@ describe('Aquus Steed', () => {
     settle(g);
     const d = deps(createRegistry([AQUUS_STEED_SCRIPT]));
     expect(derive(g.state, ORACLE, d.scripts, angel).power).toBe(2);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

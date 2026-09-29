@@ -144,6 +144,8 @@ describe('D377 - a discard says so', () => {
     const g = board(['Rummaging Goblin', 'Grizzly Bears', 'Grizzly Bears']);
     const goblin = put(g, 'p1', 'Rummaging Goblin');
     settle(g);
+    // CR 302.6 - its {T} waits for p1's next turn: the host refuses a summoning-sick creature's {T} ability.
+    advanceUntil(g, (s) => s.turn.turnNumber === 5 && s.turn.phase === 'precombatMain' && s.priority.player === 'p1' && s.priority.awaiting === null, 20_000);
     const held = [...(g.state.zones.hand.p1 ?? [])];
     const pitch = held[0] as InstanceId;
     must(g.submit({ t: 'ActivateAbility', player: 'p1', card: goblin, abilityIndex: 0, discard: [pitch] }));

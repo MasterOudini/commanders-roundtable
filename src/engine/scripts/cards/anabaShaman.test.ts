@@ -23,6 +23,8 @@ describe('Anaba Shaman', () => {
     });
     const shaman = put(g, 'p1', SHAMAN);
     settle(g);
+    // CR 302.6 - the {T} waits for p1's next turn (the host refuses a summoning-sick creature's {T} ability).
+    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
     must(g.submit({ t: 'ManualAddMana', player: 'p1', target: 'p1', symbol: 'R', amount: 1 }));
     must(
       g.submit({
@@ -36,7 +38,7 @@ describe('Anaba Shaman', () => {
     settle(g);
     expect(g.state.players['p2']?.life).toBe(39);
     expect(g.state.cards[shaman]?.tapped).toBe(true);
-    advanceUntil(g, (s) => s.turn.turnNumber >= 3, 20_000);
+    advanceUntil(g, (s) => s.turn.turnNumber >= 5, 20_000);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

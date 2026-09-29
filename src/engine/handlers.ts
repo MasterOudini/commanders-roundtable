@@ -39,6 +39,7 @@ import {
   returnCandidatesFor,
   castCostCandidates,
   exileFromHandCandidates,
+  readyToTap,
   type CostVerbs,
 } from './legal';
 import { DISGUISE_WARD, buildPaymentProblem, costStringOf, extraCostSpend, manaSourcesOf, wardTaxFrom, type ManaSource } from './mana';
@@ -1653,6 +1654,22 @@ function activateAbility(
   const oracleCard = deps.oracle.byPrinting(card.printingId);
   if (!oracleCard) return reject('noSuchCard', 'That card is not in the card database.');
   const face = faceOf(oracleCard, card.faceIndex);
+  // ⚠️ THE BATTLEFIELD OFFER'S TWO GATES, re-checked (a client's word is not a rule, D139): `legal.ts` offers nothing
+  // of a PHASED-OUT permanent (CR 702.26b - treated as though it does not exist) nor of one with NO ABILITIES - face
+  // down (CR 708.2) or silenced (CR 613 layer 6) - because the activated list read below is the ORACLE's, not the
+  // derived object's. Without them a hand-built intent (a guest's: the host validates every one here) activated a
+  // face-down Suture Spirit's printed ability, and the log and the stack label named the hidden card (CR 708.5). A hand
+  // or graveyard activation (cycling, ninjutsu, unearth) is offered without either read, so it is left to the zone
+  // checks below.
+  const self = derive(state, deps.oracle, deps.scripts, intent.card);
+  if (card.zone.kind === 'battlefield') {
+    if (card.phasedOut) {
+      return reject('wrongZone', `${card.faceDown ? 'That face-down permanent' : face.name} is phased out - its abilities can't be activated until it phases in.`);
+    }
+    if (!self.hasAbilities) {
+      return reject('notCastable', card.faceDown ? 'A face-down permanent has no abilities until it is turned face up.' : `${face.name} has lost its abilities - it has none to activate.`);
+    }
+  }
   // D367 - a GRANTED ability is read off the recipient's DERIVED object, which is
   // where a grant exists: a stale intent for an Aura that has since left finds
   // nothing and is refused here, before any cost. The ref the activation writes
@@ -1925,6 +1942,11 @@ function activateAbility(
   }
   if (ability.requiresTap && card.tapped) return reject('alreadyTapped', `${face.name} is already tapped.`);
   if (ability.requiresUntap && !card.tapped) return reject('notUntapped', `${face.name} must be tapped for that.`);
+  // CR 302.6 - a creature's {T} ability needs it under your control since your most recent turn began, or haste: the
+  // offer's own `readyToTap`, so the offer and the host cannot disagree about a hasty creature.
+  if (ability.requiresTap && !readyToTap(state, self, card)) {
+    return reject('timingRestriction', `${face.name} has summoning sickness - its {T} ability can be activated from your next turn.`);
+  }
   if (ability.sorceryOnly && !canActAtSorcerySpeed(state, intent.player)) {
     return reject('timingRestriction', `${face.name}'s ability is sorcery-speed — use it in your own main phase with an empty stack.`);
   }
