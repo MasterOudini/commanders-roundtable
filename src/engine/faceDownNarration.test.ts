@@ -4,10 +4,10 @@
 // it by hand; the stun counter's line read the printed face, and the state-based shield counter and regeneration lines
 // carried the printed colours (the leak D583 found in the haunt's line). What is proven here: the OPPONENT works a
 // face-down creature with every manual tool that names a permanent - no seat reads its name or its colours, its
-// controller included, and only the controller's own view shows the card; a transform, a move to a hidden zone, a move
-// that turns a card face down and one out of face-down exile name nothing either; the assisted-effect tool refuses a
-// face-down card; a stun counter, a shield counter and a regeneration shield spent on a face-down creature name no card
-// and carry no colour; the replay hash on each.
+// controller included, and only the controller's own view shows the card; a transform, a move that turns a card face
+// down and one out of face-down exile name nothing either, while a move OFF the battlefield reveals it (CR 708.9 -
+// D587); the assisted-effect tool refuses a face-down card; a stun counter, a shield counter and a regeneration shield
+// spent on a face-down creature name no card and carry no colour; the replay hash on each.
 // And the engine's own lines: a face-down permanent derives no name, so every line that printed its derived name read
 // " regenerates." - `tableName` names it as the table sees it. Proven: the helper's four answers; a destroy it survives
 // by a regeneration shield and by a shield counter, and a shield counter absorbing damage; a fight; an until-end-of-turn
@@ -106,12 +106,22 @@ describe('CR 708.5 - the log never names a face-down card', () => {
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 
-  test('a transform, a move to a hidden zone, a face-down exile and a move out of it name nothing; the assisted tool refuses a face-down card', () => {
+  test('a transform, a face-down exile and a move out of it name nothing; a move off the battlefield reveals it (CR 708.9); the assisted tool refuses a face-down card', () => {
     const g = startedGame({ players: 2, decks: [[], [DELVER, ASSISTED]] });
     const from = mark(g);
     const delver = faceDownOnto(g, 'p2', DELVER);
     must(g.submit({ t: 'ManualFlipFace', player: 'p1', card: delver }));
+    namesNothing(g, from, ['Delver of Secrets', 'Insectile Aberration']);
+    expect(JSON.stringify(view(g, 'p1')), "nothing in the opponent's view names it while it is face down").not.toMatch(/Delver of Secrets|Insectile Aberration/);
+    // D587 - CR 708.9: moved off the battlefield it is REVEALED to every player as it moves - by its printed front face
+    // (CR 712.8a, whatever face it was turned to) and its colours, on every seat's row.
+    const moved = mark(g);
     must(g.submit({ t: 'ManualMoveCard', player: 'p1', card: delver, to: { kind: 'hand', player: 'p2' } }));
+    expect(rows(g, moved)).toEqual([
+      { seat: 'p1', text: 'You move Delver of Secrets to their hand.', identity: ['U'] },
+      { seat: 'p2', text: 'Ana moves Delver of Secrets to their hand.', identity: ['U'] },
+    ]);
+    const exiled = mark(g);
     // p2 exiles a spell face down (a foretell's shape); p1 can neither name it by moving it nor apply its text.
     const spell = findAnywhere(g, 'p2', ASSISTED);
     must(g.submit({ t: 'ManualMoveCard', player: 'p2', card: spell, to: { kind: 'exile', player: 'p2' }, faceDown: true }));
@@ -123,12 +133,11 @@ describe('CR 708.5 - the log never names a face-down card', () => {
     expect(said(g, from)).toEqual([
       'Ben moves a card to the battlefield face down.',
       'Ana transforms a face-down creature.',
-      'Ana moves a face-down creature to their hand.',
+      'Ana moves Delver of Secrets to their hand.',
       'Ben moves a card to exile face down.',
       'Ana moves a face-down card to their hand.',
     ]);
-    namesNothing(g, from, ['Delver of Secrets', 'Insectile Aberration', ASSISTED]);
-    expect(JSON.stringify(view(g, 'p1')), "nothing in the opponent's view names either").not.toMatch(/Delver of Secrets|Insectile Aberration/);
+    namesNothing(g, exiled, [ASSISTED]);
     expect(JSON.stringify(view(g, 'p1'))).not.toContain(ASSISTED);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });

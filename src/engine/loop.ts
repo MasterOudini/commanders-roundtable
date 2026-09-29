@@ -1705,7 +1705,8 @@ function awakenRider(state: GameState, deps: EngineDeps, obj: StackObject, face:
   ];
 }
 
-function withStillLegalPicks(
+// D587 - exported: the assisted apply (manual.ts) re-checks an offer's picks by it too (CR 608.2b).
+export function withStillLegalPicks(
   state: GameState,
   deps: EngineDeps,
   obj: StackObject,

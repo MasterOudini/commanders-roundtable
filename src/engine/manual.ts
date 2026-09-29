@@ -18,7 +18,7 @@ import { effectResult } from './effects';
 import { faceOf } from './oracle';
 import { shuffle } from './rng';
 import { n, narrated, ref, themself, their, vb, who, whoElse, whoseElse } from './narrate';
-import type { EngineDeps } from './loop';
+import { withStillLegalPicks, type EngineDeps } from './loop';
 import type { CardMove, EventBody } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import { poolFrom } from './types/mana';
@@ -107,14 +107,19 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
       // Nor one hidden at BOTH ends (CR 400.2): a peeked card to the library's bottom or to hand, a hand card into a
       // library. A card is named where every seat sees it, where it stood or where it lands.
       const seen = !hiddenZone(card.zone.kind) || !hiddenZone(to.kind);
-      const name = hidden ? 'a card' : nameOf(state, deps, intent.card, seen);
+      // D587 - CR 708.9: a face-down permanent leaving the battlefield (a face-down spell leaving the stack) for any zone
+      // but the battlefield is REVEALED to every player as it moves - named by its printed front face (off the
+      // battlefield a double-faced card has only that face, CR 712.8a) with its colours, as sba.ts's dies line names it.
+      // Into exile face down too: 708.9 has no exception - the reveal happens as it moves, whatever it lands as.
+      const revealed = card.faceDown && (card.zone.kind === 'battlefield' || card.zone.kind === 'stack') && to.kind !== 'battlefield' ? deps.oracle.byPrinting(card.printingId) : undefined;
+      const name = revealed ? faceOf(revealed, 0).name : hidden ? 'a card' : nameOf(state, deps, intent.card, seen);
       return accept([
         marker(actor, 'moveCard', `${intent.card} → ${to.kind}:${to.player}`),
         { t: 'CardsMoved', moves: [move] },
         narrated(
           n`${me} ${vb(actor, 'moves', 'move')} ${name} to ${zoneWord(to.kind)}${hidden ? ' face down' : ''}.`,
           actor,
-          hidden ? [] : identityOf(state, deps, intent.card, seen),
+          revealed ? revealed.colorIdentity : hidden ? [] : identityOf(state, deps, intent.card, seen),
           true,
         ),
       ]);
@@ -607,6 +612,9 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
         // already resolved, so whatever face it was cast as is on the instance.
         faceIndex: card.faceIndex,
         targets: intent.targets,
+        // D587 - this path reads clause i at targets[i] (`picksFor`): positional slots let the still-legal filter below drop
+        // a stale pick IN PLACE - compacted, the pick after it would slide onto a clause it never answered.
+        targetSlots: intent.targets.map((_, k) => k),
         modes: [],
         xValue: null,
         label: face.name,
@@ -615,12 +623,20 @@ function runManual(state: GameState, intent: ManualIntent, deps: EngineDeps): Ha
         isCommanderCast: false,
         castFrom: null,
       };
+      // D587 - CR 608.2b / 400.7: the offer carries the spell's targets AS IT RESOLVED (StackResolved), and play goes on
+      // while it waits. A pick no longer legal for its clause - a creature bounced to a hand, one that died since - is a
+      // new object or none, and is not affected: the executor's aim admits a card in any zone, and a destroy moved one
+      // from the battlefield it had already left, into two zones at once. Every pick gone, nothing is applied.
+      const aimed = withStillLegalPicks(state, deps, obj, face, face.targets);
+      if (intent.targets.length > 0 && aimed.targets.length === 0) {
+        return reject('illegalTarget', 'Those targets are gone — apply the rest of the card by hand.');
+      }
       // ⚠️ `effectResult`, so the RNG is threaded here TOO. This path is the
       // ASSISTED offer, which by definition runs a card the parser understood
       // only in part — so a card with an at-random clause AND an unread one
       // arrives here rather than resolving on its own, and dropping the advance
       // would make exactly those cards replay to a different board.
-      const { events, rng } = effectResult(state, deps, obj, face.effects);
+      const { events, rng } = effectResult(state, deps, aimed, face.effects);
       if (events.length === 0) {
         return reject('illegalTarget', 'Those targets are gone — apply the rest of the card by hand.');
       }
