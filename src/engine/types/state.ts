@@ -81,7 +81,7 @@ export interface GameOptions {
   readonly maxLandsPerTurn: number;
   /** Common Commander house rule, not in the CR. Default on (spec Q2). */
   readonly freeFirstMulligan: boolean;
-  /** CR 903.9a. 'ask' teaches the rule; 'always' hides a real choice (Q3). */
+  /** CR 903.9 (a and b). 'ask' teaches the rule; 'always' hides a real choice (Q3). */
   readonly commanderZoneReplacement: 'ask' | 'always' | 'never';
   readonly poisonThreshold: number;
   /**
@@ -202,7 +202,7 @@ export interface PlayerState {
   readonly connected: boolean;
   /** Commander colour identity — drives the seat nameplate's gradient. */
   readonly identity: readonly ColorLetter[];
-  /** Sticky per-game answer to the CR 903.9a prompt ("always do this"). */
+  /** Sticky per-game answer to the CR 903.9 prompt ("always do this") - both halves, 903.9a and 903.9b. */
   readonly commanderZoneAlways: boolean | null;
 }
 
@@ -305,6 +305,13 @@ export interface CardInstance {
    * trigger from exile (702.55c). Set by the move that exiles it, cleared by any other move.
    */
   readonly haunting?: { readonly card: InstanceId; readonly entry: number } | undefined;
+  /**
+   * CR 903.9a / 704.6d: this commander was put into a graveyard or exile since state-based actions were last checked, so
+   * its owner's command-zone choice is owed - the next SBA pass moves it home, leaves it, or asks (`sba.ts`). Set by the
+   * move that puts it there (not in a 'never' game, not from the command zone); cleared by any other move and by
+   * `CommanderZoneDeclined`.
+   */
+  readonly commanderZoneOwed?: true | undefined;
   /** CR 903.8. Survives zone changes, which is the whole point. */
   readonly commanderCastCount: number;
   /** Tier-3 manual override, applied at layer 7d. */
@@ -681,6 +688,13 @@ export interface PendingReplacement {
    * the held move (`CardMove.asCopyOf`) and runs the body through the whole funnel from the start.
    */
   readonly copyChoice?: { readonly card: InstanceId; readonly exceptions: CopyExceptions | null; readonly tapped: boolean };
+  /**
+   * CR 903.9b - the question is a COMMANDER'S (`Awaiting.commanderZoneChoice` with `instead`), asked before this body's
+   * built-ins ran: the held move would put the commander into its owner's hand or library. `siblings` and `rest` are
+   * empty, as for a clone; the answer rewrites the held move (to the command zone, or `CardMove.homeDeclined`) and runs
+   * the body through the whole funnel from the start.
+   */
+  readonly commanderChoice?: { readonly card: InstanceId };
 }
 
 /**
@@ -1039,15 +1053,21 @@ export type Awaiting =
       readonly label: string;
     }
   /**
-   * CR 903.9a. A QUEUE, not a single card: a wrath can put both halves of a
-   * partner pair into the graveyard at once, and asking about one while
-   * silently abandoning the other would lose a commander with no way back but a
-   * Tier-3 tool. Answering pops the head and re-arms for the next.
+   * CR 903.9. Two questions, one prompt and one "always do this" answer:
+   *
+   * - 903.9a (704.6d): raised by the state-based pass for every commander owed a choice (`commanderZoneOwed`) - it is
+   *   ALREADY in the graveyard or exile, at `from`. A QUEUE, not a single card: a wrath can put both halves of a
+   *   partner pair into the graveyard at once, and asking about one while silently abandoning the other would lose a
+   *   commander with no way back but a Tier-3 tool. Answering settles the head; the next pass asks about the rest, under
+   *   whatever standing answer the head's left behind.
+   * - 903.9b: raised by the replacement funnel with the move HELD (`PendingReplacement.commanderChoice`) - the commander
+   *   still sits at `from`, and `instead` is the owner's hand or library it would be put into. The queue is that one card.
    */
   | {
       readonly kind: 'commanderZoneChoice';
       readonly player: PlayerId;
       readonly queue: readonly { readonly player: PlayerId; readonly card: InstanceId; readonly from: ZoneRef }[];
+      readonly instead?: ZoneRef;
     }
   /**
    * CR 601.2b. Its own prompt because a cast that stops must say so — see the

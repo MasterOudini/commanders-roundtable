@@ -2171,7 +2171,7 @@ function runOne(seed: number): Run {
     // to: the funnel returns `[FaceIndexSet, CountersChanged]` for a transform,
     // so a loyalty change sitting immediately after a flip came from D108 and
     // anything else came from an entry. (The entry side cannot use the same
-    // adjacency in reverse: `commanderZoneReplacement` can push an `AwaitingSet`
+    // adjacency in reverse: `commanderZoneReplacement` can push its narration
     // in between, so the counters do not always follow their `CardsMoved`.)
     enteredWithCounters: countersWritten(game.log, false),
     transformedIntoPlaneswalker: countersWritten(game.log, true),

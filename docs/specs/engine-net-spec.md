@@ -246,6 +246,8 @@ One `makeDeriveCache` for the whole battlefield, then check in this order (all f
 
 Then, Commander-specific: rule 903.9a is a **replacement effect the controller may apply**, not an SBA — when a commander would go to a graveyard or exile from anywhere, its owner may put it into the command zone instead. Implemented in `applyReplacements` as a built-in (not a card script), gated on `options.commanderZoneReplacement`: `'always'` rewrites the destination silently, `'ask'` emits `AwaitingSet{commanderZoneChoice}`, `'never'` leaves it. See Q3.
 
+⚠️ **Superseded (2026-09-29, DECISIONS D44 Q3):** that was the pre-2020 rule. Under the current CR, 903.9a is a state-based action (704.6d) - the commander is put into the graveyard or exile first, so dies and leaves triggers see it, and the owner may move it to the command zone afterwards (`sba.ts`) - while 903.9b (a hand or a library) is the replacement (`applyReplacements`).
+
 If any player lost, re-check: a 4-player game can have simultaneous losses, and the last player standing wins (`GameEnded`). If all remaining players lose simultaneously, the game is a draw — `GameEnded{winners: []}`.
 
 ---

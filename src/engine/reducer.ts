@@ -377,6 +377,22 @@ function clearBattlefieldFields(owner: PlayerId): Partial<CardInstance> {
 }
 
 /**
+ * CR 903.9a / 704.6d - does this move put a commander into a graveyard or exile, owing its owner the command-zone choice
+ * at the next state-based check? Not a token; not a move within one zone; not a move out of the command zone (the owner's
+ * own doing); and not in a game whose option turns the rule off.
+ */
+function owesCommanderChoice(state: GameState, card: CardInstance, from: ZoneRef, to: ZoneRef): boolean {
+  return (
+    card.isCommander &&
+    !card.isToken &&
+    (to.kind === 'graveyard' || to.kind === 'exile') &&
+    from.kind !== to.kind &&
+    from.kind !== 'command' &&
+    state.options.commanderZoneReplacement !== 'never'
+  );
+}
+
+/**
  * Detach `id` from whatever it is attached to, and detach everything attached
  * to it. Runs on every zone change out of the battlefield.
  *
@@ -640,6 +656,13 @@ function applyBody(state: GameState, body: EventBody): GameState {
           ...(move.until !== undefined ? { exiledUntil: move.until } : card.exiledUntil !== undefined ? { exiledUntil: undefined } : {}),
           // D583 - the haunt's exile marks the card with the creature it haunts; any other move of the card clears the mark.
           ...(move.haunting !== undefined ? { haunting: move.haunting } : card.haunting !== undefined ? { haunting: undefined } : {}),
+          // CR 903.9a / 704.6d - a commander put into a graveyard or exile is owed its owner's command-zone choice at the
+          // next state-based check; a move to any other zone settles the debt (a move within one zone changes nothing).
+          ...(owesCommanderChoice(state, card, move.from, move.to)
+            ? { commanderZoneOwed: true as const }
+            : move.from.kind !== move.to.kind && card.commanderZoneOwed !== undefined
+              ? { commanderZoneOwed: undefined }
+              : {}),
           // D486 - entering AS A COPY (CR 707.9): the identity becomes the copied card's, the printed card kept for the
           // move that takes it off the battlefield; a copy leaving the battlefield is its printed card again (707.4).
           ...(move.asCopyOf !== undefined
@@ -666,7 +689,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
             const part = cards[partId];
             if (!part) continue;
             const partTo = { kind: move.to.kind, player: part.owner };
-            cards[partId] = { ...part, ...clearBattlefieldFields(part.owner), zone: partTo, mergedInto: undefined, faceDown: false, revealedTo: [] };
+            // CR 903.9a - a commander merged into the permanent is owed its choice like one that moved on its own.
+            const owed = owesCommanderChoice(state, part, part.zone, partTo) ? { commanderZoneOwed: true as const } : {};
+            cards[partId] = { ...part, ...clearBattlefieldFields(part.owner), zone: partTo, mergedInto: undefined, faceDown: false, revealedTo: [], ...owed };
             zones = addToZone(zones, partTo, partId, move.placement ?? 'top');
           }
           cards[move.card] = { ...(cards[move.card] as CardInstance), merged: undefined };
@@ -996,6 +1021,9 @@ function applyBody(state: GameState, body: EventBody): GameState {
 
     case 'CommanderZoneAlwaysSet':
       return withPlayer(state, body.player, { commanderZoneAlways: body.value });
+
+    case 'CommanderZoneDeclined':
+      return withCard(state, body.card, { commanderZoneOwed: undefined });
 
     // ── turn / priority ──────────────────────────────────────────────────
     case 'TurnBegan': {

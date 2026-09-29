@@ -114,8 +114,11 @@ function describe(
           ? `${awaiting.label}: enter as a copy of ${awaiting.what}?`
           : `${nameOf(seats, awaiting.player)} is choosing what ${awaiting.label} copies.`;
       case 'commanderZoneChoice':
+        // CR 903.9b asks BEFORE the move (`instead` is the hand or library it would go to); 903.9a after it.
         return awaiting.player === viewer
-          ? 'Your commander changed zones — put it in the command zone?'
+          ? awaiting.instead !== undefined
+            ? `Your commander would be put into your ${awaiting.instead.kind} — put it in the command zone instead?`
+            : 'Your commander changed zones — put it in the command zone?'
           : `${nameOf(seats, awaiting.player)} is deciding about their commander.`;
       case 'chooseTargets':
         // D487 - a copy's new targets may be declined: the original's stay.

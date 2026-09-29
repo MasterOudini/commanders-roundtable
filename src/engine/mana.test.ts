@@ -555,6 +555,8 @@ describe('commander tax', () => {
     expect(game.state.cards[commander]?.commanderCastCount).toBe(1);
 
     must(game.submit({ t: 'ManualMoveCard', player: 'p1', card: commander, to: { kind: 'hand', player: 'p1' } }));
+    // CR 903.9b: the owner may send it to the command zone instead - and keeps it in hand here.
+    must(game.submit({ t: 'CommanderZoneChoice', player: 'p1', toCommandZone: false, always: false }));
     const lands = game.state.zones.battlefield.filter((id) => game.state.cards[id]?.tapped);
     must(game.submit({ t: 'ManualSetTapped', player: 'p1', cards: lands, tapped: false }));
     const actions = legalActions(game.state, ORACLE, game.deps.scripts, 'p1');

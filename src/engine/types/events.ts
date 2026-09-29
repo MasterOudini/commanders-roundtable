@@ -119,6 +119,11 @@ export interface CardMove {
   readonly asCopyOf?: { readonly oracleId: OracleId; readonly printingId: PrintingId; readonly faceIndex: number; readonly copyExceptions?: CopyExceptions };
   readonly copyDeclined?: true;
   /**
+   * CR 903.9b - the commander's owner was asked about this move to a hand or a library and let it happen; the funnel
+   * asks once (the `copyDeclined` shape). A "yes" leaves no mark: the move is rewritten to the command zone.
+   */
+  readonly homeDeclined?: true;
+  /**
    * WHY this card moved, when the rules know a reason a card can watch for.
    * `undefined` for every ordinary move - a destroy, a bounce, a draw, a token
    * ceasing, a reanimation, a search - and set only where a rule performed one
@@ -232,7 +237,12 @@ export type SbaAction =
   | { readonly t: 'regenerated'; readonly card: InstanceId }
   /** D469 - CR 122.1i: lethal damage met a shield counter: the counter removed instead, the damage still marked. */
   | { readonly t: 'shielded'; readonly card: InstanceId }
-  | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number };
+  | { readonly t: 'counterAnnihilation'; readonly card: InstanceId; readonly amount: number }
+  /**
+   * CR 704.6d / 903.9a - a commander put into a graveyard or exile since the last check: its owner's standing answer
+   * moved it to the command zone (`home`) or left it (`stays`), or the owner was asked (`asked`).
+   */
+  | { readonly t: 'commanderZone'; readonly card: InstanceId; readonly choice: 'home' | 'stays' | 'asked' };
 
 export type EventBody =
   // ── game lifecycle ───────────────────────────────────────────────────────
@@ -392,6 +402,12 @@ export type EventBody =
   | { readonly t: 'StopsChanged'; readonly player: PlayerId; readonly stops: StopPolicy }
   | { readonly t: 'PresenceChanged'; readonly player: PlayerId; readonly connected: boolean }
   | { readonly t: 'CommanderZoneAlwaysSet'; readonly player: PlayerId; readonly value: boolean | null }
+  /**
+   * CR 903.9a - the owner's choice owed for a commander in a graveyard or exile was made, and it stays there: "Leave it",
+   * or the standing answer the state-based pass read. Clears `CardInstance.commanderZoneOwed`; "yes" needs no event of
+   * its own, the move home clears it.
+   */
+  | { readonly t: 'CommanderZoneDeclined'; readonly card: InstanceId }
 
   // ── turn / priority ──────────────────────────────────────────────────────
   /** D502 - `extra`: the turn is an extra turn (the entry taken off `GameState.extraTurns`). */

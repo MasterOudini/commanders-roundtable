@@ -89,7 +89,7 @@ import {
   type HandleResult,
   type Intent,
 } from './types/intents';
-import type { Awaiting, EffectContinuation, GameState, PendingCast, SplicedCard, StackObject, TargetChoice } from './types/state';
+import type { Awaiting, EffectContinuation, GameState, PendingCast, PendingReplacement, SplicedCard, StackObject, TargetChoice } from './types/state';
 
 const KEYS: readonly ManaSymbolKey[] = ['W', 'U', 'B', 'R', 'G', 'C'];
 
@@ -151,7 +151,7 @@ export function handle(state: GameState, intent: Intent, deps: EngineDeps): Hand
     case 'AnswerChooseCopy':
       return answerChooseCopy(state, intent, deps);
     case 'CommanderZoneChoice':
-      return commanderZoneChoice(state, intent);
+      return commanderZoneChoice(state, intent, deps);
     case 'OrderTriggers':
       return orderTriggers(state, intent, deps);
     case 'AnswerOptionalTrigger':
@@ -3549,24 +3549,37 @@ function chooseLegendKeep(
   ]);
 }
 
+/**
+ * CR 903.9 - the owner's answer, to either half of the rule (`Awaiting.commanderZoneChoice`).
+ *
+ * - 903.9b, the move HELD by the funnel (`pendingReplacement.commanderChoice`): `answerHeldCommander` below.
+ * - 903.9a, the state-based question: the head of the queue, already in the graveyard or exile, goes home or stays
+ *   (`CommanderZoneDeclined` settles what it was owed). The rest of the queue is NOT re-armed: the next state-based pass
+ *   asks about every commander still owed, under the standing answer this one may have just set - so "always do this"
+ *   answers the partner the same wrath put into the graveyard too.
+ */
 function commanderZoneChoice(
   state: GameState,
   intent: Extract<Intent, { t: 'CommanderZoneChoice' }>,
+  deps: EngineDeps,
 ): HandleResult {
   const awaiting = state.priority.awaiting;
   if (awaiting?.kind !== 'commanderZoneChoice' || awaiting.player !== intent.player) {
     return reject('notAwaitingThat', 'You are not being asked about a commander.');
   }
+  const held = state.pendingReplacement;
+  if (held?.commanderChoice !== undefined) return answerHeldCommander(state, intent, deps, held, held.commanderChoice.card);
   const head = awaiting.queue[0];
   if (!head) return accept([{ t: 'AwaitingSet', awaiting: null }]);
   const events: EventBody[] = [];
-  // ⚠️ The commander may have MOVED ON while the question was up: a flicker
-  // exiles it (raising this choice) and returns it to the battlefield in the
-  // SAME resolve, so by answer time the recorded `from` is stale. Moving from
-  // the stale zone leaves the card in two zone arrays at once — fuzz seed 69
-  // found exactly that (Flicker of Fate on Krenko). If the card no longer
-  // sits where the queue recorded it, the question is moot and a yes does
-  // nothing (CR 903.9a applies to the zone change that raised it).
+  // ⚠️ The commander may have MOVED ON while the question was up (a Tier-3 move
+  // can be made under any question), so the recorded `from` can be stale.
+  // Moving from the stale zone leaves the card in two zone arrays at once —
+  // fuzz seed 69 found exactly that when the question was raised as the
+  // commander moved (Flicker of Fate on Krenko). If the card no longer sits
+  // where the queue recorded it, the question is moot and the answer moves
+  // nothing (CR 903.9a applies to the zone change that raised it; a new one
+  // into a graveyard or exile is owed, and asked, afresh).
   const card = state.cards[head.card];
   const still =
     !!card && card.zone.kind === head.from.kind && card.zone.player === head.from.player;
@@ -3581,17 +3594,66 @@ function commanderZoneChoice(
         head.player,
       ),
     );
+  } else if (still) {
+    events.push({ t: 'CommanderZoneDeclined', card: head.card });
   }
   if (intent.always) {
     events.push({ t: 'CommanderZoneAlwaysSet', player: intent.player, value: intent.toCommandZone });
   }
-  const rest = awaiting.queue.slice(1);
-  const next = rest[0];
-  events.push({
-    t: 'AwaitingSet',
-    awaiting: next ? { kind: 'commanderZoneChoice', player: next.player, queue: rest } : null,
-  });
+  events.push({ t: 'AwaitingSet', awaiting: null });
   return accept(events);
+}
+
+/**
+ * CR 903.9b - THE HELD MOVE'S ANSWER (answerChooseCopy's shape). The move that would have put the commander into its
+ * owner's hand or library is rewritten - to the command zone, or marked `homeDeclined` so the funnel asks once - and the
+ * body runs through the whole funnel from its start, over the state the answer leaves: a standing answer this one set
+ * decides a second commander in the same move without a second question.
+ *
+ * ⚠️ A commander that has MOVED ON while the question was up (a Tier-3 move is allowed under any question) no longer
+ * sits where the held move takes it from; applying that move would put one card in two zones (fuzz seed 69's shape), so
+ * its move is dropped - the zone change that raised the question can no longer happen.
+ */
+function answerHeldCommander(
+  state: GameState,
+  intent: Extract<Intent, { t: 'CommanderZoneChoice' }>,
+  deps: EngineDeps,
+  pending: PendingReplacement,
+  commander: InstanceId,
+): HandleResult {
+  const held = pending.event;
+  if (held.t !== 'CardsMoved') return reject('noPendingChoice', 'The held event is not a move.');
+  const card = state.cards[commander];
+  const owner = card?.owner ?? intent.player;
+  const moves = held.moves.flatMap((m): CardMove[] => {
+    if (m.card !== commander) return [m];
+    if (!card || card.zone.kind !== m.from.kind || card.zone.player !== m.from.player) return [];
+    return [intent.toCommandZone ? { card: m.card, from: m.from, to: { kind: 'command', player: owner } } : { ...m, homeDeclined: true as const }];
+  });
+  const said: EventBody[] = intent.toCommandZone && moves.some((m) => m.card === commander)
+    ? [narrated(n`${who(state, owner)} ${vb(owner, 'puts', 'put')} ${their(owner)} commander into the command zone instead.`, owner)]
+    : [];
+  const lead: EventBody[] = [
+    { t: 'ReplacementResolved' },
+    ...(intent.always ? [{ t: 'CommanderZoneAlwaysSet' as const, player: intent.player, value: intent.toCommandZone }] : []),
+  ];
+  let scratch = state;
+  for (const body of lead) scratch = apply(scratch, { seq: scratch.eventCount, body, cause: { kind: 'system' } } as never);
+  const result = runReplacementFunnel(scratch, deps.oracle, deps.scripts, [...(moves.length > 0 ? [{ ...held, moves }] : []), ...pending.queued]);
+  if (result.kind === 'done') {
+    return { ok: true, funnelled: true, events: [...lead, { t: 'AwaitingSet', awaiting: null }, ...said, ...result.events] };
+  }
+  return {
+    ok: true,
+    funnelled: true,
+    events: [
+      ...lead,
+      ...said,
+      ...result.settled,
+      { t: 'ReplacementPending', pending: result.pending },
+      { t: 'AwaitingSet', awaiting: askPromptFor(scratch, deps.oracle, deps.scripts, result.pending) },
+    ],
+  };
 }
 
 function orderTriggers(

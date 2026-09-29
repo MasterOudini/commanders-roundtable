@@ -42,8 +42,11 @@ function flickeredCommander(): { g: Game; krenko: InstanceId } {
   must(g.submit({ t: 'CastSpell', player: 'p1', card: spell }));
   advanceUntil(g, (s) => s.priority.awaiting?.kind === 'chooseTargets', 20_000);
   must(g.submit({ t: 'ChooseTargets', player: 'p1', targets: [{ kind: 'card', id: krenko }] }));
-  // The settle auto-answers the commander-zone choice with toCommandZone: true
-  // (the harness's simplestAnswer) — exactly the answer that corrupted seed 69.
+  // Seed 69's answer was the harness's simplestAnswer, toCommandZone: true, to a
+  // question raised as Krenko was exiled. Since the choice became a state-based
+  // action (CR 903.9a, 704.6d) nothing is asked: by the next check Krenko is back
+  // on the battlefield, owing nothing. The answer's own guard is proven in
+  // commanderZone.test.ts, under a question that is up.
   settle(g);
   return { g, krenko };
 }

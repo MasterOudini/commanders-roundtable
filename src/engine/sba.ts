@@ -18,7 +18,7 @@ import type { EventBody, SbaAction } from './types/events';
 import type { InstanceId, PlayerId, ZoneRef } from './types/ids';
 import type { OracleDb } from './types/oracle';
 import type { GameState, LossReason } from './types/state';
-import { n, narrated, tableName, vb, who } from './narrate';
+import { n, narrated, tableName, their, vb, who } from './narrate';
 
 export interface SbaResult {
   readonly actions: readonly SbaAction[];
@@ -415,6 +415,12 @@ export function checkStateBasedActions(
     }
   }
 
+  // CR 704.6d / 903.9a - a commander put into a graveyard or exile since the last check may go to the command zone.
+  // A legend-rule question raised by this pass goes first: one question at a time.
+  const home = commanderZoneChoices(state, legendPrompt === null, new Set(returns.map((m) => m.card)));
+  actions.push(...home.actions);
+  events.push(...home.events);
+
   if (actions.length === 0) return NOTHING;
   return { actions, events: [{ t: 'StateBasedActionsApplied', actions }, ...events] };
 }
@@ -456,6 +462,58 @@ function findLegendChoice(
     };
   }
   return null;
+}
+
+/**
+ * CR 704.6d / 903.9a - THE COMMANDER GOES TO THE GRAVEYARD OR EXILE FIRST. A commander put into either since the last
+ * check (`commanderZoneOwed`, the mark its move left) may be moved to the command zone by its owner: the standing answer
+ * (the game's option, or the player's "always do this") moves it or leaves it, and otherwise the owner is asked - every
+ * owed commander in one queue, the head first. So it died, or was exiled, and every trigger watching that saw it; and the
+ * choice is made before those triggers are put on the stack, because the drain runs only after a clean pass.
+ *
+ * ⚠️ Only with no question up: a question is answered on the board as it stands (a trigger waits for it too, D584), and
+ * a commander owed a choice stays owed until then. ⚠️ A player's question waits for a legend-rule question this pass
+ * raised (`asking` false) - one `AwaitingSet` a pass - but the standing answers act at once. ⚠️ A commander this pass
+ * already moves (`moving` - a linked exile ending, D407) is moved on: the choice is moot, and a second move of it in
+ * the same pass would put it in two zones.
+ */
+function commanderZoneChoices(state: GameState, asking: boolean, moving: ReadonlySet<InstanceId>): { actions: SbaAction[]; events: EventBody[] } {
+  const actions: SbaAction[] = [];
+  const events: EventBody[] = [];
+  if (state.priority.awaiting !== null) return { actions, events };
+  const mode = state.options.commanderZoneReplacement;
+  const homes: { card: InstanceId; from: ZoneRef; to: ZoneRef }[] = [];
+  const queue: { player: PlayerId; card: InstanceId; from: ZoneRef }[] = [];
+  for (const p of state.seating) {
+    const seat = state.players[p];
+    if (!seat || seat.hasLost) continue;
+    for (const id of seat.commanderIds) {
+      const card = state.cards[id];
+      if (card?.commanderZoneOwed !== true || (card.zone.kind !== 'graveyard' && card.zone.kind !== 'exile') || moving.has(id)) continue;
+      const standing = mode === 'always' ? true : mode === 'never' ? false : seat.commanderZoneAlways;
+      if (standing === true) {
+        actions.push({ t: 'commanderZone', card: id, choice: 'home' });
+        homes.push({ card: id, from: card.zone, to: { kind: 'command', player: p } });
+      } else if (standing === false) {
+        actions.push({ t: 'commanderZone', card: id, choice: 'stays' });
+        events.push({ t: 'CommanderZoneDeclined', card: id });
+      } else if (asking) {
+        actions.push({ t: 'commanderZone', card: id, choice: 'asked' });
+        queue.push({ player: p, card: id, from: card.zone });
+      }
+    }
+  }
+  if (homes.length > 0) {
+    events.push({ t: 'CardsMoved', moves: homes });
+    for (const move of homes) {
+      const owner = state.cards[move.card]?.owner;
+      if (owner === undefined) continue;
+      events.push(narrated(n`${who(state, owner)} ${vb(owner, 'returns', 'return')} ${their(owner)} commander to the command zone.`, owner));
+    }
+  }
+  const head = queue[0];
+  if (head) events.push({ t: 'AwaitingSet', awaiting: { kind: 'commanderZoneChoice', player: head.player, queue } });
+  return { actions, events };
 }
 
 /**

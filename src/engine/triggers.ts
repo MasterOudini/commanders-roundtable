@@ -16,7 +16,7 @@ import { inPlay } from './zones';
 import { mergedScripts, mergedUnder } from './mutate';
 import { derive, makeDeriveCache } from './derive';
 import { faceOf } from './oracle';
-import { narrated } from './narrate';
+import { n, narrated, their, vb, who } from './narrate';
 import type { ScriptRegistry } from './scripts/registry';
 import { KEYWORD_TRIGGERS } from './keywordTriggers';
 import { parseDevour } from './keywords';
@@ -59,8 +59,9 @@ export function applyReplacements(
   void scripts;
   let events: EventBody[] = [ev];
 
-  // Built-in: CR 903.9a. A commander that would go to a graveyard or exile from
-  // anywhere may go to the command zone instead, at its owner's choice.
+  // Built-in: CR 903.9b. A commander that would be put into its owner's hand or
+  // library from anywhere may go to the command zone instead, at its owner's
+  // choice. (903.9a - a graveyard or exile - is a state-based action, sba.ts.)
   if (ev.t === 'CardsMoved') {
     events = commanderZoneReplacement(state, ev.moves);
     // D577 - a daybound card entering at night enters transformed (CR 702.145b): the move's face, decided before the
@@ -75,8 +76,8 @@ export function applyReplacements(
     // whose tapped state and counters are already settled — and so a card that
     // both enters tapped AND names a colour raises one prompt, not two at once.
     events = withChosenColor(state, oracle, events);
-    // D413 - a marked creature that would die goes to exile instead (CR 614.1); after the commander rule,
-    // which already sent a commander home, and reading its output like the rest.
+    // D413 - a marked creature that would die goes to exile instead (CR 614.1); after the commander rule, reading its
+    // output like the rest (a dying commander is exiled, and 903.9a's state-based choice follows).
     events = withExileInsteadOfDying(state, oracle, scripts, events);
     // D448 - an unearthed permanent that would leave for anywhere but exile goes to exile instead (CR 702.84c).
     events = withUnearthedLeavingToExile(state, oracle, scripts, events);
@@ -356,6 +357,15 @@ export function runReplacementFunnel(
         pending: { event: body, player: clone.player, used: [], siblings: [], rest: [], queued: bodies.slice(i + 1), copyChoice: clone.copyChoice },
       };
     }
+    // CR 903.9b - a commander's move to a hand or a library is held and asked about the same way (`commanderChoiceFor`).
+    const home = commanderChoiceFor(state, body);
+    if (home !== null) {
+      return {
+        kind: 'ask',
+        settled,
+        pending: { event: body, player: home.player, used: [], siblings: [], rest: [], queued: bodies.slice(i + 1), commanderChoice: { card: home.card } },
+      };
+    }
     const builtIn = applyReplacements(state, oracle, scripts, body);
     if (defs.length === 0) {
       settled.push(...builtIn);
@@ -568,46 +578,72 @@ function withMadnessToExile(state: GameState, oracle: OracleDb, events: readonly
   });
 }
 
+/**
+ * CR 903.9b - a commander that would be put into its owner's hand or library from anywhere may be put into the command
+ * zone instead. A REPLACEMENT, so the move is rewritten before it happens and the commander never touches the hand or
+ * the library: the standing answer (the game's option, or the owner's "always do this") rewrites it here; with none, the
+ * funnel has already held the move and asked (`commanderChoiceFor`), and a declined move carries `homeDeclined`.
+ *
+ * ⚠️ **NOT A GRAVEYARD OR EXILE, SINCE THE 2020 RULE (903.9a).** Those moves happen - the commander dies or is exiled, and
+ * every trigger watching that sees it - and the owner's choice is a state-based action afterwards (704.6d, `sba.ts`).
+ * This built-in used to rewrite them too, so a commander under "always" never died: Blood Artist, a haunt and every
+ * other dies trigger missed it (the D583 review's find).
+ */
 function commanderZoneReplacement(state: GameState, moves: readonly CardMove[]): EventBody[] {
   const mode = state.options.commanderZoneReplacement;
   if (mode === 'never') return [{ t: 'CardsMoved', moves }];
+  const said: EventBody[] = [];
+  const rewritten = moves.map((move): CardMove => {
+    if (!commanderWouldGoHome(state, move)) return move;
+    const owner = state.cards[move.card]?.owner;
+    const seat = owner === undefined ? undefined : state.players[owner];
+    if (owner === undefined || (mode !== 'always' && seat?.commanderZoneAlways !== true)) return move;
+    said.push(narrated(n`${who(state, owner)} ${vb(owner, 'puts', 'put')} ${their(owner)} commander into the command zone instead.`, owner));
+    return { card: move.card, from: move.from, to: { kind: 'command', player: owner } };
+  });
+  return said.length === 0 ? [{ t: 'CardsMoved', moves }] : [{ t: 'CardsMoved', moves: rewritten }, ...said];
+}
 
-  const rewritten: CardMove[] = [];
-  const queue: { player: PlayerId; card: InstanceId; from: ZoneRef }[] = [];
+/**
+ * CR 903.9b - a move that would put a commander (never a token) into a hand or a library from any other zone, not yet
+ * answered. Not a move out of the command zone: that is the owner's own doing (Command Beacon), and replacing it would
+ * undo it.
+ *
+ * ⚠️ **NOT A MERGED PERMANENT, a known gap.** Its cards leave together to one kind of zone (D581, the reducer's merged
+ * walk), so the commander among them cannot be sent elsewhere by rewriting the one move: it goes to the hand or the
+ * library with the rest, and the owner's way home is the Tier-3 move. (Its graveyard and exile are 903.9a's, and the
+ * reducer marks a merged commander there like any other.)
+ */
+function commanderWouldGoHome(state: GameState, move: CardMove): boolean {
+  if (move.to.kind !== 'hand' && move.to.kind !== 'library') return false;
+  if (move.from.kind === move.to.kind || move.from.kind === 'command' || move.homeDeclined === true) return false;
+  const card = state.cards[move.card];
+  return !!card && card.isCommander && !card.isToken && card.merged === undefined;
+}
 
-  for (const move of moves) {
-    const card = state.cards[move.card];
-    const leavingToBin = move.to.kind === 'graveyard' || move.to.kind === 'exile';
-    if (!card || !card.isCommander || card.isToken || !leavingToBin || move.from.kind === 'command') {
-      rewritten.push(move);
-      continue;
-    }
-    const owner = state.players[card.owner];
-    const always = owner?.commanderZoneAlways;
-    if (mode === 'always' || always === true) {
-      rewritten.push({ ...move, to: { kind: 'command', player: card.owner } });
-      continue;
-    }
-    if (always === false) {
-      rewritten.push(move);
-      continue;
-    }
-    // 'ask': let it land, then offer the choice. Queued rather than a single
-    // card, because a wrath can bin both halves of a partner pair at once and
-    // abandoning the second would lose a commander with no way back.
-    rewritten.push(move);
-    queue.push({ player: card.owner, card: move.card, from: move.to });
+/**
+ * CR 903.9b - THE COMMANDER ASKS FIRST (D486's held-move shape). A move that would put a commander into its owner's hand
+ * or library, with no standing answer (the 'ask' option, and no "always do this" yet), is HELD before this body's
+ * built-ins run: the owner answers before the move happens, and the answer rewrites it (`commanderZoneChoice` in
+ * handlers.ts). One commander a question - the answer re-runs the body, and the next one asks. A seat out of the game is
+ * not asked.
+ *
+ * ⚠️ D61: `Awaiting` crosses the wire whole. A move between two hidden zones (a commander its owner once left in the
+ * library, drawn; one left in the hand, put back) is asked about too, as the rule says, so the table learns that the card
+ * is the commander - the one case where this question names a card in a hidden zone. Reaching it needs the owner to have
+ * let the commander into the hand or the library before, and its identity is public anyway; said here rather than
+ * redacted.
+ */
+function commanderChoiceFor(state: GameState, body: EventBody): { player: PlayerId; card: InstanceId } | null {
+  if (body.t !== 'CardsMoved' || state.options.commanderZoneReplacement !== 'ask') return null;
+  for (const move of body.moves) {
+    if (!commanderWouldGoHome(state, move)) continue;
+    const owner = state.cards[move.card]?.owner;
+    const seat = owner === undefined ? undefined : state.players[owner];
+    if (owner === undefined || !seat || seat.hasLost || seat.commanderZoneAlways !== null) continue;
+    return { player: owner, card: move.card };
   }
-
-  const out: EventBody[] = [{ t: 'CardsMoved', moves: rewritten }];
-  if (queue.length > 0) {
-    const head = queue[0];
-    if (head) {
-      const awaiting: Awaiting = { kind: 'commanderZoneChoice', player: head.player, queue };
-      out.push({ t: 'AwaitingSet', awaiting });
-    }
-  }
-  return out;
+  return null;
 }
 
 /**
@@ -725,6 +761,13 @@ function cloneChoiceFor(state: GameState, oracle: OracleDb, scripts: ScriptRegis
  * off the board by the one reader), the CR 616 order otherwise.
  */
 export function askPromptFor(state: GameState, oracle: OracleDb, scripts: ScriptRegistry, pending: PendingReplacement): Awaiting {
+  // CR 903.9b - the commander's question: where it sits, and the hand or library it would be put into instead.
+  const hc = pending.commanderChoice;
+  if (hc !== undefined) {
+    const move = pending.event.t === 'CardsMoved' ? pending.event.moves.find((m) => m.card === hc.card) : undefined;
+    const from = move?.from ?? state.cards[hc.card]?.zone ?? { kind: 'command' as const, player: pending.player };
+    return { kind: 'commanderZoneChoice', player: pending.player, queue: [{ player: pending.player, card: hc.card, from }], ...(move ? { instead: move.to } : {}) };
+  }
   const cc = pending.copyChoice;
   if (cc !== undefined) {
     const card = state.cards[cc.card];
