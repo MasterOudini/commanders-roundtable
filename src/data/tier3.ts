@@ -37,7 +37,7 @@ import type { CardData, CardFace } from './cardTypes';
 import { canonicalKeyword } from '../engine/keywords';
 import { parseAltCosts, parseBackup, parseFlashback, parseHarmonize, parseKicker, parseMadness, parseManaCost, parseManaProduction, parseMorph, parseProtection, parseRecover, parseSquad, parseTypeLine, readUpkeepPrice } from './oracleParse';
 import { parseCostReductions } from './costParse';
-import { isPermanentType } from './oracleParse';
+import { isPermanentType, spellSentences } from './oracleParse';
 import { parseEnchant, parseSpellTargets } from './targetParse';
 import { parseActivatedAbilities, parseAlternativeCost } from './activatedParse';
 import { parseEffects } from './effectParse';
@@ -224,7 +224,8 @@ export function tier3NotesFor(card: CardData, faceIndex = 0): Tier3Note[] {
     ? modal.modes.every((m) => m.effectMode === 'auto')
       ? 'auto'
       : 'manual'
-    : parseEffects(text, face.name, isSpellFace, undefined, xCost).mode;
+    : // D583 - the spell's own sentences, as parseFace reads them (a haunt spell's haunted-dies line runs from exile).
+      parseEffects(spellSentences(text, face.name, isSpellFace, card.keywords.some((k) => canonicalKeyword(k) === 'haunt')).text, face.name, isSpellFace, undefined, xCost).mode;
   // ⚠️ A SHIPPED SPELL DEF RUNS THE WHOLE CARD (D187) — the seam in loop.ts
   // outranks the vocabulary, so however the PARSER reads this spell, the app
   // executes every word of it and both notes would be lies. The same set the

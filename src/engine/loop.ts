@@ -1375,8 +1375,23 @@ export function resolveAbility(
 
   // D402 - a DELAYED trigger runs the effects it carried onto the stack, over no targets (CR 603.7).
   if (obj.delayedEffects) {
+    // D583 - a delayed-effects ability that DECLARED targets (a keyword entry's clauses - haunt's trigger from exile, partner
+    // with's player) is a targeted ability all the same: CR 608.2b - every target illegal, it does nothing; otherwise it
+    // resolves over the picks still legal for their clause, as a script's payload does (`withStillLegalPicks`).
+    let aimed = obj;
+    const delayedSpecs = obj.targets.length > 0 && obj.abilityRef?.includes('#kw:') && obj.source ? keywordTargetSpecs(scriptCtxFor(state, deps), obj.abilityRef, obj.source) : [];
+    if (delayedSpecs.length > 0 && obj.source) {
+      const dCard = state.cards[obj.source];
+      const dPrinting = dCard ? deps.oracle.byPrinting(dCard.printingId) : undefined;
+      const dFace = dCard && dPrinting ? faceOf(dPrinting, dCard.faceIndex) : null;
+      if (!targetsStillLegal(state, deps, obj, dFace, delayedSpecs)) {
+        events.push(narrated(n`${obj.label} — no legal target left, so it does not resolve (CR 608.2b).`, obj.controller));
+        return { events };
+      }
+      aimed = withStillLegalPicks(state, deps, obj, dFace, delayedSpecs);
+    }
     // D525 - the executor's generator is kept: a delayed clause that drew from it used to replay to a different board.
-    const delayed = effectResult(state, deps, obj, obj.delayedEffects);
+    const delayed = effectResult(state, deps, aimed, obj.delayedEffects);
     events.push(...delayed.events);
     events.push(narrated(`${obj.label} resolves.`, obj.controller, obj.identity));
     return delayed.rng === undefined ? { events } : { events, rng: delayed.rng };

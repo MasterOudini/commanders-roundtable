@@ -175,6 +175,10 @@ export const TIER2_KEYWORDS = [
   // D581 - MUTATE (CR 702.140): the alternative cost that makes the creature spell a MUTATING one - it targets a
   // non-Human creature with its owner and, as it resolves, merges with it over or under (`mutate.ts`, CR 730).
   'mutate',
+  // D583 - HAUNT (CR 702.55): from the keyword table - a permanent put into a graveyard from the battlefield, or an
+  // instant or sorcery put into a graveyard as it resolves, is exiled HAUNTING target creature (`CardInstance.haunting`),
+  // and the card's abilities that refer to the creature it haunts trigger from exile (702.55c).
+  'haunt',
   // D310 - THE CHARACTERISTIC-DEFINING KEYWORDS: read at layer 1 by the derive.
   'changeling',
   'devoid',
@@ -2202,6 +2206,13 @@ export interface OracleFace {
   readonly champion: { readonly any: readonly PermanentPredicate[]; readonly noun: string } | null;
   /** D538 - REBOUND (CR 702.88a): cast from the hand, exiled as it resolves and offered free at the controller's next upkeep. */
   readonly rebound: boolean;
+  /**
+   * D583 - HAUNT (CR 702.55c): an instant's or sorcery's `When the creature this card haunts dies, <payload>` - the
+   * haunt card's own triggered ability, working from exile: the payload as the vocabulary reads it WHOLE (its effects
+   * and its clauses). Null: no such line, or one the vocabulary does not read whole - it then stays in the spell's
+   * own text and keeps the face manual (D90).
+   */
+  readonly hauntedDies: { readonly text: string; readonly effects: readonly EffectSpec[]; readonly targets: readonly TargetSpec[] } | null;
   /**
    * D540 - FORETELL (CR 702.143a): the foretell cost the face prints (`Foretell {M}`). On its owner's turn a special action
    * pays {2} and exiles the card from the hand face down; once that turn has ended it may be cast from exile for this

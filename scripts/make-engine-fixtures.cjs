@@ -10447,6 +10447,16 @@ const WANTED = [
   'Skyclave Aerialist // Skyclave Invader',
   'Blightreaper Thallid // Blightsower Thallid',
   // D582 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D583 - HAUNT: the haunt cards the proofs deal (the rows bring the rest).
+  'Belfry Spirit',
+  'Cry of Contrition',
+  'Seize the Soul',
+  'Benediction of Moons',
+  // D583 - HAUNT: the rows the whole-leftover row maker rowed once a haunt creature's enters-or-haunted-dies head fired (the haunted-dies half a def active in exile).
+  'Absolver Thrull',
+  'Blind Hunter',
+  'Exhumer Thrull',
+  // D583 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

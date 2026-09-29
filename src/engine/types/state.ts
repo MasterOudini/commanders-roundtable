@@ -298,6 +298,12 @@ export interface CardInstance {
    * a new object (610.3c; a flickered Oblivion Ring frees what it held). Cleared by any move.
    */
   readonly exiledUntil?: { readonly source: InstanceId; readonly entry: number } | undefined;
+  /**
+   * D583 - HAUNT (CR 702.55b): this card is in exile HAUNTING a creature - that object and the entry stamp it had then (a
+   * creature that leaves and returns is a new object, CR 400.7). Its abilities that refer to the creature it haunts
+   * trigger from exile (702.55c). Set by the move that exiles it, cleared by any other move.
+   */
+  readonly haunting?: { readonly card: InstanceId; readonly entry: number } | undefined;
   /** CR 903.8. Survives zone changes, which is the whole point. */
   readonly commanderCastCount: number;
   /** Tier-3 manual override, applied at layer 7d. */

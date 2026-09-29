@@ -638,6 +638,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
           // exiles and cleared by any other move of the card.
           ...(entering ? { entries: (card.entries ?? 0) + 1 } : {}),
           ...(move.until !== undefined ? { exiledUntil: move.until } : card.exiledUntil !== undefined ? { exiledUntil: undefined } : {}),
+          // D583 - the haunt's exile marks the card with the creature it haunts; any other move of the card clears the mark.
+          ...(move.haunting !== undefined ? { haunting: move.haunting } : card.haunting !== undefined ? { haunting: undefined } : {}),
           // D486 - entering AS A COPY (CR 707.9): the identity becomes the copied card's, the printed card kept for the
           // move that takes it off the battlefield; a copy leaving the battlefield is its printed card again (707.4).
           ...(move.asCopyOf !== undefined

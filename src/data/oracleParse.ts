@@ -27,13 +27,14 @@ import type {
   ParsedTypeLine,
   Protection,
   ProtectionCategory,
+  TargetSpec,
 } from '../engine/types/oracle';
 import { NO_PROTECTION } from '../engine/types/oracle';
 import type { EffectMode, EffectSpec, ModalFace } from '../engine/types/oracle';
 import { canonicalKeyword, parseDevour, parseLandwalk, parseToxic } from '../engine/keywords';
 import { parseCostReductions, parseGrantedReductions } from './costParse';
 import { parseHandSize } from './handSizeParse';
-import { parseSpellTargets } from './targetParse';
+import { parseSpellTargets, parseTargetClauses } from './targetParse';
 import { parseActivatedAbilities, parseAdditionalCost, parseAlternativeCost, readCostVerbs, type KickerVerb } from './activatedParse';
 import { parseEffects, partnerWithSearchSpec } from './effectParse';
 import { parseModalFace } from './modalParse';
@@ -1409,6 +1410,43 @@ export function exertForm(line: string, selfName: string): 'bare' | 'reflexive' 
   return null;
 }
 
+/** D583 - the head of an instant's or sorcery's haunted-dies line (CR 702.55c). */
+const HAUNTED_DIES_HEAD = 'When the creature this card haunts dies, ';
+
+/**
+ * D583 - HAUNT (CR 702.55c): an instant's or sorcery's `When the creature this card haunts dies, <payload>` - the haunt
+ * card's triggered ability from exile. Read only when the vocabulary reads the payload WHOLE (`auto`): a line it cannot
+ * run stays in the spell's text and keeps the face manual (D90). The payload's clauses are the trigger's, never the
+ * cast's (the target parser reads the line as a triggered one).
+ */
+export function parseHauntedDies(
+  oracleText: string,
+  cardName: string,
+): { readonly line: string; readonly text: string; readonly effects: readonly EffectSpec[]; readonly targets: readonly TargetSpec[] } | null {
+  const line = (oracleText ?? '').split('\n').find((l) => l.startsWith(HAUNTED_DIES_HEAD));
+  if (line === undefined) return null;
+  const rest = line.slice(HAUNTED_DIES_HEAD.length);
+  const text = rest.charAt(0).toUpperCase() + rest.slice(1);
+  const read = parseEffects(text, cardName, true);
+  if (read.mode !== 'auto' || read.effects.length === 0) return null;
+  return { line, text, effects: read.effects, targets: parseTargetClauses(text) };
+}
+
+/**
+ * D583 - the text an instant's or sorcery's OWN sentences are read from: its haunted-dies line left out when it
+ * reads whole (`parseHauntedDies` - the card's trigger from exile, run by the engine). ONE reader for `parseFace` and the
+ * Tier-3 disclosure, so the face's mode and the note on the card cannot disagree.
+ */
+export function spellSentences(
+  oracleText: string,
+  cardName: string,
+  isInstantOrSorcery: boolean,
+  haunt: boolean,
+): { readonly text: string; readonly haunted: ReturnType<typeof parseHauntedDies> } {
+  const haunted = isInstantOrSorcery && haunt ? parseHauntedDies(oracleText, cardName) : null;
+  return { text: haunted ? oracleText.split('\n').filter((l) => l !== haunted.line).join('\n') : oracleText, haunted };
+}
+
 export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_WARN): OracleFace {
   const face = card.faces[faceIndex] ?? card.faces[0];
   if (!face) throw new Error(`card ${card.scryfallId} has no faces`);
@@ -1497,9 +1535,12 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
   const xCost = manaCost !== null && manaCost.xCount > 0;
   const modal = parseModalFace(face.oracleText, face.name, isInstantOrSorcery, warn, xCost);
   const targets = modal ? [] : parseSpellTargets(face.oracleText, isPermanent, warn);
+  // D583 - HAUNT (CR 702.55c): an instant's or sorcery's haunted-dies line is the card's own trigger from exile - read
+  // apart, and left out of the spell's own sentences only when it reads whole.
+  const { text: spellText, haunted } = spellSentences(face.oracleText, face.name, isInstantOrSorcery, keywords.includes('haunt'));
   const parsedEffects = modal
     ? modalEffectSummary(modal, warn)
-    : parseEffects(face.oracleText, face.name, isInstantOrSorcery, warn, xCost);
+    : parseEffects(spellText, face.name, isInstantOrSorcery, warn, xCost);
 
   // ⚠️ THE COVERAGE MEASUREMENT, and it belongs here rather than in
   // `parseKeywords` because only this function can see every Tier-2 field.
@@ -1564,6 +1605,7 @@ export function parseFace(card: CardData, faceIndex: number, warn: Warn = NOOP_W
     escapesWith,
     champion,
     rebound,
+    hauntedDies: haunted ? { text: haunted.text, effects: haunted.effects, targets: haunted.targets } : null,
     foretellCost: parseForetell(face.oracleText, warn),
     plotCost: parsePlot(face.oracleText, warn),
     madnessCost: parseMadness(face.oracleText, warn),

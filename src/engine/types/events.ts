@@ -94,6 +94,8 @@ export interface CardMove {
   readonly exploitedBy?: InstanceId;
   /** D407 - an exile "until <source> leaves the battlefield": the source and its entry stamp, onto the exiled card (`CardInstance.exiledUntil`). */
   readonly until?: { readonly source: InstanceId; readonly entry: number };
+  /** D583 - the haunt's exile (CR 702.55b): the creature this card haunts and its entry stamp, onto the card (`CardInstance.haunting`). */
+  readonly haunting?: { readonly card: InstanceId; readonly entry: number };
   /**
    * The face this card is moving AS — CR 712, a modal DFC's back face. Omit for
    * every ordinary card.

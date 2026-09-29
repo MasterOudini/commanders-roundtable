@@ -20,7 +20,7 @@ import { championSpec, exploitSpec, madnessCastSpec, mobilizeSacrificeSpec, reco
 import type { ScriptCtx, TriggerDef } from './scripts/api';
 import type { EventBody, EventKind } from './types/events';
 import type { InstanceId, PlayerId } from './types/ids';
-import type { EffectSpec, Keyword, ModeDecl, TargetSpec } from './types/oracle';
+import type { EffectSpec, Keyword, ModeDecl, OracleFace, TargetSpec } from './types/oracle';
 import type { DefenderRef, DelayedTrigger, StackObject } from './types/state';
 import { faceOf } from './oracle';
 import { narrated } from './narrate';
@@ -85,6 +85,12 @@ export interface KeywordTrigger {
    * looks-back entry) for the cards whose printed face carries the keyword; the card's OWNER controls the trigger.
    */
   readonly fromGraveyard?: true;
+  /**
+   * D583 - the entry fires off a card IN EXILE (haunt's trigger from the creature it haunts): the bus walks every exile
+   * pile (the pre-event state for a looks-back entry) for the cards whose printed face carries the keyword; the card's
+   * OWNER controls the trigger, its clauses and effects riding as storm's do.
+   */
+  readonly fromExile?: true;
   /**
    * D536 - the entry's own EFFECTS (storm's copies): carried onto the stack object as `delayedEffects` and run by the
    * vocabulary's executor at resolution (D402's path), so a clause that asks (a copy's new targets) rides the continuation.
@@ -1065,7 +1071,103 @@ export const KEYWORD_TRIGGERS: ReadonlyMap<string, KeywordTrigger> = new Map<str
       },
     },
   ],
+  [
+    'haunt',
+    {
+      // D583 - CR 702.55a: when this permanent is put into a graveyard from the battlefield, exile it haunting target
+      // creature. Looked back (it died); the exile is the card's own move while it is still in the graveyard, marked with the
+      // creature and that creature's entry stamp (`haunting` - 702.55b).
+      event: 'CardsMoved',
+      looksBack: true,
+      targets: () => HAUNT_TARGET,
+      matches: (_ctx, self, ev) => diedThisEvent(self, ev),
+      label: (ctx, self) => `${nameOf(ctx, self)} - haunt`,
+      resolve: (ctx, self, obj) => hauntExile(ctx, self, obj),
+    },
+  ],
+  [
+    'hauntSpell',
+    {
+      // D583 - CR 702.55a: an instant or sorcery with haunt, put into a graveyard as it resolves, is exiled haunting target
+      // creature. The entry fires off the card in its owner's graveyard (`fromGraveyard`) after its own resolution's batch
+      // (`StackResolved` to a graveyard - a countered or fizzled spell is no resolution; flashback and rebound exile it).
+      keyword: 'haunt',
+      event: 'StackResolved',
+      fromGraveyard: true,
+      targets: () => HAUNT_TARGET,
+      matches: (ctx, self, ev) => ev.t === 'StackResolved' && ev.card === self && ev.to?.kind === 'graveyard' && isSpellCard(ctx, self),
+      label: (ctx, self) => `${nameOf(ctx, self)} - haunt`,
+      resolve: (ctx, self, obj) => hauntExile(ctx, self, obj),
+    },
+  ],
+  [
+    'hauntedDies',
+    {
+      // D583 - CR 702.55c: an instant's or sorcery's `When the creature this card haunts dies,` line, from exile - the entry
+      // fires off the haunt card IN EXILE (`fromExile`), looked back (the creature it haunts died: that object, with the entry
+      // stamp the haunt recorded); its clauses and effects are the face's own (`hauntedDies`), run as storm's are. A
+      // permanent's haunted-dies line is its script's (a def active in exile).
+      keyword: 'haunt',
+      event: 'CardsMoved',
+      looksBack: true,
+      fromExile: true,
+      matches: (ctx, self, ev) => hauntedDiesFace(ctx, self) !== null && hauntedDied(ctx, self, ev),
+      targets: (ctx, self) => hauntedDiesFace(ctx, self)?.targets ?? [],
+      effects: (ctx, self) => hauntedDiesFace(ctx, self)?.effects ?? [],
+      label: (ctx, self) => `${nameOf(ctx, self)} - ${hauntedDiesFace(ctx, self)?.text ?? 'haunt'}`,
+      resolve: () => [],
+    },
+  ],
 ]);
+
+/** D583 - haunt's aim (CR 702.55a): `target creature`, read by the one reader. */
+const HAUNT_TARGET: readonly TargetSpec[] = parseTargetClauses('Exile it haunting target creature.');
+
+/**
+ * D583 - haunt's exile (CR 702.55a/b): the card, still in its owner's graveyard, to exile HAUNTING the target - that object
+ * and its entry stamp. Nothing when the card has left the graveyard (a new object, CR 400.7) or the target is no longer on
+ * the battlefield.
+ */
+function hauntExile(ctx: ScriptCtx, self: InstanceId, obj: StackObject): readonly EventBody[] {
+  const card = ctx.state.cards[self];
+  const target = obj.targets[0];
+  if (!card || card.zone.kind !== 'graveyard' || !target || target.kind !== 'card') return [];
+  const haunted = ctx.state.cards[target.id];
+  if (!haunted || haunted.zone.kind !== 'battlefield') return [];
+  return [
+    { t: 'CardsMoved', moves: [{ card: self, from: { kind: 'graveyard', player: card.zone.player }, to: { kind: 'exile', player: card.owner }, haunting: { card: target.id, entry: haunted.entries ?? 0 } }] },
+    // A face-down creature's identity is hidden (CR 708.5): the log names it as the table sees it.
+    narrated(`${nameOf(ctx, self)} haunts ${haunted.faceDown ? 'a face-down creature' : nameOf(ctx, target.id)}.`, obj.controller),
+  ];
+}
+
+/** D583 - an instant or sorcery card (the spell's haunt, CR 702.55a). */
+function isSpellCard(ctx: ScriptCtx, id: InstanceId): boolean {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  const types = card && printing ? faceOf(printing, card.faceIndex).typeLine.types : [];
+  return types.includes('Instant') || types.includes('Sorcery');
+}
+
+/** D583 - the printed face's haunted-dies trigger (an instant's or sorcery's, `OracleFace.hauntedDies`), or null. */
+function hauntedDiesFace(ctx: ScriptCtx, id: InstanceId): OracleFace['hauntedDies'] {
+  const card = ctx.state.cards[id];
+  const printing = card ? ctx.oracle.byPrinting(card.printingId) : undefined;
+  return card && printing ? faceOf(printing, card.faceIndex).hauntedDies : null;
+}
+
+/**
+ * D583 - the creature this card haunts died in this move (CR 702.55c): the haunt card in exile, the object its mark names
+ * (with the entry stamp it recorded - the same object) moved from the battlefield to a graveyard. Asked of the state before
+ * the move (a looks-back entry, or a script's def that looks back).
+ */
+export function hauntedDied(ctx: ScriptCtx, self: InstanceId, ev: EventBody): boolean {
+  if (ev.t !== 'CardsMoved') return false;
+  const card = ctx.state.cards[self];
+  const h = card?.haunting;
+  if (h === undefined || card?.zone.kind !== 'exile') return false;
+  return ev.moves.some((m) => m.card === h.card && m.from.kind === 'battlefield' && m.to.kind === 'graveyard' && (ctx.state.cards[m.card]?.entries ?? 0) === h.entry);
+}
 
 /**
  * D549 - the opponents a myriad attack makes copies toward (CR 702.116a): every player still in the game but the

@@ -317389,6 +317389,255 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "BELFRY_SPIRIT": {
+    "scryfallId": "556e4e71-b149-49c8-8a22-83660bef57bb",
+    "oracleId": "c171065f-7947-4161-a481-1ea2d3ce8422",
+    "name": "Belfry Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Belfry Spirit",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nHaunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, create two 1/1 black Bat creature tokens with flying.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "556e4e71-b149-49c8-8a22-83660bef57bb"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Haunt"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRY_OF_CONTRITION": {
+    "scryfallId": "62016f24-3f40-406b-8e29-30a6545d0fc1",
+    "oracleId": "2b455d6a-dfee-4828-8873-094caf85c584",
+    "name": "Cry of Contrition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cry of Contrition",
+        "manaCost": "{B}",
+        "typeLine": "Sorcery",
+        "oracleText": "Target player discards a card.\nHaunt (When this spell card is put into a graveyard after resolving, exile it haunting target creature.)\nWhen the creature this card haunts dies, target player discards a card.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "62016f24-3f40-406b-8e29-30a6545d0fc1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haunt"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "46",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SEIZE_THE_SOUL": {
+    "scryfallId": "29bf245f-e8e0-4d32-8cd7-06d832609910",
+    "oracleId": "91557f08-15b1-4e3e-90fd-cec35ed0868a",
+    "name": "Seize the Soul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Seize the Soul",
+        "manaCost": "{2}{B}{B}",
+        "typeLine": "Instant",
+        "oracleText": "Destroy target nonwhite, nonblack creature. Create a 1/1 white Spirit creature token with flying.\nHaunt (When this spell card is put into a graveyard after resolving, exile it haunting target creature.)\nWhen the creature this card haunts dies, destroy target nonwhite, nonblack creature. Create a 1/1 white Spirit creature token with flying.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "29bf245f-e8e0-4d32-8cd7-06d832609910"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haunt"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENEDICTION_OF_MOONS": {
+    "scryfallId": "4a45973a-405b-4736-947a-12df17553d77",
+    "oracleId": "3ff2fc3c-0871-4ba7-9b7c-8634ec770d6b",
+    "name": "Benediction of Moons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benediction of Moons",
+        "manaCost": "{W}",
+        "typeLine": "Sorcery",
+        "oracleText": "You gain 1 life for each player.\nHaunt (When this spell card is put into a graveyard after resolving, exile it haunting target creature.)\nWhen the creature this card haunts dies, you gain 1 life for each player.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Matt Cavotta",
+        "imageId": "4a45973a-405b-4736-947a-12df17553d77"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Haunt"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "GPT-3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABSOLVER_THRULL": {
+    "scryfallId": "711979c3-e70b-4973-a4f1-020db534fc73",
+    "oracleId": "a9002245-0f33-48cb-96d3-fde884236eb5",
+    "name": "Absolver Thrull",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Absolver Thrull",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Thrull Cleric",
+        "oracleText": "Haunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, destroy target enchantment.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Rob Alexander",
+        "imageId": "711979c3-e70b-4973-a4f1-020db534fc73"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Haunt"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "1",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLIND_HUNTER": {
+    "scryfallId": "814a5348-988d-480f-806d-9c958f1a10b9",
+    "oracleId": "a731f5bc-892c-4857-9590-4fa31c1caf00",
+    "name": "Blind Hunter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blind Hunter",
+        "manaCost": "{2}{W}{B}",
+        "typeLine": "Creature — Bat",
+        "oracleText": "Flying\nHaunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, target player loses 2 life and you gain 2 life.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "814a5348-988d-480f-806d-9c958f1a10b9"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Haunt"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "166",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXHUMER_THRULL": {
+    "scryfallId": "c8c53fda-3768-4cc5-8ca3-a60805c340ba",
+    "oracleId": "cd2ae326-1a74-4b67-9718-92b6a209303b",
+    "name": "Exhumer Thrull",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Exhumer Thrull",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Thrull",
+        "oracleText": "Haunt (When this creature dies, exile it haunting target creature.)\nWhen this creature enters or the creature it haunts dies, return target creature card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "c8c53fda-3768-4cc5-8ca3-a60805c340ba"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Haunt"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

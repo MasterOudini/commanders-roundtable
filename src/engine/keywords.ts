@@ -118,6 +118,8 @@ const CANON: Readonly<Record<string, Keyword>> = {
   'split second': 'splitSecond',
   // D581 - mutate: the alternative cost's target, and the merge as the spell resolves.
   mutate: 'mutate',
+  // D583 - haunt: exiled haunting target creature as it dies (or as the spell resolves), its abilities firing from exile.
+  haunt: 'haunt',
   // D310 - characteristic-defining keywords the derive reads at layer 1.
   changeling: 'changeling',
   devoid: 'devoid',

@@ -7,6 +7,10 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BELFRY_SPIRIT_SCRIPT } from './cards/belfrySpirit';
+import { ABSOLVER_THRULL_SCRIPT } from './cards/absolverThrull';
+import { BLIND_HUNTER_SCRIPT } from './cards/blindHunter';
+import { EXHUMER_THRULL_SCRIPT } from './cards/exhumerThrull';
 import { BRUTAL_CATHAR_MOONRAGE_BRUTE_SCRIPT } from './cards/brutalCatharMoonrageBrute';
 import { AVACYNIAN_MISSIONARIES_LUNARCH_INQUISITORS_SCRIPT } from './cards/avacynianMissionariesLunarchInquisitors';
 import { WOLFBITTEN_CAPTIVE_KRALLENHORDE_KILLER_SCRIPT } from './cards/wolfbittenCaptiveKrallenhordeKiller';
@@ -8424,6 +8428,10 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BELFRY_SPIRIT_SCRIPT,
+  ABSOLVER_THRULL_SCRIPT,
+  BLIND_HUNTER_SCRIPT,
+  EXHUMER_THRULL_SCRIPT,
   BRUTAL_CATHAR_MOONRAGE_BRUTE_SCRIPT,
   AVACYNIAN_MISSIONARIES_LUNARCH_INQUISITORS_SCRIPT,
   WOLFBITTEN_CAPTIVE_KRALLENHORDE_KILLER_SCRIPT,

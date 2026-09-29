@@ -3598,6 +3598,9 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     .filter((l) => !/^(?:Retrace|Jump-start)$/.test(l.trim()))
     // D538 - a Rebound line is the resolution's exile and the upkeep's free cast, no clause of the spell either.
     .filter((l) => !/^Rebound$/.test(l.trim()))
+    // D583 - a Haunt line is the keyword table's trigger (the card exiled haunting target creature), no clause of the spell
+    // either.
+    .filter((l) => !/^Haunt$/.test(l.trim()))
     // D540 - a Foretell line is a special action from the hand and a cast from exile the engine prices, no clause of the
     // spell either.
     .filter((l) => !/^Foretell (?:\{[^}]+\})+$/.test(l.trim()))

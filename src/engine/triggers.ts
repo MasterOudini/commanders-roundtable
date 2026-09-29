@@ -1564,11 +1564,38 @@ export function collectTriggers(
                 abilityRef: `${card.oracleId}#kw:${keyword}`,
                 label: kt.label(ctx, id),
                 optional: false,
-                specs: [],
+                // D583 - a graveyard entry may aim (haunt's exile of the resolved spell).
+                specs: kt.targets ? kt.targets(ctx, id) : [],
                 ...(item !== undefined ? { item } : {}),
                 ...(kt.effects ? { effects: kt.effects(ctx, id, event.body) } : {}),
               });
             }
+          }
+        }
+        continue;
+      }
+      // D583 - an entry that fires off a card IN EXILE (haunt's trigger from the creature it haunts): every exile pile's
+      // cards, off the state the entry looks at (before the event for a looks-back one), through the PRINTED face's
+      // keywords; the card's OWNER controls the trigger, its clauses and effects riding as storm's do.
+      if (kt.fromExile === true) {
+        const kw = kt.keyword ?? (keyword as Keyword);
+        for (const pile of Object.values(state.zones.exile)) {
+          for (const id of pile ?? []) {
+            const card = state.cards[id];
+            const printing = card ? oracle.byPrinting(card.printingId) : undefined;
+            if (!card || !printing || card.zone.kind !== 'exile') continue;
+            if (!faceOf(printing, card.faceIndex).keywords.includes(kw)) continue;
+            if (!kt.matches(ctx, id, event.body)) continue;
+            out.push({
+              id: `t${n++}`,
+              source: id,
+              controller: card.owner,
+              abilityRef: `${card.oracleId}#kw:${keyword}`,
+              label: kt.label(ctx, id),
+              optional: false,
+              specs: kt.targets ? kt.targets(ctx, id) : [],
+              ...(kt.effects ? { effects: kt.effects(ctx, id, event.body) } : {}),
+            });
           }
         }
         continue;
