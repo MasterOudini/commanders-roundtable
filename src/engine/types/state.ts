@@ -1123,7 +1123,12 @@ export type Awaiting =
       readonly source: InstanceId;
       /** D474 - a ceased token's last known printing (the trigger's `lki`), read when `source` is gone. */
       readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
-      /** D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source); absent otherwise. */
+      /**
+       * D586 - a recoloured spell COPY's reflexive trigger: the copy's colours (CR 603.7d - the copy is the source). D587 - and
+       * a copy's own new targets (`forKind` copy, CR 707.10c): its colours where the copying clause set them (Fork's red). The
+       * colours every aimer aims with - the host, the client veil (so the UI, the bot, the net driver), the harness, the fuzz -
+       * in place of the printed face of `source`, the copied card. Absent otherwise (every older prompt byte-identical).
+       */
       readonly sourceColors?: readonly ColorLetter[];
       /** `Lightning Bolt` · `Prodigal Sorcerer — {T}: deals 1 damage to any target`. */
       readonly label: string;

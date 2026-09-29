@@ -1231,7 +1231,8 @@ function answerFor(state: GameState, p: Picker): Intent | null {
       // legal set; short of one, it keeps them - a copy is never cancelled.
       const keep = awaiting.forKind === 'copy';
       if (keep && p.below(3) === 0) return { t: 'ChooseTargets', player: awaiting.player, targets: [] };
-      const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player, awaiting.lki);
+      // D587 - in the colours the host aims with: a recoloured spell copy's, off the prompt (its trigger's aim, its new targets).
+      const src = targetingSourceFor(state, deps(SCRIPTS), awaiting.source, awaiting.player, awaiting.lki, awaiting.sourceColors);
       if (!src) return keep ? { t: 'ChooseTargets', player: awaiting.player, targets: [] } : simplestAnswer(awaiting, state);
       const pool = candidatesFromState(state, deps(SCRIPTS));
       // CR 115.5 - a trigger or a copy is on the stack as it is aimed, and never its own target (the host refuses it).

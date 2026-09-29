@@ -760,10 +760,12 @@ export class ClientSession {
     // CR 115.5 - the one object aimed while it is ON the stack is the one my live prompt asks about (a trigger's
     // targets, a copy's new ones): never its own target, as the host rules (`chooseTriggerTargets`, `chooseCopyTargets`).
     const prompt = this.session.awaiting;
-    const aimed = prompt?.kind === 'chooseTargets' && prompt.player === this.you && prompt.source === sourceCard ? prompt.stackId : null;
+    const live = prompt?.kind === 'chooseTargets' && prompt.player === this.you && prompt.source === sourceCard ? prompt : null;
     const src = {
       controller: this.you,
-      colors: face?.colors ?? [],
+      // D587 - and in the colours the host aims it with: a recoloured spell copy's, carried by that prompt - the copy's
+      // reflexive trigger (CR 603.7d) or the copy's new targets (CR 707.10c) - never the copied card's printed face.
+      colors: live?.sourceColors ?? face?.colors ?? [],
       // D356 - the same type line the host reads, so the veil and the host agree about a
       // protection from a card type rather than disagreeing at the submit.
       typeLine: face?.typeLine,
@@ -771,7 +773,7 @@ export class ClientSession {
       toughness: onBattlefield ? (cv?.toughness ?? null) : null,
       // D414 - `another target X` refuses the source itself; the client says which it is.
       sourceId: sourceCard,
-      stackId: aimed,
+      stackId: live?.stackId ?? null,
     };
     const candidates = this.candidatesFromView();
     const seen = new Set<string>();

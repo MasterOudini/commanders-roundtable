@@ -725,7 +725,9 @@ export function effectResult(
           const face = oracleCard === undefined ? undefined : faceOf(oracleCard, of.faceIndex);
           const specs = face === undefined ? [] : face.modal ? modeSpecs(face.modal.modes, copy.modes) : [...face.targets, ...splicedFaces(deps.oracle, original.spliced).flatMap((f) => f.targets)];
           if (specs.length > 0) {
-            out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseTargets', player: controller, stackId: copy.id, count: 0, source: copy.source, label: copy.label, specs, forKind: 'copy' } });
+            // D587 - the copy's own colours ride its question (Fork's red; CR 707.10c - the copy is what is aimed): every
+            // aimer reads them off the prompt, as the host reads them off the copy (`chooseCopyTargets`). Absent without them.
+            out.push({ t: 'AwaitingSet', awaiting: { kind: 'chooseTargets', player: controller, stackId: copy.id, count: 0, source: copy.source, ...(colors !== undefined ? { sourceColors: colors } : {}), label: copy.label, specs, forKind: 'copy' } });
           }
         }
         break;

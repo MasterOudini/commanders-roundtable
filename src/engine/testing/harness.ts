@@ -308,7 +308,8 @@ function sourceOf(
   const oracleCard = card ? ORACLE.byPrinting(card.printingId) : awaiting.lki ? ORACLE.byPrinting(awaiting.lki.printingId) : undefined;
   if (!oracleCard) return null;
   // D341 - the source's own power and toughness, for a clause that compares against them (Mentor).
-  const src = targetingSourceFor(state, deps(), awaiting.source, awaiting.player, awaiting.lki) ?? { controller: awaiting.player, colors: faceOf(oracleCard, card ? card.faceIndex : (awaiting.lki?.faceIndex ?? 0)).colors };
+  // D587 - in the colours the host aims with: a recoloured spell copy's, off the prompt (its trigger's aim, its new targets).
+  const src = targetingSourceFor(state, deps(), awaiting.source, awaiting.player, awaiting.lki, awaiting.sourceColors) ?? { controller: awaiting.player, colors: awaiting.sourceColors ?? faceOf(oracleCard, card ? card.faceIndex : (awaiting.lki?.faceIndex ?? 0)).colors };
   // CR 115.5 - a trigger or a copy is on the stack as it is aimed, and never its own target (the host refuses it).
   return { ...src, stackId: awaiting.stackId };
 }
