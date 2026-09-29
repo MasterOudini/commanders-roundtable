@@ -39,6 +39,7 @@ import type {
   DelayWhen,
   VerbPrice,
   CopyExceptions,
+  ReflexiveSpec,
 } from './oracle';
 import type { PermanentPredicate } from '../../data/replacementParse';
 
@@ -496,6 +497,16 @@ export interface StackObject {
    */
   readonly delayedEffects?: readonly EffectSpec[];
   /**
+   * D584 - a REFLEXIVE trigger's own target clauses (its payload's, asked as it went on the stack): the 608.2b re-check
+   * reads them, and its aims are the picks, never objects bound at arming (D497's skip). Absent on every other object.
+   */
+  readonly delayedSpecs?: readonly TargetSpec[];
+  /**
+   * D584 - a TOKEN source's last known printing (the pending trigger's D474 `lki`), for a question its resolution asks after the
+   * token ceased to exist - a reflexive price's trigger is made off it (CR 603.10, 113.7a). Absent for a card, which never ceases.
+   */
+  readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
+  /**
    * D403 - KICKER (CR 702.33): the number of times the kicker was paid, absent when the spell
    * was not kicked. Read by the executor (`If this spell was kicked, ...`) and carried onto the
    * permanent the spell becomes (`CardMove.kicked`, `CardInstance.kicked`).
@@ -862,6 +873,8 @@ export interface PendingTrigger {
   readonly delayed?: string;
   /** D536 - a keyword trigger's own effects (storm's copies), riding onto the stack object as `delayedEffects` (D402's path). */
   readonly effects?: readonly EffectSpec[];
+  /** D584 - a REFLEXIVE trigger (CR 603.12): its `specs` ride onto the stack object as `delayedSpecs` too (608.2b at resolution). */
+  readonly reflexive?: true;
   /** D492 - a once-per-turn def's firing: recorded on `TurnState.triggered` as it is queued (the reducer). */
   readonly oncePerTurn?: true;
   /**
@@ -1282,6 +1295,13 @@ export type Awaiting =
       readonly continuation?: EffectContinuation;
       /** D545 - an EXPLOIT's sacrifice (CR 702.110a): the answer tags the sacrificed move with the source (`CardMove.exploitedBy`). */
       readonly exploit?: true;
+      /**
+       * D584 - the price's `When you do, ...` (CR 603.12): paid, the answer emits `ReflexiveTriggered` - the payload is a
+       * triggered ability of its own, aimed as it goes on the stack. Absent otherwise (every older prompt byte-identical).
+       */
+      readonly reflexive?: ReflexiveSpec;
+      /** D584 - the reflexive price's TOKEN source's printing (it may cease before the answer - the trigger is made off it). */
+      readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
     }
   /**
    * D357 - CR 701.19: the searcher picks from their OWN library, which they alone can see.

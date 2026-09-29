@@ -12,11 +12,13 @@ import { ENGINE_CARDS } from './fixtures/engineCards';
 import { TOKEN_TABLE } from './tokenTable';
 import { vocabularyEffects } from '../engine/scripts/vocabulary';
 
-type E = { token?: { printingId?: string } | null; pay?: { ifPaid?: readonly E[]; ifNotPaid?: readonly E[] } | null; delay?: { effects?: readonly E[] } | null };
+type E = { token?: { printingId?: string } | null; pay?: { ifPaid?: readonly E[]; ifNotPaid?: readonly E[]; reflexive?: { effects?: readonly E[] } } | null; delay?: { effects?: readonly E[] } | null };
 function tokensOf(effects: readonly E[], out: string[]): void {
   for (const e of effects) {
     if (e.token?.printingId) out.push(e.token.printingId);
     if (e.pay) { tokensOf(e.pay.ifPaid ?? [], out); tokensOf(e.pay.ifNotPaid ?? [], out); }
+    // D584 - and a reflexive payload's (`When you do, create ...`).
+    if (e.pay?.reflexive?.effects) tokensOf(e.pay.reflexive.effects, out);
     if (e.delay?.effects) tokensOf(e.delay.effects, out);
   }
 }

@@ -7,6 +7,36 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KISHLA_TRAWLERS_SCRIPT } from './cards/kishlaTrawlers';
+import { BOILERBILGES_RIPPER_SCRIPT } from './cards/boilerbilgesRipper';
+import { SUTINA_SPEAKER_OF_THE_TAJURU_SCRIPT } from './cards/sutinaSpeakerOfTheTajuru';
+import { FIREBLADE_ARTIST_SCRIPT } from './cards/firebladeArtist';
+import { SPELLBOOK_VENDOR_SCRIPT } from './cards/spellbookVendor';
+import { TERROR_BALLISTA_SCRIPT } from './cards/terrorBallista';
+import { AMBULATORY_EDIFICE_SCRIPT } from './cards/ambulatoryEdifice';
+import { ITZQUINTH_FIRSTBORN_OF_GISHATH_SCRIPT } from './cards/itzquinthFirstbornOfGishath';
+import { RIDDLE_GATE_GARGOYLE_SCRIPT } from './cards/riddleGateGargoyle';
+import { KILLMONGER_SCOURGE_OF_WAKANDA_SCRIPT } from './cards/killmongerScourgeOfWakanda';
+import { PYROCLASTIC_HELLION_SCRIPT } from './cards/pyroclasticHellion';
+import { CAVALIER_OF_NIGHT_SCRIPT } from './cards/cavalierOfNight';
+import { SELFCRAFT_MECHAN_SCRIPT } from './cards/selfcraftMechan';
+import { YOUNG_NECROMANCER_SCRIPT } from './cards/youngNecromancer';
+import { SAVAI_THUNDERMANE_SCRIPT } from './cards/savaiThundermane';
+import { THOUSAND_MOONS_CRACKSHOT_SCRIPT } from './cards/thousandMoonsCrackshot';
+import { GLORIFIER_OF_SUFFERING_SCRIPT } from './cards/glorifierOfSuffering';
+import { MEANDERS_GUIDE_SCRIPT } from './cards/meandersGuide';
+import { RUTHLESS_LAWBRINGER_SCRIPT } from './cards/ruthlessLawbringer';
+import { UNSCRUPULOUS_CONTRACTOR_SCRIPT } from './cards/unscrupulousContractor';
+import { CORNERED_CROOK_SCRIPT } from './cards/corneredCrook';
+import { SHRAPNEL_SLINGER_SCRIPT } from './cards/shrapnelSlinger';
+import { UNDERCITY_ELIMINATOR_SCRIPT } from './cards/undercityEliminator';
+import { MERRY_BARDS_SCRIPT } from './cards/merryBards';
+import { SPINED_TYRRANAX_SCRIPT } from './cards/spinedTyrranax';
+import { GASTAL_BLOCKBUSTER_SCRIPT } from './cards/gastalBlockbuster';
+import { TY_LEE_ARTFUL_ACROBAT_SCRIPT } from './cards/tyLeeArtfulAcrobat';
+import { LABYRINTH_ADVERSARY_SCRIPT } from './cards/labyrinthAdversary';
+import { GENERAL_TRAAG_HEART_OF_STONE_SCRIPT } from './cards/generalTraagHeartOfStone';
+import { SNAREMASTER_SPRITE_SCRIPT } from './cards/snaremasterSprite';
 import { BELFRY_SPIRIT_SCRIPT } from './cards/belfrySpirit';
 import { ABSOLVER_THRULL_SCRIPT } from './cards/absolverThrull';
 import { BLIND_HUNTER_SCRIPT } from './cards/blindHunter';
@@ -8428,6 +8458,36 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KISHLA_TRAWLERS_SCRIPT,
+  BOILERBILGES_RIPPER_SCRIPT,
+  SUTINA_SPEAKER_OF_THE_TAJURU_SCRIPT,
+  FIREBLADE_ARTIST_SCRIPT,
+  SPELLBOOK_VENDOR_SCRIPT,
+  TERROR_BALLISTA_SCRIPT,
+  AMBULATORY_EDIFICE_SCRIPT,
+  ITZQUINTH_FIRSTBORN_OF_GISHATH_SCRIPT,
+  RIDDLE_GATE_GARGOYLE_SCRIPT,
+  KILLMONGER_SCOURGE_OF_WAKANDA_SCRIPT,
+  PYROCLASTIC_HELLION_SCRIPT,
+  CAVALIER_OF_NIGHT_SCRIPT,
+  SELFCRAFT_MECHAN_SCRIPT,
+  YOUNG_NECROMANCER_SCRIPT,
+  SAVAI_THUNDERMANE_SCRIPT,
+  THOUSAND_MOONS_CRACKSHOT_SCRIPT,
+  GLORIFIER_OF_SUFFERING_SCRIPT,
+  MEANDERS_GUIDE_SCRIPT,
+  RUTHLESS_LAWBRINGER_SCRIPT,
+  UNSCRUPULOUS_CONTRACTOR_SCRIPT,
+  CORNERED_CROOK_SCRIPT,
+  SHRAPNEL_SLINGER_SCRIPT,
+  UNDERCITY_ELIMINATOR_SCRIPT,
+  MERRY_BARDS_SCRIPT,
+  SPINED_TYRRANAX_SCRIPT,
+  GASTAL_BLOCKBUSTER_SCRIPT,
+  TY_LEE_ARTFUL_ACROBAT_SCRIPT,
+  LABYRINTH_ADVERSARY_SCRIPT,
+  GENERAL_TRAAG_HEART_OF_STONE_SCRIPT,
+  SNAREMASTER_SPRITE_SCRIPT,
   BELFRY_SPIRIT_SCRIPT,
   ABSOLVER_THRULL_SCRIPT,
   BLIND_HUNTER_SCRIPT,

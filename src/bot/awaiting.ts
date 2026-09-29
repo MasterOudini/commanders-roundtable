@@ -23,7 +23,7 @@ import type { InstanceId, PlayerId } from '../engine/types/ids';
 import type { CardView, PlayerView } from '../view/types';
 import { parseTypeLine } from '../data/oracleParse';
 import { predicateAdmits } from '../data/replacementParse';
-import type { LookFilter } from '../engine/types/oracle';
+import type { EffectSpec, LookFilter, ReflexiveSpec } from '../engine/types/oracle';
 
 /** D491 - a chooser-verb additional cost the granted cast's answer cannot name (the host refuses the pick). */
 const FREE_CAST_UNPICKABLE = /^as an additional cost to cast this spell, (?:sacrifice|discard|tap|exile|return)/im;
@@ -301,7 +301,11 @@ export function answerAwaiting(
       if (awaiting.player !== me) return wait('not my payment');
       const life = view.seats[me]?.life ?? 0;
       const mv = awaiting.cost?.manaValue ?? 0;
-      const benefit = awaiting.ifPaid.length > 0;
+      // D584 - a reflexive price (`When you do, ...`) is a benefit only when its payload can be aimed on the right side
+      // (`reflexiveWorth`); one that is not is declined outright, never paid as a cheap tax.
+      const reflexiveOk = awaiting.reflexive === undefined ? null : reflexiveWorth(port, awaiting.source ?? awaiting.card, awaiting.reflexive, view, me);
+      if (reflexiveOk === false) return act({ t: 'AnswerPayMana', player: me, pay: false }, `decline to pay for ${awaiting.label} (its payload aims nowhere worth it)`);
+      const benefit = awaiting.ifPaid.length > 0 || reflexiveOk === true;
       /**
        * D415 - A VERB PRICE is priced by what it eats, not counted in mana. A card (a discard, an
        * exile from the graveyard) or a tap is CHEAP and paid - for a benefit and for a tax alike -
@@ -780,4 +784,36 @@ function orderedBy(
       return d !== 0 ? d : a.instanceId.localeCompare(b.instanceId);
     })
     .map((c) => c.instanceId);
+}
+
+/**
+ * D584 - IS A REFLEXIVE PRICE WORTH PAYING? Its payload is a triggered ability aimed after the payment, by the planner the
+ * trigger's own aim uses - so the plan made here is the aim that will be made. Worth it when every clause fills and every
+ * aimed effect lands on the right side: a harmful one (damage, removal, a tap, a -1/-1, a stun, a can't-block, a life loss, a
+ * discard, a mill) at somebody else's object or player, a helpful one at the bot's own. A payload with no clause is worth it.
+ * An optional clause the planner leaves empty makes its effect do nothing - not worth a price.
+ */
+const REFLEXIVE_HARM: ReadonlySet<string> = new Set(['damage', 'destroy', 'exile', 'tap', 'cantBlock', 'bounce', 'loseLife', 'controllerLosesLife', 'discard', 'mill', 'bite', 'fight', 'counter', 'detain', 'goad', 'suspect']);
+function harmful(e: EffectSpec): boolean {
+  if (REFLEXIVE_HARM.has(e.kind)) return true;
+  if (e.kind === 'pump') return e.power < 0 || e.toughness < 0;
+  if (e.kind === 'putCounters') return e.counterKind === '-1/-1' || e.counterKind === 'stun';
+  return false;
+}
+function reflexiveWorth(port: BotPort, source: InstanceId | null, reflexive: ReflexiveSpec, view: PlayerView | null, me: PlayerId): boolean {
+  if (reflexive.targets.length === 0) return true;
+  if (source === null) return false;
+  const plan = planTargets(port, source, reflexive.targets, view, me);
+  if (!plan) return false;
+  // The planner fills each clause with its `min` picks, in clause order: the first pick of clause k sits past the mins before it.
+  const firstPick = (k: number): TargetChoice | undefined => plan[reflexive.targets.slice(0, k).reduce((n, t) => n + t.min, 0)];
+  const mine = (c: TargetChoice): boolean => (c.kind === 'player' ? c.id === me : c.kind === 'stack' ? view?.stack.find((x) => x.stackItemId === c.id)?.controller === me : view?.cards[c.id]?.controller === me);
+  for (const e of reflexive.effects) {
+    if (e.targetIndex < 0) continue;
+    const spec = reflexive.targets[e.targetIndex];
+    const pick = spec && spec.min > 0 ? firstPick(e.targetIndex) : undefined;
+    if (!pick) return false;
+    if (harmful(e) === mine(pick)) return false;
+  }
+  return true;
 }

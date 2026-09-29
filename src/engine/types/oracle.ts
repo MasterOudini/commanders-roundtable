@@ -1285,6 +1285,22 @@ export interface PaySpec {
   readonly ifNotPaid: readonly EffectSpec[];
   /** D545 - the price is an EXPLOIT's sacrifice (CR 702.110a): the answer tags the move with the exploiter. */
   readonly exploit?: true;
+  /**
+   * D584 - THE REFLEXIVE TRIGGER (CR 603.12): the price's `When you do, ...` - paying it TRIGGERS this payload (the answer
+   * emits `ReflexiveTriggered`); no branch runs in the answer. Absent on every other price.
+   */
+  readonly reflexive?: ReflexiveSpec;
+}
+
+/**
+ * D584 - A REFLEXIVE TRIGGER'S PAYLOAD (CR 603.12): `<price>. When you do, <payload>`, the payload read as a text of its own -
+ * its effects (their clauses numbered from 0) and its own target clauses, asked as the reflexive trigger goes on the stack
+ * after the payment. `text` is the payload as read (`~` for the card).
+ */
+export interface ReflexiveSpec {
+  readonly effects: readonly EffectSpec[];
+  readonly targets: readonly TargetSpec[];
+  readonly text: string;
 }
 
 /**

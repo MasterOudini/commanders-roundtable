@@ -1648,6 +1648,25 @@ export function collectTriggers(
         out.push({ id: `t${n++}`, source: d.source, controller: d.controller, abilityRef: d.id, label: d.label, optional: false, specs: [], delayed: d.id });
       }
     }
+    // D584 - THE REFLEXIVE TRIGGER (CR 603.12): a payment's marker is one pending trigger - walked LAST, so no trigger id or
+    // order before it moves; no zone gate (a resolution made it, whatever became of its source since); its clauses and
+    // effects ride onto the stack as a keyword entry's do (D536), its clauses kept for 608.2b; a token's printing rides.
+    if (event.body.t === 'ReflexiveTriggered') {
+      const b = event.body;
+      const card = after.cards[b.source] ?? before.cards[b.source];
+      out.push({
+        id: `t${n++}`,
+        source: b.source,
+        controller: b.controller,
+        abilityRef: `${card?.oracleId ?? 'reflexive'}#reflexive`,
+        label: b.label,
+        optional: false,
+        specs: b.specs,
+        effects: b.effects,
+        reflexive: true,
+        ...(b.lki !== undefined ? { lki: b.lki } : {}),
+      });
+    }
   }
   // D492 - THE ONCE-PER-TURN RIDER (`This ability triggers only once each turn.`): a printed def marked `oncePerTurn`
   // triggers once per turn per source. A match already recorded this turn (`turn.triggered`, bumped as the pending

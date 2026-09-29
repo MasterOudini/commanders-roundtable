@@ -716,8 +716,14 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // discard, and Lonely Sandbar cycles from hand with no board at all.
   { names: ['Bile Urchin'], copiesPerSeat: 2,
     counterKeys: ['sacrificesRecorded'], rotHistory: 'D377' },
-  { names: ['Rummaging Goblin'], copiesPerSeat: 2,
+  { names: ['Rummaging Goblin'], copiesPerSeat: 1,
     counterKeys: ['discardsRecorded'], rotHistory: 'D377' },
+  // D584 - THE REFLEXIVE TRIGGER (CR 603.12): a Spellbook Vendor a seat in Rummaging Goblin's second slot (the seat's card
+  // count and the shuffle kept - D553's rule): at the beginning of every combat on its controller's turn it asks {1}, and paid,
+  // the Role goes on as a reflexive trigger aimed at a creature its controller controls (itself, at least). Lithobraking was
+  // tried first: a {2}{R} instant the core's one red source never cast over 60 seeds (Act of Treason's rot, D445).
+  { names: ['Spellbook Vendor'], copiesPerSeat: 1,
+    counterKeys: ['reflexiveTriggers', 'reflexiveStacked'], rotHistory: 'D584' },
   { names: ['Lonely Sandbar'], copiesPerSeat: 2,
     counterKeys: ['cyclingsRecorded'], rotHistory: 'D377' },
 ];
@@ -1901,6 +1907,9 @@ interface Run {
   /** D581 - the mutate questions asked, and the merges (CR 702.140c). */
   readonly mutateAsks: number;
   readonly mutations: number;
+  /** D584 - the reflexive triggers a paid price made (CR 603.12), and the ones put on the stack (the rest removed, 603.3d). */
+  readonly reflexiveTriggers: number;
+  readonly reflexiveStacked: number;
   /** D522 - the crown moving (a `MonarchChanged` each: a payload crowning someone, D332's combat steal, the wrench). */
   readonly crownings: number;
   /** D521 - temptations of the Ring (a `RingTempted` each - a bearer chosen or none), and the emblem abilities that fired (the loot, the blocked sacrifice, the drain). */
@@ -2467,6 +2476,8 @@ function runOne(seed: number): Run {
     dayNightChanges: game.log.filter((e) => e.body.t === 'DayNightChanged').length,
     mutateAsks: game.log.filter((e) => e.body.t === 'AwaitingSet' && e.body.awaiting?.kind === 'mutateOrder').length,
     mutations: game.log.filter((e) => e.body.t === 'Mutated').length,
+    reflexiveTriggers: game.log.filter((e) => e.body.t === 'ReflexiveTriggered').length,
+    reflexiveStacked: game.log.filter((e) => e.body.t === 'AbilityPutOnStack' && e.body.obj.abilityRef?.endsWith('#reflexive') === true).length,
     conspireCopies: game.log.filter((e) => e.body.t === 'SpellCopied' && (ORACLE.byPrinting(e.body.obj.copyOf?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.keywords.includes('conspire') ?? false)).length,
     saddles: game.log.filter((e) => e.body.t === 'PtModifiedUntilEndOfTurn' && e.body.saddled === true).length,
     plottedCasts: game.log.filter((e) => e.body.t === 'SpellCast' && e.body.obj.castFrom?.kind === 'exile' && e.body.obj.freeCast === true && (ORACLE.byPrinting(game.state.cards[e.body.obj.card ?? '']?.printingId ?? '')?.faces[e.body.obj.faceIndex]?.plotCost ?? null) !== null).length,
@@ -2859,6 +2870,8 @@ const TOTAL_KEYS = [
   'dayNightChanges',
   'mutateAsks',
   'mutations',
+  'reflexiveTriggers',
+  'reflexiveStacked',
   'crownings',
   'ringTempts',
   'ringAbilities',

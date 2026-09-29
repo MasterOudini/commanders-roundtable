@@ -72,7 +72,12 @@ export function advance(state: GameState, deps: EngineDeps): Emitted {
   if (over.length > 0) return emitted(over);
 
   // 2 — trigger drain, APNAP (CR 603.3b).
-  if (state.pendingTriggers.length > 0) {
+  // D584 - THE DRAIN GUARD (CR 117.5, 603.3): a trigger is put on the stack the next time a player would receive
+  // priority - never over a live question. The drain ran before the awaiting check below, so a targeted trigger went
+  // on and raised its chooseTargets OVER the prompt that was up: a resolution's own (Grim Affliction's proliferate,
+  // lost to the soulshift of the Kami its counter killed), another controller's unanswered aim, the same controller's
+  // first aim after an ordering. The triggers wait, pending, in their order; the answer lets the drain go on.
+  if (state.pendingTriggers.length > 0 && state.priority.awaiting === null) {
     const drained = drainTriggers(state, deps);
     // D442 - CR 514.3a, the TRIGGER arm of the SBA rule above: an ability triggering during cleanup means
     // players receive priority and another cleanup step follows. Reachable now that the cleanup discard
@@ -290,6 +295,10 @@ export function stackPendingTriggers(
       ...(trigger.delayed !== undefined ? { delayedEffects: state.delayedTriggers.find((d) => d.id === trigger.delayed)?.effects ?? [] } : {}),
       // D536 - a keyword trigger's own effects (storm's copies) ride the same way.
       ...(trigger.effects !== undefined ? { delayedEffects: trigger.effects } : {}),
+      // D584 - a reflexive trigger's own clauses ride with them (CR 608.2b at resolution).
+      ...(trigger.reflexive === true ? { delayedSpecs: trigger.specs } : {}),
+      // D584 - a token's printing rides too: a question its resolution asks may come after the token ceased (CR 603.10).
+      ...(trigger.lki !== undefined ? { lki: trigger.lki } : {}),
       // D494 - the objects a delayed referent clause was bound to ride as its targets (every one answering clause 0).
       ...(trigger.delayed !== undefined && (state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims?.length ?? 0) > 0
         ? (() => { const aims = state.delayedTriggers.find((d) => d.id === trigger.delayed)?.aims ?? []; return { targets: aims.map((id) => ({ kind: 'card' as const, id })), targetSlots: aims.map(() => 0) }; })()
@@ -1379,7 +1388,8 @@ export function resolveAbility(
     // with's player) is a targeted ability all the same: CR 608.2b - every target illegal, it does nothing; otherwise it
     // resolves over the picks still legal for their clause, as a script's payload does (`withStillLegalPicks`).
     let aimed = obj;
-    const delayedSpecs = obj.targets.length > 0 && obj.abilityRef?.includes('#kw:') && obj.source ? keywordTargetSpecs(scriptCtxFor(state, deps), obj.abilityRef, obj.source) : [];
+    // D584 - a reflexive trigger carries its own clauses (`delayedSpecs`).
+    const delayedSpecs = obj.targets.length === 0 ? [] : obj.delayedSpecs !== undefined ? obj.delayedSpecs : obj.abilityRef?.includes('#kw:') && obj.source ? keywordTargetSpecs(scriptCtxFor(state, deps), obj.abilityRef, obj.source) : [];
     if (delayedSpecs.length > 0 && obj.source) {
       const dCard = state.cards[obj.source];
       const dPrinting = dCard ? deps.oracle.byPrinting(dCard.printingId) : undefined;

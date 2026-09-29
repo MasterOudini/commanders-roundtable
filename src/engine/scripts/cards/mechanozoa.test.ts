@@ -57,9 +57,12 @@ function armed(which: number): Armed {
 }
 
 describe("Mechanozoa", () => {
-  test("When this creature enters: the vocabulary resolves \"Tap target artifact or creature an opponent controls and put a stun counter on ~.\"", () => {
-    const { g, no } = armed(0);
+  test("When this creature enters: the vocabulary resolves \"Tap target artifact or creature an opponent controls and put a stun counter on it.\"", () => {
+    const { g, self, no } = armed(0);
     expect(g.state.cards[no]?.tapped).toBe(true);
+    // D584 - the stun counter goes on the TARGET (a pronoun after a target is the referent), never on the creature itself.
+    expect(g.state.cards[no]?.counters.stun, 'the target').toBe(1);
+    expect(g.state.cards[self]?.counters.stun ?? 0, 'not itself').toBe(0);
   });
 
   test('replays to the same hash', () => {

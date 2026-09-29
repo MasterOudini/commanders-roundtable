@@ -26,7 +26,7 @@ import type {
 } from './ids';
 import type { ManaPool, RestrictedMana, SpendRestriction } from './mana';
 import type { NarrationPart } from './narration';
-import type { CopyExceptions, Keyword } from './oracle';
+import type { CopyExceptions, EffectSpec, Keyword, TargetSpec } from './oracle';
 import type {
   Awaiting,
   DefenderRef,
@@ -596,6 +596,20 @@ export type EventBody =
       readonly label: string;
       /** D415 - the verb price answered (its printed text); absent on a mana or life price, so older logs replay byte-identically. */
       readonly verb?: string;
+    }
+  /**
+   * D584 - A REFLEXIVE TRIGGER TRIGGERED (CR 603.12): a payment's `When you do, ...` was paid. A MARKER the trigger bus collects
+   * into one pending trigger (its clauses and effects riding as a keyword entry's do), put on the stack the next time a
+   * player would receive priority and aimed then; the reducer does nothing with it. `lki` is a token source's printing.
+   */
+  | {
+      readonly t: 'ReflexiveTriggered';
+      readonly source: InstanceId;
+      readonly controller: PlayerId;
+      readonly label: string;
+      readonly effects: readonly EffectSpec[];
+      readonly specs: readonly TargetSpec[];
+      readonly lki?: { readonly printingId: PrintingId; readonly faceIndex: number };
     }
   /**
    * A player DREW (CR 121) — the marker beside the `CardsMoved` that did it,

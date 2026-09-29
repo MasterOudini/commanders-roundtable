@@ -21,8 +21,8 @@ function printed(card: CardData, expected: string): string {
 const PRINTED = printed(SPLASH_LASHER, "Offspring {1}{U} (You may pay an additional {1}{U} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nWhen this creature enters, tap up to one target creature and put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)");
 const LINES = PRINTED.split('\n');
 
-const VOCAB_L1 = vocabularyEffects("Tap up to one target creature and put a stun counter on ~.", SPLASH_LASHER.name);
-const VOCAB_T_L1 = vocabularyTargets("Tap up to one target creature and put a stun counter on ~.");
+const VOCAB_L1 = vocabularyEffects("Tap up to one target creature and put a stun counter on it.", SPLASH_LASHER.name);
+const VOCAB_T_L1 = vocabularyTargets("Tap up to one target creature and put a stun counter on it.");
 
 export const SPLASH_LASHER_SCRIPT: CardScript = {
   oracleId: SPLASH_LASHER.oracleId,
@@ -37,7 +37,7 @@ export const SPLASH_LASHER_SCRIPT: CardScript = {
       targets: VOCAB_T_L1,
       matches: (_ctx, self, ev) =>
         ev.t === 'CardsMoved' && ev.moves.some((m) => m.card === self && m.to.kind === 'battlefield' && m.from.kind !== 'battlefield'),
-      label: () => "Splash Lasher - Tap up to one target creature and put a stun counter on ~.",
+      label: () => "Splash Lasher - Tap up to one target creature and put a stun counter on it.",
       resolve: (ctx, _self, obj): readonly EventBody[] => {
         return ctx.vocabulary(obj, VOCAB_L1, VOCAB_T_L1);
       },

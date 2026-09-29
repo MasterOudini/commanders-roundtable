@@ -957,9 +957,19 @@ function readList(clean: string, cursor: number, firstRestrict: MutableRestrict,
   return { alternatives, kinds, ctl, unenforced };
 }
 
+/**
+ * D584 - a reflexive payload's clauses (`<price>. When you do, <payload>`, CR 603.12) belong to the reflexive trigger, asked
+ * as IT goes on the stack after the payment - never to the spell, the activated ability or the def whose text prints
+ * them (`effectParse` reads them with the payload). Each line is blanked from the marker to its end, so every index
+ * into the text still holds.
+ */
+function cutReflexive(clean: string): string {
+  return clean.replace(/\. When you do, [^\n]*/g, (m) => '.' + ' '.repeat(m.length - 1));
+}
+
 export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): TargetSpec[] {
   if (!text) return [];
-  const clean = scrub(text);
+  const clean = cutReflexive(scrub(text));
   const out: TargetSpec[] = [];
 
   TARGET_RE.lastIndex = 0;

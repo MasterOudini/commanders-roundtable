@@ -267,7 +267,9 @@ export function effectResult(
     // since is a different object now, or gone - skipped, and the narration below says so. A return reads its own zones.
     const aims = picks
       .map((c) => aimOf(state, c))
-      .filter((a): a is Aim => a !== null && !(obj.delayedEffects !== undefined && a.kind === 'card' && effect.kind !== 'returnObj' && state.cards[a.id]?.zone.kind !== 'battlefield'));
+      // D584 - a reflexive trigger's aims are the PICKS made as it went on (`delayedSpecs`), checked by 608.2b like any target -
+      // a graveyard card is a legal one; only a bound aim is skipped off the battlefield.
+      .filter((a): a is Aim => a !== null && !(obj.delayedEffects !== undefined && obj.delayedSpecs === undefined && a.kind === 'card' && effect.kind !== 'returnObj' && state.cards[a.id]?.zone.kind !== 'battlefield'));
     if (aims.length === 0) {
       if (!(effect.optional === true && picks.length === 0)) steps.push({ effect, aim: null, missing: true });
       continue;
@@ -869,13 +871,19 @@ export function effectResult(
       case 'payOptional': {
         const pay = effect.pay;
         if (!pay) break;
+        // D584 - the price is asked of the board the clauses before it left (CR 608.2): `Create a Lander token. Then you may
+        // sacrifice an artifact.` pays with the Lander. The events so far folded onto a scratch state (the gate's shape); the
+        // derive cache is the pre-batch state's, set aside when the scratch differs.
+        let priced = state;
+        for (const body of out) priced = apply(priced, { seq: priced.eventCount, body, cause: { kind: 'system' } } as never);
+        const pricedCache = priced === state ? cache : undefined;
         let payer: Payer | null = null;
         if (pay.who === 'controller') payer = controller;
         else if (pay.who === 'targetPlayer') payer = aim?.kind === 'player' ? aim.id : null;
         else if (aim?.kind === 'card') payer = aim.controller;
         else if (aim?.kind === 'stack') payer = state.stack.find((s) => s.id === aim.id)?.controller ?? null;
         if (!payer) break;
-        const seat = state.players[payer];
+        const seat = priced.players[payer];
         // D422 - a price of `{X}` is the spell's announced X (CR 601.2b's value, on the stack object), substituted
         // as the prompt is raised; an X nobody announced is 0.
         const payCost = pay.cost && pay.cost.xCount > 0 ? { ...pay.cost, generic: pay.cost.generic + pay.cost.xCount * (obj.xValue ?? 0), xCount: 0 } : pay.cost;
@@ -888,18 +896,18 @@ export function effectResult(
         if (pay.verbs) {
           const self = obj.source ?? obj.card;
           if (pay.verbs.sacrificeSelf) {
-            const inst = self === null ? undefined : state.cards[self];
+            const inst = self === null ? undefined : priced.cards[self];
             verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? [self] : [];
             shipCandidates = true;
           } else if (pay.verbs.championExile) {
             // D571 - the champion's exile: ANOTHER permanent the payer controls the noun admits (public - the prompt
             // ships them); a champion gone from the battlefield prices nothing.
-            const inst = self === null ? undefined : state.cards[self];
+            const inst = self === null ? undefined : priced.cards[self];
             const champ = { count: 1, another: true, any: pay.verbs.championExile.any };
-            verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? sacrificeCandidatesFor(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), payer, self, champ) : [];
+            verbCandidates = self !== null && inst !== undefined && inst.zone.kind === 'battlefield' ? sacrificeCandidatesFor(priced, (cid) => derive(priced, deps.oracle, deps.scripts, cid, pricedCache), payer, self, champ) : [];
             shipCandidates = true;
           } else {
-            const cand = castCostCandidates(state, (cid) => derive(state, deps.oracle, deps.scripts, cid, cache), payer, self ?? '', pay.verbs);
+            const cand = castCostCandidates(priced, (cid) => derive(priced, deps.oracle, deps.scripts, cid, pricedCache), payer, self ?? '', pay.verbs);
             const listed = Object.values(cand.fields).find((v): v is readonly InstanceId[] => Array.isArray(v)) ?? [];
             verbCandidates = cand.enough ? listed : [];
             shipCandidates = pay.verbs.discardCost === null;
@@ -910,7 +918,7 @@ export function effectResult(
           seat.life >= pay.life &&
           // D519 - an energy price is payable from the counters held (CR 122.1); none held is not a question (D369).
           seat.energy >= pay.energy &&
-          (payCost === null || suggestPayment(solveInputFor(state, deps.oracle, deps.scripts, payer, cache), problem, OTHER_PURPOSE) !== null) &&
+          (payCost === null || suggestPayment(solveInputFor(priced, deps.oracle, deps.scripts, payer, pricedCache), problem, OTHER_PURPOSE) !== null) &&
           (verbCandidates === null || verbCandidates.length > 0);
         if (!can) {
           out.push(narrated(`${obj.label} - the price cannot be paid.`, obj.controller, obj.identity));
@@ -940,6 +948,10 @@ export function effectResult(
             ...(pay.verbs && shipCandidates && verbCandidates ? { candidates: verbCandidates } : {}),
             // D545 - an exploit's sacrifice: the answer tags the move (absent elsewhere - every older prompt byte-identical).
             ...(pay.exploit === true ? { exploit: true as const } : {}),
+            // D584 - a reflexive price's payload: paid, the answer triggers it (absent elsewhere - older prompts byte-identical).
+            ...(pay.reflexive !== undefined ? { reflexive: pay.reflexive } : {}),
+            // D584 - and a TOKEN source's printing: the answer makes the trigger off it if the token has ceased by then.
+            ...(pay.reflexive !== undefined ? (() => { const s = obj.source === null ? undefined : state.cards[obj.source]; const l = s?.isToken ? { printingId: s.printingId, faceIndex: s.faceIndex } : obj.lki; return l !== undefined ? { lki: l } : {}; })() : {}),
           },
         });
         break;

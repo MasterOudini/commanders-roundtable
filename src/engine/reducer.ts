@@ -1329,6 +1329,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'OptionalTriggerAnswered':
     case 'EntersChoiceAnswered':
     case 'PaymentAnswered':
+    // D584 - the reflexive trigger's marker: the bus reads it; the state does not change.
+    case 'ReflexiveTriggered':
       // A marker for the log and the animation stream, like
       // `StateBasedActionsApplied`; what the answer DID travels as its own
       // events in the same batch.

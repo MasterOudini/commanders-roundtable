@@ -33,6 +33,7 @@ import type {
   LookFilter,
   LookSpec,
   PaySpec,
+  ReflexiveSpec,
   VerbPrice,
   CountExpr,
   PreventSourceSpec,
@@ -46,7 +47,7 @@ import type { ColorLetter } from './cardTypes';
 import { predicatesOf } from './replacementParse';
 import type { PermanentPredicate } from './replacementParse';
 import { parseGraveyardCast, parseManaCost, type Warn } from './oracleParse';
-import { scrub } from './targetParse';
+import { parseTargetClauses, scrub } from './targetParse';
 import { parseGateCondition } from './activatedParse';
 import { amassArmyKey, amassSubtype, foldTokenQuotes, parseTokenClause, specKey } from './tokenParse';
 import { EMBLEM_TABLE } from './emblemTable';
@@ -2927,13 +2928,23 @@ function conjunctionSplit(sentence: string, previous: Clause | undefined): Claus
   return null;
 }
 
-function clausesOf(text: string): Clause[] {
-  const raw = sentences(text);
+function clausesOf(text: string, cardName: string): Clause[] {
+  // D584 - a reflexive line's price and payload (`<price>. When you do, <payload>`, CR 603.12) are ONE clause, read by their own
+  // rule; no window reaches into one or past it. A line whose reflexive does not read splits exactly as before.
+  const { raw, units } = reflexiveUnits(text, cardName);
   const out: Clause[] = [];
   for (let i = 0; i < raw.length; ) {
+    const unit = units.get(i);
+    if (unit !== undefined) {
+      out.push({ text: raw[i] ?? '', spec: unit, phrase: null });
+      i += 1;
+      continue;
+    }
+    let room = raw.length - i;
+    for (const at of units.keys()) if (at > i && at - i < room) room = at - i;
     let span = 1;
     let spec: EffectSpec | null = null;
-    for (let k = Math.min(MAX_SPAN, raw.length - i); k >= 1; k--) {
+    for (let k = Math.min(MAX_SPAN, room); k >= 1; k--) {
       const joined = raw.slice(i, i + k).join(' ');
       const hit = matchSentence(joined);
       if (hit) {
@@ -3006,6 +3017,78 @@ const VERB_LEAD = String.raw`(?:sacrifice|discard|exile|return|tap)`;
 const MAY_VERB_RE = new RegExp(String.raw`^(?:then )?you may (${VERB_LEAD} .+?)\. if you do, (.+)$`, 'i');
 const UNLESS_VERB_RE = new RegExp(String.raw`^(.+?) unless you (${VERB_LEAD} [^.]+)\.$`, 'i');
 const SELF_PRICE_RE = /^sacrifice (?:it|~|this (?:creature|permanent|artifact|enchantment|land))$/i;
+
+/**
+ * D584 - THE REFLEXIVE TRIGGER (CR 603.12). `<price>. When you do, <payload>` - a price D369 or D415 already reads (`you may pay
+ * <cost>`, `(then) you may <verb> ...`) with no body of its own: paying it CREATES a triggered ability whose effect is the
+ * payload, put on the stack the next time a player would receive priority and aimed THEN - never by the object that asked
+ * the price (`targetParse` cuts the payload's clauses out of its own). The payload runs to the end of its line (its ability)
+ * and is read as a text of its own: every clause understood and numbered from 0, every target clause confident, one per
+ * index its effects aim at. A payload that nests a second marker, borrows from the price (`the sacrificed creature`) or
+ * the object's resolution, or that no rule reads whole leaves the line unread, as before.
+ */
+const REFLEXIVE_MARK = '. When you do, ';
+const MAY_PAY_PRICE_RE = new RegExp(String.raw`^(?:then )?you may pay ${PAY_COST}\.$`, 'i');
+const MAY_VERB_PRICE_RE = new RegExp(String.raw`^(?:then )?you may (${VERB_LEAD} .+?)\.$`, 'i');
+/** D584 - the sentences of a text, a READ reflexive line's price and payload standing as ONE entry (`units` names where, and its spec). */
+function reflexiveUnits(text: string, cardName: string): { readonly raw: string[]; readonly units: ReadonlyMap<number, EffectSpec> } {
+  const units = new Map<number, EffectSpec>();
+  if (!text.includes(REFLEXIVE_MARK)) return { raw: sentences(text), units };
+  const raw: string[] = [];
+  for (const line of text.split('\n')) {
+    const at = line.indexOf(REFLEXIVE_MARK);
+    const payload = at < 0 ? '' : line.slice(at + REFLEXIVE_MARK.length).trim();
+    const head = at < 0 ? [] : sentences(line.slice(0, at + 1));
+    const price = head.pop();
+    const spec = price === undefined || payload === '' ? null : matchReflexive(price, payload, cardName);
+    if (spec === null) {
+      raw.push(...sentences(line));
+      continue;
+    }
+    raw.push(...head);
+    units.set(raw.length, spec);
+    raw.push(spec.text);
+  }
+  return { raw, units };
+}
+function matchReflexive(price: string, payload: string, cardName: string): EffectSpec | null {
+  const pm = MAY_PAY_PRICE_RE.exec(price);
+  const vm = pm ? null : MAY_VERB_PRICE_RE.exec(price);
+  const paid = pm ? readPrice(pm[1] ?? '') : null;
+  const verbs = vm ? readVerbPrice(vm[1] ?? '') : null;
+  if (paid === null && verbs === null) return null;
+  const reflexive = reflexivePayload(payload, cardName);
+  if (reflexive === null) return null;
+  return {
+    ...BASE,
+    kind: 'payOptional',
+    text: `${price} When you do, ${payload}`,
+    targetIndex: -1,
+    self: true,
+    pay: { cost: paid?.cost ?? null, life: paid?.life ?? 0, energy: paid?.energy ?? 0, verbs, who: 'controller', ifPaid: [], ifNotPaid: [], reflexive },
+  };
+}
+function reflexivePayload(payload: string, cardName: string): ReflexiveSpec | null {
+  const text = payload.charAt(0).toUpperCase() + payload.slice(1);
+  if (/\bwhen you do\b/i.test(text)) return null;
+  // The spell's X and the head's memo are not the reflexive trigger's (it carries neither): off for the payload's parse.
+  const saved = { spellX: SPELL_X, memo: HEAD_MEMO };
+  SPELL_X = false;
+  HEAD_MEMO = false;
+  try {
+    const clauses = clausesOf(text, cardName);
+    const { effects, understood } = placeClauses(clauses, cardName);
+    if (clauses.length === 0 || understood < clauses.length) return null;
+    const targets = parseTargetClauses(text);
+    if (targets.some((t) => !t.confident)) return null;
+    const aimed = effects.reduce((n, e) => Math.max(n, e.targetIndex + 1, (e.otherTargetIndex ?? -1) + 1), 0);
+    if (aimed !== targets.length) return null;
+    return { effects, targets, text };
+  } finally {
+    SPELL_X = saved.spellX;
+    HEAD_MEMO = saved.memo;
+  }
+}
 
 /**
  * D545 - EXPLOIT (CR 702.110a): "When this creature enters, you may sacrifice a creature." The keyword table's entry
@@ -3500,6 +3583,49 @@ function withBranchIndex(spec: EffectSpec, index: number): EffectSpec {
   return { ...spec, pay: { ...spec.pay, ifPaid: spec.pay.ifPaid.map(re), ifNotPaid: spec.pay.ifNotPaid.map(re) } };
 }
 
+/**
+ * The understood clauses of a text, placed: each consumes the next target index in printed order (the order
+ * `targetParse` produced its specs in), a referent the previous one's, a payment's branches the wrapper's. D584 - lifted out of
+ * `parseEffectsInner` unchanged, because a reflexive payload is placed by it too, as a text of its own.
+ */
+function placeClauses(clauses: readonly Clause[], cardName: string): { effects: EffectSpec[]; understood: number } {
+  const effects: EffectSpec[] = [];
+  let understood = 0;
+  // Each understood clause consumes the next target in printed order, which is
+  // the same order `targetParse` produced its specs in.
+  let nextTarget = 0;
+  // D394 - a referent clause after a COUNTED clause ("Those creatures can't block this turn.")
+  // runs over the same picks, so it carries the same optional mark.
+  let lastOptional = false;
+  for (const clause of clauses) {
+    const spec0 = clause.spec;
+    if (!spec0) continue;
+    const spec = withSelfName(spec0, cardName);
+    // D392 - a referent clause aims where the previous target went; with no target before it
+    // there is nothing to point at, and the sentence stays unread.
+    if (spec.referent && spec.targetIndex !== -1 && nextTarget === 0) continue;
+    // D502 - `Skip the untap step of that turn.` is about the extra turn the clause before it added; anywhere else
+    // there is no such turn, and the sentence stays unread.
+    if (spec.kind === 'skipUntapThatTurn' && effects[effects.length - 1]?.kind !== 'extraTurn') continue;
+    understood++;
+    // D299: an "up to N" / "any number of" clause may be declared with no target.
+    const optional = OPTIONAL_COUNT.test(clause.text);
+    if (spec.targetIndex !== -1 && !spec.referent) lastOptional = optional;
+    const placed0 =
+      spec.targetIndex === -1
+        ? spec
+        : spec.referent
+          ? { ...spec, targetIndex: nextTarget - 1, ...(lastOptional ? { optional: true as const } : {}) }
+          : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
+    // D396 - a two-operand clause (a bite, a fight) consumes a SECOND index for its object, after
+    // its subject's, in printed order - the self and the referent subjects consume none of their own.
+    const placed = placed0.otherTargetIndex === undefined ? placed0 : { ...placed0, otherTargetIndex: nextTarget++ };
+    // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
+    effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);
+  }
+  return { effects, understood };
+}
+
 function withSelfName(spec: EffectSpec, cardName: string): EffectSpec {
   const search = spec.search;
   if (!search || search.qualifier?.name !== '~') return spec;
@@ -3620,45 +3746,12 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D551 - a Plot line is a special action and a later free cast the engine runs, no clause of the spell either.
     .filter((l) => !/^Plot (?:\{[^}]+\})+$/.test(l.trim()))
     .join('\n');
-  const clauses = clausesOf(clean);
+  const clauses = clausesOf(clean, cardName);
   // D537 - a SPELL whose every printed line was a keyword or a cost the engine runs (Throes of Chaos: Cascade and Retrace,
   // nothing else) has nothing left unread and no clause of its own: the engine runs it whole - an effect list of none.
   if (clauses.length === 0) return { effects: [], mode: printedLines > 0 && clean.trim() === '' ? 'auto' : 'manual' };
 
-  const effects: EffectSpec[] = [];
-  let understood = 0;
-  // Each understood clause consumes the next target in printed order, which is
-  // the same order `targetParse` produced its specs in.
-  let nextTarget = 0;
-  // D394 - a referent clause after a COUNTED clause ("Those creatures can't block this turn.")
-  // runs over the same picks, so it carries the same optional mark.
-  let lastOptional = false;
-  for (const clause of clauses) {
-    const spec0 = clause.spec;
-    if (!spec0) continue;
-    const spec = withSelfName(spec0, cardName);
-    // D392 - a referent clause aims where the previous target went; with no target before it
-    // there is nothing to point at, and the sentence stays unread.
-    if (spec.referent && spec.targetIndex !== -1 && nextTarget === 0) continue;
-    // D502 - `Skip the untap step of that turn.` is about the extra turn the clause before it added; anywhere else
-    // there is no such turn, and the sentence stays unread.
-    if (spec.kind === 'skipUntapThatTurn' && effects[effects.length - 1]?.kind !== 'extraTurn') continue;
-    understood++;
-    // D299: an "up to N" / "any number of" clause may be declared with no target.
-    const optional = OPTIONAL_COUNT.test(clause.text);
-    if (spec.targetIndex !== -1 && !spec.referent) lastOptional = optional;
-    const placed0 =
-      spec.targetIndex === -1
-        ? spec
-        : spec.referent
-          ? { ...spec, targetIndex: nextTarget - 1, ...(lastOptional ? { optional: true as const } : {}) }
-          : { ...spec, targetIndex: nextTarget++, ...(optional ? { optional: true as const } : {}) };
-    // D396 - a two-operand clause (a bite, a fight) consumes a SECOND index for its object, after
-    // its subject's, in printed order - the self and the referent subjects consume none of their own.
-    const placed = placed0.otherTargetIndex === undefined ? placed0 : { ...placed0, otherTargetIndex: nextTarget++ };
-    // D369 - a payment's branches aim where the wrapper aims: one printed clause, one index.
-    effects.push(placed.pay ? withBranchIndex(placed, placed.targetIndex) : placed);
-  }
+  const { effects, understood } = placeClauses(clauses, cardName);
 
   if (understood === 0) {
     warn('effect:none');

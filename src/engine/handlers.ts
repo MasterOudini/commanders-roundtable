@@ -3904,6 +3904,29 @@ function answerPayMana(
   } else {
     events.push(narrated(n`${who(state, intent.player)} ${vb(intent.player, 'does', 'do')} not pay for ${awaiting.label}.`, intent.player));
   }
+  // D584 - THE REFLEXIVE TRIGGER (CR 603.12): the price paid, its `When you do, ...` ability triggers - a marker the trigger bus
+  // collects into one pending trigger, put on the stack the next time a player would receive priority and aimed THEN (its
+  // clauses are the payload's own, never the object's). Declined, nothing triggers. The source is the ability's permanent or
+  // the spell's card, wherever it is now (a sacrificed source still makes it).
+  if (intent.pay && awaiting.reflexive !== undefined) {
+    const src = awaiting.source ?? awaiting.card;
+    const inst = src === null ? undefined : state.cards[src];
+    // A token source that has ceased to exist still makes it (CR 113.7a): off the printing the prompt carried.
+    const lki = inst ? (inst.isToken ? { printingId: inst.printingId, faceIndex: inst.faceIndex } : undefined) : awaiting.lki;
+    const gonePrinting = !inst && lki ? deps.oracle.byPrinting(lki.printingId) : undefined;
+    if (src !== null && (inst || gonePrinting)) {
+      const name = inst ? (inst.faceDown ? 'A face-down permanent' : revealedName(state, deps, src)) : gonePrinting ? faceOf(gonePrinting, lki?.faceIndex ?? 0).name : 'A token';
+      events.push({
+        t: 'ReflexiveTriggered',
+        source: src,
+        controller: awaiting.controller,
+        label: `${name} - ${awaiting.reflexive.text.split('~').join(name)}`,
+        effects: awaiting.reflexive.effects,
+        specs: awaiting.reflexive.targets,
+        ...(lki !== undefined ? { lki } : {}),
+      });
+    }
+  }
   const branch = intent.pay ? awaiting.ifPaid : awaiting.ifNotPaid;
   if (branch.length > 0) {
     let scratch = state;

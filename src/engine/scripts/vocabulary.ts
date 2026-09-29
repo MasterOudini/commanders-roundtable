@@ -82,6 +82,9 @@ function rewriteSelf(text: string, opening: boolean): string {
     ? unanchored
         .replace(/^it (deals|gets|gains|explores|doesn't|connives)\b/i, '~ $1')
         .replace(/^(return|regenerate|untap|tap) it\b/i, '$1 ~')
+        // D584 - a reflexive payload's leading `it` after a MANA price (`you may pay {2}{R}. When you do, it deals 3 damage`,
+        // Sparktongue Dragon) is the source: the price names no object for it to be.
+        .replace(/^((?:then )?you may pay [^.]+\. When you do, )it (deals|gets|gains)\b/i, '$1~ $2')
     : unanchored;
   // D470 - only with no target phrase before it: after one, `it` is that target (the referent rewrite's).
   // D574 - a Role `attached to it` likewise (`When this creature enters, create a Cursed Role token attached to it.`).
@@ -114,7 +117,8 @@ export function vocabularyEffects(payload: string, name: string, opts: { readonl
   // D349 allowed an ask as the LAST effect and nowhere else (`effectEvents` stopped at the prompt and dropped
   // what followed); D484 - the question carries the clauses after it (`EffectContinuation`), so the ask may
   // stand anywhere and nothing is refused for its place.
-  for (const effect of parsed.effects) {
+  // D584 - and a reflexive payload's clauses (they resolve as their own ability).
+  for (const effect of [...parsed.effects, ...parsed.effects.flatMap((e) => e.pay?.reflexive?.effects ?? [])]) {
     // D373 - a self clause of a SELF_AIMED kind is aimed at the source by the executor; the refusal
     // stays for the aimable kinds that have no subject without a target clause.
     if (effect.self && NEEDS_AIM.has(effect.kind) && !SELF_AIMED.has(effect.kind)) {

@@ -10457,6 +10457,42 @@ const WANTED = [
   'Blind Hunter',
   'Exhumer Thrull',
   // D583 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D584 - THE REFLEXIVE TRIGGER: the reflexive cards the proofs deal (the rows bring the rest).
+  'Terror Ballista',
+  'Young Necromancer',
+  'Sparktongue Dragon',
+  'Lithobraking',
+  'Eden, Seat of the Sanctum',
+  // D584 - THE REFLEXIVE TRIGGER: the rows the whole-leftover row maker rowed once a price's When you do payload read as its own triggered ability (CR 603.12).
+  'Kishla Trawlers',
+  'Boilerbilges Ripper',
+  'Sutina, Speaker of the Tajuru',
+  'Fireblade Artist',
+  'Spellbook Vendor',
+  'Ambulatory Edifice',
+  'Itzquinth, Firstborn of Gishath',
+  'Riddle Gate Gargoyle',
+  'Killmonger, Scourge of Wakanda',
+  'Pyroclastic Hellion',
+  'Cavalier of Night',
+  'Selfcraft Mechan',
+  'Savai Thundermane',
+  'Thousand Moons Crackshot',
+  'Glorifier of Suffering',
+  'Meanders Guide',
+  'Ruthless Lawbringer',
+  'Unscrupulous Contractor',
+  'Cornered Crook',
+  'Shrapnel Slinger',
+  'Undercity Eliminator',
+  'Merry Bards',
+  'Spined Tyrranax',
+  'Gastal Blockbuster',
+  'Ty Lee, Artful Acrobat',
+  'Labyrinth Adversary',
+  'General Traag, Heart of Stone',
+  'Snaremaster Sprite',
+  // D584 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

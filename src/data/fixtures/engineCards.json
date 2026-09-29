@@ -317638,6 +317638,1132 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "TERROR_BALLISTA": {
+    "scryfallId": "31215674-0bcd-46f1-b8a1-5415f8b674d1",
+    "oracleId": "3044a00d-7f88-47e8-9110-2e898b20416c",
+    "name": "Terror Ballista",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Terror Ballista",
+        "manaCost": "{7}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "Menace\nWhenever this creature attacks, you may sacrifice another creature. When you do, destroy target creature an opponent controls.\nUnearth {3}{B}{B} ({3}{B}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Leon Tukker",
+        "imageId": "31215674-0bcd-46f1-b8a1-5415f8b674d1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Unearth",
+      "Menace"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YOUNG_NECROMANCER": {
+    "scryfallId": "63d2259f-0cc3-439d-a08f-d66aaf145f25",
+    "oracleId": "17455491-c295-4130-99b4-1b5c6ac1cd25",
+    "name": "Young Necromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Young Necromancer",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Human Warlock",
+        "oracleText": "When this creature enters, you may exile two cards from your graveyard. When you do, return target creature card from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paul Scott Canavan",
+        "imageId": "63d2259f-0cc3-439d-a08f-d66aaf145f25"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "406",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPARKTONGUE_DRAGON": {
+    "scryfallId": "289a3c60-c740-4e2e-a622-a749ed230c5b",
+    "oracleId": "1817acd5-5ed0-47b8-8e56-4715a488867e",
+    "name": "Sparktongue Dragon",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sparktongue Dragon",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhen this creature enters, you may pay {2}{R}. When you do, it deals 3 damage to any target.",
+        "flavorText": "Fools believe that Kolaghan's brood follows lightning storms. The wise know that it is the other way around.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daarken",
+        "imageId": "289a3c60-c740-4e2e-a622-a749ed230c5b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LITHOBRAKING": {
+    "scryfallId": "5a22024c-2c0f-4487-98d1-ee89cf3dba89",
+    "oracleId": "118c4be1-2204-4133-a80e-990ef96c7e35",
+    "name": "Lithobraking",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lithobraking",
+        "manaCost": "{2}{R}",
+        "typeLine": "Instant",
+        "oracleText": "Create a Lander token. Then you may sacrifice an artifact. When you do, Lithobraking deals 2 damage to each creature. (A Lander token is an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+        "flavorText": "A Kav landing\n—Sotheran expression meaning \"a bad time\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "5a22024c-2c0f-4487-98d1-ee89cf3dba89"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EDEN_SEAT_OF_THE_SANCTUM": {
+    "scryfallId": "4786e79c-1e64-41bd-87f6-9a33110afa71",
+    "oracleId": "84856b92-5ce8-47f3-9a1c-78d6a3e26aca",
+    "name": "Eden, Seat of the Sanctum",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Eden, Seat of the Sanctum",
+        "manaCost": "",
+        "typeLine": "Land — Town",
+        "oracleText": "{T}: Add {C}.\n{5}, {T}: Mill two cards. Then you may sacrifice this land. When you do, return another target permanent card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Minoru",
+        "imageId": "4786e79c-1e64-41bd-87f6-9a33110afa71"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Mill"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "355",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KISHLA_TRAWLERS": {
+    "scryfallId": "190fbc55-e8e9-4077-9532-1de7406baabf",
+    "oracleId": "09277185-fccd-4747-aa79-f569c581022a",
+    "name": "Kishla Trawlers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kishla Trawlers",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "When this creature enters, you may exile a creature card from your graveyard. When you do, return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": "\"Fish are like any other crop or flock. They must be carefully tended and never overharvested.\"\n—Nasath, Kishla fisher",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Iris Compiet",
+        "imageId": "190fbc55-e8e9-4077-9532-1de7406baabf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "50",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOILERBILGES_RIPPER": {
+    "scryfallId": "1a68009c-83cd-455f-81e9-bdd720d23a43",
+    "oracleId": "0cbe2a00-4303-4ade-98b5-4172d97f15fb",
+    "name": "Boilerbilges Ripper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Boilerbilges Ripper",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "When this creature enters, you may sacrifice another creature or enchantment. When you do, this creature deals 2 damage to any target.",
+        "flavorText": "\"Go ahead, meat. Run.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kai Carpenter",
+        "imageId": "1a68009c-83cd-455f-81e9-bdd720d23a43"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "dsk",
+    "collectorNumber": "127",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUTINA_SPEAKER_OF_THE_TAJURU": {
+    "scryfallId": "1b794170-4ffd-4628-ba5a-b9293bb364dc",
+    "oracleId": "91f410c5-4313-462f-8d21-da63988d919f",
+    "name": "Sutina, Speaker of the Tajuru",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sutina, Speaker of the Tajuru",
+        "manaCost": "{2}{G}",
+        "typeLine": "Legendary Creature — Elf Scout",
+        "oracleText": "When Sutina enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nWhenever Sutina attacks, you may return a land you control to its owner's hand. When you do, put a +1/+1 counter on target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Canata Katana",
+        "imageId": "1b794170-4ffd-4628-ba5a-b9293bb364dc"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIREBLADE_ARTIST": {
+    "scryfallId": "21e1161f-bd2c-45a7-a86b-3b2e5210f148",
+    "oracleId": "52630eaf-995e-4d08-be99-888a38b598b2",
+    "name": "Fireblade Artist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fireblade Artist",
+        "manaCost": "{B}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Haste\nAt the beginning of your upkeep, you may sacrifice a creature. When you do, this creature deals 2 damage to target opponent or planeswalker.",
+        "flavorText": "\"Let's find out what kind of audience you are. Festive? Fearless?\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "21e1161f-bd2c-45a7-a86b-3b2e5210f148"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPELLBOOK_VENDOR": {
+    "scryfallId": "2a243d72-b196-433b-aef5-0159f5a69017",
+    "oracleId": "51dad7d3-f91d-4bd8-aaed-235da42a448b",
+    "name": "Spellbook Vendor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spellbook Vendor",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Peasant",
+        "oracleText": "Vigilance\nAt the beginning of combat on your turn, you may pay {1}. When you do, create a Sorcerer Role token attached to target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature gets +1/+1 and has \"Whenever this creature attacks, scry 1.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "2a243d72-b196-433b-aef5-0159f5a69017"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Role token",
+      "Vigilance",
+      "Scry"
+    ],
+    "setCode": "pwoe",
+    "collectorNumber": "31s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AMBULATORY_EDIFICE": {
+    "scryfallId": "43c9005c-0574-4b75-8dbf-0a6641c3ae33",
+    "oracleId": "b46351cf-73c7-493c-b8a7-5d7bedc8b205",
+    "name": "Ambulatory Edifice",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ambulatory Edifice",
+        "manaCost": "{2}{B}",
+        "typeLine": "Artifact Creature — Phyrexian Construct",
+        "oracleText": "When this creature enters, you may pay 2 life. When you do, target creature gets -1/-1 until end of turn.",
+        "flavorText": "The Mirran forces thought they'd vanquished their foes . . . until a nearby monument got up and started stalking toward them.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ariel Perez",
+        "imageId": "43c9005c-0574-4b75-8dbf-0a6641c3ae33"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ITZQUINTH_FIRSTBORN_OF_GISHATH": {
+    "scryfallId": "44f2aa6b-a092-4348-a24f-5edf46544eb7",
+    "oracleId": "f976a244-1240-4430-9182-bb8d6d932ea0",
+    "name": "Itzquinth, Firstborn of Gishath",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Itzquinth, Firstborn of Gishath",
+        "manaCost": "{R}{G}",
+        "typeLine": "Legendary Creature — Dinosaur",
+        "oracleText": "Haste\nWhen Itzquinth enters, you may pay {2}. When you do, target Dinosaur you control deals damage equal to its power to another target creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Sidharth Chaturvedi",
+        "imageId": "44f2aa6b-a092-4348-a24f-5edf46544eb7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "331",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RIDDLE_GATE_GARGOYLE": {
+    "scryfallId": "4e72a934-12e0-4e56-af67-566c2d5b01c1",
+    "oracleId": "c5830515-9316-4b08-a990-3026ee15ffea",
+    "name": "Riddle Gate Gargoyle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Riddle Gate Gargoyle",
+        "manaCost": "{W}{U}",
+        "typeLine": "Artifact Creature — Gargoyle",
+        "oracleText": "Flying\nWhen this creature enters, you get {E}{E}{E} (three energy counters).\nWhenever you attack, you may pay {E}{E}. When you do, target creature you control gains lifelink until end of turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Bartek Fedyczak",
+        "imageId": "4e72a934-12e0-4e56-af67-566c2d5b01c1"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "201",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KILLMONGER_SCOURGE_OF_WAKANDA": {
+    "scryfallId": "5060aa13-4b33-4b3a-8bdb-dd81308fa3e3",
+    "oracleId": "1c3ba54a-a8ef-4838-b3aa-cb6df827a619",
+    "name": "Killmonger, Scourge of Wakanda",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Killmonger, Scourge of Wakanda",
+        "manaCost": "{2}{B}{G}",
+        "typeLine": "Legendary Creature — Human Mercenary Villain",
+        "oracleText": "When Killmonger enters, you may sacrifice another creature. When you do, destroy target nonland permanent an opponent controls.\nAs long as there are two or more creature cards in your graveyard, Killmonger gets +2/+1.",
+        "flavorText": "\"I was stolen from paradise, but paradise never came looking for me.\"",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Sean Vo",
+        "imageId": "5060aa13-4b33-4b3a-8bdb-dd81308fa3e3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PYROCLASTIC_HELLION": {
+    "scryfallId": "5929c89b-8c61-47f5-a8ec-b64bf41e9d5b",
+    "oracleId": "b2151d51-39f6-49cc-a5cc-8202dd028336",
+    "name": "Pyroclastic Hellion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pyroclastic Hellion",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Hellion",
+        "oracleText": "When this creature enters, you may return a land you control to its owner's hand. When you do, this creature deals 2 damage to each opponent.",
+        "flavorText": "\"The difference between a hellion and a volcano is that volcanoes don't get hungry.\"\n—Sachir, Akoum Expeditionary House",
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Simon Dominic",
+        "imageId": "5929c89b-8c61-47f5-a8ec-b64bf41e9d5b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "znr",
+    "collectorNumber": "152",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAVALIER_OF_NIGHT": {
+    "scryfallId": "59eb97ec-c6d8-4a66-b6f7-045f32485e02",
+    "oracleId": "27c2b8ce-17b9-4f6c-8444-3bdc636dd413",
+    "name": "Cavalier of Night",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cavalier of Night",
+        "manaCost": "{2}{B}{B}{B}",
+        "typeLine": "Creature — Elemental Knight",
+        "oracleText": "Lifelink\nWhen this creature enters, you may sacrifice another creature. When you do, destroy target creature an opponent controls.\nWhen this creature dies, return target creature card with mana value 3 or less from your graveyard to the battlefield.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Viktor Titov",
+        "imageId": "59eb97ec-c6d8-4a66-b6f7-045f32485e02"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "pm20",
+    "collectorNumber": "94p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SELFCRAFT_MECHAN": {
+    "scryfallId": "5b2de056-5c27-44d6-871d-909411bd52dd",
+    "oracleId": "4ba4cb4b-f421-4abd-8fcf-a01174447790",
+    "name": "Selfcraft Mechan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Selfcraft Mechan",
+        "manaCost": "{3}{U}",
+        "typeLine": "Artifact Creature — Robot Artificer",
+        "oracleText": "When this creature enters, you may sacrifice an artifact. When you do, put a +1/+1 counter on target creature and draw a card.",
+        "flavorText": "Sometimes the best parts are already in use.",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "5b2de056-5c27-44d6-871d-909411bd52dd"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "74",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAVAI_THUNDERMANE": {
+    "scryfallId": "73d3925c-cf7d-4546-bc70-33f04d4b7566",
+    "oracleId": "620a2037-8bf5-48e0-af94-f4f7d3650c60",
+    "name": "Savai Thundermane",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Savai Thundermane",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Elemental Cat",
+        "oracleText": "Whenever you cycle a card, you may pay {2}. When you do, this creature deals 2 damage to target creature and you gain 2 life.",
+        "flavorText": "A crackling roar is the last sound many hunters hear.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "73d3925c-cf7d-4546-bc70-33f04d4b7566"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "iko",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THOUSAND_MOONS_CRACKSHOT": {
+    "scryfallId": "741a7439-965d-49f2-b43e-053f29196e6b",
+    "oracleId": "b1ce2971-fffa-40b3-9bfd-29afdb929e74",
+    "name": "Thousand Moons Crackshot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thousand Moons Crackshot",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature attacks, you may pay {2}{W}. When you do, tap target creature.",
+        "flavorText": "The Thousand Moons practice every maneuver thousands of times, allowing them to strike flawlessly without hesitation in the heat of battle.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Marie Magny",
+        "imageId": "741a7439-965d-49f2-b43e-053f29196e6b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLORIFIER_OF_SUFFERING": {
+    "scryfallId": "7580ad36-7362-4dee-9511-d119173b70e8",
+    "oracleId": "07a8ca73-9890-4c87-8b39-fd9eaea5ef45",
+    "name": "Glorifier of Suffering",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glorifier of Suffering",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "When this creature enters, you may sacrifice another creature or artifact. When you do, put a +1/+1 counter on each of up to two target creatures.",
+        "flavorText": "\"Everyone wants to be remembered. Few are willing to do what it takes.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Lauren K. Cannon",
+        "imageId": "7580ad36-7362-4dee-9511-d119173b70e8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "lci",
+    "collectorNumber": "15",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MEANDERS_GUIDE": {
+    "scryfallId": "8c41a0ad-138e-4eef-8f7f-35017e3b086f",
+    "oracleId": "8229954b-e1ef-4503-8443-2356e2a87663",
+    "name": "Meanders Guide",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Meanders Guide",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Merfolk Scout",
+        "oracleText": "Whenever this creature attacks, you may tap another untapped Merfolk you control. When you do, return target creature card with mana value 3 or less from your graveyard to the battlefield.",
+        "flavorText": "In the silence of the Dark Meanders, she thought only of those still lost.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Julie Dillon",
+        "imageId": "8c41a0ad-138e-4eef-8f7f-35017e3b086f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ecl",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RUTHLESS_LAWBRINGER": {
+    "scryfallId": "927b5498-23f1-47c0-b441-7daaeb54f9b8",
+    "oracleId": "82b6a283-9897-4ce1-8de3-e7579cc9b75b",
+    "name": "Ruthless Lawbringer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ruthless Lawbringer",
+        "manaCost": "{1}{W}{B}",
+        "typeLine": "Creature — Vampire Assassin",
+        "oracleText": "When this creature enters, you may sacrifice another creature. When you do, destroy target nonland permanent.",
+        "flavorText": "There's only one law that truly matters to the Sterling Company: never stand in the way of profit.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "927b5498-23f1-47c0-b441-7daaeb54f9b8"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "229",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSCRUPULOUS_CONTRACTOR": {
+    "scryfallId": "9e56a8df-db04-4a88-a5ab-6954d3449976",
+    "oracleId": "00ff5598-2f7f-4e28-8b63-5ae1ce18f0c5",
+    "name": "Unscrupulous Contractor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unscrupulous Contractor",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Assassin",
+        "oracleText": "When this creature enters, you may sacrifice a creature. When you do, target player draws two cards and loses 2 life.\nPlot {2}{B} (You may pay {2}{B} and exile this card from your hand. Cast it as a sorcery on a later turn without paying its mana cost. Plot only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mila Pesic",
+        "imageId": "9e56a8df-db04-4a88-a5ab-6954d3449976"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Plot"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "112",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORNERED_CROOK": {
+    "scryfallId": "a3aff1ea-1d25-49c3-a2d9-f435124a5969",
+    "oracleId": "4477eeab-a51a-4dc2-9c97-83f2551d8b54",
+    "name": "Cornered Crook",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cornered Crook",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Lizard Warrior",
+        "oracleText": "When this creature enters, you may sacrifice an artifact. When you do, this creature deals 3 damage to any target.",
+        "flavorText": "Monax knew attacking the detective was a reckless move, but he was at the end of his rope.",
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Gabor Szikszai",
+        "imageId": "a3aff1ea-1d25-49c3-a2d9-f435124a5969"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mkm",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHRAPNEL_SLINGER": {
+    "scryfallId": "a6147bdc-4e02-48be-9ab9-c212f70d9194",
+    "oracleId": "b400536c-ea8b-4237-90da-1d3ac139881d",
+    "name": "Shrapnel Slinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrapnel Slinger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact Creature — Phyrexian Beast",
+        "oracleText": "When this creature enters, you may sacrifice a creature. When you do, destroy target artifact an opponent controls.",
+        "flavorText": "\"They may have unlimited mites, but that just means we have unlimited ammunition.\"\n—Urabrask",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Joseph Meehan",
+        "imageId": "a6147bdc-4e02-48be-9ab9-c212f70d9194"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "one",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNDERCITY_ELIMINATOR": {
+    "scryfallId": "a67a4c5e-215b-4f03-87f7-c1af4f9f0a63",
+    "oracleId": "93cb9c7e-d6d3-4b1e-8bcf-2a4a1d95a549",
+    "name": "Undercity Eliminator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Undercity Eliminator",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Creature — Gorgon Assassin",
+        "oracleText": "When this creature enters, you may sacrifice an artifact or creature. When you do, exile target creature an opponent controls.",
+        "flavorText": "With their guild shunned for opening the doors to Phyrexia, some among the Golgari embraced their status as pariahs and took out their bitterness on all who crossed their paths.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "a67a4c5e-215b-4f03-87f7-c1af4f9f0a63"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mkm",
+    "collectorNumber": "108",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERRY_BARDS": {
+    "scryfallId": "b0058b9b-e919-45eb-9da0-690f62aa252e",
+    "oracleId": "699fa8e6-84f5-4010-a8fe-7b2e4f280ef9",
+    "name": "Merry Bards",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merry Bards",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Bard",
+        "oracleText": "When this creature enters, you may pay {1}. When you do, create a Young Hero Role token attached to target creature you control. (If you control another Role on it, put that one into the graveyard. Enchanted creature has \"Whenever this creature attacks, if its toughness is 3 or less, put a +1/+1 counter on it.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Iris Compiet",
+        "imageId": "b0058b9b-e919-45eb-9da0-690f62aa252e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Role token"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPINED_TYRRANAX": {
+    "scryfallId": "bb589caa-bba4-4d23-bdfe-7fc37f19bfd6",
+    "oracleId": "2d09e689-c163-48c5-af5d-766f110d041e",
+    "name": "Spined Tyrranax",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spined Tyrranax",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Dinosaur Beast",
+        "oracleText": "At the beginning of combat on your turn, you may pay {2}{G}. When you do, put a +1/+1 counter on target creature. That creature gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": "\"Drive the beasts into the enemy ranks, then stay back and let them do the work.\"\n—Koth",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brent Hollowell",
+        "imageId": "bb589caa-bba4-4d23-bdfe-7fc37f19bfd6"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j25",
+    "collectorNumber": "26",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GASTAL_BLOCKBUSTER": {
+    "scryfallId": "dca41ec6-8f8f-42ef-abac-cc645c6440b7",
+    "oracleId": "3b601721-90ca-45d3-9a3a-19c719799bfa",
+    "name": "Gastal Blockbuster",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gastal Blockbuster",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Berserker",
+        "oracleText": "When this creature enters, you may sacrifice a creature or Vehicle. When you do, destroy target artifact an opponent controls.",
+        "flavorText": "\"Consider me an accident no longer waiting to happen.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Bryan Sola",
+        "imageId": "dca41ec6-8f8f-42ef-abac-cc645c6440b7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dft",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TY_LEE_ARTFUL_ACROBAT": {
+    "scryfallId": "dcd9df24-272b-4aa1-b05f-6ee6b3d3dfe7",
+    "oracleId": "3726b9a0-67cb-4f45-ab50-62db50f93568",
+    "name": "Ty Lee, Artful Acrobat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ty Lee, Artful Acrobat",
+        "manaCost": "{2}{R}",
+        "typeLine": "Legendary Creature — Human Performer",
+        "oracleText": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nWhenever Ty Lee attacks, you may pay {1}. When you do, target creature can't block this turn.",
+        "flavorText": "The circus called to Ty Lee . . . until Azula called a little louder.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Rose Benjamin",
+        "imageId": "dcd9df24-272b-4aa1-b05f-6ee6b3d3dfe7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Prowess"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LABYRINTH_ADVERSARY": {
+    "scryfallId": "ddc770fd-d513-420b-94f8-f2d28d8ed8d1",
+    "oracleId": "00a9bdd0-8a39-4489-bd42-2ac92e550781",
+    "name": "Labyrinth Adversary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Labyrinth Adversary",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Minotaur",
+        "oracleText": "Trample (This creature can deal excess combat damage to the player it's attacking.)\nWhenever you attack, you may pay {1}{R}. When you do, target creature can't block this turn.",
+        "flavorText": "It had claimed many lives in the Labyrinth before it met its end by Kassandra's hand.",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Narendra Bintara Adi",
+        "imageId": "ddc770fd-d513-420b-94f8-f2d28d8ed8d1"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "290",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GENERAL_TRAAG_HEART_OF_STONE": {
+    "scryfallId": "e02e971f-6008-4c82-acd2-2aed13009ccb",
+    "oracleId": "ade54bb7-3df8-4578-add8-1f85afee57ab",
+    "name": "General Traag, Heart of Stone",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "General Traag, Heart of Stone",
+        "manaCost": "{3}{R}{R}",
+        "typeLine": "Legendary Artifact Creature — Elemental Soldier",
+        "oracleText": "Trample\nWhen General Traag enters, you may sacrifice another artifact. When you do, General Traag deals 4 damage to target creature.",
+        "flavorText": "\"Lord Krang, we arrive. We obey. We conquer.\"",
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kevin Sidharta",
+        "imageId": "e02e971f-6008-4c82-acd2-2aed13009ccb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "90",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SNAREMASTER_SPRITE": {
+    "scryfallId": "eaa37390-5c32-46ae-89d1-c094c9aa01e5",
+    "oracleId": "b0632f1b-14e5-4534-b2c5-af9d557fdcc0",
+    "name": "Snaremaster Sprite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Snaremaster Sprite",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Faerie Wizard",
+        "oracleText": "Flying\nWhen this creature enters, you may pay {2}. When you do, tap target creature an opponent controls and put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christina Kraus",
+        "imageId": "eaa37390-5c32-46ae-89d1-c094c9aa01e5"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
