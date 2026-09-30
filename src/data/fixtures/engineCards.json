@@ -321836,6 +321836,1023 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "OVERSEER_OF_THE_DAMNED": {
+    "scryfallId": "052908a3-9159-40df-8e06-1827da62ee11",
+    "oracleId": "c1f085ce-5b52-45b3-aef0-f77f36b3da36",
+    "name": "Overseer of the Damned",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Overseer of the Damned",
+        "manaCost": "{5}{B}{B}",
+        "typeLine": "Creature — Demon",
+        "oracleText": "Flying\nWhen this creature enters, you may destroy target creature.\nWhenever a nontoken creature an opponent controls dies, create a tapped 2/2 black Zombie creature token.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "rk post",
+        "imageId": "052908a3-9159-40df-8e06-1827da62ee11"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "c19",
+    "collectorNumber": "125",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GEOLOGY_ENTHUSIAST": {
+    "scryfallId": "06fd308b-9621-4b9e-81be-c3ebb4228d93",
+    "oracleId": "c7c1352a-0332-4495-a384-8d6fed01f91b",
+    "name": "Geology Enthusiast",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Geology Enthusiast",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "At the beginning of your end step, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")\n{6}: Draw a card and put a +1/+1 counter on this creature.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Fajareka Setiawan",
+        "imageId": "06fd308b-9621-4b9e-81be-c3ebb4228d93"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "105652",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARNIM_ZOLA_BIO_FANATIC": {
+    "scryfallId": "07c70df6-b064-424a-852e-201b312a5b54",
+    "oracleId": "95161e23-e4c4-411f-bce5-58a02abc0958",
+    "name": "Arnim Zola, Bio-Fanatic",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arnim Zola, Bio-Fanatic",
+        "manaCost": "{2}{B}",
+        "typeLine": "Legendary Artifact Creature — Scientist Villain",
+        "oracleText": "{3}, {T}: Create a tapped 2/1 black Villain creature token with menace. Activate only if there are two or more creature cards in your graveyard. (It can't be blocked except by two or more creatures.)",
+        "flavorText": "\"You are not the only one who found a way to live across the ages, Captain America.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Immanuela Crovius",
+        "imageId": "07c70df6-b064-424a-852e-201b312a5b54"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msh",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROYAL_WARDEN": {
+    "scryfallId": "0a968eac-2840-41ba-b7de-3182964d4913",
+    "oracleId": "0192ba05-6144-4fec-a803-462ecdf64195",
+    "name": "Royal Warden",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Royal Warden",
+        "manaCost": "{3}{B}{B}",
+        "typeLine": "Artifact Creature — Necron",
+        "oracleText": "Phalanx Commander — When this creature enters, create two tapped 2/2 black Necron Warrior artifact creature tokens.\nUnearth {3}{B} ({3}{B}: Return this card from your graveyard to the battlefield. It gains haste. Exile it at the beginning of the next end step or if it would leave the battlefield. Unearth only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Artur Nakhodkin",
+        "imageId": "0a968eac-2840-41ba-b7de-3182964d4913"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Phalanx Commander",
+      "Unearth"
+    ],
+    "setCode": "40k",
+    "collectorNumber": "52",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_GREAT_MOUND": {
+    "scryfallId": "11b3f96c-138e-431e-a1d6-5ebae4cb6b2f",
+    "oracleId": "6b78e417-44f8-4ab6-9d3c-e71704fc648e",
+    "name": "The Great Mound",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Great Mound",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{3}, {T}: Create a tapped Vibranium token. (It's an artifact with indestructible and \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")\n{6}, {T}: Draw a card.",
+        "flavorText": "Mena Ngai, where the heaven-sent metal dwells.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pablo Mendoza",
+        "imageId": "11b3f96c-138e-431e-a1d6-5ebae4cb6b2f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "XATHRID_NECROMANCER": {
+    "scryfallId": "146019b7-d7c2-444c-8931-8a870c7a0b35",
+    "oracleId": "a6b38874-c8be-47f7-a656-ba49ec9e967f",
+    "name": "Xathrid Necromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Xathrid Necromancer",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever this creature or another Human creature you control dies, create a tapped 2/2 black Zombie creature token.",
+        "flavorText": "\"My commands shall echo forever in their dusty skulls.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Maciej Kuciara",
+        "imageId": "146019b7-d7c2-444c-8931-8a870c7a0b35"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "52312",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DRANA_S_CHOSEN": {
+    "scryfallId": "189abe2f-5899-438b-9f54-3c98e50f037a",
+    "oracleId": "185b3b9f-f798-4ca4-af99-b17a24fcc1c6",
+    "name": "Drana's Chosen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Drana's Chosen",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Shaman Ally",
+        "oracleText": "Cohort — {T}, Tap an untapped Ally you control: Create a tapped 2/2 black Zombie creature token.",
+        "flavorText": "\"Drana commands me. I command my nulls. And so her bidding is done.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Deruchenko Alexander",
+        "imageId": "189abe2f-5899-438b-9f54-3c98e50f037a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Cohort"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "84",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORMOD_THE_DESECRATOR": {
+    "scryfallId": "267789e2-c168-41f0-89ea-6c3cdd944b35",
+    "oracleId": "6dc0150d-7145-41e2-bd3d-2564d9d32301",
+    "name": "Tormod, the Desecrator",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tormod, the Desecrator",
+        "manaCost": "{3}{B}",
+        "typeLine": "Legendary Creature — Zombie Wizard",
+        "oracleText": "Whenever one or more cards leave your graveyard, create a tapped 2/2 black Zombie creature token.\nPartner (You can have two commanders if both have partner.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Grzegorz Rutkowski",
+        "imageId": "267789e2-c168-41f0-89ea-6c3cdd944b35"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Partner"
+    ],
+    "setCode": "prm",
+    "collectorNumber": "86288",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POWERSTONE_ENGINEER": {
+    "scryfallId": "2901c5f6-5d83-437d-b434-d9beb115dd82",
+    "oracleId": "f2ffc999-609f-4424-8d40-ebc042357a40",
+    "name": "Powerstone Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Powerstone Engineer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature dies, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": "\"Well there's your problem—resonance leak lowering output by thirty percent. I can patch that up.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Murphy",
+        "imageId": "2901c5f6-5d83-437d-b434-d9beb115dd82"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "20",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVPACK_MONOIST": {
+    "scryfallId": "2a968f01-36ef-4cf6-b1db-630c9cde2064",
+    "oracleId": "9c009b3f-6580-4ab8-84e8-d4cf7a456a02",
+    "name": "Gravpack Monoist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gravpack Monoist",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Flying\nWhen this creature dies, create a tapped 2/2 colorless Robot artifact creature token.",
+        "flavorText": "Her food stores will run out before her fuel, leaving only her mechan gravpack to carry her remains to the Next Eternity.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "2a968f01-36ef-4cf6-b1db-630c9cde2064"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ASHNOD_FLESH_MECHANIST": {
+    "scryfallId": "2bbdfd1a-b16b-46b3-8a3e-642b5e5ae68f",
+    "oracleId": "7dfae95e-f67e-49e3-b68a-40ea7e5099dd",
+    "name": "Ashnod, Flesh Mechanist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ashnod, Flesh Mechanist",
+        "manaCost": "{B}",
+        "typeLine": "Legendary Creature — Human Artificer",
+        "oracleText": "Deathtouch\nWhenever Ashnod attacks, you may sacrifice another creature. If you do, create a tapped Powerstone token.\n{5}, Exile a creature card from your graveyard: Create a tapped 3/3 colorless Zombie artifact creature token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Howard Lyon",
+        "imageId": "2bbdfd1a-b16b-46b3-8a3e-642b5e5ae68f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Deathtouch"
+    ],
+    "setCode": "pbro",
+    "collectorNumber": "84s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SARINTH_GREATWURM": {
+    "scryfallId": "2cfbfd9a-db8e-4162-8205-d72e750805f7",
+    "oracleId": "5b5b9390-bb3a-4f71-809a-cfe2a6566b59",
+    "name": "Sarinth Greatwurm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sarinth Greatwurm",
+        "manaCost": "{4}{R}{G}",
+        "typeLine": "Creature — Wurm",
+        "oracleText": "Trample\nWhenever a land enters, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": "It felt the rumblings of war and uncoiled itself from the depths of the world.",
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Jesper Ejsing",
+        "imageId": "2cfbfd9a-db8e-4162-8205-d72e750805f7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "pbro",
+    "collectorNumber": "220p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARGOTHIAN_OPPORTUNIST": {
+    "scryfallId": "2e0287d5-81f1-499c-9671-27796f824f33",
+    "oracleId": "cc9d3868-9814-4506-80b3-660bc462ff98",
+    "name": "Argothian Opportunist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Argothian Opportunist",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "When this creature enters, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": "\"Nature adapts. So should we.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Ina Wong",
+        "imageId": "2e0287d5-81f1-499c-9671-27796f824f33"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "BRO-167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AUTOMATED_ASSEMBLY_LINE": {
+    "scryfallId": "349ac69e-c2a0-4106-951a-3ca3a33c30ed",
+    "oracleId": "6e24a5bd-0ce3-4dc1-98c6-60d527bfdcfd",
+    "name": "Automated Assembly Line",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Automated Assembly Line",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever one or more artifact creatures you control deal combat damage to a player, you get {E} (an energy counter).\nPay {E}{E}{E}: Create a tapped 3/3 colorless Robot artifact creature token.",
+        "flavorText": "\"You needn't be afraid of me. It's my securitrons that are going to kill you.\"\n—Mr. House",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "349ac69e-c2a0-4106-951a-3ca3a33c30ed"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pip",
+    "collectorNumber": "363",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HALL_OF_TAGSIN": {
+    "scryfallId": "3a861732-5e40-4381-96c0-9a5cc47b31d0",
+    "oracleId": "fd809587-773c-47ec-8676-cefef6d1e38f",
+    "name": "Hall of Tagsin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hall of Tagsin",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}: Add {C}.\n{1}, {T}: Add one mana of any color.\n{4}, {T}: Create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christian Dimitrov",
+        "imageId": "3a861732-5e40-4381-96c0-9a5cc47b31d0"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "105870",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MELDED_MOXITE": {
+    "scryfallId": "474c067f-eb24-4ae8-b4c0-f6f8e24cdb2a",
+    "oracleId": "86e0e718-82b5-4c99-9837-1b4d8729a27e",
+    "name": "Melded Moxite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Melded Moxite",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, you may discard a card. If you do, draw two cards.\n{3}, Sacrifice this artifact: Create a tapped 2/2 colorless Robot artifact creature token.",
+        "flavorText": "Only the most skilled matter shapers can imbue moxite with other raw energies, but the rewards are well worth the dangers.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alexandr Leskinen",
+        "imageId": "474c067f-eb24-4ae8-b4c0-f6f8e24cdb2a"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "143",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NULL_CALLER": {
+    "scryfallId": "4afe773b-2987-4001-a0fd-9dca414a9129",
+    "oracleId": "b9d75969-15ac-4509-b95c-a762fc2b99f9",
+    "name": "Null Caller",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Null Caller",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Vampire Shaman",
+        "oracleText": "{3}{B}, Exile a creature card from your graveyard: Create a tapped 2/2 black Zombie creature token.",
+        "flavorText": "Zendikar's defenders include both healers and vampires. One way or another, the fallen will return to the fight.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Darek Zabrocki",
+        "imageId": "4afe773b-2987-4001-a0fd-9dca414a9129"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GIRDER_GOONS": {
+    "scryfallId": "4bfd6449-31a1-4572-8f9c-3f6f4670dc9d",
+    "oracleId": "655961a3-94b5-4600-b9f1-f93163d03a49",
+    "name": "Girder Goons",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Girder Goons",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Ogre Warrior",
+        "oracleText": "When this creature dies, create a tapped 2/2 black Rogue creature token.\nBlitz {3}{B} (If you cast this spell for its blitz cost, it gains haste and \"When this creature dies, draw a card.\" Sacrifice it at the beginning of the next end step.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "4bfd6449-31a1-4572-8f9c-3f6f4670dc9d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Blitz"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAVEYARD_MARSHAL": {
+    "scryfallId": "4dc5f62c-2d29-4a94-8501-13dc6a93c5a1",
+    "oracleId": "216c5a72-ef87-4ada-bf52-437e50874be5",
+    "name": "Graveyard Marshal",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Graveyard Marshal",
+        "manaCost": "{B}{B}",
+        "typeLine": "Creature — Zombie Soldier",
+        "oracleText": "{2}{B}, Exile a creature card from your graveyard: Create a tapped 2/2 black Zombie creature token.",
+        "flavorText": "\"Rise and shine, my dears. We have work to do.\"\n—Isareth the Awakener",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Behm",
+        "imageId": "4dc5f62c-2d29-4a94-8501-13dc6a93c5a1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "m19",
+    "collectorNumber": "99",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLUSTRIOUS_HISTORIAN": {
+    "scryfallId": "56cc4e7d-3b06-4938-9023-d903912350c0",
+    "oracleId": "5a131407-c217-48fc-aa15-9e3392445768",
+    "name": "Illustrious Historian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illustrious Historian",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{5}, Exile this card from your graveyard: Create a tapped 3/2 red and white Spirit creature token.",
+        "flavorText": "The most distinguished Lorehold professors are eligible to receive extended tenure, even beyond the limits of their own mortality.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Brian Valeza",
+        "imageId": "56cc4e7d-3b06-4938-9023-d903912350c0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "stx",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STATIC_NET": {
+    "scryfallId": "5ab5cb30-3ced-4450-a3c4-b519f3762620",
+    "oracleId": "3f285781-ee03-4a58-a85e-a33f5efffc9d",
+    "name": "Static Net",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Static Net",
+        "manaCost": "{3}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\nWhen this enchantment enters, you gain 2 life and create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Josh Hass",
+        "imageId": "5ab5cb30-3ced-4450-a3c4-b519f3762620"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "27",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAMI_SHIP_S_ENGINEER": {
+    "scryfallId": "75c38cc9-07de-46d4-8195-f04b2b7e0fee",
+    "oracleId": "470c16c5-b078-47f5-89b0-42991e1f7157",
+    "name": "Sami, Ship's Engineer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sami, Ship's Engineer",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Human Artificer",
+        "oracleText": "At the beginning of your end step, if you control two or more tapped creatures, create a tapped 2/2 colorless Robot artifact creature token.",
+        "flavorText": "Whenever Sami was down on their luck, they returned to an old comfort: the clinks and clanks of tinkering.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Zara Alfonso",
+        "imageId": "75c38cc9-07de-46d4-8195-f04b2b7e0fee"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "eoe",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOG_WALKER": {
+    "scryfallId": "a6e0adb7-a030-4dcc-9284-cd91c7598a22",
+    "oracleId": "10d24900-cd40-4c98-bb1e-b9e66113f703",
+    "name": "Dog Walker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dog Walker",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Citizen",
+        "oracleText": "Vigilance\nDisguise {R/W}{R/W} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)\nWhen this creature is turned face up, create two tapped 1/1 white Dog creature tokens.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "a6e0adb7-a030-4dcc-9284-cd91c7598a22"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance",
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "T_CHALLA_THE_BLACK_PANTHER": {
+    "scryfallId": "c1c8ad61-b7e1-446c-8b74-6e29371ea1d5",
+    "oracleId": "ae10eb15-28e7-46d1-9a2e-85763d93febf",
+    "name": "T'Challa, the Black Panther",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "T'Challa, the Black Panther",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Legendary Creature — Human Noble Hero",
+        "oracleText": "Whenever T'Challa enters or attacks, create a tapped Vibranium token. (It's an artifact with indestructible and \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")\nWhenever you cast an artifact spell with mana value 4 or greater, put two +1/+1 counters on T'Challa.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Eli Minaya",
+        "imageId": "c1c8ad61-b7e1-446c-8b74-6e29371ea1d5"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "msc",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEERING_ONLOOKER": {
+    "scryfallId": "dc687588-9c57-411d-b666-b9699949d48f",
+    "oracleId": "06a37f16-c929-4b89-bf18-1b3f8f472eef",
+    "name": "Leering Onlooker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leering Onlooker",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying\n{2}{B}{B}, Exile this card from your graveyard: Create two tapped 1/1 black Bat creature tokens with flying.",
+        "flavorText": "\"Ooh, this one does look nasty. Maybe they'll send Proft!\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "dc687588-9c57-411d-b666-b9699949d48f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GREAT_DESERT_PROSPECTOR": {
+    "scryfallId": "dc83d586-bf46-437f-a5a3-996bd62d5866",
+    "oracleId": "37278877-e7d8-47b6-a65f-37c7f85e3a0a",
+    "name": "Great Desert Prospector",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Great Desert Prospector",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, create a tapped Powerstone token for each other creature you control. (They're artifacts with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": "\"Hello, beautiful.\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "dc83d586-bf46-437f-a5a3-996bd62d5866"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARBALEST_ENGINEERS": {
+    "scryfallId": "df343bf9-f535-42c7-a2d0-8adfd068b354",
+    "oracleId": "06bea0b2-1d0f-4d64-a13e-723d08042e83",
+    "name": "Arbalest Engineers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arbalest Engineers",
+        "manaCost": "{1}{R}{G}",
+        "typeLine": "Creature — Human Artificer",
+        "oracleText": "When this creature enters, choose one —\n• This creature deals 1 damage to any target.\n• Put a +1/+1 counter on target creature. It gains trample and haste until end of turn.\n• Create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "R"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "df343bf9-f535-42c7-a2d0-8adfd068b354"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "206",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STONE_RETRIEVAL_UNIT": {
+    "scryfallId": "e8a36d1f-f6cc-4962-9ad6-589f7b3e5f95",
+    "oracleId": "31d9a771-09ae-4cd4-bd19-6012f839a9e8",
+    "name": "Stone Retrieval Unit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stone Retrieval Unit",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "When this creature enters, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": "Automatons could be rebuilt. Powerstones could not.",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Andreas Zafiratos",
+        "imageId": "e8a36d1f-f6cc-4962-9ad6-589f7b3e5f95"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "bro",
+    "collectorNumber": "248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOILOS_ROC": {
+    "scryfallId": "ebdbcb87-c6ea-477f-a560-c175d99e21b8",
+    "oracleId": "0956c0f5-ff1d-43d5-88de-4c2d603cf798",
+    "name": "Koilos Roc",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Koilos Roc",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, create a tapped Powerstone token. (It's an artifact with \"{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.\")",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Antonio José Manzanedo",
+        "imageId": "ebdbcb87-c6ea-477f-a560-c175d99e21b8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "55",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PROSPEROUS_BANDIT": {
+    "scryfallId": "383bde13-c24c-4c3c-bc10-72287aae74de",
+    "oracleId": "2a14670b-2ab6-4e1d-9b33-610a87bdb7ce",
+    "name": "Prosperous Bandit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prosperous Bandit",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Raccoon Rogue",
+        "oracleText": "Offspring {1} (You may pay an additional {1} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nFirst strike\nWhenever this creature deals combat damage to a player, create that many tapped Treasure tokens.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Yohann Schepacz",
+        "imageId": "383bde13-c24c-4c3c-bc10-72287aae74de"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Offspring",
+      "First strike",
+      "Treasure"
+    ],
+    "setCode": "blc",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",
@@ -331342,6 +332359,157 @@
     "keywords": [],
     "setCode": "tsnc",
     "collectorNumber": "6",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "POWERSTONE_447AF615_TOKEN": {
+    "scryfallId": "447af615-1e59-471f-886b-bf46007a938d",
+    "oracleId": "91da73fe-d028-43d7-bf75-f7ef30b45664",
+    "name": "Powerstone",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Powerstone",
+        "manaCost": "",
+        "typeLine": "Token Artifact — Powerstone",
+        "oracleText": "{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "David Auden Nash",
+        "imageId": "447af615-1e59-471f-886b-bf46007a938d"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tdmu",
+    "collectorNumber": "23",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "VIBRANIUM_252FF4C7_TOKEN": {
+    "scryfallId": "252ff4c7-758e-4ceb-aed1-ef15a94e245e",
+    "oracleId": "32edf0e6-a495-4de8-b85f-42a2d4ef71b1",
+    "name": "Vibranium",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Vibranium",
+        "manaCost": "",
+        "typeLine": "Token Artifact — Vibranium",
+        "oracleText": "Indestructible\n{T}: Add {C}. This mana can't be spent to cast a nonartifact spell.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Diego Gisbert",
+        "imageId": "252ff4c7-758e-4ceb-aed1-ef15a94e245e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [
+      "Indestructible"
+    ],
+    "setCode": "tmsc",
+    "collectorNumber": "31",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ZOMBIE_FEF47D03_TOKEN": {
+    "scryfallId": "fef47d03-9050-48ed-994f-f72582967dbd",
+    "oracleId": "82868a85-a6f4-47db-b159-d23a9c4c9892",
+    "name": "Zombie",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Zombie",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Zombie",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Kieran Yanner",
+        "imageId": "fef47d03-9050-48ed-994f-f72582967dbd"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tbro",
+    "collectorNumber": "11",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ROBOT_76CDE21F_TOKEN": {
+    "scryfallId": "76cde21f-2f01-4560-972b-7ecd6740d6de",
+    "oracleId": "ddd9212e-6f94-4a79-a810-418b87072543",
+    "name": "Robot",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Robot",
+        "manaCost": "",
+        "typeLine": "Token Artifact Creature — Robot",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Sergio Cosmai",
+        "imageId": "76cde21f-2f01-4560-972b-7ecd6740d6de"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tpip",
+    "collectorNumber": "16",
+    "commanderLegality": "not_legal",
+    "singleImage": true
+  },
+  "ROGUE_064DEC90_TOKEN": {
+    "scryfallId": "064dec90-75ae-4afe-a5d5-a878e9fd9f34",
+    "oracleId": "9acbc363-827c-4146-a004-81be179a8c28",
+    "name": "Rogue",
+    "layout": "token",
+    "faces": [
+      {
+        "name": "Rogue",
+        "manaCost": "",
+        "typeLine": "Token Creature — Rogue",
+        "oracleText": "",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "064dec90-75ae-4afe-a5d5-a878e9fd9f34"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "tmsc",
+    "collectorNumber": "9",
     "commanderLegality": "not_legal",
     "singleImage": true
   }

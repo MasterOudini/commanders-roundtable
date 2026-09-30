@@ -47,6 +47,11 @@ export interface TokenSpec {
    * when the description quotes nothing.
    */
   readonly quoted?: string;
+  /**
+   * D593 - `create a tapped <token>`: the created token's ENTRY STATE, never its identity - `specKey` ignores it, so the
+   * tapped and the untapped description name the same printing; the executor taps what it made.
+   */
+  readonly tapped?: true;
 }
 
 const COLOUR_WORDS: Readonly<Record<string, ColorLetter | ''>> = {
@@ -203,15 +208,18 @@ export function parseTokenClause(sentence: string, quotes: readonly string[] = [
   if (words.length === 0) return null;
 
   let i = 0;
+  // D593 - `tapped` leads the description when the token enters tapped (Powerstone, `create a tapped 2/2 ...`).
+  const tapped = (words[0] ?? '').toLowerCase() === 'tapped';
+  if (tapped) i++;
   let power: string | null = null;
   let toughness: string | null = null;
-  const pt = PT.exec(words[0] ?? '');
+  const pt = PT.exec(words[i] ?? '');
   if (pt) {
     // ⚠️ `X` and `*` are refused rather than guessed. `*` is a
     // characteristic-defining ability the engine does not compute (layer 7a
     // ships no scripts), and `X` is not known at parse time — the same rule
     // `effectParse`'s `num()` applies to damage.
-    if (/[X*]/i.test(words[0] ?? '')) return null;
+    if (/[X*]/i.test(words[i] ?? '')) return null;
     power = pt[1] ?? null;
     toughness = pt[2] ?? null;
     i++;
@@ -281,7 +289,7 @@ export function parseTokenClause(sentence: string, quotes: readonly string[] = [
   if (/(?:,|\band)$/.test(abilities)) return null;
   if (abilities !== '' && !isKeywordList(abilities)) return null;
 
-  return { count, name: subtypes.join(' '), power, toughness, colors, types, abilities, ...(quoted !== undefined ? { quoted } : {}) };
+  return { count, name: subtypes.join(' '), power, toughness, colors, types, abilities, ...(quoted !== undefined ? { quoted } : {}), ...(tapped ? { tapped: true as const } : {}) };
 }
 
 /**

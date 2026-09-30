@@ -10600,6 +10600,38 @@ const WANTED = [
   'Trained Arynx',
   'Basilica Stalker',
   // D592 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D593 - THE TAPPED TOKEN: the rows the whole-leftover row maker rowed once a token made tapped read (the Powerstone baked).
+  'Overseer of the Damned',
+  'Geology Enthusiast',
+  'Arnim Zola, Bio-Fanatic',
+  'Royal Warden',
+  'The Great Mound',
+  'Xathrid Necromancer',
+  "Drana's Chosen",
+  'Tormod, the Desecrator',
+  'Powerstone Engineer',
+  'Gravpack Monoist',
+  'Ashnod, Flesh Mechanist',
+  'Sarinth Greatwurm',
+  'Argothian Opportunist',
+  'Automated Assembly Line',
+  'Hall of Tagsin',
+  'Melded Moxite',
+  'Null Caller',
+  'Girder Goons',
+  'Graveyard Marshal',
+  'Illustrious Historian',
+  'Static Net',
+  "Sami, Ship's Engineer",
+  'Dog Walker',
+  "T'Challa, the Black Panther",
+  'Leering Onlooker',
+  'Great Desert Prospector',
+  'Arbalest Engineers',
+  'Stone Retrieval Unit',
+  'Koilos Roc',
+  'Prosperous Bandit',
+  // D593 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
@@ -11043,6 +11075,12 @@ const WANTED_TOKENS = [
   { name: 'Phyrexian Saproling', set: 'tmom', cn: '8', key: 'PHYREXIAN_SAPROLING_1_1_G_CREATURE_TOKEN' },
   // D585 - the Ogre Warrior Join the Maestros makes.
   { name: 'Ogre Warrior', set: 'tsnc', cn: '6', key: 'OGRE_WARRIOR_4_3_B_CREATURE_TOKEN' },
+  // D593 - the tokens the wave's rows create (the port's token-pin step, missing until D494).
+  { name: 'Powerstone', set: 'tdmu', cn: '23', key: 'POWERSTONE_447AF615_TOKEN' },
+  { name: 'Vibranium', set: 'tmsc', cn: '31', key: 'VIBRANIUM_252FF4C7_TOKEN' },
+  { name: 'Zombie', set: 'tbro', cn: '11', key: 'ZOMBIE_FEF47D03_TOKEN' },
+  { name: 'Robot', set: 'tpip', cn: '16', key: 'ROBOT_76CDE21F_TOKEN' },
+  { name: 'Rogue', set: 'tmsc', cn: '9', key: 'ROGUE_064DEC90_TOKEN' },
 ];
 
 function constName(name) {

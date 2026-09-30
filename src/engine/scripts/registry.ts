@@ -7,6 +7,36 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { OVERSEER_OF_THE_DAMNED_SCRIPT } from './cards/overseerOfTheDamned';
+import { GEOLOGY_ENTHUSIAST_SCRIPT } from './cards/geologyEnthusiast';
+import { ARNIM_ZOLA_BIO_FANATIC_SCRIPT } from './cards/arnimZolaBioFanatic';
+import { ROYAL_WARDEN_SCRIPT } from './cards/royalWarden';
+import { THE_GREAT_MOUND_SCRIPT } from './cards/theGreatMound';
+import { XATHRID_NECROMANCER_SCRIPT } from './cards/xathridNecromancer';
+import { DRANAS_CHOSEN_SCRIPT } from './cards/dranasChosen';
+import { TORMOD_THE_DESECRATOR_SCRIPT } from './cards/tormodTheDesecrator';
+import { POWERSTONE_ENGINEER_SCRIPT } from './cards/powerstoneEngineer';
+import { GRAVPACK_MONOIST_SCRIPT } from './cards/gravpackMonoist';
+import { ASHNOD_FLESH_MECHANIST_SCRIPT } from './cards/ashnodFleshMechanist';
+import { SARINTH_GREATWURM_SCRIPT } from './cards/sarinthGreatwurm';
+import { ARGOTHIAN_OPPORTUNIST_SCRIPT } from './cards/argothianOpportunist';
+import { AUTOMATED_ASSEMBLY_LINE_SCRIPT } from './cards/automatedAssemblyLine';
+import { HALL_OF_TAGSIN_SCRIPT } from './cards/hallOfTagsin';
+import { MELDED_MOXITE_SCRIPT } from './cards/meldedMoxite';
+import { NULL_CALLER_SCRIPT } from './cards/nullCaller';
+import { GIRDER_GOONS_SCRIPT } from './cards/girderGoons';
+import { GRAVEYARD_MARSHAL_SCRIPT } from './cards/graveyardMarshal';
+import { ILLUSTRIOUS_HISTORIAN_SCRIPT } from './cards/illustriousHistorian';
+import { STATIC_NET_SCRIPT } from './cards/staticNet';
+import { SAMI_SHIPS_ENGINEER_SCRIPT } from './cards/samiShipsEngineer';
+import { DOG_WALKER_SCRIPT } from './cards/dogWalker';
+import { TCHALLA_THE_BLACK_PANTHER_SCRIPT } from './cards/tchallaTheBlackPanther';
+import { LEERING_ONLOOKER_SCRIPT } from './cards/leeringOnlooker';
+import { GREAT_DESERT_PROSPECTOR_SCRIPT } from './cards/greatDesertProspector';
+import { ARBALEST_ENGINEERS_SCRIPT } from './cards/arbalestEngineers';
+import { STONE_RETRIEVAL_UNIT_SCRIPT } from './cards/stoneRetrievalUnit';
+import { KOILOS_ROC_SCRIPT } from './cards/koilosRoc';
+import { PROSPEROUS_BANDIT_SCRIPT } from './cards/prosperousBandit';
 import { BURNING_PROPHET_SCRIPT } from './cards/burningProphet';
 import { SERUM_VISIONARY_SCRIPT } from './cards/serumVisionary';
 import { TRELASARRA_MOON_DANCER_SCRIPT } from './cards/trelasarraMoonDancer';
@@ -8527,6 +8557,36 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  OVERSEER_OF_THE_DAMNED_SCRIPT,
+  GEOLOGY_ENTHUSIAST_SCRIPT,
+  ARNIM_ZOLA_BIO_FANATIC_SCRIPT,
+  ROYAL_WARDEN_SCRIPT,
+  THE_GREAT_MOUND_SCRIPT,
+  XATHRID_NECROMANCER_SCRIPT,
+  DRANAS_CHOSEN_SCRIPT,
+  TORMOD_THE_DESECRATOR_SCRIPT,
+  POWERSTONE_ENGINEER_SCRIPT,
+  GRAVPACK_MONOIST_SCRIPT,
+  ASHNOD_FLESH_MECHANIST_SCRIPT,
+  SARINTH_GREATWURM_SCRIPT,
+  ARGOTHIAN_OPPORTUNIST_SCRIPT,
+  AUTOMATED_ASSEMBLY_LINE_SCRIPT,
+  HALL_OF_TAGSIN_SCRIPT,
+  MELDED_MOXITE_SCRIPT,
+  NULL_CALLER_SCRIPT,
+  GIRDER_GOONS_SCRIPT,
+  GRAVEYARD_MARSHAL_SCRIPT,
+  ILLUSTRIOUS_HISTORIAN_SCRIPT,
+  STATIC_NET_SCRIPT,
+  SAMI_SHIPS_ENGINEER_SCRIPT,
+  DOG_WALKER_SCRIPT,
+  TCHALLA_THE_BLACK_PANTHER_SCRIPT,
+  LEERING_ONLOOKER_SCRIPT,
+  GREAT_DESERT_PROSPECTOR_SCRIPT,
+  ARBALEST_ENGINEERS_SCRIPT,
+  STONE_RETRIEVAL_UNIT_SCRIPT,
+  KOILOS_ROC_SCRIPT,
+  PROSPEROUS_BANDIT_SCRIPT,
   BURNING_PROPHET_SCRIPT,
   SERUM_VISIONARY_SCRIPT,
   TRELASARRA_MOON_DANCER_SCRIPT,

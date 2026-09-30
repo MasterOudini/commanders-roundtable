@@ -2533,6 +2533,8 @@ export function effectResult(
         // D504 - the aimed player creates the token (the previous object's controller - Beast Within's Beast is the
         // destroyed permanent's controller's); the caster's otherwise.
         const maker = !effect.self && aim?.kind === 'player' ? aim.id : controller;
+        // D593 - a token made TAPPED (`create a tapped <token>`) is tapped as it is made (mobilize's shape).
+        const firstMade = nextInstance + 1;
         for (let n = 0; n < effect.amount; n++) {
           nextInstance++;
           out.push({
@@ -2547,6 +2549,7 @@ export function effectResult(
             ...(exceptions !== undefined ? { copyExceptions: exceptions } : {}),
           });
         }
+        if (effect.tapped === true && effect.amount > 0) out.push({ t: 'PermanentsTapped', cards: Array.from({ length: effect.amount }, (_, k) => `c${firstMade + k}`) });
         if (copied) {
           const name = derive(state, deps.oracle, deps.scripts, copied.id, cache).name;
           out.push(narrated(`${obj.label} — ${effect.amount === 1 ? 'a token that is a copy' : `${effect.amount} tokens that are copies`} of ${name}.`, obj.controller, obj.identity));

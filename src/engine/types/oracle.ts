@@ -1414,6 +1414,8 @@ export interface EffectSpec {
    */
   readonly attach?: 'aim' | 'source';
   readonly tokenFace?: number;
+  /** D593 - `createToken` only: the tokens enter TAPPED (`create a tapped <token>`) - tapped as they are made. */
+  readonly tapped?: true;
   /** D520 - `amass` only: the creature subtype the chosen Army becomes (`Zombie`, `Orc`, `Sliver`). */
   readonly subtype?: string;
   /** `lookAtTop` only: how many to keep and where the rest go (D141). */

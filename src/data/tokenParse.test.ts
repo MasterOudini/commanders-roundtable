@@ -83,7 +83,8 @@ describe('what the resolver refuses', () => {
     ["a copy — CR 707, a different primitive", "Create a token that's a copy of target creature."],
     ['an X-sized token', 'Create X 1/1 white Soldier creature tokens.'],
     ['a token whose size is a characteristic', 'Create a */* green Elemental creature token.'],
-    ['a state this module does not model', 'Create a tapped 1/1 white Soldier creature token.'],
+    // D593 - `create a tapped <token>` is modelled (TokenSpec.tapped); a state AFTER the noun still is not.
+    ['a state after the noun this module does not model', "Create a 1/1 white Soldier creature token that's tapped and attacking."],
     ['a count it cannot read', 'Create a number of 1/1 white Soldier creature tokens.'],
     ['a word it cannot account for', 'Create a 1/1 white Soldier zombie token.'],
     ['a token renamed by the card', 'Create a 1/1 white Soldier creature token named Wasp.'],

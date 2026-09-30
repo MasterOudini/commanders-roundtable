@@ -2458,7 +2458,7 @@ const RULES: readonly Rule[] = [
       if (!spec) return null;
       const token = TOKEN_TABLE[specKey(spec)];
       if (!token) return null;
-      return { ...BASE, amount: spec.count, targetIndex: -1, self: true, token };
+      return { ...BASE, amount: spec.count, targetIndex: -1, self: true, token, ...(spec.tapped ? { tapped: true as const } : {}) };
     },
   },
   /**
