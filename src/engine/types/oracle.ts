@@ -1119,7 +1119,9 @@ export type EffectKind =
   /** D416 - `Target opponent reveals their hand. You choose a <noun> card from it. That player discards that card.` */
   | 'revealHandChoose'
   /** D417 - `Exile the top card of your library. Until the end of your next turn, you may play that card.` */
-  | 'exileTopPlay';
+  | 'exileTopPlay'
+  /** D594 - `Attach ~ to target creature you control.`: the clause's SOURCE (an Equipment, an Aura) attached to its aim. */
+  | 'attachSource';
 
 /**
  * The counters a spell may put on or take off, and the list is CLOSED at the ones the engine reads.

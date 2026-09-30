@@ -283,7 +283,7 @@ describe.skipIf(!HAVE_DB)('the bot pool, measured', () => {
     // Contemplation). D472 - the loyalty cost is charged now (CR 606), and the
     // first five planeswalkers whose every line reads are in; battles stay
     // pinned at zero for the same reason the enchantments were.
-    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(774);
+    expect.soft(r.poolByType['enchantment'] ?? 0).toBe(776);
     expect.soft(r.poolByType['planeswalker'] ?? 0).toBe(16);
     expect.soft(r.poolByType['battle'] ?? 0).toBe(0);
   });
@@ -468,8 +468,8 @@ const POOL: Record<string, number> = {
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 697,
-  artifact: 690,
-  enchantment: 774,
+  artifact: 707,
+  enchantment: 776,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 16,
 };

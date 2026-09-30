@@ -322853,6 +322853,631 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CRANIAL_PLATING": {
+    "scryfallId": "169b74e2-72cf-47df-b128-b632313cd24c",
+    "oracleId": "75564721-e4e9-463a-b49e-f0c7cd6f53a7",
+    "name": "Cranial Plating",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cranial Plating",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+0 for each artifact you control.\n{B}{B}: Attach this Equipment to target creature you control.\nEquip {1}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Rex",
+        "imageId": "169b74e2-72cf-47df-b128-b632313cd24c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "c16",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHINING_ARMOR": {
+    "scryfallId": "34390832-e590-49b8-b376-1be8db8e0943",
+    "oracleId": "090a5f76-206e-4b3b-bc1d-9c9706d9955d",
+    "name": "Shining Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shining Armor",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target Knight you control.\nEquipped creature gets +0/+2 and has vigilance.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Eric Deschamps",
+        "imageId": "34390832-e590-49b8-b376-1be8db8e0943"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "ELD-29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HORNED_HELM": {
+    "scryfallId": "3d995d55-9450-43aa-b220-054201755d6f",
+    "oracleId": "127b438d-e5c2-47ba-9554-d9d5af018d09",
+    "name": "Horned Helm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Horned Helm",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 and has trample.\n{G}{G}: Attach this Equipment to target creature you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martina Pilcerova",
+        "imageId": "3d995d55-9450-43aa-b220-054201755d6f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "5DN-132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STASIS_CELL": {
+    "scryfallId": "49304692-1e8c-46ed-ba51-e5ba3b70e2f4",
+    "oracleId": "8b2ba6f8-1060-4167-9941-3ab7bd4e0ca8",
+    "name": "Stasis Cell",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stasis Cell",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature doesn't untap during its controller's untap step.\n{3}{U}: Attach this Aura to target creature.",
+        "flavorText": "The Simic created the cells to preserve their experiments. The Azorius put the cells to use on the guilty.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark A. Nelson",
+        "imageId": "49304692-1e8c-46ed-ba51-e5ba3b70e2f4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "cns",
+    "collectorNumber": "107",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MANTLE_OF_TIDES": {
+    "scryfallId": "4de64b61-4fb7-4e01-8c30-626b8650325c",
+    "oracleId": "56a80bd3-b81b-428d-96e1-f03ab6199cf3",
+    "name": "Mantle of Tides",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mantle of Tides",
+        "manaCost": "{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+2.\nWhenever you draw your second card each turn, attach this Equipment to target creature you control.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Lie Setiawan",
+        "imageId": "4de64b61-4fb7-4e01-8c30-626b8650325c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "318",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPARRING_COLLAR": {
+    "scryfallId": "5fc31145-19b4-4dbe-8756-f49791aa147e",
+    "oracleId": "81bfbc5a-c448-4124-ac25-79bd0944136d",
+    "name": "Sparring Collar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sparring Collar",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has first strike.\n{R}{R}: Attach this Equipment to target creature you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Moeller",
+        "imageId": "5fc31145-19b4-4dbe-8756-f49791aa147e"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HEALER_S_HEADDRESS": {
+    "scryfallId": "9565f076-54a6-43d6-bcf0-dcb932f6c116",
+    "oracleId": "bf689834-dcb7-4370-a986-bf542f88aba5",
+    "name": "Healer's Headdress",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Healer's Headdress",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +0/+2 and has \"{T}: Prevent the next 1 damage that would be dealt to any target this turn.\"\n{W}{W}: Attach this Equipment to target creature you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Carl Critchlow",
+        "imageId": "9565f076-54a6-43d6-bcf0-dcb932f6c116"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "129",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEUROK_STEALTHSUIT": {
+    "scryfallId": "a65ad83a-7374-435d-a5bd-2dd455fa6420",
+    "oracleId": "cee06ea6-8bad-4858-b78e-04879a825bbe",
+    "name": "Neurok Stealthsuit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Neurok Stealthsuit",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature has shroud. (It can't be the target of spells or abilities.)\n{U}{U}: Attach this Equipment to target creature you control.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Francis Tsai",
+        "imageId": "a65ad83a-7374-435d-a5bd-2dd455fa6420"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "5dn",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIRATE_S_CUTLASS": {
+    "scryfallId": "b1ff526b-3822-4073-baab-8ea5f95daf91",
+    "oracleId": "ac77591c-39d7-4fd1-a6e9-805f57c6614a",
+    "name": "Pirate's Cutlass",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pirate's Cutlass",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target Pirate you control.\nEquipped creature gets +2/+1.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "John Stanko",
+        "imageId": "b1ff526b-3822-4073-baab-8ea5f95daf91"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "477",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROSETHORN_HALBERD": {
+    "scryfallId": "ba9c52ec-5ca1-43d9-85bf-6f2c515a6151",
+    "oracleId": "94848b02-757c-456c-a12c-b0be193221d0",
+    "name": "Rosethorn Halberd",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rosethorn Halberd",
+        "manaCost": "{G}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target non-Human creature you control.\nEquipped creature gets +2/+1.\nEquip {5} ({5}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Kari Christensen",
+        "imageId": "ba9c52ec-5ca1-43d9-85bf-6f2c515a6151"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "j22",
+    "collectorNumber": "722",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "INVENTOR_S_GOGGLES": {
+    "scryfallId": "00a26fdf-fdce-4939-8c6a-c9dff623072f",
+    "oracleId": "ee32ab1a-1120-4c34-a538-7bde9eff5a6e",
+    "name": "Inventor's Goggles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Inventor's Goggles",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+2.\nWhenever an Artificer you control enters, you may attach this Equipment to it.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Felix",
+        "imageId": "00a26fdf-fdce-4939-8c6a-c9dff623072f"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "218",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHIELDED_BY_FAITH": {
+    "scryfallId": "066ac822-7417-4dc4-93ba-bfba2252f47b",
+    "oracleId": "79085dea-8daa-41c0-a975-61e3e6da2e26",
+    "name": "Shielded by Faith",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shielded by Faith",
+        "manaCost": "{1}{W}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has indestructible.\nWhenever a creature enters, you may attach this Aura to that creature.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "066ac822-7417-4dc4-93ba-bfba2252f47b"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "e02",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STORMRIDER_RIG": {
+    "scryfallId": "38b08344-780d-4bd7-882a-dcadeb40f159",
+    "oracleId": "51c7beca-ca19-4a4d-9512-0255146a9cd0",
+    "name": "Stormrider Rig",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stormrider Rig",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1.\nWhenever a creature you control enters, you may attach this Equipment to it.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Min Yum",
+        "imageId": "38b08344-780d-4bd7-882a-dcadeb40f159"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "dtk",
+    "collectorNumber": "245",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CLOAK_AND_DAGGER": {
+    "scryfallId": "38bb3e3c-1a7d-4bc4-b69d-6a8e9f1b3fe7",
+    "oracleId": "73ca14bb-0586-4716-8d4c-738a93950ed5",
+    "name": "Cloak and Dagger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cloak and Dagger",
+        "manaCost": "{2}",
+        "typeLine": "Kindred Artifact — Rogue Equipment",
+        "oracleText": "Equipped creature gets +2/+0 and has shroud. (It can't be the target of spells or abilities.)\nWhenever a Rogue creature enters, you may attach this Equipment to it.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daren Bader",
+        "imageId": "38bb3e3c-1a7d-4bc4-b69d-6a8e9f1b3fe7"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "mor",
+    "collectorNumber": "141",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RONIN_WARCLUB": {
+    "scryfallId": "46ad31cd-38dc-4fd3-b9e4-8988f4898719",
+    "oracleId": "11b969f2-ff68-4c9e-b3f3-839736084303",
+    "name": "Ronin Warclub",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ronin Warclub",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+1.\nWhenever a creature you control enters, attach this Equipment to that creature.\nEquip {5} ({5}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pete Venters",
+        "imageId": "46ad31cd-38dc-4fd3-b9e4-8988f4898719"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "bok",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAI_OF_THE_SHINOBI": {
+    "scryfallId": "63cec9b5-3e28-4691-9941-eacf6a799b15",
+    "oracleId": "ec57dcb8-127f-4922-a9f9-5227db1751a9",
+    "name": "Sai of the Shinobi",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sai of the Shinobi",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1.\nWhenever a creature you control enters, you may attach this Equipment to it.\nEquip {2}",
+        "flavorText": "The passing of the sai presages the end of the old clan and the ascent of the new.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Snõddy",
+        "imageId": "63cec9b5-3e28-4691-9941-eacf6a799b15"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "pca",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DOC_OCK_S_TENTACLES": {
+    "scryfallId": "77e06f44-aa89-4f31-b1e6-10bca9685511",
+    "oracleId": "a5a18764-eb29-4bd8-a2e9-0ce55f4f6c88",
+    "name": "Doc Ock's Tentacles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Doc Ock's Tentacles",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Whenever a creature you control with mana value 5 or greater enters, you may attach this Equipment to it.\nEquipped creature gets +4/+4.\nEquip {5}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Claudio Pozas",
+        "imageId": "77e06f44-aa89-4f31-b1e6-10bca9685511"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "om1",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OBSIDIAN_BATTLE_AXE": {
+    "scryfallId": "84764125-17b3-4f01-a4c4-01389f95bbe6",
+    "oracleId": "e015ea73-8260-4dd7-9531-7d5cbff9a1e7",
+    "name": "Obsidian Battle-Axe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Obsidian Battle-Axe",
+        "manaCost": "{3}",
+        "typeLine": "Kindred Artifact — Warrior Equipment",
+        "oracleText": "Equipped creature gets +2/+1 and has haste.\nWhenever a Warrior creature enters, you may attach this Equipment to it.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jeff Easley",
+        "imageId": "84764125-17b3-4f01-a4c4-01389f95bbe6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "ps11",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BESPOKE_BATTLEGARB": {
+    "scryfallId": "a28ecd59-9166-473c-bafc-cb3c54c21388",
+    "oracleId": "b2ff15b8-1be4-4f94-b4cc-aa959a50288e",
+    "name": "Bespoke Battlegarb",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bespoke Battlegarb",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+0.\nCelebration — At the beginning of combat on your turn, if two or more nonland permanents entered the battlefield under your control this turn, attach this Equipment to up to one target creature you control.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nino Vecia",
+        "imageId": "a28ecd59-9166-473c-bafc-cb3c54c21388"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Celebration",
+      "Equip"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

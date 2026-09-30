@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CRANIAL_PLATING_SCRIPT } from './cards/cranialPlating';
+import { SHINING_ARMOR_SCRIPT } from './cards/shiningArmor';
+import { HORNED_HELM_SCRIPT } from './cards/hornedHelm';
+import { STASIS_CELL_SCRIPT } from './cards/stasisCell';
+import { MANTLE_OF_TIDES_SCRIPT } from './cards/mantleOfTides';
+import { SPARRING_COLLAR_SCRIPT } from './cards/sparringCollar';
+import { HEALERS_HEADDRESS_SCRIPT } from './cards/healersHeaddress';
+import { NEUROK_STEALTHSUIT_SCRIPT } from './cards/neurokStealthsuit';
+import { PIRATES_CUTLASS_SCRIPT } from './cards/piratesCutlass';
+import { ROSETHORN_HALBERD_SCRIPT } from './cards/rosethornHalberd';
+import { INVENTORS_GOGGLES_SCRIPT } from './cards/inventorsGoggles';
+import { SHIELDED_BY_FAITH_SCRIPT } from './cards/shieldedByFaith';
+import { STORMRIDER_RIG_SCRIPT } from './cards/stormriderRig';
+import { CLOAK_AND_DAGGER_SCRIPT } from './cards/cloakAndDagger';
+import { RONIN_WARCLUB_SCRIPT } from './cards/roninWarclub';
+import { SAI_OF_THE_SHINOBI_SCRIPT } from './cards/saiOfTheShinobi';
+import { DOC_OCKS_TENTACLES_SCRIPT } from './cards/docOcksTentacles';
+import { OBSIDIAN_BATTLE_AXE_SCRIPT } from './cards/obsidianBattleAxe';
+import { BESPOKE_BATTLEGARB_SCRIPT } from './cards/bespokeBattlegarb';
 import { OVERSEER_OF_THE_DAMNED_SCRIPT } from './cards/overseerOfTheDamned';
 import { GEOLOGY_ENTHUSIAST_SCRIPT } from './cards/geologyEnthusiast';
 import { ARNIM_ZOLA_BIO_FANATIC_SCRIPT } from './cards/arnimZolaBioFanatic';
@@ -8557,6 +8576,25 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CRANIAL_PLATING_SCRIPT,
+  SHINING_ARMOR_SCRIPT,
+  HORNED_HELM_SCRIPT,
+  STASIS_CELL_SCRIPT,
+  MANTLE_OF_TIDES_SCRIPT,
+  SPARRING_COLLAR_SCRIPT,
+  HEALERS_HEADDRESS_SCRIPT,
+  NEUROK_STEALTHSUIT_SCRIPT,
+  PIRATES_CUTLASS_SCRIPT,
+  ROSETHORN_HALBERD_SCRIPT,
+  INVENTORS_GOGGLES_SCRIPT,
+  SHIELDED_BY_FAITH_SCRIPT,
+  STORMRIDER_RIG_SCRIPT,
+  CLOAK_AND_DAGGER_SCRIPT,
+  RONIN_WARCLUB_SCRIPT,
+  SAI_OF_THE_SHINOBI_SCRIPT,
+  DOC_OCKS_TENTACLES_SCRIPT,
+  OBSIDIAN_BATTLE_AXE_SCRIPT,
+  BESPOKE_BATTLEGARB_SCRIPT,
   OVERSEER_OF_THE_DAMNED_SCRIPT,
   GEOLOGY_ENTHUSIAST_SCRIPT,
   ARNIM_ZOLA_BIO_FANATIC_SCRIPT,

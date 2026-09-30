@@ -9484,6 +9484,25 @@ export const ARBALEST_ENGINEERS: CardData = F.ARBALEST_ENGINEERS as CardData;
 export const STONE_RETRIEVAL_UNIT: CardData = F.STONE_RETRIEVAL_UNIT as CardData;
 export const KOILOS_ROC: CardData = F.KOILOS_ROC as CardData;
 export const PROSPEROUS_BANDIT: CardData = F.PROSPEROUS_BANDIT as CardData;
+export const CRANIAL_PLATING: CardData = F.CRANIAL_PLATING as CardData;
+export const SHINING_ARMOR: CardData = F.SHINING_ARMOR as CardData;
+export const HORNED_HELM: CardData = F.HORNED_HELM as CardData;
+export const STASIS_CELL: CardData = F.STASIS_CELL as CardData;
+export const MANTLE_OF_TIDES: CardData = F.MANTLE_OF_TIDES as CardData;
+export const SPARRING_COLLAR: CardData = F.SPARRING_COLLAR as CardData;
+export const HEALER_S_HEADDRESS: CardData = F.HEALER_S_HEADDRESS as CardData;
+export const NEUROK_STEALTHSUIT: CardData = F.NEUROK_STEALTHSUIT as CardData;
+export const PIRATE_S_CUTLASS: CardData = F.PIRATE_S_CUTLASS as CardData;
+export const ROSETHORN_HALBERD: CardData = F.ROSETHORN_HALBERD as CardData;
+export const INVENTOR_S_GOGGLES: CardData = F.INVENTOR_S_GOGGLES as CardData;
+export const SHIELDED_BY_FAITH: CardData = F.SHIELDED_BY_FAITH as CardData;
+export const STORMRIDER_RIG: CardData = F.STORMRIDER_RIG as CardData;
+export const CLOAK_AND_DAGGER: CardData = F.CLOAK_AND_DAGGER as CardData;
+export const RONIN_WARCLUB: CardData = F.RONIN_WARCLUB as CardData;
+export const SAI_OF_THE_SHINOBI: CardData = F.SAI_OF_THE_SHINOBI as CardData;
+export const DOC_OCK_S_TENTACLES: CardData = F.DOC_OCK_S_TENTACLES as CardData;
+export const OBSIDIAN_BATTLE_AXE: CardData = F.OBSIDIAN_BATTLE_AXE as CardData;
+export const BESPOKE_BATTLEGARB: CardData = F.BESPOKE_BATTLEGARB as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19242,6 +19261,25 @@ export const ENGINE_CARDS: CardData[] = [
   STONE_RETRIEVAL_UNIT,
   KOILOS_ROC,
   PROSPEROUS_BANDIT,
+  CRANIAL_PLATING,
+  SHINING_ARMOR,
+  HORNED_HELM,
+  STASIS_CELL,
+  MANTLE_OF_TIDES,
+  SPARRING_COLLAR,
+  HEALER_S_HEADDRESS,
+  NEUROK_STEALTHSUIT,
+  PIRATE_S_CUTLASS,
+  ROSETHORN_HALBERD,
+  INVENTOR_S_GOGGLES,
+  SHIELDED_BY_FAITH,
+  STORMRIDER_RIG,
+  CLOAK_AND_DAGGER,
+  RONIN_WARCLUB,
+  SAI_OF_THE_SHINOBI,
+  DOC_OCK_S_TENTACLES,
+  OBSIDIAN_BATTLE_AXE,
+  BESPOKE_BATTLEGARB,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

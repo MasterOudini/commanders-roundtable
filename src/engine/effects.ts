@@ -1387,6 +1387,18 @@ export function effectResult(
         break;
       }
 
+      // D594 - THE SOURCE ATTACHES ITSELF (`Attach ~ to target creature you control.`): the source still on the battlefield and
+      // not phased out (a new object once it left - CR 400.7), never itself a creature (CR 301.5c); the host a card on the
+      // battlefield, its legality the resolution's own (CR 608.2b). Already there, nothing moves.
+      case 'attachSource': {
+        const src = source === undefined || source === null ? undefined : state.cards[source];
+        const host = aim?.kind === 'card' ? state.cards[aim.id] : undefined;
+        if (!src || src.zone.kind !== 'battlefield' || src.phasedOut || !host || host.zone.kind !== 'battlefield' || host.phasedOut || src.attachedTo === host.id) break;
+        if (derive(state, deps.oracle, deps.scripts, src.id, cache).isCreature) break;
+        out.push({ t: 'AttachmentChanged', card: src.id, to: host.id });
+        break;
+      }
+
       case 'tap': {
         if (aim?.kind !== 'card') break;
         if (state.cards[aim.id]?.tapped) break;

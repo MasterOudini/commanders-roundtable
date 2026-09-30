@@ -10632,6 +10632,27 @@ const WANTED = [
   'Koilos Roc',
   'Prosperous Bandit',
   // D593 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D594 - THE EQUIPMENTS OWN ATTACH: the rows the whole-leftover row maker rowed once an Equipment attaching itself read.
+  'Cranial Plating',
+  'Shining Armor',
+  'Horned Helm',
+  'Stasis Cell',
+  'Mantle of Tides',
+  'Sparring Collar',
+  "Healer's Headdress",
+  'Neurok Stealthsuit',
+  "Pirate's Cutlass",
+  'Rosethorn Halberd',
+  "Inventor's Goggles",
+  'Shielded by Faith',
+  'Stormrider Rig',
+  'Cloak and Dagger',
+  'Ronin Warclub',
+  'Sai of the Shinobi',
+  "Doc Ock's Tentacles",
+  'Obsidian Battle-Axe',
+  'Bespoke Battlegarb',
+  // D594 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

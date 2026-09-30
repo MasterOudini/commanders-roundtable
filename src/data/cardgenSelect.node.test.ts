@@ -759,6 +759,10 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D594 - the Equipment's own attach: `attach it to target creature you control` reads (the source attaching itself); what stays is a card the row maker refuses for another reason.
+  ["Forebear's Blade", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: equipped): Whenever equipped creatur - its own attach reads since D594 (D594)'],
+  ["Hero's Blade", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: legendary): Whenever a legendary cre - its own attach reads since D594 (D594)'],
+  ['Brilliant Wings', 'the row maker: a payment branch the suite cannot assert: attachSource - its own attach reads since D594 (D594)'],
   // D593 - the tapped token: `create a tapped <token>` reads (the token's entry state; the Powerstone baked); what stays is a card the row maker refuses for another reason.
   ["Ognis, the Dragon's Lash", 'the row maker: trigger head not in the library: Whenever a creature you control with haste attacks, create a tapped Tr - its tapped token reads since D593 (D593)'],
   ['Cityscape Leveler', 'the row maker: a clause done by the previous objects controller on the opponents side the suite cannot read (a token, a dis - its tapped token reads since D593 (D593)'],

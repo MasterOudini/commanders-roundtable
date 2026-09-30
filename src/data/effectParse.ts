@@ -1333,6 +1333,9 @@ const RULES: readonly Rule[] = [
   // D573 - PHASES OUT (CR 702.26): a target, or the source (self-aimed - a source already gone phases nothing).
   { kind: 'phaseOut', re: new RegExp(`^(?:then )?${TARGET} phases out\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'phaseOut', re: new RegExp(`^(?:then )?${SELF} phases out\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D594 - THE SOURCE ATTACHES ITSELF: an Equipment's (or an Aura's) own `attach it to target creature you control` (the row
+  // maker spells the `it` of its own head as `~`); the executor asks the source and the aim again as it resolves.
+  { kind: 'attachSource', re: new RegExp(`^attach (?:this (?:equipment|aura)|${SELF}) to ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'tap', re: new RegExp(`^tap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'untap', re: new RegExp(`^untap ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
   // D411 - THE UNTAP SKIP: the bare targeted form, and the self form under a trigger's head or an
