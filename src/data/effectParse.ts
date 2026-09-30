@@ -219,6 +219,8 @@ const NUM = '(?:\\d+)';
  * where the text is known to be a quoted body (`scripts/vocabulary.ts`).
  */
 const SELF = '(?:this (?:creature|permanent|artifact|enchantment|land)|~)';
+/** D598 - the source's host: the enchanted or equipped permanent (`EffectSpec.host`). */
+const HOST = '(?:enchanted (?:creature|permanent)|equipped creature)';
 // D574 - the Roles the table holds (a Role it does not hold is a sentence the parser does not read).
 const ROLE_NAMES = `(?:${Object.keys(ROLE_TABLE).join('|')})`;
 
@@ -1314,6 +1316,58 @@ const RULES: readonly Rule[] = [
   // D373 - CR 701.19, the verb itself: on the source, and on a target ("Regenerate target creature.").
   { kind: 'regenerate', re: new RegExp(`^regenerate ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'regenerate', re: new RegExp(`^regenerate ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D598 - THE HOST: the verbs on the permanent the source is attached to (`enchanted creature`, `equipped creature`,
+  // `enchanted permanent`) - no target, aimed at the source's attachment as the clause resolves (`EffectSpec.host`).
+  {
+    kind: 'putCounters',
+    re: new RegExp(`^put (${COUNT}) (${COUNTER_KIND}) counters? on ${HOST}\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf(m[2]);
+      return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, host: true };
+    },
+  },
+  {
+    kind: 'removeCounters',
+    re: new RegExp(`^remove (${COUNT}) (${COUNTER_KIND}) counters? from ${HOST}\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf(m[2]);
+      return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, host: true };
+    },
+  },
+  { kind: 'untap', re: new RegExp(`^untap ${HOST}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  { kind: 'tap', re: new RegExp(`^tap ${HOST}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  { kind: 'destroy', re: new RegExp(`^destroy ${HOST}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  { kind: 'exile', re: new RegExp(`^exile ${HOST}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  { kind: 'bounce', re: new RegExp(`^return ${HOST} to its owner(?:'|’)s hand\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  { kind: 'regenerate', re: new RegExp(`^regenerate ${HOST}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, host: true }) },
+  {
+    kind: 'damage',
+    re: new RegExp(`^~ deals (${NUM}) damage to ${HOST}\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      return n === null ? null : { ...BASE, amount: n, targetIndex: -1, host: true };
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${HOST} gets ([+-]${NUM})/([+-]${NUM})(?: and gains (${KW})(?: and (${KW}))?)? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const p = Number(m[1]);
+      const t = Number(m[2]);
+      const kws = m[3] === undefined ? [] : grantedKeywords(m[3], m[4]);
+      return Number.isFinite(p) && Number.isFinite(t) && kws !== null ? { ...BASE, power: p, toughness: t, keywords: kws, targetIndex: -1, host: true } : null;
+    },
+  },
+  {
+    kind: 'pump',
+    re: new RegExp(`^${HOST} gains (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    build: (m) => {
+      const kws = grantedKeywords(m[1], m[2]);
+      return kws !== null ? { ...BASE, keywords: kws, targetIndex: -1, host: true } : null;
+    },
+  },
   /**
    * D373 - CR 701.16a: "Investigate." is "create a Clue token", the printing resolved
    * from TOKEN_TABLE at build time exactly as the token rule below resolves its own.

@@ -7,6 +7,25 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SKYCLAVE_PICK_AXE_SCRIPT } from './cards/skyclavePickAxe';
+import { SECOND_WIND_SCRIPT } from './cards/secondWind';
+import { TORTURE_SCRIPT } from './cards/torture';
+import { DAILY_REGIMEN_SCRIPT } from './cards/dailyRegimen';
+import { DREADFUL_APATHY_SCRIPT } from './cards/dreadfulApathy';
+import { FORCED_ADAPTATION_SCRIPT } from './cards/forcedAdaptation';
+import { AURA_OF_DOMINION_SCRIPT } from './cards/auraOfDominion';
+import { SADISTIC_GLEE_SCRIPT } from './cards/sadisticGlee';
+import { ADVENTURING_GEAR_SCRIPT } from './cards/adventuringGear';
+import { TRICLOPEAN_SIGHT_SCRIPT } from './cards/triclopeanSight';
+import { SUN_CLASP_SCRIPT } from './cards/sunClasp';
+import { GLISTENING_OIL_SCRIPT } from './cards/glisteningOil';
+import { BITING_TETHER_SCRIPT } from './cards/bitingTether';
+import { GHOSTLY_WINGS_SCRIPT } from './cards/ghostlyWings';
+import { YOKE_OF_THE_DAMNED_SCRIPT } from './cards/yokeOfTheDamned';
+import { COOPED_UP_SCRIPT } from './cards/coopedUp';
+import { FREED_FROM_THE_REAL_SCRIPT } from './cards/freedFromTheReal';
+import { PREDATORY_HUNGER_SCRIPT } from './cards/predatoryHunger';
+import { TILONALLIS_CROWN_SCRIPT } from './cards/tilonallisCrown';
 import { CEREMONIAL_GROUNDBREAKER_SCRIPT } from './cards/ceremonialGroundbreaker';
 import { BLACKBLADE_REFORGED_SCRIPT } from './cards/blackbladeReforged';
 import { D_NEDAIN_BLADE_SCRIPT } from './cards/dNedainBlade';
@@ -8605,6 +8624,25 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SKYCLAVE_PICK_AXE_SCRIPT,
+  SECOND_WIND_SCRIPT,
+  TORTURE_SCRIPT,
+  DAILY_REGIMEN_SCRIPT,
+  DREADFUL_APATHY_SCRIPT,
+  FORCED_ADAPTATION_SCRIPT,
+  AURA_OF_DOMINION_SCRIPT,
+  SADISTIC_GLEE_SCRIPT,
+  ADVENTURING_GEAR_SCRIPT,
+  TRICLOPEAN_SIGHT_SCRIPT,
+  SUN_CLASP_SCRIPT,
+  GLISTENING_OIL_SCRIPT,
+  BITING_TETHER_SCRIPT,
+  GHOSTLY_WINGS_SCRIPT,
+  YOKE_OF_THE_DAMNED_SCRIPT,
+  COOPED_UP_SCRIPT,
+  FREED_FROM_THE_REAL_SCRIPT,
+  PREDATORY_HUNGER_SCRIPT,
+  TILONALLIS_CROWN_SCRIPT,
   CEREMONIAL_GROUNDBREAKER_SCRIPT,
   BLACKBLADE_REFORGED_SCRIPT,
   D_NEDAIN_BLADE_SCRIPT,

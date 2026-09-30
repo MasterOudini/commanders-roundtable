@@ -324469,6 +324469,670 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SKYCLAVE_PICK_AXE": {
+    "scryfallId": "03d6d8a4-c51d-4b4a-86e7-df9e9c7a171d",
+    "oracleId": "6d2cf8b4-1468-4e00-94ca-65ef0c564b09",
+    "name": "Skyclave Pick-Axe",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyclave Pick-Axe",
+        "manaCost": "{G}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nLandfall — Whenever a land you control enters, equipped creature gets +2/+2 until end of turn.\nEquip {2}{G} ({2}{G}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Pascal Blanché",
+        "imageId": "03d6d8a4-c51d-4b4a-86e7-df9e9c7a171d"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Landfall"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "309",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SECOND_WIND": {
+    "scryfallId": "061d2f8f-1166-4579-9609-d8ba5db79172",
+    "oracleId": "1d8569c1-0b10-40a7-9a87-38571a782dd9",
+    "name": "Second Wind",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Second Wind",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{T}: Tap enchanted creature.\n{T}: Untap enchanted creature.",
+        "flavorText": "Vindr stormchasers believe that the same ancient forces that move the winds can also move mortal minds and hearts.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Matt Stewart",
+        "imageId": "061d2f8f-1166-4579-9609-d8ba5db79172"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "57",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TORTURE": {
+    "scryfallId": "0afdd3de-4f0c-4b78-8534-562db8be9c6b",
+    "oracleId": "389b6d77-47ab-43a3-99d1-dcc762939cc4",
+    "name": "Torture",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Torture",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{1}{B}: Put a -1/-1 counter on enchanted creature.",
+        "flavorText": "\"It helps pass the time until you die.\"\n—Grandmother Sengir",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "0afdd3de-4f0c-4b78-8534-562db8be9c6b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "5ed",
+    "collectorNumber": "199",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAILY_REGIMEN": {
+    "scryfallId": "10c77d2d-ca35-4021-9e29-95be41385fd4",
+    "oracleId": "3a869ec0-c3ea-49a8-8586-d7e54e62a734",
+    "name": "Daily Regimen",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daily Regimen",
+        "manaCost": "{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{1}{W}: Put a +1/+1 counter on enchanted creature.",
+        "flavorText": "What self-indulgence tears down, discipline builds up again.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "10c77d2d-ca35-4021-9e29-95be41385fd4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ddl",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREADFUL_APATHY": {
+    "scryfallId": "2001eef3-42cd-45f7-9b48-ece13c75827f",
+    "oracleId": "9c41b4ad-a73f-4274-9b71-9c9834910e05",
+    "name": "Dreadful Apathy",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreadful Apathy",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\n{2}{W}: Exile enchanted creature.",
+        "flavorText": "Those whose lives were uninspired are doomed to the wretched tedium of Phylias in death.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "2001eef3-42cd-45f7-9b48-ece13c75827f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "192",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCED_ADAPTATION": {
+    "scryfallId": "246c6f63-59df-41a5-8c28-f43e1e89c25f",
+    "oracleId": "1c859c97-74df-4360-baf8-0f79eae97c45",
+    "name": "Forced Adaptation",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forced Adaptation",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nAt the beginning of your upkeep, put a +1/+1 counter on enchanted creature.",
+        "flavorText": "\"We're planting the seeds of change. Sometimes, we plant them in people.\"\n—Vorel of the Hull Clade",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Trevor Claxton",
+        "imageId": "246c6f63-59df-41a5-8c28-f43e1e89c25f"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rvr",
+    "collectorNumber": "140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AURA_OF_DOMINION": {
+    "scryfallId": "26913c27-5794-42c7-a2a2-af565ce84fd1",
+    "oracleId": "d2f0a918-4435-4d43-811d-2da659086ef5",
+    "name": "Aura of Dominion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aura of Dominion",
+        "manaCost": "{U}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{1}, Tap an untapped creature you control: Untap enchanted creature.",
+        "flavorText": "\"Lies and deceit do yield results, but legitimate authority is the ultimate form of control.\"\n—Meloku the Clouded Mirror",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "26913c27-5794-42c7-a2a2-af565ce84fd1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "chk",
+    "collectorNumber": "51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SADISTIC_GLEE": {
+    "scryfallId": "2772e923-e33a-4968-b766-d80926ec4d4b",
+    "oracleId": "2af22962-8f66-4868-a175-ad5d7f4c9d58",
+    "name": "Sadistic Glee",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sadistic Glee",
+        "manaCost": "{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhenever a creature dies, put a +1/+1 counter on enchanted creature.",
+        "flavorText": "\"First blood isn't as important as last blood.\"\n—Gerrard of the *Weatherlight*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "2772e923-e33a-4968-b766-d80926ec4d4b"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "brb",
+    "collectorNumber": "61",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADVENTURING_GEAR": {
+    "scryfallId": "361f9b99-5b5d-40da-b4b9-5ad90f6280ee",
+    "oracleId": "17042684-7af4-43a6-88c7-885032cfb27c",
+    "name": "Adventuring Gear",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adventuring Gear",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Landfall — Whenever a land you control enters, equipped creature gets +2/+2 until end of turn.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "An explorer's essentials in a wild world.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Howard Lyon",
+        "imageId": "361f9b99-5b5d-40da-b4b9-5ad90f6280ee"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Landfall"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "249",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRICLOPEAN_SIGHT": {
+    "scryfallId": "444b5d72-ac5b-43d2-b5dc-0cc4bf63e43d",
+    "oracleId": "6441456a-cc20-48bb-95e9-c981fea8ea98",
+    "name": "Triclopean Sight",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Triclopean Sight",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash\nEnchant creature\nWhen this Aura enters, untap enchanted creature.\nEnchanted creature gets +1/+1 and has vigilance.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Scott Hampton",
+        "imageId": "444b5d72-ac5b-43d2-b5dc-0cc4bf63e43d"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUN_CLASP": {
+    "scryfallId": "47cadda6-12be-4490-997b-3752e752be18",
+    "oracleId": "cb8f5ee4-285a-4c37-adcb-514b3e4bdad3",
+    "name": "Sun Clasp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sun Clasp",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+3.\n{W}: Return enchanted creature to its owner's hand.",
+        "flavorText": "\"And darkness shall be cast from me\nFor my soul resides in the Sun.\"\n—Femeref dirge",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "John Coulthart",
+        "imageId": "47cadda6-12be-4490-997b-3752e752be18"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "brb",
+    "collectorNumber": "83",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLISTENING_OIL": {
+    "scryfallId": "483e99fd-7e48-400d-9817-451089089e0c",
+    "oracleId": "645a4dee-a4e0-4850-a781-522aa718827f",
+    "name": "Glistening Oil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Glistening Oil",
+        "manaCost": "{B}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has infect.\nAt the beginning of your upkeep, put a -1/-1 counter on enchanted creature.\nWhen this Aura is put into a graveyard from the battlefield, return it to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "483e99fd-7e48-400d-9817-451089089e0c"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "nph",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BITING_TETHER": {
+    "scryfallId": "52ed9c9f-37d1-4f33-b62f-11ed2c208763",
+    "oracleId": "1ea20ecb-1919-4be7-b0bb-d79d2dec98fd",
+    "name": "Biting Tether",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Biting Tether",
+        "manaCost": "{4}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nYou control enchanted creature.\nAt the beginning of your upkeep, put a -1/-1 counter on enchanted creature.",
+        "flavorText": "A chain of lies as strong as steel.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Thomas Denmark",
+        "imageId": "52ed9c9f-37d1-4f33-b62f-11ed2c208763"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "shm",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHOSTLY_WINGS": {
+    "scryfallId": "58fb2705-82e7-49d9-b8cc-f98f652dd6c1",
+    "oracleId": "b07d8095-c5e2-4bf8-b055-af97ce5df4a4",
+    "name": "Ghostly Wings",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghostly Wings",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has flying.\nDiscard a card: Return enchanted creature to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Martin",
+        "imageId": "58fb2705-82e7-49d9-b8cc-f98f652dd6c1"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "tor",
+    "collectorNumber": "38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "YOKE_OF_THE_DAMNED": {
+    "scryfallId": "8786d461-0ea5-4224-82e4-bfbe4d0d8b9f",
+    "oracleId": "af08dae2-ba32-4a34-b8c1-b49d45ce0b6b",
+    "name": "Yoke of the Damned",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Yoke of the Damned",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen a creature dies, destroy enchanted creature.",
+        "flavorText": "The demon's yoke is part leash, part noose.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Paul Bonner",
+        "imageId": "8786d461-0ea5-4224-82e4-bfbe4d0d8b9f"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ddj",
+    "collectorNumber": "68",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COOPED_UP": {
+    "scryfallId": "8acb8758-09c5-4e19-ada1-904e36ece1fc",
+    "oracleId": "3e8bcb44-b875-4fe4-b96f-97a20cbfec93",
+    "name": "Cooped Up",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cooped Up",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\n{2}{W}: Exile enchanted creature.",
+        "flavorText": "\"Cold iron's all you need to hold a faerie. The charms are mostly decorative.\"\n—Eulyn, Edgewall peddler",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jodie Muir",
+        "imageId": "8acb8758-09c5-4e19-ada1-904e36ece1fc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "woe",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FREED_FROM_THE_REAL": {
+    "scryfallId": "abda88df-68df-4f70-bd23-578c5b374390",
+    "oracleId": "03d32ace-dd99-48c6-bcae-9b915d041aef",
+    "name": "Freed from the Real",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Freed from the Real",
+        "manaCost": "{2}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{U}: Tap enchanted creature.\n{U}: Untap enchanted creature.",
+        "flavorText": "When a strong mind moves, form and energy shift to heed it.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Scott M. Fischer",
+        "imageId": "abda88df-68df-4f70-bd23-578c5b374390"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "SOK-38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PREDATORY_HUNGER": {
+    "scryfallId": "db6d9d28-3a05-4dfa-a322-36b4cc2697d4",
+    "oracleId": "eed2606b-9a27-4af3-8120-c45a1d6b5c00",
+    "name": "Predatory Hunger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Predatory Hunger",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhenever an opponent casts a creature spell, put a +1/+1 counter on enchanted creature.",
+        "flavorText": "Hunger growls, never purrs.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brom",
+        "imageId": "db6d9d28-3a05-4dfa-a322-36b4cc2697d4"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "exo",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TILONALLI_S_CROWN": {
+    "scryfallId": "f0e941a7-c2c1-4855-b79a-c0dfebb28854",
+    "oracleId": "fbc2f469-09a5-4641-b990-b483d5d15c0d",
+    "name": "Tilonalli's Crown",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tilonalli's Crown",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, it deals 1 damage to enchanted creature.\nEnchanted creature gets +3/+0 and has trample.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Suzanne Helmigh",
+        "imageId": "f0e941a7-c2c1-4855-b79a-c0dfebb28854"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "rix",
+    "collectorNumber": "120",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

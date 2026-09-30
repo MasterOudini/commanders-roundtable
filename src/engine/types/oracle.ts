@@ -1572,6 +1572,12 @@ export interface EffectSpec {
    */
   readonly self: boolean;
   /**
+   * D598 - THE HOST: the clause's object is the permanent the SOURCE is attached to - "enchanted creature", "equipped
+   * creature", "enchanted permanent" (CR 303.4, 301.5) - with no target (`targetIndex` -1, `self` false). `effects.ts`
+   * aims it at the source's `attachedTo` as it resolves; a source gone or attached to nothing is a subject gone, said.
+   */
+  readonly host?: true;
+  /**
    * D392 - THE REFERENT SUBJECT: the clause is about the previous clause's subject ("Untap that
    * creature.", "It gains haste until end of turn."). `effectParse` read it by the rule its
    * explicit form is read by and aims it where the previous clause aimed - it consumes NO target

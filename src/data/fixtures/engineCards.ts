@@ -9532,6 +9532,25 @@ export const D_NEDAIN_BLADE: CardData = F.D_NEDAIN_BLADE as CardData;
 export const VETERAN_S_POWERBLADE: CardData = F.VETERAN_S_POWERBLADE as CardData;
 export const THINKING_CAP: CardData = F.THINKING_CAP as CardData;
 export const PIRATE_HAT: CardData = F.PIRATE_HAT as CardData;
+export const SKYCLAVE_PICK_AXE: CardData = F.SKYCLAVE_PICK_AXE as CardData;
+export const SECOND_WIND: CardData = F.SECOND_WIND as CardData;
+export const TORTURE: CardData = F.TORTURE as CardData;
+export const DAILY_REGIMEN: CardData = F.DAILY_REGIMEN as CardData;
+export const DREADFUL_APATHY: CardData = F.DREADFUL_APATHY as CardData;
+export const FORCED_ADAPTATION: CardData = F.FORCED_ADAPTATION as CardData;
+export const AURA_OF_DOMINION: CardData = F.AURA_OF_DOMINION as CardData;
+export const SADISTIC_GLEE: CardData = F.SADISTIC_GLEE as CardData;
+export const ADVENTURING_GEAR: CardData = F.ADVENTURING_GEAR as CardData;
+export const TRICLOPEAN_SIGHT: CardData = F.TRICLOPEAN_SIGHT as CardData;
+export const SUN_CLASP: CardData = F.SUN_CLASP as CardData;
+export const GLISTENING_OIL: CardData = F.GLISTENING_OIL as CardData;
+export const BITING_TETHER: CardData = F.BITING_TETHER as CardData;
+export const GHOSTLY_WINGS: CardData = F.GHOSTLY_WINGS as CardData;
+export const YOKE_OF_THE_DAMNED: CardData = F.YOKE_OF_THE_DAMNED as CardData;
+export const COOPED_UP: CardData = F.COOPED_UP as CardData;
+export const FREED_FROM_THE_REAL: CardData = F.FREED_FROM_THE_REAL as CardData;
+export const PREDATORY_HUNGER: CardData = F.PREDATORY_HUNGER as CardData;
+export const TILONALLI_S_CROWN: CardData = F.TILONALLI_S_CROWN as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19338,6 +19357,25 @@ export const ENGINE_CARDS: CardData[] = [
   VETERAN_S_POWERBLADE,
   THINKING_CAP,
   PIRATE_HAT,
+  SKYCLAVE_PICK_AXE,
+  SECOND_WIND,
+  TORTURE,
+  DAILY_REGIMEN,
+  DREADFUL_APATHY,
+  FORCED_ADAPTATION,
+  AURA_OF_DOMINION,
+  SADISTIC_GLEE,
+  ADVENTURING_GEAR,
+  TRICLOPEAN_SIGHT,
+  SUN_CLASP,
+  GLISTENING_OIL,
+  BITING_TETHER,
+  GHOSTLY_WINGS,
+  YOKE_OF_THE_DAMNED,
+  COOPED_UP,
+  FREED_FROM_THE_REAL,
+  PREDATORY_HUNGER,
+  TILONALLI_S_CROWN,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

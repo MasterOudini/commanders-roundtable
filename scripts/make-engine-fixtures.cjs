@@ -10689,6 +10689,27 @@ const WANTED = [
   'Thinking Cap',
   'Pirate Hat',
   // D597 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D598 - THE HOST REFERENT: the rows the whole-leftover row maker rowed once the vocabulary read a verb on the enchanted or equipped creature (the Bears the scaffold attached the card to).
+  'Skyclave Pick-Axe',
+  'Second Wind',
+  'Torture',
+  'Daily Regimen',
+  'Dreadful Apathy',
+  'Forced Adaptation',
+  'Aura of Dominion',
+  'Sadistic Glee',
+  'Adventuring Gear',
+  'Triclopean Sight',
+  'Sun Clasp',
+  'Glistening Oil',
+  'Biting Tether',
+  'Ghostly Wings',
+  'Yoke of the Damned',
+  'Cooped Up',
+  'Freed from the Real',
+  'Predatory Hunger',
+  "Tilonalli's Crown",
+  // D598 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

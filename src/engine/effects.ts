@@ -249,6 +249,18 @@ export function effectResult(
       steps.push({ effect, aim: null, missing: false });
       continue;
     }
+    // D598 - THE HOST: the permanent the SOURCE is attached to ("enchanted creature", "equipped creature"), read as the
+    // clause resolves: the source on the battlefield and attached, the host on the battlefield. Otherwise the subject has
+    // gone, and the clause says so exactly as it says a lost target has - never a silent no-op (D90).
+    if (effect.host === true) {
+      const src = source ? state.cards[source] : undefined;
+      const hostId = src && src.zone.kind === 'battlefield' && !src.phasedOut ? src.attachedTo : null;
+      const hostCard = hostId ? state.cards[hostId] : undefined;
+      const aim: Aim | null =
+        hostId && hostCard && hostCard.zone.kind === 'battlefield' ? { kind: 'card', id: hostId, controller: hostCard.controller, owner: hostCard.owner } : null;
+      steps.push({ effect, aim, missing: aim === null });
+      continue;
+    }
     if (effect.self) {
       if (SELF_AIMED.has(effect.kind)) {
         // D373 - the subject is the SOURCE: for a granted ability the recipient (CR 113.7a),
