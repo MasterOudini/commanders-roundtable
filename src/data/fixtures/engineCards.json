@@ -323906,6 +323906,299 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SWORD_OF_THE_ANIMIST": {
+    "scryfallId": "01048220-cef3-47ee-8d68-d01d324ad8af",
+    "oracleId": "d79cbc61-6c15-48ea-bbba-3cffb819ccba",
+    "name": "Sword of the Animist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sword of the Animist",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1.\nWhenever equipped creature attacks, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nEquip {2}",
+        "flavorText": "The blade glows only for Zendikar's chosen.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Daniel Ljunggren",
+        "imageId": "01048220-cef3-47ee-8d68-d01d324ad8af"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "616",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ADAPTIVE_OMNITOOL": {
+    "scryfallId": "1603aab8-731c-407a-bb44-625c36ace43e",
+    "oracleId": "e91240bc-4a13-4131-9379-5ddac6555f4a",
+    "name": "Adaptive Omnitool",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Adaptive Omnitool",
+        "manaCost": "{2}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 for each artifact you control.\nWhenever equipped creature attacks, look at the top six cards of your library. You may reveal an artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adrián Rodríguez Pérez",
+        "imageId": "1603aab8-731c-407a-bb44-625c36ace43e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "drc",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPLORER_S_SCOPE": {
+    "scryfallId": "1ef03100-f095-43e4-a697-2f473779b5a9",
+    "oracleId": "a563ede9-b92f-4285-88f8-abcbdd017742",
+    "name": "Explorer's Scope",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Explorer's Scope",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Whenever equipped creature attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Vincent Proce",
+        "imageId": "1ef03100-f095-43e4-a697-2f473779b5a9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "afc",
+    "collectorNumber": "205",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOBILE_GARRISON": {
+    "scryfallId": "1f35a6a5-fd6c-4bf8-949b-17d1481ea802",
+    "oracleId": "14ef5aa4-5f61-4fbd-9a8d-35920c40ec25",
+    "name": "Mobile Garrison",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mobile Garrison",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Whenever this Vehicle attacks, untap another target artifact or creature you control.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Cliff Childs",
+        "imageId": "1f35a6a5-fd6c-4bf8-949b-17d1481ea802"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "klr",
+    "collectorNumber": "253",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASEBALL_BAT": {
+    "scryfallId": "438accb1-6d2c-4710-adeb-df4301a7b8f1",
+    "oracleId": "9b5a3765-943b-4925-b008-fc734b2934f7",
+    "name": "Baseball Bat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Baseball Bat",
+        "manaCost": "{G}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+1.\nWhenever equipped creature attacks, tap up to one target creature.\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "John Stanko",
+        "imageId": "438accb1-6d2c-4710-adeb-df4301a7b8f1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "dsk",
+    "collectorNumber": "209",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHYREXIAN_IRONWORKS": {
+    "scryfallId": "6d64e1a8-cb4f-4968-b3e0-c9ca7c7894a3",
+    "oracleId": "b3c87cb9-a37a-428e-95d1-e6dd90b31097",
+    "name": "Phyrexian Ironworks",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phyrexian Ironworks",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact",
+        "oracleText": "Whenever you attack, you get {E} (an energy counter).\n{T}, Pay {E}{E}{E}: Create a 3/3 colorless Phyrexian Golem artifact creature token. Activate only as a sorcery.",
+        "flavorText": "\"We have made a friend today.\"\n—Slobad, Iron Goblin",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "6d64e1a8-cb4f-4968-b3e0-c9ca7c7894a3"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mh3",
+    "collectorNumber": "130",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RENEGADE_FREIGHTER": {
+    "scryfallId": "7a10e2c3-0132-4eb2-94f0-5915caca2a17",
+    "oracleId": "5e73c8d2-5cad-4201-b9ef-32be82797e3b",
+    "name": "Renegade Freighter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Renegade Freighter",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Whenever this Vehicle attacks, it gets +1/+1 and gains trample until end of turn.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Izzy",
+        "imageId": "7a10e2c3-0132-4eb2-94f0-5915caca2a17"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "kld",
+    "collectorNumber": "230",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HAUNTED_HELLRIDE": {
+    "scryfallId": "9d68c20a-f377-4613-8771-cdda1745cdff",
+    "oracleId": "47944bf1-b954-4143-b479-45c10071e35a",
+    "name": "Haunted Hellride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Haunted Hellride",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Whenever you attack, target creature you control gets +1/+0 and gains deathtouch until end of turn. Untap it.\nCrew 1 (Tap any number of creatures you control with total power 1 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": "A car you'd sell your soul for.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Deathburger",
+        "imageId": "9d68c20a-f377-4613-8771-cdda1745cdff"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "dft",
+    "collectorNumber": "325",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAIDERS_KARVE": {
+    "scryfallId": "a24dfde7-0b29-4adb-914a-90eb2dd09ece",
+    "oracleId": "1e9b3c9e-07ae-4de5-8607-93773825f655",
+    "name": "Raiders' Karve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Raiders' Karve",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Vehicle",
+        "oracleText": "Whenever this Vehicle attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\nCrew 3 (Tap any number of creatures you control with total power 3 or more: This Vehicle becomes an artifact creature until end of turn.)",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Aaron Miller",
+        "imageId": "a24dfde7-0b29-4adb-914a-90eb2dd09ece"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Crew"
+    ],
+    "setCode": "nec",
+    "collectorNumber": "156",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

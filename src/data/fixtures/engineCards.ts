@@ -9515,6 +9515,15 @@ export const STOLEN_STARK_TECH: CardData = F.STOLEN_STARK_TECH as CardData;
 export const TWIN_BLADES: CardData = F.TWIN_BLADES as CardData;
 export const SUPER_SUIT: CardData = F.SUPER_SUIT as CardData;
 export const ILLVOI_LIGHT_JAMMER: CardData = F.ILLVOI_LIGHT_JAMMER as CardData;
+export const SWORD_OF_THE_ANIMIST: CardData = F.SWORD_OF_THE_ANIMIST as CardData;
+export const ADAPTIVE_OMNITOOL: CardData = F.ADAPTIVE_OMNITOOL as CardData;
+export const EXPLORER_S_SCOPE: CardData = F.EXPLORER_S_SCOPE as CardData;
+export const MOBILE_GARRISON: CardData = F.MOBILE_GARRISON as CardData;
+export const BASEBALL_BAT: CardData = F.BASEBALL_BAT as CardData;
+export const PHYREXIAN_IRONWORKS: CardData = F.PHYREXIAN_IRONWORKS as CardData;
+export const RENEGADE_FREIGHTER: CardData = F.RENEGADE_FREIGHTER as CardData;
+export const HAUNTED_HELLRIDE: CardData = F.HAUNTED_HELLRIDE as CardData;
+export const RAIDERS_KARVE: CardData = F.RAIDERS_KARVE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19304,6 +19313,15 @@ export const ENGINE_CARDS: CardData[] = [
   TWIN_BLADES,
   SUPER_SUIT,
   ILLVOI_LIGHT_JAMMER,
+  SWORD_OF_THE_ANIMIST,
+  ADAPTIVE_OMNITOOL,
+  EXPLORER_S_SCOPE,
+  MOBILE_GARRISON,
+  BASEBALL_BAT,
+  PHYREXIAN_IRONWORKS,
+  RENEGADE_FREIGHTER,
+  HAUNTED_HELLRIDE,
+  RAIDERS_KARVE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

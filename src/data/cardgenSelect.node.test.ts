@@ -108,7 +108,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sphinx's Herald", 'colour-predicate sacrifice cost (no derived fixture)'],
   ['Bogbrew Witch', 'a search naming two other cards'],
   ['Dragonstorm Forecaster', 'a search naming two other cards'],
-  ['Sword of the Animist', 'an attack head on a card with no creature body'],
   ['Flagstones of Trokair', 'a row the test cannot cast: no mana cost'],
   ['Krosan Tusker', 'cycling trigger head'],
   ['Goblin Engineer', 'a graveyard clause whose every fixture the suite already deals'],
@@ -388,7 +387,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // wide run's reason (a power CDA on a Vehicle, an attack head on a non-creature, a filtered head's adjective, a cost,
   // a search payload).
   ['Brotherhood Vertibird', 'a power CDA on a non-creature'],
-  ['Adaptive Omnitool', 'an attack head on a card with no creature body: equippedCreatureAttacks'],
   ['Exuberant Fuseling', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters and whenever another creature or a'],
   ["Geralf's Masterpiece", 'cost: Discard three cards'],
   ['Pride Sovereign', 'cost: Exert this creature'],
@@ -2045,7 +2043,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Elvish Scout', 'a combat-only scoped shield the suite cannot prove (it must attack): Prevent all combat damage that would be dealt to and dealt by it this turn. (D509)'],
   ['Hope-Ender Coatl', 'a payment whose payer the suite cannot name: targetPlayer (D509)'],
   ['Masked Vandal', 'a payment branch the suite cannot assert: exile (D509)'],
-  ['Mobile Garrison', 'an attack head on a card with no creature body: vehicleAttacks (D509)'],
   ['Rootha, Mercurial Artist', 'a vocabulary effect the suite cannot assert: copySpell (D509)'],
   ['Sea Drake', 'a vocabulary clause the suite has no fixture for: a counted clause (2..2) (D509)'],
   ["Silvanus's Invoker", 'ability-word activated line: Conjure Elemental — {8}: Untap target la (D509)'],
@@ -2170,9 +2167,7 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D493 - the look grammar: the rows the select offered and the row maker refused, by its own reasons.
   ['Fecund Greenshell', 'a filtered head outside the closed reader (a qualifier outside the keyword list: toughness greater than its power): Whenever this creature or another (D493)'],
   ['Wandering Mind', 'a look with a negated noun the suite has no fixture for: Look at the top six cards of your library. You may reveal a (D493)'],
-  ["Explorer's Scope", 'an attack head on a card with no creature body: equippedCreatureAttacks (D493)'],
   ["Nymris, Oona's Trickster", 'a filtered head outside the closed reader (an adjective outside the list: your): Whenever you cast your first spell during each opponent\'s tu (D493)'],
-  ["Raiders' Karve", 'an attack head on a card with no creature body: vehicleAttacks (D493)'],
   ['Adéwalé, Breaker of Chains', 'a combat-damage head no attack-capable fixture satisfies: a Vehicle you control (D493)'],
   // D492 - the once-per-turn trigger: the rider cards the row maker refused, by its own reasons.
   ['Exemplar of Light', 'trigger head not in the library: Whenever you put one or more +1/+1 counters on this creature, draw a c (D492)'],
@@ -2224,7 +2219,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Mischievous Chimera', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
   ['Mysterious Egg', 'the row maker: a mutates head whose mutate cost the test cannot pay: no mutate line - the mutates head is in the library since D581; a card with no Mutate line is mutated onto (another mutate card cast onto it) (D581)'],
   ['Rampaging Classmate', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+0 until end of turn for each other attacking creature.)'],
-  ['Renegade Freighter', 'an attack head on a card with no creature body (vehicleAttacks)'],
   ['Saprazzan Raider', "trigger head not in the library (When this creature becomes blocked, return it to its owner's hand.)"],
   ["Sarkhan's Whelp", 'trigger head not in the library (Whenever you activate an ability of a Sarkhan planeswalker, this creat)'],
   ['Shaleskin Bruiser', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +3/+0 until end of turn for each other attacking Beast.)'],
@@ -3812,7 +3806,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
   ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
   // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
-  ['Haunted Hellride', 'an attack head on a card with no creature body (an Aura that says whenever you attack)'],
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
   // D394 - the can't-block restriction: the seven the selector offered after the seam that the row maker refused, by reason.
   ['Frenzied Goblin', 'a paid trigger payload (Pay {R}. If you do, target creature can not block this turn.) - the head arm takes one pump'],

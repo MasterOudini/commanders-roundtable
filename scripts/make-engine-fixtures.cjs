@@ -10667,6 +10667,17 @@ const WANTED = [
   'Super Suit',
   'Illvoi Light Jammer',
   // D595 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D596 - THE ATTACK HEAD ON A NONCREATURE: the rows the whole-leftover row maker rowed once an Equipment, a Vehicle or a noncreature attack head passed the row gate (the scaffold attacks with the Bears).
+  'Sword of the Animist',
+  'Adaptive Omnitool',
+  "Explorer's Scope",
+  'Mobile Garrison',
+  'Baseball Bat',
+  'Phyrexian Ironworks',
+  'Renegade Freighter',
+  'Haunted Hellride',
+  "Raiders' Karve",
+  // D596 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

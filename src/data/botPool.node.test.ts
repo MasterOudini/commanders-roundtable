@@ -468,7 +468,7 @@ const POOL: Record<string, number> = {
   // M6.4hq (D384): the quoted grant - four Auras and an Equipment whose only leftover was the
   // ability they hand out, which `scrub` blanks and the classifier could not see.
   land: 697,
-  artifact: 719,
+  artifact: 728,
   enchantment: 776,
   // D472: the loyalty cost is charged now - the first five planeswalkers whose every line reads.
   planeswalker: 16,

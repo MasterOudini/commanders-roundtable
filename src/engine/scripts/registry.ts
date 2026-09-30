@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SWORD_OF_THE_ANIMIST_SCRIPT } from './cards/swordOfTheAnimist';
+import { ADAPTIVE_OMNITOOL_SCRIPT } from './cards/adaptiveOmnitool';
+import { EXPLORERS_SCOPE_SCRIPT } from './cards/explorersScope';
+import { MOBILE_GARRISON_SCRIPT } from './cards/mobileGarrison';
+import { BASEBALL_BAT_SCRIPT } from './cards/baseballBat';
+import { PHYREXIAN_IRONWORKS_SCRIPT } from './cards/phyrexianIronworks';
+import { RENEGADE_FREIGHTER_SCRIPT } from './cards/renegadeFreighter';
+import { HAUNTED_HELLRIDE_SCRIPT } from './cards/hauntedHellride';
+import { RAIDERS_KARVE_SCRIPT } from './cards/raidersKarve';
 import { CELESTIAL_ARMOR_SCRIPT } from './cards/celestialArmor';
 import { CORAL_SWORD_SCRIPT } from './cards/coralSword';
 import { GALADHRIM_BOW_SCRIPT } from './cards/galadhrimBow';
@@ -8588,6 +8597,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SWORD_OF_THE_ANIMIST_SCRIPT,
+  ADAPTIVE_OMNITOOL_SCRIPT,
+  EXPLORERS_SCOPE_SCRIPT,
+  MOBILE_GARRISON_SCRIPT,
+  BASEBALL_BAT_SCRIPT,
+  PHYREXIAN_IRONWORKS_SCRIPT,
+  RENEGADE_FREIGHTER_SCRIPT,
+  HAUNTED_HELLRIDE_SCRIPT,
+  RAIDERS_KARVE_SCRIPT,
   CELESTIAL_ARMOR_SCRIPT,
   CORAL_SWORD_SCRIPT,
   GALADHRIM_BOW_SCRIPT,
