@@ -10653,6 +10653,20 @@ const WANTED = [
   'Obsidian Battle-Axe',
   'Bespoke Battlegarb',
   // D594 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D595 - THE ATTACH BESIDE A PUMP: the rows the whole-leftover row maker rowed once the suite read a pump on an equipped fixture off its own event.
+  'Celestial Armor',
+  'Coral Sword',
+  'Galadhrim Bow',
+  "Squire's Lightblade",
+  'Barbed Bloodletter',
+  'Bladed Battle-Fan',
+  'Hidden Footblade',
+  'Quick-Draw Dagger',
+  'Stolen Stark Tech',
+  'Twin Blades',
+  'Super Suit',
+  'Illvoi Light Jammer',
+  // D595 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

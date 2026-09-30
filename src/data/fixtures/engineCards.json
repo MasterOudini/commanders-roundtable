@@ -323478,6 +323478,434 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CELESTIAL_ARMOR": {
+    "scryfallId": "0302a684-563c-49b2-9029-7f079ac58fd2",
+    "oracleId": "4f1b68d7-7d16-4bb1-af5f-f1708b23ca73",
+    "name": "Celestial Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Celestial Armor",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this Equipment enters, attach it to target creature you control. That creature gains hexproof and indestructible until end of turn.\nEquipped creature gets +2/+0 and has flying.\nEquip {3}{W} ({3}{W}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "José Parodi",
+        "imageId": "0302a684-563c-49b2-9029-7f079ac58fd2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "fdn",
+    "collectorNumber": "295",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORAL_SWORD": {
+    "scryfallId": "13e81e32-7246-46b9-872e-cde77cedd197",
+    "oracleId": "d4f0dd14-bc2a-4c6d-bfd5-bc5838ab18a5",
+    "name": "Coral Sword",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coral Sword",
+        "manaCost": "{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains first strike until end of turn.\nEquipped creature gets +1/+0.\nEquip {1}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jason Kiantoro",
+        "imageId": "13e81e32-7246-46b9-872e-cde77cedd197"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "fin",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GALADHRIM_BOW": {
+    "scryfallId": "156d1dc3-58e9-40ce-b1a1-c1dac4af2738",
+    "oracleId": "92225b59-4f39-4175-ad0d-88e96f4d906a",
+    "name": "Galadhrim Bow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Galadhrim Bow",
+        "manaCost": "{2}{G}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. Untap that creature.\nEquipped creature gets +1/+2 and has reach.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Daniel Correia",
+        "imageId": "156d1dc3-58e9-40ce-b1a1-c1dac4af2738"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "618",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SQUIRE_S_LIGHTBLADE": {
+    "scryfallId": "2a0accba-85d4-4aa4-a70c-80fcce48c261",
+    "oracleId": "0ea2a099-7c81-4012-8148-4d377f2d64e1",
+    "name": "Squire's Lightblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Squire's Lightblade",
+        "manaCost": "{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains first strike until end of turn.\nEquipped creature gets +1/+0.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "2a0accba-85d4-4aa4-a70c-80fcce48c261"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BARBED_BLOODLETTER": {
+    "scryfallId": "8ff1a13c-e338-42e9-8eb3-b303fabd67de",
+    "oracleId": "15febce7-8320-4591-9535-ef11c8adecc2",
+    "name": "Barbed Bloodletter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Barbed Bloodletter",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains wither until end of turn. (It deals damage to creatures in the form of -1/-1 counters.)\nEquipped creature gets +1/+2.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "8ff1a13c-e338-42e9-8eb3-b303fabd67de"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "86",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLADED_BATTLE_FAN": {
+    "scryfallId": "a28f5de4-2af6-44ff-9bb8-d874f8ae7dd1",
+    "oracleId": "c4614b6c-5e77-465f-996f-504121ea8eff",
+    "name": "Bladed Battle-Fan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bladed Battle-Fan",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains indestructible until end of turn.\nEquipped creature gets +1/+0.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Colin Boyer",
+        "imageId": "a28f5de4-2af6-44ff-9bb8-d874f8ae7dd1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "91",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIDDEN_FOOTBLADE": {
+    "scryfallId": "c014fb8d-748d-4a58-9065-17937fd4a9f2",
+    "oracleId": "daed1b38-510b-4698-95c3-05c09f5fabe9",
+    "name": "Hidden Footblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hidden Footblade",
+        "manaCost": "{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains first strike until end of turn.\nEquipped creature gets +1/+0 and has haste.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Néstor Ossandón Leal",
+        "imageId": "c014fb8d-748d-4a58-9065-17937fd4a9f2"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "acr",
+    "collectorNumber": "216",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICK_DRAW_DAGGER": {
+    "scryfallId": "d64110f4-c4b6-4966-a23a-8da7d1983499",
+    "oracleId": "47b4dd69-0b2a-4dc3-99e8-f572fe049327",
+    "name": "Quick-Draw Dagger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quick-Draw Dagger",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains first strike until end of turn.\nEquipped creature gets +1/+1.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Ovidio Cartagena",
+        "imageId": "d64110f4-c4b6-4966-a23a-8da7d1983499"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "243",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STOLEN_STARK_TECH": {
+    "scryfallId": "db4557ad-4141-4dae-870e-a587506f4914",
+    "oracleId": "51023277-5434-4913-b9dc-df2a3fde1652",
+    "name": "Stolen Stark Tech",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Stolen Stark Tech",
+        "manaCost": "{1}{B}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)\nEquipped creature gets +1/+0.\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Lixin Yin",
+        "imageId": "db4557ad-4141-4dae-870e-a587506f4914"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "114",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TWIN_BLADES": {
+    "scryfallId": "dc399ae0-36b5-4c92-9fe2-138caf8d7a86",
+    "oracleId": "88b076a4-46ff-4a41-95a5-2821f4d8944d",
+    "name": "Twin Blades",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Twin Blades",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains double strike until end of turn.\nEquipped creature gets +1/+1.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jo Cordisco",
+        "imageId": "dc399ae0-36b5-4c92-9fe2-138caf8d7a86"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SUPER_SUIT": {
+    "scryfallId": "e87f3a26-c2e5-47c7-b19d-bc01cb794805",
+    "oracleId": "606092eb-8fe3-4ef7-aaf1-2d3b2687d27a",
+    "name": "Super Suit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Super Suit",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. Untap that creature.\nEquipped creature gets +1/+2.\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Smirtouille",
+        "imageId": "e87f3a26-c2e5-47c7-b19d-bc01cb794805"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ILLVOI_LIGHT_JAMMER": {
+    "scryfallId": "efb3d961-543c-4404-b4ed-1cb28ee411b3",
+    "oracleId": "cbc0b136-544d-45a6-be3e-cd21a573bf19",
+    "name": "Illvoi Light Jammer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Illvoi Light Jammer",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Flash\nWhen this Equipment enters, attach it to target creature you control. That creature gains hexproof until end of turn. (It can't be the target of spells or abilities your opponents control.)\nEquipped creature gets +1/+2.\nEquip {3}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Álvarez",
+        "imageId": "efb3d961-543c-4404-b4ed-1cb28ee411b3"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip",
+      "Flash"
+    ],
+    "setCode": "eoe",
+    "collectorNumber": "60",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

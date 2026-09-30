@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CELESTIAL_ARMOR_SCRIPT } from './cards/celestialArmor';
+import { CORAL_SWORD_SCRIPT } from './cards/coralSword';
+import { GALADHRIM_BOW_SCRIPT } from './cards/galadhrimBow';
+import { SQUIRES_LIGHTBLADE_SCRIPT } from './cards/squiresLightblade';
+import { BARBED_BLOODLETTER_SCRIPT } from './cards/barbedBloodletter';
+import { BLADED_BATTLE_FAN_SCRIPT } from './cards/bladedBattleFan';
+import { HIDDEN_FOOTBLADE_SCRIPT } from './cards/hiddenFootblade';
+import { QUICK_DRAW_DAGGER_SCRIPT } from './cards/quickDrawDagger';
+import { STOLEN_STARK_TECH_SCRIPT } from './cards/stolenStarkTech';
+import { TWIN_BLADES_SCRIPT } from './cards/twinBlades';
+import { SUPER_SUIT_SCRIPT } from './cards/superSuit';
+import { ILLVOI_LIGHT_JAMMER_SCRIPT } from './cards/illvoiLightJammer';
 import { CRANIAL_PLATING_SCRIPT } from './cards/cranialPlating';
 import { SHINING_ARMOR_SCRIPT } from './cards/shiningArmor';
 import { HORNED_HELM_SCRIPT } from './cards/hornedHelm';
@@ -8576,6 +8588,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CELESTIAL_ARMOR_SCRIPT,
+  CORAL_SWORD_SCRIPT,
+  GALADHRIM_BOW_SCRIPT,
+  SQUIRES_LIGHTBLADE_SCRIPT,
+  BARBED_BLOODLETTER_SCRIPT,
+  BLADED_BATTLE_FAN_SCRIPT,
+  HIDDEN_FOOTBLADE_SCRIPT,
+  QUICK_DRAW_DAGGER_SCRIPT,
+  STOLEN_STARK_TECH_SCRIPT,
+  TWIN_BLADES_SCRIPT,
+  SUPER_SUIT_SCRIPT,
+  ILLVOI_LIGHT_JAMMER_SCRIPT,
   CRANIAL_PLATING_SCRIPT,
   SHINING_ARMOR_SCRIPT,
   HORNED_HELM_SCRIPT,

@@ -9503,6 +9503,18 @@ export const SAI_OF_THE_SHINOBI: CardData = F.SAI_OF_THE_SHINOBI as CardData;
 export const DOC_OCK_S_TENTACLES: CardData = F.DOC_OCK_S_TENTACLES as CardData;
 export const OBSIDIAN_BATTLE_AXE: CardData = F.OBSIDIAN_BATTLE_AXE as CardData;
 export const BESPOKE_BATTLEGARB: CardData = F.BESPOKE_BATTLEGARB as CardData;
+export const CELESTIAL_ARMOR: CardData = F.CELESTIAL_ARMOR as CardData;
+export const CORAL_SWORD: CardData = F.CORAL_SWORD as CardData;
+export const GALADHRIM_BOW: CardData = F.GALADHRIM_BOW as CardData;
+export const SQUIRE_S_LIGHTBLADE: CardData = F.SQUIRE_S_LIGHTBLADE as CardData;
+export const BARBED_BLOODLETTER: CardData = F.BARBED_BLOODLETTER as CardData;
+export const BLADED_BATTLE_FAN: CardData = F.BLADED_BATTLE_FAN as CardData;
+export const HIDDEN_FOOTBLADE: CardData = F.HIDDEN_FOOTBLADE as CardData;
+export const QUICK_DRAW_DAGGER: CardData = F.QUICK_DRAW_DAGGER as CardData;
+export const STOLEN_STARK_TECH: CardData = F.STOLEN_STARK_TECH as CardData;
+export const TWIN_BLADES: CardData = F.TWIN_BLADES as CardData;
+export const SUPER_SUIT: CardData = F.SUPER_SUIT as CardData;
+export const ILLVOI_LIGHT_JAMMER: CardData = F.ILLVOI_LIGHT_JAMMER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19280,6 +19292,18 @@ export const ENGINE_CARDS: CardData[] = [
   DOC_OCK_S_TENTACLES,
   OBSIDIAN_BATTLE_AXE,
   BESPOKE_BATTLEGARB,
+  CELESTIAL_ARMOR,
+  CORAL_SWORD,
+  GALADHRIM_BOW,
+  SQUIRE_S_LIGHTBLADE,
+  BARBED_BLOODLETTER,
+  BLADED_BATTLE_FAN,
+  HIDDEN_FOOTBLADE,
+  QUICK_DRAW_DAGGER,
+  STOLEN_STARK_TECH,
+  TWIN_BLADES,
+  SUPER_SUIT,
+  ILLVOI_LIGHT_JAMMER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
