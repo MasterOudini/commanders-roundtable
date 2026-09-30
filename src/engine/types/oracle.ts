@@ -579,6 +579,12 @@ export interface TargetSpec {
    * said it keeps its exact shape.
    */
   readonly another?: true;
+  /**
+   * D588 - `from a single graveyard` / `from a player's graveyard`: every pick this clause takes sits in ONE graveyard - a
+   * cross-pick restriction `validateTargets` asks of the assignment (no per-candidate predicate can). Optional, so every
+   * spec that never said it keeps its exact shape.
+   */
+  readonly singleGraveyard?: true;
 }
 
 /** The fallback. `min: 0` is load-bearing: a free spec never blocks a cast. */

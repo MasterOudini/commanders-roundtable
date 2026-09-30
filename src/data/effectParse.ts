@@ -191,6 +191,8 @@ const ADJECTIVE =
 // out: the count is not known at parse time and the spec is left unconfident.
 // D414 - `another` and `up to one other` are count words the target parser reads (the spec carries `another`).
 const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)(?: other)?|two|three|any number of|another) )?';
+// D588 - the graveyard exile and bottom patterns count to four and five (Shred Memory, Lodestone-style lists).
+const GY_COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three|four|five)(?: other)?|two|three|four|five|any number of|another) )?';
 // D509 - THE CONTROLLER WORD ON EVERY NOUN: `you control` / `an opponent controls` / `you don't control` after any noun
 // of the table (`target permanent an opponent controls` - Assassin's Trophy; `target artifact or land an opponent
 // controls` - Price of Freedom; `target artifact creature you control`; `target nonbasic land an opponent controls`),
@@ -2201,12 +2203,12 @@ const RULES: readonly Rule[] = [
    */
   {
     kind: 'exileFromGraveyard',
-    re: new RegExp(`^exile ${COUNTED}target ${GY_NOUN} from (?:a|your|an opponent's) graveyard\\.$`, 'i'),
+    re: new RegExp(`^exile ${GY_COUNTED}target ${GY_NOUN} from (?:(?:a single|a player's|a|your|an opponent's) graveyard|graveyards)\\.$`, 'i'),
     build: () => ({ ...BASE }),
   },
   {
     kind: 'graveyardToLibraryBottom',
-    re: new RegExp(`^put ${COUNTED}target ${GY_NOUN} from (?:a|your|an opponent's) graveyard on the bottom of (?:its|their) owner's library\\.$`, 'i'),
+    re: new RegExp(`^put ${GY_COUNTED}target ${GY_NOUN} from (?:(?:a single|a player's|a|your|an opponent's) graveyard|graveyards) on the bottom of (?:its|their) owner's library\\.$`, 'i'),
     build: () => ({ ...BASE }),
   },
   /**
@@ -2619,7 +2621,7 @@ function sentences(text: string): string[] {
 const MAX_SPAN = 4;
 
 /** D299: the counts a clause may be declared with NO target for. */
-const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three)|any number of) target\b/i;
+const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three|four|five)|any number of) target\b/i;
 
 /** One clause of a face: the text it covers, and what it was understood as. */
 interface Clause {

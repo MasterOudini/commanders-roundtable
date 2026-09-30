@@ -54,7 +54,7 @@ function cascaded(candidate: string, mine: readonly string[] = [], theirs: reado
   return { g, pick, ours, foes };
 }
 
-describe('D587 - a granted cast is checked against the ward it would meet, and backs out to its prompt (CR 601.2)', () => {
+describe('D587 - a granted cast is checked against the ward it would meet, and backs out to its prompt - CR 601.2', () => {
   test("a kick only a warded target would strand is refused at the answer; the plain cast then pays the Admirer's ward", () => {
     const { g, pick: roil, foes } = cascaded('Into the Roil', [], ['Toadstool Admirer']);
     const [admirer] = foes as [InstanceId];

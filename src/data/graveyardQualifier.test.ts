@@ -3,9 +3,10 @@
 // stayed [] (so an exiled card was a legal target) and nothing was recorded (so tier3.ts said nothing). Measured over
 // every Commander-legal card (2026-09-29): 73 clauses in ten shapes, none of them on an engine-complete card. Now the
 // ZONE is enforced for every shape (each names a graveyard), and what the spec cannot say - an owner relative to another
-// object ("that player's", "their", "defending player's", "target player's") or one graveyard shared by every pick ("a
-// single graveyard", "a player's graveyard") - is RECORDED in `unenforced` (D138; D79: never blocking a legal choice -
-// the controller stays open). "graveyards" is any graveyard: the zone alone, nothing left to record.
+// object ("that player's", "their", "defending player's", "target player's") - is RECORDED in `unenforced`
+// (D138; D79: never blocking a legal choice - the controller stays open). One graveyard shared by every pick ("a single
+// graveyard", "a player's graveyard") is ENFORCED since D588 (TargetSpec.singleGraveyard, validateTargets) - read, not
+// recorded. "graveyards" is any graveyard: the zone alone, nothing left to record.
 import { describe, expect, test } from 'vitest';
 import { parseTargetClauses } from './targetParse';
 import { tier3NotesFor } from './tier3';
@@ -16,7 +17,7 @@ import { targetAllowed, type TargetCandidate } from '../engine/targets';
 
 /** The printed lines (verbatim from the card database) and the graveyard phrase each clause must record ('' = none). */
 const LINES: readonly { readonly card: string; readonly line: string; readonly recorded: string }[] = [
-  { card: 'Rapid Decay', line: 'Exile up to three target cards from a single graveyard.', recorded: 'from a single graveyard' },
+  { card: 'Rapid Decay', line: 'Exile up to three target cards from a single graveyard.', recorded: '' },
   { card: 'Faerie Macabre', line: 'Discard this card: Exile up to two target cards from graveyards.', recorded: '' },
   { card: 'Ink-Eyes, Servant of Oni', line: "Whenever Ink-Eyes deals combat damage to a player, you may put target creature card from that player's graveyard onto the battlefield under your control.", recorded: "from that player's graveyard" },
   { card: "Gaea's Blessing", line: 'Target player shuffles up to three target cards from their graveyard into their library.', recorded: 'from their graveyard' },
@@ -25,7 +26,7 @@ const LINES: readonly { readonly card: string; readonly line: string; readonly r
   { card: 'Goblin Welder', line: "{T}: Choose target artifact a player controls and target artifact card in that player's graveyard. If both targets are still legal as this ability resolves, that player simultaneously sacrifices the artifact and returns the artifact card to the battlefield.", recorded: "in that player's graveyard" },
   { card: 'Suffer the Past', line: "Exile X target cards from target player's graveyard. For each card exiled this way, that player loses 1 life and you gain 1 life.", recorded: "from target player's graveyard" },
   { card: 'Mysterious Stranger', line: 'When this creature enters, for each graveyard with an instant or sorcery card in it, exile target instant or sorcery card from that graveyard. If two or more cards are exiled this way, choose one of them at random and copy it. You may cast the copy without paying its mana cost.', recorded: 'from that graveyard' },
-  { card: 'Lodestone Bauble', line: "{1}, {T}, Sacrifice this artifact: Put up to four target basic land cards from a player's graveyard on top of their library in any order. That player draws a card at the beginning of the next turn's upkeep.", recorded: "from a player's graveyard" },
+  { card: 'Lodestone Bauble', line: "{1}, {T}, Sacrifice this artifact: Put up to four target basic land cards from a player's graveyard on top of their library in any order. That player draws a card at the beginning of the next turn's upkeep.", recorded: '' },
   { card: 'Command the Dreadhorde', line: 'Choose any number of target creature and/or planeswalker cards in graveyards. Command the Dreadhorde deals damage to you equal to the total mana value of those cards. Put them onto the battlefield under your control.', recorded: '' },
 ];
 
@@ -88,11 +89,14 @@ describe('a graveyard phrase on a card target: the zone enforced, the rest recor
     expect([opp.zones, opp.controller, opp.unenforced]).toEqual([['graveyard'], 'opponent', []]);
   });
 
-  test('the card says it: a Rapid Decay (the printed line on a fixture body) names the single graveyard', () => {
+  test('D588 - the single graveyard is enforced: the spec carries the flag, and a Rapid Decay (a fixture body) says nothing of it', () => {
+    expect(cardClause('Exile up to three target cards from a single graveyard.').singleGraveyard).toBe(true);
+    expect(cardClause("Put up to four target basic land cards from a player's graveyard on top of their library in any order.").singleGraveyard).toBe(true);
+    expect(cardClause('Exile up to two target cards from graveyards.').singleGraveyard).toBeUndefined();
     const base = ENGINE_CARDS.find((c) => c.name === 'Raise Dead');
     if (!base) throw new Error('no fixture Raise Dead');
     const text = 'Exile up to three target cards from a single graveyard.';
     const synth: CardData = { ...base, name: 'Rapid Decay (synthetic)', oracleId: 'graveyard-qualifier-synthetic', faces: [{ ...(base.faces[0] as CardData['faces'][number]), name: 'Rapid Decay (synthetic)', oracleText: text }] };
-    expect(tier3NotesFor(synth, 0).map((n) => n.what)).toContain('“from a single graveyard” on its target');
+    expect(tier3NotesFor(synth, 0).map((n) => n.what)).not.toContain('“from a single graveyard” on its target');
   });
 });

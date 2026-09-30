@@ -640,6 +640,8 @@ interface ControllerResult {
    * `unenforced` (D138). Null when the clause names none, or names one the zone alone says ("from graveyards").
    */
   readonly zoneUnread: string | null;
+  /** D588 - `from a single graveyard` / `from a player's graveyard`: one graveyard for every pick (validateTargets enforces it). */
+  readonly singleGraveyard?: true;
 }
 
 /**
@@ -657,7 +659,7 @@ interface ControllerResult {
  * prints, so the first wins.
  */
 function withController(controller: TargetController, rest: ControllerResult): ControllerResult {
-  return { controller, zones: rest.zones, numeric: rest.numeric, keyword: rest.keyword, end: rest.end, zoneUnread: rest.zoneUnread };
+  return { controller, zones: rest.zones, numeric: rest.numeric, keyword: rest.keyword, end: rest.end, zoneUnread: rest.zoneUnread, ...(rest.singleGraveyard ? { singleGraveyard: true as const } : {}) };
 }
 
 function readController(after: string, from: number): ControllerResult {
@@ -709,6 +711,7 @@ function readController(after: string, from: number): ControllerResult {
         keyword: { word, present: (kw[1] ?? '').toLowerCase() === 'with' },
         end: rest.end,
         zoneUnread: rest.zoneUnread,
+        ...(rest.singleGraveyard ? { singleGraveyard: true as const } : {}),
       };
     }
   }
@@ -741,6 +744,7 @@ function readController(after: string, from: number): ControllerResult {
       keyword: rest.keyword,
       end: rest.end,
       zoneUnread: rest.zoneUnread,
+      ...(rest.singleGraveyard ? { singleGraveyard: true as const } : {}),
     };
   }
 
@@ -762,6 +766,7 @@ function readController(after: string, from: number): ControllerResult {
       keyword: rest.keyword,
       end: rest.end,
       zoneUnread: rest.zoneUnread,
+      ...(rest.singleGraveyard ? { singleGraveyard: true as const } : {}),
     };
   }
 
@@ -789,6 +794,7 @@ function readController(after: string, from: number): ControllerResult {
       keyword: rest.keyword,
       end: rest.end,
       zoneUnread: rest.zoneUnread,
+      ...(rest.singleGraveyard ? { singleGraveyard: true as const } : {}),
     };
   }
 
@@ -805,14 +811,19 @@ function readController(after: string, from: number): ControllerResult {
   );
   if (gyMore) {
     const rest = readController(after, from + (gyMore[0]?.length ?? 0));
-    const anyGraveyard = (gyMore[1] ?? '').toLowerCase() === 'graveyards';
+    const phrase = (gyMore[1] ?? '').toLowerCase().split(String.fromCharCode(8217)).join(String.fromCharCode(39)).split(' ').filter(Boolean).join(' ');
+    const anyGraveyard = phrase === 'graveyards';
+    // D588 - one graveyard for every pick (the printed restriction, CR 115.1): enforced across the picks by validateTargets,
+    // so READ, not recorded.
+    const single = phrase === 'a single graveyard' || phrase === "a player's graveyard";
     return {
       controller: rest.controller,
       zones: ['graveyard'],
       numeric: rest.numeric,
       keyword: rest.keyword,
       end: rest.end,
-      zoneUnread: anyGraveyard ? rest.zoneUnread : (gyMore[0] ?? '').trim(),
+      zoneUnread: anyGraveyard || single ? rest.zoneUnread : (gyMore[0] ?? '').trim(),
+      ...(single || rest.singleGraveyard ? { singleGraveyard: true as const } : {}),
     };
   }
 
@@ -1092,6 +1103,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
         // The graveyard phrase the list's last piece named, where the clause cannot say its owner (`zoneUnread`).
         unenforced: list.ctl.zoneUnread !== null ? [...list.unenforced, list.ctl.zoneUnread] : list.unenforced,
         ...(count.another ? { another: true as const } : {}),
+        ...(list.ctl.singleGraveyard ? { singleGraveyard: true as const } : {}),
       };
     };
 
@@ -1204,6 +1216,7 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
       confident: count.confident,
       unenforced,
       ...(count.another ? { another: true as const } : {}),
+      ...(ctl.singleGraveyard ? { singleGraveyard: true as const } : {}),
     });
     if (!count.confident) warn('target:unparsedCount');
   }

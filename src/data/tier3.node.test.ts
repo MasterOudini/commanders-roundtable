@@ -421,7 +421,7 @@ describe.skipIf(!HAVE_DB)('what the Tier-3 disclosure now says, measured', () =>
     // D579 - one fewer: a two-faced card's keyword is noted on the face that prints it, and a front face's list fell below four.
     // fix/graveyard-target-qualifier - three more: the recorded graveyard phrase is a fourth note on Kaya, Orzhov Usurper,
     // Tasha, the Witch Queen and Pestilent Cauldron's front face. The longest list is still 6.
-    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 96 });
+    expect.soft({ maxNotes: r.maxNotes, fourOrMore: r.fourOrMore }).toEqual({ maxNotes: 6, fourOrMore: 94 });
   });
 
   /**
@@ -486,12 +486,12 @@ const MEASURED: Record<string, number> = {
   // ⚠️ M6.4l (D169): twenty-three silences — the batch's cards leaving both
   // note kinds, split by what each card is.
   // ⚠️ M6.4m (D170): twenty-three more, same shape.
-  abilityText: 12059,
-  payable: 3392,
+  abilityText: 12055,
+  payable: 3387,
   manaPart: 353,
-  either: 14154,
-  eitherAnyFace: 14174,
-  wasSilent: 13243,
+  either: 14146,
+  eitherAnyFace: 14166,
+  wasSilent: 13242,
   // ⚠️ M6.3c moved the three SILENCE counters by exactly the seven cards the
   // counter vocabulary completed (D130), and moving them is the correct
   // behaviour rather than a regression: a card the engine now runs in full must
@@ -515,9 +515,9 @@ const MEASURED: Record<string, number> = {
   // Ghoul, Lodestone Bauble, Digsite Conservator, Unlicensed Hearse, Pestilent Cauldron's front face) now also say their
   // target's unread graveyard phrase ("from a single graveyard" on its target). Pestilent Cauldron's back face already
   // spoke, so the any-face count moves by six.
-  wasSilentAnyFace: 13167,
-  silentBefore: 26396,
-  silentAfter: 13153,
+  wasSilentAnyFace: 13165,
+  silentBefore: 26408,
+  silentAfter: 13166,
   residual: 56,
   residualKeyword: 56,
   residualManaLine: 0,

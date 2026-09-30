@@ -771,6 +771,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D588 - the graveyard target grammar: `from a single graveyard` / `from a player's graveyard` is the engine's now (one graveyard for every pick, enforced across the picks) and `from graveyards` reads; what stays is a card the row maker refuses for another line.
+  ['Digsite Conservator', 'a payment branch the suite cannot assert: discover - its single-graveyard exile reads since D588 (D588)'],
   // D585 - casualty (CR 702.153): the optional sacrifice of a creature with power N or greater, and the copy its trigger makes, are the engine's now; what stays is a card whose other line the engine does not read.
   ['Audacious Swap', 'a spell outside the vocabulary: its Casualty line reads since D585, its other line (the owner shuffles the target into their library, exiles the top card, a land onto the battlefield or the rest cast free) does not (D585)'],
   // D584 - the reflexive trigger (CR 603.12): `<price>. When you do, <payload>` is the engine's now (the payload a triggered ability of its own, aimed after the payment); what stays is a card the row maker refuses for another reason.
@@ -2561,7 +2563,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // Defensive Maneuvers takes a creature type of the caster's choice at
   // resolution; Decision Paralysis adds a skip-untap rider to its up-to-N.
   ['Debt of Loyalty', 'regeneration'],
-  ['Decompose', 'up-to-N targeting'],
   ['Defensive Maneuvers', 'script-raised prompt'],
   ['Defiling Tears', 'temporary non-keyword ability grant'],
   ['Demonic Gifts', 'temporary non-keyword ability grant'],
@@ -3462,7 +3463,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Send to Sleep', 'up-to-N targeting'],
   ['Shimmering Mirage', 'script-raised prompt'],
   ['Shivan Meteor', 'suspend mechanic'],
-  ['Shred Memory', 'a spell with a line outside the vocabulary: Exile up to four target cards from a single graveyard. (its Transmute line reads since D559)'],
   ['Sickening Shoal', 'cast-time alternative cost'],
 
   // D281 (M6.4dr) — the S residue; ONE new class.
@@ -3702,8 +3702,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
 
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Rapid Decay', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Scarab Feast', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Spectacular Pileup', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Startling Development', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Trip Up', 'a spell line outside the vocabulary (its cycling runs)'],

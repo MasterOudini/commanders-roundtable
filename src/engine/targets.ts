@@ -444,6 +444,18 @@ export function validateTargets(
         : `${label} targets ${wanted} — that choice doesn't fit.`,
     };
   }
+  // D588 - `from a single graveyard` / `from a player's graveyard`: every pick a clause of that kind took sits in ONE
+  // graveyard - asked of the assignment the matching found (a cross-pick restriction no per-candidate predicate holds).
+  for (const [si, spec] of specs.entries()) {
+    if (spec.singleGraveyard !== true) continue;
+    const owners = new Set<string>();
+    for (const [i, choice] of choices.entries()) {
+      if (assignment[i] !== si) continue;
+      const cand = candidateOf(choice);
+      if (cand?.owner !== undefined) owners.add(cand.owner);
+    }
+    if (owners.size > 1) return { ok: false, message: `${label} targets cards from a single graveyard - choose them from one graveyard.` };
+  }
   // D299: the clause each pick answers rides back so the cast can record it.
   return { ok: true, assignment };
 }

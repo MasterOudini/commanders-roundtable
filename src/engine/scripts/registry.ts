@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { DIREGRAF_HORDE_SCRIPT } from './cards/diregrafHorde';
+import { RAG_DEALER_SCRIPT } from './cards/ragDealer';
+import { ROOFTOP_PERCHER_SCRIPT } from './cards/rooftopPercher';
+import { FAERIE_MACABRE_SCRIPT } from './cards/faerieMacabre';
+import { CARRION_BEETLES_SCRIPT } from './cards/carrionBeetles';
+import { GRIFFNAUT_TRACKER_SCRIPT } from './cards/griffnautTracker';
+import { ARASHIN_SUNSHIELD_SCRIPT } from './cards/arashinSunshield';
+import { FAMISHED_GHOUL_SCRIPT } from './cards/famishedGhoul';
 import { GLORYBRINGER_SCRIPT } from './cards/glorybringer';
 import { OBSCURA_STOREFRONT_SCRIPT } from './cards/obscuraStorefront';
 import { RIVETEERS_OVERLOOK_SCRIPT } from './cards/riveteersOverlook';
@@ -8495,6 +8503,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  DIREGRAF_HORDE_SCRIPT,
+  RAG_DEALER_SCRIPT,
+  ROOFTOP_PERCHER_SCRIPT,
+  FAERIE_MACABRE_SCRIPT,
+  CARRION_BEETLES_SCRIPT,
+  GRIFFNAUT_TRACKER_SCRIPT,
+  ARASHIN_SUNSHIELD_SCRIPT,
+  FAMISHED_GHOUL_SCRIPT,
   GLORYBRINGER_SCRIPT,
   OBSCURA_STOREFRONT_SCRIPT,
   RIVETEERS_OVERLOOK_SCRIPT,

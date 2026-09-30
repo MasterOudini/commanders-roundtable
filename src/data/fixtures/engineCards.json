@@ -320445,6 +320445,273 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "DIREGRAF_HORDE": {
+    "scryfallId": "153be768-ddad-44f2-bcdd-c40353c807d7",
+    "oracleId": "d7947858-f11d-438c-8ad3-991afe950a11",
+    "name": "Diregraf Horde",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diregraf Horde",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "When this creature enters, create two 2/2 black Zombie creature tokens with decayed. When you do, exile up to two target cards from graveyards. (A creature with decayed can't block. When it attacks, sacrifice it at end of combat.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alex Negrea",
+        "imageId": "153be768-ddad-44f2-bcdd-c40353c807d7"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "mid",
+    "collectorNumber": "96",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAG_DEALER": {
+    "scryfallId": "18ef007a-fcf4-4293-933e-4f9f7f602002",
+    "oracleId": "493acba2-92b0-43a4-9f4b-d49a91ca77f5",
+    "name": "Rag Dealer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rag Dealer",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "{2}{B}, {T}: Exile up to three target cards from a single graveyard.",
+        "flavorText": "\"After General Takeno found the Oathkeeper amidst the bamboo marshes, more scavengers braved the swamp's nezumi, oni, and kami in hopes of glory.\"\n—*The History of Kamigawa*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ralph Horsley",
+        "imageId": "18ef007a-fcf4-4293-933e-4f9f7f602002"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "chk",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ROOFTOP_PERCHER": {
+    "scryfallId": "2d89595c-1542-41fe-8d23-997522922698",
+    "oracleId": "3dc73517-0767-46ae-bc8d-ee378237a509",
+    "name": "Rooftop Percher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rooftop Percher",
+        "manaCost": "{5}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\nFlying\nWhen this creature enters, exile up to two target cards from graveyards. You gain 3 life.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Nils Hamm",
+        "imageId": "2d89595c-1542-41fe-8d23-997522922698"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 5,
+    "keywords": [
+      "Changeling",
+      "Flying"
+    ],
+    "setCode": "ecl",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAERIE_MACABRE": {
+    "scryfallId": "33629770-e1fb-4e0d-9b4c-411d2a7953ae",
+    "oracleId": "c7d8beb6-472c-4758-9876-e8cbf98f4f72",
+    "name": "Faerie Macabre",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Faerie Macabre",
+        "manaCost": "{1}{B}{B}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flying\nDiscard this card: Exile up to two target cards from graveyards.",
+        "flavorText": "The line between dream and death is gauzy and fragile. She leads those too near it from one side to the other.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "rk post",
+        "imageId": "33629770-e1fb-4e0d-9b4c-411d2a7953ae"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "ddd",
+    "collectorNumber": "42",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CARRION_BEETLES": {
+    "scryfallId": "46d4f4d7-a35b-45ea-ba51-ee65b3ff98d4",
+    "oracleId": "d64a51be-2dd1-485f-98fa-c93d4c296e68",
+    "name": "Carrion Beetles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Carrion Beetles",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "{2}{B}, {T}: Exile up to three target cards from a single graveyard.",
+        "flavorText": "It's all fun and games until someone loses an eye.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "46d4f4d7-a35b-45ea-ba51-ee65b3ff98d4"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "usg",
+    "collectorNumber": "122",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRIFFNAUT_TRACKER": {
+    "scryfallId": "95f5d048-226f-49a4-a2ce-a6fa99aa9e8a",
+    "oracleId": "6eff5e17-946b-4433-9f48-88f103844c42",
+    "name": "Griffnaut Tracker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Griffnaut Tracker",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Detective",
+        "oracleText": "Flying\nWhen this creature enters, exile up to two target cards from a single graveyard.",
+        "flavorText": "\"The desperate will tread unexpected paths. Be prepared to follow.\"\n—Tam Sennic, Ezrim's second-in-command",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Svetlin Velinov",
+        "imageId": "95f5d048-226f-49a4-a2ce-a6fa99aa9e8a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARASHIN_SUNSHIELD": {
+    "scryfallId": "dd7102d8-90b3-45a1-b66d-dcca469b1fb6",
+    "oracleId": "1175d482-d8a2-467f-bc50-2f4b241966bb",
+    "name": "Arashin Sunshield",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arashin Sunshield",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Warrior",
+        "oracleText": "When this creature enters, exile up to two target cards from a single graveyard.\n{W}, {T}: Tap target creature.",
+        "flavorText": "\"The best way to protect the citizens is to defend Arashin, not hunt dragonstorms across Tarkir.\"\n—Sadesh of House Mevak",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Inkognit",
+        "imageId": "dd7102d8-90b3-45a1-b66d-dcca469b1fb6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tdm",
+    "collectorNumber": "3",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FAMISHED_GHOUL": {
+    "scryfallId": "e413b65a-700d-44eb-a880-5a0118d2ebac",
+    "oracleId": "22c74e4b-b1fe-4a35-acd8-fa4840af3c06",
+    "name": "Famished Ghoul",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Famished Ghoul",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Zombie",
+        "oracleText": "{1}{B}, Sacrifice this creature: Exile up to two target cards from a single graveyard.",
+        "flavorText": "Memories have distinct tastes. Its favorites are the sickly sweetness of lost love and the bitter smokiness of cruel murder.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Adam Rex",
+        "imageId": "e413b65a-700d-44eb-a880-5a0118d2ebac"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ody",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

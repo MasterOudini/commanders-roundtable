@@ -9414,6 +9414,14 @@ export const EMPRESS_GALINA: CardData = F.EMPRESS_GALINA as CardData;
 export const HONDEN_OF_SEEING_WINDS: CardData = F.HONDEN_OF_SEEING_WINDS as CardData;
 export const SUMMON_PRIMAL_GARUDA: CardData = F.SUMMON_PRIMAL_GARUDA as CardData;
 export const SANCTUM_OF_TRANQUIL_LIGHT: CardData = F.SANCTUM_OF_TRANQUIL_LIGHT as CardData;
+export const DIREGRAF_HORDE: CardData = F.DIREGRAF_HORDE as CardData;
+export const RAG_DEALER: CardData = F.RAG_DEALER as CardData;
+export const ROOFTOP_PERCHER: CardData = F.ROOFTOP_PERCHER as CardData;
+export const FAERIE_MACABRE: CardData = F.FAERIE_MACABRE as CardData;
+export const CARRION_BEETLES: CardData = F.CARRION_BEETLES as CardData;
+export const GRIFFNAUT_TRACKER: CardData = F.GRIFFNAUT_TRACKER as CardData;
+export const ARASHIN_SUNSHIELD: CardData = F.ARASHIN_SUNSHIELD as CardData;
+export const FAMISHED_GHOUL: CardData = F.FAMISHED_GHOUL as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19097,6 +19105,14 @@ export const ENGINE_CARDS: CardData[] = [
   HONDEN_OF_SEEING_WINDS,
   SUMMON_PRIMAL_GARUDA,
   SANCTUM_OF_TRANQUIL_LIGHT,
+  DIREGRAF_HORDE,
+  RAG_DEALER,
+  ROOFTOP_PERCHER,
+  FAERIE_MACABRE,
+  CARRION_BEETLES,
+  GRIFFNAUT_TRACKER,
+  ARASHIN_SUNSHIELD,
+  FAMISHED_GHOUL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

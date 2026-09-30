@@ -10549,6 +10549,16 @@ const WANTED = [
   'Summon: Primal Garuda',
   // D586 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
   'Sanctum of Tranquil Light',
+  // D588 - THE GRAVEYARD TARGET GRAMMAR: the rows the whole-leftover row maker rowed once from a single graveyard (one graveyard for every pick) and from graveyards read and enforced.
+  'Diregraf Horde',
+  'Rag Dealer',
+  'Rooftop Percher',
+  'Faerie Macabre',
+  'Carrion Beetles',
+  'Griffnaut Tracker',
+  'Arashin Sunshield',
+  'Famished Ghoul',
+  // D588 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
