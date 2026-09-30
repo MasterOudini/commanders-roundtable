@@ -321184,6 +321184,113 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "HOVERGUARD_SWEEPERS": {
+    "scryfallId": "0e2ec92b-dab0-4c9e-af7d-0041b22e852f",
+    "oracleId": "853ef032-a2f7-4e6b-a210-03e96855d062",
+    "name": "Hoverguard Sweepers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hoverguard Sweepers",
+        "manaCost": "{6}{U}{U}",
+        "typeLine": "Creature — Drone",
+        "oracleText": "Flying\nWhen this creature enters, you may return up to two target creatures to their owners' hands.",
+        "flavorText": "They only appear in emergencies, and emergencies never last long.",
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark A. Nelson",
+        "imageId": "0e2ec92b-dab0-4c9e-af7d-0041b22e852f"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "c14",
+    "collectorNumber": "113",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIGHTSCAPE_BATTLEMAGE": {
+    "scryfallId": "832f4afa-0cc6-4721-8714-c92552ba073e",
+    "oracleId": "e96e68b4-cb32-4b75-a885-e1781f4b74ab",
+    "name": "Nightscape Battlemage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nightscape Battlemage",
+        "manaCost": "{2}{B}",
+        "typeLine": "Creature — Zombie Wizard",
+        "oracleText": "Kicker {2}{U} and/or {2}{R} (You may pay an additional {2}{U} and/or {2}{R} as you cast this spell.)\nWhen this creature enters, if it was kicked with its {2}{U} kicker, return up to two target nonblack creatures to their owners' hands.\nWhen this creature enters, if it was kicked with its {2}{R} kicker, destroy target land.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Andrew Goldhawk",
+        "imageId": "832f4afa-0cc6-4721-8714-c92552ba073e"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Kicker"
+    ],
+    "setCode": "psal",
+    "collectorNumber": "E39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AVEN_AUGUR": {
+    "scryfallId": "c7599618-cbd9-4013-b0a5-4ba77fd52ab4",
+    "oracleId": "e68d1b86-3996-4bbf-9086-a76a7f9ce2a4",
+    "name": "Aven Augur",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aven Augur",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flying\nSacrifice this creature: Return up to two target creatures to their owners' hands. Activate only during your upkeep.",
+        "flavorText": "\"I have seen the future. It does not include you.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Dan Murayama Scott",
+        "imageId": "c7599618-cbd9-4013-b0a5-4ba77fd52ab4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "fut",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

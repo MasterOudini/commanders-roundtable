@@ -1287,7 +1287,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Wastescape Battlemage', 'a cast trigger gated on the named kicker (the gate reads the permanent the spell is not yet; not this wave) (D530)'],
   ['Falling Timber', 'the row maker: a spell with a line outside the vocabulary: Prevent all combat damage target creature would deal this tu (D530)'],
   ['Stormscape Battlemage', 'the row maker: trigger payload not a pump: Destroy target nonblack creature. That creature can\'t be reg (D530)'],
-  ['Nightscape Battlemage', 'the row maker: trigger payload not a pump: Return up to two target nonblack creatures to their owners\' (D530)'],
   ['Arctic Merfolk', 'the row maker: a kicked condition on a card whose Kicker line the row cannot pay (two kickers, or none) (D530)'],
   ['Pollen Remedy', 'a kicker line under a shape the row maker never reached (`Prevent the next 3 damage that would be dealt this turn to a`) (D530)'],
   ["Dralnu's Pet", 'the row maker: a line that is neither an activated ability nor a library trigger: If this creature was kicked, it enters with flying and with X +1/+1 (D530)'],
@@ -1869,7 +1868,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sauron's Ransom", 'an opponent\'s pile split (`separate them into a face-down pile and a face-up pile`) beside the temptation (D521)'],
   ['Glorious Gale', 'a conditional temptation after a counter (`If it was a legendary spell, the Ring tempts you`) (D521)'],
   ['Dreadful as the Storm', 'a base power and toughness set (`has base power and toughness 5/5 until end of turn`) beside the temptation (D521)'],
-  ['Horses of the Bruinen', 'an up-to-two bounce beside a scry and the temptation (an ask after an ask) (D521)'],
   // D520 - amass: the family's rows the wave refused, by its own reasons.
   ['Sauron, the Dark Lord', 'a line that is neither an activated ability nor a library trigger: Ward—Sacrifice a legendary artifact or legendary creature. (D520)'],
   ['Gríma Wormtongue', 'a line that is neither an activated ability nor a library trigger: Your opponents can\'t gain life. (D520)'],
@@ -2386,7 +2384,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // cycling lines read whose OTHER line the row maker refused, by reason.
   ['Giant Koi', 'a keyword-worded activation (Waterbend {3}: ~ cannot be blocked this turn) beside its typecycling'],
   ['Fall to Earth', 'a spell line outside the vocabulary (exile target creature; each player gains 3 life - a per-player gain) beside its typecycling'],
-  ['Step Through', 'a spell line outside the vocabulary (return two target creatures to their owners hands - a counted bounce) beside its typecycling'],
   ['Sylvan Reclamation', 'a spell line outside the vocabulary (exile up to two target artifacts and/or enchantments - the and/or noun) beside its typecycling'],
   ['Treacherous Terrain', 'a spell line outside the vocabulary (damage to each opponent equal to the number of lands that player controls - a computed amount) beside its typecycling'],
   ['World-Weary', 'an attached static whose toughness pump kills the 2/2 Bears (the suite has no fixture for it) beside its typecycling'],
@@ -2892,7 +2889,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Riding the Dilu Horse', 'indefinite continuous effect'],
   ['Rise from the Grave', 'indefinite continuous effect'],
   // D241 (M6.4cd)
-  ['Roiling Waters', 'up-to-N targeting'],
   ['Rolling Spoil', 'mana-spent memory'],
   ['Rookie Mistake', 'spell target parse (second clause)'],
   ['Roughshod Duo', 'expend mechanic'],
@@ -2903,7 +2899,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sanity Gnawers', 'ctx.random'],
   ['Scarblade Elite', 'exile-from-graveyard cost'],
   // D244 (M6.4cg)
-  ["Sea God's Revenge", 'plural-controller target qualifier unenforced'],
   ["Sea God's Scorn", 'list with and/or'],
   ["Sea Kings' Blessing", 'UEOT color change'],
   ['Searing Blood', 'delayed trigger'],
@@ -3702,8 +3697,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // cannot run yet - their cycling does (a spell outside the vocabulary, the
   // when-you-cycle triggers, a cycle-or-discard head).
   ['Akroma\'s Vengeance', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Essence Fracture', 'a spell line outside the vocabulary (its cycling runs)'],
-  ['Floodwaters', 'a spell line outside the vocabulary (its cycling runs)'],
 
   ['Pest Control', 'a spell line outside the vocabulary (its cycling runs)'],
   ['Spectacular Pileup', 'a spell line outside the vocabulary (its cycling runs)'],

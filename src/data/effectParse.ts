@@ -933,7 +933,8 @@ const RULES: readonly Rule[] = [
   },
   {
     kind: 'bounce',
-    re: new RegExp(`^return ${TARGET} to (?:its|their) owner(?:'|’)?s? hand\\.$`, 'i'),
+    // D591 - and the plural: `to their owners' hands` (each pick to its own owner's hand).
+    re: new RegExp(`^return ${TARGET} to (?:its|their) owner(?:(?:'|’)s|s(?:'|’)?)? hands?\\.$`, 'i'),
     build: () => ({ ...BASE }),
   },
   {

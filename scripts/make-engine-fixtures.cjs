@@ -10578,6 +10578,11 @@ const WANTED = [
   "Elspeth, Sun's Nemesis",
   'Arcade Cabinet',
   // D590 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D591 - THE PLURAL BOUNCE: the rows the whole-leftover row maker rowed once a counted return read to its owners hands.
+  'Hoverguard Sweepers',
+  'Nightscape Battlemage',
+  'Aven Augur',
+  // D591 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

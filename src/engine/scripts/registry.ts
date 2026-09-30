@@ -7,6 +7,9 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { HOVERGUARD_SWEEPERS_SCRIPT } from './cards/hoverguardSweepers';
+import { NIGHTSCAPE_BATTLEMAGE_SCRIPT } from './cards/nightscapeBattlemage';
+import { AVEN_AUGUR_SCRIPT } from './cards/avenAugur';
 import { ELDER_DEEP_FIEND_SCRIPT } from './cards/elderDeepFiend';
 import { KARFELL_KENNEL_MASTER_SCRIPT } from './cards/karfellKennelMaster';
 import { MARKOV_WALTZER_SCRIPT } from './cards/markovWaltzer';
@@ -6658,8 +6661,6 @@ import { GILT_LEAF_SEER_SCRIPT } from './cards/giltLeafSeer';
 import { HALIMAR_DEPTHS_SCRIPT } from './cards/halimarDepths';
 import { INKFATHOM_DIVERS_SCRIPT } from './cards/inkfathomDivers';
 import { AVEN_FATESHAPER_SCRIPT } from './cards/avenFateshaper';
-import { INTO_THE_VOID_SCRIPT } from './cards/intoTheVoid';
-import { CAPTIVATING_GYRE_SCRIPT } from './cards/captivatingGyre';
 import { SYNCHRONIZED_STRIKE_SCRIPT } from './cards/synchronizedStrike';
 import { JOIN_FORCES_SCRIPT } from './cards/joinForces';
 import { REINFORCEMENTS_SCRIPT } from './cards/reinforcements';
@@ -6823,7 +6824,6 @@ import { WATCHER_IN_THE_MIST_SCRIPT } from './cards/watcherInTheMist';
 import { WATCHFUL_AUTOMATON_SCRIPT } from './cards/watchfulAutomaton';
 import { WATCHFUL_GIANT_SCRIPT } from './cards/watchfulGiant';
 import { WATERFRONT_DISTRICT_SCRIPT } from './cards/waterfrontDistrict';
-import { WATERWHIRL_SCRIPT } from './cards/waterwhirl';
 import { WATERWIND_SCOUT_SCRIPT } from './cards/waterwindScout';
 import { WAVE_GOODBYE_SCRIPT } from './cards/waveGoodbye';
 import { WEAPONIZE_THE_MONSTERS_SCRIPT } from './cards/weaponizeTheMonsters';
@@ -6881,7 +6881,6 @@ import { VEIL_OF_ASSIMILATION_SCRIPT } from './cards/veilOfAssimilation';
 import { VENERABLE_MONK_SCRIPT } from './cards/venerableMonk';
 import { VERDANT_FORCE_SCRIPT } from './cards/verdantForce';
 import { VESSEL_OF_EPHEMERA_SCRIPT } from './cards/vesselOfEphemera';
-import { UNDO_SCRIPT } from './cards/undo';
 import { UNIFIED_WILL_SCRIPT } from './cards/unifiedWill';
 import { UNION_OF_THE_THIRD_PATH_SCRIPT } from './cards/unionOfTheThirdPath';
 import { UNIVERSAL_SOLVENT_SCRIPT } from './cards/universalSolvent';
@@ -8513,6 +8512,9 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  HOVERGUARD_SWEEPERS_SCRIPT,
+  NIGHTSCAPE_BATTLEMAGE_SCRIPT,
+  AVEN_AUGUR_SCRIPT,
   ELDER_DEEP_FIEND_SCRIPT,
   KARFELL_KENNEL_MASTER_SCRIPT,
   MARKOV_WALTZER_SCRIPT,
@@ -15164,8 +15166,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HALIMAR_DEPTHS_SCRIPT,
   INKFATHOM_DIVERS_SCRIPT,
   AVEN_FATESHAPER_SCRIPT,
-  INTO_THE_VOID_SCRIPT,
-  CAPTIVATING_GYRE_SCRIPT,
   SYNCHRONIZED_STRIKE_SCRIPT,
   JOIN_FORCES_SCRIPT,
   REINFORCEMENTS_SCRIPT,
@@ -15329,7 +15329,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   WATCHFUL_AUTOMATON_SCRIPT,
   WATCHFUL_GIANT_SCRIPT,
   WATERFRONT_DISTRICT_SCRIPT,
-  WATERWHIRL_SCRIPT,
   WATERWIND_SCOUT_SCRIPT,
   WAVE_GOODBYE_SCRIPT,
   WEAPONIZE_THE_MONSTERS_SCRIPT,
@@ -15387,7 +15386,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   VENERABLE_MONK_SCRIPT,
   VERDANT_FORCE_SCRIPT,
   VESSEL_OF_EPHEMERA_SCRIPT,
-  UNDO_SCRIPT,
   UNIFIED_WILL_SCRIPT,
   UNION_OF_THE_THIRD_PATH_SCRIPT,
   UNIVERSAL_SOLVENT_SCRIPT,

@@ -9436,6 +9436,9 @@ export const NEFASHU: CardData = F.NEFASHU as CardData;
 export const QUICKBEAM_UPSTART_ENT: CardData = F.QUICKBEAM_UPSTART_ENT as CardData;
 export const ELSPETH_SUN_S_NEMESIS: CardData = F.ELSPETH_SUN_S_NEMESIS as CardData;
 export const ARCADE_CABINET: CardData = F.ARCADE_CABINET as CardData;
+export const HOVERGUARD_SWEEPERS: CardData = F.HOVERGUARD_SWEEPERS as CardData;
+export const NIGHTSCAPE_BATTLEMAGE: CardData = F.NIGHTSCAPE_BATTLEMAGE as CardData;
+export const AVEN_AUGUR: CardData = F.AVEN_AUGUR as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19141,6 +19144,9 @@ export const ENGINE_CARDS: CardData[] = [
   QUICKBEAM_UPSTART_ENT,
   ELSPETH_SUN_S_NEMESIS,
   ARCADE_CABINET,
+  HOVERGUARD_SWEEPERS,
+  NIGHTSCAPE_BATTLEMAGE,
+  AVEN_AUGUR,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,
