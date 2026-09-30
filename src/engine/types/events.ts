@@ -73,7 +73,7 @@ export interface CardMove {
   /** D568 - the resolving spell escaped (CR 702.138b) - the entry's `escapes with` counters. */
   readonly escaped?: true;
   /** D449 - the keyword alternative cost the resolving spell was cast for (evoke / dash), onto the permanent. */
-  readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle' | 'mutate';
+  readonly altKeyword?: 'evoke' | 'dash' | 'warp' | 'awaken' | 'blitz' | 'freerunning' | 'surge' | 'spectacle' | 'mutate' | 'emerge';
   /** D547 - the exile a WARP armed (at the next end step): the turn it happened, onto the card - its owner may cast it from exile on a later turn. */
   readonly warpedTurn?: number;
   /** D551 - the exile the PLOT action made: the turn it happened, onto the card. */

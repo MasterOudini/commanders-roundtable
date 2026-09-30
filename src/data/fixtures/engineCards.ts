@@ -9422,6 +9422,13 @@ export const CARRION_BEETLES: CardData = F.CARRION_BEETLES as CardData;
 export const GRIFFNAUT_TRACKER: CardData = F.GRIFFNAUT_TRACKER as CardData;
 export const ARASHIN_SUNSHIELD: CardData = F.ARASHIN_SUNSHIELD as CardData;
 export const FAMISHED_GHOUL: CardData = F.FAMISHED_GHOUL as CardData;
+export const WRETCHED_GRYFF: CardData = F.WRETCHED_GRYFF as CardData;
+export const DECIMATOR_OF_THE_PROVINCES: CardData = F.DECIMATOR_OF_THE_PROVINCES as CardData;
+export const ABUNDANT_MAW: CardData = F.ABUNDANT_MAW as CardData;
+export const VEXING_SCUTTLER: CardData = F.VEXING_SCUTTLER as CardData;
+export const IT_OF_THE_HORRID_SWARM: CardData = F.IT_OF_THE_HORRID_SWARM as CardData;
+export const MOCKERY_OF_NATURE: CardData = F.MOCKERY_OF_NATURE as CardData;
+export const LASHWEED_LURKER: CardData = F.LASHWEED_LURKER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19113,6 +19120,13 @@ export const ENGINE_CARDS: CardData[] = [
   GRIFFNAUT_TRACKER,
   ARASHIN_SUNSHIELD,
   FAMISHED_GHOUL,
+  WRETCHED_GRYFF,
+  DECIMATOR_OF_THE_PROVINCES,
+  ABUNDANT_MAW,
+  VEXING_SCUTTLER,
+  IT_OF_THE_HORRID_SWARM,
+  MOCKERY_OF_NATURE,
+  LASHWEED_LURKER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

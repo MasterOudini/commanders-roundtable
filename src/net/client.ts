@@ -537,7 +537,10 @@ export class ClientSession {
     const orPaid = altc === null && add !== null && add.orPay !== null && picksCount(costPicks) === 0;
     const addMana = orPaid && add?.orPay ? [add.orPay] : [];
     const addLife = (add && !orPaid ? add.lifeCost : 0) + (altc ? altc.lifeCost : 0);
-    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...sqMana, ...splMana, ...addMana], action.tax, ward.life + addLife + buyLife);
+    // D589 - an emerge cast's total cost is less the sacrificed creature's mana value (CR 702.119a): the value the offer
+    // ships for the picked creature, priced as the host charges it (D53).
+    const emergeCut = altc?.keyword === 'emerge' && costPicks.sacrifice?.length === 1 ? (action.altPickManaValues?.[costPicks.sacrifice[0] ?? ''] ?? 0) : 0;
+    const base = buildPaymentProblem(altc ? altc.mana : face.manaCost, xValue, [...ward.mana, ...kickMana, ...buyMana, ...repMana, ...offMana, ...sqMana, ...splMana, ...addMana], action.tax - emergeCut, ward.life + addLife + buyLife);
     // D405 - convoke / improvise / delve: what the view offers, what the player (or the chooser) named,
     // priced by the SAME assignment the host charges with (D53), off the printed colours the view holds.
     const keywords = { convoke: face.convoke, improvise: face.improvise, delve: face.delve };

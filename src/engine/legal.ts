@@ -130,6 +130,12 @@ export type LegalAction =
       readonly altPickVerb?: 'sacrifice' | 'discard' | 'tap' | 'exileFromGraveyard' | 'returnToHand' | 'exileFromHand';
       readonly altPickCandidates?: readonly InstanceId[];
       readonly altPickCount?: number;
+      /**
+       * D589 - EMERGE (CR 702.119a): each sacrifice candidate's mana value - the cut its pick takes off the total cost (the
+       * candidates listed largest first; `alternativeAffordable` priced with the largest), so the preview prices the pick the
+       * host charges (D53).
+       */
+      readonly altPickManaValues?: Readonly<Record<InstanceId, number>>;
     }
   | {
       readonly t: 'TapForMana';
@@ -1408,7 +1414,11 @@ function alternativeOffer(state: GameState, oracle: OracleDb, scripts: ScriptReg
   const verb = castCostCandidates(state, deriveOf, caster, id, altc);
   const pitch = altc.exileFromHand ? exileFromHandCandidates(state, oracle, caster, id, altc.exileFromHand) : null;
   const available = holds && verb.enough && (pitch === null || pitch.length >= (altc.exileFromHand?.count ?? 0));
-  const problem = buildPaymentProblem(altc.mana, 0, [], tax, altc.lifeCost);
+  // D589 - an emerge is priced with the best cut its sacrifice can take (the largest mana value among the candidates - the
+  // harmonize offer's shape), the candidates listed largest first, each value shipped for the preview (D53).
+  const emergeOrder = altc.keyword === 'emerge' ? [...((verb.fields['sacrificeCandidates'] ?? []) as readonly InstanceId[])].map((cid) => ({ cid, mv: Math.max(0, deriveOf(cid).manaValue) })).sort((a, b) => b.mv - a.mv) : null;
+  const emergeBest = emergeOrder?.[0]?.mv ?? 0;
+  const problem = buildPaymentProblem(altc.mana, 0, [], tax - emergeBest, altc.lifeCost);
   const key = Object.keys(verb.fields).find((k) => k.endsWith('Candidates'));
   const pickVerb = pitch !== null ? 'exileFromHand' : key === 'sacrificeCandidates' ? 'sacrifice' : key === 'discardCandidates' ? 'discard' : key === 'tapCandidates' ? 'tap' : key === 'exileFromGraveyardCandidates' ? 'exileFromGraveyard' : key === 'returnCandidates' ? 'returnToHand' : null;
   const countKey = key === 'sacrificeCandidates' ? 'sacrificeCount' : key === 'discardCandidates' ? 'discardCount' : key === 'tapCandidates' ? 'tapCount' : key === 'exileFromGraveyardCandidates' ? 'exileFromGraveyardCount' : 'returnCount';
@@ -1416,7 +1426,8 @@ function alternativeOffer(state: GameState, oracle: OracleDb, scripts: ScriptReg
     alternativeCostText: altc.costText,
     alternativeAvailable: available,
     alternativeAffordable: available && affordable(ctx.solve, problem, spellPurpose(face, false)),
-    ...(pickVerb !== null ? { altPickVerb: pickVerb, altPickCandidates: pitch ?? (verb.fields[key as string] as readonly InstanceId[]), altPickCount: pitch !== null ? (altc.exileFromHand?.count ?? 0) : (verb.fields[countKey] as number) } : {}),
+    ...(emergeOrder !== null ? { altPickManaValues: Object.fromEntries(emergeOrder.map((e) => [e.cid, e.mv])) } : {}),
+    ...(pickVerb !== null ? { altPickVerb: pickVerb, altPickCandidates: pitch ?? (emergeOrder !== null ? emergeOrder.map((e) => e.cid) : (verb.fields[key as string] as readonly InstanceId[])), altPickCount: pitch !== null ? (altc.exileFromHand?.count ?? 0) : (verb.fields[countKey] as number) } : {}),
   };
 }
 

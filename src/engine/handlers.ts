@@ -1136,13 +1136,16 @@ function prepareCast(
   if ('error' in addr) return addr;
   const altr = altCost ? costPicksProblem(state, deps, player, cardId, face.name, altCost.alt, verbPicks) : { orPaid: false };
   if ('error' in altr) return altr;
+  // D589 - EMERGE (CR 702.119a): the total cost is less the sacrificed creature's mana value, read as the cost is announced
+  // (the creature is still there) and folded into the tax the stages carry - generic only, never below {0} (D312, D563).
+  const emergeCut = altCost !== null && altCost.alt.keyword === 'emerge' && picks.sacrifice.length === 1 ? Math.max(0, derive(state, deps.oracle, deps.scripts, picks.sacrifice[0] as InstanceId).manaValue) : 0;
   const extras0 = additionalExtras(face, addr.orPaid, kickVerb);
   const extras = { mana: extras0.mana, life: extras0.life + (altCost ? altCost.alt.lifeCost : 0) };
   const elected = [...kickerMana(face, kicked, kickedWith), ...buybackMana(face, buyback), ...replicateMana(face, replicated), ...spliceMana(deps, splicedCards), ...offspringMana(face, offspring), ...squadMana(face, squadded), ...extras.mana];
   // D587 - a GRANTED cast's total cost is what its elections add to "without paying its mana cost" (CR 118.9d), and the
   // board's reductions apply to that total (CR 601.2f): folded into its tax, capped at the elections' own generic - never
   // below {0}, never reaching the ward priced beside them (`grantedCastTax`; the client's preview prices the same, D53).
-  const taxed = free ? tax + grantedCastTax(castReduction(state, deps.oracle, deps.scripts, player, face), elected) : tax;
+  const taxed = (free ? tax + grantedCastTax(castReduction(state, deps.oracle, deps.scripts, player, face), elected) : tax) - emergeCut;
   const base = buildPaymentProblem(cost, xValue, [...ward.mana, ...elected], taxed, ward.life + extras.life);
   const priced = priceAlternatives(state, deps, face, base, alt);
   if ('error' in priced) return priced;

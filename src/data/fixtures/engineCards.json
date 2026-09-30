@@ -320712,6 +320712,241 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WRETCHED_GRYFF": {
+    "scryfallId": "09505223-683b-4ce8-a907-f21d858e5b3d",
+    "oracleId": "83d0c4bc-aab9-4c14-a7dc-a344fcce4fea",
+    "name": "Wretched Gryff",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wretched Gryff",
+        "manaCost": "{7}",
+        "typeLine": "Creature — Eldrazi Hippogriff",
+        "oracleText": "Emerge {5}{U} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, draw a card.\nFlying",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Darek Zabrocki",
+        "imageId": "09505223-683b-4ce8-a907-f21d858e5b3d"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Flying",
+      "Emerge"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "332",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DECIMATOR_OF_THE_PROVINCES": {
+    "scryfallId": "22eb5a07-9eae-4e5a-bca1-6e76755e9534",
+    "oracleId": "7f522ded-09fd-457e-9efe-0a6324925e4c",
+    "name": "Decimator of the Provinces",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Decimator of the Provinces",
+        "manaCost": "{10}",
+        "typeLine": "Creature — Eldrazi Boar",
+        "oracleText": "Emerge {6}{G}{G}{G} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, creatures you control get +2/+2 and gain trample until end of turn.\nTrample, haste",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Svetlin Velinov",
+        "imageId": "22eb5a07-9eae-4e5a-bca1-6e76755e9534"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 10,
+    "keywords": [
+      "Emerge",
+      "Haste",
+      "Trample"
+    ],
+    "setCode": "sir",
+    "collectorNumber": "2",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ABUNDANT_MAW": {
+    "scryfallId": "1699cd85-37f2-4126-be07-bd11a8153c10",
+    "oracleId": "3676b745-001d-46e6-880f-2fe26476a38d",
+    "name": "Abundant Maw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Abundant Maw",
+        "manaCost": "{8}",
+        "typeLine": "Creature — Eldrazi Leech",
+        "oracleText": "Emerge {6}{B} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, target opponent loses 3 life and you gain 3 life.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Greg Staples",
+        "imageId": "1699cd85-37f2-4126-be07-bd11a8153c10"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Emerge"
+    ],
+    "setCode": "inr",
+    "collectorNumber": "329",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VEXING_SCUTTLER": {
+    "scryfallId": "1c3dd0aa-f6e9-435c-af64-20e9de67efe9",
+    "oracleId": "2a5605a8-606e-4866-9473-7a2240ac6b8c",
+    "name": "Vexing Scuttler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Vexing Scuttler",
+        "manaCost": "{8}",
+        "typeLine": "Creature — Eldrazi Crab",
+        "oracleText": "Emerge {6}{U} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, you may return target instant or sorcery card from your graveyard to your hand.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Paick",
+        "imageId": "1c3dd0aa-f6e9-435c-af64-20e9de67efe9"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Emerge"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "IT_OF_THE_HORRID_SWARM": {
+    "scryfallId": "2e9160cb-d3de-49ca-a97d-2cd259cd5447",
+    "oracleId": "f4ad190a-6c82-4923-af54-b4cce8d6465f",
+    "name": "It of the Horrid Swarm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "It of the Horrid Swarm",
+        "manaCost": "{8}",
+        "typeLine": "Creature — Eldrazi Insect",
+        "oracleText": "Emerge {6}{G} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, create two 1/1 green Insect creature tokens.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Felix",
+        "imageId": "2e9160cb-d3de-49ca-a97d-2cd259cd5447"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Emerge"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "8",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOCKERY_OF_NATURE": {
+    "scryfallId": "3118737f-2fd9-4fe5-bd0f-43c9ef2166e2",
+    "oracleId": "5da5240e-5d87-494f-aec9-64b7a3f0d935",
+    "name": "Mockery of Nature",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mockery of Nature",
+        "manaCost": "{9}",
+        "typeLine": "Creature — Eldrazi Beast",
+        "oracleText": "Emerge {7}{G} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, you may destroy target artifact or enchantment.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Ryman",
+        "imageId": "3118737f-2fd9-4fe5-bd0f-43c9ef2166e2"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 9,
+    "keywords": [
+      "Emerge"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LASHWEED_LURKER": {
+    "scryfallId": "a13f9a76-3370-4809-88ff-c300bca31c9e",
+    "oracleId": "a7dd75bf-ecda-406c-baa2-8c051f138809",
+    "name": "Lashweed Lurker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Lashweed Lurker",
+        "manaCost": "{8}",
+        "typeLine": "Creature — Eldrazi Horror",
+        "oracleText": "Emerge {5}{G}{U} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, you may put target nonland permanent on top of its owner's library.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Igor Kieryluk",
+        "imageId": "a13f9a76-3370-4809-88ff-c300bca31c9e"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Emerge"
+    ],
+    "setCode": "emn",
+    "collectorNumber": "9",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

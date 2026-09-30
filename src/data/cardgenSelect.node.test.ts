@@ -771,6 +771,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D589 - emerge (CR 702.119a): the Emerge line is the face's alternative cost (a creature sacrificed, the total cost less its mana value); what stays is a card the row maker refuses for another line.
+  ['Drownyard Behemoth', 'the row maker: a condition the suite cannot stage (its own entry): it entered this turn - its Emerge reads since D589 (D589)'],
   // D588 - the graveyard target grammar: `from a single graveyard` / `from a player's graveyard` is the engine's now (one graveyard for every pick, enforced across the picks) and `from graveyards` reads; what stays is a card the row maker refuses for another line.
   ['Digsite Conservator', 'a payment branch the suite cannot assert: discover - its single-graveyard exile reads since D588 (D588)'],
   // D585 - casualty (CR 702.153): the optional sacrifice of a creature with power N or greater, and the copy its trigger makes, are the engine's now; what stays is a card whose other line the engine does not read.

@@ -10559,6 +10559,16 @@ const WANTED = [
   'Arashin Sunshield',
   'Famished Ghoul',
   // D588 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D589 - EMERGE: the seam proofs' cards (emergeCast.test.ts, emergeReview.test.ts).
+  'Wretched Gryff',
+  'Decimator of the Provinces',
+  // D589 - EMERGE: the rows the whole-leftover row maker rowed once the Emerge line read as the face's alternative cost (a creature sacrificed, the total cost less its mana value).
+  'Abundant Maw',
+  'Vexing Scuttler',
+  'It of the Horrid Swarm',
+  'Mockery of Nature',
+  'Lashweed Lurker',
+  // D589 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WRETCHED_GRYFF_SCRIPT } from './cards/wretchedGryff';
+import { ABUNDANT_MAW_SCRIPT } from './cards/abundantMaw';
+import { VEXING_SCUTTLER_SCRIPT } from './cards/vexingScuttler';
+import { DECIMATOR_OF_THE_PROVINCES_SCRIPT } from './cards/decimatorOfTheProvinces';
+import { IT_OF_THE_HORRID_SWARM_SCRIPT } from './cards/itOfTheHorridSwarm';
+import { MOCKERY_OF_NATURE_SCRIPT } from './cards/mockeryOfNature';
+import { LASHWEED_LURKER_SCRIPT } from './cards/lashweedLurker';
 import { DIREGRAF_HORDE_SCRIPT } from './cards/diregrafHorde';
 import { RAG_DEALER_SCRIPT } from './cards/ragDealer';
 import { ROOFTOP_PERCHER_SCRIPT } from './cards/rooftopPercher';
@@ -8503,6 +8510,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WRETCHED_GRYFF_SCRIPT,
+  ABUNDANT_MAW_SCRIPT,
+  VEXING_SCUTTLER_SCRIPT,
+  DECIMATOR_OF_THE_PROVINCES_SCRIPT,
+  IT_OF_THE_HORRID_SWARM_SCRIPT,
+  MOCKERY_OF_NATURE_SCRIPT,
+  LASHWEED_LURKER_SCRIPT,
   DIREGRAF_HORDE_SCRIPT,
   RAG_DEALER_SCRIPT,
   ROOFTOP_PERCHER_SCRIPT,
