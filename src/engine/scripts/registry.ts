@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CEREMONIAL_GROUNDBREAKER_SCRIPT } from './cards/ceremonialGroundbreaker';
+import { BLACKBLADE_REFORGED_SCRIPT } from './cards/blackbladeReforged';
+import { D_NEDAIN_BLADE_SCRIPT } from './cards/dNedainBlade';
+import { VETERANS_POWERBLADE_SCRIPT } from './cards/veteransPowerblade';
+import { THINKING_CAP_SCRIPT } from './cards/thinkingCap';
+import { PIRATE_HAT_SCRIPT } from './cards/pirateHat';
+import { LEATHER_ARMOR_SCRIPT } from './cards/leatherArmor';
+import { STEELCLAW_LANCE_SCRIPT } from './cards/steelclawLance';
 import { SWORD_OF_THE_ANIMIST_SCRIPT } from './cards/swordOfTheAnimist';
 import { ADAPTIVE_OMNITOOL_SCRIPT } from './cards/adaptiveOmnitool';
 import { EXPLORERS_SCOPE_SCRIPT } from './cards/explorersScope';
@@ -8597,6 +8605,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CEREMONIAL_GROUNDBREAKER_SCRIPT,
+  BLACKBLADE_REFORGED_SCRIPT,
+  D_NEDAIN_BLADE_SCRIPT,
+  VETERANS_POWERBLADE_SCRIPT,
+  THINKING_CAP_SCRIPT,
+  PIRATE_HAT_SCRIPT,
+  LEATHER_ARMOR_SCRIPT,
+  STEELCLAW_LANCE_SCRIPT,
   SWORD_OF_THE_ANIMIST_SCRIPT,
   ADAPTIVE_OMNITOOL_SCRIPT,
   EXPLORERS_SCOPE_SCRIPT,

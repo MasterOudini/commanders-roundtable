@@ -2038,7 +2038,11 @@ export interface ActivatedAbility {
    * creature you control. Activate only as a sorcery."), carrying the printed
    * line so the accounting can find it. `resolveAbility` attaches natively.
    */
-  readonly equip?: { readonly line: string };
+  readonly equip?: {
+    readonly line: string;
+    /** D597 - a typed equip's quality (CR 702.6: `Equip Knight {1}` - `Knight`; `legendary creature`), the target's restriction. */
+    readonly quality?: string;
+  };
   /**
    * D306 - THE CYCLING SEAM. Set on the ability `activatedParse` synthesizes
    * for a "Cycling {N}" line (CR 702.29a: "{N}, Discard this card: Draw a

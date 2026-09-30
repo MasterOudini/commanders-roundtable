@@ -22,7 +22,7 @@
 // classifies them as activated and they stay Tier 3 exactly as `tier3.ts`
 // already claims.
 
-import type { ActivatedAbility, ActivationCondition, ManaProduction, TurnMemoryQuestion } from '../engine/types/oracle';
+import type { ActivatedAbility, ActivationCondition, ManaProduction, TargetSpec, TurnMemoryQuestion } from '../engine/types/oracle';
 import type { ManaCost } from '../engine/types/mana';
 import type { Warn } from './oracleParse';
 import { parseTargetClauses, splitAbilityLines } from './targetParse';
@@ -378,6 +378,33 @@ const MANA_ONLY_RE = /^(?:\{[^}]+\}\s*)+$/;
 const EQUIP_RE = /^Equip ((?:\{[^}]+\})+)$/;
 const EQUIP_EFFECT = 'Attach this Equipment to target creature you control.';
 /**
+ * D597 - THE TYPED EQUIP (CR 702.6): "Equip [quality] [cost]" means "[Cost]: Attach this permanent to target [quality]
+ * creature you control. Activate only as a sorcery." A creature subtype (`Equip Knight {1}`) or `legendary creature`
+ * (`Equip legendary creature {3}`); the quality is the target's restriction, and the ability is synthesized only when
+ * the target reader restricts EXACTLY by it (a looser target than the card prints is the direction D90 forbids) -
+ * `commander`, `creature token`, `planeswalker` and a subtype list stay out. And `Equip {N}. Activate only once each
+ * turn.` is the plain equip with the once-each-turn limit.
+ */
+const EQUIP_TYPED_RE = /^Equip (legendary creature|[A-Z][a-z]+) ((?:\{[^}]+\})+)$/;
+const EQUIP_ONCE_RE = /^Equip ((?:\{[^}]+\})+)\. Activate only once each turn\.$/;
+
+/** D597 - an Equip line the engine synthesizes: its cost text, its quality (typed), the once-each-turn limit, its target. */
+export function readEquipLine(printed: string, warn: Warn = NOOP_WARN): { cost: string; quality?: string; once: boolean; effectText: string; targets: TargetSpec[] } | null {
+  const plain = EQUIP_RE.exec(printed) ?? EQUIP_ONCE_RE.exec(printed);
+  if (plain) return { cost: plain[1] ?? '', once: EQUIP_ONCE_RE.test(printed), effectText: EQUIP_EFFECT, targets: parseTargetClauses(EQUIP_EFFECT, warn) };
+  const typed = EQUIP_TYPED_RE.exec(printed);
+  if (!typed) return null;
+  const quality = typed[1] ?? '';
+  const legendary = quality === 'legendary creature';
+  const effectText = `Attach this Equipment to target ${legendary ? 'legendary creature' : quality + ' creature'} you control.`;
+  const targets = parseTargetClauses(effectText, warn);
+  const spec = targets[0];
+  const exact =
+    targets.length === 1 && spec !== undefined && spec.confident && spec.controller === 'you' && spec.kinds.length === 1 && spec.kinds[0] === 'creature' &&
+    JSON.stringify(spec.restrict) === JSON.stringify(legendary ? { supertypesAny: ['Legendary'] } : { subtypesAll: [quality] });
+  return exact ? { cost: typed[2] ?? '', quality, once: false, effectText, targets } : null;
+}
+/**
  * D306 - "Cycling {N}" and nothing else on the line (reminder text aside). The
  * typed landcyclings ("Basic landcycling {2}", "Forestcycling {1}") search a
  * library and stay where they were - Tier 3, by name - until a search prompt
@@ -508,13 +535,14 @@ export function parseActivatedAbilities(
     // colon, so the splitter files the printed line as an activated ability
     // with the cost "Equip {3} ({3}" - and that reading must never win.
     const printed = line.text.replace(/\s*\([^)]*\)\s*$/, '').trim();
-    const equip = EQUIP_RE.exec(printed);
+    // D597 - and the typed equip (`Equip Knight {1}`) and the once-each-turn equip, read by `readEquipLine`.
+    const equip = readEquipLine(printed, warn);
     if (equip) {
-      const equipCost = parseCost(equip[1] ?? '', warn);
+      const equipCost = parseCost(equip.cost, warn);
       out.push({
         index: out.length,
-        costText: equip[1] ?? '',
-        effectText: EQUIP_EFFECT,
+        costText: equip.cost,
+        effectText: equip.effectText,
         manaCost: equipCost,
         requiresTap: false,
         requiresUntap: false,
@@ -532,15 +560,15 @@ export function parseActivatedAbilities(
         returnCost: null,
         returnsSelf: false,
         putCounterCost: null,
-        unpaidCosts: equipCost === null ? [equip[1] ?? ''] : [],
+        unpaidCosts: equipCost === null ? [equip.cost] : [],
         payable: equipCost !== null,
         isManaAbility: false,
         isLoyalty: false,
         sorceryOnly: true,
-        oncePerTurn: false,
+        oncePerTurn: equip.once,
         activateOnly: [],
-        targets: parseTargetClauses(EQUIP_EFFECT, warn),
-        equip: { line: printed },
+        targets: equip.targets,
+        equip: { line: printed, ...(equip.quality !== undefined ? { quality: equip.quality } : {}) },
       });
       continue;
     }

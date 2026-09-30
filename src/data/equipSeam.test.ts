@@ -43,8 +43,8 @@ describe('the Equipment seam (D305)', () => {
     expect(abilities[1]?.index).toBe(1);
   });
 
-  test('a typed equip, a non-mana equip cost and Reconfigure are not synthesized', () => {
-    expect(parse('Equip Knight {1}')).toHaveLength(0);
+  // D597 - the typed equip IS synthesized now (`Equip Knight {1}`, see typedEquip.test.ts); the rest stay out.
+  test('a non-mana equip cost and Reconfigure are not synthesized', () => {
     expect(parse('Equip—Sacrifice a creature.')).toHaveLength(0);
     expect(parse('Reconfigure {2}')).toHaveLength(0);
   });
@@ -57,10 +57,13 @@ describe('the Equipment seam (D305)', () => {
   test('the classifier files a mana Equip as scriptable and the rest as keyword:equip', () => {
     expect(equipLineRuns('Equip {3}')).toBe(true);
     expect(equipLineRuns('Equip {1}{W}')).toBe(true);
-    expect(equipLineRuns('Equip Knight {1}')).toBe(false);
+    // D597 - a typed equip the parser synthesizes runs; one it refuses (a quality the target reader cannot restrict by) does not.
+    expect(equipLineRuns('Equip Knight {1}')).toBe(true);
+    expect(equipLineRuns('Equip commander {2}')).toBe(false);
     expect(equipLineRuns('Equip—Pay 2 life.')).toBe(false);
     expect(primitiveFor({ text: 'Equip {2}', kind: 'sentence', raw: 'Equip {2}' }, 'X')).toBe('scriptable');
-    expect(primitiveFor({ text: 'Equip Knight {1}', kind: 'sentence', raw: 'Equip Knight {1}' }, 'X')).toBe('keyword:equip');
+    expect(primitiveFor({ text: 'Equip Knight {1}', kind: 'sentence', raw: 'Equip Knight {1}' }, 'X')).toBe('scriptable');
+    expect(primitiveFor({ text: 'Equip commander {2}', kind: 'sentence', raw: 'Equip commander {2}' }, 'X')).toBe('keyword:equip');
   });
 
   test('the equipped-creature shapes a row can emit', () => {

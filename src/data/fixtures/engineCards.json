@@ -324199,6 +324199,276 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "STEELCLAW_LANCE": {
+    "scryfallId": "cafcf909-d726-4bc2-adf6-c12ca242f0c1",
+    "oracleId": "bfe06fb5-83b5-4212-86f8-947dfba15b26",
+    "name": "Steelclaw Lance",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steelclaw Lance",
+        "manaCost": "{B}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+2.\nEquip Knight {1}\nEquip {3}",
+        "flavorText": "\"A traditional lance is fine for the Burning Yard, but in the wilds you need a nastier bite.\"\n—Kenver, Embereth weaponsmith",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Volkan Baǵa",
+        "imageId": "cafcf909-d726-4bc2-adf6-c12ca242f0c1"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "eld",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLACKBLADE_REFORGED": {
+    "scryfallId": "240448cd-c308-49ae-9e4b-0c35adc59fba",
+    "oracleId": "dca51281-fb21-45b6-beb4-1f13397caee2",
+    "name": "Blackblade Reforged",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Blackblade Reforged",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 for each land you control.\nEquip legendary creature {3}\nEquip {7}",
+        "flavorText": "It spilled the blood of one elder dragon. In Gideon's hands, it may yet taste another's.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Chris Rahn",
+        "imageId": "240448cd-c308-49ae-9e4b-0c35adc59fba"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "dmc",
+    "collectorNumber": "178",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LEATHER_ARMOR": {
+    "scryfallId": "b4a498d1-b260-4a85-b3de-5d6907af9a11",
+    "oracleId": "7a6ce270-c261-422f-845f-11c22602a274",
+    "name": "Leather Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Leather Armor",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +0/+1 and has ward {1}. (Whenever equipped creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)\nEquip {0}. Activate only once each turn.",
+        "flavorText": "Lightweight, flexible, and protective.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Martina Pilcerova",
+        "imageId": "b4a498d1-b260-4a85-b3de-5d6907af9a11"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "AFR-248",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CEREMONIAL_GROUNDBREAKER": {
+    "scryfallId": "0a542616-aa4d-40d9-acad-47bc98bd6281",
+    "oracleId": "5bb05573-7e8f-471f-908d-04bccead79e3",
+    "name": "Ceremonial Groundbreaker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ceremonial Groundbreaker",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+1 and has trample.\nEquip Citizen {1}\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "Construction in New Capenna is imbued with tradition and ritual.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Drew Baker",
+        "imageId": "0a542616-aa4d-40d9-acad-47bc98bd6281"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "snc",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "D_NEDAIN_BLADE": {
+    "scryfallId": "3d5f92bf-e4e7-487a-834c-964fdd6ad674",
+    "oracleId": "4b418846-6426-448a-b4cb-ce631e0a99a2",
+    "name": "Dúnedain Blade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dúnedain Blade",
+        "manaCost": "{1}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+1.\nEquip Human {1}\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "The sword glinted in the westering sun.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jarel Threat",
+        "imageId": "3d5f92bf-e4e7-487a-834c-964fdd6ad674"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "6",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VETERAN_S_POWERBLADE": {
+    "scryfallId": "64d823e1-a7d6-4296-94c8-b8ba9b4daa38",
+    "oracleId": "da0b4e01-b312-4f37-a034-824ce58db02e",
+    "name": "Veteran's Powerblade",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Veteran's Powerblade",
+        "manaCost": "{3}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +2/+0.\nEquip Soldier {W}\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Alexandre Honoré",
+        "imageId": "64d823e1-a7d6-4296-94c8-b8ba9b4daa38"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "bro",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THINKING_CAP": {
+    "scryfallId": "6d2565e1-dd7b-462b-8270-a17913277793",
+    "oracleId": "a54fb3de-0581-461e-be33-dc4f4d16a33e",
+    "name": "Thinking Cap",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thinking Cap",
+        "manaCost": "{1}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+2.\nEquip Detective {1}\nEquip {3} ({3}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "\"I find that my greatest insights rarely arrive when my ears are cold.\"\n—Senior Inspector Holjo",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Tony Foti",
+        "imageId": "6d2565e1-dd7b-462b-8270-a17913277793"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 1,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "257",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PIRATE_HAT": {
+    "scryfallId": "9d11e3d4-769d-47aa-8d3a-ce1ac60b68b8",
+    "oracleId": "b9080653-87cb-4443-a4a3-36637d5ad165",
+    "name": "Pirate Hat",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Pirate Hat",
+        "manaCost": "{1}{U}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "Equipped creature gets +1/+1 and has \"Whenever this creature attacks, draw a card, then discard a card.\"\nEquip Pirate {1}\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": "\"Landlubbers just don't understand the value of a proper hat.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Domenico Cava",
+        "imageId": "9d11e3d4-769d-47aa-8d3a-ce1ac60b68b8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "lci",
+    "collectorNumber": "70",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -9524,6 +9524,14 @@ export const PHYREXIAN_IRONWORKS: CardData = F.PHYREXIAN_IRONWORKS as CardData;
 export const RENEGADE_FREIGHTER: CardData = F.RENEGADE_FREIGHTER as CardData;
 export const HAUNTED_HELLRIDE: CardData = F.HAUNTED_HELLRIDE as CardData;
 export const RAIDERS_KARVE: CardData = F.RAIDERS_KARVE as CardData;
+export const STEELCLAW_LANCE: CardData = F.STEELCLAW_LANCE as CardData;
+export const BLACKBLADE_REFORGED: CardData = F.BLACKBLADE_REFORGED as CardData;
+export const LEATHER_ARMOR: CardData = F.LEATHER_ARMOR as CardData;
+export const CEREMONIAL_GROUNDBREAKER: CardData = F.CEREMONIAL_GROUNDBREAKER as CardData;
+export const D_NEDAIN_BLADE: CardData = F.D_NEDAIN_BLADE as CardData;
+export const VETERAN_S_POWERBLADE: CardData = F.VETERAN_S_POWERBLADE as CardData;
+export const THINKING_CAP: CardData = F.THINKING_CAP as CardData;
+export const PIRATE_HAT: CardData = F.PIRATE_HAT as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19322,6 +19330,14 @@ export const ENGINE_CARDS: CardData[] = [
   RENEGADE_FREIGHTER,
   HAUNTED_HELLRIDE,
   RAIDERS_KARVE,
+  STEELCLAW_LANCE,
+  BLACKBLADE_REFORGED,
+  LEATHER_ARMOR,
+  CEREMONIAL_GROUNDBREAKER,
+  D_NEDAIN_BLADE,
+  VETERAN_S_POWERBLADE,
+  THINKING_CAP,
+  PIRATE_HAT,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

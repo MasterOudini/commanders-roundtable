@@ -32,7 +32,7 @@ import { enchantSpecRuns, unaccountedLines, type UnaccountedLine } from './engin
 import { parseManaCost, parseTypeLine } from './oracleParse';
 import { parseEnchant } from './targetParse';
 import { parseCostReductionLine, parseGrantedReductionLine } from './costParse';
-import { parseAdditionalCost, parseAlternativeCost } from './activatedParse';
+import { parseAdditionalCost, parseAlternativeCost, readEquipLine } from './activatedParse';
 
 /**
  * The primitives the M6 brief names, plus the two the data added.
@@ -771,9 +771,10 @@ export function auraLineShape(text: string): boolean {
 const EQUIP_MANA_LINE = /^Equip (?:\{[^}]+\})+$/;
 const EQUIPPED_LINE = new RegExp(`^Equipped creature (?:gets ${ONESHOT_PT}(?: and has ${AURA_KWS})?|has ${AURA_KWS}|can't block|can't be blocked)\\.$`);
 
-/** Is this printed line an Equip the engine runs (D305)? */
+/** Is this printed line an Equip the engine runs (D305; D597 - the typed and the once-each-turn equip, asked of the parser)? */
 export function equipLineRuns(text: string): boolean {
-  return EQUIP_MANA_LINE.test(text.replace(/\s*\([^)]*\)\s*$/, ''));
+  const printed = text.replace(/\s*\([^)]*\)\s*$/, '');
+  return EQUIP_MANA_LINE.test(printed) || readEquipLine(printed) !== null;
 }
 
 /**

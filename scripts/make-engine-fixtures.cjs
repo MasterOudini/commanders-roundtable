@@ -10678,6 +10678,17 @@ const WANTED = [
   'Haunted Hellride',
   "Raiders' Karve",
   // D596 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D597 - THE TYPED EQUIP: the seam's proof Equipment (a subtype quality, the legendary quality, the once-each-turn plain equip).
+  'Steelclaw Lance',
+  'Blackblade Reforged',
+  'Leather Armor',
+  // D597 - THE TYPED EQUIP: the rows the whole-leftover row maker rowed once the engine ran a typed equip (Equip Knight {1}) and the once-each-turn equip, the scaffold equipping by the plain Equip beside it.
+  'Ceremonial Groundbreaker',
+  'Dúnedain Blade',
+  "Veteran's Powerblade",
+  'Thinking Cap',
+  'Pirate Hat',
+  // D597 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
