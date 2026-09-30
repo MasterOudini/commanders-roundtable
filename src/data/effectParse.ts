@@ -190,7 +190,8 @@ const ADJECTIVE =
 // the spec (0..N / N..N); the consumer runs the clause once per pick. "X" stays
 // out: the count is not known at parse time and the spec is left unconfident.
 // D414 - `another` and `up to one other` are count words the target parser reads (the spec carries `another`).
-const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three)(?: other)?|two|three|any number of|another) )?';
+// D590 - and four and five (Elder Deep-Fiend's `tap up to four target permanents`, Nefashu's `up to five target creatures`).
+const COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three|four|five)(?: other)?|two|three|four|five|any number of|another) )?';
 // D588 - the graveyard exile and bottom patterns count to four and five (Shred Memory, Lodestone-style lists).
 const GY_COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three|four|five)(?: other)?|two|three|four|five|any number of|another) )?';
 // D509 - THE CONTROLLER WORD ON EVERY NOUN: `you control` / `an opponent controls` / `you don't control` after any noun
@@ -937,7 +938,8 @@ const RULES: readonly Rule[] = [
   },
   {
     kind: 'pump',
-    re: new RegExp(`^${TARGET} gets ([+-]${NUM})/([+-]${NUM}) until end of turn\\.$`, 'i'),
+    // D590 - and a plural counted subject (`up to two target creatures each get`, `two target creatures get`).
+    re: new RegExp(`^${TARGET} (?:gets|(?:each )?get) ([+-]${NUM})/([+-]${NUM}) until end of turn\\.$`, 'i'),
     build: (m) => {
       const p = Number(m[1]);
       const t = Number(m[2]);
@@ -955,7 +957,7 @@ const RULES: readonly Rule[] = [
   {
     kind: 'pump',
     re: new RegExp(
-      `^${TARGET} gets ([+-]${NUM})/([+-]${NUM}) and gains (${KW})(?: and (${KW}))? until end of turn\\.$`,
+      `^${TARGET} (?:gets|(?:each )?get) ([+-]${NUM})/([+-]${NUM}) and (?:gains|gain) (${KW})(?: and (${KW}))? until end of turn\\.$`,
       'i',
     ),
     build: (m) => {
@@ -969,7 +971,7 @@ const RULES: readonly Rule[] = [
   },
   {
     kind: 'pump',
-    re: new RegExp(`^${TARGET} gains (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
+    re: new RegExp(`^${TARGET} (?:gains|(?:each )?gain) (${KW})(?: and (${KW}))? until end of turn\\.$`, 'i'),
     build: (m) => {
       const kws = grantedKeywords(m[1], m[2]);
       return kws !== null ? { ...BASE, keywords: kws } : null;

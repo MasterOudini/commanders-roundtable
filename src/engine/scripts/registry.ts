@@ -7,6 +7,13 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { ELDER_DEEP_FIEND_SCRIPT } from './cards/elderDeepFiend';
+import { KARFELL_KENNEL_MASTER_SCRIPT } from './cards/karfellKennelMaster';
+import { MARKOV_WALTZER_SCRIPT } from './cards/markovWaltzer';
+import { NEFASHU_SCRIPT } from './cards/nefashu';
+import { QUICKBEAM_UPSTART_ENT_SCRIPT } from './cards/quickbeamUpstartEnt';
+import { ELSPETH_SUNS_NEMESIS_SCRIPT } from './cards/elspethSunsNemesis';
+import { ARCADE_CABINET_SCRIPT } from './cards/arcadeCabinet';
 import { WRETCHED_GRYFF_SCRIPT } from './cards/wretchedGryff';
 import { ABUNDANT_MAW_SCRIPT } from './cards/abundantMaw';
 import { VEXING_SCUTTLER_SCRIPT } from './cards/vexingScuttler';
@@ -6651,15 +6658,11 @@ import { GILT_LEAF_SEER_SCRIPT } from './cards/giltLeafSeer';
 import { HALIMAR_DEPTHS_SCRIPT } from './cards/halimarDepths';
 import { INKFATHOM_DIVERS_SCRIPT } from './cards/inkfathomDivers';
 import { AVEN_FATESHAPER_SCRIPT } from './cards/avenFateshaper';
-import { NAHIRIS_STONEBLADES_SCRIPT } from './cards/nahirisStoneblades';
-import { MISCHIEF_AND_MAYHEM_SCRIPT } from './cards/mischiefAndMayhem';
-import { TANDEM_TACTICS_SCRIPT } from './cards/tandemTactics';
 import { INTO_THE_VOID_SCRIPT } from './cards/intoTheVoid';
 import { CAPTIVATING_GYRE_SCRIPT } from './cards/captivatingGyre';
 import { SYNCHRONIZED_STRIKE_SCRIPT } from './cards/synchronizedStrike';
 import { JOIN_FORCES_SCRIPT } from './cards/joinForces';
 import { REINFORCEMENTS_SCRIPT } from './cards/reinforcements';
-import { DAUNTLESS_ONSLAUGHT_SCRIPT } from './cards/dauntlessOnslaught';
 import { UNCOMFORTABLE_CHILL_SCRIPT } from './cards/uncomfortableChill';
 import { UNHOLY_HUNGER_SCRIPT } from './cards/unholyHunger';
 import { WITCH_HUNTER_SCRIPT } from './cards/witchHunter';
@@ -8510,6 +8513,13 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  ELDER_DEEP_FIEND_SCRIPT,
+  KARFELL_KENNEL_MASTER_SCRIPT,
+  MARKOV_WALTZER_SCRIPT,
+  NEFASHU_SCRIPT,
+  QUICKBEAM_UPSTART_ENT_SCRIPT,
+  ELSPETH_SUNS_NEMESIS_SCRIPT,
+  ARCADE_CABINET_SCRIPT,
   WRETCHED_GRYFF_SCRIPT,
   ABUNDANT_MAW_SCRIPT,
   VEXING_SCUTTLER_SCRIPT,
@@ -15154,15 +15164,11 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HALIMAR_DEPTHS_SCRIPT,
   INKFATHOM_DIVERS_SCRIPT,
   AVEN_FATESHAPER_SCRIPT,
-  NAHIRIS_STONEBLADES_SCRIPT,
-  MISCHIEF_AND_MAYHEM_SCRIPT,
-  TANDEM_TACTICS_SCRIPT,
   INTO_THE_VOID_SCRIPT,
   CAPTIVATING_GYRE_SCRIPT,
   SYNCHRONIZED_STRIKE_SCRIPT,
   JOIN_FORCES_SCRIPT,
   REINFORCEMENTS_SCRIPT,
-  DAUNTLESS_ONSLAUGHT_SCRIPT,
   UNCOMFORTABLE_CHILL_SCRIPT,
   UNHOLY_HUNGER_SCRIPT,
   WITCH_HUNTER_SCRIPT,

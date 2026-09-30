@@ -9429,6 +9429,13 @@ export const VEXING_SCUTTLER: CardData = F.VEXING_SCUTTLER as CardData;
 export const IT_OF_THE_HORRID_SWARM: CardData = F.IT_OF_THE_HORRID_SWARM as CardData;
 export const MOCKERY_OF_NATURE: CardData = F.MOCKERY_OF_NATURE as CardData;
 export const LASHWEED_LURKER: CardData = F.LASHWEED_LURKER as CardData;
+export const ELDER_DEEP_FIEND: CardData = F.ELDER_DEEP_FIEND as CardData;
+export const KARFELL_KENNEL_MASTER: CardData = F.KARFELL_KENNEL_MASTER as CardData;
+export const MARKOV_WALTZER: CardData = F.MARKOV_WALTZER as CardData;
+export const NEFASHU: CardData = F.NEFASHU as CardData;
+export const QUICKBEAM_UPSTART_ENT: CardData = F.QUICKBEAM_UPSTART_ENT as CardData;
+export const ELSPETH_SUN_S_NEMESIS: CardData = F.ELSPETH_SUN_S_NEMESIS as CardData;
+export const ARCADE_CABINET: CardData = F.ARCADE_CABINET as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19127,6 +19134,13 @@ export const ENGINE_CARDS: CardData[] = [
   IT_OF_THE_HORRID_SWARM,
   MOCKERY_OF_NATURE,
   LASHWEED_LURKER,
+  ELDER_DEEP_FIEND,
+  KARFELL_KENNEL_MASTER,
+  MARKOV_WALTZER,
+  NEFASHU,
+  QUICKBEAM_UPSTART_ENT,
+  ELSPETH_SUN_S_NEMESIS,
+  ARCADE_CABINET,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

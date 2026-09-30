@@ -320947,6 +320947,243 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "ELDER_DEEP_FIEND": {
+    "scryfallId": "0acfa8ce-d992-4463-a096-74bc1e0bb1d4",
+    "oracleId": "4eafe717-4ba4-4901-8c67-11757230eb54",
+    "name": "Elder Deep-Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elder Deep-Fiend",
+        "manaCost": "{8}",
+        "typeLine": "Creature — Eldrazi Octopus",
+        "oracleText": "Flash\nEmerge {5}{U}{U} (You may cast this spell by sacrificing a creature and paying the emerge cost reduced by that creature's mana value.)\nWhen you cast this spell, tap up to four target permanents.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jason Felix",
+        "imageId": "0acfa8ce-d992-4463-a096-74bc1e0bb1d4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Emerge",
+      "Flash"
+    ],
+    "setCode": "pemn",
+    "collectorNumber": "5s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KARFELL_KENNEL_MASTER": {
+    "scryfallId": "1f2e14c7-1bee-4bc6-ad26-03dc55e149d5",
+    "oracleId": "2cde1ca7-d126-4d3a-82a6-0acfd7c85cdb",
+    "name": "Karfell Kennel-Master",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karfell Kennel-Master",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Berserker",
+        "oracleText": "When this creature enters, up to two target creatures each get +1/+0 and gain indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy them.)",
+        "flavorText": "Trapped in a realm of dead flesh and scarce hunting, the ravenous wolves of Karfell follow the Dread Marn to warm game.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Izzy",
+        "imageId": "1f2e14c7-1bee-4bc6-ad26-03dc55e149d5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j22",
+    "collectorNumber": "430",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MARKOV_WALTZER": {
+    "scryfallId": "2051b749-7965-4eb7-9be2-227e75a5d194",
+    "oracleId": "bc9ac394-15b6-4d95-acca-5dc247235d2b",
+    "name": "Markov Waltzer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Markov Waltzer",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Flying, haste\nAt the beginning of combat on your turn, up to two target creatures you control each get +1/+0 until end of turn.",
+        "flavorText": "\"I'll lead.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Joshua Raphael",
+        "imageId": "2051b749-7965-4eb7-9be2-227e75a5d194"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Haste"
+    ],
+    "setCode": "dbl",
+    "collectorNumber": "509",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NEFASHU": {
+    "scryfallId": "29b206a3-829f-421e-b8bf-0bcc0d9845c1",
+    "oracleId": "9391f8ee-3435-400c-8a50-79a75de18a90",
+    "name": "Nefashu",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nefashu",
+        "manaCost": "{4}{B}{B}",
+        "typeLine": "Creature — Zombie Mutant",
+        "oracleText": "Whenever this creature attacks, up to five target creatures each get -1/-1 until end of turn.",
+        "flavorText": "Where the nefashu pass, blood rolls like a silk carpet.",
+        "power": "5",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "rk post",
+        "imageId": "29b206a3-829f-421e-b8bf-0bcc0d9845c1"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "hop",
+    "collectorNumber": "34",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "QUICKBEAM_UPSTART_ENT": {
+    "scryfallId": "402d829d-9d99-48ac-9ffe-14405ec56302",
+    "oracleId": "9ad903c5-1528-44d6-b4b6-f05a2399d91f",
+    "name": "Quickbeam, Upstart Ent",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Quickbeam, Upstart Ent",
+        "manaCost": "{4}{G}{G}",
+        "typeLine": "Legendary Creature — Treefolk",
+        "oracleText": "Whenever Quickbeam or another Treefolk you control enters, up to two target creatures each get +2/+2 and gain trample until end of turn.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "David Rapoza",
+        "imageId": "402d829d-9d99-48ac-9ffe-14405ec56302"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "419",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ELSPETH_SUN_S_NEMESIS": {
+    "scryfallId": "4cc79a65-67bd-44ef-a42e-4591a1b6d31a",
+    "oracleId": "faf296b0-59e5-4ec9-9912-e5e21c0ce9f5",
+    "name": "Elspeth, Sun's Nemesis",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Elspeth, Sun's Nemesis",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Legendary Planeswalker — Elspeth",
+        "oracleText": "−1: Up to two target creatures you control each get +2/+1 until end of turn.\n−2: Create two 1/1 white Human Soldier creature tokens.\n−3: You gain 5 life.\nEscape—{4}{W}{W}, Exile four other cards from your graveyard. (You may cast this card from your graveyard for its escape cost.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": "5",
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Livia Prima",
+        "imageId": "4cc79a65-67bd-44ef-a42e-4591a1b6d31a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Escape"
+    ],
+    "setCode": "pthb",
+    "collectorNumber": "14s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARCADE_CABINET": {
+    "scryfallId": "b2fd1df8-cc67-4209-af9d-5cf18c68cca9",
+    "oracleId": "a8e55287-f0df-46f2-a41d-27bea90216cc",
+    "name": "Arcade Cabinet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arcade Cabinet",
+        "manaCost": "{3}",
+        "typeLine": "Artifact",
+        "oracleText": "When this artifact enters, put a +1/+1 counter on each of up to four target creatures.\n{2}, {T}, Sacrifice a token: Double the number of each kind of counter on target creature.",
+        "flavorText": "From the golden age of gaming . . .",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Randy Gallegos",
+        "imageId": "b2fd1df8-cc67-4209-af9d-5cf18c68cca9"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 3,
+    "keywords": [
+      "Double"
+    ],
+    "setCode": "tmc",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

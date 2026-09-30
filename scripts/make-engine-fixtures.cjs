@@ -10569,6 +10569,15 @@ const WANTED = [
   'Mockery of Nature',
   'Lashweed Lurker',
   // D589 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D590 - THE COUNTED TARGET TO FIVE: the rows the whole-leftover row maker rowed once the effect vocabulary counted its targets to four and five.
+  'Elder Deep-Fiend',
+  'Karfell Kennel-Master',
+  'Markov Waltzer',
+  'Nefashu',
+  'Quickbeam, Upstart Ent',
+  "Elspeth, Sun's Nemesis",
+  'Arcade Cabinet',
+  // D590 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
