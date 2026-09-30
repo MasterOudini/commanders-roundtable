@@ -262,7 +262,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D460 - disguise is the engine's now, and the mirror offered six the row maker refused: a token outside the table, the
   // compound head `enters or is turned face up` the library lacks, a subtype anthem outside the scope vocabulary, a surveil
   // beside a life gain.
-  ['Basilica Stalker', 'a trigger payload outside the vocabulary (a surveil beside a life gain): You gain 1 life and surveil 1.'],
   // D459 - fabricate is the engine's now, and the mirror offered one the row maker refused: a compound subject
   // (creature or artifact) the filtered-head reader does not split.
   ['Marionette Apprentice', 'a filtered head outside the closed reader (an adjective outside the list: or): Whenever another creature or artifact you control is put into a graveyard from the battlefield'],
@@ -301,13 +300,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Arcbound Slith', 'an entry-counter keyword beside the row (the suite reads the printed base, not the counters it enters with)'],
   // D439 - and the mirror offered 15 the row maker refused - the enters-or-dies heads, an anthem beside a mass pump, a
   // counted loss beside a cost piece, the pay-or-scry riders (the wide run's reason).
-  ['Dream Beavers', 'trigger payload not a pump: Each opponent loses 1 life and you gain 1 life. Scry 1.'],
   ['Hunting Moa', 'a filtered head outside the closed reader (an adjective outside the list: this): When this creature enters or dies, put a +1/+1 counter on ta'],
   ['Inner Sanctum', 'a line that is neither an activated ability nor a library trigger: Prevent all damage that would be dealt to creatures you control.'],
   ['Rotwidow Pack', 'a counted payload beside a cost piece that leaves a fixture behind: Each opponent loses 1 life for each Spider you control.'],
   ['Slitherwisp', 'a filtered head outside the closed reader (an adjective outside the list: spell): Whenever you cast another spell that has flash, you draw a c'],
   ['Bubbling Cauldron', 'cost: a sacrifice cost with no fixture the suite can put: creature named Festering Newt'],
-  ['Corroding Dragonstorm', 'trigger payload not a pump: Each opponent loses 2 life and you gain 2 life. Surveil 2.'],
   ['Fyndhorn Pollen', 'an anthem beside a mass pump (the Eel reads both)'],
   ['Illusions of Grandeur', 'a filtered head outside the closed reader (an adjective outside the list: this): When this enchantment leaves the battlefield, you lose 20 li'],
   ['Juju Bubble', 'trigger head not in the library: When you play a card, sacrifice this artifact.'],
@@ -475,31 +472,22 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Arnyn, Deathbloom Botanist', 'a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control with power or toughness 1 or'],
   ['Attunement', 'a queued discard the scaffold hand may not hold: Discard four cards.'],
   ['Axelrod Gunnarson', 'a filtered head outside the closed reader (an adjective outside the list: dealt): Whenever a creature dealt damage by ~ this turn dies, you ga'],
-  ['Battlewise Hoplite', 'trigger payload not a pump: Put a +1/+1 counter on this creature, then scry 1.'],
   ['Bazaar of Baghdad', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
   ['Bazaar Trademage', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
   ['Black Widow, Agile Avenger', 'trigger head not in the library: Whenever an opponent draws their second card each turn, put a +1/+1 co'],
   ['Bold Biochemist', 'a line that is neither an activated ability nor a library trigger: Power-up — {5}{U}: Put a +1/+1 counter on this creature and draw two c'],
-  ['Burning Prophet', 'trigger payload not a pump: ~ gets +1/+0 until end of turn, then scry 1.'],
-  ['Compassionate Healer', 'trigger payload not a pump: You gain 1 life and scry 1.'],
   ['Cyclopean Snare', 'a tap cost beside a vocabulary self bounce (the suite reads the tap after the return)'],
   ['Geyser Leaper', 'a line that is neither an activated ability nor a library trigger: Waterbend {4}: Draw a card, then discard a card.'],
   ['Hard Cover', 'a leftover line not among the printed lines: Enchanted creature gets +0/+2 and has'],
-  ['Holy Cow', 'trigger payload not a pump: You gain 2 life and scry 1.'],
   ['Invasion of Dominaria // Serra Faithkeeper', 'multi-face or unusual layout'],
   ['Kraven the Hunter', 'a filtered head outside the closed reader (a qualifier outside the keyword list: the greatest power among creatures that player controls): Whenever a creature an opponent controls with the greatest p'],
   ['Lotho, Corrupt Shirriff', 'a filtered head outside the closed reader (an adjective outside the list: their): Whenever a player casts their second spell each turn, you lo'],
   ['Magus of the Bazaar', 'a queued discard the scaffold hand may not hold: Discard three cards.'],
   ['Pet Avengers', 'a line that is neither an activated ability nor a library trigger: Power-up — {6}{G}: Put a +1/+1 counter on this creature and create a 3'],
   ['Ragnarok, Divine Deliverance', 'multi-face or unusual layout'],
-  ['Samite Herbalist', 'trigger payload not a pump: You gain 1 life and scry 1.'],
-  ['Serum Visionary', 'trigger payload not a pump: Draw a card, then scry 2.'],
-  ['Tenth District Legionnaire', 'trigger payload not a pump: Put a +1/+1 counter on this creature, then scry 1.'],
   ['Thrasher Brute', 'a filtered head outside the closed reader (an adjective outside the list: this): Whenever this creature or another Warrior your team controls'],
-  ['Trelasarra, Moon Dancer', 'trigger payload not a pump: Put a +1/+1 counter on ~ and scry 1.'],
   ['Ultron Drone', 'a line that is neither an activated ability nor a library trigger: Power-up — {6}: Put two +1/+1 counters on this creature and create a 2'],
   ['Valgavoth, Harrower of Souls', 'trigger head not in the library: Whenever an opponent loses life for the first time during each of thei'],
-  ['Wakandan Tusker', 'trigger payload not a pump: You gain 1 life and scry 1.'],
   ['Boomer Scrapper', 'a leaves head whose subject is a token the arm cannot make: a token you control'],
   ['Carrot Cake', 'trigger head not in the library: When this artifact enters and when you sacrifice it, create a 1/1 whit'],
   ['Disinformation Campaign', "trigger head not in the library: Whenever you surveil, return this enchantment to its owner's hand."],
@@ -850,7 +838,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Autarch Mammoth', 'the row maker: a saddle the two fixtures cannot pay (Saddle 5), and its enters-and-attacks head (D553)'],
   ['Stubborn Burrowfiend', 'the row maker: a counted payload under the becomes-saddled head (mill two, then ~ gets +X/+X for the creature cards in your graveyard) (D553)'],
   ['Brightfield Mustang', 'the row maker: trigger payload not a pump - Untap it and put a +1/+1 counter on it, under the attacks-while-saddled head (D553)'],
-  ['Trained Arynx', 'the row maker: trigger payload not a pump - ~ gains first strike until end of turn. Scry 1., two sentences under the attacks-while-saddled head (D553)'],
   // D551 - plot: the Plot line is the engine's now (the special action, the later free cast); what stays is a plot card whose other sentence the suite cannot prove.
   ['Stingerback Terror', 'the row maker: a counted shrink the suite baseline kills - This creature gets -1/-1 for each card in your hand. (the opening seven) (D551; its Plot line is the engine\'s)'],
   // D550 - split second: the Split second line is the engine's now (the stack's lock on casts and non-mana activations); what stays is a split second card whose other sentence the vocabulary does not read.
@@ -2022,7 +2009,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Jetting Glasskite', 'trigger payload not a pump: Counter that spell or ability. (D513)'],
   ['Shimmering Glasskite', 'trigger payload not a pump: Counter that spell or ability. (D513)'],
   ['Deathless Knight', 'trigger head not in the library: When you gain life, return this card from your graveyard to your ha (D513)'],
-  ['Veteran Guardmouse', 'trigger payload not a pump: ~ gets +1/+0 and gains first strike until end of turn. Scry (D513)'],
   ['Scourge of the Throne', 'an intervening if outside the closed reader: it\'s attacking the player with the most life or tied fo (D513)'],
   ['Erdwal Illuminator', 'trigger head not in the library: Whenever you investigate, investigate an additional time. (D513)'],
   ['Valiant Rescuer', 'a first-time-each-turn head with no turn record to read (not this wave): youCycle (D513)'],
@@ -2268,7 +2254,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Kraul Foragers', 'a board-sized life gain the suite cannot pin (for each creature card in your graveyard) under its Undergrowth head'],
   ['Optimistic Scavenger', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
   ['Pheres-Band Raiders', 'a payment branch the suite cannot assert (a token) under its Inspired head'],
-  ['Poised Practitioner', 'a trigger payload outside both readers (a counter on this creature, then scry 1) under its Flurry head'],
   ['Radha, Coalition Warlord', 'a counted payload under a becomes-tapped head (the arm sizes the board) under its Domain head'],
   ['Skullsnap Nuisance', 'a trigger head outside the library (Eerie - whenever an enchantment you control enters and whenever you fully unlock a Room)'],
   ['Strength from the Fallen', 'a counted payload under a constellation head (the arm sizes the board)'],

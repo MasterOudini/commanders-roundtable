@@ -10583,6 +10583,23 @@ const WANTED = [
   'Nightscape Battlemage',
   'Aven Augur',
   // D591 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D592 - THE SCRY IN A PAYLOAD: the rows the whole-leftover row maker rowed once the suite answers a scry or a surveil inside a vocabulary payload.
+  'Burning Prophet',
+  'Serum Visionary',
+  'Trelasarra, Moon Dancer',
+  'Veteran Guardmouse',
+  'Samite Herbalist',
+  'Tenth District Legionnaire',
+  'Battlewise Hoplite',
+  'Wakandan Tusker',
+  'Dream Beavers',
+  'Compassionate Healer',
+  'Holy Cow',
+  'Corroding Dragonstorm',
+  'Poised Practitioner',
+  'Trained Arynx',
+  'Basilica Stalker',
+  // D592 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

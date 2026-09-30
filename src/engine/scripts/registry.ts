@@ -7,6 +7,21 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { BURNING_PROPHET_SCRIPT } from './cards/burningProphet';
+import { SERUM_VISIONARY_SCRIPT } from './cards/serumVisionary';
+import { TRELASARRA_MOON_DANCER_SCRIPT } from './cards/trelasarraMoonDancer';
+import { VETERAN_GUARDMOUSE_SCRIPT } from './cards/veteranGuardmouse';
+import { SAMITE_HERBALIST_SCRIPT } from './cards/samiteHerbalist';
+import { TENTH_DISTRICT_LEGIONNAIRE_SCRIPT } from './cards/tenthDistrictLegionnaire';
+import { BATTLEWISE_HOPLITE_SCRIPT } from './cards/battlewiseHoplite';
+import { WAKANDAN_TUSKER_SCRIPT } from './cards/wakandanTusker';
+import { DREAM_BEAVERS_SCRIPT } from './cards/dreamBeavers';
+import { COMPASSIONATE_HEALER_SCRIPT } from './cards/compassionateHealer';
+import { HOLY_COW_SCRIPT } from './cards/holyCow';
+import { CORRODING_DRAGONSTORM_SCRIPT } from './cards/corrodingDragonstorm';
+import { POISED_PRACTITIONER_SCRIPT } from './cards/poisedPractitioner';
+import { TRAINED_ARYNX_SCRIPT } from './cards/trainedArynx';
+import { BASILICA_STALKER_SCRIPT } from './cards/basilicaStalker';
 import { HOVERGUARD_SWEEPERS_SCRIPT } from './cards/hoverguardSweepers';
 import { NIGHTSCAPE_BATTLEMAGE_SCRIPT } from './cards/nightscapeBattlemage';
 import { AVEN_AUGUR_SCRIPT } from './cards/avenAugur';
@@ -8512,6 +8527,21 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  BURNING_PROPHET_SCRIPT,
+  SERUM_VISIONARY_SCRIPT,
+  TRELASARRA_MOON_DANCER_SCRIPT,
+  VETERAN_GUARDMOUSE_SCRIPT,
+  SAMITE_HERBALIST_SCRIPT,
+  TENTH_DISTRICT_LEGIONNAIRE_SCRIPT,
+  BATTLEWISE_HOPLITE_SCRIPT,
+  WAKANDAN_TUSKER_SCRIPT,
+  DREAM_BEAVERS_SCRIPT,
+  COMPASSIONATE_HEALER_SCRIPT,
+  HOLY_COW_SCRIPT,
+  CORRODING_DRAGONSTORM_SCRIPT,
+  POISED_PRACTITIONER_SCRIPT,
+  TRAINED_ARYNX_SCRIPT,
+  BASILICA_STALKER_SCRIPT,
   HOVERGUARD_SWEEPERS_SCRIPT,
   NIGHTSCAPE_BATTLEMAGE_SCRIPT,
   AVEN_AUGUR_SCRIPT,

@@ -321291,6 +321291,551 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "BURNING_PROPHET": {
+    "scryfallId": "01c5b095-13c9-4673-bf0c-553de455e521",
+    "oracleId": "1e462ce2-15d3-473c-8f48-9c9363fc65eb",
+    "name": "Burning Prophet",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burning Prophet",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "Whenever you cast a noncreature spell, this creature gets +1/+0 until end of turn, then scry 1.",
+        "flavorText": "\"This day will end in death, but not the one you hoped for. This day will end in victory, but not the one you expected.\"",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mathias Kollros",
+        "imageId": "01c5b095-13c9-4673-bf0c-553de455e521"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "war",
+    "collectorNumber": "117",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SERUM_VISIONARY": {
+    "scryfallId": "08a587f5-5910-405e-8982-c889dbbc7f98",
+    "oracleId": "922d9d79-8038-4185-9dfb-2d2d52fd8460",
+    "name": "Serum Visionary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Serum Visionary",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Vedalken Wizard",
+        "oracleText": "When this creature enters, draw a card, then scry 2.",
+        "flavorText": "\"Pre-criminal notions detected in the Sixth Precinct. The suspect will confess when arrested in two hours.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Warren Mahy",
+        "imageId": "08a587f5-5910-405e-8982-c889dbbc7f98"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRELASARRA_MOON_DANCER": {
+    "scryfallId": "1ee2e3a2-3d8d-458d-960b-ded60d2ad4a1",
+    "oracleId": "cd10ebc9-9f6c-4da2-9a86-263902002ebc",
+    "name": "Trelasarra, Moon Dancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trelasarra, Moon Dancer",
+        "manaCost": "{G}{W}",
+        "typeLine": "Legendary Creature — Elf Cleric",
+        "oracleText": "Whenever you gain life, put a +1/+1 counter on Trelasarra and scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Pedro Potier",
+        "imageId": "1ee2e3a2-3d8d-458d-960b-ded60d2ad4a1"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "afr",
+    "collectorNumber": "346",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VETERAN_GUARDMOUSE": {
+    "scryfallId": "3db43c46-b616-4ef8-80ed-0fab345ab3d0",
+    "oracleId": "2313a3f9-3eac-4684-a25e-6a6ae445a723",
+    "name": "Veteran Guardmouse",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Veteran Guardmouse",
+        "manaCost": "{3}{R/W}",
+        "typeLine": "Creature — Mouse Soldier",
+        "oracleText": "Valiant — Whenever this creature becomes the target of a spell or ability you control for the first time each turn, it gets +1/+0 and gains first strike until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Campbell White",
+        "imageId": "3db43c46-b616-4ef8-80ed-0fab345ab3d0"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Valiant",
+      "Scry"
+    ],
+    "setCode": "blb",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SAMITE_HERBALIST": {
+    "scryfallId": "409189da-53c9-4daf-b6b2-d155fc14f91a",
+    "oracleId": "af753429-c121-4957-b768-8bed43dc06cb",
+    "name": "Samite Herbalist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Samite Herbalist",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "Whenever this creature becomes tapped, you gain 1 life and scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "\"Spiritual wholeness is not something you can give to yourself: it is attained only through the divine blessing of healing another.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alessandra Pisano",
+        "imageId": "409189da-53c9-4daf-b6b2-d155fc14f91a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "dmu",
+    "collectorNumber": "31",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TENTH_DISTRICT_LEGIONNAIRE": {
+    "scryfallId": "44f3090b-917b-4122-b522-27c30dca8e69",
+    "oracleId": "32fad8d3-5351-49ce-a453-53dee403b5ff",
+    "name": "Tenth District Legionnaire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Tenth District Legionnaire",
+        "manaCost": "{R}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Haste\nWhenever you cast a spell that targets this creature, put a +1/+1 counter on this creature, then scry 1.",
+        "flavorText": "\"The Tenth is under heavy attack, but it's being handled. I sent Mileva.\"\n—Tajic",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "44f3090b-917b-4122-b522-27c30dca8e69"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Haste",
+      "Scry"
+    ],
+    "setCode": "war",
+    "collectorNumber": "222",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BATTLEWISE_HOPLITE": {
+    "scryfallId": "4c929a57-2c23-4bbf-b265-666630a4fde8",
+    "oracleId": "416de3dd-c15d-4596-9386-5cac53302724",
+    "name": "Battlewise Hoplite",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Battlewise Hoplite",
+        "manaCost": "{W}{U}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Heroic — Whenever you cast a spell that targets this creature, put a +1/+1 counter on this creature, then scry 1. (To scry 1, look at the top card of your library, then you may put that card on the bottom.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "4c929a57-2c23-4bbf-b265-666630a4fde8"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Heroic",
+      "Scry"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "189",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WAKANDAN_TUSKER": {
+    "scryfallId": "5c390e05-2f69-45af-9646-eded19d45dd8",
+    "oracleId": "9e8ffb63-1a7b-4ebe-839d-d5192522db65",
+    "name": "Wakandan Tusker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wakandan Tusker",
+        "manaCost": "{1}{G/W}",
+        "typeLine": "Creature — Elephant",
+        "oracleText": "Whenever this creature becomes tapped, you gain 1 life and scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "\"Elephants have worn this armor since ancient times, defending Wakanda as bravely as any warrior.\"\n—Zuri, warrior of Wakanda",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Ioannis Fiore",
+        "imageId": "5c390e05-2f69-45af-9646-eded19d45dd8"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "748",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAM_BEAVERS": {
+    "scryfallId": "600e3bc1-9777-4057-a11e-4f61582636c6",
+    "oracleId": "a1cec8e8-cf3c-42a4-b625-ca0cd148664e",
+    "name": "Dream Beavers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dream Beavers",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Beaver Nightmare",
+        "oracleText": "Flying\nWhen this creature enters, each opponent loses 1 life and you gain 1 life. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "\"We've drained human life force for millennia. Then one day, turtles! Delectable! We'll suck you dry and spit out the shells!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Alix Branwyn",
+        "imageId": "600e3bc1-9777-4057-a11e-4f61582636c6"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Scry",
+      "Flying"
+    ],
+    "setCode": "tmt",
+    "collectorNumber": "62",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COMPASSIONATE_HEALER": {
+    "scryfallId": "88d5f8fd-d4de-4e64-9b74-e53719ffbcdc",
+    "oracleId": "6ef464bd-2ed0-4f99-af4a-ebf276f55384",
+    "name": "Compassionate Healer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Compassionate Healer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Human Cleric Ally",
+        "oracleText": "Whenever this creature becomes tapped, you gain 1 life and scry 1. (Look at the top card of your library. You may put it on the bottom.)",
+        "flavorText": "Waterbending does not only heal physical wounds. It can also soothe the spirit and calm the mind.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Kuno",
+        "imageId": "88d5f8fd-d4de-4e64-9b74-e53719ffbcdc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "tla",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HOLY_COW": {
+    "scryfallId": "90de84c9-941b-4056-8501-ce8a948b9643",
+    "oracleId": "748003fd-84c5-4c99-b146-d7d382eef64d",
+    "name": "Holy Cow",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Holy Cow",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Ox Angel",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, you gain 2 life and scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "After it passed by, the rancher swore she saw hope shining in the pigs' eyes.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "90de84c9-941b-4056-8501-ce8a948b9643"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Scry",
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "16",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CORRODING_DRAGONSTORM": {
+    "scryfallId": "a8f19964-b37b-4877-bdd5-c5c3022439ef",
+    "oracleId": "4c55ca3b-1254-4d44-96ac-1e1cadaf49f5",
+    "name": "Corroding Dragonstorm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Corroding Dragonstorm",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, each opponent loses 2 life and you gain 2 life. Surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\nWhen a Dragon you control enters, return this enchantment to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Cabrol",
+        "imageId": "a8f19964-b37b-4877-bdd5-c5c3022439ef"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Surveil"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "297",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "POISED_PRACTITIONER": {
+    "scryfallId": "bb25366d-a647-4c5e-bcc7-7e54659aacbd",
+    "oracleId": "e08debdc-2db5-4562-8a02-4158bfc0db88",
+    "name": "Poised Practitioner",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Poised Practitioner",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Monk",
+        "oracleText": "Flurry — Whenever you cast your second spell each turn, put a +1/+1 counter on this creature. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+        "flavorText": "\"Excellent form, Jun! Just keep your weight on that back foot, and you'll master this in no time.\"\n—Narset",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alessandra Pisano",
+        "imageId": "bb25366d-a647-4c5e-bcc7-7e54659aacbd"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flurry",
+      "Scry"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TRAINED_ARYNX": {
+    "scryfallId": "ef32a5f8-f69d-47dc-a800-4f0ddf4eada5",
+    "oracleId": "bc875500-f6df-4365-b2d6-7cf425daea97",
+    "name": "Trained Arynx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Trained Arynx",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Cat Beast Mount",
+        "oracleText": "Whenever this creature attacks while saddled, it gains first strike until end of turn. Scry 1. (Look at the top card of your library. You may put that card on the bottom.)\nSaddle 2 (Tap any number of other creatures you control with total power 2 or more: This Mount becomes saddled until end of turn. Saddle only as a sorcery.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Milivoj Ćeran",
+        "imageId": "ef32a5f8-f69d-47dc-a800-4f0ddf4eada5"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Saddle",
+      "Scry"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASILICA_STALKER": {
+    "scryfallId": "fdafea8f-283d-4f19-a74a-669bfbdfed98",
+    "oracleId": "e335485a-80fc-40d4-8be6-7eabf2bab571",
+    "name": "Basilica Stalker",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basilica Stalker",
+        "manaCost": "{5}{B}",
+        "typeLine": "Creature — Vampire Detective",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player, you gain 1 life and surveil 1. (Look at the top card of your library. You may put it into your graveyard.)\nDisguise {4}{B} (You may cast this card face down for {3} as a 2/2 creature with ward {2}. Turn it face up any time for its disguise cost.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "fdafea8f-283d-4f19-a74a-669bfbdfed98"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Flying",
+      "Surveil",
+      "Disguise"
+    ],
+    "setCode": "mkm",
+    "collectorNumber": "78",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

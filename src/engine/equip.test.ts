@@ -6,6 +6,7 @@
 import { describe, expect, test } from 'vitest';
 import { replay, stateHash } from './log';
 import { createRegistry } from './scripts/registryCore';
+import { checkInvariants } from './invariants';
 import { advanceUntil, holdEverywhere, must, put, startedGame } from './testing/harness';
 import type { Game } from './game';
 import type { InstanceId } from './types/ids';
@@ -77,6 +78,22 @@ describe('Equip resolves natively (D305)', () => {
     must(g.submit({ t: 'ActivateAbility', player: 'p1', card: greaves, abilityIndex: 0, targets: [{ kind: 'card', id: bears }] }));
     settle(g);
     advanceUntil(g, (s) => s.turn.turnNumber >= 4, 20_000);
+    expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
+  });
+
+  // D592 - the gate's seed 206: Lightning Greaves' equip was on the stack when Beast Within destroyed the Greaves, and the
+  // ability still attached the GRAVEYARD card to the creature (a host listing an attachment that is not there - CR 400.7:
+  // the Equipment that left is a new object; CR 701.3b: an object that cannot be attached does not move).
+  test('an Equipment gone before its equip resolves attaches nothing', () => {
+    const { g, greaves, bears } = board();
+    must(g.submit({ t: 'ActivateAbility', player: 'p1', card: greaves, abilityIndex: 0, targets: [{ kind: 'card', id: bears }] }));
+    expect(g.state.stack.length, 'the equip is on the stack').toBe(1);
+    must(g.submit({ t: 'ManualMoveCard', player: 'p1', card: greaves, to: { kind: 'graveyard', player: 'p1' } }));
+    settle(g);
+    expect(g.state.cards[greaves]?.zone.kind).toBe('graveyard');
+    expect(g.state.cards[greaves]?.attachedTo, 'nothing attached').toBeNull();
+    expect(g.state.cards[bears]?.attachments).not.toContain(greaves);
+    expect(checkInvariants(g.state)).toEqual([]);
     expect(stateHash(replay(g.log, g.seed))).toBe(g.hash());
   });
 });

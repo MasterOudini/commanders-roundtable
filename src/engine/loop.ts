@@ -1507,7 +1507,9 @@ export function resolveAbility(
     const at = obj.abilityRef.indexOf('#a');
     const ability = at >= 0 ? srcFace.activated[Number(obj.abilityRef.slice(at + 2))] : undefined;
     const target = obj.targets[0];
-    if (ability?.equip && target && target.kind === 'card' && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
+    // D592 - and only while the Equipment is still there (CR 400.7, 701.3b): destroyed in response, it attaches nothing.
+    const equipment = state.cards[obj.source];
+    if (ability?.equip && target && target.kind === 'card' && equipment?.zone.kind === 'battlefield' && !equipment.phasedOut && targetsStillLegal(state, deps, obj, srcFace, ability.targets)) {
       events.push({ t: 'AttachmentChanged', card: obj.source, to: target.id });
     }
     // D306 - CYCLING resolves natively: draw a card (the discard was the cost). D410 - a TYPECYCLING
