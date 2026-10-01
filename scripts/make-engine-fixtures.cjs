@@ -10727,6 +10727,16 @@ const WANTED = [
   'Sharktocrab',
   'Gleam of Battle',
   // D599 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D600 - THE SCRY AND SURVEIL HEADS: the rows the whole-leftover row maker rowed once the engine emitted a scry or surveil marker and the library read  / .
+  'Chance-Met Elves',
+  'Nimrodel Watcher',
+  'Copy Catchers',
+  'Dimir Spybug',
+  'Disinformation Campaign',
+  'Knowledge and Power',
+  'Flamespeaker Adept',
+  'Arwen Undómiel',
+  // D600 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -4988,6 +4988,11 @@ function answerScry(
         ),
   ];
 
+  // D600 - a real scry or surveil has happened (an explore's reveal and a clash's placement borrow the prompt and are
+  // neither): the marker a `Whenever you scry` / `Whenever you surveil` head matches.
+  if (!awaiting.explore && !awaiting.clash) {
+    events.push(awaiting.toGraveyard ? { t: 'Surveilled', player: intent.player, amount: shown.length } : { t: 'Scried', player: intent.player, amount: shown.length });
+  }
   // D409 - an explore's question: the permanent has explored once it is answered (CR 701.42c), and the
   // chain's next explore runs against the state the answer left, stopping behind its own question.
   if (awaiting.explore) {

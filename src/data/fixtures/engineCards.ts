@@ -9566,6 +9566,14 @@ export const AXGARD_ARTISAN: CardData = F.AXGARD_ARTISAN as CardData;
 export const KNIGHTED_MYR: CardData = F.KNIGHTED_MYR as CardData;
 export const SHARKTOCRAB: CardData = F.SHARKTOCRAB as CardData;
 export const GLEAM_OF_BATTLE: CardData = F.GLEAM_OF_BATTLE as CardData;
+export const CHANCE_MET_ELVES: CardData = F.CHANCE_MET_ELVES as CardData;
+export const NIMRODEL_WATCHER: CardData = F.NIMRODEL_WATCHER as CardData;
+export const COPY_CATCHERS: CardData = F.COPY_CATCHERS as CardData;
+export const DIMIR_SPYBUG: CardData = F.DIMIR_SPYBUG as CardData;
+export const DISINFORMATION_CAMPAIGN: CardData = F.DISINFORMATION_CAMPAIGN as CardData;
+export const KNOWLEDGE_AND_POWER: CardData = F.KNOWLEDGE_AND_POWER as CardData;
+export const FLAMESPEAKER_ADEPT: CardData = F.FLAMESPEAKER_ADEPT as CardData;
+export const ARWEN_UND_MIEL: CardData = F.ARWEN_UND_MIEL as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19406,6 +19414,14 @@ export const ENGINE_CARDS: CardData[] = [
   KNIGHTED_MYR,
   SHARKTOCRAB,
   GLEAM_OF_BATTLE,
+  CHANCE_MET_ELVES,
+  NIMRODEL_WATCHER,
+  COPY_CATCHERS,
+  DIMIR_SPYBUG,
+  DISINFORMATION_CAMPAIGN,
+  KNOWLEDGE_AND_POWER,
+  FLAMESPEAKER_ADEPT,
+  ARWEN_UND_MIEL,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

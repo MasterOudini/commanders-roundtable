@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CHANCE_MET_ELVES_SCRIPT } from './cards/chanceMetElves';
+import { NIMRODEL_WATCHER_SCRIPT } from './cards/nimrodelWatcher';
+import { COPY_CATCHERS_SCRIPT } from './cards/copyCatchers';
+import { DIMIR_SPYBUG_SCRIPT } from './cards/dimirSpybug';
+import { DISINFORMATION_CAMPAIGN_SCRIPT } from './cards/disinformationCampaign';
+import { KNOWLEDGE_AND_POWER_SCRIPT } from './cards/knowledgeAndPower';
+import { FLAMESPEAKER_ADEPT_SCRIPT } from './cards/flamespeakerAdept';
+import { ARWEN_UND_MIEL_SCRIPT } from './cards/arwenUndMiel';
 import { FERVENT_CHARGE_SCRIPT } from './cards/ferventCharge';
 import { GROWTH_CHAMBER_GUARDIAN_SCRIPT } from './cards/growthChamberGuardian';
 import { SCURRY_OAK_SCRIPT } from './cards/scurryOak';
@@ -8639,6 +8647,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CHANCE_MET_ELVES_SCRIPT,
+  NIMRODEL_WATCHER_SCRIPT,
+  COPY_CATCHERS_SCRIPT,
+  DIMIR_SPYBUG_SCRIPT,
+  DISINFORMATION_CAMPAIGN_SCRIPT,
+  KNOWLEDGE_AND_POWER_SCRIPT,
+  FLAMESPEAKER_ADEPT_SCRIPT,
+  ARWEN_UND_MIEL_SCRIPT,
   FERVENT_CHARGE_SCRIPT,
   GROWTH_CHAMBER_GUARDIAN_SCRIPT,
   SCURRY_OAK_SCRIPT,

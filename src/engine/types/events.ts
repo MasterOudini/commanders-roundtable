@@ -527,6 +527,13 @@ export type EventBody =
   | { readonly t: 'Populated'; readonly player: PlayerId; readonly token: InstanceId; readonly copy: InstanceId }
   /** D484 - a marker: the clauses a question carried (`EffectContinuation`) resume now, in the answer's batch; the events that follow are theirs. */
   | { readonly t: 'ContinuationResumed'; readonly label: string; readonly clauses: number }
+  /**
+   * D600 - a player has scried / surveilled (CR 701.22 / 701.25): the number of cards looked at. Markers the scry's answer
+   * emits beside its moves, for `Whenever you scry` / `Whenever you surveil`; never for an explore's reveal or a clash's
+   * placement, which borrow the prompt. The reducer ignores them.
+   */
+  | { readonly t: 'Scried'; readonly player: PlayerId; readonly amount: number }
+  | { readonly t: 'Surveilled'; readonly player: PlayerId; readonly amount: number }
   /** D409 - a permanent has explored (CR 701.42c): the card revealed (null from an empty library), and whether it was a land. */
   | { readonly t: 'Explored'; readonly permanent: InstanceId; readonly controller: PlayerId; readonly card: InstanceId | null; readonly land: boolean }
   /** D412 - a permanent has connived (CR 701.50c): the card discarded (null when there was none), and whether it was nonland. */

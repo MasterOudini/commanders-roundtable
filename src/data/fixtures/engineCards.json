@@ -325660,6 +325660,283 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CHANCE_MET_ELVES": {
+    "scryfallId": "0aa57431-39e2-4152-8a30-1c1e8faef153",
+    "oracleId": "8958a6fe-76ef-45e3-8522-6bc13486b447",
+    "name": "Chance-Met Elves",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chance-Met Elves",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Whenever you scry, put a +1/+1 counter on this creature. This ability triggers only once each turn.",
+        "flavorText": "\"It is said, 'Go not to the Elves for counsel, for they will say both no and yes.'\"\n—Frodo",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Irvin Rodriguez",
+        "imageId": "0aa57431-39e2-4152-8a30-1c1e8faef153"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NIMRODEL_WATCHER": {
+    "scryfallId": "29188d6b-3217-4654-8815-8cd614f74d12",
+    "oracleId": "1b8de1c5-1e23-4c84-bc5a-a14853ad8c7a",
+    "name": "Nimrodel Watcher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Nimrodel Watcher",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Elf Scout",
+        "oracleText": "Whenever you scry, this creature gets +1/+0 until end of turn and can't be blocked this turn. This ability triggers only once each turn.",
+        "flavorText": "\"But there are some of us still who go abroad for the gathering of news and the watching of our enemies.\"\n—Haldir",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Justyna Dura",
+        "imageId": "29188d6b-3217-4654-8815-8cd614f74d12"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "ltr",
+    "collectorNumber": "514",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COPY_CATCHERS": {
+    "scryfallId": "588ebe61-4697-4ef7-8800-3e88e168bb4e",
+    "oracleId": "d8e276a8-1234-4b61-84cf-4bf231ea3129",
+    "name": "Copy Catchers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Copy Catchers",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Faerie",
+        "oracleText": "Flying\nWhenever you surveil, you may pay {1}{U}. If you do, create a token that's a copy of this creature.",
+        "flavorText": "\"I honestly don't know if they're sabotaging our records or trying to help me sort.\"\n—Kruno, Agency clerk",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Edgar Sánchez Hidalgo",
+        "imageId": "588ebe61-4697-4ef7-8800-3e88e168bb4e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "330",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIMIR_SPYBUG": {
+    "scryfallId": "69840910-eb86-49a4-915f-d21b5628fc04",
+    "oracleId": "3bb7041c-4f3e-4123-9181-3442ea0c98e8",
+    "name": "Dimir Spybug",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dimir Spybug",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Flying\nMenace (This creature can't be blocked except by two or more creatures.)\nWhenever you surveil, put a +1/+1 counter on this creature.",
+        "flavorText": "Just assume every conversation is on record.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "James Paick",
+        "imageId": "69840910-eb86-49a4-915f-d21b5628fc04"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Menace"
+    ],
+    "setCode": "mkc",
+    "collectorNumber": "206",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISINFORMATION_CAMPAIGN": {
+    "scryfallId": "69a79ff3-58ed-4cc2-9ebc-0edbb86cd6fb",
+    "oracleId": "1dd336b0-9b13-4180-b80a-e8ba5d63d04f",
+    "name": "Disinformation Campaign",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disinformation Campaign",
+        "manaCost": "{1}{U}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "When this enchantment enters, you draw a card and each opponent discards a card.\nWhenever you surveil, return this enchantment to its owner's hand.",
+        "flavorText": "\"People would sooner savor sweet lies than chew plain truths.\"\n—Lazav",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Anthony Palumbo",
+        "imageId": "69a79ff3-58ed-4cc2-9ebc-0edbb86cd6fb"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "grn",
+    "collectorNumber": "167",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNOWLEDGE_AND_POWER": {
+    "scryfallId": "7cd48a18-df3d-4381-a7e7-a3e9ae18d4d7",
+    "oracleId": "ed68b5ca-c52a-40e0-89ac-6276a3c4fdeb",
+    "name": "Knowledge and Power",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knowledge and Power",
+        "manaCost": "{4}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you scry, you may pay {2}. If you do, this enchantment deals 2 damage to any target.",
+        "flavorText": "\"Information is a powerful weapon.\"\n—Cymede, queen of Akros",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jung Park",
+        "imageId": "7cd48a18-df3d-4381-a7e7-a3e9ae18d4d7"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "jou",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLAMESPEAKER_ADEPT": {
+    "scryfallId": "b84b90b6-71e2-429e-9853-50bcbd6538db",
+    "oracleId": "ab0707fb-b404-433d-b845-0d50d01cd72e",
+    "name": "Flamespeaker Adept",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Flamespeaker Adept",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "Whenever you scry, this creature gets +2/+0 and gains first strike until end of turn.",
+        "flavorText": "\"I see your future, mantled in ash.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Lucas Graciano",
+        "imageId": "b84b90b6-71e2-429e-9853-50bcbd6538db"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "ths",
+    "collectorNumber": "123",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ARWEN_UND_MIEL": {
+    "scryfallId": "bd3e8f9d-c7c3-4c9b-aa27-5c3479936d86",
+    "oracleId": "5ffbbce1-fe38-40dc-a7c3-2055ae86c6c5",
+    "name": "Arwen Undómiel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Arwen Undómiel",
+        "manaCost": "{G}{U}",
+        "typeLine": "Legendary Creature — Elf Noble",
+        "oracleText": "Whenever you scry, put a +1/+1 counter on target creature.\n{4}{G}{U}: Scry 2.",
+        "flavorText": "She was called Undómiel, for she was the Evenstar of her people.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Yongjae Choi",
+        "imageId": "bd3e8f9d-c7c3-4c9b-aa27-5c3479936d86"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Scry"
+    ],
+    "setCode": "ltr",
+    "collectorNumber": "645",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -1254,6 +1254,11 @@ function applyBody(state: GameState, body: EventBody): GameState {
     case 'Explored':
       return state;
 
+    // D600 - a scry's / a surveil's marker: the moves beside it moved the state.
+    case 'Scried':
+    case 'Surveilled':
+      return state;
+
     // D412 - a connive's marker (CR 701.50c): the draw, the discard and the counter beside it moved the state.
     case 'Connived':
       return state;
