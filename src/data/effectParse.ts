@@ -200,7 +200,9 @@ const GY_COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three|four|five)(?: othe
 // admitted ONLY because `targetParse` reads the controller off every noun (D407, `readController`) and `specAdmits`
 // enforces it on every candidate, the stack included - D139's order: enforce first, then admit the wording. The D407
 // entries above that spell the word per noun stay (longest first); the qualifier still follows the noun.
-const CONTROLLER = "(?: (?:you control|an opponent controls|your opponents control|you don(?:'|’)t control))?";
+// D606 - and `defending player controls` (CR 508.5), on the same terms: `readController` reads it as `'defending'` and
+// `specAdmits` binds it to the player the source's attacker is attacking.
+const CONTROLLER = "(?: (?:you control|an opponent controls|your opponents control|you don(?:'|’)t control|defending player controls))?";
 const TARGET = `(?:any target|${COUNTED}target ${ADJECTIVE}(?:${NOUNS})s?${CONTROLLER}${QUALIFIER})`;
 const NUM = '(?:\\d+)';
 /**

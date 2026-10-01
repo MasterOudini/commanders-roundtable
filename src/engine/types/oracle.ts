@@ -346,7 +346,11 @@ export type TargetKind =
   /** A card in a graveyard or in exile — narrowed by `TargetSpec.zones`. */
   | 'card';
 
-export type TargetController = 'any' | 'you' | 'opponent';
+/**
+ * D606 - `'defending'`: "target creature DEFENDING PLAYER controls" (CR 508.5) - the player the source's attacker is attacking
+ * (`TargetingSource.defending`, `defendingPlayerOf`). Before D606 the phrase was dropped silently and the clause read `any`.
+ */
+export type TargetController = 'any' | 'you' | 'opponent' | 'defending';
 
 /**
  * ⚠️ CLOSED at three attributes and two comparators, and every member is here

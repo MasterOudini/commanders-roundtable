@@ -10820,6 +10820,25 @@ const WANTED = [
   'Soulblade Renewer',
   'Jubilant Mascot',
   // D605 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D606 - THE DEFENDING PLAYER: the rows the whole-leftover row maker rowed once the target reader read defending player controls (CR 508.5) and the targeting source bound it.
+  'Fiend Binder',
+  'Coveted Peacock',
+  'Grasp of the Hieromancer',
+  'Colossal Whale',
+  'Kogla, the Titan Ape',
+  'Star-Crowned Stag',
+  'Master of Diversion',
+  "Captain America's Shield",
+  'Skymark Roc',
+  'Hellkite Whelp',
+  'Thunder Lasso',
+  'Sidar Jabari',
+  'Mage-Ring Responder',
+  'Spring Splasher',
+  'The Wasp, Winsome Avenger',
+  'Goblin Racketeer',
+  'Outland Liberator // Frenzied Trapbreaker',
+  // D606 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

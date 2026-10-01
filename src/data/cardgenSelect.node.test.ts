@@ -752,6 +752,12 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D606 - the defending player read; what stays is a card the row maker refuses for another reason.
+  ['Elite Scaleguard', 'the row maker: trigger head not in the library: Whenever a creature you control with a +1/+1 counter on it attacks, ta - its clause reads since D606 (D606)'],
+  ['Necrite', 'the row maker: a defending-player clause under a head that binds no attacker of its own (not this wave): You may sacrifice it - its clause reads since D606 (D606)'],
+  ['Strategic Intervention', 'the row maker: an item referent beside another target clause: Target creature gets +1/+1 until end of turn. Tap up to one  - its clause reads since D606 (D606)'],
+  ['Decimator Beetle', 'the row maker: a counter removal the suite cannot stage (not the rows own card entering with that kind) - its clause reads since D606 (D606)'],
+  ['Rust Scarab', 'the row maker: a defending-player clause under a head that binds no attacker of its own (not this wave): Destroy target artif - its clause reads since D606 (D606)'],
   // D605 - support N read; what stays is a card the row maker refuses for another reason.
   ['Gladehart Cavalry', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you contro - its clause reads since D605 (D605)'],
   ['Generous Patron', 'the row maker: trigger head not in the library: Whenever you put one or more counters on a creature you dont control, - its clause reads since D605 (D605)'],

@@ -777,6 +777,9 @@ export class ClientSession {
       // D414 - `another target X` refuses the source itself; the client says which it is.
       sourceId: sourceCard,
       stackId: live?.stackId ?? null,
+      // D606 - the defending player its attacker is attacking (CR 508.5), read as the host reads it (`defendingPlayerOf`): the
+      // source's own lane, its host's, else the one player this combat attacks.
+      defending: this.defendingFromView(sourceCard),
     };
     const candidates = this.candidatesFromView();
     const seen = new Set<string>();
@@ -791,6 +794,22 @@ export class ClientSession {
       }
     }
     return out;
+  }
+
+  /**
+   * D606 - the DEFENDING PLAYER for a source, off the view as the host reads it off the state (`defendingPlayerOf`):
+   * `CardView.attacking` is the player each attacker attacks (a permanent defender's controller), so the source's own lane,
+   * then its host's, else the one player this combat attacks (CR 508.5a); otherwise none.
+   */
+  private defendingFromView(source: InstanceId): PlayerId | null {
+    const cards = this.view.cards;
+    const own = cards[source];
+    if (own?.attacking) return own.attacking;
+    const host = own?.attachedTo ? cards[own.attachedTo] : undefined;
+    if (host?.attacking) return host.attacking;
+    const all = new Set<PlayerId>();
+    for (const c of Object.values(cards)) if (c?.attacking) all.add(c.attacking);
+    return all.size === 1 ? ([...all][0] ?? null) : null;
   }
 
   /**

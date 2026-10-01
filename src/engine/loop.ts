@@ -20,7 +20,7 @@ import { derive, makeDeriveCache, type DeriveCache } from './derive';
 import { goadersOf, isGoaded } from './goad';
 import { drawEvents, drewCardsMarker, effectEvents, effectResult, reboundTick } from './effects';
 import { keywordTargetSpecs, keywordTriggerDef, keywordTriggerEntry } from './keywordTriggers';
-import { candidatesFromState, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
+import { candidatesFromState, defendingPlayerOf, minimumLegalTargets, targetAllowed, untargetableByRule, type TargetingSource } from './targets';
 import { legalModes, modalEffects, modeSpecs } from './modes';
 import { checkGameOver, checkStateBasedActions } from './sba';
 import { emitted, type Emitted } from './log';
@@ -1637,7 +1637,8 @@ export function targetingSourceFor(
   // D356 - the source's TYPE LINE rides with its colours, because `protection from artifacts`
   // is a question about the source and the aim layer is where it is asked.
   const srcFace = faceOf(printing, card ? card.faceIndex : (lki?.faceIndex ?? 0));
-  return { controller, colors: colors ?? srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source };
+  // D606 - the defending player its attacker is attacking (CR 508.5), for a `defending player controls` clause.
+  return { controller, colors: colors ?? srcFace.colors, typeLine: srcFace.typeLine, power: chars?.power ?? null, toughness: chars?.toughness ?? null, sourceId: source, defending: defendingPlayerOf(state, source) };
 }
 
 function targetsStillLegal(
@@ -1657,7 +1658,8 @@ function targetsStillLegal(
   const candidates = candidatesFromState(state, deps);
   // D341 - the source's own power and toughness ride the re-check too: Mentor's clause compares against them.
   const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
-  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null };
+  // D606 - and the defending player, re-read as the object resolves (CR 608.2b): an attacker removed from combat binds none.
+  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null, defending: defendingPlayerOf(state, obj.source ?? obj.card) };
   return obj.targets.some((target) => {
     const candidate = candidates.find(
       (c) => c.choice.kind === target.kind && c.choice.id === target.id,
@@ -1718,7 +1720,8 @@ export function withStillLegalPicks(
   if (obj.targets.length === 0) return obj;
   const candidates = candidatesFromState(state, deps);
   const own = targetingSourceFor(state, deps, obj.source ?? obj.card, obj.controller);
-  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null };
+  // D606 - and the defending player, re-read as the object resolves (CR 608.2b): an attacker removed from combat binds none.
+  const src = { controller: obj.controller, colors: face?.colors ?? [], typeLine: own?.typeLine, power: own?.power ?? null, toughness: own?.toughness ?? null, defending: defendingPlayerOf(state, obj.source ?? obj.card) };
   const targets: StackObject['targets'][number][] = [];
   const slots: number[] = [];
   obj.targets.forEach((target, k) => {

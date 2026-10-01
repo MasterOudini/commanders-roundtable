@@ -328473,6 +328473,607 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FIEND_BINDER": {
+    "scryfallId": "0cf7800a-ff70-4308-b3a2-1ea48e53a1f8",
+    "oracleId": "060c7999-ab81-4e37-af65-7cd219b693c8",
+    "name": "Fiend Binder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fiend Binder",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "Whenever this creature attacks, tap target creature defending player controls.",
+        "flavorText": "She had not believed any shred of humanity remained in these writhing monsters until the twisted form of her partner appeared before her.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "0cf7800a-ff70-4308-b3a2-1ea48e53a1f8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "gn2",
+    "collectorNumber": "7",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COVETED_PEACOCK": {
+    "scryfallId": "15935478-c2e1-4fb5-b6ba-0969ea5a0e81",
+    "oracleId": "e6ad5e92-c1ab-4c91-95ca-1af295e71b23",
+    "name": "Coveted Peacock",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Coveted Peacock",
+        "manaCost": "{3}{U}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever this creature attacks, you may goad target creature defending player controls. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Christopher Burdett",
+        "imageId": "15935478-c2e1-4fb5-b6ba-0969ea5a0e81"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Goad"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "82",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRASP_OF_THE_HIEROMANCER": {
+    "scryfallId": "1df9aa51-dfd7-4e8a-a9f4-113b728b45de",
+    "oracleId": "51310af7-796d-4cf0-871e-5055765ffcdd",
+    "name": "Grasp of the Hieromancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grasp of the Hieromancer",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has \"Whenever this creature attacks, tap target creature defending player controls.\"",
+        "flavorText": "\"There is power in abandon, but far more in control.\"\n—Warden Hixus, to Kytheon",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Igor Kieryluk",
+        "imageId": "1df9aa51-dfd7-4e8a-a9f4-113b728b45de"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "e01",
+    "collectorNumber": "13",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "COLOSSAL_WHALE": {
+    "scryfallId": "20968c42-d63b-4b2a-ae47-f986f3c35fdc",
+    "oracleId": "cd04b735-125f-47b5-a68e-ab2a008100b9",
+    "name": "Colossal Whale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Colossal Whale",
+        "manaCost": "{5}{U}{U}",
+        "typeLine": "Creature — Whale",
+        "oracleText": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhenever this creature attacks, you may exile target creature defending player controls until this creature leaves the battlefield. (That creature returns under its owner's control.)",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Erica Yang",
+        "imageId": "20968c42-d63b-4b2a-ae47-f986f3c35fdc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 7,
+    "keywords": [
+      "Landwalk",
+      "Islandwalk"
+    ],
+    "setCode": "pm14",
+    "collectorNumber": "48★",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOGLA_THE_TITAN_APE": {
+    "scryfallId": "2215abf3-d868-4d72-95fb-e7b611c1fa32",
+    "oracleId": "8b21062e-97b0-4967-96df-30e8309f4fba",
+    "name": "Kogla, the Titan Ape",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kogla, the Titan Ape",
+        "manaCost": "{3}{G}{G}{G}",
+        "typeLine": "Legendary Creature — Ape",
+        "oracleText": "When Kogla enters, it fights up to one target creature you don't control.\nWhenever Kogla attacks, destroy target artifact or enchantment defending player controls.\n{1}{G}: Return target Human you control to its owner's hand. Kogla gains indestructible until end of turn.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Chris Rahn",
+        "imageId": "2215abf3-d868-4d72-95fb-e7b611c1fa32"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 6,
+    "keywords": [
+      "Fight"
+    ],
+    "setCode": "piko",
+    "collectorNumber": "162p",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STAR_CROWNED_STAG": {
+    "scryfallId": "2707adf1-2eea-4822-bd62-79105c963af2",
+    "oracleId": "a375b739-6a6c-4e07-9b1c-a304f84ea2cc",
+    "name": "Star-Crowned Stag",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Star-Crowned Stag",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Elk",
+        "oracleText": "Whenever this creature attacks, tap target creature defending player controls.",
+        "flavorText": "White as starlight on snow, it appears only on the eve of the winter solstice.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Jonathan Kuo",
+        "imageId": "2707adf1-2eea-4822-bd62-79105c963af2"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "M19-38",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MASTER_OF_DIVERSION": {
+    "scryfallId": "2bec89b3-640e-4093-a6e9-5639610769b9",
+    "oracleId": "3402aa73-5e63-4158-b114-6f1d42ec8992",
+    "name": "Master of Diversion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Master of Diversion",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Human Scout",
+        "oracleText": "Whenever this creature attacks, tap target creature defending player controls.",
+        "flavorText": "Choose your battles carefully. For example, avoid the big guy.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Michael Komarck",
+        "imageId": "2bec89b3-640e-4093-a6e9-5639610769b9"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m14",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTAIN_AMERICA_S_SHIELD": {
+    "scryfallId": "2cef736d-170d-4551-83e5-19f6b6bb677c",
+    "oracleId": "8255a797-ddd3-4db0-a3f5-dd8f38c3b908",
+    "name": "Captain America's Shield",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Captain America's Shield",
+        "manaCost": "{2}",
+        "typeLine": "Legendary Artifact — Equipment",
+        "oracleText": "Indestructible\nEquipped creature gets +0/+8 and has vigilance.\nWhenever equipped creature attacks, tap target creature defending player controls.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Jim Cheung & Jay David Ramos",
+        "imageId": "2cef736d-170d-4551-83e5-19f6b6bb677c"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 2,
+    "keywords": [
+      "Indestructible",
+      "Equip"
+    ],
+    "setCode": "msh",
+    "collectorNumber": "311",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SKYMARK_ROC": {
+    "scryfallId": "60601296-2229-4c48-94cc-1903926750ce",
+    "oracleId": "b7564801-e35c-4d5c-afa9-99b33b35309c",
+    "name": "Skymark Roc",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skymark Roc",
+        "manaCost": "{2}{W}{U}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhenever this creature attacks, you may return target creature defending player controls with toughness 2 or less to its owner's hand.",
+        "flavorText": "\"Try not to look guilty. Or delicious.\"\n—Thorpe, street urchin",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "60601296-2229-4c48-94cc-1903926750ce"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rtr",
+    "collectorNumber": "196",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HELLKITE_WHELP": {
+    "scryfallId": "65e902e8-bbd5-40fe-a655-45d3d3bc9fde",
+    "oracleId": "a9b1dd4a-2eaf-4448-a767-da705d3ec32b",
+    "name": "Hellkite Whelp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hellkite Whelp",
+        "manaCost": "{4}{R}",
+        "typeLine": "Creature — Dragon",
+        "oracleText": "Flying\nWhenever this creature attacks, it deals 1 damage to target creature defending player controls.",
+        "flavorText": "\"They play by spitting fire at each other. Don't be offended if one gives you a love-scorch.\"\n—Esfir, Rakdos dragon wrangler",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "65e902e8-bbd5-40fe-a655-45d3d3bc9fde"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "grn",
+    "collectorNumber": "106",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THUNDER_LASSO": {
+    "scryfallId": "73dff5fc-2adf-447a-b35f-e7883e0fd821",
+    "oracleId": "d98cc18b-6ebb-4f55-9d0d-b8fbe9a92bc1",
+    "name": "Thunder Lasso",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Thunder Lasso",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, attach it to target creature you control.\nEquipped creature gets +1/+1.\nWhenever equipped creature attacks, tap target creature defending player controls.\nEquip {2}",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Camille Alquier",
+        "imageId": "73dff5fc-2adf-447a-b35f-e7883e0fd821"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "otj",
+    "collectorNumber": "35",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SIDAR_JABARI": {
+    "scryfallId": "743f0d06-cd14-49f3-ad3c-0d419a0c30bc",
+    "oracleId": "cb637dfd-4022-43a4-8632-77e614436f38",
+    "name": "Sidar Jabari",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sidar Jabari",
+        "manaCost": "{3}{W}",
+        "typeLine": "Legendary Creature — Human Knight",
+        "oracleText": "Flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.)\nWhenever Sidar Jabari attacks, tap target creature defending player controls.",
+        "flavorText": "\"Prophecy is whatever one makes of it, but destiny cannot be changed.\"\n—Sidar Jabari",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Gerry Grace",
+        "imageId": "743f0d06-cd14-49f3-ad3c-0d419a0c30bc"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flanking"
+    ],
+    "setCode": "mir",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MAGE_RING_RESPONDER": {
+    "scryfallId": "7c60473d-5065-4e63-bfc2-a041a8ca48ed",
+    "oracleId": "1d84fb81-2de5-4be1-9638-9ae28e3d867a",
+    "name": "Mage-Ring Responder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mage-Ring Responder",
+        "manaCost": "{7}",
+        "typeLine": "Artifact Creature — Golem",
+        "oracleText": "This creature doesn't untap during your untap step.\n{7}: Untap this creature.\nWhenever this creature attacks, it deals 7 damage to target creature defending player controls.",
+        "flavorText": null,
+        "power": "7",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Adam Paquette",
+        "imageId": "7c60473d-5065-4e63-bfc2-a041a8ca48ed"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 7,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "232",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPRING_SPLASHER": {
+    "scryfallId": "b6822d12-1a25-42e7-94cc-71bd29daed93",
+    "oracleId": "f1136a22-b202-4688-a44c-a9979c91261a",
+    "name": "Spring Splasher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spring Splasher",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Frog Beast",
+        "oracleText": "Whenever this creature attacks, target creature defending player controls gets -3/-0 until end of turn.",
+        "flavorText": "It once escaped a cook's pot. Now it fears neither heat nor human.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "b6822d12-1a25-42e7-94cc-71bd29daed93"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "otj",
+    "collectorNumber": "69",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "THE_WASP_WINSOME_AVENGER": {
+    "scryfallId": "ce5fb436-fcc6-426f-a33b-a8ba904df0ff",
+    "oracleId": "4b706959-ea38-4808-870a-7c35d83f7ab2",
+    "name": "The Wasp, Winsome Avenger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "The Wasp, Winsome Avenger",
+        "manaCost": "{1}{U}",
+        "typeLine": "Legendary Creature — Human Hero",
+        "oracleText": "Flash\nFlying\nWhen The Wasp enters, target Hero gains hexproof until end of turn.\nWhenever The Wasp attacks, tap target creature defending player controls.",
+        "flavorText": "\"No job too small. No villain too big.\"",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Raoul Vitale",
+        "imageId": "ce5fb436-fcc6-426f-a33b-a8ba904df0ff"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "39",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_RACKETEER": {
+    "scryfallId": "eac5c565-1553-4be1-a289-6189e07460a0",
+    "oracleId": "9336a62c-f2f9-45a8-bf69-86060aa0ce59",
+    "name": "Goblin Racketeer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Racketeer",
+        "manaCost": "{3}{R}",
+        "typeLine": "Creature — Goblin Rogue",
+        "oracleText": "Whenever this creature attacks, you may goad target creature defending player controls. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
+        "flavorText": "\"It, uh, fell off a cart?\"",
+        "power": "4",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Zoltan Boros",
+        "imageId": "eac5c565-1553-4be1-a289-6189e07460a0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Goad"
+    ],
+    "setCode": "cn2",
+    "collectorNumber": "53",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "OUTLAND_LIBERATOR_FRENZIED_TRAPBREAKER": {
+    "scryfallId": "60e53d61-fcc3-4def-8206-052b46f62deb",
+    "oracleId": "9545f126-062f-4410-a362-e16255a128d6",
+    "name": "Outland Liberator // Frenzied Trapbreaker",
+    "layout": "transform",
+    "faces": [
+      {
+        "name": "Outland Liberator",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Human Werewolf",
+        "oracleText": "{1}, Sacrifice this creature: Destroy target artifact or enchantment.\nDaybound (If a player casts no spells during their own turn, it becomes night next turn.)",
+        "flavorText": "\"Just hold still. I'll help you.\"",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "60e53d61-fcc3-4def-8206-052b46f62deb-0"
+      },
+      {
+        "name": "Frenzied Trapbreaker",
+        "manaCost": "",
+        "typeLine": "Creature — Werewolf",
+        "oracleText": "{1}, Sacrifice this creature: Destroy target artifact or enchantment.\nWhenever this creature attacks, destroy target artifact or enchantment defending player controls.\nNightbound (If a player casts at least two spells during their own turn, it becomes day next turn.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "60e53d61-fcc3-4def-8206-052b46f62deb-1"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Transform",
+      "Daybound",
+      "Nightbound"
+    ],
+    "setCode": "mid",
+    "collectorNumber": "190",
+    "commanderLegality": "legal",
+    "singleImage": false
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

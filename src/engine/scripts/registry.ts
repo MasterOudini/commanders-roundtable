@@ -7,6 +7,23 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FIEND_BINDER_SCRIPT } from './cards/fiendBinder';
+import { COVETED_PEACOCK_SCRIPT } from './cards/covetedPeacock';
+import { GRASP_OF_THE_HIEROMANCER_SCRIPT } from './cards/graspOfTheHieromancer';
+import { COLOSSAL_WHALE_SCRIPT } from './cards/colossalWhale';
+import { KOGLA_THE_TITAN_APE_SCRIPT } from './cards/koglaTheTitanApe';
+import { STAR_CROWNED_STAG_SCRIPT } from './cards/starCrownedStag';
+import { MASTER_OF_DIVERSION_SCRIPT } from './cards/masterOfDiversion';
+import { CAPTAIN_AMERICAS_SHIELD_SCRIPT } from './cards/captainAmericasShield';
+import { SKYMARK_ROC_SCRIPT } from './cards/skymarkRoc';
+import { HELLKITE_WHELP_SCRIPT } from './cards/hellkiteWhelp';
+import { THUNDER_LASSO_SCRIPT } from './cards/thunderLasso';
+import { SIDAR_JABARI_SCRIPT } from './cards/sidarJabari';
+import { MAGE_RING_RESPONDER_SCRIPT } from './cards/mageRingResponder';
+import { SPRING_SPLASHER_SCRIPT } from './cards/springSplasher';
+import { THE_WASP_WINSOME_AVENGER_SCRIPT } from './cards/theWaspWinsomeAvenger';
+import { GOBLIN_RACKETEER_SCRIPT } from './cards/goblinRacketeer';
+import { OUTLAND_LIBERATOR_FRENZIED_TRAPBREAKER_SCRIPT } from './cards/outlandLiberatorFrenziedTrapbreaker';
 import { RELIEF_CAPTAIN_SCRIPT } from './cards/reliefCaptain';
 import { SADDLEBACK_LAGAC_SCRIPT } from './cards/saddlebackLagac';
 import { AERIE_AUXILIARY_SCRIPT } from './cards/aerieAuxiliary';
@@ -8714,6 +8731,23 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FIEND_BINDER_SCRIPT,
+  COVETED_PEACOCK_SCRIPT,
+  GRASP_OF_THE_HIEROMANCER_SCRIPT,
+  COLOSSAL_WHALE_SCRIPT,
+  KOGLA_THE_TITAN_APE_SCRIPT,
+  STAR_CROWNED_STAG_SCRIPT,
+  MASTER_OF_DIVERSION_SCRIPT,
+  CAPTAIN_AMERICAS_SHIELD_SCRIPT,
+  SKYMARK_ROC_SCRIPT,
+  HELLKITE_WHELP_SCRIPT,
+  THUNDER_LASSO_SCRIPT,
+  SIDAR_JABARI_SCRIPT,
+  MAGE_RING_RESPONDER_SCRIPT,
+  SPRING_SPLASHER_SCRIPT,
+  THE_WASP_WINSOME_AVENGER_SCRIPT,
+  GOBLIN_RACKETEER_SCRIPT,
+  OUTLAND_LIBERATOR_FRENZIED_TRAPBREAKER_SCRIPT,
   RELIEF_CAPTAIN_SCRIPT,
   SADDLEBACK_LAGAC_SCRIPT,
   AERIE_AUXILIARY_SCRIPT,

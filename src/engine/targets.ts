@@ -115,6 +115,31 @@ export interface TargetingSource {
    * an ability being activated: neither has a stack object until its targets are chosen.
    */
   readonly stackId?: StackId | null;
+  /**
+   * D606 - the DEFENDING PLAYER for a clause whose controller is `'defending'` (CR 508.5): the player the source's
+   * attacker is attacking (`defendingPlayerOf`). Absent or null admits no candidate for such a clause.
+   */
+  readonly defending?: PlayerId | null;
+}
+
+/**
+ * D606 - THE DEFENDING PLAYER of a source (CR 508.5): the player its attacker is attacking - the source itself, or the creature
+ * the source is attached to (an Equipment's or an Aura's "equipped/enchanted creature attacks") - with a planeswalker's or a
+ * battle's controller for a permanent defender, as `project` draws it. With neither in combat, the one player being attacked
+ * when this combat attacks only one (CR 508.5a: one specific defending player); otherwise none.
+ */
+export function defendingPlayerOf(state: GameState, source: InstanceId | null | undefined): PlayerId | null {
+  const combat = state.combat;
+  if (!combat) return null;
+  const playerOf = (ref: (typeof combat.attackers)[number]['defender']): PlayerId | null =>
+    ref.kind === 'player' ? ref.id : (state.cards[ref.id]?.controller ?? null);
+  const host = source ? state.cards[source]?.attachedTo ?? null : null;
+  for (const attacker of [source, host]) {
+    const decl = attacker ? combat.attackers.find((a) => a.card === attacker) : undefined;
+    if (decl) return playerOf(decl.defender);
+  }
+  const all = new Set(combat.attackers.map((a) => playerOf(a.defender)).filter((p): p is PlayerId => p !== null));
+  return all.size === 1 ? ([...all][0] ?? null) : null;
 }
 
 /**
@@ -211,6 +236,8 @@ export function specAdmits(spec: TargetSpec, src: TargetingSource, c: TargetCand
   if (!spec.kinds.some((k) => c.kinds.includes(k))) return false;
   if (spec.controller === 'you' && c.controller !== src.controller) return false;
   if (spec.controller === 'opponent' && c.controller === src.controller) return false;
+  // D606 - the defending player's (CR 508.5): the player the source's attacker is attacking, bound by the source.
+  if (spec.controller === 'defending' && (src.defending === undefined || src.defending === null || c.controller !== src.defending)) return false;
   // D581 - OWNED BY YOU (mutate's target, CR 702.140a): the candidate's owner is the spell's controller, whoever controls it.
   if (spec.restrict?.ownedByYou === true && c.owner !== src.controller) return false;
   // D414 - `another target X`: never the resolving object's own source (a permanent's ability aimed at

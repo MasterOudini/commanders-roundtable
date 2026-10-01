@@ -843,6 +843,10 @@ function readController(after: string, from: number): ControllerResult {
   const other = searchable.match(/^\s+another\s+player\s+controls\b/i);
   if (other) return withController('opponent', readController(after, from + (other[0]?.length ?? 0)));
 
+  // D606 - the DEFENDING PLAYER (CR 508.5): the player the source's attacker is attacking, bound by the targeting source.
+  const defending = searchable.match(/^\s+defending\s+player\s+controls\b/i);
+  if (defending) return withController('defending', readController(after, from + (defending[0]?.length ?? 0)));
+
   return { controller: null, zones: null, numeric: null, keyword: null, end: from, zoneUnread: null };
 }
 
@@ -953,7 +957,7 @@ function readList(clean: string, cursor: number, firstRestrict: MutableRestrict,
   // A qualifier's own " or " ("power 4 or greater", "mana value 3 or less") is
   // not a list delimiter: the list region ends where the trailing qualifier
   // begins, and that qualifier is read off the last piece below.
-  const qualAt = sentence.search(/\s+(?:with|without|you\s+control|you\s+don't\s+control|you\s+don\u2019t\s+control|an\s+opponent\s+controls|your\s+opponents\s+control|that)\b/i);
+  const qualAt = sentence.search(/\s+(?:with|without|you\s+control|you\s+don't\s+control|you\s+don\u2019t\s+control|an\s+opponent\s+controls|your\s+opponents\s+control|defending\s+player\s+controls|that)\b/i);
   const region = qualAt >= 0 ? sentence.slice(0, qualAt) : sentence;
   const parts = region.split(/,\s*(?:or\s+|and\/or\s+)?|\s+(?:or|and\/or)\s+/i);
   if (parts.length < 2) return null;
