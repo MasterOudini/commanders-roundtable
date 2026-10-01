@@ -123,8 +123,11 @@ describe('D425 - the you scope and the opponent-or-planeswalker noun', () => {
     expect(r.effects.map((e) => [e.kind, e.amount, e.scopes])).toEqual([['damageEach', 2, [{ kind: 'player', controller: 'you' }]]]);
   });
 
-  test('a compound with a target and a you rider stays unread (Char)', () => {
-    expect(parse('~ deals 4 damage to any target and 2 damage to you.').mode).toBe('manual');
+  // D602 - the compound reads now: the conjunction's right half borrows the left's `~ deals` (two clauses, one target).
+  test('a compound with a target and a you rider reads as two clauses (Char)', () => {
+    const r = parse('~ deals 4 damage to any target and 2 damage to you.');
+    expect(r.mode).toBe('auto');
+    expect(r.effects.map((e) => [e.kind, e.amount])).toEqual([['damage', 4], ['damageEach', 2]]);
   });
 
   test('target opponent or planeswalker reads as a damage aim', () => {

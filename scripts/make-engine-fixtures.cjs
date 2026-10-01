@@ -10748,6 +10748,38 @@ const WANTED = [
   'Guildpact Informant',
   'Unstoppable Ash',
   // D601 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D602 - THREE CLAUSES MISSED BY A WORD: the rows the whole-leftover row maker rowed once the vocabulary read the Aura's own return, the self counter removal and a verbless damage right half.
+  'Karstoderm',
+  'Brothers of Fire',
+  'Cage of Hands',
+  'Chaotic Goo',
+  'Whip Silk',
+  'Orcish Artillery',
+  'Conviction',
+  'Wingspan Stride',
+  'Shackles',
+  'Fireslinger',
+  'Granger Guildmage',
+  'Mourning',
+  'Forge Devil',
+  'Crown of Flames',
+  'Shadow Guildmage',
+  'Goblin Artillery',
+  "Ephara's Enlightenment",
+  'Belligerent Hatchling',
+  "Daredevil's Billy Club",
+  'Noxious Hatchling',
+  'Orcish Cannoneers',
+  'Ghitu Firebreathing',
+  'Viscerid Armor',
+  'Forced Worship',
+  'Agoraphobia',
+  'Voracious Hatchling',
+  'Spicy Oatmeal Pizza',
+  'Hypervolt Grasp',
+  "Burning Sun's Avatar",
+  'Rakdos Firewheeler',
+  // D602 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

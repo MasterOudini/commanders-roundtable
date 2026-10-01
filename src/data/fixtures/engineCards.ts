@@ -9583,6 +9583,36 @@ export const SOMBERWALD_ALPHA: CardData = F.SOMBERWALD_ALPHA as CardData;
 export const DYING_TO_SERVE: CardData = F.DYING_TO_SERVE as CardData;
 export const GUILDPACT_INFORMANT: CardData = F.GUILDPACT_INFORMANT as CardData;
 export const UNSTOPPABLE_ASH: CardData = F.UNSTOPPABLE_ASH as CardData;
+export const KARSTODERM: CardData = F.KARSTODERM as CardData;
+export const BROTHERS_OF_FIRE: CardData = F.BROTHERS_OF_FIRE as CardData;
+export const CAGE_OF_HANDS: CardData = F.CAGE_OF_HANDS as CardData;
+export const CHAOTIC_GOO: CardData = F.CHAOTIC_GOO as CardData;
+export const WHIP_SILK: CardData = F.WHIP_SILK as CardData;
+export const ORCISH_ARTILLERY: CardData = F.ORCISH_ARTILLERY as CardData;
+export const CONVICTION: CardData = F.CONVICTION as CardData;
+export const WINGSPAN_STRIDE: CardData = F.WINGSPAN_STRIDE as CardData;
+export const SHACKLES: CardData = F.SHACKLES as CardData;
+export const FIRESLINGER: CardData = F.FIRESLINGER as CardData;
+export const GRANGER_GUILDMAGE: CardData = F.GRANGER_GUILDMAGE as CardData;
+export const MOURNING: CardData = F.MOURNING as CardData;
+export const FORGE_DEVIL: CardData = F.FORGE_DEVIL as CardData;
+export const CROWN_OF_FLAMES: CardData = F.CROWN_OF_FLAMES as CardData;
+export const SHADOW_GUILDMAGE: CardData = F.SHADOW_GUILDMAGE as CardData;
+export const GOBLIN_ARTILLERY: CardData = F.GOBLIN_ARTILLERY as CardData;
+export const EPHARA_S_ENLIGHTENMENT: CardData = F.EPHARA_S_ENLIGHTENMENT as CardData;
+export const BELLIGERENT_HATCHLING: CardData = F.BELLIGERENT_HATCHLING as CardData;
+export const DAREDEVIL_S_BILLY_CLUB: CardData = F.DAREDEVIL_S_BILLY_CLUB as CardData;
+export const NOXIOUS_HATCHLING: CardData = F.NOXIOUS_HATCHLING as CardData;
+export const ORCISH_CANNONEERS: CardData = F.ORCISH_CANNONEERS as CardData;
+export const GHITU_FIREBREATHING: CardData = F.GHITU_FIREBREATHING as CardData;
+export const VISCERID_ARMOR: CardData = F.VISCERID_ARMOR as CardData;
+export const FORCED_WORSHIP: CardData = F.FORCED_WORSHIP as CardData;
+export const AGORAPHOBIA: CardData = F.AGORAPHOBIA as CardData;
+export const VORACIOUS_HATCHLING: CardData = F.VORACIOUS_HATCHLING as CardData;
+export const SPICY_OATMEAL_PIZZA: CardData = F.SPICY_OATMEAL_PIZZA as CardData;
+export const HYPERVOLT_GRASP: CardData = F.HYPERVOLT_GRASP as CardData;
+export const BURNING_SUN_S_AVATAR: CardData = F.BURNING_SUN_S_AVATAR as CardData;
+export const RAKDOS_FIREWHEELER: CardData = F.RAKDOS_FIREWHEELER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19440,6 +19470,36 @@ export const ENGINE_CARDS: CardData[] = [
   DYING_TO_SERVE,
   GUILDPACT_INFORMANT,
   UNSTOPPABLE_ASH,
+  KARSTODERM,
+  BROTHERS_OF_FIRE,
+  CAGE_OF_HANDS,
+  CHAOTIC_GOO,
+  WHIP_SILK,
+  ORCISH_ARTILLERY,
+  CONVICTION,
+  WINGSPAN_STRIDE,
+  SHACKLES,
+  FIRESLINGER,
+  GRANGER_GUILDMAGE,
+  MOURNING,
+  FORGE_DEVIL,
+  CROWN_OF_FLAMES,
+  SHADOW_GUILDMAGE,
+  GOBLIN_ARTILLERY,
+  EPHARA_S_ENLIGHTENMENT,
+  BELLIGERENT_HATCHLING,
+  DAREDEVIL_S_BILLY_CLUB,
+  NOXIOUS_HATCHLING,
+  ORCISH_CANNONEERS,
+  GHITU_FIREBREATHING,
+  VISCERID_ARMOR,
+  FORCED_WORSHIP,
+  AGORAPHOBIA,
+  VORACIOUS_HATCHLING,
+  SPICY_OATMEAL_PIZZA,
+  HYPERVOLT_GRASP,
+  BURNING_SUN_S_AVATAR,
+  RAKDOS_FIREWHEELER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

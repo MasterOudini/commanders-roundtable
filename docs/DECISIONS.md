@@ -186705,3 +186705,1691 @@ older fight and bite suites, token copies (15), the permanent control family (20
 control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
 the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
 tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.
+## D602 — THREE CLAUSES MISSED BY A WORD: the Aura's own return, the self counter removal, a verbless damage half (2026-10-01)
+
+**13,271 of 31,692 Commander-legal cards now execute completely, up from 13,241 (+30 — all rows; six shipped spell scripts retire - the vocabulary reads them whole; the probe diff
+is the 30, nothing regressed).** `SHIPPED_SCRIPTS` 8,630 → **8,654**. The REFUSED ledger 2,888 → **2,889** (Chaotic Goo's stale entry retires; Shimmering Wings and Magmaroth, newly offerable, are ledgered with the row maker's reasons).
+Fixtures 9,854 → **9,884**. `scriptableToday` 1,994 → **1,996**; the ladder `[1996, 2011, 3324, 4809, 5892]`. Bot reach
+**5,345** from **444**. The select pool pin stays **16**. Cards only, by the user's word: three vocabulary seams and their wave.
+
+### The seams (`effectParse.ts`)
+
+Measured from the activated lines the row maker refused (`effect not a row kind`, 1,929 - mana abilities lead that list,
+a different mechanism) and the trigger payloads' blockers:
+- **`Return this Aura to its owner's hand.`** (13: Cage of Hands, Whip Silk, Conviction ...) - the self return named a
+  creature, a permanent, an artifact, an enchantment, a land or a card, never `this Aura` / `this Equipment`.
+- **`Remove a +1/+1 counter from this creature.`** (Karstoderm, the hatchlings) - the removal read only a target; a self
+  rule now, `removeCounters` in SELF_AIMED.
+- **`~ deals 2 damage to any target and 3 damage to you.`** (7: Orcish Artillery, Brothers of Fire ...) - D426's conjunction
+  found no verb in the right half; a damage right half after a damage left half continues `~ deals`. It also reads
+  Burning Sun's Avatar's and Rakdos Firewheeler's two-target damage.
+- `smallSelfClauses.test.ts`: the three readings and an upkeep removal on the card; all 4 failed first.
+
+### The generator (`fix602-gen-remove.cjs`, `fix602-gen-remove2.cjs`)
+
+The self counter removal is asserted off the log (its negative delta on the card, D585's pattern), only on a card the
+row says enters with counters of that kind (Magmaroth, Chainbreaker refused). The trial's finds, refused: a living weapon
+beside its own return (Batterskull - the Germ dies with it), a self pump beside the counters the card enters with (Sturdy
+Hatchling - the suite reads the printed base).
+
+### The retirement (D187)
+
+Six shipped spell scripts whose suppression predicate no longer holds - the conjunction's verbless damage half reads
+their whole text now - retire: Char, Cunning Strike, Hungry Flames, Lunge, Orcish Cannonade, Reckless Rage (`retire602.cjs`);
+the vocabulary runs them with no script. D425's pinned boundary (`twoPassEffects.test.ts`: the Char compound stayed
+unread) moves with it. The select pool read 18: Shimmering Wings and Magmaroth, newly offerable, are ledgered with the row
+maker's reasons; the pin stays 16.
+
+### The wave
+
+Karstoderm, Brothers of Fire, Cage of Hands, Chaotic Goo, Whip Silk, Orcish Artillery, Conviction, Wingspan Stride, Shackles, Fireslinger, Granger Guildmage, Mourning, Forge Devil, Crown of Flames, Shadow Guildmage, Goblin Artillery, Ephara's Enlightenment, Belligerent Hatchling, Daredevil's Billy Club, Noxious Hatchling, Orcish Cannoneers, Ghitu Firebreathing, Viscerid Armor, Forced Worship, Agoraphobia, Voracious Hatchling, Spicy Oatmeal Pizza, Hypervolt Grasp, Burning Sun's Avatar, Rakdos Firewheeler. The trial 30 / 88 (the first 30 of 32 - Batterskull, Sturdy Hatchling), the port 30 / 88. The re-probe: 18,451 → 18,421, the 30 newly complete, 0 regressed.
+
+### Traps
+
+- **A SELF FORM IS A LIST OF NOUNS.** `this Aura` was missing from the self return's list for 13 cards.
+- **A CONJUNCTION'S RIGHT HALF CAN BORROW THE LEFT'S VERB.** `and 3 damage to you` has no verb of its own.
+
+The gate: 9,025 files, 42,606 passing, the fuzz 997.7 s wall over 6 shards.
+
+⚠️ **Reportables** (D602): around the three clauses missed by a word: 30 complete (all rows), and what stays: Batterskull (a living weapon beside its own return - the Germ dies with it), Sturdy Hatchling (a self pump beside the counters it enters with - the suite reads the printed base), a counter removal on a card that enters with none (Magmaroth, Chainbreaker), the Phantom creatures (`If damage would be dealt to this creature, prevent that damage. Remove a +1/+1 counter` - a prevention replacement), a removal with `If you do` / `If you don't` (Noosegraf Mob, Magmasaur); the activated lines the row maker refuses are led by mana abilities (~177 - a different mechanism).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D603 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the activated refusals (`effect not a row kind`: `Look at the top card of your library.` 11, `Flip a coin.` 10, `You gain life equal to the sacrificed creature's toughness.` 8, `Switch this creature's power and toughness` 7, `can attack this turn as though it didn't have defender` 7), the zz-block probe's largest shape, or a subsystem (the dungeon). The loop stays on Opus 5.5.
+D601's own reportables stand behind them:
+
+⚠️ **Reportables** (D601): around the four head forms: 9 complete (all rows), and what stays: Dreadhorde Butcher (its dies trigger's `damage equal to its power` reads the dead creature's power, not its last known information - FIX-LIST 67, refused by name beside Juri), a `that many` payload under the discard head (Cryptcaller Chariot, Marauding Mako, Magmakin Artillerist, Spider-Man, New Champion, Scrounging Skyray - the head carries no number), Hostile Investigator (`one or more players discard`), Toluz's `exile them`, Jin Sakai's and Silent Submersible's subjects (a creature you control / this Vehicle), and payloads the vocabulary does not read under the new forms (Gustcloak Savior's remove from combat, General Marhault's count, Norin's play from exile).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D602 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the discard head's `that many` (a count memo, 5), the zz-block probe's largest sentence shape, or a subsystem (the dungeon: `Venture into the dungeon` 15 and `You take the initiative` 19; incubate 33). The loop stays on Opus 5.5.
+D600's own reportables stand behind them:
+
+⚠️ **Reportables** (D600): around the scry and surveil heads: 8 complete (all rows), and what stays: `Whenever you scry or surveil` (Matoya, Archon Elder; Planetarium of Wan Shi Tong - one def matches one event), a payload the vocabulary does not read under the heads (Elminster's next-spell cost, Elrond's X counters, Legolas's untap-if-tapped, Glorfindel's mode, Mirko's return, Blood Operative from the graveyard, Lost Isle Calling's verse counter, Galadriel's Ring-bearer, Elvish Mariner's X taps), Thoughtbound Phantasm's counter condition, Whispering Snitch's first time each turn, Celeborn's attack-with-Elves head.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D601 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the trigger heads still missing (`Whenever you discard one or more cards` 8, `Whenever enchanted creature attacks` 12, `Whenever you scry or surveil` 2), the dungeon (`Venture into the dungeon` 15, `You take the initiative` 19 - a subsystem) or the largest shape the zz-block probe names. The loop stays on Opus 5.5.
+D599's own reportables stand behind them:
+
+⚠️ **Reportables** (D599): around the two trigger heads: 15 complete (all rows), and what stays: under the counters-put head, a payload the vocabulary does not read (Fetid Gargantua's drain, Emperor of Bones, Lonis's `investigate that many times`) and the heads over another creature (`put on a creature you control` - Shalai and Hallar, Simic Ascendancy, Moss-Pit Skeleton, Enduring Scalelord, Wildwood Scourge, Botanical Brawler, Animation Module, Cloaked Cadet); under the attack head, a payload the vocabulary does not read (Beastmaster Ascension's quest counter, Druids' Repository's charge counter - counter kinds closed, D90; `defending player loses 1 life` - Brutal Hordechief, Campaign of Vengeance; Hellrider; Teferi's Veil; Connecting the Dots; Anthem of Rakdos; Shared Animosity's count; Aradesh's enlist).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D600 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the scry and surveil heads (`Whenever you scry` 13, `Whenever you surveil` 7 - the engine emits no scry or surveil event yet: a marker event first) or the largest shape the zz-block probe names. The loop stays on Opus 5.5.
+D598's own reportables stand behind them:
+
+⚠️ **Reportables** (D598): around the host referent: 19 complete (all rows), and what stays: a host clause beside another clause (Sigarda's Imprisonment, Fall from Favor, Hold for Questioning, Mesmerizing Dose), a host clause behind a cost that moves the source (Choking Restraints, Phantom Wings, Path to Redemption - last known information), an Equipment host row under a cast head (Leering Emblem - the cast arm's Bears), a modal host clause (Quiet Disrepair), a host counter removal; 22 cards the host reading made offerable are ledgered with the row maker's reasons (a trigger head the library lacks - `When enchanted creature becomes the target`, `attacks or blocks`, `is dealt damage` -, an Aura enchanting a non-creature, a cost with no fixture).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D599 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the trigger heads the library lacks (`one or more +1/+1 counters are put on ~` 16, `a creature you control attacks` 13, `enchanted creature attacks` 11, `you scry` 11 / `you surveil` 7, `enchanted creature becomes the target` ...) or the largest shape the zz-block probe names. The loop stays on Opus 5.5.
+D597's own reportables stand behind them:
+
+⚠️ **Reportables** (D597): around the typed equip: 8 complete (all rows), and what stays: a typed equip whose quality the target reader cannot restrict by (`Equip commander {N}` - Commander's Plate, Unstable Molecule Suit; `Equip creature token {1}` - Team Pennant, read as any creature; `Equip planeswalker {1}` - Luxior; a subtype list), a card whose only equip is typed (Excalibur, Sword of Eden - the scaffold's Bears carries no quality), Equip - a non-mana cost (Murderer's Axe, Demonmail Hauberk, Piston Sledge, Nightmare Lash, Inventor's Axe, Shredder's Armor, Bloodthorn Flail), an Equip cost reducer (Crown of Gondor, Arm-Mounted Anchor, Plate Armor), Reconfigure.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D598 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the enchanted-creature referent in a payload (`Put a +1/+1 counter on enchanted creature.` 10, `Untap enchanted creature.` 6, `Tap enchanted permanent.` 4, `Exile enchanted creature.` 3) or the largest shape the zz-block probe names. The loop stays on Opus 5.5.
+D596's own reportables stand behind them:
+
+⚠️ **Reportables** (D596): around the attack head on a noncreature: 9 complete (all rows), and what stays: Bitterthorn, Nissa's Animus (a living weapon beside an equipped-creature head - the scaffold's equip kills the Germ the board baseline counted; a row could attack with its own Germ instead), the attack heads whose payload the vocabulary does not read yet (`it` / `that creature` under an equipped head, a target the defending player controls, a token `tapped and attacking`, energy), and 31 Equipment the row maker finds no Equip line for (Reconfigure creatures, `Equip <quality> {N}`, Equip - a non-mana cost, an Equip cost reducer).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D597 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the Equip lines the row maker cannot index (31 rows) or the largest shape the zz-block probe names. The loop stays on Opus 5.5.
+D595's own reportables stand behind them:
+
+⚠️ **Reportables** (D595): around the attach beside a pump: 12 complete (all rows), and what stays: an attach beside a clause that reads the equipped numbers (a fight, a bite, damage off power), Skyclave Pick-Axe (an equipped-creature landfall), Mind Carver (a conditional static), Mithril Coat (a legendary target), Forebear's Blade and Hero's Blade (filtered heads), Brilliant Wings (a payment branch).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D596 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - run the zz-block probe (d595/zz-block596.node.test.ts) and take the largest sentence shape it names. The loop stays on Opus 5.5.
+D594's own reportables stand behind them:
+
+⚠️ **Reportables** (D594): around the Equipment's own attach: 19 complete (all rows), and what stays: an attach beside another clause (Celestial Armor, Coral Sword, Galadhrim Bow, Barbed Bloodletter, Bladed Battle-Fan, Hidden Footblade, Illvoi Light Jammer, Quick-Draw Dagger, Squire's Lightblade, Stolen Stark Tech, Twin Blades - the generator's grant assert expects the fixture's numbers unmoved while the Equipment's own static moved them: teach it the equipped bonus), a filtered head (Forebear's Blade - equipped; Hero's Blade - legendary), Skyclave Pick-Axe (an equipped-creature landfall), Mind Carver (a conditional static), Mithril Coat (a legendary target); the counter kinds stay closed (D90).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D595 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the attach beside another clause (11 rows: the generator's assert learns the equipped bonus) or the next blocker the zz-block probe names (`You take the initiative.` 19, `Look at the top N cards` 16, `Reveal the top N cards` 15, `Venture into the dungeon.` 14, `Incubate N.` 12). The loop stays on Opus 5.5.
+D593's own reportables stand behind them:
+
+⚠️ **Reportables** (D593): around the tapped token: 38 complete (8 on the seam alone, 30 rows), and what stays: nine offered cards ledgered (trigger heads not in the library - Ognis, Magda, Urza, Dying to Serve, Green Goblin, Slagstone Refinery; Cityscape Leveler's opponent-side token; Nuka-Cola Vending Machine's Food fodder; Horned Stoneseeker's Powerstone fodder), `create X tapped` (a variable count), `tapped and attacking` copies; the generator asserts a token's count, not its tap (the engine proof does).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D594 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the next unread payload shape of the 3,831 `trigger payload not a pump` refusals (`you may pay` 132, `Put a +1/+1 counter on enchanted creature`, `create a N/N ... token` descriptions the table lacks) or a larger family the measurement finds. The loop stays on Opus 5.5.
+D592's own reportables stand behind them:
+
+⚠️ **Reportables** (D592): around the scry in a payload: 15 complete (all rows, no engine change), and what stays: a scry that is not the payload's last effect (Greedy Freebooter - fix list item 66: its Treasure after the harness kept the scry), an aimed payload with a scry, a scry-then-draw rider, an activated scry; the 3,857 `trigger payload not a pump` refusals are 165 vocabulary-read payloads (a generator gap each - pump 36, lookAtTop 32, createToken 19, reanimate 14) and 3,692 the vocabulary does not read (the next seams: `create a tapped ... token` 66 single-line rows, `you may pay` 132, `Put a +1/+1 counter on enchanted creature`).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D593 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - THE TAPPED TOKEN (`create a tapped ... token` - 140 rows, 66 single-line; `Create a tapped Powerstone token.` among them) or a larger family the measurement finds. The loop stays on Opus 5.5.
+D591's own reportables stand behind them:
+
+⚠️ **Reportables** (D591): around the plural bounce: 11 complete (8 on the seam alone, 3 rows), and what stays: the family's other returns (Paradoxical Outcome - any number of nontoken, nonland, a draw per card; Marang River Regent // Coil and Catch - a two-faced card; Sea God's Scorn, Repulsor Bots - another line), `any number of target players each gain N life` (a targeted gainLife the executor has not - Hunters' Feast, Reward the Faithful), `up to X target` (47 rows - a variable count).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D592 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - `up to X target` (47 rows, 18 single-line - a count read off X) or a larger family the measurement finds (gift 8, assist 8, collect evidence 8, cipher 9, prototype 7). The loop stays on Opus 5.5.
+D590's own reportables stand behind them:
+
+⚠️ **Reportables** (D590): around the counted target: 18 complete (11 on the seam alone, 7 rows), and what stays: the subject-first counted pump with a VARIABLE or a second clause (Black Sun's Twilight, Gold Rush, Tandem Takedown, Triton Tactics, When We Were Young, Blades of Velis Vel - all creature types), `up to X target` (Agility and Endurance Bobblehead, Voyager Drake, Mogis's Marauder, Prismabasher - the count a variable), `any number of target players each gain N life` (Hunters' Feast, Reward the Faithful), base power and toughness (Hostile Takeover), Bane's Invoker and Twigwalker (ledgered); `return up to four target creatures to their owners' hands` stays unread (the bounce spells one owner).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D591 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - the plural subject's next shapes (the bounce to owners' hands, `any number of target players each`) or a larger family the measurement finds (gift 8, assist 8, collect evidence 8, cipher 9, prototype 7). The loop stays on Opus 5.5.
+D589's own reportables stand behind them:
+
+⚠️ **Reportables** (D589): around emerge: 7 complete (all rows - the seam alone completes none), and the family's rest waits on another line: Elder Deep-Fiend (`tap up to four target permanents` - the effect vocabulary's COUNTED stops at three; with Nefashu and Invisible Force Field the next candidate, THE COUNTED TARGET TO FIVE), Twisted Riddlekeeper, Distended Mindbender, Adipose Offspring and Herigast (payloads outside the vocabulary), Cresting Mosasaurus (`if you cast it`), Drownyard Behemoth (its entered-this-turn static - ledgered), Crabomination (`Emerge from artifact` unread); Foul Emissary's sacrificed-while-casting-with-emerge head is not in the library; the bot picks its cheapest body and previews it (an emerge the cheapest body cannot pay is not cast - no retry with a larger one); emerge has no fuzz counter.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D590 ADDS CARDS (the user's word, 2026-09-30): measure inline and pick - THE COUNTED TARGET TO FIVE (`up to four/five target` in the effect vocabulary: Elder Deep-Fiend, Nefashu, Invisible Force Field, maybe Yosei) or a larger family the measurement finds (gift 8, assist 8, collect evidence 8, cipher 9, prototype 7). The loop stays on Opus 5.5.
+D588's own reportables stand behind them:
+
+⚠️ **Reportables** (D588): around the graveyard target grammar: 13 complete (5 on the seam alone - Rapid Decay, Ebony Charm, Scarab Feast, Decompose, Shred Memory - and 8 rows), and what stays: Digsite Conservator (its dies trigger pays into discover - a payment branch the suite cannot assert, ledgered); the client's aim over graveyard cards was not re-verified against the one-graveyard rule (the host refuses a split pick). (D587): the eight fix sessions merged and their holes closed with no count moved; 49 items the sessions reported wait on `.crt-m64-drafts/d587/FIX-LIST.md` for the full card and script audit the user asked for AFTER the cards (2026-09-30), with CR 400.7 object identity (a flickered source or target is a new object - the source entry stamp) and the view's derived keywords. The merged fix worktrees wait for the user's word before removal.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D589 ADDS CARDS (the user's word, 2026-09-30: only add cards - no review workflows; the gate before each push): measure the next family inline and pick - EMERGE (7 rows; D408's alternative cost with a sacrifice, the mana value cut, the preview's D53 gap) or a larger family the measurement finds. The loop stays on Opus 5.5.
+D586's own reportables stand behind them:
+
+⚠️ **Reportables** (D586): around the reflexive trigger's second cut: 20 complete (Faebloom Trick on the seam alone, 19 rows - the 5 mandatory Family lands and Smoke Bomb, 9 counted payloads, 4 harvest rows), and the family's rest stays behind another line: the ASKING actions (`sacrifice a creature`, discard, amass, forage, collect evidence - their `you do` is the answer, a second seam: Foray of Orcs, Kardur's Vicious Return, Awaken the Honored Dead), the plural and single-graveyard target grammar (13 measured - Diregraf Horde, Rooftop Percher, Faerie Macabre, Rapid Decay and the rest - its own decision: the cross-pick legality, a UI aim and a bot fill), an optional trigger whose mandatory payload aims (Generous Plunderer - refused by rule), the modal and borrowing payloads (Gorbag); carried into D587 in this session (the user's rule): the triggered ability's source entry stamp (a flickered source is a new object - every self effect, CR 400.7) and the view carrying DERIVED hexproof and shroud (the client's legality, D289's gap - the bot's trigger-aim stall's root). The six fix sessions the user started (ward on copies, the stack-target legality, the free-cast optional costs, the SBA guard, the commander's death, the face-down log) are merged in this session as each finishes.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D587 BEGINS WITH THE TWO CARRIED CARD FIXES (the user's rule of 2026-09-29: every card-related bug is fixed in this session, never a spawned session): THE SOURCE ENTRY STAMP (a triggered or activated ability's stack object records its source's `entries` as it goes on - CR 400.7: a flickered source is a NEW object, and `sacrifice ~`, the SELF_AIMED plan, `bottomSelf` and `shuffleSelf` act on nothing; D586's review proved it on Smoke Bomb) and THE VIEW'S DERIVED KEYWORDS (hexproof, shroud and protection off `derive` onto the card view, so the client's legality, the veil and the bot agree with the host - D289's gap, the root of the bot's trigger-aim stall D586 worked around); then MEASURE the plural and single-graveyard target grammar (13 at the D586 judge's count: Rooftop Percher, Faerie Macabre, Rag Dealer, Carrion Beetles, Griffnaut Tracker, Arashin Sunshield, Famished Ghoul, Diregraf Horde with the second cut, Rapid Decay, Ebony Charm, Scarab Feast, Decompose, Shred Memory - the cross-pick legality in validateTargets, OPTIONAL_COUNT to four and five, a UI aim over graveyard cards - verify the veil anchors them - and a bot fill grouped by owner; the generator stages one pick, so a hand-written multi-pick proof) against EMERGE (7 rows; D408's alternative cost with a sacrifice, the mana value cut, the preview's D53 gap) - a workflow; the six fix sessions the user started are merged HERE as each finishes (review, full tests, merged with the next decision). The loop stays on Opus 5.5.
+D585's own reportables stand behind them:
+
+⚠️ **Reportables** (D585): around casualty: 26 complete (8 on the seam alone - the eight casualty spells - and 18 rows, the vocab key twin's), and the family's rest stays behind another line: the six casualty spells whose other line is unread (Flawless Forgery - assisted; Xander's Pact, Cut Your Losses, Grisly Sigil, Audacious Swap - offerable, ledgered - and Dig Up the Body), Ob Nixilis, the Adversary (`Casualty X` on a planeswalker - its copy a token planeswalker the engine does not make), the granted casualty (Anhelo, the Painter; Silverquill, the Disputant; Ashad, the Lone Cyberman; Spelldrain Assassin; Maestros' Totally Safe Hideout's land casualty) and the free cast that offers no optional cost (cascade, discover, rebound - D491's design, a task); four pre-existing findings of the review wait as tasks (a copy's targets never pay ward; an untyped `target spell` accepts an ability; a copy may target itself; the free cast's optional costs). The bot pays casualty only from what it can spare (a token, never its commander, never an aimed creature, never the last creature before a lethal swing, never on a spell that costs its caster life).
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D586 IS MEASURED (the D585 judge, workflow measure-d585-three - every measurer's number re-run): THE REFLEXIVE TRIGGER'S SECOND CUT (the mandatory `<action>. When you do, <payload>` D584 left unread - 6 rows (Obscura Storefront, Riveteers Overlook, Maestros Theater, Brokers Hideout, Cabaretti Courtyard, Smoke Bomb) and Faebloom Trick; the smallest seam: a fallback in matchReflexive, D584's marker after the action's last step with a per-kind whitelist of what counts as `you do`, the NEEDS_AIM walk, about 25 generator lines; its near misses in the same cut - Diregraf Horde's plural `target cards from graveyards` grammar (Rooftop Percher and Faerie Macabre row on it too) and Eastfarthing Farmer's count plan through the payload) with the harvest fixes (+4: the exert `When you do` payloads of Glorybringer and Ahn-Crop Champion, Broodrage Mycoid's quoted token body, Summon: Primal Garuda's named chapter - entered through zz-vocab, never a hand-written key); D587 is EMERGE (7 rows - Wretched Gryff, Abundant Maw, Vexing Scuttler, Decimator of the Provinces, It of the Horrid Swarm, Mockery of Nature, Lashweed Lurker; D408's alternative cost with a sacrifice, the mana value cut through taxApplied, the client preview must price it - the D53 gap - off a derived manaValue on the card view; a one-word generator fix for It of the Horrid Swarm's board assert); then cipher, gift, assist, collect evidence, prototype, provoke and ripple (measured at D584, d584/STATE-d584.md) and THE INITIATIVE WITH VENTURE (`plan-d582.md`) when the mid-tier's yields fall below it. The loop stays on Opus 5.5.
+D584's own reportables stand behind them:
+
+⚠️ **Reportables** (D584): around the reflexive trigger: 31 complete (1 on the seam alone - Lithobraking - and 30 rows), and the family's rest stays behind what is not a read price or a read payload: the MANDATORY-ACTION second cut (`<action>. When you do,` - an amass, a mill, a discard, a sacrifice with no `you may`: Faebloom Trick, Foray of Orcs, Grishnakh, The Last Ronin, Kraven's Last Hunt, Awaken the Honored Dead, Kardur's Vicious Return - about 7), the price near-misses (Shire Shirriff's token fodder, The Thing beside a second step head, Eden's mill beside the price), the modal and borrowing payloads (Voltstorm Angel, Gorbag), the refused by rule (Cyclops Superconductor's dies bite - last known information; the Go-Shintai's counted payloads), and the twelve the seam made offerable that the row maker refuses (ledgered, each with its reason). The adversarial review's pre-existing find waits as its own task: state-based actions still run under a live resolution prompt (CR 704.3 - the drain guard's other half). A reflexive payload that asks, waits, counts or is gated, and one aimed at a source already in the graveyard (last known information), stay refused by rule.
+The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D585 IS MEASURED (d584/next-yield-d585-strict.json - the strict judge over the post-D584 leftover; the ranking stands, the reflexive family was the critic's find and none of the judge's) and D584's two workflows name it: CASUALTY (8 spells - conspire's clone with a powerAtLeast sacrifice, SMALL: no new prompt, the review's pick rides electAlternative's sacrifice; the bot sacrifices only what it can spare) against THE REFLEXIVE TRIGGER'S SECOND CUT (the mandatory action `<action>. When you do,` - about 7, Faebloom Trick among them - on D584's marker, the action's own event the trigger) and EMERGE (7 rows, 4 at the judge's floor, SMALL: D408's alternative cost with a sacrifice and D563's reduction; the preview must price it) - MEASURE THE THREE FIRST and rank by yield per mechanism; then cipher 9 (medium - a copy of a card), gift 8, assist 8, collect evidence 8, prototype 7, provoke 6, ripple 5 (d584/STATE-d584.md); the phasing follow-up (46 / 17), connive (32 / 14), overload (27 / 13), the initiative (26 / 11 - with venture, `plan-d582.md`), manifest dread (23 / 10) and double counters (40 / 7) yield one card per shape. The bot's reflexive verb pick must SPARE the payload's planned target (the review's last suggestion: Young Necromancer's exile could take the only creature card it returns) - casualty's sacrifice policy touches the same block. The loop stays on Opus 5.5.
+D583's own reportables stand behind them:
+
+⚠️ **Reportables** (D583): around haunt: 7 complete (3 on the seam alone - Seize the Soul, Benediction of Moons, Cry of Contrition - and 4 rows: Belfry Spirit, Absolver Thrull, Blind Hunter, Exhumer Thrull) and three haunt creatures stay behind their payloads - Orzhov Euthanist's `destroy target creature that was dealt damage this turn`, Orzhov Pontiff's `Creatures you don't control get -1/-1 until end of turn` mode, Graven Dominator's `each other creature has base power and toughness 1/1 until end of turn`. The adversarial review's third defect waits as its own task: a commander the `always` answer sends to the command zone never dies (903.9a - every dies trigger misses it). Haunt has no fuzz counter and no view of its link (the exiled card does not show the
+creature it haunts). The payment review's awaken election stays fixed uncommitted in its own worktree (`crt-awaken-fix`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D584 IS MEASURED (d583/next-yield-d584-strict.json - the strict judge over the post-D583 leftover; the ranking stands, haunt's seven gone): the phasing follow-up (46 / 17), connive (32 / 14), overload (27 / 13 spells - 2 on its changed text), manifest dread (23 / 10) and double counters (40 / 7) yield one card per shape, and the initiative (26 / 11) rows 4 at the ceiling behind the largest subsystem left (with venture, `plan-d582.md`); so D584 MEASURES THE MID-TIER'S REST, a stand-in per mechanism over the whole leftover (with ultracode on, one measuring agent per candidate): cipher (15 / 7 spells - `cast a copy of a card`, an engine path the cast-a-copy family shares), prototype (19 / 6 - a second set of characteristics), assist (16 / 6 - another player's payment), collect evidence (22 / 6), casualty (14 / 4 spells - conspire's shape with a sacrifice), emerge (15 / 4), gift (24 / 4, 3 spells), provoke (8 / 4) and ripple (5 / 4, 3 spells); granted ward rowed 0 even stood in (the row maker rows no keyword-grant static). The loop stays on Opus 5.5.
+D582's own reportables stand behind them:
+
+⚠️ **Reportables** (D582): around the transform follow-ups: 10 complete (all rows - the five transforms-into heads, the five face-indexed activations) and the transform family's 224 whole-leftover refusals stay behind other lines - a face's trigger payload the vocabulary does not read (85, 74 of them on the front face), an effect no row kind carries (25), a line that is neither an activated ability nor a library trigger (20 over both faces), a trigger head the library does not hold (12 - `When you play a card exiled with`, `deals combat damage to a player, transform it`, `When a spell you control deals damage`), a filtered head outside the closed reader (11), the multi-face layouts the row maker refuses (10), a filtered head no fixture satisfies (8), an intervening if outside the closed reader (7) and single shapes beside them; Voldaren Pariah's transforms-into head reads and it waits on a queued sacrifice of three; a back-face enters head (Infestation Expert) stays refused - the suite stages the back face after the entry. The initiative and venture are recorded for a decision of their own (`plan-d582.md` -
+at the ceiling 4 rows, 6 with the look taught, behind the designation, Undercity's rooms and paths, the Throne's grant
+`until your next turn` and Catacombs' Skeleton token; the AFR dungeons' rooms read 6/7, 5/9 and 1/5). The user's
+"stop" halted the loop mid-prechain and "continue" resumed it (the prechain re-run from the start). The payment review's
+awaken election - the user's task - is fixed uncommitted in its own worktree (`crt-awaken-fix`, branch
+`fix/awaken-election` - the review re-aims at every clause an elected cost adds, through the host's `castTargetSpecs`);
+the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D583 IS MEASURED (d582/next-yield-d583-strict.json - the strict judge over the post-D582 leftover; the ranking stands, the transform follow-ups were no judge family): the phasing follow-up (46 / 17), connive (32 / 14), overload (27 / 13 spells - 2 on its changed text), manifest dread (23 / 10) and double counters (40 / 7) yield one card per shape, and the initiative (26 / 11) rows 4 at the ceiling, 6 with the look taught, behind the largest subsystem left (the designation and a data-driven dungeon - with venture's 37 leftover cards, `plan-d582.md`); so D583 MEASURES THE MID-TIER FIRST, a stand-in per mechanism over the whole leftover: cipher (15 / 7 spells), haunt (12 / 7), prototype (19 / 6 - a second set of characteristics), assist (16 / 6 - another player's payment), collect evidence (22 / 6), granted ward (33 / 6), casualty (14 / 4 spells) and emerge (15 / 4); dredge measured 3. The loop stays on Opus 5.5.
+D581's own reportables stand behind them:
+
+⚠️ **Reportables** (D581): around mutate, 20 complete (all rows) and fourteen mutate cards stay behind another line -
+`the number of times this creature has mutated` (5), the Apexes' own payloads and Brokkos' graveyard cast, Parcelbeast's activated
+ability (an under card's activated abilities are not offered yet: the activation indices are the top face's) and four
+single payloads; the `mutates` heads on cards with no Mutate line wait for another mutate card cast onto them. The target
+grammar reads `target creature you own` as a confident `target creature` (the one shipped match binds the Auras). The
+payment review's awaken election waits as its own task (D576); the client preview's graveyard cost waits in the
+uncommitted preview-fix worktree; the standing ones stand. D582 IS MEASURED (d581/next-yield-d582-strict.json - the strict judge over the post-D581 leftover): THE INITIATIVE (26 / 11, the judge's whole a floor - 8 of the 15 printing `When this creature enters, you take the initiative.`): a designation (CR 725 - one player holds it; taking it ventures into Undercity, its holder ventures again at their upkeep, combat damage to the holder takes it) and a dungeon (CR 309 - Undercity's rooms, the venture's room choice, each room's effect through the vocabulary, the dungeon completed at its last room); over dredge (14 / 8 - a draw replacement asked per draw), cipher (15 / 7 spells), haunt (12 / 7), the transform follow-ups (+5 each) and mutate's own (the mutation count, an under card's activated abilities). The loop stays on Opus 5.5.
+D580's own reportables stand behind them:
+
+⚠️ **Reportables** (D580): around the last turn's spells, 21 complete (all rows) and eleven werewolves stay behind
+another line - the `transforms into` heads (3), two faces' activated abilities at one index (2), `transform it` under an
+item head (Geier Reach Bandit), the statics outside the library (4) and Sage of Ancient Lore's hand-size
+characteristic. The payment review's awaken election waits as its own task (D576); the client preview's graveyard cost
+waits in the uncommitted preview-fix worktree; the standing ones stand. D581 IS MEASURED (d580/next-yield-d581-strict.json - the board unchanged by the werewolves - and d580/measure581.cjs): MUTATE (37 / 15, the strict judge's whole a floor) - a merged permanent (CR 702.140: the creature spell cast for its mutate cost onto a non-Human creature its owner owns, merged over or under it; the top card's characteristics with every card's abilities; `whenever this creature mutates`; the whole pile leaves together); over the transform follow-ups measured beside it - the `transforms into` heads (+5: Brutal Cathar, Avacynian Missionaries, Captive Weird, Skyclave Aerialist, Blightreaper Thallid) and the face-indexed activated abilities (+5: Wolfbitten Captive, Daybreak Ranger, Mysterious Tome, Vildin-Pack Outcast, Town Gossipmonger) - the initiative (26 / 11), dredge (14 / 8), cipher (15 / 7 spells) and haunt (12 / 7). The loop stays on Opus 5.5.
+D579's own reportables stand behind them:
+
+⚠️ **Reportables** (D579): around transform, 25 complete (24 rows and Screeching Bat in a second batch) and the
+transforming permanents stay behind their faces' other lines - about 20 older werewolves (the last turn's spells on the
+`each upkeep` head), the `transforms into` heads, two faces' activated abilities at one index; fourteen ledgered. The
+Tier-3 notes read a two-faced card's keyword on its own face now. The payment review's awaken election waits as its own
+task (D576); the client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones
+stand. D580 IS MEASURED (`d579/next-yield-d580-strict.json` and D579's stand-in): THE LAST TURN'S SPELLS - the
+werewolves (about 20): the previous turn's spells per player, the two intervening ifs on the `each upkeep` head, a suite
+that stages the last turn; over mutate (37 / 15), the initiative (26 / 11), dredge (14 / 8) and cipher (15 / 7 spells).
+The loop stays on Opus 5.5. D578's own reportables stand behind them:
+
+⚠️ **Reportables** (D578): around the transform rows, 9 complete (all daybound) and the other transform cards stay behind
+their faces' own refusals - 364 face refusals, 130 of them naming a transform line (`Transform this creature.`, the older
+werewolves' `If no spells were cast last turn, transform this creature.`, the exile-and-return-transformed payloads);
+Infestation Expert, Brutal Cathar and Avabruck Caretaker re-reasoned; modal DFCs and the other multi-face layouts still
+meet the layout gate. The payment review's awaken election waits as its own task (D576); the client preview's graveyard
+cost waits in the uncommitted preview-fix worktree; the standing ones stand. D579 IS MEASURED
+(`d578/next-yield-d579-strict.json` and the face refusals): THE TRANSFORM EFFECT - the vocabulary's transform of the
+source and the last turn's spells across the table - measure how many would row once it reads; over mutate (37 / 15),
+the initiative (26 / 11), dredge (14 / 8), cipher (15 / 7 spells) and haunt (12 / 7). The loop stays on Opus 5.5.
+D577's own reportables stand behind them:
+
+⚠️ **Reportables** (D577): around daybound, 8 complete on the seam alone and 27 stay in the family's touch - 24 held
+back only by the row maker's `multi-face or unusual layout` gate (twelve ledgered), Arlinn's loyalty abilities and the
+two Tovolars; Wolf Strike re-reasoned (its `if it's night` condition). Step 0 closed modalEffects' fight index
+(Dromoka's Command). The payment review's awaken election waits as its own task (D576); the client preview's graveyard
+cost waits in the uncommitted preview-fix worktree; the standing ones stand. D578 IS MEASURED
+(`d577/next-yield-d578-strict.json` and the row maker's refusals): THE TRANSFORM ROWS - the layout gate refuses 899
+leftover-wide (24 of daybound's 27) - measure how many would row with a suite for both faces; over mutate (37 / 15),
+the initiative (26 / 11), dredge (14 / 8), cipher (15 / 7 spells), haunt (12 / 7), prototype (19 / 6) and assist (16
+/ 6); overload (27 / 13 spells) is 2 on its changed text. The loop stays on Opus 5.5. D576's own reportables stand
+behind them:
+
+⚠️ **Reportables** (D576): around splice, 14 complete on the seam alone and 16 stay in the family's touch - the five
+non-mana splice costs (a verb the host does not charge yet) and eleven splice spells whose own text the vocabulary does
+not read (Desperate Ritual, Strange Inversion and Psychic Puppetry ledgered). Beside the family: the payment review's
+awaken election keeps the spell's own targets (the awaken land's clause never aimed - flagged as its own task), and
+modalEffects leaves a fight's other target index unshifted - Dromoka's Command (whole) would have a creature fight
+itself once an earlier targeted mode is chosen: D577's step 0. The client preview's graveyard cost waits in the
+uncommitted preview-fix worktree; the standing ones stand. D577 IS MEASURED (`d576/next-yield-d577-strict.json`): the
+phasing follow-up 46 / 17 (a ceiling - each form's immediate yield to measure), mutate 37 / 15, daybound 35 / 15 (the
+face turns over today only by the manual flip), connive 32 / 14 and manifest dread 23 / 10 (built verbs - their gates),
+overload 27 / 13 spells (2 on its changed text), the initiative 26 / 11, the splice verb costs 5 / 3; D577 measures the
+forms and the gates first and takes the largest immediate yield per mechanism. The loop stays on Opus 5.5. D575's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D575): around the derived ward, 15 complete and 33 stay in the granted-ward family's touch - K-9's
+condition, Thran Power Suit's count, Leyline Immersion's granted mana (ledgered), the `Each other ...` and `Artifacts you
+control` scopes, Merry Bards' reflexive Young Hero; a self-granted conditional ward keeps its always-on reading (fix575a).
+The client preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D576 IS
+MEASURED (`d575/next-yield-d576-strict.json`): SPLICE - 30 touched, 16 whole, all spells - `Splice onto Arcane {cost}`
+(CR 702.47): as an Arcane spell is cast its controller may reveal other splice cards from the hand and pay their costs;
+the spell gains their text, the cards stay in the hand; a seam (a spell's completeness is its own rule); ranked over
+mutate (37 / 15), daybound (35 / 15), overload (27 / 13 spells), the initiative (26 / 11) and the phasing follow-up (46
+/ 17 - a ceiling). The loop stays on Opus 5.5. D574's own reportables stand behind them:
+
+⚠️ **Reportables** (D574): around Role tokens, 16 of the family's 36 complete and 21 stay in its touch - Royal and Young
+Hero (nine cards: the Royal // Young Hero printing waits for a derived ward), the heads (Ellivere ledgered; Gylwain's
+modal enters head; the reflexive `When you do` payments), the costs and conditions (Faunsbane Troll's Aura sacrifice,
+Diminisher Witch's bargain, Lord Skitter's Blessing, Gadwick's First Duel re-reasoned), the for-each Roles and Syr
+Armont's anthem. The client's ward reads face 0 while the host reads the card's face (the ward seam's). The client
+preview's graveyard cost waits in the uncommitted preview-fix worktree; the standing ones stand. D575 IS MEASURED
+(`d574/next-yield-d575-strict.json`, two families added): THE DERIVED WARD - a granted ward (35 touched, 8 whole) and
+the Royal and Young Hero Roles it unlocks (10 / 8), 16 together - ward on the derived characteristics, the tax off the
+derive (the host) and the view (the client), parseWard not reading a granted ward as the object's own, the Royal //
+Young Hero Role script; a seam and a wave; ranked over splice (30 / 16 spells), mutate (37 / 15), daybound (35 / 15),
+overload (27 / 13 spells), the initiative (26 / 11) and the phasing follow-up (46 / 17 - a ceiling). The loop stays on
+Opus 5.5. D573's own reportables stand behind them:
+
+⚠️ **Reportables** (D573): around phasing, 17 of the family's 64 complete and 46 stay in its touch, each for another
+line - the `phases in` / `phases out` heads (Teferi's Imp, Shimmering Efreet and Warping Wurm ledgered; King of the
+Oathbreakers, Ertai's Familiar, The War Doctor, Dream Fighter), the plural and counted `phase out` (Guardian of Faith,
+Clever Concealment, March of Swirling Mist), the durations (`until this leaves the battlefield`, `can't phase in` /
+`out`, `at end of combat`), the mass forms (Time and Tide re-reasoned, Taniwha, Teferi's Protection) and lines beside
+the family (ability words, planeswalkers, riders); the judge's 17 whole for the family is a ceiling. The client
+preview's graveyard cost waits in the uncommitted preview-fix worktree. The standing ones stand (the UI's special
+actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's missing
+designations). D574 IS MEASURED (`d573/next-yield-d574-strict.json`): ROLE TOKENS - 36 touched, 19 whole (6 spells)
+- `Create a <Role> Role token attached to <target / it / that creature>` (CR 303.7): an Aura token created attached,
+the seven Roles' statics through the derive (Cursed's base 1/1 among them) and the one-Role rule (a state-based
+action - the newest stays); a seam and a wave; ranked over the phasing follow-up (46 / 17 - a ceiling), splice
+(30 / 16 spells - a subsystem), mutate (37 / 15), daybound (35 / 15), overload (27 / 13 spells), the initiative
+(26 / 11), dredge (14 / 8), cipher (15 / 7) and haunt (12 / 7). The loop stays on Opus 5.5. D572's own reportables
+stand behind them:
+
+⚠️ **Reportables** (D572): around discover, 9 of the family's 20 stay for another line - Geological Appraiser's
+intervening `if you cast it`, Quintorius Kand's filtered head, Hit the Mother Lode's rider and Long-Range Sensor's
+charge-counter head (both ledgered), Trumpeting Carnosaur's discard ability, Caparocti Sunborn's tap-two payment,
+Digsite Conservator's graveyard exile, Chimil's static and Zoetic Glyph's animated artifact; a counted X - discover X -
+stays unread (three re-reasoned). The client preview's graveyard cost waits in the uncommitted preview-fix worktree. The
+standing ones stand (the UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent
+controllers, the view's missing designations). D573 IS MEASURED (`d572/next-yield-d573-strict.json`): PHASING - 64
+touched, 33 whole (5 spells) - `Phasing` and `<object> phases out` (CR 702.26): the flag exists and is set nowhere -
+the seam sets it (the effect kind, the untap step's toggle), audits every battlefield walk for the doesn't-exist rule
+(60 over 20 files, 15 honour it); 6 keyword-only on the seam alone, the rest rows and spells; ranked over dredge
+(14 / 8), haunt (12 / 7), cipher (15 / 7 spells), prototype (19 / 6), assist (16 / 6), collect evidence (22 / 6),
+casualty (14 / 4 spells) and emerge (15 / 4) - the mid-tier's yields fell to 4-8, and phasing's pays for its audit;
+then Role tokens (36 / 19), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), the initiative (26 / 11), overload
+(27 / 13 spells). The loop stays on Opus 5.5. D571's own reportables stand behind them:
+
+⚠️ **Reportables** (D571): around champion, 3 of the family's 12 stay for another line - Mistbind Clique's `When a
+Faerie is championed with this creature` and Unstoppable Ash's `becomes blocked` head (trigger heads not in the
+library), Wanderwine Prophets' extra turn under its sacrifice payment (ledgered). The client preview's graveyard cost
+waits in the uncommitted preview-fix worktree. The standing ones stand (the UI's special actions, the preview's
+foretold and plotted casts, warp's back-out, the referent controllers, the view's missing designations). D572 IS
+MEASURED (`d571/next-yield-d572-strict.json`): DISCOVER - 20 touched, 5 whole (2 spells) - `Discover N` (CR
+701.57a): cascade's procedure (D525) with the bound N and the hand as the decline's destination, a vocabulary effect
+kind; its rows need a staged library. The double-counters family (40 / 7) was set aside - D543 built the verb, its 7
+are seven row-maker gates. Ranked over dredge (14 / 8 - a subsystem), haunt (12 / 7), cipher (15 / 7 spells),
+prototype (19 / 6), assist (16 / 6), collect evidence (22 / 6), casualty (14 / 4 spells) and emerge (15 / 4) by
+yield per mechanism and its cost; then the initiative (26 / 11), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice
+(30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5.
+D570's own reportables stand behind them:
+
+⚠️ **Reportables** (D570): around devour, 12 of the family's 19 stay for another line - the devoured count
+(Skullmulcher, Marrow Chomper, Tar Fiend, Voracious Dragon's Goblins) and Hellkite Hatchling's `if it devoured a
+creature` want a devoured record the entering ask does not keep; a count of its own +1/+1 counters (Mycoloth, Fell
+Beast of Mordor, Preyseizer Dragon, Ribtruss Roaster); Bloodspore Thrinax's entry replacement; Ravenous
+Tyrannosaurus's excess and Ravenous Gigantotherium's divided damage; the variants (`Devour artifact 1`, `Devour Food
+3`, `Devour land 3`, `Devour X`) stay leftovers by the gate. The client preview's graveyard cost waits in the
+uncommitted preview-fix worktree. The standing ones stand (the UI's special actions, the preview's foretold and
+plotted casts, warp's back-out, the referent controllers, the view's missing designations). D571 IS MEASURED
+(`d570/next-yield-d571-strict.json`): CHAMPION - 12 touched, 6 whole, all permanents - `Champion a [type]` (CR
+702.72a): the enter trigger from the keyword table (sacrifice it unless you exile another [type] you control - asked
+only with a candidate), the exile linked to the champion's entry (D407's `until`, the state-based return), the noun
+read into predicates; ranked over prototype (19 / 6), dredge (14 / 8 - a subsystem), haunt (12 / 7), cipher (15 / 7
+spells), discover (20 / 5), casualty (14 / 4 spells) and emerge (15 / 4) by yield per mechanism and its cost; then
+the initiative (26 / 11), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16),
+daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D569's
+own reportables stand behind them:
+
+⚠️ **Reportables** (D569): around endure, 4 of the family's 10 stay for another line - Inspirited Vanguard's
+enters-or-attacks arm and Descendant of Storms' payment branch (both ledgered), Warden of the Grove's `endures X` by
+counters and Krumar Initiate's X activation. The client preview's graveyard cost waits in the uncommitted preview-fix
+worktree. The standing ones stand (the UI's special actions, the preview's foretold and plotted casts, warp's
+back-out, the referent controllers, the view's missing designations). D570 IS MEASURED
+(`d569/next-yield-d570-strict.json`): DEVOUR - 19 touched, 6 whole, all permanents - `Devour N` (CR 702.82a): the
+entering ask in D136's queue (`entersChoice` with a `devour` option, its answer the picks), no question without another
+creature; ranked over discover (20 / 5), champion (12 / 6), casualty (14 / 4 spells), dredge (14 / 8 - a subsystem),
+haunt, cipher and the other sixes by yield per mechanism and its cost; then the initiative (26 / 11), manifest dread
+(23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role
+tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D568's own reportables stand behind them:
+
+⚠️ **Reportables** (D568): around escape, 17 of the family's 32 stay for another line - the three Titans' `sacrifice it
+unless it escaped` (Kroxa, Uro, Phlage - the escaped mark is the stack object's and the entry's, not yet a condition),
+Polukranos's `escapes with twelve ... instead`, Pharika's Spawn's `when it enters this way`, Tizerus Charger's choice of
+counter, Skyway Robber's escapes-with a granted ability, Lunar Hatchling's two-verb cost, Cling to Dust's type branch
+(ledgered), Run for Your Life, Nethergoyf, Elspeth's loyalty abilities, Alex Wilder, From the Catacombs and three enters
+triggers the row maker refused (Ox of Agonas, Charred Graverobber, Chainweb Aracnir). The client preview's graveyard
+cost waits in the uncommitted preview-fix worktree - escape's cost joins flashback's and harmonize's there. The
+standing ones stand (the UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent
+controllers, the view's missing designations). D569 IS MEASURED (`d568/next-yield-d569-strict.json`): ENDURE - 8
+touched, 7 whole, all permanents - `<it> endures N` (CR 701.63): the counters or an N/N white Spirit, chosen at
+resolution - a new prompt with the resolution's rest its continuation; ranked over devour (19 / 6 - an entering
+chooser that would share the entry funnel's one question), champion (12 / 6), discover (20 / 5), casualty (14 / 4 spells), dredge (14 / 8 - a
+subsystem), haunt, cipher and the other sixes by yield per mechanism and its cost; then the initiative (26 / 11),
+manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D567's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D567): around surge and spectacle, 8 of the family's 22 stay for another line - five read whether
+the alternative cost was paid (Reckless Bushwhacker's, Tyrant of Valakut's and Rafter Demon's `if its surge / spectacle
+cost was paid` enters triggers, Crush of Tentacles' Octopus, Rix Maadi Reveler's `instead` - a paid-cost mark the stack
+object does not keep), Body Count's draw by the creatures that died under your control this turn, Fall of the Titans'
+X damage to up to two targets and Spawn of Mayhem's upkeep damage with its life-gated counter. The client preview's
+graveyard cost waits in the uncommitted preview-fix worktree. The standing ones stand (the UI's special actions, the
+preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's missing designations).
+D568 IS MEASURED (`d567/next-yield-d568-strict.json` and `d567/escape-yield-d568.json`): ESCAPE - 32 touched; with
+`This creature escapes with N +1/+1 counters on it.` read as the keyword's own (CR 702.138c), 9 whole - 8 on the
+one-verb cost `Escape—{M}, Exile N other cards from your graveyard.` (the strict judge's 5 counted the rider as another
+line); retrace's and jump-start's graveyard cast (D537) with its own mana and no exile as it resolves, the rider on
+sunburst's entry path; ranked over endure (8 / 7 - a new prompt), champion (12 / 6), devour (19 / 6), discover (20 /
+5), dredge (14 / 8 - a subsystem), haunt, cipher and the other sixes by yield per mechanism and its cost; then the
+initiative (26 / 11), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16),
+daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D566's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D566): around freerunning, 4 of the family's 12 stay for another line - Monastery Raid's
+`if this spell's freerunning cost was paid` X exile and its play until the end of the next turn, Petty Larceny's
+face-down exile with its any-type play, Viewpoint Synchronization's split search (two lands tapped onto the
+battlefield, one to the hand) and Overpowering Attack's untap of the creatures that attacked and its additional
+combat. The client preview's graveyard cost waits in the uncommitted preview-fix worktree. The standing ones stand
+(the UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the
+view's missing designations). D567 IS MEASURED (`d566/next-yield-d567-strict.json`, the strict judge over the same
+100 families): SURGE AND SPECTACLE - one mechanism, freerunning's: a keyword alternative cost under a condition the
+turn record already answers - `Surge {M}` (CR 702.117a: another spell cast this turn; 11 touched, 5 whole) and
+`Spectacle {M}` (CR 702.137a: an opponent lost life this turn; 11 touched, 4 whole) - 22 touched, 9 whole; ranked over
+dredge (14 / 8 - a subsystem), endure (8 / 7 - a new choice), haunt, cipher, the sixes and ripple by yield per
+mechanism and its cost; then the initiative (26 / 11 - two mechanisms), manifest dread (23 / 10), connive (32 / 14),
+overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing
+(64 / 33). The loop stays on Opus 5.5. D565's own reportables stand behind them:
+
+⚠️ **Reportables** (D565): around sunburst, 9 of the family's 15 stay for another line - Engineered Explosives' X
+sweep, Pentad Prism's mana off a counter, Spinal Parasite's targeted removal, Clearwater Goblet's upkeep life, Opaline
+Bracers' anthem by counters, Sawtooth Thresher's removal pump, Lunar Avenger's keyword choice, Heliophial's sacrifice
+damage and Infused Arrows' X removal; Arcbound Wanderer's Modular—Sunburst stays unread. The client preview's graveyard
+cost waits in the uncommitted preview-fix worktree. The standing ones stand (the UI's special actions, the preview's
+foretold and plotted casts, warp's back-out, the referent controllers, the view's missing designations). D566 IS
+MEASURED (`d565/next-yield-d566-strict.json`, the strict judge over the same 100 families): FREERUNNING - 11 touched, 6
+whole, 4 spells and 2 permanents - `Freerunning <cost>` (CR 702.173a): the alternative cost payable when you dealt
+combat damage to a player this turn with an Assassin or a commander - the keyword alternative cost (D449) under a turn
+-memory condition; ranked over devour, champion, prototype, collect evidence, assist, endure, haunt, cipher and dredge
+by yield per mechanism and its cost; then those, the initiative (26 / 11 - two mechanisms), manifest dread (23 / 10),
+connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens
+(36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D564's own reportables stand behind them:
+
+⚠️ **Reportables** (D564): around squad, 5 of the family's 13 stay for another line - Arco-Flagellant's Endurant life
+cost (ledgered), Zephyrim's miracle, Endless Foot Assault's attack tokens, Securitron Squadron's token-enters counter and
+Gary Clone's named pump; the verb squads (Thrill-Kill Disciple, Ruthless Radrat) stay unread. The client preview's
+graveyard cost waits in the uncommitted preview-fix worktree. The standing ones stand (the UI's special actions, the
+preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's missing designations).
+D565 IS MEASURED (`d564/next-yield-d565-strict.json`, the strict judge over the same 100 families): SUNBURST - 15
+touched, 6 whole, all permanents - `Sunburst` (CR 702.44a): the permanent enters with a counter for each colour of
+mana spent to cast it (+1/+1 on a creature, charge otherwise) - the colours the cast's `ManaSpent` names, carried onto
+the entry; ranked over the other sixes (freerunning, devour, champion, prototype, collect evidence, assist), endure,
+haunt, cipher and dredge by yield per mechanism and its cost; then those, the initiative (26 / 11 - two mechanisms),
+manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D563's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D563): around harmonize, 5 of the family's 11 stay for another sentence - Nature's Rhythm's search by
+X, Synchronized Charge's distributed counters, Winternight Stories' discard-unless, Zenith Festival's exile and play
+(ledgered) and Glacial Dragonhunt's reflexive discard. ⚠️ THE CLIENT PREVIEW prices a graveyard cast at the mana cost
+(flashback's, fixed in the UNCOMMITTED preview-fix worktree) - harmonize's too, so the bot and the table plan it wrong
+until that fix lands. The standing ones stand (the UI's special actions, the preview's foretold and plotted casts,
+warp's back-out, the referent controllers, the view's missing designations). D564 IS MEASURED
+(`d563/next-yield-d564-strict.json`, the strict judge over the same 100 families): SQUAD - 13 touched, 6 whole, all
+permanents - `Squad <cost>` (CR 702.157a): the cost paid any number of times as it is cast, a token copy of it for each
+payment as it enters - replicate's count (D556) and offspring's copies (D558); ranked over dredge, endure, haunt and
+cipher and over the other sixes (freerunning, sunburst, devour, champion, prototype, collect evidence, assist) by yield
+per mechanism and its cost; then those, endure, haunt, cipher, dredge, the initiative (26 / 11 - two mechanisms),
+manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D562's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D562): around enlist, 4 of the family's 12 stay for another line - Keldon Flamesage's attack look
+and free cast, Aradesh's `if it enlisted a creature this combat`, Guardian of New Benalia's enlists head (ledgered) and
+Balduvian Berserker's bite from the graveyard (ledgered, a perennial of the row maker). The standing ones stand (the
+UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's
+missing designations). D563 IS MEASURED (`d562/next-yield-d563-strict.json`, the strict judge over the same 100
+families): HARMONIZE - 11 touched, 6 whole, all spells - `Harmonize <cost>` (CR 702.180a): cast from the graveyard for
+its harmonize cost, tapping an untapped creature to reduce it by its power, exiled as it leaves the stack - flashback's
+graveyard cast with conspire's tap pick, all six on the seam alone; ranked over dredge (a subsystem), endure (a new
+prompt), haunt and cipher by yield per mechanism and its cost; then endure, haunt, cipher, dredge, the initiative
+(26 / 11 - two mechanisms), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16),
+daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D561's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D561): around recover, the family's six complete on the seam alone; Garza's Assassin keeps its
+`Recover—Pay half your life, rounded up.` unread and its self-sacrifice destroy beside it. The standing ones stand (the
+UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's
+missing designations). D562 IS MEASURED (`d561/next-yield-d562-strict.json`, the strict judge over the same 100
+families): ENLIST - 12 touched, 7 whole, all permanents - `Enlist` (CR 702.154a): as this creature attacks, you may tap
+up to one untapped creature you control that you didn't choose to attack with and that has haste or has been under
+your control since the turn began; when you do, it gets +X/+0 until end of turn (X the tapped creature's power) - an
+attack-declaration choice in exert's shape (D443) and a keyword-table trigger on the enlistment, with the bot's choice
+and the table's picker - a seam and a wave (5 bare keyword lines on the seam alone, 2 rows); ranked over dredge (a
+subsystem), endure (a new prompt), haunt (a haunting link and a trigger from exile) and cipher (an encoding and a cast
+copy) by yield per mechanism and its cost; then harmonize (11 / 6 spells), endure, haunt, cipher, dredge, the
+initiative (26 / 11 - two mechanisms), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice
+(30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5.
+D560's own reportables stand behind them:
+
+⚠️ **Reportables** (D560): around blitz, 11 of the family's 18 stay for another line - the blitzes that are not only
+mana (Sabin, Master Monk's discard, Tenacious Underdog's 2 life), Wave of Rats' return, Mezzio Mugger's and Ziatora's
+Envoy's plays off the top, Riveteers Decoy's must-be-blocked, Jaxis' token copy, Girder Goons' tapped token, Star
+Athlete's choice, Wakka's player referent and Pugnacious Pugilist's attacking token; Henzie's granted blitz stays
+unread. The standing ones stand (the UI's special actions, the preview's foretold and plotted casts, warp's back-out,
+the referent controllers, the view's missing designations). D561 IS MEASURED (`d560/next-yield-d561-strict.json`, the
+strict judge over the same 100 families): RECOVER - 6 touched, 6 whole, all spells - `Recover <cost>` (CR 702.59a):
+when a creature is put into your graveyard from the battlefield, you may pay the cost - back to your hand, or exiled -
+a trigger that works from the GRAVEYARD (a graveyard walk in the keyword table's bus) and D369's pay prompt with its
+two arms, all six on the seam alone (their ledger entries retire); ranked over dredge (a subsystem), endure (a new
+prompt), enlist (an attack choice and a UI picker), cipher and haunt by yield per mechanism and its cost; then enlist,
+endure, haunt, cipher, dredge, harmonize (11 / 6 spells), the initiative (26 / 11 - two mechanisms), manifest dread
+(23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role
+tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D559's own reportables stand behind them:
+
+⚠️ **Reportables** (D559): around transmute, 6 of the family's 14 stay for another sentence - Perplex's discarded hand,
+Dimir Machinations' look at a target player's library, Grozoth's any number of mana value 9, Netherborn Phalanx's
+drain, Brainspoil's unenchanted creature and Shred Memory's single graveyard (the last two ledgered). The standing ones
+stand (the UI's special actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers,
+the view's missing designations). D560 IS MEASURED (`d559/next-yield-d560-strict.json`, the strict judge over the same
+100 families): BLITZ - 18 touched, 7 whole, all permanents - `Blitz <cost>` (CR 702.152a): an alternative cost; haste,
+`When this creature dies, draw a card.` and a sacrifice at the next end step - dash's shape (D449) and a dies trigger
+from the keyword table - a seam and a wave; ranked over dredge (a subsystem), endure (a choice, a new prompt), cipher,
+enlist and haunt by yield per mechanism and its cost; then dredge, endure, enlist, haunt, recover (6 / 6 spells),
+harmonize (11 / 6 spells), the initiative (26 / 11 - two mechanisms), manifest dread (23 / 10), connive (32 / 14),
+overload (27 / 13 spells), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing
+(64 / 33). The loop stays on Opus 5.5. D558's own reportables stand behind them:
+
+⚠️ **Reportables** (D558): around offspring, 9 of the family's 20 stay for another line - Thundertrap Trainer's look
+(ledgered), Darkstar Augur's reveal, Bushy Bodyguard's forage, Manifold Mouse's choice of keyword, Pawpatch Recruit's
+becomes-the-target head, Prosperous Bandit's that-many Treasures, Thornplate Intimidator's punisher, Warren Warleader's
+attacking-token mode and Flowerfoot Swordmaster's Mouse-scoped pump. The standing ones stand (the UI's special actions,
+the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's missing designations).
+D559 IS MEASURED (`d558/next-yield-d559-strict.json`, the strict judge over the same 100 families): TRANSMUTE - 14
+touched, 7 whole (3 spells, 4 permanents) - `Transmute <cost>` (CR 702.53a): <cost>, discard this card: search for a
+card with the same mana value - only as a sorcery; a hand ability in typecycling's shape, its search the vocabulary's
+own (`a card with mana value N` reads), five of the seven on the seam alone; ranked over dredge (14 / 8 - a subsystem),
+endure (8 / 7), blitz (18 / 7), cipher (15 / 7 spells) and enlist (12 / 7) by yield per mechanism and its cost; then
+dredge, endure, blitz, haunt (12 / 7), recover (6 / 6 spells), harmonize (11 / 6 spells), the initiative (26 / 11 -
+two mechanisms), manifest dread (23 / 10), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16), daybound
+(35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D557's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D557): around conspire, 3 of the family's 11 stay for another sentence - Traitor's Roar's damage to
+the tapped creature's controller (ledgered), Disturbing Plot's and Mine Excavation's return from any graveyard; the
+grants of conspire (Raiding Schemes, Wort, the Raidmother, Rassilon) stay unread. The standing ones stand (the UI's
+special actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's
+missing designations). D558 IS MEASURED (`d557/next-yield-d558-strict.json`, the strict judge over the same 100
+families): OFFSPRING - 20 touched, 8 whole, all permanents - `Offspring <cost>` (CR 702.175a): an optional additional
+cost at cast (buyback's path), remembered by the permanent, and an enters trigger that creates a token copy of it
+except it's 1/1 (D485's copy, myriad's TokenCreated) - a seam and a wave; ranked over DREDGE (14 / 8 - a replacement
+that asks at every draw site, a subsystem) by yield per mechanism and its cost; then dredge, the initiative (26 / 11 -
+two mechanisms), manifest dread (23 / 10), cipher (15 / 7 spells), transmute (14 / 7), endure (8 / 7), blitz (18 / 7),
+recover (6 / 6 spells), harmonize (11 / 6 spells), connive (32 / 14), overload (27 / 13 spells), splice (30 / 16),
+daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D556's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D556): around replicate, 8 of the family's 16 stay for another sentence - Siege of Towers' animated
+Mountain and Mists of Lórien's same-mana-value scope (both ledgered), Thunderheads' token and its delayed exile, Stream
+of Thought's shuffle, Consign to Memory's triggered-ability target, Mimeofacture's same-name search, and the two
+permanents (Changing Loyalty, Hatchery Sliver - a permanent spell's copies are tokens the engine does not make); the
+replicates that are not mana (Reiterating Bolt's energy, Psionic Ritual's and Exterminate!'s tapped creature) and the
+grants (Djinn Illuminatus, Threefold Signal, Ian Chesterton) stay unread. The standing ones stand (the UI's special
+actions, the preview's foretold and plotted casts, warp's back-out, the referent controllers, the view's missing
+designations). D557 IS MEASURED (`d556/next-yield-d557-strict.json`, the strict judge over the same 100 families):
+CONSPIRE - 11 touched, 7 whole, all 7 spells on the seam alone - `Conspire` (CR 702.78a): as the spell is cast you may
+tap two untapped creatures you control that share a colour with it; when you do, copy it - D406's tap picks under a
+colour filter and storm's copy spec once; ranked over DREDGE (14 / 8 - measured higher, but a replacement that asks
+at every draw site: a subsystem, measured next), offspring (20 / 8) and the initiative (26 / 11 - two mechanisms) by
+yield per mechanism and its cost; then dredge, manifest dread (23 / 10), cipher (15 / 7 spells), transmute (14 / 7),
+endure (8 / 7), blitz (18 / 7), recover (6 / 6 spells), connive
+(32 / 14), overload (27 / 13 spells - 2 on its changed text), splice (30 / 16), daybound (35 / 15), mutate (37 / 15),
+Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D555's own reportables stand behind them:
+
+⚠️ **Reportables** (D555): around suspect, 20 of the family's 23 stay for another sentence - It Doesn't Add Up's
+`Suspect it.` after a return (OBJ_LATE: the object verbs read the state the return has not reached), the Auras'
+`suspect enchanted creature`, the un-suspect clauses (`no longer suspected` - five cards), the suspected-state
+conditions (Rubblebelt Braggart's `if it's not suspected` - no manual tool stages its broken side; Repeat Offender, Agrus
+Kos, Agency Coroner), Barbed Servitor (a self suspect beside a block recipe - refused), Nelly Borca's mass goad over the
+suspected, the three ledgered heads. THE PLAYER VIEW CARRIES NO DESIGNATION - detained, goaded, saddled, suspected: a
+creature that can't block or must attack shows no reason on the table (a cross-cutting UI seam). D551's three stand
+(the UI's special actions, the preview, warp's back-out), and D554's referent controllers (52 + 115 leftover cards).
+D556 IS MEASURED (`d555/next-yield-d556-strict.json`, the strict judge over the same 100 families): REPLICATE - 16
+touched, 8 whole, all 8 spells - `Replicate <cost>` (CR 702.56a): an additional cost paid any number of times, and a
+cast trigger copying the spell once per payment (new targets allowed) - multikicker's count and storm's copies
+composed, every one of the 8 on the seam alone; ranked over dredge (14 / 8), offspring (20 / 8), conspire (11 / 7
+spells) and THE INITIATIVE (26 / 11 - the designation and the Undercity's venture, two mechanisms; no dungeon in the
+engine) by yield per mechanism; then manifest dread (23 / 10), transmute (14 / 7), recover (6 / 6 spells), endure
+(8 / 7), blitz (18 / 7), connive (32 / 14 - five shapes), overload (27 / 13 spells - 2 on its changed text), splice
+(30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5.
+D554's own reportables stand behind them:
+
+⚠️ **Reportables** (D554): around goad, 71 of the family's 78 stay for another sentence - THE TARGET'S REFERENT
+CONTROLLER above all (`target creature defending player controls` on 52 leftover cards, `that player controls` on 115: the
+trigger's player fixing the target's controller, a cross-cutting target seam of its own), Geode Rager's mass goad over a
+target player, Puppet Master's goaded-creatures head (ledgered). D551's three stand (the UI's special actions, the
+preview, warp's back-out). D555 IS MEASURED (`d554/next-yield-d555-strict.json`, the strict judge over the same 100
+families): SUSPECT - 23 touched, 8 whole (2 spells, 6 permanents) - a suspected creature has menace and can't block for
+as long as it is suspected (CR 701.60): a designation derive and canBlock read; ranked over THE INITIATIVE (26 / 11 -
+goad now the engine's, the designation and the Undercity's venture still two mechanisms) by yield per mechanism; then
+the initiative, manifest dread (23 / 10), offspring (20 / 8), replicate (16 / 8 spells), dredge (14 / 8), connive
+(32 / 14 - five shapes), overload (27 / 13 spells - 2 on its changed text), splice (30 / 16), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 33). The loop stays on Opus 5.5. D553's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D553): around saddle, 19 of the family's 33 stay for another sentence (the six the select now
+offers - Ornery Tumblewagg's late entry, two counted payloads, Autarch Mammoth's Saddle 5, Brightfield Mustang's untap
+and Trained Arynx's scry - and saddle cards whose other text is unread). D551's three stand (the UI's special actions,
+the preview, warp's back-out). D554 IS MEASURED (`d553/next-yield-d554-strict.json`, the strict judge over the same 100
+families): GOAD - 78 touched, 8 whole, all permanents with a row - until the goading player's next turn the creature
+attacks each combat if able and attacks a player other than the goader if able (CR 701.15): detain's mark per goader
+and an attack requirement the declaration enforces; it is also the initiative's Arena room; then the initiative
+(26 / 10), manifest dread (23 / 10), suspect (23 / 8), offspring (20 / 8), replicate (16 / 8 spells), dredge (14 / 8),
+connive (32 / 14 - five shapes), overload (27 / 13 spells - 2 on its changed text), splice (30 / 16), daybound
+(35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 32). The loop stays on Opus 5.5. D552's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D552): around detain, 2 of the family's 12 stay for another sentence (Lavinia of the Tenth's mass
+detain - its head names the card by its short name, and the `each ... with mana value N or less` form is unread; Tax
+Collector's mode payload). D551's three stand: the UI renders no special action beyond a land play, the client preview
+prices neither a foretold nor a plotted cast, and a warped card backed out of mid-cast loses its mark. D553 IS MEASURED
+(`d552/next-yield-d553-strict.json`, the strict judge over the same 100 families): SADDLE - 33 touched, 9 whole, all
+permanents with a row - `Saddle N` (tap other creatures with total power N or more, as a sorcery - crew's chooser) and
+the saddled mark until end of turn, the generator's attacks-while-saddled and becomes-saddled heads - one mechanism,
+ranked over THE INITIATIVE (26 / 10) by yield per mechanism (its ten need three: the designation, the Undercity's
+venture and goad for its Arena room); then the initiative, manifest dread (23 / 10), goad (78 / 8), suspect (23 / 8),
+offspring (20 / 8), replicate (16 / 8 spells), dredge (14 / 8), connive
+(32 / 14 - five shapes), overload (27 / 13 spells - 2 on its changed text), splice (30 / 16), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 32). The loop stays on Opus 5.5. D551's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D551): around plot, 20 of the family's 33 stay for another sentence (Stingerback Terror's counted
+shrink, ledgered; Longhorn Sharpshooter's becomes-plotted damage dealt by the card itself; Freestrider Commando's
+no-mana-spent condition; the plot spells' own sentences). Three more: THE UI RENDERS NO SPECIAL ACTION BEYOND A LAND
+PLAY - foretell, suspend, a morph turned up and now plot are the engine's, the fuzz's and the proofs' alone, and the bot
+takes none; THE CLIENT PREVIEW PRICES NEITHER A FORETOLD NOR A PLOTTED CAST (`previewCast` - an uncommitted fix covers
+flashback and foretell); and D547'S WARP LOSES ITS MARK ON A BACK-OUT (a warped card backed out of mid-cast returns to
+exile without `warpedTurn` and is castable no more - the pending carries no warp mark; plot's fix is the shape). D552 IS
+MEASURED (`d551/next-yield-d552-strict.json`, the strict judge over the same 100 families): DETAIN - 12 touched, 10
+whole, 2 spells and 8 permanents with a row - until the detaining player's next turn the permanent can't attack or
+block and its activated abilities can't be activated (CR 701.35a): a new effect kind with an until-your-next-turn
+duration, asked by the declarations and the activation, the generator taught its assertion; then manifest dread
+(23 / 10), the initiative (26 / 10), saddle (33 / 9), goad (78 / 8), suspect (23 / 8), offspring (20 / 8), replicate
+(16 / 8 spells), dredge (14 / 8), connive (32 / 14 - five shapes, no one mechanism), overload (27 / 13 spells - 2 on
+its changed text), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 32).
+The loop stays on Opus 5.5. D550's own reportables stand behind them:
+
+⚠️ **Reportables** (D550): around split second, 13 of the family's 21 stay for another sentence (the three the select
+now offers, Sudden Substitution's control exchange, Molten Disaster's kicked split second). D551 IS MEASURED
+(`d550/next-yield-d551-strict.json`, the strict judge over the same 100 families): PLOT - 33 touched, 9 whole, 2 on the
+seam alone and 7 with a row - the special action from the hand that exiles the card face up, then its free sorcery-speed
+cast from exile on a later turn (foretell's machinery, D540, face up and free); then detain (12 / 10), manifest dread
+(23 / 10), the initiative (26 / 10), saddle (33 / 9), replicate (16 / 8 spells), offspring (20 / 8), dredge (14 / 8),
+suspect (23 / 8), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 32).
+The loop stays on Opus 5.5. D549's own reportables stand behind them:
+
+⚠️ **Reportables** (D549): around myriad, 6 of the family's 19 stay for another line. D550 IS MEASURED
+(`d549/next-yield-d550-strict.json`, the strict judge over the same 100 families): SPLIT SECOND - 21 touched, 7 whole,
+all on the seam alone (six instants, Krosan Grip among them, and Take Possession) - one predicate, asked by the offer
+and the host, that stops every cast and every activation but a mana ability's while such a spell is on the stack; it
+goes before the tens that need the generator taught a new effect first: detain (12 / 10 - 8 rows), the initiative
+(26 / 10), manifest dread (23 / 10); then saddle (33 / 9), plot (33 / 9), goad (78 / 8), replicate (16 / 8 spells),
+dredge (14 / 8), splice (30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 32).
+The loop stays on Opus 5.5. D548's own reportables stand behind them:
+
+⚠️ **Reportables** (D548): around awaken, 4 of the family stay - two sweeps whose own sentence the vocabulary does not
+read (Boiling Earth, Planar Outburst - ledgered), Ondu Rising's this-turn attack grant and Invasion of Alara's Siege.
+D549 IS MEASURED (`d548/next-yield-d549-strict.json`, the strict judge over the same 100 families): MYRIAD leads the
+bounded seams - 19 touched, 9 whole, 7 on the seam alone (a bare Myriad line) and 2 rows - the attack trigger that
+makes a token copy tapped and attacking each other opponent, exiled at end of combat (mobilize's tokens, D485's copy,
+D497's delay; inert with one opponent); then detain (12 / 10 - 8 rows the generator cannot yet assert), the initiative
+(26 / 10), manifest dread (23 / 10), plot (33 / 9), saddle (33 / 9), goad (78 / 8), replicate (16 / 8 spells), splice
+(30 / 16), daybound (35 / 15), mutate (37 / 15), Role tokens (36 / 19), phasing (64 / 32). The loop stays on Opus 5.5.
+D547's own reportables stand behind them:
+
+⚠️ **Reportables** (D547): around warp, 17 of the family's 31 stay for another line - filtered heads outside the
+closed reader (Susurian Voidborn, Rayblade Trooper, Weftstalker Ardent), a line a token's quoted ability cut (Pinnacle
+Emissary), the void and station riders the vocabulary does not read yet. D548 IS MEASURED
+(`d547/next-yield-d548-strict.json`, the strict judge over the same 100 families): AWAKEN leads the bounded seams - 15
+touched, 11 whole, all spells (an alternative cost that adds a target land and its rider - N +1/+1 counters and a
+PERMANENT 0/0 Elemental creature with haste, a type change the until-end-of-turn animate does not read); then detain
+(12 / 10), manifest dread (23 / 10 - three Rooms), the initiative (26 / 10), plot (33 / 9 - foretell's shape), myriad
+(19 / 9), saddle (33 / 9), connive (32 / 14 - five shapes), splice (30 / 16 - a subsystem), daybound (35 / 15), mutate
+(37 / 15), Role tokens (36 / 19), phasing (64 / 32). The loop stays on Opus 5.5. D546's own reportables stand behind them:
+
+⚠️ **Reportables** (D546): around embalm, 12 of the family's 25 stay for another line - enters payloads the row maker
+does not read as a pump (the Khenras, Heart-Piercer Manticore, Champion of Wits, Temmet), Labyrinth Guardian's
+becomes-the-target head, Anointer Priest's creature-token head, a clone, a token anthem, a counter - and Sinuous
+Striker's `Eternalize—{cost}, Discard a card.` (a second cost). D547 IS MEASURED (`d546/next-yield-d547-strict.json`,
+the strict judge over 100 families, nineteen new): WARP leads the bounded seams - 31 touched, 13 whole, all permanents
+(an alternative cast from the hand, exiled at the next end step, cast from exile on a later turn); overload's 13 were
+measured again OVERLOADED and read for only 2 (`d546/overload-d547.json` - the `each <noun> you control` forms are
+outside the vocabulary); then splice (30 / 16 spells - a subsystem), daybound (35 / 15), connive (32 / 14), awaken
+(15 / 11 spells), detain (12 / 10), manifest dread (23 / 10), the initiative (26 / 10), mutate (37 / 15), Role tokens
+(36 / 19), phasing (64 / 32). The loop stays on Opus 5.5. D545's own reportables stand behind them:
+
+⚠️ **Reportables** (D545): around exploit, 9 of the family stay for another line - Skull Skaab's head for another
+creature's exploit, Silumgar Sorcerer's counter, Graf Reaver's battle clause, the payloads the row maker does not read
+as a pump (Stitched Assistant, Diver Skaab, Mindleech Ghoul, Overcharged Amalgam, Profaner of the Dead) and Colonel
+Autumn's legendary anthem. D546 IS MEASURED (`d545/next-yield-d546-strict.json`, the strict judge over 81 families,
+twenty-nine new): EMBALM AND ETERNALIZE lead the bounded seams - 25 touched, 13 whole, all permanents, most on the seam
+alone (the graveyard activation that exiles the card for a Zombie token copy of it); then warp (31 / 13), overload
+(27 / 13 spells - the overloaded text must read too), connive (32 / 14 - five shapes), awaken (15 / 11 spells), detain
+(12 / 10), manifest dread (23 / 10), the initiative (26 / 10), mutate (37 / 15), Role tokens (36 / 19), phasing
+(64 / 32). The loop stays on Opus 5.5. D544's own reportables stand behind them:
+
+⚠️ **Reportables** (D544): around partner with, 40 of the family's 54 stay for another line - 16 a trigger payload the
+row maker does not read as a pump (Nikara, Pako, Brallin, Yannik, Jacob Frye ...), 9 a line that is neither an
+activated ability nor a library trigger (Blue, Haldan, Khorvath, Gorm, Madame Vastra ...), 5 an effect that is not a
+row kind (Rowan and Will Kenrith, Evie Frye ...), the coin-flip twins (Okaun, Zndrsplt), Timin's each-combat head the
+generator has no fire for. D545 IS MEASURED (`d544/next-yield-d545-strict.json`, the strict judge over 52 families,
+twenty new): EXPLOIT leads the bounded seams - 23 touched, 15 whole, all permanents (the enters trigger that may
+sacrifice a creature, and the `When ~ exploits a creature` head the row maker and the generator lack); then embalm and
+eternalize (25 / 13 - most on the seam alone), warp (31 / 13), detain (12 / 10), manifest dread (23 / 10), the
+initiative (26 / 10), mutate (37 / 15 - a subsystem), Role tokens (36 / 19), phasing (64 / 32 - a subsystem). The loop
+stays on Opus 5.5. D543's own reportables stand behind them:
+
+⚠️ **Reportables** (D543): around double counters, what stays is a doubling of the previous clause's object in a row
+(Sazh Katzroy - the generator does not tally a put then a double), a self doubling on an enters head (Voracious Hydra),
+Biogenic Upgrade's `each of those creatures`, the counter kinds the list does not name (time, growth) and Zimone's
+`up to two targets`. D544 IS MEASURED (`d543/next-yield-d544-strict.json`, the strict judge over 32 families): PARTNER
+WITH leads the bounded seams - 54 touched, 13 whole, all commanders (the enters trigger that lets the target player
+search for the named partner); then exploit (23 / 15), detain (12 / 10), the initiative (26 / 10), replicate (16 / 8
+spells), split second (21 / 7), Role tokens (36 / 19), phasing (64 / 32 - a subsystem). The loop stays on Opus 5.5.
+D542's own reportables stand behind them:
+
+⚠️ **Reportables** (D542): around the pairing keywords, what stays is `Partner with <name>` (its enters trigger fetches
+the named partner), thirteen partner commanders the row maker refuses for another line (ledgered) and the Backgrounds'
+`Commander creatures you own have ...` grants. D543 IS MEASURED (`d542/next-yield-d543-strict.json`, the strict judge):
+DOUBLE COUNTERS leads the bounded seams - 50 touched, 13 whole, 3 spells and 10 permanents (`double the number of
++1/+1 counters on ...` and `... each kind of counter on ...`: one vocabulary verb beside the counter clause); then
+partner with (54 / 13), exploit (23 / 15), Role tokens (36 / 19), phasing (64 / 32 - a subsystem). The loop stays on
+Opus 5.5. D541's own reportables stand behind them:
+
+⚠️ **Reportables** (D541): around madness, what stays is the `if this spell's madness cost was paid` gates (Avacyn's
+Judgment, Welcome to the Fold, From Under the Floorboards, Grave Scrabbler), a madness cost with X (a begun cast
+never asks X), the dash costs (Shadowgrange Archfiend, Emrakul), Circular Logic (ledgered), the bot's targeted
+madness spells (declined - the view cannot plan their targets) and the table's madness cast paid by the solver's
+plan. D542 IS MEASURED (`d541/next-yield-d542-strict.json`, the strict judge): the PARTNER DECK KEYWORDS lead - 138
+touched, 15 whole, all commanders (`Partner`, `Partner—<quality>`, `Friends forever`, `Choose a Background`,
+`Doctor's companion`: deck construction the validator enforces, no rule in the game - the line accounted, the
+`Partner—<quality>` pairing to fix); then exploit (23 / 15), Role tokens (36 / 19), phasing (64 / 32 - a subsystem),
+partner with (54 / 13), counter doubling (50 / 13). The loop stays on Opus 5.5. D540's own reportables stand behind
+them:
+
+⚠️ **Reportables** (D540): around foretell, what stays is the cost modifiers (Cosmos Charger's reduction and any-turn
+permission, Ranar's first foretell for {0}), the granted foretell (Dream Devourer, Bohn) and the foretell by an effect
+(Ethereal Valkyrie, The Foretold Soldier), the `if this spell was foretold` and `cast from exile` gates, Karfell
+Harbinger's foretell-only mana and Niko Defies Destiny's count - and the table's path to the special actions: morph's
+turn-up, suspend and foretell are the engine's and the fuzz's, never the bot's or the table's. D541 IS MEASURED
+(`d540/next-yield-d541-strict.json`, the strict judge): MADNESS leads the bounded seams - 61 touched, 26 whole, 16
+spells and 10 permanents (a discard to exile instead, CR 702.35a, and the cast offered there and then for the madness
+cost, a decline to the graveyard); then phasing (64 / 32 - a subsystem), Role tokens (36 / 19), the partner deck
+keywords (138 / 15), exploit (23 / 15), partner with (54 / 13), counter doubling (50 / 13). The loop stays on Opus
+5.5. D539's own reportables stand behind them:
+
+⚠️ **Reportables** (D539): around learn, what stays is Retriever Phoenix's `if you would learn` replacement, two learn
+permanents the row maker refuses for another line (ledgered), and a Lesson from outside the game (no such zone here).
+D540 IS MEASURED (`d539/next-yield-d540.json`): BARGAIN leads the bounded seams - 20 touched, 15 whole, 8 spells and 7
+permanents (an optional sacrifice at cast on D530's verb-kicker path, `if this spell was bargained` as the kicked
+gate's twin); then gift (24 / 14), overload (27 / 13 spells), converge (18 / 12), madness (61 / 26), vote (40 / 28).
+The loop stays on Opus 5.5. D538's own reportables stand behind them:
+
+⚠️ **Reportables** (D538): around rebound, what stays is four spells whose other sentence the vocabulary does not read
+(Ephemerate's flicker the most played) and a rebound the fuzz reaches only where the pool deals one (no staple). D539 IS
+MEASURED (`d538/next-yield-d539.json`): LEARN leads the bounded seams - 22 touched, 16 whole, 9 spells (`Learn.` as
+the rummage: Commander has no sideboard of Lessons); then madness (61 / 26), vote (40 / 28), foretell (54 / 22),
+bargain (20 / 15), gift (24 / 14), overload (27 / 13 spells). The loop stays on Opus 5.5. D537's own reportables
+stand behind them:
+
+⚠️ **Reportables** (D537): around retrace and jump-start, what stays is seven spells whose other sentence the
+vocabulary does not read (ledgered by name), a graveyard cast the fuzz reaches only where the pool deals one (a staple
+moved every seed and was dropped), and the cast error message that names the printed cost. D538 IS MEASURED
+(`d537/next-yield-d538.json`): REBOUND leads - 34 touched, 16 whole, all spells (exiled as it resolves from the hand,
+a free cast from exile at the next upkeep: D402, D417, D491); then overload (27 / 13 spells - Cyclonic Rift), madness
+(61 / 26), vote (40 / 28), learn (22 / 16), bargain (20 / 15), gift (24 / 14). The loop stays on Opus 5.5. D536's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D536): around storm, what stays is a PERMANENT spell's storm (its copies would be tokens the engine
+does not make - Tempest Technique), a storm spell whose other sentence the vocabulary does not read (Galvanic Relay;
+Mind's Desire's free cast of the exiled card), and the copy prompts the bot answers by keeping the targets. D537 IS
+MEASURED (`d536/next-yield-d537.json`): RETRACE and JUMP-START lead - 29 touched, 19 whole, all spells (flashback's
+path with a discard as D406's additional cost); then rebound (34 / 16 spells), madness (61 / 26), vote (40 / 28),
+learn (22 / 16), bargain (20 / 15), gift (24 / 14), overload (27 / 13 spells). The loop stays on Opus 5.5. D535's
+own reportables stand behind them:
+
+⚠️ **Reportables** (D535): around buyback, what stays is Memory Crystal's `Buyback costs cost {2} less` (a reduction
+the cost path does not read), thirteen buyback spells whose other sentence the vocabulary does not read (Evangelize,
+Worthy Cause, Verdant Touch, Whim of Volrath, Clockspinning, Wurmcalling ...), the payment review's toggle for a VERB
+buyback (the bot's and the fuzz's alone, D530's precedent), and the cast error message that names the printed cost
+whatever the cast pays. D536 IS MEASURED (`d535/next-yield-d536.json`): STORM leads - 33 touched, 19 whole, all
+spells (the cast trigger on the spell itself, CR 702.40; the copies by D487's spell copy); then retrace and jump-start
+(29 / 19 spells), rebound (34 / 16 spells), madness (61 / 26), vote (40 / 28), learn (22 / 16), bargain (20 / 15),
+gift (24 / 14), overload (27 / 13 spells). The loop stays on Opus 5.5. D534's own reportables stand behind them:
+
+⚠️ **Reportables** (D534): around the coin flip, what stays is SEVERAL FLIPS and a flip by another player (66 lines
+still touch a flip, 5 cards would read whole - `Flip three coins`, `until you lose a flip`, `for each flip you win`: a
+count of flips and of wins, or a loop), the head that watches flips (`Whenever you win a coin flip`), and the DIE ROLL
+(95 touched, 9 whole - the same path this decision cut: a marker off `rng.ts`'s `rollDie`, the results table as gates,
+suites that find a result by seed). D535 IS MEASURED (`d534/next-yield-d535.json`, 80 families, the mechanism taken
+out): BUYBACK leads - 40 touched, 26 whole, 25 of them spells the seam alone completes (an optional additional cost at
+cast on D403's and D530's kicker path; the resolved spell to its owner's hand instead of the graveyard, CR 702.27);
+then phasing (64 / 32 - a subsystem), vote (40 / 28), madness (61 / 26), storm (33 / 18 spells), rebound (34 / 16
+spells), retrace and jump-start (29 / 19 spells), learn (22 / 16), bargain (20 / 15), gift (24 / 14), overload (27 /
+13 spells). The loop stays on Opus 5.5. D533's own reportables stand behind them:
+
+⚠️ **Reportables** (D533): around monstrosity and adapt, what stays is the COUNTERS-PUT HEAD (`Whenever one or more
++1/+1 counters are put on ~` - 9 adapt cards and 7 more in the refusals: a trigger on `CountersChanged` for the
+permanent with a positive +1/+1 delta), `Monstrosity X` / `Adapt X` (7 - the activation's X), the activation
+DISCOUNT (`This ability costs {1} less to activate for each ...` - 4, Grim Giganotosaurus and the Pteramanders), the
+compound `enters or becomes monstrous` head (Alpha Deathclaw, Protector of the Wastes) and a head under the card's
+shortened name (Hythonia). The loop stays on Opus 5.5; next by measured yield: coin flip, goad, the counters-put head.
+D532's own reportables stand behind them:
+
+⚠️ **Reportables** (D532): around control, what stays is a recipient the rule does not name (19 ledgered - `that
+player gains control of`, `an opponent gains control of`, `the player with the lowest life total`: the executor would
+need the trigger's player or a choice), the owners' form's ROWS (Homeward Path, Brooding Saurian, Trostani Discordant,
+Alicia Masters - the engine runs `ownersControl`, but the suite needs a pre-fire `ManualSetController` stage the
+generator lacks), a give-away over a scope (Sky Swallower, Aminatou, Scrambleverse), the source given by a bare `it`
+(Goblin Cadets, Treacherous Pit-Dweller, Sleeper Agent), and a permanent control change on a permanent ALREADY held
+through a threaten (D393's executor skips it, so the threaten's revert still fires at cleanup - CR 613.7 would keep it).
+The whole loop runs on Opus 5.5 from here (the user's call); next by measured yield: monstrosity, coin flip, goad. D531's
+own reportables stand behind them:
+
+⚠️ **Reportables** (D531): around control, what stays is the control GIVEN to another player (41 ledgered -
+`target opponent gains control of ~`, `each player gains control of`: the rule reads only a control its controller
+gains), the durations outside the two (15 - `for as long as ~ remains tapped` on Vedalken Shackles, Old Man of the
+Sea, Rubinia Soulsinger and their kin: a THIRD MODE on the memory D531 gave a mode, read by the same sweep; the Aura
+that stays, the creature that stays enchanted), the control over every object of a scope (24 - `gain control of all
+creatures`), the exchange of two targets under one phrase (8 - Switcheroo, Shifting Loyalties), a target per
+opponent (3), and the THREATEN RIDERS (35 in the leftover - `Gain control of target creature until end of turn. Untap
+that creature. It gains haste until end of turn.`: the object clause after the control). A reminder printed inside
+its sentence hides the sentence from every rule (energy's did, D519 to D531); look for another before calling a
+keyword's line unread. On Opus next: the threaten riders, the tapped duration, the give-away; Fable when a measurement
+names a NEW subsystem with a yield. D530's own reportables stand behind them:
+
+⚠️ **Reportables** (D530): around the kicker, what stays is the NAMED KICKER outside a trigger's gate - under an
+enters-with (the five volvers: `If this creature was kicked with its {1}{G} kicker, it enters with two +1/+1 counters on
+it and with trample` - the replacement reads `kicked` and must read `kickedWith`; their second halves grant a QUOTED
+ability as well), under a cast trigger (Wastescape Battlemage - the gate reads the permanent the spell is not yet; it
+must read the stack object), under a spell clause (Illuminate - `ifKicked` must carry which); the head that watches for
+a KICKED SPELL (10 - a cast filter reading the stack object's kick); a verb kicker the suite cannot fund (Arctic
+Merfolk's return-a-creature). The UI's kick toggle is still the mana kicker's: a human cannot name the second kicker
+or pay a verb kicker yet. On Opus next: the named kicker under a replacement and a cast trigger (~6 rows), the kicked
+cast head, the control durations; Fable when a measurement names a NEW subsystem with a yield. D529's own reportables
+stand behind them:
+
+⚠️ **Reportables** (D529): around the kicker, what stays is the DOUBLE KICKER (18 ledgered - the battlemages, the
+volvers, Archangel of Wrath, Illuminate: `Kicker {A} and/or {B}`, two costs and the cast announcing WHICH was paid,
+`kicked with its {A} kicker` and `kicked twice` as conditions - an engine extension of D403; the battlemages' payloads
+are vocabulary already), the KICKER PAID BY A COST THAT IS NOT MANA (17 - `Kicker—Sacrifice an artifact or creature`,
+`Kicker—Pay 3 life`, `Kicker—Return a creature you control to its owner's hand`: D406's additional cost made optional,
+the cast's verb picks charged when kicked; six spells read whole once the line is the cost's, and Phyrexian Scuta and
+Arctic Merfolk ride the kicked enters-with), the head that watches for a KICKED SPELL (10 - `Whenever you cast a
+kicked spell` and the gated cast head: a cast filter reading the stack object's kick), and the counted payloads over
+the kicks under an enters head (Lightkeeper of Emeria, Wolfbriar Elemental - a multikicked fire the vocabulary arm
+does not stage yet). The double kicker and the non-mana kicker together are one D403 extension (~13 rows) on Opus;
+Fable returns when a measurement names a NEW subsystem with a yield. D528's own reportables stand behind them:
+
+⚠️ **Reportables** (D528): around the sagas, what stays is the CHAPTER BODIES outside the vocabulary (216 ledgered with
+the row maker's own reason - the grants `Until end of turn, X gain "..."`, the transforming Sagas `Exile this Saga, then
+return it to the battlefield transformed` (two faces - the layout the row maker refuses), the `until your next turn`
+durations, the delayed `Whenever you cast a ... this turn` heads, the `For each opponent` walks, tokens outside the
+table): every vocabulary wave finishes Sagas from here on, since the chapter is a head. Beside them the heads that
+watch a Saga (Narci's `Whenever the final chapter ability of a Saga you control resolves` - the `SagaSacrificed`
+marker exists; a library entry and the generator event map, an Opus job), the lore-counter verbs (Keldon Warcaller),
+the counted lore (Tom Bombadil), read ahead (Barbara Wright - CR 714.2d, the chapter chosen as it enters). By
+IMMEDIATE YIELD (the payloads beside the mechanism judged as the vocab probe judges one) the next Fable subsystems
+are INITIATIVE + THE UNDERCITY (41 every-line rows, 11 complete on the seam alone), COIN FLIP (54, 9 - the RNG, a
+memo and two gates in the clash's shape), MONSTROSITY (33, 9), GOAD (29, 3), VOTE (26, 3); on Opus the CONTROL
+DURATIONS (132 every-line, 59 spells), the KICKED riders (129 / 64), THE MADE OBJECT as a referent (60 / 19), the
+mill riders (171), the search filters (231 / 106 - a flat tail). D527's own reportables stand behind them:
+
+⚠️ **Reportables** (D527): around the clash, what stays is the HEADS THAT WATCH FOR IT (Entangling Trap, Rebellion of
+the Flamekin, Sylvan Echoes - `Whenever you clash`, `Whenever you clash and win`: the `Clashed` marker exists, the heads
+need a library entry and the generator's event map, an Opus job), the `Otherwise` half of a verdict (Pulling Teeth,
+Captivating Glance - a gate on the negation), the clash that repeats on a win (Hoarder's Greed), the clash with the
+defending player (Marvo, Deep Operative), Whirlpool Whelm's `instead` rider with a may and a referent to the bounced
+card, and the clash spells blocked by their OTHER clauses (Lash Out's damage to the target's controller -
+`PLAYER_REF_KINDS` lacks damage; Spring Cleaning's mass destroy over the opponents; Fistful of Force's `an additional
++2/+2`; Gilt-Leaf Ambush's `those creatures` - the made object as a referent again; Redeem the Lost's protection from
+the colour of your choice; Scattering Stroke's and Broken Ambitions' riders on a counter; Recross the Paths'
+reveal-until). By the every-line measurement the next Fable subsystems rank GOAD (29 - an attack REQUIREMENT with a
+duration), BANDING (28), INITIATIVE + THE UNDERCITY (25), INCUBATE (21), INVESTIGATE (20), CONNIVE (16), MYRIAD (16);
+THE MADE OBJECT AS A REFERENT stays the biggest cross-cutting seam on either list. D526's own reportables stand
+behind them:
+
+⚠️ **Reportables** (D526): around the manifest, what stays is the RIDER ON THE CARD THE CLAUSE MADE (11 ledgered -
+`Manifest the top card of your library, then put a +1/+1 counter on it`, `Manifest dread, then attach this Equipment to
+that creature`): a referent to an object the clause itself put onto the battlefield, which `referentRewrite` binds only
+to a printed TARGET phrase - the same seam `Create a token. Put a +1/+1 counter on it` (29 sole rows on the Opus list)
+waits on, and the one that would finish Wildcall, Fierce Invocation, Formless Nurturing and Valgavoth's Onslaught; the
+dread repeated (`twice`, `X times` - one ask per dread, chained through the continuation), the shuffled piles (Ghastly
+Conscription, Jeskai Infiltrator), the `Whenever you manifest dread` head (the marker exists - the head needs a library
+entry and a generator event map), the face-up verb (`turn a permanent you control face up` - a chooser over face-down
+permanents the LookFilter cannot express), Write into Being's `top or bottom` rest. By the same measurement the next
+Fable subsystems rank CLASH (30 every-line rows - reveal the top card each, compare mana values, `If you win` a memo the
+D523 gate can read; most are spells), INITIATIVE + THE UNDERCITY (25), INCUBATE (21), GOAD (29), BANDING (28), MYRIAD
+(16), CONNIVE (16). D525's own reportables stand behind them:
+
+⚠️ **Reportables** (D525): around the keyword, what stays is every line that GRANTS cascade to spells (17 ledgered -
+`Sliver spells you cast have cascade`, `The first spell you cast each turn has cascade`, Yidris, TARDIS, Dark Apostle: a
+spell keyword on a spell that does not print it, which the derive carries for objects and a cast would have to read),
+the two heads that watch for it (Aurora Phoenix, The First Doctor) and Averna's rider on the cascade itself. The
+measurement that chose this decision also re-priced the plan: THE SCOPED GRANT OF A QUOTED ABILITY is BUILT
+(D367/D368/D372/D454/D456/D517) and its 121 sole-line rows are a spread of small pieces - the provider referent inside
+a granted ability (16: `Sacrifice Deconstruction Hammer`, `Unattach Razor Boomerang` - the name inside the quote is the
+EQUIPMENT, not the creature that has the ability), the scopes outside the table (25: `All artifacts have`, `Nontoken
+creatures you control have`, `Each creature has`, the conditional `As long as ..., it has` 7), the quoted bodies
+outside the vocabulary (24), the quoted STATICS (8); the CAST-TIME facts measure 18 every-line rows (the cast's zone 7
+- `StackObject.castFrom` already records it, so that is a condition kind and no new state; `as you cast this spell` 11,
+of which 6 want X counted AT CAST and 2 are targeting restrictions); and by the same measurement the next Fable
+subsystems rank MANIFEST (23 every-line rows; D309's face-down machinery is the precedent), CLASH (30), INITIATIVE +
+THE UNDERCITY (25), INCUBATE (21), GOAD (29), BANDING (28), MYRIAD (16), CONNIVE (16). D524's own reportables stand
+behind them:
+
+⚠️ **Reportables** (D524): the gate is ARMED now, so what is left beside it is what a gate cannot ask. The CAST-TIME
+facts first (`as you cast this spell` 13 - the modal Wills; `this spell was cast from a graveyard` 13; `five or more
+mana was spent to cast that spell` 8; `cast from anywhere other than your hand` 3): each needs the CAST to remember,
+as the kicker has since D403, and a gate asked at resolution cannot. Then the MODAL rider (`Choose one. ... you may
+choose both instead.` - a mode count rather than a clause), the predicates just outside the union (power, toughness,
+total power, tied toughness, `it was a creature card`), the coin flips (38), and the one gate the suite must refuse to
+arm - a `you control N ...` gate under a head that watches another permanent enter (Scute Swarm). D523's own
+reportables stand behind them:
+
+⚠️ **Reportables** (D523): THE GATE INSIDE A PAYLOAD - the row maker refuses a gated clause because the suite arms the
+board for the ROW and would assert whichever branch the arm took, so ~100 rows (the ten Courts among them) wait on a
+stage machinery that can arm both sides of a gate a row's other abilities also touch: that is the next tooling
+decision, and it unlocks the monarch riders D522 named as well as every `if you control X, do more` rider. Beside it,
+the conditions the union still does not read: the CAST-TIME facts (`as you cast this spell` 13 - the modal Wills;
+`this spell was cast from a graveyard` 13; `five or more mana was spent to cast that spell` 8; `cast from anywhere
+other than your hand` 3 - each needs the CAST to remember, as the kicker has since D403), the MODAL rider (`Choose
+one. ... you may choose both instead.` - a mode count rather than a clause), the predicates just outside the union
+(power, toughness, total power, tied toughness, `it was a creature card`) and the coin flips (38);
+the monarch family's residue (D522), measured against the crown the engine now hands out and reads
+- THE CONDITIONAL RIDER inside a payload (`<payload>. If you're the monarch, <other> instead.` - the ten Courts, Court of
+Ire's 2-or-7 damage, Court of Ambition's 3-or-6 life, Court of Cunning's two-or-ten mill, and the `Then if you're the
+monarch` form on Court of Embereth: one clause with a gated SECOND reading, which is the next monarch-shaped seam and
+is worth more than the crown itself - it is the same shape as every `if you control X, do more` rider), the heads the
+library does not carry (`Whenever you become the monarch` - Custodi Lich, Knights of the Black Rose; `Whenever an
+opponent attacks you while you're the monarch` - Emberwilde Captain; `Whenever you tap a land for mana while you're the
+monarch` - Regal Behemoth; `At the beginning of combat on each opponent's turn` - Champions of Minas Tirith; `Whenever a
+creature attacks you or a planeswalker you control` - Marchesa's Decree), the conditional STATIC bodies (`As long as
+you're the monarch, permanents you control have hexproof` - Dawnglade Regent, Archon of Coronation, Queen Mother
+Ramonda, Entourage of Trest), the crown's own referents (`the monarch controls enchanted creature` - Fealty to the Realm;
+`this creature can't attack unless defending player is the monarch` - Crown-Hunter Hireling; `until an opponent becomes
+the monarch` - Palace Jailer), the Assassin token outside TOKEN_TABLE (Queen Marchesa) and the two sagas;
+the Ring family's thirty-three ledgered shapes (D521 - the `if you chose a creature other than ~ as
+your Ring-bearer` condition on the temptation head (Aragorn, Galadriel of Lothlórien, Gandalf, Faramir - `RingTempted.bearer
+!== self`, one condition kind away), the temptation before another ask (The Ring Goes South's reveal-until, Ringsight's
+search - the ask must be last), the conditional temptation (Glorious Gale), the lines beside it outside the vocabulary
+(Slip On the Ring's flicker, Breaking of the Fellowship's bite, Sauron's Ransom's piles, Dreadful as the Storm's base
+P/T, Horses of the Bruinen's double bounce), Gollum's Bite's graveyard activation, the Ring-bearer referents (`your
+Ring-bearer's power`, `protection from Ring-bearers`, `if you don't control a Ring-bearer`, `As long as ~ is your
+Ring-bearer`), the `Whenever you choose a creature as your Ring-bearer` head (Call of the Ring), the sagas (five),
+Nazgûl's deck rule, the Witch-king's damage-to-you head, the intervening ifs (Sméagol, Galadriel Elven-Queen, Faramir),
+Frodo's partner; the monarch's twenty-five `you become the monarch` rows (a parser kind over D332's subsystem);
+the amass family's thirty-five ledgered shapes (D520 - the counted amass (`Amass Zombies X, where X
+is the number of instant and sorcery cards in your graveyard` - Invade the City; `Draw two cards, then amass Zombies X,
+where X is the number of cards in your hand` - Commence the Endgame: `amass` is not among the multipliable kinds and the
+`, then` compound is unread), the `, then` forms (Surrounded by Orcs, Assault on Osgiliath, Widespread Brutality - the
+amassed Army's power as X and the Army as a damage source), the reflexive `When you do` (Foray of Orcs, Grishnákh), the
+pay-if-you-do body (Lazotep Chancellor - an ask is refused as a payment's body), the token-scoped statics (`Zombie
+tokens you control have hexproof and menace` - Gleaming Overseer, Vizier of the Scorpion, Dreadhorde Twins, Eternal
+Skylord, Gothmog: a token noun the static vocabulary does not scope), the heads not in the library (Mindless
+Conscription's third card, Orcish Bowmasters' opponent draws, March from the Black Gate's Army attacks, Fall of Cair
+Andros' excess damage, Dreadhorde Invasion's power-6 Zombie attacks), the X forms (Shagrat, The Mouth of Sauron, Saruman
+the White Hand, Barad-dûr), Book of Mazarbul (a saga), Lazotep Sliver's afflict grant beside `amass Slivers 2`; a second
+Army only a copy effect makes (the tie is proven with a batch-made Army);
+the energy family's sixty ledgered shapes (D519 - the pay-any-amount prompts (`You get {E}{E},
+then you may pay any amount of {E}` - Aether Spike, Die Young, Territorial Aetherkite, Lightning Runner: a price the
+player sizes), `You get that many {E}` (the memo's number as energy), `Scry 2, then you get {E}{E}` (a gain behind an
+ask), the get-heads (`Whenever you get one or more {E}`, `If you would get one or more {E}` - a head and a replacement
+on the counter itself), 13 spells with a `{E}` line outside the vocabulary (`Choose target creature. You get {E}{E}...`,
+the sorceries granting energy beside another clause), `N or more {E}` conditions (none rowed), a second energy price
+shape the prompt does not read (`pay eight {E}` - the spelled count); the vehicles' and equipment's enters gains landed
+through the same line fix;
+the quoted bodies still outside the vocabulary (D518 - Cautery Sliver's prevention shield, Animal
+Boneyard's `life equal to the sacrificed creature's toughness` - a stat read of a cost's fodder, Mindlash Sliver's
+`each player discards a card` under a grant, Mindwhip Sliver's random discard), the counter cost on a quoted grant
+(Sinking Feeling's `Put a -1/-1 counter on this creature`), a granted trigger's own cost pieces (none rowed);
+the scoped grants the suite does not prove (D517 - a granted step head the row's own card also
+carries (Plague Sliver: two fires; count the card), a granted damage-taken head under a scope (Spiteful Sliver: the
+block recipe is staged for the row's card), a counted payload under a scoped grant (Magma Sliver: the scope's own
+members are counted), a granted STATIC (Inspiring Leader's `Creature tokens you control get +2/+2` - the carrier holds
+activated, triggered and mana abilities only), the quoted costs with fodder (Clan Crafter's `Sacrifice an artifact`,
+Street Urchin's `another creature or an artifact`, Mindwhip Sliver's `Sacrifice this permanent` - the granted offer
+carries no picks), the Backgrounds' `attacks a player, if no opponent has more life than that player` head (5), a
+filtered head over `an artifact or creature` (Agent of the Iron Throne - the reader's `or`);
+the dead creature as a damage SOURCE (D516 - Stalking Vengeance - `it deals damage equal to its
+power` under a dies head: the item's power last known, the damage dealt by a card in the graveyard), Consuming Vapors'
+rebound, Grim Feast's graveyard head, Ikra Shidiqi's Partner line, Trostani's populate assert, the graveyard card's
+printed values where no memo and no answer record stands (a stat read under a head that is neither a looks-back item
+head nor a resumed ask), the batched combat-damage form's item (`one or more` names no one creature), a filtered dies
+head's own fixture as the item (the Cyclops alone is admitted);
+the item under a FILTERED head (D515, landed in D516 - Impostor Syndrome, Exsanguinator Cavalry, Rakish Heir,
+Aveline de Grandpré, White Widow - the filter's fixture and the item head's are two creatures; unify them), a payload
+acting on the card that died (Patron of the Vein's exile from the graveyard - the executor's exile moves from the
+battlefield only), Consuming Vapors' rebound, Grim Feast's graveyard head, Ikra Shidiqi's Partner line, Trostani's
+populate assert, the graveyard card's printed values where no memo and no answer record stands (a stat read under a
+head that is neither a looks-back item head nor a resumed ask);
+the dies heads' item memo (D514 - Proper Burial, South Wind Avatar, Grim Feast - the dying
+creature's stat off the before-state, D476's memo shape; the executor's last-known read off the resolution state gives
+the printed values of a graveyard card), the asks' chosen creature as the continuation's objects (Tribute to Hunger,
+Consuming Vapors, Doomgape), the combat-damage head's item (Ikra Shidiqi), Trostani's populate (the suite cannot
+assert it), Death Watch's two referents, Noxious Gearhulk's `If a creature is destroyed this way`, Momentous Fall's
+sacrificed-cost referent, Weed Strangle's clash, Nissa's Revelation's revealed card; the stat read of a fixture with
+no printed base (a token the fire made) refused by the generator;
+the first-time heads still outside the library or the vocabulary (D513 - Deathless Knight's
+graveyard-zone gain head, Axgard Artisan's counters-put head, Whispering Snitch's and Erdwal Illuminator's surveil and
+investigate heads, Mindlink Mech's crewed head, Valiant Rescuer's cycling - no turn record to read), the Glasskites'
+`Counter that spell or ability`, Veteran Guardmouse's pump with a scry beside it, Whiskervale Forerunner's filtered
+look, Scourge of the Throne's most-life condition, Raphael's attacking scope (the suite must attack), Godo's
+Samurai untap, Leech Collector's layout; the classifier's offer, empty for a family its list does not hold;
+the `for the first time each turn` heads (D512 - Aurelia, Godo, Raphael, Scourge of the
+Throne - the nth-attack memory the library lacks), the `if it's the first combat phase of the turn` condition
+(Finest Hour, Raiyuu, Karlach, Hexplate Wallbreaker, Genji Glove - a combats-begun count on the turn record for
+D398's reader), Éomer's attacking-legendary die head (an adjective outside the filtered reader), Full Throttle's
+`two additional combat phases`, the can't-attack-again statics (Port Razer, Bloodthirster), Waves of Aggression's
+retrace, the generator's turn-record scopes (`creatures that attacked this turn` under a row - the suite must
+attack), the additional phases in the phase track (an inserted combat shows as a combat, unmarked);
+Anafenza, Kin-Tree Spirit (D511 - a bolster under a head the staged Goblin's entering would
+fire - the generator's refusal, not the engine's), Dromoka, the Eternal (`Whenever a Dragon you control attacks` - a
+head the library lacks), the `Bolster X` forms (Dragonscale General's tapped creatures, Sandsteppe War Riders'
+differently named artifact tokens, Sunbringer's Touch's cards in hand), Scale Blessing's `, then` continuation,
+Optimus Prime's `the chosen creature` referent, Elite Scaleguard's counter-attacker head; the tie's bot pick is the
+computed set's first (no evaluation);
+Midnight Clock's hour counter (D510 - a payload outside the row kinds), the untap choice's
+`you control` form (not printed on the shape; the candidates are any controller's), `Nonartifact creatures can't block`
+(an adjective the scope reader lacks), Day's Undoing's `end the turn` beside its wheel, the count forms `Untap all` /
+`Untap X` (the mass untap and the X count), the rider forms the yield probe cannot peel (`Activate only as a
+sorcery.`, `This ability triggers only once each turn.` - artifacts of the probe, D507);
+the copy-spell payloads under a row (D509 - Rootha, Mercurial Artist; Mirrorpool; Naru Meha,
+Master Wizard; Nivix Guildmage - `copySpell` the suite cannot assert), the combat-only scoped shields (Ebony Horse,
+Elvish Scout - the fixture must attack), the clauses with no fixture (Avalanche Caller's snow land, Sea Drake's counted
+lands), Dual Casting's quoted body, Hope-Ender Coatl's payer, Masked Vandal's payment branch, Mobile Garrison's
+Vehicle attack head, Silvanus's Invoker's ability word, Witch Enchanter's layout, Fey Steed's head, Geistblast's
+any-target line; the nouns still outside the table (`battle`, `artifact or land or creature` lists the parser
+reads but the macro lacks);
+the hand-put heads the library lacks (D508 - `Whenever an opponent plays a land` - Burgeoning;
+`Whenever a creature you control explores a land card` - Nicanzil, Current Conductor), the riders after a put (Sneak
+Attack's and Through the Breach's `That creature gains haste` + the delayed sacrifice - a referent clause across an
+answer, refused by `OBJ_ASKS` until the continuation carries the answer's objects), the attacking, blocking and face-down
+forms, the `X` / `that many` counts, `non-Saga` (a negation the look map lacks), a put with a filter AND a negation
+(`nonland permanent card` - no fixture chosen), a mandatory put that must take more than one (none printed);
+the referent-search shapes the seam leaves (D507 - `target permanent an opponent controls` on a
+destroy or exile target (Assassin's Trophy, Price of Freedom: a target predicate the effect reader lacks), the
+two-search rows (Demolition Field, Volatile Fault - two asks, the classifier's own refusal), the each-player search
+(Field of Ruin, Old-Growth Dryads, Jungle Wayfinder - a player scope on a search), the per-land form (Krenko's
+Buzzcrusher, From the Ashes - `For each land destroyed this way, its controller may search`), the player-scope search
+to the hand (Borderland Explorer, Jungle Wayfinder); the yield probe's peel of the riders the row maker peels (`Activate only as a
+sorcery.`, `This ability triggers only once each turn.` - 58 payloads each, artifacts of the probe, not gaps);
+the eight mass-verb rows still refused (D506 - Aragorn and Arwen, Wed's counted life gain under an
+enters-or-attacks head; Urtet's sorcery-speed counter on a late-entering row; the heads the library lacks - a creature
+you control connives, an opponent discards or mills, you tap an untapped creature an opponent controls; Sky Hussar's
+Forecast; Camellia's `one or more Foods`; Kumena's tap cost of the scope subtype), the scopes still without a witness
+(a keyword or an attacking scope, a subtype on the opponent's side, an enchantment or an artifact scope), a subtype no
+quiet fixture carries, the mass tap of your own creatures on a row whose cost taps its card;
+the scopes the suite has no witness for (D505 - a subtype - the Dragons' `each other Dragon creature
+you control`, the Myr, the Fractals, the Zombies, the Plants; an `other` scope - `Tap all other creatures` on the Mares,
+`each other creature you control` on Aragorn and Arwen, Wed, Copperhorn Scout; the land scopes - Beledros Witherbloom,
+Wilderness Reclamation, Chimeric Idol, Silt Crawler, Troublesome Spirit; `nonland permanents` - Unstoppable Plan; a
+`you` scope on a non-creature - Domri, City Smasher, Felidar Retreat - or on a card its cost sends away - Action News
+Crew; a mass tap of your own creatures), the shapes the reader refuses (an X count - Black Sun's Zenith; `target player
+controls` - Sleep, Early Harvest; `the chosen type` - Turnabout; `each of them` after a tap - the object verb's, 6),
+the heads the library lacks beside a mass verb (a creature you control connives, an opponent discards or mills, you
+tap an untapped creature an opponent controls), Sky Hussar's Forecast;
+the referent bodies still unread behind the previous object's controller (D504 - a search the
+referent player is asked - `Its controller may search their library for a basic land card, put it onto the battlefield
+tapped, then shuffle` 7 (Path to Exile, Ghost Quarter, Erode, Cleansing Wildfire, White Orchid Phantom, Geomancer's
+Gambit); life equal to a power or a toughness - last known information (Swords to Plowshares, Solitude, Avenger
+en-Dal, Ajani Unyielding); a manifest, an incubate, a draw of X, a life loss unless a sacrifice; `That spell's
+controller may draw a card` - Vex; `Its owner ...` on a spell none measured), the token on the opponent's side the
+suite does not read (Gallows at Willow Hill, Cavalier of Dawn, Ovinomancer - a p2 board count would land them), the
+discard asked of the referent player in a suite, the up-to-one target the row maker reads as no pump (Commander
+Sofia Daguerre), the referent under a trigger head that names a player (D428's rewrite runs first and the vocabulary
+never sees `its controller` there);
+the 44 cards the three mirrors made offerable and the row maker refused by its own reasons (D503
+(ledgered: the Repartee head `Whenever you cast an instant or sorcery spell that targets a creature` - 9 rows, a type
+pair with a targeting clause the filtered-head reader lacks; the batched token head `Whenever one or more tokens you
+control enter` - Cloakwood Swarmkeeper, Marneus Calgar; `enters from a graveyard` - Canoptek Tomb Sentinel, Triarch
+Praetorian; the this-or-another heads with a subtype or an artifact - Tyranid Harridan, Psychomancer, G'raha Tia; a
+blocker predicate no fixture satisfies - Eldrazi Scions, Saprolings; the sacrifice heads over a Clue, a Food, an
+Eldrazi; the Opus riders `If five or more mana was spent to cast that spell` read as payloads; Additive Evolution's
+counter on the token the clause before made), the flavour-word lines whose head the library still lacks or whose
+payload the vocabulary refuses (48 of the 80 measured), the classifier's remaining lags (an ability word before an
+ACTIVATED line - Imprint's `you may exile` payloads read nothing anyway; the 15 `When this creature enters` compound
+and conditional heads), the object verb `Put a +N/+N counter on it` after a token clause (60 gap occurrences), the
+immediate `Exile it` / `Destroy it` (35), `Attach it to target <X> you control` (38), the mass counter over a scope
+(`Put a +1/+1 counter on each creature you control` - 66 occurrences, 6 the only unread sentence), the referent
+player payloads (244; `Its controller mills N cards` 6), the missing heads the measurement counted (`this creature
+attacks while saddled` 22, `you commit a crime` 15, `enchanted creature attacks` 12, `you scry` 11, `a creature you
+control attacks` 11, `this land attacks` 9, `you control no Islands` 9), the yield-if-first tops that are riders the
+row maker already peels (the once-per-turn rider 57, `Activate only as a sorcery` 55; `Any player may activate this
+ability` 19 - an engine seam);
+the 20 spells still partial behind an extra-turn line (D502 - their OTHER sentences: the
+lose-the-game rider `At the beginning of that turn's end step, you lose the game.` - Final Fortune, Warrior's Oath,
+Last Chance, Chance for Glory - the coin flip (Stitch in Time), the votes (`For each time vote`, `If time gets more
+votes`), the miracle and prowl riders (Temporal Mastery, Notorious Throng), the wishes and the foretells), the 28
+permanents whose extra turn sits under a cost or a head the row maker did not row (Time Sieve's `Sacrifice five
+artifacts`, Timestream Navigator's bottom-of-library cost, Medomai the Ageless's combat-damage head beside `can't
+attack during extra turns`, the walkers' ultimates beyond Teferi, Timebender), the `would begin an extra turn, skips
+that turn instead` replacements (Gerrard's Hourglass Pendant, Ugin's Nexus, Trouble in Pairs, Stranglehold), an extra
+turn delayed, conditional or under a head the suite fires past turn 3 (refused by name), the refused rows (Time
+Sieve's cost; Temporal Extortion's and Temporal Mastery's lines outside the vocabulary);
+the 96 spells still partial behind a fate (D501 - their OTHER sentences: `Take an extra turn after
+this one` - Temporal Mastery, Beacon of Tomorrows, Alrund's Epiphany, the council's dilemmas; the wishes' `from outside
+the game`; `Each player shuffles their hand and graveyard into their library`; `Look at the top five cards`; `Copy
+those cards`; the Miracle / Undaunted / Assist / Demonstrate / Gift lines; Black Sun's Zenith's `X -1/-1 counters on
+each creature`; Green Sun's Zenith's and Beacon of Unrest's searches), the asking spell's fate before the answer (the
+card leaves the stack at `resolveTop`; a library fate before the search's own shuffle - D484's convention, a rules
+approximation), the executor's `shuffleSelf` / `bottomSelf` on a permanent unasserted in the suite (refused by name),
+a modal spell's fate outside its modes, `Return ~ to its owner's hand.` on a spell (none measured), the refused rows
+(Morgul-Knife Wound's payment branch with `exileSelf`, The Balrog's `legendary` in a filtered head);
+the scoped object verbs the suite does not enumerate (D500 - `Creatures you control get +1/+1 until
+end of turn. Untap those creatures.` under a trigger head - Jeskai Ascendancy, Essence of Antiquity: the permanents a
+scope reached, the row's own card among them when it is a creature; the engine reads them, the suite does not size
+them), the object verbs after a token maker or a return (`Create two 1/1 tokens. They can't be blocked this turn.` - the
+plain branches read the state before the resolution; a running state at the splice would admit them), the verbs the
+family still lacks (`Those creatures get +0/+3 until end of turn` - a pump on the objects; `Exile it` / `Destroy it`
+immediate; `Its controller mills N cards`; `untap it and remove it from combat`), a late-entering row beside an attack
+head (Dream Trawler - an attack arm on turn 5 with the baseline retaken after the draw), Popular Egotist's sacrifice head
+beside its own sacrifice cost (the payload a self grant and a tap the assert does not carry);
+the blocks-by rows the row maker still refuses (D499 - Cockatrice - a flier under a becomes-blocked head,
+no flying blocker among the fixtures; Giant Shark's `creature that has been dealt damage this turn` - a predicate on the
+turn record), the predicates the filter reader still lacks (`equipped creature`, `creature with flying` under a block
+head - the row's card must block a flier; a toughness bound; `Wall` as the noun), the sizing's own limits (a row whose
+power kills every quiet creature the predicate admits, or whose toughness no admitted creature's power spares - refused),
+the item fixture's colours and subtypes left empty (an item pump beside a colour or subtype clause would read them);
+the rows the mirrors made offerable and the row maker still refuses (D498 - 19 ledgered - the modal
+modes it does not read (`Create a Treasure token. You lose 1 life.`, a graveyard return, a flavour-named life gain, a
+surveil beside a gain), a mode that asks (scry - the continuation seam), a line choosing more than one mode (Flash
+Thompson 1..2, Rankle 0..3), a mode whose look needs a staged keep (Silverback Elder), a flier under a becomes-blocked
+head (Phyrexian Slayer - no flying blocker among the fixtures), Sorcerer's Broom (D485's reason again), a `non-Wall`
+filter, a counted Spider noun, a crime head, a Room), the mirrors the classifier still lacks (Domri Rade's emblem
+line - the quoted loyalty line the row maker reads since D475; Ayula's `Target Bear you control` fixture the suite
+already puts; the modal head's own library membership - the classifier accepts any `choose one` trigger and the row
+maker refuses the head it lacks), the riders the yield probe reads as unread while the row maker peels them (the
+once-per-turn rider 57, `Activate only as a sorcery` 55 - the yield tooling should peel them too); the end-of-combat
+rows the row maker still refuses (D497 - 10 ledgered - the blocks-by predicates
+outside the colour table: `non-Wall` ×3, `nonblack` ×2, `creature with power 1 or less`; a green-or-white predicate whose
+Bears the combat kills first (Abomination); a delayed damage on the item (Sawtooth Ogre - the combat's own damage would
+sit under it); Silent Assassin's `target blocking creature` with no fixture in a blocking role; Vebulid's 0-toughness
+self), the end-of-combat shapes the wave does not read (`At end of combat, <payload>` as a step head - 7, the blocked
+creatures as a scope; `exile that token at end of combat` after a token `that's tapped and attacking` - the token entry
+unread; `gain control of that creature at end of combat`; `it phases out`; `flip a coin at end of combat`; `remove it
+from combat`), a delayed clause aimed at the source under a head the suite fires past turn 3, the id persistence a
+returned object keeps (a card that left and came back is a new object by the rules; the engine's instance id stands -
+the same approximation as D494's), a delayed self clause whose source changed controller; the item rows the row maker
+still refuses (D496 - 5 ledgered - a counted pump on the lone attacker
+(`it gets +X/+X where X is the number of creatures you control`: the attacks-alone arm sizes no board), the item as a
+damage SOURCE beside another target (`that creature deals damage equal to its power to any target` - Warstorm Surge,
+Electropotence: a bite read as two clauses), a Room), the item heads the wave does not name (the dies heads - `that
+card` is in a graveyard, a reanimation not a creature clause; `combatDamageCreature` - the damaged creature may be
+dead by resolution; `landfall` / `artifactEnters` - the fixture is put unnamed; `enchantedCreatureAttacks` / `dies`;
+`a creature you control attacks` - no head, a per-attacker fan-out), the item forms the rewrite leaves (`it` as a
+damage source, `its controller` under a head not in `PLAYER_HEADS`, `that creature's controller loses 2 life`,
+`untap it and remove it from combat`, `at end of combat` - the delay step the library lacks, ~27 one-liners), a
+payload naming `~` beside an `it` (refused: either could be meant); the object rows the suite still refuses (D495 - 8
+ledgered - a delayed object clause under a head
+that fires past turn 3: `combatOnYourTurn` (Harried Dronesmith), `upkeep` (Dawn of the Dead) - the walk to `the next
+end step` would stand behind the fire; a payment whose body makes the token, refused at parse now (Felhide
+Spiritbinder); a `nonland, nontoken permanent` noun the fixture reader cannot stage (Mistmeadow Vanisher, Wiccan); an
+exert cost; a quest counter; Nemesis Trap's spell line), the object shapes the generator does not read (a second
+token maker in one payload, a counted token maker, an object clause inside a payment branch, a grant of nothing the
+suite reads), the copy's own exceptions unasserted beside the object clause (`except it has haste` - D485's domain),
+a `returnObj` of a card the fire exiled from p1's side asserted as p1's board +1 (the owner's, by the fixture's side);
+the rows the generated suite could not assert before this decision (D494 - a grant on the token it created, a delayed
+sacrifice / exile / return of it: landed here), the referent forms the rewrite does not spell (`It gains haste and trample` reads;
+`It has haste` / `They have flying` - a `has` grant, not `gains`; `Return it to the battlefield under YOUR control` -
+the controller, not the owner; `its controller sacrifices it`; `Sacrifice it at end of combat` - a combat step;
+`Exile it at the beginning of the next end step. If you do, ...` - a rider on the fire), the object-producing clauses
+the rewrite does not name (`OBJ_MAKERS`: a search or a look that puts a card onto the battlefield asks first - the
+objects would be known only after the answer; a copy of a copy; the exile-and-return that comes back under a
+different clause), a grant on a previous clause whose objects are players (none - refused by the clause reader),
+`gained` keywords on a permanent that changes controller (they stay - CR 611.2c - as they should); the clients read
+nothing new (no prompt); the look forms the grammar does not spell (D493 - a mana-value or power bound on the noun - `a
+creature card with power 2 or less` 6, `with mana value X or less`; the `and/or` pairs - `a creature card and/or a
+land card` 4; `N of them into your graveyard` 3; the piles - `An opponent separates those cards into two piles` 5;
+`you may put a <noun> card back on top of your library` 2; `you may cast a spell from among them without paying its
+mana cost` 2; `Look at the top X cards` under the spell's X; `look at the top card of target player's library` and its
+kin - another player's library; the lone `Look at the top card of your library.` (a static's companion); the
+`If you don't put the card into your hand, you may put it into your graveyard` optional rest); the nouns the reader
+does not place (`historic`, `Equipment or Vehicle`, `double-faced`); a look with a negated noun under a head (the
+generated suite has no fixture reader for `none` - Wandering Mind stays a spell-side reading); the rest slot's
+`Then` forms beyond the three read; the peek panel's wording for a battlefield pick (the bar says it, the panel
+does not); the rider heads the library does not hold (D492 - `you commit a crime` - a targeting concept the
+engine has no event for; `one or more +1/+1 counters are put on this creature`; `you scry`; `a card leaves your
+graveyard`; `a source you control deals damage to you`; `one or more cards are put into exile` - each a head, 2-8
+rider cards apiece, more without the rider), the batched subjects the singular rewrite does not reach (`~ and/or one
+or more other Vampires`, `one or more creature cards are put into your graveyard from anywhere`, `one or more players
+discard`), the filtered heads outside the closed reader (`you sacrifice one or more`, `power greater than`, `this
+enchantment or`), a token subject no fixture satisfies (Baron Bertram Graywater); the rider on an ACTIVATION
+(`Activate only once each turn` - D328's, already the engine's; `no more than twice each turn` - 5 cards, a count the
+record could carry); the once-per-turn rider under a MODAL head (none rowed); the generated suite proves the flag,
+not the suppression (the engine's suite does - a head recipe that fires twice in one turn would prove it per row);
+THE FLAT TAIL (`zz-yield-d492`): the LOOK family (248 lines / 216 shapes - a compositional grammar over `Look at /
+Reveal the top N`, the middle clause, the rest), the DELAYED REFERENT (`Return that card ... at the beginning of the
+next end step` 11 first-order, `Sacrifice it` / `Exile it` / `Exile that token at the beginning of the next end step`
+~25 - the previous clause's object as the delayed effect's aim), the copy-on-cast item referent (`copy that spell` +
+`You may choose new targets for the copy` ~57 - the cast spell as the trigger's item), the payment bodies payBody
+refuses (~116 `you may pay {M}. If you do, ...` lines), the quoted grants to a scope (`Commander creatures you own
+have` 25, `All Slivers have` 14, `Enchanted creature has` 16 - scrubbed bodies), the hand-reveal variants (~40),
+`Any player may activate this ability` (10), `The Ring tempts you` (7); the grant heads outside the reading (D491 - Omnispell Adept's and Yue's activations, Surtland
+Elementalist's, Wildfire Eternal's and Maelstrom Archangel's combat triggers, Oracle of Bones' tribute - the
+body reads, the head or the condition does not: rows where the generator can stage a hand), the grant under a
+condition the vocabulary does not read (Zaffai's and Vision's once-a-turn, Cecily's hand count, Twinning Glass's
+same-name test, Coveted Prize's full party, Kellan's cast-from-elsewhere head, Great Intelligence's Plan's
+villainous choice), Press the Enemy's bounce (`target spell or nonland permanent an opponent controls` - the grant
+reads, the first line does not), the exotic bounds (Arcane Endeavor's dice, Brain in a Jar's counters, Epistolary
+Librarian's attacker count, Founding the Third Path's chapter, West Coast Expansion's `If X is 5 or more` head,
+Baral and Kari Zev's lesser-and-shares), the noun forms the rule does not spell (`a noncreature or Robot spell`, `a
+Hero spell`); a split card's second face (front face only), a modal face with no legal mode (refused at the
+answer, not excluded by the reader - `legalModesFor` lives in loop.ts); the bot and the net script decline what
+the view cannot price (a targeted instant or sorcery under a grant is never cast by the bot); the rest of the FREE
+CAST family: the exile-and-cast grants (36 sole spells, every shape its own - D417's `playPermissions` with a
+`free` flag), the static permission (Omniscience); `becomes a copy` (87 / 53), myriad (20 / 7), the copy-on-cast
+heads (142 / 57); the keyword continuations (embalm 6, devour 7, madness 6) - the bulk is Opus-class rows now;
+the conditional free cast residue (D490 - the free-cast conditions the grammar does not read (Patrician's Scorn's `you've cast another
+white spell this turn` - a colour on the turn record's cast question; the lines refused stay leftover on the card),
+the conditioned instants whose OTHER sentence the vocabulary does not read (Obscuring Haze's and Sivvi's Ruse's
+scoped prevention, Deflecting Swat's `choose new targets for target spell or ability` - the line is read, the card
+waits on its effect), the Legates' pump activations (rows - Deepwood Legate's `{B}: +1/+1` under a read cost line),
+`Activate only if you control a commander` on an activation (the same reader, untested by name); the rest of the
+FREE CAST family (294 / 131 sole): the from-hand grant (32 / 17 - a hand chooser (`chooseFromZone` with D416's
+mana-value bound) and then a cast BEGUN BY THE ANSWER with the cast's own questions before D489's event; the
+continuation carrying the granting spell's rest - Press the Enemy, Counterlash, Reinterpret, Electrodominance, the
+Expertise cycle), the exile-and-cast grants (45 / 21 and 208 / 88 under heads - D417's `playPermissions` with a
+`free` flag the offer and the handler honour), the static permission (Omniscience - every cast from the hand free,
+a standing offer); `becomes a copy` (87 / 53), myriad (20 / 7), the copy-on-cast heads (142 / 57);
+the suspend residue (D489 - the suspend lines the accounting refuses - a suspended card whose free cast would ask
+(Rift Bolt's target, Ancestral Vision's none but a sorcery's timing is fine; a modal or X face; an additional cost),
+the suspend cards with other unread lines (52 of the 65); CR 702.62's fine print - `Suspend` on a card with no mana
+cost, the `remove a time counter` rewrite the rules give a suspended card's own abilities, a suspended card cast
+from exile by some other permission (the mark ends the ticks, the cast is that permission's); the haste's `until you
+lose control of it` read as `while it stays`; no prompt-bar button for the special action (the morph flip has none
+either - the driver and the bot take offers, a human's affordance is the UI's decision); the rest of the FREE CAST
+family (294 / 131 sole): the conditional self-free cast (16 / 4 - D408's alternative cost under a board or turn
+condition), the from-hand grant (32 / 17 - a hand chooser then a cast begun by an effect, this decision's event with
+the cast's own questions before it), the exile-and-cast grants (45 / 21 and 208 / 88 under heads - D417's play
+permission with a `free` flag); `becomes a copy` (87 / 53), myriad (20 / 7), the copy-on-cast heads (142 / 57);
+the populate residue (D488 - the populate heads outside the reading - a populate under a trigger or an activation
+(Growing Ranks' upkeep, Life Finds a Way, Song of the Worldsoul, Selesnya Eulogist's exile-then-populate, Scion of
+Vitu-Ghazi's cast-from-hand condition: rows the suite cannot assert or stage until the generator learns a token
+copy - ledgered where offered), `Populate X times` (Full Flowering - the X rewrite reads no `times`), Determined
+Iteration's haste and end-step sacrifice on `the token created this way` (a referent to the copy), Coursers' Accord's
+Centaur token (no printing in the table - the line stays unread by D474's rule); the copy of a token that is itself a
+copy carries its exceptions (untested by name); the queue's question offers the whole board and the host refuses a
+card (no candidate ids ride the prompt, D390's rule - the client filters by the noun's token flag); the free cast
+(294 lines / 131 sole - the biggest family on the board, a multi-decision program: the conditional self-free 16 / 4,
+the from-hand grant 32 / 17, the exile-and-cast grants 45 / 21 and 208 / 88 under heads, suspend 65 / 13 as the
+keyword's first consumer), `becomes a copy` (87 / 53 - every shape unique, under heads the suite cannot stage),
+myriad (20 / 7), the copy-on-cast heads (142 / 57 - rows), embalm 15 / 6, devour 24 / 7, madness 61 / 6;
+the spell copy residue (D487 - the copy-spell heads and riders outside the reading - a copy-spell body under a head
+(Dualcaster Mage's enters, Sigil Tracer's and Uyo's activations: ledgered until the suite can stage a spell on the
+stack to copy and answer the copy's question), the copy-on-cast heads (Doublecast's `When you next cast`, Galvanic
+Iteration, `Whenever you cast ... copy it` - the referent is the cast spell), Increasing Vengeance's `copy that spell
+twice instead`, Narset's Reversal's `then return it to its owner's hand` (a bounce aimed at a stack object), the
+storm-like `when you cast this spell, copy it`; a copy of a PERMANENT spell (refused at parse: 707.10a's token); the
+damage a copy deals attributed to the copied spell's CARD (its owner's Bolt, copied by the opponent, is the source
+the log names - the copy's controller is right on the object); a def reading `self` for anything but the printing; a
+copy of a modal spell keeps the original's modes (no re-choice, 707.10's rule); the prompt bar's copy question has
+no candidate list of its own (the arrow, as a cast's); the fuzz's reach (see the entry: 1 copy over 60 seeds under
+two driver rules and four a seat - thin, met by construction); `becomes a copy` (83 / 50), populate (26 / 16), myriad (20 / 7);
+the clone residue (D486 - the clone lines outside the reading (the exceptions the grammar lacks - `it has` a quoted
+ability 9, Sakashima's `other abilities` 3, `it doesn't copy that creature's color`, `its name is`; the conditional
+copies - Mockingbird's mana value, Protean Raider's raid, Activated Sleeper's this-turn graveyard, The Mimeoplasm's
+exile-two; Spark Double's and Moritte's entry counters; the takeover-counter exile; Essence of the Wild's static form
+`Creatures you control enter as a copy of this creature`), the Vesuva tap under a further funnel question (dropped -
+no printed card meets both), the client's prompt listing the candidates as numbered buttons (no name or art beside
+them yet; the bot copies the strongest by the view's order, the drivers the first), a graveyard clone's candidates
+over every graveyard (Body Double reads; the noun's scope is the owner's), the spell copy (232 lines / 97 sole - a
+stack object copy with new targets), `becomes a copy` (83 / 50 - the identity rewrite this decision built, from an
+effect), populate (26 / 16), myriad (20 / 7), the fuzz driver's reach of Clone (see the entry);
+the token copy residue (D485 - the copy family's other consumers, measured over the post-D484 leftover
+(`d485/price-copy485.cjs`): the CLONE (`You may have ~ enter as a copy of any creature on the battlefield`, 64 lines /
+47 sole - an enters-choice through the replacement funnel, the instance's own identity rewritten and reverted at the
+zone change), the SPELL copy (232 / 97 - a stack object copy with new targets), `becomes a copy` (83 / 50), populate
+(26 / 16), myriad (20 / 7); the exceptions outside the closed grammar (`it's a N/N black Zombie` - a colour and a type
+REPLACED, `except its name is`, `it has this ability` / `~'s other abilities`, `its power is equal to`), the
+tapped-and-attacking copies and the end-step exile that rides them (Twinflame, Kiki-Jiki, Flameshadow Conjuring), a
+copy of an exiled or graveyard card (`the exiled card`, `target creature card in your graveyard`, Mimic Vat), `a copy
+of that creature` under a player head; the client renders a token copy as the copied card's printing with the token
+badge (no line names what it copied); the token-entry view spells its `from` as exile - a matcher reading
+`from.kind === 'exile'` would misfire on a created token, and none does today; the fuzz driver's reach of Cackling
+Counterpart (see the entry); the conditional continuation measured small (8 rows + 1 spell, `d485/zz-probe-cond485`)))))))))))))))))))))))))))))))))))));
+the prompt continuation residue (D484 - the ask-then-more residue the vocabulary does not read BEHIND the ask (the live probe over
+the post-D483 leftover: 82 permanent payloads and 68 spells carry an ask before their last clause, 30 and 46 read whole;
+the tails behind a discard (36 payloads / 8 spells), a search (5), a sacrifice (4) and a look (2) want vocabulary, not
+the seam), the CONDITIONAL rider on a continuation (`If you do`, `If you don't`, Contagious Vorrac's `If you didn't put a
+card into your hand this way`, Plaguecrafter's `Each player who can't discards a card` - the answer's OUTCOME gating the
+rest: the next seam), a scry or surveil beside another ask in one row (the suite answers no scry: three wide rows refused
+as `a mode whose payload asks`), a counted asking clause (its first pick alone is asked; no rule prints one), a
+kicked-instead over an asking base (none printed), the generator's local hand asserts when a p1 draw follows a p1
+discard or a look on one payload (no measured tail prints the pair), the client's prompt bar (the same prompts; the
+resumed clauses narrate themselves and `ContinuationResumed` marks the log - no panel says a question carries more),
+the fuzz driver's reach of Vampiric Tutor (the 60-seed canary read 0 casts of a {B} instant with no target - the
+continuation floors are pinned at 500 seeds on what the gate measured, see the entry), the seven retired hand scripts
+(D398's rule: a def exists only where the vocabulary cannot - Read the Bones, Cruel Truths, Demon's Due, Diresight,
+Notion Rain, Risky Research, Unhinge));
+the two-zone search residue (D483 - the UI's search dialog lists the revealed library only (a human cannot pick a graveyard card
+there - the engine takes it; the client's `view.searching` is the library's sorted list), the fuzz driver and the bot pick from
+the library alone, the library counted as searched whenever the prompt was answered (a player who searched only the
+graveyard would not shuffle - CR 701.19; the seeded shuffle runs either way), the two-zone search with X (Finale of
+Devastation), the Rune card with no fixture (Runeforge Champion), the named pair finds (Alpine Houndmaster's `and/or a card
+named`, Bogbrew Witch's `or`), The First Doctor's cascade head (ledgered), `any number of` searches (27 lines / 13 sole));
+the player's sacrifice residue (D482 - the player's sacrifice with a rider (Geth's Verdict's `and loses 1 life`, Devour Flesh's `then gains
+life equal to`, Wasitora's `If they can't` - the ask must be last, D195: the prompt continuation seam), `that player` under
+a head with no playerOf, `Each player sacrifices X lands` (the spell's X), the greatest-power sacrifices (Professor Onyx,
+Soul Shatter - a chooser the queue lacks), `unless they pay {1}` (Spelltithe Enforcer), a queued sacrifice of more than one
+under an ETB (Abyssal Gorestalker - ledgered), the monarch head (Custodi Lich), the Cartouche head (Trial of Ambition), the
+bot that answers a targeted edict as the fuzz driver does (its first legal pick), the UI's queue prompt naming the asking
+player only); the wider scope table residue (D481 - the subtypes with no vanilla creature at all (Dragon 13 lines, Villain 6, Bird 6, Spider 4, Sphinx,
+Mercenary - a scope the suite cannot prove until a quiet non-vanilla is admitted), the plural the rule misses, an `all`
+anthem beside a tribal target pump on the opponent's fixture (Balthor - refused by name), the derived fixture's keywords
+(none - a vanilla has none), the tribal keyword grants outside the creature anthem (Auras / Artifacts you control have ...));
+the tribal mass residue (D480 - the tribal mass over a subtype the scope table lacks (Wizard, Dragon, Bear, Rat, Beast ... - 15
+rows in the wide run; the table's 23 subtypes bound the anthems too), the tribal keyword grants (149 lines - `Golems you control
+have indestructible`: the static grant vocabulary's subtype noun), the mass counter under an attacking scope (`each attacking
+creature you control` - the anthem's attacking fixture, not yet the counter's), the tap cost of the scope's own subtype
+(Kumena), the loot beside a draw head (Temmet), a scoped -1/-1 mass counter on a fixture with toughness 3 (the Aeronaut - the
+`yesDies` arithmetic reads two)); the tribal target residue (D479 - the tribal targets still outside the reader (the plural - `up to two target Knights` - needs a
+stem the parser will not guess; a subtype ending in `s` - Octopus, Pegasus, Cyclops, Walrus - stays unread by the plural
+guard; `target Dragon permanent card` and the other two-word card nouns), the subtypes with no vanilla fixture (Dragon, Angel,
+Spider, Ninja, Kavu, Robot, Samurai, Villain, Blinkmoth - ledgered by name), the Gate land whose every fixture enters tapped,
+the Sliver grants with a tribal target (the grant vocabulary reads no subtype target), the tribal anthems (`Other Barbarian
+creatures get +1/+1` - the static vocabulary's next noun), Thraben Exorcism's keyword-qualified alternative, a kinds-permanent
+target the bot aims at any permanent of the subtype (right by CR 205.3d; a Kindred artifact is a legal Knight), Goblin
+Engineer and Ayula skipped twice for a fixture the suite already deals); the search residue (D478 - the search residue still outside the reader (a sentence after the shuffle 42 - the ask is
+not last, D195's rule, the prompt continuation seam proper (31 lines / 21 sole rows over every ask - search 12, discard 11,
+payOptional 4, sacrifice 3, surveil 1; tails: gain life 7, lose life 6, draw 5, tokens 4, scry 3) waits for Fable; the
+`up to X ... where X is` counts 5, the two-noun searches (`a Plains card, an Island card, a Swamp card, and a Mountain
+card`) 3, `and/or` with no count (Invert // Invent), a qualifier beside an alternative (a basic Plains card or a creature
+card with mana value 1 or less), library and/or graveyard 13, any number of 19, a plain count of cards 9, the keyword and
+land-type and name-sharing qualifiers 23, power / toughness 2, exile destinations 4), the cycle-head asks (Krosan Tusker,
+Shefet Monitor - ledgered), Explore the Underdark's initiative (ledgered), Goblin Engineer's reanimate fixture the suite
+already deals, the five step heads with no readable payload, the search fixtures for a named pair (Alpine Houndmaster,
+Renowned Weaponsmith, Bogbrew Witch, Dragonstorm Forecaster) and the Aurochs, `memoTriggers` 0 at 60 seeds this run (10
+at 150 - the 60-seed partition, not a drop)); the number taken residue (D477 - the that-much heads still outside the memo (the aura `enchanted creature deals damage` 5 -
+Spirit Link, Vampiric Link; `enchanted creature is dealt damage` 4 whose `its controller` needs a playerOf; `an opponent loses
+life` 3 - Exquisite Blood, Bloodthirsty Conqueror, Mindcrank's `that player mills`; `you discard one or more cards` 4;
+`a source you control deals noncombat damage to an opponent` 3 - Niv-Mizzet, Visionary), the payloads the substitution
+lacks (`that much damage to any target` read - `that many +1/+1 counters on each`, `you get that many {E}`, `sacrifice that many`
+not), the `where X is the damage` and `equal to` spellings, Phantom Nishoba's 0-power head, Brash Taunter's 1/1 fight and
+Truefire Captain's mentor (refused by name), a per-creature head fired once with the sum when no per-item fan-out is
+declared (the generated another-creature head has none - one trigger, the sum; the engine's memo takes the item when one
+is), a source that died to the arm's own damage dealing its memo from the graveyard (Jackal Pup, Mogg Maniac - last known
+information, the engine allows it), the UI's label with no number); the trigger's own number residue (D476 - the 36 sole rows still outside the memo (the heads that are not the source's own damage -
+`Whenever a creature you control deals combat damage to a player`, `Whenever ~ is dealt damage` (Stuffy Doll's number is the
+damage TAKEN - a second memo reader), the payloads the substitution lacks (`that much damage to any target` - a target under a
+count, `that many +1/+1 counters on each`, `put that many ... on target`), the `where X is the damage` and `equal to the damage`
+spellings), a per-creature head fired once with the SUM when a trampler hits two blockers (D467's per-item fan-out is not on
+the memo heads - one trigger, the sum), the zero-power creatures refused by the arm (a 0/1 with the head), `memoTriggers`
+counting D440's modular memo beside D476's (a memo carried is a memo carried), the UI's stack object with no number on its
+label (`you gain that much life` - the memo is not shown), the bot that reads no memo (the generic trigger offer)); the emblem
+residue (D475 - the 81 emblem quotes with no record in the database (a synthesized printing would be the honest
+answer - CR 114.3 - outside the DB-guarded fixtures), the 45 emblem printings the row maker refused (the hand-size and untap
+statics, the reach-through grants, Jace's counter, the copy emblems, Vraska's game loss), the walkers whose other lines the
+vocabulary lacks (Elspeth's power sweep, Gideon's animate, Teferi's tuck), the emblem's timestamp (CR 613.7c - placed after the
+battlefield, its creation turn not kept), the UI's command zone with an emblem in it (renders as a card; no emblem badge),
+the bot that never reaches an ultimate (the loyalty choice is the generic offer), `emblemsGiven` 0 at 60 and 150 seeds (an
+ultimate is seven loyalty away - reported), the ambiguous quotes (`You have no maximum hand size` - several records; the
+walker's own name would pick), a walker's other quoted line (`gains "..."` grants) still outside the reader); the token
+printings still refused (D474 - the 18 token printings the row maker refused (the Pilots' crew, the Spirit's block restriction,
+the Assassins, the Cleric's and the Elemental's named returns, the Illusions, the Nightmares, the Ooze whose own name reads
+as `~` in its token description, the Warrior, the Wolf, the Goblin's scope, the Horse's grant) and the makers behind them,
+the makers with a second unread line (~80), a token's trigger with a target on resolution after its source ceased (the
+targets re-check reads no face - covered by the aim, untested at resolution), a token script's card in the ledger or the
+select (a token is no Commander-legal card - never offered, never counted), `tokenTriggersFired` 2 / 6 (reported, not
+floored - the Bird's landfall needs a second land after the Bird), the bot that never activates a Mercenary (D448's debt);
+the quoted-token residue (D473 - the fifty quoted printings the engine does not run (the dies triggers - Pest, Devil, Imp,
+Ooze, Boar; the can't-block and can-block-only statics - Rat, Fungus, Satyr, Pirate, Robot, Drone, Faerie; the Mercenary's
+pump, the Pilot's crew, the Construct's count - each a token PRINTING the generator could row like a card), the counted
+descriptions (`that many`, X), the `Those tokens have` form after a count sentence, the named tokens, the copies; a quoted
+token's own mana ability never auto-tapped by the solver (D325 - a sacrifice is a decision; the driver and a human tap it),
+the bot that never taps a Spawn for mana (no mana-with-a-price rule), the UI's token with the quoted line as its printing's
+own (no note - it runs); `spawnTokensMade` 2 at 60 seeds (thin; 14 at 150 - floored); the loyalty residue (D472 - the emblems (65 - a player-owned object with no zone), the ultimates outside the vocabulary
+(searches, exile-all, extra turns), the `-X` costs (unpaid by rule - the parser reads a number), the loyalty statics
+(`As long as ~ has N or more loyalty counters`, Gideon's creature forms), a payable loyalty ability with no def CHARGED
+for nothing (the Krenko precedent - tier3's `fourOrMore` 24 -> 99, one note per ability), a walker at exactly N under a
+`-N` (the SBA takes it with the ability still on the stack - untested), the bot that never activates a loyalty ability
+(the whole activation rule is a debt since D448 - the fuzz driver does), the UI's planeswalker (the counters badge
+and the generic ability offer; no loyalty affordance of its own), `loyaltyActivations` 21 / 53 (floored); the keyword
+counter residue (D471 - the keyword counters the engine does not enforce (exalted, decayed - inert by name), the
+`your choice of` entries (a prompt at entry - the colour-and-type prompts' shape), the negated-subtype targets
+(`non-Human creature you control`), the reflexive `remove a menace counter from it. When you do` payloads, a keyword
+counter beside a temporary grant of the same keyword (both add; the set holds one), the cycle head's hand baseline
+(the card leaves and the cycling draws - a payload counting the library reads one fewer); the stun residue (D470 - the tapped entries (`enters tapped with N stun counters` - the generated replacement would tap
+the permanent itself after the counters, `PermanentsTapped` behind the move as the built-in does; the suite's untap steps
+would then spend the counters it asserts), the counted stun forms, a stunned permanent that phases (untouched - it never
+untaps), a stun counter on a permanent an untap EFFECT names beside others (the built-in splits the batch - covered), the
+bridge's `on it` rule reading only a `target` word before it (a quoted body naming `that creature` before `it` is not a
+target phrase - refused as before); the shield residue (D469 - the choice between a regeneration shield and a shield counter when both stand (CR 616.1 -
+the affected controller chooses; regeneration is taken first here), a scripted destroy that moves the card itself
+(Damnation's hand script, D383's shape - it asks no shield counter either), the shield counter on a player's
+planeswalker under combat damage (the entry is a card target - covered), `shieldCountersSpent` 0 at 150 seeds (two
+Duelists entered; no floor), the stun counter (122.1j) and the keyword counters (122.1c) still outside the engine;
+the named entry counters' residue (D468 - the conditional entries and the `Remove a shield counter` costs
+behind them wait on an engine rule: prevent the damage or the destruction, spend the counter), the stun counter (122.1j),
+the keyword counters (122.1c - `derive` reads +1/+1 and -1/-1 alone), the conditional entries (`if you cast it from your
+hand` 11), the tapped-and-counters lands, the storage lands' X mana; the filtered combat-damage residue (D467 - the `you` target - an opponent's creature attacking on its
+own turn; `that player` referents under a filtered head - `PLAYER_HEADS` is keyed by head name and knows no filter; the
+qualifiers `with a counter on it`, `with a legendary Equipment attached`, `that entered this turn`; the compound
+`enters or deals combat damage` heads), the batched-vs-singular distinction proven by wording alone (a suite with one
+attacker cannot tell one trigger per step from one per creature - a two-attacker suite would), a double-striking
+fixture (two damage steps, two fires - none of the derived fixtures strike twice), a trampler over a blocker (one
+entry per target, the player's counted - untested); the blocker predicate's residue (D466 - `and/or` subjects, `non-Wall creatures`, the comparisons
+against the attacker - `creatures with greater power`, `toughness 3 or greater` - the shared-type and enchanted-creature
+subjects, token blockers, subjects with no quiet fixture, the as-long-as and unless conditions), the refusal-only proof
+(a def refusing every block would pass the `by` suites - the fuzz driver never blocks, so `canBlock` predicates are
+proven by the unit suites alone), the zero-power guard on the self damage heads (a card whose power a static or a
+counter raises is still refused by its printed base); the chosen-type residue (D465 - the mana restriction `Spend this mana only to cast a creature spell
+of the chosen type` 4 - the restriction matcher reads no chosen type; `Creatures of the chosen type your opponents control` -
+no opponents-controlled scope; the charge-counter payloads; the compound enters-or-attacks head over a filtered subject and
+the sacrifice cost over the chosen type - both ledgered; Metallic Mimic's enters-with replacement; the type-add over spells
+and cards elsewhere), the layer order in `derive` (the `type` statics run AFTER the `ability` ones, so a keyword grant over
+the chosen type does not see a subtype another static added - no card in the wave combines them), two permanents asking
+in one batch (the entry site raises one prompt and the second is never asked - the colour clause's standing shape),
+the bot's answer (the commonest subtype it can see, never the deck's), the prompt bar's suggestions (the table's
+types only; a name typed from memory is checked by the host), `creatureTypesChosen` read 6 / 13 / 0 across three
+canary reads (no floor), Shock Brigade at four a seat (D463's floor read 0 at 60 and 150 on this tree); the this-or-another
+compound's residue (D464 - the payloads outside the vocabulary 49 - `that
+creature's power`, the referents, the counters with riders; the seven multi-face layouts; the filtered subjects the reader
+lacks 7; the turned-face-up other halves 4 - the filtered reader has no turned-face-up base; the Ally / Pirate / Dragon
+subjects whose payloads did not read), the compound's two defs firing on ONE event when the card itself enters beside
+another (the self half and the other half both match - the printed line fires once by the rules, twice here; untested,
+no fixture enters two at once), a this-or-another head with `attacks` / `becomes tapped` (kept out of the split); the
+mobilize cards still blocked on their other line (D463 - Zurgo Stormrender's token-leaves head
+- ledgered; Zurgo Stormrender's token-leaves head; Stadium Headliner's counted damage; Bone-Cairn Butcher's and Zurgo's token
+statics; Voice of Victory), a mobilize Warrior beside a planeswalker defender (the Lancer's defender rides - untested), the
+delayed sacrifice of a Warrior that changed controllers before the end step (the trigger's controller is the maker's;
+untested), the fuzz's four-mana staples generally (a seat holds three basics - Mind Control, the Lancer: pick the cheapest
+printing); the ninjutsu cards still blocked on their other line (D462 - the `that player` payloads under a
+combat-damage head - Mistblade Shinobi, Throat Slitter, Skullsnatcher, Fallen Shinobi, Nashi, Ink-Eyes; the filtered
+combat-damage heads - Ingenious Infiltrator, Prosperous Thief ledgered; the copies - Fable's; the counters with a rider),
+`ninjutsus` 0 at 60 seeds (reported - the driver's lands are spent before combat and an unaffordable action is not
+meaningful, so its window auto-passes), the UI's hand card with no ninjutsu affordance beyond the generic activation
+offer (the return chooser's prompt is the tap chooser's shape - untested by hand), a ninja put onto the battlefield
+attacking a planeswalker (the defender rides the object; none printed in the fixtures), Commander ninjutsu (another
+word, Tier 3); the compound's residue (D461 - the `As this creature enters or is turned face up` REPLACEMENTS -
+Vesuvan Shapeshifter, Aquamorph Entity, Crowd-Control Warden - a choice as it enters; Culvert Ambusher's `blocks this turn if
+able`), a turned-face-up half fired by an effect that turns a face-down MORPH up (the same head - untested), the
+compound's second half beside an intervening if (none printed); the disguise cards still blocked on their other line (D460 - the `turned face up` payloads outside the
+vocabulary 16, Museum Nightwatch's Detective token, Arno Dorian's subtype anthem, Basilica Stalker's surveil, Fugitive Codebreaker's
+reduced disguise cost), the UI's face-down card showing no ward badge (the view carries `disguised`, the card component
+does not draw it), a face-down disguised permanent turned face down AGAIN by an effect (the flag reads the printing - it
+would keep the ward; none printed), the bot's ward pricing of an opponent's face-down permanent (it reads the same view -
+untested), `disguiseCasts` floored (8 at 60, 21 at 150) and `disguiseUnmasks` 4 / 9 reported; the fabricate cards still blocked on their other line (D459 - Marionette Master's power-sized life loss,
+Cultivator of Blades' X pump, Cayth's granted fabricate beside a modal activation, Marionette Apprentice's compound subject),
+`fabricateFired` 3 / `fabricateServos` 4 at 60 seeds (reported, not floored - the driver answers modes at random now; its old first-mode fallback never made a Servo), a
+fabricate granted by a static (Cayth: the amount reads the recipient's printed text - 1 when unprinted - untested), the bot's
+mode choice for a fabricate trigger (it answers modes as it answers any modal trigger; whether counters or Servos is
+better is not weighed); the boast lines still refused (D458 - the `Whenever you activate a boast ability` head - Frenzied Raider;
+Dragonkin Berserker's cost reduction; the searches; Arni Brokenbrow's base-power choice; Broadside Bombardiers' sacrifice-priced
+damage; Axgard Braggart's per-item counter), `boastActivations` 0 at 60, 150 and 500 seeds (reported, not floored - the driver auto-passes its own combat window unless something is on the stack, and must attack
+with the Pup and pay in combat), a boast on a creature that attacked and left (the record keeps the id; a returned copy is a
+new object the record does not name - untested), a boast granted by a static (none printed; the granted offer site checks
+the record the same way); the exhaust lines still refused (D457 - the `Whenever you activate an exhaust ability` head - Afterburner
+Expert, Rangers' Refueler; the payloads outside the vocabulary - a double strike counter, `It gains double strike`, a loot
+beside a counter, haste to others; the X costs; the Vehicles' `becomes an artifact creature`; the bending keywords, the
+energy; Elvish Refueler's `as though they haven't been activated` and Boom Scholar's reduction), `exhaustActivations` 3 at
+60 seeds (reported, not floored - the invariant walker is the teeth), an exhaust ability on a granted def (none printed;
+the granted offer site checks the memory the same way, untested), the bot's valuation of a once-only activation (it
+pays it like any other); the quoted trigger grants still refused (D456 - the payloads outside the vocabulary - `that many`
+counters on Sunbond and Light of Promise, `sacrifice ~ unless` on Pendrell Flux and Instill Furor, the X-counted pumps and
+damage of Idolized and Unquenchable Fury, Necrotic Plague's return; the Backgrounds `Commander creatures you own have` 25 - a
+scope the static vocabulary lacks; the Slivers 20; Animal Friend's and Spare Dagger's bodies naming the provider), a granted
+trigger on a host that leaves mid-resolution (the def resolves with the recipient as its source - a host that died to its
+own trigger reads last-known information, untested), a granted trigger beside the provider's own trigger on the same
+head (two defs on one event, the order unpinned); the land-host grants still refused (D455 - the three token grants `TOKEN_TABLE` refuses - a two-colour
+Drake, a 5/5 Beast, a 0/1 Caribou; the activate-only riders inside the quote; the discard / sacrifice costs; the
+prevention, the counters with a rider, the spend restriction), the granted enters line beside a target on the Forest
+(New Horizons aims its counter at a creature the suite puts; a land host with no creature would aim at nothing - untested),
+a land host under a `hostPt` pump (none printed); the attached quoted grants the row maker still refuses (D454 -
+`Commander creatures you own have` 25 - a
+scope outside the static vocabulary; two quoted bodies on one line 7; a keyword beside the quote 12; the quoted TRIGGER grants ~20 - D368's carrier, the
+bodies mostly outside the vocabulary; `Unattach ~` / sacrifice / discard costs 12; the Sliver `have "..."` scope 20), the
+granted mana proof reading `producesMana` by text (an intrinsic land production carries its subtype in parentheses - a
+grant on a land host would need the index), the granted row under a second trigger head on the same Aura (untested);
+the control Auras blocked on their other line (D453 - Enslave's and Biting Tether's upkeep payloads,
+Duskmourn's Domination's `loses all abilities`, Coerced to Kill's base P/T, Treachery's untap-five, Domestication's
+power-gated end step, Abduction's return, Illusory Gains' re-attach, Soul Ransom's activation, Kitnap's gift, Dream Leash's
+targeting rule, Hypnotic Siren's bestow, Take Possession's split second; 12), the bot's Aura aim (a Mind Control on its own
+creature is legal and dumb - the aim never weighs whose creature), the control Aura on a permanent the engine's layers
+also move (a stolen creature's own `you control` statics read the new controller - untested), `controlAuras` 2 at 150
+seeds (reported, not floored - a {2}{U}{U} the driver aims at random), the other control family (exchange control 24,
+the `gain control of target ... for as long as` durations, the permanent threatens); the co-attacker under the heads outside the list (D452 - `youAttack` - Most Valuable Slayer, whose own
+fixture attacks; `entersOrAttacks`, `attacksOrBlocks` - the other half's combat has no attacker of yours), the BLOCK heads
+whose attacking creature is the opponent's (Elite Javelineer, Nivix Barrier - the Cyclops is the fixture, a branch to
+write), the blocking fixture, two payment prompts on one row (Ghost-Lit Warder), the Channel lines outside the vocabulary
+(23 of 38 - searches, damage to any target, the exile-and-return shapes), Exhaust (18 - a once-ever activation the engine
+has no memory for), Renew (12 - graveyard activations whose counter payloads the vocabulary does not read), the bot that
+never activates from the hand; the attacking fixture under a TRIGGER head (D451 - 12 rows read and refused - `Whenever this creature
+attacks, another target attacking creature ...`: Aerial Guide, Appa, Bazaar Krovod, Clammy Prowler, Gryffwing Cavalry, Pegasus
+Courser, Phase Dolphin, Phyrexian Pegasus; Elite Javelineer's and Nivix Barrier's block heads; Malamet Brawler; Most Valuable
+Slayer's `youAttack` - a co-attacker in the head's own declaration is the arm to write), the BLOCKING fixture (a clause on a
+blocking creature - the opponent's attacker and self's block, D291's combat-role nouns), Rubblehulk's bloodrush X beside its
+CDA (the static's witness moves the count), the bot that never activates from the hand (or anywhere), the client's hand
+click path (cycling's since D306, unverified for bloodrush by any check), the discard-self price beside another piece,
+`handActivations` 9 at 150 seeds; the vanishing and fading cards blocked on their other line (D450 - vanishing 13 - the time-counter
+payloads (Soultether Golem, Lavacore Elemental - vanishing 1, dead before the fire; Regenerations Restored's per-removal
+head), the dies-with-no-time-counters intervening ifs (Deadly Grub, Chronozoa, Lost Auramancers), Tidewalker's counted
+entry and CDA, Ravaging Riftwurm's kicked extra, Idris; fading 7 - the Parallax enchantments' leave heads, Saproling
+Burst's tokens, Tangle Wire's each-player tap, Ancient Hydra's any-target ping, Parallax Dementia), the bare `Vanishing`
+(no number - the card's own line puts the counters: Tidewalker, Out of Time), the two vanishing-1 cards the suite's walk
+kills (a suite that put the card the turn it fires would land them), the keyword seams measured and left (encore 13 -
+copy; bloodrush 12 / reinforce 6 - hand activations with a discard-self cost; boast 9; madness 20; fabricate 12; `You
+control enchanted creature` 12; ninjutsu 11; myriad 11; enlist 9; umbra armor 7; foretell 8; embalm 8); the evoke and dash cards blocked on their other line (D449 - evoke 11 - five intervening ifs,
+three payloads outside the vocabulary; dash 6 - a referent payload, a head outside the library), the bot that never elects
+an alternative cost (it never activates either - the whole rule is a debt), the generated suites that never cast for the
+keyword cost (the rows prove the printed lines; the seam's test proves the election), `evokedCasts` 9 at 150 seeds (two
+Mulldrifters a seat; the driver elects the cheaper cost when it can), the keyword seams measured and left (encore 13 -
+copy; bloodrush 12 / reinforce 6 - hand activations with a discard-self cost; boast 9 real rows - a per-creature attack
+memory and the word; madness 20 - a discard replacement with a cast prompt; fabricate 12; `You control enchanted creature`
+12; ninjutsu 11; myriad 11; fading 10; vanishing 9; enlist 9; umbra armor 7; foretell 8; embalm 8); the unearth cards blocked on their other line (D448 - 26 - Rakdos Guildmage-style activations,
+Scourglass-style payloads; `trigger payload not a pump` 10, a static line 8, `effect not a row kind` 3), the bot that never
+activates an ability (unearth among them - the bot's whole activation rule is a debt), the client's graveyard click path
+(scavenge's since D440, unverified for unearth by any check), the keyword seams measured and left (madness 20, dash 16,
+fabricate 12, `You control enchanted creature` 12, ninjutsu 11, myriad 11, fading 10, vanishing 9, enlist 9, devour 7;
+suspend 19 and cascade 14 are the free cast - Fable's), `unearths` 8 at 150 seeds (floored at gate size on three staples
+a seat), the colour-typed cast head (28 lines) beside the self `removeCounters` payload; the -1/-1 entry cards blocked on their other line (D447 - the hatchlings' `Whenever you cast a
+<colour> spell, remove a -1/-1 counter from this creature` - a colour-typed cast head the library lacks and a self
+`removeCounters` payload the vocabulary reads only targeted; 28 `cast a <colour> spell` lines over the leftover),
+Chainbreaker's targeted removal the suite cannot assert, Loch Mare's stun counter, Glen Elendra Guardian's `Counter target
+noncreature spell. Its controller draws a card.`, Flitterwing Nuisance's delayed trigger, Carnifex Demon's mass -1/-1,
+Morselhoarder's mana ability, the `while it has a -1/-1 counter on it` heads (Bristlebane Battler, Reluctant Dounguard,
+Encumbered Reejerey), Heirloom Auntie's surveil-then-remove (the continuation seam), Canker Abomination's chosen-opponent
+count, Patched Plaything's cast-from-hand condition, Hotheaded Giant's `unless you've cast another red spell`, the `Remove
+a counter from a creature you control` chooser with no kind (still unpaid - a pick over the board must name what it takes),
+the charge's sorted drain (only observable in a state no player acts in), the static tail measured and left (`costs {M}
+less if/for each` 64, `choose a creature type` 44, `may choose not to untap` 35, `Enchant player` 42, the library-top
+peek 38); the turn-conditioned statics beside an unread line (D446 - Shao Jun's Rope Dart activation, Kain's
+control-changing damage trigger, Cid's graveyard return, Freya's restricted mana, Circle of the Moon Druid's Bear form - a
+conditional TYPE-AND-BASE body), Bello's `each non-Equipment artifact and non-Aura enchantment you control` scope, the
+`During your turn, your opponents can't cast spells` rules hook (2), the static tail measured and left (`~ costs {M} less to
+cast if/for each` 64, `As this permanent enters, choose a creature type` 44 - a chosen-type memory and a client dialog,
+`You may choose not to untap` 35 - an untap-step option, `Enchant player` 42, `You may look at the top card of your library
+any time` 38, `~ enters with two -N/-N counters` 15 - the entry-counter built-in's negative half); the fuzz driver's new economy (D445 - ten basics a seat, the land drop first, random aims - every rate
+moved; the floors under five over 150 seeds: damagePrevented 2, reducedCasts 2, fights 3, modeChoices 4), the backup cards whose lines below the keyword are not keywords (Chomping Kavu's static, Voldaren
+Thrillseeker's and Scorn-Blade Berserker's activated abilities, the attack and combat-damage triggers of Bright-Palm, Archpriest
+of Shadows, Doomskar Warrior, Mirror-Style Master, Guardian Scalelord, Bola Slinger, Emergent Woodwurm, Hangar Scrounger,
+Streetwise Negotiator, Enduring Bondwarden; Death-Greeter's Champion's dash above it - 14, a grant of ability TEXT until end
+of turn the layer-6 seam lacks), the FREE CAST the engine has no path for (305 cards print `without paying its mana cost` -
+cascade 23, suspend 33, the commander-conditional alternative cost 5, the exile-and-cast forms - the continuation seam's,
+with cascade), `keywordGrants` counting every keyword-only grant of any source; fabricate 16 / 10 (D444 - a TRIGGER whose
+counter-or-Servos choice is made on resolution - a branch
+prompt the engine lacks; the pay prompt's two-branch shape is the nearest thing), the unleash / riot cards blocked elsewhere
+(Tesak's and Spider-Punk's granted keywords - `Other Dogs you control have unleash`; Exava's haste grant; Gruul
+Beastmaster's, Gruul Spellbreaker's, Ravager Wurm's, Skarrgan Hellkite's other lines), the bot's entry rule (the counter
+unless riot can swing now - it never weighs the block unleash gives up), the harness's decline (haste for riot - the
+generated suites of a riot card see haste, never the counter), Devoted Crop-Mate's reanimation payload; the exert COST
+(D443 - `{T}, Exert this creature:` - Pride Sovereign, Steward of Solidarity, Oasis
+Ritualist, Hope Tender, Fervent Paincaster, Basri's `Exert ~`, Arena of Glory's `Exert this land` - a cost piece over D168's
+grammar, 7), Combat Celebrant's once-per-turn condition (`If this creature hasn't been exerted this turn` - a turn memory),
+the exert payloads the vocabulary refuses (Glorybringer's non-Dragon damage, Oketra's Avenger's prevention, Rhonas's
+Stalwart's power-bounded unblockability, Sandstorm Crasher's attacking copy, Ahn-Crop Champion's untap-all, Champion of
+Rhonas's put-from-hand, Clockwork Droid's unblockable-and-scry, Devoted Crop-Mate's reanimation, Rohirrim Chargers'
+reveal-until), the bot's exert rule (a blocker stays home - it never weighs the payload), the driver's rare attacks (2 exerts
+at 60 seeds), the client's toggle without the payload text (the bar names the card, not what the exert does); the hand-size
+forms outside the six (D442 - `for the rest of the game` - Praetor's Counsel, Sea Gate
+Restoration, Wisdom of Ages, Finale of Revelation, Ancient Silver Dragon's trigger, Inspired Idea's cleave bracket - a game-long
+player flag the engine lacks; `until your next turn` - Enter the Infinite; `for as long as you control this Saga`; Cursed Rack's
+chosen player; a counter count; Winter's delirium; Library of Leng's put-on-top discard; `and don't lose the game for having 0
+or less life`), the generated suites' opt-out (`maxHandSize: null` in every arming - the generator's counts model no discard;
+a generator that predicted the harness's pick could drop it), the harness's first-cards pick (a rules test crossing a cleanup
+with eight in hand counts off the library), `cleanupRepeats` 0 at 60 seeds and 10 over 500 (reported,
+not floored), the bot's cleanup pick (`worstFirst` by mana value - the mulligan's crude order; keeps lands, throws the top
+end), the two-line hand-size cards blocked elsewhere (Reed Richards, The Magic Mirror, Niv-Mizzet Visionary, Curiosity Crafter,
+Venser's Journal, Ms. Marvel, The Ten Rings, The Second Doctor, Price of Knowledge), the isolated corpus run's 51 minutes
+(measure a rule with `--no-isolate`); the two `enters tapped unless you reveal` forms outside the shape (D441 - `enters tapped unless you
+reveal a Dragon card` - the older wording, 2), the entry choice the client has no dialog for (fabricate 16 / 10 - a counters-or-Servos prompt on resolution), the
+split head's absolute payloads (Hunting Moa - the generator's etb-half accounting), the second-spell head's payloads
+(23 / 10 - the head is in the library; the payloads are copies, mills with riders, investigates), suspend 33, madness 33, cascade 23 (the continuation seam), dash 22, devour 19, enlist 12 (unleash / riot D444, backup D445);
+the entry-counter baseline the generator lacks (D440 - modular's four Arcbounds beside a
+self-counter or self-pump row; graft, devour, fabricate would be the same), the modular replacement (Arcbound Wanderer's
+kin: `If a modular triggered ability would put one or more counters`), the second-spell head (Arcbound Tracker), the
+Construct search (Scrapyard Recombiner), the keyword families measured and left (suspend 33;
+suspend 33; madness 33; cascade 23 - the continuation seam; dash 22; devour 19; the reveal lands 19 / 17 - an
+entry reveal price; fabricate 16; enlist 12), the
+`*`-power scavengers the synthesis refuses; the prices the engine cannot charge (D439 - cumulative upkeep `{W} or {U}` 4, `{S}` 2, Braid of Fire's
+`Add {R}`, the 13 singleton verb prices - sacrifice a creature, draw a card, flip a coin, an opponent gains 1 life; echo's
+`Discard a card` 2 and `Sacrifice two lands`), the linked price heads (`Whenever you pay this enchantment's cumulative
+upkeep` - Hibernation's End, Balduvian Fallen; `When a player doesn't pay` - Heart of Bogardan; `When this creature's echo
+cost is paid` - Shah of Naar Isle), the two-line cumulative upkeeps whose other line is unread (Reality Twist, Ritual of
+Subdual, Freyalise's Radiance, Kjeldoran Javelineer's age-counter damage, 30 more), the keyword families measured and
+not built (suspend 33; madness 33; modular 23; cascade 23 - the
+continuation seam; dash 22; devour 19; the reveal lands 19 / 17; extort 17; fabricate 16; scavenge 14; enlist 12), the enters-or-dies heads the closed reader refuses (`this` as an
+adjective - Goblin Marshal, Hunting Moa, Mogg War Marshal, Subterranean Shambler, Illusions of Grandeur), the pay-or-
+scry riders (Dream Beavers, Corroding Dragonstorm), the counted loss beside a cost piece (Rotwidow Pack), the
+harness's declining answer (a suite of a priced permanent pays for itself); the block counts' scoped forms (D438 - 27
+leftover - `Each creature you control [with power 4 or
+greater | with a +1/+1 counter | with menace] can't be blocked by more than one creature` 10, the Auras and Equipment 8 -
+Entangler, Alpha Authority, Echo Circlet, Vorrac Battlehorns - the spells' `this turn` grants 3, the self forms with a rider -
+Kemba's Legion's per-Equipment count, a monarch condition - and the named selves the `~` substitution misses), the 20 plain
+forms beside an unread line, the dormant `orderAttackers` prompt (a double-blocker's damage order is its declaration order;
+no producer raises it), THE FUZZ DRIVER NEVER BLOCKS (no block count can fire under it - the suites are the proof);
+the X spells beside a rider (D437 - 303 leftover - `X target creatures` 4, `Exile the top X cards` 6,
+`Reveal the top X cards` 5, an additional cost of X life or X cards 17, `Spend only black mana on X`, `Counter target spell
+with mana value X`, `Gain control of target creature with mana value X`, `Destroy target creature with power X or less` -
+the X in a TARGET clause; the modal X spells; the 38 hand X defs the vocabulary still cannot read whole - `deals X damage
+to each nonartifact creature`, `mana value X or less` sweeps, `two times X`, `double target creature's power X times`),
+the bot's X ceiling of six (a Blaze for seven is not priced), the driver's X of 0..1 (two casts for more than nothing over
+60 seeds), the D187 pins' parse without the face's gate; THE CLIENT AIMS ONLY THE PILE'S TOP (D436 - the zone browser's
+cards carry no aim slot - a human
+cannot aim a graveyard-card target, D138's returns included, at a buried card; the bot can), the two-card graveyard clauses
+(`Exile two target cards from an opponent's graveyard` - Deadeye Tracker), the graveyard exiles with riders (`If it was a
+creature card, put a +1/+1 counter` - Scavenging Ooze; `If you do, you gain N life` - Mardu Woe-Reaper; `Create a token that's
+a copy` - Soul Separator; `You may cast it this turn` - Dire Fleet Daredevil; Spelltwine's copies), the graveyard-card returns
+the rule refuses (`Return target creature card from a graveyard to the battlefield under your control` - a reanimate over any
+owner), the persist / undying self-sacrifices (Grazing Kelpie), the library-fill head (Dutiful Knowledge Seeker); the if-you-do
+pair's cards blocked elsewhere (D435 - Baral's counter head, Smuggler's Copter's Vehicle,
+the `this creature or another` filters, Scrapwork Mutt's Unearth, Rubble Rouser's mana line, Melded Moxite's tapped token, the
+attack-head rummagers the driver rarely fires - Vaultbreaker, Burning-Tree Vandal), `discard your hand. If you do, draw N` (3),
+the other `If you do` continuations (925 lines - `pay N life. If you do`, `sacrifice a Food. If you do`, `exile target creature.
+If you do, return that card`, `have it deal damage equal to its power`), the in-spell `you may discard a card. If you do, draw`
+(Take Out the Trash, Chandra's Defeat - a choice inside a spell's resolution), the scoped life loss the vocabulary lacks (`Each
+player loses N life` 11); the milled-card referents (D434 - `You may put a permanent card from among the milled cards into your
+hand`, `for each creature card put into your graveyard this way`, `Then return a creature card from your graveyard` - 171
+single-line permanents and 67 spells carry a mill line, most with such a rider), `Target player mills X cards` (Blue Sun's
+Zenith's kin), `Counter target spell. Its controller mills N cards` (4), the mill as a payment's branch (Drowner Initiate), the
+`Whenever you mill` / `Whenever one or more cards are milled` heads, the mill-then-return pairs (`Mill N cards, then return a
+creature card from your graveyard to your hand`), the loot-plus-draw-head cards (Teferi's Tutelage); the two-heads cards
+(D433 - Nekusar, Spiteful Visions - the draw-step head's extra draw fires the
+card's own draw head; the one-shot asserts one), the second-card draw head (Faerie Mastermind), the draw-step heads with an
+intervening if or a rider (Howling Mine's `if this artifact is untapped`, Academy Loremaster's `may ... If they do`, Sylvan
+Library's choice, Malignant Growth's count, Well of Ideas' `each other player's`), the draw-step cards blocked by their OTHER
+lines (Rites of Flourishing's land permission, Avaricious Dragon's `discard your hand`, Heightened Awareness's entry discard;
+13 `your` + 10 `each player's` lines stay), the aimed draws beside what the vocabulary lacks (`Target player draws X cards` -
+Blue Sun's Zenith, Drown in Dreams; the flashback prices - Deep Analysis; 67 `target player draws` lines and 36 `each player
+draws` lines on cards with more unread); the Inspired untap-step payments (D432 - 4, the fire walks past the prompt), the
+token branch under a cast head (Skywise Teachings), the other draw bodies (`If you control a red permanent, you may have ~
+deal` - Kederekt Parasite), the `youDraw` and `secondCard` cards waiting on other lines (28 + 27), the pronoun forms the
+conjugation map lacks (`they can't`, `their next turn`); the return forms the rule refuses (D431 - `Return a land to its owner's hand` - any land, not
+yours; `an artifact or creature` - two arms; `two lands` - a count; `unless you return` - the Invasion lairs' price), the two-ask
+cards (Marsh Crocodile, Razing Snidd), the optional asks (Tazeem Raptor), a spell whose ask is not last (Dredge), the bot's
+pick (the worst permanent by its own ranking - a karoo returning a basic is right, a Fleetfoot Panther returning its best
+creature is not); the count phrases the reader still refuses (D430 - `Auras (and Equipment) attached to it` 8 - an
+attachment count the suite cannot stage without an Aura cast onto the row's own creature; `experience counters you
+have` 3 and `poison counters your opponents have` 2 - player counters; `creatures on the battlefield with flying` 2;
+`colors among permanents you control` 2; `times you've cast your commander` 2; the Rats with no fixture 4; the
+greatest mana value 2; the life total 2), the Lhurgoyf form (`its toughness is equal to that number plus 1` 8), the
+counted ANTHEM (`Creatures you control get +1/+1 for each` 6 + `Other <type>s you control` 4 - a statics block beside
+the anthem's), the counted shrinks (2 - a baseline the suite cannot stage), the counted cards blocked by their
+OTHER lines (the both-CDA 28, the reader's 93 less the 42); the classifier mirror's remaining drift (D429 - the modal lines, the filtered and intervening-if
+heads, the fights, the P/T counts, the Lieutenant cycle - the row maker reads them, the classifier files them
+elsewhere; measured by the next wide run), the nine generator shapes the port named (the enrage fight's baseline, the
+rampage fire, the modal enters-or-attacks counter, the dead source's power - LKI, the Aura's untap-skip fixture, the
+fight suite's `onBoard`, the cant-attack-unless walk), the map's larger families (`As this <permanent> enters, choose
+a <type | color>` 121 - the chosen characteristic; `X gets +N/+N for each` 60; `X's power is equal to` 59;
+`Enchant player` 42; `You may look at the top card of your library any time` 36; the sacrifice-cost mana abilities
+41 - Phyrexian Altar; the activated searches 41 - the fetch lands; the bounce lands 14; `Draw a card. If you do,
+discard a card` 12; the keyword mechanics Cumulative upkeep 30 / Soulbond 24 / Exploit 23 / Ascend 22 / Cascade 22 /
+Backup 23; the each-player step heads 20), the triggering OBJECT referent (~60 real: `destroy that creature at end of
+combat` 8 - an end-of-combat delay, `this creature deals N damage to that creature` 9, `that creature gets +N/+N`
+3, `return that card to the battlefield` 5); the referent bodies the vocabulary does not read yet (D428 - `that player reveals the top card`
+3, `that player exiles cards from the top` 3, `that player chooses target player who ...` 4 — the Oaths, `if that player
+has two or fewer cards in hand` 3, `that player sacrifices a creature of their choice` 4, the random discards 4 — Hypnotic
+Specter, Bottomless Pit, Rakdos Ringleader: RNG under a def), the heads outside the library that name a player (`At the
+beginning of each player's end step` 10, `each player's draw step` 6, `each player's first main phase` 4, `Whenever
+an opponent draws a card` 4, `Whenever a player taps a land for mana` 8), the in-payload referent under `etb` / `upkeep`
+(63 — D392's referent across a reveal), the triggering OBJECT as a referent (`it gets +N/+N` 34 — the same seam one
+noun over), a payment the referent player would make (`unless that player pays`), the multi-source heads the fan-out
+does not carry (`creatureCombatDamagePlayer` — a player per attacker); the shield forms the closed lists refuse (D427 — a colour of your choice — Prismatic Strands;
+two colours — Luminesce; `except combat damage by enchanted creatures` — Inspire Awe; `X target creatures would deal`
+— Serene Sunset; `one or two target creatures` — Soul Parry; `a source of your choice` — Pay No Heed; `creatures would
+deal to players` — Chameleon Blur), the combat shields on permanents the suite cannot prove without an attack (Kor
+Haven, Maze of Ith, Maze of Shadows, Songstitcher, Lady Evangela, Cephalid Illusionist, Soratami Cloud Chariot — 15
+ledgered: the row's arm must ATTACK), `scopedPrevented` at the mercy of the driver's rare attacks; the conjunctions the
+split still refuses (D426 — a half that asks first — `Sacrifice a
+creature and draw a card`; a noun half — `target creature and target land`, `artifact and creature` 5; the Oxford
+`, and`; `and then`; three clauses; a right half led by `if` / `unless`), the shapes the halves still lack (`Lose N
+life` subjectless, `gain control of`, `that player` as the left half's player), the reversed suppression pins (the
+redundant D187 defs Sovereign's Bite's kin keep — a retirement of its own, D383), the other 47 splittable sentences
+on cards with more unread; the sacrificed source's POWER (D425 — `Sacrifice this creature: It deals damage equal to its
+power to target creature` — Cinder Shade, Flame Elemental, Ghitu Fire-Eater, Heartfire Immolator, Minotaur
+Illusionist, Skarrgan Skybreaker: last known information, D421's dead-source gap one shape over), the `you`
+rider on a targeted damage (`~ deals 4 damage to any target and 2 damage to you` — Char, Psionic Blast, Orcish
+Cannonade, 5 activated), the payment branch over `damageEach` (`deals 8 damage to you unless you pay` — Force of
+Nature, Hasran Ogress, Minion of Tevesh Szat), the combat-role fixture the suite lacks (`target attacking or
+blocking creature` 6 — Dive Bomber, Duergar Assailant, War-Torch Goblin), the other pain riders (`and you draw a
+card`, `unless it came under your control this turn`, `Create a Clue token`); the wide run's map (D424 — the
+refusal histogram over the one-piece leftover permanents: `trigger payload not a pump` 2,823, a static line 1,559,
+`effect not a row kind` 1,446, a head outside the library 699, a filtered head's adjective 234, a cost 197, a
+condition outside the closed vocabulary 178, an intervening if outside the closed reader 162), the two-piece
+leftover the wide run never saw, the trigger bodies by shape (`you may pay {M}. If you do` 57 + 41 — the inner clauses the vocabulary lacks: a token with
+an ability, a reveal-until, a copy; `this creature deals N damage to that player` 32 — the triggering player
+as a referent; `put a +N/+N counter on each` 41; `it gets +N/+N until end of` 34 — the triggering object as
+a referent; `you may search` 32; the typed cast heads `Whenever you cast an enchantment / historic / multicolored
+/ Elf spell` 106 one-piece, the coloured ones landed), the protection qualities the derive does not read
+(`from multicolored`, `from creatures`), the up-to-N `each` subject (`Up to two target creatures each get` 12),
+the cost reductions with a count or a condition (144 lines, 16 sole — `for each creature in your party` 10,
+`if it targets a tapped creature` 9, the target-dependent ones ~25), the eight this port named; the kicked
+instead's residue (D423 — an instead clause with a TARGET of its own —
+`instead destroy target creature` Bloodchief's Thirst, Waste Management, Blood Beckoning's two targets;
+`that player` as a referent — Bog Down, Hypnotic Cloud; the scoped `those creatures` — Marsh Casualties,
+Dauntless Unity; the qualified sweeps — Canopy Surge, Breath of Darigaaz; the kicked searches — Primal
+Growth, Grow from the Ashes; Prohibit's conditional counter; Urza's Rage's unpreventable damage; Rite
+of Replication's copy token (Fable's); the plain kicked clauses beside an unread first line — Vines of
+Vastwood, Savage Offensive, Vastwood Surge; damage from a source that has died — last known information; the driver's coin-flip
+kick — the kicked branch reported, not floored); the
+counterspell tail (D422 — the CONDITIONAL uncounterables the face does not carry (Banefire's `if X is 5
+or more`, Spell mastery's graveyard count, `can't be countered by spells or abilities` — the other
+wordings stay structural), the counter-unless-pays with a COUNTED price (`{1} for each card in your
+graveyard` — Circular Logic, Countervailing Winds; D418's counted price), the spell's X in a pump
+(`-X/-X` — Slice from the Shadows), the other spell shapes
+measured (`This spell costs {M} less` 29, `As an additional cost` 20, `Destroy target <X>` 19, `Search
+your library for up to` 17, `Prevent all combat damage` 16, the quoted-ability grants behind `Until end
+of turn, target <X> gains` 50)); the self subject's tail (D421 — damage from a source that has died,
+last known information: the `when this creature dies, it deals damage` family; the counted self
+pumps under the attack heads 14; the twenty-two trigger heads outside the library — dice, mutate,
+expend, a loyalty ability, a scry, `becomes the target of a spell or ability you control`, `attacks a
+battle`, `becomes blocked`, `blocks`, `deals combat damage`; the filtered heads the reader refuses; a
+payment under a sacrifice head whose fire funds the price); the ability word's tail (D420 —
+the Eerie head, the Valiant head, the Inspired payments whose branch makes a token, the copy half of
+Magecraft, the enchantment-enters wordings 22, the second-spell and first-spell heads, `attacks
+alone`, `becomes untapped`, `is dealt damage`, the `you may pay` wrapper's refused bodies); the board
+condition's tail (D419 — a creature with power N or greater 6, an opponent controls more lands
+than you 5, no untapped / tapped lands, exactly N, lands with different names, a creature with a
++1/+1 counter, a permanent with mana value N or greater, the Descend ability word, the seven
+`no <noun>` rows the armed board meets from the start); the count expression's tail (D418 — the counted suite for the refinements (a keyword, a
+power floor, a counter, a name, an opponents controller, a colour), the party, the hand, the
+kicks, the deaths, the domain and the attack heads (44 ledger rows by reason), the counted ENTRY (`enters with a +1/+1
+counter on it for each` 12 + 2 — a replacement's count), the counted STATIC (`Enchanted creature
+gets +1/+1 for each` 9 + 2, All That Glitters, Sliver Legion — a layer-7c count), the counted PRICE
+(`unless its controller pays {1} for each` 5 + 2), the counted queue (Thoughts of Ruin), the
+counted reductions (Font of Magic, Locket of Yesterdays), `for each mana from a Treasure` (Spoils of
+the Hunt), `put into your graveyard from the battlefield this turn` (Fresh Meat, Caller of the
+Claw), a `target opponent controls` count (two, both `and/or`)); the permission tail (D417 — the
+`you may cast` permissions, the conditional permission, the permission with a consequence, the X
+counts, the face-down piles, another player's card, the zone browser's missing cast button, the 18
+`play-from-exile permission` rows), the hand-reveal tail (D416), the verb-price tail (D415), the
+qualifier's tail (D414), the exile-instead tail (D413), connive's tail (D412), the untap-skip tail
+(D411), the cycling GRANTS (3), the `whenever a creature you control explores` heads (5), the
+reader's edge (`nontoken blue creature`, `exile the top three black cards of your graveyard`, `each
+other player gain 2 life`, `If exactly one creature is attacking`), the `{X}` alternatives, a
+chooser verb on BOTH costs, the cost REDUCTIONS and Affinity, the `instead` wordings, Emerge, the
+OLD Oblivion Ring wording, the qualifier before the controller, `defending player controls`, the
+same-name riders, the exile with a permission (Hostage Taker), the flicker within one batch, the
+other durations (`for as long as you control` 23, `remains exiled` 33, `remains on the battlefield`
+14), the SACRIFICED REFERENT, two verbs joined by `or`, a counter cost at cast, the FaceChoice path,
+HYBRID symbols paid by convoke, a per-creature chooser in the review, `Flying, convoke`, the convoke
+REFERENTS, Affinity for <kind>, the `for each` reductions (97 / 17), the up-to-N label (28
+sentences), the script-raised prompt class (84 over ~10 shapes), the reveal-the-top family (27 /
+18), the quoted-grant BODIES, `Noncreature spells` (6), `Colorless spells` (3), `Face-down creature
+spells` (2), the leading conditions on a grant, the planeswalker `+1:` grant, a SUBTYPE VOCABULARY
+at parse time, the `costs {N} more` taxes, the two-kicker `and/or` form (17), the MULTIKICKER row
+(7), the `instead` rewrites (6), `whenever you cast a kicked spell`, the REFERENT across the wait,
+the self-aimed delayed forms, the HOST characteristics under an attached static (29), "you control
+a token", the incarnations' graveyard statics (5), `Whenever you attack` and the each-combat head,
+the search forms (110 over ninety shapes — the `permanent card` predicate 16, the two-land
+searches, the tutor's `the card on top`), the `where X is` values (the number-of verbs the count
+expression does not carry 156 — `it deals X damage`, `it gets +X/+N`, `Add X mana`; a referent's
+mana value 17, its power 23, the life gained 7, the greatest power 7, devotion 7), the top-of-library
+family (23), `you may cast` (57 statics), the prevent-all shields (66 over sixty shapes), the payment heads, the search residue, the scoped grant, the blocker-predicate form (8 + 1),
+⚠️⚠️ THE FUZZ DRIVER RARELY ATTACKS (a gate decision), the nth-resolution memory (16), the 172
+AMOUNT forms (this seam took the first), the restriction's exotic purposes (14), the twenty-two
+older fight and bite suites, token copies (15), the permanent control family (20) and exchange
+control (24), the activation restrictions (313), the keyword entry replacements (22), copy (~200 —
+the subsystem that waits for Fable), the prompt CONTINUATION seam proper, the two gate items — the
+tournament floor's MECHANISM and ⚠️⚠️ THE FUZZ DRIVER NEVER BLOCKS.

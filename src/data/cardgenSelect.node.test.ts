@@ -752,6 +752,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D602 - three clauses missed by a word (an Aura returning itself, the self counter removal, a verbless damage half) read; what stays is a card the row maker refuses for another reason.
+  ['Shimmering Wings', 'the row maker: an Aura that enchants something other than a creature - its clause reads since D602 (D602)'],
+  ['Magmaroth', 'the row maker: a counter removal the suite cannot stage (not the rows own card entering with that kind) - its clause reads since D602 (D602)'],
   // D598 - the host referent: a verb on the enchanted or equipped creature reads (`EffectSpec.host`); what stays is a card the row maker refuses for another reason.
   ['Sleeping Potion', 'the row maker: trigger head not in the library: When enchanted creature becomes the target of a spell or ability, sacr - the host clause reads since D598 (D598)'],
   ["Sigarda's Imprisonment", 'the row maker: a host clause beside another clause (not this wave) - the host clause reads since D598 (D598)'],
@@ -950,7 +953,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Sorcerer's Strongbox", 'the row maker: effect not a row kind: Flip a coin. If you win the flip, sacrifice this artifact and draw three cards. (D534)'],
   ['Ral, Monsoon Mage // Ral, Leyline Prodigy', 'a flip line under a shape the row maker never reached (`Whenever you cast an instant or sorcery spell during your tu`) (D534)'],
   ['Setzer, Wandering Gambler', 'the row maker: trigger payload not a pump: Create The Blackjack, a legendary 3/3 colorless Vehicle arti (D534)'],
-  ['Chaotic Goo', 'the row maker: trigger payload not a pump: Flip a coin. If you win the flip, put a +1/+1 counter on thi (D534)'],
   ['Edgar, King of Figaro', 'the row maker: a line that is neither an activated ability nor a library trigger: Two-Headed Coin — The first time you flip one or more coins each tur (D534)'],
   ['Mogg Assassin', 'the row maker: effect not a row kind: You choose target creature an opponent controls, and that opponent chooses target creature. Flip a coin. If you (D534)'],
   ['Ral Zarek, Guest Lecturer', 'several flips (`Flip three coins. For each flip you win, ...`, `until you lose a flip`) - the rule reads one flip (D534)'],

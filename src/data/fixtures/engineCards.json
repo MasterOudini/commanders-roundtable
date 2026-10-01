@@ -326245,6 +326245,1046 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "KARSTODERM": {
+    "scryfallId": "028c52f2-c45b-42da-89bd-cdd5cd7850f3",
+    "oracleId": "6025ce2f-d527-457c-866c-cb5c119d0bf4",
+    "name": "Karstoderm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Karstoderm",
+        "manaCost": "{2}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "This creature enters with five +1/+1 counters on it.\nWhenever an artifact enters, remove a +1/+1 counter from this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Tony Szczudlo",
+        "imageId": "028c52f2-c45b-42da-89bd-cdd5cd7850f3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "dst",
+    "collectorNumber": "77",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BROTHERS_OF_FIRE": {
+    "scryfallId": "0700908c-87f3-4d88-bb54-e061ee735170",
+    "oracleId": "ee9208e7-2075-45b9-9ed7-b18e1a280d79",
+    "name": "Brothers of Fire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brothers of Fire",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Human Shaman",
+        "oracleText": "{1}{R}{R}: This creature deals 1 damage to any target and 1 damage to you.",
+        "flavorText": "Fire is never a gentle master.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "0700908c-87f3-4d88-bb54-e061ee735170"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "me1",
+    "collectorNumber": "89",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAGE_OF_HANDS": {
+    "scryfallId": "08b3db52-ff5b-4948-ac94-c682fa6d6624",
+    "oracleId": "18ffd8ad-1556-450d-8bc1-8103a3d0404e",
+    "name": "Cage of Hands",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cage of Hands",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\n{1}{W}: Return this Aura to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Mark Tedin",
+        "imageId": "08b3db52-ff5b-4948-ac94-c682fa6d6624"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "pca",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CHAOTIC_GOO": {
+    "scryfallId": "0e9881a4-3078-4fe0-be09-54ddad1d18a0",
+    "oracleId": "d1005625-0a78-4f8e-bf51-80458fc0e9d6",
+    "name": "Chaotic Goo",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Chaotic Goo",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Creature — Ooze",
+        "oracleText": "This creature enters with three +1/+1 counters on it.\nAt the beginning of your upkeep, you may flip a coin. If you win the flip, put a +1/+1 counter on this creature. If you lose the flip, remove a +1/+1 counter from this creature.",
+        "flavorText": null,
+        "power": "0",
+        "toughness": "0",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Allen Williams",
+        "imageId": "0e9881a4-3078-4fe0-be09-54ddad1d18a0"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "tmp",
+    "collectorNumber": "168",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WHIP_SILK": {
+    "scryfallId": "10566804-fd15-4ef0-ad7d-cc979f4cc8c5",
+    "oracleId": "ce2c420b-e569-4715-b65b-4a097700799d",
+    "name": "Whip Silk",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Whip Silk",
+        "manaCost": "{G}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has reach. (It can block creatures with flying.)\n{G}: Return this Aura to its owner's hand.",
+        "flavorText": "Llanowar forges weapons of steel. Yavimaya grows her weapons within.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dave Dorman",
+        "imageId": "10566804-fd15-4ef0-ad7d-cc979f4cc8c5"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "225",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCISH_ARTILLERY": {
+    "scryfallId": "14addda6-7f7c-4c7f-abfe-e647e0282936",
+    "oracleId": "c000811e-bde7-4840-a3bb-9714d5c977eb",
+    "name": "Orcish Artillery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orcish Artillery",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "{T}: This creature deals 2 damage to any target and 3 damage to you.",
+        "flavorText": "\"So they want to kill my men? Well two can play at that game.\"\n—General Khurzog",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Miracola",
+        "imageId": "14addda6-7f7c-4c7f-abfe-e647e0282936"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "9ed",
+    "collectorNumber": "206",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONVICTION": {
+    "scryfallId": "190332b3-6a1c-4c25-af61-d8923fc9a0c3",
+    "oracleId": "4374b6b1-e691-4823-802d-8de8530aa461",
+    "name": "Conviction",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Conviction",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+3.\n{W}: Return this Aura to its owner's hand.",
+        "flavorText": "It was not the minotaur's shoulders but his soul that bore the heaviest weight.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Paolo Parente",
+        "imageId": "190332b3-6a1c-4c25-af61-d8923fc9a0c3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "sth",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WINGSPAN_STRIDE": {
+    "scryfallId": "339a0e24-c332-4558-bb60-f5504ddde88c",
+    "oracleId": "e75cee5d-ab02-4227-b36e-61c5d2f564a8",
+    "name": "Wingspan Stride",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wingspan Stride",
+        "manaCost": "{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1 and has flying.\n{2}{U}: Return this Aura to its owner's hand.",
+        "flavorText": "\"Yes, yes, very good. However, I believe you were supposed to be working on your sword techniques?\"\n—Taigam",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jake Murray",
+        "imageId": "339a0e24-c332-4558-bb60-f5504ddde88c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "66",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHACKLES": {
+    "scryfallId": "35b3da05-9a3e-4827-96b8-5de244128db3",
+    "oracleId": "05861ff2-ec85-43d1-b641-c5d2da819c03",
+    "name": "Shackles",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shackles",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature doesn't untap during its controller's untap step.\n{W}: Return this Aura to its owner's hand.",
+        "flavorText": "\"It could be worse,\" said Gerrard, looking around. \"Well, maybe not.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "35b3da05-9a3e-4827-96b8-5de244128db3"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "37",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FIRESLINGER": {
+    "scryfallId": "36fefe0a-f515-496e-b6c7-5e821fbc2283",
+    "oracleId": "0e5a5cee-d068-42cf-bf58-8e1360720be0",
+    "name": "Fireslinger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fireslinger",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{T}: This creature deals 1 damage to any target and 1 damage to you.",
+        "flavorText": "\"One pain is lessened by another's anguish.\"\n—William Shakespeare, *Romeo and Juliet*",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jeff Reitz",
+        "imageId": "36fefe0a-f515-496e-b6c7-5e821fbc2283"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "prm",
+    "collectorNumber": "36038",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRANGER_GUILDMAGE": {
+    "scryfallId": "3f495b27-3eed-4962-b69a-b86f9fc6a9a7",
+    "oracleId": "0230fdda-d916-457e-9dfd-61783fcf4652",
+    "name": "Granger Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Granger Guildmage",
+        "manaCost": "{G}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{R}, {T}: This creature deals 1 damage to any target and 1 damage to you.\n{W}, {T}: Target creature gains first strike until end of turn.",
+        "flavorText": "Leave no mouth agape, no stomach unfilled.\n—Granger Guild maxim",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "3f495b27-3eed-4962-b69a-b86f9fc6a9a7"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "mir",
+    "collectorNumber": "220",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MOURNING": {
+    "scryfallId": "4649d881-709f-4ed0-91de-744d232a82f5",
+    "oracleId": "20602d11-c0ae-47ce-a7fd-998b12480e18",
+    "name": "Mourning",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mourning",
+        "manaCost": "{1}{B}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets -2/-0.\n{B}: Return this Aura to its owner's hand.",
+        "flavorText": "Barrin waited for the nausea to pass or for Urza to say something else. He waited in vain.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Terese Nielsen",
+        "imageId": "4649d881-709f-4ed0-91de-744d232a82f5"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "111",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORGE_DEVIL": {
+    "scryfallId": "46b6169e-ed56-4211-ba86-5929523066cd",
+    "oracleId": "be7a38a3-c27f-4917-a59c-763d0b36e427",
+    "name": "Forge Devil",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forge Devil",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Devil",
+        "oracleText": "When this creature enters, it deals 1 damage to target creature and 1 damage to you.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Austin Hsu",
+        "imageId": "46b6169e-ed56-4211-ba86-5929523066cd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sis",
+    "collectorNumber": "41",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROWN_OF_FLAMES": {
+    "scryfallId": "5a46239c-3de7-48ca-8f5c-b51f307fd0e5",
+    "oracleId": "f14fb965-5ebc-427a-a5b8-149f54c64171",
+    "name": "Crown of Flames",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crown of Flames",
+        "manaCost": "{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\n{R}: Enchanted creature gets +1/+0 until end of turn.\n{R}: Return this Aura to its owner's hand.",
+        "flavorText": "\"All my life I've fought these monsters. Today I finish that fight.\"\n—Barrin",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Christopher Moeller",
+        "imageId": "5a46239c-3de7-48ca-8f5c-b51f307fd0e5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "inv",
+    "collectorNumber": "142",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHADOW_GUILDMAGE": {
+    "scryfallId": "5c9cf90a-93ab-48da-9e85-4472a42279d0",
+    "oracleId": "cdda63d7-e3ea-455c-b7d4-c6cfdda2703c",
+    "name": "Shadow Guildmage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shadow Guildmage",
+        "manaCost": "{B}",
+        "typeLine": "Creature — Human Wizard",
+        "oracleText": "{U}, {T}: Put target creature you control on top of its owner's library.\n{R}, {T}: This creature deals 1 damage to any target and 1 damage to you.",
+        "flavorText": "To keep the dead so others may live.\n—Shadow Guild maxim",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Mike Kimble",
+        "imageId": "5c9cf90a-93ab-48da-9e85-4472a42279d0"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "wc97",
+    "collectorNumber": "js140",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GOBLIN_ARTILLERY": {
+    "scryfallId": "674bd59d-9d6d-434d-974f-3aa1cbd770b5",
+    "oracleId": "06db7444-0225-48c8-ab04-d69ff06e97b6",
+    "name": "Goblin Artillery",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Goblin Artillery",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Goblin Warrior",
+        "oracleText": "{T}: This creature deals 2 damage to any target and 3 damage to you.",
+        "flavorText": "Most goblins get their turn firing the catapult, but few achieve the coveted title of Ammunition Holder.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Alex Horley-Orlandelli",
+        "imageId": "674bd59d-9d6d-434d-974f-3aa1cbd770b5"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "m10",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EPHARA_S_ENLIGHTENMENT": {
+    "scryfallId": "6e480d04-9a35-463e-928e-8da3556629e6",
+    "oracleId": "da848568-1c66-4ce1-87f0-a35c317f2c61",
+    "name": "Ephara's Enlightenment",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ephara's Enlightenment",
+        "manaCost": "{1}{W}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nWhen this Aura enters, put a +1/+1 counter on enchanted creature.\nEnchanted creature has flying.\nWhenever a creature you control enters, you may return this Aura to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Wesley Burt",
+        "imageId": "6e480d04-9a35-463e-928e-8da3556629e6"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "146",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BELLIGERENT_HATCHLING": {
+    "scryfallId": "72cdf36c-d8a2-4629-8f2a-d4ac86ac9320",
+    "oracleId": "7bd4e504-541e-4b2c-9f1d-3c67957aef2e",
+    "name": "Belligerent Hatchling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Belligerent Hatchling",
+        "manaCost": "{3}{R/W}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "First strike\nThis creature enters with four -1/-1 counters on it.\nWhenever you cast a red spell, remove a -1/-1 counter from this creature.\nWhenever you cast a white spell, remove a -1/-1 counter from this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "72cdf36c-d8a2-4629-8f2a-d4ac86ac9320"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "First strike"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "134",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DAREDEVIL_S_BILLY_CLUB": {
+    "scryfallId": "7742bad6-cfba-4c06-b0a6-8c2a91a4ceb8",
+    "oracleId": "654db13d-c7e4-4ee0-a87a-3635467f2f19",
+    "name": "Daredevil's Billy Club",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Daredevil's Billy Club",
+        "manaCost": "{1}{R}",
+        "typeLine": "Artifact — Equipment",
+        "oracleText": "When this Equipment enters, it deals 2 damage to any target and 1 damage to you.\nEquipped creature gets +1/+0 and has menace. (It can't be blocked except by two or more creatures.)\nEquip {2} ({2}: Attach to target creature you control. Equip only as a sorcery.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Michal Ivan",
+        "imageId": "7742bad6-cfba-4c06-b0a6-8c2a91a4ceb8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Equip"
+    ],
+    "setCode": "msc",
+    "collectorNumber": "686",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "NOXIOUS_HATCHLING": {
+    "scryfallId": "898fd93f-05f2-4523-a3f5-18b48a7365a2",
+    "oracleId": "36072943-7823-434d-b898-f0a2c4e00af2",
+    "name": "Noxious Hatchling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Noxious Hatchling",
+        "manaCost": "{3}{B/G}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "This creature enters with four -1/-1 counters on it.\nWither (This deals damage to creatures in the form of -1/-1 counters.)\nWhenever you cast a black spell, remove a -1/-1 counter from this creature.\nWhenever you cast a green spell, remove a -1/-1 counter from this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "G"
+        ],
+        "artist": "Nils Hamm",
+        "imageId": "898fd93f-05f2-4523-a3f5-18b48a7365a2"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Wither"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "124",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ORCISH_CANNONEERS": {
+    "scryfallId": "8c8f69b2-ccd2-4ba3-b6d9-127163b02aca",
+    "oracleId": "9ebf3eeb-1a1b-4b88-a760-887c2188d287",
+    "name": "Orcish Cannoneers",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Orcish Cannoneers",
+        "manaCost": "{1}{R}{R}",
+        "typeLine": "Creature — Orc Warrior",
+        "oracleText": "{T}: This creature deals 2 damage to any target and 3 damage to you.",
+        "flavorText": "\"It's a thankless job, and you'll probably die in an explosion. But the pay is pretty good.\"\n—Toothlicker Harj, Orcish Captain",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Dan Frazier",
+        "imageId": "8c8f69b2-ccd2-4ba3-b6d9-127163b02aca"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "dkm",
+    "collectorNumber": "17",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GHITU_FIREBREATHING": {
+    "scryfallId": "9098b989-072a-4e5b-8972-22c61645c5bb",
+    "oracleId": "893cdd4f-0b22-4ddc-98a3-5d202564ffa5",
+    "name": "Ghitu Firebreathing",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Ghitu Firebreathing",
+        "manaCost": "{1}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\n{R}: Enchanted creature gets +1/+0 until end of turn.\n{R}: Return this Aura to its owner's hand.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Jim Nelson",
+        "imageId": "9098b989-072a-4e5b-8972-22c61645c5bb"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant",
+      "Flash"
+    ],
+    "setCode": "tsp",
+    "collectorNumber": "158",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VISCERID_ARMOR": {
+    "scryfallId": "a9906f76-3b14-4cf4-90c1-b9bbb594256b",
+    "oracleId": "87b4cbec-3521-4bdb-bf01-64ddb526b655",
+    "name": "Viscerid Armor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Viscerid Armor",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +1/+1.\n{1}{U}: Return this Aura to its owner's hand.",
+        "flavorText": "A fallen viscerid's only tribute is to be worn by a comrade.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Heather Hudson",
+        "imageId": "a9906f76-3b14-4cf4-90c1-b9bbb594256b"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "me2",
+    "collectorNumber": "72",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FORCED_WORSHIP": {
+    "scryfallId": "aa4004b7-89b6-43f5-8d6e-13db1b08f3b8",
+    "oracleId": "ea6b1e8e-b6e7-4fce-bfb7-7adf66b9f240",
+    "name": "Forced Worship",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Forced Worship",
+        "manaCost": "{1}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack.\n{2}{W}: Return this Aura to its owner's hand.",
+        "flavorText": "Imprisonment teaches revenge. Hobbling teaches resignation.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Karl Kopinski",
+        "imageId": "aa4004b7-89b6-43f5-8d6e-13db1b08f3b8"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "jmp",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AGORAPHOBIA": {
+    "scryfallId": "b450de6b-4b2f-4004-be7c-484434f28faf",
+    "oracleId": "b268fe15-2860-4730-865e-eed7f308fc45",
+    "name": "Agoraphobia",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Agoraphobia",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets -5/-0.\n{2}{U}: Return this Aura to its owner's hand.",
+        "flavorText": "\"Everyone in this city is choosing sides. I choose inside.\"",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jim Murray",
+        "imageId": "b450de6b-4b2f-4004-be7c-484434f28faf"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ddm",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "VORACIOUS_HATCHLING": {
+    "scryfallId": "b66b1a84-ab15-48d8-909c-08116dc71c76",
+    "oracleId": "eab5eb29-bed6-456b-8929-5b9b820aa5a3",
+    "name": "Voracious Hatchling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Voracious Hatchling",
+        "manaCost": "{3}{W/B}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Lifelink\nThis creature enters with four -1/-1 counters on it.\nWhenever you cast a white spell, remove a -1/-1 counter from this creature.\nWhenever you cast a black spell, remove a -1/-1 counter from this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "W"
+        ],
+        "artist": "Jeremy Enecio",
+        "imageId": "b66b1a84-ab15-48d8-909c-08116dc71c76"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "eve",
+    "collectorNumber": "97",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPICY_OATMEAL_PIZZA": {
+    "scryfallId": "c4aeb45b-13ed-43ad-a366-7be10dec6222",
+    "oracleId": "9665f940-c0a4-4d3e-b889-8049cf549a4f",
+    "name": "Spicy Oatmeal Pizza",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spicy Oatmeal Pizza",
+        "manaCost": "{2}{R}",
+        "typeLine": "Artifact — Food",
+        "oracleText": "When this artifact enters, it deals 4 damage to any target and 3 damage to you.\n{2}, {T}, Sacrifice this artifact: You gain 3 life.",
+        "flavorText": "\"Yeah, I threw in some habaneros to cut the heat on this.\"\n—Raphael",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "c4aeb45b-13ed-43ad-a366-7be10dec6222"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "tmt",
+    "collectorNumber": "109",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HYPERVOLT_GRASP": {
+    "scryfallId": "fdaa3c6e-1f8a-4580-8e03-e670f50ab958",
+    "oracleId": "269a2b53-52d7-4032-ba62-7b7742e7a159",
+    "name": "Hypervolt Grasp",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hypervolt Grasp",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature has \"{T}: This creature deals 1 damage to any target.\"\n{1}{U}: Return this Aura to its owner's hand.",
+        "flavorText": "Zap on. Zap off.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Mark Romanoski",
+        "imageId": "fdaa3c6e-1f8a-4580-8e03-e670f50ab958"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "gpt",
+    "collectorNumber": "67",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BURNING_SUN_S_AVATAR": {
+    "scryfallId": "146c0cab-5f6b-425d-9f50-33d8da266235",
+    "oracleId": "248d7759-aa73-4430-aa86-d45dc607944b",
+    "name": "Burning Sun's Avatar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Burning Sun's Avatar",
+        "manaCost": "{3}{R}{R}{R}",
+        "typeLine": "Creature — Dinosaur Avatar",
+        "oracleText": "When this creature enters, it deals 3 damage to target opponent or planeswalker and 3 damage to up to one target creature.",
+        "flavorText": "\"Tilonalli's searing rays carry the spark of life's eventual destruction as all light fades.\"\n—Chitlati, Lightning Rider",
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "146c0cab-5f6b-425d-9f50-33d8da266235"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "xln",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RAKDOS_FIREWHEELER": {
+    "scryfallId": "73037cc3-1986-42b9-9917-fa20418c0d2f",
+    "oracleId": "f81327c2-a0e4-475d-bb89-8a42b1ddc93c",
+    "name": "Rakdos Firewheeler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Rakdos Firewheeler",
+        "manaCost": "{B}{B}{R}{R}",
+        "typeLine": "Creature — Human Rogue",
+        "oracleText": "When this creature enters, it deals 2 damage to target opponent and 2 damage to up to one target creature or planeswalker.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R"
+        ],
+        "artist": "Tyler Walpole",
+        "imageId": "73037cc3-1986-42b9-9917-fa20418c0d2f"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "prna",
+    "collectorNumber": "197",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

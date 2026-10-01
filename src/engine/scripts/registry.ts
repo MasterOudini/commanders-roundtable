@@ -7,6 +7,36 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { KARSTODERM_SCRIPT } from './cards/karstoderm';
+import { BROTHERS_OF_FIRE_SCRIPT } from './cards/brothersOfFire';
+import { CAGE_OF_HANDS_SCRIPT } from './cards/cageOfHands';
+import { CHAOTIC_GOO_SCRIPT } from './cards/chaoticGoo';
+import { WHIP_SILK_SCRIPT } from './cards/whipSilk';
+import { ORCISH_ARTILLERY_SCRIPT } from './cards/orcishArtillery';
+import { CONVICTION_SCRIPT } from './cards/conviction';
+import { WINGSPAN_STRIDE_SCRIPT } from './cards/wingspanStride';
+import { SHACKLES_SCRIPT } from './cards/shackles';
+import { FIRESLINGER_SCRIPT } from './cards/fireslinger';
+import { GRANGER_GUILDMAGE_SCRIPT } from './cards/grangerGuildmage';
+import { MOURNING_SCRIPT } from './cards/mourning';
+import { FORGE_DEVIL_SCRIPT } from './cards/forgeDevil';
+import { CROWN_OF_FLAMES_SCRIPT } from './cards/crownOfFlames';
+import { SHADOW_GUILDMAGE_SCRIPT } from './cards/shadowGuildmage';
+import { GOBLIN_ARTILLERY_SCRIPT } from './cards/goblinArtillery';
+import { EPHARAS_ENLIGHTENMENT_SCRIPT } from './cards/epharasEnlightenment';
+import { BELLIGERENT_HATCHLING_SCRIPT } from './cards/belligerentHatchling';
+import { DAREDEVILS_BILLY_CLUB_SCRIPT } from './cards/daredevilsBillyClub';
+import { NOXIOUS_HATCHLING_SCRIPT } from './cards/noxiousHatchling';
+import { ORCISH_CANNONEERS_SCRIPT } from './cards/orcishCannoneers';
+import { GHITU_FIREBREATHING_SCRIPT } from './cards/ghituFirebreathing';
+import { VISCERID_ARMOR_SCRIPT } from './cards/visceridArmor';
+import { FORCED_WORSHIP_SCRIPT } from './cards/forcedWorship';
+import { AGORAPHOBIA_SCRIPT } from './cards/agoraphobia';
+import { VORACIOUS_HATCHLING_SCRIPT } from './cards/voraciousHatchling';
+import { SPICY_OATMEAL_PIZZA_SCRIPT } from './cards/spicyOatmealPizza';
+import { HYPERVOLT_GRASP_SCRIPT } from './cards/hypervoltGrasp';
+import { BURNING_SUNS_AVATAR_SCRIPT } from './cards/burningSunsAvatar';
+import { RAKDOS_FIREWHEELER_SCRIPT } from './cards/rakdosFirewheeler';
 import { CLOSE_QUARTERS_SCRIPT } from './cards/closeQuarters';
 import { PSYCHIC_FROG_SCRIPT } from './cards/psychicFrog';
 import { GRATEFUL_APPARITION_SCRIPT } from './cards/gratefulApparition';
@@ -6855,7 +6885,6 @@ import { NIV_MIZZET_THE_FIREMIND_SCRIPT } from './cards/nivMizzetTheFiremind';
 import { NUTRIENT_BLOCK_SCRIPT } from './cards/nutrientBlock';
 import { OMEN_OF_THE_DEAD_SCRIPT } from './cards/omenOfTheDead';
 import { OMEN_OF_THE_SEA_SCRIPT } from './cards/omenOfTheSea';
-import { ORCISH_CANNONADE_SCRIPT } from './cards/orcishCannonade';
 import { PACK_ATTACK_SCRIPT } from './cards/packAttack';
 import { PASHALIK_MONS_SCRIPT } from './cards/pashalikMons';
 import { PEEK_SCRIPT } from './cards/peek';
@@ -6887,7 +6916,6 @@ import { GRIM_BAUBLE_SCRIPT } from './cards/grimBauble';
 import { GRUUL_GUILDMAGE_SCRIPT } from './cards/gruulGuildmage';
 import { GUARDIAN_OF_CLOVERDELL_SCRIPT } from './cards/guardianOfCloverdell';
 import { CREEPING_CHILL_SCRIPT } from './cards/creepingChill';
-import { CUNNING_STRIKE_SCRIPT } from './cards/cunningStrike';
 import { DEGA_DISCIPLE_SCRIPT } from './cards/degaDisciple';
 import { DISCIPLE_OF_TEVESH_SZAT_SCRIPT } from './cards/discipleOfTeveshSzat';
 import { DISPATCH_SCRIPT } from './cards/dispatch';
@@ -7748,7 +7776,6 @@ import { MIGHT_OF_ALARA_SCRIPT } from './cards/mightOfAlara';
 import { MIGHT_OF_THE_ANCESTORS_SCRIPT } from './cards/mightOfTheAncestors';
 import { LUCID_DREAMS_SCRIPT } from './cards/lucidDreams';
 import { LUNAR_INSIGHT_SCRIPT } from './cards/lunarInsight';
-import { LUNGE_SCRIPT } from './cards/lunge';
 import { LUSH_PORTICO_SCRIPT } from './cards/lushPortico';
 import { LYS_ALANA_INFORMANT_SCRIPT } from './cards/lysAlanaInformant';
 import { MAGMAQUAKE_SCRIPT } from './cards/magmaquake';
@@ -7824,7 +7851,6 @@ import { HORIZON_SCHOLAR_SCRIPT } from './cards/horizonScholar';
 import { HORRIFIC_ASSAULT_SCRIPT } from './cards/horrificAssault';
 import { HOUR_OF_GLORY_SCRIPT } from './cards/hourOfGlory';
 import { HUBRIS_SCRIPT } from './cards/hubris';
-import { HUNGRY_FLAMES_SCRIPT } from './cards/hungryFlames';
 import { HURKYLS_RECALL_SCRIPT } from './cards/hurkylsRecall';
 import { HYMN_OF_REBIRTH_SCRIPT } from './cards/hymnOfRebirth';
 import { HARMONIC_CONVERGENCE_SCRIPT } from './cards/harmonicConvergence';
@@ -8128,7 +8154,6 @@ import { SLASH_THE_RANKS_SCRIPT } from './cards/slashTheRanks';
 import { FELL_THE_MIGHTY_SCRIPT } from './cards/fellTheMighty';
 import { SOLAR_BLAZE_SCRIPT } from './cards/solarBlaze';
 import { CHANDRAS_IGNITION_SCRIPT } from './cards/chandrasIgnition';
-import { RECKLESS_RAGE_SCRIPT } from './cards/recklessRage';
 import { MAN_OWAR_SCRIPT } from './cards/manOWar';
 import { MANDROID_SQUADRON_SCRIPT } from './cards/mandroidSquadron';
 import { MANIC_VANDAL_SCRIPT } from './cards/manicVandal';
@@ -8149,7 +8174,6 @@ import { MEMORIAL_TO_WAR_SCRIPT } from './cards/memorialToWar';
 import { MERCHANT_OF_SECRETS_SCRIPT } from './cards/merchantOfSecrets';
 import { MERFOLK_SKYSCOUT_SCRIPT } from './cards/merfolkSkyscout';
 import { MERIADOC_BRANDYBUCK_SCRIPT } from './cards/meriadocBrandybuck';
-import { CHAR_SCRIPT } from './cards/char';
 import { FRUITION_SCRIPT } from './cards/fruition';
 import { HORIZON_CHIMERA_SCRIPT } from './cards/horizonChimera';
 import { LIBRARY_LARCENIST_SCRIPT } from './cards/libraryLarcenist';
@@ -8656,6 +8680,36 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  KARSTODERM_SCRIPT,
+  BROTHERS_OF_FIRE_SCRIPT,
+  CAGE_OF_HANDS_SCRIPT,
+  CHAOTIC_GOO_SCRIPT,
+  WHIP_SILK_SCRIPT,
+  ORCISH_ARTILLERY_SCRIPT,
+  CONVICTION_SCRIPT,
+  WINGSPAN_STRIDE_SCRIPT,
+  SHACKLES_SCRIPT,
+  FIRESLINGER_SCRIPT,
+  GRANGER_GUILDMAGE_SCRIPT,
+  MOURNING_SCRIPT,
+  FORGE_DEVIL_SCRIPT,
+  CROWN_OF_FLAMES_SCRIPT,
+  SHADOW_GUILDMAGE_SCRIPT,
+  GOBLIN_ARTILLERY_SCRIPT,
+  EPHARAS_ENLIGHTENMENT_SCRIPT,
+  BELLIGERENT_HATCHLING_SCRIPT,
+  DAREDEVILS_BILLY_CLUB_SCRIPT,
+  NOXIOUS_HATCHLING_SCRIPT,
+  ORCISH_CANNONEERS_SCRIPT,
+  GHITU_FIREBREATHING_SCRIPT,
+  VISCERID_ARMOR_SCRIPT,
+  FORCED_WORSHIP_SCRIPT,
+  AGORAPHOBIA_SCRIPT,
+  VORACIOUS_HATCHLING_SCRIPT,
+  SPICY_OATMEAL_PIZZA_SCRIPT,
+  HYPERVOLT_GRASP_SCRIPT,
+  BURNING_SUNS_AVATAR_SCRIPT,
+  RAKDOS_FIREWHEELER_SCRIPT,
   CLOSE_QUARTERS_SCRIPT,
   PSYCHIC_FROG_SCRIPT,
   GRATEFUL_APPARITION_SCRIPT,
@@ -15504,7 +15558,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   NUTRIENT_BLOCK_SCRIPT,
   OMEN_OF_THE_DEAD_SCRIPT,
   OMEN_OF_THE_SEA_SCRIPT,
-  ORCISH_CANNONADE_SCRIPT,
   PACK_ATTACK_SCRIPT,
   PASHALIK_MONS_SCRIPT,
   PEEK_SCRIPT,
@@ -15536,7 +15589,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   GRUUL_GUILDMAGE_SCRIPT,
   GUARDIAN_OF_CLOVERDELL_SCRIPT,
   CREEPING_CHILL_SCRIPT,
-  CUNNING_STRIKE_SCRIPT,
   DEGA_DISCIPLE_SCRIPT,
   DISCIPLE_OF_TEVESH_SZAT_SCRIPT,
   DISPATCH_SCRIPT,
@@ -16396,7 +16448,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   MIGHT_OF_THE_ANCESTORS_SCRIPT,
   LUCID_DREAMS_SCRIPT,
   LUNAR_INSIGHT_SCRIPT,
-  LUNGE_SCRIPT,
   LUSH_PORTICO_SCRIPT,
   LYS_ALANA_INFORMANT_SCRIPT,
   MAGMAQUAKE_SCRIPT,
@@ -16472,7 +16523,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   HORRIFIC_ASSAULT_SCRIPT,
   HOUR_OF_GLORY_SCRIPT,
   HUBRIS_SCRIPT,
-  HUNGRY_FLAMES_SCRIPT,
   HURKYLS_RECALL_SCRIPT,
   HYMN_OF_REBIRTH_SCRIPT,
   HARMONIC_CONVERGENCE_SCRIPT,
@@ -16776,7 +16826,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   FELL_THE_MIGHTY_SCRIPT,
   SOLAR_BLAZE_SCRIPT,
   CHANDRAS_IGNITION_SCRIPT,
-  RECKLESS_RAGE_SCRIPT,
   MAN_OWAR_SCRIPT,
   MANDROID_SQUADRON_SCRIPT,
   MANIC_VANDAL_SCRIPT,
@@ -16800,7 +16849,6 @@ export const SHIPPED_SCRIPTS: readonly CardScript[] = [
   // M6.4ae (D187–D190) — the engine unlocks' proof cards: the first two
   // SpellDefs (Char, Fruition) and the DrewCards × per-item fan-out
   // composition (Horizon Chimera).
-  CHAR_SCRIPT,
   FRUITION_SCRIPT,
   HORIZON_CHIMERA_SCRIPT,
   LIBRARY_LARCENIST_SCRIPT,

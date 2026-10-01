@@ -1310,7 +1310,8 @@ const RULES: readonly Rule[] = [
   // D527 - `Return ~ to its owner's hand` is read as `returnSelf` FIRST: the executor case knows a source in the graveyard
   // (the spell's own card once a clash's answers resumed its clauses) and the loop knows the hand fate; the self bounce
   // below stays for a reader that asks it by kind.
-  { kind: 'returnSelf', re: /^(?:then )?return (?:this (?:creature|permanent|artifact|enchantment|land|card)|~) to its owner(?:'|’)s hand\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D602 - and `this Aura` / `this Equipment` (Cage of Hands, Whip Silk, Conviction - the Aura's own return).
+  { kind: 'returnSelf', re: /^(?:then )?return (?:this (?:creature|permanent|artifact|enchantment|land|card|aura|equipment)|~) to its owner(?:'|’)s hand\.$/i, build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'bounce', re: new RegExp(`^return ${SELF} to its owner(?:'|’)?s? hand\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   { kind: 'untap', re: new RegExp(`^untap ${SELF}\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D373 - CR 701.19, the verb itself: on the source, and on a target ("Regenerate target creature.").
@@ -1889,6 +1890,17 @@ const RULES: readonly Rule[] = [
       const n = num(m[1]);
       const kind = counterKindOf(m[2]);
       return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind };
+    },
+  },
+  // D602 - the source's own counter removed (`Remove a +1/+1 counter from this creature.` - Karstoderm, Belligerent
+  // Hatchling, Magmaroth); `removeCounters` joins SELF_AIMED, so the executor aims it at the source.
+  {
+    kind: 'removeCounters',
+    re: new RegExp(`^remove (${COUNT}) (${COUNTER_KIND}) counters? from ${SELF}\\.$`, 'i'),
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf(m[2]);
+      return n === null || kind === null ? null : { ...BASE, amount: n, counterKind: kind, targetIndex: -1, self: true };
     },
   },
   /**
@@ -2997,7 +3009,10 @@ function conjunctionSplit(sentence: string, previous: Clause | undefined): Claus
         ? matchSentence(cap(subj + ' ' + rightText.charAt(0).toLowerCase() + rightText.slice(1)))
         : null;
       const continued = bare ? (bare.targetIndex === -1 ? bare : { ...bare, referent: true as const }) : null;
-      const right = continued ?? matchSentence(rightText) ?? referentRewrite(rightText, leftClause) ?? (previous ? referentRewrite(rightText, previous) : null);
+      // D602 - a damage right half with no verb after a damage left half (`~ deals 2 damage to any target and 3 damage to
+      // you.` - Orcish Artillery, Brothers of Fire): the subject and the verb continue.
+      const damageOn = /^~ deals /i.test(leftText) && /^\d+ damage to /i.test(rightText) ? matchSentence('~ deals ' + rightText.charAt(0).toLowerCase() + rightText.slice(1)) : null;
+      const right = continued ?? damageOn ?? matchSentence(rightText) ??referentRewrite(rightText, leftClause) ?? (previous ? referentRewrite(rightText, previous) : null);
       if (!right || right.pay || right.delay) continue;
       const rightIsReferent = right.referent === true;
       return [leftClause, { text: rightText, spec: right, phrase: rightIsReferent ? leftClause.phrase : phraseOf(rightText) }];
