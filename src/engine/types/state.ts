@@ -1904,6 +1904,11 @@ export interface GameState {
      */
     readonly attacksDespiteDefender?: true;
     /**
+     * D604 - "Switch target creature's power and toughness until end of turn." (CR 613.4d): read by `derive` in layer 7d, after
+     * the counters - each entry swaps what the layers before produced, so two cancel. Optional for D394's reason.
+     */
+    readonly switchPt?: true;
+    /**
      * D413 - "if that creature would die this turn, exile it instead" (CR 614.1): a mark the replacement
      * funnel reads on a move from the battlefield to a graveyard, redirecting it to exile; cleared with the
      * rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.

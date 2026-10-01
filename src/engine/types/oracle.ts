@@ -774,6 +774,12 @@ export type EffectKind =
    */
   | 'attackDespiteDefender'
   /**
+   * D604 - "Switch target creature's power and toughness until end of turn." (CR 613.4d, with an END): an until-end-of-turn
+   * entry on the aim (`switchPt`), read by `derive` in layer 7d - after every effect that sets or modifies the numbers and
+   * after the counters. Self-aimed for "Switch this creature's ..." (D373).
+   */
+  | 'switchPt'
+  /**
    * D552 - DETAIN (CR 701.35a): until the detaining player's next turn the permanent can't attack or block and its
    * activated abilities can't be activated - the `Detained` mark (`detainedBy`), asked through `isDetained`.
    */
@@ -1343,7 +1349,7 @@ export interface ReflexiveSpec {
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
 // D602 - `removeCounters` joins: the source's own counter removed (`Remove a +1/+1 counter from this creature.`).
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'attackDespiteDefender', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'attackDespiteDefender', 'switchPt', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first

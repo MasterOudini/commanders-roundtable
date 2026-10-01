@@ -327771,6 +327771,419 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "WINDREAVER": {
+    "scryfallId": "09be20e5-58f1-40ea-a89d-437f46588a6d",
+    "oracleId": "d6b6c27e-8028-49b1-90c6-ae0907159f85",
+    "name": "Windreaver",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Windreaver",
+        "manaCost": "{3}{W}{U}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "Flying\n{W}: This creature gains vigilance until end of turn.\n{W}: This creature gets +0/+1 until end of turn.\n{U}: Switch this creature's power and toughness until end of turn.\n{U}: Return this creature to its owner's hand.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U",
+          "W"
+        ],
+        "artist": "Aleksi Briclot",
+        "imageId": "09be20e5-58f1-40ea-a89d-437f46588a6d"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "gk2",
+    "collectorNumber": "22",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AQUAMOEBA": {
+    "scryfallId": "1243552a-ca57-42ce-817e-d6268fc673e0",
+    "oracleId": "55de434c-0fb9-4127-81b6-47c1c0b088fe",
+    "name": "Aquamoeba",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aquamoeba",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Elemental Beast",
+        "oracleText": "Discard a card: Switch this creature's power and toughness until end of turn.",
+        "flavorText": "Some tides need no moon.",
+        "power": "1",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Arnie Swekel",
+        "imageId": "1243552a-ca57-42ce-817e-d6268fc673e0"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "tor",
+    "collectorNumber": "24",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CRAG_PUCA": {
+    "scryfallId": "25c11707-1ded-4891-82b4-9827a7dfc489",
+    "oracleId": "b51d2c70-204b-4321-a589-f00a3e49fab4",
+    "name": "Crag Puca",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crag Puca",
+        "manaCost": "{U/R}{U/R}{U/R}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "{U/R}: Switch this creature's power and toughness until end of turn.",
+        "flavorText": "\"Be happy when you see a puca shaped like mischief. It's far better than one shaped like death.\"\n—Dindun of Kulrath Mine",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "John Franklin Howe",
+        "imageId": "25c11707-1ded-4891-82b4-9827a7dfc489"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "eve",
+    "collectorNumber": "101",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AEROMOEBA": {
+    "scryfallId": "25de0eb6-94f5-440f-8201-cc7dad2f0805",
+    "oracleId": "1e276998-9c54-4d68-a901-657853312d06",
+    "name": "Aeromoeba",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aeromoeba",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Elemental Beast",
+        "oracleText": "Flying\nDiscard a card: Switch this creature's power and toughness until end of turn.",
+        "flavorText": "Some clouds heed no wind.",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Victor Adame Minguez",
+        "imageId": "25de0eb6-94f5-440f-8201-cc7dad2f0805"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "389",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PHANTASMAL_FIEND": {
+    "scryfallId": "2c2842a1-25b8-4c4b-b5f8-496929288ff3",
+    "oracleId": "821ce349-5379-4415-89e2-224e21dda24b",
+    "name": "Phantasmal Fiend",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Phantasmal Fiend",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Illusion",
+        "oracleText": "{B}: This creature gets +1/-1 until end of turn.\n{1}{U}: Switch this creature's power and toughness until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Scott Kirschner",
+        "imageId": "2c2842a1-25b8-4c4b-b5f8-496929288ff3"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "all",
+    "collectorNumber": "57b",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MERFOLK_THAUMATURGIST": {
+    "scryfallId": "513abd0b-2908-48dd-9933-271a4a060b18",
+    "oracleId": "1220e11f-aab0-459b-ae3f-b095aad37294",
+    "name": "Merfolk Thaumaturgist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Merfolk Thaumaturgist",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Merfolk Wizard",
+        "oracleText": "{T}: Switch target creature's power and toughness until end of turn.",
+        "flavorText": "\"Blasted fishtails! It's not enough that they meddle with my head, but they twist my body as well.\"\n—Tahngarth of the *Weatherlight*",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Prescott",
+        "imageId": "513abd0b-2908-48dd-9933-271a4a060b18"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "plst",
+    "collectorNumber": "PLC-56",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MYR_QUADROPOD": {
+    "scryfallId": "5576fe4d-cf12-460b-af15-996baeca5065",
+    "oracleId": "f53732d3-d317-4042-a0ad-1a99c7ffc94f",
+    "name": "Myr Quadropod",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Myr Quadropod",
+        "manaCost": "{4}",
+        "typeLine": "Artifact Creature — Myr",
+        "oracleText": "{3}: Switch this creature's power and toughness until end of turn.",
+        "flavorText": "Each myr was designed to fill a specific role. This one, for example, was designed to stomp on other myr.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Christopher Rush",
+        "imageId": "5576fe4d-cf12-460b-af15-996baeca5065"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "5dn",
+    "collectorNumber": "138",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FLUXCHARGER": {
+    "scryfallId": "7c58f6ed-2544-4b58-8dc0-a0a37b9547e6",
+    "oracleId": "99bba323-b5a4-4ff3-8ad1-2a19ed119069",
+    "name": "Fluxcharger",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fluxcharger",
+        "manaCost": "{2}{U}{R}",
+        "typeLine": "Creature — Weird",
+        "oracleText": "Flying\nWhenever you cast an instant or sorcery spell, you may switch this creature's power and toughness until end of turn.",
+        "flavorText": "One part mizzium, two parts elemental energy, eleven parts danger.",
+        "power": "1",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Willian Murai",
+        "imageId": "7c58f6ed-2544-4b58-8dc0-a0a37b9547e6"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "dgm",
+    "collectorNumber": "71",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DWARVEN_THAUMATURGIST": {
+    "scryfallId": "8e68aa29-9f38-48a2-b00a-39aef9d91f6d",
+    "oracleId": "019d0013-52fd-4261-9cc8-7efcee5a4616",
+    "name": "Dwarven Thaumaturgist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dwarven Thaumaturgist",
+        "manaCost": "{2}{R}",
+        "typeLine": "Creature — Dwarf Shaman",
+        "oracleText": "{T}: Switch target creature's power and toughness until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Kipling West",
+        "imageId": "8e68aa29-9f38-48a2-b00a-39aef9d91f6d"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "wth",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "TURTLESHELL_CHANGELING": {
+    "scryfallId": "a72b078e-e324-4775-9d38-08943017a48e",
+    "oracleId": "87f8b403-765c-4a2a-8b21-edaaaa889234",
+    "name": "Turtleshell Changeling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Turtleshell Changeling",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Shapeshifter",
+        "oracleText": "Changeling (This card is every creature type.)\n{1}{U}: Switch this creature's power and toughness until end of turn.",
+        "flavorText": "A changeling involuntarily mimics the nearest being at hand, sometimes trading a borrowed shell for borrowed claws.",
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "a72b078e-e324-4775-9d38-08943017a48e"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Changeling"
+    ],
+    "setCode": "lrw",
+    "collectorNumber": "94",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CROOKCLAW_TRANSMUTER": {
+    "scryfallId": "aba5f411-668b-4344-be2f-c8f6cc3255e8",
+    "oracleId": "53501112-bcdb-4bb5-9fd3-674cdba91951",
+    "name": "Crookclaw Transmuter",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Crookclaw Transmuter",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Bird Wizard",
+        "oracleText": "Flash\nFlying\nWhen this creature enters, switch target creature's power and toughness until end of turn.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "aba5f411-668b-4344-be2f-c8f6cc3255e8"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Flash"
+    ],
+    "setCode": "tsr",
+    "collectorNumber": "59",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CALCITE_SNAPPER": {
+    "scryfallId": "aec0c914-1188-45c9-a68c-c3b915dbebf7",
+    "oracleId": "36593200-e53c-46e4-a04e-8deec8273c65",
+    "name": "Calcite Snapper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Calcite Snapper",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Creature — Turtle",
+        "oracleText": "Shroud (This creature can't be the target of spells or abilities.)\nLandfall — Whenever a land you control enters, you may switch this creature's power and toughness until end of turn.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "David Palumbo",
+        "imageId": "aec0c914-1188-45c9-a68c-c3b915dbebf7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Shroud",
+      "Landfall"
+    ],
+    "setCode": "wwk",
+    "collectorNumber": "25",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

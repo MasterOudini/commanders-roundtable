@@ -61,6 +61,8 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
   // D603 - aimed at the blocker-to-be, and the source's own exception (in SELF_AIMED).
   'cantBlockSource',
   'attackDespiteDefender',
+  // D604 - aimed at a target, or the source (in SELF_AIMED).
+  'switchPt',
 ]);
 
 /**

@@ -10796,6 +10796,20 @@ const WANTED = [
   'Mirror Wall',
   'Spin Engine',
   // D603 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D604 - THE SWITCH WITH AN END: the rows the whole-leftover row maker rowed once the vocabulary read switch target creature's power and toughness until end of turn and its self form.
+  'Windreaver',
+  'Aquamoeba',
+  'Crag Puca',
+  'Aeromoeba',
+  'Phantasmal Fiend',
+  'Merfolk Thaumaturgist',
+  'Myr Quadropod',
+  'Fluxcharger',
+  'Dwarven Thaumaturgist',
+  'Turtleshell Changeling',
+  'Crookclaw Transmuter',
+  'Calcite Snapper',
+  // D604 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

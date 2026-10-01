@@ -9627,6 +9627,18 @@ export const KOZILEK_S_PATHFINDER: CardData = F.KOZILEK_S_PATHFINDER as CardData
 export const FEARSOME_TEMPER: CardData = F.FEARSOME_TEMPER as CardData;
 export const MIRROR_WALL: CardData = F.MIRROR_WALL as CardData;
 export const SPIN_ENGINE: CardData = F.SPIN_ENGINE as CardData;
+export const WINDREAVER: CardData = F.WINDREAVER as CardData;
+export const AQUAMOEBA: CardData = F.AQUAMOEBA as CardData;
+export const CRAG_PUCA: CardData = F.CRAG_PUCA as CardData;
+export const AEROMOEBA: CardData = F.AEROMOEBA as CardData;
+export const PHANTASMAL_FIEND: CardData = F.PHANTASMAL_FIEND as CardData;
+export const MERFOLK_THAUMATURGIST: CardData = F.MERFOLK_THAUMATURGIST as CardData;
+export const MYR_QUADROPOD: CardData = F.MYR_QUADROPOD as CardData;
+export const FLUXCHARGER: CardData = F.FLUXCHARGER as CardData;
+export const DWARVEN_THAUMATURGIST: CardData = F.DWARVEN_THAUMATURGIST as CardData;
+export const TURTLESHELL_CHANGELING: CardData = F.TURTLESHELL_CHANGELING as CardData;
+export const CROOKCLAW_TRANSMUTER: CardData = F.CROOKCLAW_TRANSMUTER as CardData;
+export const CALCITE_SNAPPER: CardData = F.CALCITE_SNAPPER as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19528,6 +19540,18 @@ export const ENGINE_CARDS: CardData[] = [
   FEARSOME_TEMPER,
   MIRROR_WALL,
   SPIN_ENGINE,
+  WINDREAVER,
+  AQUAMOEBA,
+  CRAG_PUCA,
+  AEROMOEBA,
+  PHANTASMAL_FIEND,
+  MERFOLK_THAUMATURGIST,
+  MYR_QUADROPOD,
+  FLUXCHARGER,
+  DWARVEN_THAUMATURGIST,
+  TURTLESHELL_CHANGELING,
+  CROOKCLAW_TRANSMUTER,
+  CALCITE_SNAPPER,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

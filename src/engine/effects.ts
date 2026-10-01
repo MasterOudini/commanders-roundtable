@@ -1493,6 +1493,15 @@ export function effectResult(
         break;
       }
 
+      // D604 - "Switch target creature's power and toughness until end of turn." (CR 613.4d): the mark on the aim (a target,
+      // or the source for the self form - D373). `derive` reads it in layer 7d; cleanup clears it.
+      case 'switchPt': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, switchPt: true });
+        break;
+      }
+
       case 'cantBlock': {
         // D510 - THE MASS FORM: `Creatures (without flying) can't block this turn.` - every creature the scope reaches
         // (D505's walk, the keyword-absent form), the marker first.

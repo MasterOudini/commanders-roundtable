@@ -1633,6 +1633,8 @@ function applyBody(state: GameState, body: EventBody): GameState {
             // D603 - the pair restriction and the defender exception ride the same entry, spread-conditional too.
             ...(body.cantBlockCard !== undefined ? { cantBlockCard: body.cantBlockCard } : {}),
             ...(body.attacksDespiteDefender !== undefined ? { attacksDespiteDefender: body.attacksDespiteDefender } : {}),
+            // D604 - the switch rides the same entry, spread-conditional too.
+            ...(body.switchPt !== undefined ? { switchPt: body.switchPt } : {}),
             // D413 - the exile-instead-of-dying mark rides the same entry, spread-conditional too.
             ...(body.exileIfDies !== undefined ? { exileIfDies: body.exileIfDies } : {}),
             // D395 - the animate family's three fields, spread-conditional too.

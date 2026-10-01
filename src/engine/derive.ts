@@ -260,6 +260,14 @@ function computeDerived(
   if (chars.toughness !== null) chars.toughness += plus - minus;
 
   applyStatics(state, oracle, scripts, inst, chars, 'ptSwitch', cache);
+  // D604 - layer 7d's until-end-of-turn switches (CR 613.4d), in the order they were created: each swaps what every layer
+  // before produced, so two cancel.
+  for (const mod of state.untilEndOfTurn) {
+    if (mod.card !== inst.id || mod.switchPt !== true || chars.power === null || chars.toughness === null) continue;
+    const power = chars.power;
+    chars.power = chars.toughness;
+    chars.toughness = power;
+  }
 
   const card = inst.faceDown ? undefined : oracle.byPrinting(inst.printingId);
   // D546 - a copy with no mana cost (embalm, eternalize) has mana value 0 (CR 202.3).

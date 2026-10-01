@@ -7,6 +7,18 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { WINDREAVER_SCRIPT } from './cards/windreaver';
+import { AQUAMOEBA_SCRIPT } from './cards/aquamoeba';
+import { CRAG_PUCA_SCRIPT } from './cards/cragPuca';
+import { AEROMOEBA_SCRIPT } from './cards/aeromoeba';
+import { PHANTASMAL_FIEND_SCRIPT } from './cards/phantasmalFiend';
+import { MERFOLK_THAUMATURGIST_SCRIPT } from './cards/merfolkThaumaturgist';
+import { MYR_QUADROPOD_SCRIPT } from './cards/myrQuadropod';
+import { FLUXCHARGER_SCRIPT } from './cards/fluxcharger';
+import { DWARVEN_THAUMATURGIST_SCRIPT } from './cards/dwarvenThaumaturgist';
+import { TURTLESHELL_CHANGELING_SCRIPT } from './cards/turtleshellChangeling';
+import { CROOKCLAW_TRANSMUTER_SCRIPT } from './cards/crookclawTransmuter';
+import { CALCITE_SNAPPER_SCRIPT } from './cards/calciteSnapper';
 import { SKYCLAVE_SQUID_SCRIPT } from './cards/skyclaveSquid';
 import { WALL_OF_ONE_THOUSAND_CUTS_SCRIPT } from './cards/wallOfOneThousandCuts';
 import { SHREWD_HATCHLING_SCRIPT } from './cards/shrewdHatchling';
@@ -8694,6 +8706,18 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  WINDREAVER_SCRIPT,
+  AQUAMOEBA_SCRIPT,
+  CRAG_PUCA_SCRIPT,
+  AEROMOEBA_SCRIPT,
+  PHANTASMAL_FIEND_SCRIPT,
+  MERFOLK_THAUMATURGIST_SCRIPT,
+  MYR_QUADROPOD_SCRIPT,
+  FLUXCHARGER_SCRIPT,
+  DWARVEN_THAUMATURGIST_SCRIPT,
+  TURTLESHELL_CHANGELING_SCRIPT,
+  CROOKCLAW_TRANSMUTER_SCRIPT,
+  CALCITE_SNAPPER_SCRIPT,
   SKYCLAVE_SQUID_SCRIPT,
   WALL_OF_ONE_THOUSAND_CUTS_SCRIPT,
   SHREWD_HATCHLING_SCRIPT,

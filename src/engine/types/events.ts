@@ -786,6 +786,8 @@ export type EventBody =
       readonly cantBlockCard?: InstanceId;
       /** D603 - "can attack this turn as though it didn't have defender" (CR 702.3b's exception), read by `canAttack`. */
       readonly attacksDespiteDefender?: true;
+      /** D604 - "switch ... power and toughness until end of turn" (CR 613.4d), read by `derive` in layer 7d. */
+      readonly switchPt?: true;
       /** D395 - the animate family: base P/T (layer 7b), subtypes (layer 4) and colours (layer 5) until end of turn. */
       readonly basePt?: { readonly power: number; readonly toughness: number };
       readonly subtypes?: readonly string[];

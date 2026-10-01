@@ -1458,6 +1458,11 @@ const RULES: readonly Rule[] = [
   // (`Creatures without defender can't block ...`, `can attack as though it didn't have defender as long as ...`) stay unread.
   { kind: 'cantBlockSource', re: new RegExp(`^${TARGET} can't block ${SELF} this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'attackDespiteDefender', re: new RegExp(`^${SELF} can attack this turn as though it didn't have defender\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D604 - the switch with an end (CR 613.4d): `Switch target creature's power and toughness until end of turn.` (About Face,
+  // Twisted Image, Merfolk Thaumaturgist) and the self form (Aquamoeba, Crag Puca, Turtleshell Changeling). The mass form
+  // (`Switch each creature's ...`), the counted targets (`each of up to two target creatures`) and a bare `its` stay unread.
+  { kind: 'switchPt', re: new RegExp(`^switch ${TARGET}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'switchPt', re: new RegExp(`^switch ${SELF}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D552 - DETAIN (CR 701.35a): a target, counted forms included ("up to two target creatures your opponents control").
   // The mass form (Lavinia's "detain each ... with mana value N or less") stays unread until it is measured.
   { kind: 'detain', re: new RegExp(`^detain ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

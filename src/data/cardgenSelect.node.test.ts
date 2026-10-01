@@ -752,6 +752,8 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D604 - the switch with an end read; what stays is a card the row maker refuses for another reason.
+  ['Flatman', 'the row maker: a line that is neither an activated ability nor a library trigger: Origami-Fu — {2}{G}: Switch ~s power and t - its clause reads since D604 (D604)'],
   // D603 - two combat flags with an end (the pair restriction, the defender exception) read; what stays is a card the row maker refuses for another reason.
   ['Dark Maze', 'the row maker: a delayed payload the suite cannot read back: exileSelf - its clause reads since D603 (D603)'],
   ['Stalked Researcher', 'the row maker: trigger head not in the library: Whenever an enchantment you control enters and whenever you fully unlo - its clause reads since D603 (D603)'],
@@ -830,7 +832,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Avabruck Caretaker // Hollowhenge Huntmaster', 'the row maker: the face 1 line that is neither an activated ability nor a library trigger: Other permanents you control have hexproof. - the transform rows read it face by face since D578 (D578)'],
   // D576 - splice: `Splice onto Arcane {M}` / `Splice onto instant or sorcery {M}` is the engine's now (the card revealed from the hand as another spell is cast, its splice cost paid, its effects and targets added after the spell's own); what stays is a splice card whose own text the vocabulary does not read - its spliced text would be a script's, and a script cannot run on another spell.
   ['Desperate Ritual', 'a spell with a line outside the vocabulary: Add {R}{R}{R}. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
-  ['Strange Inversion', 'a spell with a line outside the vocabulary: Switch target creature\'s power and toughness until end of turn. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
   ['Psychic Puppetry', 'a spell with a line outside the vocabulary: You may tap or untap target permanent. - its Splice reads since D576, but a spliced text runs off the face and a scripted card is never spliced: a script would claim a Splice line the engine cannot run (D576)'],
   // D574 - Role tokens: `Create a <Role> Role token attached to ...` is the engine's now (an Aura token created attached - Monster, Sorcerer, Wicked, Cursed, Virtuous); what stays is a Role card whose other line the library does not read, or whose Role (Royal, Young Hero) waits for a derived ward.
   ['Ellivere of the Wild Court', 'the row maker: trigger head not in the library: Whenever Ellivere enters or attacks, create a Virtuous Role token a - its Role reads since D574 (D574)'],
@@ -2433,7 +2434,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // legendary creatures in graveyards) — a mana ability cannot be an
   // ActivatedDef (CR 605: it does not use the stack), so the parse gap is
   // the card's real blocker. The rest are standing classes.
-  ['About Face', 'until-end-of-turn power/toughness switch'],
   ['The Last Agni Kai', 'rule-changing (mana persistence)'],
   ["Animist's Awakening", 'ctx.random'],
   ['Towering Viewpoint', 'ability-word activated cost'],
@@ -3088,7 +3088,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // probe sees the silent kind.
   // ⚠️ Trip Wire could not have been proven positively in any case: measured,
   // NO fixture creature has horsemanship — only two shipped spells mention it.
-  ['Transmutation', 'until-end-of-turn power/toughness switch'],
   ['Tribal Unity', 'script-raised prompt'],
   ['Trick Shot', 'up-to-N targeting'],
   ["Trickster's Stratagem", 'library position placement'],
@@ -3382,7 +3381,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ["Illusionist's Stratagem", 'up-to-N targeting'],
   ['Impossible Inferno', 'play-from-exile permission'],
   ['Inquisitive Puppet', 'exile-self cost'],
-  ['Inside Out', 'until-end-of-turn power/toughness switch'],
   ['Invigorate', 'cast-time alternative cost'],
   ['Jan Jansen, Chaos Crafter', 'negated-type sacrifice predicate'],
 
@@ -3491,7 +3489,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Sylvan Bounty', 'cycling mechanic'],
   ['Thunderblade Charge', 'free-cast permission'],
   ['Tidal Bore', 'cast-time alternative cost'],
-  ['Twisted Image', 'until-end-of-turn power/toughness switch'],
   ['Twitch', 'script-raised prompt'],
 
   // D283 (M6.4dt) — the U-Z residue plus the tail of the offline order; the
