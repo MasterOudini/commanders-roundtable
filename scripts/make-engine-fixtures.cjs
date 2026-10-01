@@ -10810,6 +10810,16 @@ const WANTED = [
   'Crookclaw Transmuter',
   'Calcite Snapper',
   // D604 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D605 - SUPPORT N: the rows the whole-leftover row maker rowed once the vocabulary and the target reader read Support N (CR 701.41a).
+  'Relief Captain',
+  'Saddleback Lagac',
+  'Aerie Auxiliary',
+  'Joraga Auxiliary',
+  'Captured by Lagacs',
+  'Expedition Raptor',
+  'Soulblade Renewer',
+  'Jubilant Mascot',
+  // D605 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

@@ -1463,6 +1463,17 @@ const RULES: readonly Rule[] = [
   // (`Switch each creature's ...`), the counted targets (`each of up to two target creatures`) and a bare `its` stay unread.
   { kind: 'switchPt', re: new RegExp(`^switch ${TARGET}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'switchPt', re: new RegExp(`^switch ${SELF}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D605 - SUPPORT N (CR 701.41a): a +1/+1 counter on each of up to N other target creatures - the clause is read off the
+  // printed `Support N` by `parseTargetClauses` (its reminder names the targets), counted and optional (OPTIONAL_COUNT).
+  {
+    kind: 'putCounters',
+    re: /^support ([0-9]+)\.$/i,
+    build: (m) => {
+      const n = num(m[1]);
+      const kind = counterKindOf('+1/+1');
+      return n === null || n <= 0 || kind === null ? null : { ...BASE, amount: 1, counterKind: kind };
+    },
+  },
   // D552 - DETAIN (CR 701.35a): a target, counted forms included ("up to two target creatures your opponents control").
   // The mass form (Lavinia's "detain each ... with mana value N or less") stays unread until it is measured.
   { kind: 'detain', re: new RegExp(`^detain ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },
@@ -2704,7 +2715,8 @@ function sentences(text: string): string[] {
 const MAX_SPAN = 4;
 
 /** D299: the counts a clause may be declared with NO target for. */
-const OPTIONAL_COUNT = /\b(?:up to (?:one|two|three|four|five)|any number of) target\b/i;
+// D605 - and `Support N` (each of up to N other target creatures, CR 701.41a).
+const OPTIONAL_COUNT = /\b(?:(?:up to (?:one|two|three|four|five)|any number of) target|support [0-9]+)\b/i;
 
 /** One clause of a face: the text it covers, and what it was understood as. */
 interface Clause {

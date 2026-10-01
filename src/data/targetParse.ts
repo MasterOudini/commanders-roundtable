@@ -1221,7 +1221,33 @@ export function parseTargetClauses(text: string, warn: Warn = NOOP_WARN): Target
     if (!count.confident) warn('target:unparsedCount');
   }
 
-  return out;
+  return withSupport(text, clean, out);
+}
+
+/**
+ * D605 - SUPPORT N (CR 701.41a): "Put a +1/+1 counter on each of up to N other target creatures" - the keyword action names
+ * its targets only in its reminder text, which `scrub` blanks. The clause is read off that phrase and placed at the printed
+ * `Support N` among the face's other clauses (each found by its verbatim text, in order). On an instant or sorcery the rule
+ * drops `other`; kept here it excludes nothing, because the source is a spell and never a creature on the battlefield.
+ * `Support X` stays unread.
+ */
+function withSupport(text: string, clean: string, out: TargetSpec[]): TargetSpec[] {
+  const found: { at: number; spec: TargetSpec }[] = [];
+  for (const m of clean.matchAll(/\bsupport ([0-9]+)\./gi)) {
+    const n = Number(m[1]);
+    const word = Object.keys(NUMBER_WORDS).find((w) => NUMBER_WORDS[w] === n);
+    const [spec] = word ? parseTargetClauses('Put a +1/+1 counter on each of up to ' + word + ' other target creatures.') : [];
+    if (!spec || m.index === undefined) continue;
+    found.push({ at: m.index, spec: { ...spec, text: text.slice(m.index, m.index + m[0].length - 1) } });
+  }
+  if (found.length === 0) return out;
+  let cursor = 0;
+  const placed = out.map((spec) => {
+    const at = text.indexOf(spec.text, cursor);
+    if (at >= 0) cursor = at + 1;
+    return { at: at >= 0 ? at : cursor, spec };
+  });
+  return [...placed, ...found].sort((a, b) => a.at - b.at).map((x) => x.spec);
 }
 
 // ── Auras ────────────────────────────────────────────────────────────────────

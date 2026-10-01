@@ -328184,6 +328184,295 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "RELIEF_CAPTAIN": {
+    "scryfallId": "04c0d1a1-4010-440d-b0b4-3daa4290ffa6",
+    "oracleId": "97e088a3-65eb-42f5-85b8-6aeb770a3f56",
+    "name": "Relief Captain",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Relief Captain",
+        "manaCost": "{2}{W}{W}",
+        "typeLine": "Creature — Kor Knight Ally",
+        "oracleText": "When this creature enters, support 3. (Put a +1/+1 counter on each of up to three other target creatures.)",
+        "flavorText": "Sometimes gestures of support are small. Sometimes not.",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Anastasia Ovchinnikova",
+        "imageId": "04c0d1a1-4010-440d-b0b4-3daa4290ffa6"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Support"
+    ],
+    "setCode": "gn2",
+    "collectorNumber": "11",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SADDLEBACK_LAGAC": {
+    "scryfallId": "19673455-8655-4135-a7b3-5995fee8b281",
+    "oracleId": "3d720d55-3df8-40fd-bc93-ad99c1105249",
+    "name": "Saddleback Lagac",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Saddleback Lagac",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Lizard",
+        "oracleText": "When this creature enters, support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": "\"A good lagac will carry you through thick and thin. A bad one . . . well, it's a tasty dinner.\"\n—Raff Slugeater, goblin shortcutter",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "19673455-8655-4135-a7b3-5995fee8b281"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Support"
+    ],
+    "setCode": "ddr",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AERIE_AUXILIARY": {
+    "scryfallId": "5e4c134b-a416-467e-a158-def84c92c6af",
+    "oracleId": "0c97aea7-c997-45b4-a044-84fb5c07a021",
+    "name": "Aerie Auxiliary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Aerie Auxiliary",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Bird Soldier",
+        "oracleText": "Flying\nWhen this creature enters, support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": "The hordechief's ground tactics were unsurpassed. If only he'd thought to watch the skies.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Donato Giancola",
+        "imageId": "5e4c134b-a416-467e-a158-def84c92c6af"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying",
+      "Support"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JORAGA_AUXILIARY": {
+    "scryfallId": "65d920b4-81ab-45be-b763-b6114b879357",
+    "oracleId": "b74082da-435c-4e45-9424-1188ad7ef5b3",
+    "name": "Joraga Auxiliary",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Joraga Auxiliary",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Creature — Elf Soldier Ally",
+        "oracleText": "{4}{G}{W}: Support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": "\"Before the battle, I heard them take an oath near the ruins of Sea Gate. I hope they inspire others to keep watch.\"",
+        "power": "2",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "David Gaillet",
+        "imageId": "65d920b4-81ab-45be-b763-b6114b879357"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Support"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "154",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CAPTURED_BY_LAGACS": {
+    "scryfallId": "71b1dac5-6ed3-4ffc-b37b-da5bb8f58d29",
+    "oracleId": "db1a29f9-1608-4502-a366-89048c2e9bda",
+    "name": "Captured by Lagacs",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Captured by Lagacs",
+        "manaCost": "{1}{G}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature can't attack or block.\nWhen this Aura enters, support 2. (Put a +1/+1 counter on each of up to two target creatures.)",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "W"
+        ],
+        "artist": "Andrew Mar",
+        "imageId": "71b1dac5-6ed3-4ffc-b37b-da5bb8f58d29"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Support",
+      "Enchant"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "682",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EXPEDITION_RAPTOR": {
+    "scryfallId": "819d11eb-960b-4116-ba09-f03bff88b4e7",
+    "oracleId": "0a44da1d-7914-4592-a00f-7e40e0d07f91",
+    "name": "Expedition Raptor",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Expedition Raptor",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Bird",
+        "oracleText": "Flying\nWhen this creature enters, support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Johann Bodin",
+        "imageId": "819d11eb-960b-4116-ba09-f03bff88b4e7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Support"
+    ],
+    "setCode": "ogw",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOULBLADE_RENEWER": {
+    "scryfallId": "8897c406-fdec-44af-bc66-eacf245874a8",
+    "oracleId": "7ccc2740-e659-452d-95e8-5dee958322fa",
+    "name": "Soulblade Renewer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Soulblade Renewer",
+        "manaCost": "{4}{G}",
+        "typeLine": "Creature — Elf Warrior",
+        "oracleText": "Partner with Soulblade Corrupter (When this creature enters, target player may put Soulblade Corrupter into their hand from their library, then shuffle.)\nWhen this creature enters, support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Suzanne Helmigh",
+        "imageId": "8897c406-fdec-44af-bc66-eacf245874a8"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Support",
+      "Partner with",
+      "Partner"
+    ],
+    "setCode": "bbd",
+    "collectorNumber": "18",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "JUBILANT_MASCOT": {
+    "scryfallId": "88dde223-c697-40a7-a68e-ad9fcb8a3064",
+    "oracleId": "d160887f-f78e-4a66-9766-0b7dd852a784",
+    "name": "Jubilant Mascot",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Jubilant Mascot",
+        "manaCost": "{2}{W}",
+        "typeLine": "Creature — Homunculus",
+        "oracleText": "At the beginning of combat on your turn, you may pay {3}{W}. If you do, support 2. (Put a +1/+1 counter on each of up to two other target creatures.)",
+        "flavorText": "The competition is but one aspect of the spectacle.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "88dde223-c697-40a7-a68e-ad9fcb8a3064"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Support"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "BBD-28",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

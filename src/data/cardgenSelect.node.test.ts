@@ -752,6 +752,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D605 - support N read; what stays is a card the row maker refuses for another reason.
+  ['Gladehart Cavalry', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you contro - its clause reads since D605 (D605)'],
+  ['Generous Patron', 'the row maker: trigger head not in the library: Whenever you put one or more counters on a creature you dont control, - its clause reads since D605 (D605)'],
   // D604 - the switch with an end read; what stays is a card the row maker refuses for another reason.
   ['Flatman', 'the row maker: a line that is neither an activated ability nor a library trigger: Origami-Fu — {2}{G}: Switch ~s power and t - its clause reads since D604 (D604)'],
   // D603 - two combat flags with an end (the pair restriction, the defender exception) read; what stays is a card the row maker refuses for another reason.
@@ -1219,7 +1222,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Vislor Turlough', 'a control duration outside the two the engine reads (`for as long as` + they control it) (D531)'],
   ["Kitsune, Dragon's Daughter", 'the row maker: a filtered head outside the closed reader (an adjective outside the list: ~): Whenever ~ enters or deals combat damage to a player, you (D531)'],
   ['Spinal Embrace', 'the row maker: a spell with a line outside the vocabulary: Cast this spell only during combat. (D531)'],
-  ['Press into Service', 'the row maker: a spell with a line outside the vocabulary: Support 2. (Put a +1/+1 counter on each of up to two target (D531)'],
   ['Edea, Possessed Sorceress', 'the row maker: a filtered head outside the closed reader (an adjective outside the list: you): Whenever a creature you control but don\'t own dies, ret (D531)'],
   ['Pumpkin Bombs', 'the row maker: effect not a row kind: Draw three cards, then put a fuse counter on this artifact. It deals damage equal to the number of fuse counters (D531)'],
   ['Contested Game Ball', 'the row maker: trigger head not in the library: Whenever you\'re dealt combat damage, the attacking player gains contro (D531)'],

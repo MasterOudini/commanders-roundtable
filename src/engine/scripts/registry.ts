@@ -7,6 +7,14 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { RELIEF_CAPTAIN_SCRIPT } from './cards/reliefCaptain';
+import { SADDLEBACK_LAGAC_SCRIPT } from './cards/saddlebackLagac';
+import { AERIE_AUXILIARY_SCRIPT } from './cards/aerieAuxiliary';
+import { JORAGA_AUXILIARY_SCRIPT } from './cards/joragaAuxiliary';
+import { CAPTURED_BY_LAGACS_SCRIPT } from './cards/capturedByLagacs';
+import { EXPEDITION_RAPTOR_SCRIPT } from './cards/expeditionRaptor';
+import { SOULBLADE_RENEWER_SCRIPT } from './cards/soulbladeRenewer';
+import { JUBILANT_MASCOT_SCRIPT } from './cards/jubilantMascot';
 import { WINDREAVER_SCRIPT } from './cards/windreaver';
 import { AQUAMOEBA_SCRIPT } from './cards/aquamoeba';
 import { CRAG_PUCA_SCRIPT } from './cards/cragPuca';
@@ -8706,6 +8714,14 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  RELIEF_CAPTAIN_SCRIPT,
+  SADDLEBACK_LAGAC_SCRIPT,
+  AERIE_AUXILIARY_SCRIPT,
+  JORAGA_AUXILIARY_SCRIPT,
+  CAPTURED_BY_LAGACS_SCRIPT,
+  EXPEDITION_RAPTOR_SCRIPT,
+  SOULBLADE_RENEWER_SCRIPT,
+  JUBILANT_MASCOT_SCRIPT,
   WINDREAVER_SCRIPT,
   AQUAMOEBA_SCRIPT,
   CRAG_PUCA_SCRIPT,
