@@ -325133,6 +325133,533 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "FERVENT_CHARGE": {
+    "scryfallId": "06b2b8a4-3174-4188-959c-f456f9fcd563",
+    "oracleId": "6226db2b-d1a8-4c41-b802-67d3f65d2ca3",
+    "name": "Fervent Charge",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fervent Charge",
+        "manaCost": "{1}{R}{W}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control attacks, it gets +2/+2 until end of turn.",
+        "flavorText": "NCR's rangers were feared far and wide. Even Caesar's Legion respected them in single combat.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "R",
+          "W"
+        ],
+        "artist": "Aaron J. Riley",
+        "imageId": "06b2b8a4-3174-4188-959c-f456f9fcd563"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "pip",
+    "collectorNumber": "743",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GROWTH_CHAMBER_GUARDIAN": {
+    "scryfallId": "0f97cdf4-231d-4bd0-af5e-bcb64ce1556c",
+    "oracleId": "1a49ec1c-6150-4b46-b671-b7d6f4e301ae",
+    "name": "Growth-Chamber Guardian",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Growth-Chamber Guardian",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Elf Crab Warrior",
+        "oracleText": "{2}{G}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)\nWhenever one or more +1/+1 counters are put on this creature, you may search your library for a card named Growth-Chamber Guardian, reveal it, put it into your hand, then shuffle.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Bram Sels",
+        "imageId": "0f97cdf4-231d-4bd0-af5e-bcb64ce1556c"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "128",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCURRY_OAK": {
+    "scryfallId": "0fb48c2e-ee0f-4fae-9c22-247870c10d5b",
+    "oracleId": "eee6c02b-7d6a-4445-ad27-8b03176147d4",
+    "name": "Scurry Oak",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Scurry Oak",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Treefolk",
+        "oracleText": "Evolve (Whenever a creature you control enters, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.)\nWhenever one or more +1/+1 counters are put on this creature, you may create a 1/1 green Squirrel creature token.",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Mark Zug",
+        "imageId": "0fb48c2e-ee0f-4fae-9c22-247870c10d5b"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Evolve"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "172",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "EVOLUTION_WITNESS": {
+    "scryfallId": "4b4ecfa6-5e38-4c0a-91e2-f93cb492f374",
+    "oracleId": "0e07f1af-5ff6-4da5-8683-aea4cc390975",
+    "name": "Evolution Witness",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Evolution Witness",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Elf Shaman Mutant",
+        "oracleText": "{1}{G}: Adapt 2. (If this creature has no +1/+1 counters on it, put two +1/+1 counters on it.)\nWhenever one or more +1/+1 counters are put on this creature, return target permanent card from your graveyard to your hand.",
+        "flavorText": "She remembers every breakthrough, from the gene's mutation to the new life's propagation.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nereida",
+        "imageId": "4b4ecfa6-5e38-4c0a-91e2-f93cb492f374"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "424",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HERD_BALOTH": {
+    "scryfallId": "523262d4-0508-4f29-9169-da2fe69d4083",
+    "oracleId": "03873314-6e64-43ab-95c0-3d8692a57a03",
+    "name": "Herd Baloth",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Herd Baloth",
+        "manaCost": "{3}{G}{G}",
+        "typeLine": "Creature — Beast",
+        "oracleText": "Whenever one or more +1/+1 counters are put on this creature, you may create a 4/4 green Beast creature token.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Nicholas Gregory",
+        "imageId": "523262d4-0508-4f29-9169-da2fe69d4083"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [],
+    "setCode": "j21",
+    "collectorNumber": "584",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BASKING_BROODSCALE": {
+    "scryfallId": "5feba5d6-99a6-4e9b-8a7d-90d955868fc3",
+    "oracleId": "a7c69802-99c4-4778-934e-cc09ba58c267",
+    "name": "Basking Broodscale",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Basking Broodscale",
+        "manaCost": "{1}{G}",
+        "typeLine": "Creature — Eldrazi Lizard",
+        "oracleText": "Devoid (This card has no color.)\n{1}{G}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, you may create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Caio Monteiro",
+        "imageId": "5feba5d6-99a6-4e9b-8a7d-90d955868fc3"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Devoid",
+      "Adapt"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "145",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUSK_LEGION_DUELIST": {
+    "scryfallId": "604d1c7e-9c5c-434b-b974-504674852c3c",
+    "oracleId": "30367a59-a812-41d4-a451-80d9071dd4a4",
+    "name": "Dusk Legion Duelist",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dusk Legion Duelist",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Vampire Soldier",
+        "oracleText": "Vigilance\nWhenever one or more +1/+1 counters are put on this creature, draw a card. This ability triggers only once each turn.",
+        "flavorText": null,
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Ryan Valle",
+        "imageId": "604d1c7e-9c5c-434b-b974-504674852c3c"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "344",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GENEROUS_PUP": {
+    "scryfallId": "730f6a8c-7119-4226-bf37-442cf5ec90c4",
+    "oracleId": "9ee0d4a0-fd8d-43c4-a2aa-c4e6af5beecc",
+    "name": "Generous Pup",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Generous Pup",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Dog",
+        "oracleText": "Vigilance\nWhenever one or more +1/+1 counters are put on this creature, put a +1/+1 counter on each other creature you control. This ability triggers only once each turn.",
+        "flavorText": "They communicate via the universal language of treats.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Julia Metzger",
+        "imageId": "730f6a8c-7119-4226-bf37-442cf5ec90c4"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Vigilance"
+    ],
+    "setCode": "j25",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CONSTABLE_OF_THE_REALM": {
+    "scryfallId": "73b5a0a5-5486-409a-b324-668ae03fc62a",
+    "oracleId": "2a263e61-303f-449d-a431-c26cabdc68e0",
+    "name": "Constable of the Realm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Constable of the Realm",
+        "manaCost": "{4}{W}",
+        "typeLine": "Creature — Giant Soldier",
+        "oracleText": "Renown 2 (When this creature deals combat damage to a player, if it isn't renowned, put two +1/+1 counters on it and it becomes renowned.)\nWhenever one or more +1/+1 counters are put on this creature, exile up to one other target nonland permanent until this creature leaves the battlefield.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Alexander Mokhov",
+        "imageId": "73b5a0a5-5486-409a-b324-668ae03fc62a"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Renown"
+    ],
+    "setCode": "mh2",
+    "collectorNumber": "10",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BENTHIC_BIOMANCER": {
+    "scryfallId": "7b0cb4d6-350b-4e66-b035-dac7b3ba77cc",
+    "oracleId": "b9000917-4f09-42f4-ae85-fc1ac7571d93",
+    "name": "Benthic Biomancer",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Benthic Biomancer",
+        "manaCost": "{U}",
+        "typeLine": "Creature — Merfolk Wizard Mutant",
+        "oracleText": "{1}{U}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, draw a card, then discard a card.",
+        "flavorText": "\"I am my life's work.\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Daarken",
+        "imageId": "7b0cb4d6-350b-4e66-b035-dac7b3ba77cc"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 1,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "rna",
+    "collectorNumber": "32",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DREAMDRINKER_VAMPIRE": {
+    "scryfallId": "961a3a53-344b-44d5-bc8e-f43437e6b558",
+    "oracleId": "5b4e1163-09aa-4597-9a41-e1e384975056",
+    "name": "Dreamdrinker Vampire",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dreamdrinker Vampire",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Vampire",
+        "oracleText": "Lifelink\n{1}{B}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, it gains menace until end of turn.",
+        "flavorText": "The dream she tastes will be your last.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steve Ellis",
+        "imageId": "961a3a53-344b-44d5-bc8e-f43437e6b558"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Lifelink",
+      "Adapt"
+    ],
+    "setCode": "mh3",
+    "collectorNumber": "88",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "AXGARD_ARTISAN": {
+    "scryfallId": "af130b37-d3e0-4839-8193-5c62a91f0218",
+    "oracleId": "ce8ec966-ecff-425e-944c-36dc8d4aef23",
+    "name": "Axgard Artisan",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Axgard Artisan",
+        "manaCost": "{1}{R}",
+        "typeLine": "Creature — Dwarf Artificer",
+        "oracleText": "Whenever one or more +1/+1 counters are put on this creature for the first time each turn, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+        "flavorText": "Skodreg knew the Phyrexians wouldn't appreciate his craftsmanship, but they'd get an up-close look just the same.",
+        "power": "2",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Quintin Gleim",
+        "imageId": "af130b37-d3e0-4839-8193-5c62a91f0218"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Treasure"
+    ],
+    "setCode": "mom",
+    "collectorNumber": "332",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KNIGHTED_MYR": {
+    "scryfallId": "db0489ee-96b6-4437-a716-ee07ecbd4cb7",
+    "oracleId": "dfee20a6-7737-49a8-b1cb-0a4914ac0ad3",
+    "name": "Knighted Myr",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Knighted Myr",
+        "manaCost": "{2}{W}",
+        "typeLine": "Artifact Creature — Myr Knight",
+        "oracleText": "{2}{W}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, it gains double strike until end of turn.",
+        "flavorText": "\"This one fights like a leonin!\"\n—Jor Kadeen",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Izzy",
+        "imageId": "db0489ee-96b6-4437-a716-ee07ecbd4cb7"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "cmm",
+    "collectorNumber": "36",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHARKTOCRAB": {
+    "scryfallId": "db490f74-977f-476d-b8ee-da7b0a98b4c4",
+    "oracleId": "fb8e43f2-41d5-4ffb-a61e-940477749e00",
+    "name": "Sharktocrab",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Sharktocrab",
+        "manaCost": "{2}{G}{U}",
+        "typeLine": "Creature — Shark Octopus Crab",
+        "oracleText": "{2}{G}{U}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G",
+          "U"
+        ],
+        "artist": "Jehan Choo",
+        "imageId": "db490f74-977f-476d-b8ee-da7b0a98b4c4"
+      }
+    ],
+    "colorIdentity": [
+      "G",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Adapt"
+    ],
+    "setCode": "cmr",
+    "collectorNumber": "450",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GLEAM_OF_BATTLE": {
+    "scryfallId": "e5f0feef-1a71-4c8c-9fd1-f5cbe718a988",
+    "oracleId": "19f23d9e-0c05-4028-9c64-60b9a20020f9",
+    "name": "Gleam of Battle",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Gleam of Battle",
+        "manaCost": "{4}{R}{W}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control attacks, put a +1/+1 counter on it.",
+        "flavorText": "Every soldier returns from battle changed: by hardship, by blood, by a glimpse of glory.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Raymond Swanland",
+        "imageId": "e5f0feef-1a71-4c8c-9fd1-f5cbe718a988"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "dgm",
+    "collectorNumber": "73",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

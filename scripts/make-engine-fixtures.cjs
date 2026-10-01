@@ -10710,6 +10710,23 @@ const WANTED = [
   'Predatory Hunger',
   "Tilonalli's Crown",
   // D598 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D599 - TWO TRIGGER HEADS: the rows the whole-leftover row maker rowed once the library read  and .
+  'Fervent Charge',
+  'Growth-Chamber Guardian',
+  'Scurry Oak',
+  'Evolution Witness',
+  'Herd Baloth',
+  'Basking Broodscale',
+  'Dusk Legion Duelist',
+  'Generous Pup',
+  'Constable of the Realm',
+  'Benthic Biomancer',
+  'Dreamdrinker Vampire',
+  'Axgard Artisan',
+  'Knighted Myr',
+  'Sharktocrab',
+  'Gleam of Battle',
+  // D599 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

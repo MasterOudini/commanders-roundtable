@@ -9551,6 +9551,21 @@ export const COOPED_UP: CardData = F.COOPED_UP as CardData;
 export const FREED_FROM_THE_REAL: CardData = F.FREED_FROM_THE_REAL as CardData;
 export const PREDATORY_HUNGER: CardData = F.PREDATORY_HUNGER as CardData;
 export const TILONALLI_S_CROWN: CardData = F.TILONALLI_S_CROWN as CardData;
+export const FERVENT_CHARGE: CardData = F.FERVENT_CHARGE as CardData;
+export const GROWTH_CHAMBER_GUARDIAN: CardData = F.GROWTH_CHAMBER_GUARDIAN as CardData;
+export const SCURRY_OAK: CardData = F.SCURRY_OAK as CardData;
+export const EVOLUTION_WITNESS: CardData = F.EVOLUTION_WITNESS as CardData;
+export const HERD_BALOTH: CardData = F.HERD_BALOTH as CardData;
+export const BASKING_BROODSCALE: CardData = F.BASKING_BROODSCALE as CardData;
+export const DUSK_LEGION_DUELIST: CardData = F.DUSK_LEGION_DUELIST as CardData;
+export const GENEROUS_PUP: CardData = F.GENEROUS_PUP as CardData;
+export const CONSTABLE_OF_THE_REALM: CardData = F.CONSTABLE_OF_THE_REALM as CardData;
+export const BENTHIC_BIOMANCER: CardData = F.BENTHIC_BIOMANCER as CardData;
+export const DREAMDRINKER_VAMPIRE: CardData = F.DREAMDRINKER_VAMPIRE as CardData;
+export const AXGARD_ARTISAN: CardData = F.AXGARD_ARTISAN as CardData;
+export const KNIGHTED_MYR: CardData = F.KNIGHTED_MYR as CardData;
+export const SHARKTOCRAB: CardData = F.SHARKTOCRAB as CardData;
+export const GLEAM_OF_BATTLE: CardData = F.GLEAM_OF_BATTLE as CardData;
 export const SOLDIER_TOKEN: CardData = F.SOLDIER_TOKEN as CardData;
 export const SERVO_TOKEN: CardData = F.SERVO_TOKEN as CardData;
 export const TREASURE_TOKEN: CardData = F.TREASURE_TOKEN as CardData;
@@ -19376,6 +19391,21 @@ export const ENGINE_CARDS: CardData[] = [
   FREED_FROM_THE_REAL,
   PREDATORY_HUNGER,
   TILONALLI_S_CROWN,
+  FERVENT_CHARGE,
+  GROWTH_CHAMBER_GUARDIAN,
+  SCURRY_OAK,
+  EVOLUTION_WITNESS,
+  HERD_BALOTH,
+  BASKING_BROODSCALE,
+  DUSK_LEGION_DUELIST,
+  GENEROUS_PUP,
+  CONSTABLE_OF_THE_REALM,
+  BENTHIC_BIOMANCER,
+  DREAMDRINKER_VAMPIRE,
+  AXGARD_ARTISAN,
+  KNIGHTED_MYR,
+  SHARKTOCRAB,
+  GLEAM_OF_BATTLE,
   SOLDIER_TOKEN,
   SERVO_TOKEN,
   TREASURE_TOKEN,

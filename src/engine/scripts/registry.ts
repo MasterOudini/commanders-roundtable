@@ -7,6 +7,21 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { FERVENT_CHARGE_SCRIPT } from './cards/ferventCharge';
+import { GROWTH_CHAMBER_GUARDIAN_SCRIPT } from './cards/growthChamberGuardian';
+import { SCURRY_OAK_SCRIPT } from './cards/scurryOak';
+import { EVOLUTION_WITNESS_SCRIPT } from './cards/evolutionWitness';
+import { HERD_BALOTH_SCRIPT } from './cards/herdBaloth';
+import { BASKING_BROODSCALE_SCRIPT } from './cards/baskingBroodscale';
+import { DUSK_LEGION_DUELIST_SCRIPT } from './cards/duskLegionDuelist';
+import { GENEROUS_PUP_SCRIPT } from './cards/generousPup';
+import { CONSTABLE_OF_THE_REALM_SCRIPT } from './cards/constableOfTheRealm';
+import { BENTHIC_BIOMANCER_SCRIPT } from './cards/benthicBiomancer';
+import { DREAMDRINKER_VAMPIRE_SCRIPT } from './cards/dreamdrinkerVampire';
+import { AXGARD_ARTISAN_SCRIPT } from './cards/axgardArtisan';
+import { KNIGHTED_MYR_SCRIPT } from './cards/knightedMyr';
+import { SHARKTOCRAB_SCRIPT } from './cards/sharktocrab';
+import { GLEAM_OF_BATTLE_SCRIPT } from './cards/gleamOfBattle';
 import { SKYCLAVE_PICK_AXE_SCRIPT } from './cards/skyclavePickAxe';
 import { SECOND_WIND_SCRIPT } from './cards/secondWind';
 import { TORTURE_SCRIPT } from './cards/torture';
@@ -8624,6 +8639,21 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  FERVENT_CHARGE_SCRIPT,
+  GROWTH_CHAMBER_GUARDIAN_SCRIPT,
+  SCURRY_OAK_SCRIPT,
+  EVOLUTION_WITNESS_SCRIPT,
+  HERD_BALOTH_SCRIPT,
+  BASKING_BROODSCALE_SCRIPT,
+  DUSK_LEGION_DUELIST_SCRIPT,
+  GENEROUS_PUP_SCRIPT,
+  CONSTABLE_OF_THE_REALM_SCRIPT,
+  BENTHIC_BIOMANCER_SCRIPT,
+  DREAMDRINKER_VAMPIRE_SCRIPT,
+  AXGARD_ARTISAN_SCRIPT,
+  KNIGHTED_MYR_SCRIPT,
+  SHARKTOCRAB_SCRIPT,
+  GLEAM_OF_BATTLE_SCRIPT,
   SKYCLAVE_PICK_AXE_SCRIPT,
   SECOND_WIND_SCRIPT,
   TORTURE_SCRIPT,
