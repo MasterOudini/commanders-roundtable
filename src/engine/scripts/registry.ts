@@ -7,6 +7,20 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { SKYCLAVE_SQUID_SCRIPT } from './cards/skyclaveSquid';
+import { WALL_OF_ONE_THOUSAND_CUTS_SCRIPT } from './cards/wallOfOneThousandCuts';
+import { SHREWD_HATCHLING_SCRIPT } from './cards/shrewdHatchling';
+import { PRISMARI_PLEDGEMAGE_SCRIPT } from './cards/prismariPledgemage';
+import { STEELCLAD_SPIRIT_SCRIPT } from './cards/steelcladSpirit';
+import { SCREECHING_GRIFFIN_SCRIPT } from './cards/screechingGriffin';
+import { HIGHTIDE_HERMIT_SCRIPT } from './cards/hightideHermit';
+import { DUCT_CRAWLER_SCRIPT } from './cards/ductCrawler';
+import { RETURNED_PHALANX_SCRIPT } from './cards/returnedPhalanx';
+import { KROTIQ_NESTGUARD_SCRIPT } from './cards/krotiqNestguard';
+import { KOZILEKS_PATHFINDER_SCRIPT } from './cards/kozileksPathfinder';
+import { FEARSOME_TEMPER_SCRIPT } from './cards/fearsomeTemper';
+import { MIRROR_WALL_SCRIPT } from './cards/mirrorWall';
+import { SPIN_ENGINE_SCRIPT } from './cards/spinEngine';
 import { KARSTODERM_SCRIPT } from './cards/karstoderm';
 import { BROTHERS_OF_FIRE_SCRIPT } from './cards/brothersOfFire';
 import { CAGE_OF_HANDS_SCRIPT } from './cards/cageOfHands';
@@ -8680,6 +8694,20 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  SKYCLAVE_SQUID_SCRIPT,
+  WALL_OF_ONE_THOUSAND_CUTS_SCRIPT,
+  SHREWD_HATCHLING_SCRIPT,
+  PRISMARI_PLEDGEMAGE_SCRIPT,
+  STEELCLAD_SPIRIT_SCRIPT,
+  SCREECHING_GRIFFIN_SCRIPT,
+  HIGHTIDE_HERMIT_SCRIPT,
+  DUCT_CRAWLER_SCRIPT,
+  RETURNED_PHALANX_SCRIPT,
+  KROTIQ_NESTGUARD_SCRIPT,
+  KOZILEKS_PATHFINDER_SCRIPT,
+  FEARSOME_TEMPER_SCRIPT,
+  MIRROR_WALL_SCRIPT,
+  SPIN_ENGINE_SCRIPT,
   KARSTODERM_SCRIPT,
   BROTHERS_OF_FIRE_SCRIPT,
   CAGE_OF_HANDS_SCRIPT,

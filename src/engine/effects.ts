@@ -1475,6 +1475,24 @@ export function effectResult(
         break;
       }
 
+      // D603 - "Target creature can't block this creature this turn.": the mark on the target, naming the SOURCE - the
+      // one attacker it may not block (CR 509.1b on a pair). `canBlock` reads it; cleanup clears it.
+      case 'cantBlockSource': {
+        if (aim?.kind !== 'card' || !source) break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, cantBlockCard: source });
+        break;
+      }
+
+      // D603 - "This creature can attack this turn as though it didn't have defender." (CR 702.3b's exception): the mark
+      // on the source (self-aimed, D373). `canAttack` reads it; cleanup clears it.
+      case 'attackDespiteDefender': {
+        if (aim?.kind !== 'card') break;
+        if (state.cards[aim.id]?.zone.kind !== 'battlefield') break;
+        out.push({ t: 'PtModifiedUntilEndOfTurn', card: aim.id, power: 0, toughness: 0, attacksDespiteDefender: true });
+        break;
+      }
+
       case 'cantBlock': {
         // D510 - THE MASS FORM: `Creatures (without flying) can't block this turn.` - every creature the scope reaches
         // (D505's walk, the keyword-absent form), the marker first.

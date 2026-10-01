@@ -1452,6 +1452,12 @@ const RULES: readonly Rule[] = [
   // list, read by `canBlock`. The scoped forms ("Creatures without flying can't block this turn.")
   // are a different reader and stay unread until they are measured.
   { kind: 'cantBlock', re: new RegExp(`^${TARGET} can't block this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  // D603 - the restriction on ONE pair (`{R}: Target creature can't block this creature this turn.` - Shrewd Hatchling,
+  // Screeching Griffin, Duct Crawler) and CR 702.3b's exception for a turn (`This creature can attack this turn as though
+  // it didn't have defender.` - Wall of One Thousand Cuts, Hightide Hermit, Dark Maze). The scoped and static forms
+  // (`Creatures without defender can't block ...`, `can attack as though it didn't have defender as long as ...`) stay unread.
+  { kind: 'cantBlockSource', re: new RegExp(`^${TARGET} can't block ${SELF} this turn\\.$`, 'i'), build: () => ({ ...BASE }) },
+  { kind: 'attackDespiteDefender', re: new RegExp(`^${SELF} can attack this turn as though it didn't have defender\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
   // D552 - DETAIN (CR 701.35a): a target, counted forms included ("up to two target creatures your opponents control").
   // The mass form (Lavinia's "detain each ... with mana value N or less") stays unread until it is measured.
   { kind: 'detain', re: new RegExp(`^detain ${TARGET}\\.$`, 'i'), build: () => ({ ...BASE }) },

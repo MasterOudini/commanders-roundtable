@@ -1894,6 +1894,16 @@ export interface GameState {
      */
     readonly cantBeBlocked?: true;
     /**
+     * D603 - "Target creature can't block this creature this turn.": the BLOCKER's entry names the one attacker it may not
+     * block (CR 509.1b on a pair), read by `canBlock`; cleared with the rest at cleanup. Optional for D394's reason.
+     */
+    readonly cantBlockCard?: InstanceId;
+    /**
+     * D603 - "This creature can attack this turn as though it didn't have defender." (CR 702.3b's exception with an END),
+     * read by `canAttack`; cleared with the rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.
+     */
+    readonly attacksDespiteDefender?: true;
+    /**
      * D413 - "if that creature would die this turn, exile it instead" (CR 614.1): a mark the replacement
      * funnel reads on a move from the battlefield to a graveyard, redirecting it to exile; cleared with the
      * rest at cleanup. Optional for D394's reason; inert at every layer `derive` reads.

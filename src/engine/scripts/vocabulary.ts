@@ -58,6 +58,9 @@ const NEEDS_AIM: ReadonlySet<EffectKind> = new Set([
   'controllerDraws',
   // D399 - aimed at the attacker-to-be; the self form is in SELF_AIMED.
   'cantBeBlocked',
+  // D603 - aimed at the blocker-to-be, and the source's own exception (in SELF_AIMED).
+  'cantBlockSource',
+  'attackDespiteDefender',
 ]);
 
 /**

@@ -683,8 +683,10 @@ const CANARY_STAPLES: readonly CanaryStaple[] = [
   // `you gained life this turn`. Four each; the floor is over the union of the two counters.
   // D530 - ROTTED to 0 over 500 seeds (3, 4, 3 at the three gates before) once the kicker staples reshaped the
   // pools: five a seat.
-  { names: ['Cindering Cutthroat', "Drana's Emissary", 'Courier Bat'], copiesPerSeat: 5,
-    counterKeys: ['thisTurnEntersWith', 'thisTurnTriggers'], rotHistory: 'D398, D530' },
+  // D603 - ROTTED to 0 again over 500 seeds (3+1, 0+4, 3+4 at the three gates before) once D603's wave reshaped the
+  // pools: six a seat.
+  { names: ['Cindering Cutthroat', "Drana's Emissary", 'Courier Bat'], copiesPerSeat: 6,
+    counterKeys: ['thisTurnEntersWith', 'thisTurnTriggers'], rotHistory: 'D398, D530, D603' },
   // D372 - the GRANTED MANA ABILITY: a production a layer-6 static pushed onto a recipient
   // that prints none. Cryptolith Rite makes every creature its controller has a source, so
   // the solver auto-taps granted mana whenever a creature stands and a spell is cast.

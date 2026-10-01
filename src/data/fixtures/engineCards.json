@@ -327285,6 +327285,492 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "SKYCLAVE_SQUID": {
+    "scryfallId": "04833fcc-cef7-4152-8191-c552288c83e4",
+    "oracleId": "301d36e7-06ff-48ed-a7e8-c7d3c72e1e2f",
+    "name": "Skyclave Squid",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Skyclave Squid",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Squid",
+        "oracleText": "Defender\nLandfall — Whenever a land you control enters, this creature can attack this turn as though it didn't have defender.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Tyler Smith",
+        "imageId": "04833fcc-cef7-4152-8191-c552288c83e4"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender",
+      "Landfall"
+    ],
+    "setCode": "znr",
+    "collectorNumber": "296",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "WALL_OF_ONE_THOUSAND_CUTS": {
+    "scryfallId": "0f7ee2ea-ea90-46de-b370-273dc7f594ac",
+    "oracleId": "b97341a7-fc96-4281-b875-fb81065e0157",
+    "name": "Wall of One Thousand Cuts",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Wall of One Thousand Cuts",
+        "manaCost": "{3}{W}{W}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender, flying\n{W}: This creature can attack this turn as though it didn't have defender.",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Staples",
+        "imageId": "0f7ee2ea-ea90-46de-b370-273dc7f594ac"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Flying",
+      "Defender"
+    ],
+    "setCode": "j21",
+    "collectorNumber": "157",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SHREWD_HATCHLING": {
+    "scryfallId": "3de4e3f7-bef1-419b-963e-9fee4ee23b0e",
+    "oracleId": "011371f0-a7f1-47a5-9883-22a14cfe4de9",
+    "name": "Shrewd Hatchling",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Shrewd Hatchling",
+        "manaCost": "{3}{U/R}",
+        "typeLine": "Creature — Elemental",
+        "oracleText": "This creature enters with four -1/-1 counters on it.\n{U/R}: Target creature can't block this creature this turn.\nWhenever you cast a blue spell, remove a -1/-1 counter from this creature.\nWhenever you cast a red spell, remove a -1/-1 counter from this creature.",
+        "flavorText": null,
+        "power": "6",
+        "toughness": "6",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Carl Frank",
+        "imageId": "3de4e3f7-bef1-419b-963e-9fee4ee23b0e"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mm2",
+    "collectorNumber": "198",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PRISMARI_PLEDGEMAGE": {
+    "scryfallId": "404b4c7b-5d40-4ad1-bd40-3da1d08f5c78",
+    "oracleId": "47ecedec-7bf7-4a3b-ac33-2bf203fa50d9",
+    "name": "Prismari Pledgemage",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Prismari Pledgemage",
+        "manaCost": "{U/R}{U/R}",
+        "typeLine": "Creature — Orc Wizard",
+        "oracleText": "Defender\nMagecraft — Whenever you cast or copy an instant or sorcery spell, this creature can attack this turn as though it didn't have defender.",
+        "flavorText": "Many have the talent to create, but few have the courage to share their creations.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "U"
+        ],
+        "artist": "Marta Nael",
+        "imageId": "404b4c7b-5d40-4ad1-bd40-3da1d08f5c78"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Magecraft",
+      "Defender"
+    ],
+    "setCode": "stx",
+    "collectorNumber": "215",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "STEELCLAD_SPIRIT": {
+    "scryfallId": "55fb1426-5a6f-48dd-938b-c64b1a28ee59",
+    "oracleId": "3dc225a2-61b6-4ac9-a86b-df0c2b0b3898",
+    "name": "Steelclad Spirit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Steelclad Spirit",
+        "manaCost": "{1}{U}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Defender\nWhenever an enchantment you control enters, this creature can attack this turn as though it didn't have defender.",
+        "flavorText": "Some geists imitate the lives they left behind. Others follow the dreams they never realized.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Artur Treffner",
+        "imageId": "55fb1426-5a6f-48dd-938b-c64b1a28ee59"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "vow",
+    "collectorNumber": "80",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SCREECHING_GRIFFIN": {
+    "scryfallId": "5e2fa710-4615-42de-8716-41b009b56d32",
+    "oracleId": "beae83d2-20b8-47ef-83d9-25a7f90d1da2",
+    "name": "Screeching Griffin",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Screeching Griffin",
+        "manaCost": "{3}{W}",
+        "typeLine": "Creature — Griffin",
+        "oracleText": "Flying\n{R}: Target creature can't block this creature this turn.",
+        "flavorText": "They were master fishers, but their seas are now the streets and their catch, the goblins that run pell-mell from the screeching in the sky.",
+        "power": "2",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Greg Hildebrandt",
+        "imageId": "5e2fa710-4615-42de-8716-41b009b56d32"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Flying"
+    ],
+    "setCode": "rav",
+    "collectorNumber": "29",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "HIGHTIDE_HERMIT": {
+    "scryfallId": "657e2a16-82e9-4c56-b70b-e7d83afd33d7",
+    "oracleId": "3689ef94-2573-4424-b52e-379656340345",
+    "name": "Hightide Hermit",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Hightide Hermit",
+        "manaCost": "{4}{U}",
+        "typeLine": "Creature — Crab",
+        "oracleText": "Defender\nWhen this creature enters, you get {E}{E}{E}{E} (four energy counters).\nPay {E}{E}: This creature can attack this turn as though it didn't have defender.",
+        "flavorText": null,
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Jason Kang",
+        "imageId": "657e2a16-82e9-4c56-b70b-e7d83afd33d7"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "KLD-51",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DUCT_CRAWLER": {
+    "scryfallId": "90af852f-57a2-4a00-82dc-7c0f23899361",
+    "oracleId": "d47a7aa5-3b64-4ff8-bb10-e46a34d1993c",
+    "name": "Duct Crawler",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Duct Crawler",
+        "manaCost": "{R}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "{1}{R}: Target creature can't block this creature this turn.",
+        "flavorText": "\"The mountain's ducts will be like organ pipes, amplifying the glorious roar of the dying.\"\n—Stronghold architect, journal",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Stephen Daniele",
+        "imageId": "90af852f-57a2-4a00-82dc-7c0f23899361"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 1,
+    "keywords": [],
+    "setCode": "sth",
+    "collectorNumber": "79",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "RETURNED_PHALANX": {
+    "scryfallId": "93613e23-b363-4bcb-8f63-8f1d25f7f174",
+    "oracleId": "f8d64a8e-1bff-4960-bc36-1fbb4fc18c8f",
+    "name": "Returned Phalanx",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Returned Phalanx",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Zombie Soldier",
+        "oracleText": "Defender\n{1}{U}: This creature can attack this turn as though it didn't have defender.",
+        "flavorText": "They lived in different nations and fought in different eras, but as the Returned, they link arms as one.",
+        "power": "3",
+        "toughness": "3",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "93613e23-b363-4bcb-8f63-8f1d25f7f174"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "ths",
+    "collectorNumber": "104",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KROTIQ_NESTGUARD": {
+    "scryfallId": "a5d0a9fb-1068-478d-a78c-6fd77cc313f0",
+    "oracleId": "33117d34-ea70-4566-92a3-5dec9bfe529a",
+    "name": "Krotiq Nestguard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Krotiq Nestguard",
+        "manaCost": "{2}{G}",
+        "typeLine": "Creature — Insect",
+        "oracleText": "Defender\n{2}{G}: This creature can attack this turn as though it didn't have defender.",
+        "flavorText": "The bushwhacker's machete glanced off the root with a sickening crack. Slowly, the entire undergrowth turned to face him.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Loïc Canavaggia",
+        "imageId": "a5d0a9fb-1068-478d-a78c-6fd77cc313f0"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "tdm",
+    "collectorNumber": "148",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KOZILEK_S_PATHFINDER": {
+    "scryfallId": "b75585bd-fdd8-44d1-8c7c-b96df5fc473e",
+    "oracleId": "de5a8edb-c41a-4f3a-9231-c54486ba7739",
+    "name": "Kozilek's Pathfinder",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kozilek's Pathfinder",
+        "manaCost": "{6}",
+        "typeLine": "Creature — Eldrazi",
+        "oracleText": "{C}: Target creature can't block this creature this turn. ({C} represents colorless mana.)",
+        "flavorText": "\"We didn't know where it came from or where it was going. All we knew was that we did not matter.\"\n—Akiri, kor line-slinger",
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "James Zapata",
+        "imageId": "b75585bd-fdd8-44d1-8c7c-b96df5fc473e"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "ogw",
+    "collectorNumber": "5",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "FEARSOME_TEMPER": {
+    "scryfallId": "c6e7884c-2d66-42d1-87d1-1341a6fa52d8",
+    "oracleId": "85e9bc3e-e0da-4ad4-9631-472f75f91663",
+    "name": "Fearsome Temper",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Fearsome Temper",
+        "manaCost": "{2}{R}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant creature\nEnchanted creature gets +2/+2 and has \"{2}{R}: Target creature can't block this creature this turn.\"",
+        "flavorText": "Purphoros is god of creation and destruction, which makes him the most creatively destructive god in the pantheon.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Seb McKinnon",
+        "imageId": "c6e7884c-2d66-42d1-87d1-1341a6fa52d8"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "bng",
+    "collectorNumber": "95",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "MIRROR_WALL": {
+    "scryfallId": "d0e52b73-ebdf-4339-8780-84327a59ca57",
+    "oracleId": "c4ab446a-97e4-46a5-89a8-180a0bf3447c",
+    "name": "Mirror Wall",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Mirror Wall",
+        "manaCost": "{3}{U}",
+        "typeLine": "Creature — Wall",
+        "oracleText": "Defender (This creature can't attack.)\n{W}: This creature can attack this turn as though it didn't have defender.",
+        "flavorText": "\"Breaking it would be about four hundred years bad luck.\"\n—Nomad sentry",
+        "power": "3",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Mark Brill",
+        "imageId": "d0e52b73-ebdf-4339-8780-84327a59ca57"
+      }
+    ],
+    "colorIdentity": [
+      "U",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "jud",
+    "collectorNumber": "47",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SPIN_ENGINE": {
+    "scryfallId": "fc820134-ae9a-4c99-a869-cee7f1f6d79b",
+    "oracleId": "88e98269-fe0e-42f8-830d-776aa06a58dc",
+    "name": "Spin Engine",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Spin Engine",
+        "manaCost": "{3}",
+        "typeLine": "Artifact Creature — Construct",
+        "oracleText": "{R}: Target creature can't block this creature this turn.",
+        "flavorText": "\"It will be battle-ready before our strike at Oxid Ridge, and it will guarantee our victory.\"\n—Ketuc of the Helm",
+        "power": "3",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Pete Venters",
+        "imageId": "fc820134-ae9a-4c99-a869-cee7f1f6d79b"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "mbs",
+    "collectorNumber": "135",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

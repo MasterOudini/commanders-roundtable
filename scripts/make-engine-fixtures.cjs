@@ -10780,6 +10780,22 @@ const WANTED = [
   "Burning Sun's Avatar",
   'Rakdos Firewheeler',
   // D602 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D603 - TWO COMBAT FLAGS WITH AN END: the rows the whole-leftover row maker rowed once the vocabulary read the pair restriction (can't block this creature this turn) and the defender exception (can attack this turn as though it didn't have defender).
+  'Skyclave Squid',
+  'Wall of One Thousand Cuts',
+  'Shrewd Hatchling',
+  'Prismari Pledgemage',
+  'Steelclad Spirit',
+  'Screeching Griffin',
+  'Hightide Hermit',
+  'Duct Crawler',
+  'Returned Phalanx',
+  'Krotiq Nestguard',
+  "Kozilek's Pathfinder",
+  'Fearsome Temper',
+  'Mirror Wall',
+  'Spin Engine',
+  // D603 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

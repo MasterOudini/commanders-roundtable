@@ -752,6 +752,9 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D603 - two combat flags with an end (the pair restriction, the defender exception) read; what stays is a card the row maker refuses for another reason.
+  ['Dark Maze', 'the row maker: a delayed payload the suite cannot read back: exileSelf - its clause reads since D603 (D603)'],
+  ['Stalked Researcher', 'the row maker: trigger head not in the library: Whenever an enchantment you control enters and whenever you fully unlo - its clause reads since D603 (D603)'],
   // D602 - three clauses missed by a word (an Aura returning itself, the self counter removal, a verbless damage half) read; what stays is a card the row maker refuses for another reason.
   ['Shimmering Wings', 'the row maker: an Aura that enchants something other than a creature - its clause reads since D602 (D602)'],
   ['Magmaroth', 'the row maker: a counter removal the suite cannot stage (not the rows own card entering with that kind) - its clause reads since D602 (D602)'],

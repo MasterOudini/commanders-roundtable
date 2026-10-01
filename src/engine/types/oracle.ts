@@ -764,6 +764,16 @@ export type EffectKind =
    */
   | 'cantBlock'
   /**
+   * D603 - "Target creature can't block this creature this turn." (CR 509.1b on ONE pair, with an END): an
+   * until-end-of-turn entry on the target naming the SOURCE (`cantBlockCard`), read by `canBlock` for that pair alone.
+   */
+  | 'cantBlockSource'
+  /**
+   * D603 - "This creature can attack this turn as though it didn't have defender." (CR 702.3b's exception, with an END):
+   * an until-end-of-turn entry on the source (`attacksDespiteDefender`), read by `canAttack`. Self-aimed (D373).
+   */
+  | 'attackDespiteDefender'
+  /**
    * D552 - DETAIN (CR 701.35a): until the detaining player's next turn the permanent can't attack or block and its
    * activated abilities can't be activated - the `Detained` mark (`detainedBy`), asked through `isDetained`.
    */
@@ -1333,7 +1343,7 @@ export interface ReflexiveSpec {
  * executor claims and no sentence ever fills - a dead seam `tsc` cannot see (D158).
  */
 // D602 - `removeCounters` joins: the source's own counter removed (`Remove a +1/+1 counter from this creature.`).
-export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
+export const SELF_AIMED: ReadonlySet<EffectKind> = new Set<EffectKind>(['pump', 'putCounters', 'removeCounters','bounce', 'untap', 'regenerate', 'animate', 'bite', 'fight', 'cantBeBlocked', 'attackDespiteDefender', 'destroy', 'exchangeControl', 'monstrosity', 'adapt', 'suspect', 'phaseOut', 'transform']);
 
 /**
  * D402 - WHEN a delayed trigger fires: the step, and whose turn it must be. `next` is the first

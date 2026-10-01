@@ -40,7 +40,8 @@ export function canAttack(deps: CombatDeps, id: InstanceId): boolean {
   if (isDetained(state, id)) return false;
   const chars = d(deps, id);
   if (!chars.isCreature) return false;
-  if (chars.keywords.has('defender')) return false;
+  // D603 - "can attack this turn as though it didn't have defender" (CR 702.3b's exception, with an END).
+  if (chars.keywords.has('defender') && !state.untilEndOfTurn.some((m) => m.card === id && m.attacksDespiteDefender === true)) return false;
   // Summoning sickness. CR 302.6 — the check is "has been controlled since the
   // start of your most recent turn", which `summonedOnTurn < turnNumber`
   // expresses exactly, because the turn number only advances on an untap step.
@@ -222,6 +223,8 @@ export type BlockRejection =
   // D394 - "can't block this turn": a one-shot restriction with an END, on the
   // until-end-of-turn list (CR 509.1b, CR 514.2).
   | 'cantBlockThisTurn'
+  /** D603 - "can't block this creature this turn": the restriction on ONE pair, with an END (CR 509.1b). */
+  | 'cantBlockThatAttacker'
   /** D552 - detained (CR 701.35a): it can't block until the detaining player's next turn. */
   | 'detained'
   /** D555 - suspected (CR 701.60c): it can't block for as long as it is suspected. */
@@ -259,6 +262,8 @@ export function canBlock(
   if (b.suspected === true) return 'suspected';
   // D394 - "can't block this turn" (the vocabulary's `cantBlock`), until cleanup clears it.
   if (state.untilEndOfTurn.some((m) => m.card === blocker && m.cantBlock === true)) return 'cantBlockThisTurn';
+  // D603 - "Target creature can't block this creature this turn.": the restriction on this PAIR alone (CR 509.1b).
+  if (state.untilEndOfTurn.some((m) => m.card === blocker && m.cantBlockCard === attacker)) return 'cantBlockThatAttacker';
   // D399 - "can't be blocked this turn" (the vocabulary's `cantBeBlocked`) on the ATTACKER, until
   // cleanup clears it. Asked before any keyword: no blocker of any kind may be declared.
   if (state.untilEndOfTurn.some((m) => m.card === attacker && m.cantBeBlocked === true)) return 'cantBeBlockedThisTurn';
@@ -429,6 +434,8 @@ function blockRejectionText(
       return `Something on the battlefield stops ${bn} blocking ${an}.`;
     case 'cantBlockThisTurn':
       return `${bn} can't block this turn.`;
+    case 'cantBlockThatAttacker':
+      return `${bn} can't block ${an} this turn.`;
     case 'suspected':
       return `${bn} is suspected - it can't block.`;
     case 'detained':
