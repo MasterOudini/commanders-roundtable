@@ -7,6 +7,15 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { CLOSE_QUARTERS_SCRIPT } from './cards/closeQuarters';
+import { PSYCHIC_FROG_SCRIPT } from './cards/psychicFrog';
+import { GRATEFUL_APPARITION_SCRIPT } from './cards/gratefulApparition';
+import { CUNNING_EVASION_SCRIPT } from './cards/cunningEvasion';
+import { GRAZILAXX_ILLITHID_SCHOLAR_SCRIPT } from './cards/grazilaxxIllithidScholar';
+import { SOMBERWALD_ALPHA_SCRIPT } from './cards/somberwaldAlpha';
+import { DYING_TO_SERVE_SCRIPT } from './cards/dyingToServe';
+import { GUILDPACT_INFORMANT_SCRIPT } from './cards/guildpactInformant';
+import { UNSTOPPABLE_ASH_SCRIPT } from './cards/unstoppableAsh';
 import { CHANCE_MET_ELVES_SCRIPT } from './cards/chanceMetElves';
 import { NIMRODEL_WATCHER_SCRIPT } from './cards/nimrodelWatcher';
 import { COPY_CATCHERS_SCRIPT } from './cards/copyCatchers';
@@ -8647,6 +8656,15 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  CLOSE_QUARTERS_SCRIPT,
+  PSYCHIC_FROG_SCRIPT,
+  GRATEFUL_APPARITION_SCRIPT,
+  CUNNING_EVASION_SCRIPT,
+  GRAZILAXX_ILLITHID_SCHOLAR_SCRIPT,
+  SOMBERWALD_ALPHA_SCRIPT,
+  DYING_TO_SERVE_SCRIPT,
+  GUILDPACT_INFORMANT_SCRIPT,
+  UNSTOPPABLE_ASH_SCRIPT,
   CHANCE_MET_ELVES_SCRIPT,
   NIMRODEL_WATCHER_SCRIPT,
   COPY_CATCHERS_SCRIPT,

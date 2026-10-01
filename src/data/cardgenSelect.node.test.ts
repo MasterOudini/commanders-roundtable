@@ -720,7 +720,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Burning Vengeance', 'a filtered head outside the closed reader (an adjective outside the list (spell: Whenever you cast a spell from your graveyard, this enchantm)'],
   ["Cenn's Heir", 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+1 until end of turn for each other attacking Kithkin.)'],
   ['Cleaving Skyrider', 'a counted noun with a refinement the suite cannot stage (~ deals X damage to any target, where X is the number of attacking creatures.)'],
-  ['Close Quarters', 'trigger head not in the library (Whenever a creature you control becomes blocked, this enchantment deal)'],
   ['Cybermat', 'a counted payload under a head whose arm sizes the board (attacksNotBlocked) (~ gets +X/+0 until end of turn, where X is the number of attacking artifact creatures.)'],
   ['Dire Fleet Captain', 'a counted payload under a head whose arm sizes the board (attacks) (~ gets +1/+1 until end of turn for each other attacking Pirate.)'],
   ['Dreamstalker Manticore', "a filtered head outside the closed reader (an adjective outside the list (your: Whenever you cast your first spell during each opponent's tu)"],
@@ -786,7 +785,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Magda, the Hoardmaster', 'the row maker: trigger head not in the library: Whenever you commit a crime, create a tapped Treasure token. This abil - its tapped token reads since D593 (D593)'],
   ['Nuka-Cola Vending Machine', 'the row maker: a sacrifice head no fixture the suite can sacrifice satisfies: a Food - its tapped token reads since D593 (D593)'],
   ['Urza, Powerstone Prodigy', 'the row maker: trigger head not in the library: Whenever you discard one or more artifact cards, create a tapped Power - its tapped token reads since D593 (D593)'],
-  ['Dying to Serve', 'the row maker: trigger head not in the library: Whenever you discard one or more cards, create a tapped 2/2 black Zomb - its tapped token reads since D593 (D593)'],
   ['Horned Stoneseeker', 'the row maker: a queued sacrifice with no fodder the suite can put: Powerstone - its tapped token reads since D593 (D593)'],
   ['Green Goblin, Nemesis', 'the row maker: trigger head not in the library: Whenever you discard a nonland card, put a +1/+1 counter on target Gob - its tapped token reads since D593 (D593)'],
   ['Slagstone Refinery', 'the row maker: trigger head not in the library: Whenever this artifact or another nontoken artifact you control is put - its tapped token reads since D593 (D593)'],
@@ -3807,8 +3805,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Merchant of Venom', 'a sacrifice-EVENT head (whenever a player sacrifices a permanent) the library does not hold - CardMove.reason (D377) makes it expressible'],
   ['Failed Conversion', 'an attached static whose toughness pump kills the 2/2 Bears the suite enchants'],
   // D391 - proliferate: the four the selector offered after the wave that the row maker refused, by reason.
-  ['Grateful Apparition', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
-  ['Guildpact Informant', 'trigger head not in the library (combat damage to a player OR a planeswalker - the two-noun connect head)'],
   ["Norn's Choirmaster", 'trigger head not in the library (a commander you control enters or attacks)'],
   // D392 - the referent subject: the three the selector offered after the wave that the row maker refused, by reason.
   // D393 - threaten: the four the selector offered after the seam that the row maker refused, by reason.
@@ -4110,7 +4106,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Overzealous Muscle', 'trigger head not in the library'],
   ['Paired Tactician', 'trigger head not in the library'],
   ['Pangosaur', 'trigger head not in the library'],
-  ['Psychic Frog', 'trigger head not in the library'],
   ['Resolute Veggiesaur', 'trigger head not in the library'],
   ['Search the Premises', 'trigger head not in the library'],
   ['Seasoned Consultant', 'trigger head not in the library'],

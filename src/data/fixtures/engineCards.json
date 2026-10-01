@@ -325937,6 +325937,314 @@
     "commanderLegality": "legal",
     "singleImage": true
   },
+  "CLOSE_QUARTERS": {
+    "scryfallId": "1b9131c7-4e46-4c01-80b3-a6b055439346",
+    "oracleId": "c3f841c4-6e12-46fc-802a-3025182e7ff4",
+    "name": "Close Quarters",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Close Quarters",
+        "manaCost": "{2}{R}{R}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control becomes blocked, this enchantment deals 1 damage to any target.",
+        "flavorText": "The Mercadians' ineptitude in close combat sometimes accidentally pays off.",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Ron Spencer",
+        "imageId": "1b9131c7-4e46-4c01-80b3-a6b055439346"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "mmq",
+    "collectorNumber": "184",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "PSYCHIC_FROG": {
+    "scryfallId": "1d090ea5-c01b-4f3a-bb5c-7478e8fdb86d",
+    "oracleId": "e157ad1e-be35-47f3-92db-01799f8fb6a5",
+    "name": "Psychic Frog",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Psychic Frog",
+        "manaCost": "{U}{B}",
+        "typeLine": "Creature — Frog",
+        "oracleText": "Whenever this creature deals combat damage to a player or planeswalker, draw a card.\nDiscard a card: Put a +1/+1 counter on this creature.\nExile three cards from your graveyard: This creature gains flying until end of turn.",
+        "flavorText": "Some frogs poison the body. Some frogs poison the mind.",
+        "power": "1",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B",
+          "U"
+        ],
+        "artist": "Pete Venters",
+        "imageId": "1d090ea5-c01b-4f3a-bb5c-7478e8fdb86d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "pmh3",
+    "collectorNumber": "199s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRATEFUL_APPARITION": {
+    "scryfallId": "2f6d50f3-5f5f-4bf3-b132-e527b70be33f",
+    "oracleId": "f1b3e0fc-1dc3-4eba-bd54-557f036f5ea9",
+    "name": "Grateful Apparition",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grateful Apparition",
+        "manaCost": "{1}{W}",
+        "typeLine": "Creature — Spirit",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player or planeswalker, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": null,
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Izzy",
+        "imageId": "2f6d50f3-5f5f-4bf3-b132-e527b70be33f"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 2,
+    "keywords": [
+      "Flying",
+      "Proliferate"
+    ],
+    "setCode": "ncc",
+    "collectorNumber": "202",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "CUNNING_EVASION": {
+    "scryfallId": "300a431c-48a9-4d63-8256-cb6bdaa67b4c",
+    "oracleId": "3e56606d-562e-4c77-9769-213997fea28e",
+    "name": "Cunning Evasion",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Cunning Evasion",
+        "manaCost": "{1}{U}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever a creature you control becomes blocked, you may return it to its owner's hand.",
+        "flavorText": "\"Begin with your escape and work backward.\"\n—*Way of Secrets*",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Steve Argyle",
+        "imageId": "300a431c-48a9-4d63-8256-cb6bdaa67b4c"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "mh1",
+    "collectorNumber": "45",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GRAZILAXX_ILLITHID_SCHOLAR": {
+    "scryfallId": "3de11222-c2fa-4544-a501-a02b31797259",
+    "oracleId": "d22ff377-d282-4a28-9dce-96f25913dc96",
+    "name": "Grazilaxx, Illithid Scholar",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Grazilaxx, Illithid Scholar",
+        "manaCost": "{1}{U}{U}",
+        "typeLine": "Legendary Creature — Horror",
+        "oracleText": "Whenever a creature you control becomes blocked, you may return it to its owner's hand.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.",
+        "flavorText": "\"You studied hard. How delicious!\"",
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Alexander Mokhov",
+        "imageId": "3de11222-c2fa-4544-a501-a02b31797259"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "clb",
+    "collectorNumber": "723",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "SOMBERWALD_ALPHA": {
+    "scryfallId": "492808ec-7e23-4266-adc5-519e74a06bbb",
+    "oracleId": "11b12954-dd1b-4c50-8433-15d8c1a15e29",
+    "name": "Somberwald Alpha",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Somberwald Alpha",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Wolf",
+        "oracleText": "Whenever a creature you control becomes blocked, it gets +1/+1 until end of turn.\n{1}{G}: Target creature you control gains trample until end of turn. (It can deal excess combat damage to the player or planeswalker it's attacking.)",
+        "flavorText": null,
+        "power": "3",
+        "toughness": "2",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Filip Burburan",
+        "imageId": "492808ec-7e23-4266-adc5-519e74a06bbb"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "ori",
+    "collectorNumber": "198",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DYING_TO_SERVE": {
+    "scryfallId": "4dd92822-ad29-43cb-afb8-5d3c6623233a",
+    "oracleId": "2b719057-1bc0-4c3a-97c3-8377844570dd",
+    "name": "Dying to Serve",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Dying to Serve",
+        "manaCost": "{2}{B}",
+        "typeLine": "Enchantment",
+        "oracleText": "Whenever you discard one or more cards, create a tapped 2/2 black Zombie creature token. This ability triggers only once each turn.",
+        "flavorText": "\"I used to have hired hands, but I discovered they make better waitstaff with the rest of the body attached.\"\n—Olivia Voldaren",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Steven Belledin",
+        "imageId": "4dd92822-ad29-43cb-afb8-5d3c6623233a"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 3,
+    "keywords": [],
+    "setCode": "pvow",
+    "collectorNumber": "109s",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "GUILDPACT_INFORMANT": {
+    "scryfallId": "a304200f-86d5-4eed-a775-cc24e72872ac",
+    "oracleId": "330f97ee-6bb2-4a4b-a8bc-411659dc4260",
+    "name": "Guildpact Informant",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Guildpact Informant",
+        "manaCost": "{2}{U}",
+        "typeLine": "Creature — Faerie Rogue",
+        "oracleText": "Flying\nWhenever this creature deals combat damage to a player or planeswalker, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+        "flavorText": "\"Of course you're being followed!\"",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "U"
+        ],
+        "artist": "Randy Gallegos",
+        "imageId": "a304200f-86d5-4eed-a775-cc24e72872ac"
+      }
+    ],
+    "colorIdentity": [
+      "U"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Flying",
+      "Proliferate"
+    ],
+    "setCode": "war",
+    "collectorNumber": "271",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "UNSTOPPABLE_ASH": {
+    "scryfallId": "c460d6e5-4330-4bba-8e3c-ea477ca941ef",
+    "oracleId": "4c0fa2f9-721e-45ac-ad74-68ad2523c658",
+    "name": "Unstoppable Ash",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Unstoppable Ash",
+        "manaCost": "{3}{G}",
+        "typeLine": "Creature — Treefolk Warrior",
+        "oracleText": "Trample\nChampion a Treefolk or Warrior (When this enters, sacrifice it unless you exile another Treefolk or Warrior you control. When this leaves the battlefield, that card returns to the battlefield.)\nWhenever a creature you control becomes blocked, it gets +0/+5 until end of turn.",
+        "flavorText": null,
+        "power": "5",
+        "toughness": "5",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "G"
+        ],
+        "artist": "Brian Snõddy",
+        "imageId": "c460d6e5-4330-4bba-8e3c-ea477ca941ef"
+      }
+    ],
+    "colorIdentity": [
+      "G"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Trample",
+      "Champion"
+    ],
+    "setCode": "plst",
+    "collectorNumber": "MOR-137",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

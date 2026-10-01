@@ -10737,6 +10737,17 @@ const WANTED = [
   'Flamespeaker Adept',
   'Arwen Undómiel',
   // D600 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D601 - FOUR HEAD FORMS: the rows the whole-leftover row maker rowed once the library read combat damage to a player or planeswalker, attacks a player, discard one or more cards and a creature you control becomes blocked.
+  'Close Quarters',
+  'Psychic Frog',
+  'Grateful Apparition',
+  'Cunning Evasion',
+  'Grazilaxx, Illithid Scholar',
+  'Somberwald Alpha',
+  'Dying to Serve',
+  'Guildpact Informant',
+  'Unstoppable Ash',
+  // D601 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */
