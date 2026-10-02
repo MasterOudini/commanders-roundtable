@@ -10839,6 +10839,18 @@ const WANTED = [
   'Goblin Racketeer',
   'Outland Liberator // Frenzied Trapbreaker',
   // D606 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
+  // D607 - THE SACRIFICED NUMBER: the rows the whole-leftover row maker rowed once the vocabulary read the sacrificed creature's power, toughness or mana value off the cost (CR 608.2h).
+  'Miren, the Moaning Well',
+  'Bosh, Iron Golem',
+  'Disciple of Griselbrand',
+  'Bushmeat Poacher',
+  'Brion Stoutarm',
+  'Diamond Valley',
+  'Bloodshot Cyclops',
+  'Life Chisel',
+  'Animal Boneyard',
+  'Kheru Dreadmaw',
+  // D607 - the fixtures the wave's suites deal that the generator DERIVED (a look's keep, a cost's fodder): in no names list until the sweep names them (D347/D370/D374).
 ];
 
 /** Tokens, pinned by set+collector number because names collide wildly. */

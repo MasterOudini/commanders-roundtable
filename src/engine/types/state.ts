@@ -590,6 +590,13 @@ export interface StackObject {
   /** D462 - a ninjutsu activation: the defender the returned creature was attacking, for the entry (CR 702.49a). */
   readonly ninjutsuDefender?: DefenderRef;
   /**
+   * D607 - THE SACRIFICED PERMANENTS' LAST KNOWN NUMBERS (CR 608.2h): what the cost batch read off each permanent it
+   * sacrificed for this object - an activated ability's sacrifice cost, a spell's additional one - before the move, for a
+   * clause whose amount is "the sacrificed creature's power" (`EffectSpec.fromSacrificed`). Absent when nothing was
+   * sacrificed, so every older log replays untouched.
+   */
+  readonly sacrificed?: readonly { readonly card: InstanceId; readonly power: number | null; readonly toughness: number | null; readonly manaValue: number }[];
+  /**
    * Which face was cast — CR 712, a modal DFC's back face.
    *
    * ⚠️ **THE SPELL CARRIES IT, NOT THE CARD, AND THAT IS FORCED**: every zone

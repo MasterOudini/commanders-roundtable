@@ -7,6 +7,16 @@
 import type { CardScript } from './api';
 import { createRegistry, type ScriptRegistry } from './registryCore';
 export { createRegistry, NO_SCRIPTS, type ScriptRegistry } from './registryCore';
+import { MIREN_THE_MOANING_WELL_SCRIPT } from './cards/mirenTheMoaningWell';
+import { BOSH_IRON_GOLEM_SCRIPT } from './cards/boshIronGolem';
+import { DISCIPLE_OF_GRISELBRAND_SCRIPT } from './cards/discipleOfGriselbrand';
+import { BUSHMEAT_POACHER_SCRIPT } from './cards/bushmeatPoacher';
+import { BRION_STOUTARM_SCRIPT } from './cards/brionStoutarm';
+import { DIAMOND_VALLEY_SCRIPT } from './cards/diamondValley';
+import { BLOODSHOT_CYCLOPS_SCRIPT } from './cards/bloodshotCyclops';
+import { LIFE_CHISEL_SCRIPT } from './cards/lifeChisel';
+import { ANIMAL_BONEYARD_SCRIPT } from './cards/animalBoneyard';
+import { KHERU_DREADMAW_SCRIPT } from './cards/kheruDreadmaw';
 import { FIEND_BINDER_SCRIPT } from './cards/fiendBinder';
 import { COVETED_PEACOCK_SCRIPT } from './cards/covetedPeacock';
 import { GRASP_OF_THE_HIEROMANCER_SCRIPT } from './cards/graspOfTheHieromancer';
@@ -8731,6 +8741,16 @@ import { THE_RING_SCRIPT } from './cards/theRing';
  * whose scripts deliberately violate it.
  */
 export const SHIPPED_SCRIPTS: readonly CardScript[] = [
+  MIREN_THE_MOANING_WELL_SCRIPT,
+  BOSH_IRON_GOLEM_SCRIPT,
+  DISCIPLE_OF_GRISELBRAND_SCRIPT,
+  BUSHMEAT_POACHER_SCRIPT,
+  BRION_STOUTARM_SCRIPT,
+  DIAMOND_VALLEY_SCRIPT,
+  BLOODSHOT_CYCLOPS_SCRIPT,
+  LIFE_CHISEL_SCRIPT,
+  ANIMAL_BONEYARD_SCRIPT,
+  KHERU_DREADMAW_SCRIPT,
   FIEND_BINDER_SCRIPT,
   COVETED_PEACOCK_SCRIPT,
   GRASP_OF_THE_HIEROMANCER_SCRIPT,

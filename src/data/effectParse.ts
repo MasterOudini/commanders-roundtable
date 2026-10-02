@@ -200,6 +200,14 @@ const GY_COUNTED = '(?:(?:each of )?(?:up to (?:one|two|three|four|five)(?: othe
 // admitted ONLY because `targetParse` reads the controller off every noun (D407, `readController`) and `specAdmits`
 // enforces it on every candidate, the stack included - D139's order: enforce first, then admit the wording. The D407
 // entries above that spell the word per noun stay (longest first); the qualifier still follows the noun.
+// D607 - `the sacrificed creature's power` (toughness, mana value): the cost's sacrificed permanent as it last existed.
+const SACRIFICED_STAT = "the sacrificed (?:creature|artifact|permanent)(?:'|’)s (power|toughness|mana value)";
+const sacrificedStat = (raw: string | undefined): 'power' | 'toughness' | 'manaValue' =>
+  (raw ?? '').toLowerCase() === 'power' ? 'power' : (raw ?? '').toLowerCase() === 'toughness' ? 'toughness' : 'manaValue';
+/** D607 - a clause that reads the cost's sacrificed number, itself or in a payment's branch or a reflexive payload. */
+const readsSacrificed = (spec: EffectSpec): boolean =>
+  spec.fromSacrificed !== undefined ||
+  [...(spec.pay?.ifPaid ?? []), ...(spec.pay?.ifNotPaid ?? []), ...(spec.pay?.reflexive?.effects ?? []), ...(spec.reflexive?.effects ?? [])].some(readsSacrificed);
 // D606 - and `defending player controls` (CR 508.5), on the same terms: `readController` reads it as `'defending'` and
 // `specAdmits` binds it to the player the source's attacker is attacking.
 const CONTROLLER = "(?: (?:you control|an opponent controls|your opponents control|you don(?:'|’)t control|defending player controls))?";
@@ -1465,6 +1473,12 @@ const RULES: readonly Rule[] = [
   // (`Switch each creature's ...`), the counted targets (`each of up to two target creatures`) and a bare `its` stay unread.
   { kind: 'switchPt', re: new RegExp(`^switch ${TARGET}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE }) },
   { kind: 'switchPt', re: new RegExp(`^switch ${SELF}'s power and toughness until end of turn\\.$`, 'i'), build: () => ({ ...BASE, targetIndex: -1, self: true }) },
+  // D607 - THE SACRIFICED PERMANENT'S NUMBER (CR 608.2h): the amount read off the cost's sacrificed permanent as it last
+  // existed (`StackObject.sacrificed`, stamped by the cost batch) - a gain, damage, each opponent's loss, a draw.
+  { kind: 'gainLife', re: new RegExp(`^(?:you )?gain life equal to ${SACRIFICED_STAT}\\.$`, 'i'), build: (m) => ({ ...BASE, targetIndex: -1, self: true, fromSacrificed: sacrificedStat(m[1]) }) },
+  { kind: 'damage', re: new RegExp(`^~ deals damage equal to ${SACRIFICED_STAT} to ${TARGET}\\.$`, 'i'), build: (m) => ({ ...BASE, fromSacrificed: sacrificedStat(m[1]) }) },
+  { kind: 'loseLife', re: new RegExp(`^each opponent loses life equal to ${SACRIFICED_STAT}\\.$`, 'i'), build: (m) => ({ ...BASE, targetIndex: -1, self: true, scopes: [{ kind: 'player', controller: 'opponents' }], fromSacrificed: sacrificedStat(m[1]) }) },
+  { kind: 'draw', re: new RegExp(`^(?:you )?draw cards equal to ${SACRIFICED_STAT}\\.$`, 'i'), build: (m) => ({ ...BASE, targetIndex: -1, self: true, fromSacrificed: sacrificedStat(m[1]) }) },
   // D605 - SUPPORT N (CR 701.41a): a +1/+1 counter on each of up to N other target creatures - the clause is read off the
   // printed `Support N` by `parseTargetClauses` (its reminder names the targets), counted and optional (OPTIONAL_COUNT).
   {
@@ -3882,7 +3896,11 @@ function parseEffectsInner(oracleText: string, cardName: string, warn: Warn): Pa
     // D551 - a Plot line is a special action and a later free cast the engine runs, no clause of the spell either.
     .filter((l) => !/^Plot (?:\{[^}]+\})+$/.test(l.trim()))
     .join('\n');
-  const clauses = clausesOf(clean, cardName);
+  // D607 - THE SACRIFICED NUMBER IS THE COST'S (`StackObject.sacrificed`): a text that sacrifices as an EFFECT - a verb price,
+  // a reflexive price, a sacrifice clause - borrows the number from that sacrifice, which no cost stamped; such a clause stays
+  // unread (D584's refusal of the borrow), and the text with it.
+  const borrows = /\bsacrifice/i.test(clean.replace(new RegExp(SACRIFICED_STAT, 'gi'), ''));
+  const clauses = clausesOf(clean, cardName).map((c) => (borrows && c.spec && readsSacrificed(c.spec) ? { ...c, spec: null } : c));
   // D537 - a SPELL whose every printed line was a keyword or a cost the engine runs (Throes of Chaos: Cascade and Retrace,
   // nothing else) has nothing left unread and no clause of its own: the engine runs it whole - an effect list of none.
   if (clauses.length === 0) return { effects: [], mode: printedLines > 0 && clean.trim() === '' ? 'auto' : 'manual' };

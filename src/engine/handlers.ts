@@ -530,6 +530,17 @@ function costPicksProblem(state: GameState, deps: EngineDeps, player: PlayerId, 
   return { orPaid };
 }
 
+/**
+ * D607 - THE SACRIFICED PERMANENTS' LAST KNOWN NUMBERS (CR 608.2h), read off the state BEFORE the cost batch moves them:
+ * the stack object carries them for a clause whose amount is "the sacrificed creature's power" (`StackObject.sacrificed`).
+ */
+function sacrificedOf(state: GameState, deps: EngineDeps, ids: readonly InstanceId[]): NonNullable<StackObject['sacrificed']> {
+  return ids.map((card) => {
+    const d = derive(state, deps.oracle, deps.scripts, card);
+    return { card, power: d.power, toughness: d.toughness, manaValue: d.manaValue };
+  });
+}
+
 /** D406 - what the additional cost adds to the payment problem: the `or pay {M}` mana when taken, the life otherwise. */
 function additionalExtras(face: ReturnType<typeof faceOf>, orPaid: boolean, kickVerb: ReturnType<typeof kickVerbOf> = null): { readonly mana: ManaCost[]; readonly life: number } {
   // D530 - the verb kicker's life rides the problem as the additional cost's does (its mana is the kicker's, `kickerMana`).
@@ -2602,6 +2613,8 @@ function completeCast(state: GameState, deps: EngineDeps, args: CompleteArgs): H
     ...additionalPaidOf(setup.face, setup.picks, setup.orPaid),
     ...(setup.alternative ? { alternativePaid: true as const } : {}),
     ...(setup.free ? { freeCast: true as const } : {}),
+    // D607 - the additional cost's sacrificed permanents as they last existed (CR 608.2h), read before the cost batch moved them.
+    ...(setup.picks.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, setup.picks.sacrifice) } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (setup.from.kind === 'command' && card?.isCommander) {
@@ -3024,6 +3037,8 @@ function finishAbility(
     ...(ability.ninjutsu !== undefined && pending.returnToHand && pending.returnToHand.length > 0
       ? (() => { const d = state.combat?.attackers.find((a) => a.card === pending.returnToHand?.[0])?.defender; return d ? { ninjutsuDefender: d } : {}; })()
       : {}),
+    // D607 - the sacrifice cost's permanents as they last existed (CR 608.2h), read before the cost batch moved them.
+    ...(ability.sacrificeCost && pending.sacrifice && pending.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, pending.sacrifice) } : {}),
   };
   events.push({ t: 'AbilityPutOnStack', obj });
   events.push(
@@ -3141,6 +3156,8 @@ function finishFromPending(
     ...additionalPaidOf(face, picks, pending.orPaid === true),
     ...(pending.alternative === true ? { alternativePaid: true as const } : {}),
     ...(pending.free === true ? { freeCast: true as const } : {}),
+    // D607 - the additional cost's sacrificed permanents as they last existed (CR 608.2h), read before the cost batch moved them.
+    ...(picks.sacrifice.length > 0 ? { sacrificed: sacrificedOf(state, deps, picks.sacrifice) } : {}),
   };
   events.push({ t: 'SpellCast', obj });
   if (pending.isCommanderCast && card?.isCommander) {

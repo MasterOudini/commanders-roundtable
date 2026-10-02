@@ -133,7 +133,7 @@ export function effectResult(
   state: GameState,
   deps: EngineDeps,
   obj: StackObject,
-  effects: readonly EffectSpec[],
+  given: readonly EffectSpec[],
   cache?: DeriveCache,
   /** D484 - the frame beyond these clauses, carried onto a question they raise (a resumed frame's `outer`). */
   outer?: EffectContinuation,
@@ -141,6 +141,20 @@ export function effectResult(
   answered?: AnsweredObjects,
 ): { events: EventBody[]; rng?: RngState } {
   const out: EventBody[] = [];
+  // D607 - THE SACRIFICED PERMANENT'S NUMBER (CR 608.2h): a clause whose amount is "the sacrificed creature's power" reads it
+  // off the stack object, stamped by the cost batch as it charged the sacrifice; with no stamp (or no number) the clause
+  // does nothing, and says so (D90).
+  // Read once: the clause carries the number on (a resumed frame's continuation reads `amount`, never the stamp again).
+  const effects = given.map((e): EffectSpec => {
+    if (e.fromSacrificed === undefined) return e;
+    const { fromSacrificed, ...rest } = e;
+    const value = obj.sacrificed?.[0]?.[fromSacrificed];
+    if (value === undefined || value === null) {
+      out.push(narrated(`${obj.label} — nothing sacrificed to read for “${e.text}”.`, obj.controller, obj.identity));
+      return { ...rest, kind: 'noop' };
+    }
+    return { ...rest, amount: Math.max(0, value) };
+  });
   // ⚠️ Threaded through the loop and returned ONCE at the end, never read from
   // `state` per clause: two clauses that each drew from `state.rng` would draw
   // the SAME numbers, because nothing between them advanced it.

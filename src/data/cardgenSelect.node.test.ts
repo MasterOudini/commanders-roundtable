@@ -752,6 +752,11 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Omnispell Adept', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Wildfire Eternal', 'a from-hand grant under a head: the suite cannot stage a hand and answer the chooser (castFromHand, D491)'],
   ['Yue, the Moon Spirit', 'a line that is neither an activated ability nor a library trigger: Waterbend {5}, {T}: You may cast a noncreature spell from your hand without paying its mana cost. (D491)'],
+  // D607 - the sacrificed number read; what stays is a card the row maker refuses for another reason.
+  ['Jarad, Golgari Lich Lord', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: Swamp and a Forest - its clause reads since D607 (D607)'],
+  ['Greater Good', 'the row maker: a queued discard the scaffold hand may not hold: Discard three cards. - its clause reads since D607 (D607)'],
+  ['Barrage Tyrant', 'the row maker: cost: a sacrifice cost with no fixture the suite can put: colorless creature - its clause reads since D607 (D607)'],
+  ['Airdrop Condor', 'the row maker: a sacrificed number with no fodder the suite stages (not this wave): ~ deals damage equal to the sacrificed cr - its clause reads since D607 (D607)'],
   // D606 - the defending player read; what stays is a card the row maker refuses for another reason.
   ['Elite Scaleguard', 'the row maker: trigger head not in the library: Whenever a creature you control with a +1/+1 counter on it attacks, ta - its clause reads since D606 (D606)'],
   ['Necrite', 'the row maker: a defending-player clause under a head that binds no attacker of its own (not this wave): You may sacrifice it - its clause reads since D606 (D606)'],
@@ -955,7 +960,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   // D536 - storm: the Storm line is the engine's now on an instant or a sorcery (the keyword table's cast trigger, the copies with new targets); what stays is a storm spell whose other sentence the vocabulary does not read, and a permanent spell's storm (its copies would be tokens).
   ['Galvanic Relay', 'a spell with a line outside the vocabulary: Exile the top card of your library. During your next turn, you may play that card. - a play permission during the next turn (D536)'],
   // D535 - buyback: the Buyback line is the engine's now (charged at cast, the resolved spell back to its owner's hand); what stays is a buyback spell whose other sentence the vocabulary does not read.
-  ['Worthy Cause', 'a spell with a line outside the vocabulary: You gain life equal to the sacrificed creature\'s toughness. - the additional cost\'s creature read after it is gone (last known information) (D535)'],
   ['Verdant Touch', 'a spell with a line outside the vocabulary: Target land becomes a 2/2 creature that\'s still a land. - an animated land with no duration (D535)'],
   ['Whim of Volrath', 'a spell with a line outside the vocabulary: Change the text of target permanent by replacing all instances of one color word with another - a text change (D535)'],
   // D534 - coin flip: the caster's flip and its won and lost branches are the engine's now; what stays is a flip by another player or by each player, several flips, a head that watches flips, and every flip line whose card the row maker refuses for another line.
@@ -1986,7 +1990,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Pia Nalaar, Chief Mechanic', 'trigger payload not a pump: You may pay one or more {E}. If you do, create an X/X colorl (D519)'],
   // D518 - the granted offer's costs: the family's rows the wave refused, by its own reasons.
   ['Cautery Sliver', 'a quoted body outside the vocabulary: Prevent the next 1 damage that would be dealt to target play (D518)'],
-  ['Animal Boneyard', 'a quoted body outside the vocabulary: You gain life equal to the sacrificed creature\'s toughness. (D518)'],
   ['Sinking Feeling', 'a quoted cost the host cannot pay the suite way: {1}, Put a -1/-1 counter on this creature (D518)'],
   ['Mindlash Sliver', 'a quoted body outside the vocabulary: Each player discards a card. (D518)'],
   ['Mindwhip Sliver', 'a quoted body outside the vocabulary: Target player discards a card at random. Activate only as a (D518)'],
@@ -3919,7 +3922,6 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Embrace Oblivion', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy target creature or Spacecraft)'],
   ['Endemic Plague', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy all creatures sharing a type with the sacrificed one)'],
   ['Final Strike', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power to an opponent)"],
-  ['Fling', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power)"],
   ['Fodder Launch', 'a spell line outside the row vocabulary beside its sacrifice cost (-5/-5 and 5 damage to its controller)'],
   ['Foundry Helix', 'a spell line outside the row vocabulary beside its sacrifice cost (4 damage, life if the sacrificed permanent was an artifact)'],
   ['Fumarole', 'a spell line outside the row vocabulary beside its life cost (destroy target creature AND target land - two targets of two kinds)'],
@@ -3927,18 +3929,13 @@ const REFUSED: ReadonlyMap<string, string> = new Map([
   ['Hellish Sideswipe', 'a spell line outside the row vocabulary beside its sacrifice cost (destroy target creature or Vehicle, then a sacrificed-permanent referent)'],
   ['Ichor Explosion', "a spell line outside the row vocabulary beside its sacrifice cost (all creatures get -X/-X, X the sacrificed creature's power)"],
   ['Infernal Plunge', 'a spell line outside the row vocabulary beside its sacrifice cost (Add {R}{R}{R} - a mana spell)'],
-  ["Life's Legacy", "a spell line outside the row vocabulary beside its sacrifice cost (draw cards equal to the sacrificed creature's power)"],
   ['Metamorphosis', "a spell line outside the row vocabulary beside its sacrifice cost (X mana of one colour, X one plus the sacrificed creature's mana value)"],
   ['Mind Extraction', 'a spell line outside the row vocabulary beside its sacrifice cost (a reveal and a discard of a colour the sacrificed creature shared)'],
   ['Momentous Fall', "a spell line outside the row vocabulary beside its sacrifice cost (draw and gain life by the sacrificed creature's power and toughness)"],
   ['Morbid Curiosity', "a spell line outside the row vocabulary beside its sacrifice cost (draw cards equal to the sacrificed permanent's mana value)"],
   ['New Blood', 'a spell line outside the row vocabulary beside its tap cost (gain control of target creature and change its text)'],
-  ['Pyrrhic Blast', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power, then a draw)"],
-  ["Reckoner's Bargain", "a spell line outside the row vocabulary beside its sacrifice cost (life equal to the sacrificed permanent's mana value, then a draw)"],
   ['Rite of Consumption', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power, that much life)"],
   ['Sacrifice', "a spell line outside the row vocabulary beside its sacrifice cost (Add {B} equal to the sacrificed creature's mana value - a mana spell)"],
-  ['Severed Strands', "a spell line outside the row vocabulary beside its sacrifice cost (life equal to the sacrificed creature's toughness, then a destroy)"],
-  ['Thud', "a spell line outside the row vocabulary beside its sacrifice cost (damage equal to the sacrificed creature's power)"],
   ['Tormented Thoughts', "a spell line outside the row vocabulary beside its sacrifice cost (a discard equal to the sacrificed creature's power)"],
   ['Ultimate Nullification', 'a spell line outside the row vocabulary beside its sacrifice cost (exile all creatures and graveyards, then a library placement)'],
   ["Sazacap's Brew", 'a gift line beside its discard cost (Gift a tapped Fish) outside the row vocabulary'],

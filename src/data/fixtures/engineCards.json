@@ -329074,6 +329074,333 @@
     "commanderLegality": "legal",
     "singleImage": false
   },
+  "MIREN_THE_MOANING_WELL": {
+    "scryfallId": "0427f5b7-ef54-4751-b121-b754dadc9a0a",
+    "oracleId": "03fe19bb-8e22-4030-8299-2ddd2d5a7eb2",
+    "name": "Miren, the Moaning Well",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Miren, the Moaning Well",
+        "manaCost": "",
+        "typeLine": "Legendary Land",
+        "oracleText": "{T}: Add {C}.\n{3}, {T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Rob Alexander",
+        "imageId": "0427f5b7-ef54-4751-b121-b754dadc9a0a"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "td0",
+    "collectorNumber": "A132",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BOSH_IRON_GOLEM": {
+    "scryfallId": "09fb3b1f-c3a0-4da4-9b29-eff81fc1d562",
+    "oracleId": "2fb6f65f-a0fb-4d45-be1b-d6405e61d47a",
+    "name": "Bosh, Iron Golem",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bosh, Iron Golem",
+        "manaCost": "{8}",
+        "typeLine": "Legendary Artifact Creature — Golem",
+        "oracleText": "Trample\n{3}{R}, Sacrifice an artifact: Bosh deals damage equal to the sacrificed artifact's mana value to any target.",
+        "flavorText": "As Glissa searches for the truth about Memnarch, Bosh searches to unearth the secrets of his past.",
+        "power": "6",
+        "toughness": "7",
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brom",
+        "imageId": "09fb3b1f-c3a0-4da4-9b29-eff81fc1d562"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 8,
+    "keywords": [
+      "Trample"
+    ],
+    "setCode": "c21",
+    "collectorNumber": "237",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DISCIPLE_OF_GRISELBRAND": {
+    "scryfallId": "0c4acaa1-7d99-41ce-81ce-f6aef3e4dc1d",
+    "oracleId": "2d92a035-dd7a-4426-a8c0-f04e0b836dad",
+    "name": "Disciple of Griselbrand",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Disciple of Griselbrand",
+        "manaCost": "{1}{B}",
+        "typeLine": "Creature — Human Cleric",
+        "oracleText": "{1}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.",
+        "flavorText": "The demon Griselbrand dared to stand against Avacyn, earning him the loathing of thousands and the admiration of a few.",
+        "power": "1",
+        "toughness": "1",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Clint Cearley",
+        "imageId": "0c4acaa1-7d99-41ce-81ce-f6aef3e4dc1d"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 2,
+    "keywords": [],
+    "setCode": "isd",
+    "collectorNumber": "98",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BUSHMEAT_POACHER": {
+    "scryfallId": "0cf0da97-5ba2-4f08-91f4-bcfa6fc38ae9",
+    "oracleId": "0287d541-3f73-4c8b-9a77-87f99898758d",
+    "name": "Bushmeat Poacher",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bushmeat Poacher",
+        "manaCost": "{3}{B}",
+        "typeLine": "Creature — Human Soldier",
+        "oracleText": "{1}, {T}, Sacrifice another creature: You gain life equal to the sacrificed creature's toughness. Draw a card.",
+        "flavorText": "\"If you've never feasted on Zagoth terror-pig, I got the best price you'll find.\"",
+        "power": "2",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Randy Vargas",
+        "imageId": "0cf0da97-5ba2-4f08-91f4-bcfa6fc38ae9"
+      }
+    ],
+    "colorIdentity": [
+      "B"
+    ],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "gn3",
+    "collectorNumber": "44",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BRION_STOUTARM": {
+    "scryfallId": "10cf891b-efa0-465f-8029-245f09b6b1b2",
+    "oracleId": "b816b3cc-ae4b-4fb7-8b1a-e01ab83459a3",
+    "name": "Brion Stoutarm",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Brion Stoutarm",
+        "manaCost": "{2}{R}{W}",
+        "typeLine": "Legendary Creature — Giant Warrior",
+        "oracleText": "Lifelink\n{R}, {T}, Sacrifice another creature: Brion Stoutarm deals damage equal to the sacrificed creature's power to target player or planeswalker.",
+        "flavorText": "\"I just want you to feel you're doing well. I hate for people to die embarrassed.\"",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R",
+          "W"
+        ],
+        "artist": "Lius Lasahido",
+        "imageId": "10cf891b-efa0-465f-8029-245f09b6b1b2"
+      }
+    ],
+    "colorIdentity": [
+      "R",
+      "W"
+    ],
+    "cmc": 4,
+    "keywords": [
+      "Lifelink"
+    ],
+    "setCode": "sld",
+    "collectorNumber": "1450",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "DIAMOND_VALLEY": {
+    "scryfallId": "37ccc3ab-9875-4bd2-bdbd-e3af5e01d682",
+    "oracleId": "84cef34a-c3e1-4059-b4cd-c481938a53a5",
+    "name": "Diamond Valley",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Diamond Valley",
+        "manaCost": "",
+        "typeLine": "Land",
+        "oracleText": "{T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Brian Snõddy",
+        "imageId": "37ccc3ab-9875-4bd2-bdbd-e3af5e01d682"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 0,
+    "keywords": [],
+    "setCode": "me1",
+    "collectorNumber": "175",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "BLOODSHOT_CYCLOPS": {
+    "scryfallId": "387dd482-c67d-43da-a4d0-582241431ffd",
+    "oracleId": "84d47913-53ac-4d4d-bac3-bc0306d43e12",
+    "name": "Bloodshot Cyclops",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Bloodshot Cyclops",
+        "manaCost": "{5}{R}",
+        "typeLine": "Creature — Cyclops Giant",
+        "oracleText": "{T}, Sacrifice a creature: This creature deals damage equal to the sacrificed creature's power to any target.",
+        "flavorText": "After their first encounter, the goblins named him Chuck.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "R"
+        ],
+        "artist": "Daren Bader",
+        "imageId": "387dd482-c67d-43da-a4d0-582241431ffd"
+      }
+    ],
+    "colorIdentity": [
+      "R"
+    ],
+    "cmc": 6,
+    "keywords": [],
+    "setCode": "7ed",
+    "collectorNumber": "176",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "LIFE_CHISEL": {
+    "scryfallId": "50052f9a-d667-4a96-a9b1-b4169ee495e6",
+    "oracleId": "2493fe65-2ecb-418f-8e4e-797f83475c73",
+    "name": "Life Chisel",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Life Chisel",
+        "manaCost": "{4}",
+        "typeLine": "Artifact",
+        "oracleText": "Sacrifice a creature: You gain life equal to the sacrificed creature's toughness. Activate only during your upkeep.",
+        "flavorText": null,
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [],
+        "artist": "Anthony S. Waters",
+        "imageId": "50052f9a-d667-4a96-a9b1-b4169ee495e6"
+      }
+    ],
+    "colorIdentity": [],
+    "cmc": 4,
+    "keywords": [],
+    "setCode": "leg",
+    "collectorNumber": "283",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "ANIMAL_BONEYARD": {
+    "scryfallId": "e3379317-be18-4252-84ad-b7ebb6e557ff",
+    "oracleId": "6fa9debf-c60e-432d-86c8-aed16556c532",
+    "name": "Animal Boneyard",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Animal Boneyard",
+        "manaCost": "{2}{W}",
+        "typeLine": "Enchantment — Aura",
+        "oracleText": "Enchant land\nEnchanted land has \"{T}, Sacrifice a creature: You gain life equal to the sacrificed creature's toughness.\"",
+        "flavorText": "\"The animal spirits are the Ancestor's grandchildren. Remember them.\"\n—Mystic elder",
+        "power": null,
+        "toughness": null,
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "W"
+        ],
+        "artist": "Edward P. Beard, Jr.",
+        "imageId": "e3379317-be18-4252-84ad-b7ebb6e557ff"
+      }
+    ],
+    "colorIdentity": [
+      "W"
+    ],
+    "cmc": 3,
+    "keywords": [
+      "Enchant"
+    ],
+    "setCode": "ody",
+    "collectorNumber": "4",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
+  "KHERU_DREADMAW": {
+    "scryfallId": "e8b10468-18b8-4321-a791-0cbd18ea9c4d",
+    "oracleId": "8c8c9f16-a3d0-49f2-a95b-dfef756de0b3",
+    "name": "Kheru Dreadmaw",
+    "layout": "normal",
+    "faces": [
+      {
+        "name": "Kheru Dreadmaw",
+        "manaCost": "{4}{B}",
+        "typeLine": "Creature — Zombie Crocodile",
+        "oracleText": "Defender\n{1}{G}, Sacrifice another creature: You gain life equal to the sacrificed creature's toughness.",
+        "flavorText": "Its hunting instincts have long since rotted away. Its hunger, however, remains.",
+        "power": "4",
+        "toughness": "4",
+        "loyalty": null,
+        "defense": null,
+        "colors": [
+          "B"
+        ],
+        "artist": "Ryan Yee",
+        "imageId": "e8b10468-18b8-4321-a791-0cbd18ea9c4d"
+      }
+    ],
+    "colorIdentity": [
+      "B",
+      "G"
+    ],
+    "cmc": 5,
+    "keywords": [
+      "Defender"
+    ],
+    "setCode": "ktk",
+    "collectorNumber": "76",
+    "commanderLegality": "legal",
+    "singleImage": true
+  },
   "SOLDIER_TOKEN": {
     "scryfallId": "01b7b4c9-3d39-40c6-a337-33b20c6d3f57",
     "oracleId": "eac25f12-6459-438c-a09e-93e23d2cf80d",

@@ -1599,6 +1599,12 @@ export interface EffectSpec {
    */
   readonly host?: true;
   /**
+   * D607 - THE SACRIFICED PERMANENT'S NUMBER (CR 608.2h): the clause's amount is "the sacrificed creature's power"
+   * (toughness, mana value) - read as the object resolves off `StackObject.sacrificed`, the last known numbers the cost
+   * batch stamped as it charged the sacrifice. `amount` is ignored; no stamp, and the clause does nothing, said.
+   */
+  readonly fromSacrificed?: 'power' | 'toughness' | 'manaValue';
+  /**
    * D392 - THE REFERENT SUBJECT: the clause is about the previous clause's subject ("Untap that
    * creature.", "It gains haste until end of turn."). `effectParse` read it by the rule its
    * explicit form is read by and aims it where the previous clause aimed - it consumes NO target
